@@ -186,4 +186,4 @@ python -m unittest discover -s tests -p 'test_typed_ir.py' -v
 python -m unittest discover -s tests -p 'test_proof_boundary.py' -v
 ```
 
-The proof receipt is currently only a prototype data structure: it is not authenticated and no independent checker is invoked. This prototype is not a production proof system. See [Prototype 28 Results](PROTOTYPE-28-RESULTS.md) and [Research Scenario 28](../../RESEARCH-SCENARIO-28-TYPED-IR-AND-PROOF-BOUNDARY.md).
+The proof receipt is currently only a prototype data structure: it is not authenticated and no independent checker is invoked; even a supplied receipt remains labelled UNAUTHENTICATED_CHECKER_RECEIPT_PRESENT. This prototype is not a production proof system. See [Prototype 28 Results](PROTOTYPE-28-RESULTS.md) and [Research Scenario 28](../../RESEARCH-SCENARIO-28-TYPED-IR-AND-PROOF-BOUNDARY.md).

@@ -64,7 +64,7 @@ The prototype deliberately distinguishes:
 - `COUNTEREXAMPLE_CONFIRMED_BY_REFERENCE_EVALUATOR`;
 - `UNKNOWN`.
 
-The receipt object is only a data contract in this experiment. It is not authenticated, does not launch a checker, and can be forged by arbitrary Python code. Therefore the prototype cannot yet issue a production-grade `PROOF_CHECKED_INDEPENDENCE` claim. A real implementation must obtain a receipt from an isolated proof checker, bind it to the exact query and proof bytes, and authenticate the checker/tool identity. The solver executable digest is supplied by the caller; this prototype does not inspect or attest the binary itself.
+The receipt object is only a data contract in this experiment. It is not authenticated, does not launch a checker, and can be forged by arbitrary Python code. Therefore even a supplied receipt is labelled `UNAUTHENTICATED_CHECKER_RECEIPT_PRESENT`; the prototype cannot issue a `PROOF_CHECKED_INDEPENDENCE` claim. A real implementation must obtain a receipt from an isolated proof checker, bind it to the exact query and proof bytes, and authenticate the checker/tool identity. The solver executable digest is supplied by the caller; this prototype does not inspect or attest the binary itself.
 
 For SAT, the prototype replays the candidate pair through the Scenario 26 reference evaluator and confirms that only the selected factor differs and the modeled observation changes. This is useful counterexample validation, but it is not an independent proof of the SMT encoder's correctness.
 

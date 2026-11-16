@@ -8,7 +8,7 @@
 - `tests/test_typed_ir.py`
 - `tests/test_proof_boundary.py`
 
-The typed validator accepts only the restricted Scenario 27 fragment and creates a canonical digest that includes the observation boundary. The typed entry point validates before invoking the symbolic backend. The evidence envelope pins the typed IR, semantic/validator/encoder/observation versions, exact SMT query, solver identity/configuration, result, and optional proof-checker receipt.
+The typed validator accepts only the restricted Scenario 27 fragment and creates a canonical digest that includes the observation boundary. Evidence records additionally require SHA-256 identities for both validator and encoder source builds. The typed entry point validates before invoking the symbolic backend. The evidence envelope pins the typed IR, semantic/validator/encoder/observation versions and source digests, exact SMT query, solver identity/configuration, result, and optional proof-checker receipt. A supplied receipt remains unauthenticated and cannot be promoted to a checked-proof status.
 
 SAT witnesses can be replayed against the Scenario 26 evaluator. UNSAT without an independent proof-checker receipt is explicitly labelled `SOLVER_REPORTED_UNSAT_UNCHECKED`, not a checked proof. The receipt class is only a prototype data contract and is not authenticated or produced by an actual checker.
 
@@ -16,7 +16,7 @@ SAT witnesses can be replayed against the Scenario 26 evaluator. UNSAT without a
 
 ```
 python -m unittest discover -s tests -v
-Ran 20 tests
+Ran 21 tests
 OK
 python -m compileall -q src tests
 Passed

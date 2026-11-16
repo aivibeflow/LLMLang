@@ -45,7 +45,7 @@ def validate_program(program: Program, input_types: Mapping[str,str],
     if not isinstance(program,Program): raise UnsupportedConstruct("expected Program AST")
     if not input_types: raise UnsupportedConstruct("at least one input is required")
     for name,sort in input_types.items():
-        if not isinstance(name,str) or not name or sort not in SUPPORTED_SORTS:
+        if not isinstance(name,str) or not name or not isinstance(sort,str) or sort not in SUPPORTED_SORTS:
             raise UnsupportedConstruct("invalid input declaration")
     state=dict(initial_state or {}); locals_=dict(initial_locals or {})
     if set(input_types)&set(locals_): raise UnsupportedConstruct("local shadows input")
