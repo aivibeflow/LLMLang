@@ -105,6 +105,41 @@ Operation#transfer
 - сведения о происхождении;
 - зависимости и обратные зависимости.
 
+### 3.4. Content-addressed identity and immutable states
+
+Each semantic SPG entity SHOULD have two distinct identifiers:
+
+- **Stable ID** identifies the logical entity across its lifetime. Renaming or changing the entity does not change this ID.
+- **Content Hash** identifies one exact immutable state of that entity. Any change to the entity's canonical semantic content or to a hash-relevant dependency produces a different Content Hash.
+
+The Content Hash SHOULD be computed independently for fine-grained entities (for example, individual types, operations, expressions, contracts, effects, tests, and proofs), not only for modules or packages. Larger structures are represented by hashes that commit to their own canonical content and the hashes of their hash-relevant outgoing dependencies. This forms a Merkle DAG over the semantic dependency relation.
+
+Conceptually:
+
+```text
+ContentHash(node) =
+    Hash(
+        domain_separator,
+        node_kind,
+        canonical_semantic_content,
+        sorted_hash_relevant_edges_and_target_hashes
+    )
+```
+
+The exact canonical encoding and hash algorithm are implementation decisions. The initial implementation SHOULD use a cryptographic hash such as SHA-256, include the algorithm identifier in the digest representation, and support algorithm agility. Hash inputs MUST use domain separation so that different entity kinds or hash purposes cannot be confused.
+
+Canonicalization MUST ensure that semantically irrelevant presentation differences—such as whitespace, formatting, source locations, display names, timestamps, authorship, and provenance—do not change the Content Hash. These attributes remain separately addressable metadata. The hash represents canonical structured content and declared graph edges, not general semantic equivalence of arbitrary programs.
+
+Hash-relevant edges MUST be typed. A Specification dependency should commit to the target Specification state; an Implementation dependency should commit to the target Implementation state. A consumer depending only on a public Specification should not be forced to change its own semantic hash merely because a provider changes an internal Implementation that still satisfies the same Specification.
+
+Only the hash-relevant dependency relation must be acyclic. If ordinary SPG relations contain cycles, they MUST be excluded from recursive hash edges or represented through an explicitly defined canonical group/root object. A recursive hash definition over a cycle is not valid.
+
+SPG entities and states addressed by Content Hash are immutable. An edit creates a new state with a new hash while preserving the Stable ID. Parent hashes change only when a hash-relevant child or local semantic content changes. Unaffected branches retain their hashes and can be reused or cached.
+
+An accepted project snapshot SHOULD be identified by a root hash (or a small set of layer-root hashes) that commits to the exact reachable semantic graph. Provenance, approvals, signatures, and timestamps SHOULD be linked to that snapshot but excluded from its semantic root hash unless they themselves are intentionally part of program semantics.
+
+This is content addressing, not a claim that equal hashes prove arbitrary behavioral equivalence. A hash proves identity of the canonical encoded graph under the selected cryptographic algorithm; correctness and compatibility still require independent verification.
+
 ### 3.2. Изменения как операции над объектами
 
 LLM должна преимущественно изменять конкретные объекты, а не заменять большие фрагменты текста.
@@ -747,7 +782,7 @@ Executable
 9. Выполняются тесты, fuzzing и независимый аудит.
 10. Создаётся проверенный байткод или нативный исполняемый файл.
 
-На каждом этапе результаты должны быть версионированы. Изменение верхнего слоя должно показывать затронутые нижние слои и делать устаревшие проверки недействительными.
+Каждый результат должен быть привязан к точным Content Hash входных объектов и конфигурации инструментов. Изменение hash-relevant объекта должно менять хеши зависимых от него объектов и инвалидировать устаревшие проверки; неизменённые подграфы могут повторно использоваться.
 
 ---
 
@@ -793,8 +828,8 @@ LLVM рассматривается как возможный backend, но не
 ### 19.1. Модель SPG
 - Какие типы узлов существуют?
 - Какие типы связей допустимы?
-- Как обеспечиваются уникальность и стабильность ID?
-- Как версионируются объекты?
+- Как разделяются Stable ID и Content Hash, и как обеспечиваются канонизация и стабильность обоих?
+- Как вычисляются и распространяются Content Hash объектов?
 - Как разрешаются конфликтующие изменения?
 - Как устроены транзакции изменений графа?
 
