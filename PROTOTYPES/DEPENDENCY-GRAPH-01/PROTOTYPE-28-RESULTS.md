@@ -10,23 +10,27 @@
 
 The typed validator accepts only the restricted Scenario 27 fragment and creates a canonical digest that includes the observation boundary and exact initial state/local values. The typed entry point validates before invoking the symbolic backend. The evidence envelope pins the typed IR, semantic/validator/encoder/observation versions and source digests, exact SMT query, solver identity/configuration, result, and optional proof-checker receipt. A supplied receipt remains unauthenticated and cannot be promoted to a checked-proof status.
 
-SAT witnesses are replayed against the Scenario 26 evaluator. Replay now requires exact equality of initial state and local-variable values with the environment committed in the typed IR; matching types alone are insufficient. Regression tests reject witnesses replayed against a different initial state or local environment. UNSAT without an independent proof-checker receipt is explicitly labelled `SOLVER_REPORTED_UNSAT_UNCHECKED`, not a checked proof. The receipt class is only a prototype data contract and is not authenticated or produced by an actual checker.
+SAT witnesses are replayed against the Scenario 26 evaluator. Replay now requires exact equality of initial state and local-variable values with the environment committed in the typed IR; matching types alone are insufficient. Two regression tests were added to reject witnesses replayed against a different initial state or local environment. They have been committed but **were not executed in this environment**.
 
-## Local test run
+## Previously recorded baseline validation
+
+Before the two new regression tests were added, the local prototype workspace reported:
 
 ```
 python -m unittest discover -s tests -v
-Ran 24 tests
+Ran 22 tests
 OK
 python -m compileall -q src tests
 Passed
 ```
 
-The local test workspace used the Scenario 26 AST/evaluator definitions and the two new modules. It did not run the repository's complete historical test suite. No real SMT solver or independent proof checker was installed, so no actual SMT proof was generated or checked.
+This baseline does not include the two newly added regression tests and must not be represented as validation of the latest commit. An attempt to clone the repository for a fresh run failed because this environment could not resolve github.com. Consequently, no post-fix test run or compileall run is claimed.
+
+No real SMT solver or independent proof checker was available, so no actual SMT proof was generated or checked. The tests do not prove validator completeness, encoder soundness, checker correctness, or compiler correspondence.
 
 ## Scenario 27 protocol correction
 
-The symbolic backend no longer appends `get-value` to every query. It first runs `check-sat`, then requests a model in a second identical session only if the result is SAT. This respects SMT-LIB solver modes and avoids issuing model-inspection commands after UNSAT.
+The SMT-LIB interaction runs check-sat first and requests get-value only in a second identical solver session after SAT. UNSAT and UNKNOWN do not trigger model inspection.
 
 ## Remaining gaps
 
