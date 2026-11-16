@@ -35,3 +35,14 @@ The SMT-LIB interaction runs check-sat first and requests get-value only in a se
 ## Remaining gaps
 
 No authenticated checker receipt, proof certificate validation, executable attestation, complete encoder proof, compiler correspondence proof, or full repository regression run. The validator covers only the small symbolic fragment, not arbitrary LLMLang source.
+
+
+## Post-audit focused validation
+
+After correcting the missing `If` import in `typed_ir.py` and the missing `State` import in the proof-boundary regression test, the focused Scenario 28 test modules were run in an isolated local harness:
+
+- typed IR tests: 10 passed;
+- proof-boundary tests: 14 passed;
+- total: 24 passed, 0 failures.
+
+The harness was reconstructed from the current GitHub source/test material because the local environment could not clone the repository. This is not a byte-for-byte checkout or a full repository regression run. No real SMT solver or independent proof checker was available.

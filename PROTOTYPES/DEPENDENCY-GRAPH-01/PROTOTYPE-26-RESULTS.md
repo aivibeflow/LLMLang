@@ -19,3 +19,10 @@ Full existing Dependency Graph Prototype 01 regression was not run: outbound DNS
 Limitations: finite domains only; no SMT, loops, recursion, nondeterminism, concurrency, pointers, aliasing, dynamic dispatch, foreign code, type checker, or machine-checked proof of the evaluator/analyzer. Source-to-IR and compiler/runtime correspondence are not verified.
 
 See ../../RESEARCH-SCENARIO-26-MINIMAL-FORMAL-SEMANTIC-CORE.md.
+
+
+## Post-audit status clarification
+
+Finite analyzer outcomes are now explicitly scoped as `FINITE_MODEL_INFLUENCE`, `FINITE_MODEL_INDEPENDENCE`, and `DECIDED_WITHIN_FINITE_MODEL`. They describe exact enumeration over the declared finite domain; they are not LLMLang's language-level `PROVEN` status and do not certify the Python evaluator/analyzer.
+
+A post-audit isolated local harness ran the 15 focused core tests and the 1 pairwise consistency test successfully. The harness was reconstructed from the current GitHub source/test material because a repository clone was unavailable; this is not a full checkout regression run.

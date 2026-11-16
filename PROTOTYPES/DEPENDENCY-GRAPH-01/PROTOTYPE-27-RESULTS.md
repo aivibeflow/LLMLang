@@ -24,3 +24,10 @@ Python bytecode compilation (py_compile) passed for the implementation and tests
 Restricted deterministic AST fragment only: Int/Bool/String, arithmetic/Boolean operations, pure non-recursive functions, conditional assignments, explicit state writes, and one final top-level return. No loops, errors, events, concurrency, aliasing, dynamic dispatch, source parsing, full type checking, proof certificates, or compiler/runtime correspondence proof. Solver results are trusted; this prototype does not independently check proofs.
 
 See [Research Scenario 27](../../RESEARCH-SCENARIO-27-SYMBOLIC-RELATIONAL-VERIFICATION.md).
+
+
+## Post-audit protocol-test correction
+
+The model-retrieval protocol test previously assumed exactly two solver-process invocations. The implementation also issues one follow-up query per observable dimension after SAT, so the test now checks the actual invariant instead: the initial query has no `get-value`, model retrieval occurs only after SAT, and observation-specific follow-up queries do not request models.
+
+In the post-audit isolated local harness, all 12 fake-solver protocol tests passed. The one real-Z3 differential test was skipped because no Z3 executable was available. This harness was reconstructed from current GitHub source/test material; it is not a full checkout regression run and does not constitute real SMT integration.
