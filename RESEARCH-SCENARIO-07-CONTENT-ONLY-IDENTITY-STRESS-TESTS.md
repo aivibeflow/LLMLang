@@ -43,9 +43,8 @@ The word "entity" is potentially ambiguous in this model. Some things currently 
 Two requirements independently call for the same operation:
 
 ~~~text
-Spec A --derived_from--┐
-                      ├--> Value H0
-Spec B --derived_from--┘
+Value H0 --derived_from--> Spec A
+Value H0 --derived_from--> Spec B
 ~~~
 
 The operation's canonical semantic content is identical, so both references resolve to H0.
@@ -120,7 +119,7 @@ S1 is revised into S2. The change is editorial or relaxes a condition that I1 al
 - If verified, a new evidence record records verification of (I1, S2, verifier identity, configuration, assumptions, environment).
 
 ~~~text
-S1 --supersedes--> S2
+S2 --supersedes--> S1
 I1 --derived_from--> S1
 I1 --satisfies--> S2
 Evidence E2 verifies (I1, S2, verifier/config/environment)
