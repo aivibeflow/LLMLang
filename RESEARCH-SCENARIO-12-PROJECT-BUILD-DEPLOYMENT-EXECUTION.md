@@ -11,8 +11,9 @@ Do not put every operational choice into the semantic ProjectSnapshot. A project
 Recommended separation:
 
 - **ProjectSnapshot** — selected semantic program state: contracts, implementations, callers, and other source-level semantic values.
-- **BuildSnapshot** — exact project root plus build-time bindings, target/execution platforms, toolchains, dependency lock, and build configuration.
-- **DeploymentSnapshot** — exact build plus runtime bindings, runtime image, deployment configuration, and infrastructure identity.
+- **BuildSnapshot** — exact project root plus build-time bindings, target/execution platforms, toolchains, dependency lock, and build configuration. It identifies the declared build inputs, not the produced bytes.
+- **BuildArtifact** — exact output artifact hash plus the BuildSnapshot root, builder identity, and provenance root. This distinction matters because identical declared inputs do not, by themselves, prove that two executions emitted identical outputs.
+- **DeploymentSnapshot** — exact build result (not merely build recipe) plus runtime bindings, runtime image, deployment configuration, and infrastructure identity.
 - **ExecutionSnapshot** — exact deployment plus request-level resolved bindings, input identity, external-effect transcript, deterministic runtime inputs, and outputs.
 - **ReleaseManifest** — immutable join that states which project, build, and deployment belong together for a published release.
 - **Channel head** — mutable pointer to a ReleaseManifest, advanced with compare-and-swap (CAS), not part of the immutable manifest hash.
@@ -32,7 +33,7 @@ The solution is layered roots with explicit references, not one universal root.
 ```
 ProjectSnapshot
       |
-      +---- BuildSnapshot A (target platform / toolchain / build bindings)
+      +---- BuildSnapshot A (target platform / toolchain / build bindings)\n      |\n      +---- BuildArtifact (output digest + provenance)
       |             |
       |             +---- DeploymentSnapshot production
       |             |            +---- ExecutionSnapshot #1
@@ -154,7 +155,7 @@ Added `src/execution.py` with immutable:
 It includes constructors with digest validation, consistency checks between project/build/deployment roots, and a pure compare-and-swap function for a mutable release channel head.
 
 Tests cover:
-1. runtime binding changes do not change project/build roots;
+1. runtime binding changes do not change project/build roots;\n2. identical build inputs may have distinct BuildArtifact records if outputs differ;
 2. toolchain changes do not change project root but do change build root;
 3. multiple deployments can share a project and build;
 4. crossed project/build/deployment references are rejected;
@@ -192,3 +193,8 @@ Research direction, not normative:
 2. Kubernetes image digests: https://kubernetes.io/docs/concepts/containers/images/
 3. Nix flakes and locked inputs: https://nix.dev/concepts/flakes.html
 4. SLSA provenance v1.0: https://slsa.dev/spec/v1.0/provenance
+
+
+### Additional refinement: build recipe versus build result
+
+The prototype now distinguishes `BuildSnapshot` from `BuildArtifact`. A BuildSnapshot hashes declared inputs and configuration; it does not assert that execution of the build was deterministic. BuildArtifact binds the resulting output digest to the exact build root, builder identity, and provenance root. DeploymentSnapshot references both the build root and the exact artifact. Thus two builds with identical declared inputs but different outputs cannot be silently treated as the same deployed artifact. Bit-for-bit reproducibility is an independently checkable claim comparing output digests under equivalent pinned inputs.
