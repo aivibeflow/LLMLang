@@ -59,3 +59,16 @@ python -m unittest discover -s tests -p 'test_requirement_ir.py' -v
 ```
 
 See [Prototype 17 Results](PROTOTYPE-17-RESULTS.md) and [Research Scenario 17](../../RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md). The analyzer is finite-domain only; temporal fields are metadata, not evaluated temporal logic. It is not a natural-language parser or implementation proof.
+
+
+## Requirement evolution and semantic impact experiment
+
+`src/requirement_evolution.py` models immutable requirement revisions, snapshot-local selection keys, hash-relevant semantic dependency edges, separate lineage/provenance records, direct/transitive impact, verification-key changes, split/merge, and three-way concurrent branch merging.
+
+Run the focused experiment tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_requirement_evolution.py' -v
+```
+
+See [Prototype 18 Results](PROTOTYPE-18-RESULTS.md) and [Research Scenario 18](../../RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md). This is not a semantic-diff engine, complete impact planner, authorization system, or distributed transaction.
