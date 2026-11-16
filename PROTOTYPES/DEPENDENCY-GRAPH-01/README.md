@@ -115,3 +115,16 @@ python -m unittest discover -s tests -p 'test_coverage_guided.py' -v
 ```
 
 See [Prototype 22 Results](PROTOTYPE-22-RESULTS.md) and [Research Scenario 22](../../RESEARCH-SCENARIO-22-COVERAGE-GUIDED-DEPENDENCY-DISCOVERY.md).
+
+
+## Multi-factor counterfactual analysis experiment
+
+`src/multifactor_analysis.py` provides separate APIs for repeated paired joint interventions and repeated 2×2 factorial interaction analysis. Numeric outcomes use difference-in-differences; categorical outcomes use limited conditional equality patterns. It consumes normalized run records and does not execute programs or prove dependency completeness.
+
+Run focused tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_multifactor_analysis.py' -v
+```
+
+See [Prototype 23 Results](PROTOTYPE-23-RESULTS.md) and [Research Scenario 23](../../RESEARCH-SCENARIO-23-MULTI-FACTOR-COUNTERFACTUAL-ANALYSIS.md).
