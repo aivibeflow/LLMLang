@@ -111,6 +111,8 @@ def audit_dependencies(artifact_hash: str, scope: str,
     rows=tuple(observations)
     declared=tuple(sorted(set(declared_dependencies)))
     if not rows:
+        if decisions:
+            raise DiscoveryError("classification supplied without discovery evidence")
         digest=_digest({"artifact":artifact_hash,"scope":scope,"declared":declared,
                         "observations":[],"decisions":{}})
         return DependencyAudit(artifact_hash,scope,AuditStatus.NOT_CHECKED,
