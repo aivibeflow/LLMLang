@@ -132,11 +132,13 @@ The CPC command parser remains unverified. That does not by itself invalidate th
 
 A separate parser that compares text or hashes outside the Lean wrapper is insufficient. The equality check must compare the ASTs used by the theorem inside the trusted Lean wrapper.
 
-### 3.2 One assertion per proof query
+### 3.2 Exact assumption binding — clarified by Scenario 30
 
-The first integration should generate exactly one SMT-LIB `assert` containing the complete relational counterexample formula. The wrapper should require the proof's assumption list to contain exactly the expected formula (or an explicitly specified, structurally identical list).
+The SMT-LIB generator may initially emit one `assert` containing the complete relational counterexample formula, but this does **not** guarantee that the CPC proof parser will return one assumption identical to that formula. Logos parses top-level CPC `assume` commands from the proof artifact; it does not parse the original SMT-LIB input or compare the two.
 
-Do not introduce permissive algebraic normalization at this stage. A syntactic mismatch should reject the certificate. If cvc5 normalizes the assumption into a different shape, add only a separately proved equivalence/canonicalization rule; do not silently accept a string-level similarity.
+The MVP must compare the complete parsed assumption list with an independently generated expected Logos `Term` list. Exact structural equality is required; mismatch means UNKNOWN. Do not infer the expected list's length, order, or structure from the number or shape of SMT-LIB assertions.
+
+A future extension may accept transformed assumptions only with a Lean-checked query-transformation/equisatisfiability theorem. See [Research Scenario 30](RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md) for the source-level Logos API audit, the exact binding design, and adversarial test matrix.
 
 ## 4. Restrict the initial semantic profile to QF_LIA
 

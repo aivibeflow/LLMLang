@@ -187,3 +187,16 @@ python -m unittest discover -s tests -p 'test_proof_boundary.py' -v
 ```
 
 The proof receipt is currently only a prototype data structure: it is not authenticated and no independent checker is invoked; even a supplied receipt remains labelled UNAUTHENTICATED_CHECKER_RECEIPT_PRESENT. This prototype is not a production proof system. See [Prototype 28 Results](PROTOTYPE-28-RESULTS.md) and [Research Scenario 28](../../RESEARCH-SCENARIO-28-TYPED-IR-AND-PROOF-BOUNDARY.md).
+
+
+## Verified SMT proof-checker process adapter (Scenario 29)
+
+`src/logos_runner.py` invokes pinned cvc5 and Logos executables, preserves CPC proof bytes, applies timeouts, and fails closed on process or pin errors. A Logos `correct` result remains `CHECKER_REPORTED_CORRECT_UNBOUND`; it is not a program-level proof. The 15 tests use fake executables and do not validate real cvc5/Logos integration.
+
+See [Prototype 29 Results](PROTOTYPE-29-RESULTS.md) and [Research Scenario 29](../../RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md).
+
+## CPC assumption binding audit (Scenario 30)
+
+Scenario 30 audits the pinned Logos parser and soundness API. Logos proves that the conjunction of assumptions parsed from a CPC proof is unsatisfiable; it does not bind those assumptions to LLMLang's original query. The proposed MVP therefore requires exact structural equality between the parsed assumption list and a canonical expected Logos `Term` list. Any mismatch remains UNKNOWN. No Lean wrapper or real proof integration has yet been built.
+
+See [Research Scenario 30](../../RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md).
