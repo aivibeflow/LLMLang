@@ -29,9 +29,10 @@ The LLM proposes structured program changes; the compiler and verification tools
 
 This repository contains a **conceptual research document**, not a production-ready language implementation. Syntax, formal semantics, type-system details, verification strategy, and implementation architecture remain subjects for research and prototyping.
 
-## Document
+## Documents
 
-See [LLMLang-CONCEPT.md](LLMLang-CONCEPT.md) for the full concept, architecture, design principles, proposed toolchain, development stages, and open questions.
+- [LLMLang-CONCEPT.md](LLMLang-CONCEPT.md) — full concept, architecture, design principles, proposed toolchain, development stages, and open questions.
+- [RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md](RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md) — research on transforming contextual business intent into traceable, reviewable formal contracts.
 
 ## Guiding boundary
 
