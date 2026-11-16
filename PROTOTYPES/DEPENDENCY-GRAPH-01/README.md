@@ -128,3 +128,16 @@ python -m unittest discover -s tests -p 'test_multifactor_analysis.py' -v
 ```
 
 See [Prototype 23 Results](PROTOTYPE-23-RESULTS.md) and [Research Scenario 23](../../RESEARCH-SCENARIO-23-MULTI-FACTOR-COUNTERFACTUAL-ANALYSIS.md).
+
+
+## Adaptive interaction discovery experiment
+
+`src/adaptive_discovery.py` schedules repeated single-factor interventions first, then complete pairwise 2×2 factorial blocks for selected level pairs. An observed interaction can trigger a higher-order factorial block; inconclusive experiments receive bounded retries. The budget is measured in actual executions (factorial cells × repetitions), and blocks are never split. Executed experiment targets remain separate from observed runtime feedback.
+
+Run focused tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_adaptive_discovery.py' -v
+```
+
+See [Prototype 24 Results](PROTOTYPE-24-RESULTS.md) and [Research Scenario 24](../../RESEARCH-SCENARIO-24-ADAPTIVE-INTERACTION-DISCOVERY.md). The planner consumes normalized feedback; it does not execute programs, solve input constraints, or prove dependency completeness.
