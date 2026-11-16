@@ -7,7 +7,7 @@
 
 LLMLang should distinguish reusable semantic components from parameterized structures used to create new parts of a program.
 
-- A **Package** is a versioned, distributable unit with declared contents and dependencies.
+- A **Package** is a distributable unit identified by the content hashes of its manifest, contents, and resolved dependencies.
 - A **Library** is a package whose primary purpose is to provide reusable components.
 - A **Template** is a parameterized description that can be instantiated into a program's Semantic Program Graph (SPG).
 
@@ -33,10 +33,10 @@ This document proposes how libraries and templates might use those concepts; it 
 
 ### 3.1 Package
 
-A Package is a versioned unit of distribution and dependency management. It should have:
+A Package is a distribution and dependency-management unit. It should have:
 
 - a stable package identity;
-- an explicit version;
+- a content-addressed manifest/root identity;
 - a manifest describing its contents;
 - declared dependencies and compatibility constraints;
 - integrity information for the distributed artifacts;
@@ -58,7 +58,7 @@ A library may provide three independently available layers:
 | Design | Components, architecture, internal relationships, design constraints | Inspect, extend, or audit structure |
 | Implementation | Source, compiled representation, executable artifacts, implementation dependencies | Build or execute the library |
 
-The layers should be independently versionable or at least independently identifiable. A consumer should not have to receive implementation details when the public specification and a suitable executable artifact are sufficient.
+The layers should be independently content-addressable and independently identifiable. A consumer should not have to receive implementation details when the public specification and a suitable executable artifact are sufficient.
 
 For example, a library may publish its Specification while keeping its Implementation private. This allows consumers to reason about the public contract without requiring access to source code. Such opacity limits what consumers can independently inspect, so the package must state exactly which claims can and cannot be verified from the published artifacts.
 
@@ -100,21 +100,44 @@ Dependencies should be explicit and typed. At least four useful categories can b
 3. **Capability dependency** — requires an environmental capability, such as filesystem access, network access, cryptographic operations, or a particular runtime service.
 4. **Development dependency** — needed only for development, testing, analysis, verification, or code generation, and not necessarily required by the deployed program.
 
-A dependency declaration should identify the target package/component, dependency kind, version or compatibility constraint, and any relevant capability or configuration requirements.
+A dependency declaration should identify the target package/component by Stable ID and Content Hash (or by a declared content-hash constraint), dependency kind, and any relevant capability or configuration requirements.
 
 The system should distinguish dependencies that affect the program's public semantics from dependencies used only to build or verify it.
 
-## 5. Versioning and Compatibility
+## 5. Content Addressing and Compatibility
 
-A package may need several independently changing versions:
+Package, library, template, and SPG entity states SHOULD be identified by cryptographic content hashes rather than mutable or manually assigned semantic version numbers.
 
-- **Specification version:** public contract and externally observable behavior.
-- **Design version:** internal architecture and structural organization.
-- **Implementation version:** concrete implementation and executable artifact.
+Each logical entity retains a **Stable ID**. Each immutable state has a **Content Hash** computed from:
+- the entity kind and hash domain;
+- canonical structured semantic content;
+- sorted, typed references to hash-relevant dependencies, represented by their exact Content Hash values.
 
-These may be represented as separate version identifiers or as a package version that references immutable versions/digests of each layer.
+Hashes SHOULD be computed at the smallest useful SPG entity granularity: individual types, operations, contracts, effects, tests, proofs, and other semantic nodes. Module, library, template, package, and project identities can then be represented by root hashes that recursively commit to their reachable hash-relevant content.
 
-Semantic Versioning may be useful as a human-facing convention, but it is not itself proof of compatibility. Compatibility should be established by comparing the relevant specifications and, where possible, independently checking that a new implementation satisfies the required contract.
+The dependency edge kind determines propagation. An interface consumer commits to the provider's Specification hash, while an implementation consumer commits to the relevant Implementation hash. A change to an implementation that preserves the public Specification therefore need not change the hash of an interface-only consumer.
+
+The canonical encoding MUST be deterministic. Presentation-only metadata such as names, paths, comments that have no semantic effect, timestamps, authorship, and provenance SHOULD be excluded from semantic hashes. Signatures and attestations SHOULD be attached separately to the exact hash they endorse. The initial algorithm may be SHA-256; the digest representation MUST identify its algorithm and permit future algorithm migration.
+
+This hash identifies canonical graph content, not arbitrary behavioral equivalence. Compatibility is established by comparing specifications and, where possible, by independent verification that an implementation satisfies the required Specification.
+
+A package registry SHOULD store immutable content-addressed objects and manifests. Dependency resolution SHOULD produce a lock record containing exact Stable ID + Content Hash references for all resolved dependencies. Broad version ranges are not required for correctness or reproducibility.
+
+Semantic Versioning (SemVer) SHOULD NOT be required for package identity, dependency resolution, compatibility, or build reproducibility. A project MAY attach human-readable release labels (including SemVer) as optional metadata, but labels MUST NOT determine identity or override content hashes.
+
+A content hash changes whenever the local canonical semantic content or a hash-relevant dependency changes. The change propagates recursively to dependents in the hash dependency DAG. Unchanged nodes and branches retain their hashes and can be deduplicated, cached, and reused.
+
+Only the hash dependency relation must be acyclic. If the broader SPG contains cycles, those relations must either be excluded from recursive hashing or represented by an explicitly specified canonical group/root object.
+
+## 5.1. Layer-specific hashes and compatibility
+
+A package exposes separate Specification, Design, and Implementation root hashes. These layers may change independently:
+
+- **Specification hash:** public contract and externally observable behavior.
+- **Design hash:** internal architecture and structural organization.
+- **Implementation hash:** concrete implementation and executable artifact.
+
+Each layer hash commits to its own canonical nodes and hash-relevant dependencies. A separate build-artifact hash SHOULD include the implementation root hash, compiler/toolchain identity, build configuration, and target environment when these affect the produced artifact. Compatibility should be established by comparing the relevant specifications and, where possible, independently checking that a new implementation satisfies the required contract.
 
 A useful compatibility question is:
 
@@ -134,7 +157,7 @@ Unknown or unchecked compatibility must not be presented as proven.
 
 ### 6.1 Definition
 
-A Template is a parameterized semantic description that can be instantiated into a program's SPG.
+A Template is a parameterized semantic description that can be instantiated into a program's SPG. Its immutable definition and each instantiated result are identified by content hashes, while the template's logical identity remains stable.
 
 A template is not merely a text generator or a collection of source snippets. Its parameters and expansion describe semantic objects and relationships. Instantiation should create or connect typed SPG objects, preserve stable identity rules, and produce traceable results.
 
@@ -168,7 +191,7 @@ Instantiation should be an explicit semantic operation.
 
 A conceptual process:
 
-1. Resolve the exact template version and its dependencies.
+1. Resolve the exact template Content Hash and the exact hashes of its dependencies.
 2. Collect and type-check required parameters.
 3. Check template preconditions and required capabilities.
 4. Construct the proposed semantic objects and relationships.
@@ -182,7 +205,7 @@ If required parameters are missing or constraints cannot be satisfied, instantia
 The instantiated objects should become part of the consumer program's SPG and should be independently identifiable and editable according to normal language rules.
 
 The result should retain provenance links to:
-- the source template identity and exact version;
+- the source template Stable ID and exact Content Hash;
 - the instantiation parameters;
 - the resulting objects;
 - any subsequent modifications;
@@ -196,7 +219,7 @@ Changing a template must not silently rewrite existing instances.
 
 A template update should instead make available an explicit migration or update proposal. Such a proposal should identify:
 
-- the source and target template versions;
+- the source and target template Content Hashes;
 - the affected instantiated objects;
 - the semantic differences;
 - conflicts with local modifications;
@@ -247,14 +270,14 @@ The LLM should not be trusted to assert that a package is safe, compatible, corr
 A package ecosystem will likely need:
 
 - one or more package registries;
-- immutable package versions or content-addressed artifacts;
-- dependency constraints;
+- immutable content-addressed package and component artifacts;
+- exact content-hash dependency references and optional policy constraints;
 - a lockfile or equivalent resolved-dependency record;
 - integrity hashes;
 - optional publisher signatures and attestations;
 - reproducible build metadata where applicable.
 
-A lockfile should record the exact resolved package and artifact identities used by a build, not merely broad version ranges. This supports repeatable builds, auditability, and meaningful verification results.
+A lockfile (or equivalent resolution record) should record the exact Stable ID + Content Hash references of every resolved package, component, template, and build input. It must not rely on mutable tags or broad version ranges to identify build inputs. This supports repeatable builds, auditability, and meaningful verification results.
 
 Registry trust, publisher identity, signing policy, and offline distribution are separate policy questions and should not be inferred solely from package availability.
 
@@ -269,7 +292,7 @@ Libraries and templates should carry machine-readable claims and, where availabl
 - reproducible build attestations;
 - artifact integrity and publisher signatures.
 
-Verification evidence must identify the exact versions or digests of all relevant inputs. A result for one implementation or specification version must not automatically be treated as evidence for a different version.
+Verification evidence must identify the exact Content Hash values of all relevant inputs. A result for one implementation or specification version must not automatically be treated as evidence for a different version.
 
 The system should preserve distinctions such as PROVEN, DISPROVEN, UNKNOWN, and NOT_CHECKED where those statuses are used by the broader LLMLang verification model. An opaque implementation may support contract-level reasoning while leaving implementation-level properties unknown.
 
@@ -282,7 +305,7 @@ The following questions remain open and should be resolved before treating this 
 1. Is Package a first-class SPG object or a distribution-level container?
 2. Is Library strictly a kind of Package, a semantic role, or both?
 3. Must every published library provide a Specification? What minimum contract is required for opaque binaries?
-4. Are Specification, Design, and Implementation versions independently addressable?
+4. Are Specification, Design, and Implementation root hashes independently addressable, and what canonical encoding do they use?
 5. Which dependency categories are mandatory in the initial design?
 6. Are Templates first-class language constructs, package artifacts, compiler/tooling constructs, or a combination?
 7. Does instantiation create copies of semantic objects, parameterized references, or a hybrid?
@@ -290,20 +313,20 @@ The following questions remain open and should be resolved before treating this 
 9. Which parameter kinds are supported: values, types, capabilities, contracts, policies, or requirements?
 10. How are generated, customized, and detached objects represented?
 11. Which verification artifacts are required for publication, and which are optional?
-12. What are the registry, lockfile, signing, and trust policies?
+12. What are the registry, lockfile, signing, and trust policies, including hash algorithm migration?
 13. How should licensing metadata and license compatibility be represented and checked?
 
 ## 13. Suggested Initial Direction
 
 As a starting point for further discussion, the following direction appears coherent with the existing LLMLang architecture:
 
-- Keep Package as a distribution/versioning concept unless a concrete need justifies making it part of the program's semantic graph.
+- Keep Package as a distribution/identity concept unless a concrete need justifies making it part of the program's semantic graph.
 - Treat Library as a reusable component role, not as a fundamentally separate semantic model.
 - Require a machine-readable public Specification for libraries intended for semantic integration; allow opaque implementations when their verification limits are explicit.
 - Make Templates semantic, parameterized constructs whose instantiation creates ordinary SPG objects.
 - Preserve template provenance, but never propagate template changes to existing instances implicitly.
 - Represent dependency kinds explicitly.
-- Resolve dependencies to exact immutable versions for reproducible builds.
+- Resolve dependencies to exact immutable Content Hashes for reproducible builds.
 - Treat compatibility and verification as evidence-backed claims, not naming conventions.
 
 These are recommendations for discussion, not accepted project decisions.
