@@ -141,3 +141,17 @@ python -m unittest discover -s tests -p 'test_adaptive_discovery.py' -v
 ```
 
 See [Prototype 24 Results](PROTOTYPE-24-RESULTS.md) and [Research Scenario 24](../../RESEARCH-SCENARIO-24-ADAPTIVE-INTERACTION-DISCOVERY.md). The planner consumes normalized feedback; it does not execute programs, solve input constraints, or prove dependency completeness.
+
+
+## Minimal formal semantic core (Scenario 26)
+
+`src/formal_core.py` defines a deterministic finite core with expressions, pure non-recursive calls, local assignment, explicit state regions, ordered events, conditionals, return, and error outcomes. It exhaustively compares input pairs differing in one factor and reports finite-model influence/independence witnesses. Unsupported constructs or a state-space budget limit produce UNKNOWN; fallback edges are hints only, not proof.
+
+Run focused tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_formal_core.py' -v
+python -m unittest discover -s tests -p 'test_finite_relational_consistency.py' -v
+```
+
+See [Prototype 26 Results](PROTOTYPE-26-RESULTS.md) and [Research Scenario 26](../../RESEARCH-SCENARIO-26-MINIMAL-FORMAL-SEMANTIC-CORE.md). This is not an SMT solver, arbitrary-source verifier, or machine-checked proof of the evaluator.
