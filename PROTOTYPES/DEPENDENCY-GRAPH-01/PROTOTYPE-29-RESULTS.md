@@ -50,7 +50,7 @@ The next implementation must not issue `PROVEN_INDEPENDENCE` until:
 1. the exact assumptions are bound in Lean;
 2. the checker returns `correct`;
 3. the full pinned Logos proof build is validated;
-4. the QF_LIA semantics profile is enforced;
+4. the QF_LIA profile is enforced and its correspondence to SMT-LIB semantics is proved in Lean;
 5. the LLMLang relational query and encoder correspondence is proven.
 
 Until then, solver answers remain `SOLVER_REPORTED_UNSAT` or `UNKNOWN`.
