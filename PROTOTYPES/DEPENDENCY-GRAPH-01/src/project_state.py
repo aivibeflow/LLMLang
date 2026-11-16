@@ -20,7 +20,7 @@ def dumps_project_state(store: ContentStore, relations: RelationStore,
                 sorted(binding_snapshots, key=lambda item: item.root_hash)]
     payload = {"format": FORMAT, "schema_version": SCHEMA_VERSION,
                "graph": graph, "binding_snapshots": bindings}
-    return canonical_bytes({"payload": payload, "checksum": digest(payload)}) + b"\\n"
+    return canonical_bytes({"payload": payload, "checksum": digest(payload)}) + b"\n"
 
 def loads_project_state(data: bytes | str):
     try:
