@@ -1,32 +1,18 @@
 # Dependency Graph Prototype 01
 
-Minimal executable experiment for LLMLang's dependency-driven, content-addressed semantic graph hypothesis.
+Experimental content-addressed semantic dependency graph. Python 3.10+, standard library only.
 
-## Requirements
-
-- Python 3.10+
-- Standard library only
-
-## Run
-
-From this directory:
+Run from this directory:
 
 ```bash
 python -m unittest discover -s tests -v
 python -m src.semantic_graph
 ```
 
-## Persistence experiment
+The prototype includes deterministic JSON persistence for semantic values, context-scoped relations, and project snapshots (`src/persistence.py`).
 
-The prototype now includes deterministic JSON serialization and reload:
+## Contract / implementation bindings
 
-```python
-from src.persistence import save_graph, load_graph
+`src/binding.py` adds immutable BindingSnapshots. Callers may depend on contract hashes while a snapshot selects concrete implementations. The snapshot hash changes when the implementation selection changes; execution-sensitive verification keys include that root. Binding rows validate semantic kinds and an exact hash-relevant `implements` dependency. Serialization is deterministic and checksummed.
 
-save_graph("graph.json", store, relations, [snapshot])
-store2, relations2, snapshots2 = load_graph("graph.json")
-```
-
-The format includes a schema version and whole-document SHA-256 checksum. Loading validates semantic value hashes, dependency references, snapshot roots, and selected values. Writes use a temporary file followed by atomic replacement.
-
-This remains an experimental local file format, not a production database or a concurrency-safe multi-process store. See [the experiment report](../../PROTOTYPE-01-RESULTS.md) for results and limitations.
+Run the full test suite with the command above. Binding snapshots currently persist as a separate document; atomic integration with project snapshot persistence, dynamic dispatch, compatibility checking, runtime loading, and formal conformance remain unimplemented. See [Research Scenario 10](../../RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md).
