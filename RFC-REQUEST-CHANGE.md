@@ -466,6 +466,16 @@ ObjectMetadata:
     lifecycle_state: State
 ```
 
+Exact references SHOULD use a common structure:
+
+```text
+ObjectStateRef:
+    id: StableId
+    content_hash: ContentHash
+
+SnapshotHash: ContentHash
+```
+
 Stable IDs identify logical objects. Content Hashes identify immutable canonical states of those objects. A content-addressed state MUST NOT be overwritten in place; a semantic edit creates a new hash while retaining the Stable ID.
 
 ### 8.2 Request
@@ -627,7 +637,7 @@ Hash dependencies MUST be acyclic. Cycles in other SPG relations are allowed onl
 
 Specification, Design, and Implementation dependencies MUST be distinguished. An interface-only consumer hashes the provider's Specification state, not its private Implementation state. A consumer that explicitly depends on implementation details hashes the corresponding Implementation state. Build artifact hashes additionally include the relevant compiler/toolchain, build configuration, and target environment.
 
-Mutable labels such as `latest`, branch names, and SemVer release labels are discovery conveniences only. They MUST NOT identify an immutable state, satisfy a dependency lock, or be used as verification inputs.
+Mutable labels such as `latest`, branch names, and human-readable release labels are discovery conveniences only. They MUST NOT identify an immutable state, satisfy a dependency lock, or be used as verification inputs.
 
 ### 9.2.1 Exact references and approvals
 
