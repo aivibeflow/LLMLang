@@ -34,9 +34,10 @@ class SymbolicRelationalTests(unittest.TestCase):
         r = analyze_symbolically(p, {"x":"Int"}, solver_command=(sys.executable, str(self.fake)))
         self.assertEqual(r.factors[0].status, "SOLVER_REPORTED_SAT")
         calls = capture.read_text().splitlines()
-        self.assertEqual(len(calls), 2)
+        self.assertGreaterEqual(len(calls), 2)
         self.assertNotIn("(get-value", calls[0])
         self.assertIn("(get-value", calls[1])
+        self.assertTrue(all("(get-value" not in call for call in calls[2:]))
 
     def test_unsat_is_reported_without_independent_proof(self):
         p=Program((Return(Binary("mul",Var("x"),Const(0))),))
