@@ -6,7 +6,7 @@ Status: research result and finite-model prototype; not a language specification
 
 A small deterministic core can express arithmetic and Boolean expressions, pure non-recursive function calls, local assignment, explicit state regions, ordered event emission, conditionals, returns, and errors. The analyzer exhaustively enumerates a declared finite input domain and compares pairs of executions that differ in exactly one factor.
 
-A differing observable pair yields PROVEN_INFLUENCE with a witness. Complete absence of differing pairs yields PROVEN_INDEPENDENCE only within the exact finite domain, initial state, deterministic semantics, and observation boundary. The overall status is PROVEN_WITHIN_FINITE_MODEL.
+A differing observable pair yields `FINITE_MODEL_INFLUENCE` with a witness. Complete absence of differing pairs yields `FINITE_MODEL_INDEPENDENCE` only within the exact finite domain, initial state, deterministic semantics, and observation boundary. The overall status is `DECIDED_WITHIN_FINITE_MODEL`. These are explicitly scoped prototype outcomes, not the language-level `PROVEN` status: the Python evaluator/analyzer has no machine-checked correctness proof.
 
 Unsupported constructs or resource exhaustion yield UNKNOWN, never a partial independence proof. Fallback edges are planning hints only. UNKNOWN requires conservative revalidation.
 

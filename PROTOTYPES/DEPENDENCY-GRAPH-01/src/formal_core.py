@@ -168,10 +168,10 @@ def analyze_dependencies(program: Program, input_domains: Mapping[str,Iterable[A
                     if changed:
                         influenced.update(changed)
                         if witness is None: witness,witness_obs=(dict(a),dict(b)),(oa,ob)
-        if witness is None: results.append(FactorResult(p,"PROVEN_INDEPENDENCE"))
+        if witness is None: results.append(FactorResult(p,"FINITE_MODEL_INDEPENDENCE"))
         else:
             changed=tuple(sorted(influenced))
-            results.append(FactorResult(p,"PROVEN_INFLUENCE",witness,witness_obs,changed))
+            results.append(FactorResult(p,"FINITE_MODEL_INFLUENCE",witness,witness_obs,changed))
             edges.extend((p,o) for o in changed)
-    return DependencyAnalysis("PROVEN_WITHIN_FINITE_MODEL",tuple(results),tuple(edges),(),len(rows),
+    return DependencyAnalysis("DECIDED_WITHIN_FINITE_MODEL",tuple(results),tuple(edges),(),len(rows),
                               "complete finite domain; deterministic core; pinned state and observations")
