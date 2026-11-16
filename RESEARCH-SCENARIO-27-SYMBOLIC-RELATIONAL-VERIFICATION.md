@@ -14,8 +14,8 @@ Replace exhaustive finite input enumeration with a symbolic relational query. Fo
 \land Obs(P,x_L)\ne Obs(P,x_R)
 \]
 
-- SAT gives a concrete witness pair and establishes influence.
-- UNSAT establishes independence over the complete domain represented by the selected SMT theories and encoding.
+- SAT gives a solver-reported candidate witness pair. Influence is confirmed only after replay against the exact reference semantics and initial environment.
+- UNSAT is a solver-reported answer over the domain represented by the selected SMT theories and encoding. Without an independently checked proof certificate, it is not `PROVEN_INDEPENDENCE`.
 - UNKNOWN, timeout, missing solver, unsupported syntax, or invalid encoding gives UNKNOWN.
 
 This is a relational property / 2-safety reduction using a product of two executions.
@@ -61,7 +61,7 @@ The implementation handles sat, unsat, and unknown, process absence/failure, and
 
 The test suite uses a fake SMT-LIB process to exercise protocol handling deterministically:
 - SAT response and witness decoding;
-- UNSAT → PROVEN_INDEPENDENCE;
+- UNSAT → `SOLVER_REPORTED_UNSAT` (not an independently checked proof);
 - UNKNOWN → UNKNOWN;
 - missing executable and timeout → UNKNOWN;
 - shared symbols for unchanged inputs;
@@ -85,12 +85,12 @@ The encoding's soundness is conditional on the AST and modeled semantics matchin
 Scenario 26 remains the finite reference oracle for small instances. Scenario 27 adds a symbolic backend for the restricted fragment. The two should be run differentially on generated small programs once a real solver is available.
 
 Keep evidence distinct:
-- PROVEN_INFLUENCE — symbolic SAT witness;
-- PROVEN_INDEPENDENCE — symbolic UNSAT result;
-- UNKNOWN — unsupported, timeout, solver unknown, or encoding failure;
+- `SOLVER_REPORTED_SAT` — solver returned SAT and may provide a candidate witness; replay is required before recording a confirmed counterexample;
+- `SOLVER_REPORTED_UNSAT` — solver returned UNSAT; this remains an unchecked solver result, not a proof status;
+- `UNKNOWN` — unsupported, timeout, solver unknown, or encoding failure;
 - OBSERVED_DEPENDENCY — experimental evidence from Scenarios 20–24, not a proof.
 
-Only proof results whose input root, AST/semantics version, observation boundary, solver identity/version, and solver configuration are pinned should be reusable. This prototype records SMT queries but does not yet implement persistent proof records or cache identity.
+Only independently checked proof results may receive a `PROVEN` status. A solver-reported result must remain distinguishable from proof evidence even when its input root, AST/semantics version, observation boundary, solver identity/version, and solver configuration are pinned. This prototype records SMT queries but does not yet implement persistent proof records or cache identity.
 
 ## 8. Next step
 

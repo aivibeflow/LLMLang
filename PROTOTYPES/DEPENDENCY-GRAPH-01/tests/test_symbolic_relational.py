@@ -38,7 +38,7 @@ class SymbolicRelationalTests(unittest.TestCase):
         self.assertNotIn("(get-value", calls[0])
         self.assertIn("(get-value", calls[1])
 
-    def test_unsat_proves_independence(self):
+    def test_unsat_is_reported_without_independent_proof(self):
         p=Program((Return(Binary("mul",Var("x"),Const(0))),))
         r=analyze_symbolically(p,{"x":"Int"},solver_command=self.solver("unsat"))
         self.assertEqual(r.factors[0].status,"SOLVER_REPORTED_UNSAT")

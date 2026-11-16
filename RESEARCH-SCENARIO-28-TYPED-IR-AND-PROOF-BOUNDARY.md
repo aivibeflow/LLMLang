@@ -66,11 +66,7 @@ The SMT-LIB interaction runs check-sat first and requests get-value only in a se
 
 Tests cover accepted and rejected typed ASTs, digest sensitivity to the observation boundary, evidence binding, solver status distinctions, counterexample replay, and exact initial-environment matching. The two additional regression tests ensure same-type but different initial state/local values are rejected.
 
-Recorded focused prototype run:
-- `python -m unittest discover -s tests -v`: 24 tests passed;
-- `python -m compileall -q src tests`: passed.
-
-This is the local prototype workspace, not the full repository historical suite. No real SMT solver or independent proof checker was available, so no actual SMT proof was generated or checked. The tests do not prove validator completeness, encoder soundness, checker correctness, or compiler correspondence.
+Recorded validation must be interpreted with the more precise run history in `PROTOTYPE-28-RESULTS.md`: the 22-test baseline and `compileall` passed before the two exact-environment regression tests were added. Those two added tests were committed but were not executed in that run. Therefore 24 tests passing and a post-addition `compileall` are **not** established. No real SMT solver or independent proof checker was available, so no actual SMT proof was generated or checked. The tests do not prove validator completeness, encoder soundness, checker correctness, or compiler correspondence.
 
 ## 7. Design consequences
 

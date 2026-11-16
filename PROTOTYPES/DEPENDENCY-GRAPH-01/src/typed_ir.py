@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import hashlib, json
 from typing import Any, Mapping, Sequence
-from .formal_core import Assign, Binary, Call, Const, Emit, Program, Raise, Return, State, Store, Unary, Var, UnsupportedConstruct
+from .formal_core import Assign, Binary, Call, Const, Emit, If, Program, Raise, Return, State, Store, Unary, Var, UnsupportedConstruct
 
 SEMANTICS_VERSION = "llmlang-symbolic-core/1"
 VALIDATOR_VERSION = "typed-ir-validator/1"

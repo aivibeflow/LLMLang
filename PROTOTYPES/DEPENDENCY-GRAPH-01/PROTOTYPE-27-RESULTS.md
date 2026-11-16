@@ -3,7 +3,7 @@
 **Implementation:** src/symbolic_relational.py  
 **Tests:** tests/test_symbolic_relational.py, tests/test_symbolic_finite_differential.py
 
-The backend emits SMT-LIB 2 for a pair of executions. The selected input factor is duplicated; all other inputs are shared. It checks whether any modeled observable differs. SAT results carry decoded input witnesses; UNSAT results establish independence within the supported encoding; unsupported constructs, missing solver, timeout, and solver UNKNOWN fail closed.
+The backend emits SMT-LIB 2 for a pair of executions. The selected input factor is duplicated; all other inputs are shared. It checks whether any modeled observable differs. SAT results may carry candidate input witnesses that require replay against the exact reference semantics. UNSAT is only a solver-reported result within the supported encoding; it is not an independently checked proof. Unsupported constructs, missing solver, timeout, and solver UNKNOWN fail closed.
 
 ## Local test run
 
