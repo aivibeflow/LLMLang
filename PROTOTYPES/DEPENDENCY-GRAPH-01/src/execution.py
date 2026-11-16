@@ -1,7 +1,6 @@
 """Layered immutable identities for build, deployment, execution, and release.
 
-The module is an experimental model. Mutable channel heads are deliberately
-separate from immutable manifests and require compare-and-swap publication.
+Experimental model. Mutable channel heads are separate from immutable records.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -34,9 +33,19 @@ class BuildSnapshot:
     build_config_hash: str
 
 @dataclass(frozen=True)
+class BuildArtifact:
+    root_hash: str
+    build_root: str
+    artifact_hash: str
+    provenance_root: str
+    builder_identity_hash: str
+
+@dataclass(frozen=True)
 class DeploymentSnapshot:
     root_hash: str
     build_root: str
+    build_artifact_root: str
+    artifact_hash: str
     runtime_binding_root: str
     runtime_image_hash: str
     deployment_config_hash: str
@@ -57,6 +66,7 @@ class ReleaseManifest:
     root_hash: str
     project_root: str
     build_root: str
+    build_artifact_root: str
     deployment_root: str
     parent_release_roots: tuple[str, ...] = ()
 
@@ -72,23 +82,30 @@ def make_build_snapshot(*, project_root: str, build_binding_root: str,
                          target_platform_hash, execution_platform_hash,
                          toolchain_root, dependency_lock_root, build_config_hash)
 
-def make_deployment_snapshot(*, build: BuildSnapshot, runtime_binding_root: str,
-                             runtime_image_hash: str, deployment_config_hash: str,
+def make_build_artifact(*, build: BuildSnapshot, artifact_hash: str,
+                        provenance_root: str, builder_identity_hash: str) -> BuildArtifact:
+    fields={"build_root":build.root_hash,"artifact_hash":artifact_hash,
+            "provenance_root":provenance_root,
+            "builder_identity_hash":builder_identity_hash}
+    for name,value in fields.items(): _require_hash(name,value)
+    root=digest({"domain":"llmlang.build-artifact.v1",**fields})
+    return BuildArtifact(root,**fields)
+
+def make_deployment_snapshot(*, build: BuildSnapshot, artifact: BuildArtifact,
+                             runtime_binding_root: str, runtime_image_hash: str,
+                             deployment_config_hash: str,
                              infrastructure_root: str) -> DeploymentSnapshot:
-    for name, value in {
-        "runtime_binding_root":runtime_binding_root,
-        "runtime_image_hash":runtime_image_hash,
-        "deployment_config_hash":deployment_config_hash,
-        "infrastructure_root":infrastructure_root,
-    }.items():
-        _require_hash(name,value)
-    fields={"build_root":build.root_hash,
+    if artifact.build_root != build.root_hash:
+        raise SnapshotError("build artifact belongs to a different build")
+    fields={"build_root":build.root_hash,"build_artifact_root":artifact.root_hash,
+            "artifact_hash":artifact.artifact_hash,
             "runtime_binding_root":runtime_binding_root,
             "runtime_image_hash":runtime_image_hash,
             "deployment_config_hash":deployment_config_hash,
             "infrastructure_root":infrastructure_root}
+    for name,value in fields.items(): _require_hash(name,value)
     root=digest({"domain":"llmlang.deployment-snapshot.v1",**fields})
-    return DeploymentSnapshot(root, **fields)
+    return DeploymentSnapshot(root,**fields)
 
 def make_execution_snapshot(*, deployment: DeploymentSnapshot,
                             request_binding_root: str, input_root: str,
@@ -105,19 +122,25 @@ def make_execution_snapshot(*, deployment: DeploymentSnapshot,
     return ExecutionSnapshot(root,**fields)
 
 def make_release_manifest(*, project_root: str, build: BuildSnapshot,
-                          deployment: DeploymentSnapshot,
+                          artifact: BuildArtifact, deployment: DeploymentSnapshot,
                           parent_release_roots: Iterable[str] = ()) -> ReleaseManifest:
     _require_hash("project_root",project_root)
     if build.project_root != project_root:
         raise SnapshotError("build snapshot belongs to a different project root")
+    if artifact.build_root != build.root_hash:
+        raise SnapshotError("build artifact belongs to a different build")
     if deployment.build_root != build.root_hash:
         raise SnapshotError("deployment snapshot belongs to a different build")
+    if deployment.build_artifact_root != artifact.root_hash:
+        raise SnapshotError("deployment snapshot references a different build artifact")
     parents=tuple(sorted(set(parent_release_roots)))
     for parent in parents: _require_hash("parent_release_root",parent)
     fields={"project_root":project_root,"build_root":build.root_hash,
+            "build_artifact_root":artifact.root_hash,
             "deployment_root":deployment.root_hash,"parent_release_roots":parents}
     root=digest({"domain":"llmlang.release-manifest.v1",**fields})
-    return ReleaseManifest(root,project_root,build.root_hash,deployment.root_hash,parents)
+    return ReleaseManifest(root,project_root,build.root_hash,artifact.root_hash,
+                           deployment.root_hash,parents)
 
 def compare_and_swap_release_head(current_root: str | None,
                                   expected_root: str | None,
