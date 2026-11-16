@@ -46,3 +46,16 @@ python -m unittest discover -s tests -p 'test_business_intent.py' -v
 \`\`\`
 
 See [Prototype 16 Results](PROTOTYPE-16-RESULTS.md) and [Research Scenario 15](../../RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md). This is not a natural-language parser, authorization system, formal logic engine, or source-code proof.
+
+
+## Typed Requirement IR experiment
+
+`src/requirement_ir.py` models typed predicates, requirement ownership/scope, source and decision provenance, triggers, actions, temporal metadata, assumptions, unresolved questions, and explicitly required dimensions. It checks types and provenance, detects contradictions and selected underdetermination cases over finite domains, generates satisfying and violating scenarios, and checks caller-policy ownership against explicit callee policy inputs.
+
+Run the focused experiment tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_requirement_ir.py' -v
+```
+
+See [Prototype 17 Results](PROTOTYPE-17-RESULTS.md) and [Research Scenario 17](../../RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md). The analyzer is finite-domain only; temporal fields are metadata, not evaluated temporal logic. It is not a natural-language parser or implementation proof.
