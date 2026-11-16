@@ -103,3 +103,15 @@ Run focused tests with:
 python -m unittest discover -s tests -p 'test_counterfactual_analysis.py' -v
 
 See PROTOTYPE-21-RESULTS.md and Research Scenario 21.
+
+## Coverage-guided dependency discovery experiment
+
+`src/coverage_guided.py` generates typed finite-domain single-factor and t-way interventions, adds integer-extrema and optional static/taint guidance targets, deduplicates candidates by pinned artifact/context/observation-model identity, and schedules candidates with deterministic greedy set cover under a run budget. The coverage ledger preserves uncovered targets. It does not execute the program or prove dependency completeness; multi-factor execution still needs an extension to Scenario 21's single-factor comparison API.
+
+Run focused tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_coverage_guided.py' -v
+```
+
+See [Prototype 22 Results](PROTOTYPE-22-RESULTS.md) and [Research Scenario 22](../../RESEARCH-SCENARIO-22-COVERAGE-GUIDED-DEPENDENCY-DISCOVERY.md).
