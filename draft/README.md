@@ -83,3 +83,5 @@ Formal verification can establish that an implementation satisfies a formal spec
 
 
 - [Scenario 30 — CPC Assumption Binding](RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md) — source-level audit of Logos's parser and soundness API; exact structural binding of the parsed CPC assumption list to the canonical LLMLang relational query; adversarial mismatch tests and the conservative MVP boundary.
+
+- [Scenario 31 — Strict QF_LIA Relational Query Profile](RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md) — a separate conservative proof-eligible subset; rejects strings and nonlinear arithmetic, emits QF_LIA only, and removes the constant outcome string from the observation query.
