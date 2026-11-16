@@ -63,6 +63,11 @@ class DependencyDiscoveryTests(unittest.TestCase):
         with self.assertRaises(DiscoveryError):
             discover_candidates("artifact-A","build-x",[],{"phantom":DependencyMeaning.SEMANTIC_INPUT})
 
+    def test_classification_without_any_observation_is_rejected_by_audit(self):
+        with self.assertRaises(DiscoveryError):
+            audit_dependencies("artifact-A","build-x",set(),[],
+                {"phantom":DependencyMeaning.SEMANTIC_INPUT})
+
     def test_evidence_digest_changes_when_classification_changes(self):
         row=self.obs("input")
         a=audit_dependencies("artifact-A","build-x",{"input"},[row],{"input":DependencyMeaning.SEMANTIC_INPUT})
