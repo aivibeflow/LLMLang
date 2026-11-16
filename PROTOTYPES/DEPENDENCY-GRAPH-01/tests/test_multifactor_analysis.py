@@ -72,6 +72,12 @@ class MultiFactorAnalysisTests(unittest.TestCase):
     def test_factorial_rejects_duplicate_cell(self):
         rows=self.factorial({(0,0):0,(1,0):1,(0,1):1,(1,1):3}); rows.append(rows[0])
         self.assertEqual(self.analyze({},rows).status,MultiFactorStatus.INCONCLUSIVE)
+    def test_categorical_all_equal_outcomes_have_no_observed_effect(self):
+        r=self.analyze({(0,0):"same",(1,0):"same",(0,1):"same",(1,1):"same"})
+        self.assertEqual(r.status,MultiFactorStatus.NO_INTERACTION_OBSERVED)
+    def test_categorical_all_distinct_outcomes_are_inconclusive(self):
+        r=self.analyze({(0,0):"a",(1,0):"b",(0,1):"c",(1,1):"d"})
+        self.assertEqual(r.status,MultiFactorStatus.INCONCLUSIVE)
     def test_evidence_digest_binds_observable_values(self):
         a=self.analyze({(0,0):0,(1,0):1,(0,1):1,(1,1):3}); b=self.analyze({(0,0):0,(1,0):1,(0,1):1,(1,1):4})
         self.assertNotEqual(a.evidence_digest,b.evidence_digest)

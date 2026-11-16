@@ -232,6 +232,15 @@ def analyze_pairwise_interaction(artifact_hash,context_digest,observation_model_
         reason="non-zero numeric difference-in-differences" if interaction else "numeric difference-in-differences is zero"
     else:
         interaction=effects[0]!=effects[1] or effects[2]!=effects[3]
-        reason="conditional categorical effect differs across levels" if interaction else "no conditional categorical effect pattern detected"
+        if interaction:
+            status=MultiFactorStatus.OBSERVED_INTERACTION
+            reason="conditional categorical effect differs across levels"
+        elif not any(effects):
+            status=MultiFactorStatus.NO_INTERACTION_OBSERVED
+            reason="all four categorical outcomes are equal; no effect observed in this design"
+        else:
+            status=MultiFactorStatus.INCONCLUSIVE
+            reason="categorical equality cannot compare effect magnitude when outcomes differ"
+        return finish(status,reason,len(blocks),effects,contrast)
     status=MultiFactorStatus.OBSERVED_INTERACTION if interaction else MultiFactorStatus.NO_INTERACTION_OBSERVED
     return finish(status,reason,len(blocks),effects,contrast)

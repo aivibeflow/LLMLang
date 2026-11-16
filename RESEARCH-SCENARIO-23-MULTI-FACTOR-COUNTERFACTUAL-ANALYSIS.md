@@ -44,7 +44,7 @@ An opaque digest supports equality/inequality, but not arithmetic contrasts. The
    \Delta_{AB}=(O_{11}-O_{10})-(O_{01}-O_{00})
    \]
    A non-zero contrast is evidence of a numeric interaction under the chosen encoding. Decimal conversion from string representations avoids ordinary binary floating-point subtraction artifacts; it does not define domain units or scales.
-2. **Categorical/structured JSON outcomes:** compare equality patterns of conditional simple effects. This detects a factor changing the outcome in one context but not another. It can miss interactions when all four outcomes are distinct or when a domain-specific distance/ordering is needed.
+2. **Categorical/structured JSON outcomes:** compare equality patterns of conditional simple effects. This detects a factor changing the outcome in one context but not another. If all outcomes differ without a contract-defined comparison scale, the prototype returns INCONCLUSIVE rather than claiming no interaction; it can still miss interactions that require a domain-specific distance/ordering.
 
 Future work should let the behavioral contract define a typed observable algebra: equality, ordering, numeric scale, set/map comparison, trace properties, and equivalence classes. The analyzer must not invent metrics for arbitrary outputs.
 
@@ -107,6 +107,7 @@ Keep joint-intervention analysis and 2×2 factorial interaction analysis as dist
 
 - NIST, Kuhn, Kacker, Lei, *Combinatorial Testing* (2012): https://www.nist.gov/publications/combinatorial-testing
 - NIST, *Combinatorial Methods for Trust and Assurance — FAQs*: https://csrc.nist.gov/Projects/automated-combinatorial-testing-for-software/faqs
+- NIST, *Factorial Experiments, Covering Arrays, and Combinatorial Testing*: https://csrc.nist.gov/CSRC/media/Projects/automated-combinatorial-testing-for-software/documents/MCSFactorialCACT20210521.pdf
 - Penn State, *Factorial Design*: https://online.stat.psu.edu/stat503/lesson/4
 - UCLA Statistical Methods and Data Analytics, *Factorial ANOVA*: https://stats.oarc.ucla.edu/other/mult-pkg/whatstat/what-is-the-difference-between-a-one-way-and-a-two-way-anova/
 - Hypothesis, *Stateful testing*: https://hypothesis.readthedocs.io/en/latest/stateful.html

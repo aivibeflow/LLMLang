@@ -19,9 +19,9 @@ Focused command:
 python -m unittest discover -s tests -p 'test_multifactor_analysis.py' -v
 \`\`\`
 
-Result: **16 tests passed** in the isolated prototype directory.
+Result: **18 tests passed** in the isolated prototype directory.
 
-Tests cover joint effects, no observed difference, trace-only changes, incomplete pairs, context mismatch, duplicate sides, hidden conditional interaction, additive numeric effects, numeric interaction with main effects, categorical conditional effects, missing factorial cells, context drift, unstable cell outcomes, duplicate cells, evidence-digest sensitivity, and assignment validation.
+Tests cover joint effects, no observed difference, trace-only changes, incomplete pairs, context mismatch, duplicate sides, hidden conditional interaction, additive numeric effects, numeric interaction with main effects, categorical conditional effects, categorical ambiguity handling, missing factorial cells, context drift, unstable cell outcomes, duplicate cells, evidence-digest sensitivity, and assignment validation.
 
 The complete existing prototype regression suite was not run in this environment. The focused result is not a full-suite pass.
 
@@ -30,7 +30,7 @@ The complete existing prototype regression suite was not run in this environment
 - Consumes normalized execution records; does not execute programs.
 - Joint intervention cannot attribute the effect to individual factors.
 - Factorial interaction implementation is 2×2 only.
-- Categorical equality patterns do not detect every possible interaction.
+- Categorical equality patterns detect conditional presence/absence only; if unequal outcomes provide no comparable scale, the result is INCONCLUSIVE rather than a negative claim.
 - Numeric difference-in-differences is meaningful only if the contract defines a meaningful numeric observable scale.
 - No stochastic/statistical inference, higher-order factorial estimator, constraint solver, or source-code proof.
 - No automatic integration with Scenario 22's scheduler yet.
