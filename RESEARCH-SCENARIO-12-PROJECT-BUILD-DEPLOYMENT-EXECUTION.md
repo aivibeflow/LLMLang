@@ -33,7 +33,9 @@ The solution is layered roots with explicit references, not one universal root.
 ```
 ProjectSnapshot
       |
-      +---- BuildSnapshot A (target platform / toolchain / build bindings)\n      |\n      +---- BuildArtifact (output digest + provenance)
+      +---- BuildSnapshot A (target platform / toolchain / build bindings)
+      |
+      +---- BuildArtifact (output digest + provenance)
       |             |
       |             +---- DeploymentSnapshot production
       |             |            +---- ExecutionSnapshot #1
@@ -155,7 +157,8 @@ Added `src/execution.py` with immutable:
 It includes constructors with digest validation, consistency checks between project/build/deployment roots, and a pure compare-and-swap function for a mutable release channel head.
 
 Tests cover:
-1. runtime binding changes do not change project/build roots;\n2. identical build inputs may have distinct BuildArtifact records if outputs differ;
+1. runtime binding changes do not change project/build roots;
+2. identical build inputs may have distinct BuildArtifact records if outputs differ;
 2. toolchain changes do not change project root but do change build root;
 3. multiple deployments can share a project and build;
 4. crossed project/build/deployment references are rejected;
