@@ -16,7 +16,7 @@ SAT witnesses can be replayed against the Scenario 26 evaluator. UNSAT without a
 
 ```
 python -m unittest discover -s tests -v
-Ran 21 tests
+Ran 22 tests
 OK
 python -m compileall -q src tests
 Passed

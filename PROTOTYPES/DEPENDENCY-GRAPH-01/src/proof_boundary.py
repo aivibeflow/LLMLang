@@ -33,6 +33,7 @@ class ProofCheckReceipt:
     checker_version:str
     valid:bool
     def __post_init__(self):
+        if type(self.valid) is not bool: raise ValueError("proof receipt validity must be Boolean")
         if not _valid_digest(self.query_sha256) or not _valid_digest(self.proof_sha256):
             raise ValueError("proof receipt digests must be SHA-256 hex")
         if not self.checker_name or not self.checker_version:
@@ -83,11 +84,17 @@ def create_evidence_record(typed:TypedProgram,smt_query:str,solver:SolverIdentit
       solver,solver_result,payload["proof_sha256"],payload["checker_name"],payload["checker_version"],canonical_digest(payload))
 
 def validate_counterexample(typed:TypedProgram,factor:str,left:Mapping[str,Any],right:Mapping[str,Any],
-                            initial_state:Mapping[str,Any],input_types:Mapping[str,str])->str:
+                            initial_state:Mapping[str,Any],input_types:Mapping[str,str],
+                            initial_locals:Mapping[str,Any]|None=None)->str:
     """Replay a SAT model; only a real pair of differing observations is confirmed."""
     expected_state=tuple(sorted((k,{"Int":"int","Bool":"bool","String":"str"}[t]) for k,t in typed.initial_state_types))
     actual_state=tuple(sorted((k,type(v).__name__) for k,v in initial_state.items()))
-    if tuple(sorted(input_types.items()))!=typed.input_types or actual_state!=expected_state:
+    locals_=dict(initial_locals or {})
+    expected_locals=typed.initial_locals_types
+    actual_locals=tuple(sorted((k,type(v).__name__) for k,v in locals_.items()))
+    expected_local_names=tuple(sorted((k,{"Int":"int","Bool":"bool","String":"str"}[t]) for k,t in expected_locals))
+    if (tuple(sorted(input_types.items()))!=typed.input_types or actual_state!=expected_state or
+        actual_locals!=expected_local_names):
         return "COUNTEREXAMPLE_REJECTED"
     if factor not in input_types or set(left)!=set(input_types) or set(right)!=set(input_types):
         return "COUNTEREXAMPLE_REJECTED"
@@ -99,7 +106,9 @@ def validate_counterexample(typed:TypedProgram,factor:str,left:Mapping[str,Any],
         if name!=factor and left[name]!=right[name]: return "COUNTEREXAMPLE_REJECTED"
     if left[factor]==right[factor]: return "COUNTEREXAMPLE_REJECTED"
     try:
-        lo=execute(typed.program,left,initial_state,typed.observable_state)
-        ro=execute(typed.program,right,initial_state,typed.observable_state)
+        left_env=dict(left); left_env.update(locals_)
+        right_env=dict(right); right_env.update(locals_)
+        lo=execute(typed.program,left_env,initial_state,typed.observable_state)
+        ro=execute(typed.program,right_env,initial_state,typed.observable_state)
     except Exception: return "COUNTEREXAMPLE_REJECTED"
     return "COUNTEREXAMPLE_CONFIRMED_BY_REFERENCE_EVALUATOR" if lo!=ro else "COUNTEREXAMPLE_REJECTED"

@@ -12,7 +12,7 @@ class ProofBoundaryTests(unittest.TestCase):
   return create_evidence_record(self.typed,self.query,self.solver,result,*self.hashes,receipt)
  def test_unsat_without_certificate_is_not_proof(self):
   self.assertEqual(self.record("unsat").status,"SOLVER_REPORTED_UNSAT_UNCHECKED")
- def test_unsat_with_bound_valid_receipt_is_checked(self):
+ def test_receipt_never_promotes_solver_result_to_checked_proof(self):
   q=hashlib.sha256(self.query.encode()).hexdigest(); receipt=ProofCheckReceipt(q,"b"*64,"checker","1.0",True)
   self.assertEqual(self.record("unsat",receipt).status,"UNAUTHENTICATED_CHECKER_RECEIPT_PRESENT")
  def test_receipt_for_other_query_rejected(self):
@@ -35,6 +35,9 @@ class ProofBoundaryTests(unittest.TestCase):
  def test_bad_program_rejected_before_solver(self):
   p=Program((Return(Binary("add",Var("x"),Const(True))),))
   with self.assertRaises(UnsupportedConstruct): analyze_typed_symbolically(p,{"x":"Int"},solver_command=("must-not-run",))
+ def test_counterexample_replay_includes_initial_locals(self):
+  p=Program((Return(Binary("add",Var("x"),Var("base"))),)); t=validate_program(p,{"x":"Int"},initial_locals={"base":10})
+  self.assertEqual(validate_counterexample(t,"x",{"x":1},{"x":2},{},{"x":"Int"},{"base":10}),"COUNTEREXAMPLE_CONFIRMED_BY_REFERENCE_EVALUATOR")
  def test_toolchain_hashes_required(self):
   with self.assertRaises(ValueError): create_evidence_record(self.typed,self.query,self.solver,"unsat","bad","d"*64)
 if __name__=="__main__": unittest.main()
