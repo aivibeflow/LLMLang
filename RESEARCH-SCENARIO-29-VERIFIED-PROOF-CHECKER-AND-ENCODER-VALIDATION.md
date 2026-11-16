@@ -146,7 +146,7 @@ Logos's formal semantics is not identical to every part of SMT-LIB:
 - higher-order function values are not given the standard SMT-LIB 2.7 extensional semantics;
 - there are extensions and lenient typing cases outside the standard.
 
-The conformance document states that the relevant narrowing differences require quantifiers to become observable; on quantifier-free linear fragments the semantics agrees with SMT-LIB. The initial LLMLang proof profile should stay strictly inside that fragment.
+The conformance document states that the relevant narrowing differences require quantifiers to become observable; on quantifier-free linear fragments the semantics agrees with SMT-LIB. This is a documented conformance claim, not yet an LLMLang machine-checked theorem. The initial LLMLang proof profile should stay strictly inside that fragment, and Scenario 29 must add a Lean theorem for the exact restricted subset before any result is promoted to `PROVEN`.
 
 ### 4.1 Allowed in the first profile
 
@@ -269,7 +269,7 @@ The full per-rule proof build takes more than two hours and is not fully perform
 | Logos says `incorrect`, `incomplete`, parser error, timeout, or missing checker | `UNKNOWN` |
 | Checker/build/toolchain identity is not pinned or full proof build is not validated | `UNKNOWN` |
 | Query is outside QF_LIA or fails the linearity/type validator | `UNSUPPORTED` / `UNKNOWN` |
-| Logos theorem applies, assumptions match, query translation is proven, and full checker build is validated | `PROVEN_INDEPENDENCE` |
+| Logos theorem applies, assumptions match, QF_LIA-to-SMT-LIB semantics correspondence is proven, LLMLang query translation is proven, and full checker build is validated | `PROVEN_INDEPENDENCE` |
 | SAT witness successfully replays against the exact reference evaluator | `CONFIRMED_DEPENDENCY_WITNESS` |
 
 A `correct` verdict alone is not sufficient for `PROVEN_INDEPENDENCE`. The LLMLang translation theorem and exact assumption binding are mandatory.
@@ -314,7 +314,7 @@ Prove that the left and right symbolic executions in the relational query corres
 
 The first prototype can use the existing finite evaluator as a differential oracle over small finite subsets. This is useful for finding encoder bugs, but it is not a proof of the unbounded QF_LIA translation.
 
-The long-term result should be a Lean theorem over the restricted AST, not a claim based only on tests. The theorem must account for:
+The long-term result should be a Lean theorem over the restricted AST, not a claim based only on tests. A separate Lean theorem must also show that the selected Logos model semantics agrees with SMT-LIB QF_LIA for every construct admitted by the validator. The theorems must account for:
 - variable environments and explicit state regions;
 - pure function inlining;
 - conditional branches and `ite` encoding;
