@@ -94,3 +94,12 @@ python -m unittest discover -s tests -p 'test_dependency_discovery.py' -v
 ```
 
 See [Prototype 20 Results](PROTOTYPE-20-RESULTS.md) and [Research Scenario 20](../../RESEARCH-SCENARIO-20-DEPENDENCY-DISCOVERY-AND-SEMANTIC-CLASSIFICATION.md).
+
+## Counterfactual dependency analysis experiment
+
+src/counterfactual_analysis.py compares normalized repeated baseline/treatment execution records for one declared input factor. It distinguishes reproducible observable effects from trace-only changes, no observed difference, and inconclusive experiments. No observed difference is not proof of irrelevance.
+
+Run focused tests with:
+python -m unittest discover -s tests -p 'test_counterfactual_analysis.py' -v
+
+See PROTOTYPE-21-RESULTS.md and Research Scenario 21.
