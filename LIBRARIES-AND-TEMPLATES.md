@@ -25,7 +25,7 @@ The proposal builds on the existing LLMLang concepts:
 - **Implementation Graph:** describes executable implementation details.
 - **Contracts and effects:** public interfaces should expose the guarantees and restrictions consumers need.
 - **Independent verification:** claims about compatibility and correctness must be checked by tools, not accepted merely because an LLM asserts them.
-- **Provenance and versioning:** consumers should be able to identify the exact package, template, and versions from which an object originated.
+- **Provenance and content addressing:** consumers should be able to identify the exact package, template, and immutable content hashes from which an object originated.
 
 This document proposes how libraries and templates might use those concepts; it does not establish that every detail is already part of the language.
 
@@ -123,7 +123,7 @@ This hash identifies canonical graph content, not arbitrary behavioral equivalen
 
 A package registry SHOULD store immutable content-addressed objects and manifests. Dependency resolution SHOULD produce a lock record containing exact Stable ID + Content Hash references for all resolved dependencies. Broad version ranges are not required for correctness or reproducibility.
 
-Semantic Versioning (SemVer) SHOULD NOT be required for package identity, dependency resolution, compatibility, or build reproducibility. A project MAY attach human-readable release labels (including SemVer) as optional metadata, but labels MUST NOT determine identity or override content hashes.
+Semantic version labels SHOULD NOT be required for package identity, dependency resolution, compatibility, or build reproducibility. A project MAY attach optional human-readable release labels as metadata, but labels MUST NOT determine identity or override content hashes.
 
 A content hash changes whenever the local canonical semantic content or a hash-relevant dependency changes. The change propagates recursively to dependents in the hash dependency DAG. Unchanged nodes and branches retain their hashes and can be deduplicated, cached, and reused.
 
@@ -239,7 +239,7 @@ The exact mechanism for representing these distinctions is an open design questi
 
 The proposed conceptual relationship is:
 
-- A **Package** is the distribution and versioning unit.
+- A **Package** is the distribution and content-addressing unit.
 - A **Library** is a reusable semantic component or package role.
 - A **Template** is a parameterized semantic construction mechanism.
 - A package may contain libraries and templates.
@@ -252,14 +252,14 @@ These are different responsibilities and should not be conflated. In particular,
 
 The library/template model should support a context-efficient workflow:
 
-1. The tooling provides a compact package catalog with names, versions, summaries, and public interface metadata.
+1. The tooling provides a compact package catalog with names, content hashes, summaries, and public interface metadata.
 2. The LLM identifies the relevant package or template without loading every implementation.
 3. The tooling retrieves only the required specification, contracts, parameters, and dependency metadata.
 4. The LLM proposes a template instantiation or library integration as structured semantic changes.
 5. The system validates types, dependencies, capabilities, preconditions, and graph invariants.
 6. A human reviews business-significant decisions and the semantic diff where approval is required.
-7. Accepted changes are committed with provenance and exact dependency versions.
-8. Independent verification checks the resulting program and records results against exact input versions.
+7. Accepted changes are committed with provenance and exact dependency Content Hash values.
+8. Independent verification checks the resulting program and records results against exact input Content Hash values.
 
 This follows the token-efficiency principle of retrieving the minimum relevant context, using stable references, and exchanging structured changes rather than repeatedly transmitting entire source documents.
 
@@ -292,7 +292,7 @@ Libraries and templates should carry machine-readable claims and, where availabl
 - reproducible build attestations;
 - artifact integrity and publisher signatures.
 
-Verification evidence must identify the exact Content Hash values of all relevant inputs. A result for one implementation or specification version must not automatically be treated as evidence for a different version.
+Verification evidence must identify the exact Content Hash values of all relevant inputs. A result for one implementation or specification Content Hash must not automatically be treated as evidence for a different version.
 
 The system should preserve distinctions such as PROVEN, DISPROVEN, UNKNOWN, and NOT_CHECKED where those statuses are used by the broader LLMLang verification model. An opaque implementation may support contract-level reasoning while leaving implementation-level properties unknown.
 
@@ -333,6 +333,6 @@ These are recommendations for discussion, not accepted project decisions.
 
 ## 14. Conclusion
 
-Libraries should let LLMLang programs reuse components through explicit, machine-readable contracts. Templates should let programs create new semantic structures through typed, validated instantiation. Packages should make these artifacts versionable, distributable, and reproducible.
+Libraries should let LLMLang programs reuse components through explicit, machine-readable contracts. Templates should let programs create new semantic structures through typed, validated instantiation. Packages should make these artifacts content-addressable, distributable, and reproducible.
 
 Together, these mechanisms can provide reuse without sacrificing the properties central to LLMLang: explicit semantics, stable identity, traceability, independent verification, and controlled change.
