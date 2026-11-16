@@ -101,9 +101,33 @@ Operation#transfer
 - вид и тип;
 - семантическое содержимое;
 - ссылки на связанные объекты;
-- версию;
+- Stable ID и Content Hash текущего неизменяемого состояния;
 - сведения о происхождении;
 - зависимости и обратные зависимости.
+
+### 3.2. Изменения как операции над объектами
+
+LLM должна преимущественно изменять конкретные объекты, а не заменять большие фрагменты текста.
+
+Пример:
+
+```text
+UPDATE Contract#transfer.preconditions:
+    ADD source.status == Active
+```
+
+Такая операция должна иметь однозначную семантику, проверяться на конфликт и оставлять историю изменения.
+
+### 3.3. Представления и сериализация
+
+Предусматриваются два основных представления:
+
+1. **Каноническое машинное представление** — структурированный и однозначный формат SPG. Возможна бинарная сериализация.
+2. **Человекочитаемое представление** — DSL для просмотра и редактирования объектов.
+
+JSON может использоваться как удобное промежуточное или отладочное представление, но не обязательно как наиболее компактный канонический формат.
+
+Текст не должен быть единственным источником истины: после разбора он превращается в SPG, а текстовые представления могут генерироваться из него.
 
 ### 3.4. Content-addressed identity and immutable states
 
@@ -139,30 +163,6 @@ SPG entities and states addressed by Content Hash are immutable. An edit creates
 An accepted project snapshot SHOULD be identified by a root hash (or a small set of layer-root hashes) that commits to the exact reachable semantic graph. Provenance, approvals, signatures, and timestamps SHOULD be linked to that snapshot but excluded from its semantic root hash unless they themselves are intentionally part of program semantics.
 
 This is content addressing, not a claim that equal hashes prove arbitrary behavioral equivalence. A hash proves identity of the canonical encoded graph under the selected cryptographic algorithm; correctness and compatibility still require independent verification.
-
-### 3.2. Изменения как операции над объектами
-
-LLM должна преимущественно изменять конкретные объекты, а не заменять большие фрагменты текста.
-
-Пример:
-
-```text
-UPDATE Contract#transfer.preconditions:
-    ADD source.status == Active
-```
-
-Такая операция должна иметь однозначную семантику, проверяться на конфликт и оставлять историю изменения.
-
-### 3.3. Представления и сериализация
-
-Предусматриваются два основных представления:
-
-1. **Каноническое машинное представление** — структурированный и однозначный формат SPG. Возможна бинарная сериализация.
-2. **Человекочитаемое представление** — DSL для просмотра и редактирования объектов.
-
-JSON может использоваться как удобное промежуточное или отладочное представление, но не обязательно как наиболее компактный канонический формат.
-
-Текст не должен быть единственным источником истины: после разбора он превращается в SPG, а текстовые представления могут генерироваться из него.
 
 ---
 
