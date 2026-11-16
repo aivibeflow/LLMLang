@@ -1,6 +1,6 @@
 # Dependency Graph Prototype 01
 
-Experimental content-addressed semantic dependency graph. Python 3.10+, standard library only.
+Experimental content-addressed semantic dependency graph. Python 3.10+, standard library only; Scenario 27's symbolic backend optionally requires a Z3 SMT-LIB executable.
 
 Run from this directory:
 
@@ -155,3 +155,19 @@ python -m unittest discover -s tests -p 'test_finite_relational_consistency.py' 
 ```
 
 See [Prototype 26 Results](PROTOTYPE-26-RESULTS.md) and [Research Scenario 26](../../RESEARCH-SCENARIO-26-MINIMAL-FORMAL-SEMANTIC-CORE.md). This is not an SMT solver, arbitrary-source verifier, or machine-checked proof of the evaluator.
+
+
+## Symbolic relational verification (Scenario 27)
+
+src/symbolic_relational.py encodes two executions into SMT-LIB 2. For one selected input factor, the two copies receive independent values while all other inputs are shared. SAT produces a witness pair; UNSAT proves independence within the supported encoding; UNKNOWN, timeout, unsupported syntax, or missing solver never count as independence.
+
+Supported fragment: Int/Bool/String, arithmetic and Boolean expressions, pure non-recursive calls, conditionals, explicit initialized locals/state, and a final top-level return. The default solver command is z3 -in -smt2. No Python Z3 package is required.
+
+Run focused tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_symbolic_relational.py' -v
+python -m unittest discover -s tests -p 'test_symbolic_finite_differential.py' -v
+```
+
+The finite-differential and real-solver integration tests are skipped when the Z3 executable is unavailable. See Prototype 27 Results and Research Scenario 27. This is not yet a full source verifier or independently checked proof system.
