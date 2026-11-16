@@ -24,9 +24,13 @@ Implemented:
 - immutable snapshot roots and parent references;
 - three-way snapshot merge for disjoint edits and explicit same-key conflicts;
 - separate context-scoped relation storage for provenance/traceability;
-- dependency-closure digest and verification-key construction.
+- dependency-closure digest and verification-key construction;
+- deterministic disk serialization and reload;
+- schema-version and document-checksum validation;
+- atomic file replacement;
+- cross-process hash and snapshot-root reproducibility tests.
 
-The prototype deliberately has no parser, compiler, persistence backend, LLM integration, proof engine, authorization system, or production-grade transaction protocol.
+The prototype deliberately has no parser, compiler, persistence database, LLM integration, proof engine, authorization system, or production-grade transaction protocol.
 
 ## 3. Experiment: 100 Callers, Three Migrations
 
@@ -67,7 +71,6 @@ The selective migration works exactly as hypothesized.
 No caller identity record is needed to preserve the old and new caller versions. The snapshot selects the intended version for each caller key. Old immutable values remain available and are not rewritten.
 
 A key distinction emerged during implementation:
-
 - The global content store retains all historical values. Its reverse dependency query therefore finds all 100 old callers still depending on H0.
 - The candidate snapshot selects only 97 of those old callers. Its active dependency query therefore finds 97 callers on H0 and three on H1.
 
@@ -81,23 +84,56 @@ The implementation was corrected:
 - SemanticValue stores only hash-relevant dependencies.
 - RelationStore stores non-semantic relations separately and scopes them to a project/context.
 
-This is not merely an implementation detail. It demonstrates why provenance, lineage, ownership, and traceability must not be embedded in a deduplicated semantic value unless they truly affect its semantics.
+This demonstrates why provenance, lineage, ownership, and traceability must not be embedded in a deduplicated semantic value unless they truly affect its semantics.
 
-## 5. Automated Tests
+## 5. Persistence Experiment
 
-**Result: 10 tests passed.**
+### 5.1 Format
 
-Coverage:
-1. Three out of 100 callers change; 97 remain unchanged.
-2. Identical semantic values deduplicate.
-3. Different project provenance does not change semantic value identity.
-4. Reading a stored payload cannot mutate the stored value.
-5. Changing a hash-relevant dependency changes the dependent hash.
-6. Rebuilding a dependency chain produces new hashes at each changed level.
-7. Reverse transitive dependency traversal.
-8. Disjoint snapshot edits merge.
-9. Conflicting edits to the same selection key are reported.
-10. Verification keys change when dependency closure or verifier identity changes.
+The persisted document is deterministic JSON with:
+- a format identifier;
+- an explicit schema version;
+- all immutable semantic values and their hash-relevant dependencies;
+- context-scoped relations;
+- immutable snapshots, selections, and parent roots;
+- a SHA-256 checksum over the complete payload.
+
+Values are emitted in hash order, relations in tuple order, and snapshots in root-hash order. The serializer uses the same canonical JSON encoding as the prototype's hash function.
+
+### 5.2 Reload validation
+
+Loading reconstructs semantic values through the ordinary ContentStore insertion path. It therefore recomputes each semantic value hash rather than trusting the serialized hash field.
+
+The loader also checks:
+- document checksum;
+- format identifier and supported schema version;
+- dependency availability and acyclic reconstruction order;
+- every recomputed semantic value hash;
+- every snapshot root hash;
+- that every selected value exists in the reconstructed store.
+
+Missing dependencies and dependency cycles are rejected. Unknown schema versions are rejected rather than guessed or silently upgraded.
+
+File writes use a temporary file in the destination directory, flush and fsync it, then atomically replace the destination. This protects readers from observing a partially written file on filesystems that provide atomic same-filesystem replacement. It is not a multi-writer transaction protocol.
+
+### 5.3 Results
+
+Automated tests verify:
+1. semantic hashes survive save/reload;
+2. snapshot roots survive save/reload;
+3. closure digests survive save/reload;
+4. provenance relations survive save/reload;
+5. serialization is byte-for-byte deterministic for equivalent stores built in different insertion orders;
+6. checksum validation detects payload tampering;
+7. unsupported schema versions are rejected;
+8. snapshots referencing absent values are rejected;
+9. a separate Python process reloads the file and obtains identical value hashes, closure digest, and snapshot root.
+
+The cross-process test uses a fresh interpreter process. It is a practical reproducibility check on the same runtime/platform, not yet a cross-Python-version or cross-platform canonicalization guarantee.
+
+## 6. Automated Tests
+
+The original 10 semantic graph tests remain, with 7 persistence tests added.
 
 Run locally:
 
@@ -107,9 +143,9 @@ python -m unittest discover -s tests -v
 python -m src.semantic_graph
 ```
 
-## 6. What the Prototype Demonstrates
+## 7. What the Prototype Demonstrates
 
-Supported by this experiment:
+Supported by these experiments:
 - selective caller migration does not require mandatory Occurrence identity;
 - immutable old and new function values can coexist;
 - exact callee references make changed caller values hash differently;
@@ -117,11 +153,13 @@ Supported by this experiment:
 - snapshot selection distinguishes active versions from historical values;
 - provenance can vary independently of semantic value identity;
 - direct dependency changes propagate through rebuilt dependent values;
-- snapshot merges can combine disjoint selection changes and report same-key conflicts.
+- snapshot merges can combine disjoint selection changes and report same-key conflicts;
+- graph values and snapshots can be serialized and reloaded without changing their hashes in the tested environment;
+- corruption, unsupported schema versions, and missing selected values are rejected.
 
-## 7. What It Does Not Demonstrate
+## 8. What It Does Not Demonstrate
 
-The prototype is intentionally small. It does not prove:
+The prototype does not prove:
 - that a real language frontend can extract a complete dependency graph;
 - that dynamic dispatch, overload resolution, effects, or external bindings are modeled correctly;
 - that business impact analysis can infer which three callers ought to change;
@@ -129,39 +167,41 @@ The prototype is intentionally small. It does not prove:
 - that recursive dependency cycles can be canonically hashed;
 - that the in-memory merge algorithm is sufficient for concurrent distributed updates;
 - that verification evidence is sound or reusable in a real proof system;
-- that storage, indexing, or hashing performance is acceptable at scale.
+- that storage, indexing, or hashing performance is acceptable at scale;
+- that the file format is stable across future schema versions, runtimes, or platforms.
 
 The three changed callers are supplied explicitly by the experiment. The graph does not infer business intent from reachability. That remains a separate requirement/context analysis problem.
 
-## 8. Limitations and Known Simplifications
+## 9. Limitations and Known Simplifications
 
 1. **Canonical form:** JSON is only a convenient prototype encoding. LLMLang still needs a canonical semantic IR and explicit language-version/domain separation.
-2. **Cycles:** dependencies must point to already stored values. Recursive SCC/group hashing is not implemented.
+2. **Cycles:** semantic values must be reconstructible from already available dependencies. Recursive SCC/group hashing is not implemented.
 3. **Dependency roles:** the prototype records relation and role but does not yet define a full relation taxonomy or dispatch semantics.
 4. **Snapshot merge:** three-way merge is keyed by logical selection names; it does not validate ancestry, read/write sets, semantic invariants, or authority.
-5. **RelationStore:** context-scoped relations are in-memory and minimally modeled.
-6. **Verification:** only key construction is tested; no proof is run.
-7. **Persistence:** no disk/database storage, garbage collection, indexing, or concurrent writes.
-8. **Security:** hashes are integrity identifiers, not authorization controls.
+5. **RelationStore:** context-scoped relations are minimally modeled and currently persisted through a private in-memory collection.
+6. **Persistence format:** version 1 is a prototype interchange format. There is no migration framework, locking, concurrent writer coordination, database indexing, garbage collection, or recovery journal.
+7. **Atomicity:** atomic replacement protects a single file from partial replacement where supported; it does not provide compare-and-swap or multi-process transaction isolation.
+8. **Verification:** only key construction is tested; no proof is run.
+9. **Security:** hashes detect accidental or deliberate content changes only when the expected checksum/root is trusted. They are not signatures, authorization controls, or proof of origin.
 
-## 9. Next Experiments
+## 10. Next Experiments
 
 Recommended order:
 
-1. Add a real graph serializer and reload snapshots from disk; verify deterministic hashes across processes.
-2. Model interface hashes separately from implementation hashes and add binding snapshots.
-3. Add requirement-to-value traceability with split/merge scenarios; prove that provenance changes do not rehash semantic values.
-4. Add a dependency impact report that distinguishes historical dependents, active dependents, and potentially affected values.
-5. Add concurrent proposal preconditions and stale-root rejection.
-6. Define recursive-group hashing for mutually recursive definitions.
-7. Benchmark hashing, reverse-index construction, and snapshot diff on larger synthetic graphs.
+1. Model interface hashes separately from implementation hashes and add binding snapshots.
+2. Add requirement-to-value traceability with split/merge scenarios; prove that provenance changes do not rehash semantic values.
+3. Add a dependency impact report that distinguishes historical dependents, active dependents, and potentially affected values.
+4. Add concurrent proposal preconditions and stale-root rejection.
+5. Define recursive-group hashing for mutually recursive definitions.
+6. Benchmark hashing, reverse-index construction, snapshot diff, serialization, and reload on larger synthetic graphs.
+7. Define whether a persistent store should be append-only object files, a transactional database, or a content-addressed filesystem layout.
 
-## 10. Conclusion
+## 11. Conclusion
 
-The core hypothesis passes its first executable test.
+The initial 100-caller hypothesis passed its first executable test: 97 old callers can remain unchanged while three move to a new callee value.
 
-For the 100-caller scenario, content-addressed semantic values plus exact dependency references and immutable snapshots are sufficient to preserve 97 old callers while migrating three callers to a new function value. A mandatory Occurrence layer adds no value to this scenario.
+The persistence extension adds a second positive result: in the tested environment, graph values, snapshots, closure digests, and context relations survive deterministic serialization and reload, including reload from a fresh Python process. The loader rejects tested corruption and unsupported schema versions rather than accepting unverified state.
 
-The experiment also reveals an important modeling rule: **the historical value store, the selected snapshot, and the non-semantic provenance graph must remain distinct.**
+The experiment also reinforces a key separation: **the historical value store, the selected snapshot, and the non-semantic provenance graph must remain distinct.**
 
-This is evidence for continuing with a dependency-driven prototype, not a final decision to remove every form of stable identity from LLMLang.
+These results justify continuing the prototype. They do not establish a final LLMLang identity model, a stable storage format, or a production persistence architecture.
