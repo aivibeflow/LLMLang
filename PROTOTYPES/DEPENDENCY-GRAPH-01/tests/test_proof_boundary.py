@@ -1,5 +1,5 @@
 import unittest,hashlib
-from src.formal_core import Const,Program,Return,Binary,Var,UnsupportedConstruct
+from src.formal_core import Const,Program,Return,Binary,State,Var,UnsupportedConstruct
 from src.typed_ir import validate_program,analyze_typed_symbolically
 from src.proof_boundary import SolverIdentity,ProofCheckReceipt,create_evidence_record,validate_counterexample
 class ProofBoundaryTests(unittest.TestCase):
