@@ -86,15 +86,20 @@ def create_evidence_record(typed:TypedProgram,smt_query:str,solver:SolverIdentit
 def validate_counterexample(typed:TypedProgram,factor:str,left:Mapping[str,Any],right:Mapping[str,Any],
                             initial_state:Mapping[str,Any],input_types:Mapping[str,str],
                             initial_locals:Mapping[str,Any]|None=None)->str:
-    """Replay a SAT model; only a real pair of differing observations is confirmed."""
+    """Replay only against the exact initial state/local environment bound into the typed IR."""
     expected_state=tuple(sorted((k,{"Int":"int","Bool":"bool","String":"str"}[t]) for k,t in typed.initial_state_types))
     actual_state=tuple(sorted((k,type(v).__name__) for k,v in initial_state.items()))
     locals_=dict(initial_locals or {})
-    expected_locals=typed.initial_locals_types
+    expected_locals=tuple(sorted((k,{"Int":"int","Bool":"bool","String":"str"}[t]) for k,t in typed.initial_locals_types))
     actual_locals=tuple(sorted((k,type(v).__name__) for k,v in locals_.items()))
-    expected_local_names=tuple(sorted((k,{"Int":"int","Bool":"bool","String":"str"}[t]) for k,t in expected_locals))
     if (tuple(sorted(input_types.items()))!=typed.input_types or actual_state!=expected_state or
-        actual_locals!=expected_local_names):
+        actual_locals!=expected_locals):
+        return "COUNTEREXAMPLE_REJECTED"
+    # Matching types are insufficient: replay must use the exact values encoded in the
+    # typed IR, otherwise the candidate may witness a different program configuration.
+    if canonical_digest(dict(initial_state))!=typed.initial_state_digest:
+        return "COUNTEREXAMPLE_REJECTED"
+    if canonical_digest(locals_)!=typed.initial_locals_digest:
         return "COUNTEREXAMPLE_REJECTED"
     if factor not in input_types or set(left)!=set(input_types) or set(right)!=set(input_types):
         return "COUNTEREXAMPLE_REJECTED"

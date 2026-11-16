@@ -40,4 +40,12 @@ class ProofBoundaryTests(unittest.TestCase):
   self.assertEqual(validate_counterexample(t,"x",{"x":1},{"x":2},{},{"x":"Int"},{"base":10}),"COUNTEREXAMPLE_CONFIRMED_BY_REFERENCE_EVALUATOR")
  def test_toolchain_hashes_required(self):
   with self.assertRaises(ValueError): create_evidence_record(self.typed,self.query,self.solver,"unsat","bad","d"*64)
+ def test_counterexample_rejects_different_initial_state_values(self):
+  p=Program((Return(Binary("add",Var("x"),State("offset"))),))
+  t=validate_program(p,{"x":"Int"},{"offset":7},["offset"])
+  self.assertEqual(validate_counterexample(t,"x",{"x":1},{"x":2},{"offset":99},{"x":"Int"}),"COUNTEREXAMPLE_REJECTED")
+ def test_counterexample_rejects_different_initial_local_values(self):
+  p=Program((Return(Binary("add",Var("x"),Var("base"))),))
+  t=validate_program(p,{"x":"Int"},initial_locals={"base":10})
+  self.assertEqual(validate_counterexample(t,"x",{"x":1},{"x":2},{},{"x":"Int"},{"base":99}),"COUNTEREXAMPLE_REJECTED")
 if __name__=="__main__": unittest.main()

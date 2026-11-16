@@ -8,15 +8,15 @@
 - `tests/test_typed_ir.py`
 - `tests/test_proof_boundary.py`
 
-The typed validator accepts only the restricted Scenario 27 fragment and creates a canonical digest that includes the observation boundary. Evidence records additionally require SHA-256 identities for both validator and encoder source builds. The typed entry point validates before invoking the symbolic backend. The evidence envelope pins the typed IR, semantic/validator/encoder/observation versions and source digests, exact SMT query, solver identity/configuration, result, and optional proof-checker receipt. A supplied receipt remains unauthenticated and cannot be promoted to a checked-proof status.
+The typed validator accepts only the restricted Scenario 27 fragment and creates a canonical digest that includes the observation boundary and exact initial state/local values. The typed entry point validates before invoking the symbolic backend. The evidence envelope pins the typed IR, semantic/validator/encoder/observation versions and source digests, exact SMT query, solver identity/configuration, result, and optional proof-checker receipt. A supplied receipt remains unauthenticated and cannot be promoted to a checked-proof status.
 
-SAT witnesses can be replayed against the Scenario 26 evaluator. UNSAT without an independent proof-checker receipt is explicitly labelled `SOLVER_REPORTED_UNSAT_UNCHECKED`, not a checked proof. The receipt class is only a prototype data contract and is not authenticated or produced by an actual checker.
+SAT witnesses are replayed against the Scenario 26 evaluator. Replay now requires exact equality of initial state and local-variable values with the environment committed in the typed IR; matching types alone are insufficient. Regression tests reject witnesses replayed against a different initial state or local environment. UNSAT without an independent proof-checker receipt is explicitly labelled `SOLVER_REPORTED_UNSAT_UNCHECKED`, not a checked proof. The receipt class is only a prototype data contract and is not authenticated or produced by an actual checker.
 
 ## Local test run
 
 ```
 python -m unittest discover -s tests -v
-Ran 22 tests
+Ran 24 tests
 OK
 python -m compileall -q src tests
 Passed

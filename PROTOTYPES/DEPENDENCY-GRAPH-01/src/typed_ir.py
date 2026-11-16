@@ -20,11 +20,15 @@ class TypedProgram:
     semantics_version: str
     validator_version: str
     ir_digest: str
+    initial_state_digest: str
+    initial_locals_digest: str
     def manifest(self) -> dict[str, Any]:
         return {"ir_digest":self.ir_digest,"semantics_version":self.semantics_version,
                 "validator_version":self.validator_version,"input_types":self.input_types,
                 "initial_state_types":self.initial_state_types,"initial_locals_types":self.initial_locals_types,
-                "observable_state":self.observable_state,"return_type":self.return_type}
+                "observable_state":self.observable_state,"return_type":self.return_type,
+                "initial_state_digest":self.initial_state_digest,
+                "initial_locals_digest":self.initial_locals_digest}
 
 def _canonical(value: Any):
     if value is None or type(value) in (bool,int,str): return value
@@ -119,7 +123,7 @@ def validate_program(program: Program, input_types: Mapping[str,str],
                "initial_state":state,"initial_locals":locals_,"observable_state":visible}
     return TypedProgram(program,tuple(sorted(input_types.items())),tuple(sorted(state_types.items())),
         tuple(sorted((n,literal_sort(v)) for n,v in locals_.items())),visible,return_type,
-        SEMANTICS_VERSION,VALIDATOR_VERSION,_digest(canonical))
+        SEMANTICS_VERSION,VALIDATOR_VERSION,_digest(canonical),_digest(state),_digest(locals_))
 
 def analyze_typed_symbolically(program: Program, input_types: Mapping[str,str],
                                initial_state: Mapping[str,Any]|None=None,
