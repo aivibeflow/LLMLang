@@ -4,7 +4,7 @@
 **Version:** 0.1  
 **Target:** LLMLang  
 **Document:** `RFC-REQUEST-CHANGE.md`  
-**Scope:** Development workflow, change proposals, human review, versioning, and traceability  
+**Scope:** Development workflow, change proposals, human review, content addressing, and traceability  
 **Normative language:** The words MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY express requirements of this RFC when written in uppercase.
 
 > This RFC proposes a workflow and object model. It does not claim that the proposed objects, states, APIs, or policies are already implemented or accepted by the LLMLang project.
@@ -13,7 +13,7 @@
 
 ## 1. Summary
 
-This RFC defines how a person expresses a development request, how LLMLang turns that request into reviewable business semantics, and how proposed changes move safely from intent to accepted program versions.
+This RFC defines how a person expresses a development request, how LLMLang turns that request into reviewable business semantics, and how proposed changes move safely from intent to accepted program snapshots.
 
 The central proposal is:
 
@@ -21,7 +21,7 @@ The central proposal is:
 - A **Change** is a reviewable proposal to alter one or more semantic objects in the Semantic Program Graph (SPG).
 - A **Change Set** groups related changes into a unit that can be validated, reviewed, accepted, and committed consistently.
 - The **Specification Graph** is the authoritative structured representation of confirmed requirements and business rules.
-- Design and implementation changes are derived from, and traceable to, the accepted specification, while remaining independently versioned graph layers.
+- Design and implementation changes are derived from, and traceable to, the accepted specification, while remaining independently content-addressed graph layers.
 - LLMs propose and explain changes. They do not silently approve business meaning or certify their own correctness.
 - Deterministic validators and verification tools independently check structural and semantic constraints.
 - Human-readable business views and semantic diffs are first-class interfaces, not incidental renderings of source code.
@@ -78,7 +78,7 @@ The model MUST:
 - preserve the original request separately from its interpretation;
 - prevent assumptions from silently becoming confirmed business requirements;
 - make business rules understandable and reviewable without reading implementation code;
-- represent proposed changes as structured, addressable, versioned objects;
+- represent proposed changes as structured, addressable, content-addressed objects;
 - show what changes semantically, why it changes, and what may be affected;
 - support independent review, explicit approval, rejection, revision, and cancellation;
 - preserve a complete history of decisions and accepted changes;
@@ -126,7 +126,7 @@ It MUST preserve:
 - the answer or explicit lack of answer;
 - the author or source;
 - the timestamp or logical sequence;
-- the Request version to which it applies;
+- the exact Request Content Hash to which it applies;
 - whether the answer is confirmed, tentative, or withdrawn.
 
 A clarification answer does not automatically become a requirement. It becomes a confirmed decision only through an explicit classification or approval step.
@@ -177,11 +177,11 @@ A Change Set defines:
 
 A Change Set is the default unit of review and atomic acceptance. A project MAY support explicitly declared multi-Change-Set workflows, but partial acceptance MUST never happen implicitly.
 
-### 4.6 Accepted Version
+### 4.6 Accepted Snapshot
 
-An Accepted Version is a consistent snapshot of the applicable SPG layers after an accepted Change Set has been committed.
+An Accepted Snapshot is a consistent immutable snapshot of the applicable SPG layers after an accepted Change Set has been committed. It is addressed by a root Content Hash or an explicit tuple of layer-root hashes.
 
-The Specification, Design, and Implementation layers may have independent version identifiers, but an accepted project snapshot MUST record the exact compatible version tuple and graph revision from which it was produced.
+The Specification, Design, and Implementation layers may have independent version identifiers, but an accepted project snapshot MUST record the exact compatible version tuple and graph root hash from which it was produced.
 
 ### 4.7 Separation of responsibilities
 
@@ -192,7 +192,7 @@ The Specification, Design, and Implementation layers may have independent versio
 | Decision | Which interpretation was selected, and by whom? | LLM inference |
 | Change | What semantic mutation is proposed? | Accepted mutation |
 | Change Set | Which mutations are reviewed and committed together? | Arbitrary file diff |
-| Accepted Version | What exact state is authoritative? | A working proposal |
+| Accepted Snapshot | What exact state is authoritative? | A working proposal |
 
 ## 5. Information Classes: Intent, Facts, Assumptions, and Unknowns
 
@@ -353,7 +353,7 @@ The reviewer can:
 - split the proposal into separate Change Sets;
 - explicitly narrow or broaden scope.
 
-Approval applies to the exact reviewed proposal version and baseline. Any semantic change after approval invalidates that approval.
+Approval applies to the exact reviewed proposal hash and baseline snapshot hash. Any semantic change after approval changes the proposal hash and invalidates that approval.
 
 ### 6.6 Design and implementation
 
@@ -367,7 +367,7 @@ Implementation changes that preserve externally observable behavior MAY use a li
 
 Validators and test systems run against exact graph revisions. The system returns structured, localized feedback rather than resending full source or full reports to the LLM.
 
-A repair is a new Change revision or a new Change within the same uncommitted Change Set. It MUST preserve the history of the rejected or failed proposal.
+A repair creates a new Change content hash or a new Change within the same uncommitted Change Set. It MUST preserve the history of the rejected or failed proposal.
 
 Verification status MUST be attached to the exact inputs and tool/configuration versions used. Results MUST be marked stale if any relevant input changes.
 
@@ -381,9 +381,9 @@ Before commit, the system checks:
 - all references and dependencies are valid;
 - the Change Set baseline is still current or has been safely rebased;
 - required tests and evidence are linked;
-- the proposed accepted version is internally consistent.
+- the proposed accepted snapshot is internally consistent.
 
-A commit creates a new immutable accepted snapshot. It does not erase the Request, proposal history, rejected alternatives, or prior accepted versions.
+A commit creates a new immutable accepted snapshot. It does not erase the Request, proposal history, rejected alternatives, or prior accepted snapshots.
 
 ## 7. Human-Readable Business Logic
 
@@ -458,7 +458,7 @@ Every persistent workflow object SHOULD expose a common metadata envelope:
 ObjectMetadata:
     id: StableId
     kind: ObjectKind
-    version: VersionId
+    content_hash: ContentHash
     created_at: LogicalTimestamp
     created_by: ActorRef
     updated_at: LogicalTimestamp
@@ -466,14 +466,14 @@ ObjectMetadata:
     lifecycle_state: State
 ```
 
-Stable IDs identify logical objects across versions. Versions identify immutable revisions of those objects. A version MUST NOT be overwritten in place.
+Stable IDs identify logical objects. Content Hashes identify immutable canonical states of those objects. A content-addressed state MUST NOT be overwritten in place; a semantic edit creates a new hash while retaining the Stable ID.
 
 ### 8.2 Request
 
 ```text
 Request:
     id: RequestId
-    version: RequestVersion
+    content_hash: ContentHash
     title: Text
     original_intent: SourceText
     scope: ScopeRef[]
@@ -496,7 +496,7 @@ The original intent MUST be preserved. A normalized summary MAY be added but MUS
 ```text
 Clarification:
     id: ClarificationId
-    request: RequestVersionRef
+    request: ObjectStateRef
     question: Text
     answer: Text?
     asked_by: ActorRef
@@ -527,10 +527,10 @@ Decision:
 ```text
 Change:
     id: ChangeId
-    version: ChangeVersion
+    content_hash: ContentHash
     request: RequestRef
     decisions: DecisionRef[]
-    target_baseline: GraphRevision
+    target_baseline: SnapshotHash
     operations: GraphOperation[]
     intent_summary: Text
     semantic_effect: Text
@@ -549,10 +549,10 @@ A Change SHOULD be small enough to explain as one coherent semantic intention. I
 ```text
 ChangeSet:
     id: ChangeSetId
-    version: ChangeSetVersion
+    proposal_hash: ContentHash
     request_refs: RequestRef[]
-    baseline: AcceptedSnapshotRef
-    members: ChangeVersionRef[]
+    baseline: SnapshotHash
+    members: ObjectStateRef[]
     ordering_constraints: DependencyEdge[]
     validation_summary: ValidationSummary
     review_package: ReviewPackageRef
@@ -560,7 +560,7 @@ ChangeSet:
     approvals: ApprovalRef[]
     conflicts: ConflictRef[]
     lifecycle_state: ChangeSetState
-    resulting_snapshot: AcceptedSnapshotRef?
+    resulting_snapshot: SnapshotHash?
 ```
 
 A Change Set MAY contain multiple Requests when a person or authorized workflow explicitly groups related work. This MUST be visible in the review package. The default is one primary Request per Change Set.
@@ -570,12 +570,12 @@ A Change Set MAY contain multiple Requests when a person or authorized workflow 
 ```text
 Approval:
     id: ApprovalId
-    subject: ChangeSetVersionRef
+    subject: ChangeSetRef
     reviewer: ActorRef
     decision: approved | rejected | changes_requested
     scope: ApprovalScope
-    baseline: GraphRevision
-    reviewed_digest: ContentDigest
+    baseline: SnapshotHash
+    reviewed_proposal_hash: ContentHash
     comment: Text?
     timestamp: LogicalTimestamp
 ```
@@ -590,17 +590,17 @@ Provenance SHOULD support links such as:
 Origin:
     source_request: RequestRef
     source_decisions: DecisionRef[]
-    source_change: ChangeRef?
+    source_change: ObjectStateRef?
     actor: ActorRef
     actor_kind: human | llm | tool | system
     model_or_tool: Identifier?
-    prompt_context_digest: Digest?
+    prompt_context_digest: ContentHash?
     timestamp: LogicalTimestamp
 ```
 
 Sensitive prompt contents and credentials MUST NOT be copied into provenance records. A context digest and safe references are preferable to duplicating full prompts.
 
-## 9. Stable Identity and Versioning
+## 9. Stable Identity and Content Addressing
 
 ### 9.1 Identity
 
@@ -608,32 +608,51 @@ IDs MUST be stable, globally unique within the relevant project namespace, and i
 
 Renaming an object MUST NOT change its ID. Moving an object between modules MUST NOT change its ID unless the move changes its semantic identity.
 
-The exact ID encoding is an open implementation decision. Human-readable prefixes such as `REQ-`, `CHG-`, and `CS-` MAY be used as display identifiers, but identity MUST NOT depend on the prefix format.
+The exact Stable ID encoding is an open implementation decision. Human-readable prefixes such as `REQ-`, `CHG-`, and `CS-` MAY be used as display identifiers, but identity MUST NOT depend on the prefix format. Content Hashes are separate immutable state identifiers and MUST NOT replace Stable IDs.
 
-### 9.2 Object versions
+### 9.2 Content-addressed object states
 
-Each modification creates a new immutable object version. A reference MUST specify whether it refers to:
-- a logical object (latest version resolved under an explicit context); or
-- an exact immutable version.
+Each semantic SPG node SHOULD have its own Content Hash, including fine-grained entities such as types, operations, expressions, contracts, effects, tests, and proofs. Hashing only whole modules or packages is insufficient for precise incremental reuse and invalidation.
 
-Approval, verification, and commit records MUST refer to exact versions or exact content digests.
+A node hash SHOULD be computed from a deterministic canonical encoding of:
+- a domain separator and node kind;
+- the node's canonical semantic content;
+- its sorted, typed hash-relevant outgoing edges, each referencing the target node's exact Content Hash.
 
-### 9.3 Graph revisions and accepted snapshots
+This forms a Merkle DAG over the hash dependency relation. A change to a leaf changes the hashes of its transitive dependents only along hash-relevant edges. Unchanged branches retain their hashes.
 
-The project SHOULD maintain a graph revision for each coherent working state and an accepted snapshot for each committed state.
+Canonical serialization MUST exclude presentation-only metadata (display names, source locations, whitespace, timestamps, authorship, and provenance) unless a field is explicitly semantic. The hash is not a proof of behavioral equivalence; it identifies canonical graph content. Hash algorithm identifiers MUST be included in digest representations; SHA-256 is a reasonable initial choice, with algorithm agility.
 
-An accepted snapshot SHOULD identify the exact revisions of:
+Hash dependencies MUST be acyclic. Cycles in other SPG relations are allowed only if those relations are excluded from recursive hashing or handled through a separately specified canonical group object.
+
+Specification, Design, and Implementation dependencies MUST be distinguished. An interface-only consumer hashes the provider's Specification state, not its private Implementation state. A consumer that explicitly depends on implementation details hashes the corresponding Implementation state. Build artifact hashes additionally include the relevant compiler/toolchain, build configuration, and target environment.
+
+Mutable labels such as `latest`, branch names, and SemVer release labels are discovery conveniences only. They MUST NOT identify an immutable state, satisfy a dependency lock, or be used as verification inputs.
+
+### 9.3 Graph root hashes and accepted snapshots
+
+Each semantic object MUST retain a Stable ID and expose an immutable Content Hash for every state. References MUST distinguish:
+- a logical Stable ID, resolved only within an explicit snapshot/context; or
+- an exact immutable state reference containing both Stable ID and Content Hash.
+
+Approval, verification, and commit records MUST refer to exact Content Hash values. Mutable labels such as `latest`, branch names, or release tags MUST NOT be accepted as proof inputs.
+
+### 9.3 Graph root hashes and accepted snapshots
+
+The project SHOULD identify each coherent graph state by a root Content Hash (or a tuple of layer-root hashes) and each committed state by an immutable accepted snapshot hash.
+
+An accepted snapshot SHOULD commit to the exact roots of:
 - Specification Graph;
 - Design Graph;
 - Implementation Graph;
 - linked tests and verification artifacts;
-- relevant language/schema/toolchain versions.
+- relevant schema and semantic configuration objects.
 
-The layers may advance independently during work, but an accepted snapshot MUST state which versions are mutually consistent.
+Compiler, verifier, runtime, and schema/toolchain releases MAY retain explicit tool versions where their identity is not itself represented as a content hash. The snapshot MUST state the exact mutually consistent layer roots and relevant tool identities.
 
 ### 9.4 No destructive history edits
 
-Accepted history, Request originals, Decisions, approvals, and committed snapshots MUST be immutable. Corrections are represented by new versions or superseding records.
+Accepted history, Request originals, Decisions, approvals, and committed snapshots MUST be immutable. Corrections are represented by new content-addressed states or superseding records.
 
 ## 10. Lifecycle State Machines
 
@@ -698,7 +717,7 @@ Suggested Change states:
 - `committed`: included in an accepted snapshot;
 - `withdrawn`: intentionally abandoned before commit.
 
-A new semantic edit to an approved Change creates a new Change version and invalidates the prior approval.
+A new semantic edit to an approved Change creates a new Change content hash and invalidates the prior approval.
 
 ### 10.3 Change Set lifecycle
 
@@ -764,7 +783,7 @@ DeprecateRequirement(
 )
 ```
 
-Operations MUST declare their target version or baseline. Preconditions MUST be checked before applying them.
+Operations MUST declare their target Stable ID + Content Hash or baseline snapshot hash. Preconditions MUST be checked before applying them.
 
 ### 11.2 Semantic diff
 
@@ -863,7 +882,7 @@ An LLM MUST NOT:
 
 ### 13.1 Proposal isolation
 
-Uncommitted Changes MUST be isolated from the accepted snapshot. They MAY be visible in a working branch or proposal workspace but MUST NOT silently alter the accepted version.
+Uncommitted Changes MUST be isolated from the accepted snapshot. They MAY be visible in a working branch or proposal workspace but MUST NOT silently alter the accepted snapshot.
 
 ### 13.2 Atomic acceptance
 
@@ -886,10 +905,10 @@ A proposed commit protocol is:
 
 **Phase B — Commit**
 1. Atomically compare-and-swap the expected baseline.
-2. Persist all graph revisions and the accepted snapshot.
+2. Persist all immutable graph objects and the accepted snapshot root hash.
 3. Record the commit event and provenance.
 4. Mark included Changes and Change Set as committed.
-5. Publish the new accepted version.
+5. Publish the new accepted snapshot.
 
 If the baseline changes between prepare and commit, the operation MUST fail with a conflict and require rebase or renewed validation.
 
@@ -946,7 +965,7 @@ When a conflict affects business meaning, a human decision is required. The syst
 - behavioral consequences of each resolution;
 - the proposed merged alternative, if any.
 
-Resolution creates new Change versions. It MUST NOT silently rewrite either original proposal.
+Resolution creates new content-addressed Change states. It MUST NOT silently rewrite either original proposal.
 
 ## 15. Dependency Analysis and Verification Invalidation
 
@@ -976,10 +995,10 @@ Impact analysis MUST distinguish definite dependencies from heuristic suggestion
 
 ### 15.3 Verification freshness
 
-A verification result is valid only for the exact semantic inputs and relevant tool configuration against which it was produced.
+A verification result is valid only for the exact semantic input Content Hash values and relevant tool/configuration identities against which it was produced.
 
 A result SHOULD record:
-- subject object versions;
+- subject object Content Hash values;
 - dependency digest;
 - verifier/test tool and version;
 - configuration;
@@ -1056,12 +1075,12 @@ The system SHOULD maintain an append-only audit trail for:
 - conflicts and resolutions;
 - commit, withdrawal, and rollback proposals.
 
-Each event SHOULD include actor, timestamp or sequence, affected object versions, and causal references.
+Each event SHOULD include actor, timestamp or sequence, affected object Content Hash values, and causal references.
 
 The system MUST distinguish human, LLM, tool, and system actors. Model identity and relevant tool versions SHOULD be recorded where available, without storing secrets or unnecessary sensitive prompt content.
 
 Reproducibility requires retaining or identifying:
-- exact graph revisions;
+- exact graph root hashes;
 - schema/language version;
 - compiler and verifier versions;
 - relevant configurations;
@@ -1077,12 +1096,12 @@ This RFC adopts the principles in `TOKEN_EFFICIENCY.md`.
 For each LLM operation, context assembly SHOULD include:
 - the Request summary and only relevant original excerpts;
 - confirmed Decisions and unresolved questions relevant to the task;
-- the target Change and baseline object versions;
+- the target Change and baseline object Content Hash values;
 - the minimal dependency subgraph;
 - applicable policies and invariants;
 - only diagnostics that are new or still unresolved.
 
-The model MUST be able to request additional context when needed. The system SHOULD record which context references and versions were supplied.
+The model MUST be able to request additional context when needed. The system SHOULD record which context references and exact Content Hash values were supplied.
 
 ### 19.2 Structured patches
 
@@ -1096,7 +1115,7 @@ Validators SHOULD return stable diagnostic identifiers, affected object IDs, con
 
 ### 19.4 Context cache safety
 
-Cached context and analysis results MUST be keyed by exact object versions or content digests. A cache hit MUST NOT be used if any relevant dependency or policy has changed.
+Cached context and analysis results MUST be keyed by exact object Content Hash values and all hash-relevant dependency hashes. A cache hit MUST NOT be used if any relevant dependency or policy has changed.
 
 ### 19.5 Token measurement
 
@@ -1140,7 +1159,7 @@ Expected properties:
 
 1. Create a new Request.
 2. Locate the existing rule that forbids cancellation after shipment.
-3. Propose a new version or superseding rule; do not overwrite history.
+3. Propose a new content-addressed state or superseding rule; do not overwrite history.
 4. Analyze dependencies: shipment, delivery, refund, inventory, carrier integration, customer notification.
 5. Identify conflicts and missing semantics, such as whether a return shipment is required.
 6. Ask the person to resolve blocking questions.
@@ -1178,7 +1197,7 @@ Expected properties:
 6. B becomes conflicted; its approval and verification results are not treated as current.
 7. The system presents the two changes and their behavioral consequences.
 8. An authorized person selects or defines a resolution.
-9. A new Change version is produced, revalidated, reviewed, and committed.
+9. A new Change content hash is produced, revalidated, reviewed, and committed.
 
 Expected properties:
 - no lost update;
@@ -1236,7 +1255,7 @@ This RFC is ready for acceptance when reviewers can answer all of the following:
 - Are lifecycle transitions and authority boundaries sufficiently defined?
 - Is Change Set atomicity clear?
 - Are stale baselines and semantic conflicts detected?
-- Are verification results tied to exact input versions?
+- Are verification results tied to exact input Content Hash values?
 - Can partial Request completion be represented without partial Change Set commits?
 - Are LLM token-efficiency mechanisms compatible with correctness and traceability?
 - Are all unresolved design choices explicitly listed rather than hidden in implementation assumptions?
@@ -1265,8 +1284,8 @@ The following are intentionally unresolved. They should be decided by the projec
 ### 23.3 Identity and storage
 
 10. Should Request and Change objects live inside SPG, in a separate workflow graph linked to SPG, or in a repository-level event model?
-11. What ID scheme should be used: opaque IDs, human-readable IDs, or both?
-12. Should accepted snapshots be immutable graph snapshots, commit references, or a combination?
+11. What Stable ID scheme and canonical hash encoding should be used? Should IDs be opaque, human-readable, or both?
+12. Should accepted snapshot hashes identify complete graph roots, commit records, or a combination?
 13. What conflict/merge semantics are required for concurrent editing?
 
 ### 23.4 Transaction and collaboration
@@ -1298,7 +1317,7 @@ To unblock a first prototype, this RFC recommends the following defaults, subjec
 3. Preserve original Request text verbatim.
 4. Require human approval for all changes to confirmed business meaning and externally observable behavior.
 5. Make Change Set the atomic unit of review and commit.
-6. Use immutable object revisions and accepted snapshots.
+6. Use immutable content-addressed object states and accepted snapshots.
 7. Use optimistic concurrency with semantic conflict detection; never use silent last-writer-wins for business rules.
 8. Treat unknown or stale verification as non-success.
 9. Allow multiple Change Sets per Request, with explicit dependency and completion state.
