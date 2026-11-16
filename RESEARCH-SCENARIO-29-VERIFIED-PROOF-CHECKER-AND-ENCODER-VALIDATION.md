@@ -1,6 +1,6 @@
 # Research Scenario 29 — Verified SMT Proof Checking and Encoder Validation
 
-**Status:** Research proposal / prototype design. Not a normative LLMLang decision.  
+**Status:** Research proposal with a fail-closed process-runner prototype. Actual cvc5/Logos proof integration remains pending; not a normative LLMLang decision.  
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 25–28, especially the symbolic relational verifier and the proof boundary.  
 **Question:** Can a solver-reported UNSAT result become a LLMLang proof status only after an independently checked certificate establishes unsatisfiability of the exact relational query generated from the canonical program IR?
@@ -390,3 +390,12 @@ These are explicit open obligations, not assumed successes.
 8. Only then allow a Logos-checked result to become `PROVEN_INDEPENDENCE`.
 
 No normative LLMLang document is changed by this research proposal.
+
+
+## 13. Implemented process-runner prototype
+
+The initial host-side adapter is implemented in [`logos_runner.py`](PROTOTYPES/DEPENDENCY-GRAPH-01/src/logos_runner.py), with tests in [`test_logos_runner.py`](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_logos_runner.py). It pins executable SHA-256 values, invokes cvc5 in CPC proof mode, preserves proof bytes, applies timeouts, and fails closed on unexpected solver/checker outcomes.
+
+It intentionally reports `CHECKER_REPORTED_CORRECT_UNBOUND` when Logos returns `correct`. It does not compare parsed assumptions with the expected LLMLang query AST and cannot issue `PROVEN_INDEPENDENCE`.
+
+The 15 tests use fake executables. They validate only the process boundary and status mapping; no actual cvc5 or Logos binary was available. See [Prototype 29 results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-29-RESULTS.md).

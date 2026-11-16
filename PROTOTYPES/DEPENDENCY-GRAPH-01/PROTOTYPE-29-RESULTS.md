@@ -48,3 +48,8 @@ The current environment has none of the required tools installed: cvc5, Z3, Lean
 ## Next gate
 
 Implement the Lean assumption-binding wrapper, add the QF_LIA validator/encoder and its correctness theorems, install/pin the toolchain, and run a golden proof plus corrupted/mismatched-proof tests. Until then all checker results remain unbound reports, never LLMLang proof statuses.
+
+
+## Source commit
+
+Process-runner implementation and its 15 tests were committed in `c0037ce42bf9b7965d5b67008e1a7899798ac6b9`. The local files used for the 15-test run have the same Git blob SHA values as the committed source and test files.
