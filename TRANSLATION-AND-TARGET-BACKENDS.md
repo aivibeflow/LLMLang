@@ -313,3 +313,72 @@ No claim is made here that the current prototype implements a compiler, a normal
 **One semantic definition; multiple target-specific realizations; independently checked preservation of behavior.**
 
 LLMLang should make it possible to generate implementations in conventional languages without making those languages the source of truth for business semantics. When preservation cannot be established, the toolchain must expose the exact limitation rather than silently generating code with weaker behavior.
+
+## 15. Initial target-language selection
+
+This section records a preliminary engineering recommendation for choosing the first target backend. It does **not** establish a binding decision about the first officially supported LLMLang target.
+
+### 15.1 Recommendation
+
+Use a staged approach rather than trying to select one language for every purpose:
+
+1. **Python — first experimental backend and executable reference target.**
+   Python is a practical first target for validating the translation pipeline because code generation is comparatively simple, the language has a small syntactic surface, and generated programs are easy to execute in differential tests. It can help validate the semantic subset, diagnostics, test generation, and the end-to-end backend interface with relatively little target-specific machinery.
+2. **Go — first serious compiled backend.**
+   Go is the recommended second target, and the first target for testing a statically typed compiled implementation. It offers a comparatively straightforward compiler and build workflow, static typing, and a practical deployment model, without requiring the backend to solve the full complexity of Rust's ownership and lifetime system or C++'s broader language and ABI surface.
+3. **Rust — subsequent backend for stronger systems-language coverage.**
+   Rust should be added after the common semantics and backend contract have been exercised by Python and Go. Its ownership, borrowing, and lifetime rules make it a valuable but more demanding target.
+4. **C++ — later backend.**
+   C++ should follow once the type, memory, runtime, and target-compatibility models are more mature. Its language complexity, templates, object model, memory model, and ABI concerns make it a costly first backend.
+
+Java is a plausible alternative compiled target: records and sealed classes can represent some algebraic data type patterns, but its generated code and runtime model would need separate evaluation. It is not currently preferred over Go for the initial compiled backend.
+
+### 15.2 Why Python should not define LLMLang semantics
+
+Python is recommended as an early implementation target for experimentation, not as the language whose limitations shape LLMLang.
+
+LLMLang's semantic core must remain independent of Python's dynamic typing and runtime behavior. Static type guarantees, ownership constraints, effects, overflow rules, concurrency guarantees, and other source-level properties must remain explicit in LLMLang even when Python cannot enforce them statically.
+
+Where Python cannot preserve a required property directly, the backend must use an explicitly specified runtime mechanism, report a restriction, or reject the translation. It must not silently weaken the source contract merely to produce executable Python.
+
+### 15.3 Comparative first-backend assessment
+
+The following is a qualitative engineering assessment for the initial LLMLang subset, not a universal ranking of language difficulty.
+
+| Target | Relative initial backend effort | Main advantage | Main challenge | Proposed role |
+|---|---|---|---|---|
+| Python | Low | Simple code generation and fast execution of generated scenarios | Dynamic typing and runtime-only enforcement for some guarantees | First experimental backend |
+| Go | Low–medium | Static typing and relatively simple compiled toolchain | Mapping algebraic data types, effects, and richer type constraints | First serious compiled backend |
+| Java | Low–medium | Mature compiler ecosystem; records and sealed classes | More verbose encodings and JVM-specific runtime assumptions | Alternative compiled backend |
+| Rust | Medium–high | Strong type system and memory-safety model | Ownership, borrowing, lifetimes, and trait resolution | Later systems backend |
+| C++ | High | Broad systems and platform coverage | Language complexity, templates, object/memory model, and ABI | Later backend |
+
+The ranking may change depending on the semantic subset. For example, a subset requiring strict ownership guarantees may make Rust a more informative early target, while a subset centered on rapid executable differential testing favors Python.
+
+### 15.4 Cross-backend validation milestone
+
+After the first Python backend works, implement the same small semantic subset in Go. Both generated implementations should be checked against the same LLMLang reference semantics and the same generated scenario corpus.
+
+At minimum, compare all declared observable outcomes for each scenario, including:
+- returned values;
+- declared errors and error categories;
+- state changes;
+- declared external effects, where the test environment can observe them.
+
+The purpose is not merely to show that both backends compile. It is to test whether the semantic model is genuinely target-independent and whether both backends preserve the same source-level behavior.
+
+A mismatch between Python, Go, and the reference semantics should be treated as a semantic or backend defect to investigate, not resolved by choosing one target's behavior as authoritative.
+
+### 15.5 Decision status and remaining questions
+
+**Current status: recommendation only; no target language has been formally selected or declared mandatory.**
+
+Before treating this sequence as an implementation commitment, the project should:
+- define the minimal semantic subset used for the first backend;
+- define the reference semantics and the observable behavior compared by differential tests;
+- establish the backend capability-reporting contract;
+- decide whether Python's role is limited to an experimental backend or whether it should also serve as a maintained reference implementation;
+- confirm that Go is the preferred first compiled target after evaluating the chosen subset.
+
+This recommendation refines open question 10 in Section 12; it does not close that question.
+
