@@ -9,10 +9,22 @@ The goal is not simply to make prompts shorter. It is to minimize the informatio
 Context reduction is often the highest-impact optimization.
 
 - **Send only relevant project fragments.** Provide the SPG nodes affected by the current operation, their dependencies, and the contracts needed to reason about them—not the entire repository.
-- **Use references and stable IDs instead of repeating definitions.** When a specification or type already exists, refer to its identifier and version rather than embedding its full text again.
+- **Use references and stable IDs instead of repeating definitions.** When a specification or type already exists, refer to its Stable ID and exact Content Hash rather than embedding its full text again.
 - **Use incremental context.** Send only changes relative to the model's known baseline, together with enough information to establish that baseline.
 - **Retrieve details on demand.** Start with a compact structural overview; let the model request additional definitions only when necessary.
 - **Use compact machine-oriented representations.** For graph structures, a concise serialization may be more efficient than verbose Markdown or generic JSON.
+
+### 1.1. Content-addressed context and incremental retrieval
+
+Fine-grained SPG nodes SHOULD be independently content-addressed. A node hash commits to its canonical semantic content and the hashes of its hash-relevant dependencies. This enables the context assembler to:
+
+- reuse unchanged nodes across requests and model sessions;
+- send a compact Stable ID + Content Hash reference when the model already has the matching content;
+- retrieve only changed nodes and dependency branches;
+- detect stale cached context by comparing exact dependency hashes;
+- compare subgraphs efficiently, descending only into branches whose hashes differ.
+
+Presentation metadata, timestamps, provenance, and display names SHOULD be kept outside semantic hashes. Dependency edge kinds matter: a consumer of a public contract should not be invalidated by an implementation-only change that leaves that contract unchanged.
 
 ## 2. Reduce Generated Output
 
@@ -68,7 +80,7 @@ A practical implementation order for LLMLang would be:
 1. **Dependency-aware context assembly.** Construct the smallest SPG subgraph sufficient for the requested operation.
 2. **An operation-oriented interface.** Have the model return typed graph mutations instead of rewriting source files.
 3. **Incremental feedback.** Return only new diagnostics and verification-status changes.
-4. **Reusable versioned context.** Store specifications, contracts, and validation results as independently addressable, versioned objects.
+4. **Reusable content-addressed context.** Store fine-grained specifications, contracts, and validation results as independently addressable immutable objects identified by content hashes.
 5. **Per-operation token measurement.** Track input tokens, output tokens, repeated context, and the number of iterations separately.
 
 ## 7. Measure Actual Tokenization
@@ -76,6 +88,17 @@ A practical implementation order for LLMLang would be:
 A shorter textual representation does not necessarily use fewer tokens. For example, compact JSON with many punctuation and delimiter characters may tokenize less efficiently than concise natural language or a purpose-built notation.
 
 LLMLang should therefore evaluate candidate serializations with the actual tokenizers of its target models. Measurements should use representative SPG fragments and realistic tasks, not only synthetic examples.
+
+## 8. Content Hashing and Cache Correctness
+
+Content-addressed caching is safe only when cache keys include every semantic input that can affect the result. A validation or generation cache key SHOULD include:
+
+- the exact subject Content Hash;
+- hashes of all hash-relevant dependencies;
+- relevant policy and configuration hashes;
+- compiler, verifier, schema, or toolchain identity where it can affect the result.
+
+A cache entry MUST NOT be reused when any relevant input hash differs. The graph root hash provides a compact identity for a complete reachable snapshot, while fine-grained node hashes enable reuse and localized invalidation.
 
 ## Guiding Principle
 
