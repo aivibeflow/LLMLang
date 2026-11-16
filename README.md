@@ -10,7 +10,7 @@ Start here:
 - [Formal verification model](draft/LLMLang-FORMAL-VERIFICATION.md)
 - [Development Engine RFC](draft/RFC-DEVELOPMENT-ENGINE.md)
 - [Request / Change RFC](draft/RFC-REQUEST-CHANGE.md)
-- [Research scenarios](draft/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md) onward, including [Scenario 29](draft/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md) and [Scenario 30](draft/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md)
+- [Research scenarios](draft/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md) onward, including [Scenario 29](draft/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md) [Scenario 30](draft/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md), and [Scenario 31](draft/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md)
 - [Prototype workspace](draft/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md)
 
 The repository is under active design. Research conclusions, prototype behavior, and normative decisions must be distinguished carefully; prototype test success does not imply formal verification of the language or its implementation.
