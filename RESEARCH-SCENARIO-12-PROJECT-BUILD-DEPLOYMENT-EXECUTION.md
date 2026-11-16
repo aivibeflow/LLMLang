@@ -138,7 +138,7 @@ Rollback means advancing a channel pointer to a previously accepted ReleaseManif
 
 Nix flakes provide a precedent for locking exact dependency inputs. This is necessary but not sufficient for bit-for-bit reproducibility: the build must also avoid undeclared inputs and nondeterminism. See https://nix.dev/concepts/flakes.html.
 
-SLSA provenance similarly emphasizes identifying the output artifact, builder, source, entry point, parameters, and dependencies. This supports recording build provenance separately from the semantic project identity. See https://slsa.dev/spec/v1.0/provenance.
+SLSA v1.2 provenance similarly emphasizes identifying the output artifact, builder, source, entry point, parameters, and dependencies. This supports recording build provenance separately from the semantic project identity. See https://slsa.dev/spec/v1.2/provenance.
 
 ## 6. Secrets and mutable external systems
 
@@ -195,7 +195,7 @@ Research direction, not normative:
 1. Bazel toolchain resolution: https://bazel.build/docs/toolchains
 2. Kubernetes image digests: https://kubernetes.io/docs/concepts/containers/images/
 3. Nix flakes and locked inputs: https://nix.dev/concepts/flakes.html
-4. SLSA provenance v1.0: https://slsa.dev/spec/v1.0/provenance
+4. SLSA provenance v1.2: https://slsa.dev/spec/v1.0/provenance
 
 
 ### Additional refinement: build recipe versus build result
