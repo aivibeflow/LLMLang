@@ -82,3 +82,15 @@ python -m unittest discover -s tests -p 'test_impact_planning.py' -v
 ```
 
 See [Prototype 19 Results](PROTOTYPE-19-RESULTS.md) and [Research Scenario 19](../../RESEARCH-SCENARIO-19-IMPACT-PLANNING-AND-DEPENDENCY-COMPLETENESS.md). This is not a dependency extractor, runtime tracer, proof checker, or action executor.
+
+## Dependency discovery and semantic classification experiment
+
+`src/dependency_discovery.py` models evidence-bearing dependency candidates from explicit declarations, static analysis, dynamic tracing, sandboxing, and proof analysis. Candidates require explicit semantic classification before entering the hash-relevant dependency set. Unknown candidates block a completeness claim. The module consumes normalized observations; it does not implement the discovery tools.
+
+Run the focused tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_dependency_discovery.py' -v
+```
+
+See [Prototype 20 Results](PROTOTYPE-20-RESULTS.md) and [Research Scenario 20](../../RESEARCH-SCENARIO-20-DEPENDENCY-DISCOVERY-AND-SEMANTIC-CLASSIFICATION.md).
