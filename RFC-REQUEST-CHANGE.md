@@ -36,7 +36,7 @@ This RFC was prepared against the current repository versions of `LLMLang-CONCEP
 
 The following ideas are already established in the concept document and are treated as constraints by this RFC:
 
-1. A program is represented primarily as a typed Semantic Program Graph with stable object identifiers, versions, relations, dependencies, and provenance.
+1. A program is represented primarily as a typed Semantic Program Graph with stable object identifiers, content hashes, relations, dependencies, and provenance.
 2. Specification, Design, and Implementation are distinct but related graph layers.
 3. Specification describes what a program must do; Design describes how it is organized; Implementation describes its concrete realization.
 4. The layers are independently existing and optional according to project policy and program complexity.
@@ -99,7 +99,7 @@ This RFC does not:
 - treat an LLM explanation as evidence of correctness;
 - guarantee that formalized requirements match the user's real-world intent;
 - prescribe a specific UI framework or agent orchestration platform;
-- define deployment, release, or production rollout workflows beyond the accepted-version boundary.
+- define deployment, release, or production rollout workflows beyond the accepted-snapshot boundary.
 
 ## 4. Core Concepts and Boundaries
 
@@ -181,7 +181,7 @@ A Change Set is the default unit of review and atomic acceptance. A project MAY 
 
 An Accepted Snapshot is a consistent immutable snapshot of the applicable SPG layers after an accepted Change Set has been committed. It is addressed by a root Content Hash or an explicit tuple of layer-root hashes.
 
-The Specification, Design, and Implementation layers may have independent version identifiers, but an accepted project snapshot MUST record the exact compatible version tuple and graph root hash from which it was produced.
+The Specification, Design, and Implementation layers may have independent root hashes, and an accepted project snapshot MUST record the exact compatible tuple of layer-root hashes from which it was produced.
 
 ### 4.7 Separation of responsibilities
 
@@ -292,7 +292,7 @@ Final review / required acceptance
 Atomic commit
     |
     v
-New accepted version
+New accepted snapshot
 ```
 
 The workflow is iterative, not strictly linear. A failed verification may lead to a revised Implementation Change, a Design Change, or—if a requirement is found to be incomplete—a new specification proposal. A change to confirmed business meaning returns to the appropriate human approval step.
@@ -347,7 +347,7 @@ The review interface MUST prioritize the Business View and semantic diff. Formal
 The reviewer can:
 - approve the proposal;
 - reject it;
-- request revision;
+- Request state (Stable ID + Content Hash);
 - resolve or defer an assumption;
 - answer an open question;
 - split the proposal into separate Change Sets;
@@ -359,13 +359,13 @@ Approval applies to the exact reviewed proposal hash and baseline snapshot hash.
 
 After the required specification approval, the system may propose Design and Implementation Changes.
 
-The implementation proposal MUST reference the Specification and Design versions it intends to satisfy. If a Design layer is not required by project policy, the proposal can link directly to the relevant specification objects.
+The implementation proposal MUST reference the Specification and Design root hashes it intends to satisfy. If a Design layer is not required by project policy, the proposal can link directly to the relevant specification objects.
 
 Implementation changes that preserve externally observable behavior MAY use a lighter approval path if policy permits. The system MUST still run the required independent checks.
 
 ### 6.7 Verification and repair
 
-Validators and test systems run against exact graph revisions. The system returns structured, localized feedback rather than resending full source or full reports to the LLM.
+Validators and test systems run against exact graph root hashes. The system returns structured, localized feedback rather than resending full source or full reports to the LLM.
 
 A repair creates a new Change content hash or a new Change within the same uncommitted Change Set. It MUST preserve the history of the rejected or failed proposal.
 
@@ -629,7 +629,7 @@ Specification, Design, and Implementation dependencies MUST be distinguished. An
 
 Mutable labels such as `latest`, branch names, and SemVer release labels are discovery conveniences only. They MUST NOT identify an immutable state, satisfy a dependency lock, or be used as verification inputs.
 
-### 9.3 Graph root hashes and accepted snapshots
+### 9.2.1 Exact references and approvals
 
 Each semantic object MUST retain a Stable ID and expose an immutable Content Hash for every state. References MUST distinguish:
 - a logical Stable ID, resolved only within an explicit snapshot/context; or
@@ -711,7 +711,7 @@ Suggested Change states:
 - `validated`: structural and required automated checks completed for this revision;
 - `in_review`: awaiting human or policy-required review;
 - `changes_requested`: reviewer requested revisions;
-- `approved`: approved for the exact proposal version;
+- `approved`: approved for the exact proposal hash;
 - `rejected`: rejected, retained for history;
 - `conflicted`: target baseline has incompatible changes;
 - `committed`: included in an accepted snapshot;
@@ -922,7 +922,7 @@ Rollback MUST NOT rewrite or delete an accepted snapshot. It is a new Change Set
 
 The rollback proposal MUST identify:
 - the commit being reverted;
-- the exact objects and versions affected;
+- the exact objects and their Content Hash values affected;
 - whether the inverse is semantically safe;
 - any external side effects that cannot be undone;
 - required compensating actions.
@@ -1057,7 +1057,7 @@ Rejection does not imply that the Request itself is rejected. A revised proposal
 
 ### 17.3 Changes requested
 
-When a reviewer requests changes, the system creates a new proposal revision or replacement Change. It preserves the reviewed version and invalidates approvals that no longer apply.
+When a reviewer requests changes, the system creates a new proposal state (with a new proposal hash) or replacement Change. It preserves the reviewed proposal hash and invalidates approvals that no longer apply.
 
 ### 17.4 No-op requests
 
@@ -1228,7 +1228,7 @@ The following invariants are normative proposals for this model:
 1. **Original intent preservation:** the original Request text is never overwritten by an LLM summary.
 2. **No implicit confirmation:** assumptions and inferred facts never become confirmed requirements without authorized confirmation.
 3. **Stable identity:** object identity survives renames and ordinary edits.
-4. **Immutable revisions:** an existing object version is never modified in place.
+4. **Immutable content-addressed states:** an existing object state is never modified in place.
 5. **Proposal isolation:** uncommitted proposals do not alter the accepted snapshot.
 6. **Approval binding:** approval applies only to the exact reviewed semantic proposal and baseline.
 7. **No self-approval:** an LLM cannot supply a required human approval.
@@ -1260,7 +1260,7 @@ This RFC is ready for acceptance when reviewers can answer all of the following:
 - Are LLM token-efficiency mechanisms compatible with correctness and traceability?
 - Are all unresolved design choices explicitly listed rather than hidden in implementation assumptions?
 
-An implementation conforming to an accepted version of this RFC MUST pass scenario tests corresponding to Sections 20 and invariant tests corresponding to Section 21.
+An implementation conforming to an accepted revision of this RFC MUST pass scenario tests corresponding to Sections 20 and invariant tests corresponding to Section 21.
 
 ## 23. Open Questions Requiring Human Decisions
 
@@ -1300,7 +1300,7 @@ The following are intentionally unresolved. They should be decided by the projec
 18. Which verification statuses block commit by default?
 19. Can a behavior-preserving implementation change be accepted with tests only, or must it provide stronger equivalence evidence?
 20. How should the system represent a requirement that cannot currently be formalized?
-21. Should the system support release/deployment approvals as a separate layer beyond accepted program versions?
+21. Should the system support release/deployment approvals as a separate layer beyond accepted program snapshots?
 
 ### 23.6 Token efficiency and model interaction
 
