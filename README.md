@@ -67,3 +67,6 @@ Formal verification can establish that an implementation satisfies a formal spec
 
 - [RESEARCH-SCENARIO-27-SYMBOLIC-RELATIONAL-VERIFICATION.md](RESEARCH-SCENARIO-27-SYMBOLIC-RELATIONAL-VERIFICATION.md) — product-program encoding and symbolic SAT/UNSAT/UNKNOWN dependency decisions.
 - [Prototype 27 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-27-RESULTS.md) — SMT-LIB backend, protocol tests, and solver integration limitations.
+
+- [RESEARCH-SCENARIO-28-TYPED-IR-AND-PROOF-BOUNDARY.md](RESEARCH-SCENARIO-28-TYPED-IR-AND-PROOF-BOUNDARY.md) — type-safe symbolic IR and explicit proof-evidence boundary.
+- [Prototype 28 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-28-RESULTS.md) — validator, evidence envelope, and solver protocol correction.

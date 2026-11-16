@@ -17,14 +17,31 @@ class SymbolicRelationalTests(unittest.TestCase):
     def test_sat_returns_influence_and_pair_witness(self):
         p = Program((Return(Binary("add", Var("x"), Const(1))),))
         r = analyze_symbolically(p, {"x":"Int"}, solver_command=self.solver('sat\n((in_0_L 0) (in_0_R 1))'))
-        self.assertEqual(r.factors[0].status,"PROVEN_INFLUENCE")
+        self.assertEqual(r.factors[0].status,"SOLVER_REPORTED_SAT")
         self.assertEqual(r.factors[0].witness,({"x":0},{"x":1}))
         self.assertIn("(assert (not (= in_0_L in_0_R)))",r.smt_queries[0][1])
-        self.assertIn("(get-value (in_0_L in_0_R))",r.smt_queries[0][1])
+        self.assertNotIn("(get-value",r.smt_queries[0][1])
+    def test_get_value_is_requested_only_after_sat(self):
+        capture = Path(self.tmp.name) / "solver-inputs.txt"
+        self.fake.write_text(
+            "import sys\n"
+            "data=sys.stdin.read()\n"
+            + "with open(" + repr(str(capture)) + ", 'a') as f: f.write(repr(data) + chr(10))\n"
+            + "print('sat')\n"
+            + "if '(get-value' in data: print('((in_0_L 0) (in_0_R 1))')\n"
+        )
+        p = Program((Return(Binary("add", Var("x"), Const(1))),))
+        r = analyze_symbolically(p, {"x":"Int"}, solver_command=(sys.executable, str(self.fake)))
+        self.assertEqual(r.factors[0].status, "SOLVER_REPORTED_SAT")
+        calls = capture.read_text().splitlines()
+        self.assertEqual(len(calls), 2)
+        self.assertNotIn("(get-value", calls[0])
+        self.assertIn("(get-value", calls[1])
+
     def test_unsat_proves_independence(self):
         p=Program((Return(Binary("mul",Var("x"),Const(0))),))
         r=analyze_symbolically(p,{"x":"Int"},solver_command=self.solver("unsat"))
-        self.assertEqual(r.factors[0].status,"PROVEN_INDEPENDENCE")
+        self.assertEqual(r.factors[0].status,"SOLVER_REPORTED_UNSAT")
     def test_unknown_is_not_independence(self):
         p=Program((Return(Var("x")),))
         r=analyze_symbolically(p,{"x":"Int"},solver_command=self.solver("unknown"))
@@ -68,7 +85,7 @@ class SymbolicRelationalTests(unittest.TestCase):
         p=Program((Return(Call("twice",(Var("x"),))),),
             {"twice":Function(("a",),Binary("mul",Var("a"),Const(2)))})
         r=analyze_symbolically(p,{"x":"Int"},solver_command=self.solver('sat\n((in_0_L 0) (in_0_R 1))'))
-        self.assertEqual(r.factors[0].status,"PROVEN_INFLUENCE")
+        self.assertEqual(r.factors[0].status,"SOLVER_REPORTED_SAT")
         self.assertIn("(* in_0_L 2)",dict(r.smt_queries)["x"])
 
 if __name__=="__main__": unittest.main()

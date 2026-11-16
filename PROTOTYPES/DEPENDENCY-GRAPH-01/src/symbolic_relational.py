@@ -176,6 +176,9 @@ def _extract_values(output: str, symbols: Mapping[str, str]) -> dict[str, Any]:
 
 def _run_solver(smt: str, command: Sequence[str], timeout_seconds: float,
                 symbols: Mapping[str, str]):
+    # SMT-LIB permits get-value only after check-sat returned sat. Run the
+    # satisfiability query first, and request a model in a second identical
+    # solver session only after a SAT response.
     try:
         completed = subprocess.run(list(command), input=smt, text=True,
                                    capture_output=True, timeout=timeout_seconds, check=False)
@@ -189,8 +192,22 @@ def _run_solver(smt: str, command: Sequence[str], timeout_seconds: float,
     first = output.splitlines()[0].strip() if output else ""
     if first == "unsat": return "UNSAT", None, None
     if first == "unknown": return "UNKNOWN", None, "SMT solver returned unknown"
-    if first == "sat": return "SAT", _extract_values(output, symbols), None
-    return "UNKNOWN", None, "unrecognized SMT solver response"
+    if first != "sat": return "UNKNOWN", None, "unrecognized SMT solver response"
+    if not symbols:
+        return "SAT", {}, None
+    model_query = smt.rstrip() + "\n(get-value (" + " ".join(symbols) + "))\n"
+    try:
+        model_run = subprocess.run(list(command), input=model_query, text=True,
+                                   capture_output=True, timeout=timeout_seconds, check=False)
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return "SAT", None, "SAT confirmed by solver; model retrieval failed"
+    if model_run.returncode not in (0, 1):
+        return "SAT", None, "SAT confirmed by solver; model retrieval process failed"
+    model_output = model_run.stdout.strip()
+    model_first = model_output.splitlines()[0].strip() if model_output else ""
+    if model_first != "sat":
+        return "SAT", None, "SAT confirmed by solver; model retrieval response invalid"
+    return "SAT", _extract_values(model_output, symbols), None
 
 def analyze_symbolically(program: Program, input_types: Mapping[str, str],
                          initial_state: Mapping[str, Any] | None = None,
@@ -237,7 +254,6 @@ def analyze_symbolically(program: Program, input_types: Mapping[str, str],
             factor_diff = f"(not (= {left_inputs[factor].text} {right_inputs[factor].text}))"
             query = f"(assert {factor_diff})\n"
             query += "(assert (or " + " ".join(differences) + "))\n(check-sat)\n"
-            query += "(get-value (" + " ".join(symbols_for_model) + "))\n"
             declarations = "\n".join(f"(declare-const {n} {s})" for n, s in decls.items())
             smt = "(set-logic ALL)\n" + declarations + "\n" + query
         except UnsupportedConstruct as exc:
@@ -246,7 +262,7 @@ def analyze_symbolically(program: Program, input_types: Mapping[str, str],
         status, model, reason = _run_solver(smt, solver_command, timeout_seconds, symbols_for_model)
         queries.append((factor, smt))
         if status == "UNSAT":
-            factor_results.append(SymbolicFactorResult(factor, "PROVEN_INDEPENDENCE"))
+            factor_results.append(SymbolicFactorResult(factor, "SOLVER_REPORTED_UNSAT"))
         elif status == "SAT":
             witness = None
             if model is not None and all(k in model for k in symbols_for_model):
@@ -263,13 +279,13 @@ def analyze_symbolically(program: Program, input_types: Mapping[str, str],
                 if out_status == "SAT": changed.append(observation)
                 elif out_status == "UNKNOWN": changed.append("UNKNOWN:" + observation)
             factor_results.append(SymbolicFactorResult(
-                factor, "PROVEN_INFLUENCE", witness, tuple(changed),
+                factor, "SOLVER_REPORTED_SAT", witness, tuple(changed),
                 None if witness else "solver model could not be decoded"))
         else:
             factor_results.append(SymbolicFactorResult(factor, "UNKNOWN", reason=reason))
     statuses = {r.status for r in factor_results}
-    overall = ("PROVEN_WITHIN_SYMBOLIC_FRAGMENT"
-               if statuses and statuses <= {"PROVEN_INDEPENDENCE", "PROVEN_INFLUENCE"}
+    overall = ("SOLVER_COMPLETED_WITHIN_SYMBOLIC_FRAGMENT"
+               if statuses and statuses <= {"SOLVER_REPORTED_UNSAT", "SOLVER_REPORTED_SAT"}
                else "UNKNOWN")
     return SymbolicAnalysis(
         overall, tuple(factor_results), tuple(queries),

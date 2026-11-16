@@ -7,8 +7,8 @@ from src.symbolic_relational import analyze_symbolically
 class SymbolicFiniteDifferentialTests(unittest.TestCase):
     def test_small_integer_examples_agree_with_finite_oracle(self):
         cases=[
-            (Program((Return(Binary("mul",Var("x"),Const(0))),)),"PROVEN_INDEPENDENCE"),
-            (Program((Return(Binary("add",Var("x"),Const(1))),)),"PROVEN_INFLUENCE"),
+            (Program((Return(Binary("mul",Var("x"),Const(0))),)),"SOLVER_REPORTED_UNSAT"),
+            (Program((Return(Binary("add",Var("x"),Const(1))),)),"SOLVER_REPORTED_SAT"),
         ]
         for program, expected in cases:
             finite=analyze_dependencies(program,{"x":(-2,-1,0,1,2)})
