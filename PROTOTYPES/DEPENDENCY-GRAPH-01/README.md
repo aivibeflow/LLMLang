@@ -18,4 +18,4 @@ python -m src.semantic_graph
 
 The prototype is an in-memory model. It is not a production persistence layer, language frontend, compiler, or formal verifier.
 
-See [the experiment report](../../../PROTOTYPE-01-RESULTS.md) for measured results, interpretation, and limitations.
+See [the experiment report](../../PROTOTYPE-01-RESULTS.md) for measured results, interpretation, and limitations.
