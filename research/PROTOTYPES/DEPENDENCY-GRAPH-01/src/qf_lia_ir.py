@@ -21,6 +21,8 @@ class Declaration:
 @dataclass(frozen=True)
 class RelationalQuery:
     factor: str
+    factor_left: str
+    factor_right: str
     declarations: tuple[Declaration, ...]
     factor_difference: Term
     observations_differ: Term
@@ -79,6 +81,25 @@ def render_smt2(query: RelationalQuery) -> str:
                 or decl.sort not in ("Int", "Bool") or decl.name in symbols):
             raise UnsupportedConstruct("invalid or duplicate QF_LIA declaration")
         symbols[decl.name] = decl.sort
+    if not isinstance(query.factor, str) or not query.factor:
+        raise UnsupportedConstruct("query factor is required")
+    if (not isinstance(query.factor_left, str) or not isinstance(query.factor_right, str)
+            or query.factor_left == query.factor_right
+            or query.factor_left not in symbols or query.factor_right not in symbols):
+        raise UnsupportedConstruct("factor pair must reference two distinct declarations")
+    if symbols[query.factor_left] != symbols[query.factor_right]:
+        raise UnsupportedConstruct("factor pair declarations must have the same sort")
+    paired = {name for name in symbols if name.endswith("_L") or name.endswith("_R")}
+    if paired != {query.factor_left, query.factor_right} or not query.factor_left.endswith("_L") or not query.factor_right.endswith("_R"):
+        raise UnsupportedConstruct("query must contain exactly one canonical factor pair")
+    expected_factor_difference = Term("not", "Bool", (
+        Term("eq", "Bool", (
+            Term("symbol", symbols[query.factor_left], atom=query.factor_left),
+            Term("symbol", symbols[query.factor_right], atom=query.factor_right),
+        )),
+    ))
+    if query.factor_difference != expected_factor_difference:
+        raise UnsupportedConstruct("factor_difference must be exactly not (= factor_left factor_right)")
     if _validate_term(query.factor_difference, symbols) != "Bool": raise UnsupportedConstruct("factor constraint must be Boolean")
     if _validate_term(query.observations_differ, symbols) != "Bool": raise UnsupportedConstruct("observation constraint must be Boolean")
     lines = ["(set-logic QF_LIA)"]
@@ -89,7 +110,7 @@ def render_smt2(query: RelationalQuery) -> str:
     return "\n".join(lines) + "\n"
 
 
-QUERY_WIRE_SCHEMA = "llmlang.qf_lia.relational-query/1"
+QUERY_WIRE_SCHEMA = "llmlang.qf_lia.relational-query/2"
 
 
 def _term_to_wire(term: Term) -> dict[str, Any]:
@@ -105,6 +126,8 @@ def query_to_wire(query: RelationalQuery) -> dict[str, Any]:
     return {
         "schema": QUERY_WIRE_SCHEMA,
         "factor": query.factor,
+        "factor_left": query.factor_left,
+        "factor_right": query.factor_right,
         "declarations": [{"name": d.name, "sort": d.sort} for d in query.declarations],
         "factor_difference": _term_to_wire(query.factor_difference),
         "observations_differ": _term_to_wire(query.observations_differ),
