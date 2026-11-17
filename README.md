@@ -5,7 +5,7 @@
 The repository separates ongoing research from the current candidate specification:
 
 - [`research/`](research/) — research notes, alternative approaches, prototypes, tests, audit reports, and supporting RFCs. Research material is exploratory and is not automatically normative.
-- [`draft/`](draft/) — the single current candidate version of the LLMLang specification. This directory is intentionally empty until a candidate specification is ready to be placed there.
+- [`draft/`](draft/) — the current candidate specification and its supporting terminology. The directory may contain foundational documents such as the glossary before the full specification is ready.
 
 Start with:
 - [Open design questions and decisions](TODO.md) — project-wide register of unresolved questions requiring discussion.
