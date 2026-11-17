@@ -489,7 +489,7 @@ This is a proposed logical schema, not a frozen format. Dependency taxonomy, Sta
 
 ## 13. Streaming index merge prototype
 
-The logical index prototype now provides a lazy k-way merge for one already-sorted table at a time. It keeps one current record per input stream, deduplicates identical records across streams, and rejects conflicting or out-of-order records. The merge itself uses O(k) state for k input streams. This does not yet solve bounded-memory cross-table reference validation: that requires sorted merge-join passes or a disk-backed membership structure. There is also no streaming archive writer or binary index encoding yet. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Package Index Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
+The logical index prototype now provides a lazy k-way merge for one already-sorted table at a time. It keeps one current record per input stream, deduplicates identical records across streams, and rejects conflicting or out-of-order records. The merge itself uses O(k) state for k input streams. Bounded-memory cross-table reference validation is implemented as a separate external-memory pass. A ZIP-based streaming archive writer/verifier is also available as an exploratory prototype; neither binary index encoding nor a normative archive format has been selected. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Package Index Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
 
 
 ## 14. External-memory cross-table validation prototype
@@ -498,4 +498,13 @@ The Package Index Prototype 01 now provides `validate_streamed_index`. It valida
 
 The validator checks that dependency sources are included objects; included dependency targets, module members, and export objects exist; and export module IDs exist. External dependency targets (`included=false`) are intentionally not required to be package members. It rejects unsorted or duplicate table keys. In-memory sorting is bounded by `max_records_in_memory`; temporary disk use is proportional to the input index and generated sort runs.
 
-This is an exploratory local-filesystem implementation, not a finalized binary index or provider protocol. It assumes sorted input streams and uses JSONL temporary files. A streaming archive writer, disk-space policy, interruption recovery, and portable temporary-storage abstraction remain open. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
+This is an exploratory local-filesystem implementation, not a finalized binary index or provider protocol. It assumes sorted input streams and uses JSONL temporary files. Disk-space policy, interruption recovery, and portable temporary-storage abstraction remain open. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
+
+
+## 15. Streaming package archive prototype
+
+Prototype 01 now includes `package_archive.py`, a streaming writer and verifier using ZIP as a temporary research container. It writes the supplied UTF-8 manifest bytes, canonical JSONL index tables, and object payloads in sorted Content Hash order. Object streams are copied in bounded 1 MiB chunks while recomputing SHA-256 and checking the declared size against the Objects table. The writer validates the streamed index and object/table correspondence before publishing the result; it writes to a temporary file and atomically replaces the destination only after success.
+
+ZIP entry timestamps and permissions are fixed, compression is disabled, and entry ordering is deterministic. Tests verify byte-for-byte repeatability, object and size mismatch rejection, missing/out-of-order payload rejection, archive corruption detection, and failure atomicity. The verifier rechecks the logical index, object membership, hashes, sizes, and unexpected/duplicate entries.
+
+ZIP, JSONL, entry naming, and manifest placement are strictly prototype decisions, not a normative LLMLang archive or binary index format. Python's ZIP implementation retains central-directory metadata in memory, so the prototype streams object bytes but does not promise constant total memory for arbitrarily many archive entries. The manifest is transported as supplied; TOML schema parsing and logical package-root recomputation are not yet implemented here. See [Package Index Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
