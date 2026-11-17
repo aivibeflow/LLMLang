@@ -132,6 +132,11 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-037 | RT-03 → RT-15 | Influences | Evaluation order, state, effects, errors, and concurrency determine semantic equivalence and which edits can be merged independently. | Strong hypothesis |
 | DEP-038 | RT-03 → RT-16 | Influences | The language's state, effect, resource, and concurrency semantics define guarantees and threat boundaries available to security controls. | Open hypothesis |
 | DEP-039 | RT-03 → RT-18 | Influences | Changes to evaluation, effects, errors, and observable behavior affect conformance profiles and semantic compatibility across versions. | Strong hypothesis |
+| DEP-040 | RT-05 → RT-12 | Requires | Package indexes and dynamic dependency resolution require stable object identities and exact, verifiable Content Hash references. | Strong hypothesis |
+| DEP-041 | RT-12 → RT-05 | Influences | Package content roots, manifests, and index canonicalization may require explicit separation between object identity, logical package identity, and physical archive identity. | Open hypothesis |
+| DEP-042 | RT-12 → RT-11 | Influences | Compact indexes, partial retrieval, and provider-side closure resolution can share cache and incremental-computation infrastructure; cache correctness depends on exact dependency closure and snapshot identity. | Strong hypothesis |
+| DEP-043 | RT-16 → RT-12 | Constrains | Dynamic providers, package provenance, signatures, and multi-provider resolution must obey explicit trust and supply-chain boundaries; content hashes alone do not establish publisher trust. | Strong hypothesis |
+| DEP-044 | RT-12 → RT-17 | Influences | Compact package catalogs and selective metadata retrieval affect context efficiency, discoverability, and the usability of LLM-facing tooling. | Strong hypothesis |
 
 ## 4. Important feedback loops and conditional relationships
 

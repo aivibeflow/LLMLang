@@ -142,6 +142,22 @@ Priority is a planning aid, not a measure of correctness:
 - **Recommendation:** Treat Library as a reusable component role and require machine-readable public contracts for semantic integration; make verification limits explicit for opaque implementations.
 - **Related:** [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md), sections 3 and 12.
 
+
+### LL-022 — Define the package content, index, and dynamic-provider model
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** What logical content model, binary index format, compression and sparse-lookup strategy, and provider protocol should support both static packages and dynamically assembled packages?
+- **Context:** Consumers need to inspect package contents and merge indexes efficiently without downloading all objects. A provider should be able to receive exact root Content Hash values and construct an archive from its local content store, including the exact required dependency closure. Indexes may become large enough that whole-file decompression or full in-memory loading is undesirable.
+- **Options to investigate:**
+  - A compact sorted index loaded wholly into memory for small packages.
+  - Independently compressed sorted blocks with a block directory for larger indexes.
+  - Optional one-level or hierarchical sparse indexes for random access to large or remote indexes.
+  - Static prebuilt archives versus dynamic provider-built archives sharing one logical package model.
+  - Provider operations for metadata query, index retrieval, dependency resolution, package construction, and exact object retrieval.
+- **Recommendation:** Keep the package index canonical, compact, and sorted by explicitly specified keys; support binary search and deterministic streaming merge. Investigate independently compressed blocks as the scalable representation and make sparse lookup optional/derived, not mandatory for every package. Treat dynamic packaging as materialization of exact requested roots plus an explicit required-dependency closure against one consistent content-store snapshot. Never silently substitute a different dependency hash. Separate logical content identity from archive encoding, provider metadata, timestamps, signatures, and transport.
+- **Related:** [Package System: Static and Dynamic Packages](research/PACKAGE-SYSTEM.md), [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md), [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), and research area RT-12.
+
 ### LL-012 — Define template instantiation and migration semantics
 
 - **Status:** Open

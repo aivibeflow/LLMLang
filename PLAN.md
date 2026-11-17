@@ -518,6 +518,25 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ## 7.2 Libraries, packages, templates, and artifact ecosystem
 
+### Package indexes and dynamic package delivery
+
+- [ ] Define the logical package-content model: roots, included objects, typed dependency edges, exports, modules, evidence, and provenance.
+- [ ] Define compact canonical binary index tables and their key ordering; require binary-search and deterministic streaming-merge semantics.
+- [ ] Compare whole-index compression with independently compressed blocks; measure codec, block-size, lookup, scan, and memory trade-offs.
+- [ ] Evaluate optional sparse and hierarchical sparse indexes; establish when their lookup benefit justifies their storage and maintenance cost.
+- [ ] Define index integrity, corruption detection, sparse-index reconstruction, and logical-versus-physical index identity.
+- [ ] Define static package archive and human-readable generated index.
+- [ ] Define Dynamic Package requests by exact root Content Hash values and explicit dependency policies.
+- [ ] Define exact-hash transitive dependency closure, optional/target/feature dependency semantics, and fail-closed missing-dependency behavior.
+- [ ] Define provider snapshot consistency, deterministic logical package roots, and separation of content from delivery metadata.
+- [ ] Define multi-provider index merge, availability metadata, selective retrieval, and trust/provenance boundaries.
+- [ ] Prototype and benchmark small, medium, and large indexes plus dynamic dependency-closure construction.
+
+**Existing evidence:** [Package System: Static and Dynamic Packages](research/PACKAGE-SYSTEM.md), extending the earlier [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md) and [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md) proposals.
+
+**Status:** researched at the conceptual level; compact-index, block-compression, sparse-lookup, and dynamic-provider architecture proposed. No wire format, codec policy, provider protocol, or package identity scheme has been accepted.
+
+
 - [ ] Define Package versus Library boundaries.
 - [ ] Define library identity and public machine-readable contracts.
 - [ ] Define dependency resolution and versioning.
@@ -529,7 +548,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Existing evidence:** `research/LIBRARIES-AND-TEMPLATES.md` and `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`; related TODO items LL-006–LL-012.
 
-**Status:** researched in `research/LIBRARIES-AND-TEMPLATES.md` and `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`; ecosystem policy, operational design, and trust implementation remain open.
+**Status:** researched in `research/LIBRARIES-AND-TEMPLATES.md`, `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, and `research/PACKAGE-SYSTEM.md`; package/index/provider design is proposed but not accepted, and operational policy, benchmarks, and trust implementation remain open.
 
 ## 7.3 Parallel development and collaboration
 
@@ -728,7 +747,8 @@ The next concrete work should follow this order, while respecting the dependency
 7. **Quantify cache benefits:** turn the analytical speedup estimate into reproducible benchmarks; include cold/warm builds and local/component/broad changes.
 8. **Audit security and trust (RT-16):** compiler, runtime, LLM authoring interface, package/artifact store, build/test environment, and proof pipeline.
 9. **Defer Stage 4 implementation and merge benchmarks** until whole-specification synthesis has narrowed representation, identity, and merge-policy choices; retain ADR-014 as Proposed.
-10. **Only then select vertical slices and implementation commitments:** POSIX/runtime, backends, scalability, ecosystem, and adoption should be validated against a coherent candidate specification.
+10. **Research package distribution and index storage (RT-12):** define the logical package model, prototype exact-hash dynamic dependency closure, and benchmark compact/block-compressed indexes with and without sparse lookup. Keep all wire-format and provider decisions provisional.
+11. **Only then select vertical slices and implementation commitments:** POSIX/runtime, backends, scalability, ecosystem, and adoption should be validated against a coherent candidate specification.
 
 Do not skip a gate because a document exists. A research document is evidence that a topic was investigated, not proof that its design is correct or complete.
 
