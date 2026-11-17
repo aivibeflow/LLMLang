@@ -231,6 +231,16 @@ Priority is a planning aid, not a measure of correctness:
 - **Recommendation:** Keep LLVM behind a replaceable backend boundary. Preserve SPG and LLMLang semantics as the source of truth; introduce LLVM only after defining a small semantic subset and a conservative lowering contract. Treat LLVM verification/compilation as distinct from proof of source-contract correctness.
 - **Related:** [LLVM Backend Architecture](research/LLVM-BACKEND-ARCHITECTURE.md); [Translation and Target Backends](research/TRANSLATION-AND-TARGET-BACKENDS.md).
 
+### LL-021 — Define semantic action caching and incremental compilation
+
+- **Status:** Open
+- **Priority:** P0
+- **Question:** What is the canonical model for cacheable compiler/tooling actions, their Action Keys, dependency closure, environment inputs, and reusable outputs/evidence?
+- **Context:** Semantic Hash identifies immutable program meaning; it is not sufficient as a build cache key. A computation's result can also depend on action implementation, toolchain, target, configuration, runtime, and other environment inputs. Tests and proofs must be reusable only for the exact inputs and assumptions they cover.
+- **Options to investigate:** Cache at file/module/function/action granularity; byte-deterministic versus semantically deterministic outputs; local/workspace/remote/global cache layers; conservative handling of incomplete dependencies and nondeterministic actions.
+- **Recommendation:** Model compilation and analysis as a typed dependency graph of actions. Keep Semantic Hash, Action Key, and Artifact Hash distinct. Permit reuse only when dependency closure and all result-determining inputs are captured; otherwise invalidate conservatively or mark the action non-cacheable.
+- **Related:** [Semantic Compilation Cache](research/SEMANTIC-COMPILATION-CACHE.md), [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [Formal Verification](research/LLMLang-FORMAL-VERIFICATION.md).
+
 ## Maintenance rules
 
 - Add a new item when a discussion exposes a durable unresolved design question, not for every implementation task or transient note.
