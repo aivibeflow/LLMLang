@@ -92,10 +92,11 @@ def parse_manifest(raw: bytes) -> dict[str, Any]:
     cache_indexes = cache.get("indexes", [])
     if not isinstance(cache_indexes, list):
         raise PackageFormatError("cache.indexes must be an array of paths")
+    if not all(isinstance(path, str) for path in cache_indexes):
+        raise PackageFormatError("cache index paths must be strings")
     if len(set(cache_indexes)) != len(cache_indexes):
         raise PackageFormatError("duplicate cache index path")
     for path in cache_indexes:
-        if not isinstance(path, str): raise PackageFormatError("cache index paths must be strings")
         _validate_relative_path(path)
         if path == index["path"]:
             raise PackageFormatError("cache index path collides with package index path")
