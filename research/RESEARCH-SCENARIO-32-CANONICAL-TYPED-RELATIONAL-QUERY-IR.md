@@ -77,7 +77,14 @@ Latest focused run: **26 tests passed**. Python compileall passed. The tests wer
 
 1. **Completed source audit at pinned Logos revision** (cf18742973861b3718d04c5f25775448098ff474): the Eo term constructors include Boolean, Numeral, UConst, Var, UOp, and Apply. The parser maps declare-const to sequential UConst identifiers; the parser macro @var builds Var nodes for bound variables. Arithmetic/logical operators are represented as curried Apply nodes headed by UOp constructors. The pinned translation maps these to SmtTerm constructors.
 2. Implement a separate Logos-Term renderer over RelationalQuery / Term, using the exact audited Eo constructors.
-3. Resolve declaration identity: Logos parseProof returns assumptions and commands, but not the parser's symbol table. declare-const assigns sequential UConst IDs in declaration order. The bridge must prove that the CPC declaration sequence maps exactly to the query IR declarations, or extend/wrap the pinned parser to expose that mapping. If extra/reordered declarations cannot be bound, return UNKNOWN.
+3. **A parser-state bridge is available without writing a second CPC parser.** The pinned Logos parser exposes parseCommands and its ParserM state type. ParserM is StateT (State T) (Except String), and parseCommands can be run with State.ofOps to retain the final State. The state contains ufCount and terms. A thin Lean wrapper can return the usual assumptions/commands plus this final state. For the strict QF_LIA subset, which has no declared datatypes, direct parseCommands can be used; its equivalence to the ordinary parseProof path must be checked for this subset.
+4. Extract each declared symbol's UConst ID and sort from the final parser state. Reject duplicate/ambiguous bindings, wrong sorts, or missing expected names. This avoids a second parser and binds names to the exact IDs used by the CPC parser.
+5. Implement a separate Logos-Term renderer over RelationalQuery / Term, using the exact audited Eo constructors.
+6. In Lean, establish that the generated expected term has the intended SMT semantics.
+7. Establish that the SMT-LIB renderer and Logos-Term renderer denote the same canonical query.
+8. Bind parsed CPC assumptions to the expected Logos terms by exact structural equality.
+9. Prove the product-program query corresponds to the typed LLMLang program semantics.
+10. Bind source digests, renderer versions, solver/checker identities, and exact artifacts into a signed evidence manifest.
 4. In Lean, establish that the generated expected term has the intended SMT semantics.
 5. Establish that the SMT-LIB renderer and Logos-Term renderer denote the same canonical query.
 6. Bind parsed CPC assumptions to the expected Logos terms by exact structural equality.
@@ -88,7 +95,7 @@ Until these obligations are met, the output remains QF_LIA_CANDIDATE_QUERIES. Ne
 
 ## 7. Next implementation step
 
-Implement the Lean-side expected-Term construction next, after defining a fail-closed declaration-index binding contract. The audit confirms the operator mapping is mechanically expressible, but declaration identity is the blocking detail: do not assume that a source symbol name can be compared directly with an Eo UConst node. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
+Implement and build a small Lean wrapper around the public parseCommands API that preserves the final parser state. Derive the symbol-to-UConst map from that exact state, then build the expected Eo.Term tree and compare the complete parsed assumption list by native structural equality. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
 
 
 ## 8. Pinned Logos API audit notes
@@ -103,3 +110,30 @@ The source audit was performed against commit cf18742973861b3718d04c5f2577544809
 - Eo.parseProof returns the parsed top-level assumption list and proof command list. The public return value does not include the parser's name-to-UConst symbol table.
 
 This means a Logos-Term renderer can build the expected formula structure, but it cannot safely assign UConst indices from query-IR declaration order unless the proof artifact's declaration sequence is independently shown to be identical. That is a proof-binding requirement, not a formatting detail.
+
+
+## 9. Parser-state bridge sketch (not yet compiled)
+
+The pinned parser exposes the following relevant contracts:
+
+- ParserM T is StateT (State T) (Except String).
+- parseCommands returns the parsed assumptions and command list.
+- State stores ufCount and terms, where declared constants are represented by UConst nodes.
+- parseProof currently uses run' internally and discards this final state.
+
+A downstream Lean wrapper can preserve it by running parseCommands directly:
+
+```lean
+def parseProofWithState (proof : String) :
+    Except String (List Eo.Term × Eo.CCmdList × Logos.Parser.State Eo.Term) := do
+  let sexps ← Sexp.Parser.manySexps!.run proof
+  let initial := {
+    Logos.Parser.State.ofOps Eo.parserConfig.ops with
+      macros := .ofList Eo.parserConfig.macros
+  }
+  let ((assumptions, commands), finalState) ←
+    (Logos.Parser.parseCommands Eo.parserConfig sexps).run initial
+  return (assumptions, commands, finalState)
+```
+
+This is a source-level sketch only. It has not been compiled against the pinned Lean/Logos toolchain. The wrapper must reject unsupported datatype declarations and prove/test that, for the QF_LIA-only CPC subset, bypassing parseProof's datatype elaboration does not change parsed assumptions. The state-derived map must reject ambiguous repeated declarations rather than guessing which UConst a name denotes.
