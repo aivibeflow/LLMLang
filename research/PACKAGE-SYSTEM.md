@@ -361,7 +361,7 @@ Possible layout:
 
 ```text
 package/
-  manifest.bin
+  manifest.toml
   index.bin
   cache/
     validation.index
