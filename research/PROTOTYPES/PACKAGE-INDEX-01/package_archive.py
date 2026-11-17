@@ -12,7 +12,8 @@ import zipfile
 from pathlib import Path
 from typing import BinaryIO, Iterable
 
-from package_index import IndexError, TABLES, _canonical, validate_streamed_index
+from package_index import IndexError, TABLES, _canonical, _external_sort_records, validate_streamed_index
+from package_identity import PackageFormatError, _u32, canonical as identity_canonical, package_content_root_from_index_hash, parse_manifest
 
 CHUNK_SIZE = 1024 * 1024
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
@@ -86,6 +87,57 @@ def _table_rows(path: str):
         for line in source:
             yield json.loads(line)
 
+def _logical_index_hash_from_paths(paths, *, max_records_in_memory, temp_dir):
+    """Reproduce the identity prototype's logical index hash without materializing tables."""
+    hasher = hashlib.sha256()
+    hasher.update(b"LLMLANG\\0package-index.logical.v1\\0")
+    ordered_tables = sorted(TABLES, key=identity_canonical)
+    hasher.update(b"M" + _u32(len(ordered_tables)))
+    for table in ordered_tables:
+        hasher.update(identity_canonical(table))
+        with open(paths[table], "r", encoding="utf-8") as source:
+            count = sum(1 for _ in source)
+        hasher.update(b"L" + _u32(count))
+        sorted_rows = _external_sort_records(
+            _table_rows(paths[table]), key_fn=lambda row: identity_canonical(row),
+            max_records_in_memory=max_records_in_memory, temp_dir=temp_dir,
+        )
+        for row in sorted_rows:
+            hasher.update(identity_canonical(row))
+    return "sha256:" + hasher.hexdigest()
+
+
+def _assert_roots_included(manifest, object_rows):
+    roots = sorted(manifest["content"]["roots"])
+    position = 0
+    for row in object_rows:
+        while position < len(roots) and roots[position] < row["hash"]:
+            raise ArchiveError("package root is not present in included object membership: " + roots[position])
+        if position < len(roots) and roots[position] == row["hash"]:
+            position += 1
+    if position != len(roots):
+        raise ArchiveError("package root is not present in included object membership: " + roots[position])
+
+
+def _index_entry_names(manifest):
+    base = manifest["index"]["path"]
+    if base in {"manifest.toml", "objects"}:
+        raise ArchiveError("manifest index path collides with a reserved archive path")
+    return {table: f"{base}/{table}.jsonl" for table in TABLES}
+
+
+def _verify_manifest_and_index(manifest_bytes, table_paths, *, max_records_in_memory, temp_dir):
+    manifest = parse_manifest(manifest_bytes)
+    actual_hash = _logical_index_hash_from_paths(
+        table_paths, max_records_in_memory=max_records_in_memory, temp_dir=temp_dir
+    )
+    _assert_roots_included(manifest, _table_rows(table_paths["objects"]))
+    try:
+        return package_content_root_from_index_hash(manifest, actual_hash)
+    except PackageFormatError as exc:
+        raise ArchiveError(str(exc)) from exc
+
+
 
 def build_archive(
     manifest: bytes,
@@ -118,6 +170,9 @@ def build_archive(
     try:
         with tempfile.TemporaryDirectory(prefix="llmlang-package-build-") as work_dir:
             table_paths = _spool_index(index_stream, work_dir, max_records_in_memory)
+            manifest_model = parse_manifest(manifest)
+            index_entry_names = _index_entry_names(manifest_model)
+            _verify_manifest_and_index(manifest, table_paths, max_records_in_memory=max_records_in_memory, temp_dir=work_dir)
             object_rows = _table_rows(table_paths["objects"])
             fd, temp_output = tempfile.mkstemp(prefix=".llmlang-package-", dir=str(destination.parent))
             os.close(fd)
@@ -125,7 +180,7 @@ def build_archive(
             with zipfile.ZipFile(temp_output, "w", allowZip64=True) as archive:
                 _write_bytes(archive, "manifest.toml", manifest)
                 for table in TABLES:
-                    with archive.open(_entry_info(f"index/{table}.jsonl"), "w", force_zip64=True) as target:
+                    with archive.open(_entry_info(index_entry_names[table]), "w", force_zip64=True) as target:
                         for row in _table_rows(table_paths[table]):
                             target.write(_canonical(row) + b"\n")
 
@@ -177,19 +232,34 @@ def verify_archive(path: str | os.PathLike, *, max_records_in_memory: int = 4096
                 raise ArchiveError("archive contains duplicate entry names")
             if "manifest.toml" not in names:
                 raise ArchiveError("manifest.toml is missing")
-            expected_index_names = {f"index/{table}.jsonl" for table in TABLES}
+            manifest_bytes = archive.read("manifest.toml")
+            manifest_model = parse_manifest(manifest_bytes)
+            index_entry_names = _index_entry_names(manifest_model)
+            expected_index_names = set(index_entry_names.values())
             if not expected_index_names <= set(names):
-                raise ArchiveError("one or more index tables are missing")
+                raise ArchiveError("one or more manifest-declared index tables are missing")
 
             # Reopen each ZIP member on demand; the validator spools it to disk.
             def replay_table(table):
-                with archive.open(f"index/{table}.jsonl", "r") as source:
+                with archive.open(index_entry_names[table], "r") as source:
                     for line in source:
                         yield json.loads(line)
             validate_streamed_index(
                 {table: replay_table(table) for table in TABLES},
                 max_records_in_memory=max_records_in_memory,
             )
+            with tempfile.TemporaryDirectory(prefix="llmlang-package-verify-") as work_dir:
+                table_paths = {}
+                for table in TABLES:
+                    temp_path = os.path.join(work_dir, f"{table}.jsonl")
+                    with open(temp_path, "w", encoding="utf-8") as output:
+                        for row in replay_table(table):
+                            output.write(_canonical(row).decode("utf-8") + "\\n")
+                    table_paths[table] = temp_path
+                _verify_manifest_and_index(
+                    manifest_bytes, table_paths,
+                    max_records_in_memory=max_records_in_memory, temp_dir=work_dir,
+                )
 
             object_rows = replay_table("objects")
             expected_object_names = set()
@@ -218,5 +288,7 @@ def verify_archive(path: str | os.PathLike, *, max_records_in_memory: int = 4096
             return True
     except ArchiveError:
         raise
+    except PackageFormatError as exc:
+        raise ArchiveError(str(exc)) from exc
     except (OSError, KeyError, json.JSONDecodeError, zipfile.BadZipFile, IndexError) as exc:
         raise ArchiveError(str(exc)) from exc
