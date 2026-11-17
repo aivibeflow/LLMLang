@@ -30,4 +30,4 @@ jobs:
       - name: Build parser-state bridge
         run: lake build
       - name: Run parser-state binding tests
-        run: timeout 180s lake exe testParserBinding
+        run: timeout 180s lake env lean --run Main.lean
