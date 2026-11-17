@@ -187,6 +187,30 @@ def main : IO Unit := do
   expectFailure (decodeCanonicalRelationalQuery
     "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"f\",\"factor_left\":\"x_L\",\"factor_right\":\"x_R\",\"declarations\":[],\"factor_difference\":{},\"observations_differ\":{},\"observation_contract\":\"contract/1\"}")
 
+  IO.println "test 12: reject unknown fields and nonlinear multiplication"
+  expectFailure (decodeCanonicalRelationalQuery
+    "{\"schema\":\"llmlang.qf_lia.relational-query/2\",\"factor\":\"x\",\"factor_left\":\"i_0_L\",\"factor_right\":\"i_0_R\",\"declarations\":[{\"name\":\"i_0_L\",\"sort\":\"Int\"},{\"name\":\"i_0_R\",\"sort\":\"Int\"}],\"factor_difference\":{},\"observations_differ\":{},\"observation_contract\":\"x\",\"extra\":true}")
+  let nonlinearJson :=
+    "{\"schema\":\"llmlang.qf_lia.relational-query/2\",\"factor\":\"x\",\"factor_left\":\"i_0_L\",\"factor_right\":\"i_0_R\",\"declarations\":[{\"name\":\"i_0_L\",\"sort\":\"Int\"},{\"name\":\"i_0_R\",\"sort\":\"Int\"}],"
+    ++ "\"factor_difference\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true},"
+    ++ "\"observations_differ\":{\"op\":\"eq\",\"sort\":\"Bool\",\"args\":[{\"op\":\"mul\",\"sort\":\"Int\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"i_0_L\"},{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"i_0_R\"}],\"atom\":null},{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":0}],\"atom\":null},"
+    ++ "\"observation_contract\":\"return-and-selected-state/1\"}"
+  expectFailure (decodeCanonicalRelationalQuery nonlinearJson)
+
+  IO.println "test 13: reject malformed atoms and invalid factor identifiers"
+  let badIntAtom ←
+    match Lean.Json.parse "{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":true}" with
+    | .ok value => pure value
+    | .error error => throw (IO.userError error)
+  expectFailure (decodeQueryTerm .int badIntAtom)
+  let emptySymbol ←
+    match Lean.Json.parse "{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"\"}" with
+    | .ok value => pure value
+    | .error error => throw (IO.userError error)
+  expectFailure (decodeQueryTerm .int emptySymbol)
+  expectFailure (decodeCanonicalRelationalQuery
+    "{\"schema\":\"llmlang.qf_lia.relational-query/2\",\"factor\":\"f\",\"factor_left\":\"bad-name\",\"factor_right\":\"x_R\",\"declarations\":[],\"factor_difference\":{},\"observations_differ\":{},\"observation_contract\":\"contract/1\"}")
+
   IO.println "test 12: reject substituted factor symbol"
   let substitutedJson := canonicalJson.replace "\"factor_left\":\"i_0_L\"" "\"factor_left\":\"i_1\""
   expectFailure (checkCanonicalQueryAssumptions canonicalProof substitutedJson)
