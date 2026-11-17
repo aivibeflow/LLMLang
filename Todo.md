@@ -1,0 +1,231 @@
+# LLMLang — Open Questions and Decisions
+
+This file is the project-wide register of unresolved design questions and decisions that require discussion.
+
+It is not a specification. Items here may contain hypotheses and recommendations; only decisions explicitly accepted and transferred into the appropriate project documents become part of the design baseline.
+
+## How to use this register
+
+Each item has a stable ID. Keep the ID when the wording or status changes.
+
+Statuses:
+
+- **Open** — not yet discussed enough to make a decision.
+- **Discussion** — actively being explored; alternatives or evidence are being developed.
+- **Decision needed** — the alternatives and consequences are sufficiently understood, but an explicit project decision is required.
+- **Resolved** — the decision was made and recorded in a durable project document.
+
+For each item, record the question, why it matters, possible directions where known, a recommendation where useful, and links to relevant research. Do not mark an item Resolved merely because a recommendation exists. When resolving an item, record the decision and link to the document/commit that captures it. Remove obsolete duplicates only after preserving any useful history in the relevant document.
+
+Priority is a planning aid, not a measure of correctness:
+
+- **P0** — blocks foundational identity, semantics, or architecture decisions.
+- **P1** — important for the first coherent design/prototype.
+- **P2** — can be deferred without invalidating the initial design.
+
+---
+
+## Operation identity and calls
+
+### LL-001 — Define the canonical OpHash envelope
+
+- **Status:** Open
+- **Priority:** P0
+- **Question:** What exact canonical semantic data is committed by an Operation Hash (OpHash)?
+- **Context:** We have agreed on the principle that a call explicitly names an immutable semantic operation version. OpHash must identify the exact operation semantics, not merely a logical function name or a replaceable implementation.
+- **Options to investigate:**
+  - Hash the canonical interface and contract together.
+  - Include selected semantic context (for example, effects, capability requirements, ABI/calling convention, or target constraints) only when it changes the operation's meaning.
+  - Define a dedicated Operation Definition artifact that references these components by typed hashes.
+- **Recommendation:** Prefer a dedicated, typed operation-definition envelope with explicit references to interface and contract artifacts, plus only those additional fields that affect call semantics. Avoid duplicating their full content in multiple places.
+- **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 3.6.
+
+### LL-002 — Define Operation Stable ID lifecycle
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** How is an Operation Stable ID created, preserved, split, merged, deprecated, or replaced as an operation evolves?
+- **Context:** Stable ID identifies the logical lineage; OpHash identifies one immutable semantic version and is the call target. These roles must not collapse into one identifier.
+- **Options to investigate:** Explicit author-assigned IDs; tool-generated IDs with explicit lineage operations; rules for split/merge and unrelated operations with equivalent contracts.
+- **Recommendation:** Keep lineage changes explicit and auditable; never infer identity solely from names or contract similarity.
+- **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 3.6.
+
+### LL-003 — Specify contract-based analogue discovery and substitution
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** How does tooling discover operations with equivalent or compatible contracts, and what evidence is required before an implementation can serve a call addressed by a particular OpHash?
+- **Context:** Analogue discovery is an optimization/reuse mechanism, not call identity resolution. A candidate must not silently change the meaning of a call.
+- **Options to investigate:** Exact contract-hash match; structural contract comparison; proof of refinement/equivalence; explicit verified adapters for non-identical contracts.
+- **Recommendation:** Separate candidate discovery from acceptance. Require evidence against the exact OpHash and target constraints; otherwise do not substitute transparently.
+- **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 3.6 and 9.
+
+---
+
+## Semantic identity and artifact store
+
+### LL-004 — Choose canonical encoding and hash algorithm policy
+
+- **Status:** Open
+- **Priority:** P0
+- **Question:** What canonical serialization, domain separation, digest format, and hash-algorithm migration policy should LLMLang use?
+- **Context:** Stable content identities are foundational to SPG nodes, dependencies, reproducible builds, and OpHash.
+- **Options to investigate:** Canonical typed binary encoding versus canonical structured text; algorithm-tagged digests; explicit migration/dual-hash strategy.
+- **Recommendation:** Specify typed canonical encoding and domain separation before standardizing any digest spelling. Keep algorithm identity explicit in the digest representation.
+- **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 4–5.
+
+### LL-005 — Define hash-relevant dependency edges and cycles
+
+- **Status:** Open
+- **Priority:** P0
+- **Question:** Which SPG relationships affect an artifact's content identity, and how are semantic cycles represented without ambiguous recursive hashing?
+- **Context:** The dependency graph may contain relationships that are descriptive, evidentiary, or semantic. Only a well-defined subset should propagate content hashes.
+- **Options to investigate:** Acyclic hash-dependency graph with non-hash-relevant back-references; canonical group/root objects for mutually recursive components.
+- **Recommendation:** Keep the hash-dependency relation acyclic for the initial model; represent other graph relations separately until a canonical cyclic-group scheme is justified.
+- **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 5; [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md), section 5.
+
+### LL-006 — Decide artifact granularity for the initial SPG/store
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** Which entities must be independently addressable in the first model, and what is the smallest useful reusable unit?
+- **Context:** Candidate entities include operations, interfaces, contracts, types, expressions, implementation components, tests, models, and proofs. Excessive fragmentation can make the graph difficult to manage.
+- **Recommendation:** Start with stable semantic boundaries that support independent reuse, verification, or change-impact analysis; do not require every expression to become a global artifact.
+- **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 4 and 6.
+
+### LL-007 — Separate target-profile semantics from implementation identity
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** Which target/environment properties belong in an implementation's hash context, and which belong only in a binding or target profile?
+- **Context:** Architecture, ABI, data layout, kernel/libc versions, and feature configuration may affect semantics, but including irrelevant environment details would prevent safe reuse.
+- **Recommendation:** Hash only properties that can affect the artifact's interpretation or behavior; keep deployment-selection constraints in the binding when they do not alter the artifact itself.
+- **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 3.5, 5, and 8.
+
+### LL-008 — Define compatibility evidence and evidence reuse rules
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** What evidence is required for a binding to claim compatibility, and when may tests/proofs be reused after surrounding artifacts change?
+- **Context:** Hash equality is not behavioral equivalence; tests, declarations, and formal proofs are different evidence strengths and must be tied to exact inputs and assumptions.
+- **Recommendation:** Bind evidence to exact artifact hashes, target profile, assumptions, and tool versions. Reuse only when all proof/test-relevant inputs are unchanged or a sound reuse rule is established.
+- **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 9.
+
+### LL-009 — Define registry trust, provenance, licensing, and retention policy
+
+- **Status:** Open
+- **Priority:** P2
+- **Question:** How are artifacts published, signed, mirrored, licensed, revoked, cached, and garbage-collected across registries?
+- **Context:** Content addressing establishes integrity, not trust, ownership, or redistribution rights.
+- **Recommendation:** Keep artifact identity separate from attestations and policy. Defer registry topology and advanced trust policy until the semantic artifact model is stable.
+- **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 10.
+
+---
+
+## Language, packages, and templates
+
+### LL-010 — Decide whether Package is part of the SPG
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** Is Package a first-class semantic graph object or a distribution-level container referencing SPG objects?
+- **Context:** This affects the boundary between program semantics, distribution, dependency resolution, and provenance.
+- **Recommendation:** Initially keep Package as a distribution/identity concept unless a concrete semantic use case requires it inside the SPG.
+- **Related:** [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md), sections 3 and 12.
+
+### LL-011 — Define Library identity and publication requirements
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** Is Library a package subtype, a reusable semantic role, or both; and what minimum public specification must a library expose?
+- **Context:** Consumers need to know which claims are verifiable when implementation details are private or opaque.
+- **Recommendation:** Treat Library as a reusable component role and require machine-readable public contracts for semantic integration; make verification limits explicit for opaque implementations.
+- **Related:** [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md), sections 3 and 12.
+
+### LL-012 — Define template instantiation and migration semantics
+
+- **Status:** Open
+- **Priority:** P2
+- **Question:** How are template instances represented, customized, detached, and migrated when a template changes?
+- **Context:** Template updates must not silently overwrite local modifications or rewrite existing programs.
+- **Options to investigate:** Copied semantic objects with provenance; parameterized references; hybrid model with explicit generated/customized/detached states.
+- **Recommendation:** Instantiation should produce ordinary traceable SPG objects; updates should be explicit migrations represented as reviewable change sets.
+- **Related:** [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md), sections 6–8 and 12.
+
+---
+
+## Runtime and system interfaces
+
+### LL-013 — Select the initial POSIX edition and conformance profile
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** Which POSIX edition and which mandatory/optional/implementation-defined feature profile should the first LLMLang POSIX library target?
+- **Context:** Conformance claims are meaningless without a precisely scoped edition and profile.
+- **Recommendation:** Choose a small, explicit POSIX Core profile first; record optional and implementation-defined behavior separately.
+- **Related:** [POSIX Runtime Architecture](research/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
+
+### LL-014 — Choose the LLMLang-facing POSIX API shape
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** Should the public API mirror POSIX closely, or expose a safer typed façade while preserving a documented mapping to POSIX semantics?
+- **Context:** A direct mapping improves familiarity and portability; a typed façade can make ownership, errors, and capabilities explicit but may change the surface API.
+- **Recommendation:** Preserve POSIX behavioral compatibility while allowing LLMLang types to express ownership, errors, and capabilities more precisely. Validate with concrete API examples before deciding.
+- **Related:** [POSIX Runtime Architecture](research/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
+
+### LL-015 — Define the first portable and native runtime vertical slices
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** Which minimal functions and runtime mechanisms should be implemented first to validate both the portable runtime and the native Linux syscall runtime?
+- **Context:** The project needs a bounded end-to-end milestone exercising compiler semantics, errors, resources, and ABI boundaries.
+- **Recommendation:** Select a small shared-contract slice (for example, process startup, basic file I/O, and error handling) before expanding the API.
+- **Related:** [POSIX Runtime Architecture](research/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
+
+### LL-016 — Select initial native architectures and isolate syscall ABI details
+
+- **Status:** Open
+- **Priority:** P2
+- **Question:** Which Linux architectures should be supported first, and how should architecture-specific syscall stubs and ABI details be isolated?
+- **Context:** Native runtime portability depends on keeping architecture-specific mechanics behind explicit target-specific artifacts.
+- **Recommendation:** Begin with one target architecture for the first vertical slice, but define an abstraction boundary that permits additional architectures.
+- **Related:** [POSIX Runtime Architecture](research/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
+
+### LL-017 — Define the trusted low-level runtime boundary
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** Which runtime components may initially be implemented as trusted assembly, compiler intrinsics, or external code, and how is that trust boundary represented?
+- **Context:** Native syscall entry and a small number of machine-specific operations may be difficult to express or verify in the initial language implementation.
+- **Recommendation:** Minimize the trusted computing base, enumerate every trusted primitive, and expose explicit contracts and verification limits.
+- **Related:** [POSIX Runtime Architecture](research/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
+
+### LL-018 — Specify POSIX concurrency and environment-dependent semantics
+
+- **Status:** Open
+- **Priority:** P2
+- **Question:** How should LLMLang's memory/concurrency model relate to POSIX threads, signals, blocking I/O, scheduling, and Linux kernel ordering guarantees?
+- **Context:** These behaviors are observable and cannot be treated as incidental implementation details.
+- **Recommendation:** Define the language memory model independently, then specify explicit refinement/compatibility mappings for POSIX and kernel behavior.
+- **Related:** [POSIX Runtime Architecture](research/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
+
+### LL-019 — Scope POSIX conformance and formal-verification claims
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** How are optional and implementation-defined POSIX behaviors represented, tested, and verified, and what exactly does a conformance or proof claim cover?
+- **Context:** A single “POSIX-compatible” label can hide unsupported options, assumptions, and unverified environment behavior.
+- **Recommendation:** Publish feature-scoped conformance and evidence claims with explicit assumptions and exclusions.
+- **Related:** [POSIX Runtime Architecture](research/POSIX-RUNTIME-ARCHITECTURE.md), sections 10 and 13.
+
+---
+
+## Maintenance rules
+
+- Add a new item when a discussion exposes a durable unresolved design question, not for every implementation task or transient note.
+- Search this register before adding an item; extend an existing ID when the question is the same.
+- Keep implementation tasks, bugs, and milestones in an issue tracker or plan if one is introduced. This file is for design questions and decisions.
+- When discussion produces a decision, update the item's status and decision summary, then link the normative or research document that records it.
+- If a decision is later reopened, preserve its history and explain why the prior decision is being reconsidered.
+- Review this file when changing foundational documents so that resolved or newly discovered questions do not drift out of sync.
