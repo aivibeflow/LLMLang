@@ -71,7 +71,7 @@ Interpretation:
 - **Repeated identical build:** the exact same semantic inputs, target, toolchain, configuration, and action implementations are built again with a warm cache. Link/package work is less reusable because final aggregation, signing, or packaging may still be required.
 - **Cold build:** all hit fractions are zero; caching cannot accelerate the first build and may make it slightly slower due to cache population.
 
-These are illustrative assumptions, deliberately not best-case maxima. Actual values depend on graph granularity, dependency completeness, build topology, and workload.
+These are illustrative assumptions, deliberately not best-case maxima. Actual values depend on graph granularity, dependency completeness, build topology, and workload. A local implementation edit is detected through the changed `ImplHash`; downstream action keys change only where their declared result-determining inputs include that identity or a derived artifact. No separate dirty-flag/source-change mechanism is assumed. This relies on complete hash inputs and sound action keys.
 
 ## 5. Calculated results
 
@@ -103,7 +103,7 @@ The useful unit is the smallest independently reusable semantic computation whos
 
 ### 6.2 Dependency completeness
 
-A false cache hit is a correctness defect, not a performance trade-off. Hidden inputs (environment variables, headers, compiler flags, target features, toolchain binaries, runtime versions, generated files) must be represented in the Action Key or make the action non-cacheable.
+A false cache hit is a correctness defect, not a performance trade-off. Hidden inputs (environment variables, headers, compiler flags, target features, toolchain binaries, runtime versions, generated files) must be represented in the Action Key or make the action non-cacheable. For implementation changes, a changed hash-relevant semantic input must change `ImplHash`; consuming actions then get new `ActionKey` values. This content-addressed identity propagation replaces separate dirty flags or source-change tracking. If an input is omitted from `ImplHash` or `ActionKey`, the resulting stale hit is a dependency-completeness bug.
 
 The model assumes all cache hits are sound. It does not assign a performance benefit to unsafe reuse.
 
