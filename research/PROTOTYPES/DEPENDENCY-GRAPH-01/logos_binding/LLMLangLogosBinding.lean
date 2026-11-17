@@ -150,40 +150,45 @@ def renderQueryTerm {sort : QuerySort}
     (bindings : List (String × Eo.Term))
     (term : QueryTerm sort) :
     Except String Eo.Term := do
-  match term with
-  | .intLit value => pure (.Numeral value)
-  | .boolLit value => pure (.Boolean value)
-  | .intSymbol name => resolveQuerySymbol bindings name .int
-  | .boolSymbol name => resolveQuerySymbol bindings name .bool
-  | .not value => apply1 .not <$> renderQueryTerm bindings value
-  | .neg value => apply1 .__eoo_neg_2 <$> renderQueryTerm bindings value
-  | .add left right => do
+  match sort, term with
+  | .int, .intLit value => pure (.Numeral value)
+  | .int, .intSymbol name => resolveQuerySymbol bindings name .int
+  | .int, .neg value => apply1 .__eoo_neg_2 <$> renderQueryTerm bindings value
+  | .int, .add left right => do
       let leftTerm ← renderQueryTerm bindings left
       let rightTerm ← renderQueryTerm bindings right
       applyRightAssocNil .plus [leftTerm, rightTerm]
-  | .sub left right => apply2 .neg <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
-  | .mul left right => do
+  | .int, .sub left right =>
+      apply2 .neg <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
+  | .int, .mul left right => do
       let leftTerm ← renderQueryTerm bindings left
       let rightTerm ← renderQueryTerm bindings right
       applyRightAssocNil .mult [leftTerm, rightTerm]
-  | .eqInt left right => apply2 .eq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
-  | .eqBool left right => apply2 .eq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
-  | .lt left right => apply2 .lt <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
-  | .le left right => apply2 .leq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
-  | .and terms =>
+  | .int, .iteInt condition yes no =>
+      apply3 .ite <$> renderQueryTerm bindings condition
+        <*> renderQueryTerm bindings yes <*> renderQueryTerm bindings no
+  | .bool, .boolLit value => pure (.Boolean value)
+  | .bool, .boolSymbol name => resolveQuerySymbol bindings name .bool
+  | .bool, .not value => apply1 .not <$> renderQueryTerm bindings value
+  | .bool, .eqInt left right =>
+      apply2 .eq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
+  | .bool, .eqBool left right =>
+      apply2 .eq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
+  | .bool, .lt left right =>
+      apply2 .lt <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
+  | .bool, .le left right =>
+      apply2 .leq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
+  | .bool, .and terms =>
       if terms.length < 2 then throw "and requires at least two operands"
       else do
         let rendered ← terms.mapM (renderQueryTerm bindings)
         applyRightAssocNil .and rendered
-  | .or terms =>
+  | .bool, .or terms =>
       if terms.length < 2 then throw "or requires at least two operands"
       else do
         let rendered ← terms.mapM (renderQueryTerm bindings)
         applyRightAssocNil .or rendered
-  | .iteInt condition yes no =>
-      apply3 .ite <$> renderQueryTerm bindings condition
-        <*> renderQueryTerm bindings yes <*> renderQueryTerm bindings no
-  | .iteBool condition yes no =>
+  | .bool, .iteBool condition yes no =>
       apply3 .ite <$> renderQueryTerm bindings condition
         <*> renderQueryTerm bindings yes <*> renderQueryTerm bindings no
 
