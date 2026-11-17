@@ -1,0 +1,648 @@
+# LLMLang Research and Development Plan
+
+**Status:** living plan  
+**Repository:** `aivibeflow/LLMLang`  
+**Research corpus at plan creation:** 102 files under `research/`  
+**Normative boundary:** this plan schedules research and validation. Research results are not normative language rules until explicitly reviewed and transferred to `draft/`.
+
+## 1. Purpose
+
+This plan consolidates the LLMLang research programme, including topics already investigated, topics with active prototypes, and topics that remain open. Its purpose is to:
+
+- establish a dependency-aware order for research;
+- preserve completed work instead of treating it as future work;
+- distinguish an existing research document from a validated result or an accepted architectural decision;
+- identify the evidence and exit criteria required before moving to the next stage;
+- keep the research corpus in `research/` and the candidate specification in `draft/`.
+
+The stages are ordered. Work inside a stage may proceed in parallel when its dependencies are satisfied. A later stage may be explored early, but it must not be treated as architecturally settled before its prerequisites pass their exit criteria.
+
+## 2. Status vocabulary
+
+Use these statuses for each item:
+
+- **Researched** — a research document or substantial analysis exists. This does not mean the question is conclusively resolved.
+- **Prototyped** — an executable prototype or focused experiment exists.
+- **Partially validated** — some claims have supporting evidence, but acceptance criteria remain unmet.
+- **In progress** — active work or an explicit next experiment exists.
+- **Not started** — no substantial research has been recorded yet.
+- **Decision pending** — alternatives have been investigated, but an explicit design decision remains open.
+- **Accepted** — an explicit project decision has been recorded in a durable design document. A recommendation alone is not acceptance.
+
+Status applies to the current evidence, not to how important the topic is. Where the repository contains related research but not a direct answer to the exact question, mark the item as partially researched rather than complete.
+
+## 3. Stage overview
+
+| Stage | Name | Main outcome | Gate |
+|---|---|---|---|
+| 0 | Research inventory and evidence hygiene | A reconciled map of existing work, claims, prototypes, gaps, and decisions | Every existing research area is mapped; evidence and decision status are explicit |
+| 1 | Semantic foundation and identity | A coherent model of SPG, semantic objects, contracts, and immutable identities | Canonical semantic objects, identity boundaries, and contract relations are sufficiently defined |
+| 2 | Formal semantics and verification foundation | A small formal core with independently checkable claims and explicit proof boundaries | A reference semantics and a sound, reproducible verification slice exist |
+| 3 | Dependency graph, incremental computation, and cache | Sound impact analysis and cache reuse/invalidation model | Dependency completeness and cache-key soundness are demonstrated on representative changes |
+| 4 | Semantic storage, versioning, and Git integration | Durable repository representation and semantic merge workflow | Clone, history, diff, merge, conflict handling, and recovery are demonstrated |
+| 5 | Types, execution model, runtime, and POSIX | A small executable language/runtime slice with explicit platform boundaries | A vertical slice preserves its declared semantics on a selected target |
+| 6 | Translation, backends, and optimization | Multiple target realizations and evidence-backed implementation selection | Two backends agree with reference semantics for the selected subset |
+| 7 | Scale, ecosystem, collaboration, and adoption | Measured feasibility and operational model for real projects | Performance, storage, collaboration, trust, and usability criteria are measured |
+
+---
+
+# Stage 0 — Research inventory and evidence hygiene
+
+**Order:** first; can run alongside maintenance of existing prototypes.  
+**Purpose:** establish what the 102-file research corpus actually proves and what remains open.
+
+### 0.1 Reconcile the research corpus
+
+- [ ] Inventory every document, prototype, test suite, RFC, audit, and generated artifact under `research/`.
+- [ ] Map each artifact to one or more research items and stages in this plan.
+- [ ] Identify duplicate, superseded, orphaned, and contradictory documents.
+- [ ] Verify that links in `research/README.md` resolve and that the index reflects the current corpus.
+- [ ] Preserve useful historical findings; do not delete an old result merely because a newer document supersedes it.
+- [ ] Separate research notes, experiment specifications, implementation artifacts, test evidence, and decisions.
+- [ ] Record the exact commit/revision and tool versions needed to reproduce each important result.
+
+**Existing evidence:** `research/README.md` indexes the corpus; scenarios 01–33 and dependency-graph prototypes 01–29 are represented in the current research index. A repository-wide audit is also present.
+
+**Status:** partially validated — an index and substantial corpus exist; a full item-by-item reconciliation is still required.
+
+### 0.2 Establish research quality and decision rules
+
+- [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
+- [ ] Distinguish observations, assumptions, conjectures, experimental results, proofs, and accepted decisions.
+- [ ] Require reproducible commands, fixtures, tool versions, and expected outputs for executable experiments.
+- [ ] Record negative results and rejected alternatives.
+- [ ] Link every proposed specification change to its supporting research and evidence.
+- [ ] Ensure that `research/` remains exploratory and `draft/` remains the candidate specification.
+
+**Exit criteria:** every existing research artifact is discoverable from an index; every major claim has an explicit evidence level; unresolved questions are linked to `TODO.md` or a clearly identified research item.
+
+---
+
+# Stage 1 — Semantic foundation and identity
+
+**Order:** after Stage 0 inventory; foundational for all later stages.  
+**Purpose:** define what a LLMLang program is and what exactly its identities commit to.
+
+## 1.1 Semantic Program Graph and program representation
+
+- [ ] Define the Semantic Program Graph (SPG) as a typed semantic representation.
+- [ ] Define the relationship between Specification Graph, Design Graph, and Implementation Graph.
+- [ ] Define semantic nodes, edges, ownership, references, and graph boundaries.
+- [ ] Separate syntax trees, source text, semantic representation, provenance, and generated artifacts.
+- [ ] Determine whether multiple source syntaxes can represent the same semantic graph.
+- [ ] Define canonicalization and normalization rules.
+- [ ] Define semantic graph evolution, node replacement, splitting, merging, and lineage.
+- [ ] Decide artifact granularity: operations, interfaces, contracts, types, implementation components, tests, models, and proofs.
+- [ ] Define how recursive and mutually dependent structures are represented.
+
+**Existing evidence:** `research/LLMLang-CONCEPT.md` describes the SPG and the three logical graph layers; dependency-graph scenarios 18–28 explore requirement evolution, dependency discovery, and formal dependency analysis.
+
+**Status:** researched and prototyped in parts; canonical graph schema and complete identity rules remain open.
+
+## 1.2 Semantic identity, hashes, and canonical encoding
+
+- [ ] Define the distinct roles of logical/stable IDs, semantic hashes, operation identity, implementation identity, action keys, artifact hashes, and evidence identity.
+- [ ] Specify the exact semantic payload committed by `OpHash`.
+- [ ] Specify `ImpHash` and the identity of a concrete implementation.
+- [ ] Define the contract identity and the identity of a class of compatible implementations.
+- [ ] Define canonical typed serialization, domain separation, digest encoding, and hash algorithm agility.
+- [ ] Define hash-relevant versus descriptive, provenance, and evidentiary graph edges.
+- [ ] Define cycle handling in hash dependencies.
+- [ ] Define which target, ABI, runtime, toolchain, and configuration properties affect implementation identity.
+- [ ] Define stable-ID lifecycle, including rename, split, merge, deprecation, and replacement.
+- [ ] Define collision handling and migration policy.
+- [ ] Specify the invariant that a semantic change affecting an implementation changes its `ImpHash`; determine the exact dependency propagation rules that make this automatic.
+
+**Existing evidence:** `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, `research/LLMLang-CONCEPT.md`, and the open questions LL-001–LL-008 in `TODO.md`.
+
+**Status:** researched; decision pending on canonical envelopes, dependency boundaries, and lifecycle.
+
+## 1.3 Contracts and compatible implementations
+
+- [ ] Define contract structure and semantics: preconditions, postconditions, invariants, effects, errors, state transitions, and assumptions.
+- [ ] Define the difference between exact contract equality, refinement, substitutability, and behavioral equivalence.
+- [ ] Define how one operation can have many implementations and how one implementation can satisfy multiple contracts.
+- [ ] Define contract-based analogue discovery separately from call identity and dispatch.
+- [ ] Define the evidence required before substituting an implementation for a specific `OpHash`.
+- [ ] Define verified adapters for compatible but non-identical contracts.
+- [ ] Define what may be inferred automatically and what requires proof or explicit approval.
+- [ ] Define evidence binding to exact semantic inputs, assumptions, target profile, and tool versions.
+
+**Existing evidence:** global semantic artifact store research; operation identity and analogue-discovery questions LL-001–LL-003; requirement/contract work in scenarios 15–19.
+
+**Status:** researched; decision pending on formal compatibility and substitution criteria.
+
+## 1.4 Prior-art study for semantic representation and identity
+
+- [ ] Compare Unison's content-addressed code identity and codebase model.
+- [ ] Compare Git's object model and DAG with semantic object identity.
+- [ ] Compare LLVM IR identity and canonicalization limits.
+- [ ] Compare content-addressed artifact stores and package registries.
+- [ ] Identify which ideas can be reused without making a target IR or source syntax the semantic authority.
+
+**Exit criteria:** a reviewed semantic object model; explicit identity table and canonicalization proposal; contract compatibility vocabulary and evidence model; remaining foundational decisions registered in `TODO.md`.
+
+---
+
+# Stage 2 — Formal semantics and verification foundation
+
+**Order:** after the semantic objects and contract boundaries from Stage 1 are stable enough to formalize.  
+**Purpose:** make language meaning precise and ensure that verification claims are independently checkable.
+
+## 2.1 Formal semantics of the language
+
+- [ ] Compare operational, denotational, and axiomatic semantics for the initial LLMLang core.
+- [ ] Define an executable reference semantics for a deliberately small subset.
+- [ ] Define observable behavior: return values, errors, state changes, I/O, resource behavior, concurrency, and declared effects.
+- [ ] Define semantic equivalence and refinement.
+- [ ] Define evaluation order, effects, error propagation, and state transitions.
+- [ ] Define semantics of contracts and their composition.
+- [ ] Define semantics-preserving transformations and compiler correctness boundaries.
+- [ ] Define assumptions and environmental boundaries explicitly.
+
+**Existing evidence:** `research/LLMLang-FORMAL-VERIFICATION.md`, `research/LLMLang-CONCEPT.md`, typed requirement IR and formal dependency scenarios 25–33.
+
+**Status:** partially researched; a complete language semantics is not yet established.
+
+## 2.2 Proof architecture and proof boundary
+
+- [ ] Determine which claims belong in Lean, SMT, specialized checkers, testing, or trusted runtime code.
+- [ ] Define the trusted computing base for each proof claim.
+- [ ] Define proof object formats, proof checking, provenance, and evidence reuse.
+- [ ] Separate solver answers from independently checked proofs.
+- [ ] Define exact binding between source-level assumptions, typed IR, serialized queries, and proof obligations.
+- [ ] Define fail-closed behavior for unsupported or ambiguous constructs.
+- [ ] Define how proof status is represented: candidate, unknown, checked, rejected, or proven.
+- [ ] Define the relationship between proof validity and specification adequacy; a proof cannot establish that the specification captures user intent.
+
+**Existing evidence:** scenarios 28–33, prototype 29, Lean CPC parser-state binding prototype, Logos integration, and `research/LLMLang-FORMAL-VERIFICATION.md`.
+
+**Status:** in progress / partially validated. The QF_LIA route remains a restricted candidate path; it must not be described as proven until the exact source-to-query binding, encoding, and proof-checking obligations pass.
+
+## 2.3 Lean, Logos, SMT, and solver integration
+
+- [ ] Complete explicit Lean build and test validation for the pinned Lean 4.34.0 environment and pinned Logos revision.
+- [ ] Validate the CPC parser-state bridge and exact symbol identity binding.
+- [ ] Construct the expected `Eo.Term` from the canonical typed Relational Query IR.
+- [ ] Validate strict versioned JSON decoding and rejection of malformed or unsupported input.
+- [ ] Prove or independently validate the encoder's semantic preservation obligations.
+- [ ] Verify the exact assumption list and query binding adversarially.
+- [ ] Keep QF_LIA as a conservative profile; reject unsupported strings, nonlinear arithmetic, and constructs outside the profile.
+- [ ] Test SAT/UNSAT/UNKNOWN handling and solver protocol failures.
+- [ ] Record what is checked by Lean, what is trusted in Logos, and what remains outside the proof boundary.
+
+**Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; QF_LIA Python prototype and focused tests; CI workflow.
+
+**Status:** in progress. CI and source-level audits exist, but explicit full build/test validation and the remaining typed-term/proof boundary work are gates.
+
+## 2.4 Correctness of optimization and translation
+
+- [ ] Define proof obligations for semantic graph rewrites.
+- [ ] Define proof obligations for compiler optimizations.
+- [ ] Study translation validation versus proving the optimizer correct.
+- [ ] Evaluate Alive2 and related LLVM validation techniques.
+- [ ] Define differential and property-based testing against reference semantics.
+- [ ] Define when testing is sufficient evidence and when formal proof is required.
+
+**Prior art:** Lean, SMT solvers, TLAPS, Dafny, K Framework, Vellvm, Alive2.
+
+**Status:** not started as a complete LLMLang-wide verification architecture; prior-art research and selected formal prototypes exist.
+
+**Exit criteria:** a small, executable reference semantics; at least one end-to-end, independently checked proof path with explicit assumptions; a documented trusted computing base; reproducible CI validation.
+
+---
+
+# Stage 3 — Dependency graph, incremental computation, and cache
+
+**Order:** after Stage 1 identity and Stage 2 semantic/proof boundaries are sufficiently defined.  
+**Purpose:** compute only what has actually been invalidated while preserving soundness.
+
+## 3.1 Semantic dependency model
+
+- [ ] Define semantic dependencies separately from provenance, audit observations, and traceability.
+- [ ] Define hash-relevant dependency edges and dependency closure.
+- [ ] Define how dependencies are discovered from static analysis, typed IR, runtime observations, tests, and formal semantics.
+- [ ] Define confidence/evidence classes for dependency edges.
+- [ ] Define sound conservative may-depend graphs.
+- [ ] Define how missing or incomplete dependency evidence affects reuse.
+- [ ] Define cycles and strongly connected components for analysis and scheduling.
+- [ ] Define change-impact analysis for requirement, contract, design, implementation, and target changes.
+
+**Existing evidence:** scenarios 18–28 and prototypes 18–28 in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`.
+
+**Status:** extensively researched and prototyped; completeness and integration with the full semantic model remain open.
+
+## 3.2 Incremental analysis and invalidation
+
+- [ ] Define invalidation for type checking, contract checking, optimization, code generation, tests, and proofs.
+- [ ] Define the difference between semantic impact and evidence staleness.
+- [ ] Define how an `ImpHash` change propagates through dependent semantic nodes and action results.
+- [ ] Define safe reuse when only non-semantic metadata changes.
+- [ ] Define conservative fallback when dependency completeness cannot be established.
+- [ ] Define impact planning and non-interference gates.
+- [ ] Benchmark small local edits, shared component edits, and broad semantic changes.
+
+**Existing evidence:** `research/SEMANTIC-COMPILATION-CACHE.md`, scenarios 18–28, and dependency graph prototypes.
+
+**Status:** researched and prototyped in parts; full compiler integration is not implemented.
+
+## 3.3 Semantic build and cache graph
+
+- [ ] Define typed build actions and their inputs/outputs.
+- [ ] Keep Semantic Hash, Action Key, and Artifact Hash distinct.
+- [ ] Include tool identity, tool version, configuration, target, environment, runtime, and policy inputs whenever they can affect a result.
+- [ ] Define deterministic versus nondeterministic action handling.
+- [ ] Define local, workspace, remote, and global cache layers.
+- [ ] Define cache integrity, trust, provenance, and eviction.
+- [ ] Define test and proof evidence caching with exact subject and assumption binding.
+- [ ] Define behavior for incomplete dependency closure: invalidate conservatively or disable caching.
+- [ ] Define reproducibility requirements and cache poisoning defenses.
+
+**Existing evidence:** `research/SEMANTIC-COMPILATION-CACHE.md`, `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, and `research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
+
+**Status:** researched; detailed design and implementation validation remain open.
+
+## 3.4 Quantify compilation speedup
+
+- [ ] Validate the analytical model in `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
+- [ ] Implement reproducible benchmarks for cold, warm, local-edit, component-edit, and broad-change builds.
+- [ ] Measure cache hit rates by action type.
+- [ ] Measure hashing, dependency discovery, scheduling, storage, and verification overhead.
+- [ ] Compare against clean and conventional incremental builds in representative Rust, Go, and C++ projects.
+- [ ] Report speedup distributions and workload assumptions rather than a single headline number.
+- [ ] Identify workloads where caching is neutral or slower.
+
+**Status:** analytical estimate researched; empirical benchmark results still required.
+
+**Exit criteria:** a dependency-completeness policy; sound action-key model; tests showing that relevant changes invalidate all affected results and irrelevant changes preserve valid results; reproducible benchmark data.
+
+---
+
+# Stage 4 — Semantic storage, versioning, and Git integration
+
+**Order:** after identity and dependency boundaries are stable enough to persist.  
+**Purpose:** make semantic programs durable, portable, reviewable, and mergeable in ordinary repositories.
+
+## 4.1 Semantic object storage
+
+- [ ] Compare KV databases, content-addressed object stores, relational indexes, and filesystem layouts.
+- [ ] Define canonical object encoding and immutable object lifecycle.
+- [ ] Define indexes for graph traversal, reverse dependencies, contracts, and implementation discovery.
+- [ ] Define transactions and atomic publication of graph revisions.
+- [ ] Define garbage collection and reachability.
+- [ ] Define crash recovery, corruption detection, backup, and replication.
+- [ ] Define local repository storage versus shared/global artifact storage.
+- [ ] Define portability without requiring a live external database.
+
+**Existing evidence:** `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md` and the current Git representation research.
+
+**Status:** researched at architectural level; storage prototype and recovery tests remain open.
+
+## 4.2 Git representation and repository model
+
+- [ ] Define the canonical Git-visible representation of a semantic program.
+- [ ] Compare storing canonical serialized semantic objects directly in Git with storing KV-backed objects plus repository manifests.
+- [ ] Define the mapping between Git commits/trees and semantic graph snapshots.
+- [ ] Preserve ordinary Git clone, fetch, push, branch, tag, and history behavior.
+- [ ] Define readable textual representation, diff strategy, and generated metadata.
+- [ ] Define how large objects and binary artifacts are handled.
+- [ ] Define repository portability and reproducibility from a clean clone.
+
+**Existing evidence:** `research/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md`.
+
+**Status:** researched; implementation and interoperability tests remain open.
+
+## 4.3 Semantic diff, merge, and conflict resolution
+
+- [ ] Define semantic diff independently of textual diff and AST diff.
+- [ ] Define three-way merge over semantic graph snapshots.
+- [ ] Define conflict classes: same-node edits, contract/implementation divergence, identity collisions, dependency conflicts, split/merge conflicts, and metadata-only conflicts.
+- [ ] Define automatic merge when changes are provably independent.
+- [ ] Define conservative conflict behavior when independence cannot be established.
+- [ ] Define interactive conflict resolution and preservation of both alternatives.
+- [ ] Define post-merge validation: graph integrity, type checking, contract checking, dependency completeness, tests, and proofs.
+- [ ] Define merge reproducibility and audit history.
+
+## 4.4 Git integration workflow
+
+- [ ] Prototype a Git merge driver that invokes the LLMLang semantic merge tool.
+- [ ] Prototype a Git mergetool integration for interactive conflicts.
+- [ ] Define clean fallback behavior when the tool is unavailable.
+- [ ] Test merges in normal Git workflows and across operating systems.
+- [ ] Verify that merge drivers do not silently discard unresolved semantic conflicts.
+- [ ] Document repository setup and team workflows.
+
+**Exit criteria:** clean clone reconstructs the program; commits map deterministically to semantic snapshots; semantic diff/merge works on independent and conflicting changes; Git fallback and interactive resolution are tested.
+
+---
+
+# Stage 5 — Types, execution model, runtime, and POSIX
+
+**Order:** after the semantic core and initial proof boundary; a small vertical slice should be chosen early.  
+**Purpose:** define what programs mean when executed and how LLMLang interacts with systems.
+
+## 5.1 Type system and data model
+
+- [ ] Define primitive and algebraic data types.
+- [ ] Compare structural and nominal typing.
+- [ ] Research generic and polymorphic types.
+- [ ] Evaluate refinement types and dependent types.
+- [ ] Define typed states, state transitions, and constrained values.
+- [ ] Define ownership, borrowing, lifetimes, references, and aliasing.
+- [ ] Define mutability and resource management.
+- [ ] Define effects, capabilities, and error types.
+- [ ] Define type inference and explicit annotations.
+- [ ] Define compatibility between types exposed by different implementations.
+- [ ] Determine which guarantees are enforced by types, contracts, or proofs.
+
+**Existing evidence:** concept and formal-verification research; typed requirement and typed relational IR prototypes.
+
+**Status:** partially researched; complete language type-system design remains open.
+
+## 5.2 Execution semantics and runtime architecture
+
+- [ ] Define interpreter/reference execution.
+- [ ] Define VM requirements, if a VM is needed.
+- [ ] Define runtime representation of values and semantic calls.
+- [ ] Define explicit call binding to immutable operation identity.
+- [ ] Define error propagation, cancellation, and resource cleanup.
+- [ ] Define memory model and concurrency semantics.
+- [ ] Define threads, synchronization, atomics, signals, blocking I/O, and scheduling boundaries.
+- [ ] Define capability and security model.
+- [ ] Define trusted low-level primitives and their contracts.
+- [ ] Define runtime versioning and its contribution to implementation identity.
+
+**Status:** partially researched at concept level; execution model and runtime implementation are open.
+
+## 5.3 POSIX architecture and conformance
+
+- [ ] Select initial POSIX edition and explicit conformance profile.
+- [ ] Define LLMLang-facing API: close POSIX mapping versus safer typed facade.
+- [ ] Define a shared contract for multiple POSIX implementations.
+- [ ] Separate portable runtime implementation from native Linux syscall implementation.
+- [ ] Define conformance evidence, optional features, and implementation-defined behavior.
+- [ ] Define error, resource, process, file, and descriptor semantics.
+- [ ] Define concurrency and environment-dependent behavior.
+- [ ] Define initial vertical slice, such as process startup, basic file I/O, and errors.
+- [ ] Select initial Linux architecture and isolate syscall ABI details.
+- [ ] Define how existing C libraries and external ABI boundaries are called.
+- [ ] Define the trusted low-level runtime boundary.
+- [ ] Compare behavior using conformance, differential, and contract-derived tests.
+- [ ] Define precisely what POSIX compatibility and formal verification claims cover.
+
+**Existing evidence:** `research/POSIX-RUNTIME-ARCHITECTURE.md`; related open questions LL-013–LL-019 in `TODO.md`.
+
+**Status:** researched at architectural level; edition/profile, API, vertical slice, and implementation decisions remain open.
+
+**Exit criteria:** a small typed executable subset; reference execution; one POSIX vertical slice with explicit contracts and conformance scope; tests for observable behavior and error cases.
+
+---
+
+# Stage 6 — Translation, backends, implementation selection, and optimization
+
+**Order:** after a reference semantics and a stable semantic subset exist.  
+**Purpose:** realize the same source semantics on multiple targets without making any target language the source of truth.
+
+## 6.1 Translation architecture
+
+- [ ] Decide whether backends consume typed SPG directly or a normalized target-independent semantic IR.
+- [ ] Define the lowering pipeline and preservation obligations.
+- [ ] Define target capability declarations and unsupported constructs.
+- [ ] Define explicit translation outcomes: exact under assumptions, preserved with runtime support, restricted, unsupported, and unverified.
+- [ ] Define runtime support as part of a target realization.
+- [ ] Define generated artifact identity and reproducibility.
+- [ ] Define verification independent of the code generator wherever practical.
+- [ ] Define incremental translation and selective verification invalidation.
+
+**Existing evidence:** `research/TRANSLATION-AND-TARGET-BACKENDS.md`, `research/LLVM-BACKEND-ARCHITECTURE.md`, and formal-verification research.
+
+**Status:** researched at architectural level; backend contract and preservation theorem remain open.
+
+## 6.2 Backend selection and cross-backend validation
+
+- [ ] Define the minimal common semantic subset for backend experiments.
+- [ ] Evaluate Python as an experimental/reference target.
+- [ ] Evaluate Go as the first serious compiled target.
+- [ ] Evaluate Rust for ownership and systems-language coverage.
+- [ ] Evaluate C++ for ABI and platform coverage.
+- [ ] Consider Java as an alternative compiled target.
+- [ ] Implement two backends for the same subset.
+- [ ] Compare each backend against the same reference semantics and scenario corpus.
+- [ ] Compare return values, errors, state changes, and declared observable effects.
+- [ ] Reject silent semantic weakening; report restrictions explicitly.
+
+**Existing evidence:** target selection recommendation in `research/TRANSLATION-AND-TARGET-BACKENDS.md`.
+
+**Status:** researched as a recommendation; no first target is formally selected and no complete cross-backend validation exists.
+
+## 6.3 LLVM backend
+
+- [ ] Define LLVM's role as a replaceable backend, not the canonical LLMLang semantic representation.
+- [ ] Define a conservative LLVM IR subset and lowering contract.
+- [ ] Research poison, undef, overflow flags, pointer semantics, aliasing, floating-point flags, and memory ordering.
+- [ ] Define how LLVM optimization passes are validated against LLMLang semantics.
+- [ ] Evaluate Alive2 and Vellvm and their applicability/limitations.
+- [ ] Define supported LLVM versions and reproducible toolchain identity.
+- [ ] Test generated code against reference semantics.
+
+**Existing evidence:** `research/LLVM-BACKEND-ARCHITECTURE.md`.
+
+**Status:** researched; implementation and validation remain open.
+
+## 6.4 Implementation discovery, selection, and optimization
+
+- [ ] Separate discovery of contract-compatible implementations from selection of a concrete implementation.
+- [ ] Define selection constraints: target, ABI, capabilities, runtime, security, performance, and deployment environment.
+- [ ] Define static binding versus runtime dispatch.
+- [ ] Define specialization and multi-versioning.
+- [ ] Define cost models and profile-guided selection.
+- [ ] Define safe fallback when no compatible implementation is available.
+- [ ] Define whether and how implementation choice can change without changing operation semantics.
+- [ ] Measure dispatch and adaptation overhead.
+- [ ] Define optimization across semantic nodes while preserving contracts.
+
+**Existing evidence:** global semantic artifact store and POSIX runtime architecture.
+
+**Status:** partially researched; selection semantics and policy remain open.
+
+**Exit criteria:** two backends preserve the same reference semantics for a defined subset; target limitations are explicit; implementation selection never bypasses operation identity or compatibility evidence.
+
+---
+
+# Stage 7 — Scale, ecosystem, collaboration, and adoption
+
+**Order:** after the core vertical slice; some prior-art research can start earlier.  
+**Purpose:** determine whether LLMLang remains practical for large codebases and real teams.
+
+## 7.1 Performance and scalability
+
+- [ ] Benchmark semantic graph size and traversal.
+- [ ] Benchmark canonicalization and hashing.
+- [ ] Benchmark dependency discovery and impact planning.
+- [ ] Benchmark compilation and cache performance.
+- [ ] Benchmark proof and test execution costs.
+- [ ] Benchmark storage, indexing, and garbage collection.
+- [ ] Benchmark large repositories and highly connected graphs.
+- [ ] Benchmark concurrent edits and merge operations.
+- [ ] Compare with Rust, Go, and C++ workflows on representative projects.
+- [ ] Report memory, latency, throughput, cache hit rates, and confidence intervals.
+- [ ] Identify pathological workloads and fallback strategies.
+
+## 7.2 Libraries, packages, templates, and artifact ecosystem
+
+- [ ] Define Package versus Library boundaries.
+- [ ] Define library identity and public machine-readable contracts.
+- [ ] Define dependency resolution and versioning.
+- [ ] Define template instantiation, customization, detachment, and migration.
+- [ ] Define global semantic artifact store and registry interfaces.
+- [ ] Define artifact publication, signing, mirroring, licensing, revocation, retention, and garbage collection.
+- [ ] Separate content integrity from publisher trust and licensing rights.
+- [ ] Define opaque implementation evidence and verification limitations.
+
+**Existing evidence:** `research/LIBRARIES-AND-TEMPLATES.md` and `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`; related TODO items LL-006–LL-012.
+
+**Status:** researched; ecosystem policy and operational design remain open.
+
+## 7.3 Parallel development and collaboration
+
+- [ ] Define concurrent graph edits and optimistic update rules.
+- [ ] Define stable identity under rename, split, and merge.
+- [ ] Define independent changes to contracts and implementations.
+- [ ] Define conflict detection and safe automatic resolution.
+- [ ] Define reviewable semantic change sets.
+- [ ] Define provenance, authorship, approval, and audit trails.
+- [ ] Define collaboration across branches, forks, and shared artifact registries.
+- [ ] Test large multi-contributor scenarios.
+
+**Existing evidence:** requirement evolution and semantic impact scenarios 18–19; Git semantic merge research.
+
+**Status:** partially researched; end-to-end team workflow remains open.
+
+## 7.4 Security, trust, and reproducibility
+
+- [ ] Define trust boundaries among LLM authors, compiler, runtime, plugins, external tools, and artifact registries.
+- [ ] Define deterministic validation independent of LLM claims.
+- [ ] Define supply-chain provenance and signed evidence.
+- [ ] Define sandboxing and capability restrictions for generated code.
+- [ ] Define cache poisoning and malicious artifact defenses.
+- [ ] Define secret handling and isolation of build/test environments.
+- [ ] Define reproducible builds and attestations.
+- [ ] Define recovery and revocation when a tool, proof checker, or implementation is compromised.
+
+**Status:** not yet consolidated into a complete security architecture.
+
+## 7.5 Developer experience and adoption
+
+- [ ] Define human-readable source and semantic review workflows.
+- [ ] Define diagnostics that explain semantic impact and failed contracts.
+- [ ] Define editor, language-server, and debugging requirements.
+- [ ] Define migration and interoperability with existing languages and build systems.
+- [ ] Evaluate learning curve and review quality for human developers.
+- [ ] Evaluate LLM authoring workflows without treating generated output as trusted.
+- [ ] Build representative end-to-end examples.
+- [ ] Define practical adoption criteria and migration strategy.
+
+**Status:** not started as a systematic study.
+
+**Exit criteria:** representative large-project benchmarks; working collaboration and recovery workflows; documented trust/security model; practical developer workflow evaluated with real tasks.
+
+---
+
+# 4. Cross-cutting prior-art research
+
+This is a continuous comparative track. It informs the stages above but does not replace LLMLang-specific experiments.
+
+| System / technology | Research focus | Relevant stages |
+|---|---|---|
+| LLVM | IR, lowering, optimization, backend and ABI boundaries | 2, 5, 6 |
+| Rust | Ownership, borrowing, lifetimes, type system, systems runtime | 5, 6, 7 |
+| Lean | Formalization, proof checking, trusted kernel, executable semantics | 2 |
+| TLAPS | Proof of system properties and compositional reasoning | 2 |
+| SMT solvers | Constraint encoding, solver protocols, proof evidence, unknown results | 2, 3 |
+| Dafny | Contracts, refinement, verification workflow | 1, 2, 5 |
+| K Framework | Executable formal semantics and language definition | 2 |
+| Vellvm | Formal LLVM semantics and compiler correctness | 2, 6 |
+| Alive2 | Translation validation for LLVM optimizations | 2, 6 |
+| Bazel / Skyframe | Dependency graphs, incremental evaluation, action caching | 3 |
+| Salsa | Incremental computation and dependency tracking | 3 |
+| Adapton | Demand-driven incremental computation | 3 |
+| Nix | Reproducible, content-addressed builds and dependency isolation | 3, 4, 7 |
+| Git | Object model, DAG history, merge drivers, mergetool integration | 4 |
+| Unison | Content-addressed code identity and semantic naming | 1, 4 |
+| POSIX | Standardized interfaces, conformance, implementation-defined behavior | 5 |
+| C / C++ ABIs | Interoperability, memory layout, calling conventions, platform boundary | 5, 6 |
+| Package and artifact registries | Distribution, trust, provenance, licensing, retention | 7 |
+
+For each system, record: the specific problem it solves, its model, what can be reused, what cannot be reused, the assumptions it makes, and the LLMLang experiment needed to validate applicability.
+
+---
+
+# 5. Current known research baseline
+
+The following is a snapshot of known work, not a claim that all corresponding questions are resolved.
+
+| Area | Existing artifacts / evidence | Current assessment |
+|---|---|---|
+| Core concept and SPG | `LLMLang-CONCEPT.md` | Researched; semantic model still evolving |
+| Formal verification architecture | `LLMLang-FORMAL-VERIFICATION.md` | Researched; complete formal semantics not finished |
+| Typed requirements and contracts | Scenarios 15–19; prototypes 16–19 | Prototyped; broader language integration remains |
+| Dependency discovery and impact | Scenarios 20–28; prototypes 20–28 | Extensively prototyped; sound end-to-end completeness remains |
+| SMT/proof boundary | Scenarios 29–33; Logos/Lean binding prototype | In progress; QF_LIA path remains restricted/candidate |
+| Semantic compilation cache | `SEMANTIC-COMPILATION-CACHE.md` | Researched; implementation and empirical validation remain |
+| Cache speedup estimate | `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md` | Analytical estimate exists; benchmarks remain |
+| POSIX runtime | `POSIX-RUNTIME-ARCHITECTURE.md` | Researched; profile and vertical slice remain open |
+| Translation/backends | `TRANSLATION-AND-TARGET-BACKENDS.md` | Researched; backend implementation remains |
+| LLVM backend | `LLVM-BACKEND-ARCHITECTURE.md` | Researched; lowering and validation remain |
+| Libraries and templates | `LIBRARIES-AND-TEMPLATES.md` | Researched; detailed decisions remain |
+| Global artifact store | `GLOBAL-SEMANTIC-ARTIFACT-STORE.md` | Researched; store and trust implementation remain |
+| Git representation and semantic merge | `GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md` | Researched; prototype and Git integration remain |
+| Security and developer experience | Distributed across concept and architecture notes | Needs systematic research |
+
+The research index currently lists scenarios 01–33 and prototypes. The scenario numbering is a historical sequence, not a substitute for the stage ordering in this plan.
+
+---
+
+# 6. Cross-stage invariants
+
+These invariants guide every research and implementation stage:
+
+1. **Semantic source of truth:** target languages, generated code, and backend IRs do not redefine LLMLang semantics.
+2. **Explicit operation identity:** a call identifies the intended immutable operation semantics; analogue discovery is a separate optimization.
+3. **Explicit implementation identity:** a concrete implementation has its own identity, including all semantics-relevant inputs.
+4. **Evidence is scoped:** tests and proofs apply only to the exact subjects, assumptions, targets, and tool versions they cover.
+5. **Unknown is not proven:** unsupported, incomplete, ambiguous, or unchecked cases fail closed.
+6. **Sound incremental reuse:** a result is reused only when all result-determining dependencies are captured and unchanged.
+7. **Semantic changes propagate by identity:** hash-relevant changes alter the appropriate identity and invalidate dependent results automatically.
+8. **Provenance is not semantics:** authorship, history, and audit data do not alter semantic identity unless explicitly defined as behaviorally relevant.
+9. **No silent weakening:** a backend or runtime must report restrictions and unsupported semantics rather than silently dropping guarantees.
+10. **Research is not specification:** only reviewed and explicitly accepted decisions enter `draft/`.
+
+---
+
+# 7. Immediate execution order
+
+The next concrete work should follow this order:
+
+1. **Finish Stage 0:** reconcile the 102-file research corpus and update the research index and this plan with exact links and evidence statuses.
+2. **Close the current Stage 2 implementation gate:** complete explicit Lean build/test validation for the pinned environment; continue the canonical typed relational query to expected `Eo.Term` construction and exact CPC assumption binding. Keep QF_LIA status conservative.
+3. **Consolidate Stage 1 identity decisions:** settle the canonical `OpHash` envelope, `ImpHash` inputs, stable operation lineage, contract identity, and hash-relevant dependency boundaries.
+4. **Connect Stages 1–3:** verify that semantic identity, dependency completeness, Action Keys, and invalidation form one coherent model.
+5. **Quantify cache benefits:** turn the existing analytical speedup estimate into reproducible benchmark results.
+6. **Prototype Stage 4:** implement the smallest end-to-end semantic Git representation and merge-driver experiment.
+7. **Choose a bounded Stage 5 vertical slice:** define the first typed executable subset and POSIX API slice.
+8. **Validate Stage 6 with two backends:** use the same reference semantics and generated scenarios.
+9. **Expand Stage 7 only after the core path is demonstrated:** scale, registry, collaboration, security, and adoption experiments.
+
+Do not skip a gate because a document exists. A research document is evidence that a topic was investigated, not proof that its design is correct or complete.
+
+---
+
+# 8. Maintenance
+
+- Update this plan when a research item starts, produces evidence, is superseded, or reaches an accepted decision.
+- Keep stable item names and links where possible so other documents can refer to them.
+- Add new work to the appropriate stage rather than appending an unprioritized backlog.
+- Record cross-stage dependencies explicitly.
+- When a decision is accepted, update `TODO.md` and the relevant research/design document; do not mark it accepted solely because this plan recommends it.
+- Keep implementation bugs and short-lived tasks in the appropriate issue/task tracker; this document is the ordered research and development programme.
+- Review this plan whenever the research corpus or architecture changes materially.
