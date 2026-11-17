@@ -7,6 +7,7 @@ import zipfile
 
 from package_archive import ArchiveError, build_archive, verify_archive
 from package_index import normalize
+from package_identity import logical_index_hash, package_content_root, parse_manifest
 
 H1 = "sha256:" + hashlib.sha256(b"alpha").hexdigest()
 H2 = "sha256:" + hashlib.sha256(b"beta").hexdigest()
@@ -44,10 +45,37 @@ class StreamingArchiveTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.path = os.path.join(self.temp.name, "sample.llpkg")
-        self.manifest = b'format = "llmlang.package"\nschema_version = 1\n'
+        self.manifest = self.make_manifest(sample_index())
 
     def tearDown(self):
         self.temp.cleanup()
+
+    def make_manifest(self, index, *, roots=None, declared_index_hash=None, declared_root=None):
+        roots = roots or [H1]
+        index_hash = declared_index_hash or logical_index_hash(index)
+        root_value = declared_root or ("sha256:" + "0" * 64)
+        root_lines = ", ".join(f'"{value}"' for value in roots)
+        raw = f'''format = "llmlang.package"
+schema_version = 1
+
+[package]
+name = "archive-test"
+
+[content]
+roots = [{root_lines}]
+dependency_policy = "closure"
+content_root = "{root_value}"
+
+[index]
+path = "index"
+format_version = 1
+logical_hash = "{index_hash}"
+'''.encode("utf-8")
+        if declared_root is None:
+            model = parse_manifest(raw)
+            actual_root = package_content_root(model, index)
+            raw = raw.replace(root_value.encode(), actual_root.encode())
+        return raw
 
     def build(self, path=None, object_order=(H1, H2), index=None):
         return build_archive(
@@ -117,6 +145,28 @@ class StreamingArchiveTests(unittest.TestCase):
             target.writestr("unexpected.txt", b"x")
         with self.assertRaisesRegex(ArchiveError, "unexpected entries"):
             verify_archive(altered)
+
+    def test_manifest_index_hash_mismatch_fails_build(self):
+        bad_manifest = self.make_manifest(sample_index(), declared_index_hash="sha256:" + "f" * 64)
+        with self.assertRaisesRegex(ArchiveError, "declared index logical hash mismatch"):
+            build_archive(bad_manifest, streams(sample_index()), payloads(), self.path)
+
+    def test_manifest_content_root_mismatch_fails_build(self):
+        bad_manifest = self.make_manifest(sample_index(), declared_root="sha256:" + "f" * 64)
+        with self.assertRaisesRegex(ArchiveError, "declared package content root mismatch"):
+            build_archive(bad_manifest, streams(sample_index()), payloads(), self.path)
+
+    def test_package_root_must_be_included(self):
+        bad_manifest = self.make_manifest(sample_index(), roots=["sha256:" + "3" * 64])
+        with self.assertRaisesRegex(ArchiveError, "root is not present"):
+            build_archive(bad_manifest, streams(sample_index()), payloads(), self.path)
+
+    def test_manifest_index_path_controls_archive_entries(self):
+        self.build()
+        with zipfile.ZipFile(self.path) as archive:
+            names = set(archive.namelist())
+        self.assertIn("index/objects.jsonl", names)
+        self.assertNotIn("index.bin/objects.jsonl", names)
 
     def test_invalid_manifest_utf8_fails(self):
         with self.assertRaisesRegex(ArchiveError, "valid UTF-8"):
