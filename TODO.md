@@ -221,6 +221,16 @@ Priority is a planning aid, not a measure of correctness:
 
 ---
 
+### LL-020 — Define LLVM backend role and semantic boundary
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** Should LLVM be the initial native-code backend, an optional backend among several, or only one implementation of a replaceable backend interface; and what exact semantic guarantees must the LLMLang-to-LLVM lowering preserve?
+- **Context:** LLVM can provide IR processing, optimization, target code generation, object emission, and JIT infrastructure. LLVM IR/bitcode is not the canonical semantic representation of LLMLang, and LLVM's own semantics (including poison/undefined behavior, overflow flags, pointer rules, floating-point flags, and memory ordering) may not match LLMLang semantics.
+- **Options to investigate:** LLVM as the primary native backend; LLVM as one optional backend; multiple backends sharing a canonical LLMLang IR. Also investigate a conservative initial LLVM IR profile and explicit evidence requirements for lowering and optimization.
+- **Recommendation:** Keep LLVM behind a replaceable backend boundary. Preserve SPG and LLMLang semantics as the source of truth; introduce LLVM only after defining a small semantic subset and a conservative lowering contract. Treat LLVM verification/compilation as distinct from proof of source-contract correctness.
+- **Related:** [LLVM Backend Architecture](research/LLVM-BACKEND-ARCHITECTURE.md); [Translation and Target Backends](research/TRANSLATION-AND-TARGET-BACKENDS.md).
+
 ## Maintenance rules
 
 - Add a new item when a discussion exposes a durable unresolved design question, not for every implementation task or transient note.
