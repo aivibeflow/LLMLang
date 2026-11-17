@@ -411,10 +411,9 @@ def checkCanonicalQueryAssumptions
   let query ← decodeCanonicalRelationalQuery queryJson
   let (assumptions, _commands, state) ← parseProofWithState proof
   let bindings ← bindDecodedQueryDeclarations state query
-  let expected ← renderRelationalAssumptions bindings
-    (if query.declarations.any (fun d => d.name == query.factor) then .int else .int)
-    query.factor query.factor
-    query.factorDifference query.observationsDiffer
+  let expectedFactor ← renderQueryTerm bindings query.factorDifference
+  let expectedObservations ← renderQueryTerm bindings query.observationsDiffer
+  let expected := [expectedFactor, expectedObservations]
   if assumptions != expected then
     throw "complete CPC assumption list differs from canonical query terms"
   pure ()

@@ -166,3 +166,28 @@ def main : IO Unit := do
     throw (IO.userError "extended query constructors do not exactly match parsed CPC AST")
 
   IO.println "CPC parser-state binding and typed query rendering tests passed"
+
+
+  IO.println "test 10: decode and bind canonical version-1 JSON query"
+  let canonicalProof :=
+    "(declare-const x Int) " ++
+    "(assume a (not (= x x))) " ++
+    "(assume b (<= (+ x 2) (* x 3)))\n"
+  let canonicalJson :=
+    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"input\",\"declarations\":[{\"name\":\"x\",\"sort\":\"Int\"}]," ++
+    "\"factor_difference\":{\"op\":\"not\",\"sort\":\"Bool\",\"args\":[{\"op\":\"eq\",\"sort\":\"Bool\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"},{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"}],\"atom\":null}],\"atom\":null}," ++
+    "\"observations_differ\":{\"op\":\"le\",\"sort\":\"Bool\",\"args\":[{\"op\":\"add\",\"sort\":\"Int\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"},{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":2}],\"atom\":null},{\"op\":\"mul\",\"sort\":\"Int\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"},{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":3}],\"atom\":null}],\"atom\":null}," ++
+    "\"observation_contract\":\"return-and-selected-state/1\"}"
+  match checkCanonicalQueryAssumptions canonicalProof canonicalJson with
+  | .ok _ => pure ()
+  | .error error => throw (IO.userError error)
+
+  IO.println "test 11: reject unknown JSON fields and nonlinear multiplication"
+  expectFailure (decodeCanonicalRelationalQuery
+    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"x\",\"declarations\":[],\"factor_difference\":{},\"observations_differ\":{},\"observation_contract\":\"x\",\"extra\":true}")
+  let nonlinearJson :=
+    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"x\",\"declarations\":[{\"name\":\"x\",\"sort\":\"Int\"}],"
+    ++ "\"factor_difference\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true},"
+    ++ "\"observations_differ\":{\"op\":\"eq\",\"sort\":\"Bool\",\"args\":[{\"op\":\"mul\",\"sort\":\"Int\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"},{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"}],\"atom\":null},{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":0}],\"atom\":null},"
+    ++ "\"observation_contract\":\"return-and-selected-state/1\"}"
+  expectFailure (decodeCanonicalRelationalQuery nonlinearJson)
