@@ -28,7 +28,9 @@ python -m py_compile package_index.py test_package_index.py test_streaming_merge
 - Uses in-memory Python dictionaries/lists and a prototype JSON canonicalizer.
 - Supports only sha256 hash spellings in this experiment.
 - Streaming merge and external-memory cross-table reference validation are implemented as separate passes. Validation uses temporary disk space proportional to index/reference volume and bounds in-memory sort chunks with `max_records_in_memory` and caps each merge pass at 32 open runs.
-- There is no streaming archive writer yet; temporary disk capacity and cleanup behavior are operational requirements for the current validator.
+- A deterministic streaming ZIP archive writer/verifier is implemented as an experiment. It streams object payloads in 1 MiB chunks, verifies each SHA-256 Content Hash and declared size, validates the logical index with bounded external-memory validation, and atomically replaces the destination only after a complete build. The writer uses fixed ZIP timestamps/permissions, stored entries, and stable entry ordering; byte-for-byte determinism is covered by tests.
+- ZIP, JSONL table entries, entry names, and manifest placement are prototype choices only. This is not a normative LLMLang archive or binary index format. The manifest is carried as supplied UTF-8 bytes; this prototype does not parse or validate its TOML schema.
+- Build-time temporary disk usage is proportional to the spooled logical index plus the temporary archive. The verifier streams object checks but ZIP central-directory metadata is handled by Python's `zipfile` library.
 - Does not implement binary serialization, compression, block directories, sparse lookup, archive I/O, or provider-side dependency closure.
 - Dependency policy semantics and conditional dependency evaluation remain incomplete.
 - Prototype hash encoding is not the final LLMLang canonical encoding or digest standard.
