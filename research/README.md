@@ -29,6 +29,11 @@ The LLM proposes structured program changes; the compiler and verification tools
 
 This repository contains a **conceptual research document**, not a production-ready language implementation. Syntax, formal semantics, type-system details, verification strategy, and implementation architecture remain subjects for research and prototyping.
 
+## Research planning
+
+- [Research taxonomy](RESEARCH-TAXONOMY.md) — research areas, current coverage, and required outputs for each research.
+- [Cross-aspect dependency map](RESEARCH-DEPENDENCY-MAP.md) — dependency relationships, research waves, and parallelism guidance.
+
 ## Documents
 
 - [LLMLang-CONCEPT.md](LLMLang-CONCEPT.md) — full concept, architecture, design principles, proposed toolchain, development stages, and open questions.
