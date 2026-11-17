@@ -212,3 +212,211 @@ def renderRelationalAssumptions
   pure [factorDiff, obsDiff]
 
 end LLMLang.LogosBinding
+
+
+namespace LLMLang.LogosBinding
+
+/-- Strict wire declaration decoded from the canonical query document. -/
+structure WireDeclaration where
+  name : String
+  sort : QuerySort
+  deriving DecidableEq, Repr
+
+/-- A decoded, versioned canonical relational query. -/
+structure DecodedRelationalQuery where
+  factor : String
+  declarations : List WireDeclaration
+  factorDifference : QueryTerm .bool
+  observationsDiffer : QueryTerm .bool
+  observationContract : String
+  deriving Repr
+
+private def jsonField (value : Json) (key : String) : Except String Json :=
+  value.getObjVal? key
+
+private def jsonStringField (value : Json) (key : String) : Except String String := do
+  let field ← jsonField value key
+  field.getStr?
+
+private def jsonArrayField (value : Json) (key : String) : Except String (Array Json) := do
+  let field ← jsonField value key
+  field.getArr?
+
+private def jsonInt (value : Json) : Except String Int :=
+  value.getInt?
+
+private def jsonBool (value : Json) : Except String Bool :=
+  value.getBool?
+
+/-- Require an object to contain exactly the supplied field names. -/
+private def requireExactFields (value : Json) (expected : List String) : Except String Unit := do
+  let object ← value.getObj?
+  let actual := object.toList.map Prod.fst
+  if actual.length != expected.length ||
+      expected.any (fun key => !actual.contains key) then
+    throw "JSON object has missing or unknown fields"
+  pure ()
+
+private def requireNullField (value : Json) (key : String) : Except String Unit := do
+  let field ← jsonField value key
+  if field != Json.null then throw s!"field must be null: {key}"
+
+/--
+Decode the exact version-1 term object shape. The expected result sort is
+provided by the caller; every node's explicit sort is checked against it.
+Unknown operators, extra fields, wrong arity, and malformed atoms fail closed.
+-/
+mutual
+  partial def decodeIntTerm (value : Json) : Except String (QueryTerm .int) := do
+    requireExactFields value ["op", "sort", "args", "atom"]
+    let op ← jsonStringField value "op"
+    let sort ← jsonStringField value "sort"
+    let args ← jsonArrayField value "args"
+    let atom ← jsonField value "atom"
+    if sort != "Int" then throw "integer query node has non-Int sort"
+    match op with
+    | "int" =>
+        if !args.isEmpty then throw "integer literal must have no arguments"
+        .intLit (← jsonInt atom)
+    | "symbol" =>
+        if !args.isEmpty then throw "symbol must have no arguments"
+        .intSymbol (← atom.getStr?)
+    | "neg" =>
+        requireNullField value "atom"
+        if args.size != 1 then throw "neg expects exactly one argument"
+        .neg (← decodeIntTerm args[0]!)
+    | "add" =>
+        requireNullField value "atom"
+        if args.size != 2 then throw "add expects exactly two arguments"
+        .add (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!)
+    | "sub" =>
+        requireNullField value "atom"
+        if args.size != 2 then throw "sub expects exactly two arguments"
+        .sub (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!)
+    | "mul" =>
+        requireNullField value "atom"
+        if args.size != 2 then throw "mul expects exactly two arguments"
+        let left ← decodeIntTerm args[0]!
+        let right ← decodeIntTerm args[1]!
+        if !(match left with | .intLit _ => true | _ => false) &&
+           !(match right with | .intLit _ => true | _ => false) then
+          throw "nonlinear multiplication is outside the strict QF_LIA profile"
+        pure (.mul left right)
+    | "ite" =>
+        requireNullField value "atom"
+        if args.size != 3 then throw "ite expects exactly three arguments"
+        .iteInt (← decodeBoolTerm args[0]!) (← decodeIntTerm args[1]!) (← decodeIntTerm args[2]!)
+    | _ => throw s!"unsupported Int query operator: {op}"
+
+  partial def decodeBoolTerm (value : Json) : Except String (QueryTerm .bool) := do
+    requireExactFields value ["op", "sort", "args", "atom"]
+    let op ← jsonStringField value "op"
+    let sort ← jsonStringField value "sort"
+    let args ← jsonArrayField value "args"
+    let atom ← jsonField value "atom"
+    if sort != "Bool" then throw "Boolean query node has non-Bool sort"
+    match op with
+    | "bool" =>
+        if !args.isEmpty then throw "Boolean literal must have no arguments"
+        .boolLit (← jsonBool atom)
+    | "symbol" =>
+        if !args.isEmpty then throw "symbol must have no arguments"
+        .boolSymbol (← atom.getStr?)
+    | "not" =>
+        requireNullField value "atom"
+        if args.size != 1 then throw "not expects exactly one argument"
+        .not (← decodeBoolTerm args[0]!)
+    | "eq" =>
+        requireNullField value "atom"
+        if args.size != 2 then throw "eq expects exactly two arguments"
+        let leftSort ← jsonStringField args[0]! "sort"
+        let rightSort ← jsonStringField args[1]! "sort"
+        if leftSort != rightSort then throw "eq operands have different sorts"
+        if leftSort == "Int" then
+          .eqInt (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!)
+        else if leftSort == "Bool" then
+          .eqBool (← decodeBoolTerm args[0]!) (← decodeBoolTerm args[1]!)
+        else
+          throw "eq supports only Int and Bool operands"
+    | "lt" =>
+        requireNullField value "atom"
+        if args.size != 2 then throw "lt expects exactly two arguments"
+        .lt (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!)
+    | "le" =>
+        requireNullField value "atom"
+        if args.size != 2 then throw "le expects exactly two arguments"
+        .le (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!)
+    | "and" =>
+        requireNullField value "atom"
+        if args.size < 2 then throw "and expects at least two arguments"
+        .and (← args.toList.mapM decodeBoolTerm)
+    | "or" =>
+        requireNullField value "atom"
+        if args.size < 2 then throw "or expects at least two arguments"
+        .or (← args.toList.mapM decodeBoolTerm)
+    | "ite" =>
+        requireNullField value "atom"
+        if args.size != 3 then throw "ite expects exactly three arguments"
+        .iteBool (← decodeBoolTerm args[0]!) (← decodeBoolTerm args[1]!) (← decodeBoolTerm args[2]!)
+    | _ => throw s!"unsupported Bool query operator: {op}"
+end
+
+private def decodeWireDeclaration (value : Json) : Except String WireDeclaration := do
+  requireExactFields value ["name", "sort"]
+  let name ← jsonStringField value "name"
+  let sort ← jsonStringField value "sort"
+  if name.isEmpty then throw "query declaration name must not be empty"
+  match sort with
+  | "Int" => pure ⟨name, .int⟩
+  | "Bool" => pure ⟨name, .bool⟩
+  | _ => throw "query declaration sort must be Int or Bool"
+
+/--
+Decode the canonical JSON envelope. Version 1 uses exact field sets and the
+wire schema documented in Scenario 32. No coercion or unknown-field tolerance
+is permitted.
+-/
+def decodeCanonicalRelationalQuery (source : String) : Except String DecodedRelationalQuery := do
+  let json ← Json.parse source
+  requireExactFields json
+    ["schema", "factor", "declarations", "factor_difference", "observations_differ", "observation_contract"]
+  let schema ← jsonStringField json "schema"
+  if schema != "llmlang.qf_lia.relational-query/1" then
+    throw "unsupported canonical query schema version"
+  let factor ← jsonStringField json "factor"
+  let contract ← jsonStringField json "observation_contract"
+  if factor.isEmpty || contract.isEmpty then throw "factor and observation contract are required"
+  let rawDeclarations ← jsonArrayField json "declarations"
+  let declarations ← rawDeclarations.toList.mapM decodeWireDeclaration
+  let names := declarations.map WireDeclaration.name
+  if names.eraseDups.length != names.length then throw "duplicate canonical query declaration"
+  let factorDifference ← decodeBoolTerm (← jsonField json "factor_difference")
+  let observationsDiffer ← decodeBoolTerm (← jsonField json "observations_differ")
+  pure ⟨factor, declarations, factorDifference, observationsDiffer, contract⟩
+
+/-- Bind decoded query declarations to the exact CPC parser-state UConst map. -/
+def bindDecodedQueryDeclarations
+    (state : ParserState)
+    (query : DecodedRelationalQuery) :
+    Except String (List (String × Eo.Term)) := do
+  let expected := query.declarations.map fun declaration =>
+    { name := declaration.name, sort := declaration.sort.expected : ExpectedDeclaration }
+  bindExpectedDeclarations state expected
+
+/-- Decode, bind, render, and structurally compare the complete CPC assumptions. -/
+def checkCanonicalQueryAssumptions
+    (proof : String)
+    (queryJson : String) :
+    Except String Unit := do
+  let query ← decodeCanonicalRelationalQuery queryJson
+  let (assumptions, _commands, state) ← parseProofWithState proof
+  let bindings ← bindDecodedQueryDeclarations state query
+  let expected ← renderRelationalAssumptions bindings
+    (if query.declarations.any (fun d => d.name == query.factor) then .int else .int)
+    query.factor query.factor
+    query.factorDifference query.observationsDiffer
+  if assumptions != expected then
+    throw "complete CPC assumption list differs from canonical query terms"
+  pure ()
+
+end LLMLang.LogosBinding
