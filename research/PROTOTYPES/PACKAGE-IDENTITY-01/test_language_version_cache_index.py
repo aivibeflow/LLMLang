@@ -18,7 +18,7 @@ def sample_record(**changes):
         "dependency_complete": True, "output_artifacts": [H1],
     }
     record.update(changes)
-    record["action_key"] = expected_action_key(record)
+    record["action_key"] = expected_action_key(record, COMPONENTS)
     return record
 
 class LanguageVersionTests(unittest.TestCase):
@@ -51,7 +51,7 @@ class CacheIndexTests(unittest.TestCase):
         self.assertEqual(validate_cache_index(self.valid_index(), COMPONENTS)["schema"], "llmlang.cache-index")
     def test_language_version_changes_action_key(self):
         a = sample_record(); b = copy.deepcopy(a); b["language_version"] = "1.3.3.1.0"
-        self.assertNotEqual(a["action_key"], expected_action_key(b))
+        self.assertNotEqual(a["action_key"], expected_action_key(b, COMPONENTS))
     def test_registry_digest_changes_action_key(self):
         a = sample_record(); b = copy.deepcopy(a); b["language_component_registry_digest"] = H2
         self.assertNotEqual(a["action_key"], expected_action_key(b))
@@ -65,7 +65,7 @@ class CacheIndexTests(unittest.TestCase):
     def test_incomplete_or_transient_results_are_rejected(self):
         for field, value in (("dependency_complete", False), ("status", "timeout")):
             data = self.valid_index(); data["records"][0][field] = value
-            data["records"][0]["action_key"] = expected_action_key(data["records"][0])
+            data["records"][0]["action_key"] = expected_action_key(data["records"][0], COMPONENTS)
             with self.subTest(field=field), self.assertRaises(PackageFormatError):
                 validate_cache_index(data, COMPONENTS)
     def test_unknown_fields_and_duplicate_keys_are_rejected(self):
@@ -75,9 +75,19 @@ class CacheIndexTests(unittest.TestCase):
         data = self.valid_index(); data["records"].append(copy.deepcopy(data["records"][0]))
         with self.assertRaisesRegex(PackageFormatError, "duplicate Action Key"):
             validate_cache_index(data, COMPONENTS)
+    def test_registry_digest_mismatch_is_rejected(self):
+        data = self.valid_index()
+        data["records"][0]["language_component_registry_digest"] = H2
+        data["records"][0]["action_key"] = expected_action_key(data["records"][0], COMPONENTS)
+        with self.assertRaisesRegex(PackageFormatError, "registry digest mismatch"):
+            validate_cache_index(data, COMPONENTS)
+    def test_zero_extended_version_spelling_has_same_action_key(self):
+        a = sample_record(language_version="1.3.2")
+        b = copy.deepcopy(a); b["language_version"] = "1.3.2.0.0"
+        self.assertEqual(a["action_key"], expected_action_key(b, COMPONENTS))
     def test_records_must_be_sorted(self):
         a, b = sample_record(action_kind="a"), sample_record(action_kind="b")
-        data = {"schema": "llmlang.cache-index", "schema_version": 1, "records": [b, a]}
+        data = {"schema": "llmlang.cache-index", "schema_version": 1, "records": sorted([a, b], key=lambda r: r["action_key"], reverse=True)}
         with self.assertRaisesRegex(PackageFormatError, "sorted"):
             validate_cache_index(data, COMPONENTS)
 

@@ -26,3 +26,7 @@ The tests exercise PMI-001–PMI-014 from the parent design note, plus typed-enc
 - No compression, sparse index, archive, provider protocol, signatures, or trust policy is implemented.
 
 The prototype is intended to expose ambiguities and produce executable fixtures before a normative format is drafted.
+
+## Composite language version and cache-index prototype
+
+The experimental `language_version.py` and `cache_index.py` modules validate the append-only component registry, composite version coordinates, and candidate cache records. Run them with the normal package prototype test discovery command. The cache record schema and Action Key construction are exploratory and are not normative.

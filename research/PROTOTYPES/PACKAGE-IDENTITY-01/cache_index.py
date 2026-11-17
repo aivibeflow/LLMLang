@@ -2,7 +2,7 @@
 from __future__ import annotations
 from typing import Any
 from package_identity import PackageFormatError, digest, parse_hash
-from language_version import LanguageVersionError, parse_language_version
+from language_version import LanguageVersionError, parse_language_version, registry_digest
 
 CACHE_SCHEMA = "llmlang.cache-index"
 CACHE_SCHEMA_VERSION = 1
@@ -20,15 +20,22 @@ def _required_hash(value: Any, field: str) -> None:
         raise PackageFormatError(f"{field} must be a content hash")
     parse_hash(value)
 
-def action_key_projection(record: dict[str, Any]) -> dict[str, Any]:
-    return {key: record[key] for key in (
-        "action_kind", "action_implementation", "input_hashes",
-        "language_version", "language_component_registry_digest", "toolchain_identity",
-        "target_profile_digest", "configuration_digest", "runtime_identity",
-    )}
+def action_key_projection(record: dict[str, Any], components: tuple[str, ...]) -> dict[str, Any]:
+    normalized_version = parse_language_version(record["language_version"], components)
+    return {
+        "action_kind": record["action_kind"],
+        "action_implementation": record["action_implementation"],
+        "input_hashes": record["input_hashes"],
+        "language_version": list(normalized_version),
+        "language_component_registry_digest": record["language_component_registry_digest"],
+        "toolchain_identity": record["toolchain_identity"],
+        "target_profile_digest": record["target_profile_digest"],
+        "configuration_digest": record["configuration_digest"],
+        "runtime_identity": record["runtime_identity"],
+    }
 
-def expected_action_key(record: dict[str, Any]) -> str:
-    return digest("action-key.candidate.v1", action_key_projection(record))
+def expected_action_key(record: dict[str, Any], components: tuple[str, ...]) -> str:
+    return digest("action-key.candidate.v1", action_key_projection(record, components))
 
 def validate_cache_index(data: dict[str, Any], components: tuple[str, ...]) -> dict[str, Any]:
     if set(data) != {"schema", "schema_version", "records"}:
@@ -73,7 +80,9 @@ def validate_cache_index(data: dict[str, Any], components: tuple[str, ...]) -> d
         if key in seen:
             raise PackageFormatError("duplicate Action Key")
         seen.add(key)
-        if expected_action_key(record) != key:
+        if record["language_component_registry_digest"] != registry_digest(components):
+            raise PackageFormatError("language component registry digest mismatch")
+        if expected_action_key(record, components) != key:
             raise PackageFormatError("Action Key does not match its declared inputs")
     if [r["action_key"] for r in records] != sorted(r["action_key"] for r in records):
         raise PackageFormatError("cache records must be sorted by Action Key")

@@ -5,11 +5,13 @@ on:
     paths:
       - "research/PROTOTYPES/PACKAGE-IDENTITY-01/**"
       - "research/PACKAGE-MANIFEST-AND-IDENTITY.md"
+      - "language-components.toml"
       - ".github/workflows/package-identity.yml"
   pull_request:
     paths:
       - "research/PROTOTYPES/PACKAGE-IDENTITY-01/**"
       - "research/PACKAGE-MANIFEST-AND-IDENTITY.md"
+      - "language-components.toml"
       - ".github/workflows/package-identity.yml"
 
 jobs:
@@ -25,4 +27,4 @@ jobs:
         run: python -m unittest discover -v
       - name: Compile prototype and tests
         working-directory: research/PROTOTYPES/PACKAGE-IDENTITY-01
-        run: python -m py_compile package_identity.py test_package_identity.py test_package_identity_adversarial.py
+        run: python -m py_compile package_identity.py test_package_identity.py test_package_identity_adversarial.py language_version.py cache_index.py test_language_version_cache_index.py
