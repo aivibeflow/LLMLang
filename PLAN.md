@@ -276,7 +276,9 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ## 3.3 Semantic build and cache graph
 - [ ] Define optional package-distributed cache-index files for validation, compilation, analysis, tests, and proofs; decide whether indexes and result payloads are embedded or separately fetched.
-- [ ] Bind every cached result to exact Action Key inputs, dependency closure, and the language/toolchain version used; reject reuse across behavior-changing versions unless compatibility is established.
+- [x] Establish the version-identity split for cache records: composite `LanguageVersion`, append-only component-registry digest, and separate `ToolchainIdentity`; record the candidate design in `research/LANGUAGE-VERSIONING.md`.
+- [x] Add an experimental version-bound cache-record validator and tests covering language-version, registry-digest, and toolchain changes to Action Key inputs. This remains a prototype, not a normative cache-index format.
+- [ ] Bind every cached result to exact Action Key inputs and complete dependency closure; define compatibility evidence for reuse across different language or toolchain identities.
 - [ ] Define cache-index merge, conflict handling, artifact availability/eviction, and trust/evidence checks.
 
 - [ ] Define typed build actions and their inputs/outputs.
@@ -289,9 +291,9 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [ ] Define behavior for incomplete dependency closure: invalidate conservatively or disable caching.
 - [ ] Define reproducibility requirements and cache poisoning defenses.
 
-**Existing evidence:** `research/SEMANTIC-COMPILATION-CACHE.md`, `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, and `research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
+**Existing evidence:** `research/SEMANTIC-COMPILATION-CACHE.md`, `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, `research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`, [Language Versioning](research/LANGUAGE-VERSIONING.md), and the exploratory [Package Identity Prototype 01](research/PROTOTYPES/PACKAGE-IDENTITY-01/README.md).
 
-**Status:** researched; detailed design, integration with optional package-distributed cache indexes, language/toolchain version binding, final identity model, and implementation validation remain open.
+**Status:** researched; the version-binding design and a first experimental cache-record validator now exist. The initial component registry is `language-components.toml` and is append-only. The candidate validator keeps LanguageVersion, registry digest, and ToolchainIdentity distinct and includes them in Action Key construction. The cache-index wire format, compatibility declarations, complete dependency-closure model, merge/conflict policy, and broader implementation validation remain open.
 
 ## 3.4 Quantify compilation speedup
 
