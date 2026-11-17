@@ -166,6 +166,21 @@ The logical index digest commits to the four normalized tables and their complet
 
 The existing Package Identity Prototype 01 supplies an experimental domain-separated digest function. This new prototype does not standardize or replace it; it uses the same logical principle and must be reconciled with the identity prototype before any final hash contract is accepted.
 
+### 7.1 Optional cache indexes are separate derived data
+
+The cache index is not one of the four semantic package-index tables and must not be merged into their logical digest. It is an optional, independently versioned derived-data index referenced by the package manifest. Removing or rebuilding it must leave the package content root and semantic index digest unchanged.
+
+The current candidate cache record is keyed by an exact Action Key and records separate values for:
+
+- composite `language_version`;
+- `language_component_registry_digest`, identifying the append-only ordered component registry used to interpret the version tuple;
+- `toolchain_identity`, identifying the tools that performed the action;
+- action implementation, exact input/dependency hashes, target/configuration/runtime inputs, result status, determinism/dependency-completeness classification, and output Artifact Hash values.
+
+Language version, registry digest, and toolchain identity are independent Action Key inputs whenever they can affect the result. A matching language version does not authorize reuse across a behavior-changing toolchain identity. Cross-version reuse requires explicit validated compatibility evidence.
+
+An experimental validator is in [Package Identity Prototype 01](PROTOTYPES/PACKAGE-IDENTITY-01/README.md), with the candidate language-version rules in [Language Versioning](LANGUAGE-VERSIONING.md). This cache record shape and Action Key encoding remain exploratory; they do not define the binary cache-index wire format.
+
 ## 8. Deliberately unresolved
 
 - Final hash algorithms, canonical typed encoding, and algorithm agility.
