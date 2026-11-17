@@ -263,7 +263,7 @@ def merge_sorted_indexes(index_streams: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def _write_jsonl(file_obj, row: dict[str, Any]) -> None:
-    file_obj.write(_canonical(row).decode("utf-8") + "\\n")
+    file_obj.write(_canonical(row).decode("utf-8") + "\n")
 
 
 def _read_jsonl(file_obj):
