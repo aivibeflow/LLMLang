@@ -274,7 +274,7 @@ def _read_jsonl(file_obj):
 
 
 def _external_sort_records(records, key_fn, *, max_records_in_memory: int, temp_dir):
-    """External-sort JSON-compatible records using bounded in-memory runs."""
+    """External-sort JSON-compatible records with bounded sort chunks and merge fan-in."""
     import heapq
     import json
     import os
@@ -283,30 +283,75 @@ def _external_sort_records(records, key_fn, *, max_records_in_memory: int, temp_
     if type(max_records_in_memory) is not int or max_records_in_memory < 1:
         raise IndexError("max_records_in_memory must be a positive integer")
 
-    run_paths = []
+    fan_in = 32
+    run_count = 0
     chunk = []
 
-    def flush():
+    def flush_initial_run():
+        nonlocal run_count
         if not chunk:
             return
         chunk.sort(key=key_fn)
-        fd, path = tempfile.mkstemp(prefix="llmlang-index-run-", suffix=".jsonl", dir=temp_dir)
-        with os.fdopen(fd, "w", encoding="utf-8") as output:
+        path = os.path.join(temp_dir, f"sort-0-{run_count}.jsonl")
+        with open(path, "w", encoding="utf-8") as output:
             for record in chunk:
                 _write_jsonl(output, record)
-        run_paths.append(path)
+        run_count += 1
         chunk.clear()
 
     for record in records:
         chunk.append(record)
         if len(chunk) >= max_records_in_memory:
-            flush()
-    flush()
+            flush_initial_run()
+    flush_initial_run()
 
-    if not run_paths:
+    if run_count == 0:
         return iter(())
 
-    files = [open(path, "r", encoding="utf-8") for path in run_paths]
+    def merge_run_group(input_paths, output_path):
+        files = [open(path, "r", encoding="utf-8") for path in input_paths]
+        try:
+            with open(output_path, "w", encoding="utf-8") as output:
+                heap = []
+                for stream_id, file_obj in enumerate(files):
+                    line = file_obj.readline()
+                    if line:
+                        record = json.loads(line)
+                        heapq.heappush(heap, (key_fn(record), stream_id, record))
+                while heap:
+                    _, stream_id, record = heapq.heappop(heap)
+                    _write_jsonl(output, record)
+                    line = files[stream_id].readline()
+                    if line:
+                        next_record = json.loads(line)
+                        heapq.heappush(heap, (key_fn(next_record), stream_id, next_record))
+        finally:
+            for file_obj in files:
+                file_obj.close()
+
+    generation = 0
+    while run_count > fan_in:
+        next_generation = generation + 1
+        next_count = 0
+        for first in range(0, run_count, fan_in):
+            last = min(first + fan_in, run_count)
+            input_paths = [
+                os.path.join(temp_dir, f"sort-{generation}-{run_id}.jsonl")
+                for run_id in range(first, last)
+            ]
+            output_path = os.path.join(temp_dir, f"sort-{next_generation}-{next_count}.jsonl")
+            merge_run_group(input_paths, output_path)
+            for input_path in input_paths:
+                os.unlink(input_path)
+            next_count += 1
+        generation = next_generation
+        run_count = next_count
+
+    final_paths = [
+        os.path.join(temp_dir, f"sort-{generation}-{run_id}.jsonl")
+        for run_id in range(run_count)
+    ]
+    files = [open(path, "r", encoding="utf-8") for path in final_paths]
 
     def merged():
         heap = []
