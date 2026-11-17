@@ -61,8 +61,10 @@ class Entity:
     _payload_json: bytes
 
     def __init__(self, stable_id: str, kind: str, payload: dict[str, Any]) -> None:
-        if not stable_id or not kind:
-            raise ValueError("stable_id and kind must be non-empty")
+        if not isinstance(stable_id, str) or not stable_id or not isinstance(kind, str) or not kind:
+            raise ValueError("stable_id and kind must be non-empty strings")
+        if not isinstance(payload, dict):
+            raise ValueError("entity payload must be a JSON object")
         encoded_payload = canonical_json(payload)
         # Fail at construction for values outside the JSON data model.
         json.loads(encoded_payload)
@@ -309,7 +311,7 @@ class InMemoryToolchain:
     def import_snapshot(self, path: str | Path) -> str:
         try:
             document = json.loads(Path(path).read_text(encoding="utf-8"))
-            if document["format_version"] != FORMAT_VERSION:
+            if type(document["format_version"]) is not int or document["format_version"] != FORMAT_VERSION:
                 raise InvalidSnapshot("unsupported repository format version")
             mapping: dict[str, str] = {}
             for item in document["entities"]:
