@@ -158,6 +158,6 @@ This is a kernel-checked theorem, not a test or solver result.
 -/
 theorem translateExpr_preserves_eval {s : ExprSort} (e : Expr s) (env : Env) :
     evalQuery (translateExpr e) env = evalExpr e env := by
-  induction e <;> simp [translateExpr, evalQuery, evalExpr, asInt, asBool, *]
+  induction e <;> simp [translateExpr, evalQuery, evalExpr, asInt, asBool, *] <;> rfl
 
 end LLMLang.SourceQuerySemantics
