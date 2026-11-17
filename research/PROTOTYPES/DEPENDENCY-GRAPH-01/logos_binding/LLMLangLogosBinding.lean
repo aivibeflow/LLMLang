@@ -229,6 +229,8 @@ structure WireDeclaration where
 /-- A decoded, versioned canonical relational query. -/
 structure DecodedRelationalQuery where
   factor : String
+  factorLeft : String
+  factorRight : String
   declarations : List WireDeclaration
   factorDifference : QueryTerm .bool
   observationsDiffer : QueryTerm .bool
@@ -280,7 +282,7 @@ private def requireNullField (value : Json) (key : String) : Except String Unit 
   if field != Json.null then throw s!"field must be null: {key}"
 
 /--
-Decode the exact version-1 term object shape. The expected result sort is
+Decode the exact version-2 term object shape. The expected result sort is
 provided by the caller; every node's explicit sort is checked against it.
 Unknown operators, extra fields, wrong arity, and malformed atoms fail closed.
 -/
@@ -401,13 +403,17 @@ is permitted.
 def decodeCanonicalRelationalQuery (source : String) : Except String DecodedRelationalQuery := do
   let json ← Json.parse source
   requireExactFields json
-    ["schema", "factor", "declarations", "factor_difference", "observations_differ", "observation_contract"]
+    ["schema", "factor", "factor_left", "factor_right", "declarations", "factor_difference", "observations_differ", "observation_contract"]
   let schema ← jsonStringField json "schema"
-  if schema != "llmlang.qf_lia.relational-query/1" then
+  if schema != "llmlang.qf_lia.relational-query/2" then
     throw "unsupported canonical query schema version"
   let factor ← jsonStringField json "factor"
+  let factorLeft ← jsonStringField json "factor_left"
+  let factorRight ← jsonStringField json "factor_right"
   let contract ← jsonStringField json "observation_contract"
   if !validIdentifier factor then throw "factor must be a valid identifier"
+  if !validIdentifier factorLeft || !validIdentifier factorRight || factorLeft == factorRight then
+    throw "factor_left and factor_right must be distinct valid identifiers"
   if contract.isEmpty then throw "observation contract is required"
   let rawDeclarations ← jsonArrayField json "declarations"
   let declarations ← rawDeclarations.toList.mapM decodeWireDeclaration
@@ -415,7 +421,7 @@ def decodeCanonicalRelationalQuery (source : String) : Except String DecodedRela
   if names.eraseDups.length != names.length then throw "duplicate canonical query declaration"
   let factorDifference ← decodeQueryTerm .bool (← jsonField json "factor_difference")
   let observationsDiffer ← decodeQueryTerm .bool (← jsonField json "observations_differ")
-  pure ⟨factor, declarations, factorDifference, observationsDiffer, contract⟩
+  pure ⟨factor, factorLeft, factorRight, declarations, factorDifference, observationsDiffer, contract⟩
 
 /-- Bind decoded query declarations to the exact CPC parser-state UConst map. -/
 def bindDecodedQueryDeclarations
@@ -434,7 +440,24 @@ def checkCanonicalQueryAssumptions
   let query ← decodeCanonicalRelationalQuery queryJson
   let (assumptions, _commands, state) ← parseProofWithState proof
   let bindings ← bindDecodedQueryDeclarations state query
-  let expectedFactor ← renderQueryTerm bindings query.factorDifference
+  let some leftDeclaration := query.declarations.find? (fun d => d.name == query.factorLeft)
+    | throw "factor_left does not reference a declared symbol"
+  let some rightDeclaration := query.declarations.find? (fun d => d.name == query.factorRight)
+    | throw "factor_right does not reference a declared symbol"
+  if leftDeclaration.sort != rightDeclaration.sort then
+    throw "factor pair declarations have different sorts"
+  if !query.factorLeft.endsWith "_L" || !query.factorRight.endsWith "_R" then
+    throw "factor pair does not follow the canonical left/right naming convention"
+  let pairedDeclarations := query.declarations.filter
+    (fun d => d.name.endsWith "_L" || d.name.endsWith "_R")
+  if pairedDeclarations.length != 2 then
+    throw "query must contain exactly one selected factor declaration pair"
+  let left ← resolveQuerySymbol bindings query.factorLeft leftDeclaration.sort
+  let right ← resolveQuerySymbol bindings query.factorRight rightDeclaration.sort
+  let expectedFactor := apply1 .not (apply2 .eq left right)
+  let decodedFactor ← renderQueryTerm bindings query.factorDifference
+  if decodedFactor != expectedFactor then
+    throw "factor_difference is not exactly not (= factor_left factor_right)"
   let expectedObservations ← renderQueryTerm bindings query.observationsDiffer
   let expected := [expectedFactor, expectedObservations]
   if assumptions != expected then
