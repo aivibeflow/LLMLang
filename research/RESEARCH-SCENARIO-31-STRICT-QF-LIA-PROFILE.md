@@ -197,7 +197,7 @@ A separate experimental implementation now exists:
 - `src/qf_lia_profile.py` — strict validator, relational paired-execution builder, deterministic SMT-LIB renderer, canonical typed-IR digest, and exact query-byte SHA-256.
 - `tests/test_qf_lia_profile.py` — focused acceptance/rejection and rendering tests.
 
-The implementation keeps Scenario 27's general symbolic API unchanged. It rejects non-Bool/Int input sorts and values, string literals, Bool-as-Int, unsupported operators, nonlinear multiplication, effects, early/nested returns, raises, recursive functions, uninitialized observations, and unreferenced function declarations. It checks both branch environments and emits only Bool/Int terms under `QF_LIA`.
+The implementation keeps Scenario 27's general symbolic API unchanged. Its result records profile, validator, and encoder version identifiers; canonical typed-IR and per-factor query-IR digests; and SHA-256 of the exact emitted SMT-LIB bytes. Source-file digests and a signed build manifest are not yet attached to the result, so evidence identity is not yet complete. It rejects non-Bool/Int input sorts and values, string literals, Bool-as-Int, unsupported operators, nonlinear multiplication, effects, early/nested returns, raises, recursive functions, uninitialized observations, and unreferenced function declarations. It checks both branch environments and emits only Bool/Int terms under `QF_LIA`.
 
 The function-declaration rule is intentionally conservative: every declared function must be reachable from the program and its body must be type-checked during inlining. This avoids claiming that an unused function body was validated when the current IR has no standalone function-signature type declaration.
 
