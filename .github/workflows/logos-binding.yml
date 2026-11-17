@@ -32,6 +32,6 @@ jobs:
       - name: Resolve pinned Lake dependencies
         run: lake update
       - name: Build parser-state bridge
-        run: lake build
+        run: lake build LLMLangLogosBinding
       - name: Run parser-state binding tests
         run: timeout 180s lake env lean --run Main.lean
