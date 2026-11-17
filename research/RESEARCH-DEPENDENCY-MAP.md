@@ -1,7 +1,7 @@
 # LLMLang Cross-Aspect Research Dependency Map
 
 **Status:** Initial dependency hypothesis; relationships require validation  
-**Updated:** 2026-11-17  
+**Updated:** 2026-11-18  
 **Companion:** [Research Taxonomy](RESEARCH-TAXONOMY.md)
 
 ## 1. Purpose and interpretation
@@ -48,6 +48,7 @@ flowchart TD
   Q[RT-16 Security and trust]
   UX[RT-17 Developer experience]
   EV[RT-18 Conformance and evolution]
+  TS[RT-19 Toolchain Server and semantic development API]
 
   G --> I
   G --> S
@@ -137,6 +138,12 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-042 | RT-12 → RT-11 | Influences | Compact indexes, partial retrieval, and provider-side closure resolution can share cache and incremental-computation infrastructure; cache correctness depends on exact dependency closure and snapshot identity. | Strong hypothesis |
 | DEP-043 | RT-16 → RT-12 | Constrains | Dynamic providers, package provenance, signatures, and multi-provider resolution must obey explicit trust and supply-chain boundaries; content hashes alone do not establish publisher trust. | Strong hypothesis |
 | DEP-044 | RT-12 → RT-17 | Influences | Compact package catalogs and selective metadata retrieval affect context efficiency, discoverability, and the usability of LLM-facing tooling. | Strong hypothesis |
+| DEP-045 | RT-14 → RT-19 | Requires | The Toolchain API operationalizes structured agent changes, context retrieval, provenance, and request/change lifecycle without binding them to one transport. | Strong hypothesis |
+| DEP-046 | RT-05 → RT-19 | Requires | Semantic workspaces and typed mutations need stable entity identities, immutable content hashes, and snapshot roots. | Strong hypothesis |
+| DEP-047 | RT-15 → RT-19 | Constrains | Import/export, external-edit detection, branch synchronization, and semantic merge must preserve Git portability and the repository representation contract. | Strong hypothesis |
+| DEP-048 | RT-16 → RT-19 | Constrains | Workspace scoping, tool permissions, acceptance, commit, sandboxing, and audit requirements constrain every server adapter and operation. | Strong hypothesis |
+| DEP-049 | RT-19 → RT-17 | Influences | Structured semantic operations, stable diagnostics, and bounded context may improve agent and human workflows; this requires comparative usability evidence. | Open hypothesis |
+| DEP-050 | RT-19 → RT-11 | Influences | Persistent workspace and semantic stores may reuse action-cache infrastructure, but workspace durability and cache validity are separate concerns. | Open hypothesis |
 
 ## 4. Important feedback loops and conditional relationships
 
@@ -155,6 +162,8 @@ These are not simple one-way dependencies. They must be tested explicitly:
 7. **AI change model ↔ Git/semantic merge (RT-14 ↔ RT-15).** Both need stable operations, baselines, provenance, conflict semantics, and reviewable changes.
 8. **Cache ↔ dependency completeness (RT-06 ↔ RT-11).** An incomplete dependency graph can make cache reuse unsound. When completeness is unknown, the cache must conservatively recompute or decline reuse.
 9. **Artifact identity ↔ package/target context (RT-05 ↔ RT-12/13).** Target/environment inputs belong in an artifact identity only when they change its meaning; otherwise they may belong in binding or action context.
+10. **AI change protocol ↔ Toolchain API (RT-14 ↔ RT-19).** The AI-facing change model defines the semantic intent and provenance; RT-19 defines durable workspaces, transaction boundaries, adapters, and repository synchronization.
+11. **Semantic repository ↔ Toolchain synchronization (RT-15 ↔ RT-19).** Git portability and semantic merge constrain import/export and external-edit reconciliation; Toolchain experiments may expose missing repository-level atomicity or recovery requirements.
 
 ## 5. Research sequence
 
