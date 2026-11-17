@@ -1,6 +1,6 @@
 # Research Scenario 33 — CPC Parser State and Exact Symbol Binding
 
-**Status:** Source-audited design; Lean wrapper not compiled.  
+**Status:** Lean wrapper and fail-closed declaration binder implemented as an uncompiled prototype; CI workflow added but no run result observed. Source API audited at the pinned revision.  
 **Date:** 2026-11-17  
 **Pinned Logos revision:** cf18742973861b3718d04c5f25775448098ff474  
 **Depends on:** Scenarios 29, 30, and 32.  
@@ -105,3 +105,19 @@ All links below are immutable links to the audited Logos commit:
 - [parseProof and private parseConfigured path](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Logos/Parser/Datatypes.lean#L548-L561)
 - [Eo parser's @var macro and Term.Var construction](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Cpc/Parser.lean#L1364-L1388)
 - [Eo-to-SMT translation for literals, UConst, Boolean operators, arithmetic and comparisons](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Cpc/SmtTranslate.lean#L223-L248)
+
+
+## 9. First Lean prototype (written, not compiled)
+
+A dedicated Lake package now lives at `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`.
+
+- `lakefile.lean` pins the Logos package to the exact audited commit.
+- `lean-toolchain` pins Lean 4.34.0, matching that Logos revision.
+- `LLMLangLogosBinding.lean` runs `parseCommands` with datatype elaboration disabled, retains the final parser state, and compares the complete assumption list with ordinary `Eo.parseProof` output before returning.
+- `bindExpectedDeclarations` resolves each expected source name through the actual parser state's `terms` map, requires one unambiguous `UConst`, checks Bool/Int sort, and rejects duplicate expected names, extra/missing declarations, overloaded names, and count mismatches.
+- `Main.lean` includes smoke tests for one successful Int binding, repeated/overloaded-name rejection, and unexpected-declaration rejection.
+- `.github/workflows/logos-binding.yml` builds the Lake package and runs the executable test suite on relevant pushes and pull requests.
+
+The parser wrapper intentionally compares assumptions only. The generated `CCmdList` does not derive structural equality in the pinned source, and the proof-binding requirement concerns the assumption list. The command list is produced by the same `parseCommands` function; it is not independently compared with ordinary `parseProof`.
+
+**Validation status:** the environment used for this work has neither Lean/Lake installed nor outbound network access, so the package could not be compiled locally. The workflow has been committed, but the GitHub Actions run has not yet been observed. Treat all Lean code as an implementation candidate, not a validated integration. No proof checker or real CPC proof was executed.
