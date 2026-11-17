@@ -46,6 +46,7 @@ This repository contains a **conceptual research document**, not a production-re
 - [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](GLOBAL-SEMANTIC-ARTIFACT-STORE.md) — proposed global content-addressed store, reusable wrapper implementations, library manifests, contracts, target profiles, and compatibility evidence.
 - [PACKAGE-SYSTEM.md](PACKAGE-SYSTEM.md) — static and dynamic packages, compact binary indexes, compression/sparse lookup, provider resolution, and optional cache indexes.
 - [PACKAGE-MANIFEST-AND-IDENTITY.md](PACKAGE-MANIFEST-AND-IDENTITY.md) — candidate TOML manifest schema, Package Content Root Hash construction, identity boundaries, and validation invariants; includes an [illustrative manifest fixture](examples/package/manifest.toml).
+- [Package Identity Prototype 01](PROTOTYPES/PACKAGE-IDENTITY-01/README.md) — exploratory Python model and focused tests for PMI-001–PMI-014; not a normative implementation.
 - [RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md](RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md) — research on transforming contextual business intent into traceable, reviewable formal contracts.
 - [RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md](RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md) — research on a typed, provenance-carrying Requirement IR, finite-domain consistency checks, and scenario generation.
 - [Prototype 16 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-16-RESULTS.md) — end-to-end experiment for caller-scoped business-rule evolution and contract acceptance.
