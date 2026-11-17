@@ -73,6 +73,18 @@ Connects an interface and contract to an implementation for a particular library
 
 A binding is not proof by itself. It is a declaration whose compatibility status must be established by appropriate evidence or remain explicitly unknown.
 
+### 3.5 Target Profile
+
+Captures the environment dimensions that can affect semantics or ABI compatibility, such as:
+
+- operating system and supported version range;
+- libc family and version range;
+- kernel family/version constraints;
+- architecture and syscall ABI;
+- data model, calling convention, and feature configuration.
+
+Only dimensions that are relevant to a particular artifact need to be included in its semantic dependency context. Descriptive metadata that cannot affect behavior should not perturb semantic identity.
+
 ### 3.6 Operation Identity and Call Address
 
 A call must explicitly identify the exact semantic version of the operation it intends to invoke. It must not identify only a logical operation and leave the semantic version to be selected implicitly by the runtime or implementation resolver.
@@ -99,18 +111,6 @@ Illustrative notation only:
 `call OpHash("…")`
 
 The canonical OpHash envelope and its relationship to Interface, Contract, and Target Profile remain to be specified. The key invariant is already clear: **call identity is explicit and semantically pinned; implementation discovery and optimization are separate.**
-
-### 3.5 Target Profile
-
-Captures the environment dimensions that can affect semantics or ABI compatibility, such as:
-
-- operating system and supported version range;
-- libc family and version range;
-- kernel family/version constraints;
-- architecture and syscall ABI;
-- data model, calling convention, and feature configuration.
-
-Only dimensions that are relevant to a particular artifact need to be included in its semantic dependency context. Descriptive metadata that cannot affect behavior should not perturb semantic identity.
 
 ## 4. Global Content-Addressed Store
 
