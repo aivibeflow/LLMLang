@@ -463,3 +463,25 @@ Prefer the simplest representation that fits each component's access and integri
 - provenance and attestations: a separately versioned representation with explicit trust semantics.
 
 This is a format-boundary recommendation, not a final wire-format decision. TOML is the current candidate for the manifest; the exact schema and canonical logical projection remain open.
+
+
+## 12. Logical index schema and merge prototype
+
+A first executable logical-table proposal now exists in [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md), with tests in [Package Index Logical Model Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
+
+The current candidate tables and primary keys are:
+
+| Table | Primary key | Main purpose |
+|---|---|---|
+| Objects | `ContentHash` | Included immutable object membership and canonical kind/size metadata |
+| Dependencies | `(source_hash, edge_id)` | Exact typed dependency edges, including explicit included/external state |
+| Exports | `(module_id, name)` | Public export names mapped to exact object hashes |
+| Modules | `module_id` | Module membership as a set of included object hashes |
+
+Cross-table validation requires dependency sources, included dependency targets, module members, and export targets to exist in the appropriate tables. An external dependency edge does not imply that its target is included in the package.
+
+The merge contract is deterministic: identical records with the same key are deduplicated; conflicting records with the same key are integrity errors. No last-writer-wins rule is permitted. For conflict-free inputs, the logical merge is intended to be commutative, associative, and idempotent. Provider availability locations belong in a separate non-identity overlay.
+
+The executable prototype currently validates these rules in memory and exercises canonical ordering, logical digest stability, merge laws, and conflict handling. It does **not** implement a streaming k-way merge or binary `index.bin` encoding. Its canonical JSON digest is experimental and is not the final LLMLang encoding/hash contract.
+
+This is a proposed logical schema, not a frozen format. Dependency taxonomy, Stable ID grammar, optional condition representation, empty-module policy, and the complete set of identity-bearing tables remain open.
