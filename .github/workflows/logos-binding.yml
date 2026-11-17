@@ -4,11 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/**"
+      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/**"
       - ".github/workflows/logos-binding.yml"
   pull_request:
     paths:
-      - "PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/**"
+      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/**"
       - ".github/workflows/logos-binding.yml"
   workflow_dispatch:
 
@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 15
     defaults:
       run:
-        working-directory: PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding
+        working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding
     steps:
       - uses: actions/checkout@v4
       - name: Install pinned Lean toolchain
