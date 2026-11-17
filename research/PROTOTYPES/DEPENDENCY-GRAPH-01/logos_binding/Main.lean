@@ -54,4 +54,32 @@ def main : IO Unit := do
   IO.println "test 3b: extra declaration parsed; checking rejection"
   expectFailure (bindExpectedDeclarations extraState [{ name := "x", sort := .int }])
 
-  IO.println "CPC parser-state binding tests passed"
+
+  IO.println "test 4: independently render typed query term"
+  let xBinding ←
+    match bindExpectedDeclarations state [{ name := "x", sort := .int }] with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  let expected ←
+    match renderQueryTerm xBinding
+      (QueryTerm.eqInt (.symbol "x") (.symbol "x")) with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  if assumptions != [expected] then
+    throw (IO.userError "typed query renderer differs from parsed CPC assumption")
+
+  IO.println "test 5: reject wrong-sort query symbol"
+  expectFailure (renderQueryTerm xBinding (QueryTerm.eqBool (.symbol "x") (.boolLit true)))
+
+  IO.println "test 6: render compound QF_LIA expression"
+  let compound ←
+    match renderQueryTerm xBinding
+      (QueryTerm.le
+        (QueryTerm.add (.symbol "x") (.intLit 2))
+        (QueryTerm.mul (.symbol "x") (.intLit 3))) with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  if compound == expected then
+    throw (IO.userError "compound expression unexpectedly equals reflexive equality")
+
+  IO.println "CPC parser-state binding and typed query rendering tests passed"
