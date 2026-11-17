@@ -269,14 +269,14 @@ Decode the exact version-1 term object shape. The expected result sort is
 provided by the caller; every node's explicit sort is checked against it.
 Unknown operators, extra fields, wrong arity, and malformed atoms fail closed.
 -/
-mutual
-  partial def decodeIntTerm (value : Json) : Except String (QueryTerm .int) := do
+partial def decodeQueryTerm : (sort : QuerySort) → Json → Except String (QueryTerm sort)
+  | .int, value => do
     requireExactFields value ["op", "sort", "args", "atom"]
     let op ← jsonStringField value "op"
-    let sort ← jsonStringField value "sort"
+    let nodeSort ← jsonStringField value "sort"
     let args ← jsonArrayField value "args"
     let atom ← jsonField value "atom"
-    if sort != "Int" then throw "integer query node has non-Int sort"
+    if nodeSort != "Int" then throw "integer query node has non-Int sort"
     match op with
     | "int" =>
         if !args.isEmpty then throw "integer literal must have no arguments"
@@ -287,20 +287,20 @@ mutual
     | "neg" =>
         requireNullField value "atom"
         if args.size != 1 then throw "neg expects exactly one argument"
-        pure (.neg (← decodeIntTerm args[0]!))
+        pure (.neg (← decodeQueryTerm .int args[0]!))
     | "add" =>
         requireNullField value "atom"
         if args.size != 2 then throw "add expects exactly two arguments"
-        pure (.add (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!))
+        pure (.add (← decodeQueryTerm .int args[0]!) (← decodeQueryTerm .int args[1]!))
     | "sub" =>
         requireNullField value "atom"
         if args.size != 2 then throw "sub expects exactly two arguments"
-        pure (.sub (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!))
+        pure (.sub (← decodeQueryTerm .int args[0]!) (← decodeQueryTerm .int args[1]!))
     | "mul" =>
         requireNullField value "atom"
         if args.size != 2 then throw "mul expects exactly two arguments"
-        let left ← decodeIntTerm args[0]!
-        let right ← decodeIntTerm args[1]!
+        let left ← decodeQueryTerm .int args[0]!
+        let right ← decodeQueryTerm .int args[1]!
         if !(match left with | .intLit _ => true | _ => false) &&
            !(match right with | .intLit _ => true | _ => false) then
           throw "nonlinear multiplication is outside the strict QF_LIA profile"
@@ -308,16 +308,16 @@ mutual
     | "ite" =>
         requireNullField value "atom"
         if args.size != 3 then throw "ite expects exactly three arguments"
-        pure (.iteInt (← decodeBoolTerm args[0]!) (← decodeIntTerm args[1]!) (← decodeIntTerm args[2]!))
+        pure (.iteInt (← decodeQueryTerm .bool args[0]!)
+          (← decodeQueryTerm .int args[1]!) (← decodeQueryTerm .int args[2]!))
     | _ => throw s!"unsupported Int query operator: {op}"
-
-  partial def decodeBoolTerm (value : Json) : Except String (QueryTerm .bool) := do
+  | .bool, value => do
     requireExactFields value ["op", "sort", "args", "atom"]
     let op ← jsonStringField value "op"
-    let sort ← jsonStringField value "sort"
+    let nodeSort ← jsonStringField value "sort"
     let args ← jsonArrayField value "args"
     let atom ← jsonField value "atom"
-    if sort != "Bool" then throw "Boolean query node has non-Bool sort"
+    if nodeSort != "Bool" then throw "Boolean query node has non-Bool sort"
     match op with
     | "bool" =>
         if !args.isEmpty then throw "Boolean literal must have no arguments"
@@ -328,7 +328,7 @@ mutual
     | "not" =>
         requireNullField value "atom"
         if args.size != 1 then throw "not expects exactly one argument"
-        pure (.not (← decodeBoolTerm args[0]!))
+        pure (.not (← decodeQueryTerm .bool args[0]!))
     | "eq" =>
         requireNullField value "atom"
         if args.size != 2 then throw "eq expects exactly two arguments"
@@ -336,33 +336,33 @@ mutual
         let rightSort ← jsonStringField args[1]! "sort"
         if leftSort != rightSort then throw "eq operands have different sorts"
         if leftSort == "Int" then
-          pure (.eqInt (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!))
+          pure (.eqInt (← decodeQueryTerm .int args[0]!) (← decodeQueryTerm .int args[1]!))
         else if leftSort == "Bool" then
-          pure (.eqBool (← decodeBoolTerm args[0]!) (← decodeBoolTerm args[1]!))
+          pure (.eqBool (← decodeQueryTerm .bool args[0]!) (← decodeQueryTerm .bool args[1]!))
         else
           throw "eq supports only Int and Bool operands"
     | "lt" =>
         requireNullField value "atom"
         if args.size != 2 then throw "lt expects exactly two arguments"
-        pure (.lt (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!))
+        pure (.lt (← decodeQueryTerm .int args[0]!) (← decodeQueryTerm .int args[1]!))
     | "le" =>
         requireNullField value "atom"
         if args.size != 2 then throw "le expects exactly two arguments"
-        pure (.le (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!))
+        pure (.le (← decodeQueryTerm .int args[0]!) (← decodeQueryTerm .int args[1]!))
     | "and" =>
         requireNullField value "atom"
         if args.size < 2 then throw "and expects at least two arguments"
-        pure (.and (← args.toList.mapM decodeBoolTerm))
+        pure (.and (← args.toList.mapM (decodeQueryTerm .bool)))
     | "or" =>
         requireNullField value "atom"
         if args.size < 2 then throw "or expects at least two arguments"
-        pure (.or (← args.toList.mapM decodeBoolTerm))
+        pure (.or (← args.toList.mapM (decodeQueryTerm .bool)))
     | "ite" =>
         requireNullField value "atom"
         if args.size != 3 then throw "ite expects exactly three arguments"
-        pure (.iteBool (← decodeBoolTerm args[0]!) (← decodeBoolTerm args[1]!) (← decodeBoolTerm args[2]!))
+        pure (.iteBool (← decodeQueryTerm .bool args[0]!)
+          (← decodeQueryTerm .bool args[1]!) (← decodeQueryTerm .bool args[2]!))
     | _ => throw s!"unsupported Bool query operator: {op}"
-end
 
 private def decodeWireDeclaration (value : Json) : Except String WireDeclaration := do
   requireExactFields value ["name", "sort"]
@@ -393,8 +393,8 @@ def decodeCanonicalRelationalQuery (source : String) : Except String DecodedRela
   let declarations ← rawDeclarations.toList.mapM decodeWireDeclaration
   let names := declarations.map WireDeclaration.name
   if names.eraseDups.length != names.length then throw "duplicate canonical query declaration"
-  let factorDifference ← decodeBoolTerm (← jsonField json "factor_difference")
-  let observationsDiffer ← decodeBoolTerm (← jsonField json "observations_differ")
+  let factorDifference ← decodeQueryTerm .bool (← jsonField json "factor_difference")
+  let observationsDiffer ← decodeQueryTerm .bool (← jsonField json "observations_differ")
   pure ⟨factor, declarations, factorDifference, observationsDiffer, contract⟩
 
 /-- Bind decoded query declarations to the exact CPC parser-state UConst map. -/
