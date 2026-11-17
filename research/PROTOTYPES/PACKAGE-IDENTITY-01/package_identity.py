@@ -46,7 +46,7 @@ def canonical(value: Any) -> bytes:
     raise PackageFormatError(f"unsupported canonical type: {type(value).__name__}")
 
 def digest(domain: str, value: Any) -> str:
-    payload = b"LLMLANG\\0" + domain.encode("ascii") + b"\\0" + canonical(value)
+    payload = b"LLMLANG\0" + domain.encode("ascii") + b"\0" + canonical(value)
     return "sha256:" + hashlib.sha256(payload).hexdigest()
 
 def parse_hash(value: str) -> tuple[str, bytes]:
@@ -56,7 +56,7 @@ def parse_hash(value: str) -> tuple[str, bytes]:
 
 def _validate_relative_path(value: str) -> None:
     p = PurePosixPath(value)
-    if not value or p.is_absolute() or ".." in p.parts or "\\\\" in value:
+    if not value or p.is_absolute() or ".." in p.parts or "\\" in value:
         raise PackageFormatError(f"unsafe relative archive path: {value!r}")
 
 def parse_manifest(raw: bytes) -> dict[str, Any]:
