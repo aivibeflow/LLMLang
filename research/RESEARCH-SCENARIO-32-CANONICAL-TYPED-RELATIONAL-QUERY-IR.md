@@ -142,12 +142,13 @@ def parseProofWithState (proof : String) :
 This source-level sketch is superseded by the compiled implementation in `PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`. CI currently verifies agreement between the state-preserving parser path and ordinary `Eo.parseProof` on the exercised fixtures, and checks exact state-derived bindings. The current tests do not yet constitute exhaustive equivalence over the full accepted QF_LIA CPC grammar.
 
 
-## 10. Canonical JSON wire envelope (version 1)
+## 10. Canonical JSON wire envelope (version 2)
 
 The Lean decoder now defines the intended interchange shape. The envelope is UTF-8 JSON with exactly these top-level fields:
 
-- `schema`: the literal `llmlang.qf_lia.relational-query/1`;
+- `schema`: the literal `llmlang.qf_lia.relational-query/2`;
 - `factor`: non-empty source-level factor name;
+- `factor_left` and `factor_right`: distinct references to the generated selected-factor declarations; the left name ends in `_L`, the right in `_R`;
 - `declarations`: array of objects with exactly `name` and `sort` (`Int` or `Bool`);
 - `factor_difference` and `observations_differ`: recursively typed term objects;
 - `observation_contract`: non-empty contract identifier.
@@ -157,10 +158,13 @@ Every term object has exactly `op`, `sort`, `args`, and `atom`. Literal and symb
 This is a wire-format contract for the Lean decoder, not yet a complete Python exporter or a formal proof that the Python producer emits only valid documents. The decoder has now been exercised by CI with positive and adversarial fixtures. This validates the decoder and tested binding implementation, not source-to-query correspondence.
 
 
-## 11. Follow-up audit: factor identity is not yet bound
+## 11. Factor identity binding: version-2 implementation
 
-The current Lean `checkCanonicalQueryAssumptions` decodes `factor`, `declarations`, and `factor_difference`, renders the decoded `factor_difference`, and compares it with the parsed CPC assumption. It does **not** independently establish that `factor_difference` is the inequality between the left/right symbols representing the selected source input. The `factor` field is currently only validated as an identifier and otherwise unused by the Lean checker. Consequently, a self-consistent but incorrectly constructed wire query could pass this particular binding check if the CPC assumptions contain the same incorrect formula.
+The version-2 envelope includes explicit factor_left and factor_right references. Python validates the unique generated _L/_R pair, declaration closure, equal sorts, and exact factor-difference AST. Lean resolves both references through parser-state-derived CPC UConst bindings, checks equal sorts and pair uniqueness, independently constructs not (= left right), and compares it structurally with decoded factor_difference before checking the full ordered CPC assumption list. Adversarial fixtures cover substitution, pair permutation, wrong CPC declaration sort, and assumption-list tampering. Schema /1 is rejected, not reinterpreted. Source-program-to-query correspondence remains unproved.
+
+
+The former version-1 Lean `checkCanonicalQueryAssumptions` decodes `factor`, `declarations`, and `factor_difference`, renders the decoded `factor_difference`, and compares it with the parsed CPC assumption. It does **not** independently establish that `factor_difference` is the inequality between the left/right symbols representing the selected source input. The `factor` field is currently only validated as an identifier and otherwise unused by the Lean checker. Consequently, a self-consistent but incorrectly constructed wire query could pass this particular binding check if the CPC assumptions contain the same incorrect formula.
 
 The Python profile builder currently constructs the intended relation as `not (= <factor-left-symbol> <factor-right-symbol>)`; generated names use the paired `_L` / `_R` convention. That relationship must become explicit in the wire contract rather than inferred from a free-form term.
 
-**Required next change:** introduce explicit `factor_left` and `factor_right` declaration references in a new version of the wire envelope (do not silently change `/1` semantics); validate that both declarations exist, have the same Bool/Int sort, are the unique pair for the selected factor, and that `factor_difference` is structurally exactly `not (= factor_left factor_right)` in Lean. Update the Python producer, fixtures, schema documentation, and adversarial tests together. Until then, the current CI result establishes CPC assumption equality to the decoded query, but not the correctness of the query's factor-difference construction.
+**Historical version-1 gap (now addressed in version 2):** introduce explicit `factor_left` and `factor_right` declaration references in a new version of the wire envelope (do not silently change `/1` semantics); validate that both declarations exist, have the same Bool/Int sort, are the unique pair for the selected factor, and that `factor_difference` is structurally exactly `not (= factor_left factor_right)` in Lean. Update the Python producer, fixtures, schema documentation, and adversarial tests together. Version 2 closes this factor-pair construction gap for the exercised fixtures. It does not prove source-program-to-query correspondence.
