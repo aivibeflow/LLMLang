@@ -14,5 +14,7 @@ Start with:
 - [Development Engine research](research/RFC-DEVELOPMENT-ENGINE.md)
 - [Research scenarios](research/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md) onward, including [Scenario 29](research/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md), [Scenario 30](research/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md), and [Scenario 31](research/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md)
 - [Prototype workspace](research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md)
+- [Example task catalog](examples/README.md) — progressive programming tasks and their shared template.
+- [Candidate example implementations](draft/examples/README.md) — corresponding LLMLang implementation sketches.
 
 **Important:** `research/` is not the normative specification. When a coherent, reviewed candidate specification is ready, its files will be placed in `draft/`. Until then, `draft/` remains empty apart from its Git directory placeholder.
