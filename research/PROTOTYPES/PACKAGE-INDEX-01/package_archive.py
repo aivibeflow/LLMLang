@@ -90,7 +90,7 @@ def _table_rows(path: str):
 def _logical_index_hash_from_paths(paths, *, max_records_in_memory, temp_dir):
     """Reproduce the identity prototype's logical index hash without materializing tables."""
     hasher = hashlib.sha256()
-    hasher.update(b"LLMLANG\\0package-index.logical.v1\\0")
+    hasher.update(b"LLMLANG\0package-index.logical.v1\0")
     ordered_tables = sorted(TABLES, key=identity_canonical)
     hasher.update(b"M" + _u32(len(ordered_tables)))
     for table in ordered_tables:
@@ -254,7 +254,7 @@ def verify_archive(path: str | os.PathLike, *, max_records_in_memory: int = 4096
                     temp_path = os.path.join(work_dir, f"{table}.jsonl")
                     with open(temp_path, "w", encoding="utf-8") as output:
                         for row in replay_table(table):
-                            output.write(_canonical(row).decode("utf-8") + "\\n")
+                            output.write(_canonical(row).decode("utf-8") + "\n")
                     table_paths[table] = temp_path
                 _verify_manifest_and_index(
                     manifest_bytes, table_paths,
