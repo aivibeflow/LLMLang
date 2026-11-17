@@ -74,13 +74,8 @@ def _spool_index(index_stream, directory: str, max_records_in_memory: int) -> di
                 output.write(_canonical(row).decode("utf-8") + "\n")
         paths[table] = path
 
-    def replay():
-        for table in TABLES:
-            with open(paths[table], "r", encoding="utf-8") as source:
-                yield table, (json.loads(line) for line in source)
-
     validate_streamed_index(
-        {table: rows for table, rows in replay()},
+        {table: _table_rows(paths[table]) for table in TABLES},
         max_records_in_memory=max_records_in_memory,
     )
     return paths
@@ -182,15 +177,7 @@ def verify_archive(path: str | os.PathLike, *, max_records_in_memory: int = 4096
             if not expected_index_names <= set(names):
                 raise ArchiveError("one or more index tables are missing")
 
-            index_stream = {}
-            for table in TABLES:
-                with archive.open(f"index/{table}.jsonl", "r") as source:
-                    def rows(source=source):
-                        for line in source:
-                            yield json.loads(line)
-                    index_stream[table] = rows()
-            # Materialize table streams only to temporary files through the same
-            # bounded validator; archive entries are replayed by reopening below.
+            # Reopen each ZIP member on demand; the validator spools it to disk.
             def replay_table(table):
                 with archive.open(f"index/{table}.jsonl", "r") as source:
                     for line in source:
