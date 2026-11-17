@@ -1,0 +1,28 @@
+name: Package identity prototype
+
+on:
+  push:
+    paths:
+      - "research/PROTOTYPES/PACKAGE-IDENTITY-01/**"
+      - "research/PACKAGE-MANIFEST-AND-IDENTITY.md"
+      - ".github/workflows/package-identity.yml"
+  pull_request:
+    paths:
+      - "research/PROTOTYPES/PACKAGE-IDENTITY-01/**"
+      - "research/PACKAGE-MANIFEST-AND-IDENTITY.md"
+      - ".github/workflows/package-identity.yml"
+
+jobs:
+  package-identity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run package identity tests
+        working-directory: research/PROTOTYPES/PACKAGE-IDENTITY-01
+        run: python -m unittest discover -v
+      - name: Compile prototype and tests
+        working-directory: research/PROTOTYPES/PACKAGE-IDENTITY-01
+        run: python -m py_compile package_identity.py test_package_identity.py test_package_identity_adversarial.py
