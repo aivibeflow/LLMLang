@@ -1,0 +1,24 @@
+name: Repository structure
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test repository structure checker
+        run: python -m unittest discover -s tools -p 'test_*.py' -v
+      - name: Check tracked repository layout
+        run: python tools/check_repo_structure.py
