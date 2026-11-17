@@ -84,8 +84,8 @@ def main : IO Unit := do
 
   IO.println "test 7: exact arithmetic AST equivalence"
   let arithmeticProof :=
-    "(declare-const x Int)\\n" ++
-    "(assume a (<= (+ x 2) (* x 3)))\\n"
+    "(declare-const x Int)\n" ++
+    "(assume a (<= (+ x 2) (* x 3)))\n"
   let (arithmeticAssumptions, _, arithmeticState) ←
     match parseProofWithState arithmeticProof with
     | .ok result => pure result
@@ -106,9 +106,9 @@ def main : IO Unit := do
 
   IO.println "test 8: exact Boolean and AST equivalence"
   let booleanProof :=
-    "(declare-const p Bool)\\n" ++
-    "(declare-const q Bool)\\n" ++
-    "(assume a (and p (not q)))\\n"
+    "(declare-const p Bool)\n" ++
+    "(declare-const q Bool)\n" ++
+    "(assume a (and p (not q)))\n"
   let (booleanAssumptions, _, booleanState) ←
     match parseProofWithState booleanProof with
     | .ok result => pure result
