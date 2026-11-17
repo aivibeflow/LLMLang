@@ -1,6 +1,6 @@
 # Research Scenario 32 — Canonical Typed Relational Query IR
 
-**Status:** Python typed query IR, SMT-LIB renderer, and deterministic version-1 JSON exporter implemented; the focused Python suite passes. Lean typed query AST, independent Logos Eo.Term renderer, and strict JSON decoder are implemented; decoder CI validation is pending. Source-to-query correspondence remains unproved.  
+**Status:** Python typed query IR, SMT-LIB renderer, and deterministic version-1 JSON exporter implemented; the focused Python suite passes. Lean typed query AST, independent Logos Eo.Term renderer, and strict JSON decoder are implemented and pass pinned Lean CI, including adversarial decoder and complete-assumption-list rejection fixtures. Source-to-query correspondence remains unproved. A subsequent audit found that the wire-level `factor` label is not independently tied to the paired input symbols in `factor_difference`; see Section 11.  
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 29–31.  
 **Question:** What intermediate representation is needed so that one canonical relational query can drive independent SMT-LIB and Logos proof-term generation without making rendered text the semantic source of truth?
@@ -98,7 +98,7 @@ Until these obligations are met, the output remains QF_LIA_CANDIDATE_QUERIES. Ne
 
 ## 7. Next implementation step
 
-The parser-state wrapper, exact declaration binding, typed Lean query AST, and independent Eo.Term renderer are implemented and CI-validated. A strict Lean decoder for the versioned canonical JSON envelope has now been added. It enforces exact field sets, typed atoms, exact operator arities, identifier syntax, declaration uniqueness, and the linear-multiplication restriction. Adversarial fixtures cover malformed leaf atoms, empty symbols, non-null operator atoms, invalid factor/declaration identifiers, unknown schema versions, unknown fields, and nonlinear multiplication. The latest CI result for these additions is pending. The intended trust boundary is: decode independently in Lean, resolve declarations only through parser-state-derived UConst bindings, then compare the complete parsed assumption list by native structural equality. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
+The parser-state wrapper, exact declaration binding, typed Lean query AST, and independent Eo.Term renderer are implemented and CI-validated. A strict Lean decoder for the versioned canonical JSON envelope has now been added. It enforces exact field sets, typed atoms, exact operator arities, identifier syntax, declaration uniqueness, and the linear-multiplication restriction. Adversarial fixtures cover malformed leaf atoms, empty symbols, non-null operator atoms, invalid factor/declaration identifiers, unknown schema versions, unknown fields, and nonlinear multiplication. The adversarial decoder and CPC-assumption tests passed in Lean CI run [44180154227](https://github.com/aivibeflow/LLMLang/actions/runs/44180154227) on commit `121612be622ce0c8f0e31b28d1cba7ef17bce6ea`. The intended trust boundary is: decode independently in Lean, resolve declarations only through parser-state-derived UConst bindings, then compare the complete parsed assumption list by native structural equality. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
 
 
 ## 8. Pinned Logos API audit notes
@@ -154,4 +154,13 @@ The Lean decoder now defines the intended interchange shape. The envelope is UTF
 
 Every term object has exactly `op`, `sort`, `args`, and `atom`. Literal and symbol nodes use an integer, Boolean, or string atom respectively and an empty argument array. Composite nodes use `atom: null`. The decoder rejects unknown/missing fields, unknown schema versions and operators, wrong sorts, malformed arities, duplicate declarations, invalid identifiers, malformed leaf atoms, non-null composite-node atoms, and nonlinear multiplication. It does not coerce values.
 
-This is a wire-format contract for the Lean decoder, not yet a complete Python exporter or a formal proof that the Python producer emits only valid documents. The decoder must be exercised by CI with positive and adversarial fixtures before this boundary is treated as validated.
+This is a wire-format contract for the Lean decoder, not yet a complete Python exporter or a formal proof that the Python producer emits only valid documents. The decoder has now been exercised by CI with positive and adversarial fixtures. This validates the decoder and tested binding implementation, not source-to-query correspondence.
+
+
+## 11. Follow-up audit: factor identity is not yet bound
+
+The current Lean `checkCanonicalQueryAssumptions` decodes `factor`, `declarations`, and `factor_difference`, renders the decoded `factor_difference`, and compares it with the parsed CPC assumption. It does **not** independently establish that `factor_difference` is the inequality between the left/right symbols representing the selected source input. The `factor` field is currently only validated as an identifier and otherwise unused by the Lean checker. Consequently, a self-consistent but incorrectly constructed wire query could pass this particular binding check if the CPC assumptions contain the same incorrect formula.
+
+The Python profile builder currently constructs the intended relation as `not (= <factor-left-symbol> <factor-right-symbol>)`; generated names use the paired `_L` / `_R` convention. That relationship must become explicit in the wire contract rather than inferred from a free-form term.
+
+**Required next change:** introduce explicit `factor_left` and `factor_right` declaration references in a new version of the wire envelope (do not silently change `/1` semantics); validate that both declarations exist, have the same Bool/Int sort, are the unique pair for the selected factor, and that `factor_difference` is structurally exactly `not (= factor_left factor_right)` in Lean. Update the Python producer, fixtures, schema documentation, and adversarial tests together. Until then, the current CI result establishes CPC assumption equality to the decoded query, but not the correctness of the query's factor-difference construction.
