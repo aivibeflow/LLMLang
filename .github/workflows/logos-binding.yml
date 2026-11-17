@@ -11,6 +11,10 @@ on:
       - ".github/workflows/logos-binding.yml"
   workflow_dispatch:
 
+concurrency:
+  group: logos-binding-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lean-build-and-test:
     runs-on: ubuntu-latest
