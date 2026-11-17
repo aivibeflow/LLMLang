@@ -325,6 +325,9 @@ ActionResult {
   action_key
   action_kind
   action_implementation
+  language_version
+  language_component_registry_digest
+  toolchain_identity
   input_refs[]
   relevant_configuration
   environment_identity
@@ -382,9 +385,9 @@ This remains a research proposal. It does not yet settle the canonical Action Ke
 
 The package system may optionally distribute indexes of action results alongside semantic object indexes. Typical results include semantic validation, type/contract analysis, target-specific compilation, tests, and formal verification.
 
-The cache index is keyed by **Action Key**, not a bare Semantic Hash or Content Hash. The key covers exact semantic inputs and relevant dependency closure, action kind and implementation, language/toolchain version, target, configuration, and other result-determining inputs. The result record points to Artifact Hash values and records status, scope, determinism/dependency completeness, and provenance.
+The cache index is keyed by **Action Key**, not a bare Semantic Hash or Content Hash. The key covers exact semantic inputs and relevant dependency closure, action kind and implementation, composite LanguageVersion, the digest of the append-only language component registry used to interpret it, ToolchainIdentity, target, configuration, and other result-determining inputs. The result record points to Artifact Hash values and records status, scope, determinism/dependency completeness, and provenance.
 
-Every record states the language version used. Where the language's semantic version does not uniquely identify a behavior-changing compiler/toolchain build, the relevant toolchain build/component identity must also be captured. Reuse across a different relevant version is a cache miss unless an explicit compatibility rule proves it safe.
+Every record states LanguageVersion, LanguageComponentRegistryDigest, and ToolchainIdentity separately. The registry digest identifies the exact ordered component list used to interpret the composite version; the registry file itself contains no versions and is append-only. Reuse across a different relevant language version, registry snapshot, or toolchain identity is a cache miss unless an explicit compatibility rule is validated. A language-version match alone never authorizes reuse across behavior-changing toolchain builds.
 
 A package may carry cache-index metadata only, with result payloads fetched from another cache/store, or both metadata and selected payloads. Missing or evicted payloads are ordinary cache misses. Cache indexes are optional and evictable; they do not change semantic object hashes or logical package identity. A cache hit is not itself proof of correctness: artifact integrity, evidence applicability, and producer trust remain separate checks.
 
