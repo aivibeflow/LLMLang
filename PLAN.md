@@ -145,7 +145,23 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Status:** researched; decision pending on formal compatibility, refinement/substitution criteria, and the evidence needed for implementation selection.
 
-## 1.4 Prior-art study for semantic representation and identity
+## 1.4 Core language semantics (RT-03)
+
+- [x] Survey the principal semantic dimensions: value/computation model, evaluation strategy, purity and state, errors and cancellation, determinism, effects and observations, concurrency, termination/resources, and module composition.
+- [x] Compare four coherent candidate profiles: pure functional (A), imperative/linear (B), concurrent/actor (C), and effectful functional (D).
+- [x] Record major compatibility tensions and cross-aspect implications for types, SPG/identity, dependency analysis, proofs, compiler/IR, runtime, cache, semantic merge, security, and conformance.
+- [ ] Define a shared observable-behavior model and a representative semantic test corpus.
+- [ ] Implement and compare small reference semantics for at least two viable profiles.
+- [ ] Validate RT-03 dependency-map edges through concrete downstream research and experiments.
+- [ ] Normalize the surviving vectors for whole-specification synthesis; do not select a profile or transfer it into `draft/` by implication.
+
+**Evidence:** [RT-03 — Core Language Semantics](research/CORE-LANGUAGE-SEMANTICS.md).
+
+**Status:** researched at the candidate-survey level; partially validated only as a map of options and trade-offs. No semantic profile, evaluation strategy, effect model, or complete observation model has been accepted. The existing QF_LIA/Lean/Logos work covers a narrow relational fragment and is not a complete language semantics.
+
+**Next work:** reconcile candidate profiles with RT-04 type/effect/ownership/capability research; define observations and a shared test corpus; prototype at least two candidate reference semantics; update dependency edges as evidence arrives.
+
+## 1.5 Prior-art study for semantic representation and identity
 
 - [ ] Compare Unison's content-addressed code identity and codebase model.
 - [ ] Compare Git's object model and DAG with semantic object identity.
@@ -676,7 +692,7 @@ After relevant research coverage is sufficient:
 | Activity | Status | Exit condition |
 |---|---|---|
 | Define research taxonomy and initial dependency map | **Completed** | 18 research areas and 35 initial dependency edges are documented; ongoing updates remain required |
-| Conduct and complete aspect research | **In progress** | Existing Scenarios 15–34 cover a substantial requirements/dependency/formal-verification line; semantic core, types/effects/ownership, security, and other gaps remain |
+| Conduct and complete aspect research | **In progress** | RT-03 now has a candidate-profile survey; semantic validation/reference semantics, types/effects/ownership, security, and other gaps remain |
 | Normalize vectors and validate compatibility | **Not started** | Common option schema and conditional compatibility constraints are defined |
 | Generate candidate specification space | **Not started** | Valid combinations are enumerated or represented by a documented constrained search |
 | Compare complete candidate specifications | **Not started** | Integrated candidates are evaluated against shared criteria and representative scenarios |
@@ -705,7 +721,7 @@ The next concrete work should follow this order, while respecting the dependency
 
 1. **Repair and close the current Stage 2 CI gate:** fix the SourceQuerySemantics.lean type/instance errors and incomplete proof in the expression-level correspondence module; rerun the pinned Lean 4.34.0 / Logos build and test workflow. Do not claim a proof until CI passes without sorry.
 2. **Continue the formal-verification line:** complete exact CPC assumption binding and adversarial tests; prove source-expression-to-query preservation for the supported slice; then expand carefully to commands and paired program executions. Keep QF_LIA narrow and fail closed.
-3. **Research the complete core language semantic model (RT-03):** values, evaluation, state, errors, determinism, recursion, modules, and observable behavior; compare viable semantic models rather than assuming the concept document is final.
+3. **Advance RT-03 from candidate survey to validation:** use [CORE-LANGUAGE-SEMANTICS.md](research/CORE-LANGUAGE-SEMANTICS.md) as the current option inventory; reconcile A–D with RT-04, define observable behavior and a common test corpus, then prototype at least two reference semantics. Keep all profiles provisional until synthesis.
 4. **In parallel, research type/effect/ownership/capability/concurrency alternatives (RT-04):** record dependencies on core semantics and identify incompatible vectors.
 5. **Consolidate Stage 1 identity decisions:** settle canonical OpHash/ImpHash payloads, stable identity lifecycle, contract identity, and hash-relevant dependency boundaries only after the cross-aspect implications are understood.
 6. **Connect Stages 1–3:** verify that semantic identity, dependency completeness, Action Keys, invalidation, and evidence staleness form one coherent model.
