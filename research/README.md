@@ -43,6 +43,8 @@ This repository contains a **conceptual research document**, not a production-re
 - [Prototype 16 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-16-RESULTS.md) — end-to-end experiment for caller-scoped business-rule evolution and contract acceptance.
 - [Prototype 17 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-17-RESULTS.md) — typed Requirement IR experiment with provenance, contradiction/underdetermination checks, and finite scenarios.
 
+- [SEMANTIC-COMPILATION-CACHE.md](SEMANTIC-COMPILATION-CACHE.md) — content-addressed action graphs, incremental compilation, dependency-aware invalidation, cached analysis/tests/proofs, and cache soundness.
+
 ## Guiding boundary
 
 Formal verification can establish that an implementation satisfies a formal specification under stated assumptions. It cannot, by itself, establish that the specification fully captures the human's actual intent.
