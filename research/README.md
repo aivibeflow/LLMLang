@@ -89,7 +89,7 @@ Formal verification can establish that an implementation satisfies a formal spec
 
 ## Latest research
 
-- [Package System: Static and Dynamic Packages](PACKAGE-SYSTEM.md) — compact binary indexes, block compression, optional sparse lookup, exact-hash dependency closure, and provider-built dynamic packages.
+- [Package System: Static and Dynamic Packages](PACKAGE-SYSTEM.md) — human-readable TOML manifest candidate, compact binary indexes, block compression, optional sparse lookup, exact-hash dependency closure, provider-built dynamic packages, and optional derived-result cache indexes.
 
 - [Scenario 29 — Verified SMT Proof Checking and Encoder Validation](RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md) — Logos/Lean proof checking, exact assumption binding, QF_LIA semantic profile, and encoder proof obligations.
 - [Prototype 29 results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-29-RESULTS.md) — current tool availability and implementation acceptance gate.
