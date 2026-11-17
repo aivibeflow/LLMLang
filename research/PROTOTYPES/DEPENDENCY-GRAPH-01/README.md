@@ -200,3 +200,18 @@ See [Prototype 29 Results](PROTOTYPE-29-RESULTS.md) and [Research Scenario 29](.
 Scenario 30 audits the pinned Logos parser and soundness API. Logos proves that the conjunction of assumptions parsed from a CPC proof is unsatisfiable; it does not bind those assumptions to LLMLang's original query. The proposed MVP therefore requires exact structural equality between the parsed assumption list and a canonical expected Logos `Term` list. Any mismatch remains UNKNOWN. No Lean wrapper or real proof integration has yet been built.
 
 See [Research Scenario 30](../../RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md).
+
+
+## Strict QF_LIA relational query profile (Scenario 31)
+
+`src/qf_lia_profile.py` is a separate, conservative candidate-query path. It accepts only Bool/Int inputs and values, linear integer arithmetic, multiplication with an integer-literal operand, deterministic assignments/conditionals, inlined pure non-recursive functions, and one final top-level return. It emits `(set-logic QF_LIA)`, shares all non-selected inputs between paired executions, and compares return plus explicitly selected state. It deliberately omits the constant outcome string only because this profile rejects non-normal-return constructs.
+
+Unsupported terms are rejected before query output. Function bodies must be reachable from the program and are type-checked when inlined; unused function declarations are rejected rather than silently left unchecked.
+
+Run focused tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_qf_lia_profile.py' -v
+```
+
+The output status is `QF_LIA_CANDIDATE_QUERIES`, not `PROVEN`. The validator and encoder are Python code and are not formally verified; source-to-query correspondence, CPC assumption binding, and real cvc5/Logos proof checking remain outstanding.
