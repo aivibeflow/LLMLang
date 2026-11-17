@@ -260,3 +260,197 @@ def merge_sorted_indexes(index_streams: list[dict[str, Any]]) -> dict[str, Any]:
         table: merge_sorted_rows(table, *(index[table] for index in index_streams))
         for table in TABLES
     }
+
+
+def _write_jsonl(file_obj, row: dict[str, Any]) -> None:
+    file_obj.write(_canonical(row).decode("utf-8") + "\\n")
+
+
+def _read_jsonl(file_obj):
+    import json
+    file_obj.seek(0)
+    for line in file_obj:
+        yield json.loads(line)
+
+
+def _external_sort_records(records, key_fn, *, max_records_in_memory: int, temp_dir):
+    """External-sort JSON-compatible records using bounded in-memory runs."""
+    import heapq
+    import json
+    import os
+    import tempfile
+
+    if type(max_records_in_memory) is not int or max_records_in_memory < 1:
+        raise IndexError("max_records_in_memory must be a positive integer")
+
+    run_paths = []
+    chunk = []
+
+    def flush():
+        if not chunk:
+            return
+        chunk.sort(key=key_fn)
+        fd, path = tempfile.mkstemp(prefix="llmlang-index-run-", suffix=".jsonl", dir=temp_dir)
+        with os.fdopen(fd, "w", encoding="utf-8") as output:
+            for record in chunk:
+                _write_jsonl(output, record)
+        run_paths.append(path)
+        chunk.clear()
+
+    for record in records:
+        chunk.append(record)
+        if len(chunk) >= max_records_in_memory:
+            flush()
+    flush()
+
+    if not run_paths:
+        return iter(())
+
+    files = [open(path, "r", encoding="utf-8") for path in run_paths]
+
+    def merged():
+        heap = []
+        try:
+            for stream_id, file_obj in enumerate(files):
+                line = file_obj.readline()
+                if line:
+                    record = json.loads(line)
+                    heapq.heappush(heap, (key_fn(record), stream_id, record))
+            while heap:
+                _, stream_id, record = heapq.heappop(heap)
+                yield record
+                line = files[stream_id].readline()
+                if line:
+                    next_record = json.loads(line)
+                    heapq.heappush(heap, (key_fn(next_record), stream_id, next_record))
+        finally:
+            for file_obj in files:
+                file_obj.close()
+
+    return merged()
+
+
+def _assert_sorted_unique_rows(table: str, rows, output_file) -> None:
+    previous = None
+    for raw in rows:
+        row = _validate_stream_row(table, raw)
+        current = key(table, row)
+        if previous is not None and current <= previous:
+            if current == previous:
+                raise IndexError(f"duplicate key in streamed {table}: {current!r}")
+            raise IndexError(f"streamed {table} is not sorted: {current!r}")
+        previous = current
+        _write_jsonl(output_file, row)
+
+
+def _join_required_keys(reference_keys, available_keys, missing_message: str) -> None:
+    """Check a sorted reference-key stream against a sorted unique key stream."""
+    available = iter(available_keys)
+    current = next(available, None)
+    previous_ref = None
+    for ref in reference_keys:
+        if previous_ref is not None and ref < previous_ref:
+            raise IndexError("internal reference stream is not sorted")
+        previous_ref = ref
+        while current is not None and current < ref:
+            current = next(available, None)
+        if current != ref:
+            raise IndexError(missing_message)
+
+
+def validate_streamed_index(index_stream: dict[str, Any], *, max_records_in_memory: int = 4096) -> bool:
+    """Validate a sorted streamed index with bounded-memory external merge joins.
+
+    Input table iterables must be strictly sorted by their canonical table keys.
+    Rows are spooled to temporary files so Objects and Modules can be replayed
+    without retaining their keys in RAM. Reordered reference keys are externally
+    sorted in bounded runs and merged from disk. Temporary disk usage is O(index
+    size); in-memory sort chunks are bounded by max_records_in_memory.
+
+    Returns True when all local schemas, ordering constraints, and cross-table
+    references are valid. Raises IndexError on the first invalid condition.
+    """
+    import tempfile
+
+    if not isinstance(index_stream, dict) or set(index_stream) != set(TABLES):
+        raise IndexError("streamed index must provide exactly the four tables")
+    if type(max_records_in_memory) is not int or max_records_in_memory < 1:
+        raise IndexError("max_records_in_memory must be a positive integer")
+
+    with tempfile.TemporaryDirectory(prefix="llmlang-index-validate-") as temp_dir:
+        table_files = {}
+        for table in TABLES:
+            path = f"{temp_dir}/{table}.jsonl"
+            with open(path, "w", encoding="utf-8") as output:
+                _assert_sorted_unique_rows(table, index_stream[table], output)
+            table_files[table] = path
+
+        def rows(table):
+            with open(table_files[table], "r", encoding="utf-8") as source:
+                yield from _read_jsonl(source)
+
+        def object_keys():
+            for row in rows("objects"):
+                yield row["hash"]
+
+        def module_keys():
+            for row in rows("modules"):
+                yield row["module_id"]
+
+        dependencies = rows("dependencies")
+        _join_required_keys(
+            (row["source_hash"] for row in dependencies),
+            object_keys(),
+            "dependency source is not an included object",
+        )
+
+        included_targets = (
+            {"key": row["target_hash"]}
+            for row in rows("dependencies") if row["included"]
+        )
+        sorted_targets = _external_sort_records(
+            included_targets, lambda row: row["key"],
+            max_records_in_memory=max_records_in_memory, temp_dir=temp_dir,
+        )
+        _join_required_keys(
+            (row["key"] for row in sorted_targets),
+            object_keys(),
+            "included dependency target is absent from objects",
+        )
+
+        member_refs = (
+            {"key": member}
+            for row in rows("modules") for member in row["members"]
+        )
+        sorted_members = _external_sort_records(
+            member_refs, lambda row: row["key"],
+            max_records_in_memory=max_records_in_memory, temp_dir=temp_dir,
+        )
+        _join_required_keys(
+            (row["key"] for row in sorted_members),
+            object_keys(),
+            "module references an absent object",
+        )
+
+        exports = rows("exports")
+        _join_required_keys(
+            (row["module_id"] for row in exports),
+            module_keys(),
+            "export references an absent module",
+        )
+
+        export_objects = (
+            {"key": row["object_hash"]}
+            for row in rows("exports")
+        )
+        sorted_export_objects = _external_sort_records(
+            export_objects, lambda row: row["key"],
+            max_records_in_memory=max_records_in_memory, temp_dir=temp_dir,
+        )
+        _join_required_keys(
+            (row["key"] for row in sorted_export_objects),
+            object_keys(),
+            "export references an absent object",
+        )
+
+    return True
