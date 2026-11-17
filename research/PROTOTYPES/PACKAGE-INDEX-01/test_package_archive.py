@@ -120,7 +120,7 @@ class StreamingArchiveTests(unittest.TestCase):
 
     def test_invalid_manifest_utf8_fails(self):
         with self.assertRaisesRegex(ArchiveError, "valid UTF-8"):
-            build_archive(b"\\xff", streams(sample_index()), payloads(), self.path)
+            build_archive(bytes([0xff]), streams(sample_index()), payloads(), self.path)
 
     def test_invalid_memory_bound_fails(self):
         with self.assertRaisesRegex(ArchiveError, "positive integer"):
