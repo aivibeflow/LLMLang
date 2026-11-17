@@ -1,7 +1,8 @@
 import Lake
 open Lake DSL
 
-package llmlangLogosBinding
+package llmlangLogosBinding where
+  defaultTargets := #[`LLMLangLogosBinding]
 
 require Cpc from git
   "https://github.com/cvc5/logos" @ "cf18742973861b3718d04c5f25775448098ff474"
