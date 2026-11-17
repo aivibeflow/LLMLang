@@ -1,3 +1,4 @@
+import SourceQuerySemantics
 import Lean
 import Cpc.Parser
 
