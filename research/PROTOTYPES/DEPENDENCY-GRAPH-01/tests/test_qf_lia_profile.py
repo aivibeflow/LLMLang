@@ -107,6 +107,19 @@ class QFLIAProfileTests(unittest.TestCase):
         self.assertTrue(a.validator_version)
         self.assertTrue(a.encoder_version)
 
+    def test_supported_boolean_and_linear_operators(self):
+        expr = Binary("and", Unary("not", Var("flag")),
+                      Binary("le", Unary("neg", Var("x")), Const(4)))
+        p = Program((Return(expr),))
+        smt = self.build(p, {"flag": "Bool", "x": "Int"}).factors[0].smt2
+        self.assertIn("(and (not i_0_L)", smt)
+        self.assertIn("(<= (- i_1) 4)", smt)
+
+    def test_per_factor_query_ir_digests_are_distinct(self):
+        p = Program((Return(Binary("add", Var("x"), Var("y"))),))
+        result = self.build(p, {"x": "Int", "y": "Int"})
+        self.assertNotEqual(result.factors[0].query_ir_digest, result.factors[1].query_ir_digest)
+
     def test_boolean_arithmetic_is_rejected(self):
         p = Program((Return(Binary("add", Var("x"), Const(1))),))
         with self.assertRaises(UnsupportedConstruct): self.build(p, {"x": "Bool"})
