@@ -75,19 +75,22 @@ Latest focused run: **26 tests passed**. Python compileall passed. The tests wer
 
 ## 6. Remaining obligations
 
-1. **Completed source audit at pinned Logos revision** (cf18742973861b3718d04c5f25775448098ff474): the Eo term constructors include Boolean, Numeral, UConst, Var, UOp, and Apply. The parser maps declare-const to sequential UConst identifiers; the parser macro @var builds Var nodes for bound variables. Arithmetic/logical operators are represented as curried Apply nodes headed by UOp constructors. The pinned translation maps these to SmtTerm constructors.
-2. Extend exact structural AST tests across every accepted constructor and edge case (including subtraction, unary negation, ite, and multi-operand Boolean forms).
-3. **A parser-state bridge is available without writing a second CPC parser.** The pinned Logos parser exposes parseCommands and its ParserM state type. ParserM is StateT (State T) (Except String), and parseCommands can be run with State.ofOps to retain the final State. The state contains ufCount and terms. A thin Lean wrapper can return the usual assumptions/commands plus this final state. For the strict QF_LIA subset, which has no declared datatypes, direct parseCommands can be used; its equivalence to the ordinary parseProof path must be checked for this subset.
-4. Extract each declared symbol's UConst ID and sort from the final parser state. Reject duplicate/ambiguous bindings, wrong sorts, or missing expected names. This avoids a second parser and binds names to the exact IDs used by the CPC parser.
-5. Implement a strict Lean-side decoder for the canonical typed query IR, with schema, sort, declaration, and operator validation.
-6. In Lean, establish that the generated expected term has the intended SMT semantics.
-7. Establish that the SMT-LIB renderer and Logos-Term renderer denote the same canonical query.
-8. Bind parsed CPC assumptions to the expected Logos terms by exact structural equality.
-9. Prove the product-program query corresponds to the typed LLMLang program semantics.
-10. Bind source digests, renderer versions, solver/checker identities, and exact artifacts into a signed evidence manifest.
-4. In Lean, establish that the generated expected term has the intended SMT semantics.
-5. Establish that the SMT-LIB renderer and Logos-Term renderer denote the same canonical query.
-6. Bind parsed CPC assumptions to the expected Logos terms by exact structural equality.
+The following pieces are implemented, but their coverage and proof strength must not be overstated:
+
+- The pinned Logos source API has been audited.
+- The Lean parser-state bridge retains the final declaration state and compares assumptions with ordinary `Eo.parseProof` on the current fixtures.
+- The declaration binder resolves names to exact parser-assigned UConst nodes and rejects duplicate, extra, missing, ambiguous, and wrong-sort declarations.
+- A typed Lean query AST and independent Eo.Term renderer compile.
+- Native structural equality tests pass for reflexive equality, a compound arithmetic expression, and a compound Boolean expression.
+
+Remaining work:
+
+1. Expand exact structural AST tests across every accepted constructor and edge case, including subtraction, unary negation, ite, and multi-operand Boolean forms.
+2. Establish parser-path equivalence for the entire accepted CPC subset, not only the current fixtures; explicitly reject declarations and command forms outside that subset.
+3. Implement a strict Lean-side decoder for the canonical typed query IR, with schema, sort, declaration, and operator validation. The decoded source names must be resolved only through the parser-state-derived bindings.
+4. Prove in Lean that the generated expected Eo.Term has the intended SMT semantics.
+5. Establish that the Python SMT-LIB renderer and Lean Logos-Term renderer denote the same canonical query.
+6. Bind the complete parsed CPC assumption list to the expected terms by native structural equality.
 7. Prove the product-program query corresponds to the typed LLMLang program semantics.
 8. Bind source digests, renderer versions, solver/checker identities, and exact artifacts into a signed evidence manifest.
 
