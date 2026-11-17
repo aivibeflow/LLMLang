@@ -73,6 +73,33 @@ Connects an interface and contract to an implementation for a particular library
 
 A binding is not proof by itself. It is a declaration whose compatibility status must be established by appropriate evidence or remain explicitly unknown.
 
+### 3.6 Operation Identity and Call Address
+
+A call must explicitly identify the exact semantic version of the operation it intends to invoke. It must not identify only a logical operation and leave the semantic version to be selected implicitly by the runtime or implementation resolver.
+
+Distinguish three identities:
+
+- **Operation Stable ID** — the durable identity of a logical operation across its evolution. It supports history, navigation, and discovery of related versions. It is not, by itself, a call target.
+- **Operation Hash (OpHash)** — the immutable content address of one exact semantic operation definition. It commits to the operation's externally relevant interface and contract, plus any semantic context that changes the meaning of the operation. A change to that meaning produces a different OpHash.
+- **Implementation Hash** — the immutable content address of one concrete implementation artifact. Multiple implementations may be candidates for the same OpHash only when their compatibility with that exact operation contract is established.
+
+The call site records the OpHash explicitly. Therefore, the meaning of a call does not drift when a library, registry, runtime, or implementation preference changes. A runtime may select among implementations bound to that OpHash, but it may not silently redirect the call to a different semantic operation version.
+
+Searching for analogues by contract remains valuable and can be used to discover reuse and optimization opportunities. It is a separate process from call resolution:
+
+1. Discover candidate operations or implementations with matching or potentially equivalent contracts.
+2. Establish compatibility/equivalence using explicit evidence against the call site's exact OpHash and target constraints.
+3. If a candidate implementation is accepted, bind it as an implementation of the requested OpHash, or create an explicit verified adapter where semantics differ.
+4. Preserve the original OpHash at the call site; never rewrite its meaning as a side effect of optimization.
+
+A similar-looking signature, equal implementation hash, or matching subset of contract clauses is not sufficient evidence. If semantic equivalence cannot be established, the candidate must not be substituted transparently.
+
+Illustrative notation only:
+
+`call OpHash("…")`
+
+The canonical OpHash envelope and its relationship to Interface, Contract, and Target Profile remain to be specified. The key invariant is already clear: **call identity is explicit and semantically pinned; implementation discovery and optimization are separate.**
+
 ### 3.5 Target Profile
 
 Captures the environment dimensions that can affect semantics or ABI compatibility, such as:
