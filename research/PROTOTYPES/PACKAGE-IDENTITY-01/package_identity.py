@@ -56,8 +56,9 @@ def parse_hash(value: str) -> tuple[str, bytes]:
 
 def _validate_relative_path(value: str) -> None:
     p = PurePosixPath(value)
-    if not value or p.is_absolute() or ".." in p.parts or "\\" in value:
-        raise PackageFormatError(f"unsafe relative archive path: {value!r}")
+    if (not value or value == "." or p.is_absolute() or ".." in p.parts
+            or "\\" in value or str(p) != value or value.endswith("/")):
+        raise PackageFormatError(f"unsafe or non-canonical relative archive path: {value!r}")
 
 def parse_manifest(raw: bytes) -> dict[str, Any]:
     try: data = tomllib.loads(raw.decode("utf-8"))
@@ -88,9 +89,16 @@ def parse_manifest(raw: bytes) -> dict[str, Any]:
     _validate_relative_path(index.get("path", ""))
     cache = data.get("cache", {})
     if not isinstance(cache, dict): raise PackageFormatError("[cache] must be a table")
-    for path in cache.get("indexes", []):
+    cache_indexes = cache.get("indexes", [])
+    if not isinstance(cache_indexes, list):
+        raise PackageFormatError("cache.indexes must be an array of paths")
+    if len(set(cache_indexes)) != len(cache_indexes):
+        raise PackageFormatError("duplicate cache index path")
+    for path in cache_indexes:
         if not isinstance(path, str): raise PackageFormatError("cache index paths must be strings")
         _validate_relative_path(path)
+        if path == index["path"]:
+            raise PackageFormatError("cache index path collides with package index path")
     return data
 
 def logical_index_hash(index: dict[str, Any]) -> str:
@@ -111,6 +119,13 @@ def package_content_root(manifest: dict[str, Any], index: dict[str, Any]) -> str
     if manifest["index"]["logical_hash"] != actual_index_hash:
         raise PackageFormatError("declared index logical hash mismatch")
     content = manifest["content"]
+    included_hashes = {
+        record.get("hash") for record in index["objects"]
+        if isinstance(record, dict) and isinstance(record.get("hash"), str)
+    }
+    missing_roots = set(content["roots"]) - included_hashes
+    if missing_roots:
+        raise PackageFormatError("package root is not present in included object membership")
     projection = {
         "roots": sorted(content["roots"], key=lambda x: (parse_hash(x)[0], parse_hash(x)[1])),
         "dependency_policy": content["dependency_policy"],
