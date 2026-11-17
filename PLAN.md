@@ -1,7 +1,7 @@
 # LLMLang Research and Development Plan
 
 **Status:** living plan  
-**Updated:** 2026-11-17  
+**Updated:** 2026-11-18  
 **Restored baseline:** detailed plan from [`aa39c8f`](https://github.com/aivibeflow/LLMLang/commit/aa39c8fc2a611ae72ff85acff3de3c16fcc4eb39), reconciled with the current project plan and repository evidence  
 **Repository:** `aivibeflow/LLMLang`  
 **Research corpus at plan creation:** 102 files under `research/`  
@@ -603,6 +603,26 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Exit criteria:** representative large-project benchmarks; working collaboration and recovery workflows; documented trust/security model; practical developer workflow evaluated with real tasks.
 
+## 7.6 Toolchain Server and semantic development API (RT-19)
+
+- [x] Identify the architectural gap between the existing Development Engine RFC and an operational agent-facing Toolchain API.
+- [x] Draft a research proposal for a transport-neutral domain API with MCP, CLI, IDE, and CI adapters.
+- [x] Define candidate Workspace, Change Set, immutable Snapshot, and typed mutation-envelope responsibilities.
+- [x] Record the Git-authoritative/reconstructible-store boundary from Proposed ADR-014; do not silently change the ADR.
+- [ ] Compare in-memory and persistent embedded backends behind one storage contract.
+- [ ] Specify transaction, crash-recovery, and cross-boundary acceptance/export/commit state machines.
+- [ ] Specify semantic import/export, external-edit detection, and atomic multi-file publication.
+- [ ] Specify optimistic concurrency, multi-agent workspaces, idempotency, and conflict handling.
+- [ ] Specify MCP Tools/Resources/Prompts schemas and independently test them with an MCP client.
+- [ ] Prototype deterministic import/change/validate/accept/export/re-import as one vertical slice.
+- [ ] Add failure-injection, security, authorization, and comparative source-editing tests.
+
+**Existing evidence:** [RT-19 research proposal](research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) builds on [Development Engine RFC](research/RFC-DEVELOPMENT-ENGINE.md), [Git semantic repository research](research/GIT-SEMANTIC-REPOSITORY.md), and [ADR-014](docs/adr/014-git-semantic-merge.md).
+
+**Status:** proposal drafted; no API contract, storage backend, synchronization algorithm, MCP surface, or ADR has been accepted. This is research planning, not implementation completion.
+
+**Exit criteria:** deterministic round-trip identity; stale/conflicting mutations rejected; accepted snapshots immutable; multiple workspaces isolated; crash/restart and export interruption recover safely; external edits are detected; MCP adapter independently tested; authorization and benchmark results documented.
+
 ---
 
 # 4. Cross-cutting prior-art research
@@ -653,6 +673,7 @@ The following is a snapshot of known work, not a claim that all corresponding qu
 | Libraries and templates | `LIBRARIES-AND-TEMPLATES.md` | Researched; detailed decisions remain |
 | Global artifact store | `GLOBAL-SEMANTIC-ARTIFACT-STORE.md` | Researched; store and trust implementation remain |
 | Git representation and semantic merge | `GIT-SEMANTIC-REPOSITORY.md`; ADR-014 | Research completed at concept level; ADR-014 is Proposed; implementation and merge evaluation deferred |
+| Toolchain Server and semantic development API | `RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md`; Development Engine RFC | Proposal drafted; API, storage, synchronization, MCP adapter, and failure semantics remain unvalidated |
 | Security and developer experience | Distributed across concept and architecture notes | Needs systematic research |
 
 The research index currently includes Scenarios 01–34 and the dependency-graph prototypes. The scenario numbering is a historical sequence, not a substitute for the stage ordering in this plan. The scenario numbering is a historical sequence, not a substitute for the stage ordering in this plan.
