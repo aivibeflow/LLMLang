@@ -10,19 +10,19 @@ commands, program execution, paired runs, or SMT/CPC encodings.
 
 namespace LLMLang.SourceQuerySemantics
 
-inductive Sort where
+inductive ExprSort where
   | int
   | bool
   deriving DecidableEq, Repr
 
-def Value : Sort → Type
+def Value : ExprSort → Type
   | .int => Int
   | .bool => Bool
 
-abbrev Env := (name : String) → (sort : Sort) → Value sort
+abbrev Env := (name : String) → (sort : ExprSort) → Value sort
 
 /-- Typed source expressions for the pure mathematical-Int/Bool fragment. -/
-inductive Expr : Sort → Type where
+inductive Expr : ExprSort → Type where
   | intLit : Int → Expr .int
   | boolLit : Bool → Expr .bool
   | intVar : String → Expr .int
@@ -42,7 +42,7 @@ inductive Expr : Sort → Type where
   | iteBool : Expr .bool → Expr .bool → Expr .bool → Expr .bool
 
 /-- Independent typed query syntax; no source AST constructors are reused. -/
-inductive QueryTerm : Sort → Type where
+inductive QueryTerm : ExprSort → Type where
   | intLit : Int → QueryTerm .int
   | boolLit : Bool → QueryTerm .bool
   | symbolInt : String → QueryTerm .int
@@ -62,7 +62,7 @@ inductive QueryTerm : Sort → Type where
   | iteBool : QueryTerm .bool → QueryTerm .bool → QueryTerm .bool → QueryTerm .bool
 
 /-- Source expression evaluation over mathematical integers and Booleans. -/
-def evalExpr : {s : Sort} → Expr s → Env → Value s
+def evalExpr : {s : ExprSort} → Expr s → Env → Value s
   | .int, .intLit n, _ => n
   | .bool, .boolLit b, _ => b
   | .int, .intVar name, env => env name .int
@@ -82,7 +82,7 @@ def evalExpr : {s : Sort} → Expr s → Env → Value s
   | .bool, .iteBool c a b, env => if evalExpr c env then evalExpr a env else evalExpr b env
 
 /-- Structural translation from the typed source AST to the typed query AST. -/
-def translateExpr : {s : Sort} → Expr s → QueryTerm s
+def translateExpr : {s : ExprSort} → Expr s → QueryTerm s
   | .int, .intLit n => .intLit n
   | .bool, .boolLit b => .boolLit b
   | .int, .intVar name => .symbolInt name
@@ -102,7 +102,7 @@ def translateExpr : {s : Sort} → Expr s → QueryTerm s
   | .bool, .iteBool c a b => .iteBool (translateExpr c) (translateExpr a) (translateExpr b)
 
 /-- Query-term evaluation, defined independently from source evaluation. -/
-def evalQuery : {s : Sort} → QueryTerm s → Env → Value s
+def evalQuery : {s : ExprSort} → QueryTerm s → Env → Value s
   | .int, .intLit n, _ => n
   | .bool, .boolLit b, _ => b
   | .int, .symbolInt name, env => env name .int
@@ -126,7 +126,7 @@ SC-1/SC-2 expression slice: the translation preserves the result sort by
 construction and preserves the mathematical value for every environment.
 This is a kernel-checked theorem, not a test or solver result.
 -/
-theorem translateExpr_preserves_eval {s : Sort} (e : Expr s) (env : Env) :
+theorem translateExpr_preserves_eval {s : ExprSort} (e : Expr s) (env : Env) :
     evalQuery (translateExpr e) env = evalExpr e env := by
   induction e <;> simp [translateExpr, evalQuery, evalExpr, *]
 
