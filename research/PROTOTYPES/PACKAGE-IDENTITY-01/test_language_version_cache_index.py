@@ -54,10 +54,10 @@ class CacheIndexTests(unittest.TestCase):
         self.assertNotEqual(a["action_key"], expected_action_key(b, COMPONENTS))
     def test_registry_digest_changes_action_key(self):
         a = sample_record(); b = copy.deepcopy(a); b["language_component_registry_digest"] = H2
-        self.assertNotEqual(a["action_key"], expected_action_key(b))
+        self.assertNotEqual(a["action_key"], expected_action_key(b, COMPONENTS))
     def test_toolchain_identity_changes_action_key(self):
         a = sample_record(); b = copy.deepcopy(a); b["toolchain_identity"] = H1
-        self.assertNotEqual(a["action_key"], expected_action_key(b))
+        self.assertNotEqual(a["action_key"], expected_action_key(b, COMPONENTS))
     def test_action_key_mismatch_is_rejected(self):
         data = self.valid_index(); data["records"][0]["action_key"] = H2
         with self.assertRaisesRegex(PackageFormatError, "does not match"):
