@@ -8,7 +8,7 @@ This file tracks project-level work that is not yet fully specified in the draft
 
 | Workstream | Status | Outcome / next step |
 |---|---|---|
-| Git representation and semantic merge research | **Completed** | Report: [research/GIT-SEMANTIC-REPOSITORY.md](research/GIT-SEMANTIC-REPOSITORY.md). ADR-014 records the current Proposed direction. |
+| Git representation and semantic merge research | **Completed** | Report: [research/GIT-SEMANTIC-REPOSITORY.md](research/GIT-SEMANTIC-REPOSITORY.md). ADR-014 records the current Proposed direction; implementation remains deferred until whole-specification synthesis. |
 | Git-backed source representation | **Research completed; implementation deferred** | Research direction is recorded in ADR-014; revisit the implementation shape after cross-aspect research and whole-specification comparison. |
 | Semantic identity and hashing | **Research in progress** | Investigate canonicalization, semantic identity, hash boundaries, and invalidation as part of the wider research programme; avoid locking the implementation before cross-aspect synthesis. |
 | Semantic diff and three-way merge | **Research completed at concept level; implementation deferred** | Preserve the researched merge vectors and constraints; revisit detailed design after the integrated specification direction is selected. |
@@ -80,9 +80,9 @@ The full product may be too large to materialize naively. If so, use dependency 
 
 | Stage | Status | Exit condition |
 |---|---|---|
-| Define research taxonomy and dependency map | **Next** | Aspects, initial dependencies, and research order are recorded and reviewable. |
-| Conduct and complete aspect research | **Planned** | Each relevant aspect has a report with viable vectors, evidence, assumptions, and cross-aspect impacts. |
-| Normalize vectors and validate compatibility | **Planned** | Common option model and explicit compatibility/dependency constraints exist. |
+| Define research taxonomy and dependency map | **Completed** | [Research taxonomy](research/RESEARCH-TAXONOMY.md) and [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) establish 18 research areas, 35 initial dependency edges, feedback loops, and research waves. |
+| Conduct and complete aspect research | **In progress** | Existing Scenarios 15–34 cover a substantial requirements/dependency/formal-verification line. Expand coverage of the complete semantic core, type/effect/ownership model, security, and other identified gaps; capture vectors and dependency edges in each report. |
+| Normalize vectors and validate compatibility | **Planned** | Define a common option schema and validate conditional compatibility constraints after sufficient research coverage exists. |
 | Generate candidate specification space | **Planned** | Valid combinations are enumerated or represented through a documented constrained search space. |
 | Compare complete candidate specifications | **Planned** | Integrated candidates are evaluated against shared criteria and representative scenarios. |
 | Select and baseline a specification direction | **Planned** | A coherent candidate is selected with rationale and unresolved risks recorded; only then proceed to detailed specification baseline and implementation commitments. |
@@ -90,9 +90,19 @@ The full product may be too large to materialize naively. If so, use dependency 
 
 ## Completed
 
+- [x] Establish the research taxonomy and initial cross-aspect dependency map; define research waves and parallelism guidance.
+
 - [x] Research Git object storage, content-addressed semantic stores, semantic diff/merge approaches, and Git integration mechanisms.
 - [x] Save the full research report in `research/GIT-SEMANTIC-REPOSITORY.md`.
 - [x] Extract the architectural decision into [ADR-014](docs/adr/014-git-semantic-merge.md).
+
+## Next research priorities
+
+1. Research the complete core language semantic model, including values, evaluation, state, errors, determinism, and observable behavior; distinguish viable semantic models rather than assuming the concept document is final.
+2. In parallel, research type-system, effects, ownership/resource, capability, and concurrency alternatives, recording explicit dependencies on the semantic model.
+3. Continue the separate Lean/Logos/QF_LIA formal-verification line; connect its results to the taxonomy without treating the narrow proof fragment as the full language semantics.
+4. Audit security/trust assumptions across the compiler, runtime, LLM development interface, package/artifact store, and proof pipeline.
+5. For every new report, record candidate vectors and affected DEP edges before marking the research complete.
 
 ## Next acceptance gate
 
