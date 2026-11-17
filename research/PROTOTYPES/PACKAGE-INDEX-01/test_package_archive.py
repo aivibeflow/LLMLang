@@ -71,7 +71,7 @@ path = "index"
 format_version = 1
 logical_hash = "{index_hash}"
 '''.encode("utf-8")
-        if declared_root is None:
+        if declared_root is None and declared_index_hash is None:
             model = parse_manifest(raw)
             actual_root = package_content_root(model, index)
             raw = raw.replace(root_value.encode(), actual_root.encode())
