@@ -188,3 +188,19 @@ Related research:
 - [Scenario 30 — CPC Assumption Binding](RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md)
 
 No code or normative LLMLang document is changed by this research scenario.
+
+
+## 10. Prototype implementation status (2026-11-17)
+
+A separate experimental implementation now exists:
+
+- `src/qf_lia_profile.py` — strict validator, relational paired-execution builder, deterministic SMT-LIB renderer, canonical typed-IR digest, and exact query-byte SHA-256.
+- `tests/test_qf_lia_profile.py` — focused acceptance/rejection and rendering tests.
+
+The implementation keeps Scenario 27's general symbolic API unchanged. It rejects non-Bool/Int input sorts and values, string literals, Bool-as-Int, unsupported operators, nonlinear multiplication, effects, early/nested returns, raises, recursive functions, uninitialized observations, and unreferenced function declarations. It checks both branch environments and emits only Bool/Int terms under `QF_LIA`.
+
+The function-declaration rule is intentionally conservative: every declared function must be reachable from the program and its body must be type-checked during inlining. This avoids claiming that an unused function body was validated when the current IR has no standalone function-signature type declaration.
+
+Focused local test run: **22 tests passed**; Python `compileall` passed. These tests were run against a local compatibility fixture for the repository's `formal_core` AST interface, not against a complete checkout of the repository. The new test file targets the repository's actual `formal_core.py` dataclasses and exception API. The full prototype test suite has not been run in this environment.
+
+This implementation produces candidate queries only. It does not establish validator soundness, renderer correctness, source-to-query semantic correspondence, exact Logos assumption binding, or a program-level proof. No solver was invoked, and no result may be labelled `PROVEN`.
