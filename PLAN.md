@@ -608,6 +608,9 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Identify the architectural gap between the existing Development Engine RFC and an operational agent-facing Toolchain API.
 - [x] Draft a research proposal for a transport-neutral domain API with MCP, CLI, IDE, and CI adapters.
 - [x] Define candidate Workspace, Change Set, immutable Snapshot, and typed mutation-envelope responsibilities.
+- [x] Draft ADR-015 as a Proposed decision record with explicit non-decisions and validation gates.
+- [x] Implement Prototype 01 for in-memory immutable objects/snapshots, isolated workspaces, typed changes, optimistic checks, acceptance, and single-file import/export.
+- [x] Add a focused Python test suite and GitHub Actions workflow for the prototype.
 - [x] Record the Git-authoritative/reconstructible-store boundary from Proposed ADR-014; do not silently change the ADR.
 - [ ] Compare in-memory and persistent embedded backends behind one storage contract.
 - [ ] Specify transaction, crash-recovery, and cross-boundary acceptance/export/commit state machines.
@@ -619,7 +622,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Existing evidence:** [RT-19 research proposal](research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) builds on [Development Engine RFC](research/RFC-DEVELOPMENT-ENGINE.md), [Git semantic repository research](research/GIT-SEMANTIC-REPOSITORY.md), and [ADR-014](docs/adr/014-git-semantic-merge.md).
 
-**Status:** proposal drafted; no API contract, storage backend, synchronization algorithm, MCP surface, or ADR has been accepted. This is research planning, not implementation completion.
+**Status:** proposal and Proposed ADR-015 drafted; a narrow in-memory lifecycle prototype and focused CI test workflow are present. No API contract, persistent storage backend, multi-file synchronization algorithm, MCP surface, or ADR has been accepted. The prototype is evidence for workflow mechanics only, not implementation completion.
 
 **Exit criteria:** deterministic round-trip identity; stale/conflicting mutations rejected; accepted snapshots immutable; multiple workspaces isolated; crash/restart and export interruption recover safely; external edits are detected; MCP adapter independently tested; authorization and benchmark results documented.
 
