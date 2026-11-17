@@ -1,0 +1,28 @@
+name: Logos CPC parser-state binding
+
+on:
+  push:
+    paths:
+      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/**"
+      - ".github/workflows/logos-binding.yml"
+  pull_request:
+    paths:
+      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/**"
+      - ".github/workflows/logos-binding.yml"
+  workflow_dispatch:
+
+jobs:
+  lean-build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding
+          use-mathlib-cache: false
+      - name: Build parser-state bridge
+        working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding
+        run: lake build
+      - name: Run parser-state binding tests
+        working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding
+        run: lake exe testParserBinding
