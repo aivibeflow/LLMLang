@@ -9,11 +9,11 @@ This file tracks project-level work that is not yet fully specified in the draft
 | Workstream | Status | Outcome / next step |
 |---|---|---|
 | Git representation and semantic merge research | **Completed** | Report: [research/GIT-SEMANTIC-REPOSITORY.md](research/GIT-SEMANTIC-REPOSITORY.md). ADR-014 records the current Proposed direction. |
-| Git-backed source representation | **Next** | Specify the minimal canonical textual repository representation, import/export rules, and reproducible reconstruction of the Semantic Program Graph. |
-| Semantic identity and hashing | **In progress** | Keep Git object identity separate from semantic hashes; verify canonicalization and hash-relevant inputs against the existing semantic-cache model. |
-| Semantic diff and three-way merge | **Planned** | Define stable-ID operations and conservative conflict rules; cover independent edits, update/update, delete/update, rename/move, and split/merge. |
-| Git integration | **Planned** | Prototype a custom merge driver, explicit local setup/doctor commands, repository-level graph validation, and temporary-repository integration tests. |
-| Merge evaluation | **Planned** | Benchmark correctness, false-conflict rate, runtime, cache/store reconstruction, and failure behavior on missing context. |
+| Git-backed source representation | **Research completed; implementation deferred** | Research direction is recorded in ADR-014; revisit the implementation shape after cross-aspect research and whole-specification comparison. |
+| Semantic identity and hashing | **Research in progress** | Investigate canonicalization, semantic identity, hash boundaries, and invalidation as part of the wider research programme; avoid locking the implementation before cross-aspect synthesis. |
+| Semantic diff and three-way merge | **Research completed at concept level; implementation deferred** | Preserve the researched merge vectors and constraints; revisit detailed design after the integrated specification direction is selected. |
+| Git integration | **Deferred** | Prototype only after the relevant representation, identity, and merge choices have been evaluated together with the other LLMLang aspects. |
+| Merge evaluation | **Deferred** | Define evaluation scenarios during research; run implementation benchmarks after a coherent specification candidate is selected. |
 
 
 ## Research program and specification design space
