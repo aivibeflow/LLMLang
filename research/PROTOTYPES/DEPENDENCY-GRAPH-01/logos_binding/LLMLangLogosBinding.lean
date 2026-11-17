@@ -38,8 +38,8 @@ def parseProofWithState
 
 /-- Check that a parsed declared constant has exactly the expected QF_LIA sort. -/
 def hasExpectedSort : Eo.Term → ExpectedSort → Bool
-  | Eo.Term.UConst _ Eo.Term.Bool, .bool => true
-  | Eo.Term.UConst _ (Eo.Term.UOp Eo.UserOp.Int), .int => true
+  | Eo.Term.UConst _ Eo.Term.Bool, ExpectedSort.bool => true
+  | Eo.Term.UConst _ (Eo.Term.UOp Eo.UserOp.Int), ExpectedSort.int => true
   | _, _ => false
 
 def lookupDeclaration
@@ -109,8 +109,8 @@ inductive QueryTerm : QuerySort → Type where
   | iteBool : QueryTerm .bool → QueryTerm .bool → QueryTerm .bool → QueryTerm .bool
 
 def QuerySort.expected : QuerySort → ExpectedSort
-  | .int => .int
-  | .bool => .bool
+  | .int => LLMLang.LogosBinding.ExpectedSort.int
+  | .bool => LLMLang.LogosBinding.ExpectedSort.bool
 
 def apply1 (op : Eo.UserOp) (a : Eo.Term) : Eo.Term :=
   Eo.Term.Apply (Eo.Term.UOp op) a
@@ -122,7 +122,9 @@ def apply3 (op : Eo.UserOp) (a b c : Eo.Term) : Eo.Term :=
   Eo.Term.Apply (Eo.Term.Apply (Eo.Term.Apply (Eo.Term.UOp op) a) b) c
 
 def applyRightAssocNil (op : Eo.UserOp) (terms : List Eo.Term) : Except String Eo.Term := do
-  let seed ← terms.head? |>.toExcept "right-associative operator requires at least one operand"
+  let seed ← match terms.head? with
+    | some value => pure value
+    | none => throw "right-associative operator requires at least one operand"
   let nil := Eo.__eo_nil (Eo.Term.UOp op) (Eo.__eo_typeof seed)
   pure <| terms.foldr (fun term acc =>
     Eo.Term.Apply (Eo.Term.Apply (Eo.Term.UOp op) term) acc) nil
@@ -151,9 +153,15 @@ def renderQueryTerm {sort : QuerySort}
   | .symbol name => resolveQuerySymbol bindings name sort
   | .not value => apply1 .not <$> renderQueryTerm bindings value
   | .neg value => apply1 .__eoo_neg_2 <$> renderQueryTerm bindings value
-  | .add left right => do\n      let leftTerm ← renderQueryTerm bindings left\n      let rightTerm ← renderQueryTerm bindings right\n      applyRightAssocNil .plus [leftTerm, rightTerm]
+  | .add left right => do
+      let leftTerm ← renderQueryTerm bindings left
+      let rightTerm ← renderQueryTerm bindings right
+      applyRightAssocNil .plus [leftTerm, rightTerm]
   | .sub left right => apply2 .neg <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
-  | .mul left right => do\n      let leftTerm ← renderQueryTerm bindings left\n      let rightTerm ← renderQueryTerm bindings right\n      applyRightAssocNil .mult [leftTerm, rightTerm]
+  | .mul left right => do
+      let leftTerm ← renderQueryTerm bindings left
+      let rightTerm ← renderQueryTerm bindings right
+      applyRightAssocNil .mult [leftTerm, rightTerm]
   | .eqInt left right => apply2 .eq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
   | .eqBool left right => apply2 .eq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
   | .lt left right => apply2 .lt <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
