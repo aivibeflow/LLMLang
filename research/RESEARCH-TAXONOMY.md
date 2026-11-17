@@ -1,7 +1,7 @@
 # LLMLang Research Taxonomy
 
 **Status:** Working research-management document; not a language specification or an architecture decision  
-**Updated:** 2026-11-17
+**Updated:** 2026-11-18
 
 ## 1. Purpose
 
@@ -33,6 +33,7 @@ The taxonomy is a living index. It must be revised when research reveals new asp
 | RT-16 | Security, isolation, trust, and governance | Capability security, sandboxing, trusted computing base, artifact attestations, supply chain, permissions, reproducibility and human decision boundaries | [Development Engine RFC](RFC-DEVELOPMENT-ENGINE.md), [Global semantic artifact store](GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [POSIX runtime architecture](POSIX-RUNTIME-ARCHITECTURE.md) | P1; substantial research gap |
 | RT-17 | Developer experience and diagnostics | IDE/CLI/CI interaction, error localization, explainability, debugging, observability, performance feedback and human review | [Development Engine RFC](RFC-DEVELOPMENT-ENGINE.md) | P2; can be explored alongside RT-14 |
 | RT-18 | Conformance, evolution, and ecosystem | Versioning, compatibility, migration, language profiles, standard library evolution, conformance suites and long-term governance | [Libraries and templates](LIBRARIES-AND-TEMPLATES.md), [POSIX runtime architecture](POSIX-RUNTIME-ARCHITECTURE.md) | P2; depends on core semantics |
+| RT-19 | Toolchain Server and semantic development API | Transport-neutral semantic API, MCP/CLI/IDE adapters, workspaces, Change Sets, storage backends, transactions, agent concurrency, deterministic repository synchronization, recovery and authorization | [Toolchain Server and Semantic Development API](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [Development Engine RFC](RFC-DEVELOPMENT-ENGINE.md), [Git semantic repository](GIT-SEMANTIC-REPOSITORY.md) | P0; proposal drafted, architecture and prototype not validated |
 
 Priority is provisional and indicates dependency leverage, not importance to users. Research may be split into smaller topics where separate vectors can be evaluated independently.
 
