@@ -23,7 +23,7 @@ The tests exercise PMI-001–PMI-014 from the parent design note, plus typed-enc
 - PMI-010 keeps provenance outside the hash API; it does not parse, authenticate, or verify provenance/signatures.
 - PMI-010 tests the architectural boundary that provenance is not an identity input; provenance parsing/signature verification is outside this prototype.
 - The TOML parser currently enforces a deliberately narrow candidate schema. It is not a production security-hardened archive extractor.
-- No compression, sparse index, archive, provider protocol, signatures, or trust policy is implemented.
+- This directory does not implement compression, sparse indexes, archive I/O, provider protocols, signatures, or trust policy. The sibling Package Index Prototype 01 has an exploratory ZIP writer/verifier that reuses this module's manifest parser and root-hash projection; it recomputes the index hash from streamed table files rather than materializing the logical index. The ZIP layout and canonical encoding remain non-normative.
 
 The prototype is intended to expose ambiguities and produce executable fixtures before a normative format is drafted.
 
