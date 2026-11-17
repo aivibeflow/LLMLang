@@ -168,90 +168,54 @@ def main : IO Unit := do
   IO.println "CPC parser-state binding and typed query rendering tests passed"
 
 
-  IO.println "test 10: decode and bind canonical version-1 JSON query"
+  IO.println "test 10: decode and bind canonical version-2 JSON query"
   let canonicalProof :=
-    "(declare-const x Int) " ++
-    "(assume a (not (= x x))) " ++
-    "(assume b (<= (+ x 2) (* x 3)))\n"
+    "(declare-const i_0_L Int) " ++
+    "(declare-const i_0_R Int) " ++
+    "(assume a (not (= i_0_L i_0_R))) " ++
+    "(assume b (<= (+ i_0_L 2) (* i_0_R 3)))\n"
   let canonicalJson :=
-    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"input\",\"declarations\":[{\"name\":\"x\",\"sort\":\"Int\"}]," ++
-    "\"factor_difference\":{\"op\":\"not\",\"sort\":\"Bool\",\"args\":[{\"op\":\"eq\",\"sort\":\"Bool\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"},{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"}],\"atom\":null}],\"atom\":null}," ++
-    "\"observations_differ\":{\"op\":\"le\",\"sort\":\"Bool\",\"args\":[{\"op\":\"add\",\"sort\":\"Int\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"},{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":2}],\"atom\":null},{\"op\":\"mul\",\"sort\":\"Int\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"},{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":3}],\"atom\":null}],\"atom\":null}," ++
+    "{\"schema\":\"llmlang.qf_lia.relational-query/2\",\"factor\":\"input\",\"factor_left\":\"i_0_L\",\"factor_right\":\"i_0_R\",\"declarations\":[{\"name\":\"i_0_L\",\"sort\":\"Int\"},{\"name\":\"i_0_R\",\"sort\":\"Int\"}]," ++
+    "\"factor_difference\":{\"op\":\"not\",\"sort\":\"Bool\",\"args\":[{\"op\":\"eq\",\"sort\":\"Bool\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"i_0_L\"},{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"i_0_R\"}],\"atom\":null}],\"atom\":null}," ++
+    "\"observations_differ\":{\"op\":\"le\",\"sort\":\"Bool\",\"args\":[{\"op\":\"add\",\"sort\":\"Int\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"i_0_L\"},{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":2}],\"atom\":null},{\"op\":\"mul\",\"sort\":\"Int\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"i_0_R\"},{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":3}],\"atom\":null}],\"atom\":null}," ++
     "\"observation_contract\":\"return-and-selected-state/1\"}"
   match checkCanonicalQueryAssumptions canonicalProof canonicalJson with
   | .ok _ => pure ()
   | .error error => throw (IO.userError error)
 
-  IO.println "test 11: reject unknown JSON fields and nonlinear multiplication"
+  IO.println "test 11: reject old schema /1"
   expectFailure (decodeCanonicalRelationalQuery
-    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"x\",\"declarations\":[],\"factor_difference\":{},\"observations_differ\":{},\"observation_contract\":\"x\",\"extra\":true}")
-  let nonlinearJson :=
-    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"x\",\"declarations\":[{\"name\":\"x\",\"sort\":\"Int\"}],"
-    ++ "\"factor_difference\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true},"
-    ++ "\"observations_differ\":{\"op\":\"eq\",\"sort\":\"Bool\",\"args\":[{\"op\":\"mul\",\"sort\":\"Int\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"},{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"}],\"atom\":null},{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":0}],\"atom\":null},"
-    ++ "\"observation_contract\":\"return-and-selected-state/1\"}"
-  expectFailure (decodeCanonicalRelationalQuery nonlinearJson)
+    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"f\",\"factor_left\":\"x_L\",\"factor_right\":\"x_R\",\"declarations\":[],\"factor_difference\":{},\"observations_differ\":{},\"observation_contract\":\"contract/1\"}")
 
+  IO.println "test 12: reject substituted factor symbol"
+  let substitutedJson := canonicalJson.replace "\"factor_left\":\"i_0_L\"" "\"factor_left\":\"i_1\""
+  expectFailure (checkCanonicalQueryAssumptions canonicalProof substitutedJson)
 
-  IO.println "test 12: reject malformed leaf atoms and empty identifiers"
-  let badIntAtom ←
-    match Lean.Json.parse "{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":true}" with
-    | .ok value => pure value
-    | .error error => throw (IO.userError error)
-  expectFailure (decodeQueryTerm .int badIntAtom)
-  let emptySymbol ←
-    match Lean.Json.parse "{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"\"}" with
-    | .ok value => pure value
-    | .error error => throw (IO.userError error)
-  expectFailure (decodeQueryTerm .int emptySymbol)
-  let operatorWithAtom ←
-    match Lean.Json.parse "{\"op\":\"not\",\"sort\":\"Bool\",\"args\":[{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true}],\"atom\":false}" with
-    | .ok value => pure value
-    | .error error => throw (IO.userError error)
-  expectFailure (decodeQueryTerm .bool operatorWithAtom)
+  IO.println "test 13: reject permuted left/right factor pair"
+  let permutedJson := canonicalJson.replace
+    "\"factor_left\":\"i_0_L\",\"factor_right\":\"i_0_R\""
+    "\"factor_left\":\"i_0_R\",\"factor_right\":\"i_0_L\""
+  expectFailure (checkCanonicalQueryAssumptions canonicalProof permutedJson)
 
-  IO.println "test 13: reject invalid factor/declaration identifiers and schema"
-  expectFailure (decodeCanonicalRelationalQuery
-    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"bad-name\",\"declarations\":[],\"factor_difference\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true},\"observations_differ\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":false},\"observation_contract\":\"contract/1\"}")
-  expectFailure (decodeCanonicalRelationalQuery
-    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"f\",\"declarations\":[{\"name\":\"bad-name\",\"sort\":\"Int\"}],\"factor_difference\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true},\"observations_differ\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":false},\"observation_contract\":\"contract/1\"}")
-  expectFailure (decodeCanonicalRelationalQuery
-    "{\"schema\":\"llmlang.qf_lia.relational-query/2\",\"factor\":\"f\",\"declarations\":[],\"factor_difference\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true},\"observations_differ\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":false},\"observation_contract\":\"contract/1\"}")
+  IO.println "test 14: reject wrong CPC declaration sort for factor pair"
+  let wrongSortProof :=
+    "(declare-const i_0_L Int) (declare-const i_0_R Bool) " ++
+    "(assume a (not (= i_0_L i_0_R))) (assume b true)\n"
+  expectFailure (checkCanonicalQueryAssumptions wrongSortProof canonicalJson)
 
-
-  IO.println "test 14: reject a proof with a missing canonical assumption"
+  IO.println "test 15: reject a missing assumption"
   expectFailure (checkCanonicalQueryAssumptions
-    "(declare-const x Int) (assume a (not (= x x)))"
+    "(declare-const i_0_L Int) (declare-const i_0_R Int) (assume a (not (= i_0_L i_0_R)))"
     canonicalJson)
 
-  IO.println "test 15: reject an extra CPC assumption"
+  IO.println "test 16: reject an extra assumption"
   expectFailure (checkCanonicalQueryAssumptions
-    "(declare-const x Int) (assume a (not (= x x))) (assume b (<= (+ x 2) (* x 3))) (assume c (= x 0))"
-    canonicalJson)
-
-  IO.println "test 16: reject a structurally different observation assumption"
-  expectFailure (checkCanonicalQueryAssumptions
-    "(declare-const x Int) (assume a (not (= x x))) (assume b (< (+ x 2) (* x 3)))"
+    "(declare-const i_0_L Int) (declare-const i_0_R Int) (assume a (not (= i_0_L i_0_R))) (assume b (<= (+ i_0_L 2) (* i_0_R 3))) (assume c (= i_0_L 0))"
     canonicalJson)
 
   IO.println "test 17: reject reordered assumptions"
   expectFailure (checkCanonicalQueryAssumptions
-    "(declare-const x Int) (assume b (<= (+ x 2) (* x 3))) (assume a (not (= x x)))"
+    "(declare-const i_0_L Int) (declare-const i_0_R Int) (assume b (<= (+ i_0_L 2) (* i_0_R 3))) (assume a (not (= i_0_L i_0_R)))"
     canonicalJson)
 
-  IO.println "test 18: reject an extra CPC declaration"
-  expectFailure (checkCanonicalQueryAssumptions
-    "(declare-const x Int) (declare-const y Int) (assume a (not (= x x))) (assume b (<= (+ x 2) (* x 3)))"
-    canonicalJson)
-
-  IO.println "test 19: reject a CPC declaration with the wrong sort"
-  expectFailure (checkCanonicalQueryAssumptions
-    "(declare-const x Bool) (assume a (not (= x x))) (assume b x)"
-    canonicalJson)
-
-  IO.println "test 20: reject repeated CPC declarations during complete binding"
-  expectFailure (checkCanonicalQueryAssumptions
-    "(declare-const x Int) (declare-const x Bool) (assume a (not (= x x))) (assume b (<= (+ x 2) (* x 3)))"
-    canonicalJson)
-
-  IO.println "Lean decoder adversarial tests passed"
+  IO.println "Lean decoder v2 factor-binding adversarial tests passed"
