@@ -1,6 +1,6 @@
 # Research Scenario 33 — CPC Parser State and Exact Symbol Binding
 
-**Status:** Lean wrapper and fail-closed declaration binder implemented as an uncompiled prototype; CI workflow added but no run result observed. Source API audited at the pinned revision.  
+**Status:** Lean wrapper and fail-closed declaration binder compile and pass GitHub Actions CI against the pinned Logos revision. The typed query AST and initial independent Eo.Term renderer also compile; exact arithmetic and Boolean AST fixtures pass. The bridge is not yet a formal source-to-query correctness proof.  
 **Date:** 2026-11-17  
 **Pinned Logos revision:** cf18742973861b3718d04c5f25775448098ff474  
 **Depends on:** Scenarios 29, 30, and 32.  
@@ -55,7 +55,7 @@ The QF_LIA profile contains only Bool and Int constants and no declared datatype
 
 ## 5. Lean sketch
 
-The following is a design sketch, not compiled code:
+The following is the original design sketch; the compiled implementation is in `PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`.
 
 ```lean
 def parseProofWithState (proof : String) :
@@ -70,7 +70,7 @@ def parseProofWithState (proof : String) :
   return (assumptions, commands, finalState)
 ```
 
-The exact imports, namespaces, inferred StateT result type, and Lean syntax still require compilation against the pinned toolchain.
+The exact imports, namespaces, and StateT result type have since been resolved in the compiled prototype.
 
 ## 6. Safety properties and fail-closed cases
 
@@ -107,7 +107,7 @@ All links below are immutable links to the audited Logos commit:
 - [Eo-to-SMT translation for literals, UConst, Boolean operators, arithmetic and comparisons](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Cpc/SmtTranslate.lean#L223-L248)
 
 
-## 9. First Lean prototype (written, not compiled)
+## 9. First Lean prototype (compiled and CI-validated)
 
 A dedicated Lake package now lives at `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`.
 
@@ -120,4 +120,4 @@ A dedicated Lake package now lives at `research/PROTOTYPES/DEPENDENCY-GRAPH-01/l
 
 The parser wrapper intentionally compares assumptions only. The generated `CCmdList` does not derive structural equality in the pinned source, and the proof-binding requirement concerns the assumption list. The command list is produced by the same `parseCommands` function; it is not independently compared with ordinary `parseProof`.
 
-**Validation status:** the environment used for this work has neither Lean/Lake installed nor outbound network access, so the package could not be compiled locally. The workflow has been committed, but the GitHub Actions run has not yet been observed. Treat all Lean code as an implementation candidate, not a validated integration. No proof checker or real CPC proof was executed.
+**Validation status:** GitHub Actions run [44084673994](https://github.com/aivibeflow/LLMLang/actions/runs/44084673994) passed on commit `9847682f2466d01c17d273cf0ab9eaa453b437c1`. Lean 4.34.0 and the pinned Logos dependency build successfully. The executable tests cover successful Int binding, rejection of duplicate/overloaded and extra declarations, wrong-sort query symbols, exact reflexive-equality AST rendering, and exact arithmetic (`x + 2 <= x * 3`) and Boolean (`p and not q`) AST rendering. The tests compare complete assumption lists using native Lean structural equality. The CPC proof checker itself was not run on a generated proof, and no source-to-query semantic correspondence theorem has been proved.
