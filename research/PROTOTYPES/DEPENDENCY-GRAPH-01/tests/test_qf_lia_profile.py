@@ -133,7 +133,7 @@ class QFLIAProfileTests(unittest.TestCase):
         x, y = Term("symbol", "Int", atom="x"), Term("symbol", "Int", atom="y")
         nonlinear = Term("mul", "Int", (x, y))
         diff = Term("not", "Bool", (Term("eq", "Bool", (x, y)),))
-        query = RelationalQuery("x", (Declaration("x", "Int"), Declaration("y", "Int")), diff,
+        query = RelationalQuery("x", "x_L", "x_R", (Declaration("x_L", "Int"), Declaration("x_R", "Int"), Declaration("y", "Int")), diff,
                                 Term("not", "Bool", (Term("eq", "Bool", (nonlinear, x)),)))
         with self.assertRaises(UnsupportedConstruct): render_smt2(query)
 
@@ -144,9 +144,9 @@ class QFLIAProfileTests(unittest.TestCase):
         self.assertEqual(first, canonical_query_json(query))
         wire = json.loads(first)
         self.assertEqual(wire["schema"], QUERY_WIRE_SCHEMA)
-        self.assertEqual(wire["schema"], "llmlang.qf_lia.relational-query/1")
+        self.assertEqual(wire["schema"], "llmlang.qf_lia.relational-query/2")
         self.assertEqual(set(wire), {
-            "schema", "factor", "declarations", "factor_difference",
+            "schema", "factor", "factor_left", "factor_right", "declarations", "factor_difference",
             "observations_differ", "observation_contract"
         })
         self.assertEqual(wire, query_to_wire(query))
@@ -155,5 +155,32 @@ class QFLIAProfileTests(unittest.TestCase):
     def test_boolean_arithmetic_is_rejected(self):
         p = Program((Return(Binary("add", Var("x"), Const(1))),))
         with self.assertRaises(UnsupportedConstruct): self.build(p, {"x": "Bool"})
+
+    def test_factor_pair_is_explicit_in_v2_wire(self):
+        query = self.build(Program((Return(Var("x")),))).factors[0].query_ir
+        wire = query_to_wire(query)
+        self.assertEqual(wire["factor_left"], "i_0_L")
+        self.assertEqual(wire["factor_right"], "i_0_R")
+        self.assertEqual(wire["schema"], "llmlang.qf_lia.relational-query/2")
+
+    def test_renderer_rejects_substituted_or_permuted_factor_pair(self):
+        result = self.build(Program((Return(Var("x")),))).factors[0].query_ir
+        swapped = RelationalQuery(result.factor, result.factor_right, result.factor_left,
+                                  result.declarations, result.factor_difference,
+                                  result.observations_differ, result.observation_contract)
+        with self.assertRaises(UnsupportedConstruct):
+            render_smt2(swapped)
+        substituted = RelationalQuery(result.factor, "i_0", result.factor_right,
+                                      result.declarations, result.factor_difference,
+                                      result.observations_differ, result.observation_contract)
+        with self.assertRaises(UnsupportedConstruct):
+            render_smt2(substituted)
+
+    def test_renderer_rejects_wrong_sort_factor_pair(self):
+        query = RelationalQuery("x", "x_L", "x_R",
+            (Declaration("x_L", "Int"), Declaration("x_R", "Bool")),
+            Term("bool", "Bool", atom=True), Term("bool", "Bool", atom=False))
+        with self.assertRaises(UnsupportedConstruct):
+            render_smt2(query)
 
 if __name__ == "__main__": unittest.main()
