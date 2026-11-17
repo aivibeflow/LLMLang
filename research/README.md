@@ -99,7 +99,7 @@ Formal verification can establish that an implementation satisfies a formal spec
 - [QF_LIA focused tests](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py) — accepted/rejected constructs, canonical IR, and renderer checks.
 
 
-- [Lean CPC parser-state binding prototype](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/) — pinned Lean/Lake package retaining Logos parser state, binding Bool/Int declarations to exact UConst nodes, independently rendering typed query ASTs, and decoding a strict versioned JSON query envelope; CI validates the parser bridge and AST fixtures, while the new decoder awaits its first CI result.
+- [Lean CPC parser-state binding prototype](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/) — pinned Lean/Lake package retaining Logos parser state, binding Bool/Int declarations to exact UConst nodes, independently rendering typed query ASTs, and decoding a strict versioned JSON query envelope; CI validates the parser bridge, exact AST fixtures, and adversarial strict-decoder fixtures (latest run pending).
 
 
 - [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — proposed textual Git representation, separation of Git/semantic/action identities, automatic custom merge driver, interactive mergetool, and repository-level SPG merge architecture.
