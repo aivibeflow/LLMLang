@@ -15,6 +15,79 @@ This file tracks project-level work that is not yet fully specified in the draft
 | Git integration | **Planned** | Prototype a custom merge driver, explicit local setup/doctor commands, repository-level graph validation, and temporary-repository integration tests. |
 | Merge evaluation | **Planned** | Benchmark correctness, false-conflict rate, runtime, cache/store reconstruction, and failure behavior on missing context. |
 
+
+## Research program and specification design space
+
+The project must not treat an individual research report as producing one mandatory answer. Each research may identify multiple promising development vectors (approaches, design choices, or internally coherent option families), including their assumptions, trade-offs, constraints, evidence, and unresolved questions.
+
+The objective of the research phase is to investigate all relevant aspects of LLMLang before committing to a single integrated design. Research conclusions are inputs to a later synthesis process, not isolated decisions that must be selected independently as soon as a report is completed.
+
+### Required output of each research
+
+Each research report should, where applicable, provide:
+
+- A clearly scoped aspect of LLMLang and the questions investigated.
+- Multiple viable development vectors rather than only a single preferred recommendation.
+- For each vector: core principles, assumptions, benefits, costs, risks, limitations, and evidence.
+- Compatibility requirements, constraints, and known incompatibilities with other aspects.
+- Upstream dependencies (decisions or capabilities this aspect relies on) and downstream impact (other aspects it can constrain or change).
+- Open questions and confidence/evidence level; distinguish established facts from hypotheses and recommendations.
+
+A report may conclude that only one viable vector is currently known, or that more research is needed. Do not manufacture alternatives merely to fill a list.
+
+### Cross-aspect dependency model
+
+Maintain an explicit dependency map across research topics and design aspects. Record at least:
+
+- **Requires:** one aspect or vector depends on another.
+- **Constrains:** a choice narrows the viable choices elsewhere.
+- **Influences:** a choice changes trade-offs or design parameters elsewhere without making them impossible.
+- **Conflicts with:** two choices cannot coexist under the stated assumptions.
+- **Enables:** a choice makes another capability or vector practical.
+
+Dependencies must identify their direction, rationale, affected vectors, and whether the relationship is confirmed or still a hypothesis. Use the map to identify foundational topics, downstream topics, feedback loops, and research that can proceed in parallel. Revisit dependency edges when new evidence changes assumptions.
+
+### Order for conducting research
+
+Research order should be dependency-driven, not simply the order in which topics were proposed. First investigate foundational concepts that can alter the shape of many other decisions; then investigate dependent mechanisms; finally investigate integration and operational concerns. A provisional ordering is:
+
+1. **Goals, constraints, and semantic foundations:** language purpose, target users and workloads, correctness model, observable guarantees, compilation/execution model, and core semantic entities.
+2. **Program representation and identity:** graph and source representation, canonicalization, stable identity, semantic hashing, persistence, versioning, and reproducibility.
+3. **Core language semantics:** type system, effects, ownership/resource model, modules/interfaces, evaluation and execution semantics, errors, and concurrency.
+4. **Specification and verification model:** contracts, invariants, refinement, proof obligations, solver/prover integration, test generation, and the boundary between static guarantees and runtime checks.
+5. **AI-native authoring and change model:** structured edits, agent/compiler protocol, validation boundaries, provenance, reviewability, and deterministic acceptance.
+6. **Build, incremental computation, and tooling:** dependency/action model, caching and invalidation, compiler pipeline, diagnostics, editor/tool interfaces, and reproducible builds.
+7. **Version control and collaboration:** Git representation, semantic diff/merge, conflict policy, branching, and multi-user/concurrent change workflows.
+8. **Runtime, deployment, interoperability, and ecosystem:** target platforms, FFI, package/dependency model, security/isolation, distribution, and operational constraints.
+
+This is a starting dependency hypothesis, not a rigid serial schedule. Build the dependency map early and use it to reorder or split topics. Independent subtopics should run in parallel; a downstream research may start with explicit provisional assumptions, but must be revisited if an upstream result invalidates them. Avoid premature implementation commitments where unresolved foundational choices could cause rework.
+
+### Synthesis: from research vectors to complete specifications
+
+After the relevant research topics have been completed:
+
+1. Normalize the vectors into a common decision/option model, preserving source links to the research evidence.
+2. Identify which vectors are mutually compatible, conditionally compatible, dependent, or conflicting.
+3. Construct the Cartesian product of the viable vector sets to enumerate candidate LLMLang specifications. The raw Cartesian product is the starting combinatorial space; remove or mark combinations that violate explicit dependency and compatibility constraints rather than silently treating every combination as valid.
+4. Preserve traceability from every candidate specification choice to the research report, evidence, assumptions, and dependency edges that justify it.
+5. Compare candidate specifications as integrated wholes, not merely as isolated alternatives for one question. Evaluate system-level properties such as coherence, correctness, expressiveness, simplicity, implementation feasibility, performance, incremental behavior, AI-agent usability, interoperability, and long-term evolvability.
+6. Use pairwise or local decision analysis only as diagnostic tools; the primary comparison and selection unit is the complete candidate specification and its cross-aspect consequences.
+7. Record the evaluation criteria, scenarios, evidence, uncertainty, and trade-offs so that rankings are explainable and can be revised when research changes.
+
+The full product may be too large to materialize naively. If so, use dependency constraints, equivalence classes, staged enumeration, or representative sampling, while documenting what was pruned and why. Do not lose promising vectors solely because exhaustive enumeration is computationally impractical.
+
+### Research programme status
+
+| Stage | Status | Exit condition |
+|---|---|---|
+| Define research taxonomy and dependency map | **Next** | Aspects, initial dependencies, and research order are recorded and reviewable. |
+| Conduct and complete aspect research | **Planned** | Each relevant aspect has a report with viable vectors, evidence, assumptions, and cross-aspect impacts. |
+| Normalize vectors and validate compatibility | **Planned** | Common option model and explicit compatibility/dependency constraints exist. |
+| Generate candidate specification space | **Planned** | Valid combinations are enumerated or represented through a documented constrained search space. |
+| Compare complete candidate specifications | **Planned** | Integrated candidates are evaluated against shared criteria and representative scenarios. |
+| Select and baseline a specification direction | **Planned** | A coherent candidate is selected with rationale and unresolved risks recorded; only then proceed to detailed specification baseline and implementation commitments. |
+
+
 ## Completed
 
 - [x] Research Git object storage, content-addressed semantic stores, semantic diff/merge approaches, and Git integration mechanisms.
