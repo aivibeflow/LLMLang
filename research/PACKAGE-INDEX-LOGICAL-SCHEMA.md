@@ -134,7 +134,13 @@ No input is preferred by recency, source order, provider priority, or timestamp.
 
 ### 6.1 Streaming and memory
 
-The executable prototype uses in-memory lists for clarity. It proves only the record-level semantics. The intended scalable implementation holds one current row per input stream and advances the stream with the smallest key. Equal-key rows are compared before advancing. This gives memory proportional to the number of input streams plus output buffering, excluding the output itself.
+Prototype 01 now includes `merge_sorted_rows(table, *streams)`, a lazy k-way merge over already sorted row iterables. It keeps one current row per stream in a heap, validates strict per-stream key order, deduplicates identical cross-stream records, and rejects conflicting records or repeated keys within one stream. Merge state is O(k), where k is the number of input streams, excluding current rows and consumer-owned output buffering.
+
+`merge_sorted_indexes` exposes one lazy merged iterator per table without materializing merged tables. The current implementation validates each row's local schema and scalar fields, but deliberately does not claim full cross-table referential validation in bounded memory.
+
+Cross-table validation is a separate problem: a naïve implementation builds in-memory membership sets, which are O(number of objects/modules). A scalable implementation should perform sorted merge-join passes over canonical Objects and Modules streams (or use a disk-backed membership structure), rather than silently loading the entire merged index into RAM. A streaming archive writer and end-to-end external-memory validation are not implemented yet.
+
+The in-memory `normalize` and `merge` APIs remain available as simple reference implementations for small fixtures.
 
 ### 6.2 Merge associativity
 
