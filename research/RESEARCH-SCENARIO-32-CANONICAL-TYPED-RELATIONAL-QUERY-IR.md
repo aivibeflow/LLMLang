@@ -75,16 +75,31 @@ Latest focused run: **26 tests passed**. Python compileall passed. The tests wer
 
 ## 6. Remaining obligations
 
-1. Audit the exact Logos Term and sort constructors at the pinned Logos revision.
-2. Implement a separate Logos-Term renderer over RelationalQuery / Term.
-3. In Lean, establish that the generated expected term has the intended SMT semantics.
-4. Establish that the SMT-LIB renderer and Logos-Term renderer denote the same canonical query.
-5. Bind parsed CPC assumptions to the expected Logos terms by exact structural equality.
-6. Prove the product-program query corresponds to the typed LLMLang program semantics.
-7. Bind source digests, renderer versions, solver/checker identities, and exact artifacts into a signed evidence manifest.
+1. **Completed source audit at pinned Logos revision** (cf18742973861b3718d04c5f25775448098ff474): the Eo term constructors include Boolean, Numeral, UConst, Var, UOp, and Apply. The parser maps declare-const to sequential UConst identifiers; the parser macro @var builds Var nodes for bound variables. Arithmetic/logical operators are represented as curried Apply nodes headed by UOp constructors. The pinned translation maps these to SmtTerm constructors.
+2. Implement a separate Logos-Term renderer over RelationalQuery / Term, using the exact audited Eo constructors.
+3. Resolve declaration identity: Logos parseProof returns assumptions and commands, but not the parser's symbol table. declare-const assigns sequential UConst IDs in declaration order. The bridge must prove that the CPC declaration sequence maps exactly to the query IR declarations, or extend/wrap the pinned parser to expose that mapping. If extra/reordered declarations cannot be bound, return UNKNOWN.
+4. In Lean, establish that the generated expected term has the intended SMT semantics.
+5. Establish that the SMT-LIB renderer and Logos-Term renderer denote the same canonical query.
+6. Bind parsed CPC assumptions to the expected Logos terms by exact structural equality.
+7. Prove the product-program query corresponds to the typed LLMLang program semantics.
+8. Bind source digests, renderer versions, solver/checker identities, and exact artifacts into a signed evidence manifest.
 
 Until these obligations are met, the output remains QF_LIA_CANDIDATE_QUERIES. Neither a solver UNSAT answer nor a Logos-checked CPC proof can yet become a program-level PROVEN result.
 
 ## 7. Next implementation step
 
-Implement the Logos-Term renderer only after verifying the exact pinned Logos API types and constructors. Keep it as a separate module and test it against golden Lean terms. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
+Implement the Lean-side expected-Term construction next, after defining a fail-closed declaration-index binding contract. The audit confirms the operator mapping is mechanically expressible, but declaration identity is the blocking detail: do not assume that a source symbol name can be compared directly with an Eo UConst node. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
+
+
+## 8. Pinned Logos API audit notes
+
+The source audit was performed against commit cf18742973861b3718d04c5f25775448098ff474, not against an unpinned branch.
+
+- Eo.Term includes Boolean, Numeral, UConst, Var, UOp, and Apply constructors.
+- The parser's declare-const path calls declareSymbol; non-sort declarations are assigned sequential UConst IDs via mkUConst (ufCount + 1).
+- The parser's @var macro constructs Term.Var (Term.String name) type for bound variables. It is not the representation used for declared SMT constants.
+- The Eo-to-SMT translation maps Term.UConst to SmtTerm.UConst using the sequential identifier and mapped sort; Term.Boolean and Term.Numeral map to their corresponding SmtTerm literals.
+- The audited operator mappings include ite, not, or, and, eq, plus, neg, mult, lt, and leq, represented by nested Term.Apply nodes headed by Term.UOp.
+- Eo.parseProof returns the parsed top-level assumption list and proof command list. The public return value does not include the parser's name-to-UConst symbol table.
+
+This means a Logos-Term renderer can build the expected formula structure, but it cannot safely assign UConst indices from query-IR declaration order unless the proof artifact's declaration sequence is independently shown to be identical. That is a proof-binding requirement, not a formatting detail.
