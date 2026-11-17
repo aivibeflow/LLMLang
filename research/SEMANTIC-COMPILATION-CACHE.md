@@ -376,3 +376,16 @@ The strongest design is a content-addressed action graph in which semantic objec
 This can unify incremental compilation, build caching, analysis reuse, test reuse, proof reuse, and reduced LLM context under one coherent model.
 
 This remains a research proposal. It does not yet settle the canonical Action Key format, cache trust policy, or mandatory implementation behavior.
+
+
+## 18. Package-distributed cache indexes
+
+The package system may optionally distribute indexes of action results alongside semantic object indexes. Typical results include semantic validation, type/contract analysis, target-specific compilation, tests, and formal verification.
+
+The cache index is keyed by **Action Key**, not a bare Semantic Hash or Content Hash. The key covers exact semantic inputs and relevant dependency closure, action kind and implementation, language/toolchain version, target, configuration, and other result-determining inputs. The result record points to Artifact Hash values and records status, scope, determinism/dependency completeness, and provenance.
+
+Every record states the language version used. Where the language's semantic version does not uniquely identify a behavior-changing compiler/toolchain build, the relevant toolchain build/component identity must also be captured. Reuse across a different relevant version is a cache miss unless an explicit compatibility rule proves it safe.
+
+A package may carry cache-index metadata only, with result payloads fetched from another cache/store, or both metadata and selected payloads. Missing or evicted payloads are ordinary cache misses. Cache indexes are optional and evictable; they do not change semantic object hashes or logical package identity. A cache hit is not itself proof of correctness: artifact integrity, evidence applicability, and producer trust remain separate checks.
+
+Cache indexes reuse compact-index techniques (canonical sort, binary search, streaming merge, optional block compression and sparse lookup) but remain logically separate from package Object/Symbol/Dependency indexes. This extends `research/PACKAGE-SYSTEM.md` and does not introduce a second Action Key scheme.
