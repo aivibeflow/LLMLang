@@ -221,23 +221,27 @@ def main : IO Unit := do
     "\"factor_left\":\"i_0_R\",\"factor_right\":\"i_0_L\""
   expectFailure (checkCanonicalQueryAssumptions canonicalProof permutedJson)
 
-  IO.println "test 14: reject wrong CPC declaration sort for factor pair"
+  IO.println "test 14: reject a factor-difference term that substitutes the left symbol"
+  let tamperedFactorJson := canonicalJson.replace "\"atom\":\"i_0_L\"" "\"atom\":\"i_0_R\""
+  expectFailure (checkCanonicalQueryAssumptions canonicalProof tamperedFactorJson)
+
+  IO.println "test 15: reject wrong CPC declaration sort for factor pair"
   let wrongSortProof :=
     "(declare-const i_0_L Int) (declare-const i_0_R Bool) " ++
     "(assume a (not (= i_0_L i_0_R))) (assume b true)\n"
   expectFailure (checkCanonicalQueryAssumptions wrongSortProof canonicalJson)
 
-  IO.println "test 15: reject a missing assumption"
+  IO.println "test 16: reject a missing assumption"
   expectFailure (checkCanonicalQueryAssumptions
     "(declare-const i_0_L Int) (declare-const i_0_R Int) (assume a (not (= i_0_L i_0_R)))"
     canonicalJson)
 
-  IO.println "test 16: reject an extra assumption"
+  IO.println "test 17: reject an extra assumption"
   expectFailure (checkCanonicalQueryAssumptions
     "(declare-const i_0_L Int) (declare-const i_0_R Int) (assume a (not (= i_0_L i_0_R))) (assume b (<= (+ i_0_L 2) (* i_0_R 3))) (assume c (= i_0_L 0))"
     canonicalJson)
 
-  IO.println "test 17: reject reordered assumptions"
+  IO.println "test 18: reject reordered assumptions"
   expectFailure (checkCanonicalQueryAssumptions
     "(declare-const i_0_L Int) (declare-const i_0_R Int) (assume b (<= (+ i_0_L 2) (* i_0_R 3))) (assume a (not (= i_0_L i_0_R)))"
     canonicalJson)
