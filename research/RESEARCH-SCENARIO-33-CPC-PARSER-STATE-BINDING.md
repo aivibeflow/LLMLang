@@ -93,3 +93,15 @@ No sorting, rewriting, alpha-normalization, or semantic equivalence comparison i
 The wrapper exposes parser state; it does not prove the Python query encoder correct. The expected Eo.Term must be generated independently in Lean from a typed query representation or a verified serialization of that representation. The Lean code must prove that its expected term corresponds to the canonical query IR. The CPC assumptions must then match it structurally, and the pinned Logos checker theorem must establish unsatisfiability of those exact parsed assumptions.
 
 Until those steps are built and proved, this bridge is a design candidate only. It does not upgrade any Scenario 31 result beyond QF_LIA_CANDIDATE_QUERIES.
+
+
+## 8. Pinned source references
+
+All links below are immutable links to the audited Logos commit:
+
+- [Parser State, ParserM, State.ofOps](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Logos/Parser/Core.lean#L481-L520)
+- [declareSymbol and sequential UConst allocation](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Logos/Parser/Core.lean#L1172-L1184)
+- [parseCommands and its assumptions-before-proof-steps rule](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Logos/Parser/Core.lean#L1385-L1400)
+- [parseProof and private parseConfigured path](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Logos/Parser/Datatypes.lean#L548-L561)
+- [Eo parser's @var macro and Term.Var construction](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Cpc/Parser.lean#L1364-L1388)
+- [Eo-to-SMT translation for literals, UConst, Boolean operators, arithmetic and comparisons](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Cpc/SmtTranslate.lean#L223-L248)
