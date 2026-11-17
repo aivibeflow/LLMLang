@@ -227,7 +227,7 @@ def build_qf_lia_queries(program: Program, input_types: Mapping[str, str],
         observation_terms = [Term("not", "Bool", (Term("eq", "Bool", (left_obs[k], right_obs[k])),)) for k in left_obs]
         if not observation_terms: raise UnsupportedConstruct("empty observation boundary")
         observations_differ = observation_terms[0] if len(observation_terms) == 1 else Term("or", "Bool", tuple(observation_terms))
-        query_ir = RelationalQuery(factor, tuple(declarations), factor_difference, observations_differ, OBSERVATION_CONTRACT)
+        query_ir = RelationalQuery(factor, left_inputs[factor].atom, right_inputs[factor].atom, tuple(declarations), factor_difference, observations_differ, OBSERVATION_CONTRACT)
         query_ir_digest = _digest(query_ir)
         smt = render_smt2(query_ir)
         factors.append(FactorQuery(factor, query_ir, query_ir_digest, smt, hashlib.sha256(smt.encode()).hexdigest()))
