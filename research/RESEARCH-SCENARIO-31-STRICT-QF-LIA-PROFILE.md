@@ -204,3 +204,10 @@ The function-declaration rule is intentionally conservative: every declared func
 Focused local test run: **24 tests passed**; Python `compileall` passed. These tests were run against a local compatibility fixture for the repository's `formal_core` AST interface, not against a complete checkout of the repository. The new test file targets the repository's actual `formal_core.py` dataclasses and exception API. The full prototype test suite has not been run in this environment.
 
 This implementation produces candidate queries only. It does not establish validator soundness, renderer correctness, source-to-query semantic correspondence, exact Logos assumption binding, or a program-level proof. No solver was invoked, and no result may be labelled `PROVEN`.
+
+
+### Follow-up: typed canonical query IR (Scenario 32)
+
+The first text-based query representation has been superseded by a typed canonical query IR in `src/qf_lia_ir.py`. The current profile version is `llmlang-qf-lia-relational/2`. Each factor result now carries an immutable `RelationalQuery` containing typed declarations, a typed factor-difference formula, a typed observation-difference formula, and the observation-contract identifier. The SMT-LIB renderer is a separate function over that IR and validates all term sorts, declarations, supported operators, and the linear-multiplication restriction before rendering.
+
+The typed IR digest is computed from the canonical query structure; the byte digest is computed independently over the exact SMT-LIB output. This is a more appropriate basis for a future independent Logos-Term renderer than hashing fragments of already-rendered SMT-LIB text. No Logos-Term renderer or Lean correspondence theorem exists yet.
