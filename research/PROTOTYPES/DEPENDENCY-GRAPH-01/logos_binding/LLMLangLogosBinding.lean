@@ -1,6 +1,8 @@
 import Lean
 import Cpc.Parser
 
+open Lean
+
 namespace LLMLang.LogosBinding
 
 inductive ExpectedSort where
