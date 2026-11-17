@@ -214,7 +214,7 @@ Run focused tests:
 python -m unittest discover -s tests -p 'test_qf_lia_profile.py' -v
 ```
 
-The output status is `QF_LIA_CANDIDATE_QUERIES`, not `PROVEN`. The validator and encoder are Python code and are not formally verified; source-to-query correspondence, CPC assumption binding, and real cvc5/Logos proof checking remain outstanding. See [Research Scenario 32](../../RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md) for the canonical IR design and remaining proof obligations.
+The output status is `QF_LIA_CANDIDATE_QUERIES`, not `PROVEN`. The version-2 wire envelope explicitly carries factor_left and factor_right; Python validates their unique same-sort _L/_R declaration pair and exact factor-difference AST, while Lean independently constructs and structurally checks not (= left right). The validator and source encoder are still Python code and are not formally verified; source-to-query correspondence and real cvc5/Logos proof checking remain outstanding. See [Research Scenario 32](../../RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md) for the canonical IR design and remaining proof obligations.
 
 
 ## Lean CPC parser-state binding prototype (Scenario 33)
@@ -229,4 +229,4 @@ lake build
 lake exe testParserBinding
 ```
 
-A GitHub Actions workflow runs these commands for relevant pushes and pull requests. The package has not yet been compiled in the local environment; do not treat it as validated until CI succeeds. See [Research Scenario 33](../../RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md).
+A GitHub Actions workflow runs these commands for relevant pushes and pull requests. The pinned Lean build is validated by CI, not by a local build. The current version-2 change is awaiting its Lean CI result. See [Research Scenario 33](../../RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md).
