@@ -54,17 +54,26 @@ def digest(data: bytes) -> str:
     return "sha256:" + sha256(data).hexdigest()
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, init=False)
 class Entity:
     stable_id: str
     kind: str
-    payload: dict[str, Any]
+    _payload_json: bytes
 
-    def __post_init__(self) -> None:
-        if not self.stable_id or not self.kind:
+    def __init__(self, stable_id: str, kind: str, payload: dict[str, Any]) -> None:
+        if not stable_id or not kind:
             raise ValueError("stable_id and kind must be non-empty")
-        # Validate JSON compatibility and detach from caller-owned mutable data.
-        object.__setattr__(self, "payload", json.loads(canonical_json(self.payload)))
+        encoded_payload = canonical_json(payload)
+        # Fail at construction for values outside the JSON data model.
+        json.loads(encoded_payload)
+        object.__setattr__(self, "stable_id", stable_id)
+        object.__setattr__(self, "kind", kind)
+        object.__setattr__(self, "_payload_json", encoded_payload)
+
+    @property
+    def payload(self) -> dict[str, Any]:
+        # Return a detached copy so callers cannot mutate stored entity state.
+        return json.loads(self._payload_json)
 
     def encoded(self) -> bytes:
         return canonical_json({"kind": self.kind, "payload": self.payload})
@@ -80,14 +89,23 @@ class Snapshot:
     entities: dict[str, str]  # Stable ID -> immutable Entity Content Hash
 
 
-@dataclass
+@dataclass(frozen=True)
 class Workspace:
+    workspace_id: str
+    base_snapshot: str
+    working_snapshot: str
+    revision: int
+    state: Literal["open", "accepted", "discarded"]
+
+
+@dataclass
+class _Workspace:
     workspace_id: str
     base_snapshot: str
     working_snapshot: str
     revision: int = 0
     state: Literal["open", "accepted", "discarded"] = "open"
-    _lock: RLock = field(default_factory=RLock, repr=False, compare=False)
+    lock: RLock = field(default_factory=RLock, repr=False, compare=False)
 
 
 @dataclass(frozen=True)
@@ -113,7 +131,7 @@ class InMemoryToolchain:
     def __init__(self) -> None:
         self._objects: dict[str, bytes] = {}
         self._snapshots: dict[str, Snapshot] = {}
-        self._workspaces: dict[str, Workspace] = {}
+        self._workspaces: dict[str, _Workspace] = {}
         self._accepted: set[str] = set()
         self._lock = RLock()
 
@@ -122,14 +140,6 @@ class InMemoryToolchain:
         object_hash = digest(encoded)
         self._objects.setdefault(object_hash, encoded)
         return object_hash
-
-    def _load_entity(self, object_hash: str) -> Entity:
-        try:
-            value = json.loads(self._objects[object_hash])
-        except KeyError as exc:
-            raise NotFound(f"object not found: {object_hash}") from exc
-        # Stable ID is stored in the snapshot mapping, not the immutable payload.
-        raise RuntimeError("_load_entity requires a Stable ID; use get_entity")
 
     def _snapshot(self, entities: dict[str, str]) -> Snapshot:
         normalized = dict(sorted(entities.items()))
@@ -150,19 +160,29 @@ class InMemoryToolchain:
         with self._lock:
             if snapshot_id not in self._snapshots:
                 raise NotFound(f"snapshot not found: {snapshot_id}")
-            workspace = Workspace(
+            workspace = _Workspace(
                 workspace_id="ws-" + os.urandom(12).hex(),
                 base_snapshot=snapshot_id,
                 working_snapshot=snapshot_id,
             )
             self._workspaces[workspace.workspace_id] = workspace
-            return workspace
+            return self._workspace_view(workspace)
 
-    def get_workspace(self, workspace_id: str) -> Workspace:
+    @staticmethod
+    def _workspace_view(workspace: _Workspace) -> Workspace:
+        return Workspace(
+            workspace.workspace_id, workspace.base_snapshot,
+            workspace.working_snapshot, workspace.revision, workspace.state,
+        )
+
+    def _get_workspace(self, workspace_id: str) -> _Workspace:
         try:
             return self._workspaces[workspace_id]
         except KeyError as exc:
             raise NotFound(f"workspace not found: {workspace_id}") from exc
+
+    def get_workspace(self, workspace_id: str) -> Workspace:
+        return self._workspace_view(self._get_workspace(workspace_id))
 
     def get_entity(self, snapshot_id: str, stable_id: str) -> Entity:
         try:
@@ -184,8 +204,8 @@ class InMemoryToolchain:
         )
 
     def apply(self, changeset: ChangeSet, expected_revision: int) -> str:
-        workspace = self.get_workspace(changeset.workspace_id)
-        with workspace._lock:
+        workspace = self._get_workspace(changeset.workspace_id)
+        with workspace.lock:
             if workspace.state != "open":
                 raise SemanticConflict(f"workspace is {workspace.state}")
             if workspace.revision != expected_revision or changeset.base_revision != expected_revision:
@@ -231,8 +251,8 @@ class InMemoryToolchain:
             return new_snapshot.root_hash
 
     def accept(self, workspace_id: str, expected_revision: int) -> str:
-        workspace = self.get_workspace(workspace_id)
-        with workspace._lock:
+        workspace = self._get_workspace(workspace_id)
+        with workspace.lock:
             if workspace.state != "open":
                 raise SemanticConflict(f"workspace is {workspace.state}")
             if workspace.revision != expected_revision:
