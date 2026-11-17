@@ -1,6 +1,6 @@
 # Research Scenario 32 — Canonical Typed Relational Query IR
 
-**Status:** Python typed query IR, SMT-LIB renderer, and deterministic version-1 JSON exporter implemented; the focused Python suite passes. Lean typed query AST, independent Logos Eo.Term renderer, and strict JSON decoder are implemented and pass pinned Lean CI, including adversarial decoder and complete-assumption-list rejection fixtures. Source-to-query correspondence remains unproved. A subsequent audit found that the wire-level `factor` label is not independently tied to the paired input symbols in `factor_difference`; see Section 11.  
+**Status:** Python typed query IR, SMT-LIB renderer, deterministic version-2 JSON exporter, and 30 focused tests pass. Lean version-2 decoder, parser-state binding, independent factor-pair construction, and adversarial fixtures are implemented; pinned Lean CI is running for the current revision. Source-to-query correspondence remains unproved.  
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 29–31.  
 **Question:** What intermediate representation is needed so that one canonical relational query can drive independent SMT-LIB and Logos proof-term generation without making rendered text the semantic source of truth?
@@ -155,16 +155,22 @@ The Lean decoder now defines the intended interchange shape. The envelope is UTF
 
 Every term object has exactly `op`, `sort`, `args`, and `atom`. Literal and symbol nodes use an integer, Boolean, or string atom respectively and an empty argument array. Composite nodes use `atom: null`. The decoder rejects unknown/missing fields, unknown schema versions and operators, wrong sorts, malformed arities, duplicate declarations, invalid identifiers, malformed leaf atoms, non-null composite-node atoms, and nonlinear multiplication. It does not coerce values.
 
-This is a wire-format contract for the Lean decoder, not yet a complete Python exporter or a formal proof that the Python producer emits only valid documents. The decoder has now been exercised by CI with positive and adversarial fixtures. This validates the decoder and tested binding implementation, not source-to-query correspondence.
+The Python exporter emits this exact version-2 envelope and validates declaration closure, equal factor sorts, the unique selected _L/_R pair, and the exact factor-difference shape before serialization. Lean independently decodes and checks the envelope. These checks validate the exercised wire and binding boundary, not source-to-query correspondence.
 
 
 ## 11. Factor identity binding: version-2 implementation
 
-The version-2 envelope includes explicit factor_left and factor_right references. Python validates the unique generated _L/_R pair, declaration closure, equal sorts, and exact factor-difference AST. Lean resolves both references through parser-state-derived CPC UConst bindings, checks equal sorts and pair uniqueness, independently constructs not (= left right), and compares it structurally with decoded factor_difference before checking the full ordered CPC assumption list. Adversarial fixtures cover substitution, pair permutation, wrong CPC declaration sort, and assumption-list tampering. Schema /1 is rejected, not reinterpreted. Source-program-to-query correspondence remains unproved.
+Version 1 left a gap: Lean accepted any decoded Boolean term as factor_difference if the CPC proof repeated it. The source-level factor label did not constrain the selected pair.
 
+Version 2 makes the pair explicit:
+- factor_left and factor_right name the two selected-factor declarations.
+- Both must resolve through the retained Logos parser state to declared Bool/Int constants.
+- Both declarations must have the same sort and be distinct.
+- The canonical generated pair has the _L and _R roles; the query must contain exactly this one paired declaration set.
+- Lean independently constructs not (= factor_left factor_right) from the parser-state-bound terms.
+- Lean renders decoded factor_difference separately and requires native structural equality with its independently constructed term.
+- Only then does Lean compare the complete ordered CPC assumption list against the expected factor and observation terms.
 
-The former version-1 Lean `checkCanonicalQueryAssumptions` decodes `factor`, `declarations`, and `factor_difference`, renders the decoded `factor_difference`, and compares it with the parsed CPC assumption. It does **not** independently establish that `factor_difference` is the inequality between the left/right symbols representing the selected source input. The `factor` field is currently only validated as an identifier and otherwise unused by the Lean checker. Consequently, a self-consistent but incorrectly constructed wire query could pass this particular binding check if the CPC assumptions contain the same incorrect formula.
+The Python exporter emits the explicit references and performs matching fail-closed shape validation. Adversarial fixtures cover an undeclared substituted symbol, left/right permutation, a wrong CPC declaration sort, legacy /1 schema rejection, and missing/extra/reordered CPC assumptions. Python tests additionally reject malformed factor-pair IRs and wrong-sort pairs.
 
-The Python profile builder currently constructs the intended relation as `not (= <factor-left-symbol> <factor-right-symbol>)`; generated names use the paired `_L` / `_R` convention. That relationship must become explicit in the wire contract rather than inferred from a free-form term.
-
-**Historical version-1 gap (now addressed in version 2):** introduce explicit `factor_left` and `factor_right` declaration references in a new version of the wire envelope (do not silently change `/1` semantics); validate that both declarations exist, have the same Bool/Int sort, are the unique pair for the selected factor, and that `factor_difference` is structurally exactly `not (= factor_left factor_right)` in Lean. Update the Python producer, fixtures, schema documentation, and adversarial tests together. Version 2 closes this factor-pair construction gap for the exercised fixtures. It does not prove source-program-to-query correspondence.
+This closes the factor-pair construction gap for the exercised fixtures. It does not prove the Python source-to-query encoder semantically correct, prove that factor metadata corresponds to the user's intended source-level variable, or establish source-program-to-query semantic correspondence.
