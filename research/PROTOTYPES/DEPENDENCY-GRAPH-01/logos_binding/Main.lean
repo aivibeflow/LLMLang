@@ -218,4 +218,40 @@ def main : IO Unit := do
   expectFailure (decodeCanonicalRelationalQuery
     "{\"schema\":\"llmlang.qf_lia.relational-query/2\",\"factor\":\"f\",\"declarations\":[],\"factor_difference\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true},\"observations_differ\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":false},\"observation_contract\":\"contract/1\"}")
 
+
+  IO.println "test 14: reject a proof with a missing canonical assumption"
+  expectFailure (checkCanonicalQueryAssumptions
+    "(declare-const x Int) (assume a (not (= x x)))"
+    canonicalJson)
+
+  IO.println "test 15: reject an extra CPC assumption"
+  expectFailure (checkCanonicalQueryAssumptions
+    "(declare-const x Int) (assume a (not (= x x))) (assume b (<= (+ x 2) (* x 3))) (assume c (= x 0))"
+    canonicalJson)
+
+  IO.println "test 16: reject a structurally different observation assumption"
+  expectFailure (checkCanonicalQueryAssumptions
+    "(declare-const x Int) (assume a (not (= x x))) (assume b (< (+ x 2) (* x 3)))"
+    canonicalJson)
+
+  IO.println "test 17: reject reordered assumptions"
+  expectFailure (checkCanonicalQueryAssumptions
+    "(declare-const x Int) (assume b (<= (+ x 2) (* x 3))) (assume a (not (= x x)))"
+    canonicalJson)
+
+  IO.println "test 18: reject an extra CPC declaration"
+  expectFailure (checkCanonicalQueryAssumptions
+    "(declare-const x Int) (declare-const y Int) (assume a (not (= x x))) (assume b (<= (+ x 2) (* x 3)))"
+    canonicalJson)
+
+  IO.println "test 19: reject a CPC declaration with the wrong sort"
+  expectFailure (checkCanonicalQueryAssumptions
+    "(declare-const x Bool) (assume a (not (= x x))) (assume b x)"
+    canonicalJson)
+
+  IO.println "test 20: reject repeated CPC declarations during complete binding"
+  expectFailure (checkCanonicalQueryAssumptions
+    "(declare-const x Int) (declare-const x Bool) (assume a (not (= x x))) (assume b (<= (+ x 2) (* x 3)))"
+    canonicalJson)
+
   IO.println "Lean decoder adversarial tests passed"
