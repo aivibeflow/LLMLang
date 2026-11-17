@@ -133,7 +133,10 @@ def _verify_manifest_and_index(manifest_bytes, table_paths, *, max_records_in_me
     )
     _assert_roots_included(manifest, _table_rows(table_paths["objects"]))
     try:
-        return package_content_root_from_index_hash(manifest, actual_hash)
+        actual_root = package_content_root_from_index_hash(manifest, actual_hash)
+        if actual_root != manifest["content"]["content_root"]:
+            raise ArchiveError("declared package content root mismatch")
+        return actual_root
     except PackageFormatError as exc:
         raise ArchiveError(str(exc)) from exc
 
