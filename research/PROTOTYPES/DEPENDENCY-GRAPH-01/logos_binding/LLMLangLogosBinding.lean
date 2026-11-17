@@ -23,7 +23,7 @@ the state-preserving path before returning.
 def parseProofWithState
     (proof : String) :
     Except String (List Eo.Term × Eo.CCmdList × ParserState) := do
-  let sexps ← Sexp.Parser.manySexps!.run proof
+  let sexps ← Logos.Sexp.Parser.manySexps!.run proof
   let cfg : Logos.Parser.Config Eo.Term Eo.CRule Eo.CCmd Eo.CCmdList :=
     { Eo.parserConfig with datatypeTerms := none }
   let initial : ParserState :=
