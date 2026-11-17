@@ -126,4 +126,43 @@ def main : IO Unit := do
   if booleanAssumptions != [booleanExpected] then
     throw (IO.userError "Boolean renderer does not exactly match parsed CPC AST")
 
+  IO.println "test 9: exact AST equivalence for remaining query constructors"
+  let extendedProof :=
+    "(declare-const x Int) " ++
+    "(declare-const y Int) " ++
+    "(declare-const p Bool) " ++
+    "(declare-const q Bool) " ++
+    "(assume a (and (< x y) (= p q) (or p q) (= (ite p x y) x) (= (ite p true false) p) (= (- x) y) (= (- x y) y)))\\n"
+  let (extendedAssumptions, _, extendedState) ←
+    match parseProofWithState extendedProof with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  let extendedBindings ←
+    match bindExpectedDeclarations extendedState
+      [{ name := "x", sort := .int }, { name := "y", sort := .int },
+       { name := "p", sort := .bool }, { name := "q", sort := .bool }] with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  let extendedTerms : List (QueryTerm .bool) := [
+    QueryTerm.lt (.intSymbol "x") (.intSymbol "y"),
+    QueryTerm.eqBool (.boolSymbol "p") (.boolSymbol "q"),
+    QueryTerm.or [.boolSymbol "p", .boolSymbol "q"],
+    QueryTerm.eqInt
+      (.iteInt (.boolSymbol "p") (.intSymbol "x") (.intSymbol "y"))
+      (.intSymbol "x"),
+    QueryTerm.eqBool
+      (.iteBool (.boolSymbol "p") (.boolLit true) (.boolLit false))
+      (.boolSymbol "p"),
+    QueryTerm.eqInt (.neg (.intSymbol "x")) (.intSymbol "y"),
+    QueryTerm.eqInt
+      (.sub (.intSymbol "x") (.intSymbol "y"))
+      (.intSymbol "y")
+  ]
+  let extendedExpected ←
+    match renderQueryTerm extendedBindings (.and extendedTerms) with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  if extendedAssumptions != [extendedExpected] then
+    throw (IO.userError "extended query constructors do not exactly match parsed CPC AST")
+
   IO.println "CPC parser-state binding and typed query rendering tests passed"
