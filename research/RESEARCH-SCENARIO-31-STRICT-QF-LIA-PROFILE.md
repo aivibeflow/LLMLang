@@ -201,7 +201,7 @@ The implementation keeps Scenario 27's general symbolic API unchanged. Its resul
 
 The function-declaration rule is intentionally conservative: every declared function must be reachable from the program and its body must be type-checked during inlining. This avoids claiming that an unused function body was validated when the current IR has no standalone function-signature type declaration.
 
-Focused local test run: **24 tests passed**; Python `compileall` passed. These tests were run against a local compatibility fixture for the repository's `formal_core` AST interface, not against a complete checkout of the repository. The new test file targets the repository's actual `formal_core.py` dataclasses and exception API. The full prototype test suite has not been run in this environment.
+Focused local test run: **26 tests passed**; Python `compileall` passed. These tests were run against a local compatibility fixture for the repository's `formal_core` AST interface, not against a complete checkout of the repository. The new test file targets the repository's actual `formal_core.py` dataclasses and exception API. The full prototype test suite has not been run in this environment.
 
 This implementation produces candidate queries only. It does not establish validator soundness, renderer correctness, source-to-query semantic correspondence, exact Logos assumption binding, or a program-level proof. No solver was invoked, and no result may be labelled `PROVEN`.
 
