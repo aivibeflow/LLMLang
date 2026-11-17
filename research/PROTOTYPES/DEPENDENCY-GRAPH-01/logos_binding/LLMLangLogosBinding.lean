@@ -121,8 +121,11 @@ def apply2 (op : Eo.UserOp) (a b : Eo.Term) : Eo.Term :=
 def apply3 (op : Eo.UserOp) (a b c : Eo.Term) : Eo.Term :=
   Eo.Term.Apply (Eo.Term.Apply (Eo.Term.Apply (Eo.Term.UOp op) a) b) c
 
-def applyMany (op : Eo.UserOp) (terms : List Eo.Term) : Eo.Term :=
-  terms.foldl Eo.Term.Apply (Eo.Term.UOp op)
+def applyRightAssocNil (op : Eo.UserOp) (terms : List Eo.Term) : Except String Eo.Term := do
+  let seed ← terms.head? |>.toExcept "right-associative operator requires at least one operand"
+  let nil := Eo.__eo_nil (Eo.Term.UOp op) (Eo.__eo_typeof seed)
+  pure <| terms.foldr (fun term acc =>
+    Eo.Term.Apply (Eo.Term.Apply (Eo.Term.UOp op) term) acc) nil
 
 /-- Resolve a source symbol only through the parser-state-derived exact binding. -/
 def resolveQuerySymbol
@@ -147,20 +150,24 @@ def renderQueryTerm {sort : QuerySort}
   | .boolLit value => pure (.Boolean value)
   | .symbol name => resolveQuerySymbol bindings name sort
   | .not value => apply1 .not <$> renderQueryTerm bindings value
-  | .neg value => apply1 .neg <$> renderQueryTerm bindings value
-  | .add left right => apply2 .plus <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
+  | .neg value => apply1 .__eoo_neg_2 <$> renderQueryTerm bindings value
+  | .add left right => do\n      let leftTerm ← renderQueryTerm bindings left\n      let rightTerm ← renderQueryTerm bindings right\n      applyRightAssocNil .plus [leftTerm, rightTerm]
   | .sub left right => apply2 .neg <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
-  | .mul left right => apply2 .mult <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
+  | .mul left right => do\n      let leftTerm ← renderQueryTerm bindings left\n      let rightTerm ← renderQueryTerm bindings right\n      applyRightAssocNil .mult [leftTerm, rightTerm]
   | .eqInt left right => apply2 .eq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
   | .eqBool left right => apply2 .eq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
   | .lt left right => apply2 .lt <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
   | .le left right => apply2 .leq <$> renderQueryTerm bindings left <*> renderQueryTerm bindings right
   | .and terms =>
       if terms.length < 2 then throw "and requires at least two operands"
-      else applyMany .and <$> terms.mapM (renderQueryTerm bindings)
+      else do
+        let rendered ← terms.mapM (renderQueryTerm bindings)
+        applyRightAssocNil .and rendered
   | .or terms =>
       if terms.length < 2 then throw "or requires at least two operands"
-      else applyMany .or <$> terms.mapM (renderQueryTerm bindings)
+      else do
+        let rendered ← terms.mapM (renderQueryTerm bindings)
+        applyRightAssocNil .or rendered
   | .iteInt condition yes no =>
       apply3 .ite <$> renderQueryTerm bindings condition
         <*> renderQueryTerm bindings yes <*> renderQueryTerm bindings no
