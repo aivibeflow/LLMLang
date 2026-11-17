@@ -82,6 +82,19 @@ class ExternalValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(IndexError, "duplicate key"):
             validate_streamed_index(streamed(index))
 
+    def test_external_sort_uses_multiple_bounded_merge_passes(self):
+        index = valid_index()
+        additional = [
+            {"hash": H(n), "kind": "generated", "size": n}
+            for n in range(4, 104)
+        ]
+        index["objects"].extend(additional)
+        index["modules"].append({
+            "module_id": "mod:z",
+            "members": [row["hash"] for row in additional],
+        })
+        self.assertTrue(validate_streamed_index(streamed(index), max_records_in_memory=1))
+
     def test_invalid_memory_bound_is_rejected(self):
         with self.assertRaisesRegex(IndexError, "positive integer"):
             validate_streamed_index(streamed(valid_index()), max_records_in_memory=0)
