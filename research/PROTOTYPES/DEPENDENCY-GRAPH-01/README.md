@@ -215,3 +215,18 @@ python -m unittest discover -s tests -p 'test_qf_lia_profile.py' -v
 ```
 
 The output status is `QF_LIA_CANDIDATE_QUERIES`, not `PROVEN`. The validator and encoder are Python code and are not formally verified; source-to-query correspondence, CPC assumption binding, and real cvc5/Logos proof checking remain outstanding. See [Research Scenario 32](../../RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md) for the canonical IR design and remaining proof obligations.
+
+
+## Lean CPC parser-state binding prototype (Scenario 33)
+
+The `logos_binding/` Lake package pins Logos at the audited commit and Lean 4.34.0. It retains the final CPC parser state, checks assumptions against ordinary `Eo.parseProof`, and binds an exact expected declaration set to unambiguous Bool/Int UConst nodes. Its executable tests cover a valid Int declaration, overloaded/repeated declarations, and unexpected declarations.
+
+Run from this directory:
+
+```bash
+cd logos_binding
+lake build
+lake exe testParserBinding
+```
+
+A GitHub Actions workflow runs these commands for relevant pushes and pull requests. The package has not yet been compiled in the local environment; do not treat it as validated until CI succeeds. See [Research Scenario 33](../../RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md).
