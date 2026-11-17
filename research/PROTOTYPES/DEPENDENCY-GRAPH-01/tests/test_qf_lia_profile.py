@@ -1,7 +1,7 @@
 import unittest
 import json
 from src.formal_core import (Assign, Binary, Call, Const, Function, If, Program,
-                             Return, State, Store, Var, Emit, Raise,
+                             Return, State, Store, Unary, Var, Emit, Raise,
                              UnsupportedConstruct)
 from src.qf_lia_profile import build_qf_lia_queries
 from src.qf_lia_ir import (Declaration, RelationalQuery, Term, render_smt2, query_to_wire, canonical_query_json, QUERY_WIRE_SCHEMA)
