@@ -10,7 +10,7 @@ def expectFailure (result : Except String α) : IO Unit := do
 def main : IO Unit := do
   IO.println "test 1: parse single Int declaration"
   let proof :=
-    "(declare-const x Int)\n" ++
+    "(declare-const x Int) " ++
     "(assume a (= x x))\n"
   IO.println "test 1a: parsing and comparing ordinary parser"
   let (assumptions, _commands, state) ←
@@ -30,8 +30,8 @@ def main : IO Unit := do
 
   IO.println "test 2: reject repeated/overloaded declaration"
   let duplicateProof :=
-    "(declare-const x Int)\n" ++
-    "(declare-const x Bool)\n" ++
+    "(declare-const x Int) " ++
+    "(declare-const x Bool) " ++
     "(assume a (= x true))\n"
   IO.println "test 2a: parsing duplicate declaration"
   let (_, _, duplicateState) ←
@@ -43,8 +43,8 @@ def main : IO Unit := do
 
   IO.println "test 3: reject unexpected declaration"
   let extraProof :=
-    "(declare-const x Int)\n" ++
-    "(declare-const y Int)\n" ++
+    "(declare-const x Int) " ++
+    "(declare-const y Int) " ++
     "(assume a (= x y))\n"
   IO.println "test 3a: parsing extra declaration"
   let (_, _, extraState) ←
@@ -84,7 +84,7 @@ def main : IO Unit := do
 
   IO.println "test 7: exact arithmetic AST equivalence"
   let arithmeticProof :=
-    "(declare-const x Int)\n" ++
+    "(declare-const x Int) " ++
     "(assume a (<= (+ x 2) (* x 3)))\n"
   let (arithmeticAssumptions, _, arithmeticState) ←
     match parseProofWithState arithmeticProof with
@@ -106,8 +106,8 @@ def main : IO Unit := do
 
   IO.println "test 8: exact Boolean and AST equivalence"
   let booleanProof :=
-    "(declare-const p Bool)\n" ++
-    "(declare-const q Bool)\n" ++
+    "(declare-const p Bool) " ++
+    "(declare-const q Bool) " ++
     "(assume a (and p (not q)))\n"
   let (booleanAssumptions, _, booleanState) ←
     match parseProofWithState booleanProof with
