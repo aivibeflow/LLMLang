@@ -8,6 +8,7 @@ def expectFailure (result : Except String α) : IO Unit := do
   | .ok _ => throw (IO.userError "expected fail-closed rejection")
 
 def main : IO Unit := do
+  IO.println "test 1: parse single Int declaration"
   let proof :=
     "(declare-const x Int)\n" ++
     "(assume a (= x x))\n"
@@ -24,6 +25,7 @@ def main : IO Unit := do
   if bindings.length != 1 then
     throw (IO.userError "expected exactly one bound declaration")
 
+  IO.println "test 2: reject repeated/overloaded declaration"
   let duplicateProof :=
     "(declare-const x Int)\n" ++
     "(declare-const x Bool)\n" ++
@@ -34,6 +36,7 @@ def main : IO Unit := do
     | .error error => throw (IO.userError error)
   expectFailure (bindExpectedDeclarations duplicateState [{ name := "x", sort := .bool }])
 
+  IO.println "test 3: reject unexpected declaration"
   let extraProof :=
     "(declare-const x Int)\n" ++
     "(declare-const y Int)\n" ++
