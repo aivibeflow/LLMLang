@@ -265,11 +265,11 @@ The physical archive may differ because of compression, archive timestamps, or s
 
 ```text
 dynamic-package/
-  manifest.bin
+  manifest.toml
   index.bin
   objects/
     <content-hash>...
-  provenance.bin
+  provenance.json
 ```
 
 The manifest records format version, requested roots, included objects, dependency policy, exact dependency edges, hash algorithm identifiers, and snapshot identity. The index describes the archive's objects. Provenance records provider and source information and may carry signatures/attestations. Delivery-only values such as CreatedAt should not be included in the logical content root.
@@ -422,3 +422,42 @@ Identical Action Keys with identical result records may be deduplicated. Conflic
 Cache indexes and payloads are optional, evictable derived artifacts. Adding, removing, recompressing, or rebuilding them must not change semantic object hashes or logical package identity. A physical archive hash may change when cache material changes and must remain distinct from the logical package content root.
 
 This extends the action-cache model in `research/SEMANTIC-COMPILATION-CACHE.md`; it does not create a second cache-key scheme.
+
+## 14. Manifest and representation boundaries
+
+The package manifest should be human-readable text, not a binary index. The current format recommendation is **TOML** (`manifest.toml`).
+
+The manifest is expected to contain a relatively small amount of package-level metadata: package format/schema version, requested roots, included-object/root references, dependency policy, snapshot identity, and references to the package's index and optional cache indexes. These fields do not justify a custom binary encoding. A text manifest also improves code review, diagnostics, Git diffs, and inspection with ordinary tools.
+
+Use separate representations for separate purposes:
+
+| Component | Proposed representation | Responsibility |
+|---|---|---|
+| `manifest.toml` | Human-readable TOML | Package metadata and logical package description |
+| `index.bin` | Compact binary | Canonically ordered object, symbol, export, module, and dependency indexes |
+| `cache/*.index` | Compact binary | Optional derived-result cache lookup indexes |
+| `objects/<content-hash>` | Object-defined binary or canonical payload | Immutable object bodies; encoding follows the object format |
+| `provenance.json` | Human-readable JSON (provisional) | Provider/source provenance and delivery attestations; signatures may use detached binary envelopes where appropriate |
+| `INDEX.md` | Generated Markdown (optional) | Human browsing catalogue derived from the machine index; never authoritative |
+
+Binary encoding is justified for indexes because they benefit from compact fixed-width identifiers, delta/prefix encoding, block compression, binary search, and streaming merge. It is not justified merely because the package is an archive or because its manifest is machine-readable.
+
+The manifest must not duplicate the full index. It should identify the index format/schema and its location, while the index carries per-object lookup records. Optional cache indexes remain separate from the package's core object index and may be omitted without making the package incomplete.
+
+### 14.1 Manifest parsing and logical identity
+
+The parsed manifest should map to a typed logical manifest model. The logical package content root must be computed from a specified canonical projection/encoding of that model and the included semantic object identities—not from raw TOML bytes, whitespace, key order, comments, or line endings. This prevents harmless formatting changes from changing logical package identity.
+
+The exact canonical projection, field inclusion rules, and schema-evolution policy remain open and must be specified before the manifest participates in a normative hash definition. Delivery-only fields (for example, provider timestamps, transport locations, signatures, and archive compression choices) must remain outside the logical content root.
+
+A parser must reject unsupported required schema versions and malformed or ambiguous values. Unknown optional metadata may be preserved or ignored only under an explicit forward-compatibility rule; it must not silently alter the logical content projection.
+
+### 14.2 Representation principle
+
+Prefer the simplest representation that fits each component's access and integrity requirements:
+- human-authored or routinely inspected metadata: a documented text format;
+- large, sorted lookup structures: compact binary indexes;
+- immutable semantic objects: their own canonical object encodings;
+- provenance and attestations: a separately versioned representation with explicit trust semantics.
+
+This is a format-boundary recommendation, not a final wire-format decision. TOML is the current candidate for the manifest; the exact schema and canonical logical projection remain open.
