@@ -130,10 +130,10 @@ class QFLIAProfileTests(unittest.TestCase):
         self.assertEqual(render_smt2(query), result.factors[0].smt2)
 
     def test_renderer_rejects_nonlinear_query_ir(self):
-        x, y = Term("symbol", "Int", atom="x"), Term("symbol", "Int", atom="y")
+        x, y = Term("symbol", "Int", atom="x_L"), Term("symbol", "Int", atom="x_R")
         nonlinear = Term("mul", "Int", (x, y))
         diff = Term("not", "Bool", (Term("eq", "Bool", (x, y)),))
-        query = RelationalQuery("x", "x_L", "x_R", (Declaration("x_L", "Int"), Declaration("x_R", "Int"), Declaration("y", "Int")), diff,
+        query = RelationalQuery("x", "x_L", "x_R", (Declaration("x_L", "Int"), Declaration("x_R", "Int")), diff,
                                 Term("not", "Bool", (Term("eq", "Bool", (nonlinear, x)),)))
         with self.assertRaises(UnsupportedConstruct): render_smt2(query)
 
