@@ -32,6 +32,7 @@ This repository contains a **conceptual research document**, not a production-re
 ## Research planning
 
 - [Research taxonomy](RESEARCH-TAXONOMY.md) — research areas, current coverage, and required outputs for each research.
+- [RT-03 — Core Language Semantics](CORE-LANGUAGE-SEMANTICS.md) — candidate semantic vectors and four profiles (pure functional, imperative/linear, actor/concurrent, effectful functional), compatibility tensions, downstream dependencies, and experiments. No profile is selected.
 - [Cross-aspect dependency map](RESEARCH-DEPENDENCY-MAP.md) — dependency relationships, research waves, and parallelism guidance.
 
 ## Documents
