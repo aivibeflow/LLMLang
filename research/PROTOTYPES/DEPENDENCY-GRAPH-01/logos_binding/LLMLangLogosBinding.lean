@@ -198,17 +198,12 @@ the selected input differs, and at least one observation differs.
 -/
 def renderRelationalAssumptions
     (bindings : List (String × Eo.Term))
+    (factorSort : QuerySort)
     (factorLeft factorRight : String)
     (factorDifference observationsDiffer : QueryTerm .bool) :
     Except String (List Eo.Term) := do
-  let left ← resolveQuerySymbol bindings factorLeft .int
-    <|> resolveQuerySymbol bindings factorLeft .bool
-  let right ← resolveQuerySymbol bindings factorRight .int
-    <|> resolveQuerySymbol bindings factorRight .bool
-  let factorSortMatches :=
-    (hasExpectedSort left .int && hasExpectedSort right .int) ||
-    (hasExpectedSort left .bool && hasExpectedSort right .bool)
-  if !factorSortMatches then throw "relational factor symbols have different sorts"
+  let left ← resolveQuerySymbol bindings factorLeft factorSort
+  let right ← resolveQuerySymbol bindings factorRight factorSort
   let factorDiff := apply1 .not (apply2 .eq left right)
   let obsDiff ← renderQueryTerm bindings observationsDiffer
   let factorExpected ← renderQueryTerm bindings factorDifference
