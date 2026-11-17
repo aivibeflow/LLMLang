@@ -3,6 +3,7 @@ from src.formal_core import (Assign, Binary, Call, Const, Function, If, Program,
                              Return, State, Store, Var, Emit, Raise,
                              UnsupportedConstruct)
 from src.qf_lia_profile import build_qf_lia_queries
+from src.qf_lia_ir import Declaration, RelationalQuery, Term, render_smt2
 
 class QFLIAProfileTests(unittest.TestCase):
     def build(self, program, inputs=None, state=None, visible=(), locals_=None):
@@ -119,6 +120,21 @@ class QFLIAProfileTests(unittest.TestCase):
         p = Program((Return(Binary("add", Var("x"), Var("y"))),))
         result = self.build(p, {"x": "Int", "y": "Int"})
         self.assertNotEqual(result.factors[0].query_ir_digest, result.factors[1].query_ir_digest)
+
+    def test_query_ir_is_typed_and_is_renderer_source(self):
+        result = self.build(Program((Return(Var("x")),)))
+        query = result.factors[0].query_ir
+        self.assertIsInstance(query, RelationalQuery)
+        self.assertIsInstance(query.factor_difference, Term)
+        self.assertEqual(render_smt2(query), result.factors[0].smt2)
+
+    def test_renderer_rejects_nonlinear_query_ir(self):
+        x, y = Term("symbol", "Int", atom="x"), Term("symbol", "Int", atom="y")
+        nonlinear = Term("mul", "Int", (x, y))
+        diff = Term("not", "Bool", (Term("eq", "Bool", (x, y)),))
+        query = RelationalQuery("x", (Declaration("x", "Int"), Declaration("y", "Int")), diff,
+                                Term("not", "Bool", (Term("eq", "Bool", (nonlinear, x)),)))
+        with self.assertRaises(UnsupportedConstruct): render_smt2(query)
 
     def test_boolean_arithmetic_is_rejected(self):
         p = Program((Return(Binary("add", Var("x"), Const(1))),))
