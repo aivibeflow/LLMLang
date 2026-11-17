@@ -1,6 +1,6 @@
 # Research Scenario 32 — Canonical Typed Relational Query IR
 
-**Status:** Python typed query IR and SMT-LIB renderer implemented. A Lean typed query AST and independent Logos Eo.Term renderer compile; exact structural AST tests pass for representative arithmetic and Boolean expressions. No canonical-IR decoder or source-to-query correspondence theorem yet.  
+**Status:** Python typed query IR and SMT-LIB renderer implemented. Lean typed query AST, independent Logos Eo.Term renderer, and a strict version-1 JSON decoder have been added. The decoder is awaiting CI validation; source-to-query correspondence remains unproved.  
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 29–31.  
 **Question:** What intermediate representation is needed so that one canonical relational query can drive independent SMT-LIB and Logos proof-term generation without making rendered text the semantic source of truth?
@@ -98,7 +98,7 @@ Until these obligations are met, the output remains QF_LIA_CANDIDATE_QUERIES. Ne
 
 ## 7. Next implementation step
 
-The parser-state wrapper, exact declaration binding, typed Lean query AST, and first independent Eo.Term renderer are now implemented and CI-validated. Next, decode the canonical typed query IR independently in Lean, resolve its declarations only through the parser-state-derived UConst map, and compare the complete parsed assumption list by native structural equality. Expand the exact-AST test corpus before treating the renderer as covering the full accepted grammar. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
+The parser-state wrapper, exact declaration binding, typed Lean query AST, and independent Eo.Term renderer are implemented and CI-validated. A strict Lean decoder for the versioned canonical JSON envelope has now been added; its CI result and adversarial coverage are pending. The intended trust boundary is: decode independently in Lean, resolve declarations only through parser-state-derived UConst bindings, then compare the complete parsed assumption list by native structural equality. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
 
 
 ## 8. Pinned Logos API audit notes
@@ -140,3 +140,18 @@ def parseProofWithState (proof : String) :
 ```
 
 This source-level sketch is superseded by the compiled implementation in `PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`. CI currently verifies agreement between the state-preserving parser path and ordinary `Eo.parseProof` on the exercised fixtures, and checks exact state-derived bindings. The current tests do not yet constitute exhaustive equivalence over the full accepted QF_LIA CPC grammar.
+
+
+## 10. Canonical JSON wire envelope (version 1)
+
+The Lean decoder now defines the intended interchange shape. The envelope is UTF-8 JSON with exactly these top-level fields:
+
+- `schema`: the literal `llmlang.qf_lia.relational-query/1`;
+- `factor`: non-empty source-level factor name;
+- `declarations`: array of objects with exactly `name` and `sort` (`Int` or `Bool`);
+- `factor_difference` and `observations_differ`: recursively typed term objects;
+- `observation_contract`: non-empty contract identifier.
+
+Every term object has exactly `op`, `sort`, `args`, and `atom`. Literal and symbol nodes use an integer, Boolean, or string atom respectively and an empty argument array. Composite nodes use `atom: null`. The decoder rejects unknown/missing fields, unknown schema versions and operators, wrong sorts, malformed arities, duplicate declarations, and nonlinear multiplication. It does not coerce values.
+
+This is a wire-format contract for the Lean decoder, not yet a complete Python exporter or a formal proof that the Python producer emits only valid documents. The decoder must be exercised by CI with positive and adversarial fixtures before this boundary is treated as validated.
