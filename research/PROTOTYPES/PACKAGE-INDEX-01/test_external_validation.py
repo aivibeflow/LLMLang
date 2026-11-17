@@ -77,8 +77,8 @@ class ExternalValidationTests(unittest.TestCase):
 
     def test_duplicate_table_key_is_rejected(self):
         index = valid_index()
-        index["objects"].append(dict(index["objects"][0]))
-        index["objects"].sort(key=lambda row: row["hash"])
+        first = dict(index["objects"][0])
+        index["objects"] = [first, dict(first)] + index["objects"][1:]
         with self.assertRaisesRegex(IndexError, "duplicate key"):
             validate_streamed_index(streamed(index))
 
