@@ -1,9 +1,10 @@
 import unittest
+import json
 from src.formal_core import (Assign, Binary, Call, Const, Function, If, Program,
                              Return, State, Store, Var, Emit, Raise,
                              UnsupportedConstruct)
 from src.qf_lia_profile import build_qf_lia_queries
-from src.qf_lia_ir import Declaration, RelationalQuery, Term, render_smt2
+from src.qf_lia_ir import (Declaration, RelationalQuery, Term, render_smt2, query_to_wire, canonical_query_json, QUERY_WIRE_SCHEMA)
 
 class QFLIAProfileTests(unittest.TestCase):
     def build(self, program, inputs=None, state=None, visible=(), locals_=None):
@@ -135,6 +136,21 @@ class QFLIAProfileTests(unittest.TestCase):
         query = RelationalQuery("x", (Declaration("x", "Int"), Declaration("y", "Int")), diff,
                                 Term("not", "Bool", (Term("eq", "Bool", (nonlinear, x)),)))
         with self.assertRaises(UnsupportedConstruct): render_smt2(query)
+
+    def test_canonical_query_json_wire_schema_is_versioned_and_deterministic(self):
+        result = self.build(Program((Return(Var("x")),)))
+        query = result.factors[0].query_ir
+        first = canonical_query_json(query)
+        self.assertEqual(first, canonical_query_json(query))
+        wire = json.loads(first)
+        self.assertEqual(wire["schema"], QUERY_WIRE_SCHEMA)
+        self.assertEqual(wire["schema"], "llmlang.qf_lia.relational-query/1")
+        self.assertEqual(set(wire), {
+            "schema", "factor", "declarations", "factor_difference",
+            "observations_differ", "observation_contract"
+        })
+        self.assertEqual(wire, query_to_wire(query))
+        self.assertEqual(set(wire["factor_difference"]), {"op", "sort", "args", "atom"})
 
     def test_boolean_arithmetic_is_rejected(self):
         p = Program((Return(Binary("add", Var("x"), Const(1))),))

@@ -2,6 +2,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 import re
+import json
 from typing import Any
 from .formal_core import UnsupportedConstruct
 
@@ -86,3 +87,31 @@ def render_smt2(query: RelationalQuery) -> str:
     lines.append(f"(assert {render_term(query.observations_differ)})")
     lines.append("(check-sat)")
     return "\n".join(lines) + "\n"
+
+
+QUERY_WIRE_SCHEMA = "llmlang.qf_lia.relational-query/1"
+
+
+def _term_to_wire(term: Term) -> dict[str, Any]:
+    """Encode one validated typed term using the strict Lean wire shape."""
+    atom = term.atom if term.op in ("bool", "int", "symbol") else None
+    return {"op": term.op, "sort": term.sort,
+            "args": [_term_to_wire(child) for child in term.args], "atom": atom}
+
+
+def query_to_wire(query: RelationalQuery) -> dict[str, Any]:
+    """Return the versioned JSON-compatible envelope consumed by the Lean decoder."""
+    render_smt2(query)  # fail-closed structural validation
+    return {
+        "schema": QUERY_WIRE_SCHEMA,
+        "factor": query.factor,
+        "declarations": [{"name": d.name, "sort": d.sort} for d in query.declarations],
+        "factor_difference": _term_to_wire(query.factor_difference),
+        "observations_differ": _term_to_wire(query.observations_differ),
+        "observation_contract": query.observation_contract,
+    }
+
+
+def canonical_query_json(query: RelationalQuery) -> str:
+    """Serialize a validated query deterministically for the independent Lean decoder."""
+    return json.dumps(query_to_wire(query), sort_keys=True, separators=(",", ":"), ensure_ascii=False)
