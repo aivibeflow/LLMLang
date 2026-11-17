@@ -3,7 +3,7 @@
 **Status:** Research proposal; logical model is executable, wire format is not normative  
 **Research area:** RT-12 — Libraries, packages, templates, and artifact reuse  
 **Updated:** 2026-11-18  
-**Related:** [Package System](../PACKAGE-SYSTEM.md), [Package Manifest and Content Identity](../PACKAGE-MANIFEST-AND-IDENTITY.md), [Package Identity Prototype 01](../PACKAGE-IDENTITY-01/README.md)
+**Related:** [Package System](PACKAGE-SYSTEM.md), [Package Manifest and Content Identity](PACKAGE-MANIFEST-AND-IDENTITY.md), [Package Identity Prototype 01](PROTOTYPES/PACKAGE-IDENTITY-01/README.md)
 
 ## 1. Scope
 
