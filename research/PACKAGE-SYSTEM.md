@@ -351,3 +351,74 @@ A compact binary index is justified by the need for fast discovery, binary searc
 Dynamic packages are a natural extension of content-addressed storage: a provider materializes the exact dependency closure for requested roots from a consistent local snapshot. This capability should share the same package manifest and index model as static packages.
 
 This report is exploratory. Its recommendations are not normative LLMLang requirements until reviewed and explicitly accepted.
+
+
+## 13. Optional derived-result cache indexes
+
+A package may optionally carry indexes of previously computed results for validation, compilation, analysis, tests, and proofs. Their purpose is to let consumers discover reusable work without repeating actions. A package remains complete and usable when all cache material is omitted.
+
+Possible layout:
+
+```text
+package/
+  manifest.bin
+  index.bin
+  cache/
+    validation.index
+    compilation.index
+    analysis.index
+    tests.index
+    proofs.index
+  cache-artifacts/
+    <artifact-hash>...
+```
+
+The exact partitioning (one unified action-result index or separate indexes by action kind) remains open.
+
+### 13.1 Action Key, not bare object hash
+
+A Content Hash identifies an immutable input object, but does not uniquely identify a validation or compilation result. Results may depend on dependency closure, action implementation, language/toolchain version, target, configuration, runtime, and other inputs.
+
+The cache index therefore maps a canonical **Action Key** to a result record:
+
+```text
+ActionKey = H(
+  action_kind,
+  exact_input_hashes_and_dependency_closure,
+  language_toolchain_version,
+  relevant_configuration,
+  target_and_environment_inputs
+)
+
+ActionKey -> ResultRecord -> ArtifactHash(es)
+```
+
+A record identifies action kind, exact input hashes and relevant dependency closure, language/toolchain version, action implementation identity where independently relevant, target/configuration/runtime inputs, result status and scope, output Artifact Hash values, dependency-completeness and determinism classification, and provenance where applicable.
+
+### 13.2 Language version binding
+
+Every cache result must state the **language version** used to produce it. This version is part of the Action Key whenever language semantics, validation rules, compiler behavior, code generation, or evidence interpretation can affect the result.
+
+The version identifier must distinguish releases whose behavior can differ. If the public language version does not change for a compiler/toolchain patch that can affect results, the record must additionally identify the relevant toolchain build or component version. A friendly language version alone must not authorize reuse across behavior-changing compiler builds. A result from another relevant version is a cache miss unless an explicit, validated compatibility rule establishes safe reuse.
+
+### 13.3 Reuse and trust rules
+
+A cache hit is eligible only when the Action Key matches exactly; all result-determining dependencies are captured; referenced artifacts pass Artifact Hash verification; result scope and target cover the requested action; and determinism and trust policies permit reuse.
+
+A validation result can replace validation only for the exact semantic inputs, dependency closure, language/toolchain version, and validation profile it covers. Compilation additionally depends on target, backend, ABI, optimization/configuration, and relevant runtime/toolchain inputs. A bare flag such as “hash X was compiled” is insufficient.
+
+Deterministic failures may be cached if fully keyed. Timeouts, resource exhaustion, transient infrastructure failures, and unavailable services must not be treated as reusable semantic outcomes. A cache record is a claim that an action ran, not proof that it was correct; verification evidence and producer trust remain separate.
+
+### 13.4 Index and payload separation
+
+Cache indexes are separate from semantic Object, Symbol, Export, and Dependency indexes. They reuse compact-index principles: canonical sorted keys (normally Action Key), binary search, deterministic streaming merge, independently compressed blocks for large indexes, and optional sparse lookup where justified.
+
+A cache index may reference result payloads by Artifact Hash without embedding them. A package may include selected payloads in `cache-artifacts/`, or they may be fetched from local, team, or remote caches. Missing or evicted payloads are ordinary cache misses, not package corruption.
+
+Identical Action Keys with identical result records may be deduplicated. Conflicting records for one Action Key are integrity/reproducibility diagnostics, not last-writer-wins. Equal output Artifact Hash values do not merge distinct Action Keys.
+
+### 13.5 Optionality and package identity
+
+Cache indexes and payloads are optional, evictable derived artifacts. Adding, removing, recompressing, or rebuilding them must not change semantic object hashes or logical package identity. A physical archive hash may change when cache material changes and must remain distinct from the logical package content root.
+
+This extends the action-cache model in `research/SEMANTIC-COMPILATION-CACHE.md`; it does not create a second cache-key scheme.
