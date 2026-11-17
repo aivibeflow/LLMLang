@@ -44,6 +44,7 @@ This repository contains a **conceptual research document**, not a production-re
 - [Prototype 17 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-17-RESULTS.md) — typed Requirement IR experiment with provenance, contradiction/underdetermination checks, and finite scenarios.
 
 - [SEMANTIC-COMPILATION-CACHE.md](SEMANTIC-COMPILATION-CACHE.md) — content-addressed action graphs, incremental compilation, dependency-aware invalidation, cached analysis/tests/proofs, and cache soundness.
+- [COMPILATION-CACHE-SPEEDUP-ESTIMATE.md](COMPILATION-CACHE-SPEEDUP-ESTIMATE.md) — analytical speedup model, illustrative local/component/warm-build scenarios, sensitivity, and benchmark plan.
 
 ## Guiding boundary
 
