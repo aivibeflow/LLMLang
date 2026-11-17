@@ -119,5 +119,6 @@ Formal verification can establish that an implementation satisfies a formal spec
 
 
 - [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — proposed textual Git representation, separation of Git/semantic/action identities, automatic custom merge driver, interactive mergetool, and repository-level SPG merge architecture.
+- [RT-19 — Toolchain Server and Semantic Development API](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — research proposal for a transport-neutral semantic API, MCP adapter, durable workspaces and Change Sets, in-memory/persistent SPG storage, optimistic concurrency, deterministic text import/export, Git coordination, recovery, and authorization. No architecture decision or implementation is accepted yet.
 
 - [Package Index Logical Model Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md) now includes a lazy k-way merge over sorted table streams, with regression tests for laziness, large generated streams, deduplication, conflicts, and invalid input ordering.
