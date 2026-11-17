@@ -103,6 +103,9 @@ class QFLIAProfileTests(unittest.TestCase):
         self.assertEqual(a.factors, b.factors)
         self.assertEqual(a.ir_digest, b.ir_digest)
         self.assertEqual(len(a.factors[0].query_sha256), 64)
+        self.assertEqual(len(a.factors[0].query_ir_digest), 64)
+        self.assertTrue(a.validator_version)
+        self.assertTrue(a.encoder_version)
 
     def test_boolean_arithmetic_is_rejected(self):
         p = Program((Return(Binary("add", Var("x"), Const(1))),))
