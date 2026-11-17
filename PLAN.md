@@ -275,6 +275,9 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Status:** researched and prototyped in parts; full compiler integration and empirical validation are not implemented.
 
 ## 3.3 Semantic build and cache graph
+- [ ] Define optional package-distributed cache-index files for validation, compilation, analysis, tests, and proofs; decide whether indexes and result payloads are embedded or separately fetched.
+- [ ] Bind every cached result to exact Action Key inputs, dependency closure, and the language/toolchain version used; reject reuse across behavior-changing versions unless compatibility is established.
+- [ ] Define cache-index merge, conflict handling, artifact availability/eviction, and trust/evidence checks.
 
 - [ ] Define typed build actions and their inputs/outputs.
 - [ ] Keep Semantic Hash, Action Key, and Artifact Hash distinct.
@@ -288,7 +291,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Existing evidence:** `research/SEMANTIC-COMPILATION-CACHE.md`, `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, and `research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
 
-**Status:** researched; detailed design, integration with the final identity model, and implementation validation remain open.
+**Status:** researched; detailed design, integration with optional package-distributed cache indexes, language/toolchain version binding, final identity model, and implementation validation remain open.
 
 ## 3.4 Quantify compilation speedup
 
@@ -519,6 +522,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 ## 7.2 Libraries, packages, templates, and artifact ecosystem
 
 ### Package indexes and dynamic package delivery
+- [ ] Define optional derived-result cache indexes in package archives and their integration with the semantic action cache; indexes must be independently omittable and must not affect logical package identity.
 
 - [ ] Define the logical package-content model: roots, included objects, typed dependency edges, exports, modules, evidence, and provenance.
 - [ ] Define compact canonical binary index tables and their key ordering; require binary-search and deterministic streaming-merge semantics.
@@ -534,7 +538,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Existing evidence:** [Package System: Static and Dynamic Packages](research/PACKAGE-SYSTEM.md), extending the earlier [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md) and [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md) proposals.
 
-**Status:** researched at the conceptual level; compact-index, block-compression, sparse-lookup, and dynamic-provider architecture proposed. No wire format, codec policy, provider protocol, or package identity scheme has been accepted.
+**Status:** researched at the conceptual level; compact-index, block-compression, sparse-lookup, dynamic-provider, and optional derived-result cache-index architecture proposed. No wire format, codec policy, provider protocol, cache-index schema, or package identity scheme has been accepted.
 
 
 - [ ] Define Package versus Library boundaries.
