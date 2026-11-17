@@ -490,3 +490,12 @@ This is a proposed logical schema, not a frozen format. Dependency taxonomy, Sta
 ## 13. Streaming index merge prototype
 
 The logical index prototype now provides a lazy k-way merge for one already-sorted table at a time. It keeps one current record per input stream, deduplicates identical records across streams, and rejects conflicting or out-of-order records. The merge itself uses O(k) state for k input streams. This does not yet solve bounded-memory cross-table reference validation: that requires sorted merge-join passes or a disk-backed membership structure. There is also no streaming archive writer or binary index encoding yet. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Package Index Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
+
+
+## 14. External-memory cross-table validation prototype
+
+The Package Index Prototype 01 now provides `validate_streamed_index`. It validates sorted Objects, Dependencies, Exports, and Modules streams, spools the rows to temporary JSONL files, and checks cross-table references with sorted merge joins. References whose ordering differs from their source table are externally sorted in bounded chunks: included dependency targets, module members, and export object hashes. Dependency sources and export-to-module references use their existing table order.
+
+The validator checks that dependency sources are included objects; included dependency targets, module members, and export objects exist; and export module IDs exist. External dependency targets (`included=false`) are intentionally not required to be package members. It rejects unsorted or duplicate table keys. In-memory sorting is bounded by `max_records_in_memory`; temporary disk use is proportional to the input index and generated sort runs.
+
+This is an exploratory local-filesystem implementation, not a finalized binary index or provider protocol. It assumes sorted input streams and uses JSONL temporary files. A streaming archive writer, disk-space policy, interruption recovery, and portable temporary-storage abstraction remain open. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
