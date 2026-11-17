@@ -99,3 +99,6 @@ Formal verification can establish that an implementation satisfies a formal spec
 
 
 - [Lean CPC parser-state binding prototype](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/) — pinned Lean/Lake package retaining the Logos CPC parser's final declaration state, binding expected Bool/Int declarations to exact UConst nodes, and independently rendering typed query ASTs; GitHub Actions CI passes, with exact arithmetic and Boolean AST fixtures.
+
+
+- [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — proposed textual Git representation, separation of Git/semantic/action identities, automatic custom merge driver, interactive mergetool, and repository-level SPG merge architecture.
