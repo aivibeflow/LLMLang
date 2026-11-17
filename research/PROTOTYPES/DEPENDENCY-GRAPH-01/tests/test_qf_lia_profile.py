@@ -175,6 +175,11 @@ class QFLIAProfileTests(unittest.TestCase):
                                       result.observations_differ, result.observation_contract)
         with self.assertRaises(UnsupportedConstruct):
             render_smt2(substituted)
+        mismatched = RelationalQuery(result.factor, result.factor_left, result.factor_right,
+                                     result.declarations, Term("bool", "Bool", atom=True),
+                                     result.observations_differ, result.observation_contract)
+        with self.assertRaises(UnsupportedConstruct):
+            render_smt2(mismatched)
 
     def test_renderer_rejects_wrong_sort_factor_pair(self):
         query = RelationalQuery("x", "x_L", "x_R",
