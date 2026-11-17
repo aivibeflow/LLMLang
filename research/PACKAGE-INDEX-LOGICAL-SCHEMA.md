@@ -134,13 +134,13 @@ No input is preferred by recency, source order, provider priority, or timestamp.
 
 ### 6.1 Streaming and memory
 
-Prototype 01 now includes `merge_sorted_rows(table, *streams)`, a lazy k-way merge over already sorted row iterables. It keeps one current row per stream in a heap, validates strict per-stream key order, deduplicates identical cross-stream records, and rejects conflicting records or repeated keys within one stream. Merge state is O(k), where k is the number of input streams, excluding current rows and consumer-owned output buffering.
+Prototype 01 includes `merge_sorted_rows(table, *streams)`, a lazy k-way merge over sorted row iterables. It keeps one current row per stream in a heap, validates strict per-stream key order, deduplicates identical cross-stream records, and rejects conflicts or repeated keys within one stream. Merge state is O(k), where k is the number of input streams, excluding current rows and consumer-owned output buffering.
 
-`merge_sorted_indexes` exposes one lazy merged iterator per table without materializing merged tables. The current implementation validates each row's local schema and scalar fields, but deliberately does not claim full cross-table referential validation in bounded memory.
+`merge_sorted_indexes` exposes one lazy merged iterator per table. Cross-table validation is implemented separately by `validate_streamed_index(index_stream, max_records_in_memory=...)`. It spools canonical table rows to temporary JSONL files, externally sorts references whose natural table order differs from the referenced key order (dependency targets, module members, and export object references), and validates references with sorted merge joins. Dependency sources and export-to-module references use their existing canonical order directly.
 
-Cross-table validation is a separate problem: a naïve implementation builds in-memory membership sets, which are O(number of objects/modules). A scalable implementation should perform sorted merge-join passes over canonical Objects and Modules streams (or use a disk-backed membership structure), rather than silently loading the entire merged index into RAM. A streaming archive writer and end-to-end external-memory validation are not implemented yet.
+The validator does not retain the complete Objects or Modules key sets in RAM. Its in-memory external-sort chunk is bounded by `max_records_in_memory`; temporary disk use is proportional to the spooled index and generated reference runs. It rejects unsorted or duplicate table keys and checks dependency sources, included dependency targets, module members, export modules, and export objects. External dependencies (`included=false`) do not require package membership.
 
-The in-memory `normalize` and `merge` APIs remain available as simple reference implementations for small fixtures.
+The validator currently assumes each input table is already a sorted iterable (typically the output of `merge_sorted_rows`). It is a research prototype: it uses temporary local disk and JSONL spooling, not a finalized binary/external-memory storage protocol. A streaming archive writer is still not implemented. The in-memory `normalize` and `merge` APIs remain as simple reference implementations for small fixtures.
 
 ### 6.2 Merge associativity
 
