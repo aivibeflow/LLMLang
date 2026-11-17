@@ -115,18 +115,12 @@ def logical_index_hash(index: dict[str, Any]) -> str:
         normalized[table] = [record for _, record in encoded]
     return digest("package-index.logical.v1", normalized)
 
-def package_content_root(manifest: dict[str, Any], index: dict[str, Any]) -> str:
-    actual_index_hash = logical_index_hash(index)
+def package_content_root_from_index_hash(
+    manifest: dict[str, Any], actual_index_hash: str
+) -> str:
     if manifest["index"]["logical_hash"] != actual_index_hash:
         raise PackageFormatError("declared index logical hash mismatch")
     content = manifest["content"]
-    included_hashes = {
-        record.get("hash") for record in index["objects"]
-        if isinstance(record, dict) and isinstance(record.get("hash"), str)
-    }
-    missing_roots = set(content["roots"]) - included_hashes
-    if missing_roots:
-        raise PackageFormatError("package root is not present in included object membership")
     projection = {
         "roots": sorted(content["roots"], key=lambda x: (parse_hash(x)[0], parse_hash(x)[1])),
         "dependency_policy": content["dependency_policy"],
@@ -134,6 +128,18 @@ def package_content_root(manifest: dict[str, Any], index: dict[str, Any]) -> str
         "index_logical_hash": actual_index_hash,
     }
     return digest("package-content-root.v1", projection)
+
+
+def package_content_root(manifest: dict[str, Any], index: dict[str, Any]) -> str:
+    content = manifest["content"]
+    included_hashes = {
+        record.get("hash") for record in index["objects"]
+        if isinstance(record, dict) and isinstance(record.get("hash"), str)
+    }
+    if set(content["roots"]) - included_hashes:
+        raise PackageFormatError("package root is not present in included object membership")
+    return package_content_root_from_index_hash(manifest, logical_index_hash(index))
+
 
 def verify_manifest(manifest_bytes: bytes, index: dict[str, Any]) -> str:
     manifest = parse_manifest(manifest_bytes)
