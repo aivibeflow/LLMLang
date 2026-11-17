@@ -4,8 +4,8 @@ import unittest
 from pathlib import Path
 
 from toolchain import (
-    Change, InMemoryToolchain, InvalidSnapshot, SemanticConflict,
-    StaleObject, StaleRevision, digest,
+    Change, Entity, InMemoryToolchain, InvalidSnapshot, NotFound,
+    SemanticConflict, StaleObject, StaleRevision, digest,
 )
 
 
@@ -13,7 +13,7 @@ class ToolchainWorkspaceTests(unittest.TestCase):
     def setUp(self):
         self.tc = InMemoryToolchain()
         self.base = self.tc.create_snapshot([
-            __import__("toolchain").Entity("op:hello", "operation", {"name": "hello", "arity": 0}),
+            Entity("op:hello", "operation", {"name": "hello", "arity": 0}),
         ])
 
     def test_add_update_accept_export_import_round_trip(self):
@@ -54,7 +54,7 @@ class ToolchainWorkspaceTests(unittest.TestCase):
         current = self.tc.get_workspace(ws.workspace_id)
         self.assertEqual(current.revision, 0)
         self.assertEqual(current.working_snapshot, self.base)
-        with self.assertRaises(Exception):
+        with self.assertRaises(NotFound):
             self.tc.get_entity(self.base, "op:new")
         self.assertEqual(self.tc.get_entity(self.base, "op:hello"), original)
 
