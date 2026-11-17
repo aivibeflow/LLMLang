@@ -1,3 +1,4 @@
+import Lean
 import Cpc.Parser
 
 namespace LLMLang.LogosBinding
@@ -229,7 +230,7 @@ structure DecodedRelationalQuery where
   factorDifference : QueryTerm .bool
   observationsDiffer : QueryTerm .bool
   observationContract : String
-  deriving Repr
+  
 
 private def jsonField (value : Json) (key : String) : Except String Json :=
   value.getObjVal? key
@@ -277,22 +278,22 @@ mutual
     match op with
     | "int" =>
         if !args.isEmpty then throw "integer literal must have no arguments"
-        .intLit (← jsonInt atom)
+        pure (.intLit (← jsonInt atom))
     | "symbol" =>
         if !args.isEmpty then throw "symbol must have no arguments"
-        .intSymbol (← atom.getStr?)
+        pure (.intSymbol (← atom.getStr?))
     | "neg" =>
         requireNullField value "atom"
         if args.size != 1 then throw "neg expects exactly one argument"
-        .neg (← decodeIntTerm args[0]!)
+        pure (.neg (← decodeIntTerm args[0]!))
     | "add" =>
         requireNullField value "atom"
         if args.size != 2 then throw "add expects exactly two arguments"
-        .add (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!)
+        pure (.add (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!))
     | "sub" =>
         requireNullField value "atom"
         if args.size != 2 then throw "sub expects exactly two arguments"
-        .sub (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!)
+        pure (.sub (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!))
     | "mul" =>
         requireNullField value "atom"
         if args.size != 2 then throw "mul expects exactly two arguments"
@@ -305,7 +306,7 @@ mutual
     | "ite" =>
         requireNullField value "atom"
         if args.size != 3 then throw "ite expects exactly three arguments"
-        .iteInt (← decodeBoolTerm args[0]!) (← decodeIntTerm args[1]!) (← decodeIntTerm args[2]!)
+        pure (.iteInt (← decodeBoolTerm args[0]!) (← decodeIntTerm args[1]!) (← decodeIntTerm args[2]!))
     | _ => throw s!"unsupported Int query operator: {op}"
 
   partial def decodeBoolTerm (value : Json) : Except String (QueryTerm .bool) := do
@@ -318,14 +319,14 @@ mutual
     match op with
     | "bool" =>
         if !args.isEmpty then throw "Boolean literal must have no arguments"
-        .boolLit (← jsonBool atom)
+        pure (.boolLit (← jsonBool atom))
     | "symbol" =>
         if !args.isEmpty then throw "symbol must have no arguments"
-        .boolSymbol (← atom.getStr?)
+        pure (.boolSymbol (← atom.getStr?))
     | "not" =>
         requireNullField value "atom"
         if args.size != 1 then throw "not expects exactly one argument"
-        .not (← decodeBoolTerm args[0]!)
+        pure (.not (← decodeBoolTerm args[0]!))
     | "eq" =>
         requireNullField value "atom"
         if args.size != 2 then throw "eq expects exactly two arguments"
@@ -333,31 +334,31 @@ mutual
         let rightSort ← jsonStringField args[1]! "sort"
         if leftSort != rightSort then throw "eq operands have different sorts"
         if leftSort == "Int" then
-          .eqInt (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!)
+          pure (.eqInt (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!))
         else if leftSort == "Bool" then
-          .eqBool (← decodeBoolTerm args[0]!) (← decodeBoolTerm args[1]!)
+          pure (.eqBool (← decodeBoolTerm args[0]!) (← decodeBoolTerm args[1]!))
         else
           throw "eq supports only Int and Bool operands"
     | "lt" =>
         requireNullField value "atom"
         if args.size != 2 then throw "lt expects exactly two arguments"
-        .lt (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!)
+        pure (.lt (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!))
     | "le" =>
         requireNullField value "atom"
         if args.size != 2 then throw "le expects exactly two arguments"
-        .le (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!)
+        pure (.le (← decodeIntTerm args[0]!) (← decodeIntTerm args[1]!))
     | "and" =>
         requireNullField value "atom"
         if args.size < 2 then throw "and expects at least two arguments"
-        .and (← args.toList.mapM decodeBoolTerm)
+        pure (.and (← args.toList.mapM decodeBoolTerm))
     | "or" =>
         requireNullField value "atom"
         if args.size < 2 then throw "or expects at least two arguments"
-        .or (← args.toList.mapM decodeBoolTerm)
+        pure (.or (← args.toList.mapM decodeBoolTerm))
     | "ite" =>
         requireNullField value "atom"
         if args.size != 3 then throw "ite expects exactly three arguments"
-        .iteBool (← decodeBoolTerm args[0]!) (← decodeBoolTerm args[1]!) (← decodeBoolTerm args[2]!)
+        pure (.iteBool (← decodeBoolTerm args[0]!) (← decodeBoolTerm args[1]!) (← decodeBoolTerm args[2]!))
     | _ => throw s!"unsupported Bool query operator: {op}"
 end
 
