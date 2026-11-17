@@ -32,7 +32,7 @@ path = "index.bin"
 format_version = 1
 logical_hash = "{ih}"
 '''
-    if cache: text += '\\n[cache]\\nindexes = ["cache/validation.index"]\\n'
+    if cache: text += '\n[cache]\nindexes = ["cache/validation.index"]\n'
     parsed = parse_manifest(text.encode())
     root = package_content_root(parsed, index)
     return text.replace("sha256:" + "0" * 64, root)
@@ -52,7 +52,7 @@ class PackageIdentityInvariants(unittest.TestCase):
         self.index = sample_index()
         self.raw = manifest_text(self.index).encode()
     def test_pmi_001_toml_formatting_does_not_change_root(self):
-        alt = self.raw.decode().replace("schema_version = 1", "# comment\\nschema_version = 1") + "\\n# trailing comment\\n"
+        alt = self.raw.decode().replace("schema_version = 1", "# comment\nschema_version = 1") + "\n# trailing comment\n"
         self.assertEqual(verify_manifest(self.raw, self.index), verify_manifest(alt.encode(), self.index))
     def test_pmi_002_root_order_does_not_change_root(self):
         a = manifest_text(self.index, roots=[H1, H2]).encode()
@@ -99,7 +99,7 @@ class PackageIdentityInvariants(unittest.TestCase):
             self.raw.decode().replace(f"roots = ['{H1}']", f"roots = ['{H1}', '{H1}']"),
             self.raw.decode().replace("schema_version = 1", "schema_version = 99"),
             self.raw.decode().replace('path = "index.bin"', 'path = "../index.bin"'),
-            self.raw.decode().replace("schema_version = 1", "schema_version = 1\\nschema_version = 1"),
+            self.raw.decode().replace("schema_version = 1", "schema_version = 1\nschema_version = 1"),
         ]
         for bad in variants:
             with self.subTest(bad=bad), self.assertRaises(PackageFormatError): parse_manifest(bad.encode())
