@@ -8,7 +8,7 @@ The repository separates ongoing research from the current candidate specificati
 - [`draft/`](draft/) — the single current candidate version of the LLMLang specification. This directory is intentionally empty until a candidate specification is ready to be placed there.
 
 Start with:
-- [Open design questions and decisions](todo.md) — project-wide register of unresolved questions requiring discussion.
+- [Open design questions and decisions](Todo.md) — project-wide register of unresolved questions requiring discussion.
 - [Research overview](research/README.md)
 - [LLMLang concept research](research/LLMLang-CONCEPT.md)
 - [Formal verification research](research/LLMLang-FORMAL-VERIFICATION.md)
