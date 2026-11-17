@@ -205,15 +205,15 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Existing evidence:** scenarios 28–33, prototype 29, Lean CPC parser-state binding prototype, Logos integration, and `research/LLMLang-FORMAL-VERIFICATION.md`.
 
-**Status:** in progress; the pinned Lean/Logos bridge, typed query renderer, strict versioned JSON decoder, and tests are implemented in the prototype. The latest pinned CI run (2026-11-17, run 44160616268) failed while building `SourceQuerySemantics.lean`; its test step was skipped. The source-to-query correspondence theorem is not yet kernel-validated. Do not mark this path proven.
+**Status:** partially validated; pinned Lean 4.34.0 / Logos build and the complete parser-state, typed-renderer, and JSON decoder test step passed in CI run [44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422) on commit `08076b9e95e5b1bfc2368fc00b049efea620b9b4`. `SourceQuerySemantics` compiled successfully, so `translateExpr_preserves_eval` was kernel-checked for the deliberately small pure Int/Bool expression fragment. This is not a proof of source-program-to-query translation, command/program semantics, paired execution, CPC assumption binding end-to-end, or whole-program correctness. Keep those boundaries explicit.
 
 ## 2.3 Lean, Logos, SMT, and solver integration
 
-- [ ] Complete explicit Lean build and test validation for the pinned Lean 4.34.0 environment and pinned Logos revision (latest CI run failed in `SourceQuerySemantics.lean`; repair and rerun).
-- [x] Implement the CPC parser-state bridge and exact symbol identity binding; [ ] obtain a successful pinned CI build and adversarial validation.
-- [x] Implement construction of expected `Eo.Term` values from the canonical typed Relational Query IR; [ ] complete end-to-end validation against CPC assumptions.
-- [x] Implement strict versioned JSON decoding and rejection of malformed or unsupported input; [ ] complete the full CI test run.
-- [ ] Prove or independently validate the encoder's semantic preservation obligations; the current small expression-level preservation proof is incomplete and must not be treated as established.
+- [x] Complete explicit Lean build and test validation for the pinned Lean 4.34.0 environment and pinned Logos revision; CI run [44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422) passed all build and test steps.
+- [x] Implement the CPC parser-state bridge and exact symbol identity binding; obtain a successful pinned CI build and adversarial validation (CI run 44175854422 passed the existing parser-state tests).
+- [x] Implement construction of expected `Eo.Term` values from the canonical typed Relational Query IR; the pinned CI renderer and AST-equivalence tests pass. Full end-to-end validation against source-derived CPC assumptions remains open.
+- [x] Implement strict versioned JSON decoding and rejection of malformed or unsupported input; the full pinned CI test step, including adversarial decoder tests, passes.
+- [x] Kernel-check the expression-level source-to-query preservation theorem for the typed pure Int/Bool expression fragment (`SourceQuerySemantics.lean`, CI run 44175854422); [ ] prove source-to-query correspondence for the actual canonical relational query encoder and expand to commands/paired program executions.
 - [ ] Verify the exact assumption list and query binding adversarially, including malformed inputs, duplicate/extra declarations, wrong sorts, and mismatched query assumptions.
 - [ ] Keep QF_LIA as a conservative profile; reject unsupported strings, nonlinear arithmetic, and constructs outside the profile.
 - [ ] Test SAT/UNSAT/UNKNOWN handling and solver protocol failures.
@@ -221,7 +221,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; QF_LIA Python prototype and focused tests; CI workflow.
 
-**Status:** in progress. CI and source-level audits exist, but explicit full build/test validation and the remaining typed-term/proof boundary work are gates.
+**Status:** partially validated. The pinned Lean/Logos build and complete current test suite pass (run 44175854422). The expression-level theorem is kernel-checked for its stated fragment. Exact source-to-query correspondence, complete CPC assumption binding to the original query, and program-level proof obligations remain open.
 
 ## 2.4 Correctness of optimization and translation
 
@@ -615,7 +615,7 @@ The following is a snapshot of known work, not a claim that all corresponding qu
 | Formal verification architecture | `LLMLang-FORMAL-VERIFICATION.md` | Researched; complete formal semantics not finished |
 | Typed requirements and contracts | Scenarios 15–19; prototypes 16–19 | Prototyped; broader language integration remains |
 | Dependency discovery and impact | Scenarios 20–28; prototypes 20–28 | Extensively prototyped; sound end-to-end completeness remains |
-| SMT/proof boundary | Scenarios 29–34; Logos/Lean binding prototype; QF_LIA profile and typed query IR | In progress; QF_LIA path remains restricted/candidate; pinned Lean CI currently fails in the expression-semantics module |
+| SMT/proof boundary | Scenarios 29–34; Logos/Lean binding prototype; QF_LIA profile and typed query IR | Partially validated; pinned Lean CI build and current tests pass; QF_LIA path remains restricted/candidate and source-to-query/program-level correspondence remains unproved |
 | Semantic compilation cache | `SEMANTIC-COMPILATION-CACHE.md` | Researched; implementation and empirical validation remain |
 | Cache speedup estimate | `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md` | Analytical estimate exists; benchmarks remain |
 | POSIX runtime | `POSIX-RUNTIME-ARCHITECTURE.md` | Researched; profile and vertical slice remain open |
@@ -719,7 +719,7 @@ These invariants guide every research and implementation stage:
 
 The next concrete work should follow this order, while respecting the dependency map:
 
-1. **Repair and close the current Stage 2 CI gate:** fix the SourceQuerySemantics.lean type/instance errors and incomplete proof in the expression-level correspondence module; rerun the pinned Lean 4.34.0 / Logos build and test workflow. Do not claim a proof until CI passes without sorry.
+1. **Extend the now-passing Stage 2 Lean CI slice:** run 44175854422 passed pinned Lean 4.34.0 / Logos compilation and the complete current test step. The small expression-level preservation theorem is kernel-checked; next prove the actual canonical relational-query encoder's semantic correspondence and its binding to CPC assumptions. Do not claim a proof until CI passes without sorry.
 2. **Continue the formal-verification line:** complete exact CPC assumption binding and adversarial tests; prove source-expression-to-query preservation for the supported slice; then expand carefully to commands and paired program executions. Keep QF_LIA narrow and fail closed.
 3. **Advance RT-03 from candidate survey to validation:** use [CORE-LANGUAGE-SEMANTICS.md](research/CORE-LANGUAGE-SEMANTICS.md) as the current option inventory; reconcile A–D with RT-04, define observable behavior and a common test corpus, then prototype at least two reference semantics. Keep all profiles provisional until synthesis.
 4. **In parallel, research type/effect/ownership/capability/concurrency alternatives (RT-04):** record dependencies on core semantics and identify incompatible vectors.
