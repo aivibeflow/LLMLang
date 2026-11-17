@@ -4,6 +4,8 @@
 
 > **Core principle:** Don't make the LLM remember the rules. Make the language and its tooling enforce them.
 
+- [Language Versioning](LANGUAGE-VERSIONING.md) — composite language versions and the append-only component registry.
+
 ## Concept
 
 LLMLang explores a programming model in which a program is represented as a typed **Semantic Program Graph (SPG)** rather than only as source text or a conventional AST.
