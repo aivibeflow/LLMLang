@@ -103,6 +103,10 @@ def build_archive(
     """
     if not isinstance(manifest, bytes):
         raise ArchiveError("manifest must be supplied as UTF-8 bytes")
+    try:
+        manifest.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise ArchiveError("manifest must contain valid UTF-8") from exc
     if type(max_records_in_memory) is not int or max_records_in_memory < 1:
         raise ArchiveError("max_records_in_memory must be a positive integer")
 
