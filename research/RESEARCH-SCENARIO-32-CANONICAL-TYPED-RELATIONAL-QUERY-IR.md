@@ -1,6 +1,6 @@
 # Research Scenario 32 — Canonical Typed Relational Query IR
 
-**Status:** Python typed query IR, SMT-LIB renderer, and deterministic version-1 JSON exporter implemented; the focused Python suite passes. Lean typed query AST, independent Logos Eo.Term renderer, and strict JSON decoder are implemented; decoder CI validation is pending. Source-to-query correspondence remains unproved.  
+**Status:** Python typed query IR, SMT-LIB renderer, and deterministic version-1 JSON exporter implemented; 27 focused Python tests and compileall pass in CI. Lean typed query AST, independent Logos Eo.Term renderer, parser-state declaration binding, and strict version-1 JSON decoder compile and pass all 13 executable test groups in CI (run 44095462826, commit 7f6e0d5). Source-to-query correspondence remains unproved.  
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 29–31.  
 **Question:** What intermediate representation is needed so that one canonical relational query can drive independent SMT-LIB and Logos proof-term generation without making rendered text the semantic source of truth?
@@ -98,7 +98,7 @@ Until these obligations are met, the output remains QF_LIA_CANDIDATE_QUERIES. Ne
 
 ## 7. Next implementation step
 
-The parser-state wrapper, exact declaration binding, typed Lean query AST, and independent Eo.Term renderer are implemented and CI-validated. A strict Lean decoder for the versioned canonical JSON envelope has now been added. It enforces exact field sets, typed atoms, exact operator arities, identifier syntax, declaration uniqueness, and the linear-multiplication restriction. Adversarial fixtures cover malformed leaf atoms, empty symbols, non-null operator atoms, invalid factor/declaration identifiers, unknown schema versions, unknown fields, and nonlinear multiplication. The latest CI result for these additions is pending. The intended trust boundary is: decode independently in Lean, resolve declarations only through parser-state-derived UConst bindings, then compare the complete parsed assumption list by native structural equality. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
+The parser-state wrapper, exact declaration binding, typed Lean query AST, and independent Eo.Term renderer are implemented and CI-validated. A strict Lean decoder for the versioned canonical JSON envelope has now been added. It enforces exact field sets, typed atoms, exact operator arities, identifier syntax, declaration uniqueness, and the linear-multiplication restriction. Adversarial fixtures cover malformed leaf atoms, empty symbols, non-null operator atoms, invalid factor/declaration identifiers, unknown schema versions, unknown fields, and nonlinear multiplication. The latest CI result for these additions is successful: [GitHub Actions run 44095462826](https://github.com/aivibeflow/LLMLang/actions/runs/44095462826), commit `7f6e0d552c42a1749db58a88e819d132cab51c0f`. The tested trust boundary is: decode independently in Lean, resolve declarations only through parser-state-derived UConst bindings, then compare the complete parsed assumption list by native structural equality. The test suite covers the listed fixtures and constructors; it is not an exhaustive proof of parser equivalence or semantic correspondence. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
 
 
 ## 8. Pinned Logos API audit notes
@@ -155,3 +155,24 @@ The Lean decoder now defines the intended interchange shape. The envelope is UTF
 Every term object has exactly `op`, `sort`, `args`, and `atom`. Literal and symbol nodes use an integer, Boolean, or string atom respectively and an empty argument array. Composite nodes use `atom: null`. The decoder rejects unknown/missing fields, unknown schema versions and operators, wrong sorts, malformed arities, duplicate declarations, invalid identifiers, malformed leaf atoms, non-null composite-node atoms, and nonlinear multiplication. It does not coerce values.
 
 This is a wire-format contract for the Lean decoder, not yet a complete Python exporter or a formal proof that the Python producer emits only valid documents. The decoder must be exercised by CI with positive and adversarial fixtures before this boundary is treated as validated.
+
+
+## 11. Current CI evidence and semantic boundary
+
+The Lean workflow succeeded on commit `7f6e0d552c42a1749db58a88e819d132cab51c0f`:
+
+- [Logos CPC parser-state binding — run 44095462826](https://github.com/aivibeflow/LLMLang/actions/runs/44095462826).
+- Lean 4.34.0 and the pinned Logos dependency resolved successfully.
+- The `LLMLangLogosBinding` library built successfully.
+- All executable test groups 1–13 passed, including exact AST fixtures, canonical JSON decoding, malformed atom/identifier rejection, unknown fields/schema rejection, and nonlinear multiplication rejection.
+
+The separate Python workflow succeeded with 27 focused tests and `compileall`:
+[Strict QF_LIA profile — run 44089075437](https://github.com/aivibeflow/LLMLang/actions/runs/44089075437).
+
+These results establish implementation-level regression evidence only. In particular, they do **not** establish:
+- a semantics-preserving translation from the actual LLMLang source AST to the relational query;
+- equivalence between the Python SMT-LIB renderer and Lean's Logos-Term renderer for all accepted inputs;
+- formal correctness of the Logos parser or cvc5;
+- a program-level `PROVEN` result.
+
+The next proof milestone is specified in [Scenario 34 — Source-to-Query Semantic Correspondence](RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md). Scenario 34 deliberately separates expression translation, command execution, paired execution, and query validity so that a proof for a smaller fragment cannot accidentally be presented as a proof for the whole program.
