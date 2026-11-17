@@ -1,7 +1,4 @@
 import LLMLangLogosBinding
-import SourceQuerySemantics
-
-open LLMLang.SourceQuerySemantics
 
 open LLMLang.LogosBinding
 
