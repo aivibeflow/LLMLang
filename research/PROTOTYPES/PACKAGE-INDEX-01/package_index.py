@@ -154,3 +154,109 @@ def merge(*indexes: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
                 output[table][k] = row
     merged = {table: list(output[table].values()) for table in TABLES}
     return normalize(merged)
+
+
+def _validate_stream_row(table: str, row: dict[str, Any]) -> dict[str, Any]:
+    """Validate one row without materializing a table or its cross-table references."""
+    if not isinstance(row, dict):
+        raise IndexError(f"{table} rows must be objects")
+    if set(row) - FIELDS[table] or REQUIRED[table] - set(row):
+        raise IndexError(f"{table} row has missing or unknown fields")
+    row = deepcopy(row)
+    # key() validates the key fields and gives a comparable canonical key.
+    key(table, row)
+    if table == "objects":
+        _hash(row["hash"], "objects.hash")
+        _id(row["kind"], "objects.kind")
+        if type(row["size"]) is not int or row["size"] < 0:
+            raise IndexError("objects.size must be a non-negative integer")
+    elif table == "dependencies":
+        _hash(row["source_hash"], "dependencies.source_hash")
+        _id(row["edge_id"], "dependencies.edge_id")
+        _hash(row["target_hash"], "dependencies.target_hash")
+        if row["kind"] not in DEPENDENCY_KINDS:
+            raise IndexError("unsupported dependency kind")
+        if type(row["included"]) is not bool:
+            raise IndexError("dependencies.included must be boolean")
+        if "condition" in row:
+            _canonical(row["condition"])
+    elif table == "exports":
+        _hash(row["object_hash"], "exports.object_hash")
+    elif table == "modules":
+        if not isinstance(row["members"], list):
+            raise IndexError("modules.members must be an array")
+        members = [_hash(x, "modules.members[]") for x in row["members"]]
+        if len(members) != len(set(members)):
+            raise IndexError("duplicate module member")
+        row["members"] = sorted(members, key=lambda x: bytes.fromhex(x.split(":")[1]))
+    return row
+
+
+def merge_sorted_rows(table: str, *streams):
+    """Lazily merge canonical sorted row iterables for one table.
+
+    Memory use is O(number of streams), excluding the current/output rows.
+    Each input stream must be strictly increasing by the table's canonical key.
+    Equal keys across different streams are deduplicated only when their complete
+    logical records match. A repeated key within one input stream is invalid.
+    Cross-table reference validation is intentionally a separate operation.
+    """
+    import heapq
+
+    if table not in TABLES:
+        raise IndexError(f"unknown table: {table}")
+    if not streams:
+        raise IndexError("merge_sorted_rows requires at least one stream")
+
+    iterators = [iter(stream) for stream in streams]
+    previous_keys = [None] * len(iterators)
+    heap = []
+
+    def advance(stream_id):
+        try:
+            raw = next(iterators[stream_id])
+        except StopIteration:
+            return
+        row = _validate_stream_row(table, raw)
+        row_key = key(table, row)
+        previous = previous_keys[stream_id]
+        if previous is not None and row_key <= previous:
+            if row_key == previous:
+                raise IndexError(f"duplicate key in input stream for {table}: {row_key!r}")
+            raise IndexError(f"input stream is not sorted for {table}: {row_key!r}")
+        previous_keys[stream_id] = row_key
+        heapq.heappush(heap, (row_key, stream_id, row))
+
+    for stream_id in range(len(iterators)):
+        advance(stream_id)
+
+    while heap:
+        current_key = heap[0][0]
+        same_key_rows = []
+        while heap and heap[0][0] == current_key:
+            _, stream_id, row = heapq.heappop(heap)
+            same_key_rows.append(row)
+            advance(stream_id)
+
+        canonical_rows = {_canonical(row) for row in same_key_rows}
+        if len(canonical_rows) != 1:
+            raise IndexError(f"conflicting record in {table} for key {current_key!r}")
+        yield same_key_rows[0]
+
+
+def merge_sorted_indexes(index_streams: list[dict[str, Any]]) -> dict[str, Any]:
+    """Return lazy per-table merged iterators from sorted index table streams.
+
+    Each input is a mapping of table name to an iterable of already-sorted rows.
+    The returned table values are one-shot iterators. This function does not
+    materialize the merged tables and does not perform cross-table validation.
+    """
+    if not index_streams:
+        raise IndexError("merge_sorted_indexes requires at least one index stream")
+    for index in index_streams:
+        if not isinstance(index, dict) or set(index) != set(TABLES):
+            raise IndexError("each streamed index must provide exactly the four tables")
+    return {
+        table: merge_sorted_rows(table, *(index[table] for index in index_streams))
+        for table in TABLES
+    }
