@@ -122,7 +122,7 @@ The granularity should be selected per action and justified by stable semantic b
 
 A cache entry is reusable only if all result-determining inputs are represented in its Action Key or in immutable objects referenced by that key.
 
-For each action, the system needs a declared input/dependency set. Changing a hash-relevant input creates a different Action Key. Reverse dependency edges identify which downstream actions may need to run again.
+For each action, the system needs a declared input/dependency set. Changing a hash-relevant input creates a different identity for the affected immutable semantic object (for an implementation, a different `ImplHash`). Any action whose exact inputs include that identity consequently receives a different `ActionKey`. Reverse dependency edges are used to find affected actions and their new keys; they are not a separate source-change or dirty-flag mechanism.
 
 Example:
 
@@ -148,6 +148,16 @@ The system should therefore distinguish:
 - **Explicitly non-cacheable action:** the action has nondeterministic or external behavior that cannot be captured or normalized adequately.
 
 When dependency discovery is uncertain, invalidation should be conservative (fail closed), not optimistic.
+
+### 5.1 Content-addressed invalidation through `ImplHash`
+
+For implementation changes, the implementation identity is the invalidation signal. If a semantic change affects an implementation's canonical body or any hash-relevant semantic dependency, its `ImplHash` changes. Every downstream action that consumes that implementation identity (directly or through another changed immutable input) therefore has a different `ActionKey`.
+
+No additional mechanism is needed to track that the implementation's source or semantic node changed: the new content identity makes the old action result inapplicable to the new input. The build planner recomputes the affected action keys and reuses entries whose keys still match. Reverse dependency edges may accelerate impact traversal and scheduling, but separate dirty flags, timestamps, or source-change invalidation records are not authoritative.
+
+This principle is sound only if `ImplHash` and downstream `ActionKey` values cover every result-determining semantic input. An omitted dependency can leave an identity unchanged when the result should change; that is a dependency-completeness defect, not a reason to add an independent invalidation mechanism. Unknown or incomplete dependencies must therefore prevent safe reuse (fail closed).
+
+The principle does not mean every caller must be rebuilt whenever a callee's `ImplHash` changes. A caller is affected only if its action's actual inputs include the changed implementation identity or a derived artifact. For example, a stable separately linked call boundary may leave the caller's own compiled artifact reusable, while inlining or body-dependent optimization makes the caller's action depend on the callee implementation.
 
 ## 6. Environment and toolchain identity
 
@@ -295,8 +305,9 @@ Suppose a program contains operations A, B, and C. A and B are independent; C ca
 
 If only A's implementation changes while its OpHash and contract remain unchanged:
 
-- A receives a new Implementation Hash.
-- A's affected implementation analysis, lowering, code generation, and tests must be reconsidered.
+- A receives a new `ImplHash`; this identity change is the invalidation signal.
+- Actions that consume A's old `ImplHash` receive new `ActionKey` values and must be recomputed; actions whose keys remain unchanged are reusable.
+- No separate dirty flag or source-node change tracker is required.
 - C's source and contract identities do not automatically change.
 - C's compiled artifact may be reusable if its generated code does not embed or otherwise depend on A's implementation body (for example, if it calls A through a stable separately linked interface).
 - If C was inlined with A, statically linked with A, or optimized using A's body, the relevant downstream action keys change and C must be rebuilt.
