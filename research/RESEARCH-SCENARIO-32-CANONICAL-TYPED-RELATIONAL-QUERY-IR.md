@@ -71,7 +71,7 @@ The focused QF_LIA tests now cover:
 - deterministic query and byte digests;
 - unsupported sorts, operators, effects, recursion, and malformed program shapes.
 
-Latest focused run: **26 tests passed**. Python compileall passed. The tests were executed locally against a compatibility fixture reproducing the repository's formal_core AST dataclasses and exception interface; a full repository checkout and full prototype suite were not available. No cvc5 solver or Logos checker was invoked.
+Latest confirmed focused run: **27 tests passed**. Python compileall passed. The tests were executed locally against a compatibility fixture reproducing the repository's formal_core AST dataclasses and exception interface; a full repository checkout and full prototype suite were not available. No cvc5 solver or Logos checker was invoked.
 
 ## 6. Remaining obligations
 
@@ -98,7 +98,7 @@ Until these obligations are met, the output remains QF_LIA_CANDIDATE_QUERIES. Ne
 
 ## 7. Next implementation step
 
-The parser-state wrapper, exact declaration binding, typed Lean query AST, and independent Eo.Term renderer are implemented and CI-validated. A strict Lean decoder for the versioned canonical JSON envelope has now been added; its CI result and adversarial coverage are pending. The intended trust boundary is: decode independently in Lean, resolve declarations only through parser-state-derived UConst bindings, then compare the complete parsed assumption list by native structural equality. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
+The parser-state wrapper, exact declaration binding, typed Lean query AST, and independent Eo.Term renderer are implemented and CI-validated. A strict Lean decoder for the versioned canonical JSON envelope has now been added. It enforces exact field sets, typed atoms, exact operator arities, identifier syntax, declaration uniqueness, and the linear-multiplication restriction. Adversarial fixtures cover malformed leaf atoms, empty symbols, non-null operator atoms, invalid factor/declaration identifiers, unknown schema versions, unknown fields, and nonlinear multiplication. The latest CI result for these additions is pending. The intended trust boundary is: decode independently in Lean, resolve declarations only through parser-state-derived UConst bindings, then compare the complete parsed assumption list by native structural equality. Do not create a Python approximation of Lean structural equality and do not normalize parsed proof assumptions.
 
 
 ## 8. Pinned Logos API audit notes
@@ -152,6 +152,6 @@ The Lean decoder now defines the intended interchange shape. The envelope is UTF
 - `factor_difference` and `observations_differ`: recursively typed term objects;
 - `observation_contract`: non-empty contract identifier.
 
-Every term object has exactly `op`, `sort`, `args`, and `atom`. Literal and symbol nodes use an integer, Boolean, or string atom respectively and an empty argument array. Composite nodes use `atom: null`. The decoder rejects unknown/missing fields, unknown schema versions and operators, wrong sorts, malformed arities, duplicate declarations, and nonlinear multiplication. It does not coerce values.
+Every term object has exactly `op`, `sort`, `args`, and `atom`. Literal and symbol nodes use an integer, Boolean, or string atom respectively and an empty argument array. Composite nodes use `atom: null`. The decoder rejects unknown/missing fields, unknown schema versions and operators, wrong sorts, malformed arities, duplicate declarations, invalid identifiers, malformed leaf atoms, non-null composite-node atoms, and nonlinear multiplication. It does not coerce values.
 
 This is a wire-format contract for the Lean decoder, not yet a complete Python exporter or a formal proof that the Python producer emits only valid documents. The decoder must be exercised by CI with positive and adversarial fixtures before this boundary is treated as validated.
