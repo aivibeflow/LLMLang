@@ -18,6 +18,7 @@ class Term:
 @dataclass(frozen=True)
 class FactorQuery:
     factor: str
+    query_ir_digest: str
     smt2: str
     query_sha256: str
 
@@ -25,6 +26,8 @@ class FactorQuery:
 class QFLIAAnalysis:
     status: str
     profile_version: str
+    validator_version: str
+    encoder_version: str
     ir_digest: str
     factors: tuple[FactorQuery, ...]
     observation_contract: str
@@ -229,8 +232,11 @@ def build_qf_lia_queries(program: Program, input_types: Mapping[str, str],
         factor_diff = f"(not (= {left_inputs[factor].text} {right_inputs[factor].text}))"
         differences = [f"(not (= {left_obs[k].text} {right_obs[k].text}))" for k in left_obs]
         if not differences: raise UnsupportedConstruct("empty observation boundary")
+        query_ir = {"factor": factor, "declarations": declarations, "factor_difference": factor_diff,
+                     "observation_differences": differences, "observation_contract": "return-and-selected-state/1"}
+        query_ir_digest = _digest(query_ir)
         smt = "(set-logic QF_LIA)\n" + "\n".join(declarations) + "\n"
         smt += f"(assert {factor_diff})\n(assert (or {' '.join(differences)}))\n(check-sat)\n"
-        factors.append(FactorQuery(factor, smt, hashlib.sha256(smt.encode()).hexdigest()))
-    return QFLIAAnalysis("QF_LIA_CANDIDATE_QUERIES", PROFILE_VERSION, ir_digest, tuple(factors),
+        factors.append(FactorQuery(factor, query_ir_digest, smt, hashlib.sha256(smt.encode()).hexdigest()))
+    return QFLIAAnalysis("QF_LIA_CANDIDATE_QUERIES", PROFILE_VERSION, VALIDATOR_VERSION, ENCODER_VERSION, ir_digest, tuple(factors),
         "return-and-selected-state/1", "Candidate queries only: validator, encoder, source correspondence, CPC binding, and proof checking are not formally verified.")
