@@ -132,7 +132,7 @@ def main : IO Unit := do
     "(declare-const y Int) " ++
     "(declare-const p Bool) " ++
     "(declare-const q Bool) " ++
-    "(assume a (and (< x y) (= p q) (or p q) (= (ite p x y) x) (= (ite p true false) p) (= (- x) y) (= (- x y) y)))\\n"
+    "(assume a (and (< x y) (= p q) (or p q) (= (ite p x y) x) (= (ite p true false) p) (= (- x) y) (= (- x y) y)))\n"
   let (extendedAssumptions, _, extendedState) ←
     match parseProofWithState extendedProof with
     | .ok result => pure result
