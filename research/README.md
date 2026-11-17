@@ -98,4 +98,4 @@ Formal verification can establish that an implementation satisfies a formal spec
 - [QF_LIA focused tests](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py) — accepted/rejected constructs, canonical IR, and renderer checks.
 
 
-- [Lean CPC parser-state binding prototype](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/) — pinned Lean/Lake package retaining the Logos CPC parser's final declaration state and binding expected Bool/Int declarations to exact UConst nodes; not yet compiled.
+- [Lean CPC parser-state binding prototype](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/) — pinned Lean/Lake package retaining the Logos CPC parser's final declaration state, binding expected Bool/Int declarations to exact UConst nodes, and independently rendering typed query ASTs; GitHub Actions CI passes, with exact arithmetic and Boolean AST fixtures.
