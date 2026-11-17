@@ -92,3 +92,6 @@ Formal verification can establish that an implementation satisfies a formal spec
 - [Scenario 33 — CPC Parser State and Exact Symbol Binding](RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md) — preserving Logos parser state to recover exact UConst identities without writing a second CPC parser.
 - [Prototype QF_LIA profile](PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_profile.py) and [typed query IR](PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_ir.py) — strict relational query builder and typed SMT-LIB renderer.
 - [QF_LIA focused tests](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py) — accepted/rejected constructs, canonical IR, and renderer checks.
+
+
+- [Lean CPC parser-state binding prototype](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/) — pinned Lean/Lake package retaining the Logos CPC parser's final declaration state and binding expected Bool/Int declarations to exact UConst nodes; not yet compiled.
