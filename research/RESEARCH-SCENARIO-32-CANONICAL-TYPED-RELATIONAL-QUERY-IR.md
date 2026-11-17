@@ -1,6 +1,6 @@
 # Research Scenario 32 — Canonical Typed Relational Query IR
 
-**Status:** Python typed query IR and SMT-LIB renderer implemented. Lean typed query AST, independent Logos Eo.Term renderer, and a strict version-1 JSON decoder have been added. The decoder is awaiting CI validation; source-to-query correspondence remains unproved.  
+**Status:** Python typed query IR, SMT-LIB renderer, and deterministic version-1 JSON exporter implemented; the focused Python suite passes. Lean typed query AST, independent Logos Eo.Term renderer, and strict JSON decoder are implemented; decoder CI validation is pending. Source-to-query correspondence remains unproved.  
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 29–31.  
 **Question:** What intermediate representation is needed so that one canonical relational query can drive independent SMT-LIB and Logos proof-term generation without making rendered text the semantic source of truth?

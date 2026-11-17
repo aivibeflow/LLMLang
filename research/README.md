@@ -95,6 +95,7 @@ Formal verification can establish that an implementation satisfies a formal spec
 - [Scenario 32 — Canonical Typed Relational Query IR](RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md) — immutable typed relational query representation, separate QF_LIA rendering, pinned Logos-Term API audit, and strict versioned JSON wire-format design.
 - [Scenario 33 — CPC Parser State and Exact Symbol Binding](RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md) — preserving Logos parser state to recover exact UConst identities without writing a second CPC parser.
 - [Prototype QF_LIA profile](PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_profile.py) and [typed query IR](PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_ir.py) — strict relational query builder and typed SMT-LIB renderer.
+- [QF_LIA CI workflow](../.github/workflows/qf-lia-profile.yml) — Python compile check and focused tests for the strict profile and deterministic canonical JSON exporter.
 - [QF_LIA focused tests](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py) — accepted/rejected constructs, canonical IR, and renderer checks.
 
 
