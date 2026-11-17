@@ -128,8 +128,16 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-033 | RT-08 → RT-18 | Enables | Conformance and compatibility claims require reproducible tests, proofs, or other scoped evidence. | Strong hypothesis |
 | DEP-034 | RT-12 → RT-18 | Influences | Package/library evolution and compatibility policy shape ecosystem and standard-library evolution. | Strong hypothesis |
 | DEP-035 | RT-13 → RT-18 | Influences | Supported targets and backend guarantees affect portability and conformance profiles. | Strong hypothesis |
+| DEP-036 | RT-03 → RT-11 | Influences | Purity, state, effects, and observable environment inputs determine which computations can be cached and the sound invalidation scope. | Strong hypothesis |
+| DEP-037 | RT-03 → RT-15 | Influences | Evaluation order, state, effects, errors, and concurrency determine semantic equivalence and which edits can be merged independently. | Strong hypothesis |
+| DEP-038 | RT-03 → RT-16 | Influences | The language's state, effect, resource, and concurrency semantics define guarantees and threat boundaries available to security controls. | Open hypothesis |
+| DEP-039 | RT-03 → RT-18 | Influences | Changes to evaluation, effects, errors, and observable behavior affect conformance profiles and semantic compatibility across versions. | Strong hypothesis |
 
 ## 4. Important feedback loops and conditional relationships
+
+RT-03 is a foundational source for the type/effect model, semantic identity, formal verification, compiler/runtime behavior, incremental computation, semantic merge, security, and conformance. The newly recorded direct edges DEP-036–DEP-039 are research hypotheses derived from [RT-03 core semantics](CORE-LANGUAGE-SEMANTICS.md); they do not imply that any particular semantic profile has been accepted.
+
+
 
 These are not simple one-way dependencies. They must be tested explicitly:
 
