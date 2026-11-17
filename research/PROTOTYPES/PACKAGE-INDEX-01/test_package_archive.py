@@ -71,7 +71,8 @@ path = "index"
 format_version = 1
 logical_hash = "{index_hash}"
 '''.encode("utf-8")
-        if declared_root is None and declared_index_hash is None:
+        included = {row["hash"] for row in index["objects"]}
+        if declared_root is None and declared_index_hash is None and set(roots) <= included:
             model = parse_manifest(raw)
             actual_root = package_content_root(model, index)
             raw = raw.replace(root_value.encode(), actual_root.encode())
@@ -110,7 +111,7 @@ logical_hash = "{index_hash}"
         index = sample_index()
         index["objects"][0]["size"] = 99
         with self.assertRaisesRegex(ArchiveError, "size mismatch"):
-            self.build(index=index)
+            build_archive(self.make_manifest(index), streams(index), payloads(), self.path)
 
     def test_missing_or_extra_payload_fails(self):
         with self.assertRaisesRegex(ArchiveError, "missing object payload"):
