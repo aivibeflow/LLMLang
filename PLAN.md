@@ -529,7 +529,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [ ] Compare whole-index compression with independently compressed blocks; measure codec, block-size, lookup, scan, and memory trade-offs.
 - [ ] Evaluate optional sparse and hierarchical sparse indexes; establish when their lookup benefit justifies their storage and maintenance cost.
 - [ ] Define index integrity, corruption detection, sparse-index reconstruction, and logical-versus-physical index identity.
-- [ ] Define static package archive and human-readable generated index.
+- [ ] Define a human-readable text package manifest (TOML is the current candidate); reserve compact binary encoding for machine indexes and object payloads where their formats require it.
+- [ ] Define static package archive and optional generated human-readable index (for example, `INDEX.md`) derived from the machine index.
 - [ ] Define Dynamic Package requests by exact root Content Hash values and explicit dependency policies.
 - [ ] Define exact-hash transitive dependency closure, optional/target/feature dependency semantics, and fail-closed missing-dependency behavior.
 - [ ] Define provider snapshot consistency, deterministic logical package roots, and separation of content from delivery metadata.
@@ -538,7 +539,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Existing evidence:** [Package System: Static and Dynamic Packages](research/PACKAGE-SYSTEM.md), extending the earlier [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md) and [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md) proposals.
 
-**Status:** researched at the conceptual level; compact-index, block-compression, sparse-lookup, dynamic-provider, and optional derived-result cache-index architecture proposed. No wire format, codec policy, provider protocol, cache-index schema, or package identity scheme has been accepted.
+**Status:** researched at the conceptual level; compact-index, block-compression, sparse-lookup, dynamic-provider, and optional derived-result cache-index architecture proposed. A human-readable TOML manifest is the current format recommendation, while binary encoding is reserved for indexes and object payloads where appropriate. No normative wire format, codec policy, provider protocol, cache-index schema, manifest schema, or package identity scheme has been accepted.
 
 
 - [ ] Define Package versus Library boundaries.
