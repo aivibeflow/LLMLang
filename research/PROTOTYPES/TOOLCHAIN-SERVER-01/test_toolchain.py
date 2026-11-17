@@ -99,6 +99,10 @@ class ToolchainWorkspaceTests(unittest.TestCase):
             with self.assertRaises(StaleObject):
                 self.tc.export_snapshot(accepted, path, expected_file_hash=first_hash)
 
+    def test_entity_payload_must_be_object(self):
+        with self.assertRaises(ValueError):
+            Entity("bad", "operation", ["not", "an", "object"])
+
     def test_export_requires_accepted_snapshot(self):
         with tempfile.TemporaryDirectory() as directory:
             with self.assertRaises(SemanticConflict):
