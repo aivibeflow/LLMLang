@@ -24,9 +24,9 @@ class ManifestAdversarialTests(unittest.TestCase):
         )
 
     def test_package_root_must_be_an_included_object(self):
-        raw = manifest_text(self.index, roots=[H3]).encode()
+        bad = self.raw.decode().replace(f"'{H1}'", f"'{H3}'")
         with self.assertRaisesRegex(PackageFormatError, "root is not present"):
-            package_content_root(parse_manifest(raw), self.index)
+            package_content_root(parse_manifest(bad.encode()), self.index)
 
     def test_cache_indexes_must_be_an_array(self):
         bad = self.raw.decode().replace(
