@@ -248,4 +248,16 @@ Adopt this as the first reviewable research candidate:
 - hash the parsed typed model and canonical logical index records, never raw TOML or physical archive bytes;
 - keep the exact canonical encoding and final digest algorithm open pending implementation and benchmark evidence.
 
+## 10. Executable prototype evidence
+
+An initial executable model is available in [Package Identity Prototype 01](PROTOTYPES/PACKAGE-IDENTITY-01/README.md), with its [implementation](PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py) and [tests](PROTOTYPES/PACKAGE-IDENTITY-01/test_package_identity.py).
+
+The prototype implements a narrow TOML v1 candidate parser, explicit typed canonical encoding, domain-separated SHA-256 digests, logical index hashing, and package-root verification. It exercises PMI-001–PMI-014 and additional canonical-encoding/parser checks. The focused run completed **18 tests successfully**, and Python bytecode compilation passed.
+
+The evidence is deliberately bounded:
+- PMI-012 currently verifies stale-index-hash rejection after a dependency target changes; provider-side missing-object and transitive-closure resolution are not implemented.
+- PMI-014 compares equivalent logical inputs; it does not run independent static and dynamic builders.
+- PMI-010 verifies the architectural separation of provenance sidecars from identity inputs; it does not parse or verify signatures.
+- The prototype's SHA-256 choice, typed encoding, and table shapes are experimental and are not accepted as normative.
+
 This is a research proposal, not a normative LLMLang package specification.
