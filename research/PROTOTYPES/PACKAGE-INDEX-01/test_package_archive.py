@@ -169,6 +169,32 @@ logical_hash = "{index_hash}"
         self.assertIn("index/objects.jsonl", names)
         self.assertNotIn("index.bin/objects.jsonl", names)
 
+    def test_verifier_rejects_tampered_manifest_index_hash(self):
+        self.build()
+        altered = os.path.join(self.temp.name, "bad-index-hash.llpkg")
+        with zipfile.ZipFile(self.path, "r") as source, zipfile.ZipFile(altered, "w") as target:
+            for info in source.infolist():
+                data = source.read(info.filename)
+                if info.filename == "manifest.toml":
+                    data = data.replace(logical_index_hash(sample_index()).encode(),
+                                        ("sha256:" + "f" * 64).encode())
+                target.writestr(info, data)
+        with self.assertRaisesRegex(ArchiveError, "declared index logical hash mismatch"):
+            verify_archive(altered)
+
+    def test_verifier_rejects_tampered_manifest_content_root(self):
+        self.build()
+        altered = os.path.join(self.temp.name, "bad-content-root.llpkg")
+        with zipfile.ZipFile(self.path, "r") as source, zipfile.ZipFile(altered, "w") as target:
+            for info in source.infolist():
+                data = source.read(info.filename)
+                if info.filename == "manifest.toml":
+                    data = data.replace(self.manifest.split(b'content_root = "')[1].split(b'"')[0],
+                                        ("sha256:" + "f" * 64).encode())
+                target.writestr(info, data)
+        with self.assertRaisesRegex(ArchiveError, "declared package content root mismatch"):
+            verify_archive(altered)
+
     def test_invalid_manifest_utf8_fails(self):
         with self.assertRaisesRegex(ArchiveError, "valid UTF-8"):
             build_archive(bytes([0xff]), streams(sample_index()), payloads(), self.path)
