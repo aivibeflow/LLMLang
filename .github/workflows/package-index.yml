@@ -20,9 +20,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Run logical index tests
+      - name: Run logical index and archive tests
         working-directory: research/PROTOTYPES/PACKAGE-INDEX-01
         run: python -m unittest discover -v
       - name: Compile prototype and tests
         working-directory: research/PROTOTYPES/PACKAGE-INDEX-01
-        run: python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py
+        run: python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py
