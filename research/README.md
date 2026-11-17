@@ -34,6 +34,7 @@ This repository contains a **conceptual research document**, not a production-re
 - [LLMLang-CONCEPT.md](LLMLang-CONCEPT.md) — full concept, architecture, design principles, proposed toolchain, development stages, and open questions.
 - [REPOSITORY-AUDIT-2026-11-17.md](REPOSITORY-AUDIT-2026-11-17.md) — repository-wide documentation consistency audit, fixes, and validation scope.
 - [LLMLang-FORMAL-VERIFICATION.md](LLMLang-FORMAL-VERIFICATION.md) — architectural requirement for one canonical semantics and generated formal/executable representations.
+- [POSIX-RUNTIME-ARCHITECTURE.md](POSIX-RUNTIME-ARCHITECTURE.md) — proposed standard POSIX library with portable and native Linux runtimes, one shared contract, conformance/differential testing, and progressive formal verification.
 - [TRANSLATION-AND-TARGET-BACKENDS.md](TRANSLATION-AND-TARGET-BACKENDS.md) — translation pipeline, backend architecture, semantic portability, and target-language research.
 - [LIBRARIES-AND-TEMPLATES.md](LIBRARIES-AND-TEMPLATES.md) — package/library dependencies, public contracts, templates, and reproducible reuse.
 - [RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md](RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md) — research on transforming contextual business intent into traceable, reviewable formal contracts.
