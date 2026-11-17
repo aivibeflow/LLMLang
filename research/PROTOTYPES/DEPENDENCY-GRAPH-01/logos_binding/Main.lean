@@ -62,21 +62,21 @@ def main : IO Unit := do
     | .error error => throw (IO.userError error)
   let expected ←
     match renderQueryTerm xBinding
-      (QueryTerm.eqInt (.symbol "x") (.symbol "x")) with
+      (QueryTerm.eqInt (.intSymbol "x") (.intSymbol "x")) with
     | .ok result => pure result
     | .error error => throw (IO.userError error)
   if assumptions != [expected] then
     throw (IO.userError "typed query renderer differs from parsed CPC assumption")
 
   IO.println "test 5: reject wrong-sort query symbol"
-  expectFailure (renderQueryTerm xBinding (QueryTerm.eqBool (.symbol "x") (.boolLit true)))
+  expectFailure (renderQueryTerm xBinding (QueryTerm.eqBool (.boolSymbol "x") (.boolLit true)))
 
   IO.println "test 6: render compound QF_LIA expression"
   let compound ←
     match renderQueryTerm xBinding
       (QueryTerm.le
-        (QueryTerm.add (.symbol "x") (.intLit 2))
-        (QueryTerm.mul (.symbol "x") (.intLit 3))) with
+        (QueryTerm.add (.intSymbol "x") (.intLit 2))
+        (QueryTerm.mul (.intSymbol "x") (.intLit 3))) with
     | .ok result => pure result
     | .error error => throw (IO.userError error)
   if compound == expected then
