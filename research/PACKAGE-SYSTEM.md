@@ -427,7 +427,7 @@ This extends the action-cache model in `research/SEMANTIC-COMPILATION-CACHE.md`;
 
 The package manifest should be human-readable text, not a binary index. The current format recommendation is **TOML** (`manifest.toml`).
 
-The manifest is expected to contain a relatively small amount of package-level metadata: package format/schema version, requested roots, included-object/root references, dependency policy, snapshot identity, and references to the package's index and optional cache indexes. These fields do not justify a custom binary encoding. A text manifest also improves code review, diagnostics, Git diffs, and inspection with ordinary tools.
+The manifest is expected to contain a relatively small amount of package-level metadata: package format/schema version, requested roots, dependency policy, and references to the package's index and optional cache indexes. The included-object set and per-object relationships belong in the machine index. Source-store snapshot identity belongs in provenance/delivery metadata, not in logical package identity. These fields do not justify a custom binary encoding. A text manifest also improves code review, diagnostics, Git diffs, and inspection with ordinary tools.
 
 Use separate representations for separate purposes:
 
@@ -448,7 +448,7 @@ The manifest must not duplicate the full index. It should identify the index for
 
 The parsed manifest should map to a typed logical manifest model. The logical package content root must be computed from a specified canonical projection/encoding of that model and the included semantic object identities—not from raw TOML bytes, whitespace, key order, comments, or line endings. This prevents harmless formatting changes from changing logical package identity.
 
-The exact canonical projection, field inclusion rules, and schema-evolution policy remain open and must be specified before the manifest participates in a normative hash definition. Delivery-only fields (for example, provider timestamps, transport locations, signatures, and archive compression choices) must remain outside the logical content root.
+A first reviewable candidate for the TOML schema, canonical projection, hash boundaries, and validation invariants is recorded in [Package Manifest and Content Identity](PACKAGE-MANIFEST-AND-IDENTITY.md), with an illustrative [manifest.toml fixture](examples/package/manifest.toml). Those proposals remain non-normative: the exact canonical encoding, digest algorithm, table schemas, and schema-evolution policy require review and executable validation. Delivery-only fields (for example, provider timestamps, source snapshot identifiers, transport locations, signatures, and archive compression choices) remain outside the logical content root.
 
 A parser must reject unsupported required schema versions and malformed or ambiguous values. Unknown optional metadata may be preserved or ignored only under an explicit forward-compatibility rule; it must not silently alter the logical content projection.
 
