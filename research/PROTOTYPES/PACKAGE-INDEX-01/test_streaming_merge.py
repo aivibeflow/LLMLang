@@ -39,8 +39,7 @@ class StreamingMergeTests(unittest.TestCase):
         changed = object_row(2)
         changed["size"] = 999
         with self.assertRaisesRegex(IndexError, "conflicting record"):
-            list(merge_sorted_rows("objects", [object_row(1), object_row(2)],
-                                   [object_row(2), object_row(3)] if False else [changed]))
+            list(merge_sorted_rows("objects", [object_row(1), object_row(2)], [changed]))
 
     def test_duplicate_key_inside_one_stream_fails(self):
         with self.assertRaisesRegex(IndexError, "duplicate key in input stream"):
