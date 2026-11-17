@@ -257,6 +257,24 @@ Priority is a planning aid, not a measure of correctness:
 - **Recommendation:** Model compilation and analysis as a typed dependency graph of actions. Keep Semantic Hash, Action Key, and Artifact Hash distinct. Permit reuse only when dependency closure and all result-determining inputs are captured; otherwise invalidate conservatively or mark the action non-cacheable. Every result records the language/toolchain version used. Permit optional package-distributed cache indexes for validation, compilation, tests, and proofs; key them by exact Action Key (not bare object hash), address payloads by Artifact Hash, and ensure cache metadata never affects semantic package identity. Reuse across behavior-changing toolchain versions is forbidden unless explicit compatibility evidence exists.
 - **Related:** [Semantic Compilation Cache](research/SEMANTIC-COMPILATION-CACHE.md), [Package System: Static and Dynamic Packages](research/PACKAGE-SYSTEM.md), [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [Formal Verification](research/LLMLang-FORMAL-VERIFICATION.md).
 
+## Deferred engineering tasks
+
+### DEFERRED-001 — Repair canonical query semantics Lean module
+
+- **Status:** Deferred / someday
+- **Priority:** P3
+- **Task:** Reintroduce and complete the canonical query semantics proof prototype, then add it to the Lean build only after it compiles and its theorem is kernel-checked.
+- **Context:** The experimental module `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CanonicalQuerySemantics.lean` attempted to define an evaluator for the actual dependent `QueryTerm` in `LLMLangLogosBinding.lean`, translate it into the independent semantic query representation from `SourceQuerySemantics.lean`, and prove evaluation preservation. The attempt was removed from the active build and deleted after it broke Lean CI; it is intentionally not part of the current validated baseline.
+- **Observed failure modes (Lean 4.34.0, pinned Logos revision):**
+  - Lean's termination checker could not establish structural/decreasing recursion for the evaluator over the sort-indexed dependent `QueryTerm`; one nested recursive call remained unproven.
+  - The source semantic IR's `and`/`or` constructors did not match the canonical IR's list-valued operands. A correct translation must explicitly account for the representation difference and its identity/empty-list semantics, or initially exclude these operators.
+  - A trailing documentation comment introduced additional parser errors during the attempted repair.
+  - The attempted `partial` workaround was not an acceptable basis for a kernel-checked semantic-preservation theorem; the theorem was removed rather than weakening the proof obligation.
+- **Recovery:** The failing module was removed from `lakefile.lean` roots and deleted. The previously validated roots remain `LLMLangLogosBinding` and `SourceQuerySemantics`. Do not restore the failed implementation verbatim.
+- **Suggested approach when resumed:** Start with a small supported constructor subset (for example literals, symbols, negation, addition, and subtraction); design a structurally recursive evaluator or a non-dependent helper with an explicit size measure; prove the subset's translation/evaluation theorem first; then extend operators incrementally. Handle list-valued Boolean operators only after defining and testing their exact fold/identity semantics. Keep every increment behind the pinned Lean CI gate and do not add unproved `sorry`/unsafe/partial shortcuts.
+- **Acceptance criteria:** The module builds under the pinned Lean 4.34.0 and Logos revision; the semantic-preservation theorem is accepted by Lean's kernel without `sorry` or untrusted shortcuts; positive and adversarial tests pass; the active Lean CI workflow remains green. The result must still be described as query-level correspondence only, not source-program-to-query or whole-program correctness.
+- **Related:** `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean`, `SourceQuerySemantics.lean`, and Scenarios 29–33.
+
 ## Maintenance rules
 
 - Add a new item when a discussion exposes a durable unresolved design question, not for every implementation task or transient note.
