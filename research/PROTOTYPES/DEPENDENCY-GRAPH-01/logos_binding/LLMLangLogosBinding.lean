@@ -95,7 +95,8 @@ operator/sort combinations cannot be represented by these constructors.
 inductive QueryTerm : QuerySort → Type where
   | intLit : Int → QueryTerm .int
   | boolLit : Bool → QueryTerm .bool
-  | symbol : String → QueryTerm sort
+  | intSymbol : String → QueryTerm .int
+  | boolSymbol : String → QueryTerm .bool
   | not : QueryTerm .bool → QueryTerm .bool
   | neg : QueryTerm .int → QueryTerm .int
   | add : QueryTerm .int → QueryTerm .int → QueryTerm .int
@@ -152,7 +153,8 @@ def renderQueryTerm {sort : QuerySort}
   match term with
   | .intLit value => pure (.Numeral value)
   | .boolLit value => pure (.Boolean value)
-  | .symbol name => resolveQuerySymbol bindings name sort
+  | .intSymbol name => resolveQuerySymbol bindings name .int
+  | .boolSymbol name => resolveQuerySymbol bindings name .bool
   | .not value => apply1 .not <$> renderQueryTerm bindings value
   | .neg value => apply1 .__eoo_neg_2 <$> renderQueryTerm bindings value
   | .add left right => do
