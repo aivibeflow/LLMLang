@@ -385,7 +385,9 @@ The cache index therefore maps a canonical **Action Key** to a result record:
 ActionKey = H(
   action_kind,
   exact_input_hashes_and_dependency_closure,
-  language_toolchain_version,
+  language_version,
+  language_component_registry_digest,
+  toolchain_identity,
   relevant_configuration,
   target_and_environment_inputs
 )
@@ -393,13 +395,13 @@ ActionKey = H(
 ActionKey -> ResultRecord -> ArtifactHash(es)
 ```
 
-A record identifies action kind, exact input hashes and relevant dependency closure, language/toolchain version, action implementation identity where independently relevant, target/configuration/runtime inputs, result status and scope, output Artifact Hash values, dependency-completeness and determinism classification, and provenance where applicable.
+A record identifies action kind, exact input hashes and relevant dependency closure, composite language version and exact component-registry digest, toolchain identity, action implementation identity where independently relevant, target/configuration/runtime inputs, result status and scope, output Artifact Hash values, dependency-completeness and determinism classification, and provenance where applicable.
 
 ### 13.2 Language version binding
 
-Every cache result must state the **language version** used to produce it. This version is part of the Action Key whenever language semantics, validation rules, compiler behavior, code generation, or evidence interpretation can affect the result.
+Every cache result must state the **composite LanguageVersion** used to produce it and identify the exact ordered component registry used to interpret that tuple (for example, by a digest of `language-components.toml`). The registry file contains only ordered component identifiers; it contains no component versions. Its ordering is append-only: existing identifiers cannot be removed, renamed, or reordered, and new identifiers are appended only at the end. When a component is appended, old tuples may omit the new trailing coordinates, which are interpreted as zero.
 
-The version identifier must distinguish releases whose behavior can differ. If the public language version does not change for a compiler/toolchain patch that can affect results, the record must additionally identify the relevant toolchain build or component version. A friendly language version alone must not authorize reuse across behavior-changing compiler builds. A result from another relevant version is a cache miss unless an explicit, validated compatibility rule establishes safe reuse.
+The cache record must separately identify the **ToolchainIdentity** used to produce the result. LanguageVersion and ToolchainIdentity are not interchangeable: a toolchain patch can affect results without changing normative language semantics, and a language component can evolve without identifying the tool build that processed it. Both values, plus the registry digest, enter the Action Key whenever they can affect the result. A result from another relevant version or registry snapshot is a cache miss unless an explicit, validated compatibility rule establishes safe reuse. Numeric similarity or a friendly release label alone is not compatibility evidence.
 
 ### 13.3 Reuse and trust rules
 
