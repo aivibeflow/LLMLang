@@ -80,6 +80,8 @@ def bindExpectedDeclarations
 end LLMLang.LogosBinding
 
 
+namespace LLMLang.LogosBinding
+
 /-- Canonical query sorts accepted by the strict relational QF_LIA profile. -/
 inductive QuerySort where
   | int
@@ -206,3 +208,5 @@ def renderRelationalAssumptions
   if factorDiff != factorExpected then
     throw "factor-difference query term disagrees with bound factor symbols"
   pure [factorDiff, obsDiff]
+
+end LLMLang.LogosBinding
