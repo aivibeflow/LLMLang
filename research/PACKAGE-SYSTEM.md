@@ -485,3 +485,8 @@ The merge contract is deterministic: identical records with the same key are ded
 The executable prototype currently validates these rules in memory and exercises canonical ordering, logical digest stability, merge laws, and conflict handling. It does **not** implement a streaming k-way merge or binary `index.bin` encoding. Its canonical JSON digest is experimental and is not the final LLMLang encoding/hash contract.
 
 This is a proposed logical schema, not a frozen format. Dependency taxonomy, Stable ID grammar, optional condition representation, empty-module policy, and the complete set of identity-bearing tables remain open.
+
+
+## 13. Streaming index merge prototype
+
+The logical index prototype now provides a lazy k-way merge for one already-sorted table at a time. It keeps one current record per input stream, deduplicates identical records across streams, and rejects conflicting or out-of-order records. The merge itself uses O(k) state for k input streams. This does not yet solve bounded-memory cross-table reference validation: that requires sorted merge-join passes or a disk-backed membership structure. There is also no streaming archive writer or binary index encoding yet. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Package Index Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
