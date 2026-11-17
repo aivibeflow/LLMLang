@@ -7,8 +7,8 @@
 Requires Python 3.11+.
 
 ```sh
-python -m unittest discover -v
-python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py
+PYTHONPATH=../PACKAGE-IDENTITY-01 python -m unittest discover -v
+PYTHONPATH=../PACKAGE-IDENTITY-01 python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py ../PACKAGE-IDENTITY-01/package_identity.py
 ```
 
 ## What it tests
