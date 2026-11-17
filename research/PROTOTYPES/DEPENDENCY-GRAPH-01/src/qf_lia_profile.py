@@ -5,19 +5,17 @@ import hashlib, json
 from typing import Any, Mapping, Sequence
 from .formal_core import (Assign, Binary, Call, Const, Emit, Function, If, Program,
                           Raise, Return, State, Store, Unary, Var, UnsupportedConstruct)
+from .qf_lia_ir import Declaration, RelationalQuery, Term, render_smt2
 
-PROFILE_VERSION = "llmlang-qf-lia-relational/1"
-VALIDATOR_VERSION = "qf-lia-profile-validator/1"
-ENCODER_VERSION = "qf-lia-relational-encoder/1"
-
-@dataclass(frozen=True)
-class Term:
-    text: str
-    sort: str
+PROFILE_VERSION = "llmlang-qf-lia-relational/2"
+VALIDATOR_VERSION = "qf-lia-profile-validator/2"
+ENCODER_VERSION = "qf-lia-relational-encoder/2"
+OBSERVATION_CONTRACT = "return-and-selected-state/1"
 
 @dataclass(frozen=True)
 class FactorQuery:
     factor: str
+    query_ir: RelationalQuery
     query_ir_digest: str
     smt2: str
     query_sha256: str
@@ -35,10 +33,8 @@ class QFLIAAnalysis:
 
 
 def _literal(value: Any) -> Term:
-    if type(value) is bool:
-        return Term("true" if value else "false", "Bool")
-    if type(value) is int:
-        return Term(str(value) if value >= 0 else f"(- {abs(value)})", "Int")
+    if type(value) is bool: return Term("bool", "Bool", atom=value)
+    if type(value) is int: return Term("int", "Int", atom=value)
     raise UnsupportedConstruct(f"QF_LIA accepts only exact Bool/Int values, got {type(value).__name__}")
 
 
@@ -120,8 +116,8 @@ class _ValidatorEncoder:
             return state[node.region]
         if isinstance(node, Unary):
             value = self.expr(node.value, env, state, stack)
-            if node.op == "not" and value.sort == "Bool": return Term(f"(not {value.text})", "Bool")
-            if node.op == "neg" and value.sort == "Int": return Term(f"(- {value.text})", "Int")
+            if node.op == "not" and value.sort == "Bool": return Term("not", "Bool", (value,))
+            if node.op == "neg" and value.sort == "Int": return Term("neg", "Int", (value,))
             raise UnsupportedConstruct(f"ill-typed/unsupported unary operator: {node.op}")
         if isinstance(node, Binary):
             left = self.expr(node.left, env, state, stack)
@@ -130,13 +126,11 @@ class _ValidatorEncoder:
             if node.op == "mul":
                 if left.sort != "Int" or not (_is_int_literal(node.left) or _is_int_literal(node.right)):
                     raise UnsupportedConstruct("multiplication requires an integer literal operand")
-                return Term(f"(* {left.text} {right.text})", "Int")
-            if node.op in ("add", "sub") and left.sort == "Int":
-                return Term(f"({'+' if node.op == 'add' else '-'} {left.text} {right.text})", "Int")
-            if node.op == "eq" and left.sort in ("Int", "Bool"): return Term(f"(= {left.text} {right.text})", "Bool")
-            if node.op in ("lt", "le") and left.sort == "Int":
-                return Term(f"({'<' if node.op == 'lt' else '<='} {left.text} {right.text})", "Bool")
-            if node.op in ("and", "or") and left.sort == "Bool": return Term(f"({node.op} {left.text} {right.text})", "Bool")
+                return Term("mul", "Int", (left, right))
+            if node.op in ("add", "sub") and left.sort == "Int": return Term(node.op, "Int", (left, right))
+            if node.op == "eq" and left.sort in ("Int", "Bool"): return Term("eq", "Bool", (left, right))
+            if node.op in ("lt", "le") and left.sort == "Int": return Term(node.op, "Bool", (left, right))
+            if node.op in ("and", "or") and left.sort == "Bool": return Term(node.op, "Bool", (left, right))
             raise UnsupportedConstruct(f"ill-typed/unsupported binary operator: {node.op}")
         if isinstance(node, Call):
             if node.function not in self.functions: raise UnsupportedConstruct(f"unknown function: {node.function}")
@@ -178,7 +172,7 @@ class _ValidatorEncoder:
     @staticmethod
     def _ite(condition: Term, yes: Term, no: Term) -> Term:
         if condition.sort != "Bool" or yes.sort != no.sort: raise UnsupportedConstruct("ill-typed branch merge")
-        return Term(f"(ite {condition.text} {yes.text} {no.text})", yes.sort)
+        return Term("ite", yes.sort, (condition, yes, no))
 
     def observations(self, visible: Sequence[str]):
         if not self.program.body or not isinstance(self.program.body[-1], Return):
@@ -220,23 +214,22 @@ def build_qf_lia_queries(program: Program, input_types: Mapping[str, str],
         for name in source_names:
             base, sort = smt_names[name], input_types[name]
             if name == factor:
-                declarations.extend((f"(declare-const {base}_L {sort})", f"(declare-const {base}_R {sort})"))
-                left_inputs[name], right_inputs[name] = Term(base + "_L", sort), Term(base + "_R", sort)
+                declarations.extend((Declaration(base + "_L", sort), Declaration(base + "_R", sort)))
+                left_inputs[name], right_inputs[name] = Term("symbol", sort, atom=base + "_L"), Term("symbol", sort, atom=base + "_R")
             else:
-                declarations.append(f"(declare-const {base} {sort})")
-                left_inputs[name] = right_inputs[name] = Term(base, sort)
+                declarations.append(Declaration(base, sort))
+                left_inputs[name] = right_inputs[name] = Term("symbol", sort, atom=base)
         left = _ValidatorEncoder(program, left_inputs, initial_state, initial_locals)
         right = _ValidatorEncoder(program, right_inputs, initial_state, initial_locals)
         left_obs, right_obs = left.observations(visible), right.observations(visible)
         if left_obs.keys() != right_obs.keys(): raise UnsupportedConstruct("observation shape mismatch")
-        factor_diff = f"(not (= {left_inputs[factor].text} {right_inputs[factor].text}))"
-        differences = [f"(not (= {left_obs[k].text} {right_obs[k].text}))" for k in left_obs]
-        if not differences: raise UnsupportedConstruct("empty observation boundary")
-        query_ir = {"factor": factor, "declarations": declarations, "factor_difference": factor_diff,
-                     "observation_differences": differences, "observation_contract": "return-and-selected-state/1"}
+        factor_difference = Term("not", "Bool", (Term("eq", "Bool", (left_inputs[factor], right_inputs[factor])),))
+        observation_terms = [Term("not", "Bool", (Term("eq", "Bool", (left_obs[k], right_obs[k])),)) for k in left_obs]
+        if not observation_terms: raise UnsupportedConstruct("empty observation boundary")
+        observations_differ = observation_terms[0] if len(observation_terms) == 1 else Term("or", "Bool", tuple(observation_terms))
+        query_ir = RelationalQuery(factor, tuple(declarations), factor_difference, observations_differ, OBSERVATION_CONTRACT)
         query_ir_digest = _digest(query_ir)
-        smt = "(set-logic QF_LIA)\n" + "\n".join(declarations) + "\n"
-        smt += f"(assert {factor_diff})\n(assert (or {' '.join(differences)}))\n(check-sat)\n"
-        factors.append(FactorQuery(factor, query_ir_digest, smt, hashlib.sha256(smt.encode()).hexdigest()))
+        smt = render_smt2(query_ir)
+        factors.append(FactorQuery(factor, query_ir, query_ir_digest, smt, hashlib.sha256(smt.encode()).hexdigest()))
     return QFLIAAnalysis("QF_LIA_CANDIDATE_QUERIES", PROFILE_VERSION, VALIDATOR_VERSION, ENCODER_VERSION, ir_digest, tuple(factors),
-        "return-and-selected-state/1", "Candidate queries only: validator, encoder, source correspondence, CPC binding, and proof checking are not formally verified.")
+        OBSERVATION_CONTRACT, "Candidate queries only: validator, encoder, source correspondence, CPC binding, and proof checking are not formally verified.")
