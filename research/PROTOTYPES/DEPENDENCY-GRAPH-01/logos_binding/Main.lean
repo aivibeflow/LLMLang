@@ -191,3 +191,31 @@ def main : IO Unit := do
     ++ "\"observations_differ\":{\"op\":\"eq\",\"sort\":\"Bool\",\"args\":[{\"op\":\"mul\",\"sort\":\"Int\",\"args\":[{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"},{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"x\"}],\"atom\":null},{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":0}],\"atom\":null},"
     ++ "\"observation_contract\":\"return-and-selected-state/1\"}"
   expectFailure (decodeCanonicalRelationalQuery nonlinearJson)
+
+
+  IO.println "test 12: reject malformed leaf atoms and empty identifiers"
+  let badIntAtom ←
+    match Json.parse "{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":true}" with
+    | .ok value => pure value
+    | .error error => throw (IO.userError error)
+  expectFailure (decodeQueryTerm .int badIntAtom)
+  let emptySymbol ←
+    match Json.parse "{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"\"}" with
+    | .ok value => pure value
+    | .error error => throw (IO.userError error)
+  expectFailure (decodeQueryTerm .int emptySymbol)
+  let operatorWithAtom ←
+    match Json.parse "{\"op\":\"not\",\"sort\":\"Bool\",\"args\":[{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true}],\"atom\":false}" with
+    | .ok value => pure value
+    | .error error => throw (IO.userError error)
+  expectFailure (decodeQueryTerm .bool operatorWithAtom)
+
+  IO.println "test 13: reject invalid factor/declaration identifiers and schema"
+  expectFailure (decodeCanonicalRelationalQuery
+    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"bad-name\",\"declarations\":[],\"factor_difference\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true},\"observations_differ\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":false},\"observation_contract\":\"contract/1\"}")
+  expectFailure (decodeCanonicalRelationalQuery
+    "{\"schema\":\"llmlang.qf_lia.relational-query/1\",\"factor\":\"f\",\"declarations\":[{\"name\":\"bad-name\",\"sort\":\"Int\"}],\"factor_difference\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true},\"observations_differ\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":false},\"observation_contract\":\"contract/1\"}")
+  expectFailure (decodeCanonicalRelationalQuery
+    "{\"schema\":\"llmlang.qf_lia.relational-query/2\",\"factor\":\"f\",\"declarations\":[],\"factor_difference\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true},\"observations_differ\":{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":false},\"observation_contract\":\"contract/1\"}")
+
+  IO.println "Lean decoder adversarial tests passed"
