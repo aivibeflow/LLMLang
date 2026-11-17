@@ -1,16 +1,18 @@
 # LLMLang
 
-**Repository status: draft / research project.**
+**Repository status: research and specification draft.**
 
-All current project materials have been moved under [draft/](draft/). This includes the concept, RFCs, research notes, prototypes, test suites, and audit records. None of these documents should be interpreted as a finalized language specification unless a document explicitly says otherwise.
+The repository separates ongoing research from the current candidate specification:
 
-Start here:
-- [Draft project overview](draft/README.md)
-- [LLMLang concept](draft/LLMLang-CONCEPT.md)
-- [Formal verification model](draft/LLMLang-FORMAL-VERIFICATION.md)
-- [Development Engine RFC](draft/RFC-DEVELOPMENT-ENGINE.md)
-- [Request / Change RFC](draft/RFC-REQUEST-CHANGE.md)
-- [Research scenarios](draft/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md) onward, including [Scenario 29](draft/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md), [Scenario 30](draft/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md), and [Scenario 31](draft/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md)
-- [Prototype workspace](draft/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md)
+- [`research/`](research/) — research notes, alternative approaches, prototypes, tests, audit reports, and supporting RFCs. Research material is exploratory and is not automatically normative.
+- [`draft/`](draft/) — the single current candidate version of the LLMLang specification. This directory is intentionally empty until a candidate specification is ready to be placed there.
 
-The repository is under active design. Research conclusions, prototype behavior, and normative decisions must be distinguished carefully; prototype test success does not imply formal verification of the language or its implementation.
+Start with:
+- [Research overview](research/README.md)
+- [LLMLang concept research](research/LLMLang-CONCEPT.md)
+- [Formal verification research](research/LLMLang-FORMAL-VERIFICATION.md)
+- [Development Engine research](research/RFC-DEVELOPMENT-ENGINE.md)
+- [Research scenarios](research/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md) onward, including [Scenario 29](research/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md), [Scenario 30](research/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md), and [Scenario 31](research/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md)
+- [Prototype workspace](research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md)
+
+**Important:** `research/` is not the normative specification. When a coherent, reviewed candidate specification is ready, its files will be placed in `draft/`. Until then, `draft/` remains empty apart from its Git directory placeholder.
