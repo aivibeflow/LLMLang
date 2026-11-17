@@ -214,4 +214,4 @@ Run focused tests:
 python -m unittest discover -s tests -p 'test_qf_lia_profile.py' -v
 ```
 
-The output status is `QF_LIA_CANDIDATE_QUERIES`, not `PROVEN`. The validator and encoder are Python code and are not formally verified; source-to-query correspondence, CPC assumption binding, and real cvc5/Logos proof checking remain outstanding.
+The output status is `QF_LIA_CANDIDATE_QUERIES`, not `PROVEN`. The validator and encoder are Python code and are not formally verified; source-to-query correspondence, CPC assumption binding, and real cvc5/Logos proof checking remain outstanding. See [Research Scenario 32](../../RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md) for the canonical IR design and remaining proof obligations.
