@@ -82,4 +82,48 @@ def main : IO Unit := do
   if compound == expected then
     throw (IO.userError "compound expression unexpectedly equals reflexive equality")
 
+  IO.println "test 7: exact arithmetic AST equivalence"
+  let arithmeticProof :=
+    "(declare-const x Int)\\n" ++
+    "(assume a (<= (+ x 2) (* x 3)))\\n"
+  let (arithmeticAssumptions, _, arithmeticState) ←
+    match parseProofWithState arithmeticProof with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  let arithmeticBindings ←
+    match bindExpectedDeclarations arithmeticState [{ name := "x", sort := .int }] with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  let arithmeticExpected ←
+    match renderQueryTerm arithmeticBindings
+      (QueryTerm.le
+        (QueryTerm.add (.intSymbol "x") (.intLit 2))
+        (QueryTerm.mul (.intSymbol "x") (.intLit 3))) with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  if arithmeticAssumptions != [arithmeticExpected] then
+    throw (IO.userError "arithmetic renderer does not exactly match parsed CPC AST")
+
+  IO.println "test 8: exact Boolean and AST equivalence"
+  let booleanProof :=
+    "(declare-const p Bool)\\n" ++
+    "(declare-const q Bool)\\n" ++
+    "(assume a (and p (not q)))\\n"
+  let (booleanAssumptions, _, booleanState) ←
+    match parseProofWithState booleanProof with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  let booleanBindings ←
+    match bindExpectedDeclarations booleanState
+      [{ name := "p", sort := .bool }, { name := "q", sort := .bool }] with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  let booleanExpected ←
+    match renderQueryTerm booleanBindings
+      (QueryTerm.and [.boolSymbol "p", QueryTerm.not (.boolSymbol "q")]) with
+    | .ok result => pure result
+    | .error error => throw (IO.userError error)
+  if booleanAssumptions != [booleanExpected] then
+    throw (IO.userError "Boolean renderer does not exactly match parsed CPC AST")
+
   IO.println "CPC parser-state binding and typed query rendering tests passed"
