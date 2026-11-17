@@ -1,0 +1,116 @@
+# Candidate implementation — Task 0003
+
+**Task:** [0003 — Integer Calculator](../../../examples/0003-calculator.md)  
+**Status:** Illustrative LLMLang semantic sketch; not parsed, built, executed, or formally verified.
+
+The sketch uses abstract standard-library operations such as `parse_i64`, `checked_add`, and `checked_div`. Their exact LLMLang signatures and semantics must be specified before this can become executable source.
+
+```text
+type CalcError =
+    InvalidInput
+    DivisionByZero
+    ArithmeticOverflow
+
+type Expression:
+    left: Int64
+    operator: Char
+    right: Int64
+
+operation parse_expression(line: String) -> Result<Expression, CalcError>:
+    tokens = split_ascii_whitespace(line)
+
+    if tokens.length != 3:
+        return Error(InvalidInput)
+
+    left = parse_i64(tokens[0])
+    right = parse_i64(tokens[2])
+
+    if left is Error or right is Error:
+        return Error(InvalidInput)
+
+    if tokens[1].length != 1:
+        return Error(InvalidInput)
+
+    operator = tokens[1][0]
+    if operator not in ['+', '-', '*', '/']:
+        return Error(InvalidInput)
+
+    return Ok(Expression(left.value, operator, right.value))
+
+operation evaluate(expression: Expression) -> Result<Int64, CalcError>:
+    match expression.operator:
+        '+':
+            return checked_add(expression.left, expression.right)
+                .map_error(ArithmeticOverflow)
+        '-':
+            return checked_sub(expression.left, expression.right)
+                .map_error(ArithmeticOverflow)
+        '*':
+            return checked_mul(expression.left, expression.right)
+                .map_error(ArithmeticOverflow)
+        '/':
+            if expression.right == 0:
+                return Error(DivisionByZero)
+            return checked_div_trunc_zero(expression.left, expression.right)
+                .map_error(ArithmeticOverflow)
+        _:
+            return Error(InvalidInput)
+
+main:
+    line = stdin.read_line_or_eof()
+    if line is Error:
+        report InvalidInput
+    if line is Eof:
+        report InvalidInput
+
+    expression = parse_expression(line)
+    if expression is Error:
+        report expression.error
+
+    result = evaluate(expression.value)
+    if result is Error:
+        report result.error
+
+    match stdout.write_utf8(format_i64(result.value) + "\n"):
+        Ok:
+            exit(0)
+        Error(_):
+            exit(1)
+
+report(error: CalcError):
+    stderr.write_utf8(match error:
+        InvalidInput       => "invalid input\n"
+        DivisionByZero     => "division by zero\n"
+        ArithmeticOverflow => "arithmetic overflow\n"
+    )
+    exit(1)
+```
+
+## Requirement mapping
+
+| Requirement | Implementation |
+|---|---|
+| R-0003-01 | `parse_expression` requires exactly three tokens |
+| R-0003-02 | `parse_i64` enforces signed 64-bit range |
+| R-0003-03 | Operator whitelist |
+| R-0003-04 | Checked addition, subtraction, multiplication |
+| R-0003-05 | `checked_div_trunc_zero` |
+| R-0003-06 | Explicit zero-divisor branch |
+| R-0003-07 | Checked arithmetic maps overflow, including MIN / -1 |
+| R-0003-08 | Canonical integer formatting, LF, exit 0 |
+| R-0003-09 | Error-specific stderr line, no stdout result, nonzero exit |
+| R-0003-10 | ASCII-whitespace tokenization and exact token count |
+
+## Validation status
+
+- Syntax: illustrative only; helper APIs are not yet defined.
+- Build/run: not performed.
+- Tests: scenarios specified in `/examples/0003-calculator.md`; not executable yet.
+- Formal verification: none.
+
+## Required follow-up before executable status
+
+1. Specify the exact standard-library contracts for line input, EOF, tokenization, UTF-8/string handling, and output.
+2. Specify checked Int64 arithmetic, especially `MIN / -1` and truncation toward zero.
+3. Ensure parser behavior rejects extra tokens and out-of-range values without intermediate overflow.
+4. Implement and run every task test scenario.
