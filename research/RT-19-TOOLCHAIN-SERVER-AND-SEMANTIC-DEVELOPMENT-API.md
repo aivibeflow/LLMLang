@@ -3,7 +3,7 @@
 **Status:** Research proposal; no implementation architecture or wire contract is accepted  
 **Date:** 2026-11-18  
 **Research area:** Development tooling, semantic editing, storage, collaboration, and AI integration  
-**Related:** [RFC — LLMLang Development Engine](RFC-DEVELOPMENT-ENGINE.md), [Git Semantic Repository](GIT-SEMANTIC-REPOSITORY.md), [ADR-014](../docs/adr/014-git-semantic-merge.md), [Semantic Compilation Cache](SEMANTIC-COMPILATION-CACHE.md), [Package System](PACKAGE-SYSTEM.md)
+**Related:** [RFC — LLMLang Development Engine](RFC-DEVELOPMENT-ENGINE.md), [Git Semantic Repository](GIT-SEMANTIC-REPOSITORY.md), [ADR-014](../docs/adr/014-git-semantic-merge.md), [Semantic Compilation Cache](SEMANTIC-COMPILATION-CACHE.md), [Package System](PACKAGE-SYSTEM.md), [ADR-015](../docs/adr/015-toolchain-server-semantic-api.md), [Prototype 01](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md)
 
 > This research investigates making structured Toolchain API operations—not direct source-file editing—the primary way for agents and automation to inspect and change LLMLang programs. It does not amend the candidate language specification or silently turn the proposed architecture into an accepted decision.
 
@@ -433,7 +433,13 @@ Build a small vertical slice before implementing the complete API.
 - unauthorized accept/commit;
 - MCP disconnect and reconnect.
 
-## 14. Evaluation criteria
+## 14. Initial prototype evidence
+
+An initial in-memory lifecycle prototype is available at [Toolchain Server Prototype 01](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md). It implements a generic immutable Entity envelope, content-addressed snapshots, isolated workspaces, typed add/update/remove Change operations, expected-hash and workspace-revision checks, acceptance, and single-file canonical JSON import/export with external-edit detection.
+
+This prototype deliberately does not define the canonical SPG schema or public wire format. It does not yet implement persistence, crash recovery, multi-file export, Git coordination, MCP, authentication, or a production authorization model. Its tests and CI workflow are intended to validate only the narrow lifecycle model.
+
+## 15. Evaluation criteria
 
 The prototype should report:
 - semantic correctness and round-trip identity;
@@ -449,7 +455,7 @@ The prototype should report:
 
 Compare against a baseline in which the same tasks are performed by editing textual files and invoking the existing compiler/checker workflow. No single performance result establishes correctness.
 
-## 15. Open questions
+## 16. Open questions
 
 1. Which exact SPG entity kinds and semantic mutation operations belong in the first vertical slice?
 2. Is an embedded database needed for the first prototype, or is an in-memory implementation plus persistence interface sufficient?
@@ -464,7 +470,7 @@ Compare against a baseline in which the same tasks are performed by editing text
 11. What is the minimum supported behavior for direct source edits from an IDE?
 12. Which toolchain/language version compatibility rules govern reopening old workspaces?
 
-## 16. Provisional recommendations (not accepted decisions)
+## 17. Provisional recommendations (not accepted decisions)
 
 1. Keep the Toolchain API transport-neutral and expose MCP as an adapter.
 2. Start with a modular monolith and an in-memory backend; define a persistent storage interface from day one.
@@ -477,7 +483,7 @@ Compare against a baseline in which the same tasks are performed by editing text
 9. Implement one end-to-end operation before expanding the MCP surface.
 10. Do not create a distributed Toolchain Server until a measured need exists.
 
-## 17. Exit criteria
+## 18. Exit criteria
 
 RT-19 is ready for an architectural decision only when:
 - the domain API and mutation envelope are specified for a small supported SPG subset;
