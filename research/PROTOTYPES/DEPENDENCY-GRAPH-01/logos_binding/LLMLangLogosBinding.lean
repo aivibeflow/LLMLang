@@ -251,6 +251,20 @@ private def jsonInt (value : Json) : Except String Int :=
 private def jsonBool (value : Json) : Except String Bool :=
   value.getBool?
 
+private def asciiLetter (c : Char) : Bool :=
+  ('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z')
+
+private def asciiDigit (c : Char) : Bool :=
+  '0' <= c && c <= '9'
+
+/-- Match the conservative generated identifier grammar used by the Python exporter. -/
+private def validIdentifier (name : String) : Bool :=
+  match name.toList with
+  | [] => false
+  | first :: rest =>
+      (asciiLetter first || first == '_') &&
+      rest.all (fun c => asciiLetter c || asciiDigit c || c == '_')
+
 /-- Require an object to contain exactly the supplied field names. -/
 private def requireExactFields (value : Json) (expected : List String) : Except String Unit := do
   let object ← value.getObj?
@@ -283,7 +297,9 @@ partial def decodeQueryTerm : (sort : QuerySort) → Json → Except String (Que
         pure (.intLit (← jsonInt atom))
     | "symbol" =>
         if !args.isEmpty then throw "symbol must have no arguments"
-        pure (.intSymbol (← atom.getStr?))
+        let name ← atom.getStr?
+        if !validIdentifier name then throw "invalid integer symbol identifier"
+        pure (.intSymbol name)
     | "neg" =>
         requireNullField value "atom"
         if args.size != 1 then throw "neg expects exactly one argument"
@@ -324,7 +340,9 @@ partial def decodeQueryTerm : (sort : QuerySort) → Json → Except String (Que
         pure (.boolLit (← jsonBool atom))
     | "symbol" =>
         if !args.isEmpty then throw "symbol must have no arguments"
-        pure (.boolSymbol (← atom.getStr?))
+        let name ← atom.getStr?
+        if !validIdentifier name then throw "invalid Boolean symbol identifier"
+        pure (.boolSymbol name)
     | "not" =>
         requireNullField value "atom"
         if args.size != 1 then throw "not expects exactly one argument"
@@ -368,7 +386,7 @@ private def decodeWireDeclaration (value : Json) : Except String WireDeclaration
   requireExactFields value ["name", "sort"]
   let name ← jsonStringField value "name"
   let sort ← jsonStringField value "sort"
-  if name.isEmpty then throw "query declaration name must not be empty"
+  if !validIdentifier name then throw "invalid query declaration identifier"
   match sort with
   | "Int" => pure ⟨name, .int⟩
   | "Bool" => pure ⟨name, .bool⟩
@@ -388,7 +406,8 @@ def decodeCanonicalRelationalQuery (source : String) : Except String DecodedRela
     throw "unsupported canonical query schema version"
   let factor ← jsonStringField json "factor"
   let contract ← jsonStringField json "observation_contract"
-  if factor.isEmpty || contract.isEmpty then throw "factor and observation contract are required"
+  if !validIdentifier factor then throw "factor must be a valid identifier"
+  if contract.isEmpty then throw "observation contract is required"
   let rawDeclarations ← jsonArrayField json "declarations"
   let declarations ← rawDeclarations.toList.mapM decodeWireDeclaration
   let names := declarations.map WireDeclaration.name
