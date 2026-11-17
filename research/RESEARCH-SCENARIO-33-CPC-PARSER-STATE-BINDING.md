@@ -1,6 +1,6 @@
 # Research Scenario 33 — CPC Parser State and Exact Symbol Binding
 
-**Status:** Lean wrapper, fail-closed declaration binder, typed query AST, independent Eo.Term renderer, and strict canonical JSON decoder compile and pass GitHub Actions CI against the pinned Logos revision. Positive and adversarial fixtures validate exact comparison of the complete assumption list. This is not a source-to-query proof. The follow-up audit in Scenario 32 identified an unresolved factor-identity binding gap. The bridge is not a formal source-to-query correctness proof.  
+**Status:** Lean wrapper, fail-closed declaration binder, typed query AST, independent Eo.Term renderer, and strict version-2 canonical JSON decoder compile and pass GitHub Actions CI against the pinned Logos revision. Positive and adversarial fixtures validate exact comparison of the complete assumption list. This is not a source-to-query proof. The follow-up audit in Scenario 32 identified an unresolved factor-identity binding gap, now addressed by the version-2 factor-pair contract. The bridge is not a formal source-to-query correctness proof.  
 **Date:** 2026-11-17  
 **Pinned Logos revision:** cf18742973861b3718d04c5f25775448098ff474  
 **Depends on:** Scenarios 29, 30, and 32.  
@@ -128,3 +128,8 @@ The parser wrapper intentionally compares assumptions only. The generated `CCmdL
 The latest pinned Lean CI run [44180154227](https://github.com/aivibeflow/LLMLang/actions/runs/44180154227) passes the parser-state bridge build, decoder tests, and adversarial complete-assumption-list tests. The repository structure workflow [44180154223](https://github.com/aivibeflow/LLMLang/actions/runs/44180154223) also passes.
 
 The tested boundary is: the CPC parser's retained declaration state is used to resolve exact UConst nodes; the versioned JSON is decoded independently in Lean; and the entire ordered assumption list is compared by native structural equality. It does not establish that the decoded `factor_difference` is the correct inequality for the source-level factor. The `factor` label is currently unused after identifier validation. Scenario 32 Section 11 records the required version-2 wire change and acceptance conditions.
+
+
+## 11. Version-2 relational factor binding
+
+The version-2 JSON envelope includes explicit factor_left and factor_right references. Lean resolves both through retained CPC parser state, checks equal Bool/Int sorts and the unique generated _L/_R pair, independently constructs not (= left right), and compares it structurally with decoded factor_difference. Python emits both references and validates the same exact shape. Schema /1 is rejected. This does not prove source-program-to-query correspondence.
