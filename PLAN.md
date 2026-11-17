@@ -531,7 +531,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [ ] Define index integrity, corruption detection, sparse-index reconstruction, and logical-versus-physical index identity.
 - [x] Draft a human-readable TOML manifest schema candidate and an illustrative manifest fixture; keep binary encoding for machine indexes and object payloads where their formats require it.
 - [x] Draft the Package Content Root Hash projection, identity exclusions, and validation invariants independently of raw TOML bytes and physical archive encoding.
-- [ ] Review and validate the manifest schema, canonical typed hash encoding, and digest algorithm with executable fixtures before treating them as stable.
+- [x] Implement an exploratory executable package-identity model and focused fixtures for PMI-001–PMI-014; record its limits and test evidence.
+- [ ] Review and validate the manifest schema, canonical typed hash encoding, and digest algorithm with independent implementations and adversarial fixtures before treating them as stable.
 - [ ] Define static package archive and optional generated human-readable index (for example, `INDEX.md`) derived from the machine index.
 - [ ] Define Dynamic Package requests by exact root Content Hash values and explicit dependency policies.
 - [ ] Define exact-hash transitive dependency closure, optional/target/feature dependency semantics, and fail-closed missing-dependency behavior.
@@ -541,7 +542,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Existing evidence:** [Package System: Static and Dynamic Packages](research/PACKAGE-SYSTEM.md), extending the earlier [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md) and [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md) proposals.
 
-**Status:** researched at the conceptual level. A first candidate TOML manifest schema, example fixture, Package Content Root Hash projection, identity exclusions, and validation invariants have been drafted. Compact-index, block-compression, sparse-lookup, dynamic-provider, and optional derived-result cache-index architecture remain proposals. No normative wire format, codec policy, provider protocol, cache-index schema, final manifest schema, canonical hash encoding, or digest algorithm has been accepted.
+**Status:** researched and prototyped at an exploratory level. A candidate TOML manifest schema, example fixture, Package Content Root Hash projection, identity exclusions, and PMI-001–PMI-014 invariants are documented; an independent Python prototype exercises these invariants (18 focused tests pass). Provider-side closure resolution, actual static/dynamic builders, binary index encoding, compression, and sparse lookup remain unimplemented. No normative wire format, codec policy, provider protocol, cache-index schema, final manifest schema, canonical hash encoding, or digest algorithm has been accepted.
 
 
 - [ ] Define Package versus Library boundaries.
