@@ -195,17 +195,17 @@ def main : IO Unit := do
 
   IO.println "test 12: reject malformed leaf atoms and empty identifiers"
   let badIntAtom ←
-    match Json.parse "{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":true}" with
+    match Lean.Json.parse "{\"op\":\"int\",\"sort\":\"Int\",\"args\":[],\"atom\":true}" with
     | .ok value => pure value
     | .error error => throw (IO.userError error)
   expectFailure (decodeQueryTerm .int badIntAtom)
   let emptySymbol ←
-    match Json.parse "{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"\"}" with
+    match Lean.Json.parse "{\"op\":\"symbol\",\"sort\":\"Int\",\"args\":[],\"atom\":\"\"}" with
     | .ok value => pure value
     | .error error => throw (IO.userError error)
   expectFailure (decodeQueryTerm .int emptySymbol)
   let operatorWithAtom ←
-    match Json.parse "{\"op\":\"not\",\"sort\":\"Bool\",\"args\":[{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true}],\"atom\":false}" with
+    match Lean.Json.parse "{\"op\":\"not\",\"sort\":\"Bool\",\"args\":[{\"op\":\"bool\",\"sort\":\"Bool\",\"args\":[],\"atom\":true}],\"atom\":false}" with
     | .ok value => pure value
     | .error error => throw (IO.userError error)
   expectFailure (decodeQueryTerm .bool operatorWithAtom)
