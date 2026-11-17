@@ -15,9 +15,17 @@ inductive ExprSort where
   | bool
   deriving DecidableEq, Repr
 
-def Value : ExprSort → Type
-  | .int => Int
-  | .bool => Bool
+/-- Values are explicitly tagged, avoiding typeclass inference through a
+    reducible dependent type alias. -/
+inductive Value : ExprSort → Type where
+  | intValue : Int → Value .int
+  | boolValue : Bool → Value .bool
+
+def asInt : Value .int → Int
+  | .intValue n => n
+
+def asBool : Value .bool → Bool
+  | .boolValue b => b
 
 abbrev Env := (name : String) → (sort : ExprSort) → Value sort
 
@@ -63,23 +71,34 @@ inductive QueryTerm : ExprSort → Type where
 
 /-- Source expression evaluation over mathematical integers and Booleans. -/
 def evalExpr : {s : ExprSort} → Expr s → Env → Value s
-  | .int, .intLit n, _ => n
-  | .bool, .boolLit b, _ => b
+  | .int, .intLit n, _ => .intValue n
+  | .bool, .boolLit b, _ => .boolValue b
   | .int, .intVar name, env => env name .int
   | .bool, .boolVar name, env => env name .bool
-  | .int, .neg e, env => -(evalExpr e env)
-  | .int, .add a b, env => evalExpr a env + evalExpr b env
-  | .int, .sub a b, env => evalExpr a env - evalExpr b env
-  | .int, .mulConst k e, env => k * evalExpr e env
-  | .bool, .not e, env => !(evalExpr e env)
-  | .bool, .eqInt a b, env => evalExpr a env == evalExpr b env
-  | .bool, .eqBool a b, env => evalExpr a env == evalExpr b env
-  | .bool, .lt a b, env => evalExpr a env < evalExpr b env
-  | .bool, .le a b, env => evalExpr a env <= evalExpr b env
-  | .bool, .and a b, env => evalExpr a env && evalExpr b env
-  | .bool, .or a b, env => evalExpr a env || evalExpr b env
-  | .int, .iteInt c a b, env => if evalExpr c env then evalExpr a env else evalExpr b env
-  | .bool, .iteBool c a b, env => if evalExpr c env then evalExpr a env else evalExpr b env
+  | .int, .neg e, env => .intValue (-(asInt (evalExpr e env)))
+  | .int, .add a b, env =>
+      .intValue (asInt (evalExpr a env) + asInt (evalExpr b env))
+  | .int, .sub a b, env =>
+      .intValue (asInt (evalExpr a env) - asInt (evalExpr b env))
+  | .int, .mulConst k e, env =>
+      .intValue (k * asInt (evalExpr e env))
+  | .bool, .not e, env => .boolValue (!(asBool (evalExpr e env)))
+  | .bool, .eqInt a b, env =>
+      .boolValue (decide (asInt (evalExpr a env) = asInt (evalExpr b env)))
+  | .bool, .eqBool a b, env =>
+      .boolValue (decide (asBool (evalExpr a env) = asBool (evalExpr b env)))
+  | .bool, .lt a b, env =>
+      .boolValue (decide (asInt (evalExpr a env) < asInt (evalExpr b env)))
+  | .bool, .le a b, env =>
+      .boolValue (decide (asInt (evalExpr a env) <= asInt (evalExpr b env)))
+  | .bool, .and a b, env =>
+      .boolValue (asBool (evalExpr a env) && asBool (evalExpr b env))
+  | .bool, .or a b, env =>
+      .boolValue (asBool (evalExpr a env) || asBool (evalExpr b env))
+  | .int, .iteInt c a b, env =>
+      if asBool (evalExpr c env) then evalExpr a env else evalExpr b env
+  | .bool, .iteBool c a b, env =>
+      if asBool (evalExpr c env) then evalExpr a env else evalExpr b env
 
 /-- Structural translation from the typed source AST to the typed query AST. -/
 def translateExpr : {s : ExprSort} → Expr s → QueryTerm s
@@ -103,23 +122,34 @@ def translateExpr : {s : ExprSort} → Expr s → QueryTerm s
 
 /-- Query-term evaluation, defined independently from source evaluation. -/
 def evalQuery : {s : ExprSort} → QueryTerm s → Env → Value s
-  | .int, .intLit n, _ => n
-  | .bool, .boolLit b, _ => b
+  | .int, .intLit n, _ => .intValue n
+  | .bool, .boolLit b, _ => .boolValue b
   | .int, .symbolInt name, env => env name .int
   | .bool, .symbolBool name, env => env name .bool
-  | .int, .neg e, env => -(evalQuery e env)
-  | .int, .add a b, env => evalQuery a env + evalQuery b env
-  | .int, .sub a b, env => evalQuery a env - evalQuery b env
-  | .int, .mulConst k e, env => k * evalQuery e env
-  | .bool, .not e, env => !(evalQuery e env)
-  | .bool, .eqInt a b, env => evalQuery a env == evalQuery b env
-  | .bool, .eqBool a b, env => evalQuery a env == evalQuery b env
-  | .bool, .lt a b, env => evalQuery a env < evalQuery b env
-  | .bool, .le a b, env => evalQuery a env <= evalQuery b env
-  | .bool, .and a b, env => evalQuery a env && evalQuery b env
-  | .bool, .or a b, env => evalQuery a env || evalQuery b env
-  | .int, .iteInt c a b, env => if evalQuery c env then evalQuery a env else evalQuery b env
-  | .bool, .iteBool c a b, env => if evalQuery c env then evalQuery a env else evalQuery b env
+  | .int, .neg e, env => .intValue (-(asInt (evalQuery e env)))
+  | .int, .add a b, env =>
+      .intValue (asInt (evalQuery a env) + asInt (evalQuery b env))
+  | .int, .sub a b, env =>
+      .intValue (asInt (evalQuery a env) - asInt (evalQuery b env))
+  | .int, .mulConst k e, env =>
+      .intValue (k * asInt (evalQuery e env))
+  | .bool, .not e, env => .boolValue (!(asBool (evalQuery e env)))
+  | .bool, .eqInt a b, env =>
+      .boolValue (decide (asInt (evalQuery a env) = asInt (evalQuery b env)))
+  | .bool, .eqBool a b, env =>
+      .boolValue (decide (asBool (evalQuery a env) = asBool (evalQuery b env)))
+  | .bool, .lt a b, env =>
+      .boolValue (decide (asInt (evalQuery a env) < asInt (evalQuery b env)))
+  | .bool, .le a b, env =>
+      .boolValue (decide (asInt (evalQuery a env) <= asInt (evalQuery b env)))
+  | .bool, .and a b, env =>
+      .boolValue (asBool (evalQuery a env) && asBool (evalQuery b env))
+  | .bool, .or a b, env =>
+      .boolValue (asBool (evalQuery a env) || asBool (evalQuery b env))
+  | .int, .iteInt c a b, env =>
+      if asBool (evalQuery c env) then evalQuery a env else evalQuery b env
+  | .bool, .iteBool c a b, env =>
+      if asBool (evalQuery c env) then evalQuery a env else evalQuery b env
 
 /--
 SC-1/SC-2 expression slice: the translation preserves the result sort by
@@ -128,6 +158,6 @@ This is a kernel-checked theorem, not a test or solver result.
 -/
 theorem translateExpr_preserves_eval {s : ExprSort} (e : Expr s) (env : Env) :
     evalQuery (translateExpr e) env = evalExpr e env := by
-  induction e <;> simp [translateExpr, evalQuery, evalExpr, *]
+  induction e <;> simp [translateExpr, evalQuery, evalExpr, asInt, asBool, *]
 
 end LLMLang.SourceQuerySemantics
