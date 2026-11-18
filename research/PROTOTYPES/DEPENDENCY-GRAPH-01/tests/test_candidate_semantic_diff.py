@@ -182,8 +182,8 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             self.store, declaration("function", "invoice:v1.1", {"body": "revised"},
                                     call_sites=site(self.old_callee, self.contract_hash))
         )
-        baseline = make_snapshot({"invoice": self.old_caller, "tax": self.old_callee})
-        candidate = make_snapshot({"invoice": revised, "tax": self.old_callee})
+        baseline = make_snapshot({"contract": self.contract_hash, "invoice": self.old_caller, "tax": self.old_callee})
+        candidate = make_snapshot({"contract": self.contract_hash, "invoice": revised, "tax": self.old_callee})
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate, actions=(action(self.old_caller),)),
@@ -203,8 +203,8 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                             for error in result.errors))
 
     def test_added_and_removed_selections_are_reported(self):
-        baseline = make_snapshot({"old": self.old_callee})
-        candidate = make_snapshot({"new": self.new_callee})
+        baseline = make_snapshot({"contract": self.contract_hash, "old": self.old_callee})
+        candidate = make_snapshot({"contract": self.contract_hash, "new": self.new_callee})
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate,
@@ -217,8 +217,8 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         )
 
     def test_changed_call_target_requires_exact_matching_decision(self):
-        baseline = make_snapshot({"tax": self.old_callee, "invoice": self.old_caller})
-        candidate = make_snapshot({"tax": self.new_callee, "invoice": self.new_caller})
+        baseline = make_snapshot({"contract": self.contract_hash, "tax": self.old_callee, "invoice": self.old_caller})
+        candidate = make_snapshot({"contract": self.contract_hash, "tax": self.new_callee, "invoice": self.new_caller})
         decision = CallSiteDecision(
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.MIGRATE, self.new_callee, self.new_caller,
@@ -235,8 +235,9 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         self.assertTrue(result.valid, result.errors)
 
     def test_changed_callee_requires_decisions_for_unchanged_incoming_callers(self):
-        baseline = make_snapshot({"tax": self.old_callee, "invoice": self.old_caller})
+        baseline = make_snapshot({"contract": self.contract_hash, "tax": self.old_callee, "invoice": self.old_caller})
         candidate = make_snapshot({
+            "contract": self.contract_hash,
             "tax": self.new_callee,
             "legacy-tax": self.old_callee,
             "invoice": self.old_caller,
@@ -280,7 +281,8 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                       actions=(action(self.old_callee), rewrite_action(self.old_caller))),
         )
         self.assertFalse(result.valid)
-        self.assertTrue(any("no exact CIP decision" in error for error in result.errors))
+        self.assertTrue(any("path-bound CIP decision" in error or "unique exact CIP decision" in error
+                            for error in result.errors))
 
     def test_decision_cannot_claim_a_different_candidate_target(self):
         baseline = make_snapshot({"tax": self.old_callee, "invoice": self.old_caller})
@@ -322,8 +324,9 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                 call_sites=site(self.old_callee, alternate_contract),
             )
         )
-        baseline = make_snapshot({"invoice": self.old_caller, "tax": self.old_callee})
-        candidate = make_snapshot({"invoice": changed_requirement, "tax": self.old_callee})
+        baseline = make_snapshot({"contract": self.contract_hash, "invoice": self.old_caller, "tax": self.old_callee})
+        candidate = make_snapshot({"contract": self.contract_hash, "alternate": alternate_contract,
+                                   "invoice": changed_requirement, "tax": self.old_callee})
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate, actions=(action(self.old_caller),)),
@@ -357,8 +360,10 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                 call_sites=site(self.old_callee, self.contract_hash),
             )
         )
-        baseline = make_snapshot({"invoice": old, "tax": self.old_callee})
-        candidate = make_snapshot({"invoice": new, "tax": self.old_callee})
+        baseline = make_snapshot({"contract": self.contract_hash, "extra-contract": contract,
+                                   "invoice": old, "tax": self.old_callee})
+        candidate = make_snapshot({"contract": self.contract_hash, "extra-contract": contract,
+                                   "invoice": new, "tax": self.old_callee})
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate, actions=(action(old),), edge_changes=()),
