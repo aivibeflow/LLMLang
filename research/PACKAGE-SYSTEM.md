@@ -547,4 +547,22 @@ The existing `TOOLCHAIN-SERVER-01` prototype has immutable entity payloads and c
 
 The prototype README also explicitly excludes a persistent database backend, crash recovery, cross-process locking, and a stable public storage contract. Therefore no direct adapter is implemented at this stage.
 
-The next prerequisite is a public immutable snapshot read contract with exact-hash object metadata lookup, outgoing typed dependency enumeration, and streaming payload access, backed by a persistent store with documented snapshot isolation/lifetime. The Provider should implement that contract only after the Toolchain storage design establishes it. Until then, the synthetic snapshot adapter remains test/benchmark infrastructure, not a production integration.
+A backend-neutral read contract and standalone persistent SQLite prototype now exist in `PROTOTYPES/PACKAGE-INDEX-01/content_store.py`. `ContentStore.open_snapshot()` returns a live `ContentStoreSnapshot` lease exposing a stable `snapshot_id`, exact-hash `get_object`, ordered `get_dependencies`, and streaming `open_object`. The SQLite implementation uses append-only object/dependency rows and a WAL-pinned read transaction; a writer committing after the lease opens is invisible to that lease but visible to a newly opened lease. The package Provider consumes this adapter directly in integration tests. This validates the Provider-facing contract and a local persistence mechanism, but it does not yet integrate the Toolchain Server's semantic model: dependency rows are supplied by a semantic/indexing layer, and the current generic Entity prototype has no canonical dependency extractor. The SQLite database remains derived/reconstructible under ADR-014's proposed Git-authoritative direction.
+
+
+### 17.3 Content Store snapshot read contract and SQLite prototype
+
+The Provider-facing storage contract is now explicit and backend-neutral:
+
+- `ContentStore.open_snapshot()` opens one read lease.
+- A `ContentStoreSnapshot` exposes a stable `snapshot_id` for the lifetime of that lease.
+- `get_object(exact_hash)` returns the exact requested hash, kind, and byte size; missing exact objects fail rather than resolving to a different revision.
+- `get_dependencies(source_hash)` returns the complete, ordered outgoing typed edge set for that exact source object. An empty set is explicit; missing dependency metadata is an error.
+- `open_object(exact_hash)` returns a binary stream for the exact immutable payload.
+- All object payload and dependency-index writes are append-only and atomic for one object. Repeating identical content is idempotent; conflicting metadata or edge sets are rejected.
+
+The SQLite prototype uses WAL mode and a read transaction pinned by its first metadata read. Its `snapshot_id` is a store UUID plus generation token; it is not a Semantic Snapshot root, Package Content Root Hash, or durable reopenable snapshot identifier. The live transaction is the actual consistency boundary. A writer may commit while a reader is active: the old reader continues to see its pinned generation, while a newly opened reader sees the later generation. The caller must close payload streams and then close the snapshot promptly; long-lived readers can delay WAL checkpoint progress and increase WAL disk use.
+
+Dependency edges are not inferred from opaque bytes. A trusted semantic/indexing layer supplies the complete edge set when publishing an object. This preserves the boundary between storage and language semantics. The current generic Toolchain Entity prototype has no accepted SPG schema or dependency extractor, so the SQLite prototype is not yet a Toolchain Server adapter. It is a persistent contract prototype consumed directly by the package Provider integration tests.
+
+The database is derived/reconstructible and does not become authoritative program state. The prototype has no garbage collector, backup/restore design, cross-process repository lease, crash-injection matrix, migration framework, or final hash/schema policy. SQLite WAL is a local implementation experiment, not a selected production database.

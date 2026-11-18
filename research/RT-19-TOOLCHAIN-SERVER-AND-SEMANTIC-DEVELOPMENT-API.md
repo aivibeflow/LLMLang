@@ -235,6 +235,27 @@ A remote/shared backend is a later option, not an MVP prerequisite.
 
 The API and semantics must be identical across backends. Backend differences may affect performance and durability guarantees, but not object identity, transaction results, validation, or observable API behavior.
 
+### 6.3 Provider-facing immutable object read contract
+
+The shared semantic object store must expose a backend-neutral read interface to consumers such as the package Provider. A read handle is a bounded-lifetime lease over one consistent store view, not a mutable global "current snapshot".
+
+Minimum contract:
+
+| Operation | Required behavior |
+|---|---|
+| `open_snapshot()` | Return a read-only handle pinned to one consistent store view |
+| `snapshot_id` | Stable opaque identity for the lifetime of that handle; not interchangeable with a Semantic Snapshot root |
+| `get_object(exact_hash)` | Return metadata for exactly that Content Hash or fail; never substitute a newer/compatible object |
+| `get_dependencies(source_hash)` | Return the complete typed outgoing edge set for that exact immutable source object; missing index data is an error, not an empty set |
+| `open_object(exact_hash)` | Stream the exact immutable payload; caller closes the stream before releasing the read handle |
+| `close()` | Release the pinned read view and its resources |
+
+The storage layer persists opaque payloads and typed dependency-index rows supplied by a semantic/indexing layer. It does not infer dependency semantics from payload bytes. Dependency metadata must be complete and immutable for an exact source Content Hash; an explicit empty edge set is different from missing metadata.
+
+A reader opened before a concurrent writer commits must continue to observe its original view; a new reader observes the committed generation. The backend may implement this with MVCC, a database read transaction, or an equivalent immutable-generation mechanism. The API does not require SQLite or expose backend-specific transaction objects.
+
+The initial SQLite WAL prototype is in [Package Index Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md). It validates the read contract and Provider integration only. It is not yet wired to the Toolchain's semantic object model because the generic Entity prototype has no canonical SPG dependency extractor. The storage remains derived/reconstructible under ADR-014's proposed Git-authoritative direction. Interface mappings are a separate versioned concurrency domain and are not stored as mutable semantic objects; see RT-23.
+
 ### 6.3 Transaction and recovery requirements
 
 - Publishing a new immutable object is idempotent by content identity.

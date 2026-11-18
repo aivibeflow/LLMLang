@@ -194,6 +194,24 @@ This boundary allows semantic development to proceed without worktree churn whil
 
 ## 10. Single-server process and storage model
 
+## 10.1 Shared immutable object-store read boundary
+
+The shared semantic object store must expose read leases independently of per-worktree File Views and independently of mutable Interface Mapping Revisions. A semantic Change Set or package build identifies the exact semantic root it consumes; it does not select a worktree-local object database.
+
+The minimum object-store read surface is defined in RT-19 §6.3: open a pinned read view, resolve exact Content Hash metadata, enumerate the complete typed outgoing dependency set for an exact source object, and stream the exact payload. The returned handle has a bounded lifetime and a stable opaque store-view token. A backend must provide repeatable reads for that handle while concurrent object insertions continue.
+
+The package-index SQLite prototype demonstrates one possible local implementation using append-only rows and a WAL read transaction. It is a derived-store experiment, not the selected Toolchain backend and not an implementation of the complete RT-23 shared semantic store. In particular:
+
+- object payloads and dependency rows are immutable and content-addressed;
+- dependency rows are supplied by the semantic/indexing layer, never guessed from opaque bytes;
+- interface mappings remain separately versioned and use their own compare-and-swap rules;
+- worktree selection does not open, clone, or switch the semantic store;
+- a store snapshot token is not a Semantic Snapshot root and does not replace the exact semantic root recorded by a Change Set or build.
+
+A production implementation still needs to define how semantic roots, object reachability, mapping revisions, retention/garbage collection, repository reconstruction, and active read leases interact. The local SQLite prototype does not establish those policies.
+
+
+
 The Toolchain Server should be one service instance per repository registration (or one server managing multiple explicitly registered repositories), not one process per worktree/job.
 
 Recommended initial topology:

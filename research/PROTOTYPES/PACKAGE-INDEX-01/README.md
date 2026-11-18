@@ -8,7 +8,7 @@ Requires Python 3.11+.
 
 ```sh
 PYTHONPATH=../PACKAGE-IDENTITY-01 python -m unittest discover -v
-PYTHONPATH=../PACKAGE-IDENTITY-01 python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py package_closure.py test_package_closure.py package_provider.py test_package_provider.py test_provider_stress.py benchmark_package_provider.py ../PACKAGE-IDENTITY-01/package_identity.py
+PYTHONPATH=../PACKAGE-IDENTITY-01 python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py package_closure.py test_package_closure.py package_provider.py test_package_provider.py test_provider_stress.py benchmark_package_provider.py content_store.py test_content_store.py ../PACKAGE-IDENTITY-01/package_identity.py
 PYTHONPATH=../PACKAGE-IDENTITY-01 python benchmark_package_provider.py --sizes 1000 5000
 ```
 
@@ -25,6 +25,8 @@ PYTHONPATH=../PACKAGE-IDENTITY-01 python benchmark_package_provider.py --sizes 1
 - Explicit external dependency edges that do not imply package membership.
 - Exact dependency-closure resolution for closure, roots_only, and closure_with_optional, including cycles, shared dependencies, conditional selections, and snapshot consistency.
 - Disk-backed Provider-to-archive construction using SQLite traversal state, sorted table iterators, and one-at-a-time verified object payload streams.
+- A backend-neutral `ContentStore` / `ContentStoreSnapshot` read contract and an append-only SQLite prototype with WAL-pinned read transactions, exact-hash metadata lookup, typed dependency-index rows, and incremental BLOB streams.
+- Provider integration tests proving that an already-open snapshot does not see objects committed by a concurrent writer, while a newly opened snapshot does.
 - Stress coverage for 1,200-object chain and high-fan-out graphs.
 - A subprocess-isolated benchmark harness for chain, diamond, high-fan-out, and many-dependency graphs, reporting wall time, throughput, traced Python peak, process peak RSS, temporary-directory high-water size, archive size, and verification.
 
@@ -39,7 +41,9 @@ PYTHONPATH=../PACKAGE-IDENTITY-01 python benchmark_package_provider.py --sizes 1
 - `package_closure.py` remains an in-memory reference resolver. The integrated `package_provider.py` stores its traversal queue, visited-object metadata, and dependency rows in an on-disk SQLite database, with a configurable SQLite page cache and bounded row batches. This is not a strict constant-memory guarantee: configured sort chunks, ZIP central-directory metadata, individual edge/module rows, and caller-provided condition selections also consume memory.
 - The provider reads only reachable objects and outgoing edges, streams sorted index tables into the archive builder, and opens one object payload at a time. A benchmark-driven SQLite index on `(processed, hash)` accelerates pending-queue selection; initial before/after results are recorded in `research/PACKAGE-SYSTEM.md` §17. It stages the archive and checks the snapshot token again before publishing the destination.
 - Conditional expressions are not interpreted; eligible conditional edges require explicit caller-supplied boolean selections. Exports and modules are included when the snapshot adapter supplies `get_exports()` and `get_modules()`; otherwise those tables are empty.
-- Does not implement binary serialization, compression, block directories, sparse lookup, multi-provider composition, provenance authentication, or a production provider protocol.
-- The Toolchain Server Prototype 01 is not yet a usable Content Store adapter: its in-memory API does not expose a public snapshot enumeration/dependency-edge/object-stream interface, and it has no persistent backend. The package Provider is intentionally not coupled to its private dictionaries.
+- The SQLite Content Store is an exploratory derived-store backend, not a production Toolchain backend. It has no crash/recovery protocol beyond SQLite transactions, no garbage collection, multi-process repository lease, backup/restore contract, migration framework, or canonical SPG dependency extractor. SQLite WAL read snapshots are live transaction leases; callers must close streams and the snapshot promptly.
+- Dependency edges are supplied by a semantic/indexing layer and stored immutably by exact source Content Hash. The store does not infer dependency semantics from opaque payload bytes. The current `sha256:` spelling and SQLite schema are prototype-only.
+- Does not implement binary serialization, compression, block directories, sparse lookup, multi-provider composition, or provenance authentication.
+- The Toolchain Server Prototype 01 is still not a usable Content Store adapter: its in-memory API has no public persistent object-store interface or canonical typed dependency extractor. `content_store.py` validates the backend-neutral read contract against a standalone SQLite prototype, but it is not wired into the Toolchain Server or its semantic object model.
 - Policy execution is prototyped, but final dependency taxonomy, typed condition evaluation, and normative snapshot/provider semantics remain open.
 - Prototype hash encoding is not the final LLMLang canonical encoding or digest standard.
