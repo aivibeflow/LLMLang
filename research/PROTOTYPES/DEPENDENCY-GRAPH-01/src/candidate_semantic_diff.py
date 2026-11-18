@@ -128,6 +128,29 @@ def audit_candidate_semantic_diff(
     if len(decision_map) != len(decision_rows):
         errors.append("ImpactPlan contains duplicate call-site decisions")
 
+    # Independently enumerate baseline-selected callers for every changed old
+    # selection hash. This prevents a manually assembled ImpactPlan from omitting
+    # an incoming call-site decision merely because its reverse-query evidence
+    # was incomplete. It remains scoped to explicit declarations in this Snapshot.
+    changed_old_hashes = {
+        change.baseline_hash for change in changes if change.baseline_hash is not None
+    }
+    for caller_hash in sorted(set(before.values())):
+        try:
+            incoming_targets = _call_targets(store, caller_hash)
+        except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
+            errors.append(f"{caller_hash}: cannot independently enumerate baseline call sites: {exc}")
+            continue
+        for (call_site_id, target_id), target_hash in sorted(incoming_targets.items()):
+            if target_hash not in changed_old_hashes:
+                continue
+            decision_key = (caller_hash, call_site_id, target_id)
+            if decision_key not in decision_map:
+                errors.append(
+                    f"{caller_hash}:{call_site_id}/{target_id}: changed baseline callee "
+                    f"{target_hash} has no CIP decision from the independently scanned Snapshot"
+                )
+
     for change in changes:
         if change.baseline_hash is None or change.candidate_hash is None:
             # The current call-site decision model only represents migration of an
