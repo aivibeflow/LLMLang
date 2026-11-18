@@ -19,6 +19,13 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
         self.assertEqual(machine.final_files, recursive.final_files)
         return recursive
 
+    def test_result_propagation_rejects_non_result_item_in_both_models(self):
+        expression = {"result_sequence": [{"literal": 1}]}
+        with self.assertRaises(SemanticError):
+            evaluate(expression, "A")
+        with self.assertRaises(MachineError):
+            run_small_step(expression, "A")
+
     def test_result_propagation_matches_error_success_and_short_circuit(self):
         cases = [
             ({"result_sequence": [
