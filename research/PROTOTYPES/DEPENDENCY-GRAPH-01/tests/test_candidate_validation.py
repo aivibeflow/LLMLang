@@ -202,7 +202,7 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
                 base_caller, "call:new", "direct", self.old_callee,
                 CallSiteDisposition.MIGRATE, self.new_callee, revised_caller,
                 "new tax behavior required", "evidence:migrate",
-                self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
+                self.contract_hash, "PROVEN",
             ),
             CallSiteDecision(
                 base_caller, "call:legacy", "direct", legacy_callee,
@@ -226,7 +226,7 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.UNRESOLVED, None, None,
             "not established", None,
-            self.contract_hash, self.contract_hash, None, None,
+            self.contract_hash, None,
         )
         plan = ImpactPlan(
             "plan:unresolved", self.baseline.root_hash, self.candidate.root_hash,
