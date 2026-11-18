@@ -251,7 +251,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                       ),)),
         )
         self.assertFalse(result.valid)
-        self.assertTrue(any("no exact CIP decision" in error for error in result.errors))
+        self.assertTrue(any("no unique exact CIP decision" in error for error in result.errors))
 
     def test_decision_cannot_claim_a_different_candidate_target(self):
         baseline = make_snapshot({"tax": self.old_callee, "invoice": self.old_caller})
