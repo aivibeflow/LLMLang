@@ -17,13 +17,14 @@ def declaration(kind, declaration_id, content=None, **extra):
     }
 
 
-def call_site(target_hash):
+def call_site(target_hash, required_contract_hash):
     return [{
         "call_site_id": "call:tax",
         "targets": [{
             "target_id": "direct",
             "target_hash": target_hash,
             "condition": None,
+            "required_contract_hash": required_contract_hash,
         }],
     }]
 
@@ -31,22 +32,29 @@ def call_site(target_hash):
 class CandidateCallSiteValidationTests(unittest.TestCase):
     def setUp(self):
         self.store = ContentStore()
+        self.contract_hash = publish_declaration(
+            self.store, declaration("contract", "contract:tax", {"name": "TaxContract"})
+        )
+        provided = [{"reference_id": "provided-contract", "relation": "provides_contract",
+                     "target_hash": self.contract_hash, "target_kind": "contract"}]
         self.old_callee = publish_declaration(
-            self.store, declaration("function", "fn:tax:v1", {"body": "old"})
+            self.store, declaration("function", "fn:tax:v1", {"body": "old"},
+                                    references=provided)
         )
         self.new_callee = publish_declaration(
-            self.store, declaration("function", "fn:tax:v2", {"body": "new"})
+            self.store, declaration("function", "fn:tax:v2", {"body": "new"},
+                                    references=provided)
         )
         self.old_caller = publish_declaration(
             self.store, declaration(
                 "function", "fn:invoice:v1", {"body": "invoice"},
-                call_sites=call_site(self.old_callee),
+                call_sites=call_site(self.old_callee, self.contract_hash),
             )
         )
         self.new_caller = publish_declaration(
             self.store, declaration(
                 "function", "fn:invoice:v2", {"body": "invoice"},
-                call_sites=call_site(self.new_callee),
+                call_sites=call_site(self.new_callee, self.contract_hash),
             )
         )
         self.baseline = make_snapshot({
@@ -73,6 +81,10 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
             resulting_caller_hash=caller,
             rationale="candidate behavior is required",
             decision_evidence_id="compatibility-evidence:001",
+            required_contract_hash=self.contract_hash,
+            base_callee_contract_hash=self.contract_hash,
+            selected_callee_contract_hash=self.contract_hash,
+            compatibility_status="PROVEN",
         )
         return ImpactPlan(
             plan_id="plan:001",
@@ -104,7 +116,7 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
         wrong_caller = publish_declaration(
             self.store, declaration(
                 "function", "fn:invoice:wrong", {"body": "invoice"},
-                call_sites=call_site(self.old_callee),
+                call_sites=call_site(self.old_callee, self.contract_hash),
             )
         )
         wrong_candidate = make_snapshot({
@@ -132,7 +144,7 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
         revised_caller = publish_declaration(
             self.store, declaration(
                 "function", "fn:invoice:v2-preserving", {"body": "invoice plus other change"},
-                call_sites=call_site(self.old_callee),
+                call_sites=call_site(self.old_callee, self.contract_hash),
             )
         )
         candidate = make_snapshot({
@@ -151,16 +163,18 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
         self.assertTrue(result.valid, result.errors)
     def test_one_caller_can_migrate_one_site_and_preserve_another(self):
         legacy_callee = publish_declaration(
-            self.store, declaration("function", "fn:legacy:v1", {"body": "legacy"})
+            self.store, declaration("function", "fn:legacy:v1", {"body": "legacy"},
+                references=[{"reference_id": "provided-contract", "relation": "provides_contract",
+                             "target_hash": self.contract_hash, "target_kind": "contract"}])
         )
         base_caller = publish_declaration(
             self.store, declaration(
                 "function", "fn:multi:v1", {"body": "multi"},
                 call_sites=[
                     {"call_site_id": "call:new", "targets": [
-                        {"target_id": "direct", "target_hash": self.old_callee, "condition": None}]},
+                        {"target_id": "direct", "target_hash": self.old_callee, "condition": None, "required_contract_hash": self.contract_hash}]},
                     {"call_site_id": "call:legacy", "targets": [
-                        {"target_id": "direct", "target_hash": legacy_callee, "condition": None}]},
+                        {"target_id": "direct", "target_hash": legacy_callee, "condition": None, "required_contract_hash": self.contract_hash}]},
                 ],
             )
         )
@@ -169,9 +183,9 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
                 "function", "fn:multi:v2", {"body": "multi revised"},
                 call_sites=[
                     {"call_site_id": "call:new", "targets": [
-                        {"target_id": "direct", "target_hash": self.new_callee, "condition": None}]},
+                        {"target_id": "direct", "target_hash": self.new_callee, "condition": None, "required_contract_hash": self.contract_hash}]},
                     {"call_site_id": "call:legacy", "targets": [
-                        {"target_id": "direct", "target_hash": legacy_callee, "condition": None}]},
+                        {"target_id": "direct", "target_hash": legacy_callee, "condition": None, "required_contract_hash": self.contract_hash}]},
                 ],
             )
         )
@@ -190,11 +204,13 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
                 base_caller, "call:new", "direct", self.old_callee,
                 CallSiteDisposition.MIGRATE, self.new_callee, revised_caller,
                 "new tax behavior required", "evidence:migrate",
+                self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
             ),
             CallSiteDecision(
                 base_caller, "call:legacy", "direct", legacy_callee,
                 CallSiteDisposition.PRESERVE, legacy_callee, revised_caller,
                 "legacy behavior remains required", "evidence:preserve",
+                self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
             ),
         )
         plan = ImpactPlan(
@@ -212,6 +228,7 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.UNRESOLVED, None, None,
             "not established", None,
+            self.contract_hash, self.contract_hash, None, None,
         )
         plan = ImpactPlan(
             "plan:unresolved", self.baseline.root_hash, self.candidate.root_hash,
@@ -245,6 +262,47 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
         self.assertFalse(result.valid)
         self.assertTrue(any("does not reference the decision's exact base callee"
                             in error for error in result.errors))
+
+    def test_candidate_cannot_silently_change_call_site_requirement(self):
+        alternate_contract = publish_declaration(
+            self.store, declaration("contract", "contract:alternate", {"name": "Alternate"})
+        )
+        changed_caller = publish_declaration(
+            self.store, declaration(
+                "function", "fn:invoice:changed-requirement", {"body": "invoice"},
+                call_sites=call_site(self.new_callee, alternate_contract),
+            )
+        )
+        candidate = make_snapshot({
+            "tax": self.new_callee,
+            "invoice": changed_caller,
+        })
+        result = validate_candidate_call_site_decisions(
+            self.store, self.baseline, candidate,
+            self.plan(caller=changed_caller, candidate=candidate),
+        )
+        self.assertFalse(result.valid)
+        self.assertTrue(any("changed its exact required contract" in error
+                            for error in result.errors))
+
+    def test_preserve_cannot_change_the_provided_contract_binding(self):
+        from dataclasses import replace
+        decision = replace(
+            self.plan(disposition=CallSiteDisposition.PRESERVE,
+                      selected=self.old_callee, caller=self.old_caller,
+                      candidate=self.baseline).call_site_decisions[0],
+            selected_callee_contract_hash="forged-contract-hash",
+        )
+        plan = ImpactPlan(
+            "plan:forged-provided-contract", self.baseline.root_hash,
+            self.baseline.root_hash, "policy", (), (), (), (decision,),
+        )
+        result = validate_candidate_call_site_decisions(
+            self.store, self.baseline, self.baseline, plan
+        )
+        self.assertFalse(result.valid)
+        self.assertTrue(any("selected callee does not provide" in error
+                            for error in result.errors))
 
     def test_candidate_snapshot_root_is_bound_to_plan(self):
         wrong_plan = ImpactPlan(
