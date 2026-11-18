@@ -294,11 +294,17 @@ class CandidateSemanticDiffCIPV2Tests(unittest.TestCase):
             output_record(self.store, "invoice-remove", "invoice", OutputOperation.REMOVE,
                           old_caller, None),
         )
-        edges = (edge_record(
-            "invoice-remove", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
-            PlannedEdgeOperation.REMOVE, "calls", None, old_callee, None,
-            old_required=self.contract,
-        ),)
+        edges = (
+            edge_record(
+                "invoice-remove", PlannedEdgeKind.TYPED_REFERENCE, "provided-contract",
+                PlannedEdgeOperation.REMOVE, "provides_contract", None, self.contract,
+            ),
+            edge_record(
+                "invoice-remove", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+                PlannedEdgeOperation.REMOVE, "calls", None, old_callee, None,
+                old_required=self.contract,
+            ),
+        )
         result = self.audit(
             baseline, candidate,
             actions=(action(old_callee), action(new_callee), action(old_caller)),
