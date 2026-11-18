@@ -90,3 +90,8 @@ Study this ADR together with the detailed documents below; this ADR records a pr
 - [RT-19](../../research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — transport-neutral Toolchain API and semantic Change Set/Snapshot lifecycle.
 
 Ownership: the focused Git Representation and Semantic Merge research owns merge semantics; RT-20 owns semantic impact/hash/caller correctness; RT-22 owns the external Git/worktree operation contract; RT-23 owns runtime synchronization and commit coordination. A successful LLMLang merge must satisfy all applicable contracts, not merely Git's textual merge result.
+
+
+## RT-24 relationship
+
+[RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../../research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) refines the candidate import/export, semantic diff, merge/conflict, mapping-revision, and prototype contract. RT-24 remains research; ADR-014 remains Proposed pending evidence.
