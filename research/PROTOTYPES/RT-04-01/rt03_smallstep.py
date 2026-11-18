@@ -35,7 +35,8 @@ def run_small_step(
     """Run the shared fragment using explicit evaluation and continuation stacks.
 
     result_sequence explicitly propagates the first Result error; ordinary
-    sequence remains strict and evaluates every item left-to-right.
+    sequence remains strict. A cancel expression terminates the machine and
+    discards pending continuations, producing a distinct cancelled outcome.
     """
     if profile not in {"A", "D"}:
         raise MachineError("profile must be A or D")
@@ -132,6 +133,13 @@ def run_small_step(
                     raise MachineError("result_sequence requires a non-empty expression list")
                 tasks.append(("result_sequence_done", arg[1:]))
                 tasks.append(("eval", arg[0]))
+            elif op == "cancel":
+                # Cancellation is a terminal control outcome, not a Result value.
+                # Discard pending continuations so no later expression executes.
+                tasks.clear()
+                values.clear()
+                values.append({"cancelled": deepcopy(arg)})
+                break
             elif op == "perform":
                 values.append(effect_step(arg))
             else:
