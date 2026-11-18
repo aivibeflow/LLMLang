@@ -95,7 +95,7 @@ class CandidateGraphAuditTests(unittest.TestCase):
         self.assertFalse(result.valid)
         self.assertTrue(any("stored metadata has undeclared dependencies" in error
                             for error in result.errors))
-        self.assertIn(self.function_hash, result.reachable_hashes)
+        self.assertNotIn(self.function_hash, result.reachable_hashes)
 
     def test_detects_missing_transitive_reference_target(self):
         missing_hash = "f" * 64
