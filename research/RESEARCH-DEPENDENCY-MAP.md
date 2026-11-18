@@ -166,7 +166,7 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 
 ## 4. Important feedback loops and conditional relationships
 
-RT-03 is a foundational source for the type/effect model, semantic identity, formal verification, compiler/runtime behavior, incremental computation, semantic merge, security, and conformance. The newly recorded direct edges DEP-036–DEP-039 are research hypotheses derived from [RT-03 core semantics](CORE-LANGUAGE-SEMANTICS.md); they do not imply that any particular semantic profile has been accepted. RT-20 adds a further feedback loop: the Toolchain workflow must enforce the dependency and identity model, while practical caller-migration and hash-propagation experiments may reveal missing distinctions in RT-05/RT-06 or transaction requirements in RT-19.
+RT-03 is a foundational source for the type/effect model, semantic identity, formal verification, compiler/runtime behavior, incremental computation, semantic merge, security, and conformance. [RT-04 alternatives research](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) now decomposes the type/effect/ownership/capability design space and maps it against profiles A–D; this is a comparative survey, not an accepted architecture. The direct edges DEP-036–DEP-039 remain research hypotheses derived from [RT-03 core semantics](CORE-LANGUAGE-SEMANTICS.md); they do not imply that any particular semantic profile has been accepted. RT-20 adds a further feedback loop: the Toolchain workflow must enforce the dependency and identity model, while practical caller-migration and hash-propagation experiments may reveal missing distinctions in RT-05/RT-06 or transaction requirements in RT-19.
 
 
 
