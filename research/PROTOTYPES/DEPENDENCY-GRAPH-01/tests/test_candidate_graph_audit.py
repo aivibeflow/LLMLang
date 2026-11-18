@@ -146,6 +146,26 @@ class CandidateGraphAuditTests(unittest.TestCase):
         self.assertFalse(result.valid)
         self.assertTrue(any("Snapshot root does not match" in error for error in result.errors))
 
+    def test_missing_selected_object_fails_closed(self):
+        missing_hash = "a" * 64
+        result = audit_candidate_snapshot_graph(
+            self.store, make_snapshot({"missing": missing_hash})
+        )
+        self.assertFalse(result.valid)
+        self.assertTrue(any("missing Content Store object" in error for error in result.errors))
+
+    def test_duplicate_logical_selection_keys_are_rejected(self):
+        valid = make_snapshot({"entry": self.function_hash})
+        duplicate = Snapshot(
+            valid.root_hash,
+            (("entry", self.function_hash), ("entry", self.function_hash)),
+            valid.parent_roots,
+        )
+        result = audit_candidate_snapshot_graph(self.store, duplicate)
+        self.assertFalse(result.valid)
+        self.assertTrue(any("duplicate logical selection keys" in error
+                            for error in result.errors))
+
     def test_graph_digest_is_deterministic(self):
         snapshot = make_snapshot({"entry": self.function_hash})
         first = audit_candidate_snapshot_graph(self.store, snapshot)
