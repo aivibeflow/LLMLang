@@ -273,6 +273,11 @@ def audit_candidate_semantic_diff(
                     f"{change.logical_key}:{edge_id}: call-site condition change is "
                     "not represented by the current CIP decision model"
                 )
+            if old_required_contract != new_required_contract:
+                errors.append(
+                    f"{change.logical_key}:{edge_id}: call-site required-contract change is "
+                    "not represented by the current CIP decision model"
+                )
             site_id, target_id = edge_id.split("/", 1)
             decision = decision_map.get((change.baseline_hash, site_id, target_id))
             if decision is None:
