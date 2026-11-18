@@ -392,7 +392,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Reconcile RT-24 against the current identity/SPG research and executable subset; record the competing Stable Entity ID versus content-addressed-value models, occurrence/selection and lineage boundary, current prototype fields/limitations, hash-layer distinctions, and dependency-completeness gap in RT-24 Identity and SPG Reconciliation. No identity architecture or canonical SPG schema was selected.
 - [ ] Decide Stable Entity ID + Content Hash versus content-addressed values with explicit lineage/selection by resolving Studies 05–08 against concrete rename, identical-value/different-occurrence, split/merge, move, call-site, and branch-merge scenarios.
 - [ ] Reconcile the selected identity model with RT-03 language semantics and RT-04 type/effect research before freezing hash-relevant fields and canonical SPG object/edge schemas.
-- [ ] Extend the existing dependency-index prototype with exact scoped completeness evidence and fail-closed reverse-reference query behavior; current incoming() results are not proof of complete caller discovery.
+- [ ] Integrate the existing ReverseLookupEvidence/query_snapshot_incoming completeness gate with RT-20 CIP and the semantic merge coordinator; define the independent audit producer, observation coverage, evidence trust policy, and end-to-end fail-closed tests. The prototype already binds evidence to snapshot, target, scope, extractor/schema, and exact edge-set digest, but does not authenticate the producer or prove its observation model complete.
 - [ ] Select the smallest supported SPG subset and specify its textual source inventory/manifest fixture. Keep the repository source textual; treat local stores, caches, and indexes as reconstructible derived state.
 - [ ] Implement deterministic importer/exporter for that subset and test semantic round-trip, byte-identical canonical export, physical independence (format/order/file moves), explicit schema versioning, and fail-closed errors.
 - [ ] Implement typed SemanticDiff with exact snapshot binding, per-call-site reference changes, root/dependency changes, lineage records, and deterministic output.
@@ -694,7 +694,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Require shared-caller version-split analysis when different consumers need old and new behavior.
 - [x] Define a candidate Change Impact Plan (CIP), plan-completeness checks, and mandatory plan execution.
 - [x] Specify the proposed completion gate: freeze candidate, verify plan coverage, validate and audit exact hashes, then create a Git commit only on success.
-- [ ] Reconcile the function hashId and call-reference assumptions with the canonical identity model in RT-05.
+- [ ] Reconcile the function hashId and call-reference assumptions with identity Studies 05–08 and the RT-24 Identity and SPG Reconciliation report; no standalone RT-05 specification currently exists.
 - [ ] Specify reverse-reference completeness for direct, indirect, dynamic, external, and generated call sites.
 - [ ] Prototype single-chain propagation, mixed old/new callers, shared-caller splits, multiple call sites, and branching/converging graphs.
 - [ ] Prove that unplanned mutations and omitted planned changes are rejected.
