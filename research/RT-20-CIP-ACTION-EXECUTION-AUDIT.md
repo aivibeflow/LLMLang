@@ -189,4 +189,6 @@ This work does not yet:
 
 ## 6. Immediate next implementation task
 
-Implement **AEA-1 only**: action IDs, prerequisite action IDs, canonical plan identity, and acyclic prerequisite validation. Do not combine AEA-1 with execution records or commit gating. Preserve the existing CIP v2 behavior until a versioned migration path and regression tests are in place.
+CIP v5 introduces deterministic, domain-separated identities for planned edge changes and call-site decisions, and commits those identities into the canonical plan payload. This is the first identity prerequisite for exact action-to-obligation bindings. It does **not** yet bind actions to outputs, edge changes, or decisions; it does not close AEA-2.
+
+Next, add immutable role-labelled action bindings to exact output IDs, edge-change IDs, and path-specific decision IDs; define the closed satisfaction matrix; update planner generation; and enforce complete coverage in the candidate semantic-diff gate. In particular, `RUN_TESTS` must bind both a test-suite output and the candidate-under-test output. AEA-3 must not begin before this is complete.
