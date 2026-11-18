@@ -135,3 +135,35 @@ This is a static declaration-level model. Parentless grant provenance/authentici
 ## RT-03 cross-profile trace fixtures
 
 The companion `test_rt03_rt04_cross_profile.py` checks a small shared observable-trace corpus against RT-03 semantic profiles A/D and RT-04 checker vectors A/B. It is intentionally a fixture oracle, not a reference interpreter. See [the cross-profile findings](../../RT-04-RT-03-CROSS-PROFILE-TRACES.md).
+
+
+## RT-03 A/D executable reference slice
+
+The separate `rt03_reference.py` module implements a small strict expression
+interpreter for RT-03 candidate profiles A and D. It is deliberately not part
+of `rt04_model.py`: the former evaluates expressions and produces observable
+traces; the latter checks declaration-level type/effect/capability/resource
+fixtures.
+
+The supported expression forms are `literal`, strict left-to-right integer
+`add`, left-to-right `sequence`, explicit `result_ok`/`result_error`
+values, and `perform`. Profile A rejects `perform`. Profile D requires each
+effect to be declared and supports finite deterministic handlers for file
+read/write, state read/write, and network send. Events retain order, operation,
+payload, and outcome; the returned trace also includes result and final
+fixture state/files.
+
+Run all tests, including the reference semantics slice, from the repository
+root:
+
+    python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_*.py' -v
+
+This is a bounded executable semantics experiment, not a selected language
+semantics. It does not implement parsing, variables/functions/recursion,
+general effect handlers or row inference, implicit Result propagation,
+exceptions/cancellation, resource lifecycle, concurrency, divergence, or
+source-to-expression completeness. The deterministic handlers use in-memory
+fixtures and do not access the host filesystem or network.
+
+See [RT-03/RT-04 cross-profile trace findings](../../RT-04-RT-03-CROSS-PROFILE-TRACES.md)
+and the [reference-slice tests](test_rt03_reference.py).
