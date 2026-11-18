@@ -14,7 +14,7 @@ from .candidate_graph_audit import audit_candidate_snapshot_graph
 from .candidate_validation import validate_candidate_call_site_decisions
 from .impact_planning import (
     ActionKind, CallSiteDisposition, ImpactPlan, OutputOperation,
-    PlannedEdgeKind, PlannedEdgeOperation, compute_impact_plan_id,
+    PlannedEdgeKind, PlannedEdgeOperation, PlanningError, compute_impact_plan_id,
 )
 from .semantic_dependency_index import (
     SemanticObjectError, _provided_contract_hash, validate_declaration,
@@ -140,7 +140,10 @@ def _declaration_edges(store: ContentStore, value_hash: str):
 
 
 def _plan_identity_matches(plan: ImpactPlan) -> bool:
-    return plan.plan_id == compute_impact_plan_id(plan)
+    try:
+        return plan.plan_id == compute_impact_plan_id(plan)
+    except (PlanningError, AttributeError, TypeError, ValueError):
+        return False
 
 
 def _content_digest(declaration: dict) -> str:
