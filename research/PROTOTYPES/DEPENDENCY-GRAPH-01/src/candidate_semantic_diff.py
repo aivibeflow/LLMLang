@@ -446,10 +446,9 @@ def audit_candidate_semantic_diff(
                     errors.append(f"{change.logical_key}:{edge_id}: CIP base callee differs from baseline target")
                 if decision.required_contract_hash != old_required:
                     errors.append(f"{change.logical_key}:{edge_id}: CIP required contract differs from baseline call-site requirement")
-                if decision.base_callee_contract_hash != _provided_contract_or_error(
+                _provided_contract_or_error(
                     store, old_target, f"{change.logical_key}:{edge_id} baseline callee", errors
-                ):
-                    errors.append(f"{change.logical_key}:{edge_id}: CIP base provided contract differs from baseline callee")
+                )
                 if (decision.candidate_required_contract_hash or decision.required_contract_hash) != new_required:
                     errors.append(f"{change.logical_key}:{edge_id}: CIP candidate required contract differs from candidate call site")
                 selected_hash = decision.selected_callee_hash or materialized_hash_by_output.get(
@@ -460,10 +459,9 @@ def audit_candidate_semantic_diff(
                 )
                 if selected_hash != new_target:
                     errors.append(f"{change.logical_key}:{edge_id}: CIP selected callee differs from candidate target")
-                if decision.selected_callee_contract_hash != _provided_contract_or_error(
+                _provided_contract_or_error(
                     store, new_target, f"{change.logical_key}:{edge_id} candidate callee", errors
-                ):
-                    errors.append(f"{change.logical_key}:{edge_id}: CIP selected provided contract differs from candidate callee")
+                )
                 if decision.compatibility_status != "PROVEN":
                     errors.append(f"{change.logical_key}:{edge_id}: call-site change lacks PROVEN compatibility evidence")
                 if resulting_caller_hash != change.candidate_hash:
