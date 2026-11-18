@@ -308,3 +308,18 @@ python -m unittest -v tests.test_candidate_semantic_diff
 ```
 
 This is not behavioral equivalence, dynamic dependency completeness, complete action realization, or commit authorization. See [RT-20 Candidate Semantic Diff](../../RT-20-CANDIDATE-SEMANTIC-DIFF.md).
+
+
+## RT-20 CIP v2 output and edge records
+
+`src/impact_planning.py` now models typed output slots (`ADD`, `REPLACE`, `REMOVE`), exact typed-reference/call-target edge deltas (`ADD`, `REMOVE`, `REWRITE`, `CONDITION`), and consumer-path-specific caller outputs. A decision can bind selected callee/resulting caller hashes directly or bind them to output IDs when exact hashes are not known until candidate materialization.
+
+`src/candidate_semantic_diff.py` requires exact one-to-one output and edge-record coverage, resolves output IDs against the candidate Snapshot, and binds the resulting Content Hashes into its deterministic diff receipt. Shared caller forks are represented as separate logical selection keys and consumer paths.
+
+Run the focused suite:
+
+```bash
+python -m unittest -v tests.test_impact_planning tests.test_candidate_validation tests.test_candidate_semantic_diff
+```
+
+This is a structural audit for the explicit declaration subset. It is not behavioral equivalence, global dependency completeness, evidence authentication, complete action execution, or commit authorization. See [RT-20 Candidate Semantic Diff](../../RT-20-CANDIDATE-SEMANTIC-DIFF.md).
