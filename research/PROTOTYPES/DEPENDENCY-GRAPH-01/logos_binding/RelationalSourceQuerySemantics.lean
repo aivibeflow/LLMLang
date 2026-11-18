@@ -20,9 +20,7 @@ def relationalSymbol (side : RunSide) (factor name : String) : String :=
     name
 
 /-- The QF_LIA sort corresponding to the source expression sort. -/
-def querySortOf : ExprSort → LogosBinding.QuerySort
-  | .int => .int
-  | .bool => .bool
+abbrev querySortOf : ExprSort → LogosBinding.QuerySort := id
 
 /--
 A product-program environment is represented by one query environment:
@@ -76,9 +74,7 @@ def translateRelationalExpr :
         (translateRelationalExpr side factor a) (translateRelationalExpr side factor b)
 
 /-- Convert the canonical query sort back to the corresponding source value sort. -/
-def querySortToExprSort : LogosBinding.QuerySort → ExprSort
-  | .int => .int
-  | .bool => .bool
+abbrev querySortToExprSort : LogosBinding.QuerySort → ExprSort := id
 
 /- Mutually recursive interpretation of canonical query terms and Boolean term lists. -/
 mutual
