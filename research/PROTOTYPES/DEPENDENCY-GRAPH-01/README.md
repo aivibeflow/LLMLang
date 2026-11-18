@@ -355,3 +355,9 @@ This is planning-graph validation only. It does not establish that an action was
 ## CIP schema v4 — action-kind policy
 
 Planned actions now carry a canonical `subject_kind`; the versioned closed policy `cip-action-policy/1` rejects unknown subject kinds and incompatible action kinds. Both the subject kind and policy version are bound into action/plan identity. The semantic-diff audit checks this policy again. This validates kind compatibility, not execution or complete action-to-output/edge obligation coverage.
+
+## CIP schema v5 — stable obligation identities
+
+The CIP planner derives domain-separated SHA-256 identities for each planned edge-change record and each path-specific call-site decision. Both identities commit to all semantic fields and the schema version and are included in the canonical plan identity. They provide stable references for the next action-to-obligation coverage slice; they are not object Content Hashes or dependency edge-set digests.
+
+The identities do not yet bind actions to outputs, edge changes, or call-site decisions. Complete AEA-2 remains open. See [CIP Action-to-Obligation Coverage](../../RT-20-CIP-ACTION-OBLIGATION-COVERAGE.md) and [CIP Action Execution Audit](../../RT-20-CIP-ACTION-EXECUTION-AUDIT.md).
