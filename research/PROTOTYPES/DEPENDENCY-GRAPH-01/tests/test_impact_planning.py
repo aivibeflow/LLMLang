@@ -317,6 +317,11 @@ class ImpactPlanningTests(unittest.TestCase):
         )
         outputs = (
             PlannedOutput(
+                "callee-v2", "callee", OutputOperation.REPLACE, old_callee,
+                "function", "content-digest-callee-v2", "new callee output",
+                "evidence:callee",
+            ),
+            PlannedOutput(
                 "shared-legacy", "shared-legacy", OutputOperation.ADD, None,
                 "function", "content-digest-old", "preserve old consumer path",
                 "evidence:legacy", caller_hash, "legacy-path",
@@ -336,9 +341,9 @@ class ImpactPlanningTests(unittest.TestCase):
             ),
             CallSiteDecision(
                 caller_hash, "call:tax", "direct", old_callee,
-                CallSiteDisposition.MIGRATE, new_callee, "shared-caller-v2",
+                CallSiteDisposition.MIGRATE, None, None,
                 "modern path migrates to new callee", "evidence:modern",
-                "modern-path", "shared-modern",
+                "modern-path", "shared-modern", "callee-v2",
             ),
         )
         plan = plan_impact(
