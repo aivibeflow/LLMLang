@@ -181,7 +181,27 @@ Language version, registry digest, and toolchain identity are independent Action
 
 An experimental validator is in [Package Identity Prototype 01](PROTOTYPES/PACKAGE-IDENTITY-01/README.md), with the candidate language-version rules in [Language Versioning](LANGUAGE-VERSIONING.md). This cache record shape and Action Key encoding remain exploratory; they do not define the binary cache-index wire format.
 
-## 8. Deliberately unresolved
+## 8. Dependency policy and closure prototype
+
+The first provider-side closure reference resolver is implemented in Prototype 01. It accepts exact root Content Hash values and reads object metadata plus dependency edges from one immutable Content Store snapshot. The resolver requests only reached objects and their outgoing dependency rows; it does not scan or materialize the entire store. Its visited set and output index are in memory, so memory remains O(reached objects + reached edges). This is not yet an external-memory provider.
+
+The prototype defines policy behavior as follows:
+
+| Policy | Followed edges | Result |
+|---|---|---|
+| closure | required | Roots plus the transitive closure of required dependencies |
+| roots_only | None | Only requested roots; dependency edges declared by those roots are retained as external (included=false), unless their target is independently one of the roots |
+| closure_with_optional | required, optional | Roots plus required and optional transitive dependencies |
+
+Edges of kind target and evidence are retained as descriptive relationships but are not traversed by these three distribution policies. The included field is recomputed from final object membership; it is not trusted as a resolver instruction.
+
+Conditional required/optional edges are not evaluated by interpreting their condition payload. The caller must provide an explicit boolean selection keyed by (source_hash, edge_id); missing or non-boolean selections fail closed when that edge kind is traversed by the selected policy. A false selection leaves the edge external; a true selection follows the exact target hash. This is a temporary deterministic seam until a typed condition language and its evaluation context are specified.
+
+The snapshot contract requires stable immutable reads under one snapshot_id. Missing exact objects, a returned object whose hash differs from the requested hash, missing dependency metadata, malformed edges, duplicate edge IDs, and a snapshot token change are errors. The resolver never falls back to another revision. Cycles terminate through a visited set; shared diamond dependencies are included once. Output rows are canonically sorted and independent of root input order.
+
+This is an executable policy prototype, not a normative provider protocol. It does not yet stream the closure index to the archive writer, bound the visited set on disk, compose multiple providers, or authenticate snapshot provenance.
+
+## 9. Deliberately unresolved
 
 - Final hash algorithms, canonical typed encoding, and algorithm agility.
 - Exact grammar and lifecycle of Stable IDs and edge IDs.
@@ -193,7 +213,7 @@ An experimental validator is in [Package Identity Prototype 01](PROTOTYPES/PACKA
 - Binary wire format, version negotiation, checksums, block compression, sparse directory, and benchmarks.
 - Provider availability overlay and trust/provenance semantics.
 
-## 9. Prototype exit criteria
+## 10. Prototype exit criteria
 
 The logical schema prototype is useful if it demonstrates:
 

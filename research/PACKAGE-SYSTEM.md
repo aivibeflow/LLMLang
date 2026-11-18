@@ -501,7 +501,15 @@ The validator checks that dependency sources are included objects; included depe
 This is an exploratory local-filesystem implementation, not a finalized binary index or provider protocol. It assumes sorted input streams and uses JSONL temporary files. Disk-space policy, interruption recovery, and portable temporary-storage abstraction remain open. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
 
 
-## 15. Streaming package archive prototype
+## 15. Dependency policy and exact closure prototype
+
+Prototype 01 now includes a reference resolver for the three manifest policies. closure follows required edges transitively; roots_only includes only requested roots; closure_with_optional follows required and optional edges transitively. target and evidence edges are retained in the index but do not cause distribution traversal. The resolver derives every dependency row's included flag from the resulting object membership.
+
+Conditional required/optional edges require an explicit boolean decision supplied by the caller, keyed by source hash and edge ID. The prototype does not interpret the condition expression itself; missing decisions fail closed when the edge is eligible for traversal. This keeps environment/feature selection out of implicit provider behavior until a typed condition language is defined.
+
+The resolver reads exact objects and outgoing edges from one immutable snapshot identified by snapshot_id. It rejects missing exact hashes, hash substitution, missing edge metadata, malformed/duplicate edges, and detected snapshot-token changes. Cycles terminate and shared dependencies are deduplicated. It reads only the reached graph, not the complete store, but currently retains the visited set and output index in memory. It is a reference implementation, not yet an external-memory provider or a normative protocol. See Package Index Logical Schema and Package Index Prototype 01.
+
+## 16. Streaming package archive prototype
 
 Prototype 01 now includes `package_archive.py`, a streaming writer and verifier using ZIP as a temporary research container. It parses the v1 TOML manifest, interprets `index.path` as the directory prefix for this prototype's per-table JSONL files, and verifies that all declared index tables are present. It recomputes the logical index hash using the identity prototype's canonical typed encoding; rows are externally sorted by canonical record bytes so the process does not materialize complete tables. It verifies that every manifest root is an included object and recomputes/compares the declared Package Content Root Hash. Object streams are copied in bounded 1 MiB chunks while recomputing SHA-256 and checking the declared size against the Objects table. Cross-table references are validated before publishing; the writer uses a temporary file and atomically replaces the destination only after success.
 
