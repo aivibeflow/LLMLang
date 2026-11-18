@@ -98,7 +98,7 @@ class RT03ReferenceSemanticsTests(unittest.TestCase):
         ]}
         trace = evaluate(expression, "D", declared_effects=["state.read", "state.write"])
         checked = check_program({
-            "functions": {"entry": {"effects": ["state.write", "state.read"]}}
+            "functions": {"entry": {"effects": ["state.write", "state.read"], "effect_row": "e"}}
         }, "B")
         self.assertEqual(checked.status, "ACCEPTED")
         self.assertEqual(dict(checked.inferred_effects)["entry"], ("state.read", "state.write"))
