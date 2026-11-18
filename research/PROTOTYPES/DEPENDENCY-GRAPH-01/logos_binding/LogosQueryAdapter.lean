@@ -106,7 +106,7 @@ theorem toLogosQueryTerm_preserves_eval {s : ExprSort}
     evalLogosQuery (toLogosQueryTerm term) env =
       SourceQuerySemantics.evalQuery term env := by
   induction term <;>
-    simp_all [toLogosQueryTerm, evalLogosQuery,
-      SourceQuerySemantics.evalQuery, asInt, asBool]
+    simp_all [toLogosQueryTerm, evalLogosQuery, evalLogosQueryList,
+      SourceQuerySemantics.evalQuery, asInt, asBool] <;> rfl
 
 end LLMLang.LogosQueryAdapter
