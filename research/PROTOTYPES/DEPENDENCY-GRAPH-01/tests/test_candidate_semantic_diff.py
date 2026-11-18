@@ -45,6 +45,33 @@ def rewrite_action(value_hash):
     return PlannedAction(ActionKind.REWRITE_CALL_SITE, value_hash, "rewrite exact planned call site")
 
 
+def planned_output(store, output_id, logical_key, operation, base_hash, candidate_hash,
+                   rationale="approved semantic output", evidence_id="evidence:output"):
+    if operation is OutputOperation.REMOVE:
+        kind = content_digest = None
+    else:
+        value = store.get(candidate_hash)
+        declaration_value = validate_declaration(value.payload)
+        kind = declaration_value["kind"]
+        content_digest = hashlib.sha256(
+            canonical_bytes(declaration_value["content"])
+        ).hexdigest()
+    return PlannedOutput(
+        output_id, logical_key, operation, base_hash, kind, content_digest,
+        rationale, evidence_id,
+    )
+
+
+def planned_edge(output_id, edge_kind, edge_id, operation, relation,
+                 old_target=None, new_target=None, old_condition=None,
+                 new_condition=None):
+    return PlannedEdgeChange(
+        output_id, edge_kind, edge_id, operation, relation,
+        old_target, new_target, old_condition, new_condition,
+        "approved exact edge delta", "evidence:edge",
+    )
+
+
 class CandidateSemanticDiffTests(unittest.TestCase):
     def setUp(self):
         self.store = ContentStore()
@@ -262,7 +289,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         self.assertTrue(any("non-string" in error or "materialization check failed" in error
                             for error in result.errors))
 
-    def test_typed_reference_change_is_rejected(self):
+    def test_typed_reference_change_requires_and_accepts_exact_cip_record(self):
         contract = publish_declaration(
             self.store, declaration("contract", "contract:invoice")
         )
@@ -285,8 +312,8 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                 call_sites=site(self.old_callee),
             )
         )
-        baseline = make_snapshot({"invoice": old, "tax": self.old_callee})
-        candidate = make_snapshot({"invoice": new, "tax": self.old_callee})
+        baseline = make_snapshot({"invoice": old, "tax": self.old_callee, "contract": contract})
+        candidate = make_snapshot({"invoice": new, "tax": self.old_callee, "contract": contract})
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate, actions=(action(old),),
