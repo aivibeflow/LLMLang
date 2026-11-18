@@ -8,6 +8,8 @@
 
 > This document records workflow requirements and a candidate algorithm derived from the RT-20 design discussion. It is a research proposal. It does not settle the canonical SPG schema, hash envelope, call-graph semantics, or commit policy, and it does not change the Proposed status of ADR-015.
 
+**Terminology dependency:** Consult the [Draft Glossary](../draft/GLOSSARY.md) whenever changing `hashId`, operation/callee identity, implementation selection, or conformance-based substitution. Keep `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and conformance-evidence identity distinct. RT-20's current function `hashId` is a workflow-level assumption and must be reconciled with the selected typed identity model; it must not silently redefine any glossary term. The glossary is proposed terminology, not an accepted hash schema.
+
 ## 1. Summary
 
 An LLM patch workflow must determine the complete set of function versions that will change **before implementation begins**.
