@@ -718,6 +718,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Reconcile the function hashId and call-reference assumptions with identity Studies 05–08 and the RT-24 Identity and SPG Reconciliation report; no standalone RT-05 specification currently exists.
 - [ ] Specify reverse-reference completeness for direct, indirect, dynamic, external, and generated call sites.
 - [ ] Prototype single-chain propagation, mixed old/new callers, shared-caller splits, multiple call sites, and branching/converging graphs.
+- [ ] Extend the call-site plan identity to represent one shared caller forked into multiple consumer/path-specific caller versions; the current prototype assumes one resulting version per base caller hash.
 - [ ] Prove that unplanned mutations and omitted planned changes are rejected.
 - [ ] Prototype failed-validation/no-commit, exact-tree commit, concurrency rejection, and idempotent retry behavior.
 - [ ] Reconcile the completion transaction with RT-19 persistence, crash recovery, atomic export, and Git coordination.
