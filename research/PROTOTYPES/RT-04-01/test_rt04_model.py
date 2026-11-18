@@ -222,6 +222,82 @@ class RT04ModelTests(unittest.TestCase):
         with self.assertRaises(ModelError):
             check_program(p, "B")
 
+
+    def test_typed_call_accepts_matching_primitive_arguments_and_result(self):
+        p = {"functions": {
+            "caller": {"calls": ["parse"], "call_sites": [
+                {"target": "parse", "args": ["String"], "expected_result": "Int"}]},
+            "parse": {"params": {"text": "String"}, "result": "Int"},
+        }}
+        self.assertEqual(check_program(p, "B").status, "ACCEPTED")
+
+    def test_typed_call_rejects_wrong_arity(self):
+        p = {"functions": {
+            "caller": {"calls": ["f"], "call_sites": [{"target": "f", "args": ["Int", "Int"]}]},
+            "f": {"params": {"x": "Int"}, "result": "Unit"},
+        }}
+        result = check_program(p, "B")
+        self.assertIn("CALL_ARITY_MISMATCH", result.codes())
+        self.assertEqual(result.status, "REJECTED")
+
+    def test_typed_call_rejects_argument_type_mismatch(self):
+        p = {"functions": {
+            "caller": {"calls": ["f"], "call_sites": [{"target": "f", "args": ["String"]}]},
+            "f": {"params": {"x": "Int"}, "result": "Unit"},
+        }}
+        self.assertIn("CALL_ARGUMENT_TYPE_MISMATCH", check_program(p, "B").codes())
+
+    def test_typed_call_rejects_expected_result_mismatch(self):
+        p = {"functions": {
+            "caller": {"calls": ["f"], "call_sites": [
+                {"target": "f", "args": [], "expected_result": "String"}]},
+            "f": {"params": {}, "result": "Int"},
+        }}
+        self.assertIn("CALL_RESULT_TYPE_MISMATCH", check_program(p, "B").codes())
+
+    def test_typed_call_with_undeclared_callee_signature_is_unknown(self):
+        p = {"functions": {
+            "caller": {"calls": ["f"], "call_sites": [{"target": "f", "args": []}]},
+            "f": {},
+        }}
+        result = check_program(p, "B")
+        self.assertIn("CALL_SIGNATURE_UNKNOWN", result.codes())
+        self.assertEqual(result.status, "UNKNOWN")
+
+    def test_typed_call_site_must_be_in_call_graph(self):
+        p = {"functions": {
+            "caller": {"call_sites": [{"target": "f", "args": []}]},
+            "f": {"params": {}, "result": "Unit"},
+        }}
+        with self.assertRaises(ModelError):
+            check_program(p, "B")
+
+    def test_result_adt_is_checked_structurally(self):
+        result_type = {"Result": ["Int", "String"]}
+        p = {"functions": {
+            "caller": {"calls": ["parse"], "call_sites": [
+                {"target": "parse", "args": ["String"], "expected_result": result_type}]},
+            "parse": {"params": {"text": "String"}, "result": result_type},
+        }}
+        self.assertEqual(check_program(p, "B").status, "ACCEPTED")
+
+    def test_nested_result_adt_mismatch_is_rejected(self):
+        p = {"functions": {
+            "caller": {"calls": ["parse"], "call_sites": [
+                {"target": "parse", "args": [], "expected_result": {"Result": ["Int", "Bool"]}}]},
+            "parse": {"params": {}, "result": {"Result": ["Int", "String"]}},
+        }}
+        result = check_program(p, "B")
+        self.assertIn("CALL_RESULT_TYPE_MISMATCH", result.codes())
+        self.assertEqual(result.status, "REJECTED")
+
+    def test_profile_a_does_not_accept_result_adt(self):
+        p = {"functions": {
+            "caller": {"calls": ["f"], "call_sites": [{"target": "f", "args": []}]},
+            "f": {"params": {}, "result": {"Result": ["Int", "String"]}},
+        }}
+        self.assertIn("UNKNOWN_TYPE", check_program(p, "A").codes())
+
     def test_rejects_malformed_envelope(self):
         with self.assertRaises(ModelError):
             check_program({"functions": {"f": {}}, "extra": 1}, "A")
