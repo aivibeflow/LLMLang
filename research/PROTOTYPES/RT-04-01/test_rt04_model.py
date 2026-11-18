@@ -127,6 +127,89 @@ class RT04ModelTests(unittest.TestCase):
         p["functions"]["f"]["effect_row"] = "e"
         self.assertEqual(check_program(p, "B").status, "ACCEPTED")
 
+    def test_effect_bound_accepts_exact_transitive_effect_set(self):
+        p = {
+            "call_graph_complete": ["entry", "load", "read"],
+            "functions": {
+                "entry": {"calls": ["load"], "effect_bound": ["fs.read"]},
+                "load": {"calls": ["read"]},
+                "read": {"effects": ["fs.read"]},
+            },
+        }
+        self.assertEqual(check_program(p, "B").status, "ACCEPTED")
+
+    def test_effect_bound_rejects_transitive_effect_outside_contract(self):
+        p = {
+            "call_graph_complete": ["entry", "load", "send"],
+            "functions": {
+                "entry": {"calls": ["load"], "effect_bound": ["fs.read"]},
+                "load": {"calls": ["send"], "effects": ["fs.read"]},
+                "send": {"effects": ["net.send"]},
+            },
+        }
+        result = check_program(p, "B")
+        self.assertIn("EFFECT_BOUND_EXCEEDED", result.codes())
+        self.assertEqual(result.status, "REJECTED")
+
+    def test_effect_bound_accepts_multiple_declared_effects(self):
+        p = {
+            "call_graph_complete": ["f"],
+            "functions": {"f": {"effects": ["fs.read", "net.send"], "effect_bound": ["fs.read", "net.send"]}},
+        }
+        self.assertEqual(check_program(p, "A").status, "ACCEPTED")
+
+    def test_effect_bound_is_unknown_without_completeness_evidence(self):
+        p = {
+            "functions": {
+                "entry": {"calls": ["leaf"], "effect_bound": ["fs.read"]},
+                "leaf": {"effects": ["fs.read"]},
+            },
+        }
+        result = check_program(p, "B")
+        self.assertIn("EFFECT_SUMMARY_UNKNOWN", result.codes())
+        self.assertEqual(result.status, "UNKNOWN")
+
+    def test_omitted_call_edge_requires_unknown_not_empty_summary(self):
+        # The explicit completeness set is the evidence boundary. A function
+        # with no listed outgoing calls but no completeness evidence cannot
+        # be treated as effect-free.
+        p = {
+            "call_graph_complete": [],
+            "functions": {"entry": {"effect_bound": [], "effects": []}},
+        }
+        result = check_program(p, "B")
+        self.assertIn("EFFECT_SUMMARY_UNKNOWN", result.codes())
+        self.assertEqual(result.status, "UNKNOWN")
+
+    def test_unknown_callee_makes_effect_bound_unknown(self):
+        p = {
+            "call_graph_complete": ["entry"],
+            "functions": {"entry": {"calls": ["dynamic_target"], "effect_bound": []}},
+        }
+        result = check_program(p, "B")
+        self.assertIn("UNKNOWN_CALLEE", result.codes())
+        self.assertIn("EFFECT_SUMMARY_UNKNOWN", result.codes())
+        self.assertEqual(result.status, "UNKNOWN")
+
+    def test_effect_bound_requires_complete_transitive_closure(self):
+        p = {
+            "call_graph_complete": ["entry", "middle"],
+            "functions": {
+                "entry": {"calls": ["middle"], "effect_bound": []},
+                "middle": {"calls": ["leaf"]},
+                "leaf": {"effects": ["process.spawn"]},
+            },
+        }
+        result = check_program(p, "B")
+        self.assertIn("EFFECT_SUMMARY_UNKNOWN", result.codes())
+        self.assertNotIn("EFFECT_BOUND_EXCEEDED", result.codes())
+        self.assertEqual(result.status, "UNKNOWN")
+
+    def test_completeness_evidence_rejects_unknown_function_names(self):
+        p = {"call_graph_complete": ["ghost"], "functions": {"f": {"effect_bound": []}}}
+        with self.assertRaises(ModelError):
+            check_program(p, "B")
+
     def test_rejects_malformed_envelope(self):
         with self.assertRaises(ModelError):
             check_program({"functions": {"f": {}}, "extra": 1}, "A")
