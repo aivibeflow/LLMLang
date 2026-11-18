@@ -170,7 +170,7 @@ Both evaluators are differentially checked for cancellation nested inside pendin
 
 This is a bounded executable semantics experiment, not a selected language semantics. It does not implement parsing, variables/functions/recursion, general effect handlers or row inference, resource lifecycle, concurrency, divergence, or source-to-expression completeness. The deterministic handlers use in-memory fixtures and do not access the host filesystem or network.
 
-See [RT-03/RT-04 cross-profile trace findings](../../RT--04-RT-03-CROSS-PROFILE-TRACES.md) and the [reference-slice tests](test_rt03_reference.py).
+See [RT-03/RT-04 cross-profile trace findings](../../RT-04-RT-03-CROSS-PROFILE-TRACES.md) and the [reference-slice tests](test_rt03_reference.py).
 
 
 ## Differential cross-check with a second RT-03 evaluator
