@@ -156,9 +156,9 @@ theorem translateRelationalExpr_correct
     evalCanonicalQuerySigma ⟨querySortOf s, translateRelationalExpr side factor e⟩ queryEnv =
       evalExpr e (sideEnvironment queryEnv side factor) := by
   induction e <;>
-    simp [translateRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
+    simp_all [translateRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
       evalExpr, sideEnvironment, relationalSymbol, querySortOf,
-      querySortToExprSort, asInt, asBool, *]
+      querySortToExprSort, asInt, asBool]
 
 /-- Every non-selected input is represented by exactly the same symbol on both sides. -/
 theorem nonFactorInputsAreShared
@@ -244,9 +244,8 @@ theorem observationDifference_correct
         (evalExpr e (sideEnvironment queryEnv .left factor))
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
   cases s <;>
-    simp [observationDifference, evalCanonicalQuerySigma, evalBoolTerms,
-      sourceValuesDiffer, evalExpr, asInt, asBool,
-      translateRelationalExpr_correct, decide_ne_eq_not_decide_eq]
+    simp [observationDifference, evalCanonicalQuerySigma, sourceValuesDiffer,
+      asInt, asBool, translateRelationalExpr_correct]
 
 /--
 The two assumptions of the expression-level relational query are sound:
