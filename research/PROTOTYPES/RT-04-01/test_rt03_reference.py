@@ -73,6 +73,14 @@ class RT03ReferenceSemanticsTests(unittest.TestCase):
         with self.assertRaisesRegex(SemanticError, "Profile A is pure"):
             evaluate({"with_resource": {"id": "r", "value": 1, "body": {"literal": None}}}, "A")
 
+    def test_conditional_selects_branch_using_boolean_condition(self):
+        trace = evaluate({"if": {
+            "condition": {"literal": False},
+            "then": {"literal": "then"},
+            "else": {"literal": "else"},
+        }}, "A")
+        self.assertEqual(trace.result, "else")
+
     def test_profile_a_rejects_effectful_expression(self):
         with self.assertRaisesRegex(SemanticError, "Profile A is pure"):
             evaluate(perform("fs.read", "read", {"path": "/cfg"}), "A",

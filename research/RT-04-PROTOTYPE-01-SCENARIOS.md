@@ -105,6 +105,22 @@ the set of effect labels but cannot represent repeated event occurrences,
 ordering, payloads, handler outcomes, or final state.
 
 
+## RT-03 branching and resource cleanup scenarios
+
+The `if` expression evaluates a boolean condition and exactly one branch. Resource scopes surrounding a branch must release their resources when the selected branch returns normally, produces a Result error, or cancels execution. These are concrete execution tests, not a proof of source-level path completeness.
+
+| ID | Case | Expected behavior |
+|---|---|---|
+| RT3-BR-01 | True condition | Evaluate only the `then` branch |
+| RT3-BR-02 | False condition | Evaluate only the `else` branch |
+| RT3-BR-03 | Non-boolean condition | Reject the expression |
+| RT3-BR-04 | Selected branch returns Result error inside resource scope | Release resource and preserve the branch error |
+| RT3-BR-05 | Selected branch cancels inside resource scope | Release resource during cancellation unwind |
+| RT3-BR-06 | Cancellation occurs while evaluating condition | Unwind enclosing resource scopes; evaluate neither branch |
+
+The current finite corpus checks concrete conditions. Symbolic/path-sensitive analysis and proof that all source-level branches are represented remain open.
+
+
 ## RT-03 structured resource lifecycle scenarios
 
 The opt-in `with_resource` scope acquires a fixture resource, evaluates its body, and releases it on normal completion, Result error, or cancellation. Nested scopes release in LIFO order. A failed release remains visible as an active resource and is not silently treated as successful cleanup.
