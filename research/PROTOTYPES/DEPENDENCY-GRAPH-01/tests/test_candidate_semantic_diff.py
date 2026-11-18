@@ -224,7 +224,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.MIGRATE, self.new_callee, self.new_caller,
             "new tax contract", "evidence:compatibility",
-            self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
+            self.contract_hash, "PROVEN",
             None, "", "output:invoice",
         )
         plan = self.plan(
@@ -247,7 +247,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.PRESERVE, self.old_callee, self.old_caller,
             "retain legacy caller behavior", "evidence:preservation",
-            self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
+            self.contract_hash, "PROVEN",
         )
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
@@ -293,7 +293,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.MIGRATE, self.old_callee, self.new_caller,
             "wrong target", "evidence:compatibility",
-            self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
+            self.contract_hash, "PROVEN",
             None, "", "output:invoice",
         )
         result = audit_candidate_semantic_diff(

@@ -2,7 +2,7 @@ import unittest
 
 from src.semantic_graph import ContentStore, make_snapshot
 from src.semantic_dependency_index import (
-    FORMAT, SCHEMA_VERSION, EXTRACTOR_ID, CompletenessStatus, ReverseLookupEvidence,
+    FORMAT, SCHEMA_VERSION, INDEX_SCHEMA_VERSION, EXTRACTOR_ID, CompletenessStatus, ReverseLookupEvidence,
     audit_snapshot_incoming_independently,
     SemanticObjectError, dependency_edge_set_digest, query_snapshot_incoming,
     build_dependency_index, build_snapshot_dependency_index, publish_declaration, validate_declaration,
@@ -58,7 +58,6 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         self.assertEqual({edge.target_hash for edge in edges},
                          {self.old_callee, self.new_callee})
         self.assertTrue(all(edge.required_contract_hash == self.tax_contract for edge in edges))
-        self.assertTrue(all(edge.provided_contract_hash == self.tax_contract for edge in edges))
 
     def test_conditional_dispatch_preserves_each_exact_target_and_condition(self):
         caller = publish_declaration(self.store, declaration(
@@ -135,7 +134,7 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         values = {
             "evidence_id": "audit:reverse:001", "snapshot_root": snapshot.root_hash,
             "target_hash": self.old_callee, "scope": "all-static-call-sites",
-            "index_schema_version": SCHEMA_VERSION, "extractor_id": EXTRACTOR_ID,
+            "index_schema_version": INDEX_SCHEMA_VERSION, "extractor_id": EXTRACTOR_ID,
             "edge_set_digest": edge_digest,
             "status": CompletenessStatus.SUPPORTED_WITHIN_SCOPE,
             "observation_model_id": "static-call-model/1",
@@ -288,9 +287,8 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         edge = next(e for e in build_dependency_index(self.store).outgoing(caller_a)
                     if e.relation == "calls")
         self.assertEqual(edge.required_contract_hash, self.tax_contract)
-        self.assertEqual(edge.provided_contract_hash, self.tax_contract)
 
-    def test_required_and_provided_contracts_are_both_reverse_indexed(self):
+    def test_callee_provided_and_caller_required_contracts_are_independently_indexed(self):
         caller = publish_declaration(self.store, declaration(
             "function", "fn:contract-index-caller", {"body": "x"},
             call_sites=[{"call_site_id": "call:tax", "targets": [{

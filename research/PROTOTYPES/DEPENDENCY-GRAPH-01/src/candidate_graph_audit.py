@@ -192,11 +192,10 @@ def audit_candidate_snapshot_graph(
                             f"{value_hash}:{role}: call target kind must be function or operation, "
                             f"found {target.kind}"
                         )
-                    provided_contract_hash = _provided_contract_hash(store, target_hash)
+                    _provided_contract_hash(store, target_hash)
                     edges.append(IndexedEdge(
                         value_hash, role, "calls", target_hash,
                         target.kind, target_row["condition"], required_contract_hash,
-                        provided_contract_hash,
                     ))
                     edges.append(IndexedEdge(
                         value_hash, role + "/required-contract", "requires_contract",
