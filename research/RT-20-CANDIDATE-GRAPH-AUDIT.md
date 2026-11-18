@@ -1,6 +1,6 @@
 # RT-20 — Candidate Snapshot dependency-closure audit
 
-**Status:** Prototype implemented; CI validation pending.  
+**Status:** Prototype implemented; PR/CI validation pending.  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)  
 **Related gate:** [Candidate call-site validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md)
@@ -72,14 +72,15 @@ The audit uses the same Content Store and declaration payloads as the producer. 
 
 ## Next gate
 
-The next implementation step is to compare the complete baseline and candidate semantic states against the approved plan:
+The first narrow selection-level diff/CIP reconciliation slice is implemented in [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md). It derives added/removed/changed logical selections, requires exact-hash CIP action coverage, independently scans baseline-selected explicit call sites for changed callees, checks changed call targets against decisions, and reuses candidate call-site materialization validation.
 
-1. derive the semantic diff by logical Snapshot selection key, including added, removed, and changed exact hashes;
-2. map each changed declaration to its exact reference/call-site changes;
-3. require each changed call edge to be covered by exactly one approved decision;
-4. require every planned decision/action to be realized in the candidate;
-5. reject all unexplained payload, dependency, and selection changes;
-6. bind the audit result to the exact baseline root, candidate root, plan ID, and graph digests.
+Remaining work:
+1. Strengthen action reconciliation beyond exact old/new hash presence: validate action kind, prerequisites, and evidence against each change class.
+2. Reconcile all payload-derived typed reference changes, not only selection hashes and explicit call-site target changes.
+3. Define explicit CIP dispositions for added/removed call-site targets rather than treating them as permanently unsupported.
+4. Bind both baseline and candidate graph audit digests and extractor/schema identities into the diff result.
+5. Add end-to-end branching/converging and consumer-specific shared-caller fork scenarios.
+6. Prove that every planned action is realized and no unplanned mutation survives all validation gates.
 
 This still will not prove behavioral compatibility. That remains a separate contract/test/proof obligation. Shared-caller consumer-specific forks also remain unrepresented in the current plan identity and must be solved before claiming complete RT-20 support.
 
