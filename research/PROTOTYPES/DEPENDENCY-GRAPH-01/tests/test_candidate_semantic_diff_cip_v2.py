@@ -275,6 +275,37 @@ class CandidateSemanticDiffCIPV2Tests(unittest.TestCase):
         )
         self.assertTrue(result.valid, result.errors)
 
+    def test_deleted_caller_needs_edge_removal_not_migration_decision(self):
+        old_callee = self.publish_function("tax:v1", {"rate": 10})
+        new_callee = self.publish_function("tax:v2", {"rate": 12})
+        old_caller = self.publish_function(
+            "invoice:removed", {"body": "obsolete"},
+            calls=(call_site("call:tax", old_callee, self.contract),),
+        )
+        baseline = make_snapshot({
+            "contract": self.contract, "tax": old_callee, "invoice": old_caller,
+        })
+        candidate = make_snapshot({
+            "contract": self.contract, "tax": new_callee,
+        })
+        outputs = (
+            output_record(self.store, "tax-v2", "tax", OutputOperation.REPLACE,
+                          old_callee, new_callee),
+            output_record(self.store, "invoice-remove", "invoice", OutputOperation.REMOVE,
+                          old_caller, None),
+        )
+        edges = (edge_record(
+            "invoice-remove", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+            PlannedEdgeOperation.REMOVE, "calls", None, old_callee, None,
+            old_required=self.contract,
+        ),)
+        result = self.audit(
+            baseline, candidate,
+            actions=(action(old_callee), action(new_callee), action(old_caller)),
+            outputs=outputs, edge_changes=edges,
+        )
+        self.assertTrue(result.valid, result.errors)
+
     def test_shared_caller_fork_is_bound_to_consumer_paths(self):
         old_leaf = self.publish_function("leaf:v1", {"value": 1})
         new_leaf = self.publish_function("leaf:v2", {"value": 2})
