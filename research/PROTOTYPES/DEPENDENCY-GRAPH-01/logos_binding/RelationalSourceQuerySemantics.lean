@@ -243,33 +243,9 @@ theorem observationDifference_correct
       .boolValue (sourceValuesDiffer s
         (evalExpr e (sideEnvironment queryEnv .left factor))
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
-  cases s with
-  | int =>
-      change
-        ((! (decide
-          (asInt (evalCanonicalQuerySigma
-            ⟨.int, translateRelationalExpr .left factor e⟩ queryEnv) =
-           asInt (evalCanonicalQuerySigma
-            ⟨.int, translateRelationalExpr .right factor e⟩ queryEnv))))) =
-        decide
-          (asInt (evalExpr e (sideEnvironment queryEnv .left factor)) ≠
-           asInt (evalExpr e (sideEnvironment queryEnv .right factor)))
-      rw [translateRelationalExpr_correct .left factor e queryEnv,
-          translateRelationalExpr_correct .right factor e queryEnv]
-      exact (decide_ne_eq_not_decide_eq _ _).symm
-  | bool =>
-      change
-        ((! (decide
-          (asBool (evalCanonicalQuerySigma
-            ⟨.bool, translateRelationalExpr .left factor e⟩ queryEnv) =
-           asBool (evalCanonicalQuerySigma
-            ⟨.bool, translateRelationalExpr .right factor e⟩ queryEnv))))) =
-        decide
-          (asBool (evalExpr e (sideEnvironment queryEnv .left factor)) ≠
-           asBool (evalExpr e (sideEnvironment queryEnv .right factor)))
-      rw [translateRelationalExpr_correct .left factor e queryEnv,
-          translateRelationalExpr_correct .right factor e queryEnv]
-      exact (decide_ne_eq_not_decide_eq _ _).symm
+  cases s <;>
+    simp [translateRelationalExpr_correct, observationDifference,
+      evalCanonicalQuerySigma, sourceValuesDiffer, asInt, asBool]
 
 /--
 The two assumptions of the expression-level relational query are sound:
