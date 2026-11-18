@@ -5,9 +5,13 @@ import unittest
 from src.candidate_semantic_diff import audit_candidate_semantic_diff
 from src.impact_planning import (
     ActionKind, CallSiteDecision, CallSiteDisposition, ImpactPlan, PlannedAction,
+    OutputOperation, PlannedOutput, PlannedEdgeKind, PlannedEdgeOperation,
+    PlannedEdgeChange, compute_impact_plan_id,
 )
-from src.semantic_dependency_index import FORMAT, SCHEMA_VERSION, publish_declaration
-from src.semantic_graph import ContentStore, Snapshot, make_snapshot
+from src.semantic_dependency_index import (
+    FORMAT, SCHEMA_VERSION, publish_declaration, validate_declaration,
+)
+from src.semantic_graph import ContentStore, Snapshot, canonical_bytes, make_snapshot
 
 
 def declaration(kind, declaration_id, content=None, call_sites=None, references=None):
@@ -59,32 +63,19 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                                     call_sites=site(self.new_callee))
         )
 
-    def plan(self, baseline, candidate, actions=(), decisions=()):
-        actions = tuple(actions)
-        decisions = tuple(sorted(decisions))
-        payload = {
-            "baseline": baseline.root_hash,
-            "candidate": candidate.root_hash,
-            "policy": "policy:test",
-            "actions": [
-                (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes)
-                for a in actions
-            ],
-            "audits": [],
-            "audit_bindings": [],
-            "call_site_decisions": [
-                (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
-                 d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
-                 d.rationale, d.decision_evidence_id)
-                for d in decisions
-            ],
-        }
-        plan_id = hashlib.sha256(json.dumps(
-            payload, sort_keys=True, separators=(",", ":")
-        ).encode("utf-8")).hexdigest()
+    def plan(self, baseline, candidate, actions=(), decisions=(),
+             outputs=(), edge_changes=()):
+        provisional = ImpactPlan(
+            "", baseline.root_hash, candidate.root_hash, "policy:test",
+            tuple(actions), (), (), tuple(sorted(decisions)),
+            tuple(sorted(outputs)), tuple(sorted(edge_changes)),
+        )
         return ImpactPlan(
-            plan_id, baseline.root_hash, candidate.root_hash, "policy:test",
-            actions, (), (), decisions,
+            compute_impact_plan_id(provisional), provisional.baseline_root,
+            provisional.candidate_root, provisional.policy_id,
+            provisional.actions, provisional.audit_statuses,
+            provisional.audit_bindings, provisional.call_site_decisions,
+            provisional.planned_outputs, provisional.planned_edge_changes,
         )
 
     def test_changed_selection_requires_exact_hash_action_coverage(self):
@@ -96,7 +87,9 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         candidate = make_snapshot({"invoice": revised, "tax": self.old_callee})
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
-            self.plan(baseline, candidate, actions=(action(self.old_caller),)),
+            self.plan(baseline, candidate, actions=(action(self.old_caller),),
+                      outputs=(planned_output(self.store, "invoice-v1.1", "invoice",
+                          OutputOperation.REPLACE, self.old_caller, revised),)),
         )
         self.assertTrue(result.valid, result.errors)
         self.assertEqual([(row.logical_key, row.change_kind) for row in result.changes],
@@ -118,7 +111,13 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate,
-                      actions=(action(self.old_callee), action(self.new_callee))),
+                      actions=(action(self.old_callee), action(self.new_callee)),
+                      outputs=(
+                          planned_output(self.store, "old-tax", "old", OutputOperation.REMOVE,
+                                         self.old_callee, None),
+                          planned_output(self.store, "new-tax", "new", OutputOperation.ADD,
+                                         None, self.new_callee),
+                      )),
         )
         self.assertTrue(result.valid, result.errors)
         self.assertEqual(
@@ -138,6 +137,17 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             baseline, candidate,
             actions=(action(self.old_callee), rewrite_action(self.old_caller)),
             decisions=(decision,),
+            outputs=(
+                planned_output(self.store, "tax-output", "tax", OutputOperation.REPLACE,
+                               self.old_callee, self.new_callee),
+                planned_output(self.store, "invoice-output", "invoice", OutputOperation.REPLACE,
+                               self.old_caller, self.new_caller),
+            ),
+            edge_changes=(planned_edge(
+                "invoice-output", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+                PlannedEdgeOperation.REWRITE, "calls", self.old_callee,
+                self.new_callee,
+            ),),
         )
         result = audit_candidate_semantic_diff(self.store, baseline, candidate, plan)
         self.assertTrue(result.valid, result.errors)
@@ -158,7 +168,13 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             self.store, baseline, candidate,
             self.plan(baseline, candidate,
                       actions=(action(self.old_callee), action(self.new_callee)),
-                      decisions=(decision,)),
+                      decisions=(decision,),
+                      outputs=(
+                          planned_output(self.store, "tax-output", "tax", OutputOperation.REPLACE,
+                                         self.old_callee, self.new_callee),
+                          planned_output(self.store, "legacy-output", "legacy-tax", OutputOperation.ADD,
+                                         None, self.old_callee),
+                      )),
         )
         self.assertTrue(result.valid, result.errors)
 
@@ -172,7 +188,13 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate,
-                      actions=(action(self.old_callee), action(self.new_callee))),
+                      actions=(action(self.old_callee), action(self.new_callee)),
+                      outputs=(
+                          planned_output(self.store, "tax-output", "tax", OutputOperation.REPLACE,
+                                         self.old_callee, self.new_callee),
+                          planned_output(self.store, "legacy-output", "legacy-tax", OutputOperation.ADD,
+                                         None, self.old_callee),
+                      )),
         )
         self.assertFalse(result.valid)
         self.assertTrue(any("independently scanned Snapshot" in error
@@ -184,7 +206,18 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate,
-                      actions=(action(self.old_callee), rewrite_action(self.old_caller))),
+                      actions=(action(self.old_callee), rewrite_action(self.old_caller)),
+                      outputs=(
+                          planned_output(self.store, "tax-output", "tax", OutputOperation.REPLACE,
+                                         self.old_callee, self.new_callee),
+                          planned_output(self.store, "invoice-output", "invoice", OutputOperation.REPLACE,
+                                         self.old_caller, self.new_caller),
+                      ),
+                      edge_changes=(planned_edge(
+                          "invoice-output", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+                          PlannedEdgeOperation.REWRITE, "calls", self.old_callee,
+                          self.new_callee,
+                      ),)),
         )
         self.assertFalse(result.valid)
         self.assertTrue(any("no exact CIP decision" in error for error in result.errors))
@@ -201,7 +234,18 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             self.store, baseline, candidate,
             self.plan(baseline, candidate,
                       actions=(action(self.old_callee), rewrite_action(self.old_caller)),
-                      decisions=(decision,)),
+                      decisions=(decision,),
+                      outputs=(
+                          planned_output(self.store, "tax-output", "tax", OutputOperation.REPLACE,
+                                         self.old_callee, self.new_callee),
+                          planned_output(self.store, "invoice-output", "invoice", OutputOperation.REPLACE,
+                                         self.old_caller, self.new_caller),
+                      ),
+                      edge_changes=(planned_edge(
+                          "invoice-output", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+                          PlannedEdgeOperation.REWRITE, "calls", self.old_callee,
+                          self.new_callee,
+                      ),)),
         )
         self.assertFalse(result.valid)
         self.assertTrue(any("CIP selected callee differs from candidate target" in error
@@ -245,28 +289,55 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         candidate = make_snapshot({"invoice": new, "tax": self.old_callee})
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
-            self.plan(baseline, candidate, actions=(action(old),)),
+            self.plan(baseline, candidate, actions=(action(old),),
+                      outputs=(planned_output(self.store, "invoice-ref", "invoice",
+                          OutputOperation.REPLACE, old, new),),
+                      edge_changes=(planned_edge(
+                          "invoice-ref", PlannedEdgeKind.TYPED_REFERENCE, "contract",
+                          PlannedEdgeOperation.ADD, "uses_contract", None, contract,
+                      ),)),
         )
-        self.assertFalse(result.valid)
-        self.assertTrue(any("typed-reference change" in error for error in result.errors))
+        self.assertTrue(result.valid, result.errors)
         self.assertEqual(len(result.edge_changes), 1)
+        self.assertEqual(result.materialized_outputs[0].candidate_hash, new)
 
     def test_forged_plan_identity_is_rejected(self):
         from dataclasses import replace
 
         baseline = make_snapshot({"invoice": self.old_caller})
         candidate = make_snapshot({"invoice": self.new_caller})
-        plan = self.plan(baseline, candidate, actions=(action(self.old_caller),))
+        plan = self.plan(baseline, candidate, actions=(action(self.old_caller),),
+                         outputs=(planned_output(self.store, "invoice-output", "invoice",
+                             OutputOperation.REPLACE, self.old_caller, self.new_caller),))
         forged = replace(plan, plan_id="forged")
         result = audit_candidate_semantic_diff(self.store, baseline, candidate, forged)
         self.assertFalse(result.valid)
         self.assertTrue(any("plan_id does not match" in error for error in result.errors))
 
     def test_diff_digest_is_deterministic_and_bound_to_plan(self):
-        baseline = make_snapshot({"invoice": self.old_caller})
-        candidate = make_snapshot({"invoice": self.new_caller})
-        plan = self.plan(baseline, candidate,
-                         actions=(action(self.old_caller),))
+        baseline = make_snapshot({"invoice": self.old_caller, "tax": self.old_callee})
+        candidate = make_snapshot({"invoice": self.new_caller, "tax": self.new_callee})
+        decision = CallSiteDecision(
+            self.old_caller, "call:tax", "direct", self.old_callee,
+            CallSiteDisposition.MIGRATE, self.new_callee, self.new_caller,
+            "new tax contract", "evidence:compatibility",
+        )
+        plan = self.plan(
+            baseline, candidate,
+            actions=(action(self.old_callee), rewrite_action(self.old_caller)),
+            decisions=(decision,),
+            outputs=(
+                planned_output(self.store, "tax-output", "tax", OutputOperation.REPLACE,
+                               self.old_callee, self.new_callee),
+                planned_output(self.store, "invoice-output", "invoice", OutputOperation.REPLACE,
+                               self.old_caller, self.new_caller),
+            ),
+            edge_changes=(planned_edge(
+                "invoice-output", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+                PlannedEdgeOperation.REWRITE, "calls", self.old_callee,
+                self.new_callee,
+            ),),
+        )
         first = audit_candidate_semantic_diff(self.store, baseline, candidate, plan)
         second = audit_candidate_semantic_diff(self.store, baseline, candidate, plan)
         self.assertEqual(first.diff_digest, second.diff_digest)
