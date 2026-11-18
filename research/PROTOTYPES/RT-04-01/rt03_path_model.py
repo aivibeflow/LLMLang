@@ -30,6 +30,7 @@ class _State:
     terminal: str = "normal"
     result_tag: str | None = None
     cleanup_errors: tuple[str, ...] = ()
+    leaked: tuple[str, ...] = ()
 
 
 def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
@@ -48,16 +49,16 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
 
         if op in {"literal", "add", "perform"}:
             return [_State(state.active, state.choices, state.events,
-                            state.terminal, None, state.cleanup_errors)]
+                            state.terminal, None, state.cleanup_errors, state.leaked)]
         if op == "cancel":
             return [_State(state.active, state.choices, state.events,
-                           "cancelled", None, state.cleanup_errors)]
+                           "cancelled", None, state.cleanup_errors, state.leaked)]
         if op == "result_ok":
             return [_State(state.active, state.choices, state.events,
-                           state.terminal, "ok", state.cleanup_errors)]
+                           state.terminal, "ok", state.cleanup_errors, state.leaked)]
         if op == "result_error":
             return [_State(state.active, state.choices, state.events,
-                           state.terminal, "error", state.cleanup_errors)]
+                           state.terminal, "error", state.cleanup_errors, state.leaked)]
         if op == "sequence":
             if not isinstance(arg, list) or not arg:
                 raise ValueError(f"invalid sequence at {path}")
@@ -92,7 +93,7 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
                 chosen = arg["then"] if choice else arg["else"]
                 selected = _State(state.active, state.choices + ((path, choice),),
                                   state.events, state.terminal, None,
-                                  state.cleanup_errors)
+                                  state.cleanup_errors, state.leaked)
                 after_condition = walk(condition, selected, f"{path}.condition") if not (
                     isinstance(condition, dict) and set(condition) == {"literal"}
                 ) else [selected]
@@ -116,15 +117,15 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
             release_fails = arg.get("release_fails", False)
             if type(acquire_fails) is not bool or type(release_fails) is not bool:
                 raise ValueError(f"invalid resource failure flag at {path}")
-            if acquire_fails or any(existing == resource_id for existing, _ in state.active):
+            if acquire_fails or any(existing == resource_id for existing, _ in state.active) or resource_id in state.leaked:
                 failed = _State(state.active, state.choices,
                                 state.events + (("acquire", resource_id, False),),
-                                state.terminal, "error", state.cleanup_errors)
+                                state.terminal, "error", state.cleanup_errors, state.leaked)
                 return [failed]
             acquired = _State(state.active + ((resource_id, release_fails),),
                               state.choices,
                               state.events + (("acquire", resource_id, True),),
-                              state.terminal, state.result_tag, state.cleanup_errors)
+                              state.terminal, state.result_tag, state.cleanup_errors, state.leaked)
             body_states = walk(arg["body"], acquired, f"{path}.body")
             released_states: list[_State] = []
             for body_state in body_states:
@@ -138,18 +139,20 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
                     released_states.append(_State(tuple(active), body_state.choices,
                                                   events, body_state.terminal,
                                                   body_state.result_tag,
-                                                  body_state.cleanup_errors))
+                                                  body_state.cleanup_errors, body_state.leaked))
                 elif body_state.terminal == "cancelled":
                     released_states.append(_State(
-                        tuple(active) + ((resource_id, release_fails),),
+                        tuple(active),
                         body_state.choices, events, "cancelled", None,
                         body_state.cleanup_errors + (resource_id,),
+                        body_state.leaked + (resource_id,),
                     ))
                 else:
                     released_states.append(_State(
-                        tuple(active) + ((resource_id, release_fails),),
+                        tuple(active),
                         body_state.choices, events, body_state.terminal, "error",
                         body_state.cleanup_errors + (resource_id,),
+                        body_state.leaked + (resource_id,),
                     ))
             return released_states
         raise ValueError(f"unsupported expression form at {path}: {op!r}")
@@ -158,7 +161,7 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
     return tuple(PathOutcome(
         branch_choices=state.choices,
         resource_events=state.events,
-        active_resources=tuple(resource_id for resource_id, _ in state.active),
+        active_resources=tuple(resource_id for resource_id, _ in state.active) + state.leaked,
         terminal=state.terminal,
         result_tag=state.result_tag,
         cleanup_errors=state.cleanup_errors,
