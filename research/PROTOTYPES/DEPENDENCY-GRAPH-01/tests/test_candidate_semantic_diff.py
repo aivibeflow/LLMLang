@@ -478,9 +478,9 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             ),
             CallSiteDecision(
                 old_shared, "call:tax", "direct", old_leaf,
-                CallSiteDisposition.MIGRATE, new_leaf, new_shared,
+                CallSiteDisposition.MIGRATE, None, None,
                 "modern consumer receives a forked shared caller", "evidence:modern",
-                "modern-consumer", "shared-modern",
+                "modern-consumer", "shared-modern", "leaf-v2",
             ),
             CallSiteDecision(
                 old_consumer, "call:shared", "direct", old_shared,
@@ -489,9 +489,9 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             ),
             CallSiteDecision(
                 old_modern_consumer, "call:shared", "direct", old_shared,
-                CallSiteDisposition.MIGRATE, new_shared, new_modern_consumer,
+                CallSiteDisposition.MIGRATE, None, None,
                 "modern consumer migrates to its caller fork", "evidence:modern-consumer",
-                "modern-consumer", "modern-consumer-v2",
+                "modern-consumer", "modern-consumer-v2", "shared-modern",
             ),
         )
         edge_changes = (
