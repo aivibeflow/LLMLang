@@ -108,3 +108,18 @@ python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_*.py' -v
 ```
 
 This command runs the RT-04 checker tests, the original cross-profile fixtures, and the new RT-03 reference interpreter tests together.
+
+
+## 7. Differential check with an independent small-step evaluator
+
+A second implementation, [`rt03_smallstep.py`](PROTOTYPES/RT-04-01/rt03_smallstep.py), now evaluates the same bounded fragment using an explicit control stack and value stack. It does not import or call the recursive evaluator in `rt03_reference.py`. The two implementations therefore use different evaluation algorithms, while intentionally sharing the written fragment and handler contract.
+
+The differential suite [`test_rt03_differential.py`](PROTOTYPES/RT-04-01/test_rt03_differential.py) compares:
+- profile, ordered events, result, final state, and final file map;
+- pure expression corpus, including nested addition and explicit Result-shaped values;
+- state read/write and file/network effect traces;
+- reordered effects;
+- a generated finite corpus of all 9 pairs of two writes using values 0, 1, and 2;
+- matching fail-closed behavior for pure-profile effects, undeclared effects, and malformed addition.
+
+This provides algorithmically independent implementation cross-checking for the current finite fragment. It is not an independent human review, a formal proof, or a separately derived semantics: both implementations were built from the same exploratory contract and may share specification mistakes. The next gate remains independent review and extension of the observation model.

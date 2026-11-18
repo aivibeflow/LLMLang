@@ -103,3 +103,27 @@ not declaration-checker fixtures.
 The RT-04 checker comparison remains intentionally separate: it can summarize
 the set of effect labels but cannot represent repeated event occurrences,
 ordering, payloads, handler outcomes, or final state.
+
+
+## RT-03 differential evaluator scenarios
+
+The [recursive evaluator](PROTOTYPES/RT-04-01/rt03_reference.py) is
+cross-checked against a second [small-step evaluator](PROTOTYPES/RT-04-01/rt03_smallstep.py).
+The second implementation uses explicit continuations/value stack and does not
+import the first. Full differential tests are in
+[`test_rt03_differential.py`](PROTOTYPES/RT-04-01/test_rt03_differential.py).
+
+| ID | Differential case | Compared observations |
+|---|---|---|
+| RT3-DIFF-01 | Pure values, nested arithmetic, sequence, explicit Result values | Result, empty events, final stores |
+| RT3-DIFF-02 | Ordered state writes and reads | Event order/payload/outcomes, result, final state |
+| RT3-DIFF-03 | File write/read/missing read | Ordered events, explicit missing-file error, final files |
+| RT3-DIFF-04 | Deterministic network response | Request payload, event outcome, result |
+| RT3-DIFF-05 | Reordered state writes | Both implementations preserve the changed trace and final state |
+| RT3-DIFF-06 | Generated two-write combinations over values 0, 1, 2 | Nine generated programs, full trace/result/state equality |
+| RT3-DIFF-07 | Effect in pure A / undeclared effect in D | Both implementations reject |
+| RT3-DIFF-08 | Malformed arithmetic | Both implementations fail closed |
+
+Agreement is limited to this finite hand-authored expression grammar and
+fixture handlers. The models share the same exploratory contract, so agreement
+does not exclude a common specification error.

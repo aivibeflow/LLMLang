@@ -74,3 +74,10 @@ A bounded interpreter was added in [`rt03_reference.py`](PROTOTYPES/RT-04-01/rt0
 The first CI run exposed one test fixture that declared experimental `state.read`/`state.write` labels to RT-04 Profile B without its open-row annotation; the test input was corrected rather than expanding RT-04's closed effect vocabulary. The corrected full suite ran **69 tests** and passed, together with repository-structure checks, in GitHub Actions run [44341691042](https://github.com/aivibeflow/LLMLang/actions/runs/44341691042). The implementation and documentation were merged in [PR #21](https://github.com/aivibeflow/LLMLang/pull/21).
 
 This is a bounded reference slice, not a complete semantics or profile decision. It does not implement parsing, variables/functions/recursion, general effect handlers or row inference, Result propagation, exceptions/cancellation, resource lifecycle, concurrency, divergence, or source-to-expression completeness. Handler behavior is deterministic and in-memory only. A second independent evaluator/formal model remains required before treating the behavior as corroborated.
+
+
+## 9. Differential RT-03 evaluator cross-check
+
+A second bounded evaluator was added in [`rt03_smallstep.py`](PROTOTYPES/RT-04-01/rt03_smallstep.py), using explicit control/value stacks and no dependency on the recursive `rt03_reference.py`. Nine differential test methods compare the two implementations over pure expressions, explicit result values, state/file/network effects, reordered writes, malformed inputs, and a generated corpus of nine two-write sequences.
+
+The combined suite now contains 78 tests (69 previous tests plus 9 differential test methods). CI evidence will be recorded after the full workflow completes. This is algorithmically independent implementation cross-checking only; both evaluators share the same exploratory contract, so independent review and a separately derived formal semantics remain open.
