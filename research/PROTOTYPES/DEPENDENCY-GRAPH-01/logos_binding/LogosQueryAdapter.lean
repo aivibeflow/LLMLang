@@ -35,43 +35,42 @@ def toLogosQueryTerm : {s : ExprSort} →
 def evalLogosQuery {s : ExprSort}
     (term : LLMLang.LogosBinding.QueryTerm s)
     (env : SourceQuerySemantics.Env) :
-    SourceQuerySemantics.Value s :=
-  match term with
-  | .intLit n => .intValue n
-  | .boolLit b => .boolValue b
-  | .intSymbol name => env name .int
-  | .boolSymbol name => env name .bool
-  | .neg e => .intValue (-(asInt (evalLogosQuery e env)))
-  | .add a b =>
+    SourceQuerySemantics.Value s
+  | .intLit n, _ => .intValue n
+  | .boolLit b, _ => .boolValue b
+  | .intSymbol name, env => env name .int
+  | .boolSymbol name, env => env name .bool
+  | .neg e, env => .intValue (-(asInt (evalLogosQuery e env)))
+  | .add a b, env =>
       .intValue (asInt (evalLogosQuery a env) + asInt (evalLogosQuery b env))
-  | .sub a b =>
+  | .sub a b, env =>
       .intValue (asInt (evalLogosQuery a env) - asInt (evalLogosQuery b env))
-  | .mul a b =>
+  | .mul a b, env =>
       .intValue (asInt (evalLogosQuery a env) * asInt (evalLogosQuery b env))
-  | .not e => .boolValue (!(asBool (evalLogosQuery e env)))
-  | .eqInt a b =>
+  | .not e, env => .boolValue (!(asBool (evalLogosQuery e env)))
+  | .eqInt a b, env =>
       .boolValue (decide (asInt (evalLogosQuery a env) = asInt (evalLogosQuery b env)))
-  | .eqBool a b =>
+  | .eqBool a b, env =>
       .boolValue (decide (asBool (evalLogosQuery a env) = asBool (evalLogosQuery b env)))
-  | .lt a b =>
+  | .lt a b, env =>
       .boolValue (decide (asInt (evalLogosQuery a env) < asInt (evalLogosQuery b env)))
-  | .le a b =>
+  | .le a b, env =>
       .boolValue (decide (asInt (evalLogosQuery a env) <= asInt (evalLogosQuery b env)))
-  | .and terms =>
+  | .and terms, env =>
       .boolValue (terms.all fun item => asBool (evalLogosQuery item env))
-  | .or terms =>
+  | .or terms, env =>
       .boolValue (terms.any fun item => asBool (evalLogosQuery item env))
-  | .iteInt condition yes no =>
+  | .iteInt condition yes no, env =>
       if asBool (evalLogosQuery condition env) then
         evalLogosQuery yes env
       else
         evalLogosQuery no env
-  | .iteBool condition yes no =>
+  | .iteBool condition yes no, env =>
       if asBool (evalLogosQuery condition env) then
         evalLogosQuery yes env
       else
         evalLogosQuery no env
-termination_by term => sizeOf term
+termination_by term _ => sizeOf term
 decreasing_by
   all_goals simp_wf [sizeOf]
 
