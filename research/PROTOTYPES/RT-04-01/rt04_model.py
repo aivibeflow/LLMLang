@@ -180,7 +180,7 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
         if set(spec) - allowed:
             raise ModelError(f"{name}: unknown declaration fields")
         params = spec.get("params", {})
-        if not isinstance(params, dict) or any(not isinstance(k, str) or not isinstance(v, str) for k, v in params.items()):
+        if not isinstance(params, dict) or any(not isinstance(k, str) or not k for k in params):
             raise ModelError(f"{name}: params must map names to type names")
         for ptype in params.values():
             if not _type_valid(ptype, profile):
