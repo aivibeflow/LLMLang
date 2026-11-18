@@ -28,7 +28,7 @@ The CI workflow runs:
 
     python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_*.py' -v
 
-The current run must be checked before recording a passing CI result. These tests cover only the exact finite declaration/CFG model and fixtures. They are not compiler tests, source-to-model correspondence proofs, runtime authorization tests, or evidence of complete dependency discovery.
+GitHub Actions run [44317898638](https://github.com/aivibeflow/LLMLang/actions/runs/44317898638) completed successfully on commit `be50648bb80388f489cae5447a84498bc288e0e6`; the RT-04 step ran all 37 tests and reported `OK`. The run also passed the repository-structure checks. These tests cover only the exact finite declaration/CFG model and fixtures. They are not compiler tests, source-to-model correspondence proofs, runtime authorization tests, or evidence of complete dependency discovery.
 
 ## 4. Findings
 
