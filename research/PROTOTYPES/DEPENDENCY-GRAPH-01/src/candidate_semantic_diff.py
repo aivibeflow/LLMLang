@@ -261,12 +261,16 @@ def audit_candidate_semantic_diff(
         errors.append(f"{key}: CIP planned output was not materialized as a selection change")
 
     decision_rows = tuple(plan.call_site_decisions)
-    decision_map = {
-        (item.caller_hash, item.call_site_id, item.target_id): item
+    decision_map: dict[tuple[str, str, str], list] = {}
+    for item in decision_rows:
+        decision_map.setdefault(
+            (item.caller_hash, item.call_site_id, item.target_id), []
+        ).append(item)
+    if len({
+        (item.caller_hash, item.call_site_id, item.target_id, item.consumer_path_id)
         for item in decision_rows
-    }
-    if len(decision_map) != len(decision_rows):
-        errors.append("ImpactPlan contains duplicate call-site decisions")
+    }) != len(decision_rows):
+        errors.append("ImpactPlan contains duplicate call-site decisions for one consumer path")
 
     changed_old_hashes = {
         change.baseline_hash for change in changes if change.baseline_hash is not None
@@ -283,11 +287,35 @@ def audit_candidate_semantic_diff(
             if edge_kind != "call" or target_hash not in changed_old_hashes:
                 continue
             site_id, target_id = edge_id.split("/", 1)
-            if (caller_hash, site_id, target_id) not in decision_map:
-                errors.append(
-                    f"{caller_hash}:{site_id}/{target_id}: changed baseline callee "
-                    f"{target_hash} has no CIP decision from the independently scanned Snapshot"
-                )
+            base_key = (caller_hash, site_id, target_id)
+            related_outputs = [
+                output for output in plan.planned_outputs
+                if (output.base_hash or output.source_hash) == caller_hash
+                and output.operation is not OutputOperation.REMOVE
+            ]
+            decisions_for_edge = decision_map.get(base_key, [])
+            if related_outputs:
+                for output in related_outputs:
+                    matching = [
+                        decision for decision in decisions_for_edge
+                        if decision.consumer_path_id == output.consumer_path_id
+                        and decision.resulting_output_id == output.output_id
+                    ]
+                    if len(matching) != 1:
+                        errors.append(
+                            f"{caller_hash}:{site_id}/{target_id}: caller output "
+                            f"{output.output_id} lacks exactly one path-bound CIP decision"
+                        )
+            else:
+                matching = [
+                    decision for decision in decisions_for_edge
+                    if not decision.resulting_output_id and not decision.consumer_path_id
+                ]
+                if len(matching) != 1:
+                    errors.append(
+                        f"{caller_hash}:{site_id}/{target_id}: changed baseline callee "
+                        f"{target_hash} has no unique default-path CIP decision from the independently scanned Snapshot"
+                    )
 
     edge_changes: list[SemanticEdgeChange] = []
     observed_edge_keys = set()
@@ -329,10 +357,19 @@ def audit_candidate_semantic_diff(
                 observed_edge_keys.add(matches[0])
             if edge_kind == "call" and old_row is not None and new_row is not None and old_target != new_target:
                 site_id, target_id = edge_id.split("/", 1)
-                decision = decision_map.get((change.baseline_hash, site_id, target_id))
-                if decision is None:
-                    errors.append(f"{change.logical_key}:{edge_id}: changed call target has no exact CIP decision")
+                output = output_by_key.get(change.logical_key)
+                decision_candidates = decision_map.get(
+                    (change.baseline_hash, site_id, target_id), []
+                )
+                decisions_for_output = [
+                    decision for decision in decision_candidates
+                    if decision.resulting_output_id == (output.output_id if output else None)
+                    and decision.consumer_path_id == (output.consumer_path_id if output else "")
+                ]
+                if len(decisions_for_output) != 1:
+                    errors.append(f"{change.logical_key}:{edge_id}: changed call target has no unique exact CIP decision for this output")
                     continue
+                decision = decisions_for_output[0]
                 if decision.base_callee_hash != old_target:
                     errors.append(f"{change.logical_key}:{edge_id}: CIP base callee differs from baseline target")
                 if decision.selected_callee_hash != new_target:
