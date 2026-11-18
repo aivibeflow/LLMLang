@@ -293,6 +293,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             CallSiteDisposition.MIGRATE, self.old_callee, self.new_caller,
             "wrong target", "evidence:compatibility",
             self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
+            None, "", "output:invoice",
         )
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
