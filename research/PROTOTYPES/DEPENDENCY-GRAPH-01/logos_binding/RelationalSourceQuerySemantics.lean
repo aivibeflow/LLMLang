@@ -230,7 +230,7 @@ theorem decide_ne_eq_not_decide_eq {α : Type} [DecidableEq α] (left right : α
   cases h : decide (left = right) <;> simp_all
 
 /-- Build the factor-difference assumption from the actual selected-factor symbols. -/
-def factorDifference (sort : ExprSort) (factor : String) : LogosBinding.QueryTerm .bool :=
+def factorDifference (sort : ExprSort) (factor : String) : SourceQuerySemantics.QueryTerm .bool :=
   match sort with
   | .int =>
       .not (.eqInt (.intSymbol (factor ++ "_L")) (.intSymbol (factor ++ "_R")))
@@ -240,9 +240,9 @@ def factorDifference (sort : ExprSort) (factor : String) : LogosBinding.QueryTer
 /-- Build the observation-difference assumption from the two translated executions. -/
 def observationDifference :
     (sort : ExprSort) →
-    LogosBinding.QueryTerm (querySortOf sort) →
-    LogosBinding.QueryTerm (querySortOf sort) →
-    LogosBinding.QueryTerm .bool
+    SourceQuerySemantics.QueryTerm (querySortOf sort) →
+    SourceQuerySemantics.QueryTerm (querySortOf sort) →
+    SourceQuerySemantics.QueryTerm .bool
   | .int, left, right => .not (.eqInt left right)
   | .bool, left, right => .not (.eqBool left right)
 
@@ -333,7 +333,7 @@ mutable program state, the Python encoder, or solver proof artifacts.
 -/
 def relationalAssumptions {s : ExprSort}
     (factorSort : ExprSort) (factor : String) (e : Expr s) :
-    List (LogosBinding.QueryTerm .bool) :=
+    List (SourceQuerySemantics.QueryTerm .bool) :=
   [factorDifference factorSort factor,
    observationDifference s
      (translateRelationalExpr .left factor e)
