@@ -17,6 +17,7 @@ class SemanticError(ValueError):
 class _ExecutionCancelled(Exception):
     def __init__(self, reason: Any):
         self.reason = deepcopy(reason)
+        self.cleanup_errors: list[Any] = []
 
 
 @dataclass(frozen=True)
@@ -220,8 +221,9 @@ def evaluate(
                 events.append({"effect": "resource.release", "operation": "release", "payload": {"id": resource_id}, "outcome": deepcopy(release_outcome)})
                 if "error" not in release_outcome:
                     resources.pop(resource_id, None)
-                    raise
-                raise _ExecutionCancelled({"reason": deepcopy(cancelled.reason), "cleanup_errors": [release_outcome["error"]]})
+                else:
+                    cancelled.cleanup_errors.append(deepcopy(release_outcome["error"]))
+                raise
             except Exception:
                 release_outcome = ({"error": {"kind": "ReleaseFailed", "resource": resource_id}}
                                    if arg.get("release_fails", False) else {"ok": None})
@@ -245,7 +247,10 @@ def evaluate(
     try:
         result = visit(expression)
     except _ExecutionCancelled as cancelled:
-        result = {"cancelled": deepcopy(cancelled.reason)}
+        cancellation = deepcopy(cancelled.reason)
+        if cancelled.cleanup_errors:
+            cancellation = {"reason": cancellation, "cleanup_errors": deepcopy(cancelled.cleanup_errors)}
+        result = {"cancelled": cancellation}
     return Trace(
         profile=profile,
         events=tuple(deepcopy(events)),
