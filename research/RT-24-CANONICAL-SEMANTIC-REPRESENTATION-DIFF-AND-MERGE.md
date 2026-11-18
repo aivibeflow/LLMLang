@@ -168,8 +168,9 @@ No accepted immutable snapshot is mutated. The merge candidate is a new proposed
 | Same identity added on both sides with identical content | Coalesce only if identity rules prove equivalence | Otherwise identity conflict |
 | Same identity added with different content | No implicit winner | Conflict |
 | Distinct additions | Combine, subject to graph checks | Usually clean |
-| Same call site retargeted to same callee version | Coalesce | Auto-merge |
-| Same call site retargeted to different callee versions | Per-call-site compatibility decision; no newest-wins rule | Conflict/CIP |
+| Same call-site selector is proven to identify the same scoped occurrence and is retargeted to the same callee version | Coalesce | Auto-merge |
+| Same scoped call-site selector is retargeted to different callee versions | Per-call-site compatibility decision; no newest-wins rule | Conflict/CIP |
+| Call-site continuity cannot be established across snapshots | Do not infer from source location, display name, or structural similarity | Identity/occurrence conflict |
 | Rename/move with explicit shared lineage | Preserve identity if compatible | Conditional |
 | Rename/move inferred only from path/name | Do not infer | Identity conflict |
 | Split/merge/replacement without explicit lineage | Do not infer | Identity conflict |
