@@ -192,6 +192,70 @@ The Toolchain must not assume all regular files are semantic inputs.
 
 This boundary allows semantic development to proceed without worktree churn while still giving regular-file tools familiar branch isolation.
 
+
+### 9.1 Commit is a synchronized semantic-and-filesystem operation
+
+A successful LLMLang commit is not merely a Git commit of whatever happens to be present in the selected worktree. It is the durable publication of one coherent development result across both domains:
+
+- the exact LLMLang semantic state (including the selected Semantic Snapshot and Interface Mapping Revision);
+- the regular-file changes selected for this commit;
+- the canonical, deterministic LLMLang repository representation that allows the semantic state to be reconstructed from the Git commit.
+
+**Commit invariant:** if the Toolchain reports an LLMLang commit as successful, the resulting Git commit tree MUST contain the canonical LLMLang representation of the exact semantic state that was validated, together with the intended regular-file changes. The representation in the committed tree MUST round-trip to the same semantic snapshot/mapping revision (or to their explicitly defined canonical equivalent). A semantic state that exists only in the Toolchain's local database/cache is not committed.
+
+This makes Git history the portable collaboration and merge substrate. The content-addressed semantic store remains a shared acceleration/indexing layer and may contain deduplicated objects, but it MUST NOT be the only durable location of accepted branch state. A clone or recovery from Git history must be able to reconstruct the semantic state required by the repository's committed roots and manifests.
+
+The exact textual representation and semantic merge rules remain owned by RT-15 / [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md). RT-23 owns the runtime synchronization, generation, and commit coordination requirements.
+
+### 9.2 Commit preparation and synchronization protocol
+
+A commit request MUST pin all inputs before modifying the worktree:
+
+- repository and worktree handles;
+- expected worktree HEAD/base commit and branch/ref revision;
+- exact Worktree Generation and selected regular-file path/change set;
+- exact Semantic Snapshot ID and Change Set ID being committed;
+- exact Interface Mapping Revision ID when mappings affect the committed result;
+- RT-20 impact plan, validation/audit evidence, and toolchain/language version;
+- idempotency key and durable operation ID.
+
+The operation then performs the following logical phases:
+
+1. **Freeze candidate.** Freeze the semantic candidate and selected regular-file input generation. Reject stale HEAD, worktree generation, Change Set head, or mapping revision. Do not silently absorb concurrent edits.
+2. **Materialize semantic state.** Deterministically export the pinned semantic snapshot and required mapping revision into the selected worktree's canonical LLMLang repository representation. This is a real filesystem synchronization, not a virtual association or metadata-only pointer update.
+3. **Combine intended file changes.** Include the explicitly selected regular-file changes in the same candidate tree. Preserve unrelated/unselected user changes; do not stage or commit them implicitly. If they overlap with generated semantic paths or invalidate declared inputs, fail with a typed conflict.
+4. **Verify the worktree candidate.** Re-read/reconcile the affected paths and Git index/tree state. Import or independently decode the exported LLMLang representation and prove that it reconstructs the pinned semantic snapshot and mapping revision. Verify that all intended semantic and regular-file changes are present in the candidate Git tree and that no undeclared changes entered it.
+5. **Run commit gates.** Run required semantic validation, impact-plan completeness checks, tests, audits, and regular-file checks against the exact combined candidate tree. Evidence is bound to its tree identity, semantic snapshot, mapping revision, and toolchain version.
+6. **Create one Git commit.** Create the local Git commit from that exact verified tree, with expected-old-HEAD/ref checks. The commit MUST include both the canonical LLMLang representation and the intended regular-file changes. A successful semantic-only change still produces a Git commit containing its LLMLang representation; it is not accepted as a durable branch commit while existing only in the local semantic store.
+7. **Finalize and record.** Record the resulting commit OID and the mapping from commit OID to semantic snapshot/mapping revision and verification evidence. Update branch-associated semantic references only after confirming the commit tree. The operation result is durable and idempotently inspectable.
+
+The implementation may use temporary index files, an export staging area, or another isolated candidate-tree mechanism. It MUST NOT expose a partially exported multi-file semantic state as a successful commit candidate, and MUST NOT modify the user's unrelated index entries without explicit authorization.
+
+### 9.3 Failure, crash recovery, and atomicity boundary
+
+A filesystem write, semantic-store update, and Git ref update cannot generally be assumed to form one native atomic transaction. The Toolchain therefore implements a recoverable commit protocol, not an unsupported claim of cross-store atomicity.
+
+- Before Git commit creation, any failure leaves no new commit. The Change Set and operation record remain available for correction/retry; partial export is detectable and is either rolled back from the operation's staging area or safely resumed.
+- If Git commit creation succeeds but the server crashes before recording completion, recovery inspects the operation ID, expected parent, resulting commit/tree, and embedded semantic representation. If they match the frozen candidate, it finalizes the operation idempotently; it MUST NOT create a duplicate commit.
+- If the branch/ref moved, the candidate tree changed, or the committed semantic representation does not match the frozen snapshot, the operation is stale/conflicted and MUST NOT be reported as successful.
+- A timeout or lost MCP response is an unknown outcome until operation inspection resolves it.
+- Local semantic snapshots/objects created during a failed attempt may remain as unreachable cache objects, but they are not considered committed branch state.
+
+The externally visible success condition is therefore strict: a commit OID exists, its tree contains the exact synchronized LLMLang and regular-file state, and the Toolchain has verified and recorded that correspondence.
+
+### 9.4 Merge-based development and branch reconstruction
+
+This synchronization rule is what makes worktree-based merge development coherent:
+
+- Each development branch's Git commits carry the corresponding canonical LLMLang state as well as regular files.
+- A branch may have many semantic Change Sets developed concurrently without allocating one worktree per Change Set. Before a Change Set is committed, it is materialized into the selected branch worktree and included in a Git commit.
+- Git merge operates on committed base/ours/theirs repository states. LLMLang files use the semantic merge rules owned by RT-15; ordinary files use their configured Git merge behavior.
+- A merge result is not considered a completed LLMLang merge merely because Git produced a tree. The merged LLMLang representation must be imported/reconciled into a new semantic snapshot, cross-reference/hash/caller invariants must be checked, and the complete merged tree must pass the required validation before the merge commit is finalized.
+- After a successful merge commit, the resulting commit OID identifies both the merged regular-file tree and its reconstructed LLMLang semantic state.
+- Checking out or attaching a worktree to an existing commit resolves its semantic root from that commit's canonical repository representation. It does not require a separate semantic database per worktree and does not require re-reading unchanged files when the File View is already current.
+
+A merge conflict or semantic validation failure leaves the merge unresolved; the Toolchain must not silently select one branch's semantic snapshot or claim that the Git tree and semantic store agree.
+
 ## 10. Single-server process and storage model
 
 ## 10.1 Shared immutable object-store read boundary
