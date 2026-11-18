@@ -322,6 +322,28 @@ For Git integration, provide both:
 
 Keep the semantic merge engine independent of Git. Design toward repository-level three-way SPG merging because cross-file graph invariants cannot be guaranteed by independent file merges alone. Do not claim whole-program semantic correctness from a file-level driver without an explicit repository-wide validation step.
 
+## 11. Related LLMLang architecture documents and study set
+
+This document is the primary research source for repository representation and semantic diff/merge. It must be studied together with the following documents whenever Git merge, branch integration, semantic synchronization, or commit behavior is designed or changed:
+
+- [ADR-014 — Git repository representation and semantic merge](../docs/adr/014-git-semantic-merge.md): records the current proposed architectural direction and rejected alternatives. Its status is **Proposed**, not Accepted.
+- [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md): owns impact planning, per-call-site migrate/preserve/adapt decisions, caller versioning, hash propagation, validation/audit gates, and verified completion.
+- [RT-22 — LLMLang Git Repository and Worktree MCP Surface](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md): owns the external repository/worktree operation contract, Git coordination, commit preparation, and recovery guarantees.
+- [RT-23 — Single-Instance Toolchain with Shared Semantic State and Incremental Multi-Worktree File Views](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md): owns the single-server runtime, shared immutable semantic state, versioned interface mappings, per-worktree file views, and synchronized semantic/filesystem commit protocol.
+- [RT-19 — Toolchain Server and Semantic Development API](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md): owns the broader transport-neutral semantic API and Change Set/Snapshot lifecycle.
+- [AIVibeFlow LLMLang MCP integration](https://github.com/aivibeflow/aivibeflow/blob/main/specs/integrations/LLMLANG-MCP-GIT-WORKSPACE.md): owns AIVibeFlow provider selection, orchestration, platform policy, and the cross-repository integration boundary.
+
+### Ownership and consistency rules
+
+- This document owns semantic merge concepts, merge semantics, conflict classes, and the Git merge-driver/mergetool integration direction.
+- RT-20 owns caller-impact completeness and semantic change validation; merge must not bypass its caller migration and hash-propagation invariants.
+- RT-22 owns externally observable repository/worktree operations and their recovery contract.
+- RT-23 owns runtime coordination and the invariant that a successful LLMLang commit synchronizes the exact validated semantic snapshot and selected regular-file changes into one Git commit.
+- ADR-014 records a proposed decision; it does not supersede the detailed research contracts above.
+- Git merge/rebase/cherry-pick is not complete for LLMLang until the merged repository representation has been imported/reconciled, the resulting semantic state validated, and the synchronized commit protocol completed. A clean per-file merge alone is insufficient.
+
+**Required study set:** read this document, ADR-014, RT-20, RT-22, and RT-23 together. Include RT-19 and the AIVibeFlow integration spec when changing Toolchain API or orchestration boundaries.
+
 ## References
 
 - Git attributes documentation: https://git-scm.com/docs/gitattributes
