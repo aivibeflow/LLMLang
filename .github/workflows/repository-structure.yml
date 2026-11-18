@@ -20,5 +20,7 @@ jobs:
           python-version: "3.12"
       - name: Test repository structure checker
         run: python -m unittest discover -s tools -p 'test_*.py' -v
+      - name: Test RT-04 prototype 01
+        run: python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_*.py' -v
       - name: Check tracked repository layout
         run: python tools/check_repo_structure.py
