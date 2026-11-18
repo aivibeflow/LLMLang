@@ -160,6 +160,93 @@ theorem translateRelationalExpr_correct
       evalExpr, sideEnvironment, relationalSymbol, querySortOf,
       querySortToExprSort] <;> simp [asInt]
 
+/--
+Canonical QF_LIA input naming used by qf_lia_profile.py:
+source names are sorted first, then assigned i_0, i_1, ...; only the
+selected factor is split into the _L and _R symbols.
+-/
+def canonicalBaseSymbol (inputNames : List String) (name : String) : String :=
+  "i_" ++ toString (inputNames.idxOf name)
+
+def canonicalRelationalSymbol (inputNames : List String)
+    (side : RunSide) (factor name : String) : String :=
+  let base := canonicalBaseSymbol inputNames name
+  if name == factor then
+    base ++ (match side with | .left => "_L" | .right => "_R")
+  else
+    base
+
+/-- Product-program environment indexed by the canonical wire symbols. -/
+def canonicalSideEnvironment (queryEnv : SourceQuerySemantics.Env)
+    (inputNames : List String) (side : RunSide) (factor : String) :
+    SourceQuerySemantics.Env :=
+  fun name sort => queryEnv (canonicalRelationalSymbol inputNames side factor name) sort
+
+/-- Translate an expression using the exact indexed names emitted by the Python QF_LIA exporter. -/
+def translateCanonicalRelationalExpr :
+    {s : ExprSort} → (inputNames : List String) → (side : RunSide) →
+    (factor : String) → Expr s → LogosBinding.QueryTerm (querySortOf s)
+  | .int, _, _, _, .intLit n => .intLit n
+  | .bool, _, _, _, .boolLit b => .boolLit b
+  | .int, inputNames, side, factor, .intVar name =>
+      .intSymbol (canonicalRelationalSymbol inputNames side factor name)
+  | .bool, inputNames, side, factor, .boolVar name =>
+      .boolSymbol (canonicalRelationalSymbol inputNames side factor name)
+  | .int, inputNames, side, factor, .neg e =>
+      .neg (translateCanonicalRelationalExpr inputNames side factor e)
+  | .int, inputNames, side, factor, .add a b =>
+      .add (translateCanonicalRelationalExpr inputNames side factor a)
+        (translateCanonicalRelationalExpr inputNames side factor b)
+  | .int, inputNames, side, factor, .sub a b =>
+      .sub (translateCanonicalRelationalExpr inputNames side factor a)
+        (translateCanonicalRelationalExpr inputNames side factor b)
+  | .int, inputNames, side, factor, .mulConst k e =>
+      .mul (.intLit k) (translateCanonicalRelationalExpr inputNames side factor e)
+  | .bool, inputNames, side, factor, .not e =>
+      .not (translateCanonicalRelationalExpr inputNames side factor e)
+  | .bool, inputNames, side, factor, .eqInt a b =>
+      .eqInt (translateCanonicalRelationalExpr inputNames side factor a)
+        (translateCanonicalRelationalExpr inputNames side factor b)
+  | .bool, inputNames, side, factor, .eqBool a b =>
+      .eqBool (translateCanonicalRelationalExpr inputNames side factor a)
+        (translateCanonicalRelationalExpr inputNames side factor b)
+  | .bool, inputNames, side, factor, .lt a b =>
+      .lt (translateCanonicalRelationalExpr inputNames side factor a)
+        (translateCanonicalRelationalExpr inputNames side factor b)
+  | .bool, inputNames, side, factor, .le a b =>
+      .le (translateCanonicalRelationalExpr inputNames side factor a)
+        (translateCanonicalRelationalExpr inputNames side factor b)
+  | .bool, inputNames, side, factor, .and a b =>
+      .and [translateCanonicalRelationalExpr inputNames side factor a,
+        translateCanonicalRelationalExpr inputNames side factor b]
+  | .bool, inputNames, side, factor, .or a b =>
+      .or [translateCanonicalRelationalExpr inputNames side factor a,
+        translateCanonicalRelationalExpr inputNames side factor b]
+  | .int, inputNames, side, factor, .iteInt c a b =>
+      .iteInt (translateCanonicalRelationalExpr inputNames side factor c)
+        (translateCanonicalRelationalExpr inputNames side factor a)
+        (translateCanonicalRelationalExpr inputNames side factor b)
+  | .bool, inputNames, side, factor, .iteBool c a b =>
+      .iteBool (translateCanonicalRelationalExpr inputNames side factor c)
+        (translateCanonicalRelationalExpr inputNames side factor a)
+        (translateCanonicalRelationalExpr inputNames side factor b)
+
+/--
+The actual canonical-name translation into LogosBinding.QueryTerm preserves
+the source expression value for each side and every query environment.
+-/
+theorem translateCanonicalRelationalExpr_correct
+    {s : ExprSort} (inputNames : List String) (side : RunSide)
+    (factor : String) (e : Expr s) (queryEnv : SourceQuerySemantics.Env) :
+    evalCanonicalQuerySigma
+      ⟨querySortOf s, translateCanonicalRelationalExpr inputNames side factor e⟩
+      queryEnv =
+      evalExpr e (canonicalSideEnvironment queryEnv inputNames side factor) := by
+  induction e <;>
+    simp_all [translateCanonicalRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
+      evalExpr, canonicalSideEnvironment, canonicalRelationalSymbol, canonicalBaseSymbol,
+      querySortOf, querySortToExprSort] <;> simp [asInt]
+
 /-- Every non-selected input is represented by exactly the same symbol on both sides. -/
 theorem nonFactorInputsAreShared
     (queryEnv : SourceQuerySemantics.Env) (factor name : String)
