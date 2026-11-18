@@ -449,7 +449,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         plan = self.plan(
             baseline, candidate,
             actions=(
-                action(old_leaf), action(new_leaf), action(old_shared),
+                action(old_leaf), action(new_leaf), action(old_shared), action(new_shared),
                 rewrite_action(old_shared), rewrite_action(old_modern_consumer),
             ),
             decisions=decisions, outputs=outputs, edge_changes=edge_changes,
