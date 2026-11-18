@@ -161,6 +161,11 @@ def run_small_step(
                     cancellation = {"reason": cancellation, "cleanup_errors": cleanup_errors}
                 values.append({"cancelled": cancellation})
                 break
+            elif op == "if":
+                if not isinstance(arg, dict) or set(arg) != {"condition", "then", "else"}:
+                    raise MachineError("if requires condition, then, and else expressions")
+                tasks.append(("if_condition_done", arg["then"], arg["else"]))
+                tasks.append(("eval", arg["condition"]))
             elif op == "with_resource":
                 if profile != "D":
                     raise MachineError("Profile A is pure: resource scopes are not permitted")
@@ -224,6 +229,12 @@ def run_small_step(
                 values.pop()
                 tasks.append(("result_sequence_done", remaining[1:]))
                 tasks.append(("eval", remaining[0]))
+
+        elif tag == "if_condition_done":
+            condition = values.pop()
+            if type(condition) is not bool:
+                raise MachineError("if condition must evaluate to boolean")
+            tasks.append(("eval", task[1] if condition else task[2]))
 
         elif tag == "resource_body_done":
             resource_id, release_fails = task[1], task[2]
