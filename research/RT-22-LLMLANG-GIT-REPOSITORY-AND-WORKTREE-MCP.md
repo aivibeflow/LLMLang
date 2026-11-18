@@ -176,6 +176,6 @@ RT-22 is ready for an architectural decision when domain schemas, operation stat
 
 ## 15. Cross-project references
 
-AIVibeFlow owns provider selection, language/project routing, process integration, platform-level Git policy, and its native Git tool path for non-LLMLang repositories. See the AIVibeFlow integration document linked from its Git/workspace plan item.
+AIVibeFlow owns provider selection, language/project routing, process integration, platform-level Git policy, and its native Git tool path for non-LLMLang repositories. See [AIVibeFlow LLMLang MCP Integration](https://github.com/aivibeflow/aivibeflow/blob/main/specs/integrations/LLMLANG-MCP-GIT-WORKSPACE.md).
 
 The shared contract ownership and cross-repository coordination are described there. This document is authoritative only for the LLMLang Toolchain side described above.
