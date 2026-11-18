@@ -1,6 +1,7 @@
 name: Semantic dependency extractor prototype
 
 on:
+  workflow_call:
   push:
     paths:
       - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/**"
