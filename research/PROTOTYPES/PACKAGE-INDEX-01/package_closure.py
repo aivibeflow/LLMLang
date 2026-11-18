@@ -32,7 +32,7 @@ def resolve_dependency_closure(roots, snapshot, *, policy: str = "closure",
     Conditional required/optional edges require an explicit boolean selection in
     condition_values[(source_hash, edge_id)]; the condition expression is not evaluated.
     """
-    if policy not in POLICIES:
+    if not isinstance(policy, str) or policy not in POLICIES:
         raise ClosureError(f"unsupported dependency policy: {policy!r}")
     if not isinstance(roots, (list, tuple, set, frozenset)) or not roots:
         raise ClosureError("roots must be a non-empty collection of Content Hash values")
@@ -90,7 +90,7 @@ def resolve_dependency_closure(roots, snapshot, *, policy: str = "closure",
             if edge_id in edge_ids:
                 raise ClosureError(f"duplicate dependency edge_id {edge_id!r} for {source_hash}")
             edge_ids.add(edge_id)
-            if kind not in DEPENDENCY_KINDS:
+            if not isinstance(kind, str) or kind not in DEPENDENCY_KINDS:
                 raise ClosureError(f"unsupported dependency kind for {source_hash}/{edge_id}")
             if set(raw) - {"edge_id", "kind", "target_hash", "condition"}:
                 raise ClosureError(f"unknown dependency fields for {source_hash}/{edge_id}")

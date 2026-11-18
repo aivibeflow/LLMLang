@@ -128,7 +128,15 @@ class DependencyClosureTests(unittest.TestCase):
         with self.assertRaisesRegex(ClosureError, "snapshot changed"):
             resolve_dependency_closure([H(1)], changing)
 
-    def test_roots_must_exist(self):
+
+    def test_malformed_dependency_kind_fails_closed(self):
+        snapshot = make_snapshot()
+        snapshot.dependencies[H(1)].append({
+            "edge_id": "bad-kind", "kind": [], "target_hash": H(5),
+        })
+        with self.assertRaisesRegex(ClosureError, "unsupported dependency kind"):
+            resolve_dependency_closure([H(1)], snapshot)
+\n    def test_roots_must_exist(self):
         with self.assertRaisesRegex(ClosureError, "missing exact dependency object"):
             resolve_dependency_closure([H(99)], make_snapshot())
 
