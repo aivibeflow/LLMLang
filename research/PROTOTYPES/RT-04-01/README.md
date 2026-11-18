@@ -167,3 +167,20 @@ fixtures and do not access the host filesystem or network.
 
 See [RT-03/RT-04 cross-profile trace findings](../../RT-04-RT-03-CROSS-PROFILE-TRACES.md)
 and the [reference-slice tests](test_rt03_reference.py).
+
+
+## Differential cross-check with a second RT-03 evaluator
+
+`rt03_smallstep.py` is a second evaluator for the bounded RT-03 A/D expression
+fragment. Unlike the recursive evaluator, it uses explicit continuation and
+value stacks. It does not import `rt03_reference.py`. The differential tests
+compare full traces and final fixture stores across hand-written examples and
+a generated set of two-write sequences.
+
+Run the full suite from the repository root:
+
+    python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_*.py' -v
+
+This is algorithmic cross-checking, not independent human review or proof:
+both implementations share the same exploratory contract and may share
+specification mistakes. See [differential test cases](test_rt03_differential.py).
