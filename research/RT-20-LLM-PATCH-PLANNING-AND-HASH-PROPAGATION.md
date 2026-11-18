@@ -431,3 +431,8 @@ Study RT-20 together with:
 - [RT-19](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — semantic API and Change Set/Snapshot lifecycle.
 
 Boundary: RT-20 does not define Git's repository-level merge algorithm or worktree runtime. Conversely, a successful semantic merge must not bypass RT-20's complete caller impact plan, per-call-site decisions, hash propagation, validation evidence, and commit gates.
+
+
+## RT-24 relationship
+
+RT-20 owns caller-impact completeness and per-call-site decisions; RT-24 consumes its complete CIP as a mandatory gate and must not independently decide that all callers migrate to the newest callee.
