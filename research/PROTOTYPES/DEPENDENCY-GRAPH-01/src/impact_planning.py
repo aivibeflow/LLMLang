@@ -14,7 +14,7 @@ class PlanningError(ValueError):
     pass
 
 
-CIP_SCHEMA_VERSION = 4
+CIP_SCHEMA_VERSION = 5
 
 
 class CompletenessStatus(str, Enum):
@@ -143,6 +143,65 @@ class CallSiteDecision:
     selected_output_id: str | None = None
 
 
+def _planned_edge_change_payload(edge: PlannedEdgeChange) -> dict:
+    return {
+        "domain": "llmlang.cip.planned-edge-change.v1",
+        "cip_schema_version": CIP_SCHEMA_VERSION,
+        "output_id": edge.output_id,
+        "edge_kind": edge.edge_kind.value,
+        "edge_id": edge.edge_id,
+        "operation": edge.operation.value,
+        "baseline_relation": edge.baseline_relation,
+        "candidate_relation": edge.candidate_relation,
+        "baseline_target_hash": edge.baseline_target_hash,
+        "candidate_target_hash": edge.candidate_target_hash,
+        "baseline_condition": edge.baseline_condition,
+        "candidate_condition": edge.candidate_condition,
+        "rationale": edge.rationale,
+        "evidence_id": edge.evidence_id,
+        "baseline_required_contract_hash": edge.baseline_required_contract_hash,
+        "candidate_required_contract_hash": edge.candidate_required_contract_hash,
+    }
+
+
+def compute_planned_edge_change_id(edge: PlannedEdgeChange) -> str:
+    import hashlib
+    import json
+    return hashlib.sha256(json.dumps(
+        _planned_edge_change_payload(edge), sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")).hexdigest()
+
+
+def _call_site_decision_payload(decision: CallSiteDecision) -> dict:
+    return {
+        "domain": "llmlang.cip.call-site-decision.v1",
+        "cip_schema_version": CIP_SCHEMA_VERSION,
+        "caller_hash": decision.caller_hash,
+        "call_site_id": decision.call_site_id,
+        "target_id": decision.target_id,
+        "base_callee_hash": decision.base_callee_hash,
+        "disposition": decision.disposition.value,
+        "selected_callee_hash": decision.selected_callee_hash,
+        "resulting_caller_hash": decision.resulting_caller_hash,
+        "rationale": decision.rationale,
+        "decision_evidence_id": decision.decision_evidence_id,
+        "required_contract_hash": decision.required_contract_hash,
+        "compatibility_status": decision.compatibility_status,
+        "candidate_required_contract_hash": decision.candidate_required_contract_hash,
+        "consumer_path_id": decision.consumer_path_id,
+        "resulting_output_id": decision.resulting_output_id,
+        "selected_output_id": decision.selected_output_id,
+    }
+
+
+def compute_call_site_decision_id(decision: CallSiteDecision) -> str:
+    import hashlib
+    import json
+    return hashlib.sha256(json.dumps(
+        _call_site_decision_payload(decision), sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")).hexdigest()
+
+
 @dataclass(frozen=True)
 class CompletenessAudit:
     status: CompletenessStatus
@@ -217,9 +276,10 @@ def impact_plan_payload(plan: ImpactPlan) -> dict:
         "audits": sorted(plan.audit_statuses),
         "audit_bindings": sorted(plan.audit_bindings),
         "call_site_decisions": [
-            (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
-             d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
-             d.rationale, d.decision_evidence_id, d.required_contract_hash,
+            (compute_call_site_decision_id(d), d.caller_hash, d.call_site_id,
+             d.target_id, d.base_callee_hash, d.disposition.value,
+             d.selected_callee_hash, d.resulting_caller_hash, d.rationale,
+             d.decision_evidence_id, d.required_contract_hash,
              d.compatibility_status, d.candidate_required_contract_hash,
              d.consumer_path_id, d.resulting_output_id, d.selected_output_id)
             for d in sorted(plan.call_site_decisions)
@@ -231,11 +291,11 @@ def impact_plan_payload(plan: ImpactPlan) -> dict:
             for o in sorted(plan.planned_outputs)
         ],
         "planned_edge_changes": [
-            (e.output_id, e.edge_kind.value, e.edge_id, e.operation.value,
-             e.baseline_relation, e.candidate_relation, e.baseline_target_hash,
-             e.candidate_target_hash, e.baseline_condition, e.candidate_condition,
-             e.rationale, e.evidence_id, e.baseline_required_contract_hash,
-             e.candidate_required_contract_hash)
+            (compute_planned_edge_change_id(e), e.output_id, e.edge_kind.value,
+             e.edge_id, e.operation.value, e.baseline_relation, e.candidate_relation,
+             e.baseline_target_hash, e.candidate_target_hash, e.baseline_condition,
+             e.candidate_condition, e.rationale, e.evidence_id,
+             e.baseline_required_contract_hash, e.candidate_required_contract_hash)
             for e in sorted(plan.planned_edge_changes)
         ],
     }
