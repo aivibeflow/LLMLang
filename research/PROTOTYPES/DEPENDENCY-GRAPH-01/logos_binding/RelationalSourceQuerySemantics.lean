@@ -80,7 +80,7 @@ def querySortToExprSort : LogosBinding.QuerySort → ExprSort
   | .int => .int
   | .bool => .bool
 
-/-- Mutually recursive interpretation of canonical query terms and Boolean term lists. -/
+/- Mutually recursive interpretation of canonical query terms and Boolean term lists. -/
 mutual
   def evalCanonicalQuerySigma :
       (query : Σ s : LogosBinding.QuerySort, LogosBinding.QueryTerm s) →
@@ -136,11 +136,9 @@ mutual
         let value := asBool (evalCanonicalQuerySigma ⟨.bool, term⟩ env)
         if isAnd then value && evalBoolTerms isAnd rest env
         else value || evalBoolTerms isAnd rest env
+  termination_by _ terms _ => sizeOf terms
+  decreasing_by all_goals simp_wf <;> omega
 end
-termination_by
-  evalCanonicalQuerySigma query _ => sizeOf query
-  evalBoolTerms _ terms _ => sizeOf terms
-decreasing_by all_goals simp_wf <;> omega
 
 /-- Evaluate a typed canonical query term in the source/query environment. -/
 def evalCanonicalQuery {s : LogosBinding.QuerySort}
