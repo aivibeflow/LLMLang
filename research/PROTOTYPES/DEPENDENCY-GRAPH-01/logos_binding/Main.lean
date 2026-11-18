@@ -1,4 +1,5 @@
 import LLMLangLogosBinding
+import RelationalSourceQuerySemantics
 
 open LLMLang.LogosBinding
 
@@ -247,3 +248,4 @@ def main : IO Unit := do
     canonicalJson)
 
   IO.println "Lean decoder v2 factor-binding adversarial tests passed"
+  IO.println "Source-to-query expression-level paired relational correspondence theorem compiled"
