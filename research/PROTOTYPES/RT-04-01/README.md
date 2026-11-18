@@ -168,6 +168,14 @@ The `cancel` expression produces a terminal execution outcome `{"cancelled": rea
 
 Both evaluators are differentially checked for cancellation nested inside pending continuations, skipped later effects, preservation of prior effects, and distinction from a Result error with the same reason payload. This is a synchronous terminal-control experiment only. It does not define cancellation propagation across function calls, asynchronous tasks, concurrent work, exception handling, resource finalization, or cleanup guarantees.
 
+
+### Structured resource scope and cleanup
+
+The opt-in `with_resource` expression acquires a named fixture resource, evaluates its body, and releases the resource on normal completion, a Result error value, or terminal cancellation. The body can observe the active resource through the declared `resource.use/use` effect. Acquisition failure skips the body and release. Release failure is observable and leaves the resource in the final resource map; if the body already produced a Result error, both the primary and cleanup errors are retained. During cancellation, active scopes unwind in LIFO order; cleanup failures are attached to the distinct cancelled outcome. Effects completed before cancellation are not rolled back.
+
+This is a structured fixture protocol, not a general ownership or borrow checker. It does not yet model aliases, transfer/return, asynchronous suspension, arbitrary destructors, exception classes, branch-sensitive resource paths, or source-to-scope completeness. Profile A rejects resource scopes.
+
+
 This is a bounded executable semantics experiment, not a selected language semantics. It does not implement parsing, variables/functions/recursion, general effect handlers or row inference, resource lifecycle, concurrency, divergence, or source-to-expression completeness. The deterministic handlers use in-memory fixtures and do not access the host filesystem or network.
 
 See [RT-03/RT-04 cross-profile trace findings](../../RT-04-RT-03-CROSS-PROFILE-TRACES.md) and the [reference-slice tests](test_rt03_reference.py).
