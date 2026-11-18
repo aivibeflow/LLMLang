@@ -1,7 +1,9 @@
 import hashlib
 import unittest
 
-from src.candidate_semantic_diff import audit_candidate_semantic_diff
+from src.candidate_semantic_diff import (
+    audit_candidate_semantic_diff, _declaration_edges, _edge_record_matches,
+)
 from src.impact_planning import (
     ActionKind, CallSiteDecision, CallSiteDisposition, ImpactPlan, PlannedAction,
     OutputOperation, PlannedOutput, PlannedEdgeKind, PlannedEdgeOperation,
@@ -425,6 +427,17 @@ class CandidateSemanticDiffCIPV2Tests(unittest.TestCase):
                 old_required=self.contract, new_required=alternate,
             ),
         )
+        old_decl_edges = _declaration_edges(self.store, old_callee)
+        new_decl_edges = _declaration_edges(self.store, new_callee)
+        self.assertEqual(old_decl_edges[("reference", "provided-contract")],
+                         ("provides_contract", self.contract, None, None))
+        self.assertEqual(new_decl_edges[("reference", "provided-contract")],
+                         ("provides_contract", alternate, None, None))
+        self.assertTrue(_edge_record_matches(
+            edges[0], "tax-v2", PlannedEdgeKind.TYPED_REFERENCE,
+            "provided-contract", old_decl_edges[("reference", "provided-contract")],
+            new_decl_edges[("reference", "provided-contract")],
+        ))
         result = self.audit(
             baseline, candidate,
             actions=(action(old_callee), rewrite_action(old_caller)),
