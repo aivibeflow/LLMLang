@@ -17,7 +17,7 @@ This proposal extends, but does not replace:
 - [RT-20 — LLM Patch Planning and Hash Propagation](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md): complete impact planning and validation-gated semantic changes.
 - [RT-21 — LLMLang Self-Development](RT-21-LLMLANG-SELF-DEVELOPMENT-AND-BOOTSTRAP-ROADMAP.md): use of AIVibeFlow as a development environment for LLMLang.
 
-RT-19 remains the broader Toolchain architecture proposal. RT-22 narrows the repository integration question and adds an explicit external-orchestrator boundary. ADR-015 remains Proposed; RT-22 does not accept it.
+RT-19 remains the broader Toolchain architecture proposal. RT-22 narrows the repository integration question and adds an explicit external-orchestrator boundary. [RT-23 — Single-Instance Toolchain with Shared Semantic State and Incremental Multi-Worktree File Views](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) is authoritative for the detailed runtime model: shared immutable semantic objects, versioned interface mappings, one server instance, and incremental per-worktree file views. ADR-015 remains Proposed; neither research document accepts it.
 
 ## 3. Design goals
 
@@ -39,6 +39,8 @@ Remote credentials, provider-account policy, and actions outside the granted loc
 
 ## 5. Repository and worktree model
 
+The Toolchain API should expose durable opaque handles rather than arbitrary filesystem paths. Importantly, a worktree is a regular-file/Git isolation boundary, not a semantic-store isolation boundary. One Toolchain Server instance serves multiple worktrees; semantic objects/snapshots are shared and immutable, while interface mappings are separately versioned. A job that only changes LLMLang semantic objects does not need a Git worktree. See RT-23 for the normative research model and incremental synchronization requirements.
+
 The Toolchain API should expose durable opaque handles rather than arbitrary filesystem paths:
 
 - Repository handle: registered repository identity and configured remote identities.
@@ -52,6 +54,10 @@ A worktree record retains repository identity, base commit, branch or detached-H
 Paths are private implementation details. A scoped display path may be returned only when required by an explicitly supported filesystem integration; it is never an authorization token.
 
 Repository/worktree lifecycle and semantic Workspace lifecycle are related but distinct. A worktree may contain external edits not yet imported into the semantic model; a semantic Workspace may have accepted changes not yet exported. The API exposes this divergence.
+
+## 5.1 Single-server and incremental worktree requirement
+
+RT-22 MUST NOT be interpreted as requiring one Toolchain Server process or semantic database per worktree. A single long-lived server instance must serve multiple independently authorized worktree handles. Worktree selection is request-scoped and must not change a server-global current directory/worktree. Selecting a healthy registered worktree must reuse its persisted File View and must not trigger a full tree content read, semantic import, or cache rebuild. File change tracking is incremental and per-worktree; a lost event cursor triggers reconciliation of only the affected worktree. Shared immutable semantic objects and snapshots are independent of the selected worktree; interface mappings use explicit versioned revisions and concurrency checks. Detailed design, failure behavior, metrics, and tests are defined by RT-23.
 
 ## 6. Candidate MCP capability families
 
@@ -179,3 +185,8 @@ RT-22 is ready for an architectural decision when domain schemas, operation stat
 AIVibeFlow owns provider selection, language/project routing, process integration, platform-level Git policy, and its native Git tool path for non-LLMLang repositories. See [AIVibeFlow LLMLang MCP Integration](https://github.com/aivibeflow/aivibeflow/blob/main/specs/integrations/LLMLANG-MCP-GIT-WORKSPACE.md).
 
 The shared contract ownership and cross-repository coordination are described there. This document is authoritative only for the LLMLang Toolchain side described above.
+
+
+## 16. Detailed runtime model
+
+The single-server, shared-semantic-state, versioned-interface-mapping, and incremental multi-worktree model is specified in [RT-23](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md). RT-23 owns those internals; this document owns the external Repository/Worktree/MCP capability contract. In case of overlap, RT-23 refines the internal implementation model while RT-22 remains authoritative for externally observable operation guarantees.
