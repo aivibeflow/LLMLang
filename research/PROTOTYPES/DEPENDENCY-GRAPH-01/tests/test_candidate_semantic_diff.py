@@ -37,11 +37,11 @@ def site(target_hash, required_contract_hash):
 
 
 def action(value_hash):
-    return PlannedAction(ActionKind.REBUILD, value_hash, "covered by approved CIP")
+    return PlannedAction(ActionKind.REBUILD, value_hash, "covered by approved CIP", subject_kind="implementation")
 
 
 def rewrite_action(value_hash):
-    return PlannedAction(ActionKind.REWRITE_CALL_SITE, value_hash, "rewrite exact planned call site")
+    return PlannedAction(ActionKind.REWRITE_CALL_SITE, value_hash, "rewrite exact planned call site", subject_kind="call_site")
 
 
 class CandidateSemanticDiffTests(unittest.TestCase):
