@@ -533,9 +533,6 @@ class ImpactPlanningTests(unittest.TestCase):
         self.assertNotEqual(compute_planned_action_id(plain), compute_planned_action_id(other))
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 
 class CIPObligationIdentityTests(unittest.TestCase):
     def edge(self):
@@ -636,3 +633,7 @@ class CIPObligationIdentityTests(unittest.TestCase):
         ))
         self.assertNotEqual(compute_impact_plan_id(base), compute_impact_plan_id(edge_changed))
         self.assertNotEqual(compute_impact_plan_id(base), compute_impact_plan_id(decision_changed))
+
+
+if __name__ == "__main__":
+    unittest.main()
