@@ -313,6 +313,7 @@ def _assign_action_ids(actions: Iterable[PlannedAction]) -> tuple[PlannedAction,
 
 
 def compute_impact_plan_id(plan: ImpactPlan) -> str:
+    validate_planned_action_dag(plan.actions)
     import hashlib
     import json
     return hashlib.sha256(json.dumps(
