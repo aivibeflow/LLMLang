@@ -253,10 +253,23 @@ theorem factorDifference_correct
       .boolValue (sourceValuesDiffer sort
         (sideEnvironment queryEnv .left factor factor sort)
         (sideEnvironment queryEnv .right factor factor sort)) := by
-  cases sort <;>
-    simp [factorDifference, evalCanonicalQuerySigma, sourceValuesDiffer,
-      sideEnvironment, relationalSymbol, querySortToExprSort, SourceQuerySemantics.evalQuery, asInt, asBool,
-      decide_ne_eq_not_decide_eq]
+  cases sort with
+  | int =>
+      change .boolValue
+        (!(decide (asInt (queryEnv (factor ++ "_L") .int) =
+          asInt (queryEnv (factor ++ "_R") .int)))) =
+        .boolValue (decide (asInt (queryEnv (factor ++ "_L") .int) ≠
+          asInt (queryEnv (factor ++ "_R") .int)))
+      exact congrArg Value.boolValue
+        (decide_ne_eq_not_decide_eq _ _).symm
+  | bool =>
+      change .boolValue
+        (!(decide (asBool (queryEnv (factor ++ "_L") .bool) =
+          asBool (queryEnv (factor ++ "_R") .bool)))) =
+        .boolValue (decide (asBool (queryEnv (factor ++ "_L") .bool) ≠
+          asBool (queryEnv (factor ++ "_R") .bool)))
+      exact congrArg Value.boolValue
+        (decide_ne_eq_not_decide_eq _ _)
 
 /--
 The observation-difference formula denotes precisely inequality of the two
@@ -275,18 +288,6 @@ theorem observationDifference_correct
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
   cases s with
   | int =>
-      unfold observationDifference
-      conv =>
-        lhs
-        rw [evalCanonicalQuerySigma]
-      conv =>
-        lhs
-        arg 1
-        arg 1
-        arg 1
-        rw [evalCanonicalQuerySigma]
-      simp only [asBool, SourceQuerySemantics.evalQuery]
-      apply congrArg Value.boolValue
       have hleft :
           evalCanonicalQuerySigma ⟨.int, translateRelationalExpr .left factor e⟩ queryEnv =
             evalExpr e (sideEnvironment queryEnv .left factor) := by
@@ -297,21 +298,18 @@ theorem observationDifference_correct
             evalExpr e (sideEnvironment queryEnv .right factor) := by
         simpa [querySortOf] using
           (translateRelationalExpr_correct .right factor e queryEnv)
+      change .boolValue
+        (!(decide (asInt (evalCanonicalQuerySigma
+          ⟨.int, translateRelationalExpr .left factor e⟩ queryEnv) =
+          asInt (evalCanonicalQuerySigma
+          ⟨.int, translateRelationalExpr .right factor e⟩ queryEnv)))) =
+        .boolValue (decide (asInt (evalExpr e
+          (sideEnvironment queryEnv .left factor)) ≠
+          asInt (evalExpr e (sideEnvironment queryEnv .right factor))))
       rw [hleft, hright]
-      exact (decide_ne_eq_not_decide_eq _ _).symm
+      exact congrArg Value.boolValue
+        (decide_ne_eq_not_decide_eq _ _).symm
   | bool =>
-      unfold observationDifference
-      conv =>
-        lhs
-        rw [evalCanonicalQuerySigma]
-      conv =>
-        lhs
-        arg 1
-        arg 1
-        arg 1
-        rw [evalCanonicalQuerySigma]
-      simp only [asBool]
-      apply congrArg Value.boolValue
       have hleft :
           evalCanonicalQuerySigma ⟨.bool, translateRelationalExpr .left factor e⟩ queryEnv =
             evalExpr e (sideEnvironment queryEnv .left factor) := by
@@ -322,8 +320,17 @@ theorem observationDifference_correct
             evalExpr e (sideEnvironment queryEnv .right factor) := by
         simpa [querySortOf] using
           (translateRelationalExpr_correct .right factor e queryEnv)
+      change .boolValue
+        (!(decide (asBool (evalCanonicalQuerySigma
+          ⟨.bool, translateRelationalExpr .left factor e⟩ queryEnv) =
+          asBool (evalCanonicalQuerySigma
+          ⟨.bool, translateRelationalExpr .right factor e⟩ queryEnv)))) =
+        .boolValue (decide (asBool (evalExpr e
+          (sideEnvironment queryEnv .left factor)) ≠
+          asBool (evalExpr e (sideEnvironment queryEnv .right factor))))
       rw [hleft, hright]
-      exact (decide_ne_eq_not_decide_eq _ _).symm
+      exact congrArg Value.boolValue
+        (decide_ne_eq_not_decide_eq _ _)
 
 /--
 The two assumptions of the expression-level relational query are sound:
