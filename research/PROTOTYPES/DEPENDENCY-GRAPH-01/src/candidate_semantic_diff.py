@@ -1,6 +1,6 @@
 """Fail-closed semantic diff audit against an approved ImpactPlan.
 
-The audit binds exact Snapshot roots, graph-audit digests, and CIP identity. Its
+The audit binds exact Snapshot roots, graph-audit digests, CIP output slots, and edge records. Its
 scope is the current explicit declaration subset; it does not prove behavior or
 discover dynamic/runtime dependencies.
 """
@@ -137,7 +137,10 @@ def _plan_identity_matches(plan: ImpactPlan) -> bool:
 
 
 def _content_digest(declaration: dict) -> str:
-    return sha256(canonical_bytes(declaration["content"])).hexdigest()
+    return sha256(canonical_bytes({
+        "declaration_id": declaration["declaration_id"],
+        "content": declaration["content"],
+    })).hexdigest()
 
 
 def _observed_edge_operation(old_row, new_row):
@@ -177,9 +180,10 @@ def audit_candidate_semantic_diff(
     """Require exact action coverage, graph integrity, and call-site decisions.
 
     The plan identity is recomputed. Both Snapshot graph audits must pass and are
-    bound into the returned diff digest. All changed typed-reference edges are
-    rejected until the CIP schema has exact records for them. Call-site target
-    changes require both a matching decision and a REWRITE_CALL_SITE action.
+    bound into the returned diff digest. Every selection delta must match one
+    exact output slot; every typed-reference/call-target delta must match one
+    exact edge record. Unknown output hashes are resolved through output IDs
+    against the candidate Snapshot and returned as materialization bindings.
     """
     errors: list[str] = []
     before = _snapshot_selections(baseline, "baseline", errors)
@@ -243,7 +247,7 @@ def audit_candidate_semantic_diff(
                 declaration = validate_declaration(value.payload)
                 if value.kind != output.expected_kind or declaration["kind"] != output.expected_kind:
                     errors.append(f"{change.logical_key}: materialized output kind differs from CIP")
-                if _content_digest(declaration) != output.expected_content_digest:
+                if _content_digest(declaration) != output.expected_payload_digest:
                     errors.append(f"{change.logical_key}: materialized declaration content differs from CIP digest")
                 materialized_outputs.append(MaterializedOutputBinding(
                     output.output_id, output.logical_key, change.candidate_hash
@@ -423,7 +427,7 @@ def audit_candidate_semantic_diff(
     change_records = [item.record() for item in sorted(changes)]
     edge_records = [item.record() for item in sorted(edge_changes)]
     digest_payload = {
-        "domain": "llmlang.candidate-semantic-diff.v2",
+        "domain": "llmlang.candidate-semantic-diff.v3",
         "baseline_root": baseline.root_hash,
         "candidate_root": candidate.root_hash,
         "plan_id": plan.plan_id,
