@@ -32,5 +32,14 @@ Implemented by PROTOTYPES/RT-04-01/test_rt04_model.py. Scope is declaration-leve
 | RT4-P23 | A known direct effect violates the bound while another call edge is unresolved | Not yet compared | Reject the known violation and report incomplete summary |
 | RT4-P24 | Completeness evidence names an undeclared function | Not yet compared | Reject malformed evidence |
 | RT4-P25 | Multiple direct effects are all within the declared bound | Not yet compared | Accept |
+| RT4-P26 | Typed call has matching argument and result types | Not yet compared | Accept |
+| RT4-P27 | Typed call has wrong argument count | Not yet compared | Reject |
+| RT4-P28 | Typed call has an argument type mismatch | Not yet compared | Reject |
+| RT4-P29 | Caller expects a result type different from the callee result | Not yet compared | Reject |
+| RT4-P30 | Typed call targets a function without an explicit complete signature | Not yet compared | UNKNOWN |
+| RT4-P31 | Typed call-site target is absent from caller call-graph edges | Not yet compared | Reject malformed model input |
+| RT4-P32 | Result<Ok, Err> descriptors match structurally | Not yet compared | Accept |
+| RT4-P33 | Nested Result error component differs | Not yet compared | Reject |
+| RT4-P34 | Profile A receives a Profile B Result descriptor | Reject unsupported type | Not yet compared |
 
 The CFG tests assume the supplied blocks and edges are complete and correctly represent source control flow. They do not model symbolic branch conditions, borrow lifetimes, resource return/drop, terminal-path cleanup, or prove that the CFG extractor is sound. Effect-bound tests likewise trust fixture-level completeness assertions; they do not prove source call-graph completeness or discover dynamic, generated, FFI, handler, or reflective calls. These are not whole-program semantics.
