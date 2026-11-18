@@ -3,7 +3,7 @@
 **Status:** Research proposal; not an accepted language or Toolchain architecture decision  
 **Date:** 2026-11-18  
 **Priority:** P0  
-**Related research:** RT-02, RT-05, RT-06, RT-08, RT-14, RT-15, RT-19  
+**Related research:** RT-02, identity Studies 05–08 (formerly grouped under the RT-05 research area), RT-06, RT-08, RT-14, RT-15, RT-19  
 **Related documents:** [Development Engine RFC](RFC-DEVELOPMENT-ENGINE.md), [RT-19 — Toolchain Server and Semantic Development API](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [ADR-015](../docs/adr/015-toolchain-server-semantic-api.md), [Research dependency map](RESEARCH-DEPENDENCY-MAP.md)
 
 > This document records workflow requirements and a candidate algorithm derived from the RT-20 design discussion. It is a research proposal. It does not settle the canonical SPG schema, hash envelope, call-graph semantics, or commit policy, and it does not change the Proposed status of ADR-015.
@@ -407,7 +407,7 @@ The server should expose coarse-grained operations where possible. A large set o
 ### Exit criteria
 
 RT-20 can support a scoped architectural decision when:
-- the identity and call-reference assumptions are reconciled with RT-05;
+- the identity and call-reference assumptions are reconciled with Studies 05–08 and the RT-24 Identity and SPG Reconciliation report;
 - caller discovery completeness is demonstrable for a declared language subset;
 - edge-specific compatibility decisions are represented and independently checked;
 - contract propagation and hash propagation are separately specified and tested;
