@@ -334,11 +334,15 @@ def audit_candidate_semantic_diff(
     if len(set(planned_edge_rows)) != len(planned_edge_rows):
         errors.append("ImpactPlan contains duplicate planned edge-change records")
     for change in changes:
-        if change.baseline_hash is None or change.candidate_hash is None:
-            continue
         try:
-            old_edges = _declaration_edges(store, change.baseline_hash)
-            new_edges = _declaration_edges(store, change.candidate_hash)
+            old_edges = (
+                _declaration_edges(store, change.baseline_hash)
+                if change.baseline_hash is not None else {}
+            )
+            new_edges = (
+                _declaration_edges(store, change.candidate_hash)
+                if change.candidate_hash is not None else {}
+            )
         except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
             errors.append(f"{change.logical_key}: cannot derive semantic edge diff: {exc}")
             continue
