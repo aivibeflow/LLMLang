@@ -261,7 +261,7 @@ theorem factorDifference_correct
         .boolValue (decide (asInt (queryEnv (factor ++ "_L") .int) ≠
           asInt (queryEnv (factor ++ "_R") .int)))
       exact congrArg Value.boolValue
-        (decide_ne_eq_not_decide_eq _ _).symm
+        (decide_ne_eq_not_decide_eq _ _).symm.symm
   | bool =>
       change .boolValue
         (!(decide (asBool (queryEnv (factor ++ "_L") .bool) =
