@@ -255,7 +255,7 @@ RT-24 should be interpreted with these constraints, and its next revision should
 
 ## 9. Next research and implementation order
 
-1. Reconcile Studies 05–08 into one explicit decision record; include rename, identical-value/different-occurrence, split/merge, move, call-site stability, and branch-merge scenarios.
+1. [x] Compare Studies 05–08 in [RT-24 Identity Architecture Decision Matrix](RT-24-IDENTITY-DECISION-MATRIX.md). The matrix records scenario outcomes and provisional prototype boundaries; it does not select a normative identity architecture.
 2. Reconcile the chosen identity model with RT-03 language semantics and RT-04 type/effect model before freezing canonical semantic fields.
 3. Define the minimum SPG declaration and edge schema for the supported prototype, including identity/occurrence/lineage distinctions and hash-role classification.
 4. Integrate the existing ReverseLookupEvidence/query_snapshot_incoming gate with RT-20 CIP and RT-24 merge; define the trusted audit producer, observation coverage, evidence trust policy, and adversarial end-to-end tests.
@@ -264,6 +264,8 @@ RT-24 should be interpreted with these constraints, and its next revision should
 7. Only then implement canonical repository import/export and semantic diff/merge beyond the current selection-map fixture.
 
 ## 10. References
+
+- [RT-24 Identity Architecture Decision Matrix](RT-24-IDENTITY-DECISION-MATRIX.md)
 
 - [LLMLang Concept](LLMLang-CONCEPT.md)
 - [RT-03 — Core Language Semantics](CORE-LANGUAGE-SEMANTICS.md)
