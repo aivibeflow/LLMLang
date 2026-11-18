@@ -28,8 +28,8 @@ The result contains exact baseline/candidate roots, plan ID, selection changes, 
 5. Require every changed selection to be covered by a CIP action whose artifact hash is exactly the old or new selected hash.
 6. Independently scan baseline-selected explicit declarations for incoming call-site targets to changed old hashes. Every such edge must have a corresponding exact CIP decision, even if its caller is preserved unchanged.
 7. Compare typed references and call-site targets for every changed logical selection. Typed-reference changes, call-site additions/removals, and call-site condition changes fail closed because the current CIP schema has no exact output record for them.
-8. Require each changed call target's decision to match the observed old target, observed new target, and resulting caller hash. A matching `REWRITE_CALL_SITE` action must name the exact baseline caller.
-9. Reuse candidate call-site materialization validation for exact baseline/candidate membership, stored object hashes, and candidate payload target checks.
+8. Require each changed call target's decision to match the observed old target, observed new target, and resulting caller output slot. A matching `REWRITE_CALL_SITE` action must name the exact source caller hash.
+9. Resolve unknown caller/callee hashes through exact output IDs against the candidate Snapshot. Bind the resulting output IDs, logical keys, and exact Content Hashes into the diff receipt. Reuse candidate call-site materialization validation for exact baseline/candidate membership, stored object hashes, and candidate payload target checks.
 10. Bind both Snapshot roots, plan ID, graph digests, edge-set digests, schema version, selection changes, and edge changes into the deterministic diff digest.
 
 ## Tests
@@ -42,7 +42,7 @@ The focused suite covers:
 - omission of an incoming decision;
 - mismatched selected callee;
 - malformed Snapshot input;
-- typed-reference change rejection;
+- typed-reference additions/rewrites with exact CIP records;
 - forged plan ID rejection;
 - deterministic digest and graph/edge-set bindings.
 
@@ -60,3 +60,25 @@ This remains a narrow explicit-declaration structural audit, not a complete sema
 - The gate is not commit authorization. Snapshot immutability, transaction/concurrency protection, exact-tree commit, crash recovery, and idempotent retry remain future work.
 
 A successful result means only that the supported explicit selection and edge changes are reconciled with the supplied CIP and both audited graph states. It does not prove behavior or whole-program dependency completeness.
+
+
+## CIP schema v2 — output and edge records (PR #23)
+
+The new planning model distinguishes the immutable approved plan from exact output hashes that may not exist until implementation:
+
+- `PlannedOutput` identifies one logical selection slot and an `ADD`, `REPLACE`, or `REMOVE` operation. It binds the exact base/source hash, output kind, rationale/evidence identity, and a SHA-256 digest of the canonical non-edge declaration payload `{declaration_id, content}`.
+- `PlannedEdgeChange` binds a typed-reference or call-target `ADD`, `REMOVE`, `REWRITE`, or `CONDITION` operation, including both old/new relation, target hash, and condition.
+- `CallSiteDecision` may bind selected callee and resulting caller hashes directly, or refer to `selected_output_id` / `resulting_output_id` when those hashes are not known at planning time.
+- `consumer_path_id` distinguishes separate versions of one shared caller. An output slot records its source hash and consumer path; the corresponding decision binds to that exact slot.
+- All records are included in the canonical CIP identity. The semantic-diff receipt binds every materialized output ID to the actual candidate Content Hash and candidate Snapshot root.
+
+The payload digest is a planning constraint, not an object Content Hash, operation hash, or glossary `CCHash`. The actual candidate Content Hash is computed by the Content Store and appears only in the materialization binding after the candidate exists. No identity term in the glossary is redefined here.
+
+The focused tests cover declaration add/remove/replace, typed-reference additions, call-target additions/removals/rewrites/condition changes, hash resolution through output slots, and a shared caller fork where one upstream consumer preserves the old caller while another migrates to a new caller version.
+
+## Remaining limitations
+
+- Action-kind, prerequisite, and evidence adequacy are not yet reconciled comprehensively against every output/edge operation.
+- The explicit declaration projection is not proven complete for runtime dispatch, reflection, callbacks, generated code, or external calls.
+- Compatibility evidence is bound by ID but not authenticated or independently proven.
+- The gate does not execute all planned actions, prove behavioral equivalence, freeze a transaction, or authorize a Git commit.
