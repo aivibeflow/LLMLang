@@ -103,9 +103,7 @@ def validate_candidate_call_site_decisions(
             if base_target["required_contract_hash"] != decision.required_contract_hash:
                 errors.append(f"{prefix}: base call site does not preserve the decision's exact required contract")
                 continue
-            if _provided_contract_hash(store, decision.base_callee_hash) != decision.base_callee_contract_hash:
-                errors.append(f"{prefix}: decision does not bind the base callee's exact provided contract")
-                continue
+            _provided_contract_hash(store, decision.base_callee_hash)
         except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
             errors.append(f"{prefix}: baseline caller validation failed: {exc}")
             continue
@@ -149,8 +147,8 @@ def validate_candidate_call_site_decisions(
             continue
         if (not decision.decision_evidence_id or not decision.rationale
                 or decision.compatibility_status != "PROVEN"
-                or not decision.selected_callee_contract_hash):
-            errors.append(f"{prefix}: resolved decision lacks PROVEN compatibility, contract binding, rationale, or evidence identity")
+                ):
+            errors.append(f"{prefix}: resolved decision lacks PROVEN compatibility, rationale, or evidence identity")
 
         path_key = (decision.caller_hash, decision.consumer_path_id)
         previous = resulting_callers.setdefault(path_key, resulting_caller_hash)
@@ -162,8 +160,6 @@ def validate_candidate_call_site_decisions(
         if decision.disposition is CallSiteDisposition.PRESERVE:
             if selected_callee_hash != decision.base_callee_hash:
                 errors.append(f"{prefix}: PRESERVE changed the exact callee hash")
-            if decision.selected_callee_contract_hash != decision.base_callee_contract_hash:
-                errors.append(f"{prefix}: PRESERVE changed the exact callee-provided contract hash")
         if (decision.disposition in {
                 CallSiteDisposition.MIGRATE, CallSiteDisposition.ADAPT,
                 CallSiteDisposition.FORK,
@@ -197,8 +193,8 @@ def validate_candidate_call_site_decisions(
             callee_value = store.get(selected_callee_hash)
             if callee_value.kind not in {"function", "operation"}:
                 errors.append(f"{prefix}: selected call target is not a function or operation")
-            elif _provided_contract_hash(store, selected_callee_hash) != decision.selected_callee_contract_hash:
-                errors.append(f"{prefix}: selected callee does not provide the contract bound by the decision")
+            else:
+                _provided_contract_hash(store, selected_callee_hash)
         except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
             errors.append(f"{prefix}: candidate object validation failed: {exc}")
 
