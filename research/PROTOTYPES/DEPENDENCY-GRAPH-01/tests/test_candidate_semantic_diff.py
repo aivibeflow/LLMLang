@@ -1,3 +1,5 @@
+import hashlib
+import json
 import unittest
 
 from src.candidate_semantic_diff import audit_candidate_semantic_diff
@@ -8,13 +10,14 @@ from src.semantic_dependency_index import FORMAT, SCHEMA_VERSION, publish_declar
 from src.semantic_graph import ContentStore, Snapshot, make_snapshot
 
 
-def declaration(kind, declaration_id, content=None, call_sites=None):
+def declaration(kind, declaration_id, content=None, call_sites=None, references=None):
     return {
         "format": FORMAT,
         "schema_version": SCHEMA_VERSION,
         "kind": kind,
         "declaration_id": declaration_id,
         "content": content or {},
+        "references": references or [],
         "call_sites": call_sites or [],
     }
 
@@ -32,6 +35,10 @@ def site(target_hash):
 
 def action(value_hash):
     return PlannedAction(ActionKind.REBUILD, value_hash, "covered by approved CIP")
+
+
+def rewrite_action(value_hash):
+    return PlannedAction(ActionKind.REWRITE_CALL_SITE, value_hash, "rewrite exact planned call site")
 
 
 class CandidateSemanticDiffTests(unittest.TestCase):
@@ -53,9 +60,31 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         )
 
     def plan(self, baseline, candidate, actions=(), decisions=()):
+        actions = tuple(actions)
+        decisions = tuple(sorted(decisions))
+        payload = {
+            "baseline": baseline.root_hash,
+            "candidate": candidate.root_hash,
+            "policy": "policy:test",
+            "actions": [
+                (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes)
+                for a in actions
+            ],
+            "audits": [],
+            "audit_bindings": [],
+            "call_site_decisions": [
+                (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
+                 d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
+                 d.rationale, d.decision_evidence_id)
+                for d in decisions
+            ],
+        }
+        plan_id = hashlib.sha256(json.dumps(
+            payload, sort_keys=True, separators=(",", ":")
+        ).encode("utf-8")).hexdigest()
         return ImpactPlan(
-            "plan:test", baseline.root_hash, candidate.root_hash, "policy:test",
-            tuple(actions), (), (), tuple(decisions),
+            plan_id, baseline.root_hash, candidate.root_hash, "policy:test",
+            actions, (), (), decisions,
         )
 
     def test_changed_selection_requires_exact_hash_action_coverage(self):
@@ -107,7 +136,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         )
         plan = self.plan(
             baseline, candidate,
-            actions=(action(self.old_callee), action(self.old_caller)),
+            actions=(action(self.old_callee), rewrite_action(self.old_caller)),
             decisions=(decision,),
         )
         result = audit_candidate_semantic_diff(self.store, baseline, candidate, plan)
@@ -155,7 +184,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate,
-                      actions=(action(self.old_callee), action(self.old_caller))),
+                      actions=(action(self.old_callee), rewrite_action(self.old_caller))),
         )
         self.assertFalse(result.valid)
         self.assertTrue(any("no exact CIP decision" in error for error in result.errors))
@@ -171,7 +200,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate,
-                      actions=(action(self.old_callee), action(self.old_caller)),
+                      actions=(action(self.old_callee), rewrite_action(self.old_caller)),
                       decisions=(decision,)),
         )
         self.assertFalse(result.valid)
@@ -189,6 +218,50 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         self.assertTrue(any("non-string" in error or "materialization check failed" in error
                             for error in result.errors))
 
+    def test_typed_reference_change_is_rejected(self):
+        contract = publish_declaration(
+            self.store, declaration("contract", "contract:invoice")
+        )
+        old = publish_declaration(
+            self.store, declaration(
+                "function", "invoice:ref-old", {"body": "same"},
+                call_sites=site(self.old_callee),
+            )
+        )
+        new = publish_declaration(
+            self.store, declaration(
+                "function", "invoice:ref-new", {"body": "same"},
+                references=[{
+                    "reference_id": "contract",
+                    "relation": "uses_contract",
+                    "target_hash": contract,
+                    "target_kind": "contract",
+                    "condition": None,
+                }],
+                call_sites=site(self.old_callee),
+            )
+        )
+        baseline = make_snapshot({"invoice": old, "tax": self.old_callee})
+        candidate = make_snapshot({"invoice": new, "tax": self.old_callee})
+        result = audit_candidate_semantic_diff(
+            self.store, baseline, candidate,
+            self.plan(baseline, candidate, actions=(action(old),)),
+        )
+        self.assertFalse(result.valid)
+        self.assertTrue(any("typed-reference change" in error for error in result.errors))
+        self.assertEqual(len(result.edge_changes), 1)
+
+    def test_forged_plan_identity_is_rejected(self):
+        from dataclasses import replace
+
+        baseline = make_snapshot({"invoice": self.old_caller})
+        candidate = make_snapshot({"invoice": self.new_caller})
+        plan = self.plan(baseline, candidate, actions=(action(self.old_caller),))
+        forged = replace(plan, plan_id="forged")
+        result = audit_candidate_semantic_diff(self.store, baseline, candidate, forged)
+        self.assertFalse(result.valid)
+        self.assertTrue(any("plan_id does not match" in error for error in result.errors))
+
     def test_diff_digest_is_deterministic_and_bound_to_plan(self):
         baseline = make_snapshot({"invoice": self.old_caller})
         candidate = make_snapshot({"invoice": self.new_caller})
@@ -197,6 +270,10 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         first = audit_candidate_semantic_diff(self.store, baseline, candidate, plan)
         second = audit_candidate_semantic_diff(self.store, baseline, candidate, plan)
         self.assertEqual(first.diff_digest, second.diff_digest)
+        self.assertTrue(first.baseline_graph_digest)
+        self.assertTrue(first.candidate_graph_digest)
+        self.assertTrue(first.baseline_edge_set_digest)
+        self.assertTrue(first.candidate_edge_set_digest)
         self.assertEqual(first.plan_id, plan.plan_id)
         self.assertEqual(first.baseline_root, baseline.root_hash)
         self.assertEqual(first.candidate_root, candidate.root_hash)
