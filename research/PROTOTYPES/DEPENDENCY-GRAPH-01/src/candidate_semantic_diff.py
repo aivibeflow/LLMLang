@@ -223,7 +223,7 @@ def audit_candidate_semantic_diff(
         except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
             errors.append(f"{caller_hash}: cannot enumerate baseline declaration edges: {exc}")
             continue
-        for (edge_kind, edge_id), (relation, target_hash, _condition) in sorted(old_edges.items()):
+        for (edge_kind, edge_id), (relation, target_hash, _condition, _required_contract_hash) in sorted(old_edges.items()):
             if edge_kind != "call" or target_hash not in changed_old_hashes:
                 continue
             site_id, target_id = edge_id.split("/", 1)
