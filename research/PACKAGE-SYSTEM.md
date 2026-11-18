@@ -522,9 +522,26 @@ ZIP, JSONL, entry naming, and manifest placement are strictly prototype decision
 
 The disk-backed Provider now has a reproducible benchmark harness in `PROTOTYPES/PACKAGE-INDEX-01/benchmark_package_provider.py`. It generates four reachable graph shapes—chain, repeated diamond, high fan-out, and bounded high-degree DAG—and runs each measurement in a fresh subprocess. Each result reports object/edge counts, elapsed time, object throughput, peak traced Python allocations, process peak RSS, temporary-directory disk high-water size, archive size, and archive verification. The harness is exploratory: process RSS includes interpreter/runtime overhead, traced allocations do not include all native allocations, and CI hardware is not a controlled benchmark environment. Results must not be interpreted as a strict constant-memory proof or a performance guarantee.
 
+### 17.1 Initial CI benchmark results
+
+Two single-run CI measurements were taken on GitHub-hosted Ubuntu with Python 3.11.18: baseline run [44285720991](https://github.com/aivibeflow/LLMLang/actions/runs/44285720991), followed by run [44286164584](https://github.com/aivibeflow/LLMLang/actions/runs/44286164584) after adding the SQLite pending-queue index `(processed, hash)`.
+
+| Graph shape | Objects | Edges | Before index | After index | Speedup |
+|---|---:|---:|---:|---:|---:|
+| Chain | 5,000 | 4,999 | 6.404 s | 3.072 s | 2.08× |
+| Diamond | 5,000 | 6,249 | 6.917 s | 3.280 s | 2.11× |
+| Fan-out | 5,000 | 4,999 | 8.041 s | 2.972 s | 2.71× |
+| Many dependencies | 5,000 | 79,864 | 51.072 s | 30.032 s | 1.70× |
+
+At 5,000 objects, temporary-directory high-water usage after the queue-index change was approximately 5.08 MB (chain), 5.75 MB (diamond), 5.06 MB (fan-out), and 46.52 MB (many-dependencies). Peak traced Python allocations during the build were approximately 2.17–2.21 MB for the 5,000-object cases. Process peak RSS was approximately 42–44 MB for chain/diamond/fan-out and 143.9 MB for many-dependencies. RSS includes the in-memory synthetic snapshot and subsequent archive verification; it is not an isolated Provider-only measurement. Traced allocations are measured around archive construction after the synthetic snapshot and manifest have already been created.
+
+The queue index improved throughput across all four shapes. It adds roughly 0.5 MB of temporary SQLite/index overhead in these cases. The many-dependencies case remains substantially more expensive because it processes nearly 80,000 dependency rows and creates proportionally larger external-sort temporary data.
+
+These are single-run CI observations, not controlled-hardware baselines: there are no repetitions, confidence intervals, or stable performance thresholds. They demonstrate the direction and current cost profile only. They do not prove constant memory or predict production Content Store performance.
+
 CI also exercises 1,200-object chain and high-fan-out closures through the actual Provider and archive verifier, with deliberately small external-sort and SQLite cache settings. This is a scale regression test, not a maximum-capacity claim.
 
-### 17.1 Toolchain Server Prototype 01 is not yet a Provider backend
+### 17.2 Toolchain Server Prototype 01 is not yet a Provider backend
 
 The existing `TOOLCHAIN-SERVER-01` prototype has immutable entity payloads and content-addressed snapshot roots, but it is an in-memory workspace/lifecycle experiment. Its public API does not expose the complete snapshot object set, typed dependency edges, or streaming object payloads required by the package Provider. Those details are currently represented by private dictionaries and a generic Entity envelope; depending on them would couple Provider to an unstable implementation and invent dependency semantics not present in the prototype.
 
