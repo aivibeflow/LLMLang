@@ -160,7 +160,7 @@ root:
 
 The explicit `result_sequence` form now propagates the first Result error and skips later expressions; ordinary `sequence` remains strict and unchanged. It rejects non-Result items and returns the final success value when every item succeeds. This is explicit propagation only; it does not define exceptions or execution cancellation.
 
-The explicit `result_sequence` form propagates the first Result error and skips later expressions; ordinary `sequence` remains strict and unchanged. The behavior is an explicit construct, not a global change to sequence evaluation. It rejects non-Result items and returns the final success value when all items succeed. This does not define exceptions or execution cancellation.
+The explicit `result_sequence` form evaluates Result-shaped items left-to-right, propagates the first error unchanged, and skips later expressions; if every item succeeds, it returns the final success value. Ordinary `sequence` remains strict and unchanged. The behavior is an explicit construct, not a global change to sequence evaluation. It rejects non-Result items and returns the final success value when all items succeed. This does not define exceptions or execution cancellation.
 
 This is a bounded executable semantics experiment, not a selected language
 semantics. It does not implement parsing, variables/functions/recursion,
