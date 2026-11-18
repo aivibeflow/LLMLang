@@ -68,12 +68,16 @@ def validate_candidate_call_site_decisions(
 
     decisions = tuple(plan.call_site_decisions)
     decision_keys = [
-        (item.caller_hash, item.call_site_id, item.target_id) for item in decisions
+        (item.caller_hash, item.call_site_id, item.target_id, item.consumer_path_id)
+        for item in decisions
     ]
     if len(set(decision_keys)) != len(decision_keys):
         errors.append("plan contains duplicate call-site decisions")
 
-    resulting_callers: dict[str, str] = {}
+    resulting_callers: dict[tuple[str, str], str] = {}
+    planned_outputs = {item.output_id: item for item in plan.planned_outputs}
+    baseline_selection = dict(baseline.selections)
+    candidate_selection = dict(candidate.selections)
     checked = 0
     for decision in decisions:
         checked += 1
@@ -125,13 +129,31 @@ def validate_candidate_call_site_decisions(
         if not decision.decision_evidence_id or not decision.rationale:
             errors.append(f"{prefix}: resolved decision lacks rationale or evidence identity")
 
-        previous = resulting_callers.setdefault(
-            decision.caller_hash, decision.resulting_caller_hash
-        )
+        path_key = (decision.caller_hash, decision.consumer_path_id)
+        previous = resulting_callers.setdefault(path_key, decision.resulting_caller_hash)
         if previous != decision.resulting_caller_hash:
             errors.append(
-                f"{prefix}: decisions for one base caller disagree on resulting caller version"
+                f"{prefix}: decisions for one base caller/consumer path disagree on resulting caller version"
             )
+        if decision.consumer_path_id and not decision.resulting_output_id:
+            errors.append(f"{prefix}: consumer-specific caller version lacks a resulting output ID")
+        if decision.resulting_output_id is not None:
+            output = planned_outputs.get(decision.resulting_output_id)
+            if output is None:
+                errors.append(f"{prefix}: resulting output ID is absent from the CIP")
+            else:
+                if (output.base_hash or output.source_hash) != decision.caller_hash:
+                    errors.append(f"{prefix}: resulting output is not derived from this exact base caller")
+                if output.consumer_path_id != decision.consumer_path_id:
+                    errors.append(f"{prefix}: resulting output consumer path differs from the decision")
+                if candidate_selection.get(output.logical_key) != decision.resulting_caller_hash:
+                    errors.append(f"{prefix}: resulting output binding does not select the exact resulting caller")
+        elif decision.disposition in {
+            CallSiteDisposition.MIGRATE, CallSiteDisposition.ADAPT, CallSiteDisposition.FORK
+        } and decision.resulting_caller_hash != decision.caller_hash:
+            # Legacy non-fork records remain accepted by this lower-level validator;
+            # the full semantic diff gate requires an exact output record.
+            pass
 
         if (decision.disposition is CallSiteDisposition.PRESERVE
                 and decision.selected_callee_hash != decision.base_callee_hash):
