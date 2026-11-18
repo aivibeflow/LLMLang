@@ -43,6 +43,8 @@ The unit of correctness is the complete repository semantic state, not an indivi
 | Merge candidate | Proposed result of merging base, ours, and theirs; not yet accepted or committed |
 | Merge evidence | Inputs, policy/tool versions, decisions, validation, and provenance needed to audit/replay |
 
+**Terminology dependency:** Before changing hash-bearing fields, identity boundaries, or merge matching rules, read the [Draft Glossary](../draft/GLOSSARY.md). In particular, preserve the distinctions among `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and conformance-evidence identity. These are typed identities for different objects, not interchangeable aliases for the generic Value/Content Hash. The glossary is a terminology proposal, not an accepted normative schema; unresolved canonical encodings and identity decisions remain open here.
+
 A repository tree is not itself a Semantic Snapshot. Import must resolve the declared source inventory and dependencies, parse and normalize the representation, resolve references, and validate the complete graph. A tree that cannot be imported unambiguously is not a valid LLMLang merge input.
 
 ## 4. Repository representation contract
