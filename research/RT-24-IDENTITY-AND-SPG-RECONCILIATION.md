@@ -169,15 +169,17 @@ Do not treat these prototype field names or behavior as normative.
 
 ### 5.3 Completeness and reverse references
 
-The snapshot-scoped index prevents historical objects retained in the content store from being mistaken for active objects in the selected snapshot. This is useful and should be retained as a prototype property.
+The current prototype does implement a scoped reverse-query evidence envelope. `ReverseLookupEvidence` and `query_snapshot_incoming` bind the result to the exact snapshot root, target hash, scope, index schema version, extractor ID, and digest of the exact returned edge set. The query returns `GAP_FOUND`, `SUPPORTED_WITHIN_SCOPE`, `UNKNOWN`, or `NOT_CHECKED`; absence of evidence returns `NOT_CHECKED`, and mismatched/stale bindings return `UNKNOWN`. Focused tests cover exact-scope acceptance, stale snapshot, wrong extractor, wrong edge digest, explicit gaps, and missing evidence.
 
-However, the current index is built from explicit declarations only. It does not yet carry the dependency-completeness records required by SEMANTIC-DEPENDENCY-INDEX.md and Scenario 19. It cannot prove that every direct, indirect, dynamic, generated, external, or otherwise supported reference has been discovered. An incoming() result is therefore not automatically a complete reverse-reference set.
+This is a meaningful implemented boundary and must not be described as absent. However, the adapter only checks evidence bindings. It does not authenticate the evidence producer or prove that the producer's observation model actually covered every relevant direct, indirect, dynamic, generated, external, or otherwise supported reference. `SUPPORTED_WITHIN_SCOPE` is therefore only as trustworthy as the separately governed audit producer, its assumptions, exclusions, and evidence. It is not a global completeness proof.
 
-Until completeness evidence is integrated:
-- the index may support fixture-level and explicitly scoped tests;
-- it must not authorize a clean repository-wide merge or RT-20 CIP;
-- missing/unknown resolution must not be represented as an empty edge set;
-- the merge coordinator must return insufficient_context or a corresponding explicit gap status where completeness is required.
+The snapshot-scoped index also excludes historical immutable values not selected by the snapshot, preventing old versions retained in the content store from being mistaken for active callers. Retain this property.
+
+Remaining integration work:
+- define and govern the independent audit producer/observation model and the evidence trust policy;
+- connect query results and completeness status to RT-20 CIP and RT-24 merge candidate gates;
+- preserve `GAP_FOUND`, `UNKNOWN`, and `NOT_CHECKED` as blocking/explicit states; never convert them to an empty caller set;
+- require a matching `SUPPORTED_WITHIN_SCOPE` result for the exact target/snapshot/scope before relying on that reverse query within that scope.
 
 ### 5.4 Snapshot root and merge prototype limitation
 
@@ -221,7 +223,7 @@ For this first prototype only:
 - if two sides change the same selection key to different values, emit a structured selection conflict;
 - if selection keys cannot be shown to refer to the same scoped slot, return insufficient context rather than matching by display name/path;
 - after combining selections, validate the complete selected dependency closure and all available typed references;
-- do not report clean_candidate while completeness, RT-20 CIP, or mapping revision gates are unimplemented or unsatisfied.
+- do not report clean_candidate while the required reverse-query result is GAP_FOUND, UNKNOWN, or NOT_CHECKED, while the evidence trust/observation policy is unsatisfied, or while RT-20 CIP or mapping revision gates remain unimplemented or unsatisfied.
 
 This is a safe experimental baseline, not the final semantic merge algorithm. It deliberately avoids resolving the Stable-ID/content-only debate by hiding it inside a heuristic matcher.
 
@@ -254,7 +256,7 @@ RT-24 should be interpreted with these constraints, and its next revision should
 1. Reconcile Studies 05–08 into one explicit decision record; include rename, identical-value/different-occurrence, split/merge, move, call-site stability, and branch-merge scenarios.
 2. Reconcile the chosen identity model with RT-03 language semantics and RT-04 type/effect model before freezing canonical semantic fields.
 3. Define the minimum SPG declaration and edge schema for the supported prototype, including identity/occurrence/lineage distinctions and hash-role classification.
-4. Extend the dependency index with exact scoped completeness records and fail-closed reverse-reference queries.
+4. Integrate the existing ReverseLookupEvidence/query_snapshot_incoming gate with RT-20 CIP and RT-24 merge; define the trusted audit producer, observation coverage, evidence trust policy, and adversarial end-to-end tests.
 5. Define canonical encoding/hash envelope as a separately versioned decision, then add adversarial vectors.
 6. Define snapshot root independently from Git tree identity and explicitly decide treatment of causal parents and mapping revision.
 7. Only then implement canonical repository import/export and semantic diff/merge beyond the current selection-map fixture.
