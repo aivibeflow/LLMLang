@@ -41,7 +41,7 @@ The result includes:
    - enqueue every resolved target for recursive inspection.
 4. Sort all reachable objects and edges and compute stable digests.
 
-The audit intentionally includes transitive objects that are not direct Snapshot selections. Conversely, historical Content Store objects that are not reachable from any selected root are excluded.
+The audit includes `requires_contract` edges from each call-site/target alternative and validates the callable target's single `provides_contract` binding. The audit intentionally includes transitive objects that are not direct Snapshot selections. Conversely, historical Content Store objects that are not reachable from any selected root are excluded.
 
 ## Test coverage
 
@@ -61,7 +61,7 @@ The semantic dependency CI workflow includes the new module, tests, and compilat
 
 A successful result establishes structural and content-addressed consistency only for the current explicit `llmlang.semantic-object` declaration envelope. It does not establish:
 
-- behavioral or contract compatibility;
+- behavioral compatibility (it validates contract identity/bindings, not refinement);
 - completeness of dynamic dispatch, function values, callbacks, reflection, generated code, runtime or external calls;
 - completeness of the declaration envelope relative to arbitrary LLMLang source;
 - complete correspondence between every candidate semantic change and the approved CIP;
