@@ -209,10 +209,15 @@ def audit_candidate_semantic_diff(
 
     # Reuse the call-site materialization gate: it independently checks exact
     # baseline/candidate membership, stored hashes, and candidate payload targets.
-    materialized = validate_candidate_call_site_decisions(
-        store, baseline, candidate, plan
-    )
-    errors.extend(materialized.errors)
+    try:
+        materialized = validate_candidate_call_site_decisions(
+            store, baseline, candidate, plan
+        )
+        errors.extend(materialized.errors)
+    except Exception as exc:
+        # Malformed Snapshot/plan input must produce a failed result, not escape
+        # as an exception from this audit boundary.
+        errors.append(f"candidate call-site materialization check failed: {exc}")
 
     records = [item.record() for item in sorted(changes)]
     diff_digest = sha256(canonical_bytes({
