@@ -130,7 +130,9 @@ The differential suite [`test_rt03_differential.py`](PROTOTYPES/RT-04-01/test_rt
 - a generated finite corpus of all 9 pairs of two writes using values 0, 1, and 2;
 - matching fail-closed behavior for pure-profile effects, undeclared effects, and malformed addition.
 
-This provides algorithmically independent implementation cross-checking for the current finite fragment. It is not an independent human review, a formal proof, or a separately derived semantics: both implementations were built from the same exploratory contract and may share specification mistakes. The next gate remains independent review and extension of the observation model.\n\n## 8. Independent path-model cross-check
+This provides algorithmically independent implementation cross-checking for the current finite fragment. It is not an independent human review, a formal proof, or a separately derived semantics: both implementations were built from the same exploratory contract and may share specification mistakes. The next gate remains independent review and extension of the observation model.
+
+## 8. Independent path-model cross-check
 
 A third model, [`rt03_path_model.py`](PROTOTYPES/RT-04-01/rt03_path_model.py), independently enumerates the bounded structural control paths and tracks only resource obligations, release order, cancellation, and Result-sequence short-circuit markers. It imports neither evaluator and does not execute effects or values. Non-literal conditions are treated as unknown booleans and fork into both branches; literal booleans select one branch. Cancellation while evaluating a condition produces no branch choice.
 
