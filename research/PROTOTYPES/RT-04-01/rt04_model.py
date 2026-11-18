@@ -249,6 +249,10 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
                     unknown_targets.add(target)
                 else:
                     stack.append(target)
+        bound = set(spec["effect_bound"])
+        excess = all_effects[root] - bound
+        for effect in sorted(excess):
+            findings.append(Finding("EFFECT_BOUND_EXCEEDED", root, effect))
         incomplete = sorted(reachable - call_graph_complete)
         if incomplete or unknown_targets:
             details = []
@@ -257,11 +261,6 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
             if unknown_targets:
                 details.append("unresolved callees: " + ", ".join(sorted(unknown_targets)))
             findings.append(Finding("EFFECT_SUMMARY_UNKNOWN", root, "; ".join(details)))
-            continue
-        bound = set(spec["effect_bound"])
-        excess = all_effects[root] - bound
-        for effect in sorted(excess):
-            findings.append(Finding("EFFECT_BOUND_EXCEEDED", root, effect))
 
     if profile == "A":
         missing = set().union(*direct_caps.values()) - ambient if direct_caps else set()
@@ -282,8 +281,9 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
         for name, flow in resource_flows.items():
             _check_resource_flow(name, flow, resources, findings)
 
-    status = ("UNKNOWN" if any(item.code in {"REFINEMENT_UNKNOWN", "EFFECT_SUMMARY_UNKNOWN", "UNKNOWN_CALLEE"} for item in findings)
-              else "REJECTED" if findings else "ACCEPTED")
+    uncertain_codes = {"REFINEMENT_UNKNOWN", "EFFECT_SUMMARY_UNKNOWN", "UNKNOWN_CALLEE"}
+    status = ("REJECTED" if any(item.code not in uncertain_codes for item in findings)
+              else "UNKNOWN" if findings else "ACCEPTED")
     return CheckResult(
         profile, status, tuple(findings),
         tuple((name, tuple(sorted(values))) for name, values in sorted(all_effects.items())),
