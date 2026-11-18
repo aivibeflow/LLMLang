@@ -63,6 +63,58 @@ class CallSiteDisposition(str, Enum):
     UNRESOLVED = "unresolved"
 
 
+class OutputOperation(str, Enum):
+    ADD = "add"
+    REPLACE = "replace"
+    REMOVE = "remove"
+
+
+class PlannedEdgeKind(str, Enum):
+    TYPED_REFERENCE = "typed_reference"
+    CALL_TARGET = "call_target"
+
+
+class PlannedEdgeOperation(str, Enum):
+    ADD = "add"
+    REMOVE = "remove"
+    REWRITE = "rewrite"
+    CONDITION = "condition"
+
+
+@dataclass(frozen=True, order=True)
+class PlannedOutput:
+    """One exact logical output slot in the approved candidate graph.
+
+    expected_content_digest is SHA-256 over canonical declaration.content.
+    If expected_output_hash is not known before materialization, the successful
+    diff receipt binds the actual exact hash to output_id and candidate_root.
+    """
+    output_id: str
+    logical_key: str
+    operation: OutputOperation
+    base_hash: str | None
+    expected_kind: str | None
+    expected_content_digest: str | None
+    rationale: str
+    evidence_id: str
+
+
+@dataclass(frozen=True, order=True)
+class PlannedEdgeChange:
+    """An exact payload edge delta attached to a planned logical output."""
+    output_id: str
+    edge_kind: PlannedEdgeKind
+    edge_id: str
+    operation: PlannedEdgeOperation
+    relation: str
+    baseline_target_hash: str | None
+    candidate_target_hash: str | None
+    baseline_condition: str | None
+    candidate_condition: str | None
+    rationale: str
+    evidence_id: str
+
+
 @dataclass(frozen=True, order=True)
 class CallSiteDecision:
     caller_hash: str
@@ -128,6 +180,47 @@ class ImpactPlan:
     audit_statuses: tuple[tuple[str, str], ...]
     audit_bindings: tuple[tuple[str, str, str, str, int, str, str, str], ...] = ()
     call_site_decisions: tuple[CallSiteDecision, ...] = ()
+    planned_outputs: tuple[PlannedOutput, ...] = ()
+    planned_edge_changes: tuple[PlannedEdgeChange, ...] = ()
+
+
+def impact_plan_payload(plan: ImpactPlan) -> dict:
+    return {
+        "baseline": plan.baseline_root,
+        "candidate": plan.candidate_root,
+        "policy": plan.policy_id,
+        "actions": [
+            (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes)
+            for a in plan.actions
+        ],
+        "audits": sorted(plan.audit_statuses),
+        "audit_bindings": sorted(plan.audit_bindings),
+        "call_site_decisions": [
+            (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
+             d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
+             d.rationale, d.decision_evidence_id)
+            for d in sorted(plan.call_site_decisions)
+        ],
+        "planned_outputs": [
+            (o.output_id, o.logical_key, o.operation.value, o.base_hash,
+             o.expected_kind, o.expected_content_digest, o.rationale, o.evidence_id)
+            for o in sorted(plan.planned_outputs)
+        ],
+        "planned_edge_changes": [
+            (e.output_id, e.edge_kind.value, e.edge_id, e.operation.value,
+             e.relation, e.baseline_target_hash, e.candidate_target_hash,
+             e.baseline_condition, e.candidate_condition, e.rationale, e.evidence_id)
+            for e in sorted(plan.planned_edge_changes)
+        ],
+    }
+
+
+def compute_impact_plan_id(plan: ImpactPlan) -> str:
+    import hashlib
+    import json
+    return hashlib.sha256(json.dumps(
+        impact_plan_payload(plan), sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")).hexdigest()
 
 
 def dependency_digest(dependencies: Iterable[str]) -> str:
@@ -285,6 +378,8 @@ def plan_impact(
     audits: Iterable[CompletenessAudit],
     require_snapshot_evidence: bool = True,
     call_site_decisions: Iterable[CallSiteDecision] = (),
+    planned_outputs: Iterable[PlannedOutput] = (),
+    planned_edge_changes: Iterable[PlannedEdgeChange] = (),
 ) -> ImpactPlan:
     if not baseline_root or not candidate_root or not policy_id:
         raise PlanningError("baseline, candidate, and policy identities are required")
@@ -295,6 +390,43 @@ def plan_impact(
         raise PlanningError("duplicate completeness audit for an artifact")
 
     decisions = tuple(call_site_decisions)
+    output_rows = tuple(sorted(planned_outputs))
+    edge_change_rows = tuple(sorted(planned_edge_changes))
+    output_map = {row.output_id: row for row in output_rows}
+    if len(output_map) != len(output_rows):
+        raise PlanningError("duplicate planned output_id")
+    if len({row.logical_key for row in output_rows}) != len(output_rows):
+        raise PlanningError("multiple planned outputs target the same logical selection key")
+    for row in output_rows:
+        if not all((row.output_id, row.logical_key, row.rationale, row.evidence_id)):
+            raise PlanningError("planned output identity, rationale, and evidence are required")
+        if not isinstance(row.operation, OutputOperation):
+            raise PlanningError("planned output has an invalid operation")
+        if row.operation is OutputOperation.ADD:
+            if row.base_hash is not None:
+                raise PlanningError("ADD output cannot name a baseline hash")
+        elif not row.base_hash:
+            raise PlanningError("REPLACE/REMOVE output requires an exact baseline hash")
+        if row.operation is OutputOperation.REMOVE:
+            if row.expected_kind is not None or row.expected_content_digest is not None:
+                raise PlanningError("REMOVE output cannot declare candidate content")
+        elif not all((row.expected_kind, row.expected_content_digest)):
+            raise PlanningError("ADD/REPLACE output requires exact kind and canonical content digest")
+    if len(set(edge_change_rows)) != len(edge_change_rows):
+        raise PlanningError("duplicate planned edge change")
+    for row in edge_change_rows:
+        if row.output_id not in output_map:
+            raise PlanningError("planned edge change references an unknown output_id")
+        if not all((row.edge_id, row.relation, row.rationale, row.evidence_id)):
+            raise PlanningError("planned edge change identity, rationale, and evidence are required")
+        if not isinstance(row.edge_kind, PlannedEdgeKind) or not isinstance(row.operation, PlannedEdgeOperation):
+            raise PlanningError("planned edge change has an invalid kind or operation")
+        if row.operation is PlannedEdgeOperation.ADD and (row.baseline_target_hash is not None or not row.candidate_target_hash):
+            raise PlanningError("edge ADD requires only a candidate target hash")
+        if row.operation is PlannedEdgeOperation.REMOVE and (not row.baseline_target_hash or row.candidate_target_hash is not None):
+            raise PlanningError("edge REMOVE requires only a baseline target hash")
+        if row.operation in {PlannedEdgeOperation.REWRITE, PlannedEdgeOperation.CONDITION} and not (row.baseline_target_hash and row.candidate_target_hash):
+            raise PlanningError("edge REWRITE/CONDITION requires exact old and new target hashes")
     decision_map = {(d.caller_hash, d.call_site_id, d.target_id): d for d in decisions}
     if len(decision_map) != len(decisions):
         raise PlanningError("duplicate call-site decision")
@@ -400,28 +532,14 @@ def plan_impact(
     ordered = tuple(sorted(actions, key=lambda a: (
         a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes
     )))
-    import hashlib
-    import json
-    plan_payload = {
-        "baseline": baseline_root,
-        "candidate": candidate_root,
-        "policy": policy_id,
-        "actions": [
-            (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes)
-            for a in ordered
-        ],
-        "audits": sorted(statuses),
-        "audit_bindings": sorted(audit_bindings),
-        "call_site_decisions": [
-            (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
-             d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
-             d.rationale, d.decision_evidence_id)
-            for d in sorted(normalized_decisions)
-        ],
-    }
-    plan_id = hashlib.sha256(json.dumps(
-        plan_payload, sort_keys=True, separators=(",", ":")
-    ).encode("utf-8")).hexdigest()
-    return ImpactPlan(plan_id, baseline_root, candidate_root, policy_id,
-                      ordered, tuple(sorted(statuses)), tuple(sorted(audit_bindings)),
-                      tuple(sorted(normalized_decisions)))
+    provisional = ImpactPlan(
+        "", baseline_root, candidate_root, policy_id, ordered,
+        tuple(sorted(statuses)), tuple(sorted(audit_bindings)),
+        tuple(sorted(normalized_decisions)), output_rows, edge_change_rows,
+    )
+    plan_id = compute_impact_plan_id(provisional)
+    return ImpactPlan(
+        plan_id, baseline_root, candidate_root, policy_id,
+        ordered, tuple(sorted(statuses)), tuple(sorted(audit_bindings)),
+        tuple(sorted(normalized_decisions)), output_rows, edge_change_rows,
+    )
