@@ -81,41 +81,41 @@ def querySortToExprSort : LogosBinding.QuerySort → ExprSort
   | .bool => .bool
 
 /-- Mathematical interpretation of the actual typed query AST used by the Lean CPC bridge. -/
-def evalCanonicalQuery :
-    {s : LogosBinding.QuerySort} →
-    LogosBinding.QueryTerm s → SourceQuerySemantics.Env →
+def evalCanonicalQuery {s : LogosBinding.QuerySort}
+    (term : LogosBinding.QueryTerm s)
+    (env : SourceQuerySemantics.Env) :
     SourceQuerySemantics.Value (querySortToExprSort s)
-  | .int, .intLit n, _ => .intValue n
-  | .bool, .boolLit b, _ => .boolValue b
-  | .int, .intSymbol name, env => env name .int
-  | .bool, .boolSymbol name, env => env name .bool
-  | .bool, .not e, env => .boolValue (!(asBool (evalCanonicalQuery e env)))
-  | .int, .neg e, env => .intValue (-(asInt (evalCanonicalQuery e env)))
-  | .int, .add a b, env =>
+  | .intLit n, _ => .intValue n
+  | .boolLit b, _ => .boolValue b
+  | .intSymbol name, env => env name .int
+  | .boolSymbol name, env => env name .bool
+  | .not e, env => .boolValue (!(asBool (evalCanonicalQuery e env)))
+  | .neg e, env => .intValue (-(asInt (evalCanonicalQuery e env)))
+  | .add a b, env =>
       .intValue (asInt (evalCanonicalQuery a env) + asInt (evalCanonicalQuery b env))
-  | .int, .sub a b, env =>
+  | .sub a b, env =>
       .intValue (asInt (evalCanonicalQuery a env) - asInt (evalCanonicalQuery b env))
-  | .int, .mul a b, env =>
+  | .mul a b, env =>
       .intValue (asInt (evalCanonicalQuery a env) * asInt (evalCanonicalQuery b env))
-  | .bool, .eqInt a b, env =>
+  | .eqInt a b, env =>
       .boolValue (decide (asInt (evalCanonicalQuery a env) = asInt (evalCanonicalQuery b env)))
-  | .bool, .eqBool a b, env =>
+  | .eqBool a b, env =>
       .boolValue (decide (asBool (evalCanonicalQuery a env) = asBool (evalCanonicalQuery b env)))
-  | .bool, .lt a b, env =>
+  | .lt a b, env =>
       .boolValue (decide (asInt (evalCanonicalQuery a env) < asInt (evalCanonicalQuery b env)))
-  | .bool, .le a b, env =>
+  | .le a b, env =>
       .boolValue (decide (asInt (evalCanonicalQuery a env) <= asInt (evalCanonicalQuery b env)))
-  | .bool, .and terms, env =>
+  | .and terms, env =>
       .boolValue (terms.all (fun child => asBool (evalCanonicalQuery child env)))
-  | .bool, .or terms, env =>
+  | .or terms, env =>
       .boolValue (terms.any (fun child => asBool (evalCanonicalQuery child env)))
-  | .int, .iteInt condition yes no, env =>
+  | .iteInt condition yes no, env =>
       if asBool (evalCanonicalQuery condition env)
       then evalCanonicalQuery yes env else evalCanonicalQuery no env
-  | .bool, .iteBool condition yes no, env =>
+  | .iteBool condition yes no, env =>
       if asBool (evalCanonicalQuery condition env)
       then evalCanonicalQuery yes env else evalCanonicalQuery no env
-termination_by _ term _ => sizeOf term
+termination_by term => sizeOf term
 decreasing_by all_goals simp_wf
 
 /-- The two sort maps are inverse on source sorts. -/
