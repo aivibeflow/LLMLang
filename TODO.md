@@ -270,6 +270,16 @@ Priority is a planning aid, not a measure of correctness:
 - **Recommendation:** Start with a modular monolith, transport-neutral typed API, in-memory prototype, and a storage abstraction designed to admit a persistent embedded backend. Keep accepted SPG snapshots immutable; use expected-hash preconditions and optimistic concurrency; separate semantic acceptance, filesystem export, Git commit, and push. Do not make an external database the sole source of truth.
 - **Related:** [RT-19 — Toolchain Server and Semantic Development API](research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [ADR-015](docs/adr/015-toolchain-server-semantic-api.md), [Toolchain Prototype 01](research/PROTOTYPES/TOOLCHAIN-SERVER-01/README.md), [Development Engine RFC](research/RFC-DEVELOPMENT-ENGINE.md), [Git semantic repository](research/GIT-SEMANTIC-REPOSITORY.md), [ADR-014](docs/adr/014-git-semantic-merge.md).
 
+### LL-023 — Define complete LLM patch planning and validation-gated commit
+
+- **Status:** Discussion
+- **Priority:** P0
+- **Question:** How must the Toolchain determine, before implementation, every function version and call-site reference that will change when a callee evolves, while allowing different callers to preserve or migrate to different immutable callee versions?
+- **Context:** Function versions are being explored as content-addressed objects identified by hashId. A changed callee can require caller contract changes and/or caller hash changes when a hash-relevant reference is rewritten. These are distinct propagation relations. A caller that needs new behavior may migrate, while another must preserve the old callee version. Shared callers may need version splits. The agent must execute every approved plan item, and Git commit must be gated by successful validation of the exact candidate.
+- **Questions to resolve:** Call-site identity and reverse-reference completeness; compatibility evidence for migrate/preserve/adapt/fork; contract propagation boundaries; hash closure and entry-point roots; version splitting for shared callers; plan revision and approval; evidence invalidation; exact-tree commit, concurrency, retries, and failure recovery.
+- **Recommendation:** Introduce a versioned Change Impact Plan with separate Dependency Analysis and Change Implementation Plan views. Make compatibility decisions edge-specific. Validate completeness server-side before permitting mutations. Enforce every planned function/reference change. Expose one authorized completion operation that validates and audits the frozen candidate and creates a Git commit only if all mandatory gates pass; keep remote push separate.
+- **Related:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-19](research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [Development Engine RFC](research/RFC-DEVELOPMENT-ENGINE.md), [RT-05 identity research](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [RT-06 dependency research](research/RESEARCH-SCENARIO-25-FORMAL-SEMANTIC-DEPENDENCY-ANALYSIS.md).
+
 ## Deferred engineering tasks
 
 ### DEFERRED-001 — Repair canonical query semantics Lean module
