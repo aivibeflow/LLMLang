@@ -51,6 +51,10 @@ class SQLiteContentStoreTests(unittest.TestCase):
         self.path = os.path.join(self.temp.name, "content.sqlite3")
         self.store = SQLiteContentStore(self.path)
 
+    def test_dependency_set_must_be_explicit(self):
+        with self.assertRaises(TypeError):
+            self.store.put_object(b"no-edge-assertion", "function")
+
     def test_exact_object_metadata_and_streaming_payload(self):
         payload = b"immutable semantic object payload"
         object_hash = self.store.put_object(payload, "function", [])

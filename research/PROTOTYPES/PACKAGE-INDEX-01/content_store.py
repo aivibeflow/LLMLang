@@ -88,6 +88,8 @@ class ContentStoreSnapshot(Protocol):
     def get_dependencies(self, source_hash: str) -> Iterator[Mapping[str, Any]]: ...
     def open_object(self, exact_hash: str): ...
     def close(self) -> None: ...
+    def __enter__(self) -> ContentStoreSnapshot: ...
+    def __exit__(self, exc_type, exc, tb) -> None: ...
 
 
 class ContentStore(Protocol):
@@ -158,7 +160,7 @@ class SQLiteContentStore:
         self,
         payload: bytes,
         kind: str,
-        dependencies: Iterable[Mapping[str, Any]] = (),
+        dependencies: Iterable[Mapping[str, Any]],
     ) -> str:
         """Atomically add an immutable object and its complete outgoing edge set.
 
