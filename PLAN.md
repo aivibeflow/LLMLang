@@ -248,8 +248,9 @@ Status applies to the current evidence, not to how important the topic is. Where
 ## 3.1 Semantic dependency model
 
 - [x] Synthesize Scenarios 19, 20, 25 and RT-19/20/23 into a candidate Semantic Dependency Index contract; keep it explicitly non-canonical pending SPG schema decisions.
-- [ ] Define the canonical SPG object/reference schema and implement a trusted extractor for a deliberately small supported subset.
-- [ ] Define stable call-site identity, conditional target representation, and relation/hash-role rules for the supported subset.
+- [x] Define and implement an executable candidate SPG subset and typed dependency extractor; this is a research prototype, not the canonical language schema.
+- [x] Specify candidate stable call-site identity, conditional target representation, and source/target relation constraints; validate them with focused tests.
+- [ ] Reconcile the candidate subset with the canonical SPG schema and formal semantics before normative adoption.
 - [ ] Define semantic dependencies separately from provenance, audit observations, and traceability.
 - [ ] Define hash-relevant dependency edges and dependency closure.
 - [ ] Define how dependencies are discovered from static analysis, typed IR, runtime observations, tests, and formal semantics.
@@ -261,7 +262,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Existing evidence:** scenarios 18–28 and prototypes 18–28 in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`.
 
-**Status:** extensively researched and prototyped in Scenarios 18–28 and dependency-graph prototypes 18–28. A candidate index contract is recorded in `research/SEMANTIC-DEPENDENCY-INDEX.md`; canonical SPG schema, trusted extraction, integration with the full semantic model, and end-to-end soundness remain open.
+**Status:** extensively researched and prototyped in Scenarios 18–28 and dependency-graph prototypes 18–28. A candidate index contract and executable typed extractor now exist in `research/SEMANTIC-DEPENDENCY-INDEX.md` and `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`. The candidate schema is not canonical; reconciliation with the accepted SPG model, formal soundness, and Toolchain integration remain open.
 
 ## 3.2 Incremental analysis and invalidation
 
