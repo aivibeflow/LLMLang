@@ -14,7 +14,7 @@ inductive RunSide where
 
 /-- The canonical name of a source variable in one product-program execution. -/
 def relationalSymbol (side : RunSide) (factor name : String) : String :=
-  if name == factor then
+  if name = factor then
     name ++ (match side with | .left => "_L" | .right => "_R")
   else
     name
@@ -138,7 +138,7 @@ mutual
         let value := asBool (evalCanonicalQuerySigma ⟨.bool, term⟩ env)
         if isAnd then value && evalBoolTerms isAnd rest env
         else value || evalBoolTerms isAnd rest env
-  termination_by terms _ => sizeOf terms
+  termination_by terms _ => sizeOf terms + 1
   decreasing_by all_goals simp_wf <;> omega
 end
 
@@ -150,7 +150,7 @@ def evalCanonicalQuery {s : LogosBinding.QuerySort}
   evalCanonicalQuerySigma ⟨s, term⟩ env
 
 /-- The two sort maps are inverse on source sorts. -/
-theorem querySortRoundTrip (s : ExprSort) :
+def querySortRoundTrip (s : ExprSort) :
     querySortToExprSort (querySortOf s) = s := by
   cases s <;> rfl
 
