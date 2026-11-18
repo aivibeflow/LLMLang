@@ -257,8 +257,9 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         self.assertTrue(result.valid, result.errors)
 
     def test_changed_callee_with_omitted_incoming_decision_is_rejected(self):
-        baseline = make_snapshot({"tax": self.old_callee, "invoice": self.old_caller})
+        baseline = make_snapshot({"contract": self.contract_hash, "tax": self.old_callee, "invoice": self.old_caller})
         candidate = make_snapshot({
+            "contract": self.contract_hash,
             "tax": self.new_callee,
             "legacy-tax": self.old_callee,
             "invoice": self.old_caller,
@@ -273,8 +274,8 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                             for error in result.errors))
 
     def test_changed_call_target_without_decision_is_rejected(self):
-        baseline = make_snapshot({"tax": self.old_callee, "invoice": self.old_caller})
-        candidate = make_snapshot({"tax": self.new_callee, "invoice": self.new_caller})
+        baseline = make_snapshot({"contract": self.contract_hash, "tax": self.old_callee, "invoice": self.old_caller})
+        candidate = make_snapshot({"contract": self.contract_hash, "tax": self.new_callee, "invoice": self.new_caller})
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
             self.plan(baseline, candidate,
