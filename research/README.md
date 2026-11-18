@@ -128,3 +128,6 @@ Formal verification can establish that an implementation satisfies a formal spec
 
 
 - [RT-21 — LLMLang Self-Development: Feasibility, Bootstrap, and Migration Roadmap](RT-21-LLMLANG-SELF-DEVELOPMENT-AND-BOOTSTRAP-ROADMAP.md) — preliminary implementation-scope analysis, bootstrap architecture, staged migration, first-milestone acceptance criteria, and coarse effort estimates. This is a research recommendation, not an accepted architecture.
+
+
+- [RT-22 — LLMLang Git Repository and Worktree MCP Surface](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — LLMLang-owned repository/worktree Toolchain operations exposed through MCP, semantic synchronization, scoped authorization, recovery, and the AIVibeFlow integration boundary.
