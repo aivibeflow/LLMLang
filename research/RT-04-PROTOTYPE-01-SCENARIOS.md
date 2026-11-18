@@ -41,5 +41,6 @@ Implemented by PROTOTYPES/RT-04-01/test_rt04_model.py. Scope is declaration-leve
 | RT4-P32 | Result<Ok, Err> descriptors match structurally | Not yet compared | Accept |
 | RT4-P33 | Nested Result error component differs | Not yet compared | Reject |
 | RT4-P34 | Profile A receives a Profile B Result descriptor | Reject unsupported type | Not yet compared |
+| RT4-P35 | Result<Ok, Err> is used as a callee parameter type and matches at the call site | Not yet compared | Accept |
 
 The CFG tests assume the supplied blocks and edges are complete and correctly represent source control flow. They do not model symbolic branch conditions, borrow lifetimes, resource return/drop, terminal-path cleanup, or prove that the CFG extractor is sound. Effect-bound tests likewise trust fixture-level completeness assertions; they do not prove source call-graph completeness or discover dynamic, generated, FFI, handler, or reflective calls. These are not whole-program semantics.
