@@ -418,3 +418,16 @@ RT-20 can support a scoped architectural decision when:
 - concurrency, crash recovery, authorization, and limitations are documented.
 
 Passing these criteria supports a scoped RT-20/RT-19 design decision. It does not prove whole-program correctness or establish the final LLMLang identity model.
+
+
+## 15. Related Git merge and Toolchain documents
+
+Study RT-20 together with:
+
+- [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — defines semantic three-way merge, conflict handling, repository-wide graph validation, and Git integration. RT-20's caller-impact and hash-propagation rules remain mandatory inside merge/reconciliation.
+- [ADR-014](../docs/adr/014-git-semantic-merge.md) — proposed repository representation and semantic merge direction.
+- [RT-22](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — repository/worktree operations, commit preparation, merge reconciliation, and recovery.
+- [RT-23](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — shared semantic snapshots, mapping revisions, and synchronized commit protocol.
+- [RT-19](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — semantic API and Change Set/Snapshot lifecycle.
+
+Boundary: RT-20 does not define Git's repository-level merge algorithm or worktree runtime. Conversely, a successful semantic merge must not bypass RT-20's complete caller impact plan, per-call-site decisions, hash propagation, validation evidence, and commit gates.
