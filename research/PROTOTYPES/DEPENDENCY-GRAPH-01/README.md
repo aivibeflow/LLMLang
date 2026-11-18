@@ -233,13 +233,13 @@ A GitHub Actions workflow runs these commands for relevant pushes and pull reque
 
 ## Typed semantic dependency extractor (candidate SPG subset)
 
-`src/semantic_dependency_index.py` defines a strict, version-1 experimental declaration envelope for six object kinds: `function`, `operation`, `type`, `contract`, `implementation`, and `effect`. It accepts only explicit fields; unknown fields and unsupported relations are rejected.
+`src/semantic_dependency_index.py` defines a strict, version-2 experimental declaration envelope for six object kinds: `function`, `operation`, `type`, `contract`, `implementation`, and `effect`. It accepts only explicit fields; unknown fields and unsupported relations are rejected.
 
 - Function and Operation own explicit `call_sites`; each call site has a stable caller-local `call_site_id` and one or more explicit target alternatives.
-- Each target alternative has a stable `target_id`, exact callee Content Hash, and optional condition. This preserves two call sites in one caller and multiple conditional targets at one site.
-- Typed references are constrained by source/target kind (e.g. Implementation → Contract and Effect; Function → Type and Contract).
-- Publication validates that every target hash exists and has the declared kind before storing the source. Exact target hashes participate in the caller's semantic hash through the existing ContentStore dependency projection.
-- The derived `DependencyIndex` exposes deterministic outgoing and incoming edges with source hash, edge ID, relation, exact target hash/kind, and condition.
+- Each target alternative has a stable `target_id`, exact callee Content Hash, optional condition, and mandatory exact `required_contract_hash` chosen for that call site/target. This preserves different requirements at different call sites and conditional alternatives.
+- Typed references are constrained by source/target kind. Every callable target must expose exactly one `provides_contract` reference; the caller's `required_contract_hash` and callee's `provided_contract_hash` are preserved separately.
+- Publication validates that callee, required Contract, and provided Contract objects exist with the required kinds. The call edge carries both contract hashes, and a synthetic `requires_contract` dependency edge makes the caller's site-specific requirement hash-relevant and reverse-indexable.
+- The derived `DependencyIndex` exposes deterministic outgoing and incoming edges with source hash, edge ID, relation, exact target hash/kind, condition, and (for calls) exact required/provided contract hashes.
 
 Run focused tests:
 
@@ -257,14 +257,14 @@ This is a deliberately small research schema, **not** the canonical LLMLang SPG 
 
 ## Per-call-site compatibility planning and differential audit
 
-The impact planner now carries exact incoming call-site edges from a Snapshot reverse query. Every discovered call edge must have one decision keyed by `(caller_hash, call_site_id, target_id)` and bound to its exact base callee hash. Resolved decisions (`migrate`, `preserve`, `adapt`, `fork`) require the selected callee hash, resulting caller hash, rationale, and compatibility evidence ID. Missing or unresolved decisions force human review and full revalidation. Decisions and their evidence participate in `plan_id`.
+The impact planner now carries exact incoming call-site edges from a Snapshot reverse query. Every discovered call edge must have one decision keyed by `(caller_hash, call_site_id, target_id)` and bound to its exact base callee hash, caller-required contract hash, and base callee-provided contract hash. Resolved decisions (`migrate`, `preserve`, `adapt`, `fork`) also bind the selected callee's exact provided contract hash, resulting caller hash, rationale, `PROVEN` compatibility status, and evidence ID. `PRESERVE` must retain the old callee and its provided contract exactly. Missing or unresolved decisions force human review and full revalidation. Decisions and their evidence participate in `plan_id`.
 
 `audit_snapshot_incoming_independently` scans selected declaration payloads separately from the reverse-index builder and compares the exact incoming edge set. This catches projection omissions in the prototype. It shares the Content Store and payload source, so it is not a cryptographically independent or runtime-complete audit. Dynamic dispatch, reflection, and external behavior remain explicit exclusions.
 
 
 ## Candidate Snapshot call-site validation
 
-`src/candidate_validation.py` validates the materialized candidate against every per-call-site decision carried by an `ImpactPlan`. It checks baseline/candidate Snapshot binding, candidate membership of selected callee and resulting caller hashes, recomputation of stored semantic-object hashes, and the exact call-site/target reference in the candidate caller payload. `PRESERVE` must retain the exact original callee hash at that call site; the caller may still receive a new version because of other planned changes. `MIGRATE`, `ADAPT`, and `FORK` must materialize a new caller version. Unresolved decisions fail validation.
+`src/candidate_validation.py` validates the materialized candidate against every per-call-site decision carried by an `ImpactPlan`. It checks baseline/candidate Snapshot binding, candidate membership of selected callee and resulting caller hashes, recomputation of stored semantic-object hashes, the exact required contract at the baseline and candidate call site, and the exact provided contract of the base and selected callee. `PRESERVE` must retain the exact original callee and provided-contract hashes at that call site; the caller may still receive a new version because of other planned changes. `MIGRATE`, `ADAPT`, and `FORK` must materialize a new caller version. Unresolved decisions fail validation.
 
 Run the focused tests:
 
@@ -286,7 +286,7 @@ This is a narrow materialized-reference consistency check, not a behavioral-comp
 - every call target resolves to a function or operation;
 - the payload-derived dependency multiset exactly matches the object's stored hash-relevant dependency metadata.
 
-The result contains the sorted reachable object hashes, a deterministic typed dependency index, an edge-set digest, a graph digest, and sorted diagnostics. Unreachable historical objects are intentionally excluded; transitive dependencies need not be direct Snapshot selections, but must resolve in the Content Store.
+The result contains the sorted reachable object hashes, a deterministic typed dependency index, an edge-set digest, a graph digest, and sorted diagnostics. The audit checks both call-site `requires_contract` edges and callable `provides_contract` bindings. Unreachable historical objects are intentionally excluded; transitive dependencies need not be direct Snapshot selections, but must resolve in the Content Store.
 
 Run the focused tests:
 
@@ -294,12 +294,12 @@ Run the focused tests:
 python -m unittest -v tests.test_candidate_graph_audit
 ```
 
-This is a structural audit of the explicit declaration subset. It does not prove behavior, discover dynamic/runtime edges, validate compatibility decisions, compare the candidate diff to a CIP, or authorize commit. See [RT-20 Candidate Graph Audit](../../RT-20-CANDIDATE-GRAPH-AUDIT.md).
+This is a structural and contract-identity audit of the explicit declaration subset. It does not prove behavioral compatibility, authenticate evidence, discover dynamic/runtime edges, validate compatibility decisions, compare the candidate diff to a CIP, or authorize commit. See [RT-20 Candidate Graph Audit](../../RT-20-CANDIDATE-GRAPH-AUDIT.md).
 
 
 ## RT-20 candidate semantic diff gate
 
-`src/candidate_semantic_diff.py` reconciles exact logical Snapshot selection changes and explicit dependency-edge changes with an `ImpactPlan`. It recomputes the plan identity, requires valid baseline and candidate graph audits, binds both graph and edge-set digests into the diff digest, independently scans baseline-selected call sites, and requires an exact `REWRITE_CALL_SITE` action for each changed call target. Typed-reference changes and call-site additions/removals/condition changes fail closed until the CIP schema can represent them.
+`src/candidate_semantic_diff.py` reconciles exact logical Snapshot selection changes and explicit dependency-edge changes with an `ImpactPlan`. Its call-edge diff includes the caller's exact required-contract hash; plan identity includes required, base-provided, and selected-provided contract hashes plus compatibility status. It recomputes the plan identity, requires valid baseline and candidate graph audits, binds both graph and edge-set digests into the diff digest, independently scans baseline-selected call sites, and requires an exact `REWRITE_CALL_SITE` action for each changed call target. Typed-reference changes and call-site additions/removals/condition changes fail closed until the CIP schema can represent them.
 
 Run focused tests:
 
@@ -308,3 +308,10 @@ python -m unittest -v tests.test_candidate_semantic_diff
 ```
 
 This is not behavioral equivalence, dynamic dependency completeness, complete action realization, or commit authorization. See [RT-20 Candidate Semantic Diff](../../RT-20-CANDIDATE-SEMANTIC-DIFF.md).
+
+
+## Call-site contract binding (schema v2)
+
+The prototype models caller-required Contract Content Hash per call-site/target alternative, callee-provided Contract Content Hash, and compatibility evidence for that exact pair. CallSiteDecision carries the required hash, baseline provided hash, selected provided hash, compatibility status, and evidence ID. Candidate validation checks those hashes against actual baseline and candidate declarations; semantic diff includes the required hash in the call-edge record and plan identity includes all contract bindings.
+
+These are generic exact Contract Content Hashes in the candidate schema. They are not yet normatively equated with glossary CCHash; that mapping remains open pending identity reconciliation. The PROVEN field is a required evidence classification, not a proof generated by this planner or validator.
