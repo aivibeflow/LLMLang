@@ -125,3 +125,6 @@ Formal verification can establish that an implementation satisfies a formal spec
 - [Toolchain Server Prototype 01](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md) — executable in-memory lifecycle experiment with immutable objects/snapshots, isolated workspaces, typed changes, optimistic checks, and canonical single-file import/export; not a production Toolchain or MCP server.
 
 - [Package Index Logical Model Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md) now includes a lazy k-way merge over sorted table streams, with regression tests for laziness, large generated streams, deduplication, conflicts, and invalid input ordering.
+
+
+- [RT-21 — LLMLang Self-Development: Feasibility, Bootstrap, and Migration Roadmap](RT-21-LLMLANG-SELF-DEVELOPMENT-AND-BOOTSTRAP-ROADMAP.md) — preliminary implementation-scope analysis, bootstrap architecture, staged migration, first-milestone acceptance criteria, and coarse effort estimates. This is a research recommendation, not an accepted architecture.
