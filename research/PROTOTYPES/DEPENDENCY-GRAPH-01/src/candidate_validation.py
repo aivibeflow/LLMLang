@@ -190,8 +190,10 @@ def validate_candidate_call_site_decisions(
                 continue
             if target["target_hash"] != selected_callee_hash:
                 errors.append(f"{prefix}: candidate call target points to {target['target_hash']}, not selected callee {selected_callee_hash}")
-            if target["required_contract_hash"] != decision.required_contract_hash:
-                errors.append(f"{prefix}: candidate call site changed its exact required contract")
+            if target["required_contract_hash"] != (
+                decision.candidate_required_contract_hash or decision.required_contract_hash
+            ):
+                errors.append(f"{prefix}: candidate call site differs from the CIP-bound required contract")
             callee_value = store.get(selected_callee_hash)
             if callee_value.kind not in {"function", "operation"}:
                 errors.append(f"{prefix}: selected call target is not a function or operation")
