@@ -161,7 +161,21 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Status:** researched at the candidate-survey level; partially validated only as a map of options and trade-offs. No semantic profile, evaluation strategy, effect model, or complete observation model has been accepted. The existing QF_LIA/Lean/Logos work covers a narrow relational fragment and is not a complete language semantics.
 
-**Next work:** reconcile candidate profiles with RT-04 type/effect/ownership/capability research; define observations and a shared test corpus; prototype at least two candidate reference semantics; update dependency edges as evidence arrives.
+**Next work:** use [RT-04 alternatives research](research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) to reconcile candidate profiles; define observations and a shared test corpus; prototype at least two candidate reference semantics; update dependency edges as evidence arrives.
+
+### 1.4.1 Type, effect, ownership, and capability alternatives (RT-04)
+
+- [x] Survey type identity/compatibility, refinement and typestate, inference, effect representations/handlers, ownership/borrowing/lifetimes, capabilities, concurrency/memory models, and error/resource outcomes.
+- [x] Cross-map candidate RT-04 mechanisms against RT-03 profiles A–D without selecting a profile.
+- [x] Record candidate hash-boundary questions for operation contracts, implementations, conformance classes, and verification evidence.
+- [ ] Build executable TYP/EFF/OWN/CAP/CON/HASH scenarios with explicit observable outcomes.
+- [ ] Implement and compare at least two cross-aspect type/effect/resource candidate combinations.
+- [ ] Independently review the comparative report and validate RT-03↔RT-04 dependency assumptions.
+- [ ] Reconcile RT-04 semantic distinctions with RT-05 identity and RT-07 proof boundaries before selecting hash-bearing fields.
+
+**Evidence:** [RT-04 alternatives report](research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md).
+
+**Status:** comparative survey drafted; no type/effect/ownership/capability architecture selected. The survey is not executable validation and does not close RT-03.
 
 ## 1.5 Prior-art study for semantic representation and identity
 
