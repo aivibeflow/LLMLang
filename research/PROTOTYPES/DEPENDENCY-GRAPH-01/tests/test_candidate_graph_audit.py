@@ -166,6 +166,36 @@ class CandidateGraphAuditTests(unittest.TestCase):
         self.assertTrue(any("duplicate logical selection keys" in error
                             for error in result.errors))
 
+    def test_malformed_selection_row_fails_closed_without_raising(self):
+        valid = make_snapshot({"entry": self.function_hash})
+        malformed = Snapshot(
+            valid.root_hash,
+            (("entry", self.function_hash), ("broken",)),
+            valid.parent_roots,
+        )
+        result = audit_candidate_snapshot_graph(self.store, malformed)
+        self.assertFalse(result.valid)
+        self.assertTrue(any("malformed selection entry" in error for error in result.errors))
+        self.assertTrue(any("root cannot be verified" in error for error in result.errors))
+
+    def test_unhashable_selection_key_fails_closed_without_raising(self):
+        valid = make_snapshot({"entry": self.function_hash})
+        malformed = Snapshot(
+            valid.root_hash,
+            ((["not", "a", "key"], self.function_hash),),
+            valid.parent_roots,
+        )
+        result = audit_candidate_snapshot_graph(self.store, malformed)
+        self.assertFalse(result.valid)
+        self.assertTrue(any("non-string selection key" in error for error in result.errors))
+
+    def test_invalid_parent_root_fails_closed(self):
+        valid = make_snapshot({"entry": self.function_hash})
+        malformed = Snapshot(valid.root_hash, valid.selections, (None,))
+        result = audit_candidate_snapshot_graph(self.store, malformed)
+        self.assertFalse(result.valid)
+        self.assertTrue(any("invalid parent root" in error for error in result.errors))
+
     def test_graph_digest_is_deterministic(self):
         snapshot = make_snapshot({"entry": self.function_hash})
         first = audit_candidate_snapshot_graph(self.store, snapshot)
