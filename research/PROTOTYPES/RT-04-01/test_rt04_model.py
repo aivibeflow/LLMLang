@@ -412,6 +412,38 @@ class RT04ModelTests(unittest.TestCase):
         with self.assertRaises(ModelError):
             check_program(p, "B")
 
+
+    def test_call_site_grant_must_be_accepted_by_callee(self):
+        p = {
+            "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace"}},
+            "functions": {
+                "caller": {"grants": ["g1"], "calls": ["read"], "call_sites": [
+                    {"target": "read", "args": [], "grants": ["g1"]}]},
+                "read": {"capability_requirements": [
+                    {"capability": "fs.read", "scope": "/workspace"}]},
+            },
+        }
+        result = check_program(p, "B")
+        self.assertIn("CAPABILITY_GRANT_NOT_ACCEPTED", result.codes())
+        self.assertEqual(result.status, "REJECTED")
+
+    def test_capability_grant_parent_cycle_is_rejected(self):
+        p = {"capability_grants": {
+            "a": {"capability": "fs.read", "scope": "/", "parent": "b"},
+            "b": {"capability": "fs.read", "scope": "/", "parent": "a"},
+        }, "functions": {"f": {}}}
+        with self.assertRaises(ModelError):
+            check_program(p, "B")
+
+    def test_scope_prefix_requires_path_segment_boundary(self):
+        p = {
+            "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace"}},
+            "functions": {"read": {"grants": ["g1"], "capability_requirements": [
+                {"capability": "fs.read", "scope": "/workspace-old"}]}},
+        }
+        result = check_program(p, "B")
+        self.assertIn("CAPABILITY_SCOPE_NOT_GRANTED", result.codes())
+
     def test_scoped_capability_scope_rejects_parent_traversal(self):
         p = {
             "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace/../etc"}},
