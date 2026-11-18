@@ -327,3 +327,19 @@ This repository document is an English research synthesis of the deep-research r
 
 
 **Executable cross-profile evidence:** [RT-03 A/D × RT-04 A/B shared observable-trace cross-check](RT-04-RT-03-CROSS-PROFILE-TRACES.md) and its [scenario fixtures](PROTOTYPES/RT-04-01/test_rt03_rt04_cross_profile.py). This is a finite compatibility oracle, not a selected semantic profile or complete reference interpreter.
+
+
+## 12. Executable reference-semantics slice (2026-11-18)
+
+A first bounded interpreter now exists for the two leading compositional candidates A and D:
+
+- [Reference interpreter](PROTOTYPES/RT-04-01/rt03_reference.py)
+- [Executable tests](PROTOTYPES/RT-04-01/test_rt03_reference.py)
+- [Shared cross-profile trace report](RT-04-RT-03-CROSS-PROFILE-TRACES.md)
+- [Scenario matrix](RT-04-PROTOTYPE-01-SCENARIOS.md)
+
+The fragment evaluates literals, strict left-to-right integer addition, left-to-right sequencing, explicit result-shaped values, and effect requests. A rejects effect requests. D admits only declared effects and uses finite in-memory fixture handlers for file/state/network operations. Traces preserve event order, operation, payload, outcome, result, and final fixture state.
+
+This is meaningful executable evidence beyond hand-authored trace fixtures, but it is not a complete reference semantics and does not select A or D. It omits parsing, binding, functions/recursion, general handlers and effect-row inference, Result propagation, exceptions/cancellation, resource lifecycle, concurrency, divergence, and source-to-model completeness. The handlers are deterministic in-memory fixtures, not platform runtime semantics. The RT-04 checker remains a separate declaration-level model.
+
+The next validation gate is to extend the shared corpus and interpreter with explicit error propagation and resource acquire/use/release outcomes, then implement an independent second evaluator or formal model and compare the observable traces. Any such extension must first state the exact semantics being tested and retain the current exploratory boundary.

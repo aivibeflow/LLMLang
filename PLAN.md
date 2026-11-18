@@ -152,8 +152,9 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Survey the principal semantic dimensions: value/computation model, evaluation strategy, purity and state, errors and cancellation, determinism, effects and observations, concurrency, termination/resources, and module composition.
 - [x] Compare four coherent candidate profiles: pure functional (A), imperative/linear (B), concurrent/actor (C), and effectful functional (D).
 - [x] Record major compatibility tensions and cross-aspect implications for types, SPG/identity, dependency analysis, proofs, compiler/IR, runtime, cache, semantic merge, security, and conformance.
-- [ ] Define a shared observable-behavior model and a representative semantic test corpus.
-- [ ] Implement and compare small reference semantics for at least two viable profiles.
+- [x] Define an initial shared observable-behavior vocabulary and finite representative corpus for pure results, explicit errors, ordered effects, handler outcomes, and final fixture state; broader language coverage remains open.
+- [x] Implement a bounded executable reference-semantics slice for RT-03 candidates A and D over the shared fragment; it is an exploratory interpreter, not a complete semantics or profile selection.
+- [ ] Extend the reference corpus to error propagation, resource lifecycle, cleanup, cancellation, and other required observations; independently implement a second evaluator/formal model and compare traces.
 - [ ] Validate RT-03 dependency-map edges through concrete downstream research and experiments.
 - [ ] Normalize the surviving vectors for whole-specification synthesis; do not select a profile or transfer it into `draft/` by implication.
 
@@ -161,7 +162,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Status:** researched at the candidate-survey level; partially validated only as a map of options and trade-offs. No semantic profile, evaluation strategy, effect model, or complete observation model has been accepted. The existing QF_LIA/Lean/Logos work covers a narrow relational fragment and is not a complete language semantics.
 
-**Next work:** use [RT-04 alternatives research](research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) to reconcile candidate profiles; define observations and a shared test corpus; prototype at least two candidate reference semantics; update dependency edges as evidence arrives.
+**Next work:** extend [the executable A/D reference slice](research/PROTOTYPES/RT-04-01/rt03_reference.py) with explicit error propagation and resource lifecycle; build an independent second evaluator/formal model; compare trace results and update dependency edges as evidence arrives. The current slice is intentionally incomplete and does not select a profile.
 
 ### 1.4.1 Type, effect, ownership, and capability alternatives (RT-04)
 
@@ -175,7 +176,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Add a Profile B scoped-capability grant experiment: hierarchical POSIX path scopes, parent-child attenuation, explicit call-site grant delegation, recipient acceptance, and ancestor revocation propagation. Missing delegation yields UNKNOWN; malformed or over-broad grants fail closed. This is fixture-level static checking, not runtime token authentication or revocation.
 - [ ] Replace fixture-level call-graph completeness assertions with source/snapshot-bound evidence; extend resource analysis with symbolic path conditions, transfer/return, and cleanup; define runtime capability issuer/trust and concurrent revocation semantics.
 - [x] Add a first shared observable-trace fixture oracle for RT-03 profiles A and D and cross-check it against RT-04 checker vectors A and B; cover pure return, declared filesystem read, ordered writes, and undeclared effects. This is a finite compatibility oracle, not a second complete reference semantics. See [cross-profile trace report](research/RT-04-RT-03-CROSS-PROFILE-TRACES.md).
-- [ ] Implement and compare a second independent cross-aspect reference model against the same fixtures and RT-03 observable traces.
+- [ ] Implement and compare a second independent cross-aspect reference model against the same fixtures and RT-03 observable traces. The first RT-03 interpreter is not independent corroboration of itself; it is one executable semantics implementation.
 - [ ] Independently review the comparative report and validate RT-03↔RT-04 dependency assumptions.
 - [ ] Reconcile RT-04 semantic distinctions with RT-05 identity and RT-07 proof boundaries before selecting hash-bearing fields.
 

@@ -57,3 +57,54 @@ Next:
 4. Keep the second independent cross-aspect model and independent review as separate gates.
 
 No RT-03 profile or RT-04 type/effect/ownership/capability architecture is selected by this experiment.
+
+## 6. First executable reference-semantics slice
+
+The first interpreter slice is implemented in `PROTOTYPES/RT-04-01/rt03_reference.py`; its tests are in `test_rt03_reference.py`. It is intentionally separate from the RT-04 declaration checker and evaluates a small expression tree directly.
+
+### Expression fragment
+
+- `literal`: immutable scalar/data value.
+- `add`: strict integer addition; evaluate left operand before right operand.
+- `sequence`: evaluate expressions left-to-right; the last value is the sequence result.
+- `result_ok` / `result_error`: construct explicit tagged data values.
+- `perform`: request one effect operation with a structured payload.
+
+### Profile A
+
+- Strict, left-to-right evaluation of the supported pure expressions.
+- No `perform` operation; encountering one is a semantic rejection.
+- Explicit result-shaped errors are ordinary values in this slice; they do not implicitly abort evaluation.
+
+### Profile D
+
+- Retains the same strict expression core.
+- A `perform` operation is permitted only when its effect label is in the supplied declared-effect set.
+- Finite deterministic handlers are supplied for `fs.read/read`, `fs.write/write`, `state.read/read`, `state.write/write`, and `net.send/send`.
+- Each handled operation appends an ordered event containing effect label, operation, request payload, and outcome. State/file effects also update the interpreter's isolated fixture store.
+- Missing file/network fixture responses are represented as explicit error-shaped outcomes and remain observable events.
+
+### Trace and comparison
+
+A completed evaluation returns the ordered event sequence, result value, final fixture state, and final fixture file map. Reordering state writes changes both the trace and final state. The RT-04 checker still returns a set-like effect-label summary, so it cannot reproduce the reference trace.
+
+The tests also cover Profile A rejection of effects, undeclared-effect rejection in D, explicit result errors, file reads and missing-file errors, state read/write order, deterministic network fixture responses, unsupported handlers, malformed expressions, and non-mutation of caller-supplied initial fixtures.
+
+### Deliberate limits
+
+This is an executable reference *slice*, not a complete or selected RT-03 semantics:
+- no parser, source syntax, variable binding, function calls, recursion, or type checker;
+- no general effect-handler language, handler algebra, or effect-row inference;
+- no implicit Result short-circuiting, exceptions, cancellation, or error propagation rules;
+- no resource acquire/release, ownership, cleanup, async, concurrency, nondeterminism, or divergence model;
+- deterministic handlers are test fixtures, not real filesystem/network access;
+- no proof that a source program maps completely to this expression tree;
+- no independent second implementation yet.
+
+Reproduction from the repository root:
+
+```sh
+python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_*.py' -v
+```
+
+This command runs the RT-04 checker tests, the original cross-profile fixtures, and the new RT-03 reference interpreter tests together.
