@@ -89,6 +89,33 @@ def validate_candidate_call_site_decisions(
         if decision.base_callee_hash not in baseline_hashes:
             errors.append(f"{prefix}: base callee is not selected by baseline Snapshot")
             continue
+
+        # Bind the decision to the actual source edge, not just to two selected hashes.
+        try:
+            base_caller_value = store.get(decision.caller_hash)
+            _verify_stored_hash(store, decision.caller_hash)
+            base_declaration = validate_declaration(base_caller_value.payload)
+            base_sites = {
+                site["call_site_id"]: site for site in base_declaration["call_sites"]
+            }
+            base_site = base_sites.get(decision.call_site_id)
+            base_targets = ({
+                target["target_id"]: target for target in base_site["targets"]
+            } if base_site is not None else {})
+            base_target = base_targets.get(decision.target_id)
+            if base_target is None:
+                errors.append(f"{prefix}: exact base call site/target is absent from baseline caller")
+                continue
+            if base_target["target_hash"] != decision.base_callee_hash:
+                errors.append(f"{prefix}: base caller does not reference the decision's exact base callee")
+                continue
+        except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
+            errors.append(f"{prefix}: baseline caller validation failed: {exc}")
+            continue
+
+        if (decision.disposition is CallSiteDisposition.MIGRATE
+                and decision.selected_callee_hash == decision.base_callee_hash):
+            errors.append(f"{prefix}: MIGRATE retained the exact base callee hash")
         if decision.selected_callee_hash not in candidate_hashes:
             errors.append(f"{prefix}: selected callee is not selected by candidate Snapshot")
             continue
