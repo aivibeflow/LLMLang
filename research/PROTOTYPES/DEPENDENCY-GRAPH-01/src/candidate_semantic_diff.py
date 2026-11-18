@@ -64,7 +64,7 @@ class SemanticEdgeChange:
 class MaterializedOutputBinding:
     output_id: str
     logical_key: str
-    candidate_hash: str
+    candidate_hash: str | None
 
 
 @dataclass(frozen=True)
@@ -215,6 +215,8 @@ def audit_candidate_semantic_diff(
     output_by_key = {item.logical_key: item for item in plan.planned_outputs}
     if len(output_by_key) != len(plan.planned_outputs):
         errors.append("ImpactPlan contains duplicate planned output logical keys")
+    if len({item.output_id for item in plan.planned_outputs}) != len(plan.planned_outputs):
+        errors.append("ImpactPlan contains duplicate planned output IDs")
     change_by_key = {item.logical_key: item for item in changes}
     materialized_outputs: list[MaterializedOutputBinding] = []
     for change in changes:
@@ -251,6 +253,8 @@ def audit_candidate_semantic_diff(
         if output.operation is not OutputOperation.ADD and output.base_hash is not None:
             if output.base_hash not in before.values():
                 errors.append(f"{change.logical_key}: CIP base hash is not selected in baseline")
+        if output.source_hash is not None and output.source_hash not in before.values():
+            errors.append(f"{change.logical_key}: CIP source hash is not selected in baseline")
         exact_hashes = {value for value in (change.baseline_hash, change.candidate_hash) if value is not None}
         if not exact_hashes & action_hashes:
             errors.append(
@@ -320,6 +324,8 @@ def audit_candidate_semantic_diff(
     edge_changes: list[SemanticEdgeChange] = []
     observed_edge_keys = set()
     planned_edge_rows = tuple(plan.planned_edge_changes)
+    if len(set(planned_edge_rows)) != len(planned_edge_rows):
+        errors.append("ImpactPlan contains duplicate planned edge-change records")
     for change in changes:
         if change.baseline_hash is None or change.candidate_hash is None:
             continue
