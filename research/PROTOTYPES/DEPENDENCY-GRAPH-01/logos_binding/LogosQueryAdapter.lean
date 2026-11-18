@@ -66,6 +66,9 @@ mutual
     | .iteBool c a b =>
         if asBool (evalLogosQuery c env) then evalLogosQuery a env
         else evalLogosQuery b env
+  termination_by term env => sizeOf term
+  decreasing_by
+    all_goals simp_wf [sizeOf]
 
   /-- Evaluate the n-ary Boolean operators with their standard identities. -/
   def evalLogosBoolTerms
@@ -79,9 +82,7 @@ mutual
           asBool (evalLogosQuery term env) && evalLogosBoolTerms conjunction rest env
         else
           asBool (evalLogosQuery term env) || evalLogosBoolTerms conjunction rest env
-  termination_by
-    evalLogosQuery term env => sizeOf term
-    evalLogosBoolTerms conjunction terms env => sizeOf terms
+  termination_by conjunction terms env => sizeOf terms
   decreasing_by
     all_goals simp_wf [sizeOf]
 end
