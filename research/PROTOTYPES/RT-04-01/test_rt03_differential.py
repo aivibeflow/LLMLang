@@ -43,6 +43,25 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
                 else:
                     self.assert_same_trace(expression, "A")
 
+    def test_result_propagation_matches_and_skips_following_effect(self):
+        expression = {"result_sequence": [
+            {"result_ok": {"literal": "started"}},
+            {"result_error": {"literal": {"kind": "Cancelled"}}},
+            perform("state.write", "write", {"key": "after_error", "value": 1}),
+        ]}
+        trace = self.assert_same_trace(expression, "D", declared_effects=["state.write"])
+        self.assertEqual(trace.result, {"error": {"kind": "Cancelled"}})
+        self.assertEqual(trace.events, ())
+        self.assertEqual(trace.final_state, {})
+
+    def test_result_propagation_success_matches(self):
+        trace = self.assert_same_trace({"result_sequence": [
+            {"result_ok": {"literal": 1}},
+            {"result_ok": {"literal": 2}},
+            {"result_ok": {"literal": 3}},
+        ]}, "A")
+        self.assertEqual(trace.result, {"ok": 3})
+
     def test_ordered_state_effect_corpus_matches(self):
         expression = {"sequence": [
             perform("state.write", "write", {"key": "v", "value": 4}),
