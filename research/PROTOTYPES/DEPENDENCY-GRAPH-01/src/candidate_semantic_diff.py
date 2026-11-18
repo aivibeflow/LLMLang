@@ -181,6 +181,14 @@ def _edge_record_matches(record, output_id, edge_kind, edge_id, old_row, new_row
     )
 
 
+def _provided_contract_or_error(store: ContentStore, value_hash: str, label: str, errors: list[str]) -> str | None:
+    try:
+        return _provided_contract_hash(store, value_hash)
+    except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
+        errors.append(f"{label}: cannot resolve exact provided Contract binding: {exc}")
+        return None
+
+
 def audit_candidate_semantic_diff(
     store: ContentStore,
     baseline: Snapshot,
@@ -416,7 +424,9 @@ def audit_candidate_semantic_diff(
                     errors.append(f"{change.logical_key}:{edge_id}: CIP base callee differs from baseline target")
                 if decision.required_contract_hash != old_required:
                     errors.append(f"{change.logical_key}:{edge_id}: CIP required contract differs from baseline call-site requirement")
-                if decision.base_callee_contract_hash != _provided_contract_hash(store, old_target):
+                if decision.base_callee_contract_hash != _provided_contract_or_error(
+                    store, old_target, f"{change.logical_key}:{edge_id} baseline callee", errors
+                ):
                     errors.append(f"{change.logical_key}:{edge_id}: CIP base provided contract differs from baseline callee")
                 if (decision.candidate_required_contract_hash or decision.required_contract_hash) != new_required:
                     errors.append(f"{change.logical_key}:{edge_id}: CIP candidate required contract differs from candidate call site")
@@ -428,7 +438,9 @@ def audit_candidate_semantic_diff(
                 )
                 if selected_hash != new_target:
                     errors.append(f"{change.logical_key}:{edge_id}: CIP selected callee differs from candidate target")
-                if decision.selected_callee_contract_hash != _provided_contract_hash(store, new_target):
+                if decision.selected_callee_contract_hash != _provided_contract_or_error(
+                    store, new_target, f"{change.logical_key}:{edge_id} candidate callee", errors
+                ):
                     errors.append(f"{change.logical_key}:{edge_id}: CIP selected provided contract differs from candidate callee")
                 if decision.compatibility_status != "PROVEN":
                     errors.append(f"{change.logical_key}:{edge_id}: call-site change lacks PROVEN compatibility evidence")
