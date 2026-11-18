@@ -169,6 +169,8 @@ ordinary expressions or calls, exceptions/cancellation, resource lifecycle,
 concurrency, divergence, or source-to-expression completeness. The deterministic handlers use in-memory
 fixtures and do not access the host filesystem or network.
 
+The differential suite also compares successful propagation, first-error short-circuiting, skipped effects, and malformed non-Result inputs across both evaluators.
+
 See [RT-03/RT-04 cross-profile trace findings](../../RT-04-RT-03-CROSS-PROFILE-TRACES.md)
 and the [reference-slice tests](test_rt03_reference.py).
 
