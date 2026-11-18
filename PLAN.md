@@ -700,6 +700,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Require shared-caller version-split analysis when different consumers need old and new behavior.
 - [x] Define a candidate Change Impact Plan (CIP), plan-completeness checks, and mandatory plan execution.
 - [x] Specify the proposed completion gate: freeze candidate, verify plan coverage, validate and audit exact hashes, then create a Git commit only on success.
+- [x] Prototype a candidate Snapshot materialization check for planned call-site decisions: bind exact baseline/candidate roots, verify selected caller/callee membership and stored hashes, and inspect the actual candidate call-site target.
 - [ ] Reconcile the function hashId and call-reference assumptions with identity Studies 05–08 and the RT-24 Identity and SPG Reconciliation report; no standalone RT-05 specification currently exists.
 - [ ] Specify reverse-reference completeness for direct, indirect, dynamic, external, and generated call sites.
 - [ ] Prototype single-chain propagation, mixed old/new callers, shared-caller splits, multiple call sites, and branching/converging graphs.
@@ -709,9 +710,11 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Evidence:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) records the proposed workflow and invariants. It is a research proposal, not an accepted identity or Toolchain decision.
 
-**Status:** workflow proposal drafted from design discussion. No caller-migration planner, hash-closure engine, plan-enforcement mechanism, or validation-gated commit implementation exists yet.
+**Status:** RT-20 remains a research proposal. The dependency-graph prototype now includes Snapshot-scoped reverse lookup, differential payload-scan auditing, per-call-site compatibility planning, and a narrow candidate materialization validator. The latest validator checks exact selected hashes and candidate call-site references; it does not yet enforce complete plan-to-diff coverage, prove behavioral compatibility, or implement a validation-gated commit.
 
-**Exit criteria:** a complete server-validated plan precedes all mutations; every relevant call site has an evidence-backed compatibility decision; contract and hash propagation are independently correct; old/new behavior and shared-caller version splits work; every planned change is enforced; commit is created only for the exact candidate that passed all mandatory checks.
+**Evidence:** [RT-20 Candidate Call-Site Validation](research/RT-20-CANDIDATE-CALL-SITE-VALIDATION.md) and the focused tests in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_validation.py`.
+
+**Exit criteria:** a complete server-validated plan precedes all mutations; every relevant call site has an evidence-backed compatibility decision; contract and hash propagation are independently correct; old/new behavior and shared-caller version splits work; every planned change is enforced and unplanned changes are rejected; commit is created only for the exact candidate that passed all mandatory checks.
 
 ---
 
