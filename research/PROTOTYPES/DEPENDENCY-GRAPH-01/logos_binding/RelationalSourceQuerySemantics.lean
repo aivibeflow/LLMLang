@@ -246,9 +246,11 @@ theorem observationDifference_correct
   cases s with
   | int =>
       unfold observationDifference
-      conv_lhs =>
+      conv =>
+        lhs
         rw [evalCanonicalQuerySigma]
-      conv_lhs =>
+      conv =>
+        lhs
         arg 1
         arg 1
         arg 1
@@ -260,9 +262,11 @@ theorem observationDifference_correct
       exact (decide_ne_eq_not_decide_eq _ _).symm
   | bool =>
       unfold observationDifference
-      conv_lhs =>
+      conv =>
+        lhs
         rw [evalCanonicalQuerySigma]
-      conv_lhs =>
+      conv =>
+        lhs
         arg 1
         arg 1
         arg 1
