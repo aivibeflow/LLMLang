@@ -230,7 +230,7 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
             if not isinstance(known_values, dict):
                 raise ModelError(f"{name}.known_values must be an object")
             for p in positive:
-                if params.get(p) not in {"Int", "PositiveInt"}:
+                if params.get(p) != "Int" and params.get(p) != "PositiveInt":
                     findings.append(Finding("REFINEMENT_TYPE_MISMATCH", name, p))
                 elif p not in known_values:
                     findings.append(Finding("REFINEMENT_UNKNOWN", name, p))
