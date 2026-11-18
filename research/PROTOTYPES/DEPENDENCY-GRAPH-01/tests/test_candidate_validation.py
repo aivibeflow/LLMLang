@@ -119,40 +119,27 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
         self.assertTrue(any("selected callee is not selected" in error
                             for error in result.errors))
 
-    def test_preserve_requires_original_caller_and_callee_versions(self):
+    def test_preserve_keeps_exact_callee_when_caller_is_revised_for_other_changes(self):
+        revised_caller = publish_declaration(
+            self.store, declaration(
+                "function", "fn:invoice:v2-preserving", {"body": "invoice plus other change"},
+                call_sites=call_site(self.old_callee),
+            )
+        )
         candidate = make_snapshot({
             "tax": self.old_callee,
-            "invoice": self.old_caller,
+            "invoice": revised_caller,
         })
         result = validate_candidate_call_site_decisions(
             self.store, self.baseline, candidate,
             self.plan(
                 disposition=CallSiteDisposition.PRESERVE,
                 selected=self.old_callee,
-                caller=self.old_caller,
+                caller=revised_caller,
                 candidate=candidate,
             ),
         )
         self.assertTrue(result.valid, result.errors)
-
-        mixed_candidate = make_snapshot({
-            "old-tax": self.old_callee,
-            "tax": self.new_callee,
-            "invoice": self.new_caller,
-        })
-        invalid = validate_candidate_call_site_decisions(
-            self.store, self.baseline, mixed_candidate,
-            self.plan(
-                disposition=CallSiteDisposition.PRESERVE,
-                selected=self.old_callee,
-                caller=self.new_caller,
-                candidate=mixed_candidate,
-            ),
-        )
-        self.assertFalse(invalid.valid)
-        self.assertTrue(any("PRESERVE changed the exact caller" in error
-                            for error in invalid.errors))
-
     def test_unresolved_decision_never_validates(self):
         decision = CallSiteDecision(
             self.old_caller, "call:tax", "direct", self.old_callee,
