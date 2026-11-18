@@ -1,10 +1,8 @@
 import SourceQuerySemantics
-import LLMLangLogosBinding
 
 namespace LLMLang.RelationalSourceQuerySemantics
 
 open LLMLang.SourceQuerySemantics
-open LLMLang.LogosBinding
 
 /-- Which execution of a paired relational query is being represented. -/
 inductive RunSide where
@@ -20,7 +18,7 @@ def relationalSymbol (side : RunSide) (factor name : String) : String :=
     name
 
 /-- The QF_LIA sort corresponding to the source expression sort. -/
-abbrev querySortOf : ExprSort → LogosBinding.QuerySort := id
+abbrev querySortOf : ExprSort → ExprSort := id
 
 /--
 A product-program environment is represented by one query environment:
@@ -37,13 +35,13 @@ retain one shared symbol. Multiplication is restricted to a literal constant.
 -/
 def translateRelationalExpr :
     {s : ExprSort} → (side : RunSide) → (factor : String) →
-    Expr s → LogosBinding.QueryTerm (querySortOf s)
+    Expr s → SourceQuerySemantics.QueryTerm (querySortOf s)
   | .int, _, _, .intLit n => .intLit n
   | .bool, _, _, .boolLit b => .boolLit b
   | .int, side, factor, .intVar name =>
-      .intSymbol (relationalSymbol side factor name)
+      .symbolInt (relationalSymbol side factor name)
   | .bool, side, factor, .boolVar name =>
-      .boolSymbol (relationalSymbol side factor name)
+      .symbolBool (relationalSymbol side factor name)
   | .int, side, factor, .neg e =>
       .neg (translateRelationalExpr side factor e)
   | .int, side, factor, .add a b =>
@@ -51,7 +49,7 @@ def translateRelationalExpr :
   | .int, side, factor, .sub a b =>
       .sub (translateRelationalExpr side factor a) (translateRelationalExpr side factor b)
   | .int, side, factor, .mulConst k e =>
-      .mul (.intLit k) (translateRelationalExpr side factor e)
+      .mulConst k (translateRelationalExpr side factor e)
   | .bool, side, factor, .not e =>
       .not (translateRelationalExpr side factor e)
   | .bool, side, factor, .eqInt a b =>
@@ -63,9 +61,9 @@ def translateRelationalExpr :
   | .bool, side, factor, .le a b =>
       .le (translateRelationalExpr side factor a) (translateRelationalExpr side factor b)
   | .bool, side, factor, .and a b =>
-      .and [translateRelationalExpr side factor a, translateRelationalExpr side factor b]
+      .and (translateRelationalExpr side factor a) (translateRelationalExpr side factor b)
   | .bool, side, factor, .or a b =>
-      .or [translateRelationalExpr side factor a, translateRelationalExpr side factor b]
+      .or (translateRelationalExpr side factor a) (translateRelationalExpr side factor b)
   | .int, side, factor, .iteInt c a b =>
       .iteInt (translateRelationalExpr side factor c)
         (translateRelationalExpr side factor a) (translateRelationalExpr side factor b)
@@ -74,79 +72,24 @@ def translateRelationalExpr :
         (translateRelationalExpr side factor a) (translateRelationalExpr side factor b)
 
 /-- Convert the canonical query sort back to the corresponding source value sort. -/
-abbrev querySortToExprSort : LogosBinding.QuerySort → ExprSort := id
+abbrev querySortToExprSort : ExprSort → ExprSort := id
 
-/- Mutually recursive interpretation of canonical query terms and Boolean term lists. -/
-mutual
-  def evalCanonicalQuerySigma :
-      (query : Σ s : LogosBinding.QuerySort, LogosBinding.QueryTerm s) →
-      SourceQuerySemantics.Env →
-      SourceQuerySemantics.Value (querySortToExprSort query.1)
-    | ⟨.int, .intLit n⟩, _ => .intValue n
-    | ⟨.bool, .boolLit b⟩, _ => .boolValue b
-    | ⟨.int, .intSymbol name⟩, env => env name .int
-    | ⟨.bool, .boolSymbol name⟩, env => env name .bool
-    | ⟨.bool, .not e⟩, env =>
-        .boolValue (!(asBool (evalCanonicalQuerySigma ⟨.bool, e⟩ env)))
-    | ⟨.int, .neg e⟩, env =>
-        .intValue (-(asInt (evalCanonicalQuerySigma ⟨.int, e⟩ env)))
-    | ⟨.int, .add a b⟩, env =>
-        .intValue (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) +
-          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env))
-    | ⟨.int, .sub a b⟩, env =>
-        .intValue (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) -
-          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env))
-    | ⟨.int, .mul a b⟩, env =>
-        .intValue (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) *
-          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env))
-    | ⟨.bool, .eqInt a b⟩, env =>
-        .boolValue (decide (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) =
-          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env)))
-    | ⟨.bool, .eqBool a b⟩, env =>
-        .boolValue (decide (asBool (evalCanonicalQuerySigma ⟨.bool, a⟩ env) =
-          asBool (evalCanonicalQuerySigma ⟨.bool, b⟩ env)))
-    | ⟨.bool, .lt a b⟩, env =>
-        .boolValue (decide (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) <
-          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env)))
-    | ⟨.bool, .le a b⟩, env =>
-        .boolValue (decide (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) <=
-          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env)))
-    | ⟨.bool, .and terms⟩, env =>
-        .boolValue (evalBoolTerms true terms env)
-    | ⟨.bool, .or terms⟩, env =>
-        .boolValue (evalBoolTerms false terms env)
-    | ⟨.int, .iteInt condition yes no⟩, env =>
-        if asBool (evalCanonicalQuerySigma ⟨.bool, condition⟩ env)
-        then evalCanonicalQuerySigma ⟨.int, yes⟩ env
-        else evalCanonicalQuerySigma ⟨.int, no⟩ env
-    | ⟨.bool, .iteBool condition yes no⟩, env =>
-        if asBool (evalCanonicalQuerySigma ⟨.bool, condition⟩ env)
-        then evalCanonicalQuerySigma ⟨.bool, yes⟩ env
-        else evalCanonicalQuerySigma ⟨.bool, no⟩ env
-  termination_by query _ => sizeOf query
-  decreasing_by all_goals simp_wf <;> omega
+/-- Interpret the independent query IR using its own evaluator. -/
+def evalCanonicalQuerySigma :
+    (query : Σ s : ExprSort, SourceQuerySemantics.QueryTerm s) →
+    SourceQuerySemantics.Env →
+    SourceQuerySemantics.Value (querySortToExprSort query.1)
+  | ⟨sort, term⟩, env => SourceQuerySemantics.evalQuery term env
 
-  def evalBoolTerms (isAnd : Bool) :
-      List (LogosBinding.QueryTerm .bool) →
-      SourceQuerySemantics.Env → Bool
-    | [], _ => isAnd
-    | term :: rest, env =>
-        let value := asBool (evalCanonicalQuerySigma ⟨.bool, term⟩ env)
-        if isAnd then value && evalBoolTerms isAnd rest env
-        else value || evalBoolTerms isAnd rest env
-  termination_by terms _ => sizeOf terms + 2
-  decreasing_by all_goals simp_wf <;> omega
-end
-
-/-- Evaluate a typed canonical query term in the source/query environment. -/
-def evalCanonicalQuery {s : LogosBinding.QuerySort}
-    (term : LogosBinding.QueryTerm s)
+/-- Evaluate a typed independent query term in the source/query environment. -/
+def evalCanonicalQuery {s : ExprSort}
+    (term : SourceQuerySemantics.QueryTerm s)
     (env : SourceQuerySemantics.Env) :
     SourceQuerySemantics.Value (querySortToExprSort s) :=
-  evalCanonicalQuerySigma ⟨s, term⟩ env
+  SourceQuerySemantics.evalQuery term env
 
 /--
-The actual LogosBinding.QueryTerm translation preserves the source expression
+The independent query-IR translation preserves the source expression
 value for each side of the product program and every query environment.
 This theorem is kernel-checked.
 -/
@@ -185,13 +128,13 @@ def canonicalSideEnvironment (queryEnv : SourceQuerySemantics.Env)
 /-- Translate an expression using the exact indexed names emitted by the Python QF_LIA exporter. -/
 def translateCanonicalRelationalExpr :
     {s : ExprSort} → (inputNames : List String) → (side : RunSide) →
-    (factor : String) → Expr s → LogosBinding.QueryTerm (querySortOf s)
+    (factor : String) → Expr s → SourceQuerySemantics.QueryTerm (querySortOf s)
   | .int, _, _, _, .intLit n => .intLit n
   | .bool, _, _, _, .boolLit b => .boolLit b
   | .int, inputNames, side, factor, .intVar name =>
-      .intSymbol (canonicalRelationalSymbol inputNames side factor name)
+      .symbolInt (canonicalRelationalSymbol inputNames side factor name)
   | .bool, inputNames, side, factor, .boolVar name =>
-      .boolSymbol (canonicalRelationalSymbol inputNames side factor name)
+      .symbolBool (canonicalRelationalSymbol inputNames side factor name)
   | .int, inputNames, side, factor, .neg e =>
       .neg (translateCanonicalRelationalExpr inputNames side factor e)
   | .int, inputNames, side, factor, .add a b =>
@@ -201,7 +144,7 @@ def translateCanonicalRelationalExpr :
       .sub (translateCanonicalRelationalExpr inputNames side factor a)
         (translateCanonicalRelationalExpr inputNames side factor b)
   | .int, inputNames, side, factor, .mulConst k e =>
-      .mul (.intLit k) (translateCanonicalRelationalExpr inputNames side factor e)
+      .mulConst k (translateCanonicalRelationalExpr inputNames side factor e)
   | .bool, inputNames, side, factor, .not e =>
       .not (translateCanonicalRelationalExpr inputNames side factor e)
   | .bool, inputNames, side, factor, .eqInt a b =>
@@ -217,11 +160,11 @@ def translateCanonicalRelationalExpr :
       .le (translateCanonicalRelationalExpr inputNames side factor a)
         (translateCanonicalRelationalExpr inputNames side factor b)
   | .bool, inputNames, side, factor, .and a b =>
-      .and [translateCanonicalRelationalExpr inputNames side factor a,
-        translateCanonicalRelationalExpr inputNames side factor b]
+      .and (translateCanonicalRelationalExpr inputNames side factor a)
+        (translateCanonicalRelationalExpr inputNames side factor b)
   | .bool, inputNames, side, factor, .or a b =>
-      .or [translateCanonicalRelationalExpr inputNames side factor a,
-        translateCanonicalRelationalExpr inputNames side factor b]
+      .or (translateCanonicalRelationalExpr inputNames side factor a)
+        (translateCanonicalRelationalExpr inputNames side factor b)
   | .int, inputNames, side, factor, .iteInt c a b =>
       .iteInt (translateCanonicalRelationalExpr inputNames side factor c)
         (translateCanonicalRelationalExpr inputNames side factor a)
@@ -232,7 +175,7 @@ def translateCanonicalRelationalExpr :
         (translateCanonicalRelationalExpr inputNames side factor b)
 
 /--
-The actual canonical-name translation into LogosBinding.QueryTerm preserves
+The actual canonical-name translation into the independent query IR preserves
 the source expression value for each side and every query environment.
 -/
 theorem translateCanonicalRelationalExpr_correct
