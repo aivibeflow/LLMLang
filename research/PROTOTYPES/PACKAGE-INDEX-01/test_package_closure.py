@@ -124,7 +124,7 @@ class DependencyClosureTests(unittest.TestCase):
                 self.snapshot_id = "snapshot-2"
                 return result
         base = make_snapshot()
-        changing = ChangingSnapshot(base.objects, base.dependencies)
+        changing = ChangingSnapshot(list(base.objects.values()), base.dependencies)
         with self.assertRaisesRegex(ClosureError, "snapshot changed"):
             resolve_dependency_closure([H(1)], changing)
 
