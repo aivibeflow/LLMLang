@@ -225,10 +225,11 @@ An executable candidate subset now exists at `research/PROTOTYPES/DEPENDENCY-GRA
 
 The prototype deliberately fixes only a small set of rules so they can be tested:
 
-- Schema envelope: `format = llmlang.semantic-object`, `schema_version = 1`.
+- Schema envelope: `format = llmlang.semantic-object`, `schema_version = 2` (the candidate schema-v1 call-target shape is not silently reinterpreted).
 - Object kinds: `function`, `operation`, `type`, `contract`, `implementation`, `effect`.
 - Every declaration has an explicit `declaration_id` and object-valued `content`. The content is opaque to the extractor; only the typed reference fields are interpreted.
-- Function and Operation may own `call_sites`. Each call site has a caller-local `call_site_id`; each alternative has a `target_id`, exact `target_hash`, and nullable explicit `condition`.
+- Function and Operation may own `call_sites`. Each call site has a caller-local `call_site_id`; each alternative has a `target_id`, exact `target_hash`, nullable explicit `condition`, and mandatory exact `required_contract_hash` selected by the caller for that specific call-site/target alternative.
+- A callable target must expose exactly one typed `provides_contract` reference to a Contract object. The extractor carries both `required_contract_hash` and `provided_contract_hash` on the call edge. A synthetic `requires_contract` dependency edge makes the requirement queryable in reverse and hash-relevant to the caller.
 - A call edge ID is `call_site_id/target_id`. It is unique within the source declaration and does not depend on display names or array positions.
 - Typed reference relations are constrained by source and target kinds: Function/Operation → Type or Contract; Contract → Type; Type → Type; Implementation → Contract or Effect; Effect → Type.
 - Publication resolves every exact target hash and checks its stored object kind. Missing targets and kind mismatches are errors.
@@ -237,7 +238,22 @@ The prototype deliberately fixes only a small set of rules so they can be tested
 
 This is an executable **candidate schema**, not acceptance of the final LLMLang SPG model. It has no source parser, no inference from arbitrary payloads, no completeness proof, and no production snapshot lease. The current `ContentStore` is in-memory; index generation is built as a deterministic projection for tests. The candidate schema does not yet settle recursive types, mutually recursive functions, SCC hashing, generic/higher-order calls, external calls, or Interface Mapping Revision semantics. Unsupported constructs must remain outside this subset rather than being coerced into these records.
 
-The prototype tests cover two different callee revisions in two call sites of one caller, multiple conditional targets at one call site, reverse lookup preserving call-site identity, typed Implementation→Contract/Effect references, malformed/ambiguous schema rejection, caller hash changes when the exact callee revision changes, and snapshot-scoped reverse lookup that excludes historical caller versions while retaining a preserving caller and a migrating caller. `build_dependency_index` remains an all-store diagnostic projection; planning must use `build_snapshot_dependency_index`, which pins the result to the exact snapshot root and includes only its selected object versions. CI workflow: `.github/workflows/semantic-dependency-index.yml`.
+The prototype tests cover two different callee revisions in two call sites of one caller, multiple conditional targets at one call site, reverse lookup preserving call-site identity, exact required/provided contract bindings, hash sensitivity to a changed call-site requirement, rejection of missing requirements or provided contracts, typed Implementation→Contract/Effect references, malformed/ambiguous schema rejection, caller hash changes when the exact callee revision changes, and snapshot-scoped reverse lookup that excludes historical caller versions while retaining a preserving caller and a migrating caller. `build_dependency_index` remains an all-store diagnostic projection; planning must use `build_snapshot_dependency_index`, which pins the result to the exact snapshot root and includes only its selected object versions. CI workflow: `.github/workflows/semantic-dependency-index.yml`.
+
+## 10.2 Call-site-specific contract binding (candidate schema v2)
+
+The v2 call-target record carries a mandatory `required_contract_hash`. This is the exact Contract object hash the caller requires at that call site and target alternative; it is not inferred from the caller's function-wide references. The selected callee declaration must expose exactly one `provides_contract` reference. The call edge records both hashes, and a separate `requires_contract` dependency edge makes the caller's requirement visible to reverse lookup and dependency closure.
+
+RT-20's `CallSiteDecision` now binds:
+- exact base callee hash;
+- exact required contract hash from the caller's call-site alternative;
+- exact contract hash provided by the base callee;
+- exact selected callee hash and its provided contract hash;
+- resulting caller hash, disposition, rationale, compatibility status, and evidence ID.
+
+A `preserve` decision must retain the exact base callee and base provided-contract hashes. Any resolved disposition requires compatibility status `PROVEN` and an evidence ID. The prototype includes all these values in the deterministic plan identity and rejects missing or mismatched contract bindings.
+
+This remains a binding/consistency gate, not a proof checker: it does not authenticate the evidence producer or prove behavioral refinement. The generic Contract Content Hash used here is not yet normatively identified with glossary `CCHash`; reconcile that distinction with the identity model before adoption. The candidate schema is versioned as v2 rather than silently accepting the changed v1 record shape.
 
 ## 11. Validation plan and exit criteria
 

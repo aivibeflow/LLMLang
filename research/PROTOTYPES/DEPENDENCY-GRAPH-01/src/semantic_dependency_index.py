@@ -15,14 +15,14 @@ from .semantic_graph import ContentStore, Dependency, Snapshot, canonical_bytes
 
 
 FORMAT = "llmlang.semantic-object"
-SCHEMA_VERSION = 1
-EXTRACTOR_ID = "semantic-dependency-extractor/1"
+SCHEMA_VERSION = 2
+EXTRACTOR_ID = "semantic-dependency-extractor/2"
 
 
 KINDS = {"function", "operation", "type", "contract", "implementation", "effect"}
 REFERENCE_RELATIONS = {
-    "function": {"uses_type", "uses_contract"},
-    "operation": {"uses_type", "uses_contract"},
+    "function": {"uses_type", "uses_contract", "provides_contract"},
+    "operation": {"uses_type", "uses_contract", "provides_contract"},
     "type": {"extends_type"},
     "contract": {"uses_type"},
     "implementation": {"implements_contract", "uses_effect"},
@@ -32,6 +32,7 @@ TARGET_KINDS = {
     "uses_type": {"type"},
     "extends_type": {"type"},
     "uses_contract": {"contract"},
+    "provides_contract": {"contract"},
     "implements_contract": {"contract"},
     "uses_effect": {"effect"},
 }
@@ -49,6 +50,8 @@ class IndexedEdge:
     target_hash: str
     target_kind: str
     condition: str | None = None
+    required_contract_hash: str | None = None
+    provided_contract_hash: str | None = None
 
     def record(self) -> dict[str, Any]:
         return {
@@ -58,6 +61,8 @@ class IndexedEdge:
             "target_hash": self.target_hash,
             "target_kind": self.target_kind,
             "condition": self.condition,
+            "required_contract_hash": self.required_contract_hash,
+            "provided_contract_hash": self.provided_contract_hash,
         }
 
 
@@ -160,12 +165,23 @@ def audit_snapshot_incoming_independently(
                 ))
         for site in payload.get("call_sites", ()):
             for target_row in site.get("targets", ()):
+                edge_id = f"{site.get('call_site_id')}/{target_row.get('target_id')}"
                 target_hash = target_row.get("target_hash")
+                required_contract_hash = target_row.get("required_contract_hash")
+                required_contract = store.get(required_contract_hash)
+                if required_contract.kind != "contract":
+                    raise SemanticObjectError("call-site requirement must target a contract")
                 if target_hash == result.target_hash:
                     target = store.get(target_hash)
+                    provided = _provided_contract_hash(store, target_hash)
                     expected.append(IndexedEdge(
-                        source_hash, f"{site.get('call_site_id')}/{target_row.get('target_id')}",
-                        "calls", target_hash, target.kind, target_row.get("condition"),
+                        source_hash, edge_id, "calls", target_hash, target.kind,
+                        target_row.get("condition"), required_contract_hash, provided,
+                    ))
+                if required_contract_hash == result.target_hash:
+                    expected.append(IndexedEdge(
+                        source_hash, edge_id + "/required-contract", "requires_contract",
+                        result.target_hash, "contract",
                     ))
     expected_edges = tuple(sorted(expected))
     actual_edges = tuple(sorted(result.edges))
@@ -256,6 +272,26 @@ def _validate_condition(value: Any, field: str) -> str | None:
     return _require_string(value, field)
 
 
+def _provided_contract_hash(store: ContentStore, callee_hash: str) -> str:
+    """Resolve the one explicit contract provided by a callable declaration."""
+    callee = store.get(callee_hash)
+    if callee.kind not in {"function", "operation"} or not isinstance(callee.payload, Mapping):
+        raise SemanticObjectError("callee must be a function or operation declaration")
+    rows = [
+        row for row in callee.payload.get("references", ())
+        if row.get("relation") == "provides_contract"
+    ]
+    if len(rows) != 1:
+        raise SemanticObjectError(
+            "callable target must declare exactly one provides_contract reference"
+        )
+    contract_hash = _require_string(rows[0].get("target_hash"), "provided contract hash")
+    contract = store.get(contract_hash)
+    if contract.kind != "contract":
+        raise SemanticObjectError("provided contract reference must target a contract")
+    return contract_hash
+
+
 def validate_declaration(declaration: Mapping[str, Any]) -> dict[str, Any]:
     """Validate and detach one canonical declaration envelope."""
     if not isinstance(declaration, Mapping):
@@ -319,10 +355,11 @@ def validate_declaration(declaration: Mapping[str, Any]) -> dict[str, Any]:
         seen_target_ids: set[str] = set()
         normalized_targets = []
         for target in targets:
-            if not isinstance(target, Mapping) or set(target) != {"target_id", "target_hash", "condition"}:
-                raise SemanticObjectError("call target must contain target_id, target_hash, condition")
+            if not isinstance(target, Mapping) or set(target) != {"target_id", "target_hash", "condition", "required_contract_hash"}:
+                raise SemanticObjectError("call target must contain target_id, target_hash, condition, required_contract_hash")
             target_id = _require_string(target["target_id"], "target_id")
             target_hash = _require_string(target["target_hash"], "target_hash")
+            required_contract_hash = _require_string(target["required_contract_hash"], "required_contract_hash")
             if "/" in target_id:
                 raise SemanticObjectError("target_id cannot contain '/' because it delimits call-target edge identity")
             if target_id in seen_target_ids:
@@ -331,6 +368,7 @@ def validate_declaration(declaration: Mapping[str, Any]) -> dict[str, Any]:
             normalized_targets.append({
                 "target_id": target_id, "target_hash": target_hash,
                 "condition": _validate_condition(target["condition"], "condition"),
+                "required_contract_hash": required_contract_hash,
             })
         normalized_sites.append({
             "call_site_id": site_id,
@@ -364,9 +402,14 @@ def publish_declaration(store: ContentStore, declaration: Mapping[str, Any]) -> 
             target = store.get(target_row["target_hash"])
             if target.kind not in {"function", "operation"}:
                 raise SemanticObjectError("call target must be a function or operation")
+            required_contract = store.get(target_row["required_contract_hash"])
+            if required_contract.kind != "contract":
+                raise SemanticObjectError("call-site requirement must reference a contract")
+            _provided_contract_hash(store, target_row["target_hash"])
+            edge_id = f"{site['call_site_id']}/{target_row['target_id']}"
+            dependencies.append(Dependency("calls", target_row["target_hash"], edge_id))
             dependencies.append(Dependency(
-                "calls", target_row["target_hash"],
-                f"{site['call_site_id']}/{target_row['target_id']}",
+                "requires_contract", target_row["required_contract_hash"], edge_id + "/required-contract",
             ))
     return store.put(normalized["kind"], normalized, dependencies)
 
@@ -389,11 +432,19 @@ def build_dependency_index(store: ContentStore, source_hashes: Iterable[str] | N
         for site in declaration["call_sites"]:
             for target_row in site["targets"]:
                 target = store.get(target_row["target_hash"])
+                required_contract = store.get(target_row["required_contract_hash"])
+                if required_contract.kind != "contract":
+                    raise SemanticObjectError("call-site requirement must target a contract")
+                provided_contract_hash = _provided_contract_hash(store, target_row["target_hash"])
+                edge_id = f"{site['call_site_id']}/{target_row['target_id']}"
                 edges.append(IndexedEdge(
-                    source_hash,
-                    f"{site['call_site_id']}/{target_row['target_id']}",
-                    "calls", target_row["target_hash"], target.kind,
-                    target_row["condition"],
+                    source_hash, edge_id, "calls", target_row["target_hash"], target.kind,
+                    target_row["condition"], target_row["required_contract_hash"],
+                    provided_contract_hash,
+                ))
+                edges.append(IndexedEdge(
+                    source_hash, edge_id + "/required-contract", "requires_contract",
+                    target_row["required_contract_hash"], "contract",
                 ))
     return DependencyIndex(SCHEMA_VERSION, tuple(sorted(edges)))
 

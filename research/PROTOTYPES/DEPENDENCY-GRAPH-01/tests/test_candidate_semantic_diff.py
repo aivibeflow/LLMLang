@@ -22,13 +22,14 @@ def declaration(kind, declaration_id, content=None, call_sites=None, references=
     }
 
 
-def site(target_hash):
+def site(target_hash, required_contract_hash):
     return [{
         "call_site_id": "call:tax",
         "targets": [{
             "target_id": "direct",
             "target_hash": target_hash,
             "condition": None,
+            "required_contract_hash": required_contract_hash,
         }],
     }]
 
@@ -44,19 +45,26 @@ def rewrite_action(value_hash):
 class CandidateSemanticDiffTests(unittest.TestCase):
     def setUp(self):
         self.store = ContentStore()
+        self.contract_hash = publish_declaration(
+            self.store, declaration("contract", "contract:tax", {"name": "TaxContract"})
+        )
+        provided = [{"reference_id": "provided-contract", "relation": "provides_contract",
+                     "target_hash": self.contract_hash, "target_kind": "contract"}]
         self.old_callee = publish_declaration(
-            self.store, declaration("function", "tax:v1", {"rule": "old"})
+            self.store, declaration("function", "tax:v1", {"rule": "old"},
+                                    references=provided)
         )
         self.new_callee = publish_declaration(
-            self.store, declaration("function", "tax:v2", {"rule": "new"})
+            self.store, declaration("function", "tax:v2", {"rule": "new"},
+                                    references=provided)
         )
         self.old_caller = publish_declaration(
             self.store, declaration("function", "invoice:v1", {"body": "old"},
-                                    call_sites=site(self.old_callee))
+                                    call_sites=site(self.old_callee, self.contract_hash))
         )
         self.new_caller = publish_declaration(
             self.store, declaration("function", "invoice:v2", {"body": "new"},
-                                    call_sites=site(self.new_callee))
+                                    call_sites=site(self.new_callee, self.contract_hash))
         )
 
     def plan(self, baseline, candidate, actions=(), decisions=()):
@@ -75,7 +83,9 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             "call_site_decisions": [
                 (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
                  d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
-                 d.rationale, d.decision_evidence_id)
+                 d.rationale, d.decision_evidence_id, d.required_contract_hash,
+                 d.base_callee_contract_hash, d.selected_callee_contract_hash,
+                 d.compatibility_status)
                 for d in decisions
             ],
         }
@@ -90,7 +100,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
     def test_changed_selection_requires_exact_hash_action_coverage(self):
         revised = publish_declaration(
             self.store, declaration("function", "invoice:v1.1", {"body": "revised"},
-                                    call_sites=site(self.old_callee))
+                                    call_sites=site(self.old_callee, self.contract_hash))
         )
         baseline = make_snapshot({"invoice": self.old_caller, "tax": self.old_callee})
         candidate = make_snapshot({"invoice": revised, "tax": self.old_callee})
@@ -133,6 +143,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.MIGRATE, self.new_callee, self.new_caller,
             "new tax contract", "evidence:compatibility",
+            self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
         )
         plan = self.plan(
             baseline, candidate,
@@ -153,6 +164,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.PRESERVE, self.old_callee, self.old_caller,
             "retain legacy caller behavior", "evidence:preservation",
+            self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
         )
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
@@ -196,6 +208,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.MIGRATE, self.old_callee, self.new_caller,
             "wrong target", "evidence:compatibility",
+            self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
         )
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
@@ -218,6 +231,28 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         self.assertTrue(any("non-string" in error or "materialization check failed" in error
                             for error in result.errors))
 
+    def test_call_site_required_contract_change_is_visible_and_rejected(self):
+        alternate_contract = publish_declaration(
+            self.store, declaration("contract", "contract:tax-alternate", {"name": "Alternate"})
+        )
+        changed_requirement = publish_declaration(
+            self.store, declaration(
+                "function", "invoice:changed-requirement", {"body": "same"},
+                call_sites=site(self.old_callee, alternate_contract),
+            )
+        )
+        baseline = make_snapshot({"invoice": self.old_caller, "tax": self.old_callee})
+        candidate = make_snapshot({"invoice": changed_requirement, "tax": self.old_callee})
+        result = audit_candidate_semantic_diff(
+            self.store, baseline, candidate,
+            self.plan(baseline, candidate, actions=(action(self.old_caller),)),
+        )
+        self.assertFalse(result.valid)
+        self.assertTrue(any("required-contract change" in error for error in result.errors))
+        edge = next(row for row in result.edge_changes if row.edge_kind == "call")
+        self.assertEqual(edge.baseline_required_contract_hash, self.contract_hash)
+        self.assertEqual(edge.candidate_required_contract_hash, alternate_contract)
+
     def test_typed_reference_change_is_rejected(self):
         contract = publish_declaration(
             self.store, declaration("contract", "contract:invoice")
@@ -225,7 +260,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         old = publish_declaration(
             self.store, declaration(
                 "function", "invoice:ref-old", {"body": "same"},
-                call_sites=site(self.old_callee),
+                call_sites=site(self.old_callee, self.contract_hash),
             )
         )
         new = publish_declaration(
@@ -238,7 +273,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                     "target_kind": "contract",
                     "condition": None,
                 }],
-                call_sites=site(self.old_callee),
+                call_sites=site(self.old_callee, self.contract_hash),
             )
         )
         baseline = make_snapshot({"invoice": old, "tax": self.old_callee})

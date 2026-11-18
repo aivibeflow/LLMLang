@@ -18,17 +18,20 @@ For each planned call-site decision it checks:
 2. The original caller and callee are selected by the baseline Snapshot.
 3. The selected callee and resulting caller are selected by the candidate Snapshot.
 4. The stored caller and callee hashes recompute from their canonical semantic-value envelope.
-5. The candidate caller declaration contains the exact call-site and target IDs.
-6. The target at that call site points to the exact selected callee hash.
-7. `PRESERVE` retains the exact original callee hash at that call site; the caller may still receive a new version because of other planned changes.
-8. `MIGRATE`, `ADAPT`, and `FORK` materialize a new caller version.
-9. An unresolved decision cannot validate a candidate.
+5. The baseline caller declaration contains the exact call-site and target IDs and the decision preserves that site's exact required Contract hash.
+6. The baseline callee provides the exact contract hash recorded in the decision.
+7. The candidate caller declaration retains the same required Contract hash at that call site.
+8. The target at that call site points to the exact selected callee hash, whose provided Contract hash matches the decision.
+9. `PRESERVE` retains the exact original callee and its provided Contract hash at that call site; the caller may still receive a new version because of other planned changes.
+10. `MIGRATE`, `ADAPT`, and `FORK` materialize a new caller version.
+11. Resolved decisions carry `PROVEN` compatibility status and an evidence ID; this validator checks the recorded bindings but does not authenticate or prove the evidence.
+12. An unresolved decision cannot validate a candidate.
 
 The check accumulates deterministic diagnostics and fails closed. It verifies the decision against the actual baseline call-site/target as well as the candidate reference. The focused tests cover successful migration, adapt/fork dispositions, wrong baseline/candidate target bindings, callee absent from candidate selection, preservation across caller re-versioning, unresolved decisions, and candidate-root mismatch. The last confirmed CI run passed all 57 tests and module compilation; the subsequent preserve-semantics refinement and added adapt/fork test still require a fresh confirmed run. The semantic dependency CI workflow now runs these tests and compiles the new module.
 
 ## Scope and limitations
 
-This is a materialized-reference consistency check for the current explicit declaration subset. It does **not** prove behavioral compatibility, prove that an adapter or fork implements its rationale, validate contract propagation, discover omitted or dynamic call sites, establish global dependency completeness, or authorize a commit. A valid result means only that the supplied decisions agree with the exact stored objects and explicit references in the supplied candidate Snapshot.
+This is a materialized-reference and contract-binding consistency check for the current explicit declaration subset. It does **not** prove behavioral compatibility, authenticate or independently validate compatibility evidence, prove that an adapter or fork implements its rationale, validate upward contract propagation, discover omitted or dynamic call sites, establish global dependency completeness, or authorize a commit. A valid result means only that the supplied decisions agree with the exact stored objects and explicit references in the supplied candidate Snapshot.
 
 This validator also assumes one resulting caller version per base caller hash across its decisions. It does not yet represent a single shared caller being forked into multiple context-specific versions for distinct upstream consumers. That requires an explicit consumer/path identity in the plan model; the existing shared-caller examples use distinct caller objects and do not prove this harder split case.
 

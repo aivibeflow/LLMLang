@@ -226,7 +226,7 @@ class ImpactPlanningTests(unittest.TestCase):
         from src.impact_planning import IncomingCallSite
         audit = audit_snapshot_incoming(result)
         audit = audit.__class__(**{**audit.__dict__, "incoming_call_sites": (
-            IncomingCallSite("caller-A", "call:tax", "direct", "callee-v1"),
+            IncomingCallSite("caller-A", "call:tax", "direct", "callee-v1", required_contract_hash="req-contract-v1", provided_contract_hash="provided-contract-v1"),
         )})
         artifact = ImpactedArtifact("callee-v1", "implementation", "callee changed")
         plan = plan_impact("base", "candidate", "policy", [artifact], [audit])
@@ -235,6 +235,7 @@ class ImpactPlanningTests(unittest.TestCase):
             "caller-A", "call:tax", "direct", "callee-v1",
             CallSiteDisposition.MIGRATE, "callee-v2", "caller-A-v2",
             "caller contract requires new semantics", "compat-audit-001",
+            "req-contract-v1", "provided-contract-v1", "provided-contract-v2", "PROVEN",
         )
         plan = plan_impact("base", "candidate", "policy", [artifact], [audit],
                            call_site_decisions=[decision])
@@ -253,17 +254,19 @@ class ImpactPlanningTests(unittest.TestCase):
         )
         audit = audit_snapshot_incoming(result)
         audit = audit.__class__(**{**audit.__dict__, "incoming_call_sites": (
-            IncomingCallSite("consumer-old", "call:shared", "direct", "shared-caller-v1"),
-            IncomingCallSite("consumer-new", "call:shared", "direct", "shared-caller-v1"),
+            IncomingCallSite("consumer-old", "call:shared", "direct", "shared-caller-v1", required_contract_hash="req-old", provided_contract_hash="provided-old"),
+            IncomingCallSite("consumer-new", "call:shared", "direct", "shared-caller-v1", required_contract_hash="req-new", provided_contract_hash="provided-old"),
         )})
         artifact = ImpactedArtifact("shared-caller-v1", "implementation", "callee contract split")
         decisions = [
             CallSiteDecision("consumer-old", "call:shared", "direct", "shared-caller-v1",
                 CallSiteDisposition.PRESERVE, "shared-caller-v1", "consumer-old",
-                "consumer contract requires legacy behavior", "compat-old"),
+                "consumer contract requires legacy behavior", "compat-old",
+                "req-old", "provided-old", "provided-old", "PROVEN"),
             CallSiteDecision("consumer-new", "call:shared", "direct", "shared-caller-v1",
                 CallSiteDisposition.MIGRATE, "shared-caller-v2", "consumer-new-v2",
-                "consumer contract accepts new behavior", "compat-new"),
+                "consumer contract accepts new behavior", "compat-new",
+                "req-new", "provided-old", "provided-new", "PROVEN"),
         ]
         plan = plan_impact("base", "candidate", "policy", [artifact], [audit],
                            call_site_decisions=decisions)
@@ -283,19 +286,61 @@ class ImpactPlanningTests(unittest.TestCase):
         )
         audit = audit_snapshot_incoming(result)
         audit = audit.__class__(**{**audit.__dict__, "incoming_call_sites": (
-            IncomingCallSite("caller", "site", "target", "callee-v1"),
+            IncomingCallSite("caller", "site", "target", "callee-v1", required_contract_hash="req-contract", provided_contract_hash="provided-contract"),
         )})
         artifact = ImpactedArtifact("callee-v1", "implementation", "changed")
         wrong = CallSiteDecision("caller", "site", "target", "other-callee",
-            CallSiteDisposition.PRESERVE, "other-callee", "caller", "preserve", "evidence")
+            CallSiteDisposition.PRESERVE, "other-callee", "caller", "preserve", "evidence",
+            "req-contract", "provided-contract", "provided-contract", "PROVEN")
         with self.assertRaises(PlanningError):
             plan_impact("base", "candidate", "policy", [artifact], [audit],
                         call_site_decisions=[wrong])
         missing_evidence = CallSiteDecision("caller", "site", "target", "callee-v1",
-            CallSiteDisposition.PRESERVE, "callee-v1", "caller", "preserve", None)
+            CallSiteDisposition.PRESERVE, "callee-v1", "caller", "preserve", None,
+            "req-contract", "provided-contract", "provided-contract", "PROVEN")
         with self.assertRaises(PlanningError):
             plan_impact("base", "candidate", "policy", [artifact], [audit],
                         call_site_decisions=[missing_evidence])
+
+    def test_decision_must_keep_contract_binding_and_proven_compatibility(self):
+        from src.impact_planning import IncomingCallSite
+        result = SnapshotIncomingResult(
+            snapshot_root="base", target_hash="callee-v1", scope="scope", edges=(),
+            edge_set_digest="digest", index_schema_version=2,
+            extractor_id="semantic-dependency-extractor/2",
+            completeness_status=CompletenessStatus.SUPPORTED_WITHIN_SCOPE,
+            reason="supported", evidence_id="audit", discrepancies=(),
+        )
+        audit = audit_snapshot_incoming(result)
+        audit = audit.__class__(**{**audit.__dict__, "incoming_call_sites": (
+            IncomingCallSite("caller", "site", "target", "callee-v1",
+                required_contract_hash="required-v1", provided_contract_hash="provided-v1"),
+        )})
+        artifact = ImpactedArtifact("callee-v1", "implementation", "changed")
+
+        wrong_requirement = CallSiteDecision(
+            "caller", "site", "target", "callee-v1", CallSiteDisposition.MIGRATE,
+            "callee-v2", "caller-v2", "migrate", "evidence",
+            "required-v2", "provided-v1", "provided-v2", "PROVEN")
+        with self.assertRaises(PlanningError):
+            plan_impact("base", "candidate", "policy", [artifact], [audit],
+                        call_site_decisions=[wrong_requirement])
+
+        unproven = CallSiteDecision(
+            "caller", "site", "target", "callee-v1", CallSiteDisposition.MIGRATE,
+            "callee-v2", "caller-v2", "migrate", "evidence",
+            "required-v1", "provided-v1", "provided-v2", "UNKNOWN")
+        with self.assertRaises(PlanningError):
+            plan_impact("base", "candidate", "policy", [artifact], [audit],
+                        call_site_decisions=[unproven])
+
+        preserve_changed_contract = CallSiteDecision(
+            "caller", "site", "target", "callee-v1", CallSiteDisposition.PRESERVE,
+            "callee-v1", "caller", "preserve", "evidence",
+            "required-v1", "provided-v1", "provided-v2", "PROVEN")
+        with self.assertRaises(PlanningError):
+            plan_impact("base", "candidate", "policy", [artifact], [audit],
+                        call_site_decisions=[preserve_changed_contract])
 
     def test_duplicate_audits_are_rejected(self):
         artifact = ImpactedArtifact("clause", "formal_clause", "changed")

@@ -8,7 +8,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .impact_planning import CallSiteDisposition, ImpactPlan
-from .semantic_dependency_index import SemanticObjectError, validate_declaration
+from .semantic_dependency_index import SemanticObjectError, _provided_contract_hash, validate_declaration
 from .semantic_graph import ContentStore, Snapshot, digest
 
 
@@ -109,6 +109,12 @@ def validate_candidate_call_site_decisions(
             if base_target["target_hash"] != decision.base_callee_hash:
                 errors.append(f"{prefix}: base caller does not reference the decision's exact base callee")
                 continue
+            if base_target["required_contract_hash"] != decision.required_contract_hash:
+                errors.append(f"{prefix}: base call site does not preserve the decision's exact required contract")
+                continue
+            if _provided_contract_hash(store, decision.base_callee_hash) != decision.base_callee_contract_hash:
+                errors.append(f"{prefix}: decision does not bind the base callee's exact provided contract")
+                continue
         except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
             errors.append(f"{prefix}: baseline caller validation failed: {exc}")
             continue
@@ -122,8 +128,10 @@ def validate_candidate_call_site_decisions(
         if decision.resulting_caller_hash not in candidate_hashes:
             errors.append(f"{prefix}: resulting caller is not selected by candidate Snapshot")
             continue
-        if not decision.decision_evidence_id or not decision.rationale:
-            errors.append(f"{prefix}: resolved decision lacks rationale or evidence identity")
+        if (not decision.decision_evidence_id or not decision.rationale
+                or decision.compatibility_status != "PROVEN"
+                or not decision.selected_callee_contract_hash):
+            errors.append(f"{prefix}: resolved decision lacks PROVEN compatibility, contract binding, rationale, or evidence identity")
 
         previous = resulting_callers.setdefault(
             decision.caller_hash, decision.resulting_caller_hash
@@ -136,6 +144,9 @@ def validate_candidate_call_site_decisions(
         if (decision.disposition is CallSiteDisposition.PRESERVE
                 and decision.selected_callee_hash != decision.base_callee_hash):
             errors.append(f"{prefix}: PRESERVE changed the exact callee hash")
+        if (decision.disposition is CallSiteDisposition.PRESERVE
+                and decision.selected_callee_contract_hash != decision.base_callee_contract_hash):
+            errors.append(f"{prefix}: PRESERVE changed the exact callee-provided contract hash")
         if (decision.disposition in {
                 CallSiteDisposition.MIGRATE, CallSiteDisposition.ADAPT,
                 CallSiteDisposition.FORK,
@@ -169,9 +180,13 @@ def validate_candidate_call_site_decisions(
                     f"{prefix}: candidate call target points to {target['target_hash']}, "
                     f"not selected callee {decision.selected_callee_hash}"
                 )
+            if target["required_contract_hash"] != decision.required_contract_hash:
+                errors.append(f"{prefix}: candidate call site changed its exact required contract")
             callee_value = store.get(decision.selected_callee_hash)
             if callee_value.kind not in {"function", "operation"}:
                 errors.append(f"{prefix}: selected call target is not a function or operation")
+            elif _provided_contract_hash(store, decision.selected_callee_hash) != decision.selected_callee_contract_hash:
+                errors.append(f"{prefix}: selected callee does not provide the contract bound by the decision")
         except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
             errors.append(f"{prefix}: candidate object validation failed: {exc}")
 

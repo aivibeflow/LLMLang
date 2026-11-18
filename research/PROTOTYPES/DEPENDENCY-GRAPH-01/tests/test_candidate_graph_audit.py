@@ -40,7 +40,7 @@ class CandidateGraphAuditTests(unittest.TestCase):
                 "function", "function:tax",
                 references=[{
                     "reference_id": "tax-contract",
-                    "relation": "uses_contract",
+                    "relation": "provides_contract",
                     "target_hash": self.contract_hash,
                     "target_kind": "contract",
                     "condition": None,
@@ -62,6 +62,30 @@ class CandidateGraphAuditTests(unittest.TestCase):
         self.assertNotIn(self.unrelated_hash, result.reachable_hashes)
         self.assertEqual(len(result.dependency_index.edges), 2)
         self.assertEqual(result.dependency_index.snapshot_root, snapshot.root_hash)
+
+    def test_audits_required_and_provided_contract_edges_from_call_site(self):
+        caller_hash = publish_declaration(
+            self.store,
+            declaration("function", "function:caller", call_sites=[{
+                "call_site_id": "call:tax",
+                "targets": [{
+                    "target_id": "direct",
+                    "target_hash": self.function_hash,
+                    "condition": None,
+                    "required_contract_hash": self.contract_hash,
+                }],
+            }]),
+        )
+        snapshot = make_snapshot({"caller": caller_hash})
+        result = audit_candidate_snapshot_graph(self.store, snapshot)
+        self.assertTrue(result.valid, result.errors)
+        call_edge = next(edge for edge in result.dependency_index.edges
+                         if edge.relation == "calls")
+        self.assertEqual(call_edge.required_contract_hash, self.contract_hash)
+        self.assertEqual(call_edge.provided_contract_hash, self.contract_hash)
+        self.assertTrue(any(edge.relation == "requires_contract"
+                            and edge.target_hash == self.contract_hash
+                            for edge in result.dependency_index.edges))
 
     def test_detects_payload_dependency_missing_from_store_metadata(self):
         broken_hash = self.store.put(
