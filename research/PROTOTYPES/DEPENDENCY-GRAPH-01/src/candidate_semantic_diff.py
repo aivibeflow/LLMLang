@@ -398,10 +398,16 @@ def audit_candidate_semantic_diff(
                                         edge_id, old_row, new_row)
             ]
             if len(matches) != 1:
-                errors.append(
-                    f"{change.logical_key}:{edge_id}: observed {edge_kind} delta "
-                    "must match exactly one typed CIP edge-change record"
-                )
+                if edge_kind == "reference":
+                    errors.append(
+                        f"{change.logical_key}:{edge_id}: typed-reference change "
+                        "must match exactly one typed CIP edge-change record"
+                    )
+                else:
+                    errors.append(
+                        f"{change.logical_key}:{edge_id}: observed {edge_kind} delta "
+                        "must match exactly one typed CIP edge-change record"
+                    )
             else:
                 observed_edge_keys.add(matches[0])
             if (edge_kind == "call" and old_row is not None and new_row is not None
@@ -417,7 +423,13 @@ def audit_candidate_semantic_diff(
                     and decision.consumer_path_id == (output.consumer_path_id if output else "")
                 ]
                 if len(decisions_for_output) != 1:
-                    errors.append(f"{change.logical_key}:{edge_id}: changed call target has no unique exact CIP decision for this output")
+                    if old_required != new_required:
+                        errors.append(
+                            f"{change.logical_key}:{edge_id}: call-site required-contract change "
+                            "lacks an exact path-bound PROVEN compatibility decision"
+                        )
+                    else:
+                        errors.append(f"{change.logical_key}:{edge_id}: changed call target has no unique exact CIP decision for this output")
                     continue
                 decision = decisions_for_output[0]
                 if decision.base_callee_hash != old_target:
