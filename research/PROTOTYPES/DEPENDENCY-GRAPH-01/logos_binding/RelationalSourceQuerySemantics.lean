@@ -150,7 +150,7 @@ def evalCanonicalQuery {s : LogosBinding.QuerySort}
   evalCanonicalQuerySigma ⟨s, term⟩ env
 
 /-- The two sort maps are inverse on source sorts. -/
-def querySortRoundTrip (s : ExprSort) :
+abbrev querySortRoundTrip (s : ExprSort) :
     querySortToExprSort (querySortOf s) = s := by
   cases s <;> rfl
 
@@ -169,11 +169,19 @@ theorem translateRelationalExpr_correct
     (e : Expr s) (queryEnv : SourceQuerySemantics.Env) :
     evalCanonicalQuerySigma ⟨querySortOf s, translateRelationalExpr side factor e⟩ queryEnv =
       castSourceValue (evalExpr e (sideEnvironment queryEnv side factor)) := by
-  induction e using Expr.rec <;>
-    simp [translateRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
-      evalExpr, sideEnvironment, relationalSymbol, querySortOf,
-      querySortToExprSort, castSourceValue, querySortRoundTrip,
-      asInt, asBool, *]
+  cases s with
+  | int =>
+      induction e using Expr.rec <;>
+        simp [translateRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
+          evalExpr, sideEnvironment, relationalSymbol, querySortOf,
+          querySortToExprSort, castSourceValue, querySortRoundTrip,
+          asInt, asBool, *]
+  | bool =>
+      induction e using Expr.rec <;>
+        simp [translateRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
+          evalExpr, sideEnvironment, relationalSymbol, querySortOf,
+          querySortToExprSort, castSourceValue, querySortRoundTrip,
+          asInt, asBool, *]
 
 /-- Every non-selected input is represented by exactly the same symbol on both sides. -/
 theorem nonFactorInputsAreShared
