@@ -84,25 +84,30 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
             if not isinstance(arg, dict) or set(arg) != {"condition", "then", "else"}:
                 raise ValueError(f"invalid if at {path}")
             condition = arg["condition"]
-            if isinstance(condition, dict) and set(condition) == {"literal"} and type(condition["literal"]) is bool:
-                branches = ((condition["literal"],),)
-            else:
-                branches = ((True,), (False,))
+            condition_states = walk(condition, state, f"{path}.condition")
+            literal_bool = (
+                isinstance(condition, dict) and set(condition) == {"literal"}
+                and type(condition["literal"]) is bool
+            )
             outcomes: list[_State] = []
-            for (choice,) in branches:
-                chosen = arg["then"] if choice else arg["else"]
-                selected = _State(state.active, state.choices + ((path, choice),),
-                                  state.events, state.terminal, None,
-                                  state.cleanup_errors, state.leaked)
-                after_condition = walk(condition, selected, f"{path}.condition") if not (
-                    isinstance(condition, dict) and set(condition) == {"literal"}
-                ) else [selected]
-                for condition_state in after_condition:
-                    if condition_state.terminal == "cancelled":
-                        outcomes.append(condition_state)
-                    else:
-                        outcomes.extend(walk(chosen, condition_state,
-                                             f"{path}.{'then' if choice else 'else'}"))
+            for condition_state in condition_states:
+                if condition_state.terminal == "cancelled":
+                    outcomes.append(condition_state)
+                    continue
+                choices = ((condition["literal"],),) if literal_bool else ((True,), (False,))
+                for (choice,) in choices:
+                    selected = _State(
+                        condition_state.active,
+                        condition_state.choices + ((path, choice),),
+                        condition_state.events,
+                        condition_state.terminal,
+                        None,
+                        condition_state.cleanup_errors,
+                        condition_state.leaked,
+                    )
+                    chosen = arg["then"] if choice else arg["else"]
+                    outcomes.extend(walk(chosen, selected,
+                                         f"{path}.{'then' if choice else 'else'}"))
             return outcomes
         if op == "with_resource":
             required = {"id", "value", "body"}
