@@ -1,6 +1,6 @@
 # RT-20 — Candidate call-site validation
 
-**Status:** Narrow prototype implemented; CI pending.  
+**Status:** Narrow prototype implemented; focused CI passed (57 tests).  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
 
@@ -24,7 +24,7 @@ For each planned call-site decision it checks:
 8. `MIGRATE`, `ADAPT`, and `FORK` materialize a new caller version.
 9. An unresolved decision cannot validate a candidate.
 
-The check accumulates deterministic diagnostics and fails closed. The focused tests cover successful migration, wrong target hash, callee absent from candidate selection, preservation, unresolved decisions, and candidate-root mismatch. The semantic dependency CI workflow now runs these tests and compiles the new module.
+The check accumulates deterministic diagnostics and fails closed. It verifies the decision against the actual baseline call-site/target as well as the candidate reference. The focused tests cover successful migration, wrong baseline/candidate target bindings, callee absent from candidate selection, preservation, unresolved decisions, and candidate-root mismatch. The semantic dependency workflow passed all 57 tests and module compilation. The semantic dependency CI workflow now runs these tests and compiles the new module.
 
 ## Scope and limitations
 
