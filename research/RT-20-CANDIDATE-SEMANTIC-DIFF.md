@@ -1,6 +1,6 @@
 # RT-20 — Candidate semantic diff and CIP enforcement
 
-**Status:** Extended narrow prototype implemented; PR #17 validation pending.  
+**Status:** Extended narrow prototype implemented; PR #17 merged; 83 semantic-dependency tests and compilation, repository-structure checks, and strict QF_LIA checks passed on the merge commit.  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)  
 **Related gates:** [Candidate call-site validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md), [Candidate graph audit](RT-20-CANDIDATE-GRAPH-AUDIT.md)
