@@ -22,7 +22,7 @@ Both profiles compute transitive effect summaries over the supplied call graph. 
 
 ## 3. Executed tests
 
-35 unit tests cover primitive signatures, closed/open effects, positive/negative/unknown refinement, transitive effect propagation, explicit and ambient capabilities, duplicate/unknown resource consumption, branch-consistent and branch-inconsistent joins, branch-local double consumption, loop re-consumption, malformed CFG references, transitive effect-bound acceptance/rejection, incomplete call-graph UNKNOWN results, definite violations despite incomplete graphs, typed call arity/argument/result checks, unknown signatures, structural Result types, unknown callees/effects, and malformed input.
+36 unit tests cover primitive signatures, closed/open effects, positive/negative/unknown refinement, transitive effect propagation, explicit and ambient capabilities, duplicate/unknown resource consumption, branch-consistent and branch-inconsistent joins, branch-local double consumption, loop re-consumption, malformed CFG references, transitive effect-bound acceptance/rejection, incomplete call-graph UNKNOWN results, definite violations despite incomplete graphs, typed call arity/argument/result checks, unknown signatures, structural Result types, unknown callees/effects, and malformed input.
 
 The CI workflow runs:
 
