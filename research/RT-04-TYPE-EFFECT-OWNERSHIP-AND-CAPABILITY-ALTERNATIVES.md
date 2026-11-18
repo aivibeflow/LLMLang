@@ -321,9 +321,13 @@ Confidence:
 - **Medium:** effect rows/handlers, affine ownership, and explicit capabilities are worth prototyping; integration costs and fit remain unvalidated.
 - **Low:** any final ranking of type/effect/ownership/capability/concurrency vectors; no comparative executable corpus has run.
 
-## 14. Next steps and exit criteria
+## 14. First executable evidence and remaining exit criteria
 
-1. Build TYP/EFF/OWN/CAP/CON/HASH scenario fixtures with explicit observations and oracles.
+[RT-04 Prototype 01](PROTOTYPES/RT-04-01/README.md) now compares two deliberately limited declaration-level checker vectors. Its [results](RT-04-PROTOTYPE-01-RESULTS.md) and [scenario matrix](RT-04-PROTOTYPE-01-SCENARIOS.md) record 12 focused unit tests: primitive/closed effects, open effect rows, positive/negative/unknown refinement, transitive effect summaries, ambient versus propagated capabilities, affine duplicate consumption, unknown resources/callees/effects, and malformed input. The prototype is not a compiler, source semantics, complete dependency analysis, runtime authorization mechanism, or architecture decision. Its fixed-point summaries assume the supplied call graph is complete.
+
+Remaining exit criteria:
+
+1. Add branch-sensitive resource-state dataflow and join-point consistency.
 2. Select at least two cross-aspect candidate combinations derived from RT-03 profiles, not merely variants with hidden shared assumptions.
 3. Implement small checker/reference models for type/effect propagation and resource/capability transitions.
 4. Test direct/transitive effects through ordinary/generic calls, dynamic dispatch, handlers, and FFI.
