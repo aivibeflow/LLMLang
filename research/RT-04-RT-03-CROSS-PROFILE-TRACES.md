@@ -90,6 +90,12 @@ A completed evaluation returns the ordered event sequence, result value, final f
 
 The tests also cover Profile A rejection of effects, undeclared-effect rejection in D, explicit result errors, file reads and missing-file errors, state read/write order, deterministic network fixture responses, unsupported handlers, malformed expressions, and non-mutation of caller-supplied initial fixtures.
 
+### Explicit Result propagation extension
+
+The executable evaluators now include an explicit `result_sequence` form. It evaluates Result-shaped expressions left-to-right, returns the first `error` unchanged, and does not evaluate later expressions after that error. If all items are `ok`, it returns the final `ok` value. A non-Result-shaped item is rejected. This is an explicit construct in the prototype; ordinary `sequence` retains its prior strict behavior and does not implicitly propagate errors.
+
+This extension does not define exceptions, implicit propagation from arbitrary function calls, error conversion, cancellation semantics, cleanup, or resource finalization. In particular, a Result value whose error payload happens to describe cancellation is still only a Result error; it is not an execution-cancellation event.
+
 ### Deliberate limits
 
 This is an executable reference *slice*, not a complete or selected RT-03 semantics:
