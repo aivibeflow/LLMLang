@@ -45,11 +45,11 @@ The Toolchain API should expose durable opaque handles rather than arbitrary fil
 
 - Repository handle: registered repository identity and configured remote identities.
 - Worktree handle: isolated working tree bound to a repository and immutable base commit.
-- Semantic workspace ID: semantic workspace associated with a repository/worktree baseline.
+- Semantic Change Set ID: proposed semantic graph transition anchored to an explicit immutable snapshot; it does not require a worktree.
 - Change Set ID and Snapshot ID: references to proposed and immutable semantic state.
 - Operation ID: durable handle for a long-running operation.
 
-A worktree record retains repository identity, base commit, branch or detached-HEAD state, owning external scope, associated semantic workspace, creation provenance, lifecycle state, and cleanup status.
+A worktree record retains repository identity, base commit, branch or detached-HEAD state, owning external scope, File View identity/generation, creation provenance, lifecycle state, and cleanup status. Semantic snapshot and interface mapping revision are bound explicitly to operations that need them, not implicitly owned by a worktree.
 
 Paths are private implementation details. A scoped display path may be returned only when required by an explicitly supported filesystem integration; it is never an authorization token.
 
