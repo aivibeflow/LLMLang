@@ -205,6 +205,18 @@ class RT04ModelTests(unittest.TestCase):
         self.assertNotIn("EFFECT_BOUND_EXCEEDED", result.codes())
         self.assertEqual(result.status, "UNKNOWN")
 
+    def test_known_effect_violation_rejects_even_if_graph_is_incomplete(self):
+        p = {
+            "call_graph_complete": ["entry"],
+            "functions": {
+                "entry": {"effects": ["net.send"], "calls": ["unknown"], "effect_bound": []},
+            },
+        }
+        result = check_program(p, "B")
+        self.assertIn("EFFECT_BOUND_EXCEEDED", result.codes())
+        self.assertIn("EFFECT_SUMMARY_UNKNOWN", result.codes())
+        self.assertEqual(result.status, "REJECTED")
+
     def test_completeness_evidence_rejects_unknown_function_names(self):
         p = {"call_graph_complete": ["ghost"], "functions": {"f": {"effect_bound": []}}}
         with self.assertRaises(ModelError):
