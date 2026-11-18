@@ -211,7 +211,7 @@ The work is split into small reviewable tasks. A task is complete only when its 
 - [x] **SCW-12 — Prove canonical input-symbol mapping for expressions.** Existing `translateCanonicalRelationalExpr_correct` covers indexed `i_N`, `i_N_L`, and `i_N_R` naming at expression level.
 - [x] **SCW-13 — Prove selected-factor split and non-selected-input sharing.** Existing left/right binding and `nonFactorInputsAreShared` lemmas establish these symbol-level facts.
 - [x] **SCW-14 — Prove expression-level factor and observation difference formulas.** Existing `factorDifference_correct`, `observationDifference_correct`, and `relationalAssumptions_correct` cover expression results, not whole programs.
-- [ ] **SCW-15 — Remove accidental dependency on the external Logos AST from the semantic proof core.** Introduce or identify a solver-independent query-term language and prove a separate adapter to `LogosBinding.QueryTerm`/`Eo.Term`.
+- [ ] **SCW-15 — Remove accidental dependency on the external Logos AST from the semantic proof core.** Implementation is now present but awaits kernel/CI verification: `RelationalSourceQuerySemantics.lean` imports only `SourceQuerySemantics` and uses its independent `QueryTerm`; `LogosQueryAdapter.lean` separately maps that IR to `LogosBinding.QueryTerm` and states a semantic-preservation theorem. The CI run must pass before this item can be marked complete.
 
 **Outputs:** expression-level theorem suite; canonical symbol map; independent query semantics; a small separately verified Logos adapter.
 
@@ -263,7 +263,7 @@ The work is split into small reviewable tasks. A task is complete only when its 
 
 ### 7.8 Execution order and gates
 
-The immediate next task is **SCW-15**: implement the decoupling specified by the SCW-04 audit. SCW-04 completed the dependency/trust-boundary audit only; the relational proof still depends on Logos until SCW-15 is implemented and kernel-checked. Then proceed through SCW-05–SCW-14 and SCW-16 onward before adding command semantics. Keep later groups blocked until predecessor theorems compile.
+SCW-04 completed the dependency/trust-boundary audit. SCW-15 implementation is present in the prototype, but its Lean build and adapter theorem are not yet CI-verified. Do not proceed to dependent proof tasks until the pinned Lean CI gate passes. Then proceed through SCW-05–SCW-14 and SCW-16 onward before adding command semantics. Keep later groups blocked until predecessor theorems compile.
 
 | Gate | Required tasks | Exit condition |
 |---|---|---|
