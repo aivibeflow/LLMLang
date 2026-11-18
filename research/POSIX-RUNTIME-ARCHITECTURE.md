@@ -447,3 +447,8 @@ Adopt the two-runtime, one-contract architecture as the preferred direction for 
 The Native POSIX Runtime should be treated as one of the first substantial real-world systems projects for validating LLMLang's ability to produce useful, low-level, formally verifiable software.
 
 The portable implementation should not be postponed until that work is complete. Its role is to let application development and language validation proceed immediately, while the native implementation matures.
+
+
+## RT-04 type/effect/ownership dependency
+
+The API contract requirements above are inputs to the comparative [RT-04 type/effect/ownership/capability research](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md). In particular, POSIX resource lifetimes, partial completion, interruption, error outcomes, capabilities, and concurrency/memory ordering are scenario sources for that study. Neither this runtime proposal nor RT-04 selects the final LLMLang type or ownership model.
