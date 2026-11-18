@@ -14,7 +14,7 @@ class PlanningError(ValueError):
     pass
 
 
-CIP_SCHEMA_VERSION = 3
+CIP_SCHEMA_VERSION = 4
 
 
 class CompletenessStatus(str, Enum):
@@ -188,6 +188,7 @@ class PlannedAction:
     prerequisite_hashes: tuple[str, ...] = ()
     action_id: str = ""
     prerequisite_action_ids: tuple[str, ...] = ()
+    subject_kind: str = ""
 
 
 @dataclass(frozen=True)
@@ -207,12 +208,13 @@ class ImpactPlan:
 def impact_plan_payload(plan: ImpactPlan) -> dict:
     return {
         "cip_schema_version": CIP_SCHEMA_VERSION,
+        "action_kind_policy_version": ACTION_KIND_POLICY_VERSION,
         "baseline": plan.baseline_root,
         "candidate": plan.candidate_root,
         "policy": plan.policy_id,
         "actions": [
             (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes,
-             a.action_id, a.prerequisite_action_ids)
+             a.action_id, a.prerequisite_action_ids, a.subject_kind)
             for a in plan.actions
         ],
         "audits": sorted(plan.audit_statuses),
@@ -251,7 +253,42 @@ def planned_action_payload(action: PlannedAction) -> dict:
         # Retained as legacy content prerequisites; never interpreted as action IDs.
         "prerequisite_hashes": action.prerequisite_hashes,
         "prerequisite_action_ids": action.prerequisite_action_ids,
+        "subject_kind": action.subject_kind,
     }
+
+
+ACTION_KIND_POLICY_VERSION = "cip-action-policy/1"
+
+ACTION_KIND_POLICY = {
+    "formal_clause": frozenset({ActionKind.RE_DERIVE}),
+    "caller_contract": frozenset({ActionKind.RE_DERIVE}),
+    "requirement_derived_model": frozenset({ActionKind.RE_DERIVE}),
+    "test_suite": frozenset({ActionKind.REGENERATE_TESTS, ActionKind.RUN_TESTS}),
+    "implementation": frozenset({ActionKind.REBUILD, ActionKind.RUN_TESTS}),
+    "build_artifact": frozenset({ActionKind.REBUILD, ActionKind.RUN_TESTS}),
+    "generated_artifact": frozenset({ActionKind.REBUILD, ActionKind.RUN_TESTS}),
+    "verification_record": frozenset({ActionKind.REPROVE}),
+    "proof": frozenset({ActionKind.REPROVE}),
+    "requirement": frozenset({ActionKind.HUMAN_REVIEW}),
+    "business_rule": frozenset({ActionKind.HUMAN_REVIEW}),
+    "intent": frozenset({ActionKind.HUMAN_REVIEW}),
+    "call_site": frozenset({ActionKind.REWRITE_CALL_SITE}),
+    "candidate": frozenset({ActionKind.HUMAN_REVIEW, ActionKind.FULL_REVALIDATION}),
+}
+
+
+def validate_action_kind_policy(actions: Iterable[PlannedAction]) -> None:
+    for action in actions:
+        allowed = ACTION_KIND_POLICY.get(action.subject_kind)
+        if allowed is None:
+            raise PlanningError(
+                "unsupported planned action subject kind: " + (action.subject_kind or "<empty>")
+            )
+        if action.kind not in allowed:
+            raise PlanningError(
+                "action kind " + action.kind.value + " is not permitted for subject kind "
+                + action.subject_kind + " by " + ACTION_KIND_POLICY_VERSION
+            )
 
 
 def compute_planned_action_id(action: PlannedAction) -> str:
@@ -430,26 +467,26 @@ def audit_snapshot_incoming(result: object) -> CompletenessAudit:
 def _actions_for(artifact: ImpactedArtifact) -> tuple[PlannedAction, ...]:
     h, reason = artifact.artifact_hash, artifact.reason
     if artifact.kind in {"formal_clause", "caller_contract", "requirement_derived_model"}:
-        return (PlannedAction(ActionKind.RE_DERIVE, h, reason),)
+        return (PlannedAction(ActionKind.RE_DERIVE, h, reason, subject_kind=artifact.kind),)
     if artifact.kind == "test_suite":
         return (
-            PlannedAction(ActionKind.REGENERATE_TESTS, h, reason),
-            PlannedAction(ActionKind.RUN_TESTS, h, "execute regenerated/selected tests"),
+            PlannedAction(ActionKind.REGENERATE_TESTS, h, reason, subject_kind=artifact.kind),
+            PlannedAction(ActionKind.RUN_TESTS, h, "execute regenerated/selected tests", subject_kind=artifact.kind),
         )
     if artifact.kind in {"implementation", "build_artifact", "generated_artifact"}:
         return (
-            PlannedAction(ActionKind.REBUILD, h, reason),
-            PlannedAction(ActionKind.RUN_TESTS, h, "execute tests against rebuilt candidate"),
+            PlannedAction(ActionKind.REBUILD, h, reason, subject_kind=artifact.kind),
+            PlannedAction(ActionKind.RUN_TESTS, h, "execute tests against rebuilt candidate", subject_kind=artifact.kind),
         )
     if artifact.kind in {"verification_record", "proof"}:
-        return (PlannedAction(ActionKind.REPROVE, h, reason),)
+        return (PlannedAction(ActionKind.REPROVE, h, reason, subject_kind=artifact.kind),)
     if artifact.kind in {"requirement", "business_rule", "intent"}:
         return (PlannedAction(ActionKind.HUMAN_REVIEW, h,
-                              "confirm meaning, applicability, authority, and unresolved assumptions"),)
+                              "confirm meaning, applicability, authority, and unresolved assumptions", subject_kind=artifact.kind),)
     return (
-        PlannedAction(ActionKind.HUMAN_REVIEW, h, f"unknown artifact kind: {artifact.kind}"),
+        PlannedAction(ActionKind.HUMAN_REVIEW, h, f"unknown artifact kind: {artifact.kind}", subject_kind="candidate"),
         PlannedAction(ActionKind.FULL_REVALIDATION, h,
-                      "artifact policy is not defined; use conservative validation"),
+                      "artifact policy is not defined; use conservative validation", subject_kind="candidate"),
     )
 
 
@@ -689,6 +726,7 @@ def plan_impact(
                         f"to {decision.selected_output_id or decision.selected_callee_hash}; "
                         f"resulting caller {decision.resulting_output_id or decision.resulting_caller_hash}; "
                         f"consumer path {decision.consumer_path_id or 'default'}",
+                        subject_kind="call_site",
                     ))
             normalized_decisions.append(decision)
 
@@ -698,20 +736,24 @@ def plan_impact(
             ActionKind.HUMAN_REVIEW, candidate_root,
             "every discovered call-site edge needs an evidence-backed disposition: "
             + ", ".join(sorted(unresolved_edges)),
+            subject_kind="candidate",
         ))
         actions.add(PlannedAction(
             ActionKind.FULL_REVALIDATION, candidate_root,
             "call-site compatibility decisions are incomplete or unresolved",
+            subject_kind="candidate",
         ))
 
     if unsafe:
         reason = "dependency completeness or call-site decisions are not supported for: " + ", ".join(sorted(unsafe))
-        actions.add(PlannedAction(ActionKind.HUMAN_REVIEW, candidate_root, reason))
+        actions.add(PlannedAction(ActionKind.HUMAN_REVIEW, candidate_root, reason, subject_kind="candidate"))
         actions.add(PlannedAction(
             ActionKind.FULL_REVALIDATION, candidate_root,
             "optimized impact plan is unsafe while dependency completeness is unresolved",
+            subject_kind="candidate",
         ))
 
+    validate_action_kind_policy(actions)
     ordered = tuple(sorted(assign_planned_action_ids(actions), key=lambda a: (
         a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes,
         a.action_id, a.prerequisite_action_ids,

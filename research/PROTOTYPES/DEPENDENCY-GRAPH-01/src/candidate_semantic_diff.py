@@ -15,6 +15,7 @@ from .candidate_validation import validate_candidate_call_site_decisions
 from .impact_planning import (
     ActionKind, CallSiteDisposition, ImpactPlan, OutputOperation,
     PlannedEdgeKind, PlannedEdgeOperation, PlanningError, compute_impact_plan_id,
+    validate_action_kind_policy,
 )
 from .semantic_dependency_index import (
     SemanticObjectError, _provided_contract_hash, validate_declaration,
@@ -141,6 +142,7 @@ def _declaration_edges(store: ContentStore, value_hash: str):
 
 def _plan_identity_matches(plan: ImpactPlan) -> bool:
     try:
+        validate_action_kind_policy(plan.actions)
         return plan.plan_id == compute_impact_plan_id(plan)
     except (PlanningError, AttributeError, TypeError, ValueError):
         return False

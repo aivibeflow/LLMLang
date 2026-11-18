@@ -9,6 +9,7 @@ from src.impact_planning import (
     OutputOperation, PlannedOutput, NonInterferenceCertificate, PlanningError, audit_dependency_completeness,
     audit_snapshot_incoming, compute_planned_action_id, dependency_digest,
     no_action_is_justified, plan_impact, PlannedAction, validate_planned_action_dag,
+    validate_action_kind_policy, ACTION_KIND_POLICY_VERSION,
 )
 
 
@@ -494,6 +495,41 @@ class ImpactPlanningTests(unittest.TestCase):
             ).plan_id,
         )
         validate_planned_action_dag(first.actions)
+
+
+    def test_action_kind_policy_accepts_only_declared_subject_action_pairs(self):
+        accepted = (
+            PlannedAction(ActionKind.RE_DERIVE, "clause", "derive", subject_kind="formal_clause"),
+            PlannedAction(ActionKind.REGENERATE_TESTS, "tests", "generate", subject_kind="test_suite"),
+            PlannedAction(ActionKind.RUN_TESTS, "tests", "run", subject_kind="test_suite"),
+            PlannedAction(ActionKind.REBUILD, "impl", "build", subject_kind="implementation"),
+            PlannedAction(ActionKind.RUN_TESTS, "impl", "test candidate", subject_kind="implementation"),
+            PlannedAction(ActionKind.REPROVE, "proof", "prove", subject_kind="proof"),
+            PlannedAction(ActionKind.HUMAN_REVIEW, "req", "review", subject_kind="requirement"),
+            PlannedAction(ActionKind.REWRITE_CALL_SITE, "caller", "rewrite", subject_kind="call_site"),
+            PlannedAction(ActionKind.FULL_REVALIDATION, "candidate", "fallback", subject_kind="candidate"),
+        )
+        validate_action_kind_policy(accepted)
+        self.assertEqual(ACTION_KIND_POLICY_VERSION, "cip-action-policy/1")
+
+    def test_action_kind_policy_rejects_mismatched_and_unknown_subjects(self):
+        with self.assertRaisesRegex(PlanningError, "not permitted"):
+            validate_action_kind_policy((
+                PlannedAction(ActionKind.REPROVE, "impl", "wrong action", subject_kind="implementation"),
+            ))
+        with self.assertRaisesRegex(PlanningError, "unsupported"):
+            validate_action_kind_policy((
+                PlannedAction(ActionKind.REBUILD, "opaque", "unknown", subject_kind="opaque_kind"),
+            ))
+        with self.assertRaisesRegex(PlanningError, "unsupported"):
+            validate_action_kind_policy((
+                PlannedAction(ActionKind.REBUILD, "opaque", "missing subject kind"),
+            ))
+
+    def test_action_subject_kind_changes_action_and_plan_identity(self):
+        plain = PlannedAction(ActionKind.REBUILD, "impl", "build", subject_kind="implementation")
+        other = replace(plain, subject_kind="generated_artifact")
+        self.assertNotEqual(compute_planned_action_id(plain), compute_planned_action_id(other))
 
 
 if __name__ == "__main__":
