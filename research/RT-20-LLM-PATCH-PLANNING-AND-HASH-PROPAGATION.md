@@ -456,3 +456,24 @@ Boundary: RT-20 does not define Git's repository-level merge algorithm or worktr
 ## RT-24 relationship
 
 RT-20 owns caller-impact completeness and per-call-site decisions; RT-24 consumes its complete CIP as a mandatory gate and must not independently decide that all callers migrate to the newest callee.
+
+
+## 4.3 CIP v2 — exact output slots, edge deltas, and caller forks
+
+The prototype extends the conceptual records in §4.1–4.2 with explicit output and edge records.
+
+A `PlannedOutput` binds:
+- stable `output_id` and candidate logical selection key;
+- `ADD`, `REPLACE`, or `REMOVE` operation;
+- exact base hash for replacement/removal, or optional source hash for a derived/forked output;
+- expected declaration kind and SHA-256 digest of canonical non-edge payload `{declaration_id, content}`;
+- rationale and evidence identity;
+- optional `consumer_path_id` for consumer-specific versions.
+
+A `PlannedEdgeChange` binds one exact typed-reference or call-target edge delta: `ADD`, `REMOVE`, `REWRITE`, or `CONDITION`. It records old/new relation, target hash, condition, and call-site required Contract hash where applicable. Every observed edge delta must match exactly one record; every planned record must be observed.
+
+A `CallSiteDecision` binds the exact base callee, caller-required Contract, base callee-provided Contract, selected callee-provided Contract, candidate required Contract, compatibility status, rationale, and evidence identity. It can carry selected-callee/resulting-caller hashes directly, or refer to `selected_output_id` / `resulting_output_id` slots when those hashes are not known until materialization. The candidate semantic-diff receipt resolves those IDs against the candidate Snapshot and binds the actual Content Hashes to the candidate root.
+
+For a shared caller used by incompatible consumer paths, the CIP may contain multiple output slots derived from the same source caller hash, each with a distinct logical selection key and `consumer_path_id`. Each path receives its own call-site decisions. The tested branching/converging fixture keeps one consumer on the old caller version and migrates another to a new caller version. This is an explicit graph-projection test, not proof of arbitrary runtime path discovery.
+
+The payload digest is a planning constraint, not an object Content Hash, OpHash, ImplHash, or glossary `CCHash`. The schema is a research prototype, not a normative CIP/SPG wire format. Implementation and focused tests are in [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md).
