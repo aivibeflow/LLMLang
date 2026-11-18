@@ -9,7 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Iterable, Mapping
 
-from .semantic_graph import ContentStore, Dependency
+from .semantic_graph import ContentStore, Dependency, Snapshot
 
 
 FORMAT = "llmlang.semantic-object"
@@ -61,6 +61,7 @@ class IndexedEdge:
 class DependencyIndex:
     schema_version: int
     edges: tuple[IndexedEdge, ...]
+    snapshot_root: str | None = None
 
     def outgoing(self, source_hash: str) -> tuple[IndexedEdge, ...]:
         return tuple(edge for edge in self.edges if edge.source_hash == source_hash)
@@ -217,3 +218,16 @@ def build_dependency_index(store: ContentStore, source_hashes: Iterable[str] | N
                     target_row["condition"],
                 ))
     return DependencyIndex(SCHEMA_VERSION, tuple(sorted(edges)))
+
+
+def build_snapshot_dependency_index(store: ContentStore, snapshot: Snapshot) -> DependencyIndex:
+    """Build a dependency projection over only objects selected by one snapshot.
+
+    Historical immutable values remain in the store but are excluded unless selected
+    by this snapshot. This makes incoming() suitable for snapshot-scoped impact planning.
+    """
+    selected_hashes = sorted(set(snapshot.mapping.values()))
+    for value_hash in selected_hashes:
+        store.get(value_hash)  # Fail closed if the snapshot references a missing value.
+    index = build_dependency_index(store, selected_hashes)
+    return DependencyIndex(index.schema_version, index.edges, snapshot.root_hash)

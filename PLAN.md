@@ -250,6 +250,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Synthesize Scenarios 19, 20, 25 and RT-19/20/23 into a candidate Semantic Dependency Index contract; keep it explicitly non-canonical pending SPG schema decisions.
 - [x] Define and implement an executable candidate SPG subset and typed dependency extractor; this is a research prototype, not the canonical language schema.
 - [x] Specify candidate stable call-site identity, conditional target representation, and source/target relation constraints; validate them with focused tests.
+- [x] Add a snapshot-scoped dependency-index projection so RT-20 reverse lookup excludes historical caller versions and remains pinned to one exact Semantic Snapshot.
 - [ ] Reconcile the candidate subset with the canonical SPG schema and formal semantics before normative adoption.
 - [ ] Define semantic dependencies separately from provenance, audit observations, and traceability.
 - [ ] Define hash-relevant dependency edges and dependency closure.

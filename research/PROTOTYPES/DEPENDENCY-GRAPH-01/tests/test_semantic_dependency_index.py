@@ -1,9 +1,9 @@
 import unittest
 
-from src.semantic_graph import ContentStore
+from src.semantic_graph import ContentStore, make_snapshot
 from src.semantic_dependency_index import (
     FORMAT, SCHEMA_VERSION, SemanticObjectError,
-    build_dependency_index, publish_declaration, validate_declaration,
+    build_dependency_index, build_snapshot_dependency_index, publish_declaration, validate_declaration,
 )
 
 
@@ -76,6 +76,41 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         self.assertEqual(len(incoming), 1)
         self.assertEqual(incoming[0].source_hash, caller)
         self.assertEqual(incoming[0].edge_id, "call:one/primary")
+
+    def test_snapshot_scoped_reverse_index_excludes_historical_callers(self):
+        old_caller = publish_declaration(self.store, declaration(
+            "function", "fn:shared:old", {"body": "shared"},
+            call_sites=[{"call_site_id": "call:tax", "targets": [
+                {"target_id": "direct", "target_hash": self.old_callee, "condition": None}]}],
+        ))
+        stale_caller = publish_declaration(self.store, declaration(
+            "function", "fn:shared:stale", {"body": "older shared body"},
+            call_sites=[{"call_site_id": "call:tax", "targets": [
+                {"target_id": "direct", "target_hash": self.old_callee, "condition": None}]}],
+        ))
+        new_caller = publish_declaration(self.store, declaration(
+            "function", "fn:shared:new", {"body": "shared"},
+            call_sites=[{"call_site_id": "call:tax", "targets": [
+                {"target_id": "direct", "target_hash": self.new_callee, "condition": None}]}],
+        ))
+        snapshot = make_snapshot({
+            "callee": self.new_callee,
+            "preserving-consumer": old_caller,
+            "migrating-consumer": new_caller,
+        })
+
+        index = build_snapshot_dependency_index(self.store, snapshot)
+
+        self.assertEqual(index.snapshot_root, snapshot.root_hash)
+        self.assertEqual({edge.source_hash for edge in index.incoming(self.old_callee)}, {old_caller})
+        self.assertNotIn(stale_caller, {edge.source_hash for edge in index.incoming(self.old_callee)})
+        self.assertEqual({edge.source_hash for edge in index.incoming(self.new_callee)}, {new_caller})
+        self.assertNotIn(old_caller, {edge.source_hash for edge in index.incoming(self.new_callee)})
+
+    def test_snapshot_scoped_index_rejects_missing_selected_object(self):
+        snapshot = make_snapshot({"missing": "not-in-store"})
+        with self.assertRaises(KeyError):
+            build_snapshot_dependency_index(self.store, snapshot)
 
     def test_typed_references_validate_target_kind(self):
         impl = publish_declaration(self.store, declaration(
