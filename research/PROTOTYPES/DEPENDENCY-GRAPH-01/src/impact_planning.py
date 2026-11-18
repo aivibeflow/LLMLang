@@ -302,7 +302,7 @@ def validate_planned_action_dag(actions: Iterable[PlannedAction]) -> None:
             raise PlanningError("planned action ID does not match its canonical contents")
 
 
-def _assign_action_ids(actions: Iterable[PlannedAction]) -> tuple[PlannedAction, ...]:
+def assign_planned_action_ids(actions: Iterable[PlannedAction]) -> tuple[PlannedAction, ...]:
     rows = tuple(actions)
     identified = tuple(
         replace(row, action_id=row.action_id or compute_planned_action_id(row))
@@ -712,7 +712,7 @@ def plan_impact(
             "optimized impact plan is unsafe while dependency completeness is unresolved",
         ))
 
-    ordered = tuple(sorted(_assign_action_ids(actions), key=lambda a: (
+    ordered = tuple(sorted(assign_planned_action_ids(actions), key=lambda a: (
         a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes,
         a.action_id, a.prerequisite_action_ids,
     )))
