@@ -260,3 +260,16 @@ This is a deliberately small research schema, **not** the canonical LLMLang SPG 
 The impact planner now carries exact incoming call-site edges from a Snapshot reverse query. Every discovered call edge must have one decision keyed by `(caller_hash, call_site_id, target_id)` and bound to its exact base callee hash. Resolved decisions (`migrate`, `preserve`, `adapt`, `fork`) require the selected callee hash, resulting caller hash, rationale, and compatibility evidence ID. Missing or unresolved decisions force human review and full revalidation. Decisions and their evidence participate in `plan_id`.
 
 `audit_snapshot_incoming_independently` scans selected declaration payloads separately from the reverse-index builder and compares the exact incoming edge set. This catches projection omissions in the prototype. It shares the Content Store and payload source, so it is not a cryptographically independent or runtime-complete audit. Dynamic dispatch, reflection, and external behavior remain explicit exclusions.
+
+
+## Candidate Snapshot call-site validation
+
+`src/candidate_validation.py` validates the materialized candidate against every per-call-site decision carried by an `ImpactPlan`. It checks baseline/candidate Snapshot binding, candidate membership of selected callee and resulting caller hashes, recomputation of stored semantic-object hashes, and the exact call-site/target reference in the candidate caller payload. `PRESERVE` must retain the original caller and callee versions; `MIGRATE`, `ADAPT`, and `FORK` must materialize a new caller version. Unresolved decisions fail validation.
+
+Run the focused tests:
+
+```bash
+python -m unittest -v tests.test_candidate_validation
+```
+
+This is a narrow materialized-reference consistency check, not a behavioral-compatibility proof, dynamic-call completeness proof, full plan-to-diff audit, or commit authorization. See [RT-20 Candidate Call-Site Validation](../../RT-20-CANDIDATE-CALL-SITE-VALIDATION.md).
