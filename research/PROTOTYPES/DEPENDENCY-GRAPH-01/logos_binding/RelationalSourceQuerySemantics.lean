@@ -250,25 +250,25 @@ def observationDifference :
 theorem factorDifference_correct
     (sort : ExprSort) (factor : String) (queryEnv : SourceQuerySemantics.Env) :
     evalCanonicalQuerySigma ⟨.bool, factorDifference sort factor⟩ queryEnv =
-      .boolValue (sourceValuesDiffer sort
+      Value.boolValue (sourceValuesDiffer sort
         (sideEnvironment queryEnv .left factor factor sort)
         (sideEnvironment queryEnv .right factor factor sort)) := by
   cases sort with
   | int =>
-      change .boolValue
+      change Value.boolValue
         (!(decide (asInt (queryEnv (factor ++ "_L") .int) =
           asInt (queryEnv (factor ++ "_R") .int)))) =
-        .boolValue (decide (asInt (queryEnv (factor ++ "_L") .int) ≠
+        Value.boolValue (decide (asInt (queryEnv (factor ++ "_L") .int) ≠
           asInt (queryEnv (factor ++ "_R") .int)))
-      exact congrArg Value.boolValue
-        (decide_ne_eq_not_decide_eq _ _).symm.symm
+      exact congrArg ValueValue.boolValue
+        (decide_ne_eq_not_decide_eq _ _).symm
   | bool =>
-      change .boolValue
+      change Value.boolValue
         (!(decide (asBool (queryEnv (factor ++ "_L") .bool) =
           asBool (queryEnv (factor ++ "_R") .bool)))) =
-        .boolValue (decide (asBool (queryEnv (factor ++ "_L") .bool) ≠
+        Value.boolValue (decide (asBool (queryEnv (factor ++ "_L") .bool) ≠
           asBool (queryEnv (factor ++ "_R") .bool)))
-      exact congrArg Value.boolValue
+      exact congrArg ValueValue.boolValue
         (decide_ne_eq_not_decide_eq _ _)
 
 /--
@@ -283,7 +283,7 @@ theorem observationDifference_correct
         (translateRelationalExpr .left factor e)
         (translateRelationalExpr .right factor e)⟩
       queryEnv =
-      .boolValue (sourceValuesDiffer s
+      Value.boolValue (sourceValuesDiffer s
         (evalExpr e (sideEnvironment queryEnv .left factor))
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
   cases s with
@@ -298,16 +298,16 @@ theorem observationDifference_correct
             evalExpr e (sideEnvironment queryEnv .right factor) := by
         simpa [querySortOf] using
           (translateRelationalExpr_correct .right factor e queryEnv)
-      change .boolValue
+      change Value.boolValue
         (!(decide (asInt (evalCanonicalQuerySigma
           ⟨.int, translateRelationalExpr .left factor e⟩ queryEnv) =
           asInt (evalCanonicalQuerySigma
           ⟨.int, translateRelationalExpr .right factor e⟩ queryEnv)))) =
-        .boolValue (decide (asInt (evalExpr e
+        Value.boolValue (decide (asInt (evalExpr e
           (sideEnvironment queryEnv .left factor)) ≠
           asInt (evalExpr e (sideEnvironment queryEnv .right factor))))
       rw [hleft, hright]
-      exact congrArg Value.boolValue
+      exact congrArg ValueValue.boolValue
         (decide_ne_eq_not_decide_eq _ _).symm
   | bool =>
       have hleft :
@@ -320,16 +320,16 @@ theorem observationDifference_correct
             evalExpr e (sideEnvironment queryEnv .right factor) := by
         simpa [querySortOf] using
           (translateRelationalExpr_correct .right factor e queryEnv)
-      change .boolValue
+      change Value.boolValue
         (!(decide (asBool (evalCanonicalQuerySigma
           ⟨.bool, translateRelationalExpr .left factor e⟩ queryEnv) =
           asBool (evalCanonicalQuerySigma
           ⟨.bool, translateRelationalExpr .right factor e⟩ queryEnv)))) =
-        .boolValue (decide (asBool (evalExpr e
+        Value.boolValue (decide (asBool (evalExpr e
           (sideEnvironment queryEnv .left factor)) ≠
           asBool (evalExpr e (sideEnvironment queryEnv .right factor))))
       rw [hleft, hright]
-      exact congrArg Value.boolValue
+      exact congrArg ValueValue.boolValue
         (decide_ne_eq_not_decide_eq _ _)
 
 /--
@@ -350,7 +350,7 @@ theorem relationalAssumptions_correct
     {s : ExprSort} (factorSort : ExprSort) (factor : String) (e : Expr s)
     (queryEnv : SourceQuerySemantics.Env) :
     evalCanonicalQuerySigma ⟨.bool, factorDifference factorSort factor⟩ queryEnv =
-      .boolValue (sourceValuesDiffer factorSort
+      Value.boolValue (sourceValuesDiffer factorSort
         (sideEnvironment queryEnv .left factor factor factorSort)
         (sideEnvironment queryEnv .right factor factor factorSort)) ∧
     evalCanonicalQuerySigma ⟨.bool,
@@ -358,7 +358,7 @@ theorem relationalAssumptions_correct
         (translateRelationalExpr .left factor e)
         (translateRelationalExpr .right factor e)⟩
       queryEnv =
-      .boolValue (sourceValuesDiffer s
+      Value.boolValue (sourceValuesDiffer s
         (evalExpr e (sideEnvironment queryEnv .left factor))
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
   exact And.intro
