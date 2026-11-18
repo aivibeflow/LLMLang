@@ -135,7 +135,7 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
     """
     if profile not in PROFILES:
         raise ModelError("profile must be A or B")
-    if not isinstance(program, dict) or set(program) - {"functions", "ambient_capabilities", "resources"}:
+    if not isinstance(program, dict) or set(program) - {"functions", "ambient_capabilities", "resources", "call_graph_complete"}:
         raise ModelError("invalid program envelope")
     functions = program.get("functions")
     if not isinstance(functions, dict) or not functions:
@@ -144,6 +144,7 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
     resources = program.get("resources", {})
     if not isinstance(resources, dict) or any(not isinstance(k, str) or v != "owned" for k, v in resources.items()):
         raise ModelError("resources must map names to 'owned'")
+    call_graph_complete = set(_names(program.get("call_graph_complete", []), "call_graph_complete"))
 
     findings: list[Finding] = []
     direct_effects: dict[str, set[str]] = {}
@@ -155,7 +156,7 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
     for name, spec in functions.items():
         if not isinstance(name, str) or not name or not isinstance(spec, dict):
             raise ModelError("invalid function declaration")
-        allowed = {"params", "result", "effects", "effect_row", "requires", "calls", "consumes", "resource_flow", "positive_params", "known_values"}
+        allowed = {"params", "result", "effects", "effect_bound", "effect_row", "requires", "calls", "consumes", "resource_flow", "positive_params", "known_values"}
         if set(spec) - allowed:
             raise ModelError(f"{name}: unknown declaration fields")
         params = spec.get("params", {})
@@ -180,6 +181,8 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
                 for effect in effects - CLOSED_EFFECTS:
                     findings.append(Finding("UNKNOWN_EFFECT", name, effect))
         direct_effects[name] = effects
+        if "effect_bound" in spec:
+            _names(spec["effect_bound"], f"{name}.effect_bound")
         direct_caps[name] = set(_names(spec.get("requires", []), f"{name}.requires"))
         calls[name] = _names(spec.get("calls", []), f"{name}.calls")
         consumed[name] = _names(spec.get("consumes", []), f"{name}.consumes", unique=False)
@@ -224,6 +227,40 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
                     all_caps[name].update(all_caps[target])
                     changed |= before != (len(all_effects[name]), len(all_caps[name]))
 
+    # An effect bound is meaningful only when the call graph for the full
+    # reachable closure is explicitly declared complete. A missing edge cannot
+    # be inferred from an empty adjacency list, so absence of completeness
+    # evidence yields UNKNOWN rather than a successful empty summary.
+    for root, spec in functions.items():
+        if "effect_bound" not in spec:
+            continue
+        reachable: set[str] = set()
+        stack = [root]
+        unknown_targets: set[str] = set()
+        while stack:
+            current = stack.pop()
+            if current in reachable:
+                continue
+            reachable.add(current)
+            for target in calls[current]:
+                if target not in functions:
+                    unknown_targets.add(target)
+                else:
+                    stack.append(target)
+        incomplete = sorted(reachable - call_graph_complete)
+        if incomplete or unknown_targets:
+            details = []
+            if incomplete:
+                details.append("call graph not certified complete for: " + ", ".join(incomplete))
+            if unknown_targets:
+                details.append("unresolved callees: " + ", ".join(sorted(unknown_targets)))
+            findings.append(Finding("EFFECT_SUMMARY_UNKNOWN", root, "; ".join(details)))
+            continue
+        bound = set(spec["effect_bound"])
+        excess = all_effects[root] - bound
+        for effect in sorted(excess):
+            findings.append(Finding("EFFECT_BOUND_EXCEEDED", root, effect))
+
     if profile == "A":
         missing = set().union(*direct_caps.values()) - ambient if direct_caps else set()
         for cap in sorted(missing):
@@ -243,7 +280,7 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
         for name, flow in resource_flows.items():
             _check_resource_flow(name, flow, resources, findings)
 
-    status = ("UNKNOWN" if any(item.code == "REFINEMENT_UNKNOWN" for item in findings)
+    status = ("UNKNOWN" if any(item.code in {"REFINEMENT_UNKNOWN", "EFFECT_SUMMARY_UNKNOWN", "UNKNOWN_CALLEE"} for item in findings)
               else "REJECTED" if findings else "ACCEPTED")
     return CheckResult(
         profile, status, tuple(findings),
