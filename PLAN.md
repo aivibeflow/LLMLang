@@ -176,7 +176,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Evidence:** [RT-04 alternatives report](research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md); [Prototype 01 implementation and tests](research/PROTOTYPES/RT-04-01/README.md); [Prototype 01 results](research/RT-04-PROTOTYPE-01-RESULTS.md); [scenario matrix](research/RT-04-PROTOTYPE-01-SCENARIOS.md).
 
-**Status:** comparative survey drafted and one limited executable checker-vector experiment added (12 focused tests pass locally). No type/effect/ownership/capability architecture is selected. Branch-sensitive resource semantics, effect-bound checking, runtime capability enforcement, complete dependency evidence, and a second independent reference model remain open; RT-03 is not closed.
+**Status:** comparative survey drafted and one limited executable checker-vector experiment added (12 focused tests pass locally and in [GitHub Actions run 44310669797](https://github.com/aivibeflow/LLMLang/actions/runs/44310669797)). No type/effect/ownership/capability architecture is selected. Branch-sensitive resource semantics, effect-bound checking, runtime capability enforcement, complete dependency evidence, and a second independent reference model remain open; RT-03 is not closed.
 
 ## 1.5 Prior-art study for semantic representation and identity
 
