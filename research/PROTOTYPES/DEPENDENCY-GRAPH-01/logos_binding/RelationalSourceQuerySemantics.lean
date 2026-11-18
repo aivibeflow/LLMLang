@@ -246,11 +246,11 @@ theorem observationDifference_correct
   cases s with
   | int =>
       change
-        !(decide
+        ((! (decide
           (asInt (evalCanonicalQuerySigma
             ⟨.int, translateRelationalExpr .left factor e⟩ queryEnv) =
            asInt (evalCanonicalQuerySigma
-            ⟨.int, translateRelationalExpr .right factor e⟩ queryEnv))) =
+            ⟨.int, translateRelationalExpr .right factor e⟩ queryEnv))))) =
         decide
           (asInt (evalExpr e (sideEnvironment queryEnv .left factor)) ≠
            asInt (evalExpr e (sideEnvironment queryEnv .right factor)))
@@ -259,11 +259,11 @@ theorem observationDifference_correct
       exact (decide_ne_eq_not_decide_eq _ _).symm
   | bool =>
       change
-        !(decide
+        ((! (decide
           (asBool (evalCanonicalQuerySigma
             ⟨.bool, translateRelationalExpr .left factor e⟩ queryEnv) =
            asBool (evalCanonicalQuerySigma
-            ⟨.bool, translateRelationalExpr .right factor e⟩ queryEnv))) =
+            ⟨.bool, translateRelationalExpr .right factor e⟩ queryEnv))))) =
         decide
           (asBool (evalExpr e (sideEnvironment queryEnv .left factor)) ≠
            asBool (evalExpr e (sideEnvironment queryEnv .right factor)))
