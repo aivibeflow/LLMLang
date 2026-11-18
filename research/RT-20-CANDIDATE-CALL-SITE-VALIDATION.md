@@ -1,6 +1,6 @@
 # RT-20 — Candidate call-site validation
 
-**Status:** Narrow prototype implemented; focused CI passed (57 tests).  
+**Status:** Narrow prototype implemented; focused CI passed before the final preserve-semantics refinement; the latest main-branch rerun is not yet confirmed.  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
 
@@ -24,11 +24,13 @@ For each planned call-site decision it checks:
 8. `MIGRATE`, `ADAPT`, and `FORK` materialize a new caller version.
 9. An unresolved decision cannot validate a candidate.
 
-The check accumulates deterministic diagnostics and fails closed. It verifies the decision against the actual baseline call-site/target as well as the candidate reference. The focused tests cover successful migration, wrong baseline/candidate target bindings, callee absent from candidate selection, preservation, unresolved decisions, and candidate-root mismatch. The semantic dependency workflow passed all 57 tests and module compilation. The semantic dependency CI workflow now runs these tests and compiles the new module.
+The check accumulates deterministic diagnostics and fails closed. It verifies the decision against the actual baseline call-site/target as well as the candidate reference. The focused tests cover successful migration, adapt/fork dispositions, wrong baseline/candidate target bindings, callee absent from candidate selection, preservation across caller re-versioning, unresolved decisions, and candidate-root mismatch. The last confirmed CI run passed all 57 tests and module compilation; the subsequent preserve-semantics refinement and added adapt/fork test still require a fresh confirmed run. The semantic dependency CI workflow now runs these tests and compiles the new module.
 
 ## Scope and limitations
 
 This is a materialized-reference consistency check for the current explicit declaration subset. It does **not** prove behavioral compatibility, prove that an adapter or fork implements its rationale, validate contract propagation, discover omitted or dynamic call sites, establish global dependency completeness, or authorize a commit. A valid result means only that the supplied decisions agree with the exact stored objects and explicit references in the supplied candidate Snapshot.
+
+This validator also assumes one resulting caller version per base caller hash across its decisions. It does not yet represent a single shared caller being forked into multiple context-specific versions for distinct upstream consumers. That requires an explicit consumer/path identity in the plan model; the existing shared-caller examples use distinct caller objects and do not prove this harder split case.
 
 The candidate Snapshot is assumed to be immutable for the duration of this check. A production implementation must bind the validation result to the frozen candidate root and invalidate it on any candidate change. The current in-memory Content Store prototype does not provide a transaction or concurrency lease.
 
