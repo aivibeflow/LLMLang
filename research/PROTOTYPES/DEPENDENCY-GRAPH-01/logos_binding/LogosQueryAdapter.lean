@@ -79,12 +79,12 @@ mutual
           asBool (evalLogosQuery term env) && evalLogosBoolTerms conjunction rest env
         else
           asBool (evalLogosQuery term env) || evalLogosBoolTerms conjunction rest env
+  termination_by
+    evalLogosQuery term _ => sizeOf term
+    evalLogosBoolTerms _ terms _ => sizeOf terms
+  decreasing_by
+    all_goals simp_wf [sizeOf]
 end
-termination_by
-  evalLogosQuery term _ => sizeOf term
-  evalLogosBoolTerms _ terms _ => sizeOf terms
-decreasing_by
-  all_goals simp_wf [sizeOf]
 
 /-- Evaluate a dependent pair of a sort and a Logos query term. -/
 def evalLogosQuerySigma
@@ -104,8 +104,7 @@ theorem toLogosQueryTerm_preserves_eval {s : ExprSort}
     evalLogosQuery (toLogosQueryTerm term) env =
       SourceQuerySemantics.evalQuery term env := by
   induction term <;>
-    induction term <;>
-      simp_all [toLogosQueryTerm, evalLogosQuery, evalLogosBoolTerms,
-        SourceQuerySemantics.evalQuery, asInt, asBool]
+    simp_all [toLogosQueryTerm, evalLogosQuery, evalLogosBoolTerms,
+      SourceQuerySemantics.evalQuery, asInt, asBool]
 
 end LLMLang.LogosQueryAdapter
