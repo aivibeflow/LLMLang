@@ -29,7 +29,7 @@ The result contains exact baseline/candidate roots, plan ID, selection changes, 
 6. Independently scan baseline-selected explicit declarations for incoming call-site targets to changed old hashes. Every such edge must have a corresponding exact CIP decision, even if its caller is preserved unchanged.
 7. Compare typed references and call-site targets for every changed logical selection, including exact old/new relation, target hash, condition, and call-site required Contract hash. Every observed edge delta must match exactly one typed CIP edge-change record.
 8. Require each changed call target or required Contract binding to match a path-bound `CallSiteDecision`, including exact old/new required Contract hashes, old/new provided Contract hashes, `PROVEN` compatibility status, and exact caller/callee output slots. A matching `REWRITE_CALL_SITE` action must name the exact source caller hash.
-9. Resolve unknown caller/callee hashes through exact output IDs against the candidate Snapshot. Bind materialized output IDs, logical keys, and exact Content Hashes into the diff receipt. Reuse candidate call-site materialization validation for exact baseline/candidate membership, stored object hashes, and candidate payload/Contract checks.
+9. Resolve unknown caller/callee hashes through exact output IDs against the candidate Snapshot. Bind materialized output IDs, logical keys, and exact candidate object hashes into the diff receipt. Reuse candidate call-site materialization validation for exact baseline/candidate membership, stored object hashes, and candidate payload/Contract checks.
 10. Bind both Snapshot roots, plan ID, graph digests, edge-set digests, schema version, selection changes, and edge changes into the deterministic diff digest.
 
 ## Tests
@@ -75,7 +75,7 @@ The planning model distinguishes the approved plan from exact Content Hashes tha
 - `consumer_path_id` distinguishes separate versions of one shared caller. Multiple output slots can derive from the same source caller hash while selecting different callee versions for different upstream consumers.
 - All these records are included in CIP schema v2's canonical plan identity. The semantic-diff receipt resolves output IDs against the candidate Snapshot and binds the actual Content Hashes to the candidate root.
 
-The payload digest is a planning constraint, not an object Content Hash, OpHash, ImplHash, or glossary `CCHash`. The actual candidate Content Hash is computed by the Content Store and appears in the materialization binding only after the candidate exists. No glossary identity term is redefined here.
+The payload digest is a planning constraint, not an object Content Hash, OpHash, ImplHash, or glossary `CCHash`. The actual candidate object hash is computed by the semantic object store and appears in the materialization binding only after the candidate exists. Its interpretation remains object-kind-specific; this document does not rename or conflate `OpHash`, `ImplHash`, or `CCHash`. See the [LLMLang Glossary](../draft/GLOSSARY.md).
 
 Focused tests cover declaration add/remove/replace, typed-reference additions and rewrites, call-target additions/removals/rewrites/condition changes, required-Contract migration with compatibility evidence, unknown hash resolution, deleted callers, and a shared-caller fork across two consumer paths.
 
