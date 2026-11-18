@@ -1,6 +1,6 @@
 # RT-20 — Candidate call-site validation
 
-**Status:** Narrow prototype implemented; focused CI passed before the final preserve-semantics refinement; the latest main-branch rerun is not yet confirmed.  
+**Status:** Narrow prototype implemented; the candidate graph audit is tracked separately in [RT-20 Candidate Graph Audit](RT-20-CANDIDATE-GRAPH-AUDIT.md).  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
 
@@ -37,7 +37,7 @@ The candidate Snapshot is assumed to be immutable for the duration of this check
 ## Next gate
 
 1. Bind validation to the complete CIP and require exact decision coverage from the baseline reverse-index audit, not merely the decision rows supplied to this validator.
-2. Verify all candidate Snapshot references resolve and recompute the full dependency index from candidate payloads.
+2. [Implemented as a separate prototype] Verify all candidate Snapshot references resolve and recompute the full dependency index from candidate payloads; see [RT-20 Candidate Graph Audit](RT-20-CANDIDATE-GRAPH-AUDIT.md).
 3. Compare the actual candidate semantic diff against the approved plan and reject unplanned changes or omitted planned changes.
 4. Add mixed old/new, shared-caller split, multi-call-site, and branching/converging graph end-to-end scenarios.
 5. Only after these checks, design the frozen-candidate verification and commit gate with RT-19/RT-22/RT-23 concurrency and recovery semantics.
