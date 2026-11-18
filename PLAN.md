@@ -162,7 +162,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Status:** researched at the candidate-survey level; partially validated only as a map of options and trade-offs. No semantic profile, evaluation strategy, effect model, or complete observation model has been accepted. The existing QF_LIA/Lean/Logos work covers a narrow relational fragment and is not a complete language semantics.
 
-**Next work:** extend [the executable A/D reference slice](research/PROTOTYPES/RT-04-01/rt03_reference.py) with explicit error propagation and resource lifecycle; build an independent second evaluator/formal model; compare trace results and update dependency edges as evidence arrives. The current slice is intentionally incomplete and does not select a profile.
+**Next work:** extend [the executable A/D reference slice](research/PROTOTYPES/RT-04-01/rt03_reference.py) with explicit error propagation and resource lifecycle; build an independent second evaluator/formal model; compare trace results and update dependency edges as evidence arrives. The current slice is intentionally incomplete and does not select a profile. The initial implementation was merged in [PR #21](https://github.com/aivibeflow/LLMLang/pull/21) after the 69-test CI run passed.
 
 ### 1.4.1 Type, effect, ownership, and capability alternatives (RT-04)
 
