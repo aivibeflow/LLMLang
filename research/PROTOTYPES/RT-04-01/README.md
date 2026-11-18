@@ -15,7 +15,7 @@ The model compares two declaration-level checker profiles:
 
 Both profiles compute fixed-point summaries of direct/transitive effects and capabilities. Profile B supports two deliberately small resource-use inputs: a linear `consumes` sequence and an explicit control-flow graph (`resource_flow`). The CFG model propagates exact sets of consumed resources along reachable paths, rejects repeated consumption, and requires all paths reaching a join to agree on each resource's available/consumed state. Its finite state space converges on cycles.
 
-The model accepts function declarations, optional typed call-site records, and supplied call/control-flow edges; it does not parse LLMLang source, discover calls or branches, execute functions, prove graph completeness, or implement runtime authorization.
+The model accepts function declarations, optional typed call-site records, scoped capability grants, and supplied call/control-flow edges; it does not parse LLMLang source, discover calls or branches, execute functions, prove graph completeness, or implement runtime authorization.
 
 The model's UNKNOWN refinement outcome is distinct from acceptance and rejection. Missing evidence is not treated as success.
 
@@ -66,7 +66,7 @@ This is an experiment about checker obligations, not a language decision:
 - type checking is limited to primitive names and one positive-integer predicate;
 - resource dataflow uses explicit CFGs and exact finite path-state sets; it does not model source branch discovery, symbolic path conditions, borrows, lifetimes, async suspension, returns, destructors, or cleanup behavior;
 - terminal paths are not required to consume the same resources unless they later join;
-- capability propagation checks declared call graphs, not actual runtime authority;
+- capability propagation checks declared call graphs and grant fixtures, not actual runtime authority;
 - effect-bound acceptance additionally requires every function in the reachable call closure to be listed in `call_graph_complete`; this list is only an asserted fixture input, not authenticated completeness evidence;
 - no SPG schema, hash envelope, ABI, compiler, or runtime is defined.
 
@@ -90,3 +90,43 @@ Example:
       }
     }
 
+
+## Scoped capability grant envelope (Profile B)
+
+A program may declare capability_grants as a map of grant IDs to records containing capability, canonical absolute POSIX scope, optional parent, and optional boolean revoked. A parentless grant is a trusted root input to this experiment. A child grant must retain the parent's capability and have a scope contained by the parent's scope; broadening or changing the capability is malformed input. Parent cycles are rejected.
+
+A function's grants list declares the grant IDs available in that function's static capability context. Its capability_requirements list contains records with capability and scope. A grant authorizes a requirement only when the capability matches and the grant scope contains the entire required path. Scope matching is path-segment-aware (/workspace does not cover /workspace-old). Scopes reject relative paths, dot segments, duplicate separators, trailing separators (except /), and backslashes.
+
+At a call boundary, each call-site may pass an explicit grants list. Every passed ID must be held by the caller and declared as accepted by the callee. The passed, non-revoked grants must cover every callee requirement. If a callee has scoped requirements but no call-site record is supplied, the checker reports CAPABILITY_DELEGATION_UNKNOWN and returns UNKNOWN rather than assuming implicit authority. A revoked grant, or any descendant of a revoked grant, cannot authorize a requirement.
+
+Example:
+
+    {
+      "capability_grants": {
+        "workspace-read": {"capability": "fs.read", "scope": "/workspace"},
+        "source-read": {
+          "capability": "fs.read",
+          "scope": "/workspace/src",
+          "parent": "workspace-read"
+        }
+      },
+      "functions": {
+        "caller": {
+          "grants": ["workspace-read"],
+          "calls": ["read_source"],
+          "call_sites": [{
+            "target": "read_source",
+            "args": [],
+            "grants": ["workspace-read"]
+          }]
+        },
+        "read_source": {
+          "grants": ["workspace-read"],
+          "capability_requirements": [
+            {"capability": "fs.read", "scope": "/workspace/src"}
+          ]
+        }
+      }
+    }
+
+This is a static declaration-level model. Parentless grant provenance/authenticity is trusted input; the experiment does not model issuer identity, token cryptography, expiry, dynamic revocation consistency, concurrent calls, process boundaries, non-path scopes, or time-of-check/time-of-use races. Revocation is a boolean in the supplied snapshot, and ancestor revocation is propagated through the declared grant-parent chain. Profile A does not support scoped grants.
