@@ -86,6 +86,8 @@ Whether slot keys are snapshot-local, scope-stable, or persistent scoped identit
 
 ## 4. Hash and canonicalization reconciliation
 
+**Required terminology input:** Read the [Draft Glossary](../draft/GLOSSARY.md) together with this report before revising hash or identity assumptions. It distinguishes `OpHash` (operation semantics), `ImplHash` (one concrete implementation), `CCHash` (a conformance-class definition), optional `CandidateSetHash` (a finite discovery result), and conformance-evidence identity. Do not collapse these typed identities into one generic semantic hash. The glossary remains a proposal; this report does not promote its terms or unresolved encodings to normative status. Package-level hashes and action/evidence identities remain separate layers described below and in the package identity research.
+
 ### 4.1 Current candidates
 
 The repository contains multiple experimental approaches:
