@@ -31,10 +31,14 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         )
         self.effect = publish_declaration(self.store, declaration("effect", "effect:read-clock", {"name": "ReadClock"}))
         self.old_callee = publish_declaration(
-            self.store, declaration("function", "fn:tax:v1", {"body": "old"})
+            self.store, declaration("function", "fn:tax:v1", {"body": "old"},
+                references=[{"reference_id": "provided-contract", "relation": "provides_contract",
+                             "target_hash": self.tax_contract, "target_kind": "contract"}])
         )
         self.new_callee = publish_declaration(
-            self.store, declaration("function", "fn:tax:v2", {"body": "new"})
+            self.store, declaration("function", "fn:tax:v2", {"body": "new"},
+                references=[{"reference_id": "provided-contract", "relation": "provides_contract",
+                             "target_hash": self.tax_contract, "target_kind": "contract"}])
         )
 
     def test_call_sites_have_stable_distinct_edge_ids(self):
@@ -42,28 +46,32 @@ class SemanticDependencyIndexTests(unittest.TestCase):
             "function", "fn:invoice:v1", {"body": "invoice"},
             call_sites=[
                 {"call_site_id": "call:subtotal-tax", "targets": [
-                    {"target_id": "direct", "target_hash": self.old_callee, "condition": None}]},
+                    {"target_id": "direct", "target_hash": self.old_callee, "condition": None, "required_contract_hash": self.tax_contract}]},
                 {"call_site_id": "call:final-tax", "targets": [
-                    {"target_id": "direct", "target_hash": self.new_callee, "condition": None}]},
+                    {"target_id": "direct", "target_hash": self.new_callee, "condition": None, "required_contract_hash": self.tax_contract}]},
             ],
         ))
-        edges = build_dependency_index(self.store).outgoing(caller)
+        edges = [edge for edge in build_dependency_index(self.store).outgoing(caller)
+                 if edge.relation == "calls"]
         self.assertEqual({edge.edge_id for edge in edges},
                          {"call:subtotal-tax/direct", "call:final-tax/direct"})
         self.assertEqual({edge.target_hash for edge in edges},
                          {self.old_callee, self.new_callee})
+        self.assertTrue(all(edge.required_contract_hash == self.tax_contract for edge in edges))
+        self.assertTrue(all(edge.provided_contract_hash == self.tax_contract for edge in edges))
 
     def test_conditional_dispatch_preserves_each_exact_target_and_condition(self):
         caller = publish_declaration(self.store, declaration(
             "operation", "op:route-tax", {"body": "dispatch"},
             call_sites=[{"call_site_id": "call:dispatch", "targets": [
                 {"target_id": "business", "target_hash": self.old_callee,
-                 "condition": "jurisdiction == legacy"},
+                 "condition": "jurisdiction == legacy", "required_contract_hash": self.tax_contract},
                 {"target_id": "consumer", "target_hash": self.new_callee,
-                 "condition": "jurisdiction == current"},
+                 "condition": "jurisdiction == current", "required_contract_hash": self.tax_contract},
             ]}],
         ))
-        edges = build_dependency_index(self.store).outgoing(caller)
+        edges = [edge for edge in build_dependency_index(self.store).outgoing(caller)
+                 if edge.relation == "calls"]
         self.assertEqual(len(edges), 2)
         self.assertEqual({edge.condition for edge in edges},
                          {"jurisdiction == legacy", "jurisdiction == current"})
@@ -72,7 +80,7 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         caller = publish_declaration(self.store, declaration(
             "function", "fn:caller", {"body": "x"},
             call_sites=[{"call_site_id": "call:one", "targets": [
-                {"target_id": "primary", "target_hash": self.old_callee, "condition": None}]}],
+                {"target_id": "primary", "target_hash": self.old_callee, "condition": None, "required_contract_hash": self.tax_contract}]}],
         ))
         incoming = build_dependency_index(self.store).incoming(self.old_callee)
         self.assertEqual(len(incoming), 1)
@@ -83,17 +91,17 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         old_caller = publish_declaration(self.store, declaration(
             "function", "fn:shared:old", {"body": "shared"},
             call_sites=[{"call_site_id": "call:tax", "targets": [
-                {"target_id": "direct", "target_hash": self.old_callee, "condition": None}]}],
+                {"target_id": "direct", "target_hash": self.old_callee, "condition": None, "required_contract_hash": self.tax_contract}]}],
         ))
         stale_caller = publish_declaration(self.store, declaration(
             "function", "fn:shared:stale", {"body": "older shared body"},
             call_sites=[{"call_site_id": "call:tax", "targets": [
-                {"target_id": "direct", "target_hash": self.old_callee, "condition": None}]}],
+                {"target_id": "direct", "target_hash": self.old_callee, "condition": None, "required_contract_hash": self.tax_contract}]}],
         ))
         new_caller = publish_declaration(self.store, declaration(
             "function", "fn:shared:new", {"body": "shared"},
             call_sites=[{"call_site_id": "call:tax", "targets": [
-                {"target_id": "direct", "target_hash": self.new_callee, "condition": None}]}],
+                {"target_id": "direct", "target_hash": self.new_callee, "condition": None, "required_contract_hash": self.tax_contract}]}],
         ))
         snapshot = make_snapshot({
             "callee": self.new_callee,
@@ -119,7 +127,7 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         caller = publish_declaration(self.store, declaration(
             "function", "fn:reverse-query-caller", {"body": "x"},
             call_sites=[{"call_site_id": "call:tax", "targets": [
-                {"target_id": "direct", "target_hash": self.old_callee, "condition": None}]}],
+                {"target_id": "direct", "target_hash": self.old_callee, "condition": None, "required_contract_hash": self.tax_contract}]}],
         ))
         return make_snapshot({"callee": self.old_callee, "caller": caller})
 
@@ -246,8 +254,8 @@ class SemanticDependencyIndexTests(unittest.TestCase):
     def test_rejects_duplicate_call_site_and_target_ids(self):
         bad = declaration("function", "fn:bad", {"body": "x"}, call_sites=[
             {"call_site_id": "same", "targets": [
-                {"target_id": "x", "target_hash": self.old_callee, "condition": None},
-                {"target_id": "x", "target_hash": self.new_callee, "condition": None}]}
+                {"target_id": "x", "target_hash": self.old_callee, "condition": None, "required_contract_hash": self.tax_contract},
+                {"target_id": "x", "target_hash": self.new_callee, "condition": None, "required_contract_hash": self.tax_contract}]}
         ])
         with self.assertRaises(SemanticObjectError):
             validate_declaration(bad)
@@ -260,16 +268,68 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         with self.assertRaises(SemanticObjectError):
             publish_declaration(self.store, bad)
 
+    def test_call_site_requirement_is_a_hash_relevant_contract_dependency(self):
+        caller_a = publish_declaration(self.store, declaration(
+            "function", "fn:requirement-a", {"body": "x"},
+            call_sites=[{"call_site_id": "call:tax", "targets": [{
+                "target_id": "direct", "target_hash": self.old_callee, "condition": None,
+                "required_contract_hash": self.tax_contract}]}],
+        ))
+        alternate_contract = publish_declaration(
+            self.store, declaration("contract", "contract:tax-alternate", {"name": "Alternate"})
+        )
+        caller_b = publish_declaration(self.store, declaration(
+            "function", "fn:requirement-b", {"body": "x"},
+            call_sites=[{"call_site_id": "call:tax", "targets": [{
+                "target_id": "direct", "target_hash": self.old_callee, "condition": None,
+                "required_contract_hash": alternate_contract}]}],
+        ))
+        self.assertNotEqual(caller_a, caller_b)
+        edge = next(e for e in build_dependency_index(self.store).outgoing(caller_a)
+                    if e.relation == "calls")
+        self.assertEqual(edge.required_contract_hash, self.tax_contract)
+        self.assertEqual(edge.provided_contract_hash, self.tax_contract)
+
+    def test_required_and_provided_contracts_are_both_reverse_indexed(self):
+        caller = publish_declaration(self.store, declaration(
+            "function", "fn:contract-index-caller", {"body": "x"},
+            call_sites=[{"call_site_id": "call:tax", "targets": [{
+                "target_id": "direct", "target_hash": self.old_callee, "condition": None,
+                "required_contract_hash": self.tax_contract}]}],
+        ))
+        incoming = build_dependency_index(self.store).incoming(self.tax_contract)
+        relations = {(edge.source_hash, edge.relation, edge.edge_id) for edge in incoming}
+        self.assertIn((self.old_callee, "provides_contract", "provided-contract"), relations)
+        self.assertIn((caller, "requires_contract", "call:tax/direct/required-contract"), relations)
+
+    def test_rejects_call_target_without_required_contract(self):
+        bad = declaration("function", "fn:missing-requirement", {"body": "x"},
+            call_sites=[{"call_site_id": "call:tax", "targets": [{
+                "target_id": "direct", "target_hash": self.old_callee, "condition": None}]}])
+        with self.assertRaises(SemanticObjectError):
+            validate_declaration(bad)
+
+    def test_rejects_callee_without_exactly_one_provided_contract(self):
+        no_contract = publish_declaration(
+            self.store, declaration("function", "fn:no-contract", {"body": "x"})
+        )
+        bad = declaration("function", "fn:caller-no-contract", {"body": "x"},
+            call_sites=[{"call_site_id": "call:bad", "targets": [{
+                "target_id": "direct", "target_hash": no_contract, "condition": None,
+                "required_contract_hash": self.tax_contract}]}])
+        with self.assertRaises(SemanticObjectError):
+            publish_declaration(self.store, bad)
+
     def test_exact_target_revision_is_part_of_caller_hash(self):
         caller_v1 = publish_declaration(self.store, declaration(
             "function", "fn:caller", {"body": "x"},
             call_sites=[{"call_site_id": "call:tax", "targets": [
-                {"target_id": "direct", "target_hash": self.old_callee, "condition": None}]}],
+                {"target_id": "direct", "target_hash": self.old_callee, "condition": None, "required_contract_hash": self.tax_contract}]}],
         ))
         caller_v2 = publish_declaration(self.store, declaration(
             "function", "fn:caller", {"body": "x"},
             call_sites=[{"call_site_id": "call:tax", "targets": [
-                {"target_id": "direct", "target_hash": self.new_callee, "condition": None}]}],
+                {"target_id": "direct", "target_hash": self.new_callee, "condition": None, "required_contract_hash": self.tax_contract}]}],
         ))
         self.assertNotEqual(caller_v1, caller_v2)
         self.assertIn(self.old_callee, self.store)
