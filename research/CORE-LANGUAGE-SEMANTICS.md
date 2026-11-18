@@ -321,3 +321,6 @@ Next steps:
 ## 11. Source provenance
 
 This repository document is an English research synthesis of the deep-research report “Существующие материалы и ограничения” stored in the user's local ChatGPT Library (created 2026-11-17; 370 extracted text lines). The source report's final paragraph claimed that this document and related files had already been committed under abbreviated commit IDs. That historical claim was not independently verifiable and was contradicted by the repository state checked during this import: `research/CORE-LANGUAGE-SEMANTICS.md` did not exist on `main`. The current repository changes, rather than the source report's claimed commit IDs, are the authoritative record of this import.
+
+
+**Cross-aspect research:** RT-04's [type/effect/ownership/capability alternatives](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) compares candidate mechanisms against profiles A–D. It does not select a profile; shared observations and executable cross-profile scenarios remain open.
