@@ -81,43 +81,52 @@ def querySortToExprSort : LogosBinding.QuerySort → ExprSort
   | .bool => .bool
 
 /-- Mathematical interpretation of the actual typed query AST used by the Lean CPC bridge. -/
-def evalCanonicalQuery {s : LogosBinding.QuerySort}
-    (term : LogosBinding.QueryTerm s)
-    (env : SourceQuerySemantics.Env) :
-    SourceQuerySemantics.Value (querySortToExprSort s) :=
-  match s, term with
-  | .int, .intLit n => .intValue n
-  | .bool, .boolLit b => .boolValue b
-  | .int, .intSymbol name => env name .int
-  | .bool, .boolSymbol name => env name .bool
-  | .bool, .not e => .boolValue (!(asBool (evalCanonicalQuery e env)))
-  | .int, .neg e => .intValue (-(asInt (evalCanonicalQuery e env)))
-  | .int, .add a b =>
+def evalCanonicalQuery :
+    {s : LogosBinding.QuerySort} →
+    LogosBinding.QueryTerm s → SourceQuerySemantics.Env →
+    SourceQuerySemantics.Value (querySortToExprSort s)
+  | .int, .intLit n, _ => .intValue n
+  | .bool, .boolLit b, _ => .boolValue b
+  | .int, .intSymbol name, env => env name .int
+  | .bool, .boolSymbol name, env => env name .bool
+  | .bool, .not e, env => .boolValue (!(asBool (evalCanonicalQuery e env)))
+  | .int, .neg e, env => .intValue (-(asInt (evalCanonicalQuery e env)))
+  | .int, .add a b, env =>
       .intValue (asInt (evalCanonicalQuery a env) + asInt (evalCanonicalQuery b env))
-  | .int, .sub a b =>
+  | .int, .sub a b, env =>
       .intValue (asInt (evalCanonicalQuery a env) - asInt (evalCanonicalQuery b env))
-  | .int, .mul a b =>
+  | .int, .mul a b, env =>
       .intValue (asInt (evalCanonicalQuery a env) * asInt (evalCanonicalQuery b env))
-  | .bool, .eqInt a b =>
+  | .bool, .eqInt a b, env =>
       .boolValue (decide (asInt (evalCanonicalQuery a env) = asInt (evalCanonicalQuery b env)))
-  | .bool, .eqBool a b =>
+  | .bool, .eqBool a b, env =>
       .boolValue (decide (asBool (evalCanonicalQuery a env) = asBool (evalCanonicalQuery b env)))
-  | .bool, .lt a b =>
+  | .bool, .lt a b, env =>
       .boolValue (decide (asInt (evalCanonicalQuery a env) < asInt (evalCanonicalQuery b env)))
-  | .bool, .le a b =>
+  | .bool, .le a b, env =>
       .boolValue (decide (asInt (evalCanonicalQuery a env) <= asInt (evalCanonicalQuery b env)))
-  | .bool, .and terms =>
+  | .bool, .and terms, env =>
       .boolValue (terms.all (fun child => asBool (evalCanonicalQuery child env)))
-  | .bool, .or terms =>
+  | .bool, .or terms, env =>
       .boolValue (terms.any (fun child => asBool (evalCanonicalQuery child env)))
-  | .int, .iteInt condition yes no =>
+  | .int, .iteInt condition yes no, env =>
       if asBool (evalCanonicalQuery condition env)
       then evalCanonicalQuery yes env else evalCanonicalQuery no env
-  | .bool, .iteBool condition yes no =>
+  | .bool, .iteBool condition yes no, env =>
       if asBool (evalCanonicalQuery condition env)
       then evalCanonicalQuery yes env else evalCanonicalQuery no env
-termination_by term => sizeOf term
+termination_by _ term _ => sizeOf term
 decreasing_by all_goals simp_wf
+
+/-- The two sort maps are inverse on source sorts. -/
+theorem querySortRoundTrip (s : ExprSort) :
+    querySortToExprSort (querySortOf s) = s := by
+  cases s <;> rfl
+
+/-- Transport a source value to the result type of its corresponding query sort. -/
+def castSourceValue {s : ExprSort} (value : Value s) :
+    Value (querySortToExprSort (querySortOf s)) :=
+  cast (congrArg Value (querySortRoundTrip s).symm) value
 
 /--
 The actual LogosBinding.QueryTerm translation preserves the source expression
@@ -128,16 +137,18 @@ theorem translateRelationalExpr_correct
     {s : ExprSort} (side : RunSide) (factor : String)
     (e : Expr s) (queryEnv : SourceQuerySemantics.Env) :
     evalCanonicalQuery (translateRelationalExpr side factor e) queryEnv =
-      evalExpr e (sideEnvironment queryEnv side factor) := by
+      castSourceValue (evalExpr e (sideEnvironment queryEnv side factor)) := by
   cases s with
   | int =>
       induction e <;>
         simp [translateRelationalExpr, evalCanonicalQuery, sideEnvironment,
-          relationalSymbol, querySortOf, querySortToExprSort, asInt, asBool, *]
+          relationalSymbol, querySortOf, querySortToExprSort, castSourceValue,
+          querySortRoundTrip, asInt, asBool, *]
   | bool =>
       induction e <;>
         simp [translateRelationalExpr, evalCanonicalQuery, sideEnvironment,
-          relationalSymbol, querySortOf, querySortToExprSort, asInt, asBool, *]
+          relationalSymbol, querySortOf, querySortToExprSort, castSourceValue,
+          querySortRoundTrip, asInt, asBool, *]
 
 /-- Every non-selected input is represented by exactly the same symbol on both sides. -/
 theorem nonFactorInputsAreShared
@@ -145,20 +156,28 @@ theorem nonFactorInputsAreShared
     (sort : ExprSort) (different : name ≠ factor) :
     sideEnvironment queryEnv .left factor name sort =
       sideEnvironment queryEnv .right factor name sort := by
-  simp [sideEnvironment, relationalSymbol, different]
+  change queryEnv (relationalSymbol .left factor name) sort =
+    queryEnv (relationalSymbol .right factor name) sort
+  have leftName : relationalSymbol .left factor name = name := by
+    simp [relationalSymbol, different]
+  have rightName : relationalSymbol .right factor name = name := by
+    simp [relationalSymbol, different]
+  rw [leftName, rightName]
 
 /-- The selected input is represented by distinct left/right symbols. -/
 theorem selectedFactorLeftBinding
     (queryEnv : SourceQuerySemantics.Env) (factor : String) (sort : ExprSort) :
     sideEnvironment queryEnv .left factor factor sort =
       queryEnv (factor ++ "_L") sort := by
-  simp [sideEnvironment, relationalSymbol]
+  change queryEnv (relationalSymbol .left factor factor) sort = queryEnv (factor ++ "_L") sort
+  simp [relationalSymbol]
 
 theorem selectedFactorRightBinding
     (queryEnv : SourceQuerySemantics.Env) (factor : String) (sort : ExprSort) :
     sideEnvironment queryEnv .right factor factor sort =
       queryEnv (factor ++ "_R") sort := by
-  simp [sideEnvironment, relationalSymbol]
+  change queryEnv (relationalSymbol .right factor factor) sort = queryEnv (factor ++ "_R") sort
+  simp [relationalSymbol]
 
 /-- Boolean result indicating whether two source values of the same sort differ. -/
 def sourceValuesDiffer :
