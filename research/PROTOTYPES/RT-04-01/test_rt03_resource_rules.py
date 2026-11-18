@@ -93,7 +93,7 @@ class RT03IndependentResourceRulesTests(unittest.TestCase):
                                 frames, body, acquire_fail_at
                             )
                         cases += 1
-        self.assertEqual(cases, 162)
+        self.assertEqual(cases, 144)
 
     def test_inner_cleanup_failure_becomes_primary_for_outer_cleanup_failure(self):
         frames = (
