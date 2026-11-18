@@ -4,7 +4,7 @@ from src.semantic_dependency_index import SnapshotIncomingResult
 
 from src.impact_planning import (
     ActionKind, CallSiteDecision, CallSiteDisposition, CompletenessEvidence,
-    CompletenessStatus, ImpactedArtifact,
+    CompletenessStatus, ImpactedArtifact, OutputOperation, PlannedOutput,
     NonInterferenceCertificate, PlanningError, audit_dependency_completeness,
     audit_snapshot_incoming, dependency_digest, no_action_is_justified, plan_impact,
 )
@@ -296,6 +296,61 @@ class ImpactPlanningTests(unittest.TestCase):
         with self.assertRaises(PlanningError):
             plan_impact("base", "candidate", "policy", [artifact], [audit],
                         call_site_decisions=[missing_evidence])
+
+    def test_shared_caller_fork_decisions_are_bound_to_distinct_output_paths(self):
+        from src.impact_planning import IncomingCallSite
+
+        caller_hash = "shared-caller-v1"
+        old_callee = "callee-v1"
+        new_callee = "callee-v2"
+        incoming = IncomingCallSite(
+            caller_hash, "call:tax", "direct", old_callee,
+        )
+        audit = CompletenessAudit(
+            status=CompletenessStatus.SUPPORTED_WITHIN_SCOPE,
+            missing_dependencies=(), artifact_hash=old_callee,
+            scope="all-static-call-sites", evidence_method="reverse-index",
+            reason="supported within scope", snapshot_root="base",
+            target_hash=old_callee, evidence_id="audit:shared",
+            edge_set_digest="edge-digest", index_schema_version=1,
+            extractor_id="extractor/1", incoming_call_sites=(incoming,),
+        )
+        outputs = (
+            PlannedOutput(
+                "shared-legacy", "shared-legacy", OutputOperation.ADD, None,
+                "function", "content-digest-old", "preserve old consumer path",
+                "evidence:legacy", caller_hash, "legacy-path",
+            ),
+            PlannedOutput(
+                "shared-modern", "shared-modern", OutputOperation.ADD, None,
+                "function", "content-digest-new", "fork modern consumer path",
+                "evidence:modern", caller_hash, "modern-path",
+            ),
+        )
+        decisions = (
+            CallSiteDecision(
+                caller_hash, "call:tax", "direct", old_callee,
+                CallSiteDisposition.PRESERVE, old_callee, caller_hash,
+                "legacy path remains on old callee", "evidence:legacy",
+                "legacy-path", "shared-legacy",
+            ),
+            CallSiteDecision(
+                caller_hash, "call:tax", "direct", old_callee,
+                CallSiteDisposition.MIGRATE, new_callee, "shared-caller-v2",
+                "modern path migrates to new callee", "evidence:modern",
+                "modern-path", "shared-modern",
+            ),
+        )
+        plan = plan_impact(
+            "base", "candidate", "policy",
+            [ImpactedArtifact(old_callee, "implementation", "callee update")],
+            [audit], call_site_decisions=decisions, planned_outputs=outputs,
+        )
+        self.assertEqual(
+            {decision.consumer_path_id for decision in plan.call_site_decisions},
+            {"legacy-path", "modern-path"},
+        )
+        self.assertIn(ActionKind.REWRITE_CALL_SITE, {action.kind for action in plan.actions})
 
     def test_duplicate_audits_are_rejected(self):
         artifact = ImpactedArtifact("clause", "formal_clause", "changed")
