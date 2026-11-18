@@ -48,6 +48,28 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
                     self.assertEqual(trace.events, ())
                     self.assertEqual(trace.final_state, {})
 
+    def test_cancellation_is_distinct_and_stops_all_pending_work(self):
+        expression = {"sequence": [
+            perform("state.write", "write", {"key": "before", "value": 1}),
+            {"result_sequence": [
+                {"result_ok": {"literal": 1}},
+                {"cancel": {"kind": "Timeout"}},
+                {"result_ok": {"literal": 3}},
+            ]},
+            perform("state.write", "write", {"key": "after", "value": 2}),
+        ]}
+        trace = self.assert_same_trace(expression, "D", declared_effects=["state.write"])
+        self.assertEqual(trace.result, {"cancelled": {"kind": "Timeout"}})
+        self.assertEqual(trace.final_state, {"before": 1})
+        self.assertEqual(len(trace.events), 1)
+
+    def test_cancellation_reason_cannot_be_confused_with_result_error(self):
+        cancelled = self.assert_same_trace({"cancel": {"kind": "InvalidInput"}}, "A")
+        failed = self.assert_same_trace({"result_error": {"literal": {"kind": "InvalidInput"}}}, "A")
+        self.assertEqual(cancelled.result, {"cancelled": {"kind": "InvalidInput"}})
+        self.assertEqual(failed.result, {"error": {"kind": "InvalidInput"}})
+        self.assertNotEqual(cancelled.result, failed.result)
+
     def test_pure_expression_corpus_matches(self):
         corpus = [
             {"literal": None},
