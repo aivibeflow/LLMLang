@@ -15,8 +15,9 @@ from .semantic_graph import ContentStore, Dependency, Snapshot, canonical_bytes
 
 
 FORMAT = "llmlang.semantic-object"
-SCHEMA_VERSION = 2
-EXTRACTOR_ID = "semantic-dependency-extractor/2"
+SCHEMA_VERSION = 2  # semantic-object declaration envelope
+INDEX_SCHEMA_VERSION = 3  # edge projection no longer duplicates callee-provided Contract hashes
+EXTRACTOR_ID = "semantic-dependency-extractor/3"
 
 
 KINDS = {"function", "operation", "type", "contract", "implementation", "effect"}
@@ -51,7 +52,6 @@ class IndexedEdge:
     target_kind: str
     condition: str | None = None
     required_contract_hash: str | None = None
-    provided_contract_hash: str | None = None
 
     def record(self) -> dict[str, Any]:
         return {
@@ -62,7 +62,6 @@ class IndexedEdge:
             "target_kind": self.target_kind,
             "condition": self.condition,
             "required_contract_hash": self.required_contract_hash,
-            "provided_contract_hash": self.provided_contract_hash,
         }
 
 
@@ -173,10 +172,9 @@ def audit_snapshot_incoming_independently(
                     raise SemanticObjectError("call-site requirement must target a contract")
                 if target_hash == result.target_hash:
                     target = store.get(target_hash)
-                    provided = _provided_contract_hash(store, target_hash)
                     expected.append(IndexedEdge(
                         source_hash, edge_id, "calls", target_hash, target.kind,
-                        target_row.get("condition"), required_contract_hash, provided,
+                        target_row.get("condition"), required_contract_hash,
                     ))
                 if required_contract_hash == result.target_hash:
                     expected.append(IndexedEdge(
@@ -435,18 +433,17 @@ def build_dependency_index(store: ContentStore, source_hashes: Iterable[str] | N
                 required_contract = store.get(target_row["required_contract_hash"])
                 if required_contract.kind != "contract":
                     raise SemanticObjectError("call-site requirement must target a contract")
-                provided_contract_hash = _provided_contract_hash(store, target_row["target_hash"])
+                _provided_contract_hash(store, target_row["target_hash"])
                 edge_id = f"{site['call_site_id']}/{target_row['target_id']}"
                 edges.append(IndexedEdge(
                     source_hash, edge_id, "calls", target_row["target_hash"], target.kind,
                     target_row["condition"], target_row["required_contract_hash"],
-                    provided_contract_hash,
                 ))
                 edges.append(IndexedEdge(
                     source_hash, edge_id + "/required-contract", "requires_contract",
                     target_row["required_contract_hash"], "contract",
                 ))
-    return DependencyIndex(SCHEMA_VERSION, tuple(sorted(edges)))
+    return DependencyIndex(INDEX_SCHEMA_VERSION, tuple(sorted(edges)))
 
 
 def build_snapshot_dependency_index(store: ContentStore, snapshot: Snapshot) -> DependencyIndex:

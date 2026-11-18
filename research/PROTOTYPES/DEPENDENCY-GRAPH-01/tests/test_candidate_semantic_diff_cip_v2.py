@@ -85,7 +85,7 @@ def decision(caller_hash, site_id, target_id, base_callee_hash, disposition,
         selected_callee_hash, resulting_caller_hash,
         "contract-bound decision with explicit evidence",
         "evidence:compatibility:" + (consumer_path_id or "default"),
-        required_contract_hash, base_contract_hash, selected_contract_hash, "PROVEN",
+        required_contract_hash, "PROVEN",
         candidate_required_contract_hash, consumer_path_id,
         resulting_output_id, selected_output_id,
     )

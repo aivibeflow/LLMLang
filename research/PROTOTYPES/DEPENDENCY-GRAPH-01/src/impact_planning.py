@@ -57,7 +57,6 @@ class IncomingCallSite:
     target_hash: str
     condition: str | None = None
     required_contract_hash: str | None = None
-    provided_contract_hash: str | None = None
 
 
 class CallSiteDisposition(str, Enum):
@@ -137,8 +136,6 @@ class CallSiteDecision:
     rationale: str
     decision_evidence_id: str | None = None
     required_contract_hash: str | None = None
-    base_callee_contract_hash: str | None = None
-    selected_callee_contract_hash: str | None = None
     compatibility_status: str | None = None
     candidate_required_contract_hash: str | None = None
     consumer_path_id: str = ""
@@ -223,7 +220,6 @@ def impact_plan_payload(plan: ImpactPlan) -> dict:
             (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
              d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
              d.rationale, d.decision_evidence_id, d.required_contract_hash,
-             d.base_callee_contract_hash, d.selected_callee_contract_hash,
              d.compatibility_status, d.candidate_required_contract_hash,
              d.consumer_path_id, d.resulting_output_id, d.selected_output_id)
             for d in sorted(plan.call_site_decisions)
@@ -445,7 +441,6 @@ def audit_snapshot_incoming(result: object) -> CompletenessAudit:
             caller_hash=edge.source_hash, call_site_id=call_site_id,
             target_id=target_id, target_hash=edge.target_hash, condition=edge.condition,
             required_contract_hash=edge.required_contract_hash,
-            provided_contract_hash=edge.provided_contract_hash,
         ))
     return CompletenessAudit(
         status=status,
@@ -665,10 +660,9 @@ def plan_impact(
                 raise PlanningError("call-site decision identities and rationale are required")
             if decision.base_callee_hash != edge.target_hash:
                 raise PlanningError("call-site decision is bound to a different base callee hash")
-            if (not edge.required_contract_hash or not edge.provided_contract_hash
-                    or decision.required_contract_hash != edge.required_contract_hash
-                    or decision.base_callee_contract_hash != edge.provided_contract_hash):
-                raise PlanningError("call-site decision must preserve exact required and base-provided contract hashes")
+            if (not edge.required_contract_hash
+                    or decision.required_contract_hash != edge.required_contract_hash):
+                raise PlanningError("call-site decision must preserve the exact caller-required contract hash")
 
             if decision.resulting_output_id is not None:
                 output = output_map.get(decision.resulting_output_id)
@@ -687,7 +681,7 @@ def plan_impact(
 
             if decision.disposition is CallSiteDisposition.UNRESOLVED:
                 if any((decision.selected_callee_hash, decision.resulting_caller_hash,
-                        decision.decision_evidence_id, decision.selected_callee_contract_hash,
+                        decision.decision_evidence_id,
                         decision.compatibility_status, decision.resulting_output_id,
                         decision.selected_output_id)):
                     raise PlanningError("unresolved call-site decision cannot select output hashes or claim evidence")
@@ -697,19 +691,18 @@ def plan_impact(
                     raise PlanningError("resolved decisions require exact selected callee hash or output binding")
                 if not (decision.resulting_caller_hash or decision.resulting_output_id):
                     raise PlanningError("resolved decisions require exact resulting caller hash or output binding")
-                if not all((decision.decision_evidence_id, decision.selected_callee_contract_hash)):
-                    raise PlanningError("resolved decisions require selected provided contract and evidence")
+                if not decision.decision_evidence_id:
+                    raise PlanningError("resolved decisions require compatibility evidence identity")
                 if decision.candidate_required_contract_hash is not None and not decision.candidate_required_contract_hash:
                     raise PlanningError("candidate required contract hash, when supplied, must be non-empty")
                 if decision.compatibility_status != "PROVEN":
                     raise PlanningError("resolved call-site decisions require PROVEN compatibility evidence")
                 if decision.disposition is CallSiteDisposition.PRESERVE and (
                     decision.selected_callee_hash != edge.target_hash or decision.selected_output_id is not None
-                    or decision.selected_callee_contract_hash != edge.provided_contract_hash
                     or (decision.candidate_required_contract_hash or decision.required_contract_hash)
                        != edge.required_contract_hash
                 ):
-                    raise PlanningError("PRESERVE must retain the exact callee and provided-contract hashes")
+                    raise PlanningError("PRESERVE must retain the exact callee hash and caller-required contract")
                 if decision.disposition is CallSiteDisposition.MIGRATE and (
                     decision.selected_callee_hash == edge.target_hash and decision.selected_output_id is None
                 ):

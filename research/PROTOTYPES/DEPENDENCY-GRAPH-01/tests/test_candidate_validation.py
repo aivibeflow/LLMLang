@@ -82,8 +82,6 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
             rationale="candidate behavior is required",
             decision_evidence_id="compatibility-evidence:001",
             required_contract_hash=self.contract_hash,
-            base_callee_contract_hash=self.contract_hash,
-            selected_callee_contract_hash=self.contract_hash,
             compatibility_status="PROVEN",
         )
         return ImpactPlan(
@@ -204,13 +202,13 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
                 base_caller, "call:new", "direct", self.old_callee,
                 CallSiteDisposition.MIGRATE, self.new_callee, revised_caller,
                 "new tax behavior required", "evidence:migrate",
-                self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
+                self.contract_hash, "PROVEN",
             ),
             CallSiteDecision(
                 base_caller, "call:legacy", "direct", legacy_callee,
                 CallSiteDisposition.PRESERVE, legacy_callee, revised_caller,
                 "legacy behavior remains required", "evidence:preserve",
-                self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
+                self.contract_hash, "PROVEN",
             ),
         )
         plan = ImpactPlan(
@@ -228,7 +226,7 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.UNRESOLVED, None, None,
             "not established", None,
-            self.contract_hash, self.contract_hash, None, None,
+            self.contract_hash, None,
         )
         plan = ImpactPlan(
             "plan:unresolved", self.baseline.root_hash, self.candidate.root_hash,
@@ -285,24 +283,16 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
         self.assertTrue(any("CIP-bound required contract" in error
                             for error in result.errors))
 
-    def test_preserve_cannot_change_the_provided_contract_binding(self):
-        from dataclasses import replace
-        decision = replace(
-            self.plan(disposition=CallSiteDisposition.PRESERVE,
-                      selected=self.old_callee, caller=self.old_caller,
-                      candidate=self.baseline).call_site_decisions[0],
-            selected_callee_contract_hash="forged-contract-hash",
-        )
-        plan = ImpactPlan(
-            "plan:forged-provided-contract", self.baseline.root_hash,
-            self.baseline.root_hash, "policy", (), (), (), (decision,),
+    def test_preserve_resolves_provided_contract_through_callee(self):
+        plan = self.plan(
+            disposition=CallSiteDisposition.PRESERVE,
+            selected=self.old_callee, caller=self.old_caller,
+            candidate=self.baseline,
         )
         result = validate_candidate_call_site_decisions(
             self.store, self.baseline, self.baseline, plan
         )
-        self.assertFalse(result.valid)
-        self.assertTrue(any("selected callee does not provide" in error
-                            for error in result.errors))
+        self.assertTrue(result.valid, result.errors)
 
     def test_candidate_snapshot_root_is_bound_to_plan(self):
         wrong_plan = ImpactPlan(

@@ -82,7 +82,6 @@ class CandidateGraphAuditTests(unittest.TestCase):
         call_edge = next(edge for edge in result.dependency_index.edges
                          if edge.relation == "calls")
         self.assertEqual(call_edge.required_contract_hash, self.contract_hash)
-        self.assertEqual(call_edge.provided_contract_hash, self.contract_hash)
         self.assertTrue(any(edge.relation == "requires_contract"
                             and edge.target_hash == self.contract_hash
                             for edge in result.dependency_index.edges))
