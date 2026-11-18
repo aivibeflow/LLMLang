@@ -520,3 +520,8 @@ RT-19 is ready for an architectural decision only when:
 - remaining limitations and deferred features are explicit.
 
 Passing these criteria supports a scoped ADR. It does not by itself establish that the entire LLMLang architecture is complete or defect-free.
+
+
+## 19. Related Git and semantic merge documents
+
+Study RT-19 together with [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [ADR-014](../docs/adr/014-git-semantic-merge.md), [RT-20](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-22](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md), and [RT-23](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) whenever changing semantic Change Set/Snapshot lifecycle, import/export, Git commit coordination, or merge behavior. The focused merge document owns merge semantics; RT-20 owns semantic impact/hash/caller correctness; RT-22 owns the external repository/worktree contract; RT-23 owns shared-state runtime and synchronized commit. RT-19 owns the transport-neutral domain API and must not redefine those specialized contracts.
