@@ -1,6 +1,6 @@
 # Research Scenario 34 — Source-to-Query Semantic Correspondence
 
-**Status:** Formalization target and proof plan; no source-to-query correspondence theorem has yet been implemented or proved.  
+**Status:** In progress. Expression-level source-to-query preservation and expression-level paired relational translation lemmas are implemented in Lean. Command/program semantics and the complete canonical relational-query correspondence theorem remain open.  
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 26–33.  
 **Question:** What must be defined and proved before a QF_LIA relational query generated from an LLMLang program can be treated as a faithful encoding of that program's semantics?
@@ -181,21 +181,105 @@ The Lean proof core must not import cvc5, invoke a solver, or trust Python-gener
 
 Avoid introducing a generic compiler framework prematurely. The first formalization should use a small inductive syntax and explicit functions.
 
-## 7. Proof strategy and order
+## 7. Fine-grained implementation plan
 
-1. Define typed expressions and a typed environment.
-2. Prove expression evaluation is total for well-typed terms.
-3. Define QueryTerm evaluation independently of Logos syntax.
-4. Define `translateExpr` and prove SC-1 and SC-2 by structural induction.
-5. Define command execution and prove determinism.
-6. Define symbolic execution for assignments and conditionals.
-7. Prove SC-3 and SC-4.
-8. Define paired inputs and observations; prove SC-5.
-9. Define the relational formula and prove SC-6.
-10. Prove linearity and declaration completeness (SC-7).
-11. Only then connect the Lean relational formula to the existing canonical JSON decoder and exact Logos assumptions.
+The work is split into small reviewable tasks. A task is complete only when its artifact exists, the relevant theorem is kernel-checked, and CI exercises the module. Python tests and finite examples are regression evidence, not substitutes for Lean theorems.
 
-At each stage, add executable examples and negative tests, but do not label tests as proofs. Each theorem should be a kernel-checked Lean theorem with no `sorry`, admitted axiom, or unreviewed custom axiom.
+### 7.1 Baseline and proof boundary
+
+- [x] **SCW-01 — Record the exact QF_LIA source subset.** Keep the initial source grammar and exclusions explicit (Sections 2 and 10).
+- [x] **SCW-02 — Record the current expression-level proof boundary.** `SourceQuerySemantics.lean` contains an independent typed source/query expression AST and `translateExpr_preserves_eval`.
+- [x] **SCW-03 — Record the existing relational-expression prototype.** `RelationalSourceQuerySemantics.lean` contains per-side expression translation, selected-factor renaming, shared non-factor names, and expression-level factor/observation difference lemmas.
+- [ ] **SCW-04 — Audit the current modules against the intended trust boundary.** The relational prototype currently imports `LLMLangLogosBinding` and uses its `QueryTerm`; decide and implement a clean separation between a solver/Logos-independent semantic query core and the Logos adapter.
+
+**Outputs:** reviewed baseline inventory; explicit list of proved expression claims and unproved command/program claims; module dependency diagram.
+
+### 7.2 Source syntax, typing, and environments
+
+- [ ] **SCW-05 — Define declaration contexts.** Model input, local, and state names with unique identity and `Int`/`Bool` sorts.
+- [ ] **SCW-06 — Define source well-formedness.** Specify unique declarations, scope, initialization, legal reads/writes, and observation eligibility.
+- [ ] **SCW-07 — Prove expression typing preservation.** Connect the current indexed AST to declaration-context validation.
+- [ ] **SCW-08 — Define typed runtime environments.** Bind every declared name to a value of its declared sort and state the environment satisfaction invariant.
+- [ ] **SCW-09 — Prove expression evaluation totality and determinism.** Make assumptions explicit rather than relying only on total Lean functions over unconstrained name lookup.
+
+**Outputs:** source context and well-formedness predicates; typed environment invariant; type/totality lemmas.
+
+### 7.3 Expression translation and semantic preservation
+
+- [x] **SCW-10 — Prove pure expression evaluation preservation.** Existing `translateExpr_preserves_eval` proves the deliberately small typed Int/Bool expression fragment.
+- [x] **SCW-11 — Prove per-side relational expression translation.** Existing `translateRelationalExpr_correct` relates relational query terms to source evaluation under side-specific environments.
+- [x] **SCW-12 — Prove canonical input-symbol mapping for expressions.** Existing `translateCanonicalRelationalExpr_correct` covers indexed `i_N`, `i_N_L`, and `i_N_R` naming at expression level.
+- [x] **SCW-13 — Prove selected-factor split and non-selected-input sharing.** Existing left/right binding and `nonFactorInputsAreShared` lemmas establish these symbol-level facts.
+- [x] **SCW-14 — Prove expression-level factor and observation difference formulas.** Existing `factorDifference_correct`, `observationDifference_correct`, and `relationalAssumptions_correct` cover expression results, not whole programs.
+- [ ] **SCW-15 — Remove accidental dependency on the external Logos AST from the semantic proof core.** Introduce or identify a solver-independent query-term language and prove a separate adapter to `LogosBinding.QueryTerm`/`Eo.Term`.
+
+**Outputs:** expression-level theorem suite; canonical symbol map; independent query semantics; a small separately verified Logos adapter.
+
+### 7.4 Command and program semantics
+
+- [ ] **SCW-16 — Define the command AST.** Start with assignment, state assignment, conditional command sequences, and one final return; exclude loops, recursion, effects, and early return.
+- [ ] **SCW-17 — Define source big-step execution.** Specify sequential assignments, branch selection, and final return over locals and state.
+- [ ] **SCW-18 — Prove source execution determinism.** Prove that one accepted initial configuration has at most one final configuration/result.
+- [ ] **SCW-19 — Define symbolic execution state.** Represent current symbolic locals/state and path conditions explicitly.
+- [ ] **SCW-20 — Define symbolic assignment and conditional translation.** Show how writes update symbolic environments and how branches merge (guarded updates or `ite`).
+- [ ] **SCW-21 — Prove command-sequence preservation (SC-3).** Relate source execution to symbolic execution, including state writes followed by reads and nested conditionals.
+- [ ] **SCW-22 — Define the observation contract.** Select return value and an explicit ordered set of observable state regions; exclude internal state.
+- [ ] **SCW-23 — Prove program observation preservation (SC-4).** Show translated observations equal source observations for every accepted input and initial state.
+
+**Outputs:** executable source semantics; symbolic command interpreter/translator; determinism and command/program preservation theorems.
+
+### 7.5 Paired execution and relational query
+
+- [ ] **SCW-24 — Define paired input environments.** State that exactly the selected input may differ, all other inputs are equal, and initial states are identical.
+- [ ] **SCW-25 — Prove paired execution preservation (SC-5).** Lift SC-4 to arbitrary left/right inputs; do not restrict the theorem to finite test domains.
+- [ ] **SCW-26 — Define the complete relational proposition.** Construct `FactorDiff ∧ ObservationDiff` from the selected input and contract-selected observations.
+- [ ] **SCW-27 — Prove relational-query correctness (SC-6).** Prove the canonical formula is true iff the source factor differs and source observations differ.
+- [ ] **SCW-28 — Bind formula symbols to source declarations.** Prove declaration completeness, sort correctness, injective naming, and exact left/right/shared identity mapping.
+
+**Outputs:** paired-run semantics; complete relational theorem; proved source-to-symbol binding invariant.
+
+### 7.6 QF_LIA admissibility and external wire/checker boundary
+
+- [ ] **SCW-29 — Prove QF_LIA admissibility (SC-7).** Prove all emitted operators and sorts are supported and multiplication always has a literal operand.
+- [ ] **SCW-30 — Prove declaration closure.** Every query symbol is declared exactly once, no undeclared symbol is referenced, and each symbol has the intended sort/role.
+- [ ] **SCW-31 — Define the canonical JSON correspondence boundary.** Relate the Lean-owned canonical formula to the `/2` wire envelope without trusting Python to choose the semantic expression.
+- [ ] **SCW-32 — Connect the proved formula to Logos terms.** Prove the adapter preserves structure and sort, then retain the CPC parser-state identity checks.
+- [ ] **SCW-33 — Bind exact CPC assumptions to the proved source-derived formula.** The parser-state bridge and structural assumption checks exist; this task replaces the externally supplied expected query with the Lean-reconstructed source-derived formula.
+- [ ] **SCW-34 — State the solver/checker trust boundary.** Document which theorem is Lean-kernel checked, which result is Logos-checked, and what remains trusted or assumed.
+
+**Outputs:** admissibility theorem; canonical wire/Logos adapter; exact source-derived CPC binding; explicit trusted computing base.
+
+### 7.7 Adversarial validation and CI
+
+- [ ] **SCW-35 — Add expression-level differential fixtures.** Compare source and query evaluators over generated bounded Int/Bool environments; these are regression tests, not proofs.
+- [ ] **SCW-36 — Add command-level edge cases.** Cover write-then-read, both conditional branches, nested conditionals, scope errors, and invalid uninitialized reads.
+- [ ] **SCW-37 — Add relational adversarial fixtures.** Cover wrong selected factor, accidentally split shared inputs, swapped left/right names, missing observed state, and wrong initial-state sharing.
+- [ ] **SCW-38 — Add QF_LIA negative fixtures.** Reject nonlinear multiplication, unsupported sorts/operators, undeclared symbols, duplicate declarations, and malformed source programs.
+- [ ] **SCW-39 — Add kernel/axiom audit.** CI must fail on `sorry`, `admit`, project-local axioms, or an unapproved trust escape in new proof modules.
+- [ ] **SCW-40 — Add a dedicated proof CI gate.** Build each proof module in dependency order and run executable adversarial fixtures under the pinned Lean toolchain.
+- [ ] **SCW-41 — Publish milestone evidence.** Record exact commit, CI run, toolchain/dependency pins, theorem names, and remaining proof boundary.
+
+**Outputs:** repeatable CI gate and evidence record for the first program-level source-to-query milestone.
+
+### 7.8 Execution order and gates
+
+The immediate next task is **SCW-04**, not the whole proof. First audit and decouple the current relational expression proof from Logos-specific ASTs. Then proceed through SCW-05–SCW-15 before adding command semantics. Keep later groups blocked until predecessor theorems compile.
+
+| Gate | Required tasks | Exit condition |
+|---|---|---|
+| G0 — Baseline | SCW-01–SCW-04 | Trust boundary and theorem inventory reviewed |
+| G1 — Typed source core | SCW-05–SCW-09 | Context, well-formedness, and typed environment invariants compile |
+| G2 — Expressions | SCW-10–SCW-15 | Expression preservation proved without Logos dependency in semantic core |
+| G3 — Commands | SCW-16–SCW-21 | Deterministic command execution and SC-3 pass |
+| G4 — Program observations | SCW-22–SCW-23 | SC-4 passes for return and selected state |
+| G5 — Paired runs | SCW-24–SCW-25 | SC-5 passes for arbitrary related input environments |
+| G6 — Relational formula | SCW-26–SCW-28 | SC-6 and source-symbol binding invariants pass |
+| G7 — Wire and checker | SCW-29–SCW-34 | SC-7 and source-derived JSON/CPC/Logos binding pass |
+| G8 — Acceptance | SCW-35–SCW-41 | Theorems, adversarial tests, axiom audit, and CI acceptance pass |
+
+This decomposition targets only the stated deterministic QF_LIA fragment, not the entire LLMLang language. Each gate is reported separately; expression-level success must never be described as program-level correctness.
+
+At each stage, add executable examples and negative tests, but do not label tests as proofs. Each theorem must be kernel-checked with no `sorry`, admitted axiom, or unreviewed custom axiom.
 
 ## 8. Important semantic hazards
 
