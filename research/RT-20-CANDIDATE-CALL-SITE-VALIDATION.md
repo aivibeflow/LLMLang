@@ -20,7 +20,7 @@ For each planned call-site decision it checks:
 4. The stored caller and callee hashes recompute from their canonical semantic-value envelope.
 5. The candidate caller declaration contains the exact call-site and target IDs.
 6. The target at that call site points to the exact selected callee hash.
-7. `PRESERVE` retains both the original callee hash and original caller version.
+7. `PRESERVE` retains the exact original callee hash at that call site; the caller may still receive a new version because of other planned changes.
 8. `MIGRATE`, `ADAPT`, and `FORK` materialize a new caller version.
 9. An unresolved decision cannot validate a candidate.
 
