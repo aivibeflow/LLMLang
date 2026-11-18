@@ -1,6 +1,6 @@
 # RT-20 — Candidate semantic diff and CIP enforcement
 
-**Status:** PR #17 and PR #20 are merged. CIP v2 output/edge records and consumer-path-specific caller forks are implemented on this PR branch; 101 focused semantic-dependency tests and compilation are being validated.  
+**Status:** PR #24 merged. On its head, 101 semantic-dependency tests and compilation passed; repository structure checks (6 + 78 tests) and strict QF_LIA (30 tests + compileall) also passed. Post-merge workflow runs were not returned, so these are PR-head results.  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)  
 **Related gates:** [Candidate call-site validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md), [Candidate graph audit](RT-20-CANDIDATE-GRAPH-AUDIT.md)
