@@ -164,9 +164,9 @@ The explicit `result_sequence` form propagates the first Result error and skips 
 
 This is a bounded executable semantics experiment, not a selected language
 semantics. It does not implement parsing, variables/functions/recursion,
-general effect handlers or row inference, implicit Result propagation,
-exceptions/cancellation, resource lifecycle, concurrency, divergence, or
-source-to-expression completeness. The deterministic handlers use in-memory
+general effect handlers or row inference, implicit Result propagation from
+ordinary expressions or calls, exceptions/cancellation, resource lifecycle,
+concurrency, divergence, or source-to-expression completeness. The deterministic handlers use in-memory
 fixtures and do not access the host filesystem or network.
 
 See [RT-03/RT-04 cross-profile trace findings](../../RT-04-RT-03-CROSS-PROFILE-TRACES.md)
