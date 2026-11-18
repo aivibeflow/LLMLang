@@ -54,6 +54,13 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
         self.assertEqual(trace.events, ())
         self.assertEqual(trace.final_state, {})
 
+    def test_result_propagation_rejects_non_result_values_in_both_models(self):
+        expression = {"result_sequence": [{"literal": 1}]}
+        with self.assertRaises(SemanticError):
+            evaluate(expression, "A")
+        with self.assertRaises(MachineError):
+            run_small_step(expression, "A")
+
     def test_result_propagation_success_matches(self):
         trace = self.assert_same_trace({"result_sequence": [
             {"result_ok": {"literal": 1}},
