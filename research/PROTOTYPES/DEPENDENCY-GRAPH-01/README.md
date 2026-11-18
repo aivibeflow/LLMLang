@@ -350,3 +350,8 @@ python -m unittest -v tests.test_impact_planning
 ```
 
 This is planning-graph validation only. It does not establish that an action was executed or that its evidence is adequate/authentic.
+
+
+## CIP schema v4 — action-kind policy
+
+Planned actions now carry a canonical `subject_kind`; the versioned closed policy `cip-action-policy/1` rejects unknown subject kinds and incompatible action kinds. Both the subject kind and policy version are bound into action/plan identity. The semantic-diff audit checks this policy again. This validates kind compatibility, not execution or complete action-to-output/edge obligation coverage.
