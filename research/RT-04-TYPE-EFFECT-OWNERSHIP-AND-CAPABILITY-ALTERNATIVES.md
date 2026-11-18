@@ -112,7 +112,7 @@ Experiments should compare a small closed core vocabulary, parameterized effect 
 
 The checker needs rules for direct effects, transitive calls and dynamic dispatch, effect polymorphism, handler introduction/elimination/forwarding/masking, exceptions, cancellation, resource finalization, effectful initialization, and unsupported/dynamic handlers.
 
-The concept explicitly requires transitive call analysis. RT-06 dependency completeness and RT-07 proof boundaries must distinguish a declared effect from a verified fact. A declaration is an obligation, not proof that undeclared effects are absent.
+The concept explicitly requires transitive call analysis. A declared effect bound is an upper-bound contract, not a summary of direct effects alone: the checker must compare it with inferred effects over the complete reachable call closure. RT-06 dependency completeness and RT-07 proof boundaries must distinguish a declared effect from a verified fact. A declaration is an obligation, not proof that undeclared effects are absent. If call-graph completeness is missing or unresolved, the result must be UNKNOWN rather than acceptance.
 
 ### 3.4 Effect order and observations
 
@@ -323,14 +323,14 @@ Confidence:
 
 ## 14. First executable evidence and remaining exit criteria
 
-[RT-04 Prototype 01](PROTOTYPES/RT-04-01/README.md) now compares two deliberately limited declaration-level checker vectors. Its [results](RT-04-PROTOTYPE-01-RESULTS.md) and [scenario matrix](RT-04-PROTOTYPE-01-SCENARIOS.md) record 18 focused unit tests: primitive/closed effects, open effect rows, positive/negative/unknown refinement, transitive effect summaries, ambient versus propagated capabilities, affine duplicate consumption, branch-consistent and inconsistent joins, loop re-consumption, malformed CFG references, unknown resources/callees/effects, and malformed input. The prototype is not a compiler, source semantics, complete dependency analysis, runtime authorization mechanism, or architecture decision. Its fixed-point summaries assume the supplied call graph is complete.
+[RT-04 Prototype 01](PROTOTYPES/RT-04-01/README.md) now compares two deliberately limited declaration-level checker vectors. Its [results](RT-04-PROTOTYPE-01-RESULTS.md) and [scenario matrix](RT-04-PROTOTYPE-01-SCENARIOS.md) record 27 focused unit tests: primitive/closed effects, open effect rows, positive/negative/unknown refinement, transitive effect summaries, direct and transitive effect-bound checks, incomplete call-graph UNKNOWN cases, definite violations despite incomplete graphs, ambient versus propagated capabilities, affine duplicate consumption, branch-consistent and inconsistent joins, loop re-consumption, malformed CFG references, unknown resources/callees/effects, and malformed input. The prototype is not a compiler, source semantics, complete dependency analysis, runtime authorization mechanism, or architecture decision. Its `call_graph_complete` fixture metadata is an explicit assertion, not authenticated evidence that a source extractor discovered all calls; dynamic dispatch, FFI, generated calls, handlers, and reflection remain outside the model.
 
 Remaining exit criteria:
 
 1. Extend the branch-sensitive resource-flow prototype with source-to-CFG completeness evidence, symbolic path conditions, and explicit terminal-path/cleanup obligations; the current finite CFG model covers only repeated consumption and join-state agreement.
 2. Select at least two cross-aspect candidate combinations derived from RT-03 profiles, not merely variants with hidden shared assumptions.
 3. Implement small checker/reference models for type/effect propagation and resource/capability transitions.
-4. Test direct/transitive effects through ordinary/generic calls, dynamic dispatch, handlers, and FFI.
+4. Replace fixture-level call-graph completeness assertions with source/snapshot-bound evidence; test ordinary/generic calls, dynamic dispatch, handlers, generated calls, reflection, and FFI.
 5. Test ownership/borrow/lifetime across error, cancellation, and async suspension.
 6. Reconcile the observation model with RT-03 and POSIX scenarios.
 7. Update dependency edges with evidence-backed relationships and conditional incompatibilities.
