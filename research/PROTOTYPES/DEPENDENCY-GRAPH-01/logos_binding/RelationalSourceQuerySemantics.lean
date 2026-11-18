@@ -127,6 +127,8 @@ mutual
         if asBool (evalCanonicalQuerySigma ⟨.bool, condition⟩ env)
         then evalCanonicalQuerySigma ⟨.bool, yes⟩ env
         else evalCanonicalQuerySigma ⟨.bool, no⟩ env
+  termination_by query _ => sizeOf query
+  decreasing_by all_goals simp_wf <;> omega
 
   def evalBoolTerms (isAnd : Bool) :
       List (LogosBinding.QueryTerm .bool) →
