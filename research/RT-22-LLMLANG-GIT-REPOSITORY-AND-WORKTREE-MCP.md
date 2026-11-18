@@ -130,6 +130,14 @@ The lease is authorization input, not a replacement for LLMLang's own operation-
 
 Credentials must not appear in tool results, semantic context, prompts, ordinary logs, or artifacts. Remote authentication requires an explicitly delegated least-privilege mechanism; absence or expiry produces a typed authorization failure.
 
+## 9.1 Commit means synchronized LLMLang and regular-file state
+
+For an LLMLang repository, a successful local commit MUST include a real synchronization of the pinned LLMLang semantic state into the selected Git worktree's canonical repository representation, together with the explicitly selected regular-file changes, and persist both in one Git commit. A Toolchain-local semantic database update without the corresponding Git tree representation is not a commit.
+
+Commit preparation pins the worktree baseline/generation, semantic snapshot, mapping revision, selected regular-file changes, and validation evidence. The Toolchain exports the semantic state into the worktree, verifies a round-trip to the pinned semantic state, validates the combined candidate tree, and only then creates the Git commit. Partial export, stale inputs, or validation failure must not produce a successful commit. Crash recovery must inspect the actual Git commit/tree and durable operation identity before deciding whether to finalize or retry.
+
+Git merge likewise operates on committed LLMLang representations. A merge-generated tree must be semantically imported/reconciled and validated before its merge commit is considered complete. Detailed runtime sequencing and recovery are owned by RT-23; semantic serialization and merge rules are owned by RT-15.
+
 ## 10. Failure and recovery
 
 The API distinguishes at least: invalid request, unsupported capability/schema, inaccessible handle, stale baseline, worktree conflict, semantic conflict, policy denied, credential unavailable, remote unavailable, operation timed out/unknown, partial synchronization, recovery required, and cleanup refused.
@@ -145,6 +153,10 @@ Recovery inspects actual repository/worktree state before retrying. It does not 
 - Path traversal, symlink escape, nested repository substitution, and forged handles are rejected.
 - External IDE edits are detected before import/export/commit.
 - A semantic snapshot and exported tree with mismatched hashes cannot be committed as verified.
+- A successful commit contains the exact canonical LLMLang representation and selected regular-file changes in one Git tree.
+- A semantic-only Change Set is materialized into a selected worktree and persisted in Git before it is reported as committed.
+- A Git merge tree is not finalized as an LLMLang merge until semantic import/reconciliation and validation succeed.
+- Crash recovery after Git ref update but before Toolchain finalization recognizes and finalizes the existing matching commit without creating a duplicate.
 - Timeout after a successful Git action is reconciled by operation inspection.
 - Cleanup refuses to remove an unowned or protected worktree.
 - MCP reconnect preserves durable operation and worktree identity.
