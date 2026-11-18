@@ -99,7 +99,7 @@ theorem translateRelationalExpr_correct
     evalCanonicalQuerySigma ⟨querySortOf s, translateRelationalExpr side factor e⟩ queryEnv =
       evalExpr e (sideEnvironment queryEnv side factor) := by
   induction e <;>
-    simp_all [translateRelationalExpr, evalCanonicalQuerySigma,
+    simp_all [translateRelationalExpr, evalCanonicalQuerySigma, SourceQuerySemantics.evalQuery,
       evalExpr, sideEnvironment, relationalSymbol, querySortOf,
       querySortToExprSort] <;> simp [asInt]
 
@@ -186,7 +186,7 @@ theorem translateCanonicalRelationalExpr_correct
       queryEnv =
       evalExpr e (canonicalSideEnvironment queryEnv inputNames side factor) := by
   induction e <;>
-    simp_all [translateCanonicalRelationalExpr, evalCanonicalQuerySigma,
+    simp_all [translateCanonicalRelationalExpr, evalCanonicalQuerySigma, SourceQuerySemantics.evalQuery,
       evalExpr, canonicalSideEnvironment, canonicalRelationalSymbol, canonicalBaseSymbol,
       querySortOf, querySortToExprSort] <;> simp [asInt]
 
@@ -255,7 +255,7 @@ theorem factorDifference_correct
         (sideEnvironment queryEnv .right factor factor sort)) := by
   cases sort <;>
     simp [factorDifference, evalCanonicalQuerySigma, sourceValuesDiffer,
-      sideEnvironment, relationalSymbol, querySortToExprSort, asInt, asBool,
+      sideEnvironment, relationalSymbol, querySortToExprSort, SourceQuerySemantics.evalQuery, asInt, asBool,
       decide_ne_eq_not_decide_eq]
 
 /--
@@ -285,7 +285,7 @@ theorem observationDifference_correct
         arg 1
         arg 1
         rw [evalCanonicalQuerySigma]
-      simp only [asBool]
+      simp only [asBool, SourceQuerySemantics.evalQuery]
       apply congrArg Value.boolValue
       have hleft :
           evalCanonicalQuerySigma ⟨.int, translateRelationalExpr .left factor e⟩ queryEnv =
