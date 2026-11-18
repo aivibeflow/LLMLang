@@ -129,7 +129,7 @@ def evalCanonicalQuerySigma :
       then evalCanonicalQuerySigma ⟨.bool, yes⟩ env
       else evalCanonicalQuerySigma ⟨.bool, no⟩ env
 termination_by query _ => sizeOf query
-decreasing_by all_goals simp_wf
+decreasing_by all_goals simp_wf <;> omega
 
 /-- Evaluate a typed canonical query term in the source/query environment. -/
 def evalCanonicalQuery {s : LogosBinding.QuerySort}
@@ -156,7 +156,7 @@ This theorem is kernel-checked.
 theorem translateRelationalExpr_correct
     {s : ExprSort} (side : RunSide) (factor : String)
     (e : Expr s) (queryEnv : SourceQuerySemantics.Env) :
-    evalCanonicalQuery (translateRelationalExpr side factor e) queryEnv =
+    evalCanonicalQuerySigma ⟨querySortOf s, translateRelationalExpr side factor e⟩ queryEnv =
       castSourceValue (evalExpr e (sideEnvironment queryEnv side factor)) := by
   induction e using Expr.rec <;>
     simp [translateRelationalExpr, evalCanonicalQuery, evalCanonicalQuerySigma,
@@ -222,12 +222,12 @@ def observationDifference :
 /-- The factor-difference formula denotes precisely inequality of source inputs. -/
 theorem factorDifference_correct
     (sort : ExprSort) (factor : String) (queryEnv : SourceQuerySemantics.Env) :
-    evalCanonicalQuery (factorDifference sort factor) queryEnv =
+    evalCanonicalQuerySigma ⟨.bool, factorDifference sort factor⟩ queryEnv =
       .boolValue (sourceValuesDiffer sort
         (sideEnvironment queryEnv .left factor factor sort)
         (sideEnvironment queryEnv .right factor factor sort)) := by
   cases sort <;>
-    simp [factorDifference, evalCanonicalQuery, evalCanonicalQuerySigma, sourceValuesDiffer,
+    simp [factorDifference, evalCanonicalQuerySigma, sourceValuesDiffer,
       sideEnvironment, relationalSymbol, querySortToExprSort, asInt, asBool,
       decide_ne_eq_not_decide_eq]
 
@@ -238,18 +238,18 @@ source expression results. This is the core paired-execution correspondence.
 theorem observationDifference_correct
     {s : ExprSort} (factor : String) (e : Expr s)
     (queryEnv : SourceQuerySemantics.Env) :
-    evalCanonicalQuery
-      (observationDifference s
+    evalCanonicalQuerySigma ⟨.bool,
+      observationDifference s
         (translateRelationalExpr .left factor e)
-        (translateRelationalExpr .right factor e))
+        (translateRelationalExpr .right factor e)⟩
       queryEnv =
       .boolValue (sourceValuesDiffer s
         (evalExpr e (sideEnvironment queryEnv .left factor))
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
-  rw [translateRelationalExpr_correct, translateRelationalExpr_correct]
   cases s <;>
-    simp [observationDifference, evalCanonicalQuery, evalCanonicalQuerySigma, sourceValuesDiffer,
-      asInt, asBool]
+    simp [observationDifference, evalCanonicalQuerySigma, sourceValuesDiffer,
+      asInt, asBool, translateRelationalExpr_correct,
+      decide_ne_eq_not_decide_eq]
 
 /--
 The two assumptions of the expression-level relational query are sound:
@@ -268,14 +268,14 @@ def relationalAssumptions {s : ExprSort}
 theorem relationalAssumptions_correct
     {s : ExprSort} (factorSort : ExprSort) (factor : String) (e : Expr s)
     (queryEnv : SourceQuerySemantics.Env) :
-    evalCanonicalQuery (factorDifference factorSort factor) queryEnv =
+    evalCanonicalQuerySigma ⟨.bool, factorDifference factorSort factor⟩ queryEnv =
       .boolValue (sourceValuesDiffer factorSort
         (sideEnvironment queryEnv .left factor factor factorSort)
         (sideEnvironment queryEnv .right factor factor factorSort)) ∧
-    evalCanonicalQuery
-      (observationDifference s
+    evalCanonicalQuerySigma ⟨.bool,
+      observationDifference s
         (translateRelationalExpr .left factor e)
-        (translateRelationalExpr .right factor e))
+        (translateRelationalExpr .right factor e)⟩
       queryEnv =
       .boolValue (sourceValuesDiffer s
         (evalExpr e (sideEnvironment queryEnv .left factor))
