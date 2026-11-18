@@ -389,7 +389,7 @@ def audit_candidate_semantic_diff(
                 site_id, target_id = edge_id.split("/", 1)
                 output = output_by_key.get(change.logical_key)
                 decision_candidates = decision_map.get(
-                    (change.baseline_hash, site_id, target_id), []
+                    (edge_baseline_hash, site_id, target_id), []
                 )
                 decisions_for_output = [
                     decision for decision in decision_candidates
@@ -416,7 +416,7 @@ def audit_candidate_semantic_diff(
                     errors.append(f"{change.logical_key}:{edge_id}: PRESERVE cannot authorize a changed target")
                 if not any(
                     action.kind is ActionKind.REWRITE_CALL_SITE
-                    and action.artifact_hash == change.baseline_hash
+                    and action.artifact_hash == edge_baseline_hash
                     for action in plan.actions
                 ):
                     errors.append(
