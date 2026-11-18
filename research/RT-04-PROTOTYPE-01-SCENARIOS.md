@@ -15,7 +15,7 @@ Implemented by PROTOTYPES/RT-04-01/test_rt04_model.py. Scope is declaration-leve
 | RT4-P07 | Same resource consumed twice | No static affine rejection | Reject use-after-move |
 | RT4-P08 | Unknown resource consumed | No static affine rejection | Reject |
 | RT4-P09 | Unknown callee | Reject | Reject |
-| RT4-P10 | Unknown effect label | Reject outside closed vocabulary | Currently accepted as effect-row label |
+| RT4-P10 | Unknown effect label | Reject outside closed vocabulary | Reject without an open row; accept with an explicit row variable |
 | RT4-P11 | Malformed envelope | Reject | Reject |
 
 These are not whole-program semantics. RT4-P04 assumes the supplied call graph is complete; RT4-P05/P06 do not exercise runtime authorization; RT4-P07 does not test branch-sensitive control flow.
