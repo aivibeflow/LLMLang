@@ -75,6 +75,7 @@ def evalLogosQuery : {s : ExprSort} →
       else
         evalLogosQuery no env
 
+/-- The measure includes nested list operands in Logos' n-ary connectives. -/
 termination_by
   evalLogosQuery _ term _ => sizeOf term
 decreasing_by
