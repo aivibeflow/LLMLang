@@ -134,7 +134,7 @@ This provides algorithmically independent implementation cross-checking for the 
 
 ## 8. Independent path-model cross-check
 
-A third model, [`rt03_path_model.py`](PROTOTYPES/RT-04-01/rt03_path_model.py), independently enumerates the bounded structural control paths and tracks only resource obligations, release order, cancellation, and Result-sequence short-circuit markers. It imports neither evaluator and does not execute effects or values. Non-literal conditions are treated as unknown booleans and fork into both branches; literal booleans select one branch. Cancellation while evaluating a condition produces no branch choice.
+A third model, [`rt03_path_model.py`](PROTOTYPES/RT-04-01/rt03_path_model.py), independently enumerates the bounded structural control paths and tracks only resource obligations, release order, cancellation, and Result-sequence short-circuit markers. It imports neither evaluator and does not execute effects or values. An explicit `unknown_bool` analysis marker is treated as an unknown boolean and forks into both branches; literal booleans select one branch, while literal non-booleans are rejected. The path model traverses nested addition and Result wrappers in evaluation order and preserves cancellation encountered in nested operands. Cancellation while evaluating a condition produces no branch choice.
 
 `test_rt03_path_model.py` compares its predicted resource event sequence and final active-resource set against both the recursive and small-step evaluators for concrete success, Result error, cancellation, nested scopes, release failures, and selected conditional branches. Separate model-only tests cover unknown/nested conditions and cancellation during condition evaluation.
 
