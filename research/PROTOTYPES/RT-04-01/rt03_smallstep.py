@@ -123,6 +123,11 @@ def run_small_step(
             elif op in {"result_ok", "result_error"}:
                 tasks.append(("result_done", op))
                 tasks.append(("eval", arg))
+            elif op == "result_sequence":
+                if not isinstance(arg, list) or not arg:
+                    raise MachineError("result_sequence requires a non-empty expression list")
+                tasks.append(("result_sequence_done", arg[1:]))
+                tasks.append(("eval", arg[0]))
             elif op == "perform":
                 values.append(effect_step(arg))
             else:
@@ -149,6 +154,16 @@ def run_small_step(
 
         elif tag == "result_done":
             values.append({task[1] == "result_ok" and "ok" or "error": values.pop()})
+
+        elif tag == "result_sequence_done":
+            remaining = task[1]
+            current = values[-1]
+            if not isinstance(current, dict) or len(current) != 1 or next(iter(current)) not in {"ok", "error"}:
+                raise MachineError("result_sequence items must evaluate to Result-shaped values")
+            if "error" not in current and remaining:
+                values.pop()
+                tasks.append(("result_sequence_done", remaining[1:]))
+                tasks.append(("eval", remaining[0]))
 
         else:
             raise MachineError(f"invalid machine continuation: {tag!r}")
