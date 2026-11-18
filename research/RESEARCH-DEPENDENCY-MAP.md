@@ -49,6 +49,7 @@ flowchart TD
   UX[RT-17 Developer experience]
   EV[RT-18 Conformance and evolution]
   TS[RT-19 Toolchain Server and semantic development API]
+  CP[RT-20 LLM patch planning and verified commit]
 
   G --> I
   G --> S
@@ -81,6 +82,15 @@ flowchart TD
   P --> A
   S --> A
   Q --> A
+  I --> CP
+  P --> CP
+  D --> CP
+  E --> CP
+  A --> CP
+  V --> CP
+  Q --> CP
+  TS --> CP
+  CP --> TS
   Q --> R
   Q --> L
   E --> EV
@@ -144,10 +154,19 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-048 | RT-16 → RT-19 | Constrains | Workspace scoping, tool permissions, acceptance, commit, sandboxing, and audit requirements constrain every server adapter and operation. | Strong hypothesis |
 | DEP-049 | RT-19 → RT-17 | Influences | Structured semantic operations, stable diagnostics, and bounded context may improve agent and human workflows; this requires comparative usability evidence. | Open hypothesis |
 | DEP-050 | RT-19 → RT-11 | Influences | Persistent workspace and semantic stores may reuse action-cache infrastructure, but workspace durability and cache validity are separate concerns. | Open hypothesis |
+| DEP-051 | RT-02 → RT-20 | Requires | A complete patch plan needs traceable requirements to determine the initial semantic changes and the obligations propagated to callers. | Strong hypothesis |
+| DEP-052 | RT-05 → RT-20 | Constrains | Immutable content-addressed function versions and hash-relevant references determine which caller versions and entry-point roots must be recomputed. | Strong hypothesis |
+| DEP-053 | RT-06 → RT-20 | Requires | Complete reverse-reference discovery and dependency evidence are prerequisites for a sound caller-impact closure and plan completeness audit. | Strong hypothesis |
+| DEP-054 | RT-08 → RT-20 | Requires | Plan execution and commit gates require validation evidence bound to exact candidate hashes, dependency closure, and toolchain configuration. | Strong hypothesis |
+| DEP-055 | RT-14 → RT-20 | Influences | The agent change protocol must enforce plan-before-mutation, mandatory planned work, and controlled completion rather than trusting model self-report. | Strong hypothesis |
+| DEP-056 | RT-15 → RT-20 | Constrains | Git commit creation, branch concurrency, exact-tree staging, and no-commit-on-failure constrain the completion transaction. | Strong hypothesis |
+| DEP-057 | RT-16 → RT-20 | Constrains | Authorization must distinguish plan approval, semantic mutation, validation, commit, and remote push; agents must not bypass completion gates. | Strong hypothesis |
+| DEP-058 | RT-19 → RT-20 | Enables | Workspaces, Change Sets, immutable snapshots, and repository coordination provide the operational substrate for CIP planning and verified commit. | Strong hypothesis |
+| DEP-059 | RT-20 → RT-19 | Influences | Caller migration decisions, hash propagation, mandatory plan execution, and validation-gated commit add workflow and API requirements to the Toolchain Server. | Strong hypothesis |
 
 ## 4. Important feedback loops and conditional relationships
 
-RT-03 is a foundational source for the type/effect model, semantic identity, formal verification, compiler/runtime behavior, incremental computation, semantic merge, security, and conformance. The newly recorded direct edges DEP-036–DEP-039 are research hypotheses derived from [RT-03 core semantics](CORE-LANGUAGE-SEMANTICS.md); they do not imply that any particular semantic profile has been accepted.
+RT-03 is a foundational source for the type/effect model, semantic identity, formal verification, compiler/runtime behavior, incremental computation, semantic merge, security, and conformance. The newly recorded direct edges DEP-036–DEP-039 are research hypotheses derived from [RT-03 core semantics](CORE-LANGUAGE-SEMANTICS.md); they do not imply that any particular semantic profile has been accepted. RT-20 adds a further feedback loop: the Toolchain workflow must enforce the dependency and identity model, while practical caller-migration and hash-propagation experiments may reveal missing distinctions in RT-05/RT-06 or transaction requirements in RT-19.
 
 
 
