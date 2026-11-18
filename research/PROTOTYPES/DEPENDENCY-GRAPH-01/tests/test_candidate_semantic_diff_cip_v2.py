@@ -297,7 +297,7 @@ class CandidateSemanticDiffCIPV2Tests(unittest.TestCase):
         edges = (
             edge_record(
                 "invoice-remove", PlannedEdgeKind.TYPED_REFERENCE, "provided-contract",
-                PlannedEdgeOperation.REMOVE, "provides_contract", None, self.contract,
+                PlannedEdgeOperation.REMOVE, "provides_contract", None, self.contract, None,
             ),
             edge_record(
                 "invoice-remove", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
