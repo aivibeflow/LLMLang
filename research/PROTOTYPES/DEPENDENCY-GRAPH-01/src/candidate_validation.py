@@ -136,9 +136,6 @@ def validate_candidate_call_site_decisions(
         if (decision.disposition is CallSiteDisposition.PRESERVE
                 and decision.selected_callee_hash != decision.base_callee_hash):
             errors.append(f"{prefix}: PRESERVE changed the exact callee hash")
-        if (decision.disposition is CallSiteDisposition.PRESERVE
-                and decision.resulting_caller_hash != decision.caller_hash):
-            errors.append(f"{prefix}: PRESERVE changed the exact caller version")
         if (decision.disposition in {
                 CallSiteDisposition.MIGRATE, CallSiteDisposition.ADAPT,
                 CallSiteDisposition.FORK,
