@@ -163,6 +163,29 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
         self.assertFalse(result.valid)
         self.assertTrue(any("unresolved decision" in error for error in result.errors))
 
+    def test_decision_must_match_actual_baseline_call_target(self):
+        from dataclasses import replace
+
+        baseline = make_snapshot({
+            "tax-v1": self.old_callee,
+            "tax-v2": self.new_callee,
+            "invoice": self.old_caller,
+        })
+        decision = replace(
+            self.plan().call_site_decisions[0],
+            base_callee_hash=self.new_callee,
+        )
+        plan = ImpactPlan(
+            "plan:wrong-base-edge", baseline.root_hash, self.candidate.root_hash,
+            "policy", (), (), (), (decision,),
+        )
+        result = validate_candidate_call_site_decisions(
+            self.store, baseline, self.candidate, plan
+        )
+        self.assertFalse(result.valid)
+        self.assertTrue(any("does not reference the decision's exact base callee"
+                            in error for error in result.errors))
+
     def test_candidate_snapshot_root_is_bound_to_plan(self):
         wrong_plan = ImpactPlan(
             "plan:wrong-root", self.baseline.root_hash, "not-the-candidate-root",
