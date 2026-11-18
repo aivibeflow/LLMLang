@@ -39,7 +39,9 @@ GitHub Actions run [44317898638](https://github.com/aivibeflow/LLMLang/actions/r
 5. **Effect bounds need complete transitive summaries.** A declared `effect_bound` is checked against direct plus reachable callee effects. Acceptance requires explicit completeness assertions for every function in the reachable closure. Missing completeness evidence or unresolved callees yields UNKNOWN, never an accepted empty summary. A known out-of-bound effect remains a definite rejection even if another part of the graph is incomplete.
 6. **Completeness assertions are not completeness proofs.** The prototype's `call_graph_complete` list is fixture metadata. It does not authenticate a producer or prove that source extraction discovered dynamic, generated, FFI, handler, or reflective calls.
 7. **The CFG result is intentionally narrow.** Exact path-state propagation is finite for a finite resource set and converges on cycles, but can grow exponentially with resource count. It does not establish correctness of a source-to-CFG extractor or model path predicates, borrows, returns, cleanup, or terminal-path obligations.
-8. **The vectors expose trade-offs, not a ranking.** B has more static obligations and rejects more malformed declarations; A is simpler and leaves more obligations to runtime/convention.
+8. **Scoped authority needs more than capability names.** The Profile B experiment checks capability identity and hierarchical path scope, rejects over-broad child grants, requires explicit caller-to-callee grant transfer and recipient acceptance, and propagates ancestor revocation to descendants.
+9. **Delegation evidence must be explicit.** A missing call-site transfer for a scoped callee requirement is UNKNOWN; a known insufficient, revoked, or unaccepted grant is rejected. This closes only a fixture-level static check, not runtime authorization.
+10. **The vectors expose trade-offs, not a ranking.** B has more static obligations and rejects more malformed declarations; A is simpler and leaves more obligations to runtime/convention.
 
 ## 5. Defects and unresolved semantics
 
