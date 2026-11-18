@@ -56,6 +56,7 @@ This remains a narrow explicit-declaration structural audit, not a complete sema
 - Added/removed call-site target identities and condition changes are rejected until the CIP schema can represent them exactly.
 - Typed-reference changes are detected and rejected; they are not yet reconciled to typed CIP output records.
 - The current plan model still cannot represent one shared caller forked into multiple consumer/path-specific versions.
+The semantic diff and plan identity preserve the call site's required Contract hash, the baseline callee's provided Contract hash, the selected callee's provided Contract hash, and the compatibility status/evidence ID. The validator checks these exact bindings but does not authenticate the evidence or prove refinement. These generic Contract Content Hashes are not yet normatively equated with glossary `CCHash`.
 - MIGRATE/ADAPT/FORK behavioral compatibility remains a separate contract/test/proof obligation.
 - The gate is not commit authorization. Snapshot immutability, transaction/concurrency protection, exact-tree commit, crash recovery, and idempotent retry remain future work.
 
