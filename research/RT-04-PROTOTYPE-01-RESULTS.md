@@ -22,7 +22,7 @@ Both profiles compute transitive effect summaries over the supplied call graph. 
 
 ## 3. Executed tests
 
-27 unit tests cover primitive signatures, closed/open effects, positive/negative/unknown refinement, transitive effect propagation, explicit and ambient capabilities, duplicate/unknown resource consumption, branch-consistent and branch-inconsistent joins, branch-local double consumption, loop re-consumption, malformed CFG references, transitive effect-bound acceptance/rejection, incomplete call-graph UNKNOWN results, definite violations despite incomplete graphs, unknown callees/effects, and malformed input.
+35 unit tests cover primitive signatures, closed/open effects, positive/negative/unknown refinement, transitive effect propagation, explicit and ambient capabilities, duplicate/unknown resource consumption, branch-consistent and branch-inconsistent joins, branch-local double consumption, loop re-consumption, malformed CFG references, transitive effect-bound acceptance/rejection, incomplete call-graph UNKNOWN results, definite violations despite incomplete graphs, typed call arity/argument/result checks, unknown signatures, structural Result types, unknown callees/effects, and malformed input.
 
 The CI workflow runs:
 
@@ -43,14 +43,14 @@ The current run must be checked before recording a passing CI result. These test
 
 ## 5. Defects and unresolved semantics
 
-Not implemented: call-site argument/result typing; symbolic refinements/SMT; effect-row unification and handlers; authenticated source-to-call-graph completeness; dynamic dispatch/FFI/generated-call extraction; path-sensitive branch conditions; borrow/lifetime analysis; resource transfer/return/drop/finalization; error/cancellation cleanup composition; async suspension; capability attenuation/revocation/delegation/runtime checks; dynamic dispatch/FFI/generated calls; independent call-graph/CFG completeness evidence; concurrency/memory model; canonical SPG and hash propagation.
+Not implemented: symbolic refinements/SMT; effect-row unification and handlers; authenticated source-to-call-graph completeness; dynamic dispatch/FFI/generated-call extraction; path-sensitive branch conditions; borrow/lifetime analysis; resource transfer/return/drop/finalization; error/cancellation cleanup composition; async suspension; capability attenuation/revocation/delegation/runtime checks; dynamic dispatch/FFI/generated calls; independent call-graph/CFG completeness evidence; concurrency/memory model; canonical SPG and hash propagation.
 
 The model demonstrates candidate checker obligations, not that Profile B is coherent or preferable.
 
 ## 6. Next experiments
 
-1. Add typed call-site argument/result checking and a small ADT/result type.
-2. Add capability scope/attenuation and distinguish static possession from runtime authorization.
-3. Compare both vectors against RT-03 profiles A and D using shared observable traces.
-4. Replace fixture-level call-graph completeness assertions with evidence bound to source/snapshot, extractor identity, scope, and assumptions; add dynamic dispatch, FFI, generated-call, handler, and reflection cases.
-5. Add resource transfer/return and cleanup outcomes, then compare explicit path-state propagation with an independent reference implementation.
+1. Add capability scope/attenuation and distinguish static possession from runtime authorization.
+2. Compare both vectors against RT-03 profiles A and D using shared observable traces.
+3. Replace fixture-level call-graph completeness assertions with evidence bound to source/snapshot, extractor identity, scope, and assumptions; add dynamic dispatch, FFI, generated-call, handler, and reflection cases.
+4. Add resource transfer/return and cleanup outcomes, then compare explicit path-state propagation with an independent reference implementation.
+5. Extend the type experiment with declared ADT constructors and explicit error propagation only after RT-03 observable semantics are defined.
