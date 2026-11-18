@@ -380,7 +380,7 @@ class RT04ModelTests(unittest.TestCase):
             "functions": {
                 "caller": {"grants": ["g1"], "calls": ["read"], "call_sites": [
                     {"target": "read", "args": [], "grants": ["g1"]}]},
-                "read": {"capability_requirements": [
+                "read": {"grants": ["g1"], "capability_requirements": [
                     {"capability": "fs.read", "scope": "/workspace/src"}]},
             },
         }
