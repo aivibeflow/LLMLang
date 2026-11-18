@@ -75,6 +75,11 @@ def evalLogosQuery : {s : ExprSort} →
       else
         evalLogosQuery no env
 
+termination_by
+  evalLogosQuery _ term _ => sizeOf term
+decreasing_by
+  all_goals simp_wf [sizeOf]
+
 /-- Evaluate a dependent pair of a sort and a Logos query term. -/
 def evalLogosQuerySigma
     (query : Σ s : ExprSort, LLMLang.LogosBinding.QueryTerm s)
