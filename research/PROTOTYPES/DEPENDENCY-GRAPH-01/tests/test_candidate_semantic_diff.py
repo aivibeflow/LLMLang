@@ -321,6 +321,33 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         self.assertEqual(result.edge_changes[0].baseline_target_hash, None)
         self.assertEqual(result.edge_changes[0].candidate_target_hash, self.old_callee)
 
+    def test_call_target_removal_requires_exact_edge_record(self):
+        caller_with_call = publish_declaration(
+            self.store, declaration("function", "invoice:with-call", {"body": "invoice"},
+                                    call_sites=site(self.old_callee))
+        )
+        caller_without_call = publish_declaration(
+            self.store, declaration("function", "invoice:no-call", {"body": "invoice"})
+        )
+        baseline = make_snapshot({"invoice": caller_with_call, "tax": self.old_callee})
+        candidate = make_snapshot({"invoice": caller_without_call, "tax": self.old_callee})
+        result = audit_candidate_semantic_diff(
+            self.store, baseline, candidate,
+            self.plan(
+                baseline, candidate, actions=(action(caller_with_call),),
+                outputs=(planned_output(
+                    self.store, "invoice-output", "invoice", OutputOperation.REPLACE,
+                    caller_with_call, caller_without_call,
+                ),),
+                edge_changes=(planned_edge(
+                    "invoice-output", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+                    PlannedEdgeOperation.REMOVE, "calls", self.old_callee, None,
+                ),),
+            ),
+        )
+        self.assertTrue(result.valid, result.errors)
+        self.assertEqual(result.edge_changes[0].candidate_target_hash, None)
+
     def test_call_condition_change_requires_exact_edge_record(self):
         caller_old_condition = publish_declaration(
             self.store, declaration("function", "invoice:condition-old", {"body": "invoice"},
