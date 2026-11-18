@@ -80,55 +80,66 @@ def querySortToExprSort : LogosBinding.QuerySort → ExprSort
   | .int => .int
   | .bool => .bool
 
-/-- Mathematical interpretation of a query term packaged with its sort. -/
-def evalCanonicalQuerySigma :
-    (query : Σ s : LogosBinding.QuerySort, LogosBinding.QueryTerm s) →
-    SourceQuerySemantics.Env →
-    SourceQuerySemantics.Value (querySortToExprSort query.1)
-  | ⟨.int, .intLit n⟩, _ => .intValue n
-  | ⟨.bool, .boolLit b⟩, _ => .boolValue b
-  | ⟨.int, .intSymbol name⟩, env => env name .int
-  | ⟨.bool, .boolSymbol name⟩, env => env name .bool
-  | ⟨.bool, .not e⟩, env =>
-      .boolValue (!(asBool (evalCanonicalQuerySigma ⟨.bool, e⟩ env)))
-  | ⟨.int, .neg e⟩, env =>
-      .intValue (-(asInt (evalCanonicalQuerySigma ⟨.int, e⟩ env)))
-  | ⟨.int, .add a b⟩, env =>
-      .intValue (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) +
-        asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env))
-  | ⟨.int, .sub a b⟩, env =>
-      .intValue (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) -
-        asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env))
-  | ⟨.int, .mul a b⟩, env =>
-      .intValue (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) *
-        asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env))
-  | ⟨.bool, .eqInt a b⟩, env =>
-      .boolValue (decide (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) =
-        asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env)))
-  | ⟨.bool, .eqBool a b⟩, env =>
-      .boolValue (decide (asBool (evalCanonicalQuerySigma ⟨.bool, a⟩ env) =
-        asBool (evalCanonicalQuerySigma ⟨.bool, b⟩ env)))
-  | ⟨.bool, .lt a b⟩, env =>
-      .boolValue (decide (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) <
-        asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env)))
-  | ⟨.bool, .le a b⟩, env =>
-      .boolValue (decide (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) <=
-        asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env)))
-  | ⟨.bool, .and terms⟩, env =>
-      .boolValue (terms.all (fun child =>
-        asBool (evalCanonicalQuerySigma ⟨.bool, child⟩ env)))
-  | ⟨.bool, .or terms⟩, env =>
-      .boolValue (terms.any (fun child =>
-        asBool (evalCanonicalQuerySigma ⟨.bool, child⟩ env)))
-  | ⟨.int, .iteInt condition yes no⟩, env =>
-      if asBool (evalCanonicalQuerySigma ⟨.bool, condition⟩ env)
-      then evalCanonicalQuerySigma ⟨.int, yes⟩ env
-      else evalCanonicalQuerySigma ⟨.int, no⟩ env
-  | ⟨.bool, .iteBool condition yes no⟩, env =>
-      if asBool (evalCanonicalQuerySigma ⟨.bool, condition⟩ env)
-      then evalCanonicalQuerySigma ⟨.bool, yes⟩ env
-      else evalCanonicalQuerySigma ⟨.bool, no⟩ env
-termination_by query _ => sizeOf query
+/-- Mutually recursive interpretation of canonical query terms and Boolean term lists. -/
+mutual
+  def evalCanonicalQuerySigma :
+      (query : Σ s : LogosBinding.QuerySort, LogosBinding.QueryTerm s) →
+      SourceQuerySemantics.Env →
+      SourceQuerySemantics.Value (querySortToExprSort query.1)
+    | ⟨.int, .intLit n⟩, _ => .intValue n
+    | ⟨.bool, .boolLit b⟩, _ => .boolValue b
+    | ⟨.int, .intSymbol name⟩, env => env name .int
+    | ⟨.bool, .boolSymbol name⟩, env => env name .bool
+    | ⟨.bool, .not e⟩, env =>
+        .boolValue (!(asBool (evalCanonicalQuerySigma ⟨.bool, e⟩ env)))
+    | ⟨.int, .neg e⟩, env =>
+        .intValue (-(asInt (evalCanonicalQuerySigma ⟨.int, e⟩ env)))
+    | ⟨.int, .add a b⟩, env =>
+        .intValue (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) +
+          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env))
+    | ⟨.int, .sub a b⟩, env =>
+        .intValue (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) -
+          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env))
+    | ⟨.int, .mul a b⟩, env =>
+        .intValue (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) *
+          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env))
+    | ⟨.bool, .eqInt a b⟩, env =>
+        .boolValue (decide (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) =
+          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env)))
+    | ⟨.bool, .eqBool a b⟩, env =>
+        .boolValue (decide (asBool (evalCanonicalQuerySigma ⟨.bool, a⟩ env) =
+          asBool (evalCanonicalQuerySigma ⟨.bool, b⟩ env)))
+    | ⟨.bool, .lt a b⟩, env =>
+        .boolValue (decide (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) <
+          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env)))
+    | ⟨.bool, .le a b⟩, env =>
+        .boolValue (decide (asInt (evalCanonicalQuerySigma ⟨.int, a⟩ env) <=
+          asInt (evalCanonicalQuerySigma ⟨.int, b⟩ env)))
+    | ⟨.bool, .and terms⟩, env =>
+        .boolValue (evalBoolTerms true terms env)
+    | ⟨.bool, .or terms⟩, env =>
+        .boolValue (evalBoolTerms false terms env)
+    | ⟨.int, .iteInt condition yes no⟩, env =>
+        if asBool (evalCanonicalQuerySigma ⟨.bool, condition⟩ env)
+        then evalCanonicalQuerySigma ⟨.int, yes⟩ env
+        else evalCanonicalQuerySigma ⟨.int, no⟩ env
+    | ⟨.bool, .iteBool condition yes no⟩, env =>
+        if asBool (evalCanonicalQuerySigma ⟨.bool, condition⟩ env)
+        then evalCanonicalQuerySigma ⟨.bool, yes⟩ env
+        else evalCanonicalQuerySigma ⟨.bool, no⟩ env
+
+  def evalBoolTerms (isAnd : Bool) :
+      List (LogosBinding.QueryTerm .bool) →
+      SourceQuerySemantics.Env → Bool
+    | [], _ => isAnd
+    | term :: rest, env =>
+        let value := asBool (evalCanonicalQuerySigma ⟨.bool, term⟩ env)
+        if isAnd then value && evalBoolTerms isAnd rest env
+        else value || evalBoolTerms isAnd rest env
+end
+termination_by
+  evalCanonicalQuerySigma query _ => sizeOf query
+  evalBoolTerms _ terms _ => sizeOf terms
 decreasing_by all_goals simp_wf <;> omega
 
 /-- Evaluate a typed canonical query term in the source/query environment. -/
@@ -159,9 +170,10 @@ theorem translateRelationalExpr_correct
     evalCanonicalQuerySigma ⟨querySortOf s, translateRelationalExpr side factor e⟩ queryEnv =
       castSourceValue (evalExpr e (sideEnvironment queryEnv side factor)) := by
   induction e using Expr.rec <;>
-    simp [translateRelationalExpr, evalCanonicalQuery, evalCanonicalQuerySigma,
-      sideEnvironment, relationalSymbol, querySortOf, querySortToExprSort,
-      castSourceValue, querySortRoundTrip, asInt, asBool, *]
+    simp [translateRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
+      evalExpr, sideEnvironment, relationalSymbol, querySortOf,
+      querySortToExprSort, castSourceValue, querySortRoundTrip,
+      asInt, asBool, *]
 
 /-- Every non-selected input is represented by exactly the same symbol on both sides. -/
 theorem nonFactorInputsAreShared
@@ -247,8 +259,9 @@ theorem observationDifference_correct
         (evalExpr e (sideEnvironment queryEnv .left factor))
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
   cases s <;>
-    simp [observationDifference, evalCanonicalQuerySigma, sourceValuesDiffer,
-      asInt, asBool, translateRelationalExpr_correct,
+    simp [observationDifference, evalCanonicalQuerySigma, evalBoolTerms,
+      sourceValuesDiffer, evalExpr, asInt, asBool,
+      translateRelationalExpr_correct, castSourceValue, querySortRoundTrip,
       decide_ne_eq_not_decide_eq]
 
 /--
