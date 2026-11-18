@@ -207,19 +207,20 @@ source observations. This is not yet a theorem about command sequences,
 mutable program state, the Python encoder, or solver proof artifacts.
 -/
 def relationalAssumptions {s : ExprSort}
-    (factor : String) (e : Expr s) : List (LogosBinding.QueryTerm .bool) :=
-  [factorDifference s factor,
+    (factorSort : ExprSort) (factor : String) (e : Expr s) :
+    List (LogosBinding.QueryTerm .bool) :=
+  [factorDifference factorSort factor,
    observationDifference s
      (translateRelationalExpr .left factor e)
      (translateRelationalExpr .right factor e)]
 
 theorem relationalAssumptions_correct
-    {s : ExprSort} (factor : String) (e : Expr s)
+    {s : ExprSort} (factorSort : ExprSort) (factor : String) (e : Expr s)
     (queryEnv : SourceQuerySemantics.Env) :
-    evalCanonicalQuery (factorDifference s factor) queryEnv =
-      .boolValue (sourceValuesDiffer s
-        (sideEnvironment queryEnv .left factor factor s)
-        (sideEnvironment queryEnv .right factor factor s)) ∧
+    evalCanonicalQuery (factorDifference factorSort factor) queryEnv =
+      .boolValue (sourceValuesDiffer factorSort
+        (sideEnvironment queryEnv .left factor factor factorSort)
+        (sideEnvironment queryEnv .right factor factor factorSort)) ∧
     evalCanonicalQuery
       (observationDifference s
         (translateRelationalExpr .left factor e)
@@ -229,7 +230,7 @@ theorem relationalAssumptions_correct
         (evalExpr e (sideEnvironment queryEnv .left factor))
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
   exact And.intro
-    (factorDifference_correct s factor queryEnv)
+    (factorDifference_correct factorSort factor queryEnv)
     (observationDifference_correct factor e queryEnv)
 
 end LLMLang.RelationalSourceQuerySemantics
