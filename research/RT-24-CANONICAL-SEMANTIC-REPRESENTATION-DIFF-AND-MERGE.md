@@ -3,7 +3,7 @@
 **Status:** Research proposal; candidate technical contract, not an accepted language or serialization decision  
 **Date:** 2026-11-18  
 **Priority:** P0  
-**Depends on:** RT-05 (identity/hash envelope), RT-19 (semantic API and snapshots), RT-20 (caller impact/hash propagation), RT-22 (repository/worktree contract), RT-23 (shared semantic state and synchronized commit)  
+**Depends on:** RT-03 (language semantics), Research Studies 05–08 (identity and occurrence alternatives), Semantic Dependency Index research, RT-19 (semantic API and snapshots), RT-20 (caller impact/hash propagation), RT-22 (repository/worktree contract), RT-23 (shared semantic state and synchronized commit). No standalone RT-05 specification currently exists in the repository.  
 **Related:** [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [ADR-014](../docs/adr/014-git-semantic-merge.md)
 
 > This document narrows the next research and implementation boundary. It defines a candidate contract and deterministic algorithm shape, while leaving the final SPG schema, canonical byte encoding, hash envelope, and complete language semantics to their owning research and decisions. It does not accept ADR-014.
@@ -33,10 +33,11 @@ The unit of correctness is the complete repository semantic state, not an indivi
 |---|---|
 | Repository state | Git tree plus declared LLMLang source inventory and pinned inputs needed to interpret it |
 | Semantic Snapshot | Immutable, validated SPG state with explicit roots and references |
-| Semantic entity | Typed SPG object with stable semantic identity independent of file path |
-| Logical identity | Identity of a continuing conceptual entity, where supported by the SPG model |
-| Version identity | Content-derived identity of one immutable semantic version; exact hash envelope remains an RT-05 decision |
-| Lineage operation | Explicit declaration of rename, move, split, merge, replacement, or another identity relationship |
+| Semantic value | Immutable typed SPG value with canonical content and exact hash-relevant outgoing references |
+| Value/Content Hash | Address of one exact immutable semantic value; exact hash envelope remains unresolved |
+| Logical entity identity | Optional identity of a continuing conceptual entity; Stable Entity ID vs content-only model remains unresolved |
+| Occurrence/selection key | Snapshot- or scope-relative selector identifying which value occupies a semantic slot; lifecycle rules remain unresolved |
+| Lineage operation | Explicit relation between immutable values or occurrences (rename, move, split, merge, replacement, supersedes, etc.); never inferred from names or hashes alone |
 | Mapping Revision | Immutable revision of external-interface mappings with its own identity and merge rules |
 | Semantic diff | Typed, provenance-bearing description of changes between two snapshots |
 | Merge candidate | Proposed result of merging base, ours, and theirs; not yet accepted or committed |
@@ -56,7 +57,7 @@ Local semantic databases, indexes, caches, watcher journals, and acceleration st
 
 Let Import(T, D, V) import repository tree T using dependency set D and language/schema tool version V; let Export(S, V) export snapshot S canonically. For the supported profile, establish:
 
-1. **Semantic round trip:** Import(Export(S, V), D, V) yields a semantically equivalent snapshot with the same roots and version identities under the selected identity rules.
+1. **Structural round trip:** Import(Export(S, V), D, V) yields the same canonical typed SPG structure, selected values, and hash identities for the supported schema/profile. This is not a claim of full behavioral equivalence; RT-03 has not selected complete language semantics.
 2. **Canonical export:** exporting the same snapshot with the same canonicalization version produces byte-identical output, independent of process, traversal order, and cache state.
 3. **Import determinism:** identical tree bytes, dependency pins, and tool/schema versions produce the same semantic result or the same structured failure.
 4. **Physical independence:** formatting, declaration order, and file placement do not alter semantic identity unless explicitly defined as semantic.
@@ -74,21 +75,25 @@ The manifest must identify LLMLang source roots, schema/language version, and de
 Keep distinct:
 
 1. **Git object identity:** blob/tree/commit IDs for physical content and history.
-2. **Logical semantic identity:** stable identity of a continuing entity, if supported.
-3. **Semantic version identity:** content-derived identity of one immutable typed entity/version; exact payload belongs to RT-05.
-4. **Snapshot identity:** identity of the complete semantic roots and resolution inputs.
-5. **Mapping Revision identity:** identity of one immutable interface-mapping revision.
-6. **Action/evidence identity:** identity of a computation over exact inputs, implementation, configuration, and environment.
+2. **Semantic value identity:** exact content-derived address of one immutable typed value; hash algorithm and canonical encoding are not selected.
+3. **Optional logical identity:** continuity of a conceptual entity across value versions, if the Stable Entity ID model is selected.
+4. **Occurrence/selection identity:** snapshot- or scope-relative selection of a value in a role/slot; not interchangeable with value or logical identity.
+5. **Lineage identity:** explicit immutable relations between values/occurrences, including many-to-many split/merge history.
+6. **Snapshot identity:** identity of selected roots/slots and explicit resolution inputs; treatment of causal parents remains open.
+7. **Mapping Revision identity:** identity of one immutable interface-mapping revision.
+8. **Action/evidence identity:** identity of a computation over exact inputs, implementation, configuration, and environment.
 
 Consequences:
-- A move or formatting-only change may alter Git objects without changing semantic version identities.
-- A semantic edit creates a new immutable version.
-- A changed reference creates a new caller version only when that reference is in the caller's hash-relevant payload.
+- A move or formatting-only change may alter Git objects without changing semantic value hashes.
+- A semantic edit or changed hash-relevant exact reference creates a new immutable value hash.
+- A changed reference creates a new caller value only when that reference is in the caller's hash-relevant payload.
+- Equal value hashes permit value deduplication but do not prove equal logical entity, occurrence, ownership, or governance identity.
 - A merge commit is not a semantic identity.
 - Snapshot identity cannot be inferred from a Git tree hash alone.
-- Provenance is retained as evidence but does not alter semantic identity unless explicitly defined as behaviorally relevant.
+- Provenance and lineage are separate from value identity unless a reviewed semantic rule makes a field behaviorally relevant.
+- Only the hash-relevant dependency relation must be a DAG for recursive Merkle hashing; the full SPG relation graph is not thereby required to be acyclic.
 
-If the model does not distinguish logical identity from version identity, the merge engine must not invent lineage from names, paths, or structural similarity. Such cases remain identity conflicts.
+Studies 05–08 leave Stable Entity ID + Content Hash versus content-addressed values with explicit lineage/selection unresolved. RT-24 must not silently choose either model. For the current prototype, exact value hashes address immutable values and explicit snapshot selection keys establish which value occupies a slot. This is a prototype boundary, not a normative identity decision. See [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md).
 
 ## 6. Semantic diff contract
 
@@ -106,7 +111,7 @@ At minimum:
 - dependency_pin_changed;
 - mapping_revision_changed (reported in the separate mapping domain).
 
-Each record identifies the semantic entity and typed field/edge, before/after values or version references, and source provenance. A reference retarget must not be collapsed into an undifferentiated entity update: RT-20 requires call-site granularity.
+Each record identifies the exact immutable value and typed field/edge, before/after values or version references, the applicable occurrence/selection key or logical identity when defined, and source provenance. A reference retarget must not be collapsed into an undifferentiated value update: RT-20 requires call-site granularity. Matching changed values across snapshots requires the selected identity/lineage model; content-hash inequality alone does not establish that two values are versions of the same logical entity.
 
 ### 6.3 Diff invariants
 
@@ -138,10 +143,10 @@ A candidate is not accepted state or a Git commit. RT-20 and RT-23 gates remain 
 1. **Pin inputs:** exact base/ours/theirs Snapshot IDs, Mapping Revision IDs, dependency pins, repository tree IDs, schema/canonicalization versions, merge policy, and engine build.
 2. **Validate inputs:** import and validate all three complete states; reject duplicate identities, unresolved references, incomplete inventory, unsupported constructs, and invalid roots.
 3. **Compute diffs:** D_ours = SemanticDiff(Base, Ours); D_theirs = SemanticDiff(Base, Theirs).
-4. **Normalize identity:** match only through stable semantic identity and explicit lineage; never infer from path/name/similarity alone.
+4. **Resolve identity/selection:** use the identity model explicitly selected by the schema. Until it is selected, the bounded prototype matches snapshot entries only by an explicit snapshot-scoped selection key and addresses values by exact content hash. Never infer continuity from path/name/content similarity alone.
 5. **Combine independent changes:** compose disjoint semantic fields/edges only where typed constraints permit.
 6. **Resolve same-subject changes:** apply the conflict matrix below; auto-merge only when one unique result follows.
-7. **Validate whole graph:** rebuild and validate identities, typed references, roots, contracts, dependency pins, and all applicable SPG invariants.
+7. **Validate whole graph:** rebuild and validate typed references, selected roots, contracts, dependency pins, and all applicable SPG invariants. Validate acyclicity of the hash-relevant relation separately; do not impose a DAG constraint on unrelated SPG relation families. A clean result also requires scoped dependency-completeness evidence for every safety-critical reverse-reference query.
 8. **Run RT-20 impact analysis:** construct the complete Change Impact Plan (CIP) for call sites, caller versions, migrate/preserve/adapt/fork decisions, and hash propagation. Unresolved decisions block clean status.
 9. **Merge mapping domain separately:** reconcile Interface Mapping Revisions under RT-23 revision/CAS rules. Mapping conflicts block acceptance.
 10. **Canonicalize/export:** export deterministically, re-import the exact exported tree, and verify semantic round-trip equality.
@@ -316,16 +321,19 @@ Do not begin with a production Git merge driver. The pure representation/diff/me
 
 ## 15. Open decisions
 
-1. Exact SPG entity/edge schema, call-site identity, and reverse-reference completeness.
-2. Logical identity versus version identity and lineage-operation schema.
-3. Canonical textual representation, manifest/lock division, canonicalization versioning.
-4. Hash envelope and exact hash-relevant fields.
-5. Semantic equality and snapshot-root construction.
-6. Merge policy for contracts, roots, dependency pins, and sparse/partial repository states.
-7. External dependency retrieval and verification during clone/recovery.
-8. Provenance serialized in source versus retained as commit/toolchain evidence.
-9. Division between Git tree acquisition, repository coordinator, merge driver, and mergetool.
-10. Mapping revision scope/ownership and detailed merge policy.
+1. Stable Entity ID + Content Hash versus content-addressed values with explicit lineage/selection (Studies 05–08); no model is selected.
+2. Exact SPG entity/edge schema, relation families, semantic/hash roles, and call-site identity lifecycle.
+3. Occurrence/selection key scope and lifecycle; whether identical values may be shared across independent occurrences.
+4. Canonical textual representation, manifest/lock division, canonical typed encoding, algorithm-tagged hash envelope, and canonicalization versioning.
+5. Hash-relevant fields and whether recursive constructs need a representation compatible with an acyclic hash-relevant relation.
+6. Structural SPG equality versus behavioral equivalence; RT-03 has not selected a complete semantic profile.
+7. Snapshot-root construction and whether causal parent roots belong to semantic state or separate history/evidence.
+8. Scoped dependency-completeness evidence for static, indirect, dynamic, generated, external, and unresolved references.
+9. Merge policy for contracts, roots, dependency pins, and sparse/partial repository states.
+10. External dependency retrieval and verification during clone/recovery.
+11. Provenance serialized in source versus retained as commit/toolchain evidence.
+12. Division between Git tree acquisition, repository coordinator, merge driver, and mergetool.
+13. Mapping revision scope/ownership and detailed merge policy.
 
 Resolve each through its owning research/ADR; this document records safe behavior while decisions remain open.
 
@@ -348,7 +356,13 @@ Passing this gate permits a scoped prototype; it does not accept ADR-014 or prov
 
 - [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
 - [ADR-014 — Git repository representation and semantic merge](../docs/adr/014-git-semantic-merge.md)
-- [RT-05 — Semantic identity and hash research](RT-05-SEMANTIC-IDENTITY-AND-HASHING.md)
+- [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md)
+- [Study 05 — Name-Free Semantic Entities](RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md)
+- [Study 06 — Content-Addressed Entity Identity](RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md)
+- [Study 07 — Content-Only Identity Stress Tests](RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md)
+- [Study 08 — Context-Derived Occurrence Addressing](RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md)
+- [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md)
+- [Core Language Semantics / RT-03](CORE-LANGUAGE-SEMANTICS.md)
 - [RT-19 — Toolchain Server and Semantic Development API](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
 - [RT-20 — LLM Patch Planning and Hash Propagation](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
 - [RT-22 — Git Repository and Worktree MCP Surface](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md)
