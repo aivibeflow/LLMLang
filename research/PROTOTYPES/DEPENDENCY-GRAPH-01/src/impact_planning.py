@@ -121,6 +121,8 @@ class PlannedEdgeChange:
     candidate_condition: str | None
     rationale: str
     evidence_id: str
+    baseline_required_contract_hash: str | None = None
+    candidate_required_contract_hash: str | None = None
 
 
 @dataclass(frozen=True, order=True)
@@ -138,6 +140,7 @@ class CallSiteDecision:
     base_callee_contract_hash: str | None = None
     selected_callee_contract_hash: str | None = None
     compatibility_status: str | None = None
+    candidate_required_contract_hash: str | None = None
     consumer_path_id: str = ""
     resulting_output_id: str | None = None
     selected_output_id: str | None = None
@@ -216,8 +219,8 @@ def impact_plan_payload(plan: ImpactPlan) -> dict:
              d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
              d.rationale, d.decision_evidence_id, d.required_contract_hash,
              d.base_callee_contract_hash, d.selected_callee_contract_hash,
-             d.compatibility_status, d.consumer_path_id, d.resulting_output_id,
-             d.selected_output_id)
+             d.compatibility_status, d.candidate_required_contract_hash,
+             d.consumer_path_id, d.resulting_output_id, d.selected_output_id)
             for d in sorted(plan.call_site_decisions)
         ],
         "planned_outputs": [
@@ -230,7 +233,8 @@ def impact_plan_payload(plan: ImpactPlan) -> dict:
             (e.output_id, e.edge_kind.value, e.edge_id, e.operation.value,
              e.baseline_relation, e.candidate_relation, e.baseline_target_hash,
              e.candidate_target_hash, e.baseline_condition, e.candidate_condition,
-             e.rationale, e.evidence_id)
+             e.rationale, e.evidence_id, e.baseline_required_contract_hash,
+             e.candidate_required_contract_hash)
             for e in sorted(plan.planned_edge_changes)
         ],
     }
@@ -449,25 +453,35 @@ def plan_impact(
             raise PlanningError("planned edge change has an invalid kind or operation")
         if row.operation is PlannedEdgeOperation.ADD and (
             row.baseline_target_hash is not None or row.baseline_relation is not None
-            or row.baseline_condition is not None or not row.candidate_target_hash
-            or not row.candidate_relation
+            or row.baseline_condition is not None or row.baseline_required_contract_hash is not None
+            or not row.candidate_target_hash or not row.candidate_relation
+            or (row.edge_kind is PlannedEdgeKind.CALL_TARGET and not row.candidate_required_contract_hash)
+            or (row.edge_kind is PlannedEdgeKind.TYPED_REFERENCE and row.candidate_required_contract_hash is not None)
         ):
             raise PlanningError("edge ADD requires only a complete candidate edge")
         if row.operation is PlannedEdgeOperation.REMOVE and (
             not row.baseline_target_hash or not row.baseline_relation
             or row.candidate_target_hash is not None or row.candidate_relation is not None
-            or row.candidate_condition is not None
+            or row.candidate_condition is not None or row.candidate_required_contract_hash is not None
+            or (row.edge_kind is PlannedEdgeKind.CALL_TARGET and not row.baseline_required_contract_hash)
+            or (row.edge_kind is PlannedEdgeKind.TYPED_REFERENCE and row.baseline_required_contract_hash is not None)
         ):
             raise PlanningError("edge REMOVE requires only a complete baseline edge")
         if row.operation is PlannedEdgeOperation.REWRITE and not (
             row.baseline_target_hash and row.candidate_target_hash
             and row.baseline_relation and row.candidate_relation
+            and ((row.edge_kind is PlannedEdgeKind.CALL_TARGET and row.baseline_required_contract_hash
+                  and row.candidate_required_contract_hash)
+                 or (row.edge_kind is PlannedEdgeKind.TYPED_REFERENCE
+                     and row.baseline_required_contract_hash is None
+                     and row.candidate_required_contract_hash is None))
         ):
             raise PlanningError("edge REWRITE requires exact old and new edges")
         if row.operation is PlannedEdgeOperation.CONDITION and not (
             row.baseline_target_hash and row.candidate_target_hash
             and row.baseline_target_hash == row.candidate_target_hash
             and row.baseline_relation == row.candidate_relation
+            and row.baseline_required_contract_hash == row.candidate_required_contract_hash
             and row.baseline_condition != row.candidate_condition
         ):
             raise PlanningError("edge CONDITION requires same target/relation and a changed condition")
@@ -575,11 +589,15 @@ def plan_impact(
                     raise PlanningError("resolved decisions require exact resulting caller hash or output binding")
                 if not all((decision.decision_evidence_id, decision.selected_callee_contract_hash)):
                     raise PlanningError("resolved decisions require selected provided contract and evidence")
+                if decision.candidate_required_contract_hash is not None and not decision.candidate_required_contract_hash:
+                    raise PlanningError("candidate required contract hash, when supplied, must be non-empty")
                 if decision.compatibility_status != "PROVEN":
                     raise PlanningError("resolved call-site decisions require PROVEN compatibility evidence")
                 if decision.disposition is CallSiteDisposition.PRESERVE and (
                     decision.selected_callee_hash != edge.target_hash or decision.selected_output_id is not None
                     or decision.selected_callee_contract_hash != edge.provided_contract_hash
+                    or (decision.candidate_required_contract_hash or decision.required_contract_hash)
+                       != edge.required_contract_hash
                 ):
                     raise PlanningError("PRESERVE must retain the exact callee and provided-contract hashes")
                 if decision.disposition is CallSiteDisposition.MIGRATE and (
