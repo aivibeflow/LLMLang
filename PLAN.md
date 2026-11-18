@@ -214,14 +214,15 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Implement construction of expected `Eo.Term` values from the canonical typed Relational Query IR; the pinned CI renderer and AST-equivalence tests pass. Full end-to-end validation against source-derived CPC assumptions remains open.
 - [x] Implement strict versioned JSON decoding and rejection of malformed or unsupported input; the full pinned CI test step, including adversarial decoder tests, passes.
 - [x] Kernel-check the expression-level source-to-query preservation theorem for the typed pure Int/Bool expression fragment (`SourceQuerySemantics.lean`, CI run 44175854422); [ ] prove source-to-query correspondence for the actual canonical relational query encoder and expand to commands/paired program executions.
-- [ ] Verify the exact assumption list and query binding adversarially, including malformed inputs, duplicate/extra declarations, wrong sorts, and mismatched query assumptions.
+- [x] Verify the CPC parser-state bridge and exact assumption-list binding adversarially for the version-2 relational-query envelope; pinned Lean CI run [44185102839](https://github.com/aivibeflow/LLMLang/actions/runs/44185102839) passed parser-state binding and factor-pair fixtures. This binds the CPC assumptions to the decoded query; it does not prove the decoded query is semantically derived from source.
+- [ ] Prove that the canonical relational query is semantically derived from the source program; follow the fine-grained SCW-04–SCW-41 decomposition in [Scenario 34](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md).
 - [ ] Keep QF_LIA as a conservative profile; reject unsupported strings, nonlinear arithmetic, and constructs outside the profile.
 - [ ] Test SAT/UNSAT/UNKNOWN handling and solver protocol failures.
 - [ ] Record what is checked by Lean, what is trusted in Logos, and what remains outside the proof boundary.
 
 **Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; QF_LIA Python prototype and focused tests; CI workflow.
 
-**Status:** partially validated. The pinned Lean/Logos build and complete current test suite pass (run 44175854422). The expression-level theorem is kernel-checked for its stated fragment. Exact source-to-query correspondence, complete CPC assumption binding to the original query, and program-level proof obligations remain open.
+**Status:** partially validated. The pinned Lean/Logos build and version-2 CPC parser-state/factor-pair adversarial suite pass (run 44185102839). `SourceQuerySemantics.lean` proves expression-level preservation; `RelationalSourceQuerySemantics.lean` adds kernel-checked expression-level per-side translation, canonical input naming, shared-input/factor-split, and factor/observation-difference lemmas. The current relational proof module still imports the Logos binding, and command execution, mutable state, complete program observations, paired program runs, and source-derived canonical query binding remain open. See Scenario 34 for decomposed tasks and gates.
 
 ## 2.4 Correctness of optimization and translation
 
