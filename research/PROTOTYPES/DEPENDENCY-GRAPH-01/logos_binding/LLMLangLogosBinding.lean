@@ -87,10 +87,7 @@ end LLMLang.LogosBinding
 namespace LLMLang.LogosBinding
 
 /-- Canonical query sorts accepted by the strict relational QF_LIA profile. -/
-inductive QuerySort where
-  | int
-  | bool
-  deriving DecidableEq, Repr
+abbrev QuerySort := SourceQuerySemantics.ExprSort
 
 /--
 Typed relational query terms. The result sort is part of the type, so malformed
