@@ -119,7 +119,7 @@ A separate structural model enumerates control paths without running either eval
 | RT3-PATH-06 | Result error in ordinary sequence | Continue structural evaluation; do not implicitly short-circuit |
 | RT3-PATH-07 | Result error in `result_sequence` | Stop enumerating later items |
 
-The path model is compared with both concrete evaluators for resource events and final active-resource sets. It is not a source-level path completeness proof.
+The path model is compared with both concrete evaluators for resource events and final active-resource sets. An exhaustive finite matrix covers 72 combinations of branch selection, two nested release outcomes, and selected/unselected normal, Result-error, and cancellation expressions. This is not a source-level path completeness proof.
 
 
 ## RT-03 branching and resource cleanup scenarios

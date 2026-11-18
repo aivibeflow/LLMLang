@@ -173,6 +173,8 @@ Both evaluators are differentially checked for cancellation nested inside pendin
 
 `rt03_path_model.py` is a third, separately derived model for the bounded control/resource fragment. It does not import either evaluator and does not execute values or effect handlers. Instead, it enumerates structural paths, forks non-literal conditions into both outcomes, follows literal boolean conditions, and tracks resource obligations, LIFO release events, cancellation, Result short-circuit markers, and resources left active by failed cleanup. Its tests compare predicted resource-event sequences and final active-resource sets against both concrete evaluators over a finite scenario corpus.
 
+The path-model suite also exhausts a 72-case finite matrix: both boolean branch choices, both release-success/failure flags for two nested resources, and all combinations of normal, Result-error, and cancellation outcomes in the selected and unselected branches. Every case compares predicted resource event order and remaining active-resource identities with both evaluators.
+
 This provides a different kind of cross-check from evaluator-vs-evaluator differential testing. It can expose shared control/unwind mistakes in both interpreters, but it is not a source-level control-flow extractor, does not prove that all source branches were represented, and does not model type correctness, actual effect outcomes, aliases, ownership transfer, concurrency, or arbitrary cleanup code.
 
 ### Conditional branching
