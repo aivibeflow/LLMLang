@@ -260,7 +260,7 @@ theorem factorDifference_correct
           asInt (queryEnv (factor ++ "_R") .int)))) =
         Value.boolValue (decide (asInt (queryEnv (factor ++ "_L") .int) ≠
           asInt (queryEnv (factor ++ "_R") .int)))
-      exact congrArg ValueValue.boolValue
+      exact congrArg Value.boolValue
         (decide_ne_eq_not_decide_eq _ _).symm
   | bool =>
       change Value.boolValue
@@ -268,7 +268,7 @@ theorem factorDifference_correct
           asBool (queryEnv (factor ++ "_R") .bool)))) =
         Value.boolValue (decide (asBool (queryEnv (factor ++ "_L") .bool) ≠
           asBool (queryEnv (factor ++ "_R") .bool)))
-      exact congrArg ValueValue.boolValue
+      exact congrArg Value.boolValue
         (decide_ne_eq_not_decide_eq _ _)
 
 /--
@@ -307,7 +307,7 @@ theorem observationDifference_correct
           (sideEnvironment queryEnv .left factor)) ≠
           asInt (evalExpr e (sideEnvironment queryEnv .right factor))))
       rw [hleft, hright]
-      exact congrArg ValueValue.boolValue
+      exact congrArg Value.boolValue
         (decide_ne_eq_not_decide_eq _ _).symm
   | bool =>
       have hleft :
@@ -329,7 +329,7 @@ theorem observationDifference_correct
           (sideEnvironment queryEnv .left factor)) ≠
           asBool (evalExpr e (sideEnvironment queryEnv .right factor))))
       rw [hleft, hright]
-      exact congrArg ValueValue.boolValue
+      exact congrArg Value.boolValue
         (decide_ne_eq_not_decide_eq _ _)
 
 /--
