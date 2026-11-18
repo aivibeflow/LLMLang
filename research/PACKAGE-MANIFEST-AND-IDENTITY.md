@@ -3,7 +3,7 @@
 **Status:** Research proposal; not normative  
 **Research area:** RT-12 — Libraries, packages, templates, and artifact reuse  
 **Updated:** 2026-11-18  
-**Related:** [Package System](PACKAGE-SYSTEM.md), [Semantic Compilation Cache](SEMANTIC-COMPILATION-CACHE.md)
+**Related:** [Package System](PACKAGE-SYSTEM.md), [Semantic Compilation Cache](SEMANTIC-COMPILATION-CACHE.md), [Draft Glossary](../draft/GLOSSARY.md)
 
 ## 1. Purpose and scope
 
@@ -14,7 +14,7 @@ This document turns the package-format direction into a first reviewable proposa
 3. logical package-content identity independent of TOML formatting and physical archive representation;
 4. validation rules and test cases for the proposal.
 
-It deliberately does not freeze the final hash algorithm, binary index wire format, package release/version policy, or registry protocol.
+It deliberately does not freeze the final hash algorithm, binary index wire format, package release/version policy, or registry protocol. Read the [Draft Glossary](../draft/GLOSSARY.md) alongside this document when reasoning about semantic object hashes; `OpHash`, `ImplHash`, and `CCHash` identify typed semantic concepts, whereas Package Content Root Hash, logical index hash, and archive hash identify package-level projections/artifacts. They must not be substituted for one another. The glossary is proposed terminology, not a normative package-hash specification.
 
 ## 2. Representation boundary
 
