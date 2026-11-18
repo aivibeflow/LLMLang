@@ -273,3 +273,25 @@ python -m unittest -v tests.test_candidate_validation
 ```
 
 This is a narrow materialized-reference consistency check, not a behavioral-compatibility proof, dynamic-call completeness proof, full plan-to-diff audit, or commit authorization. The current plan representation also assumes one resulting caller version per base caller hash; context-specific forks of one shared caller for different upstream consumers remain unmodelled. See [RT-20 Candidate Call-Site Validation](../../RT-20-CANDIDATE-CALL-SITE-VALIDATION.md).
+
+
+## Complete candidate Snapshot dependency-closure audit
+
+`src/candidate_graph_audit.py` exposes `audit_candidate_snapshot_graph`. Starting from every object selected by the candidate Snapshot, it traverses the transitive closure of explicit typed references and call targets. It verifies:
+
+- the Snapshot root recomputes from its selections and parent roots;
+- every reachable Content Store object exists and its semantic-value hash recomputes;
+- each payload conforms to the current declaration envelope and its stored kind;
+- every typed reference resolves to an object of its declared target kind;
+- every call target resolves to a function or operation;
+- the payload-derived dependency multiset exactly matches the object's stored hash-relevant dependency metadata.
+
+The result contains the sorted reachable object hashes, a deterministic typed dependency index, an edge-set digest, a graph digest, and sorted diagnostics. Unreachable historical objects are intentionally excluded; transitive dependencies need not be direct Snapshot selections, but must resolve in the Content Store.
+
+Run the focused tests:
+
+```bash
+python -m unittest -v tests.test_candidate_graph_audit
+```
+
+This is a structural audit of the explicit declaration subset. It does not prove behavior, discover dynamic/runtime edges, validate compatibility decisions, compare the candidate diff to a CIP, or authorize commit. See [RT-20 Candidate Graph Audit](../../RT-20-CANDIDATE-GRAPH-AUDIT.md).
