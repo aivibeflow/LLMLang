@@ -159,7 +159,8 @@ def _edge_record_matches(record, output_id, edge_kind, edge_id, old_row, new_row
         and record.edge_kind is edge_kind
         and record.edge_id == edge_id
         and record.operation is operation
-        and record.relation == (new_relation or old_relation)
+        and record.baseline_relation == old_relation
+        and record.candidate_relation == new_relation
         and record.baseline_target_hash == old_target
         and record.candidate_target_hash == new_target
         and record.baseline_condition == old_condition
@@ -230,7 +231,11 @@ def audit_candidate_semantic_diff(
             errors.append(f"{change.logical_key}: CIP output operation differs from observed selection change")
         if output.base_hash != change.baseline_hash:
             errors.append(f"{change.logical_key}: CIP output base hash differs from baseline selection")
-        if output.operation is not OutputOperation.REMOVE and change.candidate_hash is not None:
+        if output.operation is OutputOperation.REMOVE:
+            materialized_outputs.append(MaterializedOutputBinding(
+                output.output_id, output.logical_key, None
+            ))
+        elif change.candidate_hash is not None:
             try:
                 value = store.get(change.candidate_hash)
                 declaration = validate_declaration(value.payload)
@@ -379,7 +384,7 @@ def audit_candidate_semantic_diff(
         "edge_changes": edge_records,
         "materialized_outputs": [
             (item.output_id, item.logical_key, item.candidate_hash)
-            for item in sorted(materialized_outputs)
+            for item in sorted(materialized_outputs, key=lambda row: row.output_id)
         ],
     }
     diff_digest = sha256(canonical_bytes(digest_payload)).hexdigest()
