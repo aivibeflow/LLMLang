@@ -1,4 +1,5 @@
 import unittest
+from dataclasses import replace
 
 from src.semantic_dependency_index import SnapshotIncomingResult
 
@@ -6,7 +7,8 @@ from src.impact_planning import (
     ActionKind, CallSiteDecision, CallSiteDisposition, CompletenessEvidence,
     CompletenessStatus, CompletenessAudit, IncomingCallSite, ImpactedArtifact,
     OutputOperation, PlannedOutput, NonInterferenceCertificate, PlanningError, audit_dependency_completeness,
-    audit_snapshot_incoming, dependency_digest, no_action_is_justified, plan_impact,
+    audit_snapshot_incoming, compute_planned_action_id, dependency_digest,
+    no_action_is_justified, plan_impact, PlannedAction, validate_planned_action_dag,
 )
 
 
@@ -413,6 +415,85 @@ class ImpactPlanningTests(unittest.TestCase):
         audit = audit_dependency_completeness("clause", set(), "scope", None)
         with self.assertRaises(PlanningError):
             plan_impact("base", "candidate", "policy-v1", [artifact], [audit, audit])
+
+
+    def test_planned_action_ids_are_deterministic_and_content_sensitive(self):
+        action = PlannedAction(ActionKind.REBUILD, "impl-A", "rebuild changed implementation")
+        identified = replace(action, action_id=compute_planned_action_id(action))
+        self.assertEqual(identified.action_id, compute_planned_action_id(action))
+        changed = replace(action, reason="different rationale")
+        self.assertNotEqual(identified.action_id, compute_planned_action_id(changed))
+        validate_planned_action_dag((identified,))
+
+    def test_action_dag_accepts_prerequisite_order_independently_of_tuple_order(self):
+        first = PlannedAction(ActionKind.RE_DERIVE, "model-A", "derive")
+        first = replace(first, action_id=compute_planned_action_id(first))
+        second = PlannedAction(
+            ActionKind.REBUILD, "impl-A", "build",
+            prerequisite_action_ids=(first.action_id,),
+        )
+        second = replace(second, action_id=compute_planned_action_id(second))
+        validate_planned_action_dag((second, first))
+        self.assertEqual(len({first.action_id, second.action_id}), 2)
+
+    def test_action_dag_rejects_duplicate_action_ids(self):
+        first = PlannedAction(ActionKind.RE_DERIVE, "model-A", "derive")
+        first = replace(first, action_id=compute_planned_action_id(first))
+        with self.assertRaisesRegex(PlanningError, "unique"):
+            validate_planned_action_dag((first, first))
+
+    def test_action_dag_rejects_unknown_prerequisite(self):
+        action = PlannedAction(
+            ActionKind.REBUILD, "impl-A", "build",
+            action_id="action-build", prerequisite_action_ids=("missing-action",),
+        )
+        with self.assertRaisesRegex(PlanningError, "unknown prerequisite"):
+            validate_planned_action_dag((action,))
+
+    def test_action_dag_rejects_self_and_multi_node_cycles(self):
+        self_cycle = PlannedAction(
+            ActionKind.REBUILD, "impl-A", "build",
+            action_id="self", prerequisite_action_ids=("self",),
+        )
+        with self.assertRaisesRegex(PlanningError, "depend on itself"):
+            validate_planned_action_dag((self_cycle,))
+
+        first = PlannedAction(
+            ActionKind.RE_DERIVE, "model-A", "derive",
+            action_id="first", prerequisite_action_ids=("second",),
+        )
+        second = PlannedAction(
+            ActionKind.REBUILD, "impl-A", "build",
+            action_id="second", prerequisite_action_ids=("first",),
+        )
+        with self.assertRaisesRegex(PlanningError, "contains a cycle"):
+            validate_planned_action_dag((first, second))
+
+    def test_plan_generation_assigns_action_ids_and_binds_them_into_plan_identity(self):
+        artifact = ImpactedArtifact("impl-A", "implementation", "changed")
+        audit = audit_dependency_completeness(
+            "impl-A", set(), "scope",
+            self.evidence("impl-A", set(), set(), "scope"),
+        )
+        first = plan_impact(
+            "base", "candidate", "policy-v1", [artifact], [audit],
+            require_snapshot_evidence=False,
+        )
+        second = plan_impact(
+            "base", "candidate", "policy-v1", [artifact], [audit],
+            require_snapshot_evidence=False,
+        )
+        self.assertTrue(first.actions)
+        self.assertTrue(all(action.action_id for action in first.actions))
+        self.assertEqual(first.plan_id, second.plan_id)
+        self.assertNotEqual(
+            first.plan_id,
+            plan_impact(
+                "base", "candidate", "policy-v2", [artifact], [audit],
+                require_snapshot_evidence=False,
+            ).plan_id,
+        )
+        validate_planned_action_dag(first.actions)
 
 
 if __name__ == "__main__":

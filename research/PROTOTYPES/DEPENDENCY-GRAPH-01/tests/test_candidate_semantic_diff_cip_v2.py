@@ -7,7 +7,7 @@ from src.candidate_semantic_diff import (
 from src.impact_planning import (
     ActionKind, CallSiteDecision, CallSiteDisposition, ImpactPlan, PlannedAction,
     OutputOperation, PlannedOutput, PlannedEdgeKind, PlannedEdgeOperation,
-    PlannedEdgeChange, compute_impact_plan_id,
+    PlannedEdgeChange, assign_planned_action_ids, compute_impact_plan_id,
 )
 from src.semantic_dependency_index import FORMAT, SCHEMA_VERSION, publish_declaration
 from src.semantic_graph import ContentStore, canonical_bytes, make_snapshot
@@ -114,9 +114,10 @@ class CandidateSemanticDiffCIPV2Tests(unittest.TestCase):
 
     def make_plan(self, baseline, candidate, actions=(), decisions=(),
                   outputs=(), edge_changes=()):
+        identified_actions = assign_planned_action_ids(tuple(actions))
         provisional = ImpactPlan(
             "", baseline.root_hash, candidate.root_hash, "policy:cip-v2",
-            tuple(actions), (), (), tuple(sorted(decisions)),
+            identified_actions, (), (), tuple(sorted(decisions)),
             tuple(sorted(outputs)), tuple(sorted(edge_changes)),
         )
         return ImpactPlan(
