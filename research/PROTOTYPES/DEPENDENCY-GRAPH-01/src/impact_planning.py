@@ -14,6 +14,9 @@ class PlanningError(ValueError):
     pass
 
 
+CIP_SCHEMA_VERSION = 2
+
+
 class CompletenessStatus(str, Enum):
     GAP_FOUND = "GAP_FOUND"
     SUPPORTED_WITHIN_SCOPE = "SUPPORTED_WITHIN_SCOPE"
@@ -65,6 +68,61 @@ class CallSiteDisposition(str, Enum):
     UNRESOLVED = "unresolved"
 
 
+class OutputOperation(str, Enum):
+    ADD = "add"
+    REPLACE = "replace"
+    REMOVE = "remove"
+
+
+class PlannedEdgeKind(str, Enum):
+    TYPED_REFERENCE = "typed_reference"
+    CALL_TARGET = "call_target"
+
+
+class PlannedEdgeOperation(str, Enum):
+    ADD = "add"
+    REMOVE = "remove"
+    REWRITE = "rewrite"
+    CONDITION = "condition"
+
+
+@dataclass(frozen=True, order=True)
+class PlannedOutput:
+    """One exact logical output slot in the approved candidate graph.
+
+    expected_payload_digest is SHA-256 over canonical {declaration_id, content}.
+    The diff receipt binds the materialized Content Hash to output_id and
+    candidate_root after the output has actually been produced.
+    """
+    output_id: str
+    logical_key: str
+    operation: OutputOperation
+    base_hash: str | None
+    expected_kind: str | None
+    expected_payload_digest: str | None
+    rationale: str
+    evidence_id: str
+    source_hash: str | None = None
+    consumer_path_id: str = ""
+
+
+@dataclass(frozen=True, order=True)
+class PlannedEdgeChange:
+    """An exact typed-reference or call-target edge delta."""
+    output_id: str
+    edge_kind: PlannedEdgeKind
+    edge_id: str
+    operation: PlannedEdgeOperation
+    baseline_relation: str | None
+    candidate_relation: str | None
+    baseline_target_hash: str | None
+    candidate_target_hash: str | None
+    baseline_condition: str | None
+    candidate_condition: str | None
+    rationale: str
+    evidence_id: str
+
+
 @dataclass(frozen=True, order=True)
 class CallSiteDecision:
     caller_hash: str
@@ -80,6 +138,9 @@ class CallSiteDecision:
     base_callee_contract_hash: str | None = None
     selected_callee_contract_hash: str | None = None
     compatibility_status: str | None = None
+    consumer_path_id: str = ""
+    resulting_output_id: str | None = None
+    selected_output_id: str | None = None
 
 
 @dataclass(frozen=True)
@@ -134,6 +195,53 @@ class ImpactPlan:
     audit_statuses: tuple[tuple[str, str], ...]
     audit_bindings: tuple[tuple[str, str, str, str, int, str, str, str], ...] = ()
     call_site_decisions: tuple[CallSiteDecision, ...] = ()
+    planned_outputs: tuple[PlannedOutput, ...] = ()
+    planned_edge_changes: tuple[PlannedEdgeChange, ...] = ()
+
+
+def impact_plan_payload(plan: ImpactPlan) -> dict:
+    return {
+        "cip_schema_version": CIP_SCHEMA_VERSION,
+        "baseline": plan.baseline_root,
+        "candidate": plan.candidate_root,
+        "policy": plan.policy_id,
+        "actions": [
+            (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes)
+            for a in plan.actions
+        ],
+        "audits": sorted(plan.audit_statuses),
+        "audit_bindings": sorted(plan.audit_bindings),
+        "call_site_decisions": [
+            (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
+             d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
+             d.rationale, d.decision_evidence_id, d.required_contract_hash,
+             d.base_callee_contract_hash, d.selected_callee_contract_hash,
+             d.compatibility_status, d.consumer_path_id, d.resulting_output_id,
+             d.selected_output_id)
+            for d in sorted(plan.call_site_decisions)
+        ],
+        "planned_outputs": [
+            (o.output_id, o.logical_key, o.operation.value, o.base_hash,
+             o.expected_kind, o.expected_payload_digest, o.rationale, o.evidence_id,
+             o.source_hash, o.consumer_path_id)
+            for o in sorted(plan.planned_outputs)
+        ],
+        "planned_edge_changes": [
+            (e.output_id, e.edge_kind.value, e.edge_id, e.operation.value,
+             e.baseline_relation, e.candidate_relation, e.baseline_target_hash,
+             e.candidate_target_hash, e.baseline_condition, e.candidate_condition,
+             e.rationale, e.evidence_id)
+            for e in sorted(plan.planned_edge_changes)
+        ],
+    }
+
+
+def compute_impact_plan_id(plan: ImpactPlan) -> str:
+    import hashlib
+    import json
+    return hashlib.sha256(json.dumps(
+        impact_plan_payload(plan), sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")).hexdigest()
 
 
 def dependency_digest(dependencies: Iterable[str]) -> str:
@@ -293,6 +401,8 @@ def plan_impact(
     audits: Iterable[CompletenessAudit],
     require_snapshot_evidence: bool = True,
     call_site_decisions: Iterable[CallSiteDecision] = (),
+    planned_outputs: Iterable[PlannedOutput] = (),
+    planned_edge_changes: Iterable[PlannedEdgeChange] = (),
 ) -> ImpactPlan:
     if not baseline_root or not candidate_root or not policy_id:
         raise PlanningError("baseline, candidate, and policy identities are required")
@@ -303,9 +413,71 @@ def plan_impact(
         raise PlanningError("duplicate completeness audit for an artifact")
 
     decisions = tuple(call_site_decisions)
-    decision_map = {(d.caller_hash, d.call_site_id, d.target_id): d for d in decisions}
-    if len(decision_map) != len(decisions):
-        raise PlanningError("duplicate call-site decision")
+    output_rows = tuple(sorted(planned_outputs))
+    edge_change_rows = tuple(sorted(planned_edge_changes))
+    output_map = {row.output_id: row for row in output_rows}
+    if len(output_map) != len(output_rows):
+        raise PlanningError("duplicate planned output_id")
+    if len({row.logical_key for row in output_rows}) != len(output_rows):
+        raise PlanningError("multiple planned outputs target the same logical selection key")
+    for row in output_rows:
+        if not all((row.output_id, row.logical_key, row.rationale, row.evidence_id)):
+            raise PlanningError("planned output identity, rationale, and evidence are required")
+        if not isinstance(row.operation, OutputOperation):
+            raise PlanningError("planned output has an invalid operation")
+        if row.operation is OutputOperation.ADD:
+            if row.base_hash is not None:
+                raise PlanningError("ADD output cannot name a replaced selection hash")
+            if row.source_hash is not None and not row.consumer_path_id:
+                raise PlanningError("source-derived ADD output requires a consumer_path_id")
+        elif not row.base_hash:
+            raise PlanningError("REPLACE/REMOVE output requires an exact baseline hash")
+        if row.operation is OutputOperation.REMOVE:
+            if row.expected_kind is not None or row.expected_payload_digest is not None:
+                raise PlanningError("REMOVE output cannot declare candidate content")
+        elif not all((row.expected_kind, row.expected_payload_digest)):
+            raise PlanningError("ADD/REPLACE output requires exact kind and canonical non-edge payload digest")
+
+    if len(set(edge_change_rows)) != len(edge_change_rows):
+        raise PlanningError("duplicate planned edge change")
+    for row in edge_change_rows:
+        if row.output_id not in output_map:
+            raise PlanningError("planned edge change references an unknown output_id")
+        if not all((row.edge_id, row.rationale, row.evidence_id)) or not (row.baseline_relation or row.candidate_relation):
+            raise PlanningError("planned edge change identity, relation, rationale, and evidence are required")
+        if not isinstance(row.edge_kind, PlannedEdgeKind) or not isinstance(row.operation, PlannedEdgeOperation):
+            raise PlanningError("planned edge change has an invalid kind or operation")
+        if row.operation is PlannedEdgeOperation.ADD and (
+            row.baseline_target_hash is not None or row.baseline_relation is not None
+            or row.baseline_condition is not None or not row.candidate_target_hash
+            or not row.candidate_relation
+        ):
+            raise PlanningError("edge ADD requires only a complete candidate edge")
+        if row.operation is PlannedEdgeOperation.REMOVE and (
+            not row.baseline_target_hash or not row.baseline_relation
+            or row.candidate_target_hash is not None or row.candidate_relation is not None
+            or row.candidate_condition is not None
+        ):
+            raise PlanningError("edge REMOVE requires only a complete baseline edge")
+        if row.operation is PlannedEdgeOperation.REWRITE and not (
+            row.baseline_target_hash and row.candidate_target_hash
+            and row.baseline_relation and row.candidate_relation
+        ):
+            raise PlanningError("edge REWRITE requires exact old and new edges")
+        if row.operation is PlannedEdgeOperation.CONDITION and not (
+            row.baseline_target_hash and row.candidate_target_hash
+            and row.baseline_target_hash == row.candidate_target_hash
+            and row.baseline_relation == row.candidate_relation
+            and row.baseline_condition != row.candidate_condition
+        ):
+            raise PlanningError("edge CONDITION requires same target/relation and a changed condition")
+
+    decision_keys = [
+        (d.caller_hash, d.call_site_id, d.target_id, d.consumer_path_id)
+        for d in decisions
+    ]
+    if len(set(decision_keys)) != len(decision_keys):
+        raise PlanningError("duplicate call-site decision for one consumer path")
     call_edges: dict[tuple[str, str, str], IncomingCallSite] = {}
     for audit in audit_rows:
         for edge in audit.incoming_call_sites:
@@ -313,7 +485,7 @@ def plan_impact(
             if key in call_edges:
                 raise PlanningError("duplicate incoming call-site edge across completeness audits")
             call_edges[key] = edge
-    extra_decisions = set(decision_map) - set(call_edges)
+    extra_decisions = {key[:3] for key in decision_keys} - set(call_edges)
     if extra_decisions:
         raise PlanningError("call-site decision does not match an exact discovered Snapshot edge")
 
@@ -349,52 +521,86 @@ def plan_impact(
     normalized_decisions: list[CallSiteDecision] = []
     unresolved_edges: list[str] = []
     for key, edge in sorted(call_edges.items()):
-        decision = decision_map.get(key)
-        if decision is None:
+        edge_decisions = [
+            decision for decision in decisions
+            if (decision.caller_hash, decision.call_site_id, decision.target_id) == key
+        ]
+        if not edge_decisions:
             unresolved_edges.append(f"{edge.caller_hash}:{edge.call_site_id}/{edge.target_id}")
             continue
-        if not isinstance(decision.disposition, CallSiteDisposition):
-            raise PlanningError("call-site decision has an invalid disposition")
-        if not all((decision.caller_hash, decision.call_site_id, decision.target_id,
-                    decision.base_callee_hash, decision.rationale)):
-            raise PlanningError("call-site decision identities and rationale are required")
-        if decision.base_callee_hash != edge.target_hash:
-            raise PlanningError("call-site decision is bound to a different base callee hash")
-        if (not edge.required_contract_hash or not edge.provided_contract_hash
-                or decision.required_contract_hash != edge.required_contract_hash
-                or decision.base_callee_contract_hash != edge.provided_contract_hash):
-            raise PlanningError("call-site decision must preserve the exact required and base-provided contract hashes")
-        if not decision.rationale:
-            raise PlanningError("call-site decision requires a rationale")
-        if decision.disposition is CallSiteDisposition.UNRESOLVED:
-            if any((decision.selected_callee_hash, decision.resulting_caller_hash,
-                    decision.decision_evidence_id, decision.selected_callee_contract_hash,
-                    decision.compatibility_status)):
-                raise PlanningError("unresolved call-site decision cannot select output hashes or claim evidence")
-            unresolved_edges.append(f"{edge.caller_hash}:{edge.call_site_id}/{edge.target_id}")
-        else:
-            if not all((decision.selected_callee_hash, decision.resulting_caller_hash,
-                        decision.decision_evidence_id, decision.selected_callee_contract_hash)):
-                raise PlanningError("resolved call-site decisions require selected callee, resulting caller, selected provided contract, and evidence")
-            if decision.compatibility_status != "PROVEN":
-                raise PlanningError("resolved call-site decisions require PROVEN compatibility evidence")
-            if decision.disposition is CallSiteDisposition.PRESERVE and decision.selected_callee_hash != edge.target_hash:
-                raise PlanningError("PRESERVE must retain the exact existing callee hash")
-            if (decision.disposition is CallSiteDisposition.PRESERVE
-                    and decision.selected_callee_contract_hash != edge.provided_contract_hash):
-                raise PlanningError("PRESERVE must retain the exact existing callee-provided contract hash")
-            if decision.disposition is CallSiteDisposition.MIGRATE and decision.selected_callee_hash == edge.target_hash:
-                raise PlanningError("MIGRATE must select a different exact callee hash")
-            if decision.disposition in {CallSiteDisposition.MIGRATE, CallSiteDisposition.ADAPT,
-                                        CallSiteDisposition.FORK} and decision.resulting_caller_hash == edge.caller_hash:
-                raise PlanningError("caller content identity must change for migrate/adapt/fork")
-            if decision.disposition is not CallSiteDisposition.PRESERVE:
-                actions.add(PlannedAction(
-                    ActionKind.REWRITE_CALL_SITE, edge.caller_hash,
-                    f"{decision.disposition.value} {edge.call_site_id}/{edge.target_id} "
-                    f"to {decision.selected_callee_hash}; resulting caller {decision.resulting_caller_hash}",
-                ))
-        normalized_decisions.append(decision)
+        if len(edge_decisions) > 1 and any(
+            not item.consumer_path_id or not item.resulting_output_id
+            for item in edge_decisions
+        ):
+            raise PlanningError("multiple decisions for one call edge require distinct consumer paths and output IDs")
+        for decision in edge_decisions:
+            if not isinstance(decision.disposition, CallSiteDisposition):
+                raise PlanningError("call-site decision has an invalid disposition")
+            if not all((decision.caller_hash, decision.call_site_id, decision.target_id,
+                        decision.base_callee_hash, decision.rationale)):
+                raise PlanningError("call-site decision identities and rationale are required")
+            if decision.base_callee_hash != edge.target_hash:
+                raise PlanningError("call-site decision is bound to a different base callee hash")
+            if (not edge.required_contract_hash or not edge.provided_contract_hash
+                    or decision.required_contract_hash != edge.required_contract_hash
+                    or decision.base_callee_contract_hash != edge.provided_contract_hash):
+                raise PlanningError("call-site decision must preserve exact required and base-provided contract hashes")
+
+            if decision.resulting_output_id is not None:
+                output = output_map.get(decision.resulting_output_id)
+                if output is None or output.operation is OutputOperation.REMOVE:
+                    raise PlanningError("call-site decision references an unknown or removed resulting output")
+                if (output.base_hash or output.source_hash) != decision.caller_hash:
+                    raise PlanningError("resulting output is not derived from the decision's exact base caller")
+                if output.consumer_path_id != decision.consumer_path_id:
+                    raise PlanningError("call-site decision and resulting output consumer paths differ")
+            if decision.selected_output_id is not None:
+                selected_output = output_map.get(decision.selected_output_id)
+                if selected_output is None or selected_output.operation is OutputOperation.REMOVE:
+                    raise PlanningError("call-site decision references an unknown or removed selected callee output")
+                if (selected_output.base_hash or selected_output.source_hash) != edge.target_hash:
+                    raise PlanningError("selected callee output is not derived from the exact base callee")
+
+            if decision.disposition is CallSiteDisposition.UNRESOLVED:
+                if any((decision.selected_callee_hash, decision.resulting_caller_hash,
+                        decision.decision_evidence_id, decision.selected_callee_contract_hash,
+                        decision.compatibility_status, decision.resulting_output_id,
+                        decision.selected_output_id)):
+                    raise PlanningError("unresolved call-site decision cannot select output hashes or claim evidence")
+                unresolved_edges.append(f"{edge.caller_hash}:{edge.call_site_id}/{edge.target_id}")
+            else:
+                if not (decision.selected_callee_hash or decision.selected_output_id):
+                    raise PlanningError("resolved decisions require exact selected callee hash or output binding")
+                if not (decision.resulting_caller_hash or decision.resulting_output_id):
+                    raise PlanningError("resolved decisions require exact resulting caller hash or output binding")
+                if not all((decision.decision_evidence_id, decision.selected_callee_contract_hash)):
+                    raise PlanningError("resolved decisions require selected provided contract and evidence")
+                if decision.compatibility_status != "PROVEN":
+                    raise PlanningError("resolved call-site decisions require PROVEN compatibility evidence")
+                if decision.disposition is CallSiteDisposition.PRESERVE and (
+                    decision.selected_callee_hash != edge.target_hash or decision.selected_output_id is not None
+                    or decision.selected_callee_contract_hash != edge.provided_contract_hash
+                ):
+                    raise PlanningError("PRESERVE must retain the exact callee and provided-contract hashes")
+                if decision.disposition is CallSiteDisposition.MIGRATE and (
+                    decision.selected_callee_hash == edge.target_hash and decision.selected_output_id is None
+                ):
+                    raise PlanningError("MIGRATE must select a different exact callee hash or output slot")
+                if decision.disposition in {CallSiteDisposition.MIGRATE, CallSiteDisposition.ADAPT,
+                                            CallSiteDisposition.FORK} and (
+                    decision.resulting_caller_hash == edge.caller_hash and decision.resulting_output_id is None
+                ):
+                    raise PlanningError("caller content identity must change for migrate/adapt/fork")
+                if decision.disposition is not CallSiteDisposition.PRESERVE:
+                    actions.add(PlannedAction(
+                        ActionKind.REWRITE_CALL_SITE, edge.caller_hash,
+                        f"{decision.disposition.value} {edge.call_site_id}/{edge.target_id} "
+                        f"to {decision.selected_output_id or decision.selected_callee_hash}; "
+                        f"resulting caller {decision.resulting_output_id or decision.resulting_caller_hash}; "
+                        f"consumer path {decision.consumer_path_id or 'default'}",
+                    ))
+            normalized_decisions.append(decision)
+
     if unresolved_edges:
         unsafe.extend("call-site:" + item for item in unresolved_edges)
         actions.add(PlannedAction(
@@ -418,30 +624,14 @@ def plan_impact(
     ordered = tuple(sorted(actions, key=lambda a: (
         a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes
     )))
-    import hashlib
-    import json
-    plan_payload = {
-        "baseline": baseline_root,
-        "candidate": candidate_root,
-        "policy": policy_id,
-        "actions": [
-            (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes)
-            for a in ordered
-        ],
-        "audits": sorted(statuses),
-        "audit_bindings": sorted(audit_bindings),
-        "call_site_decisions": [
-            (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
-             d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
-             d.rationale, d.decision_evidence_id, d.required_contract_hash,
-             d.base_callee_contract_hash, d.selected_callee_contract_hash,
-             d.compatibility_status)
-            for d in sorted(normalized_decisions)
-        ],
-    }
-    plan_id = hashlib.sha256(json.dumps(
-        plan_payload, sort_keys=True, separators=(",", ":")
-    ).encode("utf-8")).hexdigest()
-    return ImpactPlan(plan_id, baseline_root, candidate_root, policy_id,
-                      ordered, tuple(sorted(statuses)), tuple(sorted(audit_bindings)),
-                      tuple(sorted(normalized_decisions)))
+    provisional = ImpactPlan(
+        "", baseline_root, candidate_root, policy_id, ordered,
+        tuple(sorted(statuses)), tuple(sorted(audit_bindings)),
+        tuple(sorted(normalized_decisions)), output_rows, edge_change_rows,
+    )
+    plan_id = compute_impact_plan_id(provisional)
+    return ImpactPlan(
+        plan_id, baseline_root, candidate_root, policy_id,
+        ordered, tuple(sorted(statuses)), tuple(sorted(audit_bindings)),
+        tuple(sorted(normalized_decisions)), output_rows, edge_change_rows,
+    )
