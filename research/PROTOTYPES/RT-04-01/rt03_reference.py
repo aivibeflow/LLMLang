@@ -154,7 +154,7 @@ def evaluate(
         return deepcopy(outcome)
 
     def visit(node: Any) -> Any:
-        expr = _record(node, {"literal", "add", "sequence", "result_ok", "result_error", "result_sequence", "cancel", "with_resource", "perform"}, "expression")
+        expr = _record(node, {"literal", "add", "sequence", "result_ok", "result_error", "result_sequence", "cancel", "with_resource", "if", "perform"}, "expression")
         op, arg = next(iter(expr.items()))
         if op == "literal":
             return deepcopy(arg)
@@ -190,6 +190,13 @@ def evaluate(
             return deepcopy(value)
         if op == "cancel":
             raise _ExecutionCancelled(arg)
+        if op == "if":
+            if not isinstance(arg, dict) or set(arg) != {"condition", "then", "else"}:
+                raise SemanticError("if requires condition, then, and else expressions")
+            condition = visit(arg["condition"])
+            if type(condition) is not bool:
+                raise SemanticError("if condition must evaluate to boolean")
+            return visit(arg["then"] if condition else arg["else"])
         if op == "with_resource":
             if profile != "D":
                 raise SemanticError("Profile A is pure: resource scopes are not permitted")
