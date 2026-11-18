@@ -27,7 +27,7 @@ class RT03IndependentPathModelTests(unittest.TestCase):
         machine = run_small_step(expression, "D")
         for trace in (recursive, machine):
             self.assertEqual(resource_events(trace), path.resource_events)
-            self.assertEqual(tuple(trace.final_resources), path.active_resources)
+            self.assertEqual(tuple(sorted(trace.final_resources)), path.active_resources)
             self.assertEqual(
                 "cancelled" if isinstance(trace.result, dict) and "cancelled" in trace.result else "normal",
                 path.terminal,
@@ -139,6 +139,39 @@ class RT03IndependentPathModelTests(unittest.TestCase):
             {tuple(choice for _, choice in path.branch_choices) for path in paths},
             {(True, True), (True, False), (False,)},
         )
+
+    def test_nested_failed_releases_unwind_all_scopes_and_remain_active(self):
+        expression = {"with_resource": {
+            "id": "outer", "value": 1, "release_fails": True,
+            "body": {"with_resource": {
+                "id": "inner", "value": 2, "release_fails": True,
+                "body": {"cancel": "stop"},
+            }},
+        }}
+        path = self.assert_model_matches_both_evaluators(expression)
+        self.assertEqual(path.resource_events, (
+            ("acquire", "outer", True), ("acquire", "inner", True),
+            ("release", "inner", False), ("release", "outer", False),
+        ))
+        self.assertEqual(path.active_resources, ("inner", "outer"))
+        self.assertEqual(path.cleanup_errors, ("inner", "outer"))
+
+    def test_cancellation_while_evaluating_condition_does_not_invent_branch(self):
+        expression = {"with_resource": {
+            "id": "outer", "value": "handle",
+            "body": {"if": {
+                "condition": {"cancel": "condition-cancelled"},
+                "then": {"literal": "unreachable"},
+                "else": {"literal": "unreachable"},
+            }},
+        }}
+        paths = enumerate_paths(expression)
+        self.assertEqual(len(paths), 1)
+        self.assertEqual(paths[0].branch_choices, ())
+        self.assertEqual(paths[0].terminal, "cancelled")
+        self.assertEqual(paths[0].resource_events, (
+            ("acquire", "outer", True), ("release", "outer", True),
+        ))
 
     def test_result_error_does_not_short_circuit_ordinary_sequence(self):
         expression = {"sequence": [
