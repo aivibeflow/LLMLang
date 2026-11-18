@@ -52,9 +52,12 @@ class RT04ModelTests(unittest.TestCase):
         p = {"functions": {"entry": {"calls": ["missing"]}}}
         self.assertIn("UNKNOWN_CALLEE", check_program(p, "B").codes())
 
-    def test_unknown_effect_rejected_by_closed_profile(self):
+    def test_unknown_effect_requires_open_row_in_profile_b(self):
         p = {"functions": {"f": {"effects": ["gpu.launch"]}}}
         self.assertIn("UNKNOWN_EFFECT", check_program(p, "A").codes())
+        self.assertIn("UNKNOWN_EFFECT", check_program(p, "B").codes())
+        p["functions"]["f"]["effect_row"] = "e"
+        self.assertEqual(check_program(p, "B").status, "ACCEPTED")
 
     def test_rejects_malformed_envelope(self):
         with self.assertRaises(ModelError):
