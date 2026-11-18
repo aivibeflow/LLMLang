@@ -83,8 +83,12 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
                 findings.append(Finding("UNKNOWN_EFFECT", name, effect))
             if spec.get("effect_row") is not None:
                 findings.append(Finding("OPEN_EFFECT_ROW_UNSUPPORTED", name, str(spec["effect_row"])))
-        elif spec.get("effect_row") is not None and not isinstance(spec["effect_row"], str):
-            findings.append(Finding("INVALID_EFFECT_ROW", name, "effect_row must be a string or null"))
+        else:
+            if spec.get("effect_row") is not None and not isinstance(spec["effect_row"], str):
+                findings.append(Finding("INVALID_EFFECT_ROW", name, "effect_row must be a string or null"))
+            if spec.get("effect_row") is None:
+                for effect in effects - CLOSED_EFFECTS:
+                    findings.append(Finding("UNKNOWN_EFFECT", name, effect))
         direct_effects[name] = effects
         direct_caps[name] = set(_names(spec.get("requires", []), f"{name}.requires"))
         calls[name] = _names(spec.get("calls", []), f"{name}.calls")
