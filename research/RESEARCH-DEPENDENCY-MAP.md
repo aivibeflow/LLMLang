@@ -262,3 +262,17 @@ RT-22 introduces an external-orchestrator dependency without making LLMLang depe
 | DEP-069 | RT-15 → RT-22 | Influences | Git representation, semantic merge, and external-edit reconciliation determine how repository/worktree operations preserve portable and reviewable state. | Strong hypothesis |
 | DEP-070 | RT-16 → RT-22 | Requires | Delegated repository scopes, credential isolation, path containment, and operation-level authorization are necessary for safe external orchestration. | Strong hypothesis |
 | DEP-071 | RT-22 → RT-21 | Enables | AIVibeFlow can provide a durable development environment for LLMLang while the Toolchain retains semantic visibility over its repository and worktree operations. | Open hypothesis |
+
+
+## 10. Single-instance and incremental multi-worktree runtime (RT-23)
+
+RT-23 separates immutable semantic development from regular-file Git isolation. A single Toolchain Server serves multiple worktree File Views; semantic Change Sets do not require worktrees; interface mappings are versioned separately. File tracking is incremental and scoped to the affected worktree, with bounded reconciliation when event continuity is lost.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-072 | RT-05 → RT-23 | Requires | Shared semantic object reuse depends on immutable content-addressed identities and explicit snapshot roots; worktree identity must not be conflated with semantic identity. | Strong hypothesis |
+| DEP-073 | RT-19 → RT-23 | Constrains | The Toolchain Server lifecycle, storage, durable operations, and concurrency model must support one process serving multiple independent worktree handles and clients. | Strong hypothesis |
+| DEP-074 | RT-22 → RT-23 | Refines | The external Repository/Worktree MCP contract needs explicit single-server and incremental File View guarantees without exposing implementation-specific watcher details. | Strong hypothesis |
+| DEP-075 | RT-11 → RT-23 | Influences | Incremental file identity, event journals, Git metadata, and bounded invalidation can reuse incremental computation principles, but filesystem freshness is distinct from build-cache validity. | Open hypothesis |
+| DEP-076 | RT-16 → RT-23 | Constrains | Shared process state, cross-worktree isolation, path containment, watcher input validation, and per-job grants constrain the multi-tenant server design. | Strong hypothesis |
+| DEP-077 | RT-23 → RT-21 | Enables | One shared Toolchain instance and semantic-only workflows reduce infrastructure duplication for LLMLang self-development while preserving isolated regular-file worktrees. | Open hypothesis |
