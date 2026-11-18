@@ -1,6 +1,7 @@
 name: Logos CPC parser-state binding
 
 on:
+  workflow_call:
   push:
     branches: [main]
     paths:
