@@ -131,3 +131,5 @@ Formal verification can establish that an implementation satisfies a formal spec
 
 
 - [RT-22 — LLMLang Git Repository and Worktree MCP Surface](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — LLMLang-owned repository/worktree Toolchain operations exposed through MCP, semantic synchronization, scoped authorization, recovery, and the AIVibeFlow integration boundary.
+
+- [RT-23 — Single-Instance Toolchain with Shared Semantic State and Incremental Multi-Worktree File Views](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — one Toolchain Server serving multiple regular-file worktrees, shared immutable semantic objects/snapshots, separately versioned interface mappings, per-worktree incremental file tracking, bounded reconciliation, concurrency, and recovery.
