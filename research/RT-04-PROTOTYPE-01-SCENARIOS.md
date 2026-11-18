@@ -59,3 +59,22 @@ Implemented by PROTOTYPES/RT-04-01/test_rt04_model.py. Scope is declaration-leve
 | RT4-P50 | Scope prefix matches only on a path-segment boundary | Not yet compared | Reject out-of-scope requirement |
 
 The CFG tests assume the supplied blocks and edges are complete and correctly represent source control flow. They do not model symbolic branch conditions, borrow lifetimes, resource return/drop, terminal-path cleanup, or prove that the CFG extractor is sound. Effect-bound tests likewise trust fixture-level completeness assertions; they do not prove source call-graph completeness or discover dynamic, generated, FFI, handler, or reflective calls. These are not whole-program semantics.
+
+
+## RT-03 × RT-04 shared observable-trace fixtures
+
+The companion [cross-profile report](../RT-04-RT-03-CROSS-PROFILE-TRACES.md) and
+[executable tests](PROTOTYPES/RT-04-01/test_rt03_rt04_cross_profile.py)
+add a deliberately small hand-authored trace oracle. These are not complete
+reference semantics and do not replace the declaration-level tests above.
+
+| ID | Shared trace | RT-03 A | RT-03 D | RT-04 checker A | RT-04 checker B |
+|---|---|---|---|---|---|
+| RT3-RT4-X01 | Pure return, no events | Admissible | Admissible | Accept | Accept |
+| RT3-RT4-X02 | Declared fs.read event | Reject as effectful | Admissible when declared | Accept with ambient capability | Accept with scoped grant and effect-row annotation |
+| RT3-RT4-X03 | Two ordered fs.write events | Reject as effectful | Admissible; event order remains observable | Effect-label summary only | Effect-label summary only |
+| RT3-RT4-X04 | net.send event absent from declared effects | Reject | Reject | Reject unknown closed label | Accepts with open-row annotation; row unification/handler coverage are not implemented |
+
+The trace tests expose a key boundary: RT-04's effect summaries are not
+observational traces. They discard order and payload, and an open-row annotation
+does not establish that an effect is handled.
