@@ -202,3 +202,16 @@ The shared contract ownership and cross-repository coordination are described th
 ## 16. Detailed runtime model
 
 The single-server, shared-semantic-state, versioned-interface-mapping, and incremental multi-worktree model is specified in [RT-23](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md). RT-23 owns those internals; this document owns the external Repository/Worktree/MCP capability contract. In case of overlap, RT-23 refines the internal implementation model while RT-22 remains authoritative for externally observable operation guarantees.
+
+
+## 17. Related semantic merge and commit documents
+
+Study RT-22 together with:
+
+- [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — authoritative research for semantic diff/merge rules, conflict classes, Git driver/mergetool, and repository-level SPG validation.
+- [ADR-014](../docs/adr/014-git-semantic-merge.md) — proposed architecture for Git-visible source representation and semantic merge.
+- [RT-20](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — caller impact, migration/preservation decisions, hash propagation, and verified completion gates.
+- [RT-23](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — single-server runtime, shared semantic state, per-worktree file views, and synchronized commit protocol.
+- [RT-19](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — transport-neutral semantic API and snapshot/change-set lifecycle.
+
+Boundary: RT-22 defines how Git/repository/worktree operations are exposed and recovered; it does not redefine semantic merge rules. A Git merge result is not finalized as an LLMLang merge until the repository-wide semantic reconciliation and validation described by the merge document and RT-20 have succeeded. Finalization must use RT-23's synchronized semantic-and-filesystem commit invariant.
