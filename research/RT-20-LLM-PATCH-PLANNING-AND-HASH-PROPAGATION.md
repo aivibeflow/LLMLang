@@ -150,7 +150,9 @@ For each directly affected function, determine whether the requested change modi
 
 For every changed callee version, enumerate all incoming call/reference edges from the base Snapshot, including transitive and indirect forms represented by the language's dependency model.
 
-The server, not the LLM, must query and audit the reverse-reference index. The result must include call-site identity, caller hashId, edge kind, and evidence/provenance.
+The server, not the LLM, must query and audit the reverse-reference index. The result must include call-site identity, caller hashId, edge kind, exact base Snapshot root, index/extractor identity, deterministic digest of the returned edge set, and evidence/provenance.
+
+The reverse-query result has an explicit completeness status: `GAP_FOUND`, `SUPPORTED_WITHIN_SCOPE`, `UNKNOWN`, or `NOT_CHECKED`. A no-caller result is not evidence that no callers exist. Missing evidence is `NOT_CHECKED`; stale or mismatched evidence is `UNKNOWN`. Only matching independent evidence may support a `SUPPORTED_WITHIN_SCOPE` conclusion, and that conclusion is limited to its declared scope, observation model, assumptions, and exclusions. It is not a global completeness proof.
 
 If dependency completeness cannot be established for the relevant scope—for example because of dynamic dispatch, unresolved external references, reflection, generated code, or an incomplete index—the plan must mark the affected region unknown and fail closed or require an explicit, policy-authorized boundary.
 

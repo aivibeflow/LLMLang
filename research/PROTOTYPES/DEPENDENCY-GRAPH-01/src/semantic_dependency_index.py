@@ -7,13 +7,24 @@ existing experimental ContentStore; this is not a normative SPG wire schema.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from enum import Enum
+from hashlib import sha256
 from typing import Any, Iterable, Mapping
 
-from .semantic_graph import ContentStore, Dependency, Snapshot
+from .semantic_graph import ContentStore, Dependency, Snapshot, canonical_bytes
 
 
 FORMAT = "llmlang.semantic-object"
 SCHEMA_VERSION = 1
+EXTRACTOR_ID = "semantic-dependency-extractor/1"
+
+
+class CompletenessStatus(str, Enum):
+    GAP_FOUND = "GAP_FOUND"
+    SUPPORTED_WITHIN_SCOPE = "SUPPORTED_WITHIN_SCOPE"
+    UNKNOWN = "UNKNOWN"
+    NOT_CHECKED = "NOT_CHECKED"
+
 
 KINDS = {"function", "operation", "type", "contract", "implementation", "effect"}
 REFERENCE_RELATIONS = {
@@ -68,6 +79,107 @@ class DependencyIndex:
 
     def incoming(self, target_hash: str) -> tuple[IndexedEdge, ...]:
         return tuple(edge for edge in self.edges if edge.target_hash == target_hash)
+
+
+
+@dataclass(frozen=True)
+class ReverseLookupEvidence:
+    """Externally produced, scope-limited audit bound to one exact index query.
+
+    This record is an evidence envelope, not a cryptographic signature or proof.
+    The producer must independently justify its status and preserve its evidence.
+    """
+    evidence_id: str
+    snapshot_root: str
+    target_hash: str
+    scope: str
+    index_schema_version: int
+    extractor_id: str
+    edge_set_digest: str
+    status: CompletenessStatus
+    observation_model_id: str
+    assumptions: tuple[str, ...] = ()
+    exclusions: tuple[str, ...] = ()
+    discrepancies: tuple[str, ...] = ()
+
+    def __post_init__(self):
+        required = (self.evidence_id, self.snapshot_root, self.target_hash,
+                    self.scope, self.extractor_id, self.edge_set_digest,
+                    self.observation_model_id)
+        if not all(isinstance(value, str) and value for value in required):
+            raise ValueError("reverse lookup evidence identities are required")
+        if self.index_schema_version < 1:
+            raise ValueError("index_schema_version must be positive")
+        if not isinstance(self.status, CompletenessStatus):
+            raise ValueError("invalid completeness status")
+        if self.status is CompletenessStatus.GAP_FOUND and not self.discrepancies:
+            raise ValueError("GAP_FOUND evidence must identify at least one discrepancy")
+        if self.status is CompletenessStatus.SUPPORTED_WITHIN_SCOPE and self.discrepancies:
+            raise ValueError("supported evidence cannot contain unresolved discrepancies")
+
+
+@dataclass(frozen=True)
+class SnapshotIncomingResult:
+    snapshot_root: str
+    target_hash: str
+    scope: str
+    edges: tuple[IndexedEdge, ...]
+    edge_set_digest: str
+    completeness_status: CompletenessStatus
+    reason: str
+    evidence_id: str | None = None
+    discrepancies: tuple[str, ...] = ()
+
+
+def dependency_edge_set_digest(edges: Iterable[IndexedEdge]) -> str:
+    """Digest the exact deterministic edge set returned by a reverse query."""
+    return sha256(canonical_bytes([edge.record() for edge in sorted(edges)])).hexdigest()
+
+
+def query_snapshot_incoming(
+    store: ContentStore, snapshot: Snapshot, target_hash: str, scope: str,
+    evidence: ReverseLookupEvidence | None = None,
+) -> SnapshotIncomingResult:
+    """Return exact incoming edges plus a fail-closed completeness assessment.
+
+    Evidence is binding-checked, not authenticated or independently proven here.
+    """
+    if not scope:
+        raise ValueError("reverse lookup scope is required")
+    store.get(target_hash)
+    index = build_snapshot_dependency_index(store, snapshot)
+    edges = index.incoming(target_hash)
+    edge_digest = dependency_edge_set_digest(edges)
+    if evidence is None:
+        status = CompletenessStatus.NOT_CHECKED
+        reason = "no independent reverse-lookup completeness evidence was supplied"
+        evidence_id, discrepancies = None, ()
+    else:
+        matches = (
+            evidence.snapshot_root == snapshot.root_hash
+            and evidence.target_hash == target_hash
+            and evidence.scope == scope
+            and evidence.index_schema_version == index.schema_version
+            and evidence.extractor_id == EXTRACTOR_ID
+            and evidence.edge_set_digest == edge_digest
+        )
+        evidence_id, discrepancies = evidence.evidence_id, evidence.discrepancies
+        if not matches:
+            status = CompletenessStatus.UNKNOWN
+            reason = "evidence is stale or bound to a different snapshot, target, scope, index, extractor, or edge set"
+        else:
+            status = evidence.status
+            reason = (
+                "reverse lookup is supported only within the evidence's declared scope and assumptions"
+                if status is CompletenessStatus.SUPPORTED_WITHIN_SCOPE
+                else "independent audit found missing or unresolved dependency information"
+                if status is CompletenessStatus.GAP_FOUND
+                else "independent evidence does not support a completeness conclusion"
+            )
+    return SnapshotIncomingResult(
+        snapshot.root_hash, target_hash, scope, edges, edge_digest,
+        status, reason, evidence_id, discrepancies,
+    )
 
 
 def _require_string(value: Any, field: str) -> str:

@@ -266,3 +266,12 @@ Adopt this separation as the next research target:
 6. Content Store persists exact immutable object bytes and the trusted complete dependency projection; it does not invent dependency semantics.
 
 The immediate implementation target should be a **small, explicit SPG subset and its canonical extractor**, not a generic dependency parser or a production database integration.
+
+
+## 9. Snapshot-scoped reverse-query completeness binding
+
+The extractor prototype exposes `query_snapshot_incoming(store, snapshot, target_hash, scope, evidence)`. It returns incoming typed edges selected by the exact Semantic Snapshot together with an explicit completeness status. The query result is bound to the exact `snapshot_root` and `target_hash`, caller-supplied scope, dependency-index schema version and extractor identity, and a deterministic digest of the exact returned edge set. It also retains an external evidence identifier, observation-model identity, assumptions, exclusions, and discrepancies.
+
+Statuses are `GAP_FOUND`, `SUPPORTED_WITHIN_SCOPE`, `UNKNOWN`, and `NOT_CHECKED`. Missing evidence yields `NOT_CHECKED`. Any mismatch in snapshot, target, scope, index schema, extractor identity, or edge-set digest yields `UNKNOWN`; it must never be treated as an empty caller set. A `GAP_FOUND` record must identify a discrepancy. A `SUPPORTED_WITHIN_SCOPE` record cannot carry unresolved discrepancies and remains limited by its declared assumptions and exclusions.
+
+This adapter validates evidence bindings only. It does not authenticate the producer, establish that the observation model is sound, or prove completeness. The evidence producer must independently audit the declared reverse-reference scope. Production integration must bind evidence to the accepted SPG semantic model, exact Toolchain/Snapshot generation, analyzer and observation-model versions, and authenticated evidence storage.

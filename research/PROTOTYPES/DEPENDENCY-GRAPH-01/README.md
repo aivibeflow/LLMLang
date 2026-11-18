@@ -248,3 +248,8 @@ python -m unittest discover -s tests -p 'test_semantic_dependency_index.py' -v
 ```
 
 This is a deliberately small research schema, **not** the canonical LLMLang SPG schema. It does not parse LLMLang source, infer dependencies, prove completeness, model higher-order/dynamic dispatch beyond explicit finite alternatives, define final hash canonicalization, or integrate with the Toolchain Server / shared production Content Store. Unsupported or missing references fail closed. See [Semantic Dependency Index design](../../SEMANTIC-DEPENDENCY-INDEX.md).
+
+
+### Snapshot-scoped reverse lookup and completeness binding
+
+`src/semantic_dependency_index.py` exposes `query_snapshot_incoming` and `ReverseLookupEvidence`. A reverse query returns exact incoming edges from one Semantic Snapshot plus `GAP_FOUND`, `SUPPORTED_WITHIN_SCOPE`, `UNKNOWN`, or `NOT_CHECKED`. Evidence is bound to the snapshot root, target hash, scope, index schema, extractor identity, and digest of the exact returned edge set. Missing evidence is never interpreted as an empty caller set. The adapter validates bindings only; it does not authenticate evidence or prove that the external observation model is complete. See the Snapshot-scoped reverse-query section in [Semantic Dependency Index](../../SEMANTIC-DEPENDENCY-INDEX.md).

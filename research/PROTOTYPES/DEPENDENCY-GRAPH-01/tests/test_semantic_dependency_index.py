@@ -2,7 +2,8 @@ import unittest
 
 from src.semantic_graph import ContentStore, make_snapshot
 from src.semantic_dependency_index import (
-    FORMAT, SCHEMA_VERSION, SemanticObjectError,
+    FORMAT, SCHEMA_VERSION, EXTRACTOR_ID, CompletenessStatus, ReverseLookupEvidence,
+    SemanticObjectError, dependency_edge_set_digest, query_snapshot_incoming,
     build_dependency_index, build_snapshot_dependency_index, publish_declaration, validate_declaration,
 )
 
@@ -111,6 +112,95 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         snapshot = make_snapshot({"missing": "not-in-store"})
         with self.assertRaises(KeyError):
             build_snapshot_dependency_index(self.store, snapshot)
+
+
+    def _reverse_query_fixture(self):
+        caller = publish_declaration(self.store, declaration(
+            "function", "fn:reverse-query-caller", {"body": "x"},
+            call_sites=[{"call_site_id": "call:tax", "targets": [
+                {"target_id": "direct", "target_hash": self.old_callee, "condition": None}]}],
+        ))
+        return make_snapshot({"callee": self.old_callee, "caller": caller})
+
+    def _reverse_evidence(self, snapshot, edge_digest, **overrides):
+        values = {
+            "evidence_id": "audit:reverse:001", "snapshot_root": snapshot.root_hash,
+            "target_hash": self.old_callee, "scope": "all-static-call-sites",
+            "index_schema_version": SCHEMA_VERSION, "extractor_id": EXTRACTOR_ID,
+            "edge_set_digest": edge_digest,
+            "status": CompletenessStatus.SUPPORTED_WITHIN_SCOPE,
+            "observation_model_id": "static-call-model/1",
+            "assumptions": ("all declarations in selected snapshot were elaborated",),
+            "exclusions": ("runtime reflection",),
+        }
+        values.update(overrides)
+        return ReverseLookupEvidence(**values)
+
+    def test_reverse_query_without_evidence_is_not_checked(self):
+        snapshot = self._reverse_query_fixture()
+        result = query_snapshot_incoming(self.store, snapshot, self.old_callee,
+                                         "all-static-call-sites")
+        self.assertEqual(result.completeness_status, CompletenessStatus.NOT_CHECKED)
+        self.assertEqual(len(result.edges), 1)
+        self.assertIsNone(result.evidence_id)
+
+    def test_reverse_query_accepts_exact_scope_bound_evidence(self):
+        snapshot = self._reverse_query_fixture()
+        edges = build_snapshot_dependency_index(self.store, snapshot).incoming(self.old_callee)
+        evidence = self._reverse_evidence(snapshot, dependency_edge_set_digest(edges))
+        result = query_snapshot_incoming(self.store, snapshot, self.old_callee,
+                                         "all-static-call-sites", evidence)
+        self.assertEqual(result.completeness_status, CompletenessStatus.SUPPORTED_WITHIN_SCOPE)
+        self.assertEqual(result.evidence_id, evidence.evidence_id)
+        self.assertIn("only within", result.reason)
+
+    def test_reverse_query_rejects_stale_snapshot_evidence(self):
+        snapshot = self._reverse_query_fixture()
+        edges = build_snapshot_dependency_index(self.store, snapshot).incoming(self.old_callee)
+        evidence = self._reverse_evidence(
+            snapshot, dependency_edge_set_digest(edges), snapshot_root="stale-root")
+        result = query_snapshot_incoming(self.store, snapshot, self.old_callee,
+                                         "all-static-call-sites", evidence)
+        self.assertEqual(result.completeness_status, CompletenessStatus.UNKNOWN)
+
+    def test_reverse_query_rejects_wrong_extractor_or_edge_digest(self):
+        snapshot = self._reverse_query_fixture()
+        edges = build_snapshot_dependency_index(self.store, snapshot).incoming(self.old_callee)
+        digest = dependency_edge_set_digest(edges)
+        for overrides in ({"extractor_id": "different-extractor/1"},
+                          {"edge_set_digest": "wrong-digest"}):
+            evidence = self._reverse_evidence(snapshot, digest, **overrides)
+            result = query_snapshot_incoming(self.store, snapshot, self.old_callee,
+                                             "all-static-call-sites", evidence)
+            self.assertEqual(result.completeness_status, CompletenessStatus.UNKNOWN)
+
+    def test_reverse_query_preserves_gap_status_and_discrepancies(self):
+        snapshot = self._reverse_query_fixture()
+        edges = build_snapshot_dependency_index(self.store, snapshot).incoming(self.old_callee)
+        evidence = self._reverse_evidence(
+            snapshot, dependency_edge_set_digest(edges),
+            status=CompletenessStatus.GAP_FOUND,
+            discrepancies=("unresolved dynamic dispatch candidate",))
+        result = query_snapshot_incoming(self.store, snapshot, self.old_callee,
+                                         "all-static-call-sites", evidence)
+        self.assertEqual(result.completeness_status, CompletenessStatus.GAP_FOUND)
+        self.assertEqual(result.discrepancies, ("unresolved dynamic dispatch candidate",))
+
+    def test_supported_evidence_cannot_hide_discrepancies(self):
+        with self.assertRaises(ValueError):
+            ReverseLookupEvidence(
+                evidence_id="audit", snapshot_root="root", target_hash="target",
+                scope="scope", index_schema_version=1, extractor_id=EXTRACTOR_ID,
+                edge_set_digest="digest", status=CompletenessStatus.SUPPORTED_WITHIN_SCOPE,
+                observation_model_id="model", discrepancies=("unresolved",))
+
+    def test_gap_evidence_requires_a_discrepancy(self):
+        with self.assertRaises(ValueError):
+            ReverseLookupEvidence(
+                evidence_id="audit", snapshot_root="root", target_hash="target",
+                scope="scope", index_schema_version=1, extractor_id=EXTRACTOR_ID,
+                edge_set_digest="digest", status=CompletenessStatus.GAP_FOUND,
+                observation_model_id="model")
 
     def test_typed_references_validate_target_kind(self):
         impl = publish_declaration(self.store, declaration(
