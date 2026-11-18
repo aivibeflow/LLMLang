@@ -28,7 +28,7 @@ The CI workflow runs:
 
     python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_*.py' -v
 
-GitHub Actions run [44317898638](https://github.com/aivibeflow/LLMLang/actions/runs/44317898638) completed successfully on commit `be50648bb80388f489cae5447a84498bc288e0e6`; the RT-04 step ran all 37 tests and reported `OK`. The run also passed the repository-structure checks. These tests cover only the exact finite declaration/CFG model and fixtures. They are not compiler tests, source-to-model correspondence proofs, runtime authorization tests, or evidence of complete dependency discovery.
+GitHub Actions run [44320445701](https://github.com/aivibeflow/LLMLang/actions/runs/44320445701) completed successfully on commit `015a8299cb32b09c77e8bd35443bef203d196f5d`; the RT-04 step ran all 52 tests and reported `OK`. The run also passed the repository-structure checks. Earlier runs exposed two incorrect fixtures (typed callee signature omitted; missing-delegation case lacked a callee-local grant); both fixtures were corrected before this passing run. These tests cover only the exact finite declaration/CFG model and fixtures. They are not compiler tests, source-to-model correspondence proofs, runtime authorization tests, or evidence of complete dependency discovery.
 
 ## 4. Findings
 
