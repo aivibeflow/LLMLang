@@ -243,9 +243,35 @@ theorem observationDifference_correct
       .boolValue (sourceValuesDiffer s
         (evalExpr e (sideEnvironment queryEnv .left factor))
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
-  cases s <;>
-    simp [translateRelationalExpr_correct, observationDifference,
-      evalCanonicalQuerySigma, sourceValuesDiffer, asInt, asBool]
+  cases s with
+  | int =>
+      unfold observationDifference
+      conv_lhs =>
+        rw [evalCanonicalQuerySigma]
+      conv_lhs =>
+        arg 1
+        arg 1
+        arg 1
+        rw [evalCanonicalQuerySigma]
+      simp only [asBool]
+      apply congrArg Value.boolValue
+      rw [translateRelationalExpr_correct .left factor e queryEnv,
+          translateRelationalExpr_correct .right factor e queryEnv]
+      exact (decide_ne_eq_not_decide_eq _ _).symm
+  | bool =>
+      unfold observationDifference
+      conv_lhs =>
+        rw [evalCanonicalQuerySigma]
+      conv_lhs =>
+        arg 1
+        arg 1
+        arg 1
+        rw [evalCanonicalQuerySigma]
+      simp only [asBool]
+      apply congrArg Value.boolValue
+      rw [translateRelationalExpr_correct .left factor e queryEnv,
+          translateRelationalExpr_correct .right factor e queryEnv]
+      exact (decide_ne_eq_not_decide_eq _ _).symm
 
 /--
 The two assumptions of the expression-level relational query are sound:
