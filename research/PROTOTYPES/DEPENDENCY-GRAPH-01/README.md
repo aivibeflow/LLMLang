@@ -295,3 +295,16 @@ python -m unittest -v tests.test_candidate_graph_audit
 ```
 
 This is a structural audit of the explicit declaration subset. It does not prove behavior, discover dynamic/runtime edges, validate compatibility decisions, compare the candidate diff to a CIP, or authorize commit. See [RT-20 Candidate Graph Audit](../../RT-20-CANDIDATE-GRAPH-AUDIT.md).
+
+
+## RT-20 candidate semantic diff gate
+
+`src/candidate_semantic_diff.py` reconciles exact logical Snapshot selection changes and explicit dependency-edge changes with an `ImpactPlan`. It recomputes the plan identity, requires valid baseline and candidate graph audits, binds both graph and edge-set digests into the diff digest, independently scans baseline-selected call sites, and requires an exact `REWRITE_CALL_SITE` action for each changed call target. Typed-reference changes and call-site additions/removals/condition changes fail closed until the CIP schema can represent them.
+
+Run focused tests:
+
+```bash
+python -m unittest -v tests.test_candidate_semantic_diff
+```
+
+This is not behavioral equivalence, dynamic dependency completeness, complete action realization, or commit authorization. See [RT-20 Candidate Semantic Diff](../../RT-20-CANDIDATE-SEMANTIC-DIFF.md).
