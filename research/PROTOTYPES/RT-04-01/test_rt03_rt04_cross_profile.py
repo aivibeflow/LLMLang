@@ -36,7 +36,7 @@ class RT03RT04CrossProfileTests(unittest.TestCase):
         # This is a cross-profile mismatch, not a contradiction in either model.
         ambient = {
             "ambient_capabilities": ["fs.read"],
-            "functions": {"entry": {"effects": ["fs.read"]}},
+            "functions": {"entry": {"effects": ["fs.read"], "requires": ["fs.read"]}},
         }
         self.assertEqual(check_program(ambient, "A").status, "ACCEPTED")
 
