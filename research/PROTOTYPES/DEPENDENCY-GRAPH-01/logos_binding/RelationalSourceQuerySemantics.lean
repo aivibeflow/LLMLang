@@ -255,19 +255,15 @@ theorem factorDifference_correct
         (sideEnvironment queryEnv .right factor factor sort)) := by
   cases sort with
   | int =>
-      change Value.boolValue
-        (!(decide (asInt (queryEnv (factor ++ "_L") .int) =
-          asInt (queryEnv (factor ++ "_R") .int)))) =
-        Value.boolValue (decide (asInt (queryEnv (factor ++ "_L") .int) ≠
-          asInt (queryEnv (factor ++ "_R") .int)))
+      simp only [evalCanonicalQuerySigma, factorDifference,
+        SourceQuerySemantics.evalQuery, sourceValuesDiffer,
+        sideEnvironment, relationalSymbol]
       exact congrArg Value.boolValue
         (decide_ne_eq_not_decide_eq _ _).symm
   | bool =>
-      change Value.boolValue
-        (!(decide (asBool (queryEnv (factor ++ "_L") .bool) =
-          asBool (queryEnv (factor ++ "_R") .bool)))) =
-        Value.boolValue (decide (asBool (queryEnv (factor ++ "_L") .bool) ≠
-          asBool (queryEnv (factor ++ "_R") .bool)))
+      simp only [evalCanonicalQuerySigma, factorDifference,
+        SourceQuerySemantics.evalQuery, sourceValuesDiffer,
+        sideEnvironment, relationalSymbol]
       exact congrArg Value.boolValue
         (decide_ne_eq_not_decide_eq _ _).symm
 
