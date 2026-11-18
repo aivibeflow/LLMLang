@@ -344,6 +344,128 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         self.assertFalse(result.valid)
         self.assertTrue(any("plan_id does not match" in error for error in result.errors))
 
+    def test_shared_caller_fork_is_bound_to_consumer_paths(self):
+        old_leaf = publish_declaration(
+            self.store, declaration("function", "leaf:v1", {"value": 1})
+        )
+        new_leaf = publish_declaration(
+            self.store, declaration("function", "leaf:v2", {"value": 2})
+        )
+        old_shared = publish_declaration(
+            self.store, declaration("function", "shared:v1", {"body": "shared"},
+                call_sites=site(old_leaf))
+        )
+        new_shared = publish_declaration(
+            self.store, declaration("function", "shared:v2", {"body": "shared"},
+                call_sites=site(new_leaf))
+        )
+        old_consumer = publish_declaration(
+            self.store, declaration("function", "consumer:legacy", {"body": "legacy"},
+                call_sites=[{
+                    "call_site_id": "call:shared",
+                    "targets": [{"target_id": "direct", "target_hash": old_shared, "condition": None}],
+                }])
+        )
+        old_modern_consumer = publish_declaration(
+            self.store, declaration("function", "consumer:modern:v1", {"body": "modern"},
+                call_sites=[{
+                    "call_site_id": "call:shared",
+                    "targets": [{"target_id": "direct", "target_hash": old_shared, "condition": None}],
+                }])
+        )
+        new_modern_consumer = publish_declaration(
+            self.store, declaration("function", "consumer:modern:v2", {"body": "modern"},
+                call_sites=[{
+                    "call_site_id": "call:shared",
+                    "targets": [{"target_id": "direct", "target_hash": new_shared, "condition": None}],
+                }])
+        )
+        baseline = make_snapshot({
+            "leaf": old_leaf,
+            "shared": old_shared,
+            "legacy-consumer": old_consumer,
+            "modern-consumer": old_modern_consumer,
+        })
+        candidate = make_snapshot({
+            "leaf": new_leaf,
+            "leaf-legacy": old_leaf,
+            "shared-legacy": old_shared,
+            "shared-modern": new_shared,
+            "legacy-consumer": old_consumer,
+            "modern-consumer": new_modern_consumer,
+        })
+        outputs = (
+            planned_output(self.store, "leaf-v2", "leaf", OutputOperation.REPLACE,
+                           old_leaf, new_leaf),
+            planned_output(self.store, "leaf-v1-alias", "leaf-legacy", OutputOperation.ADD,
+                           None, old_leaf, source_hash=old_leaf),
+            planned_output(self.store, "shared-remove", "shared", OutputOperation.REMOVE,
+                           old_shared, None),
+            planned_output(self.store, "shared-legacy", "shared-legacy", OutputOperation.ADD,
+                           None, old_shared, source_hash=old_shared,
+                           consumer_path_id="legacy-consumer"),
+            planned_output(self.store, "shared-modern", "shared-modern", OutputOperation.ADD,
+                           None, new_shared, source_hash=old_shared,
+                           consumer_path_id="modern-consumer"),
+            planned_output(self.store, "modern-consumer-v2", "modern-consumer",
+                           OutputOperation.REPLACE, old_modern_consumer, new_modern_consumer,
+                           consumer_path_id="modern-consumer"),
+        )
+        decisions = (
+            CallSiteDecision(
+                old_shared, "call:tax", "direct", old_leaf,
+                CallSiteDisposition.PRESERVE, old_leaf, old_shared,
+                "legacy consumer retains the original shared caller", "evidence:legacy",
+                "legacy-consumer", "shared-legacy",
+            ),
+            CallSiteDecision(
+                old_shared, "call:tax", "direct", old_leaf,
+                CallSiteDisposition.MIGRATE, new_leaf, new_shared,
+                "modern consumer receives a forked shared caller", "evidence:modern",
+                "modern-consumer", "shared-modern",
+            ),
+            CallSiteDecision(
+                old_consumer, "call:shared", "direct", old_shared,
+                CallSiteDisposition.PRESERVE, old_shared, old_consumer,
+                "legacy consumer remains on the old shared caller", "evidence:legacy-consumer",
+            ),
+            CallSiteDecision(
+                old_modern_consumer, "call:shared", "direct", old_shared,
+                CallSiteDisposition.MIGRATE, new_shared, new_modern_consumer,
+                "modern consumer migrates to its caller fork", "evidence:modern-consumer",
+                "modern-consumer", "modern-consumer-v2",
+            ),
+        )
+        edge_changes = (
+            planned_edge(
+                "shared-modern", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+                PlannedEdgeOperation.REWRITE, "calls", old_leaf, new_leaf,
+            ),
+            planned_edge(
+                "modern-consumer-v2", PlannedEdgeKind.CALL_TARGET, "call:shared/direct",
+                PlannedEdgeOperation.REWRITE, "calls", old_shared, new_shared,
+            ),
+        )
+        plan = self.plan(
+            baseline, candidate,
+            actions=(
+                action(old_leaf), action(new_leaf), action(old_shared),
+                rewrite_action(old_shared), rewrite_action(old_modern_consumer),
+            ),
+            decisions=decisions, outputs=outputs, edge_changes=edge_changes,
+        )
+        result = audit_candidate_semantic_diff(self.store, baseline, candidate, plan)
+        self.assertTrue(result.valid, result.errors)
+        self.assertEqual(
+            {item.output_id for item in result.materialized_outputs},
+            {item.output_id for item in outputs},
+        )
+        self.assertEqual(
+            {item.candidate_hash for item in result.materialized_outputs
+             if item.output_id in {"shared-legacy", "shared-modern"}},
+            {old_shared, new_shared},
+        )
+
     def test_diff_digest_is_deterministic_and_bound_to_plan(self):
         baseline = make_snapshot({"invoice": self.old_caller, "tax": self.old_callee})
         candidate = make_snapshot({"invoice": self.new_caller, "tax": self.new_callee})
