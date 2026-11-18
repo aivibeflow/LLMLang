@@ -307,7 +307,7 @@ Run focused tests:
 python -m unittest -v tests.test_candidate_semantic_diff
 ```
 
-This is not behavioral equivalence, dynamic dependency completeness, complete action realization, or commit authorization. See [RT-20 Candidate Semantic Diff](../../RT-20-CANDIDATE-SEMANTIC-DIFF.md).
+This is not behavioral equivalence, dynamic dependency completeness, complete action realization, or commit authorization. Hash identities remain distinct as specified in the [LLMLang Glossary](../../../draft/GLOSSARY.md). See [RT-20 Candidate Semantic Diff](../../RT-20-CANDIDATE-SEMANTIC-DIFF.md).
 
 
 ## Call-site contract binding (schema v2)
@@ -323,7 +323,7 @@ These are generic exact Contract Content Hashes in the candidate schema. They ar
 
 The edge records also bind the required Contract hash on each call-site alternative. `CallSiteDecision` preserves the old required Contract, base callee-provided Contract, selected callee-provided Contract, candidate required Contract, compatibility status, and path-specific output IDs.
 
-`src/candidate_semantic_diff.py` requires exact one-to-one output and edge-record coverage, resolves output IDs against the candidate Snapshot, and binds the resulting Content Hashes into its deterministic diff receipt. Shared caller forks are represented as separate logical selection keys and consumer paths.
+`src/candidate_semantic_diff.py` requires exact one-to-one output and edge-record coverage, resolves output IDs against the candidate Snapshot, and binds the resulting exact candidate object hashes into its deterministic diff receipt. Shared caller forks are represented as separate logical selection keys and consumer paths.
 
 Run the focused suite:
 
