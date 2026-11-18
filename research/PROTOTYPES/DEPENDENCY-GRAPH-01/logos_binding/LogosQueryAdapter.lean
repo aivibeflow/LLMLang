@@ -65,7 +65,7 @@ def evalLogosQuery {s : ExprSort}
     | .iteBool c a b =>
         if asBool (evalLogosQuery c env) then evalLogosQuery a env
         else evalLogosQuery b env
-termination_by term => sizeOf term
+termination_by sizeOf term
   decreasing_by
     all_goals simp_wf [sizeOf]
 
