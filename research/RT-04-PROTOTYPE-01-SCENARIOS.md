@@ -105,6 +105,21 @@ the set of effect labels but cannot represent repeated event occurrences,
 ordering, payloads, handler outcomes, or final state.
 
 
+## RT-03 execution cancellation scenarios
+
+Cancellation is a terminal execution outcome, not a Result error. The current bounded evaluator represents it as `{"cancelled": reason}`, discards pending continuations, and does not execute later expressions. Effects completed before cancellation remain observable; rollback and resource cleanup are not yet specified.
+
+| ID | Case | Expected behavior |
+|---|---|---|
+| RT3-CAN-01 | Cancel a pure expression | Return a distinct cancelled outcome |
+| RT3-CAN-02 | Cancel after a completed effect | Preserve the completed event and state transition |
+| RT3-CAN-03 | Pending sequence items follow cancellation | Do not evaluate any later item |
+| RT3-CAN-04 | Cancellation occurs inside `result_sequence` | Stop the enclosing evaluation; do not treat cancellation as a Result error |
+| RT3-CAN-05 | Cancellation and Result error carry the same reason payload | Keep `cancelled` and `error` outcomes distinct |
+
+The recursive and small-step evaluators are differentially checked for these cases. The model is synchronous and does not yet cover asynchronous/concurrent cancellation, function-call boundaries, resource finalization, or cleanup.
+
+
 ## RT-03 explicit Result propagation scenarios
 
 The opt-in `result_sequence` construct propagates the first Result error and skips later expressions. Ordinary `sequence` remains strict and does not implicitly propagate Result values.

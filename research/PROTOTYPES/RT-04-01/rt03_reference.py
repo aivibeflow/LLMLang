@@ -14,6 +14,11 @@ class SemanticError(ValueError):
     """The input is outside the supported semantic fragment."""
 
 
+class _ExecutionCancelled(Exception):
+    def __init__(self, reason: Any):
+        self.reason = deepcopy(reason)
+
+
 @dataclass(frozen=True)
 class Trace:
     profile: str
@@ -49,6 +54,7 @@ def evaluate(
       {"sequence": [expr, ...]}              # strict, left-to-right
       {"result_ok": expr} / {"result_error": expr}
       {"result_sequence": [Result expression, ...]}  # explicit first-error propagation
+      {"cancel": reason}                       # terminal execution cancellation
       {"perform": {"effect": label, "operation": op, "payload": object}}
 
     Profile A rejects every perform expression. Profile D requires the effect
@@ -137,7 +143,7 @@ def evaluate(
         return deepcopy(outcome)
 
     def visit(node: Any) -> Any:
-        expr = _record(node, {"literal", "add", "sequence", "result_ok", "result_error", "result_sequence", "perform"}, "expression")
+        expr = _record(node, {"literal", "add", "sequence", "result_ok", "result_error", "result_sequence", "cancel", "perform"}, "expression")
         op, arg = next(iter(expr.items()))
         if op == "literal":
             return deepcopy(arg)
@@ -171,11 +177,16 @@ def evaluate(
                 if "error" in value:
                     return deepcopy(value)
             return deepcopy(value)
+        if op == "cancel":
+            raise _ExecutionCancelled(arg)
         if op == "perform":
             return perform(arg)
         raise AssertionError("unreachable expression form")
 
-    result = visit(expression)
+    try:
+        result = visit(expression)
+    except _ExecutionCancelled as cancelled:
+        result = {"cancelled": deepcopy(cancelled.reason)}
     return Trace(
         profile=profile,
         events=tuple(deepcopy(events)),

@@ -53,6 +53,22 @@ class RT03ReferenceSemanticsTests(unittest.TestCase):
         with self.assertRaisesRegex(SemanticError, "Result-shaped"):
             evaluate({"result_sequence": [{"literal": 1}]}, "A")
 
+    def test_execution_cancellation_is_not_a_result_error(self):
+        trace = evaluate({"cancel": {"kind": "UserRequested"}}, "A")
+        self.assertEqual(trace.result, {"cancelled": {"kind": "UserRequested"}})
+        self.assertEqual(trace.events, ())
+
+    def test_execution_cancellation_stops_later_sequence_items(self):
+        expression = {"sequence": [
+            perform("state.write", "write", {"key": "before", "value": 1}),
+            {"cancel": {"kind": "Timeout"}},
+            perform("state.write", "write", {"key": "after", "value": 2}),
+        ]}
+        trace = evaluate(expression, "D", declared_effects=["state.write"])
+        self.assertEqual(trace.result, {"cancelled": {"kind": "Timeout"}})
+        self.assertEqual(trace.final_state, {"before": 1})
+        self.assertEqual(len(trace.events), 1)
+
     def test_profile_a_rejects_effectful_expression(self):
         with self.assertRaisesRegex(SemanticError, "Profile A is pure"):
             evaluate(perform("fs.read", "read", {"path": "/cfg"}), "A",

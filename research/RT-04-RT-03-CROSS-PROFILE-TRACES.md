@@ -17,9 +17,11 @@ This is deliberately not an interpreter, evaluator, handler implementation, or p
 
 ## 2. Shared trace vocabulary
 
-A trace has:
-- an ordered events sequence; each event has an effect label and optional resource/value data;
-- a result, represented here as an explicit success/error-shaped value.
+A completed evaluation trace has:
+- an ordered events sequence; each event has an effect label, operation, request payload, and outcome;
+- a result value, which may be an explicit success/error-shaped Result value.
+
+A terminal execution outcome is distinct from a completed Result value: the executable slice represents cancellation as `{"cancelled": reason}`. Cancellation stops pending expression evaluation; it is not an ordinary Result error and is not currently modeled as an effect event.
 
 The initial fixtures cover pure return, filesystem read, ordered repeated writes, and an undeclared network effect. They do not yet define exceptions, state-store semantics, resource acquisition/finalization, cancellation, concurrency, divergence, or environmental nondeterminism.
 
@@ -51,8 +53,8 @@ The initial fixtures cover pure return, filesystem read, ordered repeated writes
 - The current checker does not preserve event order/payload, so it cannot serve as an oracle for RT-03 observational equivalence.
 
 Next:
-1. Extend both evaluators with explicit error conversion/handling and a separately modeled cancellation outcome; do not conflate Result errors with execution cancellation.
-2. Build a small executable reference semantics for RT-03 A and D over exactly that corpus; compare independently generated traces.
+1. Extend both evaluators with resource acquire/use/release and explicit cleanup/unwinding rules, including failures during release.
+2. Add branching and verify cleanup behavior on every terminating path, including error and cancellation paths.
 3. Extend RT-04's effect representation only after the RT-03 observation and handler rules are defined; preserve ordered events where they are semantically observable.
 4. Keep the second independent cross-aspect model and independent review as separate gates.
 
