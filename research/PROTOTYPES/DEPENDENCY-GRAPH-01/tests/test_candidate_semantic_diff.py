@@ -113,6 +113,42 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         result = audit_candidate_semantic_diff(self.store, baseline, candidate, plan)
         self.assertTrue(result.valid, result.errors)
 
+    def test_changed_callee_requires_decisions_for_unchanged_incoming_callers(self):
+        baseline = make_snapshot({"tax": self.old_callee, "invoice": self.old_caller})
+        candidate = make_snapshot({
+            "tax": self.new_callee,
+            "legacy-tax": self.old_callee,
+            "invoice": self.old_caller,
+        })
+        decision = CallSiteDecision(
+            self.old_caller, "call:tax", "direct", self.old_callee,
+            CallSiteDisposition.PRESERVE, self.old_callee, self.old_caller,
+            "retain legacy caller behavior", "evidence:preservation",
+        )
+        result = audit_candidate_semantic_diff(
+            self.store, baseline, candidate,
+            self.plan(baseline, candidate,
+                      actions=(action(self.old_callee), action(self.new_callee)),
+                      decisions=(decision,)),
+        )
+        self.assertTrue(result.valid, result.errors)
+
+    def test_changed_callee_with_omitted_incoming_decision_is_rejected(self):
+        baseline = make_snapshot({"tax": self.old_callee, "invoice": self.old_caller})
+        candidate = make_snapshot({
+            "tax": self.new_callee,
+            "legacy-tax": self.old_callee,
+            "invoice": self.old_caller,
+        })
+        result = audit_candidate_semantic_diff(
+            self.store, baseline, candidate,
+            self.plan(baseline, candidate,
+                      actions=(action(self.old_callee), action(self.new_callee))),
+        )
+        self.assertFalse(result.valid)
+        self.assertTrue(any("independently scanned Snapshot" in error
+                            for error in result.errors))
+
     def test_changed_call_target_without_decision_is_rejected(self):
         baseline = make_snapshot({"tax": self.old_callee, "invoice": self.old_caller})
         candidate = make_snapshot({"tax": self.new_callee, "invoice": self.new_caller})
