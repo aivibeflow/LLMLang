@@ -332,3 +332,8 @@ python -m unittest -v tests.test_impact_planning tests.test_candidate_validation
 ```
 
 This remains a structural audit over the explicit declaration subset. It is not behavioral equivalence, global dependency completeness, evidence authentication, complete action execution, or commit authorization. See [RT-20 Candidate Semantic Diff](../../RT-20-CANDIDATE-SEMANTIC-DIFF.md).
+
+
+## CIP action execution audit — next implementation slice
+
+The next RT-20 work is specified in [CIP Action Execution Audit](../../RT-20-CIP-ACTION-EXECUTION-AUDIT.md). Implement AEA-1 first: deterministic action IDs, explicit prerequisite action IDs, canonical plan identity, and cycle detection. The existing CIP v2 semantic diff remains a separate structural gate; neither gate authorizes a Git commit.
