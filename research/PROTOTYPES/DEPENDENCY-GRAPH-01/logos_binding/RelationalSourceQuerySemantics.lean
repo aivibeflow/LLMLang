@@ -227,7 +227,7 @@ theorem factorDifference_correct
         (sideEnvironment queryEnv .left factor factor sort)
         (sideEnvironment queryEnv .right factor factor sort)) := by
   cases sort <;>
-    simp [factorDifference, evalCanonicalQuery, sourceValuesDiffer,
+    simp [factorDifference, evalCanonicalQuery, evalCanonicalQuerySigma, sourceValuesDiffer,
       sideEnvironment, relationalSymbol, querySortToExprSort, asInt, asBool,
       decide_ne_eq_not_decide_eq]
 
@@ -248,7 +248,7 @@ theorem observationDifference_correct
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
   rw [translateRelationalExpr_correct, translateRelationalExpr_correct]
   cases s <;>
-    simp [observationDifference, evalCanonicalQuery, sourceValuesDiffer,
+    simp [observationDifference, evalCanonicalQuery, evalCanonicalQuerySigma, sourceValuesDiffer,
       asInt, asBool]
 
 /--
