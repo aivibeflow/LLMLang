@@ -205,7 +205,7 @@ A successful LLMLang commit is not merely a Git commit of whatever happens to be
 
 This makes Git history the portable collaboration and merge substrate. The content-addressed semantic store remains a shared acceleration/indexing layer and may contain deduplicated objects, but it MUST NOT be the only durable location of accepted branch state. A clone or recovery from Git history must be able to reconstruct the semantic state required by the repository's committed roots and manifests.
 
-The exact textual representation and semantic merge rules remain owned by RT-15 / [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md). RT-23 owns the runtime synchronization, generation, and commit coordination requirements.
+The exact textual representation and semantic merge rules are owned by [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md). RT-23 owns the runtime synchronization, generation, and commit coordination requirements.
 
 ### 9.2 Commit preparation and synchronization protocol
 
@@ -442,3 +442,16 @@ RT-23 is ready for an architectural decision when:
 - platform-specific limitations and fallback scan costs are measured.
 
 RT-23 is a research proposal, not an accepted architecture decision. It does not change ADR-015 status.
+
+
+## 19. Related semantic merge and Git operation documents
+
+Study RT-23 together with:
+
+- [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — owns canonical Git-visible representation direction, semantic three-way merge, conflict model, and repository-level graph validation.
+- [ADR-014](../docs/adr/014-git-semantic-merge.md) — records the proposed architecture direction; it remains Proposed until explicitly accepted.
+- [RT-20](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — owns complete semantic impact planning, caller migration/preservation, hash propagation, and verified candidate gates.
+- [RT-22](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — owns the external repository/worktree MCP contract and operation recovery.
+- [RT-19](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — owns the transport-neutral semantic API and Change Set/Snapshot lifecycle.
+
+Boundary: RT-23 specifies runtime coordination, shared semantic state, incremental worktree file views, and synchronized commit. It does not define semantic merge rules. After Git has produced a candidate merged tree, the merge engine must import/reconcile the complete repository state, apply RT-20 impact/hash/caller checks, validate it, and only then allow RT-23's synchronized commit/finalization protocol. Git's merge commit alone is not proof that the LLMLang semantic merge is complete.
