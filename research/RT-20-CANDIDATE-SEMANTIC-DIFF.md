@@ -1,6 +1,6 @@
 # RT-20 — Candidate semantic diff and CIP enforcement
 
-**Status:** Extended narrow prototype implemented; PR #17 merged; 83 semantic-dependency tests and compilation, repository-structure checks, and strict QF_LIA checks passed on the merge commit.  
+**Status:** Extended narrow prototype implemented; PR #17 merged. The call-site contract-binding extension is covered by PR #20; 91 focused semantic-dependency tests, compilation, repository-structure checks, and strict QF_LIA checks pass on its head.  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)  
 **Related gates:** [Candidate call-site validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md), [Candidate graph audit](RT-20-CANDIDATE-GRAPH-AUDIT.md)
@@ -27,7 +27,7 @@ The result contains exact baseline/candidate roots, plan ID, selection changes, 
 4. Derive added, removed, and changed selections by exact logical selection key and Content Hash.
 5. Require every changed selection to be covered by a CIP action whose artifact hash is exactly the old or new selected hash.
 6. Independently scan baseline-selected explicit declarations for incoming call-site targets to changed old hashes. Every such edge must have a corresponding exact CIP decision, even if its caller is preserved unchanged.
-7. Compare typed references and call-site targets for every changed logical selection. Typed-reference changes, call-site additions/removals, and call-site condition changes fail closed because the current CIP schema has no exact output record for them.
+7. Compare typed references and call-site targets for every changed logical selection, including the exact `required_contract_hash` on each call alternative. A requirement-only change is therefore an edge change, not an invisible metadata edit. Typed-reference changes, call-site additions/removals, requirement changes, and call-site condition changes fail closed because the current CIP schema has no exact output record for them.
 8. Require each changed call target's decision to match the observed old target, observed new target, and resulting caller hash. A matching `REWRITE_CALL_SITE` action must name the exact baseline caller.
 9. Reuse candidate call-site materialization validation for exact baseline/candidate membership, stored object hashes, and candidate payload target checks.
 10. Bind both Snapshot roots, plan ID, graph digests, edge-set digests, schema version, selection changes, and edge changes into the deterministic diff digest.
@@ -43,6 +43,7 @@ The focused suite covers:
 - mismatched selected callee;
 - malformed Snapshot input;
 - typed-reference change rejection;
+- call-site required-contract hash changes are included in the edge identity and deterministic diff;
 - forged plan ID rejection;
 - deterministic digest and graph/edge-set bindings.
 
@@ -56,7 +57,7 @@ This remains a narrow explicit-declaration structural audit, not a complete sema
 - Added/removed call-site target identities and condition changes are rejected until the CIP schema can represent them exactly.
 - Typed-reference changes are detected and rejected; they are not yet reconciled to typed CIP output records.
 - The current plan model still cannot represent one shared caller forked into multiple consumer/path-specific versions.
-The semantic diff and plan identity preserve the call site's required Contract hash, the baseline callee's provided Contract hash, the selected callee's provided Contract hash, and the compatibility status/evidence ID. The validator checks these exact bindings but does not authenticate the evidence or prove refinement. These generic Contract Content Hashes are not yet normatively equated with glossary `CCHash`.
+- The semantic diff and plan identity preserve the call site's required Contract hash, the baseline callee's provided Contract hash, the selected callee's provided Contract hash, and the compatibility status/evidence ID. The validator checks these exact bindings but does not authenticate the evidence or prove refinement. These generic Contract Content Hashes are not yet normatively equated with glossary `CCHash`.
 - MIGRATE/ADAPT/FORK behavioral compatibility remains a separate contract/test/proof obligation.
 - The gate is not commit authorization. Snapshot immutability, transaction/concurrency protection, exact-tree commit, crash recovery, and idempotent retry remain future work.
 
