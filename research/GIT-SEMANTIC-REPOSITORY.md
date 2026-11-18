@@ -208,3 +208,7 @@ LLMLang предполагает хранение программ в виде �
 **Следующие шаги:** реализовать прототип: Git-репо с настройкой semantic merge driver и экспериментальным бэкендом на KV (например, LevelDB или SQLite). Проверить сценарии из отчёта. Документировать инструкцию по `clone`/`init`/`push`. Пересмотреть решение после экспериментов – при необходимости скорректировать ADR.
 
 **Последствия:** такое решение задаёт архитектурный инвариант – семантический идентификатор узла (`OpHash/ImpHash`) ≡ SHA-содержимого узла в KV. Все дальнейшие компоненты LLMLang (компилятор, кэш, merge, CI) будут ссылаться на этот принцип. Git останется средством навигации по версиям, а семантика будет гарантирваться KV-хранилищем.
+
+## Relationship to the current semantic merge design
+
+This earlier research report is historical/background research. The current focused architecture and implementation direction is maintained in [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), together with [ADR-014](../docs/adr/014-git-semantic-merge.md), [RT-20](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-22](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md), and [RT-23](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md). Study these documents as one set; use the focused merge document for current merge architecture and this report for its research background and alternatives.
