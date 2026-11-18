@@ -46,7 +46,8 @@ def rewrite_action(value_hash):
 
 
 def planned_output(store, output_id, logical_key, operation, base_hash, candidate_hash,
-                   rationale="approved semantic output", evidence_id="evidence:output"):
+                   rationale="approved semantic output", evidence_id="evidence:output",
+                   source_hash=None, consumer_path_id=""):
     if operation is OutputOperation.REMOVE:
         kind = content_digest = None
     else:
@@ -58,7 +59,7 @@ def planned_output(store, output_id, logical_key, operation, base_hash, candidat
         ).hexdigest()
     return PlannedOutput(
         output_id, logical_key, operation, base_hash, kind, content_digest,
-        rationale, evidence_id,
+        rationale, evidence_id, source_hash, consumer_path_id,
     )
 
 
@@ -160,7 +161,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         decision = CallSiteDecision(
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.MIGRATE, self.new_callee, self.new_caller,
-            "new tax contract", "evidence:compatibility",
+            "new tax contract", "evidence:compatibility", "", "invoice-output",
         )
         plan = self.plan(
             baseline, candidate,
@@ -257,7 +258,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         decision = CallSiteDecision(
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.MIGRATE, self.old_callee, self.new_caller,
-            "wrong target", "evidence:compatibility",
+            "wrong target", "evidence:compatibility", "", "invoice-output",
         )
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
@@ -349,7 +350,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         decision = CallSiteDecision(
             self.old_caller, "call:tax", "direct", self.old_callee,
             CallSiteDisposition.MIGRATE, self.new_callee, self.new_caller,
-            "new tax contract", "evidence:compatibility",
+            "new tax contract", "evidence:compatibility", "", "invoice-output",
         )
         plan = self.plan(
             baseline, candidate,
