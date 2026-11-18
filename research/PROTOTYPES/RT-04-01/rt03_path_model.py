@@ -166,7 +166,7 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
     return tuple(PathOutcome(
         branch_choices=state.choices,
         resource_events=state.events,
-        active_resources=tuple(resource_id for resource_id, _ in state.active) + state.leaked,
+        active_resources=tuple(sorted(tuple(resource_id for resource_id, _ in state.active) + state.leaked)),
         terminal=state.terminal,
         result_tag=state.result_tag,
         cleanup_errors=state.cleanup_errors,
