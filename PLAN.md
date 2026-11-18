@@ -628,6 +628,29 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ---
 
+## 7.7 LLM patch planning, caller migration, hash propagation, and verified commit (RT-20)
+
+- [x] Capture the requirement that the complete function-change plan must be established before implementation.
+- [x] Separate upward contract propagation from hash/reference propagation through callers.
+- [x] Record per-call-site compatibility decisions: migrate to a new callee version, preserve the old immutable version, adapt, fork, or remain unresolved.
+- [x] Require shared-caller version-split analysis when different consumers need old and new behavior.
+- [x] Define a candidate Change Impact Plan (CIP), plan-completeness checks, and mandatory plan execution.
+- [x] Specify the proposed completion gate: freeze candidate, verify plan coverage, validate and audit exact hashes, then create a Git commit only on success.
+- [ ] Reconcile the function hashId and call-reference assumptions with the canonical identity model in RT-05.
+- [ ] Specify reverse-reference completeness for direct, indirect, dynamic, external, and generated call sites.
+- [ ] Prototype single-chain propagation, mixed old/new callers, shared-caller splits, multiple call sites, and branching/converging graphs.
+- [ ] Prove that unplanned mutations and omitted planned changes are rejected.
+- [ ] Prototype failed-validation/no-commit, exact-tree commit, concurrency rejection, and idempotent retry behavior.
+- [ ] Reconcile the completion transaction with RT-19 persistence, crash recovery, atomic export, and Git coordination.
+
+**Evidence:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) records the proposed workflow and invariants. It is a research proposal, not an accepted identity or Toolchain decision.
+
+**Status:** workflow proposal drafted from design discussion. No caller-migration planner, hash-closure engine, plan-enforcement mechanism, or validation-gated commit implementation exists yet.
+
+**Exit criteria:** a complete server-validated plan precedes all mutations; every relevant call site has an evidence-backed compatibility decision; contract and hash propagation are independently correct; old/new behavior and shared-caller version splits work; every planned change is enforced; commit is created only for the exact candidate that passed all mandatory checks.
+
+---
+
 # 4. Cross-cutting prior-art research
 
 This is a continuous comparative track. It informs the stages above but does not replace LLMLang-specific experiments.
