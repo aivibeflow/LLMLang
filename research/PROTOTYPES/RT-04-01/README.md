@@ -183,7 +183,7 @@ This provides a different kind of cross-check from evaluator-vs-evaluator differ
 
 The rules distinguish two cleanup cases: a failed release after normal/Result completion becomes a `CleanupFailed` Result error (retaining a prior Result error as `primary`), while a failed release during cancellation is accumulated in LIFO order without converting cancellation into a Result error. Repeated outer cleanup failures wrap the already-produced inner cleanup error as the next `primary`.
 
-`test_rt03_resource_rules.py` checks exact event payloads/outcomes, result envelopes, and final resource maps against both evaluators and projects the result back to the independent path model. Its finite matrix covers depths one through three, every release-success/failure combination, normal/Result-error/cancellation body outcomes, and every possible acquisition-failure position: 162 cases. This is a bounded executable rule model, not a selected language ownership model or proof of arbitrary cleanup semantics.
+`test_rt03_resource_rules.py` checks exact event payloads/outcomes, result envelopes, and final resource maps against both evaluators and projects the result back to the independent path model. Its finite matrix covers depths one through three, every release-success/failure combination, normal/Result-error/cancellation body outcomes, and every possible acquisition-failure position: 144 cases. This is a bounded executable rule model, not a selected language ownership model or proof of arbitrary cleanup semantics.
 
 ### Conditional branching
 
