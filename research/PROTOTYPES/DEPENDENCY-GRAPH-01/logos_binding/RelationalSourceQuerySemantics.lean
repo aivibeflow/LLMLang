@@ -15,7 +15,7 @@ inductive RunSide where
 /-- The canonical name of a source variable in one product-program execution. -/
 def relationalSymbol (side : RunSide) (factor name : String) : String :=
   if name == factor then
-    name ++ (if side == .left then "_L" else "_R")
+    name ++ (match side with | .left => "_L" | .right => "_R")
   else
     name
 
