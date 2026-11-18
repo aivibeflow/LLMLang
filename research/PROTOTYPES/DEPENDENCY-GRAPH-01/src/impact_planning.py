@@ -86,8 +86,8 @@ class PlannedOutput:
     """One exact logical output slot in the approved candidate graph.
 
     expected_content_digest is SHA-256 over canonical declaration.content.
-    If expected_output_hash is not known before materialization, the successful
-    diff receipt binds the actual exact hash to output_id and candidate_root.
+    The plan binds the expected semantic payload; the successful diff receipt
+    binds the resulting exact Content Hash to output_id and candidate_root.
     """
     output_id: str
     logical_key: str
@@ -415,6 +415,8 @@ def plan_impact(
                 raise PlanningError("ADD output cannot name a replaced selection hash")
             if row.source_hash is not None and not row.source_hash:
                 raise PlanningError("ADD output source_hash, when supplied, must be non-empty")
+            if row.source_hash is not None and not row.consumer_path_id:
+                raise PlanningError("source-derived ADD output requires a consumer_path_id")
         elif not row.base_hash:
             raise PlanningError("REPLACE/REMOVE output requires an exact baseline hash")
         if row.operation is OutputOperation.REMOVE:
