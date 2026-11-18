@@ -51,7 +51,7 @@ The initial fixtures cover pure return, filesystem read, ordered repeated writes
 - The current checker does not preserve event order/payload, so it cannot serve as an oracle for RT-03 observational equivalence.
 
 Next:
-1. Extend the shared trace corpus with state read/write ordering, explicit errors, resource acquire/use/release, and cancellation outcomes.
+1. Extend both evaluators with explicit error conversion/handling and a separately modeled cancellation outcome; do not conflate Result errors with execution cancellation.
 2. Build a small executable reference semantics for RT-03 A and D over exactly that corpus; compare independently generated traces.
 3. Extend RT-04's effect representation only after the RT-03 observation and handler rules are defined; preserve ordered events where they are semantically observable.
 4. Keep the second independent cross-aspect model and independent review as separate gates.
@@ -89,6 +89,12 @@ The first interpreter slice is implemented in `PROTOTYPES/RT-04-01/rt03_referenc
 A completed evaluation returns the ordered event sequence, result value, final fixture state, and final fixture file map. Reordering state writes changes both the trace and final state. The RT-04 checker still returns a set-like effect-label summary, so it cannot reproduce the reference trace.
 
 The tests also cover Profile A rejection of effects, undeclared-effect rejection in D, explicit result errors, file reads and missing-file errors, state read/write order, deterministic network fixture responses, unsupported handlers, malformed expressions, and non-mutation of caller-supplied initial fixtures.
+
+### Explicit Result propagation extension
+
+The executable evaluators now include an explicit `result_sequence` form. It evaluates Result-shaped expressions left-to-right, returns the first `error` unchanged, and does not evaluate later expressions after that error. If all items are `ok`, it returns the final `ok` value. A non-Result-shaped item is rejected. This is an explicit construct in the prototype; ordinary `sequence` retains its prior strict behavior and does not implicitly propagate errors.
+
+This extension does not define exceptions, implicit propagation from arbitrary function calls, error conversion, cancellation semantics, cleanup, or resource finalization. In particular, a Result value whose error payload happens to describe cancellation is still only a Result error; it is not an execution-cancellation event.
 
 ### Deliberate limits
 

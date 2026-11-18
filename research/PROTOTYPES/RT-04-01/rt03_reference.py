@@ -48,6 +48,7 @@ def evaluate(
       {"add": [left, right]}                 # strict, left-to-right integers
       {"sequence": [expr, ...]}              # strict, left-to-right
       {"result_ok": expr} / {"result_error": expr}
+      {"result_sequence": [Result expression, ...]}  # explicit first-error propagation
       {"perform": {"effect": label, "operation": op, "payload": object}}
 
     Profile A rejects every perform expression. Profile D requires the effect
@@ -136,7 +137,7 @@ def evaluate(
         return deepcopy(outcome)
 
     def visit(node: Any) -> Any:
-        expr = _record(node, {"literal", "add", "sequence", "result_ok", "result_error", "perform"}, "expression")
+        expr = _record(node, {"literal", "add", "sequence", "result_ok", "result_error", "result_sequence", "perform"}, "expression")
         op, arg = next(iter(expr.items()))
         if op == "literal":
             return deepcopy(arg)
@@ -159,6 +160,17 @@ def evaluate(
             return {"ok": visit(arg)}
         if op == "result_error":
             return {"error": visit(arg)}
+        if op == "result_sequence":
+            if not isinstance(arg, list) or not arg:
+                raise SemanticError("result_sequence requires a non-empty expression list")
+            value: Any = None
+            for item in arg:
+                value = visit(item)
+                if not isinstance(value, dict) or len(value) != 1 or next(iter(value)) not in {"ok", "error"}:
+                    raise SemanticError("result_sequence items must evaluate to Result-shaped values")
+                if "error" in value:
+                    return deepcopy(value)
+            return deepcopy(value)
         if op == "perform":
             return perform(arg)
         raise AssertionError("unreachable expression form")

@@ -19,6 +19,35 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
         self.assertEqual(machine.final_files, recursive.final_files)
         return recursive
 
+    def test_result_propagation_rejects_non_result_item_in_both_models(self):
+        expression = {"result_sequence": [{"literal": 1}]}
+        with self.assertRaises(SemanticError):
+            evaluate(expression, "A")
+        with self.assertRaises(MachineError):
+            run_small_step(expression, "A")
+
+    def test_result_propagation_matches_error_success_and_short_circuit(self):
+        cases = [
+            ({"result_sequence": [
+                {"result_ok": {"literal": 1}},
+                {"result_error": {"literal": {"kind": "InvalidInput"}}},
+                perform("state.write", "write", {"key": "not_written", "value": 1}),
+            ]}, {"error": {"kind": "InvalidInput"}}),
+            ({"result_sequence": [
+                {"result_ok": {"literal": 1}},
+                {"result_ok": {"literal": 2}},
+            ]}, {"ok": 2}),
+        ]
+        for expression, expected in cases:
+            with self.subTest(expression=expression):
+                trace = self.assert_same_trace(
+                    expression, "D", declared_effects=["state.write"]
+                )
+                self.assertEqual(trace.result, expected)
+                if "error" in expected:
+                    self.assertEqual(trace.events, ())
+                    self.assertEqual(trace.final_state, {})
+
     def test_pure_expression_corpus_matches(self):
         corpus = [
             {"literal": None},
@@ -42,6 +71,35 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
                         run_small_step(expression, "A")
                 else:
                     self.assert_same_trace(expression, "A")
+
+    def test_result_propagation_matches_and_skips_following_effect(self):
+        expression = {"result_sequence": [
+            {"result_ok": {"literal": "started"}},
+            {"result_error": {"literal": {"kind": "Cancelled"}}},
+            perform("state.write", "write", {"key": "after_error", "value": 1}),
+        ]}
+        trace = self.assert_same_trace(expression, "D", declared_effects=["state.write"])
+        self.assertEqual(trace.result, {"error": {"kind": "Cancelled"}})
+        self.assertEqual(trace.events, ())
+        self.assertEqual(trace.final_state, {})
+
+    def test_ordinary_sequence_still_evaluates_after_result_error(self):
+        expression = {"sequence": [
+            {"result_error": {"literal": {"kind": "Expected"}}},
+            perform("state.write", "write", {"key": "continued", "value": True}),
+        ]}
+        trace = self.assert_same_trace(expression, "D", declared_effects=["state.write"])
+        self.assertEqual(trace.result, {"ok": None})
+        self.assertEqual(len(trace.events), 1)
+        self.assertEqual(trace.final_state, {"continued": True})
+
+    def test_result_propagation_success_matches(self):
+        trace = self.assert_same_trace({"result_sequence": [
+            {"result_ok": {"literal": 1}},
+            {"result_ok": {"literal": 2}},
+            {"result_ok": {"literal": 3}},
+        ]}, "A")
+        self.assertEqual(trace.result, {"ok": 3})
 
     def test_ordered_state_effect_corpus_matches(self):
         expression = {"sequence": [

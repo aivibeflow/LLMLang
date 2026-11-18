@@ -105,6 +105,21 @@ the set of effect labels but cannot represent repeated event occurrences,
 ordering, payloads, handler outcomes, or final state.
 
 
+## RT-03 explicit Result propagation scenarios
+
+The opt-in `result_sequence` construct propagates the first Result error and skips later expressions. Ordinary `sequence` remains strict and does not implicitly propagate Result values.
+
+| ID | Case | Expected behavior |
+|---|---|---|
+| RT3-RES-01 | All items are `ok` | Return the final `ok` value |
+| RT3-RES-02 | An `error` follows one or more `ok` values | Return the first error unchanged |
+| RT3-RES-03 | An effect follows an error item | Do not evaluate it; no event or state change is recorded |
+| RT3-RES-04 | An item is not Result-shaped | Reject the expression |
+| RT3-RES-05 | Ordinary `sequence` contains an error-shaped value before an effect | Continue evaluation; preserve prior strict sequence behavior |
+
+Both recursive and small-step evaluators are differentially checked for these cases. This does not define exceptions, implicit propagation from function calls, cancellation, or resource cleanup.
+
+
 ## RT-03 differential evaluator scenarios
 
 The [recursive evaluator](PROTOTYPES/RT-04-01/rt03_reference.py) is
