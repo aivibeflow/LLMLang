@@ -380,7 +380,7 @@ class RT04ModelTests(unittest.TestCase):
             "functions": {
                 "caller": {"grants": ["g1"], "calls": ["read"], "call_sites": [
                     {"target": "read", "args": [], "grants": ["g1"]}]},
-                "read": {"grants": ["g1"], "capability_requirements": [
+                "read": {"params": {}, "result": "Unit", "grants": ["g1"], "capability_requirements": [
                     {"capability": "fs.read", "scope": "/workspace/src"}]},
             },
         }
@@ -391,7 +391,7 @@ class RT04ModelTests(unittest.TestCase):
             "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace"}},
             "functions": {
                 "caller": {"grants": ["g1"], "calls": ["read"]},
-                "read": {"capability_requirements": [
+                "read": {"grants": ["g1"], "capability_requirements": [
                     {"capability": "fs.read", "scope": "/workspace/src"}]},
             },
         }
