@@ -29,4 +29,4 @@ jobs:
         working-directory: research/PROTOTYPES/PACKAGE-INDEX-01
         env:
           PYTHONPATH: ../PACKAGE-IDENTITY-01
-        run: python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py test_package_closure.py package_closure.py ../PACKAGE-IDENTITY-01/package_identity.py
+        run: python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py test_package_closure.py package_closure.py test_package_provider.py package_provider.py ../PACKAGE-IDENTITY-01/package_identity.py

@@ -183,7 +183,7 @@ An experimental validator is in [Package Identity Prototype 01](PROTOTYPES/PACKA
 
 ## 8. Dependency policy and closure prototype
 
-The first provider-side closure reference resolver is implemented in Prototype 01. It accepts exact root Content Hash values and reads object metadata plus dependency edges from one immutable Content Store snapshot. The resolver requests only reached objects and their outgoing dependency rows; it does not scan or materialize the entire store. Its visited set and output index are in memory, so memory remains O(reached objects + reached edges). This is not yet an external-memory provider.
+The first provider-side closure reference resolver is implemented in Prototype 01. It accepts exact root Content Hash values and reads object metadata plus dependency edges from one immutable Content Store snapshot. The resolver requests only reached objects and their outgoing dependency rows; it does not scan or materialize the entire store. The original `package_closure.py` reference resolver keeps its visited set and output index in memory. The integrated `package_provider.py` instead uses a disk-backed SQLite queue and membership tables, then streams sorted table iterators and one object payload at a time into the archive writer. This bounds main graph-state growth on disk, but is not a strict constant-memory claim: SQLite page cache, configured sort chunks, ZIP central-directory metadata, individual edge/module rows, and caller-provided condition selections still consume memory.
 
 The prototype defines policy behavior as follows:
 
@@ -199,7 +199,7 @@ Conditional required/optional edges are not evaluated by interpreting their cond
 
 The snapshot contract requires stable immutable reads under one snapshot_id. Missing exact objects, a returned object whose hash differs from the requested hash, missing dependency metadata, malformed edges, duplicate edge IDs, and a snapshot token change are errors. The resolver never falls back to another revision. Cycles terminate through a visited set; shared diamond dependencies are included once. Output rows are canonically sorted and independent of root input order.
 
-This is an executable policy prototype, not a normative provider protocol. It does not yet stream the closure index to the archive writer, bound the visited set on disk, compose multiple providers, or authenticate snapshot provenance.
+This is an executable policy prototype, not a normative provider protocol. The integrated provider streams closure output to the archive writer and stores visited state on disk. Multi-provider composition and snapshot provenance authentication remain unimplemented.
 
 ## 9. Deliberately unresolved
 
