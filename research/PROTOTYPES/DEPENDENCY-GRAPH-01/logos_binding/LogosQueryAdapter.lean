@@ -32,13 +32,8 @@ def toLogosQueryTerm : {s : ExprSort} →
       .iteBool (toLogosQueryTerm c) (toLogosQueryTerm a) (toLogosQueryTerm b)
 
 /-- The adapter preserves the result sort by its dependent type. -/
-theorem toLogosQueryTerm_preserves_sort {s : ExprSort}
-    (term : SourceQuerySemantics.QueryTerm s) :
-    (show ExprSort from s) = s := rfl
-
 /-- Evaluate the Logos AST using the mathematical semantics corresponding to its constructors. -/
-mutual
-  def evalLogosQuerySigma :
+def evalLogosQuerySigma :
       (query : Σ s : ExprSort, LLMLang.LogosBinding.QueryTerm s) →
       SourceQuerySemantics.Env →
       SourceQuerySemantics.Value query.1
@@ -71,9 +66,9 @@ mutual
         .boolValue (decide (asInt (evalLogosQuerySigma ⟨.int, a⟩ env) <=
           asInt (evalLogosQuerySigma ⟨.int, b⟩ env)))
     | ⟨.bool, .and terms⟩, env =>
-        .boolValue (evalLogosBoolTerms true terms env)
+        .boolValue (terms.all (fun term => asBool (evalLogosQuerySigma ⟨.bool, term⟩ env)))
     | ⟨.bool, .or terms⟩, env =>
-        .boolValue (evalLogosBoolTerms false terms env)
+        .boolValue (terms.any (fun term => asBool (evalLogosQuerySigma ⟨.bool, term⟩ env)))
     | ⟨.int, .iteInt c a b⟩, env =>
         if asBool (evalLogosQuerySigma ⟨.bool, c⟩ env)
         then evalLogosQuerySigma ⟨.int, a⟩ env else evalLogosQuerySigma ⟨.int, b⟩ env
@@ -82,18 +77,6 @@ mutual
         then evalLogosQuerySigma ⟨.bool, a⟩ env else evalLogosQuerySigma ⟨.bool, b⟩ env
   termination_by query _ => sizeOf query
   decreasing_by all_goals simp_wf <;> omega
-
-  def evalLogosBoolTerms (isAnd : Bool) :
-      List (LLMLang.LogosBinding.QueryTerm .bool) →
-      SourceQuerySemantics.Env → Bool
-    | [], _ => isAnd
-    | term :: rest, env =>
-        let value := asBool (evalLogosQuerySigma ⟨.bool, term⟩ env)
-        if isAnd then value && evalLogosBoolTerms isAnd rest env
-        else value || evalLogosBoolTerms isAnd rest env
-  termination_by terms _ => sizeOf terms + 2
-  decreasing_by all_goals simp_wf <;> omega
-end
 
 /--
 The adapter preserves mathematical meaning for every well-typed independent
@@ -106,7 +89,7 @@ theorem toLogosQueryTerm_preserves_eval {s : ExprSort}
     evalLogosQuerySigma ⟨s, toLogosQueryTerm term⟩ env =
       SourceQuerySemantics.evalQuery term env := by
   induction term <;>
-    simp_all [toLogosQueryTerm, evalLogosQuerySigma, evalLogosBoolTerms,
+    simp_all [toLogosQueryTerm, evalLogosQuerySigma,
       SourceQuerySemantics.evalQuery, asInt, asBool] <;> rfl
 
 end LLMLang.LogosQueryAdapter
