@@ -249,3 +249,16 @@ RT-21 is a staged capability goal, not a prerequisite to completing the language
 | DEP-066 | RT-20 → RT-21 | Constrains | Safe self-development requires complete impact planning, caller/hash propagation, and validation gates for the supported semantic subset; incomplete analysis must fail closed. | Strong hypothesis |
 
 The first self-development milestone does not require compiler self-hosting. A small host-language bootstrap layer may remain responsible for trusted low-level compilation/runtime/platform primitives while higher-level validators, analyzers, and build logic migrate to LLMLang. This boundary is a recommendation to evaluate, not an accepted architecture.
+
+
+## 9. Repository/worktree provider integration (RT-22)
+
+RT-22 introduces an external-orchestrator dependency without making LLMLang dependent on AIVibeFlow. The LLMLang side owns the Toolchain repository/worktree capability contract and its semantic synchronization behavior. The external platform owns provider selection, workflow/job orchestration, and platform policy. See [RT-22](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) for the LLMLang contract and its cross-project reference.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-067 | RT-19 → RT-22 | Requires | MCP repository/worktree operations must reuse the transport-neutral Toolchain API and its workspace, identity, transaction, authorization, and recovery boundaries. | Strong hypothesis |
+| DEP-068 | RT-20 → RT-22 | Constrains | A local commit candidate tied to semantic changes must bind the exact impact plan, snapshot, exported tree, and verification evidence; stale inputs invalidate the candidate. | Strong hypothesis |
+| DEP-069 | RT-15 → RT-22 | Influences | Git representation, semantic merge, and external-edit reconciliation determine how repository/worktree operations preserve portable and reviewable state. | Strong hypothesis |
+| DEP-070 | RT-16 → RT-22 | Requires | Delegated repository scopes, credential isolation, path containment, and operation-level authorization are necessary for safe external orchestration. | Strong hypothesis |
+| DEP-071 | RT-22 → RT-21 | Enables | AIVibeFlow can provide a durable development environment for LLMLang while the Toolchain retains semantic visibility over its repository and worktree operations. | Open hypothesis |
