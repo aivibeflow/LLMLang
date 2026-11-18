@@ -54,9 +54,10 @@ def planned_output(store, output_id, logical_key, operation, base_hash, candidat
         value = store.get(candidate_hash)
         declaration_value = validate_declaration(value.payload)
         kind = declaration_value["kind"]
-        content_digest = hashlib.sha256(
-            canonical_bytes(declaration_value["content"])
-        ).hexdigest()
+        content_digest = hashlib.sha256(canonical_bytes({
+            "declaration_id": declaration_value["declaration_id"],
+            "content": declaration_value["content"],
+        })).hexdigest()
     return PlannedOutput(
         output_id, logical_key, operation, base_hash, kind, content_digest,
         rationale, evidence_id, source_hash, consumer_path_id,
