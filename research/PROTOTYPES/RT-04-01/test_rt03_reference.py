@@ -9,6 +9,13 @@ def perform(effect, operation, payload):
 
 
 class RT03ReferenceSemanticsTests(unittest.TestCase):
+    def test_result_sequence_does_not_change_ordinary_sequence(self):
+        trace = evaluate({"sequence": [
+            {"result_error": {"literal": {"kind": "Expected"}}},
+            {"result_ok": {"literal": 7}},
+        ]}, "A")
+        self.assertEqual(trace.result, {"ok": 7})
+
     def test_profile_a_evaluates_strict_pure_arithmetic(self):
         trace = evaluate(
             {"add": [{"literal": 19}, {"add": [{"literal": 20}, {"literal": 3}]}]},
