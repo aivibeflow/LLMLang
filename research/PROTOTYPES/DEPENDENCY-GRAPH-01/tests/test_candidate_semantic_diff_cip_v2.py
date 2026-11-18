@@ -38,11 +38,11 @@ def call_site(site_id, target_hash, required_contract_hash, condition=None, targ
 
 
 def action(value_hash):
-    return PlannedAction(ActionKind.REBUILD, value_hash, "approved by CIP output record")
+    return PlannedAction(ActionKind.REBUILD, value_hash, "approved by CIP output record", subject_kind="implementation")
 
 
 def rewrite_action(value_hash):
-    return PlannedAction(ActionKind.REWRITE_CALL_SITE, value_hash, "rewrite exact planned call site")
+    return PlannedAction(ActionKind.REWRITE_CALL_SITE, value_hash, "rewrite exact planned call site", subject_kind="call_site")
 
 
 def output_record(store, output_id, logical_key, operation, base_hash, candidate_hash,
