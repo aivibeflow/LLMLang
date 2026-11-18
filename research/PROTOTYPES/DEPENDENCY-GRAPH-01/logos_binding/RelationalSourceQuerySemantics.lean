@@ -257,8 +257,17 @@ theorem observationDifference_correct
         rw [evalCanonicalQuerySigma]
       simp only [asBool]
       apply congrArg Value.boolValue
-      rw [translateRelationalExpr_correct .left factor e queryEnv,
-          translateRelationalExpr_correct .right factor e queryEnv]
+      have hleft :
+          evalCanonicalQuerySigma ⟨.int, translateRelationalExpr .left factor e⟩ queryEnv =
+            evalExpr e (sideEnvironment queryEnv .left factor) := by
+        simpa [querySortOf] using
+          (translateRelationalExpr_correct .left factor e queryEnv)
+      have hright :
+          evalCanonicalQuerySigma ⟨.int, translateRelationalExpr .right factor e⟩ queryEnv =
+            evalExpr e (sideEnvironment queryEnv .right factor) := by
+        simpa [querySortOf] using
+          (translateRelationalExpr_correct .right factor e queryEnv)
+      rw [hleft, hright]
       exact (decide_ne_eq_not_decide_eq _ _).symm
   | bool =>
       unfold observationDifference
@@ -273,8 +282,17 @@ theorem observationDifference_correct
         rw [evalCanonicalQuerySigma]
       simp only [asBool]
       apply congrArg Value.boolValue
-      rw [translateRelationalExpr_correct .left factor e queryEnv,
-          translateRelationalExpr_correct .right factor e queryEnv]
+      have hleft :
+          evalCanonicalQuerySigma ⟨.bool, translateRelationalExpr .left factor e⟩ queryEnv =
+            evalExpr e (sideEnvironment queryEnv .left factor) := by
+        simpa [querySortOf] using
+          (translateRelationalExpr_correct .left factor e queryEnv)
+      have hright :
+          evalCanonicalQuerySigma ⟨.bool, translateRelationalExpr .right factor e⟩ queryEnv =
+            evalExpr e (sideEnvironment queryEnv .right factor) := by
+        simpa [querySortOf] using
+          (translateRelationalExpr_correct .right factor e queryEnv)
+      rw [hleft, hright]
       exact (decide_ne_eq_not_decide_eq _ _).symm
 
 /--
