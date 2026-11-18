@@ -195,7 +195,7 @@ class RT04ModelTests(unittest.TestCase):
         p = {
             "call_graph_complete": ["entry", "middle"],
             "functions": {
-                "entry": {"calls": ["middle"], "effect_bound": []},
+                "entry": {"calls": ["middle"], "effect_bound": ["process.spawn"]},
                 "middle": {"calls": ["leaf"]},
                 "leaf": {"effects": ["process.spawn"]},
             },
