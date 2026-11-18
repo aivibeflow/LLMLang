@@ -14,6 +14,9 @@ class PlanningError(ValueError):
     pass
 
 
+CIP_SCHEMA_VERSION = 2
+
+
 class CompletenessStatus(str, Enum):
     GAP_FOUND = "GAP_FOUND"
     SUPPORTED_WITHIN_SCOPE = "SUPPORTED_WITHIN_SCOPE"
@@ -85,7 +88,7 @@ class PlannedEdgeOperation(str, Enum):
 class PlannedOutput:
     """One exact logical output slot in the approved candidate graph.
 
-    expected_content_digest is SHA-256 over canonical declaration.content.
+    expected_payload_digest is SHA-256 over canonical declaration.content.
     The plan binds the expected semantic payload; the successful diff receipt
     binds the resulting exact Content Hash to output_id and candidate_root.
     """
@@ -192,6 +195,7 @@ class ImpactPlan:
 
 def impact_plan_payload(plan: ImpactPlan) -> dict:
     return {
+        "cip_schema_version": CIP_SCHEMA_VERSION,
         "baseline": plan.baseline_root,
         "candidate": plan.candidate_root,
         "policy": plan.policy_id,
