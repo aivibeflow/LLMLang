@@ -307,6 +307,127 @@ class RT04ModelTests(unittest.TestCase):
         }}
         self.assertIn("UNKNOWN_TYPE", check_program(p, "A").codes())
 
+
+    def test_scoped_capability_grant_covers_narrower_requirement(self):
+        p = {
+            "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace"}},
+            "functions": {"read": {"grants": ["g1"], "capability_requirements": [
+                {"capability": "fs.read", "scope": "/workspace/src"}]}},
+        }
+        self.assertEqual(check_program(p, "B").status, "ACCEPTED")
+
+    def test_scoped_capability_rejects_requirement_outside_grant_scope(self):
+        p = {
+            "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace/src"}},
+            "functions": {"read": {"grants": ["g1"], "capability_requirements": [
+                {"capability": "fs.read", "scope": "/workspace/config"}]}},
+        }
+        result = check_program(p, "B")
+        self.assertIn("CAPABILITY_SCOPE_NOT_GRANTED", result.codes())
+        self.assertEqual(result.status, "REJECTED")
+
+    def test_child_grant_may_attenuate_parent_scope(self):
+        p = {
+            "capability_grants": {
+                "root": {"capability": "fs.read", "scope": "/workspace"},
+                "child": {"capability": "fs.read", "scope": "/workspace/src", "parent": "root"},
+            },
+            "functions": {"read": {"grants": ["child"], "capability_requirements": [
+                {"capability": "fs.read", "scope": "/workspace/src/pkg"}]}},
+        }
+        self.assertEqual(check_program(p, "B").status, "ACCEPTED")
+
+    def test_child_grant_cannot_broaden_parent_scope(self):
+        p = {"capability_grants": {
+            "root": {"capability": "fs.read", "scope": "/workspace/src"},
+            "child": {"capability": "fs.read", "scope": "/workspace", "parent": "root"},
+        }, "functions": {"f": {}}}
+        with self.assertRaises(ModelError):
+            check_program(p, "B")
+
+    def test_child_grant_cannot_change_parent_capability(self):
+        p = {"capability_grants": {
+            "root": {"capability": "fs.read", "scope": "/workspace"},
+            "child": {"capability": "fs.write", "scope": "/workspace/src", "parent": "root"},
+        }, "functions": {"f": {}}}
+        with self.assertRaises(ModelError):
+            check_program(p, "B")
+
+    def test_revoking_parent_revokes_descendant_grants(self):
+        p = {
+            "capability_grants": {
+                "root": {"capability": "fs.read", "scope": "/workspace", "revoked": True},
+                "child": {"capability": "fs.read", "scope": "/workspace/src", "parent": "root"},
+            },
+            "functions": {"read": {"grants": ["child"], "capability_requirements": [
+                {"capability": "fs.read", "scope": "/workspace/src"}]}},
+        }
+        result = check_program(p, "B")
+        self.assertIn("CAPABILITY_REVOKED", result.codes())
+        self.assertEqual(result.status, "REJECTED")
+
+    def test_revoked_grant_cannot_authorize_requirement(self):
+        p = {
+            "capability_grants": {"g1": {"capability": "fs.read", "scope": "/", "revoked": True}},
+            "functions": {"read": {"grants": ["g1"], "capability_requirements": [
+                {"capability": "fs.read", "scope": "/etc"}]}},
+        }
+        self.assertIn("CAPABILITY_SCOPE_NOT_GRANTED", check_program(p, "B").codes())
+
+    def test_call_site_explicitly_delegates_scoped_grant(self):
+        p = {
+            "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace"}},
+            "functions": {
+                "caller": {"grants": ["g1"], "calls": ["read"], "call_sites": [
+                    {"target": "read", "args": [], "grants": ["g1"]}]},
+                "read": {"capability_requirements": [
+                    {"capability": "fs.read", "scope": "/workspace/src"}]},
+            },
+        }
+        self.assertEqual(check_program(p, "B").status, "ACCEPTED")
+
+    def test_missing_scoped_capability_delegation_is_unknown(self):
+        p = {
+            "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace"}},
+            "functions": {
+                "caller": {"grants": ["g1"], "calls": ["read"]},
+                "read": {"capability_requirements": [
+                    {"capability": "fs.read", "scope": "/workspace/src"}]},
+            },
+        }
+        result = check_program(p, "B")
+        self.assertIn("CAPABILITY_DELEGATION_UNKNOWN", result.codes())
+        self.assertEqual(result.status, "UNKNOWN")
+
+    def test_call_site_cannot_delegate_grant_not_held_by_caller(self):
+        p = {
+            "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace"}},
+            "functions": {
+                "caller": {"calls": ["read"], "call_sites": [
+                    {"target": "read", "args": [], "grants": ["g1"]}]},
+                "read": {"capability_requirements": [
+                    {"capability": "fs.read", "scope": "/workspace"}]},
+            },
+        }
+        with self.assertRaises(ModelError):
+            check_program(p, "B")
+
+    def test_scoped_capability_scope_rejects_parent_traversal(self):
+        p = {
+            "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace/../etc"}},
+            "functions": {"read": {}},
+        }
+        with self.assertRaises(ModelError):
+            check_program(p, "B")
+
+    def test_profile_a_rejects_scoped_capability_model(self):
+        p = {
+            "capability_grants": {"g1": {"capability": "fs.read", "scope": "/workspace"}},
+            "functions": {"read": {"grants": ["g1"], "capability_requirements": [
+                {"capability": "fs.read", "scope": "/workspace"}]}},
+        }
+        self.assertIn("SCOPED_CAPABILITY_UNSUPPORTED", check_program(p, "A").codes())
+
     def test_rejects_malformed_envelope(self):
         with self.assertRaises(ModelError):
             check_program({"functions": {"f": {}}, "extra": 1}, "A")
