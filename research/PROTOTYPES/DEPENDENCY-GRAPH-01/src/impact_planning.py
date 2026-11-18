@@ -272,8 +272,6 @@ def validate_planned_action_dag(actions: Iterable[PlannedAction]) -> None:
     if len(by_id) != len(rows) or any(not row.action_id for row in rows):
         raise PlanningError("planned actions require unique non-empty action IDs")
     for row in rows:
-        if row.action_id != compute_planned_action_id(row):
-            raise PlanningError("planned action ID does not match its canonical contents")
         if len(set(row.prerequisite_action_ids)) != len(row.prerequisite_action_ids):
             raise PlanningError("planned action contains duplicate prerequisite action IDs")
         for prerequisite_id in row.prerequisite_action_ids:
@@ -298,6 +296,10 @@ def validate_planned_action_dag(actions: Iterable[PlannedAction]) -> None:
 
     for action_id in sorted(by_id):
         visit(action_id)
+
+    for row in rows:
+        if row.action_id != compute_planned_action_id(row):
+            raise PlanningError("planned action ID does not match its canonical contents")
 
 
 def _assign_action_ids(actions: Iterable[PlannedAction]) -> tuple[PlannedAction, ...]:
