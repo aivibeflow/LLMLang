@@ -106,7 +106,8 @@ class PlannedEdgeChange:
     edge_kind: PlannedEdgeKind
     edge_id: str
     operation: PlannedEdgeOperation
-    relation: str
+    baseline_relation: str | None
+    candidate_relation: str | None
     baseline_target_hash: str | None
     candidate_target_hash: str | None
     baseline_condition: str | None
@@ -208,8 +209,9 @@ def impact_plan_payload(plan: ImpactPlan) -> dict:
         ],
         "planned_edge_changes": [
             (e.output_id, e.edge_kind.value, e.edge_id, e.operation.value,
-             e.relation, e.baseline_target_hash, e.candidate_target_hash,
-             e.baseline_condition, e.candidate_condition, e.rationale, e.evidence_id)
+             e.baseline_relation, e.candidate_relation, e.baseline_target_hash,
+             e.candidate_target_hash, e.baseline_condition, e.candidate_condition,
+             e.rationale, e.evidence_id)
             for e in sorted(plan.planned_edge_changes)
         ],
     }
@@ -417,8 +419,8 @@ def plan_impact(
     for row in edge_change_rows:
         if row.output_id not in output_map:
             raise PlanningError("planned edge change references an unknown output_id")
-        if not all((row.edge_id, row.relation, row.rationale, row.evidence_id)):
-            raise PlanningError("planned edge change identity, rationale, and evidence are required")
+        if not all((row.edge_id, row.rationale, row.evidence_id)) or not (row.baseline_relation or row.candidate_relation):
+            raise PlanningError("planned edge change identity, relation, rationale, and evidence are required")
         if not isinstance(row.edge_kind, PlannedEdgeKind) or not isinstance(row.operation, PlannedEdgeOperation):
             raise PlanningError("planned edge change has an invalid kind or operation")
         if row.operation is PlannedEdgeOperation.ADD and (row.baseline_target_hash is not None or not row.candidate_target_hash):
