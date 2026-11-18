@@ -413,11 +413,18 @@ class CandidateSemanticDiffCIPV2Tests(unittest.TestCase):
             alternate, resulting_output_id="invoice-v2", selected_output_id="tax-v2",
             candidate_required_contract_hash=alternate,
         ),)
-        edges = (edge_record(
-            "invoice-v2", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
-            PlannedEdgeOperation.REWRITE, "calls", "calls", old_callee, new_callee,
-            old_required=self.contract, new_required=alternate,
-        ),)
+        edges = (
+            edge_record(
+                "tax-v2", PlannedEdgeKind.TYPED_REFERENCE, "provided-contract",
+                PlannedEdgeOperation.REWRITE, "provides_contract", "provides_contract",
+                self.contract, alternate,
+            ),
+            edge_record(
+                "invoice-v2", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+                PlannedEdgeOperation.REWRITE, "calls", "calls", old_callee, new_callee,
+                old_required=self.contract, new_required=alternate,
+            ),
+        )
         result = self.audit(
             baseline, candidate,
             actions=(action(old_callee), rewrite_action(old_caller)),
