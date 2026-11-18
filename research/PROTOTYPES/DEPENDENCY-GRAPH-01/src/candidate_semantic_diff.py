@@ -43,6 +43,8 @@ class SemanticEdgeChange:
     candidate_target_hash: str | None
     baseline_condition: str | None
     candidate_condition: str | None
+    baseline_required_contract_hash: str | None = None
+    candidate_required_contract_hash: str | None = None
 
     def record(self) -> dict[str, str | None]:
         return {
@@ -54,6 +56,8 @@ class SemanticEdgeChange:
             "candidate_target_hash": self.candidate_target_hash,
             "baseline_condition": self.baseline_condition,
             "candidate_condition": self.candidate_condition,
+            "baseline_required_contract_hash": self.baseline_required_contract_hash,
+            "candidate_required_contract_hash": self.candidate_required_contract_hash,
         }
 
 
@@ -111,12 +115,13 @@ def _declaration_edges(store: ContentStore, value_hash: str):
     edges = {}
     for row in declaration["references"]:
         edges[("reference", row["reference_id"])] = (
-            row["relation"], row["target_hash"], row["condition"]
+            row["relation"], row["target_hash"], row["condition"], None
         )
     for site in declaration["call_sites"]:
         for target in site["targets"]:
             edges[("call", site["call_site_id"] + "/" + target["target_id"])] = (
-                "calls", target["target_hash"], target["condition"]
+                "calls", target["target_hash"], target["condition"],
+                target["required_contract_hash"],
             )
     return edges
 
@@ -135,7 +140,9 @@ def _plan_identity_matches(plan: ImpactPlan) -> bool:
         "call_site_decisions": [
             (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
              d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
-             d.rationale, d.decision_evidence_id)
+             d.rationale, d.decision_evidence_id, d.required_contract_hash,
+             d.base_callee_contract_hash, d.selected_callee_contract_hash,
+             d.compatibility_status)
             for d in sorted(plan.call_site_decisions)
         ],
     }
@@ -241,12 +248,13 @@ def audit_candidate_semantic_diff(
             if old_row == new_row:
                 continue
             edge_kind, edge_id = edge_key
-            old_relation, old_target, old_condition = old_row if old_row else (None, None, None)
-            new_relation, new_target, new_condition = new_row if new_row else (None, None, None)
+            old_relation, old_target, old_condition, old_required_contract = old_row if old_row else (None, None, None, None)
+            new_relation, new_target, new_condition, new_required_contract = new_row if new_row else (None, None, None, None)
             relation = old_relation or new_relation or ""
             edge_changes.append(SemanticEdgeChange(
                 change.logical_key, edge_kind, edge_id, relation,
                 old_target, new_target, old_condition, new_condition,
+                old_required_contract, new_required_contract,
             ))
             if edge_kind == "reference":
                 errors.append(
