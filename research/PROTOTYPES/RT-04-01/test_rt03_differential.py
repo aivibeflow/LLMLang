@@ -160,6 +160,48 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
         self.assertEqual(trace.final_state, {})
         self.assertEqual(trace.final_resources, {})
 
+    def test_conditional_evaluates_only_selected_branch(self):
+        expression = {"if": {
+            "condition": {"literal": True},
+            "then": perform("state.write", "write", {"key": "selected", "value": 1}),
+            "else": perform("state.write", "write", {"key": "skipped", "value": 2}),
+        }}
+        trace = self.assert_same_trace(expression, "D", declared_effects=["state.write"])
+        self.assertEqual(trace.final_state, {"selected": 1})
+        self.assertEqual(len(trace.events), 1)
+
+    def test_resource_scope_cleanup_holds_for_both_concrete_branches(self):
+        for condition, branch_expr, expected in [
+            (True, {"result_error": {"literal": {"kind": "BranchFailed"}}}, {"error": {"kind": "BranchFailed"}}),
+            (False, {"cancel": {"kind": "BranchCancelled"}}, {"cancelled": {"kind": "BranchCancelled"}}),
+        ]:
+            expression = {"with_resource": {
+                "id": "branch-resource", "value": "handle",
+                "body": {"if": {
+                    "condition": {"literal": condition},
+                    "then": branch_expr,
+                    "else": branch_expr,
+                }},
+            }}
+            with self.subTest(condition=condition):
+                trace = self.assert_same_trace(expression, "D")
+                self.assertEqual(trace.result, expected)
+                self.assertEqual([event["effect"] for event in trace.events], [
+                    "resource.acquire", "resource.release"
+                ])
+                self.assertEqual(trace.final_resources, {})
+
+    def test_conditional_rejects_non_boolean_condition_in_both_models(self):
+        expression = {"if": {
+            "condition": {"literal": 1},
+            "then": {"literal": "yes"},
+            "else": {"literal": "no"},
+        }}
+        with self.assertRaises(SemanticError):
+            evaluate(expression, "A")
+        with self.assertRaises(MachineError):
+            run_small_step(expression, "A")
+
     def test_pure_expression_corpus_matches(self):
         corpus = [
             {"literal": None},
