@@ -356,7 +356,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [ ] Define semantic diff independently of textual diff and AST diff.
 - [ ] Define three-way merge over semantic graph snapshots.
 - [ ] Define conflict classes: same-node edits, contract/implementation divergence, identity collisions, dependency conflicts, split/merge conflicts, and metadata-only conflicts.
-- [ ] Define automatic merge when changes are provably independent.- [ ] Define conservative conflict behavior when independence cannot be established.
+- [ ] Define automatic merge when changes are provably independent.
+- [ ] Define conservative conflict behavior when independence cannot be established.
 - [ ] Define interactive conflict resolution and preservation of both alternatives.
 - [ ] Define post-merge validation: graph integrity, type checking, contract checking, dependency completeness, tests, and proofs.
 - [ ] Define merge reproducibility and audit history.
@@ -370,7 +371,37 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [ ] Verify that merge drivers do not silently discard unresolved semantic conflicts.
 - [ ] Document repository setup and team workflows.
 
-**Exit criteria:** clean clone reconstructs the program; commits map deterministically to semantic snapshots; semantic diff/merge works on independent and conflicting changes; Git fallback and interactive resolution are tested.
+### 4.5 End-to-end semantic merge and synchronized commit lifecycle
+
+**Study these documents as one set before changing this workstream:**
+- [Git Representation and Semantic Merge](research/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — primary research source for repository representation and semantic merge rules.
+- [ADR-014](docs/adr/014-git-semantic-merge.md) — proposed architecture direction; not Accepted.
+- [RT-20](research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — caller impact, per-call-site migration/preservation, hash propagation, and verified completion.
+- [RT-22](research/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — repository/worktree operations, merge reconciliation boundary, commit preparation, and recovery.
+- [RT-23](research/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — shared semantic state, versioned interface mappings, incremental worktree views, and synchronized semantic/filesystem commit.
+- [RT-19](research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — semantic Change Set/Snapshot lifecycle and transport-neutral API.
+
+The documents have explicit ownership boundaries and reciprocal links. Re-read the complete set together whenever merge, rebase, cherry-pick, semantic export/import, or commit behavior changes.
+
+**Required sequence:**
+- [ ] Reconcile the canonical textual repository representation, manifests/roots, external dependency pins, and deterministic import/export; prove clean-clone reconstruction and round-trip equivalence.
+- [ ] Define semantic diff over stable semantic identities, separating Git object identity, semantic identity, and action/evidence identity.
+- [ ] Specify deterministic three-way SPG merge over exact base/ours/theirs snapshots, including independent add/add, same-entity update/update, delete/update, rename/move, split/merge, replacement, and dependency/lock changes.
+- [ ] Define a structured conflict/result model with provenance, exact input roots, merge policy/tool versions, resolution decisions, and explicit clean/conflict/invalid/insufficient-context outcomes.
+- [ ] Specify merge rules for versioned Interface Mapping Revisions separately from immutable semantic objects; use revision/CAS baselines and fail on same-key or otherwise ambiguous conflicts.
+- [ ] Design a repository-level merge coordinator with complete tree context. Do not treat independent per-file merge-driver success as proof of whole-SPG consistency.
+- [ ] Integrate the semantic engine with ordinary Git merge/rebase/cherry-pick. Prototype the custom merge driver and interactive mergetool, explicit local setup/doctor behavior, and fail-closed behavior when the coordinator or required context is unavailable.
+- [ ] After Git creates a candidate merged tree, import/reconcile the complete LLMLang representation into the shared semantic state; run repository-wide graph/reference/contract checks and RT-20 caller-impact, per-call-site migration, hash-propagation, and evidence checks.
+- [ ] Finalize only through RT-23's synchronized commit protocol: pin the exact semantic snapshot, mapping revision, worktree generation, selected regular-file changes, expected Git ref, and validation evidence; materialize canonical LLMLang representation and selected files into the actual worktree; commit them together.
+- [ ] Specify idempotent recovery for interruption before/after Git ref update, timeout with unknown outcome, stale HEAD/tree, partial export, and repeated completion requests. Never report semantic state as committed merely because it exists in the Toolchain store.
+- [ ] Add real temporary-repository end-to-end tests for clone/reconstruction, parallel branches, merge/rebase/cherry-pick, cross-file conflicts, mapping conflicts, RT-20 caller splits, clean and failed validation, crash recovery, and no-duplicate commit retry.
+- [ ] Benchmark repository-level merge, semantic import/export, incremental worktree synchronization, and cache/store reconstruction; record platform and repository-size assumptions.
+
+**Status:** architecture research exists and is now cross-linked across the study set; end-to-end semantics, implementation, and tests remain open. ADR-014 remains Proposed.
+
+**Dependency:** canonical SPG/identity and import/export decisions from Stages 1 and 3; RT-20 impact-plan correctness; RT-19 semantic API; RT-22 repository/worktree contract; RT-23 shared-state and synchronized-commit runtime.
+
+**Exit criteria:** clean clone reconstructs the exact declared semantic state; commits map deterministically to semantic snapshots and mapping revisions; repository-level semantic merge works for independent and conflicting changes; merged graphs pass RT-20 impact/hash/caller checks; the exact validated semantic state and selected regular files are synchronized into one recoverable Git commit; merge/rebase/cherry-pick, fallback, interactive resolution, and crash recovery are tested.
 
 ---
 
