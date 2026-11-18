@@ -99,7 +99,7 @@ theorem translateRelationalExpr_correct
     evalCanonicalQuerySigma ⟨querySortOf s, translateRelationalExpr side factor e⟩ queryEnv =
       evalExpr e (sideEnvironment queryEnv side factor) := by
   induction e <;>
-    simp_all [translateRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
+    simp_all [translateRelationalExpr, evalCanonicalQuerySigma,
       evalExpr, sideEnvironment, relationalSymbol, querySortOf,
       querySortToExprSort] <;> simp [asInt]
 
@@ -186,7 +186,7 @@ theorem translateCanonicalRelationalExpr_correct
       queryEnv =
       evalExpr e (canonicalSideEnvironment queryEnv inputNames side factor) := by
   induction e <;>
-    simp_all [translateCanonicalRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
+    simp_all [translateCanonicalRelationalExpr, evalCanonicalQuerySigma,
       evalExpr, canonicalSideEnvironment, canonicalRelationalSymbol, canonicalBaseSymbol,
       querySortOf, querySortToExprSort] <;> simp [asInt]
 
