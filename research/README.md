@@ -35,7 +35,7 @@ This repository contains a **conceptual research document**, not a production-re
 
 - [Research taxonomy](RESEARCH-TAXONOMY.md) — research areas, current coverage, and required outputs for each research.
 - [RT-03 — Core Language Semantics](CORE-LANGUAGE-SEMANTICS.md) — candidate semantic vectors and four profiles (pure functional, imperative/linear, actor/concurrent, effectful functional), compatibility tensions, downstream dependencies, and experiments. No profile is selected.
-- [RT-04 — Type, Effect, Ownership, and Capability-System Alternatives](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) — comparative alternatives for static/refinement types, effects/handlers, ownership/borrowing/lifetimes, capabilities, concurrency/memory models, error-state composition, and candidate hash boundaries. No architecture is selected; executable scenarios remain open.
+- [RT-04 — Type, Effect, Ownership, and Capability-System Alternatives](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) — comparative alternatives for static/refinement types, effects/handlers, ownership/borrowing/lifetimes, capabilities, concurrency/memory models, error-state composition, and candidate hash boundaries. No architecture is selected; a first limited checker prototype exists, while broader scenarios remain open.
 - [RT-04 Prototype 01](PROTOTYPES/RT-04-01/README.md) — executable comparison of two candidate checker vectors, with focused unit tests.
 - [RT-04 Prototype 01 Results](RT-04-PROTOTYPE-01-RESULTS.md) — findings, limits, and next experiments.
 - [RT-04 Prototype 01 Scenarios](RT-04-PROTOTYPE-01-SCENARIOS.md) — executable scenario-to-profile outcome matrix.
