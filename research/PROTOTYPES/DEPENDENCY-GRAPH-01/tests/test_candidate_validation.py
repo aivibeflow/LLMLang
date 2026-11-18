@@ -135,12 +135,18 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
         )
         self.assertTrue(result.valid, result.errors)
 
+        mixed_candidate = make_snapshot({
+            "old-tax": self.old_callee,
+            "tax": self.new_callee,
+            "invoice": self.new_caller,
+        })
         invalid = validate_candidate_call_site_decisions(
-            self.store, self.baseline, self.candidate,
+            self.store, self.baseline, mixed_candidate,
             self.plan(
                 disposition=CallSiteDisposition.PRESERVE,
                 selected=self.old_callee,
                 caller=self.new_caller,
+                candidate=mixed_candidate,
             ),
         )
         self.assertFalse(invalid.valid)
