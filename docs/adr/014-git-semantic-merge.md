@@ -77,3 +77,16 @@ Rejected as the long-term semantic merge model. Textual merge cannot reliably de
 ## Supersession and relationship to earlier notes
 
 This ADR captures the current project direction and supersedes the earlier embedded ADR-0001 proposal that treated the external KV store as the authoritative home of semantic code. The earlier proposal remains preserved in the research report as historical research material. The current direction keeps Git repository source authoritative and makes KV a reconstructible derived store.
+
+
+## Related documents and ownership
+
+Study this ADR together with the detailed documents below; this ADR records a proposed direction and does not replace their detailed contracts:
+
+- [Git Representation and Semantic Merge](../../research/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — semantic diff/merge rules, conflict model, Git driver/mergetool, and repository-level merge requirements.
+- [RT-20](../../research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — complete impact planning, caller migration/preservation, hash propagation, and verified commit gates.
+- [RT-22](../../research/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — external Repository/Worktree MCP contract, Git operations, commit preparation, and recovery.
+- [RT-23](../../research/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — shared semantic state, mapping revisions, incremental worktree views, and synchronized commit runtime.
+- [RT-19](../../research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — transport-neutral Toolchain API and semantic Change Set/Snapshot lifecycle.
+
+Ownership: the focused Git Representation and Semantic Merge research owns merge semantics; RT-20 owns semantic impact/hash/caller correctness; RT-22 owns the external Git/worktree operation contract; RT-23 owns runtime synchronization and commit coordination. A successful LLMLang merge must satisfy all applicable contracts, not merely Git's textual merge result.
