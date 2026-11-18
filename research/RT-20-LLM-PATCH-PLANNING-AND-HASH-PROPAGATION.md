@@ -414,7 +414,7 @@ RT-20 can support a scoped architectural decision when:
 - every planned version/reference change is enforced during implementation;
 - validation evidence is bound to exact candidate hashes and toolchain configuration;
 - a failed completion attempt demonstrably creates no commit;
-- a successful completion attempt commits only the exact validated export;
+- a successful completion attempt commits only the exact validated export, including the canonical LLMLang semantic representation and the selected regular-file changes in one Git commit;
 - concurrency, crash recovery, authorization, and limitations are documented.
 
 Passing these criteria supports a scoped RT-20/RT-19 design decision. It does not prove whole-program correctness or establish the final LLMLang identity model.
