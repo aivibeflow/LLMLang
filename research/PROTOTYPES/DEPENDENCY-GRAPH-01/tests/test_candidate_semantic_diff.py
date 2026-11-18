@@ -66,7 +66,9 @@ def planned_edge(output_id, edge_kind, edge_id, operation, relation,
                  old_target=None, new_target=None, old_condition=None,
                  new_condition=None):
     return PlannedEdgeChange(
-        output_id, edge_kind, edge_id, operation, relation,
+        output_id, edge_kind, edge_id, operation,
+        relation if old_target is not None else None,
+        relation if new_target is not None else None,
         old_target, new_target, old_condition, new_condition,
         "approved exact edge delta", "evidence:edge",
     )
