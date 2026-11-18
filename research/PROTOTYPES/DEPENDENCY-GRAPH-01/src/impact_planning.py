@@ -5,7 +5,7 @@ perform static analysis, trace execution, sandbox programs, or verify proof arti
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from enum import Enum
 from typing import Iterable
 
@@ -14,7 +14,7 @@ class PlanningError(ValueError):
     pass
 
 
-CIP_SCHEMA_VERSION = 2
+CIP_SCHEMA_VERSION = 3
 
 
 class CompletenessStatus(str, Enum):
@@ -186,6 +186,8 @@ class PlannedAction:
     artifact_hash: str
     reason: str
     prerequisite_hashes: tuple[str, ...] = ()
+    action_id: str = ""
+    prerequisite_action_ids: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -209,7 +211,8 @@ def impact_plan_payload(plan: ImpactPlan) -> dict:
         "candidate": plan.candidate_root,
         "policy": plan.policy_id,
         "actions": [
-            (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes)
+            (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes,
+             a.action_id, a.prerequisite_action_ids)
             for a in plan.actions
         ],
         "audits": sorted(plan.audit_statuses),
@@ -238,6 +241,73 @@ def impact_plan_payload(plan: ImpactPlan) -> dict:
             for e in sorted(plan.planned_edge_changes)
         ],
     }
+
+
+def planned_action_payload(action: PlannedAction) -> dict:
+    return {
+        "kind": action.kind.value,
+        "artifact_hash": action.artifact_hash,
+        "reason": action.reason,
+        # Retained as legacy content prerequisites; never interpreted as action IDs.
+        "prerequisite_hashes": action.prerequisite_hashes,
+        "prerequisite_action_ids": action.prerequisite_action_ids,
+    }
+
+
+def compute_planned_action_id(action: PlannedAction) -> str:
+    import hashlib
+    import json
+    payload = {
+        "domain": "llmlang.cip.planned-action.v1",
+        "action": planned_action_payload(action),
+    }
+    return hashlib.sha256(json.dumps(
+        payload, sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")).hexdigest()
+
+
+def validate_planned_action_dag(actions: Iterable[PlannedAction]) -> None:
+    rows = tuple(actions)
+    by_id = {row.action_id: row for row in rows}
+    if len(by_id) != len(rows) or any(not row.action_id for row in rows):
+        raise PlanningError("planned actions require unique non-empty action IDs")
+    for row in rows:
+        if row.action_id != compute_planned_action_id(row):
+            raise PlanningError("planned action ID does not match its canonical contents")
+        if len(set(row.prerequisite_action_ids)) != len(row.prerequisite_action_ids):
+            raise PlanningError("planned action contains duplicate prerequisite action IDs")
+        for prerequisite_id in row.prerequisite_action_ids:
+            if prerequisite_id not in by_id:
+                raise PlanningError("planned action references an unknown prerequisite action ID")
+            if prerequisite_id == row.action_id:
+                raise PlanningError("planned action cannot depend on itself")
+
+    visiting: set[str] = set()
+    visited: set[str] = set()
+
+    def visit(action_id: str) -> None:
+        if action_id in visiting:
+            raise PlanningError("planned action prerequisite graph contains a cycle")
+        if action_id in visited:
+            return
+        visiting.add(action_id)
+        for prerequisite_id in by_id[action_id].prerequisite_action_ids:
+            visit(prerequisite_id)
+        visiting.remove(action_id)
+        visited.add(action_id)
+
+    for action_id in sorted(by_id):
+        visit(action_id)
+
+
+def _assign_action_ids(actions: Iterable[PlannedAction]) -> tuple[PlannedAction, ...]:
+    rows = tuple(actions)
+    identified = tuple(
+        replace(row, action_id=row.action_id or compute_planned_action_id(row))
+        for row in rows
+    )
+    validate_planned_action_dag(identified)
+    return identified
 
 
 def compute_impact_plan_id(plan: ImpactPlan) -> str:
@@ -639,8 +709,9 @@ def plan_impact(
             "optimized impact plan is unsafe while dependency completeness is unresolved",
         ))
 
-    ordered = tuple(sorted(actions, key=lambda a: (
-        a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes
+    ordered = tuple(sorted(_assign_action_ids(actions), key=lambda a: (
+        a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes,
+        a.action_id, a.prerequisite_action_ids,
     )))
     provisional = ImpactPlan(
         "", baseline_root, candidate_root, policy_id, ordered,
