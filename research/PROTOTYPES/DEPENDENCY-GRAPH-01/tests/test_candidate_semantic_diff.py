@@ -26,13 +26,13 @@ def declaration(kind, declaration_id, content=None, call_sites=None, references=
     }
 
 
-def site(target_hash):
+def site(target_hash, condition=None):
     return [{
         "call_site_id": "call:tax",
         "targets": [{
             "target_id": "direct",
             "target_hash": target_hash,
-            "condition": None,
+            "condition": condition,
         }],
     }]
 
@@ -292,6 +292,64 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         self.assertTrue(any("non-string" in error or "materialization check failed" in error
                             for error in result.errors))
 
+    def test_call_target_addition_requires_exact_edge_record(self):
+        caller_without_call = publish_declaration(
+            self.store, declaration("function", "invoice:no-call", {"body": "invoice"})
+        )
+        caller_with_call = publish_declaration(
+            self.store, declaration("function", "invoice:with-call", {"body": "invoice"},
+                                    call_sites=site(self.old_callee))
+        )
+        baseline = make_snapshot({"invoice": caller_without_call, "tax": self.old_callee})
+        candidate = make_snapshot({"invoice": caller_with_call, "tax": self.old_callee})
+        result = audit_candidate_semantic_diff(
+            self.store, baseline, candidate,
+            self.plan(
+                baseline, candidate, actions=(action(caller_without_call),),
+                outputs=(planned_output(
+                    self.store, "invoice-output", "invoice", OutputOperation.REPLACE,
+                    caller_without_call, caller_with_call,
+                ),),
+                edge_changes=(planned_edge(
+                    "invoice-output", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+                    PlannedEdgeOperation.ADD, "calls", None, self.old_callee,
+                ),),
+            ),
+        )
+        self.assertTrue(result.valid, result.errors)
+        self.assertEqual(result.edge_changes[0].baseline_target_hash, None)
+        self.assertEqual(result.edge_changes[0].candidate_target_hash, self.old_callee)
+
+    def test_call_condition_change_requires_exact_edge_record(self):
+        caller_old_condition = publish_declaration(
+            self.store, declaration("function", "invoice:condition-old", {"body": "invoice"},
+                                    call_sites=site(self.old_callee, "mode == legacy"))
+        )
+        caller_new_condition = publish_declaration(
+            self.store, declaration("function", "invoice:condition-new", {"body": "invoice"},
+                                    call_sites=site(self.old_callee, "mode == modern"))
+        )
+        baseline = make_snapshot({"invoice": caller_old_condition, "tax": self.old_callee})
+        candidate = make_snapshot({"invoice": caller_new_condition, "tax": self.old_callee})
+        result = audit_candidate_semantic_diff(
+            self.store, baseline, candidate,
+            self.plan(
+                baseline, candidate, actions=(action(caller_old_condition),),
+                outputs=(planned_output(
+                    self.store, "invoice-output", "invoice", OutputOperation.REPLACE,
+                    caller_old_condition, caller_new_condition,
+                ),),
+                edge_changes=(planned_edge(
+                    "invoice-output", PlannedEdgeKind.CALL_TARGET, "call:tax/direct",
+                    PlannedEdgeOperation.CONDITION, "calls", self.old_callee,
+                    self.old_callee, "mode == legacy", "mode == modern",
+                ),),
+            ),
+        )
+        self.assertTrue(result.valid, result.errors)
+        self.assertEqual(result.edge_changes[0].baseline_condition, "mode == legacy")
+        self.assertEqual(result.edge_changes[0].candidate_condition, "mode == modern")
+
     def test_typed_reference_change_requires_and_accepts_exact_cip_record(self):
         contract = publish_declaration(
             self.store, declaration("contract", "contract:invoice")
@@ -398,7 +456,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             planned_output(self.store, "leaf-v2", "leaf", OutputOperation.REPLACE,
                            old_leaf, new_leaf),
             planned_output(self.store, "leaf-v1-alias", "leaf-legacy", OutputOperation.ADD,
-                           None, old_leaf, source_hash=old_leaf),
+                           None, old_leaf),
             planned_output(self.store, "shared-remove", "shared", OutputOperation.REMOVE,
                            old_shared, None),
             planned_output(self.store, "shared-legacy", "shared-legacy", OutputOperation.ADD,
