@@ -383,6 +383,9 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
                     passed = set(site.get("grants", []))
                     if passed - held:
                         raise ModelError(f"{subject} passes grants not held by caller")
+                    recipient_grants = set(functions[target].get("grants", []))
+                    for gid in sorted(passed - recipient_grants):
+                        findings.append(Finding("CAPABILITY_GRANT_NOT_ACCEPTED", subject, gid))
                     for gid in passed & revoked_grants:
                         findings.append(Finding("CAPABILITY_REVOKED", subject, gid))
                     for req in requirements:
