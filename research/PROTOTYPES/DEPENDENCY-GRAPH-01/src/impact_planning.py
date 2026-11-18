@@ -53,6 +53,8 @@ class IncomingCallSite:
     target_id: str
     target_hash: str
     condition: str | None = None
+    required_contract_hash: str | None = None
+    provided_contract_hash: str | None = None
 
 
 class CallSiteDisposition(str, Enum):
@@ -74,6 +76,10 @@ class CallSiteDecision:
     resulting_caller_hash: str | None
     rationale: str
     decision_evidence_id: str | None = None
+    required_contract_hash: str | None = None
+    base_callee_contract_hash: str | None = None
+    selected_callee_contract_hash: str | None = None
+    compatibility_status: str | None = None
 
 
 @dataclass(frozen=True)
@@ -216,6 +222,8 @@ def audit_snapshot_incoming(result: object) -> CompletenessAudit:
         incoming_call_sites.append(IncomingCallSite(
             caller_hash=edge.source_hash, call_site_id=call_site_id,
             target_id=target_id, target_hash=edge.target_hash, condition=edge.condition,
+            required_contract_hash=edge.required_contract_hash,
+            provided_contract_hash=edge.provided_contract_hash,
         ))
     return CompletenessAudit(
         status=status,
@@ -352,19 +360,29 @@ def plan_impact(
             raise PlanningError("call-site decision identities and rationale are required")
         if decision.base_callee_hash != edge.target_hash:
             raise PlanningError("call-site decision is bound to a different base callee hash")
+        if (not edge.required_contract_hash or not edge.provided_contract_hash
+                or decision.required_contract_hash != edge.required_contract_hash
+                or decision.base_callee_contract_hash != edge.provided_contract_hash):
+            raise PlanningError("call-site decision must preserve the exact required and base-provided contract hashes")
         if not decision.rationale:
             raise PlanningError("call-site decision requires a rationale")
         if decision.disposition is CallSiteDisposition.UNRESOLVED:
             if any((decision.selected_callee_hash, decision.resulting_caller_hash,
-                    decision.decision_evidence_id)):
+                    decision.decision_evidence_id, decision.selected_callee_contract_hash,
+                    decision.compatibility_status)):
                 raise PlanningError("unresolved call-site decision cannot select output hashes or claim evidence")
             unresolved_edges.append(f"{edge.caller_hash}:{edge.call_site_id}/{edge.target_id}")
         else:
             if not all((decision.selected_callee_hash, decision.resulting_caller_hash,
-                        decision.decision_evidence_id)):
-                raise PlanningError("resolved call-site decisions require selected callee, resulting caller, and evidence")
+                        decision.decision_evidence_id, decision.selected_callee_contract_hash)):
+                raise PlanningError("resolved call-site decisions require selected callee, resulting caller, selected provided contract, and evidence")
+            if decision.compatibility_status != "PROVEN":
+                raise PlanningError("resolved call-site decisions require PROVEN compatibility evidence")
             if decision.disposition is CallSiteDisposition.PRESERVE and decision.selected_callee_hash != edge.target_hash:
                 raise PlanningError("PRESERVE must retain the exact existing callee hash")
+            if (decision.disposition is CallSiteDisposition.PRESERVE
+                    and decision.selected_callee_contract_hash != edge.provided_contract_hash):
+                raise PlanningError("PRESERVE must retain the exact existing callee-provided contract hash")
             if decision.disposition is CallSiteDisposition.MIGRATE and decision.selected_callee_hash == edge.target_hash:
                 raise PlanningError("MIGRATE must select a different exact callee hash")
             if decision.disposition in {CallSiteDisposition.MIGRATE, CallSiteDisposition.ADAPT,
@@ -415,7 +433,9 @@ def plan_impact(
         "call_site_decisions": [
             (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
              d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
-             d.rationale, d.decision_evidence_id)
+             d.rationale, d.decision_evidence_id, d.required_contract_hash,
+             d.base_callee_contract_hash, d.selected_callee_contract_hash,
+             d.compatibility_status)
             for d in sorted(normalized_decisions)
         ],
     }
