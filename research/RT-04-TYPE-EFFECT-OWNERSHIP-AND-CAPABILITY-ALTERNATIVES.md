@@ -337,3 +337,8 @@ Remaining exit criteria:
 8. Revisit RT-24 identity only after hash-bearing semantic distinctions and scenario outcomes are understood.
 
 RT-04 is complete for comparative-survey scope only after alternatives/questions are independently reviewed. It is not a selected architecture until executable scenarios, RT-03 reconciliation, and downstream identity/proof/runtime checks support that decision.
+
+
+## Cross-profile trace evidence
+
+See [RT-03 A/D × RT-04 A/B shared observable-trace cross-check](RT-04-RT-03-CROSS-PROFILE-TRACES.md), [RT-03 core semantics](CORE-LANGUAGE-SEMANTICS.md), and [executable scenario matrix](RT-04-PROTOTYPE-01-SCENARIOS.md). These documents should be reviewed together; the trace oracle is exploratory and does not select an architecture.
