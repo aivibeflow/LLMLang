@@ -269,7 +269,7 @@ theorem factorDifference_correct
         Value.boolValue (decide (asBool (queryEnv (factor ++ "_L") .bool) ≠
           asBool (queryEnv (factor ++ "_R") .bool)))
       exact congrArg Value.boolValue
-        (decide_ne_eq_not_decide_eq _ _)
+        (decide_ne_eq_not_decide_eq _ _).symm
 
 /--
 The observation-difference formula denotes precisely inequality of the two
@@ -330,7 +330,7 @@ theorem observationDifference_correct
           asBool (evalExpr e (sideEnvironment queryEnv .right factor))))
       rw [hleft, hright]
       exact congrArg Value.boolValue
-        (decide_ne_eq_not_decide_eq _ _)
+        (decide_ne_eq_not_decide_eq _ _).symm
 
 /--
 The two assumptions of the expression-level relational query are sound:
