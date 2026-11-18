@@ -237,7 +237,7 @@ class ImpactPlanningTests(unittest.TestCase):
             "caller-A", "call:tax", "direct", "callee-v1",
             CallSiteDisposition.MIGRATE, "callee-v2", "caller-A-v2",
             "caller contract requires new semantics", "compat-audit-001",
-            "req-contract-v1", "provided-contract-v1", "provided-contract-v2", "PROVEN",
+            "req-contract-v1", "PROVEN",
         )
         plan = plan_impact("base", "candidate", "policy", [artifact], [audit],
                            call_site_decisions=[decision])
@@ -264,11 +264,11 @@ class ImpactPlanningTests(unittest.TestCase):
             CallSiteDecision("consumer-old", "call:shared", "direct", "shared-caller-v1",
                 CallSiteDisposition.PRESERVE, "shared-caller-v1", "consumer-old",
                 "consumer contract requires legacy behavior", "compat-old",
-                "req-old", "provided-old", "provided-old", "PROVEN"),
+                "req-old", "PROVEN"),
             CallSiteDecision("consumer-new", "call:shared", "direct", "shared-caller-v1",
                 CallSiteDisposition.MIGRATE, "shared-caller-v2", "consumer-new-v2",
                 "consumer contract accepts new behavior", "compat-new",
-                "req-new", "provided-old", "provided-new", "PROVEN"),
+                "req-new", "PROVEN"),
         ]
         plan = plan_impact("base", "candidate", "policy", [artifact], [audit],
                            call_site_decisions=decisions)
@@ -293,7 +293,7 @@ class ImpactPlanningTests(unittest.TestCase):
         artifact = ImpactedArtifact("callee-v1", "implementation", "changed")
         wrong = CallSiteDecision("caller", "site", "target", "other-callee",
             CallSiteDisposition.PRESERVE, "other-callee", "caller", "preserve", "evidence",
-            "req-contract", "provided-contract", "provided-contract", "PROVEN")
+            "req-contract", "PROVEN")
         with self.assertRaises(PlanningError):
             plan_impact("base", "candidate", "policy", [artifact], [audit],
                         call_site_decisions=[wrong])
@@ -323,7 +323,7 @@ class ImpactPlanningTests(unittest.TestCase):
         wrong_requirement = CallSiteDecision(
             "caller", "site", "target", "callee-v1", CallSiteDisposition.MIGRATE,
             "callee-v2", "caller-v2", "migrate", "evidence",
-            "required-v2", "provided-v1", "provided-v2", "PROVEN")
+            "required-v2", "PROVEN")
         with self.assertRaises(PlanningError):
             plan_impact("base", "candidate", "policy", [artifact], [audit],
                         call_site_decisions=[wrong_requirement])
@@ -331,15 +331,15 @@ class ImpactPlanningTests(unittest.TestCase):
         unproven = CallSiteDecision(
             "caller", "site", "target", "callee-v1", CallSiteDisposition.MIGRATE,
             "callee-v2", "caller-v2", "migrate", "evidence",
-            "required-v1", "provided-v1", "provided-v2", "UNKNOWN")
+            "required-v1", "UNKNOWN")
         with self.assertRaises(PlanningError):
             plan_impact("base", "candidate", "policy", [artifact], [audit],
                         call_site_decisions=[unproven])
 
         preserve_changed_contract = CallSiteDecision(
             "caller", "site", "target", "callee-v1", CallSiteDisposition.PRESERVE,
-            "callee-v1", "caller", "preserve", "evidence",
-            "required-v1", "provided-v1", "provided-v2", "PROVEN")
+            "callee-v2", "caller", "preserve", "evidence",
+            "required-v1", "PROVEN")
         with self.assertRaises(PlanningError):
             plan_impact("base", "candidate", "policy", [artifact], [audit],
                         call_site_decisions=[preserve_changed_contract])
@@ -383,14 +383,14 @@ class ImpactPlanningTests(unittest.TestCase):
                 caller_hash, "call:tax", "direct", old_callee,
                 CallSiteDisposition.PRESERVE, old_callee, caller_hash,
                 "legacy consumer keeps exact callee", "evidence:legacy",
-                "required-contract", "provided-old", "provided-old", "PROVEN",
+                "required-contract", "PROVEN",
                 None, "legacy-path", "shared-legacy", None,
             ),
             CallSiteDecision(
                 caller_hash, "call:tax", "direct", old_callee,
                 CallSiteDisposition.MIGRATE, None, None,
                 "modern consumer receives new callee and caller fork", "evidence:modern",
-                "required-contract", "provided-old", "provided-new", "PROVEN",
+                "required-contract", "PROVEN",
                 None, "modern-path", "shared-modern", "callee-v2",
             ),
         )
