@@ -140,3 +140,18 @@ A third model, [`rt03_path_model.py`](PROTOTYPES/RT-04-01/rt03_path_model.py), i
 
 This is an independently structured control-path cross-check, not a proof of source-level branch completeness. It does not extract a CFG from source, model expression values or effect outcomes, establish path feasibility for symbolic predicates, or cover arbitrary cleanup code, aliases, transfer/return, async work, or concurrency. It also shares the written bounded expression vocabulary, so a vocabulary-level omission can affect all three models.
 
+## 9. Independent resource outcome algebra
+
+A fourth model, [`rt03_resource_rules.py`](PROTOTYPES/RT-04-01/rt03_resource_rules.py), derives the exact resource lifecycle outcome from an outer-to-inner sequence of acquired scope frames and one body outcome. It imports neither evaluator nor the structural path enumerator. Unlike the path model, it computes complete resource acquire/release events, result envelopes, cancellation cleanup aggregation, and the final resource map.
+
+The rules make the current fixture behavior explicit:
+- A successful release removes the resource and preserves the body outcome.
+- A failed release after normal completion creates a `CleanupFailed` Result error.
+- A failed release after a Result error retains that error as `primary`; a subsequent outer cleanup failure wraps the prior cleanup error as the next `primary`.
+- A failed release during cancellation does not convert cancellation into a Result error. It appends a cleanup error in LIFO unwind order; resources whose release failed remain active.
+- An acquisition failure skips the failed scope's body and all inner scopes. Previously acquired outer scopes still unwind around the acquisition error.
+
+`test_rt03_resource_rules.py` compares exact event payloads/outcomes, final result envelopes, and final resource maps against both evaluators. It also compares resource-event/status and active-resource projections with the independent path model. The finite generated matrix contains 162 cases: depths one through three, all release success/failure combinations, normal/Result-error/cancellation body outcomes, and every possible acquisition-failure position.
+
+This is a separately derived executable rule model for the bounded fixture protocol, not a formal proof or a selected ownership model. It does not define borrow lifetimes, aliases, transfer/return, arbitrary destructors, exception unwinding, asynchronous cancellation, or concurrent cleanup. Those require additional semantics and evidence.
+
