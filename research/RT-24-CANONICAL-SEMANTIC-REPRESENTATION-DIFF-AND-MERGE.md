@@ -25,7 +25,7 @@ The unit of correctness is the complete repository semantic state, not an indivi
 
 **In scope:** repository representation properties; identity boundaries; typed semantic diff; three-way merge; conflict results and provenance; deterministic replay; separate mapping-revision merge; integration with RT-20 and RT-23.
 
-**Out of scope:** final syntax/SPG schema/canonical bytes/hash algorithm (RT-05 and SPG research own these); full language equivalence proofs; automatic LLM conflict resolution; production MCP schemas; Git object IDs as semantic identities; external databases as the only durable source of program meaning.
+**Out of scope:** final syntax/SPG schema/canonical bytes/hash algorithm (identity Studies 05–08 and SPG research own these); full language equivalence proofs; automatic LLM conflict resolution; production MCP schemas; Git object IDs as semantic identities; external databases as the only durable source of program meaning.
 
 ## 3. Terminology and state model
 
@@ -307,7 +307,7 @@ Passing these tests validates only the tested subset and invariants, not all LLM
 
 | Step | Deliverable | Gate |
 |---|---|---|
-| 0 | Resolve RT-05/SPG identity and schema assumptions | Prototype fields and unresolved assumptions are explicit |
+| 0 | Reconcile identity Studies 05–08 with RT-03/SPG assumptions | Prototype fields and unresolved identity/schema assumptions are explicit; no unsupported identity choice is made |
 | 1 | Minimal canonical text representation and importer/exporter | Round-trip, determinism, physical-independence, fail-closed tests pass |
 | 2 | Semantic diff | Typed per-edge changes, exact input binding, deterministic results |
 | 3 | Pure three-way merge core | Conflict matrix and graph validation pass on declared subset |
