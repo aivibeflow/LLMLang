@@ -7,23 +7,16 @@ existing experimental ContentStore; this is not a normative SPG wire schema.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from enum import Enum
 from hashlib import sha256
 from typing import Any, Iterable, Mapping
 
+from .impact_planning import CompletenessStatus
 from .semantic_graph import ContentStore, Dependency, Snapshot, canonical_bytes
 
 
 FORMAT = "llmlang.semantic-object"
 SCHEMA_VERSION = 1
 EXTRACTOR_ID = "semantic-dependency-extractor/1"
-
-
-class CompletenessStatus(str, Enum):
-    GAP_FOUND = "GAP_FOUND"
-    SUPPORTED_WITHIN_SCOPE = "SUPPORTED_WITHIN_SCOPE"
-    UNKNOWN = "UNKNOWN"
-    NOT_CHECKED = "NOT_CHECKED"
 
 
 KINDS = {"function", "operation", "type", "contract", "implementation", "effect"}
@@ -125,6 +118,8 @@ class SnapshotIncomingResult:
     scope: str
     edges: tuple[IndexedEdge, ...]
     edge_set_digest: str
+    index_schema_version: int
+    extractor_id: str
     completeness_status: CompletenessStatus
     reason: str
     evidence_id: str | None = None
@@ -178,7 +173,7 @@ def query_snapshot_incoming(
             )
     return SnapshotIncomingResult(
         snapshot.root_hash, target_hash, scope, edges, edge_digest,
-        status, reason, evidence_id, discrepancies,
+        index.schema_version, EXTRACTOR_ID, status, reason, evidence_id, discrepancies,
     )
 
 

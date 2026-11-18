@@ -156,6 +156,8 @@ The server, not the LLM, must query and audit the reverse-reference index. The r
 
 The reverse-query result has an explicit completeness status: `GAP_FOUND`, `SUPPORTED_WITHIN_SCOPE`, `UNKNOWN`, or `NOT_CHECKED`. A no-caller result is not evidence that no callers exist. Missing evidence is `NOT_CHECKED`; stale or mismatched evidence is `UNKNOWN`. Only matching independent evidence may support a `SUPPORTED_WITHIN_SCOPE` conclusion, and that conclusion is limited to its declared scope, observation model, assumptions, and exclusions. It is not a global completeness proof.
 
+The reverse-query result must be adapted into the CIP through the shared completeness-status type; the adapter must preserve the exact Snapshot root, target hash, scope, evidence ID, index schema version, extractor identity, and edge-set digest. The CIP validator must compare the bound Snapshot root to its pinned baseline and the target hash to the affected artifact. Missing evidence is `NOT_CHECKED`; a mismatched binding is `UNKNOWN`. Both block optimized planning and require human review plus full revalidation. Every binding field is part of the immutable plan identity, so replacing evidence, changing the extractor/schema, or changing the discovered edge set necessarily produces a different plan. A compatibility path for legacy unbound audits may exist for isolated tests, but it must never be used for CIP approval.
+
 If dependency completeness cannot be established for the relevant scope—for example because of dynamic dispatch, unresolved external references, reflection, generated code, or an incomplete index—the plan must mark the affected region unknown and fail closed or require an explicit, policy-authorized boundary.
 
 ### Stage 4 — Analyze caller compatibility per edge

@@ -53,6 +53,12 @@ class CompletenessAudit:
     scope: str
     evidence_method: str | None
     reason: str
+    snapshot_root: str | None = None
+    target_hash: str | None = None
+    evidence_id: str | None = None
+    edge_set_digest: str | None = None
+    index_schema_version: int | None = None
+    extractor_id: str | None = None
 
 
 @dataclass(frozen=True)
@@ -88,6 +94,7 @@ class ImpactPlan:
     policy_id: str
     actions: tuple[PlannedAction, ...]
     audit_statuses: tuple[tuple[str, str], ...]
+    audit_bindings: tuple[tuple[str, str, str, str, int, str, str, str], ...] = ()
 
 
 def dependency_digest(dependencies: Iterable[str]) -> str:
@@ -136,6 +143,47 @@ def audit_dependency_completeness(
         CompletenessStatus.SUPPORTED_WITHIN_SCOPE, (), artifact_hash, scope,
         evidence.method,
         "no discrepancy observed within the evidence's stated scope; this is not a global completeness proof",
+    )
+
+
+def audit_snapshot_incoming(result: object) -> CompletenessAudit:
+    """Adapt a SnapshotIncomingResult without discarding its exact query bindings.
+
+    This adapter validates the shape and status mapping only. It does not
+    authenticate external evidence or prove the observation model sound.
+    """
+    required = (
+        "snapshot_root", "target_hash", "scope", "edge_set_digest",
+        "index_schema_version", "extractor_id", "completeness_status",
+        "reason", "evidence_id", "discrepancies",
+    )
+    if any(not hasattr(result, name) for name in required):
+        raise PlanningError("snapshot incoming result is missing required bindings")
+    try:
+        status = CompletenessStatus(result.completeness_status.value)
+    except (AttributeError, ValueError) as exc:
+        raise PlanningError("snapshot incoming result has an invalid completeness status") from exc
+    if not all(isinstance(getattr(result, name), str) and getattr(result, name)
+               for name in ("snapshot_root", "target_hash", "scope", "edge_set_digest", "extractor_id")):
+        raise PlanningError("snapshot incoming result identities, extractor, and edge digest are required")
+    if not isinstance(result.index_schema_version, int) or result.index_schema_version < 1:
+        raise PlanningError("snapshot incoming result index schema version must be positive")
+    discrepancies = tuple(result.discrepancies)
+    if status is CompletenessStatus.GAP_FOUND and not discrepancies:
+        raise PlanningError("GAP_FOUND snapshot result must identify discrepancies")
+    return CompletenessAudit(
+        status=status,
+        missing_dependencies=discrepancies,
+        artifact_hash=result.target_hash,
+        scope=result.scope,
+        evidence_method="snapshot-reverse-lookup",
+        reason=result.reason,
+        snapshot_root=result.snapshot_root,
+        target_hash=result.target_hash,
+        evidence_id=result.evidence_id,
+        edge_set_digest=result.edge_set_digest,
+        index_schema_version=result.index_schema_version,
+        extractor_id=result.extractor_id,
     )
 
 
@@ -188,6 +236,7 @@ def plan_impact(
     policy_id: str,
     impacted_artifacts: Iterable[ImpactedArtifact],
     audits: Iterable[CompletenessAudit],
+    require_snapshot_evidence: bool = True,
 ) -> ImpactPlan:
     if not baseline_root or not candidate_root or not policy_id:
         raise PlanningError("baseline, candidate, and policy identities are required")
@@ -200,9 +249,27 @@ def plan_impact(
     actions: set[PlannedAction] = set()
     statuses: list[tuple[str, str]] = []
     unsafe: list[str] = []
+    audit_bindings: list[tuple[str, str, str, str, int, str, str, str]] = []
     for artifact in artifacts:
         audit = audit_map.get(artifact.artifact_hash)
         status = audit.status if audit else CompletenessStatus.NOT_CHECKED
+        if audit is not None:
+            if audit.snapshot_root is None:
+                if require_snapshot_evidence:
+                    status = CompletenessStatus.NOT_CHECKED
+            elif (audit.snapshot_root != baseline_root
+                  or audit.target_hash != artifact.artifact_hash
+                  or not audit.scope or not audit.edge_set_digest
+                  or not audit.index_schema_version or audit.index_schema_version < 1
+                  or not audit.extractor_id
+                  or (status is not CompletenessStatus.NOT_CHECKED and not audit.evidence_id)):
+                status = CompletenessStatus.UNKNOWN
+            else:
+                audit_bindings.append((
+                    artifact.artifact_hash, audit.snapshot_root, audit.target_hash,
+                    audit.scope, audit.index_schema_version, audit.extractor_id,
+                    audit.evidence_id or "", audit.edge_set_digest,
+                ))
         statuses.append((artifact.artifact_hash, status.value))
         actions.update(_actions_for(artifact))
         if status is not CompletenessStatus.SUPPORTED_WITHIN_SCOPE:
@@ -230,9 +297,10 @@ def plan_impact(
             for a in ordered
         ],
         "audits": sorted(statuses),
+        "audit_bindings": sorted(audit_bindings),
     }
     plan_id = hashlib.sha256(json.dumps(
         plan_payload, sort_keys=True, separators=(",", ":")
     ).encode("utf-8")).hexdigest()
     return ImpactPlan(plan_id, baseline_root, candidate_root, policy_id,
-                      ordered, tuple(sorted(statuses)))
+                      ordered, tuple(sorted(statuses)), tuple(sorted(audit_bindings)))
