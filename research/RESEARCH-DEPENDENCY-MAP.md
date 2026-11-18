@@ -232,3 +232,20 @@ For each new or revised edge:
 - Revisit edges whenever a foundational vector changes or a new research result contradicts an assumption.
 
 Do not turn a strong hypothesis into a hard compatibility constraint without evidence. Do not silently discard an option because it complicates another topic; record the interaction and assess complete specifications during synthesis.
+
+
+## 8. Self-development and bootstrap dependencies (RT-21)
+
+RT-21 is a staged capability goal, not a prerequisite to completing the language design and not synonymous with compiler self-hosting. The first useful milestone depends on a bounded semantic slice and an independently testable bootstrap implementation.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-060 | RT-03 → RT-21 | Requires | A LLMLang-authored tool needs a stable executable semantic subset; the subset must define values, control flow, functions, errors, and observable effects used by that tool. | Strong hypothesis |
+| DEP-061 | RT-05 → RT-21 | Requires | Reproducible tool representation, semantic editing, and dependency analysis require canonical graph/IR objects and explicit identity boundaries. | Strong hypothesis |
+| DEP-062 | RT-09 → RT-21 | Requires | A bootstrap compiler and typed intermediate representation are needed to build LLMLang tools deterministically. | Strong hypothesis |
+| DEP-063 | RT-10 → RT-21 | Requires | A minimal runtime and explicit platform capability boundary are needed for tools that inspect and validate repository state. | Strong hypothesis |
+| DEP-064 | RT-11 → RT-21 | Enables | Reproducible build/test orchestration and dependency-aware invalidation make LLMLang tools maintainable in the project's own CI loop. | Strong hypothesis |
+| DEP-065 | RT-19 → RT-21 | Enables | The semantic development API allows LLM/IDE/CLI clients to inspect and change LLMLang tools through structured workspaces and change sets. | Strong hypothesis |
+| DEP-066 | RT-20 → RT-21 | Constrains | Safe self-development requires complete impact planning, caller/hash propagation, and validation gates for the supported semantic subset; incomplete analysis must fail closed. | Strong hypothesis |
+
+The first self-development milestone does not require compiler self-hosting. A small host-language bootstrap layer may remain responsible for trusted low-level compilation/runtime/platform primitives while higher-level validators, analyzers, and build logic migrate to LLMLang. This boundary is a recommendation to evaluate, not an accepted architecture.
