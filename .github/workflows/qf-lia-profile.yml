@@ -1,6 +1,7 @@
 name: Strict QF_LIA query profile
 
 on:
+  workflow_call:
   push:
     paths:
       - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/**"

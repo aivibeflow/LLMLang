@@ -1,6 +1,7 @@
 name: Package identity prototype
 
 on:
+  workflow_call:
   push:
     paths:
       - "research/PROTOTYPES/PACKAGE-IDENTITY-01/**"

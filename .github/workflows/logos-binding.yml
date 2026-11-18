@@ -1,6 +1,7 @@
 name: Logos CPC parser-state binding
 
 on:
+  workflow_call:
   push:
     branches: [main]
     paths:
@@ -13,7 +14,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: logos-binding-${{ github.ref }}
+  group: ${{ github.workflow }}-logos-binding-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

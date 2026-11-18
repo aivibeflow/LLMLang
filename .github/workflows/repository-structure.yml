@@ -1,6 +1,7 @@
 name: Repository structure
 
 on:
+  workflow_call:
   push:
     branches: [main]
   pull_request:

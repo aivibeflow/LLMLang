@@ -1,6 +1,7 @@
 name: Package index logical model
 
 on:
+  workflow_call:
   push:
     paths:
       - "research/PROTOTYPES/PACKAGE-INDEX-01/**"
