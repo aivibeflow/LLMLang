@@ -133,7 +133,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             self.store, baseline, candidate, self.plan(baseline, candidate)
         )
         self.assertFalse(result.valid)
-        self.assertTrue(any("not covered by any CIP action" in error
+        self.assertTrue(any("no exact CIP planned output record" in error
                             for error in result.errors))
 
     def test_added_and_removed_selections_are_reported(self):
