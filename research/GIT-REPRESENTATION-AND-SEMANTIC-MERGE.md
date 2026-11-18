@@ -328,6 +328,7 @@ This document is the primary research source for repository representation and s
 
 - [ADR-014 — Git repository representation and semantic merge](../docs/adr/014-git-semantic-merge.md): records the current proposed architectural direction and rejected alternatives. Its status is **Proposed**, not Accepted.
 - [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md): specifies candidate import/export laws, semantic diff classes, deterministic base/ours/theirs merge, conflict results, mapping revision separation, RT-20 CIP integration, and prototype gates.
+- [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md): reconciles the candidate merge contract with identity Studies 05–08, RT-03, the semantic dependency index, package identity, and the current executable subset. It explicitly leaves Stable Entity ID versus content-addressed identity unresolved.
 - [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md): owns impact planning, per-call-site migrate/preserve/adapt decisions, caller versioning, hash propagation, validation/audit gates, and verified completion.
 - [RT-22 — LLMLang Git Repository and Worktree MCP Surface](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md): owns the external repository/worktree operation contract, Git coordination, commit preparation, and recovery guarantees.
 - [RT-23 — Single-Instance Toolchain with Shared Semantic State and Incremental Multi-Worktree File Views](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md): owns the single-server runtime, shared immutable semantic state, versioned interface mappings, per-worktree file views, and synchronized semantic/filesystem commit protocol.
@@ -345,7 +346,7 @@ This document is the primary research source for repository representation and s
 
 - RT-24 owns the candidate technical contract for canonical import/export, semantic diff, three-way merge, conflict results, determinism, and its prototype/test gates. Its unresolved schema and identity assumptions remain owned by RT-05 and SPG research.
 
-**Required study set:** read this document, RT-24, ADR-014, RT-20, RT-22, and RT-23 together. Include RT-19 and the AIVibeFlow integration spec when changing Toolchain API or orchestration boundaries.
+**Required study set:** read this document, RT-24, RT-24 Identity and SPG Reconciliation, ADR-014, RT-20, RT-22, and RT-23 together. For identity/schema assumptions, also read Studies 05–08, RT-03, and Semantic Dependency Index research. No standalone RT-05 specification currently exists. Include RT-19 and the AIVibeFlow integration spec when changing Toolchain API or orchestration boundaries.
 
 ## References
 
