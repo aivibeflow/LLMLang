@@ -136,7 +136,8 @@ class DependencyClosureTests(unittest.TestCase):
         })
         with self.assertRaisesRegex(ClosureError, "unsupported dependency kind"):
             resolve_dependency_closure([H(1)], snapshot)
-\n    def test_roots_must_exist(self):
+
+    def test_roots_must_exist(self):
         with self.assertRaisesRegex(ClosureError, "missing exact dependency object"):
             resolve_dependency_closure([H(99)], make_snapshot())
 
