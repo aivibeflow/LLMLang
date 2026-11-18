@@ -158,13 +158,20 @@ root:
 
     python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_*.py' -v
 
-The explicit `result_sequence` form now propagates the first Result error and skips later expressions; ordinary `sequence` remains strict and unchanged. It rejects non-Result items and returns the final success value when every item succeeds. This is explicit propagation only; it doeThe explicit `result_sequence` form evaluates a non-empty list of Result-shaped expressions left-to-right. It returns the first error unchanged and skips later expressions; if every item succeeds, it returns the final success value. Non-Result items fail closed. This is deliberately explicit: ordinary `sequence` continues to evaluate every item and returns its last value, even when an earlier item produced an error-shaped Result value.
+### Explicit Result propagation
 
-The differential tests compare both evaluators on first-error propagation, skipped effects, all-success behavior, malformed inputs, and preservation of ordinary sequence behavior. This does not define implicit propagation from calls, exceptions, error conversion, execution cancellation, or cleanup.
+The opt-in `result_sequence` form evaluates a non-empty list of Result-shaped expressions left-to-right. It returns the first error unchanged and skips later expressions; if every item succeeds, it returns the final success value. Non-Result items fail closed. This is explicit propagation only: ordinary `sequence` remains strict and continues evaluating after an error-shaped Result value.
+
+### Execution cancellation
+
+The `cancel` expression produces a terminal execution outcome `{"cancelled": reason}`, distinct from both ordinary values and `{"error": reason}` Result values. Cancellation discards pending expression continuations, so no later sequence or Result-sequence item executes. Effects completed before cancellation remain visible in the trace and fixture state; this slice does not roll them back.
+
+Both evaluators are differentially checked for cancellation nested inside pending continuations, skipped later effects, preservation of prior effects, and distinction from a Result error with the same reason payload. This is a synchronous terminal-control experiment only. It does not define cancellation propagation across function calls, asynchronous tasks, concurrent work, exception handling, resource finalization, or cleanup guarantees.
 
 This is a bounded executable semantics experiment, not a selected language semantics. It does not implement parsing, variables/functions/recursion, general effect handlers or row inference, resource lifecycle, concurrency, divergence, or source-to-expression completeness. The deterministic handlers use in-memory fixtures and do not access the host filesystem or network.
 
-See [RT-03/RT-04 cross-profile trace findings](../../RT-04-RT-03-CROSS-PROFILE-TRACES.md) and the [reference-slice tests](test_rt03_reference.py).
+See [RT-03/RT-04 cross-profile trace findings](../../RT--04-RT-03-CROSS-PROFILE-TRACES.md) and the [reference-slice tests](test_rt03_reference.py).
+
 
 ## Differential cross-check with a second RT-03 evaluator
 
