@@ -56,3 +56,12 @@ The model demonstrates candidate checker obligations, not that Profile B is cohe
 3. Add resource transfer/return and cleanup outcomes, then compare explicit path-state propagation with an independent reference implementation.
 4. Define the trusted issuer/root-grant model and test revocation consistency across concurrent operations before considering runtime authorization.
 5. Extend the type experiment with declared ADT constructors and explicit error propagation only after RT-03 observable semantics are defined.
+
+
+## 7. RT-03 A/D × RT-04 A/B cross-profile trace check
+
+A companion finite trace-oracle experiment now covers four shared fixtures: pure return, declared filesystem read, ordered repeated writes, and an undeclared network effect. It is documented in [RT-03/RT-04 Cross-Profile Traces](RT-04-RT-03-CROSS-PROFILE-TRACES.md) and implemented by `test_rt03_rt04_cross_profile.py`.
+
+The combined prototype suite now contains 56 tests (the original 52 plus four cross-profile tests). GitHub Actions run [44321514801](https://github.com/aivibeflow/LLMLang/actions/runs/44321514801) completed successfully on PR head `1dd72ee542e96e49eac236db202f8eba611bbbb3`; the RT-04 test-discovery step and repository-structure checks passed. The PR documentation cross-link was merged as [PR #18](https://github.com/aivibeflow/LLMLang/pull/18).
+
+The cross-check is a small hand-authored observation oracle, not a second independent complete reference semantics. It demonstrates that RT-04's set-like effect summaries discard trace order/payload and that Profile B's open-row annotation does not yet implement row unification or handler coverage. RT-03 remains open; no architecture is selected.
