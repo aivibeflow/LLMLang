@@ -88,6 +88,6 @@ This prototype is not a canonical SPG schema, production Toolchain implementatio
 
 ## Follow-up: CIP v2 output and edge reconciliation
 
-The next slice is implemented and merged in PR #24, documented in [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md). CIP schema v2 adds exact logical output slots, typed-reference/call-target edge deltas (including required Contract hashes), post-materialization output bindings, and consumer-path-specific shared-caller forks. On the PR head, the semantic-dependency suite passed 101 tests, repository structure passed 6 + 78 tests, and strict QF_LIA passed 30 tests plus compilation.
+The next slice is implemented and merged in PR #24, documented in [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md). CIP schema v2 adds exact logical output slots, typed-reference/call-target edge deltas (including required Contract hashes), post-materialization output bindings, and consumer-path-specific shared-caller forks. Post-merge workflows on merge commit `cf51c15a34cee14a8b0390322be0a15d9ee85559` passed: semantic dependency 101 tests + compilation, repository structure 6 + 78 tests, and strict QF_LIA 30 tests + compileall.
 
 This closes the previous fail-closed gap for the supported explicit output and edge operations. It does not close dynamic dependency completeness, evidence authentication, full action-kind/prerequisite realization, behavioral compatibility, or commit authorization.
