@@ -107,7 +107,7 @@ ordering, payloads, handler outcomes, or final state.
 
 ## RT-03 independent path-model scenarios
 
-A separate structural model enumerates control paths without running either evaluator. A non-literal condition represents an unknown boolean and forks into both branches; a literal boolean selects one branch. Cancellation during condition evaluation selects neither branch. The model tracks resource acquire/release order and failed-cleanup leftovers.
+A separate structural model enumerates control paths without running either evaluator. An explicit `unknown_bool` analysis marker represents an unknown boolean and forks into both branches; a literal boolean selects one branch. A literal non-boolean condition is rejected rather than silently treated as unknown. Cancellation during condition evaluation selects neither branch. The model tracks resource acquire/release order and failed-cleanup leftovers.
 
 | ID | Case | Expected path-model behavior |
 |---|---|---|

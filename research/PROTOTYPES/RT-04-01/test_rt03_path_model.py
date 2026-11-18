@@ -143,9 +143,7 @@ class RT03IndependentPathModelTests(unittest.TestCase):
         expression = {"with_resource": {
             "id": "outer", "value": "handle",
             "body": {"if": {
-                "condition": {"perform": {
-                    "effect": "abstract.bool", "operation": "read", "payload": {},
-                }},
+                "condition": {"unknown_bool": "first-condition"},
                 "then": {"result_error": {"literal": "then-error"}},
                 "else": {"cancel": "else-cancel"},
             }},
@@ -162,9 +160,9 @@ class RT03IndependentPathModelTests(unittest.TestCase):
 
     def test_nested_conditionals_enumerate_cartesian_path_set(self):
         expression = {"if": {
-            "condition": {"perform": {"effect": "abstract.bool", "operation": "read", "payload": {}}},
+            "condition": {"unknown_bool": "outer-condition"},
             "then": {"if": {
-                "condition": {"perform": {"effect": "abstract.bool", "operation": "read", "payload": {}}},
+                "condition": {"unknown_bool": "inner-condition"},
                 "then": {"literal": "tt"},
                 "else": {"literal": "tf"},
             }},
@@ -209,6 +207,39 @@ class RT03IndependentPathModelTests(unittest.TestCase):
         self.assertEqual(paths[0].resource_events, (
             ("acquire", "outer", True), ("release", "outer", True),
         ))
+
+    def test_literal_non_boolean_condition_is_rejected_by_path_model(self):
+        expression = {"if": {
+            "condition": {"literal": 7},
+            "then": {"literal": "then"},
+            "else": {"literal": "else"},
+        }}
+        with self.assertRaisesRegex(ValueError, "condition must be boolean"):
+            enumerate_paths(expression)
+
+    def test_cancellation_inside_add_operand_unwinds_enclosing_resource(self):
+        expression = {"with_resource": {
+            "id": "outer", "value": "handle",
+            "body": {"add": [
+                {"literal": 1},
+                {"cancel": "cancelled-in-right-operand"},
+            ]},
+        }}
+        path = self.assert_model_matches_both_evaluators(expression)
+        self.assertEqual(path.terminal, "cancelled")
+        self.assertEqual(path.resource_events, (
+            ("acquire", "outer", True), ("release", "outer", True),
+        ))
+
+    def test_result_wrappers_override_inner_result_tag_but_preserve_cancellation(self):
+        ok_wrapped_error = {"result_ok": {"result_error": {"literal": "inner"}}}
+        error_wrapped_ok = {"result_error": {"result_ok": {"literal": "inner"}}}
+        cancelled = {"result_ok": {"cancel": "stop"}}
+        self.assertEqual(enumerate_paths(ok_wrapped_error)[0].result_tag, "ok")
+        self.assertEqual(enumerate_paths(error_wrapped_ok)[0].result_tag, "error")
+        cancelled_path = enumerate_paths(cancelled)[0]
+        self.assertEqual(cancelled_path.terminal, "cancelled")
+        self.assertIsNone(cancelled_path.result_tag)
 
     def test_result_error_does_not_short_circuit_ordinary_sequence(self):
         expression = {"sequence": [

@@ -47,18 +47,32 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
             raise ValueError(f"invalid expression at {path}")
         op, arg = next(iter(node.items()))
 
-        if op in {"literal", "add", "perform"}:
+        if op in {"literal", "perform", "unknown_bool"}:
             return [_State(state.active, state.choices, state.events,
                             state.terminal, None, state.cleanup_errors, state.leaked)]
+        if op == "add":
+            if not isinstance(arg, list) or len(arg) != 2:
+                raise ValueError(f"invalid add at {path}")
+            states = walk(arg[0], state, f"{path}.add[0]")
+            states = [next_state for current in states
+                      for next_state in ([current] if current.terminal == "cancelled"
+                                         else walk(arg[1], current, f"{path}.add[1]"))]
+            return [_State(current.active, current.choices, current.events,
+                           current.terminal, None, current.cleanup_errors, current.leaked)
+                    for current in states]
         if op == "cancel":
             return [_State(state.active, state.choices, state.events,
                            "cancelled", None, state.cleanup_errors, state.leaked)]
-        if op == "result_ok":
-            return [_State(state.active, state.choices, state.events,
-                           state.terminal, "ok", state.cleanup_errors, state.leaked)]
-        if op == "result_error":
-            return [_State(state.active, state.choices, state.events,
-                           state.terminal, "error", state.cleanup_errors, state.leaked)]
+        if op in {"result_ok", "result_error"}:
+            states = walk(arg, state, f"{path}.{op}")
+            tag = "ok" if op == "result_ok" else "error"
+            return [
+                current if current.terminal == "cancelled" else _State(
+                    current.active, current.choices, current.events,
+                    current.terminal, tag, current.cleanup_errors, current.leaked,
+                )
+                for current in states
+            ]
         if op == "sequence":
             if not isinstance(arg, list) or not arg:
                 raise ValueError(f"invalid sequence at {path}")
@@ -84,11 +98,23 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
             if not isinstance(arg, dict) or set(arg) != {"condition", "then", "else"}:
                 raise ValueError(f"invalid if at {path}")
             condition = arg["condition"]
-            condition_states = walk(condition, state, f"{path}.condition")
             literal_bool = (
                 isinstance(condition, dict) and set(condition) == {"literal"}
                 and type(condition["literal"]) is bool
             )
+            abstract_bool = (
+                isinstance(condition, dict) and set(condition) == {"unknown_bool"}
+            )
+            if isinstance(condition, dict) and set(condition) == {"literal"} and not literal_bool:
+                raise ValueError(f"if condition must be boolean at {path}")
+            if not literal_bool and not abstract_bool and not (
+                isinstance(condition, dict) and set(condition) == {"cancel"}
+            ):
+                raise ValueError(
+                    f"path model requires a literal boolean, unknown_bool marker, "
+                    f"or cancellation condition at {path}"
+                )
+            condition_states = walk(condition, state, f"{path}.condition")
             outcomes: list[_State] = []
             for condition_state in condition_states:
                 if condition_state.terminal == "cancelled":
