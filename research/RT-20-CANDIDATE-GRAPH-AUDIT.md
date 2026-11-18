@@ -1,6 +1,6 @@
 # RT-20 — Candidate Snapshot dependency-closure audit
 
-**Status:** Prototype implemented; PR #16 merged; its PR-head CI checks passed.  
+**Status:** Prototype implemented; PR #17 merged; semantic-dependency (83 tests + compile), repository-structure, and strict QF_LIA checks passed on the merge commit.  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)  
 **Related gate:** [Candidate call-site validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md)
@@ -64,7 +64,7 @@ A successful result establishes structural and content-addressed consistency onl
 - behavioral or contract compatibility;
 - completeness of dynamic dispatch, function values, callbacks, reflection, generated code, runtime or external calls;
 - completeness of the declaration envelope relative to arbitrary LLMLang source;
-- correspondence between the candidate semantic diff and the approved CIP;
+- complete correspondence between every candidate semantic change and the approved CIP;
 - validity of tests, proofs, or other verification evidence;
 - authorization or readiness to create a Git commit.
 
@@ -72,15 +72,14 @@ The audit uses the same Content Store and declaration payloads as the producer. 
 
 ## Next gate
 
-The first narrow selection-level diff/CIP reconciliation slice is implemented in [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md). It derives added/removed/changed logical selections, requires exact-hash CIP action coverage, independently scans baseline-selected explicit call sites for changed callees, checks changed call targets against decisions, and reuses candidate call-site materialization validation.
+The extended selection-level diff/CIP gate is implemented in [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md). It recomputes plan identity, requires valid baseline/candidate graph audits, binds both graph and edge-set digests into the diff digest, compares typed references and call-site targets, requires exact REWRITE_CALL_SITE actions, and reuses candidate call-site materialization validation. Typed-reference and unsupported call-site edits are detected and rejected rather than authorized.
 
 Remaining work:
-1. Strengthen action reconciliation beyond exact old/new hash presence: validate action kind, prerequisites, and evidence against each change class.
-2. Reconcile all payload-derived typed reference changes, not only selection hashes and explicit call-site target changes.
-3. Define explicit CIP dispositions for added/removed call-site targets rather than treating them as permanently unsupported.
-4. Bind both baseline and candidate graph audit digests and extractor/schema identities into the diff result.
-5. Add end-to-end branching/converging and consumer-specific shared-caller fork scenarios.
-6. Prove that every planned action is realized and no unplanned mutation survives all validation gates.
+1. Strengthen action reconciliation beyond exact old/new hash presence and REWRITE_CALL_SITE: validate action kind, prerequisites, and evidence against each change class.
+2. Extend the CIP schema with exact output records for typed-reference changes and call-site target additions/removals/condition changes.
+3. Bind and validate extractor identity/version and any other schema identity needed to interpret both graph digests.
+4. Add end-to-end branching/converging and consumer-specific shared-caller fork scenarios.
+5. Prove that every planned action is realized and no unplanned mutation survives all validation gates.
 
 This still will not prove behavioral compatibility. That remains a separate contract/test/proof obligation. Shared-caller consumer-specific forks also remain unrepresented in the current plan identity and must be solved before claiming complete RT-20 support.
 
