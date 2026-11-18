@@ -16,6 +16,7 @@ from .semantic_dependency_index import (
     KINDS,
     SemanticObjectError,
     SCHEMA_VERSION,
+    _provided_contract_hash,
     validate_declaration,
 )
 from .semantic_graph import ContentStore, Dependency, Snapshot, canonical_bytes, digest, make_snapshot
@@ -177,9 +178,13 @@ def audit_candidate_snapshot_graph(
         for site in declaration["call_sites"]:
             for target_row in site["targets"]:
                 target_hash = target_row["target_hash"]
+                required_contract_hash = target_row["required_contract_hash"]
                 role = f"{site['call_site_id']}/{target_row['target_id']}"
                 expected_dependencies.append(Dependency("calls", target_hash, role))
-                discovered_targets.append(target_hash)
+                expected_dependencies.append(Dependency(
+                    "requires_contract", required_contract_hash, role + "/required-contract",
+                ))
+                discovered_targets.extend((target_hash, required_contract_hash))
                 try:
                     target = store.get(target_hash)
                     if target.kind not in {"function", "operation"}:
@@ -187,13 +192,32 @@ def audit_candidate_snapshot_graph(
                             f"{value_hash}:{role}: call target kind must be function or operation, "
                             f"found {target.kind}"
                         )
+                    provided_contract_hash = _provided_contract_hash(store, target_hash)
                     edges.append(IndexedEdge(
                         value_hash, role, "calls", target_hash,
-                        target.kind, target_row["condition"],
+                        target.kind, target_row["condition"], required_contract_hash,
+                        provided_contract_hash,
+                    ))
+                    edges.append(IndexedEdge(
+                        value_hash, role + "/required-contract", "requires_contract",
+                        required_contract_hash, "contract",
                     ))
                 except KeyError:
                     errors.append(
-                        f"{value_hash}:{role}: missing call target object {target_hash}"
+                        f"{value_hash}:{role}: missing call target object or contract {target_hash}"
+                    )
+                except SemanticObjectError as exc:
+                    errors.append(f"{value_hash}:{role}: invalid provided contract: {exc}")
+                try:
+                    required_contract = store.get(required_contract_hash)
+                    if required_contract.kind != "contract":
+                        errors.append(
+                            f"{value_hash}:{role}: required contract target kind must be contract, "
+                            f"found {required_contract.kind}"
+                        )
+                except KeyError:
+                    errors.append(
+                        f"{value_hash}:{role}: missing required contract {required_contract_hash}"
                     )
 
         expected_counts = Counter(expected_dependencies)
