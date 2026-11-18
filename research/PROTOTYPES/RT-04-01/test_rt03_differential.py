@@ -118,6 +118,24 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
         ])
         self.assertEqual(trace.final_resources, {})
 
+    def test_nested_release_failures_are_reported_in_unwind_order(self):
+        expression = {"with_resource": {
+            "id": "outer", "value": 1, "release_fails": True,
+            "body": {"with_resource": {
+                "id": "inner", "value": 2, "release_fails": True,
+                "body": {"cancel": {"kind": "Stop"}},
+            }},
+        }}
+        trace = self.assert_same_trace(expression, "D")
+        self.assertEqual(trace.result, {"cancelled": {
+            "reason": {"kind": "Stop"},
+            "cleanup_errors": [
+                {"kind": "ReleaseFailed", "resource": "inner"},
+                {"kind": "ReleaseFailed", "resource": "outer"},
+            ],
+        }})
+        self.assertEqual(trace.final_resources, {"outer": 1, "inner": 2})
+
     def test_release_failure_is_reported_and_resource_remains_active(self):
         expression = {"with_resource": {
             "id": "socket-1", "value": "handle", "release_fails": True,
