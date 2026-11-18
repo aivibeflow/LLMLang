@@ -1,0 +1,26 @@
+name: Semantic dependency extractor prototype
+
+on:
+  push:
+    paths:
+      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/**"
+      - ".github/workflows/semantic-dependency-index.yml"
+  pull_request:
+    paths:
+      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/**"
+      - ".github/workflows/semantic-dependency-index.yml"
+
+jobs:
+  semantic-dependency-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run semantic dependency extractor tests
+        working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01
+        run: python -m unittest -v tests.test_semantic_dependency_index tests.test_semantic_graph
+      - name: Compile semantic dependency extractor
+        working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01
+        run: python -m py_compile src/semantic_dependency_index.py src/semantic_graph.py tests/test_semantic_dependency_index.py tests/test_semantic_graph.py

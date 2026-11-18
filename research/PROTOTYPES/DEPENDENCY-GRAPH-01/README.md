@@ -230,3 +230,21 @@ lake exe testParserBinding
 ```
 
 A GitHub Actions workflow runs these commands for relevant pushes and pull requests. The pinned Lean build is validated by CI, not by a local build. The current version-2 change is awaiting its Lean CI result. See [Research Scenario 33](../../RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md).
+
+## Typed semantic dependency extractor (candidate SPG subset)
+
+`src/semantic_dependency_index.py` defines a strict, version-1 experimental declaration envelope for six object kinds: `function`, `operation`, `type`, `contract`, `implementation`, and `effect`. It accepts only explicit fields; unknown fields and unsupported relations are rejected.
+
+- Function and Operation own explicit `call_sites`; each call site has a stable caller-local `call_site_id` and one or more explicit target alternatives.
+- Each target alternative has a stable `target_id`, exact callee Content Hash, and optional condition. This preserves two call sites in one caller and multiple conditional targets at one site.
+- Typed references are constrained by source/target kind (e.g. Implementation → Contract and Effect; Function → Type and Contract).
+- Publication validates that every target hash exists and has the declared kind before storing the source. Exact target hashes participate in the caller's semantic hash through the existing ContentStore dependency projection.
+- The derived `DependencyIndex` exposes deterministic outgoing and incoming edges with source hash, edge ID, relation, exact target hash/kind, and condition.
+
+Run focused tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_semantic_dependency_index.py' -v
+```
+
+This is a deliberately small research schema, **not** the canonical LLMLang SPG schema. It does not parse LLMLang source, infer dependencies, prove completeness, model higher-order/dynamic dispatch beyond explicit finite alternatives, define final hash canonicalization, or integrate with the Toolchain Server / shared production Content Store. Unsupported or missing references fail closed. See [Semantic Dependency Index design](../../SEMANTIC-DEPENDENCY-INDEX.md).
