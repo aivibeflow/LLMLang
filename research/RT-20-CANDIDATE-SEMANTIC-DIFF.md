@@ -128,3 +128,12 @@ The initial closed policy maps the current prototype artifact-kind vocabulary to
 The planner labels its generated actions with their subject kind. The candidate semantic-diff audit independently revalidates the action-kind policy before accepting plan identity. Tests cover representative accepted pairs, incompatible pairs, unknown kinds, and subject-kind identity binding.
 
 **Scope limitation:** this slice validates action-kind versus subject-kind compatibility. It does not yet bind each action to a complete set of exact output/edge obligation IDs, prove prerequisite execution order, or verify that an action ran. The artifact hash is the exact subject binding available in the current model; action-to-output/edge obligation coverage remains a follow-up refinement before AEA-2 can be considered fully closed.
+
+
+## CIP schema v5 — stable obligation identities
+
+CIP v5 adds domain-separated deterministic identities for every planned edge-change record and every path-specific call-site decision. The edge-change identity commits to the owning output slot, edge kind and exact edge ID, operation, baseline/candidate relation and target hashes, conditions, caller-required Contract hashes, rationale, and evidence identity. The decision identity commits to the exact caller/call-site/target, disposition, base and selected callee, resulting caller, consumer path, output-slot bindings, required-Contract hashes, compatibility status, rationale, and evidence identity.
+
+Both identities use canonical sorted-key JSON, compact separators, SHA-256, an explicit domain string, and the CIP schema version. Their values are included in the canonical plan payload, so changing an identity-bearing field changes the plan ID. They are identifiers for CIP records, not object Content Hashes, edge-set digests, or Contract hashes.
+
+**Scope:** this slice supplies stable references needed by later action bindings. It does not yet add action-to-output/edge/decision references, prove obligation coverage, or close AEA-2. See [CIP Action Execution Audit](RT-20-CIP-ACTION-EXECUTION-AUDIT.md).
