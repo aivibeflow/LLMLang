@@ -78,3 +78,28 @@ reference semantics and do not replace the declaration-level tests above.
 The trace tests expose a key boundary: RT-04's effect summaries are not
 observational traces. They discard order and payload, and an open-row annotation
 does not establish that an effect is handled.
+
+
+## RT-03 executable reference-semantics slice
+
+Implemented by `PROTOTYPES/RT-04-01/rt03_reference.py` and
+`PROTOTYPES/RT-04-01/test_rt03_reference.py`. These are interpreter tests,
+not declaration-checker fixtures.
+
+| ID | Program/condition | Profile A | Profile D |
+|---|---|---|---|
+| RT3-REF-01 | Strict pure integer addition | Return 42, empty trace | Return 42, empty trace |
+| RT3-REF-02 | Explicit error-shaped result value | Return the error value, no event | Same |
+| RT3-REF-03 | `perform fs.read` | Reject effectful expression | Reject unless fs.read is declared |
+| RT3-REF-04 | Declared fs.read with fixture file | Not applicable | Return contents and record request/outcome event |
+| RT3-REF-05 | Declared fs.read for missing path | Not applicable | Return explicit NotFound outcome and record event |
+| RT3-REF-06 | Ordered state write/read/write/read sequence | Reject effectful expression | Preserve all four events and final state |
+| RT3-REF-07 | Reverse two writes to the same state key | Reject effectful expression | Trace and final result change |
+| RT3-REF-08 | net.send with deterministic fixture response | Reject effectful expression | Return configured response and record event |
+| RT3-REF-09 | Declared effect without a reference handler | Reject effectful expression | Fail closed as unsupported handler |
+| RT3-REF-10 | Malformed expression tree | Fail closed | Fail closed |
+| RT3-REF-11 | Mutating operations with caller-owned initial fixtures | Not applicable | Internal copies change; caller inputs remain unchanged |
+
+The RT-04 checker comparison remains intentionally separate: it can summarize
+the set of effect labels but cannot represent repeated event occurrences,
+ordering, payloads, handler outcomes, or final state.
