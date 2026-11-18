@@ -24,6 +24,28 @@ class RT03ReferenceSemanticsTests(unittest.TestCase):
         self.assertEqual(trace.result, {"error": {"kind": "InvalidInput"}})
         self.assertEqual(trace.events, ())
 
+    def test_result_sequence_propagates_first_error_and_skips_later_effects(self):
+        expression = {"result_sequence": [
+            {"result_ok": {"literal": 1}},
+            {"result_error": {"literal": {"kind": "InvalidInput"}}},
+            perform("state.write", "write", {"key": "must_not_exist", "value": True}),
+        ]}
+        trace = evaluate(expression, "D", declared_effects=["state.write"])
+        self.assertEqual(trace.result, {"error": {"kind": "InvalidInput"}})
+        self.assertEqual(trace.events, ())
+        self.assertEqual(trace.final_state, {})
+
+    def test_result_sequence_returns_last_success(self):
+        trace = evaluate({"result_sequence": [
+            {"result_ok": {"literal": 1}},
+            {"result_ok": {"literal": 2}},
+        ]}, "A")
+        self.assertEqual(trace.result, {"ok": 2})
+
+    def test_result_sequence_rejects_non_result_item(self):
+        with self.assertRaisesRegex(SemanticError, "Result-shaped"):
+            evaluate({"result_sequence": [{"literal": 1}]}, "A")
+
     def test_profile_a_rejects_effectful_expression(self):
         with self.assertRaisesRegex(SemanticError, "Profile A is pure"):
             evaluate(perform("fs.read", "read", {"path": "/cfg"}), "A",
