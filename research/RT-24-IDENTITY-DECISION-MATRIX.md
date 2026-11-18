@@ -191,3 +191,10 @@ If any scenario requires a selector that survives arbitrary edits, the decision 
 - [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md)
 - [RT-20 — Patch Planning and Hash Propagation](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
 - [Package Manifest and Content Identity](PACKAGE-MANIFEST-AND-IDENTITY.md)
+
+
+## RT-04 dependency — identity decision remains gated
+
+The comparative [RT-04 type/effect/ownership/capability report](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) identifies additional semantic distinctions that may affect operation-contract, implementation, conformance-class, and evidence identities: public type/refinement contracts, effect declarations and handlers, error/cancellation outcomes, resource protocols, capability requirements, and concurrency guarantees. These are candidate hash inputs or typed dependencies, not selected fields.
+
+Do not finalize the identity model or hash-bearing payloads until RT-04 scenarios validate which distinctions are externally observable, which are contract-level versus implementation-level, and how transitive effects/ownership/protocol dependencies are discovered. RT-04 does not resolve Stable Entity ID versus content-addressed values with explicit lineage/selection.
