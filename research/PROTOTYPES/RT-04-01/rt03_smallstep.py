@@ -32,7 +32,11 @@ def run_small_step(
     files: dict[str, Any] | None = None,
     network_responses: dict[str, Any] | None = None,
 ) -> MachineTrace:
-    """Run the shared fragment using explicit evaluation and continuation stacks."""
+    """Run the shared fragment using explicit evaluation and continuation stacks.
+
+    result_sequence explicitly propagates the first Result error; ordinary
+    sequence remains strict and evaluates every item left-to-right.
+    """
     if profile not in {"A", "D"}:
         raise MachineError("profile must be A or D")
     if not isinstance(declared_effects, (list, tuple)) or any(
