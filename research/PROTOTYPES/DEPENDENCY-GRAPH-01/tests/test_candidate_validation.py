@@ -282,7 +282,7 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
             self.plan(caller=changed_caller, candidate=candidate),
         )
         self.assertFalse(result.valid)
-        self.assertTrue(any("changed its exact required contract" in error
+        self.assertTrue(any("CIP-bound required contract" in error
                             for error in result.errors))
 
     def test_preserve_cannot_change_the_provided_contract_binding(self):

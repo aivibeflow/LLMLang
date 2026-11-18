@@ -1,6 +1,6 @@
 # RT-20 — Candidate semantic diff and CIP enforcement
 
-**Status:** Extended narrow prototype implemented; PR #17 merged. The call-site contract-binding extension is covered by PR #20; 91 focused semantic-dependency tests, compilation, repository-structure checks, and strict QF_LIA checks pass on its head.  
+**Status:** PR #17 and PR #20 are merged. CIP v2 output/edge records and consumer-path-specific caller forks are implemented on this PR branch; 101 focused semantic-dependency tests and compilation are being validated.  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)  
 **Related gates:** [Candidate call-site validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md), [Candidate graph audit](RT-20-CANDIDATE-GRAPH-AUDIT.md)
@@ -27,9 +27,9 @@ The result contains exact baseline/candidate roots, plan ID, selection changes, 
 4. Derive added, removed, and changed selections by exact logical selection key and Content Hash.
 5. Require every changed selection to be covered by a CIP action whose artifact hash is exactly the old or new selected hash.
 6. Independently scan baseline-selected explicit declarations for incoming call-site targets to changed old hashes. Every such edge must have a corresponding exact CIP decision, even if its caller is preserved unchanged.
-7. Compare typed references and call-site targets for every changed logical selection, including the exact `required_contract_hash` on each call alternative. A requirement-only change is therefore an edge change, not an invisible metadata edit. Typed-reference changes, call-site additions/removals, requirement changes, and call-site condition changes fail closed because the current CIP schema has no exact output record for them.
-8. Require each changed call target's decision to match the observed old target, observed new target, and resulting caller hash. A matching `REWRITE_CALL_SITE` action must name the exact baseline caller.
-9. Reuse candidate call-site materialization validation for exact baseline/candidate membership, stored object hashes, and candidate payload target checks.
+7. Compare typed references and call-site targets for every changed logical selection, including exact old/new relation, target hash, condition, and call-site required Contract hash. Every observed edge delta must match exactly one typed CIP edge-change record.
+8. Require each changed call target or required Contract binding to match a path-bound `CallSiteDecision`, including exact old/new required Contract hashes, old/new provided Contract hashes, `PROVEN` compatibility status, and exact caller/callee output slots. A matching `REWRITE_CALL_SITE` action must name the exact source caller hash.
+9. Resolve unknown caller/callee hashes through exact output IDs against the candidate Snapshot. Bind materialized output IDs, logical keys, and exact candidate object hashes into the diff receipt. Reuse candidate call-site materialization validation for exact baseline/candidate membership, stored object hashes, and candidate payload/Contract checks.
 10. Bind both Snapshot roots, plan ID, graph digests, edge-set digests, schema version, selection changes, and edge changes into the deterministic diff digest.
 
 ## Tests
@@ -42,7 +42,7 @@ The focused suite covers:
 - omission of an incoming decision;
 - mismatched selected callee;
 - malformed Snapshot input;
-- typed-reference change rejection;
+- typed-reference additions/removals/rewrites with exact CIP records;
 - call-site required-contract hash changes are included in the edge identity and deterministic diff;
 - forged plan ID rejection;
 - deterministic digest and graph/edge-set bindings.
@@ -62,3 +62,49 @@ This remains a narrow explicit-declaration structural audit, not a complete sema
 - The gate is not commit authorization. Snapshot immutability, transaction/concurrency protection, exact-tree commit, crash recovery, and idempotent retry remain future work.
 
 A successful result means only that the supported explicit selection and edge changes are reconciled with the supplied CIP and both audited graph states. It does not prove behavior or whole-program dependency completeness.
+
+
+## CIP schema v2 — output slots, edge deltas, and caller forks
+
+The planning model distinguishes the approved plan from exact Content Hashes that may not exist until implementation:
+
+- `PlannedOutput` identifies one logical selection slot and an `ADD`, `REPLACE`, or `REMOVE` operation. It binds the exact base/source hash, output kind, canonical non-edge payload digest, rationale, evidence identity, and optional consumer path.
+- The payload digest is SHA-256 over canonical `{declaration_id, content}`. Typed references and call-site alternatives are bound separately as edge records.
+- `PlannedEdgeChange` binds one exact typed-reference or call-target `ADD`, `REMOVE`, `REWRITE`, or `CONDITION` operation, including old/new relation, target hash, condition, and call-site required Contract hash where applicable.
+- `CallSiteDecision` carries exact selected-callee/resulting-caller hashes when known, or `selected_output_id` / `resulting_output_id` when those hashes are not known at planning time. It also binds required/base-provided/selected-provided Contract hashes and a `PROVEN` compatibility status.
+- `consumer_path_id` distinguishes separate versions of one shared caller. Multiple output slots can derive from the same source caller hash while selecting different callee versions for different upstream consumers.
+- All these records are included in CIP schema v2's canonical plan identity. The semantic-diff receipt resolves output IDs against the candidate Snapshot and binds the actual Content Hashes to the candidate root.
+
+The payload digest is a planning constraint, not an object Content Hash, OpHash, ImplHash, or glossary `CCHash`. The actual candidate object hash is computed by the semantic object store and appears in the materialization binding only after the candidate exists. Its interpretation remains object-kind-specific; this document does not rename or conflate `OpHash`, `ImplHash`, or `CCHash`. See the [LLMLang Glossary](../draft/GLOSSARY.md).
+
+Focused tests cover declaration add/remove/replace, typed-reference additions and rewrites, call-target additions/removals/rewrites/condition changes, required-Contract migration with compatibility evidence, unknown hash resolution, deleted callers, and a shared-caller fork across two consumer paths.
+
+## Remaining limitations
+
+- Action-kind, prerequisite, and evidence adequacy are not yet reconciled comprehensively against every output/edge operation.
+- The explicit declaration projection is not proven complete for runtime dispatch, reflection, callbacks, generated code, or external calls.
+- Compatibility evidence is bound by ID and required to state `PROVEN`, but the evidence producer and proof are not authenticated or independently checked here.
+- The gate does not execute every planned action, prove behavioral equivalence, freeze a transaction, or authorize a Git commit.
+
+
+## CIP schema v2 — output slots, edge deltas, and caller forks
+
+The planning model distinguishes the approved plan from exact Content Hashes that may not exist until implementation:
+
+- `PlannedOutput` identifies one logical selection slot and an `ADD`, `REPLACE`, or `REMOVE` operation. It binds the exact base/source hash, output kind, canonical non-edge payload digest, rationale, evidence identity, and optional consumer path.
+- The payload digest is SHA-256 over canonical `{declaration_id, content}`. Typed references and call-site alternatives are bound separately as edge records.
+- `PlannedEdgeChange` binds one exact typed-reference or call-target `ADD`, `REMOVE`, `REWRITE`, or `CONDITION` operation, including old/new relation, target hash, condition, and call-site required Contract hash where applicable.
+- `CallSiteDecision` carries exact selected-callee/resulting-caller hashes when known, or `selected_output_id` / `resulting_output_id` when those hashes are not known at planning time. It also binds required/base-provided/selected-provided Contract hashes and a `PROVEN` compatibility status.
+- `consumer_path_id` distinguishes separate versions of one shared caller. Multiple output slots can derive from the same source caller hash while selecting different callee versions for different upstream consumers.
+- All these records are included in CIP schema v2's canonical plan identity. The semantic-diff receipt resolves output IDs against the candidate Snapshot and binds the actual Content Hashes to the candidate root.
+
+The payload digest is a planning constraint, not an object Content Hash, OpHash, ImplHash, or glossary `CCHash`. The actual candidate Content Hash is computed by the Content Store and appears in the materialization binding only after the candidate exists. No glossary identity term is redefined here.
+
+Focused tests cover declaration add/remove/replace, typed-reference additions and rewrites, call-target additions/removals/rewrites/condition changes, required-Contract migration with compatibility evidence, unknown hash resolution, deleted callers, and a shared-caller fork across two consumer paths.
+
+## Remaining limitations
+
+- Action-kind, prerequisite, and evidence adequacy are not yet reconciled comprehensively against every output/edge operation.
+- The explicit declaration projection is not proven complete for runtime dispatch, reflection, callbacks, generated code, or external calls.
+- Compatibility evidence is bound by ID and required to state `PROVEN`, but the evidence producer and proof are not authenticated or independently checked here.
+- The gate does not execute every planned action, prove behavioral equivalence, freeze a transaction, or authorize a Git commit.
