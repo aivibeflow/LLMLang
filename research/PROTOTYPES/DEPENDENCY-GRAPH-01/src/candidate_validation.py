@@ -51,7 +51,7 @@ def validate_candidate_call_site_decisions(
     - each decision refers to an exact call edge in the baseline Snapshot;
     - selected callee and resulting caller objects exist and are selected in candidate;
     - the candidate caller's stored declaration contains the exact selected target;
-    - PRESERVE retains both the original callee and original caller version;
+    - PRESERVE retains the exact original callee at that call site, even if other caller changes produce a new caller version;
     - stored caller/callee content hashes recompute correctly.
 
     It does not establish that ADAPT/FORK/MIGRATE are behaviorally compatible,
