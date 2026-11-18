@@ -145,6 +145,8 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
     if not isinstance(resources, dict) or any(not isinstance(k, str) or v != "owned" for k, v in resources.items()):
         raise ModelError("resources must map names to 'owned'")
     call_graph_complete = set(_names(program.get("call_graph_complete", []), "call_graph_complete"))
+    if call_graph_complete - set(functions):
+        raise ModelError("call_graph_complete references unknown functions")
 
     findings: list[Finding] = []
     direct_effects: dict[str, set[str]] = {}
