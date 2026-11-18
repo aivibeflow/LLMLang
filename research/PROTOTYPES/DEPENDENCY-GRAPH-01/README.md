@@ -264,7 +264,7 @@ The impact planner now carries exact incoming call-site edges from a Snapshot re
 
 ## Candidate Snapshot call-site validation
 
-`src/candidate_validation.py` validates the materialized candidate against every per-call-site decision carried by an `ImpactPlan`. It checks baseline/candidate Snapshot binding, candidate membership of selected callee and resulting caller hashes, recomputation of stored semantic-object hashes, and the exact call-site/target reference in the candidate caller payload. `PRESERVE` must retain the original caller and callee versions; `MIGRATE`, `ADAPT`, and `FORK` must materialize a new caller version. Unresolved decisions fail validation.
+`src/candidate_validation.py` validates the materialized candidate against every per-call-site decision carried by an `ImpactPlan`. It checks baseline/candidate Snapshot binding, candidate membership of selected callee and resulting caller hashes, recomputation of stored semantic-object hashes, and the exact call-site/target reference in the candidate caller payload. `PRESERVE` must retain the exact original callee hash at that call site; the caller may still receive a new version because of other planned changes. `MIGRATE`, `ADAPT`, and `FORK` must materialize a new caller version. Unresolved decisions fail validation.
 
 Run the focused tests:
 
