@@ -343,3 +343,10 @@ The fragment evaluates literals, strict left-to-right integer addition, left-to-
 This is meaningful executable evidence beyond hand-authored trace fixtures, but it is not a complete reference semantics and does not select A or D. It omits parsing, binding, functions/recursion, general handlers and effect-row inference, Result propagation, exceptions/cancellation, resource lifecycle, concurrency, divergence, and source-to-model completeness. The handlers are deterministic in-memory fixtures, not platform runtime semantics. The RT-04 checker remains a separate declaration-level model.
 
 The next validation gate is to extend the shared corpus and interpreter with explicit error propagation and resource acquire/use/release outcomes, then implement an independent second evaluator or formal model and compare the observable traces. Any such extension must first state the exact semantics being tested and retain the current exploratory boundary.
+
+
+## 13. Differential evaluator cross-check
+
+A second evaluator, [`rt03_smallstep.py`](PROTOTYPES/RT-04-01/rt03_smallstep.py), independently implements the same bounded fragment using explicit continuation/value stacks rather than recursive evaluation. [Differential tests](PROTOTYPES/RT-04-01/test_rt03_differential.py) compare ordered traces, results, and final state/file fixtures across pure, state, file, and network cases, including a generated corpus of short state-write sequences.
+
+The implementations agree on the tested finite corpus. This is useful implementation-level cross-checking, but not an independently authored specification, proof, or external audit: both models were developed against the same exploratory contract. Independent review remains a separate gate. The observation model still omits Result propagation, exceptions/cancellation, resource lifecycle, concurrency, and divergence.
