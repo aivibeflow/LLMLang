@@ -158,7 +158,7 @@ theorem translateRelationalExpr_correct
   induction e <;>
     simp_all [translateRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
       evalExpr, sideEnvironment, relationalSymbol, querySortOf,
-      querySortToExprSort]
+      querySortToExprSort] <;> simp [asInt]
 
 /-- Every non-selected input is represented by exactly the same symbol on both sides. -/
 theorem nonFactorInputsAreShared
@@ -243,9 +243,33 @@ theorem observationDifference_correct
       .boolValue (sourceValuesDiffer s
         (evalExpr e (sideEnvironment queryEnv .left factor))
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
-  cases s <;>
-    simp [observationDifference, evalCanonicalQuerySigma, sourceValuesDiffer,
-      translateRelationalExpr_correct]
+  cases s with
+  | int =>
+      change
+        !(decide
+          (asInt (evalCanonicalQuerySigma
+            ⟨.int, translateRelationalExpr .left factor e⟩ queryEnv) =
+           asInt (evalCanonicalQuerySigma
+            ⟨.int, translateRelationalExpr .right factor e⟩ queryEnv))) =
+        decide
+          (asInt (evalExpr e (sideEnvironment queryEnv .left factor)) ≠
+           asInt (evalExpr e (sideEnvironment queryEnv .right factor)))
+      rw [translateRelationalExpr_correct .left factor e queryEnv,
+          translateRelationalExpr_correct .right factor e queryEnv]
+      exact (decide_ne_eq_not_decide_eq _ _).symm
+  | bool =>
+      change
+        !(decide
+          (asBool (evalCanonicalQuerySigma
+            ⟨.bool, translateRelationalExpr .left factor e⟩ queryEnv) =
+           asBool (evalCanonicalQuerySigma
+            ⟨.bool, translateRelationalExpr .right factor e⟩ queryEnv))) =
+        decide
+          (asBool (evalExpr e (sideEnvironment queryEnv .left factor)) ≠
+           asBool (evalExpr e (sideEnvironment queryEnv .right factor)))
+      rw [translateRelationalExpr_correct .left factor e queryEnv,
+          translateRelationalExpr_correct .right factor e queryEnv]
+      exact (decide_ne_eq_not_decide_eq _ _).symm
 
 /--
 The two assumptions of the expression-level relational query are sound:
