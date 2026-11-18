@@ -215,3 +215,8 @@ Study RT-22 together with:
 - [RT-19](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — transport-neutral semantic API and snapshot/change-set lifecycle.
 
 Boundary: RT-22 defines how Git/repository/worktree operations are exposed and recovered; it does not redefine semantic merge rules. A Git merge result is not finalized as an LLMLang merge until the repository-wide semantic reconciliation and validation described by the merge document and RT-20 have succeeded. Finalization must use RT-23's synchronized semantic-and-filesystem commit invariant.
+
+
+## RT-24 relationship
+
+RT-22 owns the externally observable repository/worktree contract. RT-24 owns the candidate semantic representation/diff/merge algorithm; Git operations supply explicit base/ours/theirs trees, and repository-wide semantic validation must precede finalization.
