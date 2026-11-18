@@ -4,7 +4,7 @@ from src.semantic_dependency_index import SnapshotIncomingResult
 
 from src.impact_planning import (
     ActionKind, CallSiteDecision, CallSiteDisposition, CompletenessEvidence,
-    CompletenessStatus, ImpactedArtifact, OutputOperation, PlannedOutput,
+    CompletenessStatus, CompletenessAudit, ImpactedArtifact, OutputOperation, PlannedOutput,
     NonInterferenceCertificate, PlanningError, audit_dependency_completeness,
     audit_snapshot_incoming, dependency_digest, no_action_is_justified, plan_impact,
 )
