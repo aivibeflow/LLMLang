@@ -149,6 +149,64 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
             ),
         )
         self.assertTrue(result.valid, result.errors)
+    def test_one_caller_can_migrate_one_site_and_preserve_another(self):
+        legacy_callee = publish_declaration(
+            self.store, declaration("function", "fn:legacy:v1", {"body": "legacy"})
+        )
+        base_caller = publish_declaration(
+            self.store, declaration(
+                "function", "fn:multi:v1", {"body": "multi"},
+                call_sites=[
+                    {"call_site_id": "call:new", "targets": [
+                        {"target_id": "direct", "target_hash": self.old_callee, "condition": None}]},
+                    {"call_site_id": "call:legacy", "targets": [
+                        {"target_id": "direct", "target_hash": legacy_callee, "condition": None}]},
+                ],
+            )
+        )
+        revised_caller = publish_declaration(
+            self.store, declaration(
+                "function", "fn:multi:v2", {"body": "multi revised"},
+                call_sites=[
+                    {"call_site_id": "call:new", "targets": [
+                        {"target_id": "direct", "target_hash": self.new_callee, "condition": None}]},
+                    {"call_site_id": "call:legacy", "targets": [
+                        {"target_id": "direct", "target_hash": legacy_callee, "condition": None}]},
+                ],
+            )
+        )
+        baseline = make_snapshot({
+            "tax": self.old_callee,
+            "legacy": legacy_callee,
+            "multi": base_caller,
+        })
+        candidate = make_snapshot({
+            "tax": self.new_callee,
+            "legacy": legacy_callee,
+            "multi": revised_caller,
+        })
+        decisions = (
+            CallSiteDecision(
+                base_caller, "call:new", "direct", self.old_callee,
+                CallSiteDisposition.MIGRATE, self.new_callee, revised_caller,
+                "new tax behavior required", "evidence:migrate",
+            ),
+            CallSiteDecision(
+                base_caller, "call:legacy", "direct", legacy_callee,
+                CallSiteDisposition.PRESERVE, legacy_callee, revised_caller,
+                "legacy behavior remains required", "evidence:preserve",
+            ),
+        )
+        plan = ImpactPlan(
+            "plan:mixed-sites", baseline.root_hash, candidate.root_hash,
+            "policy", (), (), (), decisions,
+        )
+        result = validate_candidate_call_site_decisions(
+            self.store, baseline, candidate, plan
+        )
+        self.assertTrue(result.valid, result.errors)
+        self.assertEqual(result.checked_decisions, 2)
+
     def test_unresolved_decision_never_validates(self):
         decision = CallSiteDecision(
             self.old_caller, "call:tax", "direct", self.old_callee,
