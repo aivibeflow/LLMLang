@@ -204,7 +204,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                       decisions=(decision,)),
         )
         self.assertFalse(result.valid)
-        self.assertTrue(any("does not match the observed candidate target" in error
+        self.assertTrue(any("CIP selected callee differs from candidate target" in error
                             for error in result.errors))
 
     def test_malformed_snapshot_fails_closed_without_raising(self):
