@@ -75,39 +75,47 @@ def translateRelationalExpr :
       .iteBool (translateRelationalExpr side factor c)
         (translateRelationalExpr side factor a) (translateRelationalExpr side factor b)
 
+/-- Convert the canonical query sort back to the corresponding source value sort. -/
+def querySortToExprSort : LogosBinding.QuerySort → ExprSort
+  | .int => .int
+  | .bool => .bool
+
 /-- Mathematical interpretation of the actual typed query AST used by the Lean CPC bridge. -/
-def evalCanonicalQuery :
-    {s : LogosBinding.QuerySort} →
-    LogosBinding.QueryTerm s → SourceQuerySemantics.Env →
-    SourceQuerySemantics.Value (match s with | .int => .int | .bool => .bool)
-  | .int, .intLit n, _ => .intValue n
-  | .bool, .boolLit b, _ => .boolValue b
-  | .int, .intSymbol name, env => env name .int
-  | .bool, .boolSymbol name, env => env name .bool
-  | .bool, .not e, env => .boolValue (!(asBool (evalCanonicalQuery e env)))
-  | .int, .neg e, env => .intValue (-(asInt (evalCanonicalQuery e env)))
-  | .int, .add a b, env =>
+def evalCanonicalQuery {s : LogosBinding.QuerySort}
+    (term : LogosBinding.QueryTerm s)
+    (env : SourceQuerySemantics.Env) :
+    SourceQuerySemantics.Value (querySortToExprSort s) :=
+  match s, term with
+  | .int, .intLit n => .intValue n
+  | .bool, .boolLit b => .boolValue b
+  | .int, .intSymbol name => env name .int
+  | .bool, .boolSymbol name => env name .bool
+  | .bool, .not e => .boolValue (!(asBool (evalCanonicalQuery e env)))
+  | .int, .neg e => .intValue (-(asInt (evalCanonicalQuery e env)))
+  | .int, .add a b =>
       .intValue (asInt (evalCanonicalQuery a env) + asInt (evalCanonicalQuery b env))
-  | .int, .sub a b, env =>
+  | .int, .sub a b =>
       .intValue (asInt (evalCanonicalQuery a env) - asInt (evalCanonicalQuery b env))
-  | .int, .mul a b, env =>
+  | .int, .mul a b =>
       .intValue (asInt (evalCanonicalQuery a env) * asInt (evalCanonicalQuery b env))
-  | .bool, .eqInt a b, env =>
+  | .bool, .eqInt a b =>
       .boolValue (decide (asInt (evalCanonicalQuery a env) = asInt (evalCanonicalQuery b env)))
-  | .bool, .eqBool a b, env =>
+  | .bool, .eqBool a b =>
       .boolValue (decide (asBool (evalCanonicalQuery a env) = asBool (evalCanonicalQuery b env)))
-  | .bool, .lt a b, env =>
+  | .bool, .lt a b =>
       .boolValue (decide (asInt (evalCanonicalQuery a env) < asInt (evalCanonicalQuery b env)))
-  | .bool, .le a b, env =>
+  | .bool, .le a b =>
       .boolValue (decide (asInt (evalCanonicalQuery a env) <= asInt (evalCanonicalQuery b env)))
-  | .bool, .and terms, env =>
-      .boolValue (terms.all (fun term => asBool (evalCanonicalQuery term env)))
-  | .bool, .or terms, env =>
-      .boolValue (terms.any (fun term => asBool (evalCanonicalQuery term env)))
-  | .int, .iteInt c a b, env =>
-      if asBool (evalCanonicalQuery c env) then evalCanonicalQuery a env else evalCanonicalQuery b env
-  | .bool, .iteBool c a b, env =>
-      if asBool (evalCanonicalQuery c env) then evalCanonicalQuery a env else evalCanonicalQuery b env
+  | .bool, .and terms =>
+      .boolValue (terms.all (fun child => asBool (evalCanonicalQuery child env)))
+  | .bool, .or terms =>
+      .boolValue (terms.any (fun child => asBool (evalCanonicalQuery child env)))
+  | .int, .iteInt condition yes no =>
+      if asBool (evalCanonicalQuery condition env)
+      then evalCanonicalQuery yes env else evalCanonicalQuery no env
+  | .bool, .iteBool condition yes no =>
+      if asBool (evalCanonicalQuery condition env)
+      then evalCanonicalQuery yes env else evalCanonicalQuery no env
 termination_by term => sizeOf term
 decreasing_by all_goals simp_wf
 
@@ -121,9 +129,15 @@ theorem translateRelationalExpr_correct
     (e : Expr s) (queryEnv : SourceQuerySemantics.Env) :
     evalCanonicalQuery (translateRelationalExpr side factor e) queryEnv =
       evalExpr e (sideEnvironment queryEnv side factor) := by
-  induction e <;>
-    simp [translateRelationalExpr, evalCanonicalQuery, sideEnvironment,
-      relationalSymbol, querySortOf, asInt, asBool, *] <;> rfl
+  cases s with
+  | int =>
+      induction e <;>
+        simp [translateRelationalExpr, evalCanonicalQuery, sideEnvironment,
+          relationalSymbol, querySortOf, querySortToExprSort, asInt, asBool, *]
+  | bool =>
+      induction e <;>
+        simp [translateRelationalExpr, evalCanonicalQuery, sideEnvironment,
+          relationalSymbol, querySortOf, querySortToExprSort, asInt, asBool, *]
 
 /-- Every non-selected input is represented by exactly the same symbol on both sides. -/
 theorem nonFactorInputsAreShared
@@ -149,8 +163,12 @@ theorem selectedFactorRightBinding
 /-- Boolean result indicating whether two source values of the same sort differ. -/
 def sourceValuesDiffer :
     (sort : ExprSort) → Value sort → Value sort → Bool
-  | .int, .intValue left, .intValue right => decide (left ≠ right)
-  | .bool, .boolValue left, .boolValue right => decide (left ≠ right)
+  | .int, left, right => decide (asInt left ≠ asInt right)
+  | .bool, left, right => decide (asBool left ≠ asBool right)
+
+theorem decide_ne_eq_not_decide_eq {α : Type} [DecidableEq α] (left right : α) :
+    decide (left ≠ right) = !(decide (left = right)) := by
+  cases h : decide (left = right) <;> simp_all
 
 /-- Build the factor-difference assumption from the actual selected-factor symbols. -/
 def factorDifference (sort : ExprSort) (factor : String) : LogosBinding.QueryTerm .bool :=
@@ -178,7 +196,8 @@ theorem factorDifference_correct
         (sideEnvironment queryEnv .right factor factor sort)) := by
   cases sort <;>
     simp [factorDifference, evalCanonicalQuery, sourceValuesDiffer,
-      sideEnvironment, relationalSymbol, asInt, asBool]
+      sideEnvironment, relationalSymbol, querySortToExprSort, asInt, asBool,
+      decide_ne_eq_not_decide_eq]
 
 /--
 The observation-difference formula denotes precisely inequality of the two
