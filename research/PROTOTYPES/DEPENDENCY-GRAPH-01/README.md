@@ -272,4 +272,4 @@ Run the focused tests:
 python -m unittest -v tests.test_candidate_validation
 ```
 
-This is a narrow materialized-reference consistency check, not a behavioral-compatibility proof, dynamic-call completeness proof, full plan-to-diff audit, or commit authorization. See [RT-20 Candidate Call-Site Validation](../../RT-20-CANDIDATE-CALL-SITE-VALIDATION.md).
+This is a narrow materialized-reference consistency check, not a behavioral-compatibility proof, dynamic-call completeness proof, full plan-to-diff audit, or commit authorization. The current plan representation also assumes one resulting caller version per base caller hash; context-specific forks of one shared caller for different upstream consumers remain unmodelled. See [RT-20 Candidate Call-Site Validation](../../RT-20-CANDIDATE-CALL-SITE-VALIDATION.md).
