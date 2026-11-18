@@ -277,3 +277,8 @@ RT-24 should be interpreted with these constraints, and its next revision should
 - [Package Manifest and Content Identity](PACKAGE-MANIFEST-AND-IDENTITY.md)
 - [RT-20 — LLM Patch Planning and Hash Propagation](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
 - [RT-23 — Single-Instance Toolchain and Multi-Worktree](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md)
+
+
+## RT-04 semantic dependency
+
+The [RT-04 alternatives report](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) identifies type/refinement, effect/handler, resource/ownership, capability, and concurrency distinctions that may affect canonical SPG values and identity boundaries. Those fields remain candidates only; the identity decision is gated on RT-03/RT-04 executable scenarios and the RT-05/RT-07 reconciliation described here.
