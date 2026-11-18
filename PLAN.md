@@ -384,6 +384,20 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 The documents have explicit ownership boundaries and reciprocal links. Re-read the complete set together whenever merge, rebase, cherry-pick, semantic export/import, or commit behavior changes.
 
+**Detailed candidate contract:** [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md). RT-24 is a research proposal, not an accepted format or merge decision. It makes the next work executable as a staged prototype while leaving SPG schema and hash-envelope decisions with RT-05 and the semantic-foundation work.
+
+**Refined execution order:**
+- [ ] Reconcile RT-24 assumptions with RT-05 and the current SPG schema: logical identity vs. version identity, typed edge/call-site identity, roots, lineage operations, and reverse-reference completeness. Record unresolved fields explicitly; do not invent them in the merge prototype.
+- [ ] Select the smallest supported SPG subset and specify its textual source inventory/manifest fixture. Keep the repository source textual; treat local stores, caches, and indexes as reconstructible derived state.
+- [ ] Implement deterministic importer/exporter for that subset and test semantic round-trip, byte-identical canonical export, physical independence (format/order/file moves), explicit schema versioning, and fail-closed errors.
+- [ ] Implement typed SemanticDiff with exact snapshot binding, per-call-site reference changes, root/dependency changes, lineage records, and deterministic output.
+- [ ] Implement a pure three-way merge core over pinned base/ours/theirs snapshots. Apply only unambiguous rules; emit structured conflicts for update/update, delete/update, identity/lineage, retarget, dependency, root, and unsupported-context cases.
+- [ ] Validate the entire merged graph, not just merged files/entities; prove that incomplete source inventory or reverse-reference context cannot yield a clean result.
+- [ ] Integrate RT-20 CIP as a mandatory gate: preserve/migrate/adapt/fork per call site, support mixed old/new callers and shared-caller splits, and rebuild the candidate whenever planned changes alter it.
+- [ ] Integrate Interface Mapping Revision merge separately under RT-23 parent-revision/CAS/scope rules; test disjoint keys, same-key conflicts, delete/update, and stale baselines.
+- [ ] Only after the pure core passes, build a Git repository coordinator with explicit base/ours/theirs trees; then test merge, rebase, and cherry-pick against real temporary repositories. Keep per-file merge driver as an adapter, not a whole-graph correctness boundary.
+- [ ] Finally integrate RT-23 exact-tree synchronized commit and idempotent crash/timeout recovery; test clone reconstruction without the original local semantic database.
+
 **Required sequence:**
 - [ ] Reconcile the canonical textual repository representation, manifests/roots, external dependency pins, and deterministic import/export; prove clean-clone reconstruction and round-trip equivalence.
 - [ ] Define semantic diff over stable semantic identities, separating Git object identity, semantic identity, and action/evidence identity.
@@ -398,7 +412,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Add real temporary-repository end-to-end tests for clone/reconstruction, parallel branches, merge/rebase/cherry-pick, cross-file conflicts, mapping conflicts, RT-20 caller splits, clean and failed validation, crash recovery, and no-duplicate commit retry.
 - [ ] Benchmark repository-level merge, semantic import/export, incremental worktree synchronization, and cache/store reconstruction; record platform and repository-size assumptions.
 
-**Status:** architecture research exists and is now cross-linked across the study set; end-to-end semantics, implementation, and tests remain open. ADR-014 remains Proposed.
+**Status:** architecture research exists and is cross-linked; RT-24 now records a candidate technical contract. Canonical representation, identity/schema reconciliation, semantic diff/merge implementation, Git integration, and tests remain open. ADR-014 remains Proposed. ADR-014 remains Proposed.
 
 **Dependency:** canonical SPG/identity and import/export decisions from Stages 1 and 3; RT-20 impact-plan correctness; RT-19 semantic API; RT-22 repository/worktree contract; RT-23 shared-state and synchronized-commit runtime.
 
