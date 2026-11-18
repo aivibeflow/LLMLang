@@ -5,7 +5,7 @@ from src.impact_planning import (
     ActionKind, CallSiteDecision, CallSiteDisposition, ImpactPlan, PlannedAction,
 )
 from src.semantic_dependency_index import FORMAT, SCHEMA_VERSION, publish_declaration
-from src.semantic_graph import ContentStore, make_snapshot
+from src.semantic_graph import ContentStore, Snapshot, make_snapshot
 
 
 def declaration(kind, declaration_id, content=None, call_sites=None):
@@ -176,6 +176,17 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         )
         self.assertFalse(result.valid)
         self.assertTrue(any("does not match the observed candidate target" in error
+                            for error in result.errors))
+
+    def test_malformed_snapshot_fails_closed_without_raising(self):
+        baseline = Snapshot("forged", ((["not", "a", "logical-key"], self.old_caller),))
+        candidate = make_snapshot({"invoice": self.old_caller})
+        result = audit_candidate_semantic_diff(
+            self.store, baseline, candidate,
+            self.plan(baseline, candidate, actions=(action(self.old_caller),)),
+        )
+        self.assertFalse(result.valid)
+        self.assertTrue(any("non-string" in error or "materialization check failed" in error
                             for error in result.errors))
 
     def test_diff_digest_is_deterministic_and_bound_to_plan(self):
