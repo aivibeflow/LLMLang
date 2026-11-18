@@ -15,7 +15,7 @@ The model compares two declaration-level checker profiles:
 
 Both profiles compute fixed-point summaries of direct/transitive effects and capabilities. Profile B supports two deliberately small resource-use inputs: a linear `consumes` sequence and an explicit control-flow graph (`resource_flow`). The CFG model propagates exact sets of consumed resources along reachable paths, rejects repeated consumption, and requires all paths reaching a join to agree on each resource's available/consumed state. Its finite state space converges on cycles.
 
-The model accepts function declarations and supplied call/control-flow edges; it does not parse LLMLang source, discover calls or branches, execute functions, prove graph completeness, or implement runtime authorization.
+The model accepts function declarations, optional typed call-site records, and supplied call/control-flow edges; it does not parse LLMLang source, discover calls or branches, execute functions, prove graph completeness, or implement runtime authorization.
 
 The model's UNKNOWN refinement outcome is distinct from acceptance and rejection. Missing evidence is not treated as success.
 
@@ -71,3 +71,22 @@ This is an experiment about checker obligations, not a language decision:
 - no SPG schema, hash envelope, ABI, compiler, or runtime is defined.
 
 See [RT-04 Prototype 01 Results](../../RT-04-PROTOTYPE-01-RESULTS.md).
+
+## Typed call-site envelope
+
+Typed call-site checking is opt-in through a caller's `call_sites` list. Each record contains `target`, an ordered `args` list of argument type descriptors, and optionally `expected_result`. The target must also appear in the caller's `calls` list so that effect/capability propagation cannot omit a typed site.
+
+The callee must explicitly declare both `params` and `result`; otherwise the checker reports `CALL_SIGNATURE_UNKNOWN` and the overall result is `UNKNOWN`. Known arity, argument-type, and expected-result mismatches are rejected. Profile B additionally supports the structural type descriptor `{"Result": [OkType, ErrType]}`; both components are recursively checked and compared structurally. This is a small type-constructor experiment, not a complete user-defined ADT declaration or pattern-matching system.
+
+Example:
+
+    {
+      "functions": {
+        "caller": {
+          "calls": ["parse"],
+          "call_sites": [{"target": "parse", "args": ["String"], "expected_result": {"Result": ["Int", "String"]}}]
+        },
+        "parse": {"params": {"text": "String"}, "result": {"Result": ["Int", "String"]}}
+      }
+    }
+
