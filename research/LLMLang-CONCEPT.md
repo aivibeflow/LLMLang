@@ -1037,3 +1037,5 @@ LLMLang предполагается как язык, в котором:
 Главная гипотеза проекта:
 
 **Если сделать семантическую модель программы, контракты, зависимости и проверку первоклассными элементами языка, то можно существенно снизить вероятность ошибок при разработке программ с помощью LLM — не полагаясь на то, что сама LLM всегда помнит и правильно применяет все правила.**
+
+**Research status note (2026-11-18):** The type, refinement, effect, ownership, and capability proposals in this concept remain exploratory. See [RT-04 alternatives research](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) for the comparative option space and unresolved compatibility questions. This report does not make the concept's proposals normative.
