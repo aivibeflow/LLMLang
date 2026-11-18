@@ -91,6 +91,15 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
         self.assertTrue(result.valid, result.errors)
         self.assertEqual(result.checked_decisions, 1)
 
+    def test_adapt_and_fork_require_materialized_caller_versions(self):
+        for disposition in (CallSiteDisposition.ADAPT, CallSiteDisposition.FORK):
+            with self.subTest(disposition=disposition):
+                result = validate_candidate_call_site_decisions(
+                    self.store, self.baseline, self.candidate,
+                    self.plan(disposition=disposition),
+                )
+                self.assertTrue(result.valid, result.errors)
+
     def test_candidate_call_target_must_match_selected_exact_callee(self):
         wrong_caller = publish_declaration(
             self.store, declaration(
