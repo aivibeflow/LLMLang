@@ -97,7 +97,7 @@ class PlannedOutput:
     operation: OutputOperation
     base_hash: str | None
     expected_kind: str | None
-    expected_content_digest: str | None
+    expected_payload_digest: str | None
     rationale: str
     evidence_id: str
     source_hash: str | None = None
@@ -214,7 +214,7 @@ def impact_plan_payload(plan: ImpactPlan) -> dict:
         ],
         "planned_outputs": [
             (o.output_id, o.logical_key, o.operation.value, o.base_hash,
-             o.expected_kind, o.expected_content_digest, o.rationale, o.evidence_id,
+             o.expected_kind, o.expected_payload_digest, o.rationale, o.evidence_id,
              o.source_hash, o.consumer_path_id)
             for o in sorted(plan.planned_outputs)
         ],
@@ -425,9 +425,9 @@ def plan_impact(
         elif not row.base_hash:
             raise PlanningError("REPLACE/REMOVE output requires an exact baseline hash")
         if row.operation is OutputOperation.REMOVE:
-            if row.expected_kind is not None or row.expected_content_digest is not None:
+            if row.expected_kind is not None or row.expected_payload_digest is not None:
                 raise PlanningError("REMOVE output cannot declare candidate content")
-        elif not all((row.expected_kind, row.expected_content_digest)):
+        elif not all((row.expected_kind, row.expected_payload_digest)):
             raise PlanningError("ADD/REPLACE output requires exact kind and canonical content digest")
     if len(set(edge_change_rows)) != len(edge_change_rows):
         raise PlanningError("duplicate planned edge change")
