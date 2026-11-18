@@ -154,7 +154,7 @@ theorem translateRelationalExpr_correct
     {s : ExprSort} (side : RunSide) (factor : String)
     (e : Expr s) (queryEnv : SourceQuerySemantics.Env) :
     evalCanonicalQuerySigma ⟨querySortOf s, translateRelationalExpr side factor e⟩ queryEnv =
-      castSourceValue (evalExpr e (sideEnvironment queryEnv side factor)) := by
+      evalExpr e (sideEnvironment queryEnv side factor) := by
   induction e <;>
     simp [translateRelationalExpr, evalCanonicalQuerySigma, evalBoolTerms,
       evalExpr, sideEnvironment, relationalSymbol, querySortOf,
