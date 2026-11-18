@@ -169,14 +169,15 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Cross-map candidate RT-04 mechanisms against RT-03 profiles A–D without selecting a profile.
 - [x] Record candidate hash-boundary questions for operation contracts, implementations, conformance classes, and verification evidence.
 - [x] Implement the first executable RT-04 declaration-level comparison for refinement, transitive effect summaries, capabilities, and affine resource consumption; add 12 focused unit tests and record the limits. This is one exploratory checker model, not two complete reference semantics.
-- [ ] Expand the executable corpus with branch-sensitive ownership, typed call-site checking, effect-bound validation, capability scope/revocation, and incomplete-call-graph UNKNOWN cases.
+- [x] Extend Profile B with a finite CFG resource-flow experiment and tests for branch-consistent joins, inconsistent joins, repeated consumption, loops, and malformed CFG references. This validates only the supplied CFG model, not source-to-CFG completeness.
+- [ ] Extend the executable corpus with typed call-site checking, effect-bound validation, capability scope/revocation, and incomplete-call-graph UNKNOWN cases; extend resource analysis with source-to-CFG evidence, symbolic path conditions, transfer/return, and cleanup.
 - [ ] Implement and compare a second independent cross-aspect reference model against the same fixtures and RT-03 observable traces.
 - [ ] Independently review the comparative report and validate RT-03↔RT-04 dependency assumptions.
 - [ ] Reconcile RT-04 semantic distinctions with RT-05 identity and RT-07 proof boundaries before selecting hash-bearing fields.
 
 **Evidence:** [RT-04 alternatives report](research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md); [Prototype 01 implementation and tests](research/PROTOTYPES/RT-04-01/README.md); [Prototype 01 results](research/RT-04-PROTOTYPE-01-RESULTS.md); [scenario matrix](research/RT-04-PROTOTYPE-01-SCENARIOS.md).
 
-**Status:** comparative survey drafted and one limited executable checker-vector experiment added (12 focused tests pass locally and in [GitHub Actions run 44310669797](https://github.com/aivibeflow/LLMLang/actions/runs/44310669797)). No type/effect/ownership/capability architecture is selected. Branch-sensitive resource semantics, effect-bound checking, runtime capability enforcement, complete dependency evidence, and a second independent reference model remain open; RT-03 is not closed.
+**Status:** comparative survey drafted. Prototype 01 now includes a finite branch-sensitive CFG resource-flow experiment and 18 focused unit tests; the CI result for this extension is pending verification. The CFG checker detects repeated consumption on reachable paths and inconsistent resource states at joins, but does not prove source-to-CFG completeness or model borrows, resource returns, cleanup, or symbolic path conditions. No type/effect/ownership/capability architecture is selected. Typed call-site checking, effect-bound checking, runtime capability enforcement, complete dependency evidence, and a second independent reference model remain open; RT-03 is not closed.
 
 ## 1.5 Prior-art study for semantic representation and identity
 
