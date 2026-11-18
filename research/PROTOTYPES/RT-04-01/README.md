@@ -169,6 +169,12 @@ The `cancel` expression produces a terminal execution outcome `{"cancelled": rea
 Both evaluators are differentially checked for cancellation nested inside pending continuations, skipped later effects, preservation of prior effects, and distinction from a Result error with the same reason payload. This is a synchronous terminal-control experiment only. It does not define cancellation propagation across function calls, asynchronous tasks, concurrent work, exception handling, resource finalization, or cleanup guarantees.
 
 
+### Independent structural path model
+
+`rt03_path_model.py` is a third, separately derived model for the bounded control/resource fragment. It does not import either evaluator and does not execute values or effect handlers. Instead, it enumerates structural paths, forks non-literal conditions into both outcomes, follows literal boolean conditions, and tracks resource obligations, LIFO release events, cancellation, Result short-circuit markers, and resources left active by failed cleanup. Its tests compare predicted resource-event sequences and final active-resource sets against both concrete evaluators over a finite scenario corpus.
+
+This provides a different kind of cross-check from evaluator-vs-evaluator differential testing. It can expose shared control/unwind mistakes in both interpreters, but it is not a source-level control-flow extractor, does not prove that all source branches were represented, and does not model type correctness, actual effect outcomes, aliases, ownership transfer, concurrency, or arbitrary cleanup code.
+
 ### Conditional branching
 
 The bounded `if` expression evaluates a boolean condition and exactly one selected branch. A non-boolean condition is rejected. The small-step evaluator represents the condition result as a continuation, so cancellation while evaluating the condition still unwinds any enclosing resource scopes. Branches are concrete runtime paths in this prototype; the evaluator does not prove that all possible paths in a source program were discovered.
