@@ -151,7 +151,7 @@ The rules make the current fixture behavior explicit:
 - A failed release during cancellation does not convert cancellation into a Result error. It appends a cleanup error in LIFO unwind order; resources whose release failed remain active.
 - An acquisition failure skips the failed scope's body and all inner scopes. Previously acquired outer scopes still unwind around the acquisition error.
 
-`test_rt03_resource_rules.py` compares exact event payloads/outcomes, final result envelopes, and final resource maps against both evaluators. It also compares resource-event/status and active-resource projections with the independent path model. The finite generated matrix contains 162 cases: depths one through three, all release success/failure combinations, normal/Result-error/cancellation body outcomes, and every possible acquisition-failure position.
+`test_rt03_resource_rules.py` compares exact event payloads/outcomes, final result envelopes, and final resource maps against both evaluators. It also compares resource-event/status and active-resource projections with the independent path model. The finite generated matrix contains 144 cases: depths one through three, all release success/failure combinations, normal/Result-error/cancellation body outcomes, and every possible acquisition-failure position.
 
 This is a separately derived executable rule model for the bounded fixture protocol, not a formal proof or a selected ownership model. It does not define borrow lifetimes, aliases, transfer/return, arbitrary destructors, exception unwinding, asynchronous cancellation, or concurrent cleanup. Those require additional semantics and evidence.
 
