@@ -281,6 +281,15 @@ class RT04ModelTests(unittest.TestCase):
         }}
         self.assertEqual(check_program(p, "B").status, "ACCEPTED")
 
+    def test_result_adt_is_supported_as_a_parameter_type(self):
+        result_type = {"Result": ["Int", "String"]}
+        p = {"functions": {
+            "caller": {"calls": ["consume"], "call_sites": [
+                {"target": "consume", "args": [result_type]}]},
+            "consume": {"params": {"value": result_type}, "result": "Unit"},
+        }}
+        self.assertEqual(check_program(p, "B").status, "ACCEPTED")
+
     def test_nested_result_adt_mismatch_is_rejected(self):
         p = {"functions": {
             "caller": {"calls": ["parse"], "call_sites": [
