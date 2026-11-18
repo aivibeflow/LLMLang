@@ -233,9 +233,9 @@ theorem decide_ne_eq_not_decide_eq {α : Type} [DecidableEq α] (left right : α
 def factorDifference (sort : ExprSort) (factor : String) : SourceQuerySemantics.QueryTerm .bool :=
   match sort with
   | .int =>
-      .not (.eqInt (.intSymbol (factor ++ "_L")) (.intSymbol (factor ++ "_R")))
+      .not (.eqInt (.symbolInt (factor ++ "_L")) (.symbolInt (factor ++ "_R")))
   | .bool =>
-      .not (.eqBool (.boolSymbol (factor ++ "_L")) (.boolSymbol (factor ++ "_R")))
+      .not (.eqBool (.symbolBool (factor ++ "_L")) (.symbolBool (factor ++ "_R")))
 
 /-- Build the observation-difference assumption from the two translated executions. -/
 def observationDifference :
