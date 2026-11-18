@@ -1,6 +1,6 @@
 # RT-20 — Candidate Snapshot dependency-closure audit
 
-**Status:** Prototype implemented; PR/CI validation pending.  
+**Status:** Prototype implemented; PR #16 merged; its PR-head CI checks passed.  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)  
 **Related gate:** [Candidate call-site validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md)
