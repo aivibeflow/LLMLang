@@ -83,6 +83,16 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
         with self.assertRaises(MachineError):
             run_small_step(expression, "A")
 
+    def test_ordinary_sequence_still_evaluates_after_result_error(self):
+        expression = {"sequence": [
+            {"result_error": {"literal": {"kind": "Expected"}}},
+            perform("state.write", "write", {"key": "continued", "value": True}),
+        ]}
+        trace = self.assert_same_trace(expression, "D", declared_effects=["state.write"])
+        self.assertEqual(trace.result, {"ok": None})
+        self.assertEqual(len(trace.events), 1)
+        self.assertEqual(trace.final_state, {"continued": True})
+
     def test_result_propagation_success_matches(self):
         trace = self.assert_same_trace({"result_sequence": [
             {"result_ok": {"literal": 1}},
