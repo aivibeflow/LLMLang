@@ -1,6 +1,6 @@
 # RT-04 Prototype 01 — Executable Scenario Set
 
-Implemented by PROTOTYPES/RT-04-01/test_rt04_model.py. Scope is declaration-level checker behavior and a supplied finite resource-control-flow graph.
+Implemented by PROTOTYPES/RT-04-01/test_rt04_model.py. Scope is declaration-level checker behavior, supplied finite resource-control-flow graphs, and explicitly asserted call-graph completeness metadata.
 
 | ID | Fixture | Profile A | Profile B |
 |---|---|---|---|
@@ -24,4 +24,13 @@ Implemented by PROTOTYPES/RT-04-01/test_rt04_model.py. Scope is declaration-leve
 | RT4-P16 | CFG edge points to an undeclared block | No CFG validation | Reject malformed CFG |
 | RT4-P17 | Linear consumes and CFG resource_flow both declared | No affine check | Reject ambiguous resource-flow input |
 
-The CFG tests assume the supplied blocks and edges are complete and correctly represent source control flow. They do not model symbolic branch conditions, borrow lifetimes, resource return/drop, terminal-path cleanup, or prove that the CFG extractor is sound. These are not whole-program semantics.
+| RT4-P18 | Transitive effects fit a declared effect bound and every reachable function is marked complete | Not yet compared | Accept |
+| RT4-P19 | A transitive callee introduces an effect outside the caller's bound | Not yet compared | Reject |
+| RT4-P20 | A reachable function lacks call-graph completeness evidence | Not yet compared | UNKNOWN |
+| RT4-P21 | No outgoing call edge is listed but the function is not certified complete | Not yet compared | UNKNOWN, not an empty effect summary |
+| RT4-P22 | A callee target is unresolved while checking a bound | Not yet compared | UNKNOWN |
+| RT4-P23 | A known direct effect violates the bound while another call edge is unresolved | Not yet compared | Reject the known violation and report incomplete summary |
+| RT4-P24 | Completeness evidence names an undeclared function | Not yet compared | Reject malformed evidence |
+| RT4-P25 | Multiple direct effects are all within the declared bound | Not yet compared | Accept |
+
+The CFG tests assume the supplied blocks and edges are complete and correctly represent source control flow. They do not model symbolic branch conditions, borrow lifetimes, resource return/drop, terminal-path cleanup, or prove that the CFG extractor is sound. Effect-bound tests likewise trust fixture-level completeness assertions; they do not prove source call-graph completeness or discover dynamic, generated, FFI, handler, or reflective calls. These are not whole-program semantics.
