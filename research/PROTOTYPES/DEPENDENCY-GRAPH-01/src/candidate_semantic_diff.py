@@ -317,12 +317,19 @@ def audit_candidate_semantic_diff(
                 continue
             site_id, target_id = edge_id.split("/", 1)
             base_key = (caller_hash, site_id, target_id)
-            related_outputs = [
+            caller_outputs = [
                 output for output in plan.planned_outputs
                 if (output.base_hash or output.source_hash) == caller_hash
-                and output.operation is not OutputOperation.REMOVE
+            ]
+            related_outputs = [
+                output for output in caller_outputs
+                if output.operation is not OutputOperation.REMOVE
             ]
             decisions_for_edge = decision_map.get(base_key, [])
+            if caller_outputs and not related_outputs:
+                # The caller is explicitly removed; its outgoing edge removals
+                # are reconciled below as output-edge deltas, not call decisions.
+                continue
             if related_outputs:
                 for output in related_outputs:
                     matching = [
