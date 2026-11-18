@@ -48,6 +48,74 @@ class RT04ModelTests(unittest.TestCase):
         p = {"functions": {"f": {"consumes": ["missing"]}}}
         self.assertIn("UNKNOWN_RESOURCE", check_program(p, "B").codes())
 
+    def test_branch_paths_that_agree_at_join_are_accepted(self):
+        p = {
+            "resources": {"socket": "owned"},
+            "functions": {"f": {"resource_flow": {
+                "entry": "branch",
+                "blocks": {
+                    "branch": {"successors": ["left", "right"]},
+                    "left": {"ops": [{"consume": "socket"}], "successors": ["join"]},
+                    "right": {"ops": [{"consume": "socket"}], "successors": ["join"]},
+                    "join": {},
+                },
+            }}},
+        }
+        self.assertEqual(check_program(p, "B").status, "ACCEPTED")
+
+    def test_branch_join_rejects_inconsistent_resource_state(self):
+        p = {
+            "resources": {"socket": "owned"},
+            "functions": {"f": {"resource_flow": {
+                "entry": "branch",
+                "blocks": {
+                    "branch": {"successors": ["left", "right"]},
+                    "left": {"ops": [{"consume": "socket"}], "successors": ["join"]},
+                    "right": {"successors": ["join"]},
+                    "join": {},
+                },
+            }}},
+        }
+        result = check_program(p, "B")
+        self.assertIn("RESOURCE_STATE_MISMATCH", result.codes())
+        self.assertEqual(result.status, "REJECTED")
+
+    def test_branch_local_double_consumption_is_rejected(self):
+        p = {
+            "resources": {"socket": "owned"},
+            "functions": {"f": {"resource_flow": {
+                "entry": "entry",
+                "blocks": {
+                    "entry": {"ops": [{"consume": "socket"}, {"consume": "socket"}]},
+                },
+            }}},
+        }
+        self.assertIn("RESOURCE_USE_AFTER_MOVE", check_program(p, "B").codes())
+
+    def test_loop_reconsumption_is_rejected(self):
+        p = {
+            "resources": {"token": "owned"},
+            "functions": {"f": {"resource_flow": {
+                "entry": "loop",
+                "blocks": {"loop": {"ops": [{"consume": "token"}], "successors": ["loop"]}},
+            }}},
+        }
+        self.assertIn("RESOURCE_USE_AFTER_MOVE", check_program(p, "B").codes())
+
+    def test_resource_flow_rejects_unknown_block_reference(self):
+        p = {"functions": {"f": {"resource_flow": {
+            "entry": "entry", "blocks": {"entry": {"successors": ["missing"]}},
+        }}}}
+        with self.assertRaises(ModelError):
+            check_program(p, "B")
+
+    def test_resource_flow_and_linear_consumes_are_mutually_exclusive(self):
+        p = {"resources": {"r": "owned"}, "functions": {"f": {
+            "consumes": ["r"], "resource_flow": {"entry": "entry", "blocks": {"entry": {}}},
+        }}}
+        with self.assertRaises(ModelError):
+            check_program(p, "B")
+
     def test_unknown_callee_fails_closed(self):
         p = {"functions": {"entry": {"calls": ["missing"]}}}
         self.assertIn("UNKNOWN_CALLEE", check_program(p, "B").codes())
