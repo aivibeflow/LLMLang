@@ -48,6 +48,7 @@ def evaluate(
       {"add": [left, right]}                 # strict, left-to-right integers
       {"sequence": [expr, ...]}              # strict, left-to-right
       {"result_ok": expr} / {"result_error": expr}
+      {"result_sequence": [Result expression, ...]}  # explicit first-error propagation
       {"perform": {"effect": label, "operation": op, "payload": object}}
 
     Profile A rejects every perform expression. Profile D requires the effect
