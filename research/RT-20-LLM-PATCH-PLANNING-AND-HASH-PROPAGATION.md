@@ -215,6 +215,10 @@ The plan must then:
 
 The plan must detect this case before implementation. It must not silently break a consumer to avoid creating a version split.
 
+### Candidate Snapshot materialization gate (prototype)
+
+The focused prototype in [RT-20 Candidate Call-Site Validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md) checks planned decisions against the exact materialized candidate Snapshot. It verifies Snapshot-root binding, selected caller/callee membership, canonical stored-object hashes, and the actual candidate declaration's call-site/target reference. `PRESERVE` must retain both the exact old callee and caller version; changed dispositions must materialize a new caller version. This is a reference-consistency gate only: it does not establish behavioral compatibility, complete dynamic dispatch discovery, or commit readiness. CI coverage is being added for this narrow gate.
+
 ### Stage 8 — Validate and approve the complete plan
 
 The Toolchain Server independently checks:
