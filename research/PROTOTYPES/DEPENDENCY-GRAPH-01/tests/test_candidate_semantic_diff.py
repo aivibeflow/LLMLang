@@ -5,9 +5,11 @@ import unittest
 from src.candidate_semantic_diff import audit_candidate_semantic_diff
 from src.impact_planning import (
     ActionKind, CallSiteDecision, CallSiteDisposition, ImpactPlan, PlannedAction,
+    OutputOperation, PlannedOutput, PlannedEdgeKind, PlannedEdgeOperation,
+    PlannedEdgeChange, compute_impact_plan_id,
 )
-from src.semantic_dependency_index import FORMAT, SCHEMA_VERSION, publish_declaration
-from src.semantic_graph import ContentStore, Snapshot, make_snapshot
+from src.semantic_dependency_index import FORMAT, SCHEMA_VERSION, publish_declaration, validate_declaration
+from src.semantic_graph import ContentStore, Snapshot, canonical_bytes, make_snapshot
 
 
 def declaration(kind, declaration_id, content=None, call_sites=None, references=None):
@@ -67,34 +69,112 @@ class CandidateSemanticDiffTests(unittest.TestCase):
                                     call_sites=site(self.new_callee, self.contract_hash))
         )
 
-    def plan(self, baseline, candidate, actions=(), decisions=()):
-        actions = tuple(actions)
-        decisions = tuple(sorted(decisions))
-        payload = {
-            "baseline": baseline.root_hash,
-            "candidate": candidate.root_hash,
-            "policy": "policy:test",
-            "actions": [
-                (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes)
-                for a in actions
-            ],
-            "audits": [],
-            "audit_bindings": [],
-            "call_site_decisions": [
-                (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
-                 d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
-                 d.rationale, d.decision_evidence_id, d.required_contract_hash,
-                 d.base_callee_contract_hash, d.selected_callee_contract_hash,
-                 d.compatibility_status)
-                for d in decisions
-            ],
-        }
-        plan_id = hashlib.sha256(json.dumps(
-            payload, sort_keys=True, separators=(",", ":")
-        ).encode("utf-8")).hexdigest()
+    def plan(self, baseline, candidate, actions=(), decisions=(),
+             outputs=None, edge_changes=None):
+        try:
+            before = {key: value for key, value in baseline.selections
+                      if isinstance(key, str) and key}
+        except (TypeError, ValueError):
+            before = {}
+        try:
+            after = {key: value for key, value in candidate.selections
+                     if isinstance(key, str) and key}
+        except (TypeError, ValueError):
+            after = {}
+
+        if outputs is None:
+            output_rows = []
+            for key in sorted(set(before) | set(after)):
+                old_hash, new_hash = before.get(key), after.get(key)
+                if old_hash == new_hash:
+                    continue
+                operation = (OutputOperation.ADD if old_hash is None else
+                             OutputOperation.REMOVE if new_hash is None else
+                             OutputOperation.REPLACE)
+                if operation is OutputOperation.REMOVE:
+                    kind = payload_digest = None
+                else:
+                    value = self.store.get(new_hash)
+                    declaration_value = validate_declaration(value.payload)
+                    kind = declaration_value["kind"]
+                    payload_digest = hashlib.sha256(canonical_bytes({
+                        "declaration_id": declaration_value["declaration_id"],
+                        "content": declaration_value["content"],
+                    })).hexdigest()
+                output_rows.append(PlannedOutput(
+                    "output:" + key, key, operation, old_hash, kind, payload_digest,
+                    "test fixture exact output", "evidence:output:" + key,
+                ))
+            outputs = tuple(output_rows)
+
+        def declaration_edges(value_hash):
+            value = self.store.get(value_hash)
+            declaration_value = validate_declaration(value.payload)
+            edges = {}
+            for row in declaration_value["references"]:
+                edges[("reference", row["reference_id"])] = (
+                    row["relation"], row["target_hash"], row["condition"], None
+                )
+            for site_row in declaration_value["call_sites"]:
+                for target in site_row["targets"]:
+                    edges[("call", site_row["call_site_id"] + "/" + target["target_id"])] = (
+                        "calls", target["target_hash"], target["condition"],
+                        target["required_contract_hash"],
+                    )
+            return edges
+
+        if edge_changes is None:
+            edge_rows = []
+            output_by_key = {item.logical_key: item for item in outputs}
+            for key in sorted(set(before) | set(after)):
+                old_hash, new_hash = before.get(key), after.get(key)
+                if old_hash == new_hash:
+                    continue
+                if new_hash is None and old_hash in after.values():
+                    continue
+                old_edge_hash = old_hash or (
+                    new_hash if new_hash in before.values() else None
+                )
+                old_edges = declaration_edges(old_edge_hash) if old_edge_hash else {}
+                new_edges = declaration_edges(new_hash) if new_hash else {}
+                output = output_by_key.get(key)
+                if output is None:
+                    continue
+                for edge_key in sorted(set(old_edges) | set(new_edges)):
+                    old_row, new_row = old_edges.get(edge_key), new_edges.get(edge_key)
+                    if old_row == new_row:
+                        continue
+                    edge_kind, edge_id = edge_key
+                    old_rel, old_target, old_cond, old_req = old_row if old_row else (None, None, None, None)
+                    new_rel, new_target, new_cond, new_req = new_row if new_row else (None, None, None, None)
+                    if old_row is None:
+                        operation = PlannedEdgeOperation.ADD
+                    elif new_row is None:
+                        operation = PlannedEdgeOperation.REMOVE
+                    elif (old_rel, old_target, old_req) == (new_rel, new_target, new_req) and old_cond != new_cond:
+                        operation = PlannedEdgeOperation.CONDITION
+                    else:
+                        operation = PlannedEdgeOperation.REWRITE
+                    edge_rows.append(PlannedEdgeChange(
+                        output.output_id,
+                        PlannedEdgeKind.TYPED_REFERENCE if edge_kind == "reference" else PlannedEdgeKind.CALL_TARGET,
+                        edge_id, operation, old_rel, new_rel, old_target, new_target,
+                        old_cond, new_cond, "test fixture exact edge", "evidence:edge",
+                        old_req, new_req,
+                    ))
+            edge_changes = tuple(edge_rows)
+
+        provisional = ImpactPlan(
+            "", baseline.root_hash, candidate.root_hash, "policy:test",
+            tuple(actions), (), (), tuple(sorted(decisions)),
+            tuple(sorted(outputs)), tuple(sorted(edge_changes)),
+        )
         return ImpactPlan(
-            plan_id, baseline.root_hash, candidate.root_hash, "policy:test",
-            actions, (), (), decisions,
+            compute_impact_plan_id(provisional), provisional.baseline_root,
+            provisional.candidate_root, provisional.policy_id,
+            provisional.actions, provisional.audit_statuses,
+            provisional.audit_bindings, provisional.call_site_decisions,
+            provisional.planned_outputs, provisional.planned_edge_changes,
         )
 
     def test_changed_selection_requires_exact_hash_action_coverage(self):
@@ -144,6 +224,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
             CallSiteDisposition.MIGRATE, self.new_callee, self.new_caller,
             "new tax contract", "evidence:compatibility",
             self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
+            None, "", "output:invoice",
         )
         plan = self.plan(
             baseline, candidate,
@@ -280,7 +361,7 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         candidate = make_snapshot({"invoice": new, "tax": self.old_callee})
         result = audit_candidate_semantic_diff(
             self.store, baseline, candidate,
-            self.plan(baseline, candidate, actions=(action(old),)),
+            self.plan(baseline, candidate, actions=(action(old),), edge_changes=()),
         )
         self.assertFalse(result.valid)
         self.assertTrue(any("typed-reference change" in error for error in result.errors))
