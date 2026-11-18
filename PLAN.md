@@ -725,13 +725,13 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Specify reverse-reference completeness for direct, indirect, dynamic, external, and generated call sites.
 - [ ] Prototype single-chain propagation, mixed old/new callers, shared-caller splits, multiple call sites, and branching/converging graphs.
 - [ ] Extend the call-site plan identity to represent one shared caller forked into multiple consumer/path-specific caller versions; the current prototype assumes one resulting version per base caller hash.
-- [ ] Prove that unplanned mutations and omitted planned changes are rejected.
+- [ ] Complete CIP-to-diff enforcement: the new selection-level prototype now rejects uncovered selection changes and omitted explicit incoming call-site decisions; typed-reference reconciliation, action-kind/prerequisite validation, and end-to-end negative cases remain.
 - [ ] Prototype failed-validation/no-commit, exact-tree commit, concurrency rejection, and idempotent retry behavior.
 - [ ] Reconcile the completion transaction with RT-19 persistence, crash recovery, atomic export, and Git coordination.
 
 **Evidence:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) records the proposed workflow and invariants. It is a research proposal, not an accepted identity or Toolchain decision.
 
-**Status:** RT-20 remains a research proposal. The dependency-graph prototype includes Snapshot-scoped reverse lookup, differential payload-scan auditing, per-call-site compatibility planning, candidate call-site materialization checks, and a complete explicit-declaration dependency-closure audit. The graph audit checks exact object hashes, transitive target resolution/kinds, and consistency between payload-derived edges and stored dependency metadata. Complete CIP-to-diff enforcement, behavioral compatibility, consumer-specific shared-caller forks, and a validation-gated commit remain open.
+**Status:** RT-20 remains a research proposal. The dependency-graph prototype includes Snapshot-scoped reverse lookup, differential payload-scan auditing, per-call-site compatibility planning, candidate call-site materialization checks, and a complete explicit-declaration dependency-closure audit. The graph audit checks exact object hashes, transitive target resolution/kinds, and consistency between payload-derived edges and stored dependency metadata. A narrow selection-level CIP diff audit is now implemented in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_semantic_diff.py` and documented in `research/RT-20-CANDIDATE-SEMANTIC-DIFF.md`; it still requires PR/CI validation. Typed-reference reconciliation, full action realization, behavioral compatibility, consumer-specific shared-caller forks, and a validation-gated commit remain open.
 
 **Evidence:** [RT-20 Candidate Call-Site Validation](research/RT-20-CANDIDATE-CALL-SITE-VALIDATION.md), [RT-20 Candidate Graph Audit](research/RT-20-CANDIDATE-GRAPH-AUDIT.md), and tests under `research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/`.
 
