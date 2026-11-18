@@ -84,3 +84,10 @@ Remaining work:
 This still will not prove behavioral compatibility. That remains a separate contract/test/proof obligation. Shared-caller consumer-specific forks also remain unrepresented in the current plan identity and must be solved before claiming complete RT-20 support.
 
 This prototype is not a canonical SPG schema, production Toolchain implementation, or proof of program correctness.
+
+
+## Follow-up: CIP v2 output and edge reconciliation
+
+The next slice is implemented in this branch and documented in [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md). CIP schema v2 adds exact logical output slots, typed-reference/call-target edge deltas (including required Contract hashes), post-materialization output bindings, and consumer-path-specific shared-caller forks. The focused semantic-dependency suite now contains 101 tests, including a branching/converging fixture. Merge remains pending.
+
+This closes the previous fail-closed gap for the supported explicit output and edge operations. It does not close dynamic dependency completeness, evidence authentication, full action-kind/prerequisite realization, behavioral compatibility, or commit authorization.
