@@ -1,4 +1,5 @@
 import unittest
+from itertools import product
 
 from rt03_path_model import enumerate_paths
 from rt03_reference import evaluate
@@ -101,6 +102,42 @@ class RT03IndependentPathModelTests(unittest.TestCase):
         for expression in cases:
             with self.subTest(expression=expression):
                 self.assert_model_matches_both_evaluators(expression)
+
+    def test_exhaustive_two_resource_branch_cleanup_matrix(self):
+        # Exhaust all combinations in this finite matrix:
+        # 2 branch values × 2 outer release outcomes × 2 inner release outcomes
+        # × 3 selected body outcomes × 3 unselected body outcomes = 72 cases.
+        outcomes = {
+            "normal": {"literal": "completed"},
+            "result_error": {"result_error": {"literal": {"kind": "BodyFailed"}}},
+            "cancel": {"cancel": {"kind": "BodyCancelled"}},
+        }
+        cases = 0
+        for condition, outer_fails, inner_fails, selected_kind, skipped_kind in product(
+            (True, False), (False, True), (False, True),
+            tuple(outcomes), tuple(outcomes),
+        ):
+            expression = {"with_resource": {
+                "id": "outer", "value": "outer-handle",
+                "release_fails": outer_fails,
+                "body": {"with_resource": {
+                    "id": "inner", "value": "inner-handle",
+                    "release_fails": inner_fails,
+                    "body": {"if": {
+                        "condition": {"literal": condition},
+                        "then": outcomes[selected_kind],
+                        "else": outcomes[skipped_kind],
+                    }},
+                }},
+            }}
+            with self.subTest(
+                condition=condition, outer_release_fails=outer_fails,
+                inner_release_fails=inner_fails, selected=selected_kind,
+                skipped=skipped_kind,
+            ):
+                self.assert_model_matches_both_evaluators(expression)
+            cases += 1
+        self.assertEqual(cases, 72)
 
     def test_unknown_condition_enumerates_both_branches_independently(self):
         expression = {"with_resource": {
