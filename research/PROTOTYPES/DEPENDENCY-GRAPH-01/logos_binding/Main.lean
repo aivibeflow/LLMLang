@@ -1,5 +1,6 @@
 import LLMLangLogosBinding
 import RelationalSourceQuerySemantics
+import LogosQueryAdapter
 
 open LLMLang.LogosBinding
 
