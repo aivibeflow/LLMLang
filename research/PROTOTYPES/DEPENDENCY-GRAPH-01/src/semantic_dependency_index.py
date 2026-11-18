@@ -131,6 +131,73 @@ def dependency_edge_set_digest(edges: Iterable[IndexedEdge]) -> str:
     return sha256(canonical_bytes([edge.record() for edge in sorted(edges)])).hexdigest()
 
 
+def audit_snapshot_incoming_independently(
+    store: ContentStore, snapshot: Snapshot, result: SnapshotIncomingResult,
+) -> ReverseLookupEvidence:
+    """Produce differential evidence by rescanning selected declaration payloads.
+
+    This is an independent traversal of the stored declaration projection, not an
+    independent trust domain: it shares the same Content Store and source payloads.
+    """
+    if result.snapshot_root != snapshot.root_hash:
+        raise ValueError("incoming result is bound to a different Snapshot")
+    if not result.scope or not result.target_hash:
+        raise ValueError("incoming result target and scope are required")
+    store.get(result.target_hash)
+    expected: list[IndexedEdge] = []
+    for source_hash in sorted(set(snapshot.mapping.values())):
+        source = store.get(source_hash)
+        payload = source.payload
+        if not isinstance(payload, Mapping):
+            raise SemanticObjectError("stored declaration payload must be a mapping")
+        for row in payload.get("references", ()):
+            target_hash = row.get("target_hash")
+            if target_hash == result.target_hash:
+                target = store.get(target_hash)
+                expected.append(IndexedEdge(
+                    source_hash, row.get("reference_id"), row.get("relation"),
+                    target_hash, target.kind, row.get("condition"),
+                ))
+        for site in payload.get("call_sites", ()):
+            for target_row in site.get("targets", ()):
+                target_hash = target_row.get("target_hash")
+                if target_hash == result.target_hash:
+                    target = store.get(target_hash)
+                    expected.append(IndexedEdge(
+                        source_hash, f"{site.get('call_site_id')}/{target_row.get('target_id')}",
+                        "calls", target_hash, target.kind, target_row.get("condition"),
+                    ))
+    expected_edges = tuple(sorted(expected))
+    actual_edges = tuple(sorted(result.edges))
+    missing = sorted(set(expected_edges) - set(actual_edges))
+    unexpected = sorted(set(actual_edges) - set(expected_edges))
+    discrepancies = tuple(sorted(set(
+        list(result.discrepancies)
+        + ["missing-index-edge:" + edge.source_hash + ":" + edge.edge_id for edge in missing]
+        + ["unexpected-index-edge:" + edge.source_hash + ":" + edge.edge_id for edge in unexpected]
+        + (["result-edge-digest-mismatch"] if dependency_edge_set_digest(actual_edges) != result.edge_set_digest else [])
+    )))
+    status = CompletenessStatus.GAP_FOUND if discrepancies else CompletenessStatus.SUPPORTED_WITHIN_SCOPE
+    observation_model_id = "snapshot-payload-reference-scan/1"
+    identity = {
+        "snapshot_root": snapshot.root_hash, "target_hash": result.target_hash,
+        "scope": result.scope, "index_schema_version": result.index_schema_version,
+        "extractor_id": result.extractor_id, "edge_set_digest": result.edge_set_digest,
+        "observation_model_id": observation_model_id, "discrepancies": discrepancies,
+    }
+    evidence_id = "audit:" + sha256(canonical_bytes(identity)).hexdigest()
+    return ReverseLookupEvidence(
+        evidence_id=evidence_id, snapshot_root=snapshot.root_hash,
+        target_hash=result.target_hash, scope=result.scope,
+        index_schema_version=result.index_schema_version,
+        extractor_id=result.extractor_id, edge_set_digest=result.edge_set_digest,
+        status=status, observation_model_id=observation_model_id,
+        assumptions=("all selected Snapshot declarations are readable and conform to the declared envelope",),
+        exclusions=("runtime reflection", "external dynamic dispatch", "unselected historical objects"),
+        discrepancies=discrepancies,
+    )
+
+
 def query_snapshot_incoming(
     store: ContentStore, snapshot: Snapshot, target_hash: str, scope: str,
     evidence: ReverseLookupEvidence | None = None,
@@ -241,6 +308,8 @@ def validate_declaration(declaration: Mapping[str, Any]) -> dict[str, Any]:
         if not isinstance(site, Mapping) or set(site) != {"call_site_id", "targets"}:
             raise SemanticObjectError("call site must contain exactly call_site_id and targets")
         site_id = _require_string(site["call_site_id"], "call_site_id")
+        if "/" in site_id:
+            raise SemanticObjectError("call_site_id cannot contain '/' because it delimits call-target edge identity")
         if site_id in seen_sites:
             raise SemanticObjectError(f"duplicate call_site_id: {site_id}")
         seen_sites.add(site_id)
@@ -254,6 +323,8 @@ def validate_declaration(declaration: Mapping[str, Any]) -> dict[str, Any]:
                 raise SemanticObjectError("call target must contain target_id, target_hash, condition")
             target_id = _require_string(target["target_id"], "target_id")
             target_hash = _require_string(target["target_hash"], "target_hash")
+            if "/" in target_id:
+                raise SemanticObjectError("target_id cannot contain '/' because it delimits call-target edge identity")
             if target_id in seen_target_ids:
                 raise SemanticObjectError(f"duplicate target_id at call site {site_id}")
             seen_target_ids.add(target_id)

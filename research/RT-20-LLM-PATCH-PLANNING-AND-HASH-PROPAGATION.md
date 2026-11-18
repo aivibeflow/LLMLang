@@ -162,6 +162,12 @@ If dependency completeness cannot be established for the relevant scope—for ex
 
 ### Stage 4 — Analyze caller compatibility per edge
 
+For every exact incoming `calls` edge, record a `CallSiteDecision` keyed by caller hash, call-site ID, and target ID. The decision also binds the exact base callee hash; call-site identity alone is insufficient when a call site has conditional/multiple targets.
+
+Allowed dispositions are `migrate`, `preserve`, `adapt`, `fork`, and `unresolved`. Every resolved decision records a selected exact callee hash, resulting exact caller hash, rationale, and compatibility evidence ID. `preserve` must retain the exact base callee hash. `migrate` must select a different callee hash and produce a different caller hash. `adapt` and `fork` likewise require an explicit resulting caller version. Unresolved decisions cannot claim output hashes or evidence and block approval.
+
+The prototype's independent payload-scan audit is a second traversal over the selected Snapshot declarations. It differentially checks the reverse index's exact incoming edge set and emits Snapshot/target/scope/schema/extractor/digest-bound evidence. It shares the same Content Store and source payloads, so it is a differential implementation check, not an independent trust domain or proof that runtime/dynamic dispatch has been observed.
+
 For each discovered caller edge:
 1. Compare the old callee contract with the proposed new callee contract.
 2. Determine the behavior required by the caller's own contract and by the requirements governing that call site.
@@ -413,9 +419,9 @@ The server should expose coarse-grained operations where possible. A large set o
 RT-20 can support a scoped architectural decision when:
 - the identity and call-reference assumptions are reconciled with Studies 05–08 and the RT-24 Identity and SPG Reconciliation report;
 - caller discovery completeness is demonstrable for a declared language subset;
-- edge-specific compatibility decisions are represented and independently checked;
+- edge-specific compatibility decisions are represented and differentially checked against a second Snapshot payload traversal;
 - contract propagation and hash propagation are separately specified and tested;
-- mixed old/new behavior and shared-caller version splitting work in prototypes;
+- mixed old/new behavior and shared-caller version splitting work in prototypes with exact per-call-site output hashes and evidence bindings;
 - the complete plan is validated before implementation;
 - every planned version/reference change is enforced during implementation;
 - validation evidence is bound to exact candidate hashes and toolchain configuration;

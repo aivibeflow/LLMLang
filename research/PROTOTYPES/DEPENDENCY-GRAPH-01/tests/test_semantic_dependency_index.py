@@ -3,6 +3,7 @@ import unittest
 from src.semantic_graph import ContentStore, make_snapshot
 from src.semantic_dependency_index import (
     FORMAT, SCHEMA_VERSION, EXTRACTOR_ID, CompletenessStatus, ReverseLookupEvidence,
+    audit_snapshot_incoming_independently,
     SemanticObjectError, dependency_edge_set_digest, query_snapshot_incoming,
     build_dependency_index, build_snapshot_dependency_index, publish_declaration, validate_declaration,
 )
@@ -135,6 +136,27 @@ class SemanticDependencyIndexTests(unittest.TestCase):
         }
         values.update(overrides)
         return ReverseLookupEvidence(**values)
+
+    def test_independent_payload_scan_produces_snapshot_bound_evidence(self):
+        snapshot = self._reverse_query_fixture()
+        result = query_snapshot_incoming(self.store, snapshot, self.old_callee,
+                                         "all-static-call-sites")
+        evidence = audit_snapshot_incoming_independently(self.store, snapshot, result)
+        self.assertEqual(evidence.status, CompletenessStatus.SUPPORTED_WITHIN_SCOPE)
+        checked = query_snapshot_incoming(self.store, snapshot, self.old_callee,
+                                          "all-static-call-sites", evidence)
+        self.assertEqual(checked.completeness_status, CompletenessStatus.SUPPORTED_WITHIN_SCOPE)
+        self.assertEqual(checked.evidence_id, evidence.evidence_id)
+
+    def test_independent_payload_scan_detects_missing_reverse_index_edge(self):
+        from dataclasses import replace
+        snapshot = self._reverse_query_fixture()
+        result = query_snapshot_incoming(self.store, snapshot, self.old_callee,
+                                         "all-static-call-sites")
+        incomplete = replace(result, edges=(), edge_set_digest=dependency_edge_set_digest(()))
+        evidence = audit_snapshot_incoming_independently(self.store, snapshot, incomplete)
+        self.assertEqual(evidence.status, CompletenessStatus.GAP_FOUND)
+        self.assertTrue(any(item.startswith("missing-index-edge:") for item in evidence.discrepancies))
 
     def test_reverse_query_without_evidence_is_not_checked(self):
         snapshot = self._reverse_query_fixture()
