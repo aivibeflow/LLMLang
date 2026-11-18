@@ -190,7 +190,7 @@ The work is split into small reviewable tasks. A task is complete only when its 
 - [x] **SCW-01 — Record the exact QF_LIA source subset.** Keep the initial source grammar and exclusions explicit (Sections 2 and 10).
 - [x] **SCW-02 — Record the current expression-level proof boundary.** `SourceQuerySemantics.lean` contains an independent typed source/query expression AST and `translateExpr_preserves_eval`.
 - [x] **SCW-03 — Record the existing relational-expression prototype.** `RelationalSourceQuerySemantics.lean` contains per-side expression translation, selected-factor renaming, shared non-factor names, and expression-level factor/observation difference lemmas.
-- [ ] **SCW-04 — Audit the current modules against the intended trust boundary.** The relational prototype currently imports `LLMLangLogosBinding` and uses its `QueryTerm`; decide and implement a clean separation between a solver/Logos-independent semantic query core and the Logos adapter.
+- [x] **SCW-04 — Audit the current modules against the intended trust boundary.** The audit is recorded in [SCW-04-MODULE-BOUNDARY-AUDIT.md](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-04-MODULE-BOUNDARY-AUDIT.md). It confirms that `SourceQuerySemantics.QueryTerm` already exists independently, but relational proofs bypass it and use `LogosBinding.QueryTerm`. The target module layering and duplicate-IR mismatch are explicit. Implementation/decoupling remains SCW-15; no theorem is upgraded by this audit.
 
 **Outputs:** reviewed baseline inventory; explicit list of proved expression claims and unproved command/program claims; module dependency diagram.
 
@@ -263,7 +263,7 @@ The work is split into small reviewable tasks. A task is complete only when its 
 
 ### 7.8 Execution order and gates
 
-The immediate next task is **SCW-04**, not the whole proof. First audit and decouple the current relational expression proof from Logos-specific ASTs. Then proceed through SCW-05–SCW-15 before adding command semantics. Keep later groups blocked until predecessor theorems compile.
+The immediate next task is **SCW-15**: implement the decoupling specified by the SCW-04 audit. SCW-04 completed the dependency/trust-boundary audit only; the relational proof still depends on Logos until SCW-15 is implemented and kernel-checked. Then proceed through SCW-05–SCW-14 and SCW-16 onward before adding command semantics. Keep later groups blocked until predecessor theorems compile.
 
 | Gate | Required tasks | Exit condition |
 |---|---|---|
