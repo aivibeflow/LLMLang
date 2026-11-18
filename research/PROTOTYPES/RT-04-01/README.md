@@ -169,6 +169,10 @@ The `cancel` expression produces a terminal execution outcome `{"cancelled": rea
 Both evaluators are differentially checked for cancellation nested inside pending continuations, skipped later effects, preservation of prior effects, and distinction from a Result error with the same reason payload. This is a synchronous terminal-control experiment only. It does not define cancellation propagation across function calls, asynchronous tasks, concurrent work, exception handling, resource finalization, or cleanup guarantees.
 
 
+### Conditional branching
+
+The bounded `if` expression evaluates a boolean condition and exactly one selected branch. A non-boolean condition is rejected. The small-step evaluator represents the condition result as a continuation, so cancellation while evaluating the condition still unwinds any enclosing resource scopes. Branches are concrete runtime paths in this prototype; the evaluator does not prove that all possible paths in a source program were discovered.
+
 ### Structured resource scope and cleanup
 
 The opt-in `with_resource` expression acquires a named fixture resource, evaluates its body, and releases the resource on normal completion, a Result error value, or terminal cancellation. The body can observe the active resource through the declared `resource.use/use` effect. Acquisition failure skips the body and release. Release failure is observable and leaves the resource in the final resource map; if the body already produced a Result error, both the primary and cleanup errors are retained. During cancellation, active scopes unwind in LIFO order; cleanup failures are attached to the distinct cancelled outcome. Effects completed before cancellation are not rolled back.
