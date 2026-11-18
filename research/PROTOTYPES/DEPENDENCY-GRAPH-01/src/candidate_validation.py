@@ -44,22 +44,15 @@ def validate_candidate_call_site_decisions(
     candidate: Snapshot,
     plan: ImpactPlan,
 ) -> CandidateValidationResult:
-    """Check every planned call-site decision against materialized candidate objects.
+    """Validate call-site decisions and their path-specific materialized outputs.
 
-    The check is fail-closed and accumulates diagnostics. A valid result means:
-    - the plan is bound to the supplied baseline and candidate roots;
-    - each decision refers to an exact call edge in the baseline Snapshot;
-    - selected callee and resulting caller objects exist and are selected in candidate;
-    - the candidate caller's stored declaration contains the exact selected target;
-    - PRESERVE retains the exact original callee at that call site, even if other caller changes produce a new caller version;
-    - stored caller/callee content hashes recompute correctly.
-
-    It does not establish that ADAPT/FORK/MIGRATE are behaviorally compatible,
-    nor does it cover runtime reflection, external dispatch, or omitted call sites.
+    This checks exact source/candidate edge and Contract bindings. It does not
+    authenticate compatibility evidence or prove behavioral refinement.
     """
     errors: list[str] = []
     baseline_hashes = _selected_hashes(baseline)
     candidate_hashes = _selected_hashes(candidate)
+    candidate_selection = dict(candidate.selections)
 
     if plan.baseline_root != baseline.root_hash:
         errors.append("plan baseline root does not match supplied baseline Snapshot")
@@ -68,16 +61,17 @@ def validate_candidate_call_site_decisions(
 
     decisions = tuple(plan.call_site_decisions)
     decision_keys = [
-        (item.caller_hash, item.call_site_id, item.target_id) for item in decisions
+        (item.caller_hash, item.call_site_id, item.target_id, item.consumer_path_id)
+        for item in decisions
     ]
     if len(set(decision_keys)) != len(decision_keys):
-        errors.append("plan contains duplicate call-site decisions")
+        errors.append("plan contains duplicate call-site decisions for one consumer path")
 
-    resulting_callers: dict[str, str] = {}
+    resulting_callers: dict[tuple[str, str], str] = {}
+    planned_outputs = {item.output_id: item for item in plan.planned_outputs}
     checked = 0
     for decision in decisions:
         checked += 1
-        key = (decision.caller_hash, decision.call_site_id, decision.target_id)
         prefix = f"{decision.caller_hash}:{decision.call_site_id}/{decision.target_id}"
 
         if decision.disposition is CallSiteDisposition.UNRESOLVED:
@@ -90,14 +84,11 @@ def validate_candidate_call_site_decisions(
             errors.append(f"{prefix}: base callee is not selected by baseline Snapshot")
             continue
 
-        # Bind the decision to the actual source edge, not just to two selected hashes.
         try:
             base_caller_value = store.get(decision.caller_hash)
             _verify_stored_hash(store, decision.caller_hash)
             base_declaration = validate_declaration(base_caller_value.payload)
-            base_sites = {
-                site["call_site_id"]: site for site in base_declaration["call_sites"]
-            }
+            base_sites = {site["call_site_id"]: site for site in base_declaration["call_sites"]}
             base_site = base_sites.get(decision.call_site_id)
             base_targets = ({
                 target["target_id"]: target for target in base_site["targets"]
@@ -119,13 +110,41 @@ def validate_candidate_call_site_decisions(
             errors.append(f"{prefix}: baseline caller validation failed: {exc}")
             continue
 
+        selected_callee_hash = decision.selected_callee_hash
+        if decision.selected_output_id is not None:
+            selected_output = planned_outputs.get(decision.selected_output_id)
+            if selected_output is None or selected_output.operation.value == "remove":
+                errors.append(f"{prefix}: selected output ID is absent or removed in the CIP")
+            else:
+                if (selected_output.base_hash or selected_output.source_hash) != decision.base_callee_hash:
+                    errors.append(f"{prefix}: selected output is not derived from the exact base callee")
+                bound_hash = candidate_selection.get(selected_output.logical_key)
+                if selected_callee_hash is not None and selected_callee_hash != bound_hash:
+                    errors.append(f"{prefix}: selected callee hash differs from its output binding")
+                selected_callee_hash = bound_hash
+
+        resulting_caller_hash = decision.resulting_caller_hash
+        if decision.resulting_output_id is not None:
+            output = planned_outputs.get(decision.resulting_output_id)
+            if output is None or output.operation.value == "remove":
+                errors.append(f"{prefix}: resulting output ID is absent or removed in the CIP")
+            else:
+                if (output.base_hash or output.source_hash) != decision.caller_hash:
+                    errors.append(f"{prefix}: resulting output is not derived from this exact base caller")
+                if output.consumer_path_id != decision.consumer_path_id:
+                    errors.append(f"{prefix}: resulting output consumer path differs from the decision")
+                bound_hash = candidate_selection.get(output.logical_key)
+                if resulting_caller_hash is not None and resulting_caller_hash != bound_hash:
+                    errors.append(f"{prefix}: resulting caller hash differs from its output binding")
+                resulting_caller_hash = bound_hash
+
         if (decision.disposition is CallSiteDisposition.MIGRATE
-                and decision.selected_callee_hash == decision.base_callee_hash):
+                and selected_callee_hash == decision.base_callee_hash):
             errors.append(f"{prefix}: MIGRATE retained the exact base callee hash")
-        if decision.selected_callee_hash not in candidate_hashes:
+        if selected_callee_hash not in candidate_hashes:
             errors.append(f"{prefix}: selected callee is not selected by candidate Snapshot")
             continue
-        if decision.resulting_caller_hash not in candidate_hashes:
+        if resulting_caller_hash not in candidate_hashes:
             errors.append(f"{prefix}: resulting caller is not selected by candidate Snapshot")
             continue
         if (not decision.decision_evidence_id or not decision.rationale
@@ -133,59 +152,50 @@ def validate_candidate_call_site_decisions(
                 or not decision.selected_callee_contract_hash):
             errors.append(f"{prefix}: resolved decision lacks PROVEN compatibility, contract binding, rationale, or evidence identity")
 
-        previous = resulting_callers.setdefault(
-            decision.caller_hash, decision.resulting_caller_hash
-        )
-        if previous != decision.resulting_caller_hash:
-            errors.append(
-                f"{prefix}: decisions for one base caller disagree on resulting caller version"
-            )
+        path_key = (decision.caller_hash, decision.consumer_path_id)
+        previous = resulting_callers.setdefault(path_key, resulting_caller_hash)
+        if previous != resulting_caller_hash:
+            errors.append(f"{prefix}: decisions for one base caller/consumer path disagree on resulting caller version")
+        if decision.consumer_path_id and not decision.resulting_output_id:
+            errors.append(f"{prefix}: consumer-specific caller version lacks a resulting output ID")
 
-        if (decision.disposition is CallSiteDisposition.PRESERVE
-                and decision.selected_callee_hash != decision.base_callee_hash):
-            errors.append(f"{prefix}: PRESERVE changed the exact callee hash")
-        if (decision.disposition is CallSiteDisposition.PRESERVE
-                and decision.selected_callee_contract_hash != decision.base_callee_contract_hash):
-            errors.append(f"{prefix}: PRESERVE changed the exact callee-provided contract hash")
+        if decision.disposition is CallSiteDisposition.PRESERVE:
+            if selected_callee_hash != decision.base_callee_hash:
+                errors.append(f"{prefix}: PRESERVE changed the exact callee hash")
+            if decision.selected_callee_contract_hash != decision.base_callee_contract_hash:
+                errors.append(f"{prefix}: PRESERVE changed the exact callee-provided contract hash")
         if (decision.disposition in {
                 CallSiteDisposition.MIGRATE, CallSiteDisposition.ADAPT,
                 CallSiteDisposition.FORK,
-            } and decision.resulting_caller_hash == decision.caller_hash):
+            } and resulting_caller_hash == decision.caller_hash):
             errors.append(f"{prefix}: changed disposition retained the old caller version")
 
         try:
-            _verify_stored_hash(store, decision.selected_callee_hash)
-            _verify_stored_hash(store, decision.resulting_caller_hash)
-            caller_value = store.get(decision.resulting_caller_hash)
+            _verify_stored_hash(store, selected_callee_hash)
+            _verify_stored_hash(store, resulting_caller_hash)
+            caller_value = store.get(resulting_caller_hash)
             declaration = validate_declaration(caller_value.payload)
             if declaration["kind"] != caller_value.kind:
                 errors.append(f"{prefix}: caller declaration kind differs from stored kind")
                 continue
-            sites = {
-                site["call_site_id"]: site for site in declaration["call_sites"]
-            }
+            sites = {site["call_site_id"]: site for site in declaration["call_sites"]}
             site = sites.get(decision.call_site_id)
             if site is None:
                 errors.append(f"{prefix}: candidate caller omits the planned call site")
                 continue
-            targets = {
-                target["target_id"]: target for target in site["targets"]
-            }
+            targets = {target["target_id"]: target for target in site["targets"]}
             target = targets.get(decision.target_id)
             if target is None:
                 errors.append(f"{prefix}: candidate caller omits the planned call target")
                 continue
-            if target["target_hash"] != decision.selected_callee_hash:
-                errors.append(
-                    f"{prefix}: candidate call target points to {target['target_hash']}, "
-                    f"not selected callee {decision.selected_callee_hash}"
-                )
+            if target["target_hash"] != selected_callee_hash:
+                errors.append(f"{prefix}: candidate call target points to {target['target_hash']}, not selected callee {selected_callee_hash}")
             if target["required_contract_hash"] != decision.required_contract_hash:
                 errors.append(f"{prefix}: candidate call site changed its exact required contract")
-            callee_value = store.get(decision.selected_callee_hash)
+            callee_value = store.get(selected_callee_hash)
             if callee_value.kind not in {"function", "operation"}:
                 errors.append(f"{prefix}: selected call target is not a function or operation")
-            elif _provided_contract_hash(store, decision.selected_callee_hash) != decision.selected_callee_contract_hash:
+            elif _provided_contract_hash(store, selected_callee_hash) != decision.selected_callee_contract_hash:
                 errors.append(f"{prefix}: selected callee does not provide the contract bound by the decision")
         except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
             errors.append(f"{prefix}: candidate object validation failed: {exc}")
