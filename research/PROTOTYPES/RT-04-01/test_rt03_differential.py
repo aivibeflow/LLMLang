@@ -17,6 +17,7 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
         self.assertEqual(machine.result, recursive.result)
         self.assertEqual(machine.final_state, recursive.final_state)
         self.assertEqual(machine.final_files, recursive.final_files)
+        self.assertEqual(machine.final_resources, recursive.final_resources)
         return recursive
 
     def test_result_propagation_rejects_non_result_item_in_both_models(self):
@@ -69,6 +70,95 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
         self.assertEqual(cancelled.result, {"cancelled": {"kind": "InvalidInput"}})
         self.assertEqual(failed.result, {"error": {"kind": "InvalidInput"}})
         self.assertNotEqual(cancelled.result, failed.result)
+
+    def test_resource_scope_releases_after_success_and_records_use(self):
+        expression = {"with_resource": {
+            "id": "socket-1", "value": {"fd": 7},
+            "body": perform("resource.use", "use", {"id": "socket-1"}),
+        }}
+        trace = self.assert_same_trace(expression, "D", declared_effects=["resource.use"])
+        self.assertEqual(trace.result, {"ok": {"fd": 7}})
+        self.assertEqual([event["effect"] for event in trace.events], [
+            "resource.acquire", "resource.use", "resource.release"
+        ])
+        self.assertEqual(trace.final_resources, {})
+
+    def test_resource_scope_releases_after_result_error(self):
+        expression = {"with_resource": {
+            "id": "socket-1", "value": "handle",
+            "body": {"result_error": {"literal": {"kind": "UseFailed"}}},
+        }}
+        trace = self.assert_same_trace(expression, "D")
+        self.assertEqual(trace.result, {"error": {"kind": "UseFailed"}})
+        self.assertEqual([event["effect"] for event in trace.events], ["resource.acquire", "resource.release"])
+        self.assertEqual(trace.final_resources, {})
+
+    def test_resource_scope_releases_during_cancellation_unwind(self):
+        expression = {"with_resource": {
+            "id": "socket-1", "value": "handle",
+            "body": {"cancel": {"kind": "Timeout"}},
+        }}
+        trace = self.assert_same_trace(expression, "D")
+        self.assertEqual(trace.result, {"cancelled": {"kind": "Timeout"}})
+        self.assertEqual([event["effect"] for event in trace.events], ["resource.acquire", "resource.release"])
+        self.assertEqual(trace.final_resources, {})
+
+    def test_nested_resources_release_in_lifo_order_on_cancellation(self):
+        expression = {"with_resource": {
+            "id": "outer", "value": "outer-handle",
+            "body": {"with_resource": {
+                "id": "inner", "value": "inner-handle",
+                "body": {"cancel": {"kind": "Stop"}},
+            }},
+        }}
+        trace = self.assert_same_trace(expression, "D")
+        self.assertEqual(trace.result, {"cancelled": {"kind": "Stop"}})
+        self.assertEqual([event["payload"].get("id") for event in trace.events], [
+            "outer", "inner", "inner", "outer"
+        ])
+        self.assertEqual(trace.final_resources, {})
+
+    def test_nested_release_failures_are_reported_in_unwind_order(self):
+        expression = {"with_resource": {
+            "id": "outer", "value": 1, "release_fails": True,
+            "body": {"with_resource": {
+                "id": "inner", "value": 2, "release_fails": True,
+                "body": {"cancel": {"kind": "Stop"}},
+            }},
+        }}
+        trace = self.assert_same_trace(expression, "D")
+        self.assertEqual(trace.result, {"cancelled": {
+            "reason": {"kind": "Stop"},
+            "cleanup_errors": [
+                {"kind": "ReleaseFailed", "resource": "inner"},
+                {"kind": "ReleaseFailed", "resource": "outer"},
+            ],
+        }})
+        self.assertEqual(trace.final_resources, {"outer": 1, "inner": 2})
+
+    def test_release_failure_is_reported_and_resource_remains_active(self):
+        expression = {"with_resource": {
+            "id": "socket-1", "value": "handle", "release_fails": True,
+            "body": {"result_error": {"literal": {"kind": "UseFailed"}}},
+        }}
+        trace = self.assert_same_trace(expression, "D")
+        self.assertEqual(trace.result, {"error": {
+            "kind": "CleanupFailed",
+            "primary": {"kind": "UseFailed"},
+            "cleanup": {"kind": "ReleaseFailed", "resource": "socket-1"},
+        }})
+        self.assertEqual(trace.final_resources, {"socket-1": "handle"})
+
+    def test_acquire_failure_skips_body_and_release(self):
+        expression = {"with_resource": {
+            "id": "socket-1", "value": "handle", "acquire_fails": True,
+            "body": perform("state.write", "write", {"key": "must_not_run", "value": 1}),
+        }}
+        trace = self.assert_same_trace(expression, "D", declared_effects=["state.write"])
+        self.assertEqual(trace.result, {"error": {"kind": "AcquireFailed", "resource": "socket-1"}})
+        self.assertEqual([event["effect"] for event in trace.events], ["resource.acquire"])
+        self.assertEqual(trace.final_state, {})
+        self.assertEqual(trace.final_resources, {})
 
     def test_pure_expression_corpus_matches(self):
         corpus = [

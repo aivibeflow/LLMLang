@@ -69,6 +69,10 @@ class RT03ReferenceSemanticsTests(unittest.TestCase):
         self.assertEqual(trace.final_state, {"before": 1})
         self.assertEqual(len(trace.events), 1)
 
+    def test_profile_a_rejects_resource_scope(self):
+        with self.assertRaisesRegex(SemanticError, "Profile A is pure"):
+            evaluate({"with_resource": {"id": "r", "value": 1, "body": {"literal": None}}}, "A")
+
     def test_profile_a_rejects_effectful_expression(self):
         with self.assertRaisesRegex(SemanticError, "Profile A is pure"):
             evaluate(perform("fs.read", "read", {"path": "/cfg"}), "A",

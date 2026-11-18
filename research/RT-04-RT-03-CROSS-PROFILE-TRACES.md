@@ -53,8 +53,8 @@ The initial fixtures cover pure return, filesystem read, ordered repeated writes
 - The current checker does not preserve event order/payload, so it cannot serve as an oracle for RT-03 observational equivalence.
 
 Next:
-1. Extend both evaluators with resource acquire/use/release and explicit cleanup/unwinding rules, including failures during release.
-2. Add branching and verify cleanup behavior on every terminating path, including error and cancellation paths.
+1. Add branching and verify resource cleanup behavior on every terminating path, including success, Result error, cancellation, and release failure.
+2. Extend the resource model with explicit ownership/transfer alternatives only after branch-sensitive traces expose the required distinctions.
 3. Extend RT-04's effect representation only after the RT-03 observation and handler rules are defined; preserve ordered events where they are semantically observable.
 4. Keep the second independent cross-aspect model and independent review as separate gates.
 

@@ -17,6 +17,7 @@ class SemanticError(ValueError):
 class _ExecutionCancelled(Exception):
     def __init__(self, reason: Any):
         self.reason = deepcopy(reason)
+        self.cleanup_errors: list[Any] = []
 
 
 @dataclass(frozen=True)
@@ -26,6 +27,7 @@ class Trace:
     result: Any
     final_state: dict[str, Any]
     final_files: dict[str, Any]
+    final_resources: dict[str, Any]
 
 
 def _record(expr: Any, keys: set[str], where: str) -> dict[str, Any]:
@@ -86,6 +88,7 @@ def evaluate(
     file_store = deepcopy(files or {})
     responses = deepcopy(network_responses or {})
     events: list[dict[str, Any]] = []
+    resources: dict[str, Any] = {}
 
     def perform(spec: Any) -> Any:
         if profile == "A":
@@ -131,6 +134,14 @@ def evaluate(
                 outcome = {"ok": deepcopy(responses[endpoint])}
             else:
                 outcome = {"error": {"kind": "NoFixtureResponse", "endpoint": endpoint}}
+        elif (effect, operation) == ("resource.use", "use"):
+            if set(payload) != {"id"} or not isinstance(payload["id"], str):
+                raise SemanticError("resource.use/use requires a resource id")
+            resource_id = payload["id"]
+            if resource_id in resources:
+                outcome = {"ok": deepcopy(resources[resource_id])}
+            else:
+                outcome = {"error": {"kind": "ResourceUnavailable", "resource": resource_id}}
         else:
             raise SemanticError(f"no reference handler for {effect!r}/{operation!r}")
 
@@ -143,7 +154,7 @@ def evaluate(
         return deepcopy(outcome)
 
     def visit(node: Any) -> Any:
-        expr = _record(node, {"literal", "add", "sequence", "result_ok", "result_error", "result_sequence", "cancel", "perform"}, "expression")
+        expr = _record(node, {"literal", "add", "sequence", "result_ok", "result_error", "result_sequence", "cancel", "with_resource", "perform"}, "expression")
         op, arg = next(iter(expr.items()))
         if op == "literal":
             return deepcopy(arg)
@@ -179,6 +190,56 @@ def evaluate(
             return deepcopy(value)
         if op == "cancel":
             raise _ExecutionCancelled(arg)
+        if op == "with_resource":
+            if profile != "D":
+                raise SemanticError("Profile A is pure: resource scopes are not permitted")
+            required = {"id", "value", "body"}
+            if not isinstance(arg, dict) or not required.issubset(arg) or set(arg) - (required | {"acquire_fails", "release_fails"}):
+                raise SemanticError("with_resource requires id, value, body, and optional failure flags")
+            resource_id = arg["id"]
+            if not isinstance(resource_id, str) or not resource_id:
+                raise SemanticError("with_resource id must be a non-empty string")
+            for flag in ("acquire_fails", "release_fails"):
+                if flag in arg and type(arg[flag]) is not bool:
+                    raise SemanticError(f"{flag} must be boolean")
+            acquire_payload = {"id": resource_id, "value": deepcopy(arg["value"])}
+            if arg.get("acquire_fails", False):
+                outcome = {"error": {"kind": "AcquireFailed", "resource": resource_id}}
+                events.append({"effect": "resource.acquire", "operation": "acquire", "payload": acquire_payload, "outcome": deepcopy(outcome)})
+                return outcome
+            if resource_id in resources:
+                outcome = {"error": {"kind": "AlreadyAcquired", "resource": resource_id}}
+                events.append({"effect": "resource.acquire", "operation": "acquire", "payload": acquire_payload, "outcome": deepcopy(outcome)})
+                return outcome
+            resources[resource_id] = deepcopy(arg["value"])
+            events.append({"effect": "resource.acquire", "operation": "acquire", "payload": acquire_payload, "outcome": {"ok": {"id": resource_id}}})
+            try:
+                body_value = visit(arg["body"])
+            except _ExecutionCancelled as cancelled:
+                release_outcome = ({"error": {"kind": "ReleaseFailed", "resource": resource_id}}
+                                   if arg.get("release_fails", False) else {"ok": None})
+                events.append({"effect": "resource.release", "operation": "release", "payload": {"id": resource_id}, "outcome": deepcopy(release_outcome)})
+                if "error" not in release_outcome:
+                    resources.pop(resource_id, None)
+                else:
+                    cancelled.cleanup_errors.append(deepcopy(release_outcome["error"]))
+                raise
+            except Exception:
+                release_outcome = ({"error": {"kind": "ReleaseFailed", "resource": resource_id}}
+                                   if arg.get("release_fails", False) else {"ok": None})
+                events.append({"effect": "resource.release", "operation": "release", "payload": {"id": resource_id}, "outcome": deepcopy(release_outcome)})
+                if "error" not in release_outcome:
+                    resources.pop(resource_id, None)
+                raise
+            release_outcome = ({"error": {"kind": "ReleaseFailed", "resource": resource_id}}
+                               if arg.get("release_fails", False) else {"ok": None})
+            events.append({"effect": "resource.release", "operation": "release", "payload": {"id": resource_id}, "outcome": deepcopy(release_outcome)})
+            if "error" not in release_outcome:
+                resources.pop(resource_id, None)
+                return body_value
+            if isinstance(body_value, dict) and set(body_value) == {"error"}:
+                return {"error": {"kind": "CleanupFailed", "primary": deepcopy(body_value["error"]), "cleanup": deepcopy(release_outcome["error"])}}
+            return {"error": {"kind": "CleanupFailed", "cleanup": deepcopy(release_outcome["error"])}}
         if op == "perform":
             return perform(arg)
         raise AssertionError("unreachable expression form")
@@ -186,11 +247,15 @@ def evaluate(
     try:
         result = visit(expression)
     except _ExecutionCancelled as cancelled:
-        result = {"cancelled": deepcopy(cancelled.reason)}
+        cancellation = deepcopy(cancelled.reason)
+        if cancelled.cleanup_errors:
+            cancellation = {"reason": cancellation, "cleanup_errors": deepcopy(cancelled.cleanup_errors)}
+        result = {"cancelled": cancellation}
     return Trace(
         profile=profile,
         events=tuple(deepcopy(events)),
         result=deepcopy(result),
         final_state=deepcopy(state),
         final_files=deepcopy(file_store),
+        final_resources=deepcopy(resources),
     )
