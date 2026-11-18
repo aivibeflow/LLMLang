@@ -138,7 +138,7 @@ mutual
         let value := asBool (evalCanonicalQuerySigma ⟨.bool, term⟩ env)
         if isAnd then value && evalBoolTerms isAnd rest env
         else value || evalBoolTerms isAnd rest env
-  termination_by _ terms _ => sizeOf terms
+  termination_by terms _ => sizeOf terms
   decreasing_by all_goals simp_wf <;> omega
 end
 
