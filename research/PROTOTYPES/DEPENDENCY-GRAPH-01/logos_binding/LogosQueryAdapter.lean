@@ -31,14 +31,14 @@ def toLogosQueryTerm : {s : ExprSort} →
   | .bool, .iteBool c a b =>
       .iteBool (toLogosQueryTerm c) (toLogosQueryTerm a) (toLogosQueryTerm b)
 
-/--
-Evaluate a Logos query term. The mutually recursive list evaluator makes
-Logos' n-ary Boolean operands explicit structural subterms: evaluating an
-operator descends to its operand list, and evaluating the list descends to
-each term and its tail. This avoids a non-structural recursive call hidden
-inside List.all/List.any.
--/
 mutual
+  /--
+  Evaluate a Logos query term. The mutually recursive list evaluator makes
+  Logos' n-ary Boolean operands explicit structural subterms: evaluating an
+  operator descends to its operand list, and evaluating the list descends to
+  each term and its tail. This avoids a non-structural recursive call hidden
+  inside List.all/List.any.
+  -/
   def evalLogosQuery : {s : ExprSort} →
       LLMLang.LogosBinding.QueryTerm s →
       SourceQuerySemantics.Env →
