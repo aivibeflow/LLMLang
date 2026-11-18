@@ -158,7 +158,7 @@ root:
 
     python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_*.py' -v
 
-The explicit `result_sequence` form now propagates the first Result error and skips later expressions; ordinary `sequence` remains strict and unchanged.
+The explicit `result_sequence` form now propagates the first Result error and skips later expressions; ordinary `sequence` remains strict and unchanged. It rejects non-Result items and returns the final success value when every item succeeds. This is explicit propagation only; it does not define exceptions or execution cancellation.
 
 This is a bounded executable semantics experiment, not a selected language
 semantics. It does not implement parsing, variables/functions/recursion,
