@@ -334,10 +334,24 @@ def audit_candidate_semantic_diff(
     if len(set(planned_edge_rows)) != len(planned_edge_rows):
         errors.append("ImpactPlan contains duplicate planned edge-change records")
     for change in changes:
+        output = output_by_key.get(change.logical_key)
+        # A logical selection may be renamed or split while the exact immutable
+        # object remains selected under another key. Do not interpret that alias
+        # removal as deletion of the object's payload edges.
+        if (change.candidate_hash is None and change.baseline_hash in after.values()):
+            continue
+        edge_baseline_hash = (
+            change.baseline_hash
+            or (output.source_hash if output is not None else None)
+            or (
+                change.candidate_hash
+                if change.candidate_hash in before.values() else None
+            )
+        )
         try:
             old_edges = (
-                _declaration_edges(store, change.baseline_hash)
-                if change.baseline_hash is not None else {}
+                _declaration_edges(store, edge_baseline_hash)
+                if edge_baseline_hash is not None else {}
             )
             new_edges = (
                 _declaration_edges(store, change.candidate_hash)
@@ -358,7 +372,6 @@ def audit_candidate_semantic_diff(
                 change.logical_key, edge_kind, edge_id, relation,
                 old_target, new_target, old_condition, new_condition,
             ))
-            output = output_by_key.get(change.logical_key)
             expected_kind = PlannedEdgeKind.TYPED_REFERENCE if edge_kind == "reference" else PlannedEdgeKind.CALL_TARGET
             matches = [
                 row for row in planned_edge_rows
