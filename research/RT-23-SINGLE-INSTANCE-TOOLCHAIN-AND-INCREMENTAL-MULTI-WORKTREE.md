@@ -455,3 +455,8 @@ Study RT-23 together with:
 - [RT-19](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — owns the transport-neutral semantic API and Change Set/Snapshot lifecycle.
 
 Boundary: RT-23 specifies runtime coordination, shared semantic state, incremental worktree file views, and synchronized commit. It does not define semantic merge rules. After Git has produced a candidate merged tree, the merge engine must import/reconcile the complete repository state, apply RT-20 impact/hash/caller checks, validate it, and only then allow RT-23's synchronized commit/finalization protocol. Git's merge commit alone is not proof that the LLMLang semantic merge is complete.
+
+
+## RT-24 relationship
+
+RT-23 owns shared immutable semantic state, versioned Interface Mapping Revisions, and synchronized commit/recovery. RT-24 defines the candidate merge semantics and keeps mapping revisions separate; its candidate must pass RT-23 exact-tree commit gates.
