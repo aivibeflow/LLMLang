@@ -1,6 +1,6 @@
 # RT-20 — Candidate semantic diff and CIP enforcement
 
-**Status:** PR #24 merged. On its head, 101 semantic-dependency tests and compilation passed; repository structure checks (6 + 78 tests) and strict QF_LIA (30 tests + compileall) also passed. Post-merge workflow runs were not returned, so these are PR-head results.  
+**Status:** PR #24 merged. Post-merge workflows on merge commit `cf51c15a34cee14a8b0390322be0a15d9ee85559` passed: semantic dependency 101 tests + `py_compile`; repository structure 6 + 78 tests; strict QF_LIA 30 tests + `compileall`. The subsequent documentation-only `main` commit also passed repository-structure CI.  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)  
 **Related gates:** [Candidate call-site validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md), [Candidate graph audit](RT-20-CANDIDATE-GRAPH-AUDIT.md)
