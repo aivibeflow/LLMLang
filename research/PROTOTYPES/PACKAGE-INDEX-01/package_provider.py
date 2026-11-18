@@ -162,6 +162,7 @@ def build_archive_from_snapshot(
                     CREATE TABLE queue (
                         hash TEXT PRIMARY KEY, processed INTEGER NOT NULL DEFAULT 0
                     );
+                    CREATE INDEX queue_pending_order ON queue(processed, hash);
                     CREATE TABLE dependencies (
                         source_hash TEXT NOT NULL, edge_id TEXT NOT NULL,
                         kind TEXT NOT NULL, target_hash TEXT NOT NULL, condition_json TEXT,
