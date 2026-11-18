@@ -51,7 +51,7 @@ The initial fixtures cover pure return, filesystem read, ordered repeated writes
 - The current checker does not preserve event order/payload, so it cannot serve as an oracle for RT-03 observational equivalence.
 
 Next:
-1. Extend the shared trace corpus with state read/write ordering, explicit errors, resource acquire/use/release, and cancellation outcomes.
+1. Extend both evaluators with explicit error conversion/handling and a separately modeled cancellation outcome; do not conflate Result errors with execution cancellation.
 2. Build a small executable reference semantics for RT-03 A and D over exactly that corpus; compare independently generated traces.
 3. Extend RT-04's effect representation only after the RT-03 observation and handler rules are defined; preserve ordered events where they are semantically observable.
 4. Keep the second independent cross-aspect model and independent review as separate gates.
