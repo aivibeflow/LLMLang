@@ -324,3 +324,6 @@ This repository document is an English research synthesis of the deep-research r
 
 
 **Cross-aspect research:** RT-04's [type/effect/ownership/capability alternatives](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) compares candidate mechanisms against profiles A–D. It does not select a profile; shared observations and executable cross-profile scenarios remain open.
+
+
+**Executable cross-profile evidence:** [RT-03 A/D × RT-04 A/B shared observable-trace cross-check](RT-04-RT-03-CROSS-PROFILE-TRACES.md) and its [scenario fixtures](PROTOTYPES/RT-04-01/test_rt03_rt04_cross_profile.py). This is a finite compatibility oracle, not a selected semantic profile or complete reference interpreter.
