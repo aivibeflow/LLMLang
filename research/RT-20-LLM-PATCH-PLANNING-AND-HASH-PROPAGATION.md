@@ -164,13 +164,17 @@ If dependency completeness cannot be established for the relevant scope—for ex
 
 For every exact incoming `calls` edge, record a `CallSiteDecision` keyed by caller hash, call-site ID, and target ID. The decision also binds the exact base callee hash; call-site identity alone is insufficient when a call site has conditional/multiple targets.
 
+The edge must also bind the caller's exact `required_contract_hash` for this call-site/target alternative and the base callee's exact `provided_contract_hash`. A resolved `CallSiteDecision` repeats both values, selects the exact provided-contract hash of the proposed callee, and includes a compatibility status plus evidence ID. The plan validator rejects a missing or mismatched required/base-provided contract binding. `preserve` must retain both the exact old callee hash and its exact provided-contract hash. A resolved decision is accepted by this prototype only when its compatibility status is `PROVEN`; the current code checks that status and binds the evidence ID into the plan identity, but does not authenticate or independently validate the evidence.
+
+The semantic declaration prototype represents the call-site requirement as a mandatory `required_contract_hash` in schema v2 and requires each callable callee declaration to expose exactly one `provides_contract` reference. The two hashes remain distinct. They are generic exact Contract Content Hashes in this candidate model and are not yet normatively equated with glossary `CCHash`; that mapping is an open identity decision.
+
 Allowed dispositions are `migrate`, `preserve`, `adapt`, `fork`, and `unresolved`. Every resolved decision records a selected exact callee hash, resulting exact caller hash, rationale, and compatibility evidence ID. `preserve` must retain the exact base callee hash. `migrate` must select a different callee hash and produce a different caller hash. `adapt` and `fork` likewise require an explicit resulting caller version. Unresolved decisions cannot claim output hashes or evidence and block approval.
 
 The prototype's independent payload-scan audit is a second traversal over the selected Snapshot declarations. It differentially checks the reverse index's exact incoming edge set and emits Snapshot/target/scope/schema/extractor/digest-bound evidence. It shares the same Content Store and source payloads, so it is a differential implementation check, not an independent trust domain or proof that runtime/dynamic dispatch has been observed.
 
 For each discovered caller edge:
-1. Compare the old callee contract with the proposed new callee contract.
-2. Determine the behavior required by the caller's own contract and by the requirements governing that call site.
+1. Resolve the exact required contract hash stored on this call-site/target alternative, and the exact contract hash provided by the old callee.
+2. Compare the old callee's provided contract with the proposed new callee's provided contract against that same call-site requirement.
 3. Decide whether the caller must preserve the old callee, migrate, adapt, or fork.
 4. Record the rationale and supporting evidence.
 5. Leave the decision unresolved if compatibility cannot be established.
