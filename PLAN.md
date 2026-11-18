@@ -114,6 +114,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ## 1.2 Semantic identity, hashes, and canonical encoding
 
+**Terminology prerequisite:** Review [`draft/GLOSSARY.md`](draft/GLOSSARY.md) before changing this section or related RT-20/RT-24/package identity work. Preserve the distinct proposed identities `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and conformance-evidence identity; reconcile the plan's existing `ImpHash` spelling with the glossary's `ImplHash` before treating either as normative. The glossary is a proposal, not an accepted schema or hash-envelope decision.
+
 - [ ] Define the distinct roles of logical/stable IDs, semantic hashes, operation identity, implementation identity, action keys, artifact hashes, and evidence identity.
 - [ ] Specify the exact semantic payload committed by `OpHash`.
 - [ ] Specify `ImpHash` and the identity of a concrete implementation.
