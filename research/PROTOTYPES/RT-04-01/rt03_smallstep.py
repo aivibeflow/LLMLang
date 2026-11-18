@@ -21,6 +21,7 @@ class MachineTrace:
     result: Any
     final_state: dict[str, Any]
     final_files: dict[str, Any]
+    final_resources: dict[str, Any]
 
 
 def run_small_step(
@@ -56,6 +57,7 @@ def run_small_step(
     file_map = deepcopy(files or {})
     responses = deepcopy(network_responses or {})
     events: list[dict[str, Any]] = []
+    resources: dict[str, Any] = {}
     values: list[Any] = []
     # Tasks are either ("eval", expression) or explicit continuations.
     tasks: list[tuple[Any, ...]] = [("eval", expression)]
@@ -90,6 +92,11 @@ def run_small_step(
             endpoint = data["endpoint"]
             result = {"ok": deepcopy(responses[endpoint])} if endpoint in responses else {
                 "error": {"kind": "NoFixtureResponse", "endpoint": endpoint}
+            }
+        elif label == "resource.use" and operation == "use" and set(data) == {"id"} and isinstance(data["id"], str):
+            resource_id = data["id"]
+            result = {"ok": deepcopy(resources[resource_id])} if resource_id in resources else {
+                "error": {"kind": "ResourceUnavailable", "resource": resource_id}
             }
         else:
             if label in {"fs.read", "fs.write", "state.read", "state.write", "net.send"}:
@@ -134,12 +141,53 @@ def run_small_step(
                 tasks.append(("result_sequence_done", arg[1:]))
                 tasks.append(("eval", arg[0]))
             elif op == "cancel":
-                # Cancellation is a terminal control outcome, not a Result value.
-                # Discard pending continuations so no later expression executes.
+                # Unwind active resource scopes in LIFO order before terminating.
+                cleanup_errors = []
+                for pending in reversed(tasks):
+                    if pending[0] == "resource_body_done":
+                        resource_id, release_fails = pending[1], pending[2]
+                        release_outcome = ({"error": {"kind": "ReleaseFailed", "resource": resource_id}}
+                                           if release_fails else {"ok": None})
+                        events.append({"effect": "resource.release", "operation": "release",
+                                       "payload": {"id": resource_id}, "outcome": deepcopy(release_outcome)})
+                        if "error" in release_outcome:
+                            cleanup_errors.append(deepcopy(release_outcome["error"]))
+                        else:
+                            resources.pop(resource_id, None)
                 tasks.clear()
                 values.clear()
-                values.append({"cancelled": deepcopy(arg)})
+                cancellation = deepcopy(arg)
+                if cleanup_errors:
+                    cancellation = {"reason": cancellation, "cleanup_errors": cleanup_errors}
+                values.append({"cancelled": cancellation})
                 break
+            elif op == "with_resource":
+                if profile != "D":
+                    raise MachineError("Profile A is pure: resource scopes are not permitted")
+                required = {"id", "value", "body"}
+                if not isinstance(arg, dict) or not required.issubset(arg) or set(arg) - (required | {"acquire_fails", "release_fails"}):
+                    raise MachineError("with_resource requires id, value, body, and optional failure flags")
+                resource_id = arg["id"]
+                if not isinstance(resource_id, str) or not resource_id:
+                    raise MachineError("with_resource id must be a non-empty string")
+                for flag in ("acquire_fails", "release_fails"):
+                    if flag in arg and type(arg[flag]) is not bool:
+                        raise MachineError(f"{flag} must be boolean")
+                acquire_payload = {"id": resource_id, "value": deepcopy(arg["value"])}
+                if arg.get("acquire_fails", False):
+                    outcome = {"error": {"kind": "AcquireFailed", "resource": resource_id}}
+                    events.append({"effect": "resource.acquire", "operation": "acquire", "payload": acquire_payload, "outcome": deepcopy(outcome)})
+                    values.append(outcome)
+                elif resource_id in resources:
+                    outcome = {"error": {"kind": "AlreadyAcquired", "resource": resource_id}}
+                    events.append({"effect": "resource.acquire", "operation": "acquire", "payload": acquire_payload, "outcome": deepcopy(outcome)})
+                    values.append(outcome)
+                else:
+                    resources[resource_id] = deepcopy(arg["value"])
+                    events.append({"effect": "resource.acquire", "operation": "acquire", "payload": acquire_payload,
+                                   "outcome": {"ok": {"id": resource_id}}})
+                    tasks.append(("resource_body_done", resource_id, arg.get("release_fails", False)))
+                    tasks.append(("eval", arg["body"]))
             elif op == "perform":
                 values.append(effect_step(arg))
             else:
@@ -177,6 +225,22 @@ def run_small_step(
                 tasks.append(("result_sequence_done", remaining[1:]))
                 tasks.append(("eval", remaining[0]))
 
+        elif tag == "resource_body_done":
+            resource_id, release_fails = task[1], task[2]
+            body_value = values.pop()
+            release_outcome = ({"error": {"kind": "ReleaseFailed", "resource": resource_id}}
+                               if release_fails else {"ok": None})
+            events.append({"effect": "resource.release", "operation": "release",
+                           "payload": {"id": resource_id}, "outcome": deepcopy(release_outcome)})
+            if "error" not in release_outcome:
+                resources.pop(resource_id, None)
+                values.append(body_value)
+            elif isinstance(body_value, dict) and set(body_value) == {"error"}:
+                values.append({"error": {"kind": "CleanupFailed", "primary": deepcopy(body_value["error"]),
+                                         "cleanup": deepcopy(release_outcome["error"])}})
+            else:
+                values.append({"error": {"kind": "CleanupFailed", "cleanup": deepcopy(release_outcome["error"])}})
+
         else:
             raise MachineError(f"invalid machine continuation: {tag!r}")
 
@@ -188,4 +252,5 @@ def run_small_step(
         result=deepcopy(values[0]),
         final_state=deepcopy(store),
         final_files=deepcopy(file_map),
+        final_resources=deepcopy(resources),
     )
