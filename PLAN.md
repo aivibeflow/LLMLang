@@ -168,14 +168,15 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Survey type identity/compatibility, refinement and typestate, inference, effect representations/handlers, ownership/borrowing/lifetimes, capabilities, concurrency/memory models, and error/resource outcomes.
 - [x] Cross-map candidate RT-04 mechanisms against RT-03 profiles A–D without selecting a profile.
 - [x] Record candidate hash-boundary questions for operation contracts, implementations, conformance classes, and verification evidence.
-- [ ] Build executable TYP/EFF/OWN/CAP/CON/HASH scenarios with explicit observable outcomes.
-- [ ] Implement and compare at least two cross-aspect type/effect/resource candidate combinations.
+- [x] Implement the first executable RT-04 declaration-level comparison for refinement, transitive effect summaries, capabilities, and affine resource consumption; add 12 focused unit tests and record the limits. This is one exploratory checker model, not two complete reference semantics.
+- [ ] Expand the executable corpus with branch-sensitive ownership, typed call-site checking, effect-bound validation, capability scope/revocation, and incomplete-call-graph UNKNOWN cases.
+- [ ] Implement and compare a second independent cross-aspect reference model against the same fixtures and RT-03 observable traces.
 - [ ] Independently review the comparative report and validate RT-03↔RT-04 dependency assumptions.
 - [ ] Reconcile RT-04 semantic distinctions with RT-05 identity and RT-07 proof boundaries before selecting hash-bearing fields.
 
-**Evidence:** [RT-04 alternatives report](research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md).
+**Evidence:** [RT-04 alternatives report](research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md); [Prototype 01 implementation and tests](research/PROTOTYPES/RT-04-01/README.md); [Prototype 01 results](research/RT-04-PROTOTYPE-01-RESULTS.md); [scenario matrix](research/RT-04-PROTOTYPE-01-SCENARIOS.md).
 
-**Status:** comparative survey drafted; no type/effect/ownership/capability architecture selected. The survey is not executable validation and does not close RT-03.
+**Status:** comparative survey drafted and one limited executable checker-vector experiment added (12 focused tests pass locally). No type/effect/ownership/capability architecture is selected. Branch-sensitive resource semantics, effect-bound checking, runtime capability enforcement, complete dependency evidence, and a second independent reference model remain open; RT-03 is not closed.
 
 ## 1.5 Prior-art study for semantic representation and identity
 
