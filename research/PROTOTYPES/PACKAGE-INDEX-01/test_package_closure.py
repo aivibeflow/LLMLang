@@ -8,7 +8,7 @@ H = lambda n: "sha256:" + format(n, "064x")
 
 class Snapshot:
     def __init__(self, objects, dependencies, snapshot_id="snapshot-1"):
-        self.objects = dict(objects)
+        self.objects = {row['hash']: row for row in objects}
         self.dependencies = dict(dependencies)
         self.snapshot_id = snapshot_id
         self.object_requests = []
