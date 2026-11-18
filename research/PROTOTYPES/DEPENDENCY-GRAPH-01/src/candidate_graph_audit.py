@@ -59,28 +59,62 @@ def audit_candidate_snapshot_graph(
     dynamic dispatch completeness, or that the candidate diff matches an approved plan.
     """
     errors: list[str] = []
+
+    # Treat Snapshot fields as untrusted input. Do not call Snapshot.mapping or
+    # dict(snapshot.selections) until every row has been shape/type checked:
+    # malformed rows and unhashable keys must produce diagnostics, not exceptions.
     try:
-        expected_snapshot = make_snapshot(snapshot.mapping, snapshot.parent_roots)
-        if expected_snapshot.root_hash != snapshot.root_hash:
-            errors.append("candidate Snapshot root does not match its selections and parents")
-    except (TypeError, ValueError) as exc:
-        errors.append(f"candidate Snapshot structure is invalid: {exc}")
+        raw_selections = tuple(snapshot.selections)
+    except TypeError:
+        raw_selections = ()
+        errors.append("candidate Snapshot selections are not iterable")
 
-    selection_keys = [item[0] for item in snapshot.selections if isinstance(item, tuple) and len(item) == 2]
-    if len(selection_keys) != len(snapshot.selections):
-        errors.append("candidate Snapshot contains a malformed selection entry")
-    if len(set(selection_keys)) != len(selection_keys):
-        errors.append("candidate Snapshot contains duplicate logical selection keys")
-
-    selected = dict(snapshot.selections)
-    valid_selected_hashes: set[str] = set()
-    for key, value_hash in selected.items():
+    normalized_selections: list[tuple[str, str]] = []
+    seen_selection_keys: set[str] = set()
+    selection_structure_valid = True
+    for item in raw_selections:
+        if not isinstance(item, tuple) or len(item) != 2:
+            errors.append("candidate Snapshot contains a malformed selection entry")
+            selection_structure_valid = False
+            continue
+        key, value_hash = item
         if not isinstance(key, str) or not key:
             errors.append("candidate Snapshot contains an empty or non-string selection key")
+            selection_structure_valid = False
+            continue
+        if key in seen_selection_keys:
+            errors.append("candidate Snapshot contains duplicate logical selection keys")
+            selection_structure_valid = False
+            continue
+        seen_selection_keys.add(key)
         if not isinstance(value_hash, str) or not value_hash:
             errors.append(f"candidate Snapshot selection {key!r} has an invalid object hash")
-        else:
-            valid_selected_hashes.add(value_hash)
+            selection_structure_valid = False
+            continue
+        normalized_selections.append((key, value_hash))
+
+    try:
+        parent_roots = tuple(snapshot.parent_roots)
+    except TypeError:
+        parent_roots = ()
+        errors.append("candidate Snapshot parent roots are not iterable")
+        selection_structure_valid = False
+    if any(not isinstance(root, str) or not root for root in parent_roots):
+        errors.append("candidate Snapshot contains an invalid parent root")
+        selection_structure_valid = False
+
+    if selection_structure_valid:
+        try:
+            expected_snapshot = make_snapshot(dict(normalized_selections), parent_roots)
+            if expected_snapshot.root_hash != snapshot.root_hash:
+                errors.append("candidate Snapshot root does not match its selections and parents")
+        except (TypeError, ValueError) as exc:
+            errors.append(f"candidate Snapshot structure is invalid: {exc}")
+    else:
+        errors.append("candidate Snapshot root cannot be verified from malformed selections or parents")
+
+    selected = dict(normalized_selections)
+    valid_selected_hashes = set(selected.values())
 
     reachable: set[str] = set()
     visited: set[str] = set()
