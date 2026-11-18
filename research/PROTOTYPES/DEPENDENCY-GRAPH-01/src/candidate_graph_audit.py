@@ -9,7 +9,6 @@ from __future__ import annotations
 from collections import Counter
 from dataclasses import dataclass
 from hashlib import sha256
-from typing import Any
 
 from .semantic_dependency_index import (
     DependencyIndex,
@@ -67,16 +66,25 @@ def audit_candidate_snapshot_graph(
     except (TypeError, ValueError) as exc:
         errors.append(f"candidate Snapshot structure is invalid: {exc}")
 
+    selection_keys = [item[0] for item in snapshot.selections if isinstance(item, tuple) and len(item) == 2]
+    if len(selection_keys) != len(snapshot.selections):
+        errors.append("candidate Snapshot contains a malformed selection entry")
+    if len(set(selection_keys)) != len(selection_keys):
+        errors.append("candidate Snapshot contains duplicate logical selection keys")
+
     selected = dict(snapshot.selections)
+    valid_selected_hashes: set[str] = set()
     for key, value_hash in selected.items():
         if not isinstance(key, str) or not key:
             errors.append("candidate Snapshot contains an empty or non-string selection key")
         if not isinstance(value_hash, str) or not value_hash:
             errors.append(f"candidate Snapshot selection {key!r} has an invalid object hash")
+        else:
+            valid_selected_hashes.add(value_hash)
 
     reachable: set[str] = set()
     visited: set[str] = set()
-    pending = sorted(set(selected.values()), reverse=True)
+    pending = sorted(valid_selected_hashes, reverse=True)
     edges: list[IndexedEdge] = []
 
     while pending:
