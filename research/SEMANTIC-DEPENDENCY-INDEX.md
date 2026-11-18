@@ -216,6 +216,27 @@ For RT-20, these conditions make the affected region `UNKNOWN` and block approva
 11. How should the index support multiple projections without duplicating or contradicting canonical facts?
 12. What migration/versioning policy applies when the edge schema evolves?
 
+
+## 10.1 First executable subset (prototype; not canonical SPG)
+
+An executable candidate subset now exists at `research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_dependency_index.py`.
+
+The prototype deliberately fixes only a small set of rules so they can be tested:
+
+- Schema envelope: `format = llmlang.semantic-object`, `schema_version = 1`.
+- Object kinds: `function`, `operation`, `type`, `contract`, `implementation`, `effect`.
+- Every declaration has an explicit `declaration_id` and object-valued `content`. The content is opaque to the extractor; only the typed reference fields are interpreted.
+- Function and Operation may own `call_sites`. Each call site has a caller-local `call_site_id`; each alternative has a `target_id`, exact `target_hash`, and nullable explicit `condition`.
+- A call edge ID is `call_site_id/target_id`. It is unique within the source declaration and does not depend on display names or array positions.
+- Typed reference relations are constrained by source and target kinds: Function/Operation → Type or Contract; Contract → Type; Type → Type; Implementation → Contract or Effect; Effect → Type.
+- Publication resolves every exact target hash and checks its stored object kind. Missing targets and kind mismatches are errors.
+- Exact target hashes are passed to the existing ContentStore as hash-relevant dependencies. Call-site/reference identity is carried in the dependency role and declaration payload.
+- The derived index exposes deterministic outgoing/incoming edges and retains conditional selectors without choosing a target implicitly.
+
+This is an executable **candidate schema**, not acceptance of the final LLMLang SPG model. It has no source parser, no inference from arbitrary payloads, no completeness proof, and no production snapshot lease. The current `ContentStore` is in-memory; index generation is built as a deterministic projection for tests. The candidate schema does not yet settle recursive types, mutually recursive functions, SCC hashing, generic/higher-order calls, external calls, or Interface Mapping Revision semantics. Unsupported constructs must remain outside this subset rather than being coerced into these records.
+
+The prototype tests cover two different callee revisions in two call sites of one caller, multiple conditional targets at one call site, reverse lookup preserving call-site identity, typed Implementation→Contract/Effect references, malformed/ambiguous schema rejection, and caller hash changes when the exact callee revision changes. CI workflow: `.github/workflows/semantic-dependency-index.yml`.
+
 ## 11. Validation plan and exit criteria
 
 Before implementing a production extractor:
