@@ -216,16 +216,20 @@ def relationalAssumptions {s : ExprSort}
 theorem relationalAssumptions_correct
     {s : ExprSort} (factor : String) (e : Expr s)
     (queryEnv : SourceQuerySemantics.Env) :
-    evalCanonicalQuery (relationalAssumptions factor e)[0]! queryEnv =
+    evalCanonicalQuery (factorDifference s factor) queryEnv =
       .boolValue (sourceValuesDiffer s
-        (sideEnvironment queryEnv .left factor factor sortOfFactor)
-        (sideEnvironment queryEnv .right factor factor sortOfFactor)) ∧
-    evalCanonicalQuery (relationalAssumptions factor e)[1]! queryEnv =
+        (sideEnvironment queryEnv .left factor factor s)
+        (sideEnvironment queryEnv .right factor factor s)) ∧
+    evalCanonicalQuery
+      (observationDifference s
+        (translateRelationalExpr .left factor e)
+        (translateRelationalExpr .right factor e))
+      queryEnv =
       .boolValue (sourceValuesDiffer s
         (evalExpr e (sideEnvironment queryEnv .left factor))
         (evalExpr e (sideEnvironment queryEnv .right factor))) := by
-  constructor
-  · exact factorDifference_correct s factor queryEnv
-  · exact observationDifference_correct factor e queryEnv
+  exact And.intro
+    (factorDifference_correct s factor queryEnv)
+    (observationDifference_correct factor e queryEnv)
 
 end LLMLang.RelationalSourceQuerySemantics
