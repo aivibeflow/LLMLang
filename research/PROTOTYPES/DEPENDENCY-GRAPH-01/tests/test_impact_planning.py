@@ -228,7 +228,7 @@ class ImpactPlanningTests(unittest.TestCase):
         from src.impact_planning import IncomingCallSite
         audit = audit_snapshot_incoming(result)
         audit = audit.__class__(**{**audit.__dict__, "incoming_call_sites": (
-            IncomingCallSite("caller-A", "call:tax", "direct", "callee-v1", required_contract_hash="req-contract-v1", provided_contract_hash="provided-contract-v1"),
+            IncomingCallSite("caller-A", "call:tax", "direct", "callee-v1", required_contract_hash="req-contract-v1"),
         )})
         artifact = ImpactedArtifact("callee-v1", "implementation", "callee changed")
         plan = plan_impact("base", "candidate", "policy", [artifact], [audit])
@@ -256,8 +256,8 @@ class ImpactPlanningTests(unittest.TestCase):
         )
         audit = audit_snapshot_incoming(result)
         audit = audit.__class__(**{**audit.__dict__, "incoming_call_sites": (
-            IncomingCallSite("consumer-old", "call:shared", "direct", "shared-caller-v1", required_contract_hash="req-old", provided_contract_hash="provided-old"),
-            IncomingCallSite("consumer-new", "call:shared", "direct", "shared-caller-v1", required_contract_hash="req-new", provided_contract_hash="provided-old"),
+            IncomingCallSite("consumer-old", "call:shared", "direct", "shared-caller-v1", required_contract_hash="req-old"),
+            IncomingCallSite("consumer-new", "call:shared", "direct", "shared-caller-v1", required_contract_hash="req-new"),
         )})
         artifact = ImpactedArtifact("shared-caller-v1", "implementation", "callee contract split")
         decisions = [
@@ -288,7 +288,7 @@ class ImpactPlanningTests(unittest.TestCase):
         )
         audit = audit_snapshot_incoming(result)
         audit = audit.__class__(**{**audit.__dict__, "incoming_call_sites": (
-            IncomingCallSite("caller", "site", "target", "callee-v1", required_contract_hash="req-contract", provided_contract_hash="provided-contract"),
+            IncomingCallSite("caller", "site", "target", "callee-v1", required_contract_hash="req-contract"),
         )})
         artifact = ImpactedArtifact("callee-v1", "implementation", "changed")
         wrong = CallSiteDecision("caller", "site", "target", "other-callee",
@@ -316,7 +316,7 @@ class ImpactPlanningTests(unittest.TestCase):
         audit = audit_snapshot_incoming(result)
         audit = audit.__class__(**{**audit.__dict__, "incoming_call_sites": (
             IncomingCallSite("caller", "site", "target", "callee-v1",
-                required_contract_hash="required-v1", provided_contract_hash="provided-v1"),
+                required_contract_hash="required-v1"),
         )})
         artifact = ImpactedArtifact("callee-v1", "implementation", "changed")
 
@@ -354,12 +354,11 @@ class ImpactPlanningTests(unittest.TestCase):
             scope="all-static-call-sites", evidence_method="snapshot-reverse-lookup",
             reason="supported within declared scope", snapshot_root="base",
             target_hash=old_callee, evidence_id="audit:shared",
-            edge_set_digest="edge-digest", index_schema_version=2,
-            extractor_id="extractor/v2",
+            edge_set_digest="edge-digest", index_schema_version=3,
+            extractor_id="semantic-dependency-extractor/3",
             incoming_call_sites=(IncomingCallSite(
                 caller_hash, "call:tax", "direct", old_callee,
                 required_contract_hash="required-contract",
-                provided_contract_hash="provided-old",
             ),),
         )
         outputs = (
