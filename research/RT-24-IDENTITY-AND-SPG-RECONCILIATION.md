@@ -136,7 +136,7 @@ The prototype's JSON canonicalization and package prototype's typed encoding are
 
 ### 5.1 What the current prototype actually implements
 
-research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_dependency_index.py currently accepts a narrow llmlang.semantic-object envelope, schema version 1:
+[semantic_dependency_index.py](PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_dependency_index.py) currently accepts a narrow llmlang.semantic-object envelope, schema version 1:
 
 - object kinds: function, operation, type, contract, implementation, effect;
 - typed declaration references: uses_type, uses_contract, extends_type, implements_contract, uses_effect, with restricted target kinds;
@@ -146,7 +146,7 @@ research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_dependency_index.py current
 - publication resolves exact target hashes and validates target kinds;
 - the index derives typed outgoing/incoming edges and has a snapshot-scoped builder that excludes historical values not selected by the snapshot.
 
-The current source is an extractor over a supplied versioned declaration envelope. It does not parse LLMLang source or arbitrary SPG payloads. It is not a canonical repository import/export implementation.
+The [focused tests](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_semantic_dependency_index.py) cover the narrow envelope, typed references, call-site edge identities, exact target-version hashing, snapshot filtering, and scoped reverse-query evidence. The current source is an extractor over a supplied versioned declaration envelope. It does not parse LLMLang source or arbitrary SPG payloads. It is not a canonical repository import/export implementation.
 
 ### 5.2 Hash behavior in the prototype
 
