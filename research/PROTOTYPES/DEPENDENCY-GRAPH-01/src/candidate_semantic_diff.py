@@ -263,6 +263,9 @@ def audit_candidate_semantic_diff(
             )
     for key in sorted(set(output_by_key) - set(change_by_key)):
         errors.append(f"{key}: CIP planned output was not materialized as a selection change")
+    materialized_hash_by_output = {
+        item.output_id: item.candidate_hash for item in materialized_outputs
+    }
 
     decision_rows = tuple(plan.call_site_decisions)
     decision_map: dict[tuple[str, str, str], list] = {}
@@ -378,9 +381,15 @@ def audit_candidate_semantic_diff(
                 decision = decisions_for_output[0]
                 if decision.base_callee_hash != old_target:
                     errors.append(f"{change.logical_key}:{edge_id}: CIP base callee differs from baseline target")
-                if decision.selected_callee_hash != new_target:
+                selected_hash = decision.selected_callee_hash or materialized_hash_by_output.get(
+                    decision.selected_output_id
+                )
+                resulting_caller_hash = decision.resulting_caller_hash or materialized_hash_by_output.get(
+                    decision.resulting_output_id
+                )
+                if selected_hash != new_target:
                     errors.append(f"{change.logical_key}:{edge_id}: CIP selected callee differs from candidate target")
-                if decision.resulting_caller_hash != change.candidate_hash:
+                if resulting_caller_hash != change.candidate_hash:
                     errors.append(f"{change.logical_key}:{edge_id}: CIP resulting caller differs from candidate caller")
                 if decision.disposition is CallSiteDisposition.PRESERVE:
                     errors.append(f"{change.logical_key}:{edge_id}: PRESERVE cannot authorize a changed target")
