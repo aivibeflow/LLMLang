@@ -208,7 +208,7 @@ class CandidateCallSiteValidationTests(unittest.TestCase):
                 base_caller, "call:legacy", "direct", legacy_callee,
                 CallSiteDisposition.PRESERVE, legacy_callee, revised_caller,
                 "legacy behavior remains required", "evidence:preserve",
-                self.contract_hash, self.contract_hash, self.contract_hash, "PROVEN",
+                self.contract_hash, "PROVEN",
             ),
         )
         plan = ImpactPlan(
