@@ -136,7 +136,7 @@ The separate outcome-algebra model derives exact resource lifecycle traces from 
 | RT3-RULE-06 | Release fails after normal body | Produce a cleanup Result error and retain the resource |
 | RT3-RULE-07 | Depths one through three | Exhaust all release flags, three body outcomes, and acquisition-failure positions |
 
-The generated finite matrix contains 162 cases. It compares exact event payloads and outcomes, final result values, and final resource maps against both concrete evaluators; resource event/status projections are also compared with the independent path model. This remains a bounded model of the current fixture protocol, not a definition of borrowing, transfer, return, or arbitrary destructors.
+The generated finite matrix contains 144 cases. It compares exact event payloads and outcomes, final result values, and final resource maps against both concrete evaluators; resource event/status projections are also compared with the independent path model. This remains a bounded model of the current fixture protocol, not a definition of borrowing, transfer, return, or arbitrary destructors.
 
 
 ## RT-03 branching and resource cleanup scenarios
