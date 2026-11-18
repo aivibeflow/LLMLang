@@ -516,3 +516,18 @@ Prototype 01 now includes `package_archive.py`, a streaming writer and verifier 
 ZIP entry timestamps and permissions are fixed, compression is disabled, and entry ordering is deterministic. Tests verify byte-for-byte repeatability, object and size mismatch rejection, missing/out-of-order payload rejection, archive corruption detection, and failure atomicity. The verifier rechecks manifest syntax and schema version, index-table presence and logical hash, root membership, Package Content Root Hash, cross-table references, object membership, hashes, sizes, and unexpected/duplicate entries.
 
 ZIP, JSONL, entry naming, and manifest placement are strictly prototype decisions, not a normative LLMLang archive or binary index format. Python's ZIP implementation retains central-directory metadata in memory, so the prototype streams object bytes but does not promise constant total memory for arbitrarily many archive entries. The manifest index path is interpreted as a directory prefix in this prototype, while the illustrative future manifest still uses `index.bin`; this is an explicit prototype-layout mismatch, not a normative format decision. The prototype does not yet validate cache-index payloads, provenance/signatures, or provider dependency closure. See [Package Index Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
+
+
+## 17. Provider resource measurements and snapshot-adapter boundary
+
+The disk-backed Provider now has a reproducible benchmark harness in `PROTOTYPES/PACKAGE-INDEX-01/benchmark_package_provider.py`. It generates four reachable graph shapes—chain, repeated diamond, high fan-out, and bounded high-degree DAG—and runs each measurement in a fresh subprocess. Each result reports object/edge counts, elapsed time, object throughput, peak traced Python allocations, process peak RSS, temporary-directory disk high-water size, archive size, and archive verification. The harness is exploratory: process RSS includes interpreter/runtime overhead, traced allocations do not include all native allocations, and CI hardware is not a controlled benchmark environment. Results must not be interpreted as a strict constant-memory proof or a performance guarantee.
+
+CI also exercises 1,200-object chain and high-fan-out closures through the actual Provider and archive verifier, with deliberately small external-sort and SQLite cache settings. This is a scale regression test, not a maximum-capacity claim.
+
+### 17.1 Toolchain Server Prototype 01 is not yet a Provider backend
+
+The existing `TOOLCHAIN-SERVER-01` prototype has immutable entity payloads and content-addressed snapshot roots, but it is an in-memory workspace/lifecycle experiment. Its public API does not expose the complete snapshot object set, typed dependency edges, or streaming object payloads required by the package Provider. Those details are currently represented by private dictionaries and a generic Entity envelope; depending on them would couple Provider to an unstable implementation and invent dependency semantics not present in the prototype.
+
+The prototype README also explicitly excludes a persistent database backend, crash recovery, cross-process locking, and a stable public storage contract. Therefore no direct adapter is implemented at this stage.
+
+The next prerequisite is a public immutable snapshot read contract with exact-hash object metadata lookup, outgoing typed dependency enumeration, and streaming payload access, backed by a persistent store with documented snapshot isolation/lifetime. The Provider should implement that contract only after the Toolchain storage design establishes it. Until then, the synthetic snapshot adapter remains test/benchmark infrastructure, not a production integration.

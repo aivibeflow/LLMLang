@@ -8,7 +8,8 @@ Requires Python 3.11+.
 
 ```sh
 PYTHONPATH=../PACKAGE-IDENTITY-01 python -m unittest discover -v
-PYTHONPATH=../PACKAGE-IDENTITY-01 python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py package_closure.py test_package_closure.py package_provider.py test_package_provider.py ../PACKAGE-IDENTITY-01/package_identity.py
+PYTHONPATH=../PACKAGE-IDENTITY-01 python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py package_closure.py test_package_closure.py package_provider.py test_package_provider.py test_provider_stress.py benchmark_package_provider.py ../PACKAGE-IDENTITY-01/package_identity.py
+PYTHONPATH=../PACKAGE-IDENTITY-01 python benchmark_package_provider.py --sizes 1000 5000
 ```
 
 ## What it tests
@@ -24,6 +25,8 @@ PYTHONPATH=../PACKAGE-IDENTITY-01 python -m py_compile package_index.py test_pac
 - Explicit external dependency edges that do not imply package membership.
 - Exact dependency-closure resolution for closure, roots_only, and closure_with_optional, including cycles, shared dependencies, conditional selections, and snapshot consistency.
 - Disk-backed Provider-to-archive construction using SQLite traversal state, sorted table iterators, and one-at-a-time verified object payload streams.
+- Stress coverage for 1,200-object chain and high-fan-out graphs.
+- A subprocess-isolated benchmark harness for chain, diamond, high-fan-out, and many-dependency graphs, reporting wall time, throughput, traced Python peak, process peak RSS, temporary-directory high-water size, archive size, and verification.
 
 ## Limitations
 
@@ -37,5 +40,6 @@ PYTHONPATH=../PACKAGE-IDENTITY-01 python -m py_compile package_index.py test_pac
 - The provider reads only reachable objects and outgoing edges, streams sorted index tables into the archive builder, and opens one object payload at a time. It stages the archive and checks the snapshot token again before publishing the destination.
 - Conditional expressions are not interpreted; eligible conditional edges require explicit caller-supplied boolean selections. Exports and modules are included when the snapshot adapter supplies `get_exports()` and `get_modules()`; otherwise those tables are empty.
 - Does not implement binary serialization, compression, block directories, sparse lookup, multi-provider composition, provenance authentication, or a production provider protocol.
+- The Toolchain Server Prototype 01 is not yet a usable Content Store adapter: its in-memory API does not expose a public snapshot enumeration/dependency-edge/object-stream interface, and it has no persistent backend. The package Provider is intentionally not coupled to its private dictionaries.
 - Policy execution is prototyped, but final dependency taxonomy, typed condition evaluation, and normative snapshot/provider semantics remain open.
 - Prototype hash encoding is not the final LLMLang canonical encoding or digest standard.
