@@ -47,7 +47,8 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
         op, arg = next(iter(node.items()))
 
         if op in {"literal", "add", "perform"}:
-            return [state]
+            return [_State(state.active, state.choices, state.events,
+                            state.terminal, None, state.cleanup_errors)]
         if op == "cancel":
             return [_State(state.active, state.choices, state.events,
                            "cancelled", None, state.cleanup_errors)]
@@ -90,7 +91,7 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
             for (choice,) in branches:
                 chosen = arg["then"] if choice else arg["else"]
                 selected = _State(state.active, state.choices + ((path, choice),),
-                                  state.events, state.terminal, state.result_tag,
+                                  state.events, state.terminal, None,
                                   state.cleanup_errors)
                 after_condition = walk(condition, selected, f"{path}.condition") if not (
                     isinstance(condition, dict) and set(condition) == {"literal"}
