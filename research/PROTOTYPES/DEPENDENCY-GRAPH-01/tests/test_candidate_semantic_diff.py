@@ -231,6 +231,28 @@ class CandidateSemanticDiffTests(unittest.TestCase):
         self.assertTrue(any("non-string" in error or "materialization check failed" in error
                             for error in result.errors))
 
+    def test_call_site_required_contract_change_is_visible_and_rejected(self):
+        alternate_contract = publish_declaration(
+            self.store, declaration("contract", "contract:tax-alternate", {"name": "Alternate"})
+        )
+        changed_requirement = publish_declaration(
+            self.store, declaration(
+                "function", "invoice:changed-requirement", {"body": "same"},
+                call_sites=site(self.old_callee, alternate_contract),
+            )
+        )
+        baseline = make_snapshot({"invoice": self.old_caller, "tax": self.old_callee})
+        candidate = make_snapshot({"invoice": changed_requirement, "tax": self.old_callee})
+        result = audit_candidate_semantic_diff(
+            self.store, baseline, candidate,
+            self.plan(baseline, candidate, actions=(action(self.old_caller),)),
+        )
+        self.assertFalse(result.valid)
+        self.assertTrue(any("required-contract change" in error for error in result.errors))
+        edge = next(row for row in result.edge_changes if row.edge_kind == "call")
+        self.assertEqual(edge.baseline_required_contract_hash, self.contract_hash)
+        self.assertEqual(edge.candidate_required_contract_hash, alternate_contract)
+
     def test_typed_reference_change_is_rejected(self):
         contract = publish_declaration(
             self.store, declaration("contract", "contract:invoice")
