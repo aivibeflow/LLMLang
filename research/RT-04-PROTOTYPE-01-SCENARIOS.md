@@ -105,6 +105,23 @@ the set of effect labels but cannot represent repeated event occurrences,
 ordering, payloads, handler outcomes, or final state.
 
 
+## RT-03 structured resource lifecycle scenarios
+
+The opt-in `with_resource` scope acquires a fixture resource, evaluates its body, and releases it on normal completion, Result error, or cancellation. Nested scopes release in LIFO order. A failed release remains visible as an active resource and is not silently treated as successful cleanup.
+
+| ID | Case | Expected behavior |
+|---|---|---|
+| RT3-RES-LC-01 | Successful acquire/use/body/release | Record ordered acquire, use, release events; no active resource remains |
+| RT3-RES-LC-02 | Acquire fails | Skip body and release; return acquisition error |
+| RT3-RES-LC-03 | Body returns Result error | Release resource and preserve primary error |
+| RT3-RES-LC-04 | Body is cancelled | Release resource during cancellation unwind |
+| RT3-RES-LC-05 | Nested scopes are cancelled | Release inner resource before outer resource |
+| RT3-RES-LC-06 | Release fails after body error | Preserve both primary and cleanup errors; retain active resource |
+| RT3-RES-LC-07 | Nested releases fail during cancellation | Preserve cancellation and report cleanup failures in LIFO order |
+
+The model is a structured fixture experiment. It does not define ownership/borrowing, transfer, arbitrary destructors, async cancellation, or branching path analysis.
+
+
 ## RT-03 execution cancellation scenarios
 
 Cancellation is a terminal execution outcome, not a Result error. The current bounded evaluator represents it as `{"cancelled": reason}`, discards pending continuations, and does not execute later expressions. Effects completed before cancellation remain observable; rollback and resource cleanup are not yet specified.
