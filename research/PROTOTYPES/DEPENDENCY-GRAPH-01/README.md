@@ -337,3 +337,16 @@ This remains a structural audit over the explicit declaration subset. It is not 
 ## CIP action execution audit — next implementation slice
 
 The next RT-20 work is specified in [CIP Action Execution Audit](../../RT-20-CIP-ACTION-EXECUTION-AUDIT.md). Implement AEA-1 first: deterministic action IDs, explicit prerequisite action IDs, canonical plan identity, and cycle detection. The existing CIP v2 semantic diff remains a separate structural gate; neither gate authorizes a Git commit.
+
+
+## CIP schema v3 — action identity and prerequisite DAG
+
+CIP schema v3 assigns deterministic IDs to planned actions and binds explicit prerequisite-action edges into plan identity. `validate_planned_action_dag` rejects missing/duplicate IDs, unknown prerequisites, self-dependencies, cycles, and altered action payloads. The legacy `prerequisite_hashes` field remains a separate content-hash binding and is not treated as an action dependency.
+
+Run the focused suite (including action ID/DAG cases):
+
+```bash
+python -m unittest -v tests.test_impact_planning
+```
+
+This is planning-graph validation only. It does not establish that an action was executed or that its evidence is adequate/authentic.
