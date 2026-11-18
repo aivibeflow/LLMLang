@@ -1,15 +1,18 @@
-"""Fail-closed selection-level semantic diff audit against an approved ImpactPlan.
+"""Fail-closed semantic diff audit against an approved ImpactPlan.
 
-This prototype compares immutable Snapshot selections and explicit call-site targets.
-It does not prove behavioral compatibility or discover dynamic/runtime dependencies.
+The audit binds exact Snapshot roots, graph-audit digests, and CIP identity. Its
+scope is the current explicit declaration subset; it does not prove behavior or
+discover dynamic/runtime dependencies.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
 from hashlib import sha256
+import json
 
+from .candidate_graph_audit import audit_candidate_snapshot_graph
 from .candidate_validation import validate_candidate_call_site_decisions
-from .impact_planning import ImpactPlan
+from .impact_planning import ActionKind, CallSiteDisposition, ImpactPlan
 from .semantic_dependency_index import SemanticObjectError, validate_declaration
 from .semantic_graph import ContentStore, Snapshot, canonical_bytes, make_snapshot
 
@@ -30,6 +33,30 @@ class SelectionChange:
         }
 
 
+@dataclass(frozen=True, order=True)
+class SemanticEdgeChange:
+    logical_key: str
+    edge_kind: str
+    edge_id: str
+    relation: str
+    baseline_target_hash: str | None
+    candidate_target_hash: str | None
+    baseline_condition: str | None
+    candidate_condition: str | None
+
+    def record(self) -> dict[str, str | None]:
+        return {
+            "logical_key": self.logical_key,
+            "edge_kind": self.edge_kind,
+            "edge_id": self.edge_id,
+            "relation": self.relation,
+            "baseline_target_hash": self.baseline_target_hash,
+            "candidate_target_hash": self.candidate_target_hash,
+            "baseline_condition": self.baseline_condition,
+            "candidate_condition": self.candidate_condition,
+        }
+
+
 @dataclass(frozen=True)
 class CandidateSemanticDiffResult:
     valid: bool
@@ -39,6 +66,11 @@ class CandidateSemanticDiffResult:
     changes: tuple[SelectionChange, ...]
     diff_digest: str
     errors: tuple[str, ...]
+    baseline_graph_digest: str = ""
+    candidate_graph_digest: str = ""
+    baseline_edge_set_digest: str = ""
+    candidate_edge_set_digest: str = ""
+    edge_changes: tuple[SemanticEdgeChange, ...] = ()
 
 
 def _snapshot_selections(snapshot: Snapshot, label: str, errors: list[str]) -> dict[str, str]:
@@ -71,14 +103,46 @@ def _snapshot_selections(snapshot: Snapshot, label: str, errors: list[str]) -> d
     return result
 
 
-def _call_targets(store: ContentStore, value_hash: str) -> dict[tuple[str, str], str]:
+def _declaration_edges(store: ContentStore, value_hash: str):
     value = store.get(value_hash)
     declaration = validate_declaration(value.payload)
-    return {
-        (site["call_site_id"], target["target_id"]): target["target_hash"]
-        for site in declaration["call_sites"]
-        for target in site["targets"]
+    if declaration["kind"] != value.kind:
+        raise SemanticObjectError("stored kind differs from declaration kind")
+    edges = {}
+    for row in declaration["references"]:
+        edges[("reference", row["reference_id"])] = (
+            row["relation"], row["target_hash"], row["condition"]
+        )
+    for site in declaration["call_sites"]:
+        for target in site["targets"]:
+            edges[("call", site["call_site_id"] + "/" + target["target_id"])] = (
+                "calls", target["target_hash"], target["condition"]
+            )
+    return edges
+
+
+def _plan_identity_matches(plan: ImpactPlan) -> bool:
+    payload = {
+        "baseline": plan.baseline_root,
+        "candidate": plan.candidate_root,
+        "policy": plan.policy_id,
+        "actions": [
+            (a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes)
+            for a in plan.actions
+        ],
+        "audits": sorted(plan.audit_statuses),
+        "audit_bindings": sorted(plan.audit_bindings),
+        "call_site_decisions": [
+            (d.caller_hash, d.call_site_id, d.target_id, d.base_callee_hash,
+             d.disposition.value, d.selected_callee_hash, d.resulting_caller_hash,
+             d.rationale, d.decision_evidence_id)
+            for d in sorted(plan.call_site_decisions)
+        ],
     }
+    expected = sha256(json.dumps(
+        payload, sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")).hexdigest()
+    return plan.plan_id == expected
 
 
 def audit_candidate_semantic_diff(
@@ -87,13 +151,12 @@ def audit_candidate_semantic_diff(
     candidate: Snapshot,
     plan: ImpactPlan,
 ) -> CandidateSemanticDiffResult:
-    """Require exact CIP action coverage and call-site decisions for observed changes.
+    """Require exact action coverage, graph integrity, and call-site decisions.
 
-    Every changed logical selection must be named by at least one plan action using
-    its old or new exact hash. Every changed explicit call target must have exactly
-    one matching decision whose resulting caller and selected callee are materialized.
-    Added/removed call-site identities fail closed because the current CIP decision
-    model cannot express their disposition.
+    The plan identity is recomputed. Both Snapshot graph audits must pass and are
+    bound into the returned diff digest. All changed typed-reference edges are
+    rejected until the CIP schema has exact records for them. Call-site target
+    changes require both a matching decision and a REWRITE_CALL_SITE action.
     """
     errors: list[str] = []
     before = _snapshot_selections(baseline, "baseline", errors)
@@ -103,6 +166,19 @@ def audit_candidate_semantic_diff(
         errors.append("ImpactPlan baseline root does not match supplied baseline Snapshot")
     if plan.candidate_root != candidate.root_hash:
         errors.append("ImpactPlan candidate root does not match supplied candidate Snapshot")
+    if not _plan_identity_matches(plan):
+        errors.append("ImpactPlan plan_id does not match its canonical contents")
+
+    baseline_graph = audit_candidate_snapshot_graph(store, baseline)
+    candidate_graph = audit_candidate_snapshot_graph(store, candidate)
+    if not baseline_graph.valid:
+        errors.extend("baseline graph audit: " + item for item in baseline_graph.errors)
+    if not candidate_graph.valid:
+        errors.extend("candidate graph audit: " + item for item in candidate_graph.errors)
+    if baseline_graph.snapshot_root != baseline.root_hash:
+        errors.append("baseline graph audit is bound to a different Snapshot")
+    if candidate_graph.snapshot_root != candidate.root_hash:
+        errors.append("candidate graph audit is bound to a different Snapshot")
 
     changes: list[SelectionChange] = []
     for key in sorted(set(before) | set(after)):
@@ -114,7 +190,8 @@ def audit_candidate_semantic_diff(
 
     action_hashes = {action.artifact_hash for action in plan.actions}
     for change in changes:
-        if not ({change.baseline_hash, change.candidate_hash} - {None}) & action_hashes:
+        exact_hashes = {value for value in (change.baseline_hash, change.candidate_hash) if value is not None}
+        if not exact_hashes & action_hashes:
             errors.append(
                 f"{change.logical_key}: semantic {change.change_kind} selection "
                 "is not covered by any CIP action on its exact old or new hash"
@@ -128,105 +205,115 @@ def audit_candidate_semantic_diff(
     if len(decision_map) != len(decision_rows):
         errors.append("ImpactPlan contains duplicate call-site decisions")
 
-    # Independently enumerate baseline-selected callers for every changed old
-    # selection hash. This prevents a manually assembled ImpactPlan from omitting
-    # an incoming call-site decision merely because its reverse-query evidence
-    # was incomplete. It remains scoped to explicit declarations in this Snapshot.
     changed_old_hashes = {
         change.baseline_hash for change in changes if change.baseline_hash is not None
     }
+    # Re-scan baseline-selected declarations rather than trusting the reverse index
+    # used by the planner. This is a differential check within the same trust domain.
     for caller_hash in sorted(set(before.values())):
         try:
-            incoming_targets = _call_targets(store, caller_hash)
+            old_edges = _declaration_edges(store, caller_hash)
         except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
-            errors.append(f"{caller_hash}: cannot independently enumerate baseline call sites: {exc}")
+            errors.append(f"{caller_hash}: cannot enumerate baseline declaration edges: {exc}")
             continue
-        for (call_site_id, target_id), target_hash in sorted(incoming_targets.items()):
-            if target_hash not in changed_old_hashes:
+        for (edge_kind, edge_id), (relation, target_hash, _condition) in sorted(old_edges.items()):
+            if edge_kind != "call" or target_hash not in changed_old_hashes:
                 continue
-            decision_key = (caller_hash, call_site_id, target_id)
-            if decision_key not in decision_map:
+            site_id, target_id = edge_id.split("/", 1)
+            if (caller_hash, site_id, target_id) not in decision_map:
                 errors.append(
-                    f"{caller_hash}:{call_site_id}/{target_id}: changed baseline callee "
+                    f"{caller_hash}:{site_id}/{target_id}: changed baseline callee "
                     f"{target_hash} has no CIP decision from the independently scanned Snapshot"
                 )
 
+    edge_changes: list[SemanticEdgeChange] = []
     for change in changes:
         if change.baseline_hash is None or change.candidate_hash is None:
-            # The current call-site decision model only represents migration of an
-            # existing caller edge; it cannot authorize whole-caller addition/removal.
-            try:
-                h = change.baseline_hash or change.candidate_hash
-                if h is not None and _call_targets(store, h):
-                    errors.append(
-                        f"{change.logical_key}: added/removed caller with call sites "
-                        "is not representable by the current CIP decision model"
-                    )
-            except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
-                errors.append(f"{change.logical_key}: cannot inspect call sites: {exc}")
             continue
         try:
-            old_targets = _call_targets(store, change.baseline_hash)
-            new_targets = _call_targets(store, change.candidate_hash)
+            old_edges = _declaration_edges(store, change.baseline_hash)
+            new_edges = _declaration_edges(store, change.candidate_hash)
         except (KeyError, SemanticObjectError, TypeError, ValueError) as exc:
-            errors.append(f"{change.logical_key}: cannot derive explicit call-site diff: {exc}")
+            errors.append(f"{change.logical_key}: cannot derive semantic edge diff: {exc}")
             continue
-
-        for edge_key in sorted(set(old_targets) | set(new_targets)):
-            old_target, new_target = old_targets.get(edge_key), new_targets.get(edge_key)
-            if old_target == new_target:
+        for edge_key in sorted(set(old_edges) | set(new_edges)):
+            old_row, new_row = old_edges.get(edge_key), new_edges.get(edge_key)
+            if old_row == new_row:
                 continue
-            call_site_id, target_id = edge_key
-            if old_target is None or new_target is None:
+            edge_kind, edge_id = edge_key
+            old_relation, old_target, old_condition = old_row if old_row else (None, None, None)
+            new_relation, new_target, new_condition = new_row if new_row else (None, None, None)
+            relation = old_relation or new_relation or ""
+            edge_changes.append(SemanticEdgeChange(
+                change.logical_key, edge_kind, edge_id, relation,
+                old_target, new_target, old_condition, new_condition,
+            ))
+            if edge_kind == "reference":
                 errors.append(
-                    f"{change.logical_key}:{call_site_id}/{target_id}: added or removed "
-                    "call-site target is not representable by the current CIP decision model"
+                    f"{change.logical_key}:{edge_id}: typed-reference change is not "
+                    "represented by an exact CIP output record"
                 )
                 continue
-            decision_key = (change.baseline_hash, call_site_id, target_id)
-            decision = decision_map.get(decision_key)
+            if old_row is None or new_row is None:
+                errors.append(
+                    f"{change.logical_key}:{edge_id}: added or removed call-site target "
+                    "is not representable by the current CIP decision model"
+                )
+                continue
+            if old_condition != new_condition:
+                errors.append(
+                    f"{change.logical_key}:{edge_id}: call-site condition change is "
+                    "not represented by the current CIP decision model"
+                )
+            site_id, target_id = edge_id.split("/", 1)
+            decision = decision_map.get((change.baseline_hash, site_id, target_id))
             if decision is None:
-                errors.append(
-                    f"{change.logical_key}:{call_site_id}/{target_id}: changed call target "
-                    "has no exact CIP decision"
-                )
+                errors.append(f"{change.logical_key}:{edge_id}: changed call target has no exact CIP decision")
                 continue
             if decision.base_callee_hash != old_target:
-                errors.append(
-                    f"{change.logical_key}:{call_site_id}/{target_id}: CIP base callee "
-                    "does not match the observed baseline target"
-                )
+                errors.append(f"{change.logical_key}:{edge_id}: CIP base callee differs from baseline target")
             if decision.selected_callee_hash != new_target:
-                errors.append(
-                    f"{change.logical_key}:{call_site_id}/{target_id}: CIP selected callee "
-                    "does not match the observed candidate target"
-                )
+                errors.append(f"{change.logical_key}:{edge_id}: CIP selected callee differs from candidate target")
             if decision.resulting_caller_hash != change.candidate_hash:
+                errors.append(f"{change.logical_key}:{edge_id}: CIP resulting caller differs from candidate caller")
+            if decision.disposition is CallSiteDisposition.PRESERVE:
+                errors.append(f"{change.logical_key}:{edge_id}: PRESERVE cannot authorize a changed target")
+            if not any(
+                action.kind is ActionKind.REWRITE_CALL_SITE
+                and action.artifact_hash == change.baseline_hash
+                for action in plan.actions
+            ):
                 errors.append(
-                    f"{change.logical_key}:{call_site_id}/{target_id}: CIP resulting caller "
-                    "does not match the changed logical selection"
+                    f"{change.logical_key}:{edge_id}: changed call target lacks a "
+                    "REWRITE_CALL_SITE action for the exact baseline caller"
                 )
 
-    # Reuse the call-site materialization gate: it independently checks exact
-    # baseline/candidate membership, stored hashes, and candidate payload targets.
+    # Candidate materialization also checks unchanged PRESERVE edges and exact
+    # selected caller/callee membership.
     try:
         materialized = validate_candidate_call_site_decisions(
             store, baseline, candidate, plan
         )
         errors.extend(materialized.errors)
     except Exception as exc:
-        # Malformed Snapshot/plan input must produce a failed result, not escape
-        # as an exception from this audit boundary.
         errors.append(f"candidate call-site materialization check failed: {exc}")
 
-    records = [item.record() for item in sorted(changes)]
-    diff_digest = sha256(canonical_bytes({
-        "domain": "llmlang.candidate-semantic-diff.v1",
+    change_records = [item.record() for item in sorted(changes)]
+    edge_records = [item.record() for item in sorted(edge_changes)]
+    digest_payload = {
+        "domain": "llmlang.candidate-semantic-diff.v2",
         "baseline_root": baseline.root_hash,
         "candidate_root": candidate.root_hash,
         "plan_id": plan.plan_id,
-        "changes": records,
-    })).hexdigest()
+        "baseline_graph_digest": baseline_graph.graph_digest,
+        "candidate_graph_digest": candidate_graph.graph_digest,
+        "baseline_edge_set_digest": baseline_graph.edge_set_digest,
+        "candidate_edge_set_digest": candidate_graph.edge_set_digest,
+        "schema_version": baseline_graph.dependency_index.schema_version,
+        "changes": change_records,
+        "edge_changes": edge_records,
+    }
+    diff_digest = sha256(canonical_bytes(digest_payload)).hexdigest()
     return CandidateSemanticDiffResult(
         valid=not errors,
         baseline_root=baseline.root_hash,
@@ -235,4 +322,9 @@ def audit_candidate_semantic_diff(
         changes=tuple(sorted(changes)),
         diff_digest=diff_digest,
         errors=tuple(sorted(set(errors))),
+        baseline_graph_digest=baseline_graph.graph_digest,
+        candidate_graph_digest=candidate_graph.graph_digest,
+        baseline_edge_set_digest=baseline_graph.edge_set_digest,
+        candidate_edge_set_digest=candidate_graph.edge_set_digest,
+        edge_changes=tuple(sorted(edge_changes)),
     )
