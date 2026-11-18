@@ -19,6 +19,28 @@ class RT03DifferentialSemanticsTests(unittest.TestCase):
         self.assertEqual(machine.final_files, recursive.final_files)
         return recursive
 
+    def test_result_propagation_matches_error_success_and_short_circuit(self):
+        cases = [
+            ({"result_sequence": [
+                {"result_ok": {"literal": 1}},
+                {"result_error": {"literal": {"kind": "InvalidInput"}}},
+                perform("state.write", "write", {"key": "not_written", "value": 1}),
+            ]}, {"error": {"kind": "InvalidInput"}}),
+            ({"result_sequence": [
+                {"result_ok": {"literal": 1}},
+                {"result_ok": {"literal": 2}},
+            ]}, {"ok": 2}),
+        ]
+        for expression, expected in cases:
+            with self.subTest(expression=expression):
+                trace = self.assert_same_trace(
+                    expression, "D", declared_effects=["state.write"]
+                )
+                self.assertEqual(trace.result, expected)
+                if "error" in expected:
+                    self.assertEqual(trace.events, ())
+                    self.assertEqual(trace.final_state, {})
+
     def test_pure_expression_corpus_matches(self):
         corpus = [
             {"literal": None},
