@@ -217,7 +217,7 @@ The plan must detect this case before implementation. It must not silently break
 
 ### Candidate Snapshot materialization gate (prototype)
 
-The focused prototype in [RT-20 Candidate Call-Site Validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md) checks planned decisions against the exact materialized candidate Snapshot. It verifies Snapshot-root binding, selected caller/callee membership, canonical stored-object hashes, and the actual candidate declaration's call-site/target reference. `PRESERVE` must retain both the exact old callee and caller version; changed dispositions must materialize a new caller version. This is a reference-consistency gate only: it does not establish behavioral compatibility, complete dynamic dispatch discovery, or commit readiness. CI coverage for this narrow gate is included in the semantic dependency workflow.
+The focused prototype in [RT-20 Candidate Call-Site Validation](RT-20-CANDIDATE-CALL-SITE-VALIDATION.md) checks planned decisions against the exact materialized candidate Snapshot. It verifies Snapshot-root binding, selected caller/callee membership, canonical stored-object hashes, and the actual candidate declaration's call-site/target reference. `PRESERVE` must retain the exact old callee hash at that call site; the caller may still receive a new version because another planned call-site or semantic change modifies it. Changed dispositions must materialize a new caller version. This is a reference-consistency gate only: it does not establish behavioral compatibility, complete dynamic dispatch discovery, or commit readiness. CI coverage for this narrow gate is included in the semantic dependency workflow.
 
 ### Stage 8 — Validate and approve the complete plan
 
