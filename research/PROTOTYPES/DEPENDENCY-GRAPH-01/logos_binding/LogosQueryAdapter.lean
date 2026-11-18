@@ -80,8 +80,8 @@ mutual
         else
           asBool (evalLogosQuery term env) || evalLogosBoolTerms conjunction rest env
   termination_by
-    evalLogosQuery term _ => sizeOf term
-    evalLogosBoolTerms _ terms _ => sizeOf terms
+    evalLogosQuery term env => sizeOf term
+    evalLogosBoolTerms conjunction terms env => sizeOf terms
   decreasing_by
     all_goals simp_wf [sizeOf]
 end
