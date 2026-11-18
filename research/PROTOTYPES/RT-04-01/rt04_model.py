@@ -29,6 +29,24 @@ PROFILES = {"A", "B"}
 PRIMITIVES = {"Int", "Bool", "String", "Unit"}
 CLOSED_EFFECTS = {"fs.read", "fs.write", "net.send", "clock.read", "process.spawn"}
 
+def _type_valid(type_expr: Any, profile: str) -> bool:
+    """Validate primitive types and Profile B Result<Ok, Err> descriptors."""
+    if isinstance(type_expr, str):
+        return type_expr in PRIMITIVES or (profile == 'B' and type_expr == 'PositiveInt')
+    if profile == "B" and isinstance(type_expr, dict) and set(type_expr) == {"Result"}:
+        args = type_expr["Result"]
+        return isinstance(args, list) and len(args) == 2 and all(_type_valid(x, profile) for x in args)
+    return False
+
+def _type_text(type_expr: Any) -> str:
+    if isinstance(type_expr, str):
+        return type_expr
+    if isinstance(type_expr, dict) and set(type_expr) == {"Result"}:
+        args = type_expr["Result"]
+        if isinstance(args, list) and len(args) == 2:
+            return "Result<" + _type_text(args[0]) + ", " + _type_text(args[1]) + ">"
+    return repr(type_expr)
+
 def _names(value: Any, field: str, unique: bool = True) -> tuple[str, ...]:
     if not isinstance(value, list) or any(not isinstance(x, str) or not x for x in value):
         raise ModelError(f"{field} must be a list of non-empty strings")
@@ -158,18 +176,30 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
     for name, spec in functions.items():
         if not isinstance(name, str) or not name or not isinstance(spec, dict):
             raise ModelError("invalid function declaration")
-        allowed = {"params", "result", "effects", "effect_bound", "effect_row", "requires", "calls", "consumes", "resource_flow", "positive_params", "known_values"}
+        allowed = {"params", "result", "effects", "effect_bound", "effect_row", "requires", "calls", "consumes", "resource_flow", "positive_params", "known_values", "call_sites"}
         if set(spec) - allowed:
             raise ModelError(f"{name}: unknown declaration fields")
         params = spec.get("params", {})
         if not isinstance(params, dict) or any(not isinstance(k, str) or not isinstance(v, str) for k, v in params.items()):
             raise ModelError(f"{name}: params must map names to type names")
         for ptype in params.values():
-            if ptype not in PRIMITIVES and not (profile == "B" and ptype == "PositiveInt"):
-                findings.append(Finding("UNKNOWN_TYPE", name, ptype))
+            if not _type_valid(ptype, profile):
+                findings.append(Finding("UNKNOWN_TYPE", name, _type_text(ptype)))
         result_type = spec.get("result", "Unit")
-        if result_type not in PRIMITIVES and not (profile == "B" and result_type == "PositiveInt"):
-            findings.append(Finding("UNKNOWN_TYPE", name, result_type))
+        if not _type_valid(result_type, profile):
+            findings.append(Finding("UNKNOWN_TYPE", name, _type_text(result_type)))
+        raw_call_sites = spec.get("call_sites", [])
+        if not isinstance(raw_call_sites, list):
+            raise ModelError(f"{name}.call_sites must be a list")
+        for index, call_site in enumerate(raw_call_sites):
+            if not isinstance(call_site, dict) or set(call_site) - {"target", "args", "expected_result"}:
+                raise ModelError(f"{name}.call_sites[{index}] has invalid fields")
+            if not isinstance(call_site.get("target"), str) or not call_site["target"]:
+                raise ModelError(f"{name}.call_sites[{index}].target must be a non-empty string")
+            if "args" not in call_site or not isinstance(call_site["args"], list):
+                raise ModelError(f"{name}.call_sites[{index}].args must be a list")
+            if "expected_result" in call_site and not _type_valid(call_site["expected_result"], profile):
+                findings.append(Finding("UNKNOWN_TYPE", name, _type_text(call_site["expected_result"])))
         effects = set(_names(spec.get("effects", []), f"{name}.effects"))
         if profile == "A":
             for effect in effects - CLOSED_EFFECTS:
@@ -213,6 +243,38 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
         for target in targets:
             if target not in functions:
                 findings.append(Finding("UNKNOWN_CALLEE", caller, target))
+
+    for caller, spec in functions.items():
+        for index, site in enumerate(spec.get("call_sites", [])):
+            target = site["target"]
+            subject = f"{caller}#{index}->{target}"
+            if target not in calls[caller]:
+                raise ModelError(f"{subject}: typed call site is absent from calls")
+            if target not in functions:
+                continue
+            callee = functions[target]
+            if "params" not in callee or "result" not in callee:
+                findings.append(Finding("CALL_SIGNATURE_UNKNOWN", subject,
+                                        "callee must declare params and result for typed checking"))
+                continue
+            callee_params = callee["params"]
+            actual_args = site["args"]
+            if len(actual_args) != len(callee_params):
+                findings.append(Finding("CALL_ARITY_MISMATCH", subject,
+                                        f"expected {len(callee_params)} arguments, got {len(actual_args)}"))
+                continue
+            for (parameter, parameter_type), actual_type in zip(callee_params.items(), actual_args):
+                if not _type_valid(actual_type, profile):
+                    findings.append(Finding("UNKNOWN_TYPE", subject, _type_text(actual_type)))
+                elif _type_valid(parameter_type, profile) and actual_type != parameter_type:
+                    findings.append(Finding("CALL_ARGUMENT_TYPE_MISMATCH", subject,
+                                            f"{parameter}: expected {_type_text(parameter_type)}, got {_type_text(actual_type)}"))
+            if "expected_result" in site:
+                expected = site["expected_result"]
+                actual_result = callee["result"]
+                if _type_valid(expected, profile) and _type_valid(actual_result, profile) and expected != actual_result:
+                    findings.append(Finding("CALL_RESULT_TYPE_MISMATCH", subject,
+                                            f"expected {_type_text(expected)}, callee returns {_type_text(actual_result)}"))
 
     # Fixed-point summaries support recursive call graphs. They say nothing about
     # execution termination or completeness of a real source-level call graph.
@@ -281,7 +343,7 @@ def check_program(program: dict[str, Any], profile: str) -> CheckResult:
         for name, flow in resource_flows.items():
             _check_resource_flow(name, flow, resources, findings)
 
-    uncertain_codes = {"REFINEMENT_UNKNOWN", "EFFECT_SUMMARY_UNKNOWN", "UNKNOWN_CALLEE"}
+    uncertain_codes = {"REFINEMENT_UNKNOWN", "EFFECT_SUMMARY_UNKNOWN", "UNKNOWN_CALLEE", "CALL_SIGNATURE_UNKNOWN"}
     status = ("REJECTED" if any(item.code not in uncertain_codes for item in findings)
               else "UNKNOWN" if findings else "ACCEPTED")
     return CheckResult(
