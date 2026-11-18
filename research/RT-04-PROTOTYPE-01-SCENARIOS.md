@@ -42,5 +42,20 @@ Implemented by PROTOTYPES/RT-04-01/test_rt04_model.py. Scope is declaration-leve
 | RT4-P33 | Nested Result error component differs | Not yet compared | Reject |
 | RT4-P34 | Profile A receives a Profile B Result descriptor | Reject unsupported type | Not yet compared |
 | RT4-P35 | Result<Ok, Err> is used as a callee parameter type and matches at the call site | Not yet compared | Accept |
+| RT4-P36 | Scoped grant covers a narrower required path | Not yet compared | Accept |
+| RT4-P37 | Required path is outside the grant scope | Not yet compared | Reject |
+| RT4-P38 | Child grant narrows its parent scope without changing capability | Not yet compared | Accept |
+| RT4-P39 | Child grant broadens its parent scope | Not yet compared | Reject malformed grant graph |
+| RT4-P40 | Child grant changes its parent's capability | Not yet compared | Reject malformed grant graph |
+| RT4-P41 | Revoking a parent grant revokes descendant grants | Not yet compared | Reject use of descendant |
+| RT4-P42 | A directly revoked grant is used to satisfy a requirement | Not yet compared | Reject |
+| RT4-P43 | Caller explicitly delegates a sufficient grant to a callee that accepts it | Not yet compared | Accept |
+| RT4-P44 | Scoped callee requirement has no explicit call-site delegation | Not yet compared | UNKNOWN |
+| RT4-P45 | Caller attempts to pass a grant it does not hold | Not yet compared | Reject malformed model input |
+| RT4-P46 | Grant scope contains parent traversal | Not yet compared | Reject malformed grant |
+| RT4-P47 | Profile A receives scoped grant declarations | Reject unsupported | Not yet compared |
+| RT4-P48 | Callee has not declared a passed grant as accepted | Not yet compared | Reject |
+| RT4-P49 | Grant parent graph contains a cycle | Not yet compared | Reject malformed grant graph |
+| RT4-P50 | Scope prefix matches only on a path-segment boundary | Not yet compared | Reject out-of-scope requirement |
 
 The CFG tests assume the supplied blocks and edges are complete and correctly represent source control flow. They do not model symbolic branch conditions, borrow lifetimes, resource return/drop, terminal-path cleanup, or prove that the CFG extractor is sound. Effect-bound tests likewise trust fixture-level completeness assertions; they do not prove source call-graph completeness or discover dynamic, generated, FFI, handler, or reflective calls. These are not whole-program semantics.
