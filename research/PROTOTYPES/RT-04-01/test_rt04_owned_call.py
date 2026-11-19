@@ -1,6 +1,11 @@
 import unittest
 
-from rt04_owned_call import check_owned_call, check_owned_call_cfg, check_owned_call_tree
+from rt04_owned_call import (
+    check_owned_call,
+    check_owned_call_cfg,
+    check_owned_call_tree,
+    execute_owned_call_tree,
+)
 from rt03_return_cleanup import run_return_cleanup
 
 
@@ -214,6 +219,28 @@ class OwnedCallBoundary(unittest.TestCase):
             "error": {"body": {"sequence": []}, "output_carries_owned": False},
         })
         self.assertEqual(result.status, "UNKNOWN")
+
+    def test_same_structured_tree_drives_static_and_dynamic_ownership_results(self):
+        tree = {"release_attempt": {
+            "ok": {"sequence": []},
+            "error": "propagate_owned",
+        }}
+        static = check_owned_call_tree(HANDLE_WITH_CLEANUP_ERROR, {
+            "ok": {"body": tree, "output_carries_owned": True},
+            "error_with_value": {"body": tree, "output_carries_owned": True},
+        })
+        succeeded = execute_owned_call_tree(
+            tree, release_results=[True], output_carries_owned=True,
+        )
+        failed = execute_owned_call_tree(
+            tree, release_results=[False], output_carries_owned=True,
+        )
+        self.assertEqual(static.status, "ACCEPTED")
+        self.assertEqual(succeeded.terminal_owner, "released")
+        self.assertEqual(succeeded.events, ("release:ok",))
+        self.assertEqual(failed.terminal_owner, "caller_output_cleanup_debt")
+        self.assertEqual(failed.events, ("release:error", "propagate_owned"))
+        self.assertEqual(failed.status, "ACCEPTED")
 
 
 if __name__ == "__main__":

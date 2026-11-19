@@ -16,6 +16,14 @@ class CallCheck:
     terminal_owners: tuple[tuple[str, str], ...]
 
 
+@dataclass(frozen=True)
+class FlowExecution:
+    status: str
+    events: tuple[str, ...]
+    terminal_owner: str
+    findings: tuple[str, ...] = ()
+
+
 def check_owned_call(result_type: Any, branches: Any) -> CallCheck:
     """Check explicit result branches for exactly-once handling of one handle.
 
@@ -325,3 +333,106 @@ def check_owned_call_tree(result_type: Any, outcome_trees: Any) -> CallCheck:
         trees[outcome] = {"entry": entry, "blocks": blocks,
                           "output_carries_owned": item["output_carries_owned"]}
     return check_owned_call_cfg(result_type, trees)
+
+
+def execute_owned_call_tree(
+    tree: Any,
+    *,
+    release_results: list[bool],
+    branch_choices: list[bool] | None = None,
+    output_carries_owned: bool = False,
+    owned_on_entry: bool = True,
+) -> FlowExecution:
+    """Execute one path through the same research tree grammar as the checker.
+
+    ``release_results`` and ``branch_choices`` are explicit environment inputs,
+    not nondeterminism hidden by the model. The interpreter is a bounded
+    cross-check for the static lowering; it is not LLMLang runtime semantics.
+    """
+    remaining_releases = list(release_results)
+    remaining_branches = list(branch_choices or [])
+    events: list[str] = []
+    findings: list[str] = []
+    if type(owned_on_entry) is not bool or type(output_carries_owned) is not bool:
+        return FlowExecution("UNKNOWN", (), "unknown", ("INVALID_OWNERSHIP_INPUT",))
+    owner = "caller" if owned_on_entry else "none"
+
+    def evaluate(node: Any) -> None:
+        nonlocal owner
+        if isinstance(node, dict) and set(node) == {"sequence"}:
+            if not isinstance(node["sequence"], list):
+                findings.append("INVALID_SEQUENCE")
+                return
+            for item in node["sequence"]:
+                evaluate(item)
+            return
+        if isinstance(node, dict) and set(node) == {"if"}:
+            arms = node["if"]
+            if not isinstance(arms, list) or len(arms) != 2 or not remaining_branches:
+                findings.append("MISSING_OR_INVALID_BRANCH_INPUT")
+                return
+            evaluate(arms[0] if remaining_branches.pop(0) else arms[1])
+            return
+        if isinstance(node, dict) and set(node) == {"release_attempt"}:
+            arms = node["release_attempt"]
+            if (not isinstance(arms, dict) or set(arms) != {"ok", "error"}
+                    or not remaining_releases):
+                findings.append("MISSING_OR_INVALID_RELEASE_RESULT")
+                return
+            succeeded = remaining_releases.pop(0)
+            if type(succeeded) is not bool:
+                findings.append("INVALID_RELEASE_RESULT")
+                return
+            if owner not in {"caller", "caller_cleanup_debt"}:
+                findings.append("RELEASE_WITHOUT_OWNERSHIP")
+                return
+            events.append("release:ok" if succeeded else "release:error")
+            owner = "released" if succeeded else "caller_cleanup_debt"
+            evaluate(arms["ok"] if succeeded else arms["error"])
+            return
+        if not isinstance(node, str) or node not in {
+            "release", "transfer", "propagate_owned", "ignore", "duplicate", "use"
+        }:
+            findings.append("UNSUPPORTED_TREE_NODE")
+            return
+        if owner == "none":
+            findings.append("ACTION_WITHOUT_OWNED_VALUE")
+            return
+        if owner == "caller_cleanup_debt" and node not in {"propagate_owned"}:
+            findings.append("CLEANUP_DEBT_NOT_PRESERVED")
+            return
+        if node == "use":
+            if owner != "caller":
+                findings.append("USE_AFTER_MOVE")
+            else:
+                events.append("use")
+        elif node == "release":
+            if owner != "caller":
+                findings.append("RELEASE_WITHOUT_OWNERSHIP")
+            else:
+                owner = "released"
+                events.append("release:assumed_ok")
+        elif node == "transfer":
+            if owner != "caller":
+                findings.append("TRANSFER_WITHOUT_OWNERSHIP")
+            else:
+                owner = "transferred"
+                events.append("transfer")
+        elif node == "propagate_owned":
+            if owner not in {"caller", "caller_cleanup_debt"}:
+                findings.append("PROPAGATE_WITHOUT_OWNERSHIP")
+            elif not output_carries_owned:
+                findings.append("PROPAGATION_DROPS_OWNERSHIP")
+            else:
+                owner = "caller_output_cleanup_debt" if owner == "caller_cleanup_debt" else "caller_output"
+                events.append("propagate_owned")
+        elif node == "ignore":
+            findings.append("IGNORED_OWNERSHIP")
+        else:
+            findings.append("DUPLICATE_OWNER")
+
+    evaluate(tree)
+    if owner in {"caller", "caller_cleanup_debt"} and not findings:
+        findings.append("LEAKED_CLEANUP_DEBT" if owner == "caller_cleanup_debt" else "LEAKED_OWNERSHIP")
+    return FlowExecution("REJECTED" if findings else "ACCEPTED", tuple(events), owner,
+                         tuple(sorted(set(findings))))
