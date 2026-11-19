@@ -123,6 +123,8 @@ This is planning, not approval of a semantic profile. A scoped RFC may be possib
 
 [Scenario 70](RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md) separates identity-preserving aliases, fresh nominal wrappers, hidden implementation, and explicit representation/ABI guarantees across Rust, Go, Swift, and Zig. Assignment, invariants, separately compiled API evolution, serialization, opaque client operations, and target ABI behavior remain open; no LLMLang policy is selected.
 
+[Scenario 71](RESEARCH-SCENARIO-71-INTERFACE-IMPLEMENTATION-OWNERSHIP-AND-COHERENCE.md) compares owner-local explicit coherence (Rust), implicit structural satisfaction (Go), explicit/retroactive conformance (Swift), and global type-class instances with orphan/overlap rules (Haskell). Cross-package conflict scenarios, API evolution, deterministic lookup, and dependency invalidation remain untested; no LLMLang policy is selected.
+
 ## 6. Evidence quality and traceability
 
 For each new result, retain exact branch/commit, files, command and tool versions, fixture selection, assumptions, positive/negative cases, limitations, evidence class, and the vector it could falsify. Update the taxonomy and option matrix when scope changes. Keep decisions in [TODO and open decisions](../TODO.md) open until explicitly accepted.
