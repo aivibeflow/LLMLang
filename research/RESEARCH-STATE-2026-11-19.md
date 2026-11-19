@@ -10,6 +10,8 @@
 
 [Scenario 79](RESEARCH-SCENARIO-79-STRING-LITERAL-SYNTAX-AND-INTERPOLATION.md) compares escaped, raw, multiline, byte-oriented, and interpolated source literals across Rust, Go, Swift, and Zig. It separates literal decoding from Scenario 46's runtime text model and flags interpolation as possible effectful typed code, not automatic context escaping. Lexer/formatter/source-emitter fixtures and context-safe template behavior remain open; no syntax is selected.
 
+[Scenario 80](RESEARCH-SCENARIO-80-COMMENTS-DOCS-AND-LEXICAL-TRIVIA.md) compares nested and line-only comments, newline effects, doc-comment attachment, tool directives, and trivia retention across Rust, Go, Swift, and Zig. Lexer/parser fixtures, doc extraction, directive trust/placement, source-map preservation, and comment/hash policy remain open; no syntax or tooling policy is selected.
+
 Since the previous snapshot, [Scenario 58](RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md) compared Rust future construction/polling, Swift async function types/task APIs, and Go goroutine launch. The async type/effect, call-start policy, task creation, and scheduler are separate research axes; no LLMLang choice is selected. Runtime traces, blocking behavior, sync/async interop, and target parallelism remain open.
 
 [Scenario 59](RESEARCH-SCENARIO-59-BOOLEAN-SHORT-CIRCUIT-AND-EVALUATION-ORDER.md) now distinguishes intrinsic short-circuit operators (Rust/Go), Swift's standard autoclosure-backed Boolean operator, and partially specified general expression ordering. Effectful/error/diverging operands show why value-only algebra is insufficient to validate optimizer rewrites. An executable multi-compiler trace corpus remains open; no LLMLang policy is selected.
