@@ -242,6 +242,42 @@ class OwnedCallBoundary(unittest.TestCase):
         self.assertEqual(failed.events, ("release:error", "propagate_owned"))
         self.assertEqual(failed.status, "ACCEPTED")
 
+    def test_result_error_has_no_owned_value_but_error_with_value_does(self):
+        no_value = {"sequence": []}
+        result_tree = check_owned_call_tree(HANDLE_RESULT, {
+            "ok": {"body": "release", "output_carries_owned": False},
+            "error": {"body": no_value, "output_carries_owned": False},
+        })
+        bad_result_tree = check_owned_call_tree(HANDLE_RESULT, {
+            "ok": {"body": "release", "output_carries_owned": False},
+            "error": {"body": "release", "output_carries_owned": False},
+        })
+        bad_error_with_value = check_owned_call_tree(HANDLE_WITH_CLEANUP_ERROR, {
+            "ok": {"body": "release", "output_carries_owned": False},
+            "error_with_value": {"body": no_value, "output_carries_owned": False},
+        })
+        runtime_error = execute_owned_call_tree(
+            no_value, release_results=[], owned_on_entry=False,
+        )
+        self.assertEqual(result_tree.status, "ACCEPTED")
+        self.assertTrue(any("error:" in finding and "ACTION_WITHOUT_OWNED_VALUE" in finding
+                            for finding in bad_result_tree.findings))
+        self.assertIn("error_with_value", " ".join(bad_error_with_value.findings))
+        self.assertEqual(runtime_error.status, "ACCEPTED")
+        self.assertEqual(runtime_error.terminal_owner, "none")
+
+    def test_malformed_and_unrecognized_outcome_tags_are_unknown(self):
+        missing_cleanup_error = check_owned_call_tree(HANDLE_WITH_CLEANUP_ERROR, {
+            "ok": {"body": "release", "output_carries_owned": False},
+            "error": {"body": "release", "output_carries_owned": False},
+        })
+        unknown_tag = check_owned_call_tree(HANDLE_RESULT, {
+            "ok": {"body": "release", "output_carries_owned": False},
+            "cancelled": {"body": {"sequence": []}, "output_carries_owned": False},
+        })
+        self.assertEqual(missing_cleanup_error.status, "UNKNOWN")
+        self.assertEqual(unknown_tag.status, "UNKNOWN")
+
 
 if __name__ == "__main__":
     unittest.main()
