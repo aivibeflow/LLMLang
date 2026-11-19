@@ -18,6 +18,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 - [Scenario 67 — mutability and immutability depth](RESEARCH-SCENARIO-67-MUTABILITY-AND-IMMUTABILITY-DEPTH.md) compares Rust mutable-access capabilities and interior mutability, Go constants versus runtime aliases, Swift `let` across value/reference types, and Zig `const`/pointer qualifiers.
 - [Scenario 68 — value construction and initialization invariants](RESEARCH-SCENARIO-68-VALUE-CONSTRUCTION-AND-INITIALIZATION.md) compares complete aggregate construction, Go zero values, Swift definite/two-phase initialization, and Zig comptime defaults.
 - [Scenario 69 — subtyping and variance](RESEARCH-SCENARIO-69-SUBTYPING-AND-VARIANCE.md) compares Rust lifetime variance, Java invariant generics with use-site wildcards, Go assignability/interface implementation, and Swift generic/existential boundaries.
+- [Scenario 70 — type aliases, nominal wrappers, and opaque abstractions](RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md) separates alias identity, fresh nominal identity, hidden implementation, and representation/ABI guarantees across Rust, Go, Swift, and Zig.
 - [Shared semantics corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md) maps COR-01–13 fixtures and their evidence boundaries.
 - [COR-13 typed ownership follow-up](RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md) records the bounded policy comparison and preliminary action-list/CFG caller model for owned-resource results; integration with typed call trees remains open.
 
