@@ -124,6 +124,8 @@ An unordered set is insufficient if order changes observable behavior. Candidate
 
 The reference semantics must say which event orders are observable. Two writes to the same external resource are not interchangeable merely because their labels match.
 
+[Scenario 37 — effect rows, handlers, and observable traces](RESEARCH-SCENARIO-37-EFFECT-ROWS-HANDLERS-AND-OBSERVATION.md) compares Koka's row-polymorphic handlers and duplicate labels with F*'s computation types and indexed-effect operation-set example. Both make clear that an effect bound, handler interpretation, and realized ordered trace are distinct evidence: an allowed-label set can deliberately forget order and multiplicity, while handlers can transform, forward, mask, or externally expose requests. COR-10/11 remain the executable LLMLang-side witnesses for observable handler outcomes and schedule order. No static row is treated as a substitute for those observations.
+
 ## 4. Ownership, borrowing, aliasing, and lifetime
 
 ### 4.1 Ownership alternatives
