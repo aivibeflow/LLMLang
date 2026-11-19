@@ -277,3 +277,11 @@ Keep this source-transition count distinct from Wasmtime-style VM operator fuel,
 Scenario [36](../../RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md) also compares the fuel boundary with COR-07's [`rt03_resource_rules.py`](rt03_resource_rules.py): terminating cleanup failures wrap prior `Result` errors in LIFO order, while cancellation remains a separate outcome with an ordered cleanup-error list. That model does not charge cleanup fuel or allow cleanup to diverge. A separate two-frame command probe informed the Scenario 36 note; no full test suite was run for this comparison.
 
 [`rt03_cleanup_fuel_stack.py`](rt03_cleanup_fuel_stack.py) compares a shared cleanup-fuel pool to a fixed reserve per scope across a two-resource LIFO unwind. With inner cost 3 and outer cost 1, shared reserve 3 leaves the outer cleanup blocked; reserve 4 completes both. Per-scope reserve 3 completes both with 6 reserved and 4 spent. A failed inner cleanup consumes its cost, leaves that resource retained, and permits outer cleanup to continue when fuel remains. The probe assumes bounded terminating cleanup actions.
+
+## Real solver timeout isolation (Scenario 103)
+
+[`rt03_bounded_solver_worker.py`](rt03_bounded_solver_worker.py) starts one POSIX worker per query, waits until SymPy is imported, then enforces a wall-clock deadline around a generated pigeonhole query. A 12-pigeon/11-hole DPLL2 query times out at 0.5 seconds; the parent kills and reaps the worker and reports `UNKNOWN` with no model. A completed UNSAT answer from this worker remains untrusted in the path-result classifier and cannot prune a may-path. This experiment has no memory or concurrent-worker limit and does not validate a persistent worker pool.
+
+Focused tests, including the real deadline case:
+
+    python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_rt03_bounded_solver_worker.py' -v
