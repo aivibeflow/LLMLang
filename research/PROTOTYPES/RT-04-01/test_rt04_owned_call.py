@@ -158,6 +158,32 @@ class OwnedCallBoundary(unittest.TestCase):
         # despite the operational trace retaining caller cleanup debt.
         self.assertEqual(static.status, "ACCEPTED")
 
+    def test_cfg_release_attempt_branches_and_preserves_debt(self):
+        cfg = {"entry": "attempt", "output_carries_owned": True, "blocks": {
+            "attempt": {"release_attempt": True,
+                        "successors": {"ok": "released", "error": "cleanup_error"}},
+            "released": {},
+            "cleanup_error": {"actions": ["propagate_owned"]},
+        }}
+        result = check_owned_call_cfg(HANDLE_WITH_CLEANUP_ERROR, {
+            "ok": cfg, "error_with_value": cfg,
+        })
+        self.assertEqual(result.status, "ACCEPTED")
+        self.assertIn(("error_with_value", "caller_output_cleanup_debt"), result.terminal_owners)
+
+    def test_cfg_release_attempt_rejects_dropped_failure_debt(self):
+        cfg = {"entry": "attempt", "output_carries_owned": False, "blocks": {
+            "attempt": {"release_attempt": True,
+                        "successors": {"ok": "released", "error": "failed"}},
+            "released": {},
+            "failed": {},
+        }}
+        result = check_owned_call_cfg(HANDLE_WITH_CLEANUP_ERROR, {
+            "ok": cfg, "error_with_value": cfg,
+        })
+        self.assertEqual(result.status, "REJECTED")
+        self.assertTrue(any("LEAKED_CLEANUP_DEBT" in finding for finding in result.findings))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -103,9 +103,11 @@ def check_owned_call_cfg(result_type: Any, outcome_cfgs: Any) -> CallCheck:
     """Check finite acyclic caller CFGs, preserving exact ownership at joins.
 
     Each outcome maps to ``{"entry": block, "blocks": {name: {"actions":
-    [...], "successors": [...] }}, "output_carries_owned": bool}``. Every
-    reachable terminal block must consume or return the obligation. Cycles and
-    unsupported result types fail closed as UNKNOWN.
+    [...], "successors": [...] }}, "output_carries_owned": bool}``. A block
+    may instead declare ``release_attempt: true`` and map ``successors`` as
+    ``{"ok": block, "error": block}``; success consumes the owner and failure
+    preserves it with cleanup debt. Every terminal path must discharge or
+    propagate the obligation. Cycles and unsupported types return UNKNOWN.
     """
     if isinstance(result_type, dict) and set(result_type) == {"Result"}:
         args = result_type["Result"]
@@ -136,20 +138,36 @@ def check_owned_call_cfg(result_type: Any, outcome_cfgs: Any) -> CallCheck:
         entry, blocks = cfg["entry"], cfg["blocks"]
         if not isinstance(entry, str) or not isinstance(blocks, dict) or entry not in blocks:
             return CallCheck("UNKNOWN", (f"UNKNOWN_CFG:{outcome}",), ())
-        normalized: dict[str, tuple[tuple[str, ...], tuple[str, ...]]] = {}
+        normalized: dict[str, tuple[tuple[str, ...], tuple[tuple[str, str | None], ...], bool]] = {}
         malformed = False
         for name, block in blocks.items():
             if (not isinstance(name, str) or not isinstance(block, dict)
-                    or set(block) - {"actions", "successors"}):
+                    or set(block) - {"actions", "successors", "release_attempt"}):
                 malformed = True
                 break
             actions, successors = block.get("actions", []), block.get("successors", [])
-            if (not isinstance(actions, list) or any(action not in allowed_actions for action in actions)
-                    or not isinstance(successors, list)
-                    or any(not isinstance(target, str) or target not in blocks for target in successors)):
+            attempt = block.get("release_attempt", False)
+            if type(attempt) is not bool or not isinstance(actions, list) or any(
+                action not in allowed_actions for action in actions
+            ):
                 malformed = True
                 break
-            normalized[name] = (tuple(actions), tuple(successors))
+            if attempt:
+                if (not isinstance(successors, dict) or set(successors) != {"ok", "error"}
+                        or any(not isinstance(target, str) or target not in blocks
+                               for target in successors.values())
+                        or any(action in {"release", "transfer", "propagate_owned"}
+                               for action in actions)):
+                    malformed = True
+                    break
+                transitions = tuple((successors[tag], tag) for tag in ("ok", "error"))
+            else:
+                if (not isinstance(successors, list)
+                        or any(not isinstance(target, str) or target not in blocks for target in successors)):
+                    malformed = True
+                    break
+                transitions = tuple((target, None) for target in successors)
+            normalized[name] = (tuple(actions), transitions, attempt)
         if malformed:
             return CallCheck("UNKNOWN", (f"UNKNOWN_CFG:{outcome}",), ())
 
@@ -165,7 +183,7 @@ def check_owned_call_cfg(result_type: Any, outcome_cfgs: Any) -> CallCheck:
             if block_name in visited:
                 return
             visiting.add(block_name)
-            for target in normalized[block_name][1]:
+            for target, _ in normalized[block_name][1]:
                 visit(target)
             visiting.remove(block_name)
             visited.add(block_name)
@@ -184,7 +202,7 @@ def check_owned_call_cfg(result_type: Any, outcome_cfgs: Any) -> CallCheck:
                 findings.append(f"{outcome}:{block_name}:OWNERSHIP_JOIN_MISMATCH")
                 continue
             state = next(iter(states))
-            actions, successors = normalized[block_name]
+            actions, transitions, attempt = normalized[block_name]
             current = state
             for action in actions:
                 if current == "none":
@@ -197,19 +215,35 @@ def check_owned_call_cfg(result_type: Any, outcome_cfgs: Any) -> CallCheck:
                 elif action == "ignore":
                     findings.append(f"{outcome}:{block_name}:IGNORED_OWNERSHIP")
                 elif action in {"release", "transfer", "propagate_owned"}:
-                    if current != "caller":
+                    if current not in {"caller", "caller_cleanup_debt"}:
                         findings.append(f"{outcome}:{block_name}:MULTIPLE_CONSUMPTIONS")
                     elif action == "propagate_owned" and not cfg["output_carries_owned"]:
                         findings.append(f"{outcome}:{block_name}:PROPAGATION_DROPS_OWNERSHIP")
+                    elif current == "caller_cleanup_debt" and action != "propagate_owned":
+                        findings.append(f"{outcome}:{block_name}:CLEANUP_DEBT_NOT_PRESERVED")
                     else:
-                        current = {"release": "released", "transfer": "transferred",
-                                   "propagate_owned": "caller_output"}[action]
-            if not successors:
+                        current = ({"release": "released", "transfer": "transferred",
+                                    "propagate_owned": "caller_output"}[action]
+                                   if current == "caller" else "caller_output_cleanup_debt")
+            if attempt:
+                if current not in {"caller", "caller_cleanup_debt"}:
+                    findings.append(f"{outcome}:{block_name}:RELEASE_WITHOUT_OWNERSHIP")
+                    continue
+                for target, release_result in transitions:
+                    next_state = "released" if release_result == "ok" else "caller_cleanup_debt"
+                    before = len(incoming[target])
+                    incoming[target].add(next_state)
+                    if len(incoming[target]) != before:
+                        pending.append(target)
+                continue
+            if not transitions:
                 if current == "caller":
                     findings.append(f"{outcome}:{block_name}:LEAKED_OWNERSHIP")
+                elif current == "caller_cleanup_debt":
+                    findings.append(f"{outcome}:{block_name}:LEAKED_CLEANUP_DEBT")
                 else:
                     terminal_owners.append((outcome, current))
-            for target in successors:
+            for target, _ in transitions:
                 before = len(incoming[target])
                 incoming[target].add(current)
                 if len(incoming[target]) != before:
