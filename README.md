@@ -19,6 +19,7 @@
 - [Research Scenario 84](research/RESEARCH-SCENARIO-84-FUNCTION-SIGNATURE-AND-CALL-SURFACE.md) compares parameter names/labels, returns, defaults, variadics, and method receivers across Rust, Go, Swift, and Java; no signature syntax is selected.
 - [Research Scenario 85](research/RESEARCH-SCENARIO-85-LOCAL-BINDING-DECLARATION-SYNTAX.md) compares local binding forms, mutability markers, inference, destructuring, initialization, and redeclaration across Rust, Go, Swift, and Zig; no syntax is selected.
 - [Research Scenario 86](research/RESEARCH-SCENARIO-86-ASYNC-AWAIT-SYNTAX-AND-CONTEXTS.md) compares async declaration markers, await placement, closure/context rules, and top-level await across Rust, Swift, C#, and ECMAScript; no syntax is selected.
+- [Research Scenario 87](research/RESEARCH-SCENARIO-87-ASYNC-AWAIT-PARSER-DIAGNOSTIC-CORPUS.md) specifies 18 proposed acceptance, context, precedence, module-goal, recovery, and diagnostic fixtures grounded in official language references; the corpus is designed but not yet run.
 
 **LLMLang** is an experimental concept for an AI-native programming language and development environment designed around large language models as primary program authors, with independent machine validation of their output.
 
