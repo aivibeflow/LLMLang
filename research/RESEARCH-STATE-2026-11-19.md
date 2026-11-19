@@ -131,6 +131,8 @@ This is planning, not approval of a semantic profile. A scoped RFC may be possib
 
 [Scenario 74](RESEARCH-SCENARIO-74-REFUTABLE-PATTERN-FAILURE-AND-BINDING.md) extends Scenario 54 from pattern vocabulary/exhaustiveness to mismatch handling: Rust/Swift branch or exit bindings, Go comma-ok results, and C# Boolean pattern tests. Definite assignment, nested partial cleanup, and error propagation remain open; no LLMLang rule is selected.
 
+[Scenario 75](RESEARCH-SCENARIO-75-AUTOMATIC-DISPOSAL-AND-LIFETIME.md) separates scope-bound deterministic cleanup (Rust drop, Zig/Go defer), Swift ARC object lifetime, and Go GC cleanup/finalizers that may not run before exit. Async close, aliases/cycles, cleanup failure, and process abort remain open; no LLMLang resource-lifetime policy is selected.
+
 ## 6. Evidence quality and traceability
 
 For each new result, retain exact branch/commit, files, command and tool versions, fixture selection, assumptions, positive/negative cases, limitations, evidence class, and the vector it could falsify. Update the taxonomy and option matrix when scope changes. Keep decisions in [TODO and open decisions](../TODO.md) open until explicitly accepted.
