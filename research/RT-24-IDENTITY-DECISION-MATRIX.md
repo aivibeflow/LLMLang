@@ -94,6 +94,8 @@ These alternatives are not entirely mutually exclusive. Architecture C is a more
 
 ## 5. Findings from the studies
 
+The recursive identity fixture compares two group encodings. Both make recursive members and their exact callers depend on one group version. Keyed members retain distinct addresses under symmetry. Structural addressing can deduplicate symmetric members, so separately managed uses still need their own selectors. [RT-05 recursive identity](RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md)
+
 ### 5.1 Rename and move are not the same operation
 
 A presentation rename must not alter semantic value identity. An externally observable name (exported symbol, protocol field, CLI command, route, etc.) is part of the relevant interface semantics and may change the operation's semantic identity.
@@ -164,6 +166,8 @@ Use a deliberately bounded hybrid interface:
 This recommendation is an experimental boundary, not a final choice between Study 05 and content-only identity. It keeps the prototype testable while avoiding heuristics that would conceal the unresolved identity decision.
 
 ## 9. Decision gates before a normative choice
+
+The RT-05 fixture comparison covers alias and exported-name edits, independently selected equal values, cross-scope moves, context changes, split/merge, slot reuse, and call-site reorder. The follow-on experiment checks exact binding transfer during extraction, finite unary inlining, and stale evidence across changed Snapshot parents. Selection merge coverage remains limited to explicit keys. Authentic endpoint evidence, source correspondence, and import/merge round trips remain open. [Identity lifecycle experiment](RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) · [Call site refactoring experiment](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md)
 
 The identity architecture must remain open until the following are completed:
 

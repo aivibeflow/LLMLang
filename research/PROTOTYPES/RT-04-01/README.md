@@ -19,6 +19,12 @@ The model accepts function declarations, optional typed call-site records, scope
 
 The model's UNKNOWN refinement outcome is distinct from acceptance and rejection. Missing evidence is not treated as success.
 
+## Return and cleanup projection (COR-13)
+
+[`rt03_return_cleanup.py`](rt03_return_cleanup.py) compares a staged reserve/commit rule with transfer-before-cleanup for one returned owned handle and an alternative error-return branch. It records the result, ordered resource events, and final owner/debt slots; static rejection fixtures cover a local borrow and implicit escape. The focused cases are in [`test_rt03_return_cleanup.py`](test_rt03_return_cleanup.py). The branch fixture exposes the cleanup-failure result difference, and caller-side handling checks disposal of a value carried with an error. Common cleanup paths match the RT-03 evaluator and path model. This remains an ownership-obligation projection, not a source evaluator, borrow checker, or selected rule.
+
+[`test_rt04_owned_result_boundary.py`](test_rt04_owned_result_boundary.py) records the RT-04 checker boundary: primitive `Result` is accepted, while nested `Owned` and `ErrorWithValue` descriptors report `UNKNOWN_TYPE`. Its typed-call evaluator probe requires Python 3.10+ and is skipped on older interpreters.
+
 ## Resource-flow envelope
 
 A function may provide either `consumes` or `resource_flow`, not both:
@@ -135,6 +141,16 @@ This is a static declaration-level model. Parentless grant provenance/authentici
 ## RT-03 cross-profile trace fixtures
 
 The companion `test_rt03_rt04_cross_profile.py` checks a small shared observable-trace corpus against RT-03 semantic profiles A/D and RT-04 checker vectors A/B. It is intentionally a fixture oracle, not a reference interpreter. See [the cross-profile findings](../../RT-04-RT-03-CROSS-PROFILE-TRACES.md).
+
+## RT-03 A/B/D typed call and state experiment
+
+`rt03_typed_calls.py` checks and executes first-order, acyclic programs over Int, Bool, and Unit. All three semantic variants use strict lexical calls. A uses immutable `let` bindings. B adds private `local` cells and ordered `set` operations. The RT-04 declaration checker receives the actual call sites and argument types derived from each body, including both branches of every conditional. The checker vector is selected independently of the execution variant. See [COR-09 for fixtures and results](../../RT-03-04-SHARED-SEMANTICS-CORPUS.md#7-cor-09--typed-calls-and-private-local-state).
+
+Variant D adds `{"handle_state": [initializer, observe_writes, reject_negative, body]}`, `{"state_get": null}`, and `{"state_put": value_expression}`. The second and third fields are boolean configuration flags. A function can declare `requires_state=True` to request an enclosing handler. The body checker enforces that requirement throughout the call graph and requires a closed entry. The RT-04 projection for D covers signatures and calls. See [COR-10 for the observation and failure rules](../../RT-03-04-SHARED-SEMANTICS-CORPUS.md#8-cor-10--what-a-state-handler-exposes).
+
+## RT-03 C actor schedules
+
+`rt03_actor_model.py` explores every enabled schedule of finite producer scripts sending integer updates to a single receiver. It compares per-channel FIFO with closed batch ordering and isolates producer failure or aborts the group according to the chosen policy. Each distinct terminal observation has a replayable witness. An independent oracle checks the full trace sets for small cases, and the shared scalar workload compares C with A/B/D. [COR-11 results](../../RT-03-04-SHARED-SEMANTICS-CORPUS.md#9-cor-11--actor-traces-and-failure-policies)
 
 
 ## RT-03 A/D executable reference slice

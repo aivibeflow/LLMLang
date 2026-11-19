@@ -49,14 +49,10 @@ The initial fixtures cover pure return, filesystem read, ordered repeated writes
 - The trace oracle is intentionally independent and tiny; it is not a second complete reference semantics.
 - Traces are hand-authored. There is no source parser, interpreter, compiler, or source-to-trace completeness evidence.
 - The RT-04 checker remains declaration-level and does not consume trace evidence.
-- The corpus does not cover state transitions, resource lifecycle, cancellation, nondeterministic scheduling, or divergence.
+- Later executable reference and differential suites cover fixture state transitions, bounded resource lifecycle, and synchronous cancellation. COR-09 adds a common typed tree input for static checking and execution. Source extraction, asynchronous scheduling, actor/message traces, and divergence remain open.
 - The current checker does not preserve event order/payload, so it cannot serve as an oracle for RT-03 observational equivalence.
 
-Next:
-1. Extend the branch corpus with nested conditionals, multiple resources, and explicit error/cancellation outcomes; then compare a separately derived path model against both evaluators.
-2. Extend the resource model with explicit ownership/transfer alternatives only after branch-sensitive traces expose the required distinctions.
-3. Extend RT-04's effect representation only after the RT-03 observation and handler rules are defined; preserve ordered events where they are semantically observable.
-4. Keep the second independent cross-aspect model and independent review as separate gates.
+The [shared semantics corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md) records the completed branch, resource, Result and cancellation fixtures. It also describes the typed call experiment and where its static projection loses execution information.
 
 No RT-03 profile or RT-04 type/effect/ownership/capability architecture is selected by this experiment.
 
