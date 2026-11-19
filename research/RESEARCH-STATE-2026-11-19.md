@@ -18,6 +18,8 @@
 
 [Scenario 83](RESEARCH-SCENARIO-83-NUMERIC-LITERAL-LEXICAL-SYNTAX.md) isolates token grammar from Scenario 73 literal typing and Scenario 78 runtime float semantics. It compares integer/float spellings, separators, exponents, suffixes, sign boundaries, and malformed tokens across Rust, Go, Swift, and Zig; the shared lexer corpus remains unrun and no syntax is selected.
 
+[Scenario 84](RESEARCH-SCENARIO-84-FUNCTION-SIGNATURE-AND-CALL-SURFACE.md) separates signature/caller syntax from Scenario 77 evaluation order. It compares parameter names versus argument labels, result forms, defaults, variadics, and method receivers in Rust, Go, Swift, and Java. API compatibility fixtures for renaming, defaults, labels, and overload interactions remain open; no syntax is selected.
+
 Since the previous snapshot, [Scenario 58](RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md) compared Rust future construction/polling, Swift async function types/task APIs, and Go goroutine launch. The async type/effect, call-start policy, task creation, and scheduler are separate research axes; no LLMLang choice is selected. Runtime traces, blocking behavior, sync/async interop, and target parallelism remain open.
 
 [Scenario 59](RESEARCH-SCENARIO-59-BOOLEAN-SHORT-CIRCUIT-AND-EVALUATION-ORDER.md) now distinguishes intrinsic short-circuit operators (Rust/Go), Swift's standard autoclosure-backed Boolean operator, and partially specified general expression ordering. Effectful/error/diverging operands show why value-only algebra is insufficient to validate optimizer rewrites. An executable multi-compiler trace corpus remains open; no LLMLang policy is selected.
