@@ -1,162 +1,97 @@
-# LLMLang
+# Research Option Matrix 01 — Language and Execution Foundations
 
-- [Research Option Matrix 01 — Language and Execution Foundations](RESEARCH-OPTION-MATRIX-01.md) — initial evidence-linked comparison of integrated semantics, type/resource, identity, verification, runtime/backend, and security vectors; no candidate is selected.
-- [RT-01 Reference Workloads](RT-01-REFERENCE-WORKLOADS.md) — common workload acceptance criteria and an executable CLI corpus calibrated with C and Python host references.
-- [RT-16 Threat Model 01](RT-16-THREAT-MODEL-01.md) — initial threat actors, boundaries, abuse cases, and a tested authorization-policy model.
-- [RT-03/04 Shared Semantics Corpus v1](RT-03-04-SHARED-SEMANTICS-CORPUS.md) — inventory of executable scenario families, profile coverage, limits, and gap-ordered comparisons for RT-03/04.
-- COR-12 in the shared corpus adds a finite buffered-versus-rendezvous blocking/progress experiment for two actor protocols.
-- [Research Scenario 35](RESEARCH-SCENARIO-35-RESOURCE-RETURN-AND-CLEANUP.md) compares ownership-transfer and cleanup ordering when returning a resource; the branch, caller, and RT-04 type-envelope probes expose a value-versus-error-with-value distinction, but no rule is selected.
+**Status:** Initial evidence-linked comparison; no vector selected
+**Updated:** 2026-11-19
+**Scope:** First synthesis slice across core semantics, type/effect/resource model, semantic representation, verification, runtime, backends, and security. This matrix does not choose a language architecture or replace the source studies.
 
-**LLMLang** is an experimental concept for an AI-native programming language and development environment designed around large language models as primary program authors, with independent machine validation of their output.
+## 1. Purpose
 
-> **Core principle:** Don't make the LLM remember the rules. Make the language and its tooling enforce them.
+The research corpus contains multiple candidate profiles, prototypes, and recommendations, but the alternatives are not yet normalized into a single comparison that shows which combinations are coherent and what evidence supports them. This document records a first set of integrated vectors, compatibility conditions, evidence strength, and the experiments that would distinguish them. It feeds the whole-specification synthesis in `PLAN.md`.
 
-- [Language Versioning](LANGUAGE-VERSIONING.md) — composite language versions and the append-only component registry.
+The vectors are candidate bundles, not claims that all combinations within a column have already been implemented or proved. A missing incompatibility is not evidence of compatibility. Recommendations in source documents remain recommendations until an explicit decision is accepted.
 
-## Concept
+## 2. Evidence and confidence scale
 
-LLMLang explores a programming model in which a program is represented as a typed **Semantic Program Graph (SPG)** rather than only as source text or a conventional AST.
+Evidence levels used here:
 
-The concept is organized around three connected, independently optional layers:
+- **Implemented:** executable prototype or production behavior exists and is linked.
+- **Mechanically checked:** a test suite or kernel-checked theorem passed for a named bounded scope.
+- **Analytical:** comparative reasoning or a written architecture proposal exists without validating experiment.
+- **Assumed:** required to make the vector coherent but not established by current evidence.
 
-- **Specification Graph** — what the program must do: requirements, contracts, invariants, states, and constraints.
-- **Design Graph** — how the program is structured: components, interfaces, dependencies, algorithms, and data structures.
-- **Implementation Graph** — how the program is implemented: expressions, instructions, control flow, memory operations, and runtime calls.
+Confidence describes how strongly the current evidence supports the stated comparison, not how attractive the vector is.
 
-Key areas include:
+## 3. Normalized decisions
 
-- First-class preconditions, postconditions, invariants, effects, and errors.
-- Static strict typing, algebraic data types, refinement types, and typed states.
-- Explicit ownership, resource management, concurrency, and capabilities.
-- Traceability between requirements, implementation, tests, and proofs.
-- Deterministic compiler validation independent of the LLM.
-- Interpreter/VM execution during development and a possible native-code backend.
+| Decision | Candidate vectors | Current evidence and scope | Open discriminator |
+|---|---|---|---|
+| Source execution semantics | **S-A Pure strict core** with immutable values and explicit error data. **S-B Imperative state core** with ordered commands and explicit store. **S-C Isolated concurrent processes** with local state and message traces. **S-D Effectful functional core** with explicit effect operations and handlers. | [COR-09–11](RT-03-04-SHARED-SEMANTICS-CORPUS.md) compare all four on one bounded scalar workload and record counterexamples for mutation order, handler behavior, and actor delivery. Lean proves preservation for a narrow Int/Bool expression subset. | Compare a typed resource and message protocol that can block, fail, or transfer a reference. Determine where divergence, cleanup, and scheduling affect observations. |
+| Type/effect/resource model | **T-A Explicit effects and capabilities over pure core;** **T-B Ownership/borrowing with imperative state;** **T-C Message/protocol types with isolated processes** | The RT-04 study compares profiles and a limited declaration-level checker covers selected effect bounds, call-site checks, and scoped capabilities. The cross-profile fixture exposed that effect summaries omit ordering/payload and an open-row marker does not implement row unification or handler coverage. COR-13 shows that transfer-first cleanup failure needs an error-with-value result that current typed calls cannot represent; RT-04's checker accepts primitive `Result` but rejects nested `Owned` and `ErrorWithValue` descriptors as unknown. Only shared cleanup traces are cross-checked against RT-03. No profile is validated as a complete type system. | Preserve ordered effect traces and payloads in summaries; test handler coverage, aliasing/borrowing, resource transfer, cancellation, and inter-process protocols against the same RT-03 observations. Extend COR-13 through a typed owned-value call boundary and source correspondence. |
+| Program representation and identity | **R-A Stable entity IDs with immutable values.** **R-B Content addresses with explicit lineage.** **R-C Optional occurrence and scoped slot identity.** | The [lifecycle experiment](RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) compares continuity across moves. The [inline counterexample](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md) separates Contract conformance from equivalent behavior. The [recursive identity experiment](RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md) measures when explicit keys keep symmetric members distinct and when an SCC change propagates to callers. | Check authenticated lineage, real import, and scalable canonical labeling. Compare exact implementation dependencies with calls through typed `OpHash` and `ImplHash` envelopes. |
+| Verification and evidence | **V-A One executable reference semantics with verified projections;** **V-B Formal semantics plus untrusted executable checker;** **V-C Test/model-checking evidence with conservative unknowns** | Scenarios 25–34 and pinned Lean/Logos experiments establish a narrow CPC parser binding and expression/query correspondence scope. RT-20/CIP adds plan and obligation structure, not execution evidence or behavioral correctness. No complete source-program proof architecture exists. | Specify proposition, input manifest, assumptions, tool/environment identity, soundness claim, and trusted computing base for each evidence class. Test stale evidence and unknown dependency cases. |
+| Runtime and backend | **B-A Interpreter/reference runtime first, with later native lowering;** **B-B Bytecode VM as primary execution contract;** **B-C Direct native/LLVM lowering with runtime services** | Backend and POSIX architecture studies are analytical. No target profile or backend is selected. Lean and Logos are currently used for a proof/checking toolchain, not a LLMLang execution backend. | Run the same vertical slice through two independently implemented backends against the reference semantics; compare behavior, diagnostics, performance, ABI/runtime boundary, and unsupported cases. |
+| Compilation and binding | **Exact implementation linkage.** **Separately linked stable ABI with pinned implementation selection.** | In the [RT-11 C benchmark](RT-11-BINDING-INVALIDATION-BENCHMARK.md), changing one implementation reduces caller recompilations from 12 to 4 under separate linkage. Both strategies still link and verify twelve changed executables. Body-visible consumers recompile in both. | Evaluate actual LLMLang code generation and prove which conditions and bindings affect each action before relying on projected keys. Measure runtime, artifact size, and link cost. |
+| Security and authority | **Q-A Small trusted core with capability-mediated effects and untrusted LLM proposals;** **Q-B Sandboxed toolchain/runtime with signed evidence and explicit human authorization;** **Q-C Process isolation and declarative policy around execution** | The concept excludes LLM output from the trusted execution chain. [RT-16 Threat Model 01](RT-16-THREAT-MODEL-01.md) now identifies lifecycle boundaries and tests 24 authorization/evidence decisions for principal, repository, action, base, target, expiry, verifier identity, result, and replay. The evidence digest is unkeyed, so it does not authenticate a producer. Issuer, revocation, artifact trust, sandbox boundaries, and signed evidence remain unresolved. | Test the authorization rules in a persistent concurrent service, then validate authenticated evidence, package provenance, sandbox boundaries, and recovery. |
 
-The LLM proposes structured program changes; the compiler and verification tools independently validate them. An LLM response is never treated as proof of correctness.
+## 4. Integrated candidate vectors
 
-## Status
+These bundles show plausible cross-area combinations for later whole-specification comparison. They are not selections or rankings.
 
-This repository contains a **conceptual research document**, not a production-ready language implementation. Syntax, formal semantics, type-system details, verification strategy, and implementation architecture remain subjects for research and prototyping.
+| Candidate | Core bundle | Main benefit to evaluate | Main cost or failure mode | Compatibility conditions | Evidence maturity |
+|---|---|---|---|---|---|
+| **C1 — Verifiable pure-first language** | S-A + T-A + R-A or R-C + V-A + B-A then B-C + Q-A | Small semantic core, compositional reasoning, explicit environmental effects, potential for strong incremental reuse | Pure-first style may complicate conventional resource-heavy code; moving from interpreter to native lowering raises proof obligations; identity model remains unsettled | Effect/capability semantics must define observations and hash boundaries; runtime effects need explicit handlers; entity identity choice must preserve change and reuse requirements | Analytical architecture; bounded A/D expression, effect, Result, cancellation, branch, and resource prototypes exist, but no integrated vertical slice |
+| **C2 — Systems language with explicit ownership** | S-B + T-B + R-A + V-A/V-C + B-A or B-B then native + Q-A/Q-B | Direct control over memory/resources and conventional systems APIs | Alias/state semantics enlarge proof, impact-analysis, cache, and merge surfaces; unsafe boundary must be explicit and auditable | Ownership rules, observable store semantics, effect order, and concurrency memory model must agree; proof scope must state unsafe/FFI assumptions | Partial resource/effect prototypes; no complete ownership checker, execution semantics, or backend |
+| **C3 — Isolated concurrent language** | S-C + T-C + R-A/R-C + V-A plus trace/model checking + B-B/B-C + Q-B/Q-C | Concurrency and distributed work become explicit; isolation can limit shared-memory races | Nondeterministic traces, protocol evolution, cancellation, scheduling, and runtime complexity challenge deterministic evidence reuse | A scheduled trace is a witness for one run. A stable scalar needs evidence across allowed schedules. Explicit order needs protocol keys preserved by rename | [COR-11](RT-03-04-SHARED-SEMANTICS-CORPUS.md#9-cor-11--actor-traces-and-failure-policies) enumerates closed finite traces and compares ordering and failure policies; [COR-12](RT-03-04-SHARED-SEMANTICS-CORPUS.md#cor-12--blocking-protocol-progress) distinguishes buffered progress from rendezvous blocking on two finite protocols. Cancellation, fairness, broader protocols, and runtime correspondence remain open |
+| **C4 — Effectful functional language** | S-D + T-A with handlers + R-A/R-C + V-A or V-C + B-A with explicit runtime handlers + Q-A | Pure regions remain compositional while effectful code can describe state and I/O explicitly | Handler ordering and composition add proof and lowering obligations | The language must define which handlers observe operations, how effect rows are checked, and which activity belongs in external observations and dependency keys | [COR-10](RT-03-04-SHARED-SEMANTICS-CORPUS.md#8-cor-10--what-a-state-handler-exposes) exercises one scoped state effect across typed calls. The same state interface admits different traces and terminal outcomes. General handlers, row unification, and handler-aware summaries remain open |
 
-## Research planning
+No candidate is currently shown to satisfy all product goals, including easy small utilities, human readability, model neutrality, platform support, and independently checkable correctness. Those goals need explicit operational criteria before scoring candidates.
 
-- [Research taxonomy](RESEARCH-TAXONOMY.md) — research areas, current coverage, and required outputs for each research.
-- [RT-03 — Core Language Semantics](CORE-LANGUAGE-SEMANTICS.md) — candidate semantic vectors and four profiles (pure functional, imperative/linear, actor/concurrent, effectful functional), compatibility tensions, downstream dependencies, and experiments. No profile is selected.
-- [RT-04 — Type, Effect, Ownership, and Capability-System Alternatives](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) — comparative alternatives for static/refinement types, effects/handlers, ownership/borrowing/lifetimes, capabilities, concurrency/memory models, error-state composition, and candidate hash boundaries. No architecture is selected; a first limited checker prototype exists, while broader scenarios remain open.
-- [RT-04 Prototype 01](PROTOTYPES/RT-04-01/README.md) — executable comparison of two candidate checker vectors, with focused unit tests.
-- [RT-04 Prototype 01 Results](RT-04-PROTOTYPE-01-RESULTS.md) — findings, limits, and next experiments.
-- [RT-04 Prototype 01 Scenarios](RT-04-PROTOTYPE-01-SCENARIOS.md) — executable scenario-to-profile outcome matrix.
-- [Cross-aspect dependency map](RESEARCH-DEPENDENCY-MAP.md) — dependency relationships, research waves, and parallelism guidance.
+## 5. Compatibility constraints and dependencies
 
-## Documents
+| Constraint | Consequence | Evidence status |
+|---|---|---|
+| A selected type/effect profile must refine the chosen core semantics and preserve its observation model. | RT-03 and RT-04 cannot be selected independently. | Strong dependency hypothesis, DEP-004; incomplete cross-profile fixtures identify concrete gaps. |
+| Canonical identity must commit to exactly the semantic distinctions that affect behavior, while action/evidence keys also include their own inputs. | RT-05 decisions constrain dependency extraction, cache invalidation, verification reuse, and merge. | Broadly supported by prototype work; canonical SPG and hash envelopes remain undecided. |
+| A backend or runtime may reject unsupported programs, but may not silently alter source semantics. | Every backend candidate needs an explicit supported subset and preservation evidence. | Design invariant in `PLAN.md`; no selected backend has passed the required cross-backend gate. |
+| Any effect observable outside a local computation must appear in semantics, evidence inputs, and relevant dependency/identity relations. | Hidden I/O, scheduler state, ambient capabilities, or resource behavior can invalidate equivalence and reuse. | Analytically established requirement; concrete effect and environment inventory remains incomplete. |
+| Security authority and evidence provenance are separate from content identity. | Hash equality cannot establish publisher trust, authorization, or proof authenticity. | Repeated in package/security research; operational trust design remains open. |
+| Unknown or incomplete semantic/dependency information cannot be promoted to success or safe reuse. | Incomplete source extraction and unsupported constructs require conservative behavior. | Several prototypes implement fail-closed unknown handling within their stated scope; end-to-end completeness is unproved. |
 
-- [LLMLang-CONCEPT.md](LLMLang-CONCEPT.md) — full concept, architecture, design principles, proposed toolchain, development stages, and open questions.
-- [REPOSITORY-AUDIT-2026-11-17.md](REPOSITORY-AUDIT-2026-11-17.md) — repository-wide documentation consistency audit, fixes, and validation scope.
-- [LLMLang-FORMAL-VERIFICATION.md](LLMLang-FORMAL-VERIFICATION.md) — architectural requirement for one canonical semantics and generated formal/executable representations.
-- [POSIX-RUNTIME-ARCHITECTURE.md](POSIX-RUNTIME-ARCHITECTURE.md) — proposed standard POSIX library with portable and native Linux runtimes, one shared contract, conformance/differential testing, and progressive formal verification.
-- [TRANSLATION-AND-TARGET-BACKENDS.md](TRANSLATION-AND-TARGET-BACKENDS.md) — translation pipeline, backend architecture, semantic portability, and target-language research.\n- [LLVM-BACKEND-ARCHITECTURE.md](LLVM-BACKEND-ARCHITECTURE.md) — proposed LLVM IR/bitcode and native-code generation backend, semantic boundary, LLVM-specific hazards, and verification limits.
-- [LIBRARIES-AND-TEMPLATES.md](LIBRARIES-AND-TEMPLATES.md) — package/library dependencies, public contracts, templates, and reproducible reuse.
-- [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](GLOBAL-SEMANTIC-ARTIFACT-STORE.md) — proposed global content-addressed store, reusable wrapper implementations, library manifests, contracts, target profiles, and compatibility evidence.
-- [PACKAGE-SYSTEM.md](PACKAGE-SYSTEM.md) — static and dynamic packages, compact binary indexes, compression/sparse lookup, provider resolution, and optional cache indexes.
-- [PACKAGE-MANIFEST-AND-IDENTITY.md](PACKAGE-MANIFEST-AND-IDENTITY.md) — candidate TOML manifest schema, Package Content Root Hash construction, identity boundaries, and validation invariants; includes an [illustrative manifest fixture](examples/package/manifest.toml).
-- [Package Identity Prototype 01](PROTOTYPES/PACKAGE-IDENTITY-01/README.md) — exploratory Python model and focused tests for PMI-001–PMI-014; not a normative implementation.
-- [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) — candidate logical tables, primary keys, cross-table invariants, canonical ordering, and deterministic merge contract.
-- [Package Index Logical Model Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md) — executable in-memory validation, digest, and merge experiment; not a binary wire format.
-- [RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md](RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md) — research on transforming contextual business intent into traceable, reviewable formal contracts.
-- [RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md](RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md) — research on a typed, provenance-carrying Requirement IR, finite-domain consistency checks, and scenario generation.
-- [Prototype 16 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-16-RESULTS.md) — end-to-end experiment for caller-scoped business-rule evolution and contract acceptance.
-- [Prototype 17 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-17-RESULTS.md) — typed Requirement IR experiment with provenance, contradiction/underdetermination checks, and finite scenarios.
+See dependency edges DEP-004–010, DEP-012–019, DEP-023–024, and DEP-030–039 in [Research Dependency Map](RESEARCH-DEPENDENCY-MAP.md). Validate or revise these edges as the discriminating experiments run.
 
-- [SEMANTIC-COMPILATION-CACHE.md](SEMANTIC-COMPILATION-CACHE.md) — content-addressed action graphs, incremental compilation, dependency-aware invalidation, cached analysis/tests/proofs, and cache soundness.
-- [COMPILATION-CACHE-SPEEDUP-ESTIMATE.md](COMPILATION-CACHE-SPEEDUP-ESTIMATE.md) — analytical speedup model, illustrative local/component/warm-build scenarios, sensitivity, and benchmark plan.
+## 6. Shared evaluation criteria
 
-## Guiding boundary
+Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.
 
-Formal verification can establish that an implementation satisfies a formal specification under stated assumptions. It cannot, by itself, establish that the specification fully captures the human's actual intent.
+| Criterion | Operational question | Minimum evidence for scoring beyond analytical |
+|---|---|---|
+| Semantic clarity | Can independent implementers predict the same observable result? | Shared corpus run by two independent semantics/implementations |
+| Correctness assurance | Which claims can be checked independently, and what remains trusted? | Explicit proof/evidence boundaries and adversarial fixtures |
+| Expressiveness | Can representative workloads be expressed without escape hatches? | Common task corpus with rejected/awkward cases recorded |
+| Simplicity | How many rules, exceptions, and interactions must authors and tools learn? | Counted rules/interactions plus blind review by implementers |
+| AI-agent usability | Can an agent make localized changes with bounded context and recover from diagnostics? | Controlled tasks measuring success, repair count, tokens, and unauthorized scope changes |
+| Incremental behavior | Which changes invalidate which results, and is reuse sound? | Change benchmark with complete dependency audits and cold/warm runs |
+| Runtime feasibility | Can the profile meet declared performance and resource bounds? | Same fixtures on selected target and reference runtime, with reproducible environment |
+| Interoperability | Can it call existing system APIs with explicit, reviewable semantics? | Working FFI/OS vertical slice plus target-specific contract tests |
+| Security and trust | Are authority boundaries and evidence inputs explicit and enforceable? | Threat model with adversarial tests for boundary violations and replay |
+| Evolution | Can incompatible changes be detected, migrated, and versioned predictably? | Migration and compatibility fixtures across multiple language versions |
 
-- [RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md](RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md) — immutable Requirement IR evolution, typed semantic impact, provenance-only changes, split/merge, and concurrent edits.
-- [Prototype 18 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-18-RESULTS.md) — experiment for requirement revisions and impact propagation over hash-relevant dependencies.
-- [RESEARCH-SCENARIO-19-IMPACT-PLANNING-AND-DEPENDENCY-COMPLETENESS.md](RESEARCH-SCENARIO-19-IMPACT-PLANNING-AND-DEPENDENCY-COMPLETENESS.md) — typed impact actions, scoped dependency-completeness evidence, non-interference gates, and fail-closed incremental planning.
-- [Prototype 19 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-19-RESULTS.md) — prototype for completeness audits and conservative action planning.
+Do not score an unmeasured criterion as a numeric zero. Mark it **unknown**, report its effect on the candidate ranking, and prioritize an experiment if it could change the decision.
 
-- [RESEARCH-SCENARIO-20-DEPENDENCY-DISCOVERY-AND-SEMANTIC-CLASSIFICATION.md](RESEARCH-SCENARIO-20-DEPENDENCY-DISCOVERY-AND-SEMANTIC-CLASSIFICATION.md) — multi-source dependency discovery, explicit semantic classification, and separation of semantic dependencies from audit observations.
-- [Prototype 20 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-20-RESULTS.md) — evidence-preserving dependency candidate classification prototype.
+## 7. Discriminating research programme
 
-- [RESEARCH-SCENARIO-21-COUNTERFACTUAL-DEPENDENCY-DETECTION.md](RESEARCH-SCENARIO-21-COUNTERFACTUAL-DEPENDENCY-DETECTION.md) — controlled interventions, repeated paired execution, observable-vs-trace comparison, and limits of negative evidence.
-- [Prototype 21 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-21-RESULTS.md) — counterfactual dependency analysis prototype.
+1. **RT-03 shared semantics corpus:** define common programs and observations for values, control flow, divergence, errors, state, I/O, resources, cancellation, concurrency, and modules; implement at least two independent reference semantics for candidate profiles.
+2. **RT-04 cross-profile type/resource corpus:** extend prototypes to ordered effects, payloads, row/handler coverage, borrowing/transfer, path-sensitive cleanup, and concurrency constraints; record rejected and UNKNOWN cases.
+3. **RT-05 lifecycle and identity corpus:** turn Studies 05–08 into executable rename, duplicate, move, split/merge, recursive reference, and branch-merge cases evaluated under R-A/R-B/R-C.
+4. **RT-07 evidence matrix:** state each evidence class's proposition, assumptions, exact inputs, trusted computing base, soundness claim, and reuse rule; include stale-proof and malformed-checker cases.
+5. **RT-09/10/13 two-backend vertical slice:** select a bounded workload only after profiles are stated; execute through a reference interpreter and a second backend, compare observable traces, diagnostics, and resource behavior.
+6. **RT-16 threat-model exercise:** extend [Threat Model 01](RT-16-THREAT-MODEL-01.md) from its bounded authorization fixtures to concurrent service operations, cache/evidence replay, package provenance, runtime capabilities, solver/checker boundary, and workspace recovery.
+7. **RT-01 workload and weighting study:** use the [reference workloads](RT-01-REFERENCE-WORKLOADS.md) and common acceptance observations. The CLI pilot is executable with two host references. Run it against candidate toolchains, measure authoring tasks with the stated controls, and agree on workload weights before candidate scoring.
 
-- [RESEARCH-SCENARIO-22-COVERAGE-GUIDED-DEPENDENCY-DISCOVERY.md](RESEARCH-SCENARIO-22-COVERAGE-GUIDED-DEPENDENCY-DISCOVERY.md) — typed coverage-guided intervention planning, boundary and interaction coverage, budget scheduling, and coverage/evidence separation.
-- [Prototype 22 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-22-RESULTS.md) — finite-domain candidate generation and deterministic coverage-ledger scheduler prototype.
+For every experiment, record source commit, tool versions, fixtures, command, raw results, limitations, and criteria that would falsify the favored vector. Keep unsupported claims marked unknown.
 
-- [RESEARCH-SCENARIO-23-MULTI-FACTOR-COUNTERFACTUAL-ANALYSIS.md](RESEARCH-SCENARIO-23-MULTI-FACTOR-COUNTERFACTUAL-ANALYSIS.md) — joint interventions and repeated 2×2 factorial analysis for conditional semantic dependencies.
-- [Prototype 23 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-23-RESULTS.md) — multi-factor evidence analysis prototype and focused test results.
+## 8. Readiness assessment for comparative selection
 
-- [RESEARCH-SCENARIO-24-ADAPTIVE-INTERACTION-DISCOVERY.md](RESEARCH-SCENARIO-24-ADAPTIVE-INTERACTION-DISCOVERY.md) — evidence-triggered adaptive scheduling, repeated factorial blocks, higher-order escalation, and exploration/exploitation budgeting.
-- [Prototype 24 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-24-RESULTS.md) — adaptive interaction-discovery planner and focused test results.
+The [shared semantics corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md) contains bounded evidence for A/B/D typed calls and private scalar state, A/D resource outcomes, and C actor scripts. The RT-04 call projection covers the typed trees. Source correspondence, cross-profile type and resource validation, the identity envelope, program proofs, the two-backend slice, the threat model, and workload weights remain open.
 
-- [RESEARCH-SCENARIO-25-FORMAL-SEMANTIC-DEPENDENCY-ANALYSIS.md](RESEARCH-SCENARIO-25-FORMAL-SEMANTIC-DEPENDENCY-ANALYSIS.md) — formal semantic dependency analysis, relational independence, sound may-depend graphs, and the role of experimental discovery.
-- [RESEARCH-SCENARIO-26-MINIMAL-FORMAL-SEMANTIC-CORE.md](RESEARCH-SCENARIO-26-MINIMAL-FORMAL-SEMANTIC-CORE.md) — a finite operational core and exhaustive relational dependency prototype.
-- [Prototype 26 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-26-RESULTS.md) — finite-model analyzer, tests, and limitations.
-
-- [RESEARCH-SCENARIO-27-SYMBOLIC-RELATIONAL-VERIFICATION.md](RESEARCH-SCENARIO-27-SYMBOLIC-RELATIONAL-VERIFICATION.md) — product-program encoding and symbolic SAT/UNSAT/UNKNOWN dependency decisions.
-- [Prototype 27 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-27-RESULTS.md) — SMT-LIB backend, protocol tests, and solver integration limitations.
-
-- [RESEARCH-SCENARIO-28-TYPED-IR-AND-PROOF-BOUNDARY.md](RESEARCH-SCENARIO-28-TYPED-IR-AND-PROOF-BOUNDARY.md) — type-safe symbolic IR and explicit proof-evidence boundary.
-- [Prototype 28 Results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-28-RESULTS.md) — validator, evidence envelope, and solver protocol correction.
-
-
-## Latest research
-
-- [Package System: Static and Dynamic Packages](PACKAGE-SYSTEM.md) — human-readable TOML manifest candidate, compact binary indexes, block compression, optional sparse lookup, exact-hash dependency closure, provider-built dynamic packages, and optional derived-result cache indexes.
-
-- [Scenario 29 — Verified SMT Proof Checking and Encoder Validation](RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md) — Logos/Lean proof checking, exact assumption binding, QF_LIA semantic profile, and encoder proof obligations.
-- [Prototype 29 results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-29-RESULTS.md) — current tool availability and implementation acceptance gate.
-
-
-- [Scenario 30 — CPC Assumption Binding](RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md) — source-level audit of Logos's parser and soundness API; exact structural binding of the parsed CPC assumption list to the canonical LLMLang relational query; adversarial mismatch tests and the conservative MVP boundary.
-
-- [Scenario 31 — Strict QF_LIA Relational Query Profile](RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md) — a separate conservative proof-eligible subset; rejects strings and nonlinear arithmetic, emits QF_LIA only, and removes the constant outcome string from the observation query.
-
-
-- [Scenario 32 — Canonical Typed Relational Query IR](RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md) — immutable typed relational query representation, separate QF_LIA rendering, pinned Logos-Term API audit, and strict versioned JSON wire-format design.
-- [Scenario 33 — CPC Parser State and Exact Symbol Binding](RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md) — preserving Logos parser state to recover exact UConst identities without writing a second CPC parser.
-- [Scenario 34 — Source-to-Query Semantic Correspondence](RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) — formal source fragment, operational and relational semantics, correspondence theorem ladder, and Lean proof plan.
-- [Prototype QF_LIA profile](PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_profile.py) and [typed query IR](PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_ir.py) — strict relational query builder and typed SMT-LIB renderer.
-- [QF_LIA CI workflow](../.github/workflows/qf-lia-profile.yml) — Python compile check and focused tests for the strict profile and deterministic canonical JSON exporter.
-- [QF_LIA focused tests](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py) — accepted/rejected constructs, canonical IR, and renderer checks.
-
-
-- [Lean CPC parser-state binding prototype](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/) — pinned Lean/Lake package retaining Logos parser state, binding Bool/Int declarations to exact UConst nodes, independently rendering typed query ASTs, and decoding a strict versioned JSON query envelope; CI validates the parser bridge, exact AST fixtures, and adversarial strict-decoder fixtures (successful run 44095462826).
-
-
-- [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — proposed textual Git representation, separation of Git/semantic/action identities, automatic custom merge driver, interactive mergetool, and repository-level SPG merge architecture.
-- [Semantic Dependency Index — Research Design](SEMANTIC-DEPENDENCY-INDEX.md) — candidate separation of canonical typed semantic edges, call-site references, discovery evidence, completeness claims, reverse indexes, and consumer-specific projections; does not define the final SPG schema.
-- [RT-19 — Toolchain Server and Semantic Development API](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — research proposal for a transport-neutral semantic API, MCP adapter, durable workspaces and Change Sets, in-memory/persistent SPG storage, optimistic concurrency, deterministic text import/export, Git coordination, recovery, and authorization. No architecture decision or implementation is accepted yet.
-- [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — proposed workflow that plans all affected function versions before mutation, analyzes caller compatibility per call site, separates contract propagation from hash/reference propagation, detects shared-caller version splits, and gates Git commit on successful validation and audit.
-- [RT-20 — CIP Action Execution Audit](RT-20-CIP-ACTION-EXECUTION-AUDIT.md) — decomposes the next fail-closed gate into action identity/DAG validation, action-kind policy, execution records, evidence-envelope validation, and deterministic execution receipts; no commit authorization is implied.
-- [ADR-015 — Toolchain Server and semantic development API](../docs/adr/015-toolchain-server-semantic-api.md) — proposed architectural direction; remains Proposed pending RT-19 validation.
-- [Toolchain Server Prototype 01](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md) — executable in-memory lifecycle experiment with immutable objects/snapshots, isolated workspaces, typed changes, optimistic checks, and canonical single-file import/export; not a production Toolchain or MCP server.
-
-- [Package Index Logical Model Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md) now includes a lazy k-way merge over sorted table streams, with regression tests for laziness, large generated streams, deduplication, conflicts, and invalid input ordering.
-
-
-- [RT-21 — LLMLang Self-Development: Feasibility, Bootstrap, and Migration Roadmap](RT-21-LLMLANG-SELF-DEVELOPMENT-AND-BOOTSTRAP-ROADMAP.md) — preliminary implementation-scope analysis, bootstrap architecture, staged migration, first-milestone acceptance criteria, and coarse effort estimates. This is a research recommendation, not an accepted architecture.
-
-
-- [RT-22 — LLMLang Git Repository and Worktree MCP Surface](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — LLMLang-owned repository/worktree Toolchain operations exposed through MCP, semantic synchronization, scoped authorization, recovery, and the AIVibeFlow integration boundary.
-
-- [RT-23 — Single-Instance Toolchain with Shared Semantic State and Incremental Multi-Worktree File Views](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — one Toolchain Server serving multiple regular-file worktrees, shared immutable semantic objects/snapshots, separately versioned interface mappings, per-worktree incremental file tracking, bounded reconciliation, concurrency, and recovery.
-
-- [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) — candidate technical contract for deterministic textual import/export, typed semantic diff, repository-level base/ours/theirs merge, conflict/provenance model, separate mapping-revision merge, RT-20 CIP integration, and scoped prototype gates. It does not settle the SPG schema or hash envelope and does not accept ADR-014.
-- [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md) — reconciles RT-24 with identity Studies 05–08, RT-03, the semantic dependency index, package identity, and current executable prototypes. It records unresolved identity alternatives and the safe first-prototype boundary; it does not select a normative model.
-- [RT-24 Identity Architecture Decision Matrix](RT-24-IDENTITY-DECISION-MATRIX.md) — compares Stable Entity ID, content-only value identity, and optional occurrence/slot models against rename, duplication, move, split/merge, call-site, branch, and semantic-profile scenarios; records decision gates without selecting a normative model.
-- [RT-05 Identity Lifecycle Experiment](RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) — executable comparison of global IDs, explicit lineage, and scoped slots, including failure cases for reuse and ordinal matching.
-- [RT-05 / RT-20 Call Site Refactoring Experiment](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md) — exact call binding transfer and a finite inline counterexample that distinguishes Contract conformance from behavior preservation.
-- [RT-05 Recursive Identity Experiment](RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md) — executable comparison of DAG-only, keyed group, and structural group addressing, including symmetry and invalidation.
-- [RT-11 Binding Invalidation Benchmark](RT-11-BINDING-INVALIDATION-BENCHMARK.md) — measured compiler, linker, and verification action counts for exact and separate linkage across implementation, contract, history, and flag changes.
-- [ADR-014 — Git repository representation and semantic merge](../docs/adr/014-git-semantic-merge.md) — proposed architecture direction; read together with the detailed merge, patch-planning, repository/worktree, and runtime documents below.
-- [Git semantic repository research (background)](GIT-SEMANTIC-REPOSITORY.md) — earlier research report covering Git object storage, semantic identity, and merge prior art; background rather than the current focused design.
-- **Identity prerequisites:** read the [Draft Glossary](../draft/GLOSSARY.md) as well as [Study 05](RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md), [Study 06](RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md), [Study 07](RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md), [Study 08](RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md), [RT-03](CORE-LANGUAGE-SEMANTICS.md), and [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md) before changing the identity, hash, occurrence, or SPG assumptions used by RT-24. These are research candidates, not accepted language rules.
-
-**Related study set:** [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [RT-24](RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md), [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md), [RT-20](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-22](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md), and [RT-23](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) must be reviewed together when changing semantic merge, Git integration, or commit behavior. The identity prerequisites are Studies 05–08, [RT-03](CORE-LANGUAGE-SEMANTICS.md), and [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md). [RT-19](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) supplies the shared semantic API/Change Set context. The detailed documents define ownership boundaries and cross-link one another. The [Draft Glossary](../draft/GLOSSARY.md) is a shared terminology dependency for identity/hash work: review it whenever changing RT-20, RT-24, semantic dependency/hash roles, or package identity. Its terms are proposals until explicitly adopted.
-
+All four variants agree on the scalar increment workload. Logging and terminal rejection distinguish handlers with the same state interface. In C, cross-sender delivery choices distinguish logs even when the scalar agrees, and can also change the scalar for noncommuting operations. Use these witnesses when assessing handler and protocol dependencies. COR-12 adds a bounded blocking/progress contrast for two actors, but failure, cancellation, competing receivers, and runtime correspondence remain untested.
