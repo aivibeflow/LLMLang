@@ -3,13 +3,39 @@ from itertools import product
 
 from rt04_return_disposition import (
     API_PROFILE_OUTCOMES,
+    CLEANUP_SURFACE_PROFILES,
     api_profile_outcome,
     apply_deferred_error_policy,
+    cleanup_surface_profile,
     run_return_disposition,
 )
 
 
 class ReturnDispositionExperiment(unittest.TestCase):
+    def test_cleanup_surface_profiles_separate_error_from_capability_state(self):
+        expected = {
+            ("rust_std_file", "drop"): ("discarded", "consumed"),
+            ("rust_std_file", "explicit_sync_all"): ("result", "still_open"),
+            ("zig_std_posix_fd", "close"): ("discarded", "consumed"),
+            ("zig_std_dir", "close"): ("discarded", "consumed"),
+            ("cpp_basic_filebuf", "explicit_close"): ("nullable_result", "consumed"),
+            ("cpp_basic_filebuf", "destructor"): ("discarded", "consumed"),
+            ("cpp_basic_ofstream", "explicit_close"): (
+                "failbit_or_exception", "consumed",
+            ),
+        }
+        self.assertEqual(len(CLEANUP_SURFACE_PROFILES), len(expected))
+        for key, outcome in expected.items():
+            with self.subTest(surface=key):
+                item = cleanup_surface_profile(*key)
+                self.assertEqual(
+                    (item.error_surface, item.capability_after_failure), outcome,
+                )
+                self.assertTrue(item.separate_sync)
+                self.assertTrue(item.caveat)
+        with self.assertRaisesRegex(ValueError, "unsupported cleanup surface"):
+            cleanup_surface_profile("unknown", "close")
+
     def test_deferred_cleanup_error_carrier_policies(self):
         for policy, primary, cleanup in product(
             ("discard", "overwrite", "preserve_primary", "join"),

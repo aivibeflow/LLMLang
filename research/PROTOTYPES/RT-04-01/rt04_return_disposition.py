@@ -71,6 +71,63 @@ API_PROFILE_OUTCOMES = (
     ),
 )
 
+
+@dataclass(frozen=True)
+class CleanupSurfaceProfile:
+    """Documented explicit/implicit cleanup surface for a language API.
+
+    ``error_surface`` describes what reaches user code, while
+    ``capability_after_failure`` describes the API-level resource handle.
+    These are independent observations; this table is research input.
+    """
+
+    profile: str
+    surface: str
+    error_surface: str
+    capability_after_failure: str
+    separate_sync: bool
+    caveat: str
+
+
+CLEANUP_SURFACE_PROFILES = (
+    CleanupSurfaceProfile(
+        "rust_std_file", "drop", "discarded", "consumed", True,
+        "sync_all reports synchronization errors; it is not fallible close",
+    ),
+    CleanupSurfaceProfile(
+        "rust_std_file", "explicit_sync_all", "result", "still_open", True,
+        "synchronizes file contents and metadata, not handle closure",
+    ),
+    CleanupSurfaceProfile(
+        "zig_std_posix_fd", "close", "discarded", "consumed", True,
+        "void API; fsync is separate; target implementation may vary",
+    ),
+    CleanupSurfaceProfile(
+        "zig_std_dir", "close", "discarded", "consumed", True,
+        "wrapper invalidates its value after calling posix.close",
+    ),
+    CleanupSurfaceProfile(
+        "cpp_basic_filebuf", "explicit_close", "nullable_result", "consumed", True,
+        "flush/conversion/close failure returns null after closing",
+    ),
+    CleanupSurfaceProfile(
+        "cpp_basic_filebuf", "destructor", "discarded", "consumed", True,
+        "destructor catches and suppresses close exceptions",
+    ),
+    CleanupSurfaceProfile(
+        "cpp_basic_ofstream", "explicit_close", "failbit_or_exception", "consumed", True,
+        "close is void; sets failbit, which may throw under the exception mask",
+    ),
+)
+
+
+def cleanup_surface_profile(profile: str, surface: str) -> CleanupSurfaceProfile:
+    """Return a documented cleanup surface mapping."""
+    for item in CLEANUP_SURFACE_PROFILES:
+        if item.profile == profile and item.surface == surface:
+            return item
+    raise ValueError(f"unsupported cleanup surface: {profile}/{surface}")
+
 DeferredErrorPolicy = Literal["discard", "overwrite", "preserve_primary", "join"]
 
 
