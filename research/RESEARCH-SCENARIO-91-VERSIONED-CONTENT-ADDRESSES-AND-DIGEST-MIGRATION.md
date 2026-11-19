@@ -1,7 +1,7 @@
 # Research Scenario 91 — Versioned Content Addresses and Digest Migration
 
-**Status:** Evidence-linked prior-art comparison; no LLMLang encoding, digest, or migration policy selected  
-**Research areas:** RT-05 semantic identity, RT-06 dependencies, RT-11 cache identity, RT-15 repository interoperability, RT-18 evolution  
+**Status:** Evidence-linked prior-art comparison; no LLMLang encoding, digest, or migration policy selected
+**Research areas:** RT-05 semantic identity, RT-06 dependencies, RT-11 cache identity, RT-15 repository interoperability, RT-18 evolution
 **Updated:** 2026-11-19
 
 ## 1. Question and scope
