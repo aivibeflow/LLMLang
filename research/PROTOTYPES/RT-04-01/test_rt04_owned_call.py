@@ -1,6 +1,6 @@
 import unittest
 
-from rt04_owned_call import check_owned_call
+from rt04_owned_call import check_owned_call, check_owned_call_cfg
 
 
 HANDLE_RESULT = {"Result": [{"Owned": "Handle"}, "String"]}
@@ -72,6 +72,53 @@ class OwnedCallBoundary(unittest.TestCase):
                     "actions": ["propagate_owned"], "output_carries_owned": 1,
                 },
             })
+
+    def test_cfg_checks_both_result_outcomes_and_all_terminal_paths(self):
+        result = check_owned_call_cfg(HANDLE_RESULT, {
+            "ok": {"entry": "start", "output_carries_owned": False, "blocks": {
+                "start": {"actions": ["use"], "successors": ["release"]},
+                "release": {"actions": ["release"]},
+            }},
+            "error": {"entry": "start", "output_carries_owned": False, "blocks": {
+                "start": {},
+            }},
+        })
+        self.assertEqual(result.status, "ACCEPTED")
+
+    def test_cfg_rejects_inconsistent_join_ownership(self):
+        cfg = {"entry": "branch", "output_carries_owned": False, "blocks": {
+            "branch": {"successors": ["release_path", "transfer_path"]},
+            "release_path": {"actions": ["release"], "successors": ["join"]},
+            "transfer_path": {"actions": ["transfer"], "successors": ["join"]},
+            "join": {"actions": ["release"]},
+        }}
+        result = check_owned_call_cfg(HANDLE_WITH_CLEANUP_ERROR, {
+            "ok": {**cfg, "blocks": {"exit": {"actions": ["release"]}}, "entry": "exit"},
+            "error_with_value": cfg,
+        })
+        self.assertEqual(result.status, "REJECTED")
+        self.assertTrue(any("OWNERSHIP_JOIN_MISMATCH" in f for f in result.findings))
+
+    def test_cfg_rejects_leak_and_use_after_move_and_marks_cycles_unknown(self):
+        def one(actions, successors=None):
+            return {"entry": "entry", "output_carries_owned": False, "blocks": {
+                "entry": {"actions": actions, "successors": successors or []},
+            }}
+        leak = check_owned_call_cfg(HANDLE_RESULT, {
+            "ok": one([]), "error": one([]),
+        })
+        moved = check_owned_call_cfg(HANDLE_RESULT, {
+            "ok": one(["transfer", "use"]), "error": one([]),
+        })
+        cycle_cfg = {"entry": "loop", "output_carries_owned": False, "blocks": {
+            "loop": {"actions": ["release"], "successors": ["loop"]},
+        }}
+        cycle = check_owned_call_cfg(HANDLE_RESULT, {
+            "ok": cycle_cfg, "error": one([]),
+        })
+        self.assertIn("ok:entry:LEAKED_OWNERSHIP", leak.findings)
+        self.assertIn("ok:entry:USE_AFTER_MOVE", moved.findings)
+        self.assertEqual(cycle.status, "UNKNOWN")
 
 
 if __name__ == "__main__":
