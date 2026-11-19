@@ -29,6 +29,8 @@ The model's UNKNOWN refinement outcome is distinct from acceptance and rejection
 
 [`rt04_owned_call_oracle.py`](rt04_owned_call_oracle.py) is a table-driven one-path trace oracle that imports neither the checker nor the interpreter. [`test_rt04_owned_call_oracle.py`](test_rt04_owned_call_oracle.py) compares 9,856 combinations across 154 trees of depth at most two (actions, two-item sequences, two-arm conditionals, and two-arm cleanup attempts), release and branch inputs, output-carriage flags, and initial ownership. This is a bounded implementation cross-check, not an independent human review or proof of general semantics.
 
+[`rt04_cleanup_disposition.py`](rt04_cleanup_disposition.py) explores LIFO cleanup stacks with four API-declared outcomes (`ok`, retained error, consumed error, indeterminate) and two unwind policies (continue or stop). [`test_rt04_cleanup_disposition.py`](test_rt04_cleanup_disposition.py) exhausts 168 depth-1-to-3 disposition/policy paths and keeps resource liveness separate from cleanup errors. It is a generic envelope experiment, not an OS-resource implementation or source semantics.
+
 ## Resource-flow envelope
 
 A function may provide either `consumes` or `resource_flow`, not both:
