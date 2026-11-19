@@ -6,7 +6,7 @@
 
 ## 1. Current position
 
-The research corpus has moved from broad proposals toward bounded, evidence-bearing comparisons. [Scenario 42](RESEARCH-SCENARIO-42-GENERICS-CONSTRAINTS-AND-DISPATCH.md) adds a documentation-based comparison of generic constraints, associated types, coherence, and static/dynamic dispatch; performance and dependency-invalidation effects remain unmeasured. The [Research Option Matrix 01](RESEARCH-OPTION-MATRIX-01.md) is the current integration point. It compares candidate bundles but deliberately selects none. The [Research Taxonomy](RESEARCH-TAXONOMY.md) remains the coverage register; neither is normative.
+The research corpus has moved from broad proposals toward bounded, evidence-bearing comparisons. [Scenario 42](RESEARCH-SCENARIO-42-GENERICS-CONSTRAINTS-AND-DISPATCH.md) adds a documentation-based comparison of generic constraints, associated types, coherence, and static/dynamic dispatch; performance and dependency-invalidation effects remain unmeasured. [Scenario 43](RESEARCH-SCENARIO-43-MODULES-IMPORTS-AND-INITIALIZATION.md) adds a documentation-based module/package comparison focused on re-exports, visibility, initialization order, and dynamic discovery; incremental build behavior remains to be prototyped. The [Research Option Matrix 01](RESEARCH-OPTION-MATRIX-01.md) is the current integration point. It compares candidate bundles but deliberately selects none. The [Research Taxonomy](RESEARCH-TAXONOMY.md) remains the coverage register; neither is normative.
 
 The strongest evidence is concentrated in language semantics, type/resource boundaries, identity/change lifecycle, package/build behavior, and bounded authorization:
 
