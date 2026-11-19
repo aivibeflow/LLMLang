@@ -194,7 +194,7 @@ The counterexample formula is:
 Delta_p land
 left(
   Delta_{mathrm{return}}
-  lor igvee_{s in VisibleState} Delta_s
+  lor \bigvee_{s in VisibleState} Delta_s
 ight)
 ]
 
