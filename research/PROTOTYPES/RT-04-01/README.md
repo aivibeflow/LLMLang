@@ -31,6 +31,10 @@ The model's UNKNOWN refinement outcome is distinct from acceptance and rejection
 
 [`rt04_cleanup_disposition.py`](rt04_cleanup_disposition.py) explores LIFO cleanup stacks with four API-declared outcomes (`ok`, retained error, consumed error, indeterminate) and two unwind policies (continue or stop). [`test_rt04_cleanup_disposition.py`](test_rt04_cleanup_disposition.py) exhausts 168 depth-1-to-3 disposition/policy paths and keeps resource liveness separate from cleanup errors. It is a generic envelope experiment, not an OS-resource implementation or source semantics.
 
+## Cleanup-error composition (Scenario 97)
+
+[`rt03_cleanup_composition.py`](rt03_cleanup_composition.py) applies six candidate outcome policies (preserve with suppression, flat aggregate, nested wrapping, replace, discard, and abort on cleanup panic during active panic unwind) to an ordered cleanup trace. [`rt03_cleanup_composition_audit.py`](rt03_cleanup_composition_audit.py) independently reconstructs caller ownership and cleanup debt from that trace and API-declared resource dispositions; it does not import the operational model. [`test_rt03_cleanup_composition.py`](test_rt03_cleanup_composition.py) covers all 12 named Scenario 97 discriminators under all six policies (72 observations) and checks 13,230 valid combinations. All observations satisfy the obligation projection. The policies differ in outcome cause carriage while the same fixture's cleanup trace and resource/owner projection remain invariant. This is bounded model agreement, not a source-level semantics, proof of extraction completeness, independent specification review, or policy selection.
+
 [`rt04_return_disposition.py`](rt04_return_disposition.py) composes one local cleanup disposition with function body outcome, transfer timing, pending-handle cleanup, and caller action. [`test_rt04_return_disposition.py`](test_rt04_return_disposition.py) checks four compatible body/timing scenarios and enumerates 2,048 input combinations. Resource dispositions remain supplied API-contract inputs; the model is not connected to source AST or the ownership checker.
 
 ## Resource-flow envelope
