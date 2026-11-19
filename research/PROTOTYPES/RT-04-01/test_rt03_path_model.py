@@ -285,6 +285,59 @@ class RT03IndependentPathModelTests(unittest.TestCase):
             {(True, True), (True, False), (False,)},
         )
 
+    def test_repeated_unknown_condition_reuses_its_path_choice(self):
+        marker = "same-input"
+
+        def resource_leaf(resource_id):
+            return {"with_resource": {
+                "id": resource_id, "value": resource_id,
+                "body": {"literal": "done"},
+            }}
+
+        expression = {"sequence": [
+            {"if": {
+                "condition": {"unknown_bool": marker},
+                "then": resource_leaf("first-true"),
+                "else": resource_leaf("first-false"),
+            }},
+            {"if": {
+                "condition": {"unknown_bool": marker},
+                "then": resource_leaf("second-true"),
+                "else": resource_leaf("second-false"),
+            }},
+        ]}
+
+        paths = enumerate_paths(expression)
+        choice_pairs = {
+            tuple(choice for _, choice in path.branch_choices) for path in paths
+        }
+        self.assertEqual(choice_pairs, {(True, True), (False, False)})
+
+        observations = set()
+        for value in (False, True):
+            concrete = _materialize_conditions(expression, {marker: value})
+            recursive = evaluate(concrete, "D")
+            machine = run_small_step(concrete, "D")
+            self.assertEqual(recursive.events, machine.events)
+            self.assertEqual(recursive.final_resources, machine.final_resources)
+            observation = _path_observation(
+                resource_events(recursive), recursive.final_resources, recursive.result,
+            )
+            self.assertEqual(
+                observation,
+                next(
+                    (
+                        path.resource_events, path.active_resources,
+                        path.terminal, path.result_tag, path.cleanup_errors,
+                    )
+                    for path in paths
+                    if tuple(choice for _, choice in path.branch_choices)
+                    == (value, value)
+                ),
+            )
+            observations.add(observation)
+        self.assertEqual(len(observations), 2)
+
     def test_exhaustive_ast_condition_valuations_cover_every_structural_path(self):
         # Seven distinct unknown conditions produce 128 concrete input maps;
         # the abstract path model must produce exactly the eight feasible leaves.
