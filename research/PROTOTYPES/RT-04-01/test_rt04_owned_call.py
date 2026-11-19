@@ -1,6 +1,7 @@
 import unittest
 
 from rt04_owned_call import check_owned_call, check_owned_call_cfg
+from rt03_return_cleanup import run_return_cleanup
 
 
 HANDLE_RESULT = {"Result": [{"Owned": "Handle"}, "String"]}
@@ -119,6 +120,43 @@ class OwnedCallBoundary(unittest.TestCase):
         self.assertIn("ok:entry:LEAKED_OWNERSHIP", leak.findings)
         self.assertIn("ok:entry:USE_AFTER_MOVE", moved.findings)
         self.assertEqual(cycle.status, "UNKNOWN")
+
+    def test_successful_caller_cleanup_agrees_with_transfer_first_trace(self):
+        trace = run_return_cleanup(
+            "transfer_then_cleanup", temporary_release_fails=True,
+            caller_exits_after_return=True,
+        )
+        self.assertEqual(trace.outcome, "error_with_value")
+        self.assertEqual(trace.returned, "handle")
+        self.assertEqual(dict(trace.owners), {"temporary": "callee_cleanup_debt"})
+        self.assertIn(("release", "handle", "ok"), tuple(
+            (event.operation, event.resource, event.outcome) for event in trace.events
+        ))
+        caller = check_owned_call_cfg(HANDLE_WITH_CLEANUP_ERROR, {
+            "ok": {"entry": "exit", "output_carries_owned": False,
+                   "blocks": {"exit": {"actions": ["release"]}}},
+            "error_with_value": {"entry": "exit", "output_carries_owned": False,
+                                 "blocks": {"exit": {"actions": ["release"]}}},
+        })
+        self.assertEqual(caller.status, "ACCEPTED")
+
+    def test_release_failure_is_not_represented_by_current_cfg_action(self):
+        trace = run_return_cleanup(
+            "transfer_then_cleanup", temporary_release_fails=True,
+            handle_release_fails=True, caller_exits_after_return=True,
+        )
+        self.assertEqual(dict(trace.owners), {
+            "handle": "caller_cleanup_debt", "temporary": "callee_cleanup_debt",
+        })
+        static = check_owned_call_cfg(HANDLE_WITH_CLEANUP_ERROR, {
+            "ok": {"entry": "exit", "output_carries_owned": False,
+                   "blocks": {"exit": {"actions": ["release"]}}},
+            "error_with_value": {"entry": "exit", "output_carries_owned": False,
+                                 "blocks": {"exit": {"actions": ["release"]}}},
+        })
+        # The current CFG model treats release as infallible, so it accepts
+        # despite the operational trace retaining caller cleanup debt.
+        self.assertEqual(static.status, "ACCEPTED")
 
 
 if __name__ == "__main__":
