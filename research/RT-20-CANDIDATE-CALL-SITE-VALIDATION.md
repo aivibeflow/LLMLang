@@ -6,6 +6,8 @@
 
 ## Purpose
 
+**Contract terminology:** The call-site's `required_contract_hash` and the callee-owned `provides_contract` are generic exact Contract-object hashes. They are not `CCHash` values. This validator checks their structural bindings only; it does not prove compatibility between distinct Contract values. See [RT-20 Contract Identity and Compatibility](RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md).
+
 The per-call-site planner records intended callee and caller hashes. That record alone does not establish that those objects exist in the candidate Snapshot or that the resulting caller actually contains the selected reference. This prototype adds a materialization gate between planning and later semantic validation.
 
 ## Implemented check
@@ -24,7 +26,7 @@ For each planned call-site decision it checks:
 8. The target at that call site points to the exact selected callee hash; the validator resolves and validates the selected callee's own provided-Contract reference.
 9. `PRESERVE` retains the exact original callee hash and caller-required Contract hash; the caller may still receive a new version because of other planned changes.
 10. `MIGRATE`, `ADAPT`, and `FORK` materialize a new caller version.
-11. Resolved decisions carry `PROVEN` compatibility status and an evidence ID; this validator checks the recorded bindings but does not authenticate or prove the evidence.
+11. Resolved decisions carry a recorded compatibility status and evidence ID; this validator checks the recorded bindings but does not authenticate or prove the evidence. A `PROVEN` value is therefore an untrusted assertion, not a conclusion of this validator.
 12. An unresolved decision cannot validate a candidate.
 
 The check accumulates deterministic diagnostics and fails closed. It verifies the decision against the actual baseline call-site/target as well as the candidate reference. The focused tests cover successful migration, adapt/fork dispositions, wrong baseline/candidate target bindings, callee absent from candidate selection, preservation across caller re-versioning, unresolved decisions, and candidate-root mismatch. The last confirmed CI run passed all 57 tests and module compilation; the subsequent preserve-semantics refinement and added adapt/fork test still require a fresh confirmed run. The semantic dependency CI workflow now runs these tests and compiles the new module.

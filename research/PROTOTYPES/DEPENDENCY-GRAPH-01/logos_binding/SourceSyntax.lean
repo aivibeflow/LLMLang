@@ -36,7 +36,7 @@ structure DeclarationContext where
 /-- Find a declaration by stable identity, preserving the full declaration. -/
 def lookupDeclaration (context : DeclarationContext) (id : VariableId) :
     Option Declaration :=
-  context.entries.find? (fun declaration => declaration.id == id)
+  context.entries.find? (fun declaration => decide (declaration.id = id))
 
 theorem lookupDeclaration_head (declaration : Declaration) (rest : List Declaration) :
     lookupDeclaration ⟨declaration :: rest⟩ declaration.id = some declaration := by
