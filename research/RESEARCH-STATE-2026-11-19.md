@@ -14,6 +14,8 @@
 
 [Scenario 81](RESEARCH-SCENARIO-81-IMPORT-BINDING-SYNTAX-AND-NAMESPACE-POLLUTION.md) isolates import declarations from Scenario 43 module/package semantics, comparing qualification, direct binding, aliases, wildcard/on-demand imports, relative paths, and re-exports across Rust, Go, Swift, Java, and Python. Resolver provenance, duplicate-name behavior, path moves, and exact build invalidation remain open; no syntax is selected.
 
+[Scenario 82](RESEARCH-SCENARIO-82-SOURCE-FILE-STRUCTURE-AND-TOP-LEVEL-CODE.md) compares the file grammar and compilation-unit roles of Go, Rust, Java, Swift, and Kotlin: headers, package membership, imports, declarations, and entry-point code. File movement, order sensitivity, generated sources, and single versus multi-file build boundaries remain to be tested; no grammar is selected.
+
 Since the previous snapshot, [Scenario 58](RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md) compared Rust future construction/polling, Swift async function types/task APIs, and Go goroutine launch. The async type/effect, call-start policy, task creation, and scheduler are separate research axes; no LLMLang choice is selected. Runtime traces, blocking behavior, sync/async interop, and target parallelism remain open.
 
 [Scenario 59](RESEARCH-SCENARIO-59-BOOLEAN-SHORT-CIRCUIT-AND-EVALUATION-ORDER.md) now distinguishes intrinsic short-circuit operators (Rust/Go), Swift's standard autoclosure-backed Boolean operator, and partially specified general expression ordering. Effectful/error/diverging operands show why value-only algebra is insufficient to validate optimizer rewrites. An executable multi-compiler trace corpus remains open; no LLMLang policy is selected.

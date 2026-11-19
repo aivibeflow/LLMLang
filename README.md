@@ -14,6 +14,7 @@
 - [Research Scenario 79](research/RESEARCH-SCENARIO-79-STRING-LITERAL-SYNTAX-AND-INTERPOLATION.md) compares escaped/raw/multiline literals, byte escapes, and interpolation in Rust, Go, Swift, and Zig; no syntax is selected.
 - [Research Scenario 80](research/RESEARCH-SCENARIO-80-COMMENTS-DOCS-AND-LEXICAL-TRIVIA.md) compares comment nesting, documentation attachment, directives, and lexical trivia across Rust, Go, Swift, and Zig; no syntax is selected.
 - [Research Scenario 81](research/RESEARCH-SCENARIO-81-IMPORT-BINDING-SYNTAX-AND-NAMESPACE-POLLUTION.md) compares qualified, selective, wildcard, aliased, relative, and re-exporting imports across Rust, Go, Swift, Java, and Python; no syntax is selected.
+- [Research Scenario 82](research/RESEARCH-SCENARIO-82-SOURCE-FILE-STRUCTURE-AND-TOP-LEVEL-CODE.md) compares source-file organization, compilation units, top-level declarations, and executable entry forms across Go, Rust, Java, Swift, and Kotlin; no grammar is selected.
 
 **LLMLang** is an experimental concept for an AI-native programming language and development environment designed around large language models as primary program authors, with independent machine validation of their output.
 
