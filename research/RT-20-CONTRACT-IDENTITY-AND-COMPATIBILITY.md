@@ -82,6 +82,8 @@ This is only a starting point, not a complete LLMLang rule. A sound relation mus
 
 A stronger provider guarantee may refine a weaker requirement. The reverse direction is not generally safe. Equality of types or signatures alone is insufficient.
 
+Refactoring can require a stronger claim than refinement. A bounded RT-05/RT-20 fixture inlines a body that returns a different value permitted by the same required Contract. It fails the equivalence check even though both bodies conform. [Call site refactoring experiment](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md)
+
 ## 5. Relation to the Glossary Conformance Class
 
 The glossary's `CCHash` answers a different question from RT-20's per-call-site Contract pair.

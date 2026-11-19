@@ -124,6 +124,8 @@ An unordered set is insufficient if order changes observable behavior. Candidate
 
 The reference semantics must say which event orders are observable. Two writes to the same external resource are not interchangeable merely because their labels match.
 
+[Scenario 37 — effect rows, handlers, and observable traces](RESEARCH-SCENARIO-37-EFFECT-ROWS-HANDLERS-AND-OBSERVATION.md) compares Koka's row-polymorphic handlers and duplicate labels with F*'s computation types and indexed-effect operation-set example. Both make clear that an effect bound, handler interpretation, and realized ordered trace are distinct evidence: an allowed-label set can deliberately forget order and multiplicity, while handlers can transform, forward, mask, or externally expose requests. COR-10/11 remain the executable LLMLang-side witnesses for observable handler outcomes and schedule order. No static row is treated as a substitute for those observations.
+
 ## 4. Ownership, borrowing, aliasing, and lifetime
 
 ### 4.1 Ownership alternatives
@@ -186,6 +188,8 @@ Contracts must answer whether authority is scoped to resource/path/tenant/proces
 
 Static checking may establish possession of a capability-typed value. Only the runtime/security boundary can establish whether it is currently authorized.
 
+[Scenario 38 — effects, capabilities, and authority](RESEARCH-SCENARIO-38-EFFECTS-CAPABILITIES-AND-AUTHORITY.md) compares Koka's “capability” terminology for a dynamically available effect handler with `cap-std` directory handles, F* cryptographic authorization tokens, and Wasmtime host imports. These examples make the distinction operational: effect bounds describe possible behavior, capabilities authorize scoped attempts, imports define runtime availability, and traces record realized actions. They are separate fields in the call and evidence contract; none is inferred from another without a stated checker/runtime guarantee.
+
 ## 6. Concurrency and memory-model alternatives
 
 | Vector | Model | Benefits | Costs / obligations |
@@ -204,6 +208,8 @@ Distinguish source concurrency semantics, permitted observable traces, runtime s
 Candidate error representations include algebraic result types for expected domain failures, checked exception/effect operations, panic/abort for unrecoverable faults, cancellation as a distinct control outcome, and resource exhaustion as a declared/environmental/profile-specific failure.
 
 Do not collapse domain error, precondition violation, cancellation, resource failure, unsupported operation, and internal fault into one generic exception. Define which outcomes are catchable, retryable, observable, or allowed across ABI boundaries.
+
+[Scenario 41 — typed errors and API evolution](RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md) compares explicit `Result`/error-set types and Swift typed throws with Go's open, wrapped error values. It makes caller exhaustiveness, deliberate type erasure, stable classification, and introducing a new failure case distinct compatibility questions. [Scenario 39](RESEARCH-SCENARIO-39-CLEANUP-FAILURE-AND-OWNERSHIP-TRANSFER.md) separately covers outcomes that must carry both error and owned value.
 
 Stateful operations describe pre-state assumptions, permitted transitions, post-state guarantees, and partial completion. Ownership and typestate constrain legal calls, but runtime contracts must cover state changed by external actors.
 

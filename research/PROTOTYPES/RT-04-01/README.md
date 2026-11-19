@@ -19,6 +19,20 @@ The model accepts function declarations, optional typed call-site records, scope
 
 The model's UNKNOWN refinement outcome is distinct from acceptance and rejection. Missing evidence is not treated as success.
 
+## Return and cleanup projection (COR-13)
+
+[`rt03_return_cleanup.py`](rt03_return_cleanup.py) compares a staged reserve/commit rule with transfer-before-cleanup for one returned owned handle and an alternative error-return branch. It records the result, ordered resource events, and final owner/debt slots; static rejection fixtures cover a local borrow and implicit escape. The focused cases are in [`test_rt03_return_cleanup.py`](test_rt03_return_cleanup.py). The branch fixture exposes the cleanup-failure result difference, and caller-side handling checks disposal of a value carried with an error. Common cleanup paths match the RT-03 evaluator and path model. This remains an ownership-obligation projection, not a source evaluator, borrow checker, or selected rule.
+
+[`test_rt04_owned_result_boundary.py`](test_rt04_owned_result_boundary.py) records the RT-04 checker boundary: primitive `Result` is accepted, while nested `Owned` and `ErrorWithValue` descriptors report `UNKNOWN_TYPE`. Its typed-call evaluator probe requires Python 3.10+ and is skipped on older interpreters.
+
+[`rt04_owned_call.py`](rt04_owned_call.py) and [`test_rt04_owned_call.py`](test_rt04_owned_call.py) add separate caller-obligation models for explicit `Result<Owned<Handle>, E>` and `ErrorWithValue<Owned<Handle>, E, CleanupError>` outcome branches. `check_owned_call_tree` lowers a small structured tree of sequences, conditionals, release attempts, and ownership actions into the CFG consumed by `check_owned_call_cfg`; `execute_owned_call_tree` independently executes one path from that same tree with explicit release and branch inputs. The CFG checker tracks ownership through blocks and rejects incompatible states at joins. A `release_attempt` has explicit `ok` and `error` successors: the error edge retains caller ownership as cleanup debt, which must be discharged or propagated with the owned value. Tests contrast outcome coverage: `Result`'s ordinary error branch carries no handle, while `ErrorWithValue`'s cleanup-error branch must preserve the handle; missing or unrecognized outcome tags return `UNKNOWN`. Cycles or unsupported tree/type constructs also fail closed. The legacy atomic `release` action still assumes success, so the paired cleanup counterexample remains a regression guard. This grammar is research-specific and is not LLMLang syntax: the existing typed-call AST has no owned-resource/result-match constructs. The paired interpreter/checker is bounded implementation cross-checking, not an independent semantics, and remains isolated from `rt04_model`.
+
+[`rt04_owned_call_oracle.py`](rt04_owned_call_oracle.py) is a table-driven one-path trace oracle that imports neither the checker nor the interpreter. [`test_rt04_owned_call_oracle.py`](test_rt04_owned_call_oracle.py) compares 9,856 combinations across 154 trees of depth at most two (actions, two-item sequences, two-arm conditionals, and two-arm cleanup attempts), release and branch inputs, output-carriage flags, and initial ownership. This is a bounded implementation cross-check, not an independent human review or proof of general semantics.
+
+[`rt04_cleanup_disposition.py`](rt04_cleanup_disposition.py) explores LIFO cleanup stacks with four API-declared outcomes (`ok`, retained error, consumed error, indeterminate) and two unwind policies (continue or stop). [`test_rt04_cleanup_disposition.py`](test_rt04_cleanup_disposition.py) exhausts 168 depth-1-to-3 disposition/policy paths and keeps resource liveness separate from cleanup errors. It is a generic envelope experiment, not an OS-resource implementation or source semantics.
+
+[`rt04_return_disposition.py`](rt04_return_disposition.py) composes one local cleanup disposition with function body outcome, transfer timing, pending-handle cleanup, and caller action. [`test_rt04_return_disposition.py`](test_rt04_return_disposition.py) checks four compatible body/timing scenarios and enumerates 2,048 input combinations. Resource dispositions remain supplied API-contract inputs; the model is not connected to source AST or the ownership checker.
+
 ## Resource-flow envelope
 
 A function may provide either `consumes` or `resource_flow`, not both:
@@ -136,6 +150,16 @@ This is a static declaration-level model. Parentless grant provenance/authentici
 
 The companion `test_rt03_rt04_cross_profile.py` checks a small shared observable-trace corpus against RT-03 semantic profiles A/D and RT-04 checker vectors A/B. It is intentionally a fixture oracle, not a reference interpreter. See [the cross-profile findings](../../RT-04-RT-03-CROSS-PROFILE-TRACES.md).
 
+## RT-03 A/B/D typed call and state experiment
+
+`rt03_typed_calls.py` checks and executes first-order, acyclic programs over Int, Bool, and Unit. All three semantic variants use strict lexical calls. A uses immutable `let` bindings. B adds private `local` cells and ordered `set` operations. The RT-04 declaration checker receives the actual call sites and argument types derived from each body, including both branches of every conditional. The checker vector is selected independently of the execution variant. See [COR-09 for fixtures and results](../../RT-03-04-SHARED-SEMANTICS-CORPUS.md#7-cor-09--typed-calls-and-private-local-state).
+
+Variant D adds `{"handle_state": [initializer, observe_writes, reject_negative, body]}`, `{"state_get": null}`, and `{"state_put": value_expression}`. The second and third fields are boolean configuration flags. A function can declare `requires_state=True` to request an enclosing handler. The body checker enforces that requirement throughout the call graph and requires a closed entry. The RT-04 projection for D covers signatures and calls. See [COR-10 for the observation and failure rules](../../RT-03-04-SHARED-SEMANTICS-CORPUS.md#8-cor-10--what-a-state-handler-exposes).
+
+## RT-03 C actor schedules
+
+`rt03_actor_model.py` explores every enabled schedule of finite producer scripts sending integer updates to a single receiver. It compares per-channel FIFO with closed batch ordering and isolates producer failure or aborts the group according to the chosen policy. Each distinct terminal observation has a replayable witness. An independent oracle checks the full trace sets for small cases, and the shared scalar workload compares C with A/B/D. [COR-11 results](../../RT-03-04-SHARED-SEMANTICS-CORPUS.md#9-cor-11--actor-traces-and-failure-policies)
+
 
 ## RT-03 A/D executable reference slice
 
@@ -216,3 +240,22 @@ Run the full suite from the repository root:
 This is algorithmic cross-checking, not independent human review or proof:
 both implementations share the same exploratory contract and may share
 specification mistakes. See [differential test cases](test_rt03_differential.py).
+
+
+## Bounded recursion and source fuel
+
+[`rt03_recursion_fuel.py`](rt03_recursion_fuel.py) is a small executable cost model for one structural recursive countdown and one self-recursive divergent loop. It counts abstract source transitions (entry, test, decrement, return addition) rather than host instructions. For the countdown, `countdown(3)` returns 3 at fuel 14 and exhausts at fuel 13 before its final addition. The loop exhausts any finite budget; the model keeps possible divergence as separate metadata because this outcome alone cannot prove divergence.
+
+This is not a source parser, termination checker, optimizer, or runtime gas implementation. It does not model effects/resource cleanup or establish a selected fuel semantics. Scenario [36](../../RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md) records the prior-art comparison and open compatibility questions.
+
+Keep this source-transition count distinct from Wasmtime-style VM operator fuel, an external wall-time/memory cap, and a verifier harness stopping rule. The runtime/evidence identity for VM metering includes engine version and operator-cost configuration; a verifier timeout should yield incomplete/unknown evidence, not become a source-level program result. Cleanup and prior effects on budget exhaustion remain unmodeled here.
+
+[`rt03_fuel_cleanup.py`](rt03_fuel_cleanup.py) is a separate observation probe: after a visible write and resource acquisition, fuel runs out before the next body step. It compares reserved cleanup allowance, cleanup charged to depleted fuel, and an abortive trap. All preserve the earlier trace; only reserved cleanup releases the resource. This fixed model does not specify real LLMLang behavior or cover cleanup failure/ownership transfer.
+
+[`rt03_fuel_owned_return.py`](rt03_fuel_owned_return.py) crosses that boundary with COR-13's staged versus transfer-first return timing. Under its stated candidate rule, staged return owns a pending handle until normal commit; fuel exhaustion aborts commit and attempts to dispose of the handle, while transfer-first leaves the handle with the caller. The observation records fuel exhaustion, any returned handle, prior effects, attempted or blocked cleanup, and remaining owners independently. Its staged-disposal and cleanup-debt rules are comparison inputs, not selected LLMLang semantics.
+
+[`rt03_fuel_owned_return_audit.py`](rt03_fuel_owned_return_audit.py) reconstructs expected cleanup obligations and owner states from those output fields without reusing the transition code. A direct run audited eight selected finite cases and found no missing/duplicated owner entry, unaccounted blocked cleanup, or lost prior effect. This is a small independent projection over the prototype's outputs; it does not establish case completeness or source correspondence.
+
+Scenario [36](../../RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md) also compares the fuel boundary with COR-07's [`rt03_resource_rules.py`](rt03_resource_rules.py): terminating cleanup failures wrap prior `Result` errors in LIFO order, while cancellation remains a separate outcome with an ordered cleanup-error list. That model does not charge cleanup fuel or allow cleanup to diverge. A separate two-frame command probe informed the Scenario 36 note; no full test suite was run for this comparison.
+
+[`rt03_cleanup_fuel_stack.py`](rt03_cleanup_fuel_stack.py) compares a shared cleanup-fuel pool to a fixed reserve per scope across a two-resource LIFO unwind. With inner cost 3 and outer cost 1, shared reserve 3 leaves the outer cleanup blocked; reserve 4 completes both. Per-scope reserve 3 completes both with 6 reserved and 4 spent. A failed inner cleanup consumes its cost, leaves that resource retained, and permits outer cleanup to continue when fuel remains. The probe assumes bounded terminating cleanup actions.

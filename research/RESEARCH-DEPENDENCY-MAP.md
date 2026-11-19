@@ -173,6 +173,16 @@ RT-03 is a foundational source for the type/effect model, semantic identity, for
 These are not simple one-way dependencies. They must be tested explicitly:
 
 1. **Semantic core ↔ type/effect/resource model (RT-03 ↔ RT-04).** The core semantics determines what types and effects must express; the selected type/effect model may require changing the semantic core.
+
+   [COR-09](RT-03-04-SHARED-SEMANTICS-CORPUS.md#7-cor-09--typed-calls-and-private-local-state) provides a bounded witness for DEP-004 and DEP-005. Two well-typed bodies with the same static RT-04 projection return different results when their local assignments are reordered. A graph used for behavioral comparison or identity must preserve this ordering, either directly or through another representation that captures its meaning.
+
+   [COR-10](RT-03-04-SHARED-SEMANTICS-CORPUS.md#8-cor-10--what-a-state-handler-exposes) adds a witness for DEP-036. The same call declarations and scalar result coexist with different write observations under private and logging handlers. A reuse key for the full observation must distinguish those interpretations or establish their equivalence under a narrower observation contract.
+
+   [COR-11](RT-03-04-SHARED-SEMANTICS-CORPUS.md#9-cor-11--actor-traces-and-failure-policies) adds evidence for DEP-005, DEP-036, and DEP-037. Per-sender FIFO permits several outcomes for noncommuting writes. Sorting by sender spelling then makes a rename observable even at the scalar boundary. An explicit protocol order survives the tested rename when its references are updated together. Merge and reuse rules need to preserve the selected ordering and failure semantics.
+
+   [COR-13 / Scenario 35](RESEARCH-SCENARIO-35-RESOURCE-RETURN-AND-CLEANUP.md) is a discriminator for DEP-004: on the handle-return branch, fallible cleanup distinguishes ordinary `CleanupFailed` from transfer-first `error_with_value`, changing required ownership checks and the observable result/owner tuple. Ten tests cover a hand-encoded projection, and the unknown branch fork's common cleanup events match the RT-03 evaluator and path model. Three RT-04 probes accept primitive `Result` and reject nested `Owned`/`ErrorWithValue` descriptors as unknown. The caller must dispose of the owned value before propagating the error; current typed calls do not represent this result shape. Return semantics and source correspondence remain unvalidated.
+
+   The [RT-11 binding benchmark](RT-11-BINDING-INVALIDATION-BENCHMARK.md) supplies a separate witness for DEP-011 and DEP-012. A stable external symbol lets a caller's compile action reuse an object while the selected implementation changes executable behavior. The link and verification actions need the concrete dependencies consumed at their stages.
 2. **Semantic identity ↔ dependency semantics (RT-05 ↔ RT-06).** Hash boundaries determine which dependency edges propagate identity; dependency semantics determine which inputs must be committed by an artifact hash.
 3. **Formal semantics ↔ canonical IR (RT-03/05 ↔ RT-07/09).** The IR must be expressive enough for the language but small enough for independently validated semantics and proof encodings.
 4. **Runtime ↔ effects/ownership/concurrency (RT-04 ↔ RT-10).** Runtime primitives may reveal missing language concepts; language concepts may require a different runtime boundary.

@@ -81,6 +81,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Question:** Which SPG relationships affect an artifact's content identity, and how are semantic cycles represented without ambiguous recursive hashing?
 - **Context:** The dependency graph may contain relationships that are descriptive, evidentiary, or semantic. Only a well-defined subset should propagate content hashes.
 - **Options to investigate:** Acyclic hash-dependency graph with non-hash-relevant back-references; canonical group/root objects for mutually recursive components.
+- **New evidence:** Two exact group encodings preserve addresses under display renames and propagate relevant changes to callers. Structural canonicalization can share a value address across symmetric members. Compare the cost of that invalidation with a design that pins Contract-level bindings separately from implementation closures. [RT-05 recursive identity](research/RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md)
 - **Recommendation:** Keep the hash-dependency relation acyclic for the initial model; represent other graph relations separately until a canonical cyclic-group scheme is justified.
 - **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 5; [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md), section 5.
 

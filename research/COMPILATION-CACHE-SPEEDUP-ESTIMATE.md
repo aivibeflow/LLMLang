@@ -173,4 +173,4 @@ The estimate is most sensitive to:
 4. how expensive cache lookup and artifact transfer are;
 5. whether the reused work lies on the wall-clock critical path.
 
-The next step is a prototype benchmark. Until then, the numeric ranges above remain hypotheses to test.
+The binding benchmark now measures action invalidation for a synthetic C workload under exact and separate linkage. It provides evidence about which actions can be reused. The timing ranges above remain hypotheses until compiler overhead, wall-clock distributions, and representative workloads are measured. [RT-11 Binding Invalidation Benchmark](RT-11-BINDING-INVALIDATION-BENCHMARK.md)
