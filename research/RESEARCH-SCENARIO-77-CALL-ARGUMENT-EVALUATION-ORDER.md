@@ -1,7 +1,7 @@
 # Research Scenario 77 — Call Argument Evaluation Order
 
-**Status:** Evidence-linked prior-art comparison; no LLMLang call order selected  
-**Research area:** RT-03 expression semantics, effects, determinism, optimizer legality  
+**Status:** Evidence-linked prior-art comparison; no LLMLang call order selected
+**Research area:** RT-03 expression semantics, effects, determinism, optimizer legality
 **Updated:** 2026-11-19
 
 ## 1. Question and scope
