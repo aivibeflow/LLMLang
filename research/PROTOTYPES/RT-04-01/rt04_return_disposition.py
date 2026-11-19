@@ -55,6 +55,11 @@ API_PROFILE_OUTCOMES = (
         "preserve Close error; recover separately",
     ),
     ApiProfileOutcome(
+        "go_os_root_close_unix", "underlying-close-error-ignored", "ok",
+        "root_marked_closed", "close-error-discarded", False,
+        "no close error reaches caller in this implementation",
+    ),
+    ApiProfileOutcome(
         "posix_closedir", "error", "indeterminate",
         "dir_stream_may_be_inaccessible", "descriptor-closed-if-used",
         False, "inspect error; do not assume dirp remains usable",
