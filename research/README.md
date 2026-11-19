@@ -19,6 +19,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 - [Scenario 99 — repeated path predicates](RESEARCH-SCENARIO-99-REPEATED-PATH-PREDICATES.md) constrains repeated identical Boolean markers to one per-path choice, eliminating two of four impossible structural combinations in a finite fixture; different-predicate satisfiability and source identity remain open.
 - [Scenario 100 — finite Boolean path feasibility](RESEARCH-SCENARIO-100-FINITE-BOOLEAN-PATH-FEASIBILITY.md) exhausts a two-variable predicate space, finds three feasible branch vectors for `x` then `x or y`, and cross-checks witnesses against both RT-03 evaluators; solver scalability and source correspondence remain open.
 - [Scenario 101 — solver versus truth-table path feasibility](RESEARCH-SCENARIO-101-SOLVER-VS-TRUTH-TABLE-PATHS.md) cross-checks SymPy DPLL2 route models against Scenario 100 and measures one conjunction family; the result does not generalize to difficult SAT instances or establish solver trust.
+- [Scenario 102 — solver UNKNOWN and sound path pruning](RESEARCH-SCENARIO-102-SOLVER-UNKNOWN-AND-SOUND-PATH-PRUNING.md) compares exact, tri-state, hybrid, and proof-carrying pruning; witnesses must replay and inconclusive routes remain possible.
 - [Scenario 41 — typed errors and API evolution](RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md) compares Rust, Zig, Swift, and Go error contracts and their evolution pressure.
 - [Scenario 64 — error propagation, context, and recovery](RESEARCH-SCENARIO-64-ERROR-PROPAGATION-AND-RECOVERY.md) compares Rust `Result`/`?`, Swift typed throws/catch, Go wrapping and inspection, and Zig error sets/`try`/`catch`.
 - [Scenario 65 — fatal failure, unwinding, and process boundaries](RESEARCH-SCENARIO-65-FATAL-FAILURE-AND-UNWINDING.md) compares Rust panic strategies, Go panic/recover, Swift fatal checks, and Zig safety-mode behavior.
@@ -40,7 +41,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 
 - [Research taxonomy](RESEARCH-TAXONOMY.md) tracks areas, coverage, and required report fields.
 - [Research dependency map](RESEARCH-DEPENDENCY-MAP.md) records cross-area hypotheses and sequencing.
-- [Formal verification architecture](LLMLANG-FORMAL-VERIFICATION.md) describes proof and trusted-boundary questions.
+- [Formal verification architecture](LLMLang-FORMAL-VERIFICATION.md) describes proof and trusted-boundary questions.
 - [Semantic artifact store](GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [identity studies](RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md), and [semantic merge research](RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) cover representation, identity, and change.
 - [Runtime and backend proposals](POSIX-RUNTIME-ARCHITECTURE.md), [translation/backends](TRANSLATION-AND-TARGET-BACKENDS.md), and [LLVM architecture](LLVM-BACKEND-ARCHITECTURE.md) are analytical until tested against shared semantics.
 - [RT-16 threat model](RT-16-THREAT-MODEL-01.md) covers agent authority and bounded authorization experiments.

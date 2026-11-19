@@ -49,8 +49,8 @@ This inventory is the control sheet for the requested exhaustive research. It ma
 | RT-03 Core semantics | One coherent operational/observational semantics for state, errors, effects, recursion, concurrency and modules; no semantic profile chosen. |
 | RT-04 Type/effects/ownership | Complete type/resource/capability model and cross-feature soundness beyond the limited checker. |
 | RT-05 Representation/identity | Canonical SPG and identity envelope, lifecycle, cyclic groups, import/merge completeness. |
-| RT-06 Dependencies | Sound complete reverse-reference extraction and UNKNOWN handling across full programs. |
-| RT-07 Formal semantics | Supported language fragment, projection correspondence, proof obligations and trusted computing base. |
+| RT-06 Dependencies | Sound complete reverse-reference extraction and UNKNOWN handling across full programs; solver-backed negative path results need an accepted trust/checking basis before they remove may-dependencies (Scenario 102; source correspondence remains open). |
+| RT-07 Formal semantics | Supported language fragment, projection correspondence, proof obligations and trusted computing base; solver result trust, timeout classification, and checked UNSAT evidence remain open (Scenario 102). |
 | RT-08 Testing/evidence | Reusable evidence classes, conformance corpus, model/property testing and exact invalidation rules. |
 | RT-09 Compiler/IR | Comparative pipeline/IR boundaries, diagnostics, optimization trust and executable semantic-preservation evidence. |
 | RT-10 Runtime | Interpreter/VM/native contract, resource and OS behavior, sandboxing and target-specific semantics. |
