@@ -13,6 +13,55 @@ _DISPOSITIONS = ("ok", "retained_error", "consumed_error", "indeterminate")
 
 
 @dataclass(frozen=True)
+class ApiProfileOutcome:
+    """Documented operation outcome mapped to a coarse ownership state.
+
+    This table is research input, not runtime errno detection. Wrapper-level
+    invalidation and underlying OS descriptor state remain separate fields.
+    """
+
+    profile: str
+    outcome: str
+    disposition: Disposition
+    capability_state: str
+    retry_allowed: bool
+    error_obligation: str
+
+
+API_PROFILE_OUTCOMES = (
+    ApiProfileOutcome(
+        "abstract_retained", "error", "retained_error", "live_owner",
+        True, "API-specific retry or transfer",
+    ),
+    ApiProfileOutcome(
+        "linux_close", "EIO/ENOSPC/EDQUOT/EINTR", "consumed_error",
+        "descriptor_released", False, "diagnose or recover I/O side effect",
+    ),
+    ApiProfileOutcome(
+        "linux_close", "EBADF", "indeterminate", "invalid_at_entry",
+        False, "report invalid-handle/API invariant violation",
+    ),
+    ApiProfileOutcome(
+        "posix_2024_close", "EINTR", "indeterminate",
+        "open_or_closed_or_success", False,
+        "requires implementation/outcome-specific reconciliation",
+    ),
+    ApiProfileOutcome(
+        "go_os_file_close", "error", "consumed_error",
+        "go_file_unusable", False, "preserve Close error; recover separately",
+    ),
+)
+
+
+def api_profile_outcome(profile: str, outcome: str) -> ApiProfileOutcome:
+    """Return the audited mapping for a named profile/outcome pair."""
+    for item in API_PROFILE_OUTCOMES:
+        if item.profile == profile and item.outcome == outcome:
+            return item
+    raise ValueError(f"unsupported API profile outcome: {profile}/{outcome}")
+
+
+@dataclass(frozen=True)
 class ReturnDispositionTrace:
     tag: str
     events: tuple[tuple[str, str, str], ...]

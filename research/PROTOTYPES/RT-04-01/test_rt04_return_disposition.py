@@ -1,10 +1,36 @@
 import unittest
 from itertools import product
 
-from rt04_return_disposition import run_return_disposition
+from rt04_return_disposition import API_PROFILE_OUTCOMES, api_profile_outcome, run_return_disposition
 
 
 class ReturnDispositionExperiment(unittest.TestCase):
+    def test_api_profiles_preserve_documented_liveness_and_retry_rules(self):
+        expected = {
+            ("abstract_retained", "error"): ("retained_error", "live_owner", True),
+            ("linux_close", "EIO/ENOSPC/EDQUOT/EINTR"): (
+                "consumed_error", "descriptor_released", False,
+            ),
+            ("linux_close", "EBADF"): ("indeterminate", "invalid_at_entry", False),
+            ("posix_2024_close", "EINTR"): (
+                "indeterminate", "open_or_closed_or_success", False,
+            ),
+            ("go_os_file_close", "error"): (
+                "consumed_error", "go_file_unusable", False,
+            ),
+        }
+        self.assertEqual(len(API_PROFILE_OUTCOMES), len(expected))
+        for key, (disposition, state, retry) in expected.items():
+            with self.subTest(profile=key):
+                item = api_profile_outcome(*key)
+                self.assertEqual(
+                    (item.disposition, item.capability_state, item.retry_allowed),
+                    (disposition, state, retry),
+                )
+                self.assertTrue(item.error_obligation)
+        with self.assertRaisesRegex(ValueError, "unsupported API profile"):
+            api_profile_outcome("unknown", "error")
+
     def test_transfer_before_cleanup_preserves_disposition_of_local(self):
         trace = run_return_disposition(
             body="success", transfer_timing="before_cleanup",
