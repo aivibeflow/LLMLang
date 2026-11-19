@@ -11,6 +11,7 @@
 - [Research Scenario 35](RESEARCH-SCENARIO-35-RESOURCE-RETURN-AND-CLEANUP.md) compares ownership-transfer and cleanup ordering when returning a resource; the branch, caller, and RT-04 type-envelope probes expose a value-versus-error-with-value distinction, but no rule is selected.
 - [Research Scenario 77](research/RESEARCH-SCENARIO-77-CALL-ARGUMENT-EVALUATION-ORDER.md) compares call/operand sequencing and abrupt completion in Rust, Go, Java, and C++; no LLMLang evaluation order is selected.
 - [Research Scenario 78](research/RESEARCH-SCENARIO-78-FLOATING-POINT-REPRODUCIBILITY-AND-IEEE-EDGES.md) expands floating-point edge behavior, NaN bits, FMA, and strict/optimized profiles; no LLMLang floating-point profile is selected.
+- [Research Scenario 79](research/RESEARCH-SCENARIO-79-STRING-LITERAL-SYNTAX-AND-INTERPOLATION.md) compares escaped/raw/multiline literals, byte escapes, and interpolation in Rust, Go, Swift, and Zig; no syntax is selected.
 
 **LLMLang** is an experimental concept for an AI-native programming language and development environment designed around large language models as primary program authors, with independent machine validation of their output.
 
