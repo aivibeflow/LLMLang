@@ -9,6 +9,7 @@
 - [RT-03/04 Shared Semantics Corpus v1](RT-03-04-SHARED-SEMANTICS-CORPUS.md) — inventory of executable scenario families, profile coverage, limits, and gap-ordered comparisons for RT-03/04.
 - COR-12 in the shared corpus adds a finite buffered-versus-rendezvous blocking/progress experiment for two actor protocols.
 - [Research Scenario 35](RESEARCH-SCENARIO-35-RESOURCE-RETURN-AND-CLEANUP.md) compares ownership-transfer and cleanup ordering when returning a resource; the branch, caller, and RT-04 type-envelope probes expose a value-versus-error-with-value distinction, but no rule is selected.
+- [Research Scenario 77](research/RESEARCH-SCENARIO-77-CALL-ARGUMENT-EVALUATION-ORDER.md) compares call/operand sequencing and abrupt completion in Rust, Go, Java, and C++; no LLMLang evaluation order is selected.
 
 **LLMLang** is an experimental concept for an AI-native programming language and development environment designed around large language models as primary program authors, with independent machine validation of their output.
 
