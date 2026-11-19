@@ -285,3 +285,7 @@ Scenario [36](../../RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md) also
 Focused tests, including the real deadline case:
 
     python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_rt03_bounded_solver_worker.py' -v
+
+## Mutable predicate identity (Scenario 104)
+
+[`rt03_mutable_predicate_identity.py`](rt03_mutable_predicate_identity.py) compares two concrete initial states with three path formulas for sequential `if x`, `x := not x`, `if x`: one symbolic name reused across reads, independent state versions, and state versions tied by the update relation. Reusing the name prunes the two concrete routes; independent versions admit two extra routes; the explicit toggle relation matches the concrete route set. The exhaustive four-case comparison is in [`test_rt03_mutable_predicate_identity.py`](test_rt03_mutable_predicate_identity.py). Aliasing, calls, loops, and source extraction remain open.
