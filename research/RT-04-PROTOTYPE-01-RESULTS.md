@@ -1,7 +1,7 @@
 # RT-04 Prototype 01 — Results
 
 **Status:** exploratory executable comparison; no architecture selected  
-**Date:** 2026-11-18  
+**Updated:** 2026-11-19
 **Implementation:** [RT-04 Prototype 01](PROTOTYPES/RT-04-01/README.md)
 
 ## 1. Question
@@ -45,7 +45,7 @@ GitHub Actions run [44320445701](https://github.com/aivibeflow/LLMLang/actions/r
 
 ## 5. Defects and unresolved semantics
 
-Not implemented: symbolic refinements/SMT; effect-row unification and handlers; authenticated source-to-call-graph completeness; dynamic dispatch/FFI/generated-call extraction; path-sensitive branch conditions; borrow/lifetime analysis; resource transfer/return/drop/finalization; error/cancellation cleanup composition; async suspension; runtime token authenticity, expiry, dynamic revocation consistency, concurrent calls, and TOCTOU checks; dynamic dispatch/FFI/generated calls; independent call-graph/CFG completeness evidence; concurrency/memory model; canonical SPG and hash propagation.
+Not implemented: symbolic refinements/SMT; effect-row unification and handlers; authenticated source-to-call-graph completeness; dynamic dispatch/FFI/generated-call extraction; path-sensitive branch conditions; borrow/lifetime analysis; general source-level resource transfer/return/drop/finalization; async suspension; runtime token authenticity, expiry, dynamic revocation consistency, concurrent calls, and TOCTOU checks; independent call-graph/CFG completeness evidence; concurrency/memory model; canonical SPG and hash propagation. Scenario 97 now has a bounded cleanup-error composition model and an independent ownership-obligation projection; this does not implement cleanup in source semantics or close the broader error/cancellation/fuel composition question.
 
 The model demonstrates candidate checker obligations, not that Profile B is coherent or preferable.
 
@@ -53,7 +53,7 @@ The model demonstrates candidate checker obligations, not that Profile B is cohe
 
 1. Compare both vectors against RT-03 profiles A and D using shared observable traces.
 2. Replace fixture-level call-graph completeness assertions with evidence bound to source/snapshot, extractor identity, scope, and assumptions; add dynamic dispatch, FFI, generated-call, handler, and reflection cases.
-3. Add resource transfer/return and cleanup outcomes, then compare explicit path-state propagation with an independent reference implementation.
+3. Extend Scenario 97's bounded resource-transfer/cleanup outcome model with source/path correspondence and asynchronous/divergent cleanup, then compare explicit path-state propagation with an independently reviewed reference model.
 4. Define the trusted issuer/root-grant model and test revocation consistency across concurrent operations before considering runtime authorization.
 5. Extend the type experiment with declared ADT constructors and explicit error propagation only after RT-03 observable semantics are defined.
 
