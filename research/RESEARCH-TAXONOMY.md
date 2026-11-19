@@ -3,7 +3,7 @@
 **Status:** Working research-management document; not a language specification or an architecture decision  
 **Updated:** 2026-11-19
 
-Scenario 58 adds a prior-art comparison of async function types, future/task start semantics, suspension, and scheduling; its runtime and cross-platform behavior remain untested.
+Scenario 58 adds a prior-art comparison of async function types, future/task start semantics, suspension, and scheduling; its runtime and cross-platform behavior remain untested. Scenario 59 isolates Boolean short-circuiting, operand order, deferred evaluation, and effects; its conformance corpus and optimizer checks remain open.
 
 The [initial cross-area comparison](RESEARCH-OPTION-MATRIX-01.md) links candidate bundles to evidence and compatibility constraints. The RT-03 and RT-04 evidence includes a direct projection from typed call trees into the existing checker and a comparison of immutable bindings with private local assignment. [Shared semantics corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md#7-cor-09--typed-calls-and-private-local-state)
 
