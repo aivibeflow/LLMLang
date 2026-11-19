@@ -1,7 +1,7 @@
 # COR-13 Follow-up — Typed Ownership Across Calls
 
 **Research area:** RT-03 / RT-04  
-**Status:** Planned discriminator; not an accepted ownership or error model  
+**Status:** Executable-policy and checker-boundary comparison; integrated typed call checking remains planned. No ownership or error model is accepted.
 **Inputs:** [Shared semantics corpus COR-13](RT-03-04-SHARED-SEMANTICS-CORPUS.md), [return/cleanup projection](PROTOTYPES/RT-04-01/rt03_return_cleanup.py), [owned-result checker probes](PROTOTYPES/RT-04-01/test_rt04_owned_result_boundary.py)
 
 ## 1. Question
@@ -71,3 +71,17 @@ Use finite exhaustive combinations for the two cleanup-failure flags, both retur
 If the prototype yields a stable envelope and caller obligation, update COR-13 and the option matrix. If not, preserve the counterexample and extend the semantic decision rather than generalizing from the existing cleanup projection.
 
 This follow-up is a discriminator for Gate A in [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md); it does not select a return policy.
+
+## 7. Current bounded results
+
+The existing operational policy fixture and checker capability probes were rerun on branch `codex/save-research-state-2026-11-19` at commit `90eb104fee856f20e2fc2c91be7dd570795ae28c` with Python 3.12.14:
+
+```sh
+cd research/PROTOTYPES/RT-04-01
+python -m unittest discover -s . -p 'test_rt03_return_cleanup.py' -v
+python -m unittest discover -s . -p 'test_rt04_owned_result_boundary.py' -v
+```
+
+Both commands passed: 10 operational projection tests and 4 checker-boundary tests. In this finite fixture, transfer-before-cleanup returns `error_with_value` when temporary cleanup fails; the caller can release the returned handle exactly once before propagating the error. The reserve/commit alternative instead attempts cleanup of the pending handle and records an explicit cleanup debt if that release also fails. The cleanup event order agrees with the existing recursive evaluator and path model for the covered nested-scope cases.
+
+The static boundary remains open: primitive `Result<String, String>` is accepted, while `Result<Owned<Handle>, String>`, `ErrorWithValue<Owned<Handle>, String, CleanupError>`, and the corresponding typed-call signature are rejected as unknown/unsupported. Therefore these passing tests do **not** establish that the caller obligation is type checked. The next executable increment must connect a shared call/type fixture to a branch-sensitive ownership checker and independently verify that accepted paths transfer, release, or explicitly retain every obligation.
