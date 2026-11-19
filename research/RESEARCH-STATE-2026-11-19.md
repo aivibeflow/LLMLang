@@ -133,6 +133,8 @@ This is planning, not approval of a semantic profile. A scoped RFC may be possib
 
 [Scenario 75](RESEARCH-SCENARIO-75-AUTOMATIC-DISPOSAL-AND-LIFETIME.md) separates scope-bound deterministic cleanup (Rust drop, Zig/Go defer), Swift ARC object lifetime, and Go GC cleanup/finalizers that may not run before exit. Async close, aliases/cycles, cleanup failure, and process abort remain open; no LLMLang resource-lifetime policy is selected.
 
+[Scenario 76](RESEARCH-SCENARIO-76-REGULAR-EXPRESSION-SEMANTICS-AND-RESOURCE-BOUNDS.md) fills an explicit gap left by Scenario 46: regex dialect and runtime bounds. Rust/Go use bounded engines with deliberate syntax limits, .NET exposes backtracking and nonbacktracking modes, and Swift Foundation documents ICU compatibility without the cited same complexity bound. Adversarial inputs, Unicode versioning, capture semantics, and cancellation remain open; no LLMLang policy is selected.
+
 ## 6. Evidence quality and traceability
 
 For each new result, retain exact branch/commit, files, command and tool versions, fixture selection, assumptions, positive/negative cases, limitations, evidence class, and the vector it could falsify. Update the taxonomy and option matrix when scope changes. Keep decisions in [TODO and open decisions](../TODO.md) open until explicitly accepted.
