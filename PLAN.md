@@ -1,8 +1,9 @@
 # LLMLang Research and Development Plan
 
 **Status:** living plan  
-**Updated:** 2026-11-18  
+**Updated:** 2026-11-19
 **Restored baseline:** detailed plan from [`aa39c8f`](https://github.com/aivibeflow/LLMLang/commit/aa39c8fc2a611ae72ff85acff3de3c16fcc4eb39), reconciled with the current project plan and repository evidence  
+**PR #47 consolidation:** its cumulative research snapshot (`73d37723e6a759159b354c2cd74327517c4036c4`) was reconciled into §§1.4, 1.4.1, and 5 by the valid text update in [PR #51](https://github.com/aivibeflow/LLMLang/pull/51), commit [`7fd8eac`](https://github.com/aivibeflow/LLMLang/commit/7fd8eace9210dffdbdcd98302e19bf6bc18be756); the plan now includes subsequent evidence through Scenario 97.  
 **Repository:** `aivibeflow/LLMLang`  
 **Research corpus at plan creation:** 102 files under `research/`  
 **Normative boundary:** this plan schedules research and validation. Research results are not normative language rules until explicitly reviewed and transferred to `draft/`.
