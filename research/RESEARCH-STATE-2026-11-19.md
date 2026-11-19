@@ -13,7 +13,7 @@ The strongest evidence is concentrated in language semantics, type/resource boun
 | Area | Evidence available | Establishes | Does not establish |
 |---|---|---|---|
 | RT-01 workloads | Reference workload catalogue and executable CLI pilot with Python/C references | Shared concrete workloads and host-level observable behavior | LLMLang usability, workload weights, or performance versus candidate language profiles |
-| RT-03/04 semantics | [Shared corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md), bounded evaluators and fixture families COR-01–13, plus [Scenario 36](RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md) | Distinguishing observations for errors, effects, state, cancellation, cleanup, typed calls, actor schedules, and one resource-return boundary; prior-art comparison of recursion/effects/runtime limits and one abstract source-fuel model | Complete source semantics, sound surface type system, general ownership model, LLMLang recursive evaluator/effect inference, or validated concurrency runtime |
+| RT-03/04 semantics | [Shared corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md), bounded evaluators and fixture families COR-01–13, plus [Scenario 36](RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md) | Distinguishing observations for errors, effects, state, cancellation, cleanup, typed calls, actor schedules, and one resource-return boundary; prior-art comparison of recursion/effects/runtime limits, one abstract source-fuel model, and the distinction between source fuel, VM operator gas, and host/evidence limits | Complete source semantics, sound surface type system, general ownership model, LLMLang recursive evaluator/effect inference, or validated concurrency runtime |
 | RT-05 identity | Lifecycle, call-site refactoring, recursive group identity experiments | Counterexamples and trade-offs for continuity, call obligations, symmetric members, and change propagation | Canonical identity envelopes, authenticated lineage, import/merge completeness, or final Stable ID/value model |
 | RT-06/20 dependencies | Scenario 15–34 studies and dependency/impact prototypes | Bounded dependency classification, counterfactual analysis, symbolic proof boundary, and plan/change lifecycle structures | Complete source dependency extraction, graph-completeness proof, or end-to-end accepted change correctness |
 | RT-07/08 evidence | Lean/Logos CPC parser binding, strict QF_LIA relational query, source-to-query correspondence work | Exact binding and kernel-checked results for a declared narrow integer/boolean relational fragment | Proof of arbitrary LLMLang programs, complete evidence trust chain, or coverage of effects/resources/concurrency |
@@ -56,7 +56,7 @@ These refine existing dependency hypotheses; they do not add normative rules. Se
 - Make ordered effects and payloads visible to type/dependency summaries.
 - Add a typed owned-value return scenario for COR-13.
 - State where profiles differ and what equivalence means for results, traces, resource state, and divergence.
-- Compare total recursion, general partiality, explicit execution fuel, and external runtime limits; define how exhaustion interacts with effects and cleanup.
+- Compare total recursion, general partiality, typed divergence, source fuel, VM operator gas, and external limits; define how exhaustion interacts with effects, rollback, and cleanup.
 - Record independent review; parallel evaluators against one hand-authored contract are implementation checks, not independent specification validation.
 
 ### Gate B — Identity and dependency completeness
