@@ -80,6 +80,10 @@ Useful variants include a private error wrapped under a public `LoadError`, a ne
 
 Next, extend the shared corpus with matched API evolution fixtures across calls, branch matches, effectful operations, resource ownership, and FFI. Define observable success/error/cancel/panic outcomes independently of surface syntax and test exactly which public signature/hash changes when the implementation adds a failure mode. This report selects no LLMLang error representation.
 
+### Identity and incremental-build follow-up
+
+The versioning comparison implies a question for RT-05/RT-11, but does not answer it: when a public error contract widens, does the client's semantic interface identity change, and which downstream actions must be invalidated? A closed exhaustive error type suggests that adding a case changes a caller-visible contract; an open/wrapped contract may preserve the declared signature while changing documented classification behavior. Neither fact alone determines a build hash. The RT-11 binding benchmark shows that source/interface and implementation changes can have different invalidation effects, but it does not currently measure error-contract changes. Treat this link as an open hypothesis until a matched producer/caller corpus records interface hashes, compile actions, link actions, and runtime classifications before and after adding or wrapping an error.
+
 ## 6. References and limits
 
 The linked sources are official language or project documentation consulted 2026-11-19. Zig's `master` reference is moving; pin a release before relying on details. Swift typed throws is described by a language-evolution proposal implemented in Swift 6.0, with some originally proposed inference changes explicitly deferred. These are design comparisons, not compatibility experiments in LLMLang.
