@@ -205,6 +205,8 @@ The path-model suite also exhausts a 72-case finite matrix: both boolean branch 
 
 This provides a different kind of cross-check from evaluator-vs-evaluator differential testing. It can expose shared control/unwind mistakes in both interpreters, but it is not a source-level control-flow extractor, does not prove that all source branches were represented, and does not model type correctness, actual effect outcomes, aliases, ownership transfer, concurrency, or arbitrary cleanup code.
 
+The follow-up [Scenario 98](../../RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) builds a depth-three AST decision tree with seven unique `unknown_bool` markers. All 128 concrete assignments are executed through both evaluators and compared with all eight path-model outcomes; each feasible path has a distinct resource-trace witness. This strengthens coverage evidence for the generated AST grammar only; parser and source-to-AST completeness remain unproved.
+
 ### Independent resource outcome rules
 
 `rt03_resource_rules.py` defines a separate outcome algebra for acquired resource scopes. It imports neither evaluator nor the structural path model. Given an outer-to-inner list of acquired scope frames and one body outcome (normal value, Result error, or cancellation), it derives the exact acquire/release event trace, final result envelope, and resources retained after failed release. An optional acquisition-failure position models the rule that a failed acquisition skips that scope's body and all inner scopes while already-acquired outer scopes still unwind.

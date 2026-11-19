@@ -19,6 +19,116 @@ def resource_events(trace):
     return tuple(result)
 
 
+def _condition_markers(expression):
+    """Map each direct unknown_bool condition to its path-model AST path."""
+    found = {}
+
+    def visit(node, path="$", inside_condition=False):
+        op, arg = next(iter(node.items()))
+        if op == "unknown_bool":
+            if not inside_condition:
+                raise AssertionError("unknown_bool is only supported as an if condition")
+            if path in found or arg in found.values():
+                raise AssertionError("condition markers and paths must be unique")
+            found[path] = arg
+        elif op == "if":
+            condition = arg["condition"]
+            if isinstance(condition, dict) and set(condition) == {"unknown_bool"}:
+                marker = condition["unknown_bool"]
+                if path in found or marker in found.values():
+                    raise AssertionError("condition markers and paths must be unique")
+                found[path] = marker
+            else:
+                visit(condition, f"{path}.condition")
+            visit(arg["then"], f"{path}.then")
+            visit(arg["else"], f"{path}.else")
+        elif op == "with_resource":
+            visit(arg["body"], f"{path}.body")
+        elif op in {"result_ok", "result_error"}:
+            visit(arg, f"{path}.{op}")
+        elif op in {"sequence", "result_sequence"}:
+            for index, item in enumerate(arg):
+                visit(item, f"{path}.{op}[{index}]")
+        elif op == "add":
+            for index, item in enumerate(arg):
+                visit(item, f"{path}.add[{index}]")
+        elif op in {"literal", "cancel"}:
+            return
+        else:
+            raise AssertionError(f"unsupported coverage-audit form: {op}")
+
+    visit(expression)
+    return found
+
+
+def _materialize_conditions(expression, assignments):
+    """Replace every unknown_bool marker with its concrete Boolean input."""
+    op, arg = next(iter(expression.items()))
+    if op == "unknown_bool":
+        return {"literal": assignments[arg]}
+    if op == "if":
+        return {"if": {
+            "condition": _materialize_conditions(arg["condition"], assignments),
+            "then": _materialize_conditions(arg["then"], assignments),
+            "else": _materialize_conditions(arg["else"], assignments),
+        }}
+    if op == "with_resource":
+        return {"with_resource": {
+            **{key: value for key, value in arg.items() if key != "body"},
+            "body": _materialize_conditions(arg["body"], assignments),
+        }}
+    if op in {"result_ok", "result_error"}:
+        return {op: _materialize_conditions(arg, assignments)}
+    if op in {"sequence", "result_sequence", "add"}:
+        return {op: [_materialize_conditions(item, assignments) for item in arg]}
+    return expression
+
+
+def _path_observation(resource_trace, final_resources, result):
+    terminal = "cancelled" if isinstance(result, dict) and "cancelled" in result else "normal"
+    result_tag = None
+    if isinstance(result, dict) and len(result) == 1 and next(iter(result)) in {"ok", "error"}:
+        result_tag = next(iter(result))
+    cleanup_errors = tuple(
+        resource_id for action, resource_id, succeeded in resource_trace
+        if action == "release" and not succeeded
+    )
+    return (
+        resource_trace,
+        tuple(sorted(final_resources)),
+        terminal,
+        result_tag,
+        cleanup_errors,
+    )
+
+
+def _fully_branched_tree(depth, prefix="", leaf_counter=None):
+    """Build a full binary tree with unique resource witnesses at its leaves."""
+    if leaf_counter is None:
+        leaf_counter = [0]
+    if depth == 0:
+        index = leaf_counter[0]
+        leaf_counter[0] += 1
+        outcomes = (
+            {"literal": index},
+            {"result_error": {"literal": f"error-{index}"}},
+            {"cancel": f"cancel-{index}"},
+            {"result_ok": {"literal": index}},
+        )
+        return {"with_resource": {
+            "id": f"leaf-{index}",
+            "value": f"value-{index}",
+            "release_fails": index % 3 == 1,
+            "body": outcomes[index % len(outcomes)],
+        }}
+    marker = f"choice-{prefix or 'root'}"
+    return {"if": {
+        "condition": {"unknown_bool": marker},
+        "then": _fully_branched_tree(depth - 1, prefix + "t", leaf_counter),
+        "else": _fully_branched_tree(depth - 1, prefix + "f", leaf_counter),
+    }}
+
+
 class RT03IndependentPathModelTests(unittest.TestCase):
     def assert_model_matches_both_evaluators(self, expression):
         paths = enumerate_paths(expression)
@@ -174,6 +284,74 @@ class RT03IndependentPathModelTests(unittest.TestCase):
             {tuple(choice for _, choice in path.branch_choices) for path in paths},
             {(True, True), (True, False), (False,)},
         )
+
+    def test_exhaustive_ast_condition_valuations_cover_every_structural_path(self):
+        # Seven distinct unknown conditions produce 128 concrete input maps;
+        # the abstract path model must produce exactly the eight feasible leaves.
+        tree = {"with_resource": {
+            "id": "root",
+            "value": "root-value",
+            "release_fails": True,
+            "body": _fully_branched_tree(3),
+        }}
+        marker_paths = _condition_markers(tree)
+        self.assertEqual(len(marker_paths), 7)
+        markers = tuple(marker_paths.values())
+        paths = enumerate_paths(tree)
+        self.assertEqual(len(paths), 8)
+        observed_paths = {
+            (
+                path.resource_events, path.active_resources, path.terminal,
+                path.result_tag, path.cleanup_errors,
+            )
+            for path in paths
+        }
+        self.assertEqual(len(observed_paths), len(paths), "each feasible path has a distinct resource witness")
+
+        path_model_conditions = {
+            path for outcome in paths for path, _ in outcome.branch_choices
+        }
+        self.assertEqual(path_model_conditions, set(marker_paths))
+
+        concrete_observations = set()
+        assignments_checked = 0
+        for values in product((False, True), repeat=len(markers)):
+            assignment = dict(zip(markers, values))
+            concrete = _materialize_conditions(tree, assignment)
+            recursive = evaluate(concrete, "D")
+            machine = run_small_step(concrete, "D")
+            recursive_resources = resource_events(recursive)
+            machine_resources = resource_events(machine)
+            self.assertEqual(recursive.events, machine.events)
+            self.assertEqual(recursive.final_resources, machine.final_resources)
+            recursive_observation = _path_observation(
+                recursive_resources, recursive.final_resources, recursive.result,
+            )
+            machine_observation = _path_observation(
+                machine_resources, machine.final_resources, machine.result,
+            )
+            self.assertEqual(recursive_observation, machine_observation)
+            concrete_observations.add(recursive_observation)
+            assignments_checked += 1
+        self.assertEqual(assignments_checked, 128)
+        self.assertEqual(concrete_observations, observed_paths)
+
+        # Also construct one concrete witness directly from each abstract path.
+        for path in paths:
+            by_marker = {
+                marker_paths[path_id]: choice
+                for path_id, choice in path.branch_choices
+            }
+            assignment = {marker: by_marker.get(marker, False) for marker in markers}
+            concrete = _materialize_conditions(tree, assignment)
+            trace = evaluate(concrete, "D")
+            self.assertEqual(
+                _path_observation(resource_events(trace), trace.final_resources, trace.result),
+                (
+                    path.resource_events, path.active_resources, path.terminal,
+                    path.result_tag, path.cleanup_errors,
+                ),
+            )
 
     def test_nested_failed_releases_unwind_all_scopes_and_remain_active(self):
         expression = {"with_resource": {
