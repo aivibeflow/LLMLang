@@ -3,7 +3,7 @@
 **Status:** living plan  
 **Updated:** 2026-11-19
 **Restored baseline:** detailed plan from [`aa39c8f`](https://github.com/aivibeflow/LLMLang/commit/aa39c8fc2a611ae72ff85acff3de3c16fcc4eb39), reconciled with the current project plan and repository evidence  
-**PR #47 consolidation:** its cumulative research snapshot (`73d37723e6a759159b354c2cd74327517c4036c4`) was reconciled into §§1.4, 1.4.1, and 5 by the valid text update in [PR #51](https://github.com/aivibeflow/LLMLang/pull/51), commit [`7fd8eac`](https://github.com/aivibeflow/LLMLang/commit/7fd8eace9210dffdbdcd98302e19bf6bc18be756); the plan now includes subsequent evidence through Scenario 98.<br>
+**PR #47 consolidation:** its cumulative research snapshot (`73d37723e6a759159b354c2cd74327517c4036c4`) was reconciled into §§1.4, 1.4.1, and 5 by the valid text update in [PR #51](https://github.com/aivibeflow/LLMLang/pull/51), commit [`7fd8eac`](https://github.com/aivibeflow/LLMLang/commit/7fd8eace9210dffdbdcd98302e19bf6bc18be756); the plan includes the cumulative PR #47 research plus subsequent evidence through Scenarios 99–101 (repeated-predicate correlation, finite Boolean path feasibility, and a bounded DPLL cross-check). The PR #47 consolidation remains exploratory: it records candidate vectors and validation limits without selecting language rules.<br>
 **Repository:** `aivibeflow/LLMLang`  
 **Research corpus at plan creation:** 102 files under `research/`  
 **Normative boundary:** this plan schedules research and validation. Research results are not normative language rules until explicitly reviewed and transferred to `draft/`.
