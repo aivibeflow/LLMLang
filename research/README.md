@@ -16,6 +16,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 - [Scenario 65 — fatal failure, unwinding, and process boundaries](RESEARCH-SCENARIO-65-FATAL-FAILURE-AND-UNWINDING.md) compares Rust panic strategies, Go panic/recover, Swift fatal checks, and Zig safety-mode behavior.
 - [Scenario 66 — copy, move, and reference semantics](RESEARCH-SCENARIO-66-COPY-MOVE-AND-REFERENCE-SEMANTICS.md) compares Rust ownership transfer, Go value copies with reference-bearing descriptors, Swift value/reference types and copy-on-write, and Zig values with explicit pointers.
 - [Scenario 67 — mutability and immutability depth](RESEARCH-SCENARIO-67-MUTABILITY-AND-IMMUTABILITY-DEPTH.md) compares Rust mutable-access capabilities and interior mutability, Go constants versus runtime aliases, Swift `let` across value/reference types, and Zig `const`/pointer qualifiers.
+- [Scenario 68 — value construction and initialization invariants](RESEARCH-SCENARIO-68-VALUE-CONSTRUCTION-AND-INITIALIZATION.md) compares complete aggregate construction, Go zero values, Swift definite/two-phase initialization, and Zig comptime defaults.
 - [Shared semantics corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md) maps COR-01–13 fixtures and their evidence boundaries.
 - [COR-13 typed ownership follow-up](RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md) records the bounded policy comparison and preliminary action-list/CFG caller model for owned-resource results; integration with typed call trees remains open.
 
