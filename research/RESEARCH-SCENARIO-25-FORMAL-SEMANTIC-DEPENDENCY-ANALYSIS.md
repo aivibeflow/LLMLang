@@ -85,7 +85,7 @@ Input p is independent of O if every pair of valid inputs equal in all dimension
 
 [
 Independent(P,p,O) iff
-orall x,x'.;
+\forall x,x'.;
 x equiv_{
 eg p} x'
 Rightarrow Obs(P,x)=Obs(P,x')
@@ -157,7 +157,7 @@ A dependency claim without a pinned observation model is underspecified. A progr
 For deterministic programs, the observation is a single value. For nondeterministic programs, one conservative independence definition is equality of the sets of possible observations for all paired inputs:
 
 [
-orall x,x'.;
+\forall x,x'.;
 x equiv_{
 eg p} x'
 Rightarrow
