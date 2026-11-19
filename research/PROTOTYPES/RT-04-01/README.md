@@ -240,3 +240,10 @@ Run the full suite from the repository root:
 This is algorithmic cross-checking, not independent human review or proof:
 both implementations share the same exploratory contract and may share
 specification mistakes. See [differential test cases](test_rt03_differential.py).
+
+
+## Bounded recursion and source fuel
+
+[`rt03_recursion_fuel.py`](rt03_recursion_fuel.py) is a small executable cost model for one structural recursive countdown and one self-recursive divergent loop. It counts abstract source transitions (entry, test, decrement, return addition) rather than host instructions. For the countdown, `countdown(3)` returns 3 at fuel 14 and exhausts at fuel 13 before its final addition. The loop exhausts any finite budget; the model keeps possible divergence as separate metadata because this outcome alone cannot prove divergence.
+
+This is not a source parser, termination checker, optimizer, or runtime gas implementation. It does not model effects/resource cleanup or establish a selected fuel semantics. Scenario [36](../../RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md) records the prior-art comparison and open compatibility questions.

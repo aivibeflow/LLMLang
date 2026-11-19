@@ -65,6 +65,12 @@ A total-by-default vector is weakened if representative RT-01 workloads require 
 
 Next experiment: add small mutually recursive and self-recursive functions to the shared source semantics corpus. Include a terminating structural case, a terminating non-structural case, a divergent case, explicit budget exhaustion at several boundaries, an effect before exhaustion, and exhaustion while a resource scope is active. Compare a fuel-counting reference interpreter with a small-step evaluator; separately record what a host runtime limit can and cannot establish. Add type/checker projections only after the observation contract is stated. Source syntax, runtime correspondence, and independent review are required before treating the result as evidence about LLMLang source programs.
 
+### First bounded fuel model
+
+[`rt03_recursion_fuel.py`](PROTOTYPES/RT-04-01/rt03_recursion_fuel.py) models one recursive function, `countdown(n) = 0 if n == 0 else countdown(n-1) + 1`, and one self-recursive loop. Its explicit abstract source-cost rule charges one unit for function entry, condition test, decrement, and each return addition. This gives `4*n + 2` units for `countdown(n)`; for example, input 3 returns 3 with fuel 14, while fuel 13 stops before the third return addition. Input 0 needs two units (entry and condition).
+
+The loop model reports `FuelExhausted` for every finite budget and separately carries `may_diverge=true`. Thus exhaustion alone cannot distinguish divergence from a terminating computation that needs more fuel; that distinction requires a proof/analysis or an unbounded semantic observation. This experiment defines an abstract source-step accounting rule, not machine instruction gas. No optimized backend was run. If source-visible fuel is chosen, a compiler must preserve the specified abstract fuel observations or expose an explicit cost-preservation relation; counting backend instructions instead makes the budget depend on lowering. The prototype does not yet model effects, cleanup, stack limits, mutual recursion, or a termination checker.
+
 ## Machine-readable summary
 
 | Decision | Vectors | Current evidence | Status |
