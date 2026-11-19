@@ -25,6 +25,8 @@ The model's UNKNOWN refinement outcome is distinct from acceptance and rejection
 
 [`test_rt04_owned_result_boundary.py`](test_rt04_owned_result_boundary.py) records the RT-04 checker boundary: primitive `Result` is accepted, while nested `Owned` and `ErrorWithValue` descriptors report `UNKNOWN_TYPE`. Its typed-call evaluator probe requires Python 3.10+ and is skipped on older interpreters.
 
+[`rt04_owned_call.py`](rt04_owned_call.py) and [`test_rt04_owned_call.py`](test_rt04_owned_call.py) add a separate caller-obligation model for explicit `Result<Owned<Handle>, E>` and `ErrorWithValue<Owned<Handle>, E, CleanupError>` outcome branches. It distinguishes release, transfer, and ownership-preserving propagation, and rejects ignored, duplicated, multiply consumed, or use-after-move values. Missing outcome coverage or unsupported result types return `UNKNOWN`. This is a small action-list checker, not an extension of `rt04_model`, a source parser, or a path-sensitive expression/type checker. The finite six-test fixture is preliminary evidence for the caller obligation only.
+
 ## Resource-flow envelope
 
 A function may provide either `consumes` or `resource_flow`, not both:
