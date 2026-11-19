@@ -84,6 +84,8 @@ The strongest evidence is concentrated in language semantics, type/resource boun
 
 The latest bounded type/semantics results include a counterexample: transfer-first cleanup failure can require returning both an error and a still-owned value. The current typed-call/checker boundary cannot express that envelope. Effect summaries also lose ordering and payload details, and an open-row marker does not implement row unification or handler-coverage analysis. See COR-13 and the cross-profile comparison in the shared corpus and option matrix.
 
+[Scenario 94](RESEARCH-SCENARIO-94-SCHEDULER-FAIRNESS-AND-LIVENESS.md) adds a prior-art comparison of conditional/runtime-specific scheduling fairness and keeps it distinct from protocol progress and task termination. [Scenario 95](RESEARCH-SCENARIO-95-DIAGNOSTICS-FOR-HUMANS-AND-AGENTS.md) extends the diagnostics work from Scenario 87 to structured diagnostic contracts, editor transport, repair proposals, and evidence-based human/agent evaluation. Both studies remain analytical: neither selects a language policy nor reports a new LLMLang prototype result.
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
