@@ -211,6 +211,14 @@ The follow-up [Scenario 98](../../RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.
 
 [Scenario 100](../../RESEARCH-SCENARIO-100-FINITE-BOOLEAN-PATH-FEASIBILITY.md) adds a separate exhaustive analyzer for a small pure Boolean predicate IR. Across all four assignments to `x` and `y`, the branches `x` then `x or y` have three feasible vectors (`TT`, `FT`, `FF`) and one infeasible vector (`TF`); both concrete evaluators and the existing path/resource model agree. The analyzer scales exponentially and is not an SMT solver or source-CFG extractor.
 
+[Scenario 101](../../RESEARCH-SCENARIO-101-SOLVER-VS-TRUTH-TABLE-PATHS.md) cross-checks the same route constraints with pinned SymPy 1.14.0 `dpll2`. It returns the same three paths for `x` then `x or y`, and a contradiction fixture excludes an impossible arm. On one left-associated conjunction family, truth-table median grows from 0.000885 s at 8 variables to 1.635 s at 18, while DPLL2 remains around 0.001–0.003 s. This is not a general solver performance claim; the family is easy for DPLL and the solver becomes part of the analysis trust boundary.
+
+The solver experiment uses the pinned test dependency in [`requirements-solver.txt`](requirements-solver.txt). Reproduce the comparison with:
+
+```sh
+python benchmark_rt03_predicate_paths.py
+```
+
 ### Independent resource outcome rules
 
 `rt03_resource_rules.py` defines a separate outcome algebra for acquired resource scopes. It imports neither evaluator nor the structural path model. Given an outer-to-inner list of acquired scope frames and one body outcome (normal value, Result error, or cancellation), it derives the exact acquire/release event trace, final result envelope, and resources retained after failed release. An optional acquisition-failure position models the rule that a failed acquisition skips that scope's body and all inner scopes while already-acquired outer scopes still unwind.
