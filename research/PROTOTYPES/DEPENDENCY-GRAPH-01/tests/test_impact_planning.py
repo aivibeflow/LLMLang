@@ -6,8 +6,10 @@ from src.semantic_dependency_index import SnapshotIncomingResult
 from src.impact_planning import (
     ActionKind, CallSiteDecision, CallSiteDisposition, CompletenessEvidence,
     CompletenessStatus, CompletenessAudit, IncomingCallSite, ImpactedArtifact,
-    OutputOperation, PlannedOutput, NonInterferenceCertificate, PlanningError, audit_dependency_completeness,
-    audit_snapshot_incoming, compute_planned_action_id, dependency_digest,
+    OutputOperation, PlannedOutput, PlannedEdgeChange, PlannedEdgeKind, PlannedEdgeOperation,
+    ImpactPlan, NonInterferenceCertificate, PlanningError, audit_dependency_completeness,
+    audit_snapshot_incoming, compute_planned_action_id, compute_planned_edge_change_id,
+    compute_call_site_decision_id, compute_impact_plan_id, dependency_digest,
     no_action_is_justified, plan_impact, PlannedAction, validate_planned_action_dag,
     validate_action_kind_policy, ACTION_KIND_POLICY_VERSION,
 )
@@ -529,6 +531,108 @@ class ImpactPlanningTests(unittest.TestCase):
         plain = PlannedAction(ActionKind.REBUILD, "impl", "build", subject_kind="implementation")
         other = replace(plain, subject_kind="generated_artifact")
         self.assertNotEqual(compute_planned_action_id(plain), compute_planned_action_id(other))
+
+
+
+class CIPObligationIdentityTests(unittest.TestCase):
+    def edge(self):
+        return PlannedEdgeChange(
+            output_id="caller-output",
+            edge_kind=PlannedEdgeKind.CALL_TARGET,
+            edge_id="site/target",
+            operation=PlannedEdgeOperation.REWRITE,
+            baseline_relation="calls",
+            candidate_relation="calls",
+            baseline_target_hash="callee-v1",
+            candidate_target_hash="callee-v2",
+            baseline_condition="enabled",
+            candidate_condition="enabled",
+            rationale="migrate exact call target",
+            evidence_id="compatibility-evidence",
+            baseline_required_contract_hash="required-v1",
+            candidate_required_contract_hash="required-v2",
+        )
+
+    def decision(self):
+        return CallSiteDecision(
+            caller_hash="caller-v1",
+            call_site_id="site",
+            target_id="target",
+            base_callee_hash="callee-v1",
+            disposition=CallSiteDisposition.MIGRATE,
+            selected_callee_hash="callee-v2",
+            resulting_caller_hash="caller-v2",
+            rationale="migrate consumer",
+            decision_evidence_id="compatibility-evidence",
+            required_contract_hash="required-v1",
+            compatibility_status="PROVEN",
+            candidate_required_contract_hash="required-v2",
+            consumer_path_id="consumer-a",
+            resulting_output_id="caller-output",
+            selected_output_id="callee-output",
+        )
+
+    def test_edge_change_identity_is_deterministic_and_field_sensitive(self):
+        edge = self.edge()
+        original = compute_planned_edge_change_id(edge)
+        self.assertEqual(original, compute_planned_edge_change_id(self.edge()))
+        variants = [
+            replace(edge, output_id="other-output"),
+            replace(edge, edge_kind=PlannedEdgeKind.TYPED_REFERENCE),
+            replace(edge, edge_id="other-site/target"),
+            replace(edge, operation=PlannedEdgeOperation.CONDITION),
+            replace(edge, baseline_relation="uses"),
+            replace(edge, candidate_relation="uses"),
+            replace(edge, baseline_target_hash="other-old"),
+            replace(edge, candidate_target_hash="other-new"),
+            replace(edge, baseline_condition="disabled"),
+            replace(edge, candidate_condition="disabled"),
+            replace(edge, rationale="different rationale"),
+            replace(edge, evidence_id="other-evidence"),
+            replace(edge, baseline_required_contract_hash="other-required-old"),
+            replace(edge, candidate_required_contract_hash="other-required-new"),
+        ]
+        self.assertTrue(all(compute_planned_edge_change_id(row) != original for row in variants))
+
+    def test_call_site_decision_identity_is_deterministic_and_field_sensitive(self):
+        decision = self.decision()
+        original = compute_call_site_decision_id(decision)
+        self.assertEqual(original, compute_call_site_decision_id(self.decision()))
+        variants = [
+            replace(decision, caller_hash="other-caller"),
+            replace(decision, call_site_id="other-site"),
+            replace(decision, target_id="other-target"),
+            replace(decision, base_callee_hash="other-base"),
+            replace(decision, disposition=CallSiteDisposition.ADAPT),
+            replace(decision, selected_callee_hash="other-selected"),
+            replace(decision, resulting_caller_hash="other-result"),
+            replace(decision, rationale="different rationale"),
+            replace(decision, decision_evidence_id="other-evidence"),
+            replace(decision, required_contract_hash="other-required"),
+            replace(decision, compatibility_status="UNKNOWN"),
+            replace(decision, candidate_required_contract_hash="other-candidate-required"),
+            replace(decision, consumer_path_id="consumer-b"),
+            replace(decision, resulting_output_id="other-caller-output"),
+            replace(decision, selected_output_id="other-callee-output"),
+        ]
+        self.assertTrue(all(compute_call_site_decision_id(row) != original for row in variants))
+
+    def test_obligation_ids_are_committed_to_plan_identity(self):
+        edge = self.edge()
+        decision = self.decision()
+        base = ImpactPlan(
+            plan_id="", baseline_root="base", candidate_root="candidate",
+            policy_id="policy", actions=(), audit_statuses=(),
+            call_site_decisions=(decision,), planned_edge_changes=(edge,),
+        )
+        edge_changed = replace(base, planned_edge_changes=(
+            replace(edge, candidate_target_hash="callee-v3"),
+        ))
+        decision_changed = replace(base, call_site_decisions=(
+            replace(decision, consumer_path_id="consumer-b"),
+        ))
+        self.assertNotEqual(compute_impact_plan_id(base), compute_impact_plan_id(edge_changed))
+        self.assertNotEqual(compute_impact_plan_id(base), compute_impact_plan_id(decision_changed))
 
 
 if __name__ == "__main__":

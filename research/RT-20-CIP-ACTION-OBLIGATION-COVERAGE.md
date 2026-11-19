@@ -1,12 +1,12 @@
 # RT-20 — CIP Action-to-Obligation Coverage
 
-**Status:** Design refinement required before closing AEA-2; not yet implemented  
+**Status:** Design contract; stable obligation IDs implemented in CIP v5, action coverage still open  
 **Date:** 2026-11-18  
 **Depends on:** [CIP Action Execution Audit](RT-20-CIP-ACTION-EXECUTION-AUDIT.md), [Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md), [Draft Glossary](../draft/GLOSSARY.md)
 
 ## 1. Problem
 
-CIP v4 commits each action's `subject_kind`, `artifact_hash`, action kind, rationale, and prerequisite action IDs into its identity. The closed action-kind policy rejects unsupported `ActionKind × subject_kind` pairs.
+CIP v5 commits each action's `subject_kind`, `artifact_hash`, action kind, rationale, and prerequisite action IDs into its identity. The closed action-kind policy rejects unsupported `ActionKind × subject_kind` pairs.
 
 That check is necessary but not sufficient. It does not establish which approved output or semantic-edge obligations an action is responsible for. In particular:
 
@@ -29,7 +29,7 @@ A `PlannedOutput` is one output obligation. Its existing `output_id` is the obli
 
 ### 2.2 Edge-change obligation
 
-A `PlannedEdgeChange` currently has no independent identity. Add a deterministic `edge_change_id` computed from a versioned canonical projection of every semantic field:
+CIP v5 now provides a deterministic `edge_change_id` computed from a versioned canonical projection of every semantic field:
 
 - `output_id`;
 - edge kind and exact edge ID;
@@ -40,7 +40,7 @@ A `PlannedEdgeChange` currently has no independent identity. Add a deterministic
 - baseline and candidate caller-required Contract hash;
 - rationale and evidence identity.
 
-The projection must use a domain-separated canonical encoding and explicit schema version. A change to any field must change the ID. Duplicate semantic edge records and duplicate IDs must fail closed. The ID must be included in the CIP canonical plan payload. It must not be confused with an object Content Hash, edge-set digest, or Package/Contract hash; consult the glossary when naming or documenting hash domains.
+The implementation uses domain-separated canonical JSON and SHA-256, with the CIP schema version included in the projection. A change to any field changes the ID, and the ID is included in the CIP canonical plan payload. Duplicate semantic edge records are still rejected by planner validation. It must not be confused with an object Content Hash, edge-set digest, or Package/Contract hash; consult the glossary when naming or documenting hash domains.
 
 ## 3. Action bindings
 
@@ -128,7 +128,7 @@ Every policy row and every supported output/edge operation must have positive an
 
 ## 8. Implementation sequence
 
-1. Add canonical `edge_change_id` and include it in CIP identity.
+1. Implemented in CIP v5: canonical `edge_change_id` is included in plan identity.
 2. Add immutable action-to-output/edge bindings and include them in action/plan identity.
 3. Add explicit role-labelled bindings for test suite versus candidate under test, and exact call-site decision binding.
 4. Define the closed obligation-satisfaction matrix separately from the existing subject-kind compatibility matrix.
@@ -137,4 +137,4 @@ Every policy row and every supported output/edge operation must have positive an
 7. Add adversarial tests and run the full semantic-dependency suite plus repository CI.
 8. Update RT-20 design/results docs only after the implementation and tests demonstrate complete supported-subset coverage.
 
-**AEA-2 exit:** every supported output and edge obligation has explicit stable identity, every action is bound to exact obligations, every required obligation has an eligible satisfying action, and unsupported cases fail closed. AEA-3 execution records must not begin before this exit is met.
+**AEA-2 exit:** every supported output and edge obligation has explicit stable identity, every action is bound to exact obligations, every required obligation has an eligible satisfying action, and unsupported cases fail closed. Stable edge-change and call-site decision IDs are now available in CIP v5; action bindings and complete coverage remain outstanding. AEA-3 execution records must not begin before this exit is met.
