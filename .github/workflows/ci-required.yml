@@ -2,9 +2,7 @@ name: Required CI
 
 on:
   pull_request:
-    branches: [main]
   push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -12,23 +10,30 @@ permissions:
 
 jobs:
   logos-binding:
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
     uses: ./.github/workflows/logos-binding.yml
   package-identity:
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
     uses: ./.github/workflows/package-identity.yml
   package-index:
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
     uses: ./.github/workflows/package-index.yml
   qf-lia-profile:
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
     uses: ./.github/workflows/qf-lia-profile.yml
   repository-structure:
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
     uses: ./.github/workflows/repository-structure.yml
   semantic-dependency-index:
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
     uses: ./.github/workflows/semantic-dependency-index.yml
   toolchain-workspace:
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
     uses: ./.github/workflows/toolchain-workspace.yml
 
   ci-required:
     name: ci-required
-    if: ${{ always() }}
+    if: ${{ always() && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository) }}
     needs:
       - logos-binding
       - package-identity

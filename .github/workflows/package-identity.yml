@@ -2,18 +2,6 @@ name: Package identity prototype
 
 on:
   workflow_call:
-  push:
-    paths:
-      - "research/PROTOTYPES/PACKAGE-IDENTITY-01/**"
-      - "research/PACKAGE-MANIFEST-AND-IDENTITY.md"
-      - "language-components.toml"
-      - ".github/workflows/package-identity.yml"
-  pull_request:
-    paths:
-      - "research/PROTOTYPES/PACKAGE-IDENTITY-01/**"
-      - "research/PACKAGE-MANIFEST-AND-IDENTITY.md"
-      - "language-components.toml"
-      - ".github/workflows/package-identity.yml"
 
 jobs:
   package-identity:

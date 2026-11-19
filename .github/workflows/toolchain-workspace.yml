@@ -2,15 +2,6 @@ name: Toolchain workspace prototype
 
 on:
   workflow_call:
-  push:
-    paths:
-      - "research/PROTOTYPES/TOOLCHAIN-SERVER-01/**"
-      - ".github/workflows/toolchain-workspace.yml"
-  pull_request:
-    paths:
-      - "research/PROTOTYPES/TOOLCHAIN-SERVER-01/**"
-      - ".github/workflows/toolchain-workspace.yml"
-  workflow_dispatch:
 
 jobs:
   focused-tests:

@@ -2,16 +2,6 @@ name: Logos CPC parser-state binding
 
 on:
   workflow_call:
-  push:
-    branches: [main]
-    paths:
-      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/**"
-      - ".github/workflows/logos-binding.yml"
-  pull_request:
-    paths:
-      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/**"
-      - ".github/workflows/logos-binding.yml"
-  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-logos-binding-${{ github.ref }}
