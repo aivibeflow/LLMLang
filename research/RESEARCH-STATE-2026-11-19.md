@@ -127,6 +127,8 @@ This is planning, not approval of a semantic profile. A scoped RFC may be possib
 
 [Scenario 72](RESEARCH-SCENARIO-72-SUM-TYPE-LAYOUT-ABI-AND-INTEROPERABILITY.md) separates sum-case semantics from storage layout, calling conventions, resilience, and foreign representation across Rust, Zig, Swift, and C. Cross-target ABI probes, unknown/invalid tag handling, version-skew behavior, and bridge costs remain open; no LLMLang representation policy is selected.
 
+[Scenario 73](RESEARCH-SCENARIO-73-NUMERIC-LITERAL-TYPING-AND-CONVERSIONS.md) expands Scenario 45's literal/coercion axis: Rust infers/defaults literal types, Go retains exact untyped constants, Swift uses contextual literal protocols, and Zig exposes comptime-only literal types. Runtime conversions and mixed-operand peer typing remain separate and untested; no LLMLang policy is selected.
+
 ## 6. Evidence quality and traceability
 
 For each new result, retain exact branch/commit, files, command and tool versions, fixture selection, assumptions, positive/negative cases, limitations, evidence class, and the vector it could falsify. Update the taxonomy and option matrix when scope changes. Keep decisions in [TODO and open decisions](../TODO.md) open until explicitly accepted.

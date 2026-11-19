@@ -21,6 +21,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 - [Scenario 70 — type aliases, nominal wrappers, and opaque abstractions](RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md) separates alias identity, fresh nominal identity, hidden implementation, and representation/ABI guarantees across Rust, Go, Swift, and Zig.
 - [Scenario 71 — interface implementation ownership and coherence](RESEARCH-SCENARIO-71-INTERFACE-IMPLEMENTATION-OWNERSHIP-AND-COHERENCE.md) compares owner-local impls, implicit structural satisfaction, retroactive conformance, and scoped/overlapping instances across Rust, Go, Swift, and Haskell.
 - [Scenario 72 — sum-type layout, ABI, and interoperability](RESEARCH-SCENARIO-72-SUM-TYPE-LAYOUT-ABI-AND-INTEROPERABILITY.md) separates semantic variants from memory layout, calling conventions, resilience, and C interoperability across Rust, Zig, Swift, and C.
+- [Scenario 73 — numeric literal typing and conversions](RESEARCH-SCENARIO-73-NUMERIC-LITERAL-TYPING-AND-CONVERSIONS.md) compares literal defaults, exact compile-time values, runtime numeric casts, and mixed-operand typing across Rust, Go, Swift, and Zig.
 - [Shared semantics corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md) maps COR-01–13 fixtures and their evidence boundaries.
 - [COR-13 typed ownership follow-up](RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md) records the bounded policy comparison and preliminary action-list/CFG caller model for owned-resource results; integration with typed call trees remains open.
 
