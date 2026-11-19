@@ -1,6 +1,6 @@
 import unittest
 
-from rt04_owned_call import check_owned_call, check_owned_call_cfg
+from rt04_owned_call import check_owned_call, check_owned_call_cfg, check_owned_call_tree
 from rt03_return_cleanup import run_return_cleanup
 
 
@@ -183,6 +183,37 @@ class OwnedCallBoundary(unittest.TestCase):
         })
         self.assertEqual(result.status, "REJECTED")
         self.assertTrue(any("LEAKED_CLEANUP_DEBT" in finding for finding in result.findings))
+
+    def test_structured_call_tree_lowers_fallible_cleanup_to_checked_cfg(self):
+        tree = {"release_attempt": {
+            "ok": {"sequence": []},
+            "error": "propagate_owned",
+        }}
+        result = check_owned_call_tree(HANDLE_WITH_CLEANUP_ERROR, {
+            "ok": {"body": tree, "output_carries_owned": True},
+            "error_with_value": {"body": tree, "output_carries_owned": True},
+        })
+        self.assertEqual(result.status, "ACCEPTED")
+        self.assertIn(("error_with_value", "caller_output_cleanup_debt"), result.terminal_owners)
+
+    def test_structured_conditional_with_incompatible_join_is_rejected(self):
+        tree = {"sequence": [
+            {"if": ["release", "transfer"]},
+            "release",
+        ]}
+        result = check_owned_call_tree(HANDLE_WITH_CLEANUP_ERROR, {
+            "ok": {"body": tree, "output_carries_owned": False},
+            "error_with_value": {"body": "release", "output_carries_owned": False},
+        })
+        self.assertEqual(result.status, "REJECTED")
+        self.assertTrue(any("OWNERSHIP_JOIN_MISMATCH" in finding for finding in result.findings))
+
+    def test_unsupported_structured_tree_fails_closed(self):
+        result = check_owned_call_tree(HANDLE_RESULT, {
+            "ok": {"body": {"loop": "unknown"}, "output_carries_owned": False},
+            "error": {"body": {"sequence": []}, "output_carries_owned": False},
+        })
+        self.assertEqual(result.status, "UNKNOWN")
 
 
 if __name__ == "__main__":

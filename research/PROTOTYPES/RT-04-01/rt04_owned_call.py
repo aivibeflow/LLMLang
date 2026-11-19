@@ -250,3 +250,78 @@ def check_owned_call_cfg(result_type: Any, outcome_cfgs: Any) -> CallCheck:
                     pending.append(target)
     return CallCheck("REJECTED" if findings else "ACCEPTED",
                      tuple(sorted(set(findings))), tuple(sorted(terminal_owners)))
+
+
+def check_owned_call_tree(result_type: Any, outcome_trees: Any) -> CallCheck:
+    """Lower a tiny structured ownership tree to CFGs, then check the result.
+
+    The research-only tree grammar is ``{"sequence": [nodes...]}``,
+    ``{"if": [then, else]}``,
+    ``{"release_attempt": {"ok": node, "error": node}}``, or one action
+    string (``release``, ``transfer``, ``propagate_owned``, ``ignore``,
+    ``duplicate``, ``use``). Each tagged outcome has ``body`` and
+    ``output_carries_owned`` fields. This is not LLMLang syntax; it tests
+    whether an explicitly supplied structured body can derive the CFG without
+    separately hand-authoring block IDs and edges.
+    """
+    if not isinstance(outcome_trees, dict) or not outcome_trees:
+        return CallCheck("UNKNOWN", ("UNKNOWN_OUTCOME_COVERAGE",), ())
+    trees: dict[str, dict[str, Any]] = {}
+    valid_actions = {"release", "transfer", "propagate_owned", "ignore", "duplicate", "use"}
+    counter = 0
+
+    def fresh() -> str:
+        nonlocal counter
+        counter += 1
+        return f"b{counter}"
+
+    def lower(node: Any, blocks: dict[str, dict[str, Any]], continuation: str | None) -> str:
+        if isinstance(node, dict) and set(node) == {"sequence"}:
+            items = node["sequence"]
+            if not isinstance(items, list):
+                raise ValueError("sequence must contain a list")
+            current = continuation
+            for item in reversed(items):
+                current = lower(item, blocks, current)
+            if current is None:
+                current = fresh()
+                blocks[current] = {"actions": [], "successors": []}
+            return current
+        if isinstance(node, dict) and set(node) == {"if"}:
+            arms = node["if"]
+            if not isinstance(arms, list) or len(arms) != 2:
+                raise ValueError("if requires then and else branches")
+            then_entry = lower(arms[0], blocks, continuation)
+            else_entry = lower(arms[1], blocks, continuation)
+            name = fresh()
+            blocks[name] = {"actions": [], "successors": [then_entry, else_entry]}
+            return name
+        if isinstance(node, dict) and set(node) == {"release_attempt"}:
+            arms = node["release_attempt"]
+            if not isinstance(arms, dict) or set(arms) != {"ok", "error"}:
+                raise ValueError("release_attempt requires ok and error branches")
+            ok_entry = lower(arms["ok"], blocks, continuation)
+            error_entry = lower(arms["error"], blocks, continuation)
+            name = fresh()
+            blocks[name] = {"actions": [], "release_attempt": True,
+                            "successors": {"ok": ok_entry, "error": error_entry}}
+            return name
+        if isinstance(node, str) and node in valid_actions:
+            name = fresh()
+            blocks[name] = {"actions": [node],
+                            "successors": [] if continuation is None else [continuation]}
+            return name
+        raise ValueError("unsupported ownership tree node")
+
+    for outcome, item in outcome_trees.items():
+        if (not isinstance(item, dict) or set(item) != {"body", "output_carries_owned"}
+                or type(item["output_carries_owned"]) is not bool):
+            return CallCheck("UNKNOWN", (f"UNKNOWN_TREE:{outcome}",), ())
+        blocks: dict[str, dict[str, Any]] = {}
+        try:
+            entry = lower(item["body"], blocks, None)
+        except ValueError:
+            return CallCheck("UNKNOWN", (f"UNKNOWN_TREE:{outcome}",), ())
+        trees[outcome] = {"entry": entry, "blocks": blocks,
+                          "output_carries_owned": item["output_carries_owned"]}
+    return check_owned_call_cfg(result_type, trees)
