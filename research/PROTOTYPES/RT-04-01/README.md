@@ -177,6 +177,14 @@ The path-model suite also exhausts a 72-case finite matrix: both boolean branch 
 
 This provides a different kind of cross-check from evaluator-vs-evaluator differential testing. It can expose shared control/unwind mistakes in both interpreters, but it is not a source-level control-flow extractor, does not prove that all source branches were represented, and does not model type correctness, actual effect outcomes, aliases, ownership transfer, concurrency, or arbitrary cleanup code.
 
+### Independent resource outcome rules
+
+`rt03_resource_rules.py` defines a separate outcome algebra for acquired resource scopes. It imports neither evaluator nor the structural path model. Given an outer-to-inner list of acquired scope frames and one body outcome (normal value, Result error, or cancellation), it derives the exact acquire/release event trace, final result envelope, and resources retained after failed release. An optional acquisition-failure position models the rule that a failed acquisition skips that scope's body and all inner scopes while already-acquired outer scopes still unwind.
+
+The rules distinguish two cleanup cases: a failed release after normal/Result completion becomes a `CleanupFailed` Result error (retaining a prior Result error as `primary`), while a failed release during cancellation is accumulated in LIFO order without converting cancellation into a Result error. Repeated outer cleanup failures wrap the already-produced inner cleanup error as the next `primary`.
+
+`test_rt03_resource_rules.py` checks exact event payloads/outcomes, result envelopes, and final resource maps against both evaluators and projects the result back to the independent path model. Its finite matrix covers depths one through three, every release-success/failure combination, normal/Result-error/cancellation body outcomes, and every possible acquisition-failure position: 144 cases. This is a bounded executable rule model, not a selected language ownership model or proof of arbitrary cleanup semantics.
+
 ### Conditional branching
 
 The bounded `if` expression evaluates a boolean condition and exactly one selected branch. A non-boolean condition is rejected. The small-step evaluator represents the condition result as a continuation, so cancellation while evaluating the condition still unwinds any enclosing resource scopes. Branches are concrete runtime paths in this prototype; the evaluator does not prove that all possible paths in a source program were discovered.
