@@ -122,7 +122,7 @@ No source-level rule is selected here. The following owner/debt table is a draft
 
 ## 10. Draft owner and cleanup-debt table
 
-This table assumes transfer-before-cleanup for rows that return a value and distinguishes a cleanup failure after an otherwise successful body from one combined with a domain error. It records the logical owner labels visible in the current fixture; it does **not** establish who operationally services a cleanup debt after a stack frame exits.
+This table assumes transfer-before-cleanup for rows that return a value and distinguishes a cleanup failure after an otherwise successful body from one combined with a domain error. It also inherits the prototype's abstract rule that a failed `release_attempt` leaves the resource live. It records the logical owner labels visible in that fixture; it does **not** establish that real resource APIs retain the resource after reporting an error, or who services a debt after a stack frame exits.
 
 | Outcome tag / condition | Owner of returned `T` at call boundary | Other outstanding resource obligation | Caller obligation | Status / unresolved point |
 |---|---|---|---|---|
@@ -150,3 +150,31 @@ This is a self-audit against the current models, not the independent human revie
 | Does the checker derive ownership from source branch patterns? | The caller tree is research-specific; RT-03 typed calls do not admit resource bindings, result matching, or release | No. Static acceptance of the supplied tree is not source-level proof |
 
 This audit narrows the next experiment: vary cleanup depth and failure positions while recording ordered error payloads and debt identities, then compare debt-carrier candidates. Keep `DomainAndCleanupFailed` and any generalized `C` encoding explicitly marked as unvalidated until those fixtures and independent review exist.
+
+## 12. Cleanup and fallible-finalization prior art
+
+Official language/runtime documentation presents several different cleanup contracts. These are comparison points, not evidence that LLMLang should copy any one model.
+
+| System | Documented contract | What it contributes to COR-13 | What it does not establish |
+|---|---|---|---|
+| Rust `Drop` | `Drop::drop(&mut self)` has no result value; the standard library advises destructors to clean up and return normally. `std::fs::File` documents that dropping ignores close errors; `sync_all` is an explicit fallible operation for errors that might otherwise only be caught when the file closes. | Separates implicit destruction from explicit fallible finalization, keeping cleanup reporting in an ordinary call result. | Does not give a generic typed carrier for an error after a resource has already been transferred, or for an outstanding cleanup obligation. [Rust `Drop`](https://doc.rust-lang.org/stable/core/ops/trait.Drop.html), [Rust `File`](https://doc.rust-lang.org/std/fs/struct.File.html) |
+| Go `defer` | Deferred calls run LIFO after result parameters are set but before return to the caller. A deferred function's return values are discarded; a closure may mutate named result parameters. | Shows cleanup can alter a pending result, while also making outcome composition depend on mutable named returns and explicit code in the deferred function. | Does not statically track owned payloads or automatically preserve a cleanup error; a returned cleanup error is discarded unless assigned into the named result. [Go specification: defer](https://go.dev/ref/spec#Defer_statements) |
+| Zig `defer` / `errdefer` | `defer` runs on block exit; `errdefer` runs only when the block exits with an error. The reference example frees a would-be returned allocation only on error, but leaves it alive on success; a return statement inside a defer expression is forbidden. | Provides a direct error-path rollback pattern and makes the cleanup scope explicit. | The cleanup expression cannot directly replace the enclosing function's result with its own returned error; it must handle or record cleanup failure locally. [Zig language reference: `defer`](https://ziglang.org/documentation/master/#defer), [`errdefer`](https://ziglang.org/documentation/master/#errdefer) |
+
+These mechanisms suggest two design axes that the current type sketches conflate: whether cleanup is automatic or explicitly invoked, and whether its failure changes the function outcome. A language could make implicit cleanup best-effort/infallible while offering an explicit `finish`/`close` operation with a fallible result; alternatively, it could let a scoped handler rewrite the outcome. Each choice still needs a resource-state rule for errors.
+
+## 13. Resource disposition on cleanup error
+
+The Boolean `release_results` input in the isolated ownership tree treats `False` as “release failed and the caller still owns a live resource.” That is valid only for a resource API whose contract promises retention on failure. It is not a portable default. The Linux `close(2)` documentation says the descriptor is released early, even when the call later reports an error; retrying can close a different descriptor after reuse. It also describes historical POSIX `EINTR` state ambiguity and a POSIX.1-2024 change whose behavior differs from Linux. Go's `os.File.Close` documents that the File becomes unusable when closed, while it returns an error. [Linux `close(2)`](https://man7.org/linux/man-pages/man2/close.2.html), [Go `os.File.Close`](https://pkg.go.dev/os#File.Close)
+
+This is a counterexample to a generic “release error preserves owner” rule. A failed cleanup operation may mean a still-live resource, a consumed/closed resource with a failed side effect such as pending I/O, or a platform-dependent/unknown disposition. Those states imply different safe caller actions: retrying, compensating/recovering, and propagating “unknown” cannot share one owned-value edge. This conclusion is an inference from the documented API behavior, not a LLMLang rule.
+
+| Disposition contract a resource API would need to declare | Owner after the operation reports failure | Safe next action shape | Treatment in the current prototype |
+|---|---|---|---|
+| `retained` | Caller/callee still owns a live resource | Retry or transfer only if the API permits it | Modeled by `release_attempt:error` |
+| `consumed` | No live resource handle remains, although the requested finalization/side effect failed | Report or compensate; do not retry close on the old handle | Not modeled; current checker would retain a phantom cleanup debt |
+| `indeterminate` | No ownership claim is proven | Query/reconcile through an API-specific token, or return `UNKNOWN`/terminal failure | Not modeled |
+
+`consumed` may itself need a cleanup-error payload and an obligation to repair data or notify the caller, but that obligation is not resource ownership. The name `cleanup_debt` should therefore not imply that the original handle remains valid. The current model should either be scoped to retained-on-error resource contracts or extended with an API disposition field before being used as generic resource evidence.
+
+The next finite discriminator should combine each disposition with body outcome (success/domain error), transfer timing (before/after finalization), cleanup depth and failure position, and caller policy (retry/recover/propagate). Require each path to preserve both the resource's actual liveness and the observable cleanup error; do not permit retry in `consumed` or `indeterminate` cases without an API rule. This also determines whether a generalized cleanup payload `C` carries resource debt, diagnostics, repair work, or an ordered aggregate of multiple cleanup failures.
