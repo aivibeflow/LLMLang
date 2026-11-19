@@ -891,6 +891,10 @@ These invariants guide every research and implementation stage:
 
 # 8. Immediate execution order
 
+The [Research State 2026-11-19](research/RESEARCH-STATE-2026-11-19.md) records the current evidence map and refines the immediate sequence below. Use it as the detailed, dated continuation register; the research gates remain provisional and do not select a language design. The register identifies five synthesis gates: source-level semantics and type/resource boundaries; identity and dependency completeness; evidence and backend preservation; workload and human/agent evaluation; and security and operational lifecycle.
+
+Current priority is to close the shared source-semantics gate around owned-resource calls, ordered effects, and recursion/budget semantics. Continue identity/import completeness and persistent authorization/sandbox work in parallel where independent. Then validate a narrow cross-profile executable slice with independent reference semantics and a second implementation/backend, record measured outcomes and unknowns in the option matrix, and defer integrated scoring or RFC decisions until compatibility results and workload-weight sensitivity are explicit. A scoped RFC may document unresolved areas if it labels them clearly.
+
 The next concrete work should follow this order, while respecting the dependency map:
 
 1. **Extend the now-passing Stage 2 Lean CI slice:** run 44175854422 passed pinned Lean 4.34.0 / Logos compilation and the complete current test step. The small expression-level preservation theorem is kernel-checked; next prove the actual canonical relational-query encoder's semantic correspondence and its binding to CPC assumptions. Do not claim a proof until CI passes without sorry.
