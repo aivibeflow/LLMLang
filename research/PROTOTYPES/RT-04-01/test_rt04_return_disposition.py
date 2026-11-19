@@ -22,7 +22,7 @@ class ReturnDispositionExperiment(unittest.TestCase):
             ("go_os_file_close", "error"): (
                 "consumed_error", "go_file_unusable", "platform-specific", False,
             ),
-            ("go_os_root_close_unix", "underlying-close-error-ignored"): (
+            ("go_os_root_close_openat", "underlying-close-error-ignored"): (
                 "ok", "root_marked_closed", "close-error-discarded", False,
             ),
             ("posix_closedir", "error"): (

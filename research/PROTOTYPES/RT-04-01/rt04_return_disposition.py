@@ -55,7 +55,7 @@ API_PROFILE_OUTCOMES = (
         "preserve Close error; recover separately",
     ),
     ApiProfileOutcome(
-        "go_os_root_close_unix", "underlying-close-error-ignored", "ok",
+        "go_os_root_close_openat", "underlying-close-error-ignored", "ok",
         "root_marked_closed", "close-error-discarded", False,
         "no close error reaches caller in this implementation",
     ),
