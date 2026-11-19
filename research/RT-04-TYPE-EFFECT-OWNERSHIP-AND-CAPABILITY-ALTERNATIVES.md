@@ -188,6 +188,8 @@ Contracts must answer whether authority is scoped to resource/path/tenant/proces
 
 Static checking may establish possession of a capability-typed value. Only the runtime/security boundary can establish whether it is currently authorized.
 
+[Scenario 38 — effects, capabilities, and authority](RESEARCH-SCENARIO-38-EFFECTS-CAPABILITIES-AND-AUTHORITY.md) compares Koka's “capability” terminology for a dynamically available effect handler with `cap-std` directory handles, F* cryptographic authorization tokens, and Wasmtime host imports. These examples make the distinction operational: effect bounds describe possible behavior, capabilities authorize scoped attempts, imports define runtime availability, and traces record realized actions. They are separate fields in the call and evidence contract; none is inferred from another without a stated checker/runtime guarantee.
+
 ## 6. Concurrency and memory-model alternatives
 
 | Vector | Model | Benefits | Costs / obligations |
