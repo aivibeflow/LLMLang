@@ -6,6 +6,8 @@
 
 [Scenario 77](RESEARCH-SCENARIO-77-CALL-ARGUMENT-EVALUATION-ORDER.md) compares general expression/call sequencing beyond Boolean short-circuiting: Rust's recursive left-to-right operand rule, Go's narrower event ordering, Java's left-to-right arguments and abrupt-completion behavior, and C++'s unspecified but non-interleaved parameter initialization. A shared trace/optimizer corpus remains open; no LLMLang order is selected.
 
+[Scenario 78](RESEARCH-SCENARIO-78-FLOATING-POINT-REPRODUCIBILITY-AND-IEEE-EDGES.md) expands Scenario 45's floating-point checklist into a prior-art comparison of IEEE special values, non-total NaN comparisons, NaN payload guarantees, FMA/rounding boundaries, and strict versus optimized execution. A cross-target bit corpus, transcendental accuracy contract, and proof alignment remain open; no LLMLang float profile is selected.
+
 Since the previous snapshot, [Scenario 58](RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md) compared Rust future construction/polling, Swift async function types/task APIs, and Go goroutine launch. The async type/effect, call-start policy, task creation, and scheduler are separate research axes; no LLMLang choice is selected. Runtime traces, blocking behavior, sync/async interop, and target parallelism remain open.
 
 [Scenario 59](RESEARCH-SCENARIO-59-BOOLEAN-SHORT-CIRCUIT-AND-EVALUATION-ORDER.md) now distinguishes intrinsic short-circuit operators (Rust/Go), Swift's standard autoclosure-backed Boolean operator, and partially specified general expression ordering. Effectful/error/diverging operands show why value-only algebra is insufficient to validate optimizer rewrites. An executable multi-compiler trace corpus remains open; no LLMLang policy is selected.
