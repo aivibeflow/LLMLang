@@ -289,3 +289,7 @@ Focused tests, including the real deadline case:
 ## Mutable predicate identity (Scenario 104)
 
 [`rt03_mutable_predicate_identity.py`](rt03_mutable_predicate_identity.py) compares two concrete initial states with three path formulas for sequential `if x`, `x := not x`, `if x`: one symbolic name reused across reads, independent state versions, and state versions tied by the update relation. Reusing the name prunes the two concrete routes; independent versions admit two extra routes; the explicit toggle relation matches the concrete route set. The exhaustive four-case comparison is in [`test_rt03_mutable_predicate_identity.py`](test_rt03_mutable_predicate_identity.py). Aliasing, calls, loops, and source extraction remain open.
+
+## Call mutation summaries (Scenario 105)
+
+[`rt03_call_mutation_summaries.py`](rt03_call_mutation_summaries.py) exhausts the pre-call/post-call Boolean state relation for complete pure, complete toggle, and may-write/unknown summaries. A complete summary yields the exact two-route set; incomplete effects conservatively allow all four state-pair routes. Reusing one symbolic name across an unknown call drops the crossed routes. Tests are in [`test_rt03_call_mutation_summaries.py`](test_rt03_call_mutation_summaries.py). These summaries are hand-authored; alias/call graph analysis and source binding are not implemented.
