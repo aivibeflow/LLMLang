@@ -37,9 +37,36 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
     """Enumerate all structural paths for the supported RT-03 control fragment.
 
     Unknown conditions fork into both branches. Literal boolean conditions select
-    one branch. A resource is released on normal/Result-error/cancelled body exit.
+    one branch. Repeated occurrences of the same unknown_bool marker reuse its
+    earlier choice on that path. A resource is released on
+    normal/Result-error/cancelled body exit.
     Failed release leaves it active and is reported without erasing cancellation.
     """
+    marker_by_path: dict[str, Any] = {}
+
+    def discover_markers(node: Any, path: str) -> None:
+        """Index direct symbolic conditions so repeated names stay correlated."""
+        if not isinstance(node, dict) or len(node) != 1:
+            return
+        op, arg = next(iter(node.items()))
+        if op == "if" and isinstance(arg, dict):
+            condition = arg.get("condition")
+            if isinstance(condition, dict) and set(condition) == {"unknown_bool"}:
+                marker_by_path[path] = condition["unknown_bool"]
+            if "then" in arg:
+                discover_markers(arg["then"], f"{path}.then")
+            if "else" in arg:
+                discover_markers(arg["else"], f"{path}.else")
+        elif op == "with_resource" and isinstance(arg, dict) and "body" in arg:
+            discover_markers(arg["body"], f"{path}.body")
+        elif op in {"result_ok", "result_error"}:
+            discover_markers(arg, f"{path}.{op}")
+        elif op in {"sequence", "result_sequence", "add"} and isinstance(arg, list):
+            for index, item in enumerate(arg):
+                discover_markers(item, f"{path}.{op}[{index}]")
+
+    discover_markers(expression, "$")
+
     def walk(node: Any, state: _State, path: str) -> list[_State]:
         if state.terminal == "cancelled":
             return [state]
@@ -120,7 +147,17 @@ def enumerate_paths(expression: Any) -> tuple[PathOutcome, ...]:
                 if condition_state.terminal == "cancelled":
                     outcomes.append(condition_state)
                     continue
-                choices = ((condition["literal"],),) if literal_bool else ((True,), (False,))
+                if literal_bool:
+                    choices = ((condition["literal"],),)
+                elif abstract_bool:
+                    marker = condition["unknown_bool"]
+                    prior = [
+                        choice for branch_path, choice in state.choices
+                        if marker_by_path.get(branch_path) == marker
+                    ]
+                    choices = ((prior[-1],),) if prior else ((True,), (False,))
+                else:
+                    choices = ((True,), (False,))
                 for (choice,) in choices:
                     selected = _State(
                         condition_state.active,
