@@ -71,6 +71,29 @@ API_PROFILE_OUTCOMES = (
     ),
 )
 
+DeferredErrorPolicy = Literal["discard", "overwrite", "preserve_primary", "join"]
+
+
+def apply_deferred_error_policy(
+    *, primary_error: str | None, cleanup_error: str | None,
+    policy: DeferredErrorPolicy,
+) -> tuple[str, ...]:
+    """Project Go-like deferred cleanup error-handling patterns.
+
+    This small comparison models only returned error visibility and ordering;
+    it does not model resource liveness or Go execution itself.
+    """
+    if policy not in ("discard", "overwrite", "preserve_primary", "join"):
+        raise ValueError("unsupported deferred error policy")
+    if policy == "discard":
+        return (primary_error,) if primary_error else ()
+    if policy == "overwrite":
+        return (cleanup_error,) if cleanup_error else ()
+    if policy == "preserve_primary":
+        error = primary_error or cleanup_error
+        return (error,) if error else ()
+    return tuple(error for error in (primary_error, cleanup_error) if error)
+
 
 def api_profile_outcome(profile: str, outcome: str) -> ApiProfileOutcome:
     """Return the audited mapping for a named profile/outcome pair."""

@@ -1,10 +1,42 @@
 import unittest
 from itertools import product
 
-from rt04_return_disposition import API_PROFILE_OUTCOMES, api_profile_outcome, run_return_disposition
+from rt04_return_disposition import (
+    API_PROFILE_OUTCOMES,
+    api_profile_outcome,
+    apply_deferred_error_policy,
+    run_return_disposition,
+)
 
 
 class ReturnDispositionExperiment(unittest.TestCase):
+    def test_deferred_cleanup_error_carrier_policies(self):
+        for policy, primary, cleanup in product(
+            ("discard", "overwrite", "preserve_primary", "join"),
+            (None, "body"), (None, "close"),
+        ):
+            with self.subTest(policy=policy, primary=primary, cleanup=cleanup):
+                if policy == "discard":
+                    expected = (primary,) if primary else ()
+                elif policy == "overwrite":
+                    chosen = cleanup
+                    expected = (chosen,) if chosen else ()
+                elif policy == "preserve_primary":
+                    chosen = primary or cleanup
+                    expected = (chosen,) if chosen else ()
+                else:
+                    expected = tuple(error for error in (primary, cleanup) if error)
+                self.assertEqual(
+                    apply_deferred_error_policy(
+                        primary_error=primary, cleanup_error=cleanup, policy=policy,
+                    ),
+                    expected,
+                )
+        with self.assertRaisesRegex(ValueError, "unsupported deferred"):
+            apply_deferred_error_policy(
+                primary_error=None, cleanup_error=None, policy="guess",
+            )
+
     def test_api_profiles_preserve_documented_liveness_and_retry_rules(self):
         expected = {
             ("abstract_retained", "error"): (
