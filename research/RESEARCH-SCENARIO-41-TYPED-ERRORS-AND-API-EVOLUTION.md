@@ -83,3 +83,20 @@ Next, extend the shared corpus with matched API evolution fixtures across calls,
 ## 6. References and limits
 
 The linked sources are official language or project documentation consulted 2026-11-19. Zig's `master` reference is moving; pin a release before relying on details. Swift typed throws is described by a language-evolution proposal implemented in Swift 6.0, with some originally proposed inference changes explicitly deferred. These are design comparisons, not compatibility experiments in LLMLang.
+
+## 7. Versioning policy for a public error contract
+
+Static error shape and compatibility policy are related but distinct. A language/library can expose a closed type and still reserve the right to extend it by requiring callers to handle unknown cases from the start.
+
+| Ecosystem mechanism | Policy before adding a new public error | Effect of adding a new error case/type |
+|---|---|---|
+| Rust `#[non_exhaustive]` | Downstream code must include a wildcard arm; only the defining crate can match exhaustively | Adding variants does not break downstream exhaustive matches because they were disallowed; adding this attribute later changes downstream usage and is a semver-major change per Cargo guidance |
+| Swift resilient enum | In library-evolution mode, non-`@frozen` public enums are compiled to tolerate member additions; clients use `@unknown default` to account for future cases | Adding a case can preserve ABI compatibility; marking the enum `@frozen` opts out and disallows adding, removing, or reordering cases without breaking ABI |
+| Java checked exception | Callers must catch or declare checked exceptions exposed by source signatures | JLS says changing `throws` clauses does not break existing binaries because checked only at compile time; adding a checked exception can require source callers to handle/redeclare it on recompilation |
+| Zig explicit error set | Error set is stated in the return type and callers can switch on known members | Extending the set changes the public return/error type and can require callers or function-pointer types to be updated |
+| Zig inferred error set | Error set is derived from implementation and transitive calls | A body/callee change can change inferred API type; inference is incompatible with recursion and can complicate function pointers and cross-target consistency |
+| Go `error` interface | Function type does not close the set; stable behavior is documented via wrapping/classification conventions | A new concrete error can preserve the signature, but callers only retain stable behavior if `errors.Is`/`As` classification contracts are documented and preserved |
+
+The table separates source compatibility, binary compatibility, and error-classification compatibility. “Binary compatible” does not mean old callers handle a newly thrown condition correctly; “open” does not mean callers have a reliable classification contract; and a wildcard fallback does not make a newly added condition semantically equivalent to prior cases.
+
+Sources: [Rust `non_exhaustive`](https://doc.rust-lang.org/std/attribute.non_exhaustive.html) and [Cargo SemVer guidance](https://doc.rust-lang.org/cargo/reference/semver.html); [Swift library evolution](https://www.swift.org/blog/library-evolution/) and [`@frozen`](https://docs.swift.org/latest/documentation/the-swift-programming-language/attributes/); [Java Language Specification §13.4.21](https://docs.oracle.com/en/java/javase/26/docs/specs/jls/jls-13.html); [Zig error sets](https://ziglang.org/documentation/master/#Error-Set-Type); [Go error wrapping](https://go.dev/blog/go1.13-errors).
