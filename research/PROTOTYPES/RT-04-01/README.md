@@ -293,3 +293,7 @@ Focused tests, including the real deadline case:
 ## Call mutation summaries (Scenario 105)
 
 [`rt03_call_mutation_summaries.py`](rt03_call_mutation_summaries.py) exhausts the pre-call/post-call Boolean state relation for complete pure, complete toggle, and may-write/unknown summaries. A complete summary yields the exact two-route set; incomplete effects conservatively allow all four state-pair routes. Reusing one symbolic name across an unknown call drops the crossed routes. Tests are in [`test_rt03_call_mutation_summaries.py`](test_rt03_call_mutation_summaries.py). These summaries are hand-authored; alias/call graph analysis and source binding are not implemented.
+
+## Field-sensitive call-site aliases (Scenario 106)
+
+[`rt03_alias_sensitive_call_paths.py`](rt03_alias_sensitive_call_paths.py) compares a call that toggles a referenced Boolean field under exact `flag`, exact disjoint `other`, may-alias, and unknown target sets. Exact target evidence preserves precise route sets; may-alias and incomplete sets union transitions, while incorrectly assuming no alias drops reachable routes. Five focused tests are in [`test_rt03_alias_sensitive_call_paths.py`](test_rt03_alias_sensitive_call_paths.py). This models a finite target relation, not a points-to analyzer.
