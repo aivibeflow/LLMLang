@@ -2,9 +2,6 @@ name: Repository structure
 
 on:
   workflow_call:
-  pull_request:
-  push:
-  workflow_dispatch:
 
 permissions:
   contents: read

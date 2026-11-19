@@ -2,8 +2,6 @@ name: Package index logical model
 
 on:
   workflow_call:
-  pull_request:
-  push:
 
 jobs:
   package-index:

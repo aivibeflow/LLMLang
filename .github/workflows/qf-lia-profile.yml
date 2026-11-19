@@ -2,9 +2,6 @@ name: Strict QF_LIA query profile
 
 on:
   workflow_call:
-  pull_request:
-  push:
-  workflow_dispatch:
 
 jobs:
   focused-tests:

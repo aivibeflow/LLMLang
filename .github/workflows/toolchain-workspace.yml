@@ -2,9 +2,6 @@ name: Toolchain workspace prototype
 
 on:
   workflow_call:
-  pull_request:
-  push:
-  workflow_dispatch:
 
 jobs:
   focused-tests:

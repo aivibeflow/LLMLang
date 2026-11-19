@@ -2,9 +2,6 @@ name: Logos CPC parser-state binding
 
 on:
   workflow_call:
-  pull_request:
-  push:
-  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-logos-binding-${{ github.ref }}

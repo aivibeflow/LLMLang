@@ -2,8 +2,6 @@ name: Package identity prototype
 
 on:
   workflow_call:
-  pull_request:
-  push:
 
 jobs:
   package-identity:

@@ -2,8 +2,6 @@ name: Semantic dependency extractor prototype
 
 on:
   workflow_call:
-  pull_request:
-  push:
 
 jobs:
   semantic-dependency-index:
