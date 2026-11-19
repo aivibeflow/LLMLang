@@ -75,7 +75,9 @@ Create a shared set of snippets and record the binding identity for every refere
 5. Test import aliases, re-exports, prelude/built-in shadowing, qualified names, and ambiguous candidates.
 6. For Go-like short declarations, test all-existing names, one new name, blank identifiers, differing types, and nested block behavior.
 7. For Python-like assignment classification, add a later assignment and compare an earlier read with and without that assignment; include `global`/`nonlocal` and class scope.
-8. Rename or move a declaration and compare the complete use graph, diagnostics, semantic identity, and incremental invalidation set.
+8. Capture loop variables in delayed closures/tasks, including per-loop versus per-iteration binding identity and language-version changes.
+9. Expand a macro that introduces a temporary and refers to a helper; test collisions with caller locals, repeated expansion, and renamed imports under hygienic and unhygienic expansion.
+10. Rename or move a declaration and compare the complete use graph, diagnostics, semantic identity, and incremental invalidation set.
 
 The experiment should distinguish source-order resolution from whole-block binding classification and runtime dictionary lookup; report parse tree, scope tree, namespace, declaration identity, and invalidated dependents.
 
@@ -87,13 +89,15 @@ The experiment should distinguish source-order resolution from whole-block bindi
 - Declaration-order-independent items simplify mutual references and module organization, while sequential locals make dataflow and uninitialized-use reasoning more direct.
 - Whole-block binding classification or runtime lookup complicates static dependency extraction, rename safety, and cache invalidation; the exact name-to-declaration edge must be part of semantic dependency records.
 - Prelude and implicit names reduce boilerplate but can change resolution across language/library versions. Explicit imports and qualified references improve provenance at a source-verbosity cost.
-- The compiler should offer a machine-readable resolution result (source span → stable declaration identity and namespace) if LLMLang's semantic graph and IDE refactoring are to share one name-resolution interpretation.
+- Loop capture policy determines whether closures share a mutable loop variable or capture a fresh per-iteration binding; the Go 1.22 transition demonstrates that this is a versioned semantic compatibility issue, not just a style concern.
+- Macro hygiene is a separate resolution dimension: generated identifiers may resolve at definition site, call site, or through syntax-context marks. Macro expansion and rename tools need explicit provenance for generated names.
+- The compiler should offer a machine-readable resolution result (source span → stable declaration identity, namespace, and expansion provenance) if LLMLang's semantic graph and IDE refactoring are to share one name-resolution interpretation.
 
 No LLMLang shadowing policy, namespace structure, prelude policy, or declaration-order rule is selected.
 
 ## 6. Next research and falsifiers
 
-Implement a minimal resolution model for sequential locals, block-hoisted items, imported names, separate type/value namespaces, and nested closures. Run the shared fixtures under at least two candidate profiles: (A) Rust-like shadowing with explicit namespaces and (B) Zig-like no-shadowing with one uniform local namespace; retain Go-style limited same-scope redeclaration as a separate vector. Measure source churn, collisions, diagnostic clarity, use-graph completeness, and invalidation precision on representative edits. Add a Python-style dynamic-lookup profile only if a dynamic namespace is a stated product requirement.
+Implement a minimal resolution model for sequential locals, block-hoisted items, imported names, separate type/value namespaces, nested closures, loop captures, and macro expansion provenance. Run the shared fixtures under at least two candidate profiles: (A) Rust-like shadowing with explicit namespaces and (B) Zig-like no-shadowing with one uniform local namespace; retain Go-style limited same-scope redeclaration as a separate vector. Measure source churn, collisions, diagnostic clarity, use-graph completeness, and invalidation precision on representative edits. Add a Python-style dynamic-lookup profile only if a dynamic namespace is a stated product requirement.
 
 The no-shadow vector is weakened if routine nested code accumulates awkward names or renames. The permissive vector is weakened if blind rename/refactor tasks frequently redirect references or require hidden namespace knowledge. Any profile is weakened if imports, prelude changes, or declaration-order edits produce dependencies not represented in the semantic graph.
 
