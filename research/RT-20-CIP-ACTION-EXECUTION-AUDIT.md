@@ -189,4 +189,6 @@ This work does not yet:
 
 ## 6. Immediate next implementation task
 
-Implement **AEA-1 only**: action IDs, prerequisite action IDs, canonical plan identity, and acyclic prerequisite validation. Do not combine AEA-1 with execution records or commit gating. Preserve the existing CIP v2 behavior until a versioned migration path and regression tests are in place.
+AEA-1 (action identity and prerequisite DAG) and the first AEA-2 slice (versioned action-kind/subject-kind compatibility) are implemented in CIP v4. AEA-2 is **not complete**: actions are not yet bound to the complete exact set of planned output and edge-change obligations. The remaining AEA-2 design and implementation contract is specified in [CIP Action-to-Obligation Coverage](RT-20-CIP-ACTION-OBLIGATION-COVERAGE.md).
+
+Implement that refinement before starting AEA-3. In particular, add canonical edge-change IDs, immutable action-to-output/edge bindings, role-labelled test-suite/candidate bindings, exact path-specific call-site decision bindings, and a closed obligation-satisfaction matrix. Do not infer obligation identity from rationale text or treat candidate-wide `FULL_REVALIDATION` as satisfying targeted work. Preserve the existing semantic-diff reconciliation and its independent responsibility.
