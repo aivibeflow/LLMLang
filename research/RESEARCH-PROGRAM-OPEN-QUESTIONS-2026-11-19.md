@@ -33,7 +33,7 @@ This inventory is the control sheet for the requested exhaustive research. It ma
 | LL-018 | P2 | POSIX concurrency | Language memory model, POSIX thread/signal/blocking behavior, Linux ordering, scheduling, interruption and environment-dependent semantics. |
 | LL-019 | P1 | Conformance / proofs | Feature-scoped POSIX conformance claims, optional and implementation-defined behavior, assumptions, unsupported cases and proof scope. |
 | LL-020 | P1 | LLVM backend | Initial/optional/replaceable role; supported IR subset and preservation contract for poison/UB, overflow, pointers, floats, atomics, ABI and optimization. |
-| LL-021 | P0 | Build/cache | Action DAG, exact Action Key inputs and closure, nondeterminism, cache layers, output/evidence identity, language/toolchain versions, remote trust and conservative UNKNOWN handling. |
+| LL-021 | P0 | Build/cache | Action DAG, exact Action Key inputs and closure, nondeterminism, cache layers, output/evidence identity, language/toolchain versions, remote trust and conservative UNKNOWN handling. Scenarios 92–93 refine the identity and reuse/trust boundaries; schema, prototype and falsification remain open. |
 | LL-022 | P1 | Package distribution | Manifest/index schemas, binary blocks/compression/sparse lookup, static versus provider-built archives, dependency closure and measured resource bounds. Prototype exists; format and adapter validation remain. |
 | LL-023 | P0 | Change planning | Complete caller/reference discovery, edge-specific migrate/preserve/adapt/fork, contract/hash propagation, shared-caller split, plan approval/revision and exact-tree commit gates. |
 | LL-024 | P0 | Toolchain Server | Transport-neutral API, durable snapshots/workspaces, Change Sets, storage/recovery, concurrency, filesystem/Git synchronization and authorization. This ID replaces the duplicate LL-022 label; wording and question are unchanged. |
@@ -95,5 +95,6 @@ Before writing the language RFC, each candidate vector needs: a precise claim; p
 ## 5. Progress recorded
 
 - [Scenario 92](RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md) compares interface contracts, operation identity, implementation bindings, execution action keys and output artifact hashes for LL-001/002/003/007/008/021. It leaves the OpHash meaning open.
+- [Scenario 93](RESEARCH-SCENARIO-93-CACHE-SOUNDNESS-RESULT-ENVELOPES-AND-TRUST.md) compares exact Action Result reuse with material-cache restoration and trust-domain controls for LL-021/RT-11/12/16. It leaves the result schema, validation policy, and trust model open.
 - [Scenario 91](RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md) compares digest migration prior art for LL-004/005; it leaves the canonical envelope and migration mechanism open.
 - Existing bounded prototypes and reports remain evidence at their documented scope. The open register still controls decisions; this work does not mark open questions resolved.
