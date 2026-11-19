@@ -1,8 +1,10 @@
 import LLMLangLogosBinding
+import SourceSyntax
 import RelationalSourceQuerySemantics
 import LogosQueryAdapter
 
 open LLMLang.LogosBinding
+open LLMLang.SourceSyntax
 
 def expectFailure (result : Except String α) : IO Unit := do
   match result with
@@ -10,6 +12,27 @@ def expectFailure (result : Except String α) : IO Unit := do
   | .ok _ => throw (IO.userError "expected fail-closed rejection")
 
 def main : IO Unit := do
+  IO.println "SCW-05: declaration context representation and identity lookup"
+  let inputId : VariableId := ⟨1⟩
+  let localId : VariableId := ⟨2⟩
+  let stateId : VariableId := ⟨3⟩
+  let inputDecl : Declaration :=
+    { id := inputId, sourceName := "factor", role := .input, sort := .int }
+  let localDecl : Declaration :=
+    { id := localId, sourceName := "counter", role := .local, sort := .int }
+  let stateDecl : Declaration :=
+    { id := stateId, sourceName := "enabled", role := .state, sort := .bool }
+  let sourceContext : DeclarationContext :=
+    ⟨[inputDecl, localDecl, stateDecl]⟩
+  if lookupDeclaration sourceContext inputId != some inputDecl then
+    throw (IO.userError "input declaration lookup failed")
+  if lookupDeclaration sourceContext localId != some localDecl then
+    throw (IO.userError "local declaration lookup failed")
+  if lookupDeclaration sourceContext stateId != some stateDecl then
+    throw (IO.userError "state declaration lookup failed")
+  if lookupDeclaration sourceContext ⟨99⟩ != none then
+    throw (IO.userError "unknown declaration identity unexpectedly resolved")
+  IO.println "SCW-05 declaration context tests passed"
   IO.println "test 1: parse single Int declaration"
   let proof :=
     "(declare-const x Int) " ++
