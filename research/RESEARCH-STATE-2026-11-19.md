@@ -86,6 +86,8 @@ The latest bounded type/semantics results include a counterexample: transfer-fir
 
 [Scenario 94](RESEARCH-SCENARIO-94-SCHEDULER-FAIRNESS-AND-LIVENESS.md) adds a prior-art comparison of conditional/runtime-specific scheduling fairness and keeps it distinct from protocol progress and task termination. [Scenario 95](RESEARCH-SCENARIO-95-DIAGNOSTICS-FOR-HUMANS-AND-AGENTS.md) extends the diagnostics work from Scenario 87 to structured diagnostic contracts, editor transport, repair proposals, and evidence-based human/agent evaluation. Both studies remain analytical: neither selects a language policy nor reports a new LLMLang prototype result.
 
+[Scenario 96](RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md) extends LL-020 with a source-to-IR preservation comparison: LLVM poison/UB promises must be justified by source semantics, while source wrapping, checked failure, and memory-bound rules require explicit lowering. The source-to-IR corpus and target validation remain unrun; LLVM's backend role is unselected.
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
