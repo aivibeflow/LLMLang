@@ -209,6 +209,8 @@ Candidate error representations include algebraic result types for expected doma
 
 Do not collapse domain error, precondition violation, cancellation, resource failure, unsupported operation, and internal fault into one generic exception. Define which outcomes are catchable, retryable, observable, or allowed across ABI boundaries.
 
+[Scenario 41 — typed errors and API evolution](RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md) compares explicit `Result`/error-set types and Swift typed throws with Go's open, wrapped error values. It makes caller exhaustiveness, deliberate type erasure, stable classification, and introducing a new failure case distinct compatibility questions. [Scenario 39](RESEARCH-SCENARIO-39-CLEANUP-FAILURE-AND-OWNERSHIP-TRANSFER.md) separately covers outcomes that must carry both error and owned value.
+
 Stateful operations describe pre-state assumptions, permitted transitions, post-state guarantees, and partial completion. Ownership and typestate constrain legal calls, but runtime contracts must cover state changed by external actors.
 
 ## 8. Cross-product with RT-03 profiles
