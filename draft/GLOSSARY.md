@@ -7,6 +7,14 @@ This glossary establishes names for concepts that must remain distinct in the la
 
 ## Core terms
 
+### Contract
+
+An immutable semantic value that specifies caller-observable behavior promised at a boundary. Depending on the semantic profile, it may constrain admissible inputs and initial states, outcomes, state transitions, effects, failures, termination/liveness, resource bounds, and concurrency observations. A Contract is a semantic object; a declaration that an operation or callee provides it is a binding/claim, not proof of conformance.
+
+### Contract Content Hash (generic `ContractHash`)
+
+The content identity of one exact immutable Contract value. This generic descriptive term is used by the RT-20 prototype for caller-required and callee-provided Contract references. It is not an alias for `OpHash` or `CCHash`, and the canonical hash envelope and domain separation remain open.
+
 ### Operation
 
 A semantically defined callable capability with an explicit interface and contract. An operation describes what a caller may rely on; it does not, by itself, identify the code that executes.
@@ -46,7 +54,7 @@ A conformance class is not merely a list of implementations currently known to a
 
 The content identity of a conformance class definition. It is computed from the canonical, typed definition of the class: its `OpHash`, constraints, and conformance criteria.
 
-A `CCHash` identifies the rule that determines membership in the class; it does not hash an enumeration of currently discovered implementations. Therefore, discovering another conforming implementation does not change the `CCHash`.
+A `CCHash` identifies the rule that determines membership in the class; it does not hash an enumeration of currently discovered implementations. It is not the hash of a Contract object alone: the class definition includes an exact `OpHash`, constraints, and conformance criteria. Therefore, discovering another conforming implementation does not change the `CCHash`.
 
 Changing the required operation semantics, target constraints, or conformance criteria creates a different conformance class and therefore a different `CCHash`.
 
@@ -72,7 +80,7 @@ Tests, proofs, refinement arguments, or other accepted evidence establishing tha
 
 ## Identity and substitution rules
 
-1. `OpHash`, `ImplHash`, and `CCHash` identify different kinds of objects and must never be used interchangeably.
+1. `ContractHash`, `OpHash`, `ImplHash`, and `CCHash` identify different kinds of objects and must never be used interchangeably.
 2. A direct implementation call or binding that pins a concrete implementation names its `ImplHash` explicitly.
 3. A call that names an `OpHash` specifies the required operation semantics. An implementation may serve that call only if it is established as conforming to the corresponding conformance class and applicable constraints.
 4. Contract-based search discovers candidates; it does not itself establish conformance and does not silently rewrite a pinned `ImplHash` or `OpHash`.
@@ -84,11 +92,16 @@ Tests, proofs, refinement arguments, or other accepted evidence establishing tha
 
 | Concept | Term | Hash / identity |
 |---|---|---|
+| One exact immutable Contract semantic value | Contract | Generic `ContractHash` |
 | One exact semantic operation version | Operation | `OpHash` |
 | One concrete implementation | Implementation | `ImplHash` |
 | The complete set defined by conformance to an operation under constraints | Conformance Class | `CCHash` |
 | A finite search result at a particular time | Candidate Implementation Set | Optional `CandidateSetHash` |
 | Evidence that one implementation belongs to one class | Conformance Evidence | Evidence identity, bound to `ImplHash` and `CCHash` |
+
+## RT-20 terminology boundary
+
+RT-20 stores the caller-required Contract hash at each call site and resolves the callee-provided Contract through the exact callee declaration. Those are generic Contract-object identities, not `CCHash` values. Exact Contract identity does not establish behavioral compatibility between distinct Contract versions. The proposed compatibility direction and evidence requirements are documented in [RT-20 Contract Identity and Compatibility](../research/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md).
 
 ## Open points
 

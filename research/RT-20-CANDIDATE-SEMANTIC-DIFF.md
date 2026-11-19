@@ -7,6 +7,8 @@
 
 ## Purpose
 
+**Contract terminology:** Caller-required Contract hashes are exact immutable Contract-object identities, not `CCHash` values. The callee-provided Contract remains resolved through the exact callee hash and is not duplicated in the CIP. This diff audits structural identity and decision bindings only; it does not establish behavioral compatibility or authenticate evidence. See [RT-20 Contract Identity and Compatibility](RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md).
+
 The selection-level diff introduced in PR #16 compared logical selections and explicit call-site targets against the supplied CIP. This extension closes several audit-binding gaps: the plan identity is recomputed, both baseline and candidate dependency graphs must pass structural audit, and the resulting diff is bound to both graph and edge-set digests.
 
 ## Implemented interface

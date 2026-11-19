@@ -8,7 +8,7 @@
 
 > This document records workflow requirements and a candidate algorithm derived from the RT-20 design discussion. It is a research proposal. It does not settle the canonical SPG schema, hash envelope, call-graph semantics, or commit policy, and it does not change the Proposed status of ADR-015.
 
-**Terminology dependency:** Consult the [Draft Glossary](../draft/GLOSSARY.md) whenever changing `hashId`, operation/callee identity, implementation selection, or conformance-based substitution. Keep `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and conformance-evidence identity distinct. RT-20's current function `hashId` is a workflow-level assumption and must be reconciled with the selected typed identity model; it must not silently redefine any glossary term. The glossary is proposed terminology, not an accepted hash schema.
+**Terminology dependency:** Consult the [Draft Glossary](../draft/GLOSSARY.md) and [RT-20 Contract Identity and Compatibility](RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md) whenever changing `hashId`, Contract/callee identity, operation identity, implementation selection, or conformance-based substitution. Keep generic Contract-object hashes distinct from `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and evidence identity. RT-20's current function `hashId` remains a workflow-level assumption; it must not silently redefine any glossary term. Neither document selects a canonical hash schema.
 
 ## 1. Summary
 
@@ -52,7 +52,13 @@ Implementation is permitted only after the plan is complete and approved. A sing
 
 ## 3. Identity and graph assumptions
 
-### 3.1 Immutable function versions
+### 3.1 Contract identity boundary
+
+The call-site `required_contract_hash` identifies the exact immutable Contract required by the caller. The callee's own `provides_contract` identifies the exact Contract it declares it provides. These are generic Contract-object hashes, not `CCHash` values and not automatically `OpHash` values. The provided Contract is resolved only through the exact callee hash; it is not duplicated in the caller, index edge, or CIP decision.
+
+Equal Contract hashes establish identity, not behavioral proof. Distinct Contract hashes require an explicit compatibility/refinement relation and trusted evidence. RT-20 currently records compatibility status/evidence identity but does not authenticate the evidence or prove refinement. See [RT-20 Contract Identity and Compatibility](RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md) for the reconciled terminology and proposed gate.
+
+### 3.2 Immutable function versions
 
 For this research, a function hashId identifies one exact immutable function version. Its hash-relevant content may include:
 - the function's own semantic definition and contract;
@@ -63,7 +69,7 @@ Changing a function in place is prohibited. A change creates a new version. An o
 
 The exact hash envelope, canonical serialization, and distinction between logical lineage IDs and version hash IDs remain open RT-05 questions. The workflow must not silently decide those questions.
 
-### 3.2 Two different propagation relations
+### 3.3 Two different propagation relations
 
 The workflow must distinguish two related but non-identical analyses.
 
@@ -79,7 +85,7 @@ A caller may therefore have:
 
 An unchanged contract does **not** imply an unchanged caller hash when one of its hash-relevant references changes.
 
-### 3.3 Call-site granularity
+### 3.4 Call-site granularity
 
 Compatibility decisions must be recorded per call site or typed reference edge, not merely per caller function. A single caller may invoke the same callee more than once, and different call sites may require different versions or adapters.
 

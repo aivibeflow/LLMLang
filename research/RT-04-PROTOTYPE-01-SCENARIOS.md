@@ -105,6 +105,40 @@ the set of effect labels but cannot represent repeated event occurrences,
 ordering, payloads, handler outcomes, or final state.
 
 
+## RT-03 independent path-model scenarios
+
+A separate structural model enumerates control paths without running either evaluator. An explicit `unknown_bool` analysis marker represents an unknown boolean and forks into both branches; a literal boolean selects one branch. A literal non-boolean condition is rejected rather than silently treated as unknown. Cancellation during condition evaluation selects neither branch. The model tracks resource acquire/release order and failed-cleanup leftovers.
+
+| ID | Case | Expected path-model behavior |
+|---|---|---|
+| RT3-PATH-01 | Unknown condition with two branches | Enumerate both branch paths |
+| RT3-PATH-02 | Nested unknown conditions | Enumerate the three reachable structural paths |
+| RT3-PATH-03 | Cancellation while evaluating condition | Produce one cancelled path and no branch choice |
+| RT3-PATH-04 | Nested resources with successful cleanup | Predict LIFO release on every path |
+| RT3-PATH-05 | Nested cleanup failures during cancellation | Preserve cancellation, report failures in unwind order, retain active resources |
+| RT3-PATH-06 | Result error in ordinary sequence | Continue structural evaluation; do not implicitly short-circuit |
+| RT3-PATH-07 | Result error in `result_sequence` | Stop enumerating later items |
+
+The path model is compared with both concrete evaluators for resource events and final active-resource sets. An exhaustive finite matrix covers 72 combinations of branch selection, two nested release outcomes, and selected/unselected normal, Result-error, and cancellation expressions. This is not a source-level path completeness proof.
+
+
+## RT-03 independent resource outcome-rule scenarios
+
+The separate outcome-algebra model derives exact resource lifecycle traces from a sequence of acquired outer-to-inner scope frames and a body outcome. It is compared against both evaluators and the structural path model.
+
+| ID | Case | Expected behavior |
+|---|---|---|
+| RT3-RULE-01 | Normal body; all releases succeed | Return body value; release all resources in LIFO order |
+| RT3-RULE-02 | Result error; all releases succeed | Preserve the original Result error |
+| RT3-RULE-03 | Result error; inner and outer releases fail | Nest cleanup failures, retaining each prior error as `primary` |
+| RT3-RULE-04 | Cancellation; multiple releases fail | Preserve cancellation and collect cleanup errors in LIFO order |
+| RT3-RULE-05 | Inner acquisition fails | Skip its body and inner scopes; unwind previously acquired outer scopes |
+| RT3-RULE-06 | Release fails after normal body | Produce a cleanup Result error and retain the resource |
+| RT3-RULE-07 | Depths one through three | Exhaust all release flags, three body outcomes, and acquisition-failure positions |
+
+The generated finite matrix contains 144 cases. It compares exact event payloads and outcomes, final result values, and final resource maps against both concrete evaluators; resource event/status projections are also compared with the independent path model. This remains a bounded model of the current fixture protocol, not a definition of borrowing, transfer, return, or arbitrary destructors.
+
+
 ## RT-03 branching and resource cleanup scenarios
 
 The `if` expression evaluates a boolean condition and exactly one branch. Resource scopes surrounding a branch must release their resources when the selected branch returns normally, produces a Result error, or cancels execution. These are concrete execution tests, not a proof of source-level path completeness.

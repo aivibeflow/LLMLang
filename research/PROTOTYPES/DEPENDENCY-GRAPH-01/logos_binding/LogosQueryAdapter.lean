@@ -31,49 +31,62 @@ def toLogosQueryTerm : {s : ExprSort} →
   | .bool, .iteBool c a b =>
       .iteBool (toLogosQueryTerm c) (toLogosQueryTerm a) (toLogosQueryTerm b)
 
-/-- Evaluate one Logos query term in the mathematical query environment. -/
-def evalLogosQuery {s : ExprSort}
-    (term : LLMLang.LogosBinding.QueryTerm s)
-    (env : SourceQuerySemantics.Env) :
-    SourceQuerySemantics.Value s :=
-  match term with
-  | .intLit n => .intValue n
-  | .boolLit b => .boolValue b
-  | .intSymbol name => env name .int
-  | .boolSymbol name => env name .bool
-  | .neg e => .intValue (-(asInt (evalLogosQuery e env)))
-  | .add a b =>
-      .intValue (asInt (evalLogosQuery a env) + asInt (evalLogosQuery b env))
-  | .sub a b =>
-      .intValue (asInt (evalLogosQuery a env) - asInt (evalLogosQuery b env))
-  | .mul a b =>
-      .intValue (asInt (evalLogosQuery a env) * asInt (evalLogosQuery b env))
-  | .not e => .boolValue (!(asBool (evalLogosQuery e env)))
-  | .eqInt a b =>
-      .boolValue (decide (asInt (evalLogosQuery a env) = asInt (evalLogosQuery b env)))
-  | .eqBool a b =>
-      .boolValue (decide (asBool (evalLogosQuery a env) = asBool (evalLogosQuery b env)))
-  | .lt a b =>
-      .boolValue (decide (asInt (evalLogosQuery a env) < asInt (evalLogosQuery b env)))
-  | .le a b =>
-      .boolValue (decide (asInt (evalLogosQuery a env) <= asInt (evalLogosQuery b env)))
-  | .and terms =>
-      .boolValue (terms.all fun item => asBool (evalLogosQuery item env))
-  | .or terms =>
-      .boolValue (terms.any fun item => asBool (evalLogosQuery item env))
-  | .iteInt condition yes no =>
-      if asBool (evalLogosQuery condition env) then
-        evalLogosQuery yes env
-      else
-        evalLogosQuery no env
-  | .iteBool condition yes no =>
-      if asBool (evalLogosQuery condition env) then
-        evalLogosQuery yes env
-      else
-        evalLogosQuery no env
-termination_by term => sizeOf term
-decreasing_by
-  all_goals simp_wf [sizeOf]
+mutual
+  /--
+  Evaluate a Logos query term. The mutually recursive list evaluator makes
+  Logos' n-ary Boolean operands explicit structural subterms: evaluating an
+  operator descends to its operand list, and evaluating the list descends to
+  each term and its tail. This avoids a non-structural recursive call hidden
+  inside List.all/List.any.
+  -/
+  def evalLogosQuery : {s : ExprSort} →
+      LLMLang.LogosBinding.QueryTerm s →
+      SourceQuerySemantics.Env →
+      SourceQuerySemantics.Value s
+    | .int, .intLit n, _ => .intValue n
+    | .bool, .boolLit b, _ => .boolValue b
+    | .int, .intSymbol name, env => env name .int
+    | .bool, .boolSymbol name, env => env name .bool
+    | .int, .neg e, env =>
+        .intValue (-(asInt (evalLogosQuery e env)))
+    | .int, .add a b, env =>
+        .intValue (asInt (evalLogosQuery a env) + asInt (evalLogosQuery b env))
+    | .int, .sub a b, env =>
+        .intValue (asInt (evalLogosQuery a env) - asInt (evalLogosQuery b env))
+    | .int, .mul a b, env =>
+        .intValue (asInt (evalLogosQuery a env) * asInt (evalLogosQuery b env))
+    | .bool, .not e, env =>
+        .boolValue (!(asBool (evalLogosQuery e env)))
+    | .bool, .eqInt a b, env =>
+        .boolValue (decide (asInt (evalLogosQuery a env) = asInt (evalLogosQuery b env)))
+    | .bool, .eqBool a b, env =>
+        .boolValue (decide (asBool (evalLogosQuery a env) = asBool (evalLogosQuery b env)))
+    | .bool, .lt a b, env =>
+        .boolValue (decide (asInt (evalLogosQuery a env) < asInt (evalLogosQuery b env)))
+    | .bool, .le a b, env =>
+        .boolValue (decide (asInt (evalLogosQuery a env) <= asInt (evalLogosQuery b env)))
+    | .bool, .and terms, env =>
+        .boolValue ((evalLogosQueryList terms env).all id)
+    | .bool, .or terms, env =>
+        .boolValue ((evalLogosQueryList terms env).any id)
+    | .int, .iteInt condition yes no, env =>
+        if asBool (evalLogosQuery condition env) then
+          evalLogosQuery yes env
+        else
+          evalLogosQuery no env
+    | .bool, .iteBool condition yes no, env =>
+        if asBool (evalLogosQuery condition env) then
+          evalLogosQuery yes env
+        else
+          evalLogosQuery no env
+
+  def evalLogosQueryList :
+      List (LLMLang.LogosBinding.QueryTerm .bool) →
+      SourceQuerySemantics.Env → List Bool
+    | [], _ => []
+    | term :: rest, env =>
+        asBool (evalLogosQuery term env) :: evalLogosQueryList rest env
+end
 
 /-- Evaluate a dependent pair of a sort and a Logos query term. -/
 def evalLogosQuerySigma
@@ -93,7 +106,7 @@ theorem toLogosQueryTerm_preserves_eval {s : ExprSort}
     evalLogosQuery (toLogosQueryTerm term) env =
       SourceQuerySemantics.evalQuery term env := by
   induction term <;>
-    simp_all [toLogosQueryTerm, evalLogosQuery,
-      SourceQuerySemantics.evalQuery, asInt, asBool]
+    simp_all [toLogosQueryTerm, evalLogosQuery, evalLogosQueryList,
+      SourceQuerySemantics.evalQuery, asInt, asBool] <;> rfl
 
 end LLMLang.LogosQueryAdapter

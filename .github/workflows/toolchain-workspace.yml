@@ -1,6 +1,7 @@
 name: Toolchain workspace prototype
 
 on:
+  workflow_call:
   push:
     paths:
       - "research/PROTOTYPES/TOOLCHAIN-SERVER-01/**"
