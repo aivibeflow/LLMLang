@@ -2,16 +2,8 @@ name: Strict QF_LIA query profile
 
 on:
   workflow_call:
-  push:
-    paths:
-      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/**"
-      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py"
-      - ".github/workflows/qf-lia-profile.yml"
   pull_request:
-    paths:
-      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/**"
-      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py"
-      - ".github/workflows/qf-lia-profile.yml"
+  push:
   workflow_dispatch:
 
 jobs:

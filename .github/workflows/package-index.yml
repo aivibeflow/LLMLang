@@ -2,16 +2,8 @@ name: Package index logical model
 
 on:
   workflow_call:
-  push:
-    paths:
-      - "research/PROTOTYPES/PACKAGE-INDEX-01/**"
-      - "research/PACKAGE-INDEX-LOGICAL-SCHEMA.md"
-      - ".github/workflows/package-index.yml"
   pull_request:
-    paths:
-      - "research/PROTOTYPES/PACKAGE-INDEX-01/**"
-      - "research/PACKAGE-INDEX-LOGICAL-SCHEMA.md"
-      - ".github/workflows/package-index.yml"
+  push:
 
 jobs:
   package-index:
