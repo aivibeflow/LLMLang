@@ -26,6 +26,8 @@
 
 [Scenario 87](RESEARCH-SCENARIO-87-ASYNC-AWAIT-PARSER-DIAGNOSTIC-CORPUS.md) turns Scenario86's parser/diagnostic gap into an 18-case proposed corpus for context boundaries, precedence, error-operator order, cleanup/critical regions, module goal, malformed syntax, recovery, and parse-versus-type diagnostics. The fixture schema and cases are designed, not executed; no LLMLang syntax or diagnostic wording is selected.
 
+[Scenario 88](RESEARCH-SCENARIO-88-DEFAULT-ARGUMENT-EVALUATION-AND-API-COMPATIBILITY.md) compares Swift, Kotlin, Python, and C++ defaults across evaluation epoch, argument ordering, name/source environment, and dispatch/version selection. It specifies nine discriminating cases for side effects, mutable defaults, failures, async/effects, and source/binary evolution; no LLMLang policy or implementation result is asserted.
+
 Since the previous snapshot, [Scenario 58](RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md) compared Rust future construction/polling, Swift async function types/task APIs, and Go goroutine launch. The async type/effect, call-start policy, task creation, and scheduler are separate research axes; no LLMLang choice is selected. Runtime traces, blocking behavior, sync/async interop, and target parallelism remain open.
 
 [Scenario 59](RESEARCH-SCENARIO-59-BOOLEAN-SHORT-CIRCUIT-AND-EVALUATION-ORDER.md) now distinguishes intrinsic short-circuit operators (Rust/Go), Swift's standard autoclosure-backed Boolean operator, and partially specified general expression ordering. Effectful/error/diverging operands show why value-only algebra is insufficient to validate optimizer rewrites. An executable multi-compiler trace corpus remains open; no LLMLang policy is selected.
