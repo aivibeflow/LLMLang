@@ -209,6 +209,8 @@ The follow-up [Scenario 98](../../RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.
 
 [Scenario 99](../../RESEARCH-SCENARIO-99-REPEATED-PATH-PREDICATES.md) extends the path model so repeated occurrences of the same `unknown_bool` marker reuse the earlier choice on that path. A two-branch sequential fixture therefore has two feasible paths (`TT`, `FF`) instead of the four independent-occurrence combinations. This fixture convention does not solve relationships between different predicates or establish source-level value identity.
 
+[Scenario 100](../../RESEARCH-SCENARIO-100-FINITE-BOOLEAN-PATH-FEASIBILITY.md) adds a separate exhaustive analyzer for a small pure Boolean predicate IR. Across all four assignments to `x` and `y`, the branches `x` then `x or y` have three feasible vectors (`TT`, `FT`, `FF`) and one infeasible vector (`TF`); both concrete evaluators and the existing path/resource model agree. The analyzer scales exponentially and is not an SMT solver or source-CFG extractor.
+
 ### Independent resource outcome rules
 
 `rt03_resource_rules.py` defines a separate outcome algebra for acquired resource scopes. It imports neither evaluator nor the structural path model. Given an outer-to-inner list of acquired scope frames and one body outcome (normal value, Result error, or cancellation), it derives the exact acquire/release event trace, final result envelope, and resources retained after failed release. An optional acquisition-failure position models the rule that a failed acquisition skips that scope's body and all inner scopes while already-acquired outer scopes still unwind.
