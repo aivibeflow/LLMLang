@@ -46,7 +46,7 @@ RT-04 declaration checkers produce a different observation: accepted, rejected, 
 
 | Candidate/profile | Executable coverage | Missing evidence before cross-profile score |
 |---|---|---|
-| RT-03 A — pure strict core | COR-01, explicit Result values/propagation, cancellation outcome, conditional selection, and strict scalar calls in COR-09 | Module semantics, recursion/divergence, integration of call semantics with Result and cleanup, and source-level type rules |
+| RT-03 A — pure strict core | COR-01, explicit Result values/propagation, cancellation outcome, conditional selection, and strict scalar calls in COR-09 | Module semantics, recursion/divergence and execution budgets ([Scenario 36](RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md)), integration of call semantics with Result and cleanup, and source-level type rules |
 | RT-03 D — effectful functional core | COR-01–COR-07 and scoped Int state handlers across typed calls in COR-10 | Handler-aware summaries, effect rows, general handler composition, failure recovery, environmental nondeterminism, and concurrency |
 | RT-03 B — imperative linear core | COR-09 executes private scalar locals with lexical lifetimes and ordered assignment | Aliasing, borrowing, definite assignment beyond initialized lexical cells, transfer, and cleanup across calls |
 | RT-03 C — isolated concurrent/actor core | COR-11 explores all enabled schedules of closed finite scripts, with trace replay and explicit failure policy | Typed protocols, selective receive, multiple receiver lifecycles, async cancellation and cleanup, fairness, liveness, and runtime correspondence |
