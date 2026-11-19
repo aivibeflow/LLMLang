@@ -24,6 +24,7 @@ class ApiProfileOutcome:
     outcome: str
     disposition: Disposition
     capability_state: str
+    underlying_state: str
     retry_allowed: bool
     error_obligation: str
 
@@ -31,24 +32,37 @@ class ApiProfileOutcome:
 API_PROFILE_OUTCOMES = (
     ApiProfileOutcome(
         "abstract_retained", "error", "retained_error", "live_owner",
-        True, "API-specific retry or transfer",
+        "live_resource", True, "API-specific retry or transfer",
     ),
     ApiProfileOutcome(
         "linux_close", "EIO/ENOSPC/EDQUOT/EINTR", "consumed_error",
-        "descriptor_released", False, "diagnose or recover I/O side effect",
+        "descriptor_released", "closed", False,
+        "diagnose or recover I/O side effect",
     ),
     ApiProfileOutcome(
         "linux_close", "EBADF", "indeterminate", "invalid_at_entry",
-        False, "report invalid-handle/API invariant violation",
+        "not_open_at_entry", False,
+        "report invalid-handle/API invariant violation",
     ),
     ApiProfileOutcome(
         "posix_2024_close", "EINTR", "indeterminate",
-        "open_or_closed_or_success", False,
+        "open_or_closed_or_success", "open_or_closed", False,
         "requires implementation/outcome-specific reconciliation",
     ),
     ApiProfileOutcome(
         "go_os_file_close", "error", "consumed_error",
-        "go_file_unusable", False, "preserve Close error; recover separately",
+        "go_file_unusable", "platform-specific", False,
+        "preserve Close error; recover separately",
+    ),
+    ApiProfileOutcome(
+        "posix_closedir", "error", "indeterminate",
+        "dir_stream_may_be_inaccessible", "descriptor-closed-if-used",
+        False, "inspect error; do not assume dirp remains usable",
+    ),
+    ApiProfileOutcome(
+        "posix_fclose", "error", "consumed_error",
+        "stdio_stream_disassociated", "underlying-close-error-contract",
+        False, "preserve stream error; recover data separately",
     ),
 )
 

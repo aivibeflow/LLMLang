@@ -7,25 +7,38 @@ from rt04_return_disposition import API_PROFILE_OUTCOMES, api_profile_outcome, r
 class ReturnDispositionExperiment(unittest.TestCase):
     def test_api_profiles_preserve_documented_liveness_and_retry_rules(self):
         expected = {
-            ("abstract_retained", "error"): ("retained_error", "live_owner", True),
-            ("linux_close", "EIO/ENOSPC/EDQUOT/EINTR"): (
-                "consumed_error", "descriptor_released", False,
+            ("abstract_retained", "error"): (
+                "retained_error", "live_owner", "live_resource", True,
             ),
-            ("linux_close", "EBADF"): ("indeterminate", "invalid_at_entry", False),
+            ("linux_close", "EIO/ENOSPC/EDQUOT/EINTR"): (
+                "consumed_error", "descriptor_released", "closed", False,
+            ),
+            ("linux_close", "EBADF"): (
+                "indeterminate", "invalid_at_entry", "not_open_at_entry", False,
+            ),
             ("posix_2024_close", "EINTR"): (
-                "indeterminate", "open_or_closed_or_success", False,
+                "indeterminate", "open_or_closed_or_success", "open_or_closed", False,
             ),
             ("go_os_file_close", "error"): (
-                "consumed_error", "go_file_unusable", False,
+                "consumed_error", "go_file_unusable", "platform-specific", False,
+            ),
+            ("posix_closedir", "error"): (
+                "indeterminate", "dir_stream_may_be_inaccessible",
+                "descriptor-closed-if-used", False,
+            ),
+            ("posix_fclose", "error"): (
+                "consumed_error", "stdio_stream_disassociated",
+                "underlying-close-error-contract", False,
             ),
         }
         self.assertEqual(len(API_PROFILE_OUTCOMES), len(expected))
-        for key, (disposition, state, retry) in expected.items():
+        for key, (disposition, state, underlying, retry) in expected.items():
             with self.subTest(profile=key):
                 item = api_profile_outcome(*key)
                 self.assertEqual(
-                    (item.disposition, item.capability_state, item.retry_allowed),
-                    (disposition, state, retry),
+                    (item.disposition, item.capability_state, item.underlying_state,
+                     item.retry_allowed),
+                    (disposition, state, underlying, retry),
                 )
                 self.assertTrue(item.error_obligation)
         with self.assertRaisesRegex(ValueError, "unsupported API profile"):
