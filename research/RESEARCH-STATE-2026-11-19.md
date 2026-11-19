@@ -22,6 +22,8 @@
 
 [Scenario 85](RESEARCH-SCENARIO-85-LOCAL-BINDING-DECLARATION-SYNTAX.md) compares local binding syntax and declaration-versus-assignment forms in Rust, Go, Swift, and Zig. This extends Scenarios 50, 67, 68, and 74 without selecting their scope, mutability, initialization, or pattern-failure semantics. A common same-scope redeclaration/destructuring/definite-initialization fixture remains open.
 
+[Scenario 86](RESEARCH-SCENARIO-86-ASYNC-AWAIT-SYNTAX-AND-CONTEXTS.md) isolates async/await grammar from Scenario58 runtime and scheduling choices. It compares marker placement, prefix/postfix await, closure/context boundaries, error-operator composition, and top-level module await across Rust, Swift, C#, and ECMAScript. Parser and diagnostic fixtures remain open; no syntax is selected.
+
 Since the previous snapshot, [Scenario 58](RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md) compared Rust future construction/polling, Swift async function types/task APIs, and Go goroutine launch. The async type/effect, call-start policy, task creation, and scheduler are separate research axes; no LLMLang choice is selected. Runtime traces, blocking behavior, sync/async interop, and target parallelism remain open.
 
 [Scenario 59](RESEARCH-SCENARIO-59-BOOLEAN-SHORT-CIRCUIT-AND-EVALUATION-ORDER.md) now distinguishes intrinsic short-circuit operators (Rust/Go), Swift's standard autoclosure-backed Boolean operator, and partially specified general expression ordering. Effectful/error/diverging operands show why value-only algebra is insufficient to validate optimizer rewrites. An executable multi-compiler trace corpus remains open; no LLMLang policy is selected.
