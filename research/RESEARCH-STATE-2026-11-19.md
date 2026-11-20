@@ -158,6 +158,12 @@ Scenario 129 shows two distinct premature-release cases after cancellation. Ackn
 
 Scenario 130 checks durable generation allocation and result lookup across process interruption. A shared transaction recovers the effect and result together. With separate commits, an empty terminal lookup can hide a committed effect or a still-live reservation. [Durable invocation results](RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md)
 
+Scenario 131 connects the source caller, two transfer rules, cleanup outcome types, and the next foreign role check. Two execution paths agree on 5,184 inputs. Erasing earlier roles on an error admits 1,020 conflicting proposals across the two rules. [Shared owned-result workload](RESEARCH-SCENARIO-131-SHARED-OWNED-RESULT-WORKLOAD.md)
+
+Scenario 132 type-checks the caller's result match and compares forwarding with a release on a known handle. It records additional admissions, cleanup effects, and ordered diagnostics across 20,736 inputs per fixture. [Typed caller recovery](RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md)
+
+Scenario 133 adds a pinned Rust backend experiment for the checked caller. All 125,952 native observations match the reference over two optimization levels, including a source change that retargets the second destination. This establishes correspondence for the fixed workload with modeled dispositions. [Generated Rust for owned results](RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
