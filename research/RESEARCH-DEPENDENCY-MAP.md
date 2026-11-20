@@ -50,6 +50,9 @@ flowchart TD
   EV[RT-18 Conformance and evolution]
   TS[RT-19 Toolchain Server and semantic development API]
   CP[RT-20 LLM patch planning and verified commit]
+  RW[RT-22 Repository and worktree MCP]
+  MW[RT-23 Shared multi-worktree Toolchain]
+  R24[RT-24 Canonical semantic representation, diff, and merge]
 
   G --> I
   G --> S
@@ -92,6 +95,14 @@ flowchart TD
   Q --> CP
   TS --> CP
   CP --> TS
+  S --> R24
+  P --> R24
+  D --> R24
+  V --> R24
+  TS --> R24
+  CP --> R24
+  RW --> R24
+  MW --> R24
   Q --> R
   Q --> L
   E --> EV
@@ -320,3 +331,21 @@ RT-23 separates immutable semantic development from regular-file Git isolation. 
 | DEP-075 | RT-11 → RT-23 | Influences | Incremental file identity, event journals, Git metadata, and bounded invalidation can reuse incremental computation principles, but filesystem freshness is distinct from build-cache validity. | Open hypothesis |
 | DEP-076 | RT-16 → RT-23 | Constrains | Shared process state, cross-worktree isolation, path containment, watcher input validation, and per-job grants constrain the multi-tenant server design. | Strong hypothesis |
 | DEP-077 | RT-23 → RT-21 | Enables | One shared Toolchain instance and semantic-only workflows reduce infrastructure duplication for LLMLang self-development while preserving isolated regular-file worktrees. | Open hypothesis |
+
+## 11. Canonical semantic representation, diff, and merge (RT-24)
+
+RT-24 is a research proposal, not an accepted SPG schema, identity model, canonical encoding, or merge policy. It depends on the source semantics and identity/dependency evidence, and must preserve the separate responsibilities of RT-20 caller/hash propagation and RT-22/RT-23 repository/worktree integration.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-078 | RT-03 → RT-24 | Requires | Canonical snapshots and semantic diff must represent source meaning, not incidental file layout; the supported semantic subset and observation boundary constrain normalization and merge equality. | Strong hypothesis |
+| DEP-079 | RT-05 → RT-24 | Requires | Semantic values, logical identity, occurrence/selection, and lineage must remain distinct; RT-24 cannot choose between Stable Entity ID and content-addressed values on its own. | Strong hypothesis |
+| DEP-080 | RT-06 → RT-24 | Requires | Complete dependency edges and reverse-impact information are needed to validate repository-wide snapshots, classify semantic changes, and detect unsafe partial merges. | Strong hypothesis |
+| DEP-081 | RT-15 → RT-24 | Constrains | Git branch ancestry and repository merge inputs constrain base/ours/theirs acquisition, but Git file-level merge is not a substitute for semantic three-way merge. | Strong hypothesis |
+| DEP-082 | RT-19 → RT-24 | Enables | The semantic development API and durable snapshot/object services provide the operations and storage boundary needed to expose semantic import, diff, merge, and evidence. | Strong hypothesis |
+| DEP-083 | RT-20 → RT-24 | Requires | Caller migration, hash propagation, and complete impact-plan decisions must be mandatory merge gates; stale or incomplete CIP evidence must fail closed. | Strong hypothesis |
+| DEP-084 | RT-22 → RT-24 | Influences | Repository/worktree operations determine how exact Git trees, external edits, and commit candidates are acquired and reconciled with semantic state. | Strong hypothesis |
+| DEP-085 | RT-23 → RT-24 | Enables | A shared Toolchain and synchronized multi-worktree File Views provide a coherent integration point for semantic snapshots, merge candidates, and commit/recovery evidence. | Strong hypothesis |
+
+These edges are research hypotheses derived from the current RT-24 candidate contract and its stated dependencies. They do not make RT-24's proposed representation or algorithm normative. Revisit them if the RT-24 scope or the immutable-component/single-toolchain boundary changes.
+
