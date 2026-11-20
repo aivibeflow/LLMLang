@@ -81,6 +81,24 @@ Three explicit cases were recorded in the inventory; none supersedes its whole d
 
 **Result:** three section-level cases are explicit; no entire document was marked superseded. This is not a complete semantic duplicate/orphan/contradiction audit.
 
+### 2.8 Reproducibility instructions and CI coverage
+
+The prototype READMEs and workflow definitions provide reproducibility instructions for the principal executable slices:
+
+| CI suite | Pinned environment | Executed scope |
+|---|---|---|
+| Logos binding | Lean 4.34.0 | Lake build and `Main.lean` parser/source-query tests |
+| Package identity | Python 3.11 | Unit-test discovery and byte-compilation |
+| Package index | Python 3.11 | Unit-test discovery, byte-compilation, and provider benchmark at sizes 1,000 and 5,000 |
+| QF_LIA profile | Python 3.12 | Compile Dependency Graph source/tests and run `test_qf_lia_profile.py` |
+| Repository structure | Python 3.12 plus pinned `mpmath==1.3.0` and `sympy==1.14.0` | Repository-structure checks and the RT-04-01 test suite |
+| Semantic dependency index | Python 3.11 | Selected identity, impact-planning, semantic-index, call-site, validation, and diff tests |
+| Toolchain workspace | Python 3.12 | Compile Toolchain Server prototype and run `test_toolchain.py` |
+
+The CI configuration is a reproducibility aid, not proof that every research artifact is covered. In particular, the Semantic Dependency Index workflow selects a subset of the Dependency Graph tests; the CLI workload and LLVM preservation prototypes have no dedicated job in the current `ci-required` workflow. Scenario reports also describe additional one-off commands and native-tool observations that are not all repeated by CI.
+
+At the time of this audit update, the current PR's required CI run is still in progress; only completed job results should be treated as execution evidence. No claim is made here that all 120 individually mapped prototype-family artifacts, all 229 files under `research/PROTOTYPES/`, or all scenario experiments have been executed in this run.
+
 ### 2.7 Exact blob comparison
 
 Git blob SHA comparison across the 450 inventory entries found one repeated blob:
