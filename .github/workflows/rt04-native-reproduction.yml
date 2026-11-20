@@ -15,7 +15,7 @@ permissions:
 jobs:
   native-reproduction:
     name: native-reproduction
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 45
     steps:
       - name: Check out repository
@@ -31,20 +31,24 @@ jobs:
         with:
           toolchain: "1.85.1"
 
-      - name: Build the pinned SQLite C library
+      - name: Install the distribution SQLite library used by the scenarios
         shell: bash
         run: |
           set -euo pipefail
-          cd "$RUNNER_TEMP"
-          curl --fail --location --silent --show-error \
-            https://www.sqlite.org/2024/sqlite-autoconf-3460100.tar.gz \
-            --output sqlite-autoconf-3460100.tar.gz
-          tar -xzf sqlite-autoconf-3460100.tar.gz
-          cd sqlite-autoconf-3460100
-          ./configure --prefix="$RUNNER_TEMP/sqlite-3.46.1" --enable-shared --disable-static
-          make -j2
-          make install
-          echo "LLMLANG_SQLITE_LIBRARY=$RUNNER_TEMP/sqlite-3.46.1/lib/libsqlite3.so" >> "$GITHUB_ENV"
+          sudo apt-get update
+          sudo apt-get install -y libsqlite3-0
+          library="$(ldconfig -p | awk '$1 == "libsqlite3.so.0" { print $NF; exit }')"
+          test -n "$library"
+          echo "LLMLANG_SQLITE_LIBRARY=$library" >> "$GITHUB_ENV"
+          python - <<'PY'
+          import ctypes
+          import os
+          library = ctypes.CDLL(os.environ.get("LLMLANG_SQLITE_LIBRARY", ""))
+          library.sqlite3_libversion.restype = ctypes.c_char_p
+          library.sqlite3_sourceid.restype = ctypes.c_char_p
+          print("SQLite", library.sqlite3_libversion().decode())
+          print("source ID:", library.sqlite3_sourceid().decode())
+          PY
 
       - name: Run native SQLite and Rust experiments
         run: |

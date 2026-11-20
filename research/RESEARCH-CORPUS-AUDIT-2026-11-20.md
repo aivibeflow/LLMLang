@@ -152,6 +152,13 @@ A second bounded pass cross-checked the scenario claims, named test modules, nat
 
 **Audit result:** the corpus has layered evidence: finite model/test evidence, selected native SQLite observations, and one generated-Rust conformance report. The layers are linked but not equivalent. Native probes and Rust compilation remain manual, version-pinned evidence until a reproducible CI or captured-run protocol executes them. The next useful action is to make those commands reproducible in a controlled environment and retain machine-readable outputs; do not promote model-only cases to native guarantees.
 
+
+### 2.11 Native reproduction preflight — SQLite packaging identity
+
+The first execution of the new native workflow built upstream SQLite 3.46.1 from the official autoconf archive. The library reported source ID `2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69a1e33`, while Scenarios 120–128 record the distribution build source ID ending `alt1`. The version number alone was therefore insufficient to claim an exact environment match. The runner correctly skipped all eight C-API probes; the durable-receipt probe and generated-Rust comparison both passed. The output artifact was uploaded as [run 44770125449](https://github.com/aivibeflow/LLMLang/actions/runs/44770125449).
+
+The workflow has been changed to use the Ubuntu 26.04 distribution SQLite package, with the same exact source-ID preflight retained. This change is a hypothesis about obtaining the historical distribution build, not a verified result. The next run must confirm the package's source ID before any C-API probe can be counted as reproduced.
+
 ## 3. Findings and actions
 
 | ID | Finding | Action / status |
@@ -167,7 +174,7 @@ A second bounded pass cross-checked the scenario claims, named test modules, nat
 | RCA-09 | All 104 files in `PROTOTYPES/RT-04-01/` previously inherited RT-04 traceability from the directory name, although their contents include RT-03-only and cross-profile artifacts. | Replaced path inference with individual content-based role mappings: 39 RT-03-only, 59 RT-04-only, and 6 shared; exact shared files and method are recorded in the semantic traceability report. |
 | RCA-10 | Five prototype-tree files remained at family-level mapping only (two RT-16 authorization and three RT-19 Toolchain Server artifacts). | Individually reviewed their purpose and paired test/document relationships; all 240/240 prototype-tree files now have first-pass role mappings. |
 | RCA-11 | Bounded path-feasibility experiments have a solver integration boundary: the raw SymPy adapter prunes UNSAT directly, while the conservative evidence mapper is separate; Scenario 102 also reports seven focused tests although its current test file contains eight methods. | Recorded both as open evidence-audit findings; do not treat the raw adapter as a safe may-analysis interface or the test count as reconciled until the code/report revision is pinned. |
-| RCA-12 | SQLite native probes and the generated-Rust execution are described as evidence, but the Required CI workflow only discovers Python test_*.py files and does not invoke those native probe commands. | Added a separate manual, version-pinned RT-04 Native Reproduction workflow and output manifest. It has not yet been executed; preserve the distinction from Required CI and compare its captured outputs with the scenario reports before marking native evidence reproduced. |
+| RCA-12 | SQLite native probes and the generated-Rust execution are described as evidence, but the Required CI workflow only discovers Python test_*.py files and does not invoke those native probe commands. | Added a separate RT-04 Native Reproduction workflow and output manifest. Its first run passed durable-receipt and generated-Rust probes but correctly rejected the upstream SQLite build because its source ID differs from the scenario baseline; a distro-package retry is pending. |
 | RCA-13 | The three tests for Scenario 133 exercise Rust code generation and rejection behavior without invoking rustc; the native 125,952-comparison claim is a separate manual command. | The separate manual workflow now invokes the native runner with Rust 1.85.1 and captures stdout/stderr. Its first run is still pending; generator CI and native Rust conformance remain separate evidence levels.
 
 ## 4. Reconciliation rules

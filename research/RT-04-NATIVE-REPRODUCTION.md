@@ -14,7 +14,7 @@ A passing layer does not imply that another layer ran. The native workflow is de
 
 ## Reproduction entry point
 
-Run **Actions → RT-04 Native Reproduction → Run workflow** on the target revision. The workflow uses Ubuntu 24.04, Python 3.12.14, Rust 1.85.1, and builds SQLite 3.46.1 from the official autoconf source archive. Before running the C-API probes, the runner checks both SQLite's version and the exact source ID recorded by Scenarios 120–128. The C library is selected explicitly through `LLMLANG_SQLITE_LIBRARY`, rather than relying on whichever shared library happens to be found first.
+Run **Actions → RT-04 Native Reproduction → Run workflow** on the target revision, or let the workflow run automatically on a pull request that changes the RT-04-01 prototype tree or this protocol. The workflow uses Ubuntu 26.04, Python 3.12.14, and Rust 1.85.1. It installs the distribution `libsqlite3-0` package rather than compiling the upstream SQLite archive: the scenario reports record the distribution build's `alt1` source ID, which is different from the upstream 3.46.1 autoconf archive even though the version number is identical. Before running the C-API probes, the runner checks both SQLite's version and the exact source ID recorded by Scenarios 120–128. The C library is selected explicitly through `LLMLANG_SQLITE_LIBRARY`, rather than relying on whichever shared library happens to be found first.
 
 The workflow invokes the following commands:
 
@@ -44,6 +44,8 @@ The runner's command inventory is checked by `test_rt04_native_probe_runner.py`,
 - exact command, exit status, timeout status, and output-file names.
 
 The runner requires the C SQLite source ID used by Scenarios 120–128 and Rust 1.85.1. Scenario 130's historical report used Python `sqlite3` 3.53.1; the runner records the current Python runtime version and explicitly marks whether it matches that historical baseline. A different version is a new native observation, not an exact reproduction of the historical run.
+
+The first attempt on Ubuntu 24.04 built upstream SQLite 3.46.1 and correctly rejected it: the library reported source ID ending `a1e33`, while the scenario reports pin the distribution build ending `alt1`. The C-API probes were skipped; the durable-receipt and Rust probes still passed. This is an environment mismatch, not a behavioral counterexample. The workflow now selects the Ubuntu 26.04 distribution library and retains the exact source-ID preflight; it must still prove that this package matches the recorded `alt1` build before the C-API probes can run.
 
 The workflow uploads all captured output as a 30-day Actions artifact, including partial output when a command fails. A successful workflow means every listed command completed successfully under the recorded environment; it does not prove general LLMLang semantics, source-to-CFG completeness, untested FFI contracts, or behavior on other platforms.
 
