@@ -2,17 +2,17 @@
   "schema_version": 1,
   "generated_at": "2026-11-20",
   "repository": "aivibeflow/LLMLang",
-  "revision": "a7ab59c530ecb0bfaead20f1aa2498fd7506785b",
-  "source": "Recursive Git tree at reviewed RT-00 RT-04-01 evidence snapshot a7ab59c530ecb0bfaead20f1aa2498fd7506785b, based on main 05602dc32f7ced24fba0111dc643ade42029f210; inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "3b087952675e51e566cfa90ef8037cc3ac1c2e32",
+  "source": "Recursive Git tree at reviewed RT-00 Dependency Graph evidence snapshot 3b087952675e51e566cfa90ef8037cc3ac1c2e32, based on main e2aa15b8006659f6d256aa61fd294911aa73c21f; inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
-    "research_files": 470,
-    "markdown_files": 239,
+    "research_files": 471,
+    "markdown_files": 240,
     "python_files": 197,
     "scenario_named_documents": 136,
     "prototype_tree_files": 243,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "audit-or-review-report": 5,
+      "audit-or-review-report": 6,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 1,
       "external-source-snapshot-or-license": 13,
@@ -33,7 +33,7 @@
     "taxonomy_research_areas": 24,
     "dependency_edges": 94
   },
-  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks, individual role mappings for all 243 prototype-tree files, a first-pass relationship review of all 136 scenario-named reports, and a bounded RT-04-01 implementation/test/workflow/evidence graph review. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide semantic duplicate/orphan/contradiction analysis remains open.",
+  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks, individual role mappings for all 243 prototype-tree files, a first-pass relationship review of all 136 scenario-named reports, and bounded evidence-graph reviews for RT-04-01 and the Dependency Graph/Logos Lean family. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide semantic duplicate/orphan/contradiction analysis remains open.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 98,
@@ -1254,8 +1254,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-04-MODULE-BOUNDARY-AUDIT.md",
-      "git_blob_sha": "d3e8b68c2cfa58f3ef34536a0e0bf2c399cf1028",
-      "size_bytes": 2893,
+      "git_blob_sha": "d0953b872cf1344532ff6e7cf6a724401505dc6c",
+      "size_bytes": 4902,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -1301,8 +1301,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-05-DECLARATION-CONTEXT-BREAKDOWN.md",
-      "git_blob_sha": "8f2c44c4da6f1caf36ccde9e45d593bc383cfa8d",
-      "size_bytes": 3002,
+      "git_blob_sha": "7422e4c06321b5f03f6c88528f0417990cdc5b72",
+      "size_bytes": 4118,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -2233,8 +2233,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md",
-      "git_blob_sha": "df94aa0f921cedf82a006531b8358d603f1834ef",
-      "size_bytes": 30827,
+      "git_blob_sha": "e7e9cc128b1cb66ad9b2635afb96258da3a786d0",
+      "size_bytes": 34000,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -8400,8 +8400,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
-      "git_blob_sha": "2f969818bb8b670fe49d7a29fa4fcf836f0223e6",
-      "size_bytes": 111400,
+      "git_blob_sha": "d465f38643c1a68934275451ef0d3d85247e6b92",
+      "size_bytes": 112530,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -8417,6 +8417,26 @@
       "plan_stages": [
         0
       ]
+    },
+    {
+      "path": "research/RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-DEPENDENCY-GRAPH-01-2026-11-20.md",
+      "git_blob_sha": "fbc22401c6579efaadba4ceece2b36a332f9ed7f",
+      "size_bytes": 8388,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1 — research corpus inventory"
+        ],
+        "method": "Dependency Graph/Logos Lean source/test/workflow evidence graph review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Reconciles current source imports and CI with historical SCW-04/05 records; does not validate the complete 103-file family graph or close Scenario 34's remaining proof obligations."
+      }
     },
     {
       "path": "research/RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md",
@@ -8460,8 +8480,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
-      "git_blob_sha": "18fadf991de8830691e9781d10cf1a198151f7cc",
-      "size_bytes": 68651,
+      "git_blob_sha": "4078b05407b70a328ebf9f7925e6fcd013541dbf",
+      "size_bytes": 69711,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -10467,8 +10487,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-      "git_blob_sha": "aea4444e95028a0665ff391d95116ec93aca7702",
-      "size_bytes": 33921,
+      "git_blob_sha": "9ca252b27f88202b263e9ab1294562548ce4342b",
+      "size_bytes": 34327,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
