@@ -71,6 +71,7 @@ This inventory is the control sheet for the requested exhaustive research. It ma
 | RT-21 Self-development | Bootstrap boundary, minimum self-hosting profile and staged migration have preliminary analysis only. |
 | RT-22 Repository/worktrees | Durable repository/worktree operations, recovery and workflow authorization need end-to-end validation. |
 | RT-23 Multi-worktree server | Shared semantic store versus per-worktree mappings, event reconciliation, race/recovery behavior and resource bounds need prototype validation. |
+| RT-24 Canonical semantic representation, diff, and merge | Deterministic semantic snapshots, typed diff, identity/lineage boundaries, and three-way merge remain a non-normative research proposal; schema, canonical bytes/hash, and merge policy are unresolved. |
 
 The taxonomy is a coverage map rather than 23 independent decisions. Research should follow the dependency map: semantic observation and type/resource rules constrain identity, evidence, compiler/runtime behavior, cache keys, merge and security.
 
