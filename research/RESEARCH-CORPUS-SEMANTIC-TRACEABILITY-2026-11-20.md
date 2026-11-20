@@ -216,7 +216,17 @@ The four licence files plus the preparation index, reference index, and snapshot
 
 Three documents explicitly identify themselves as **RT-24**. The taxonomy now includes RT-24 as its 24th research area, with links to all three documents. The dependency map adds eight candidate edges, DEP-078–DEP-085, to the existing RT-03/05/06/15/19/20/22/23 areas. The row and edges are explicitly provisional: the RT-24 proposal does not select a canonical SPG schema, identity model, byte encoding, hash envelope, or merge policy. Scenario 91's RT-24 reference now resolves through the taxonomy.
 
-## 7. Remaining traceability gaps
+## 7. Known section-level supersession cases
+
+The initial semantic search found three explicit, scoped supersession cases. None requires deleting the whole source document:
+
+1. **Scenario 31:** its first text-based query representation is superseded by the typed canonical query IR v2 documented in Scenario 32. Scenario 31's strict QF_LIA profile and prior-art comparison remain relevant.
+2. **Scenario 32:** §9's parser-state bridge sketch is superseded by the compiled implementation under `PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`. The typed query IR specification remains relevant; the current tests are not exhaustive over the full accepted CPC grammar.
+3. **GIT-SEMANTIC-REPOSITORY:** the embedded ADR-0001 proposal that made external KV the authoritative semantic store is historical and superseded by Proposed ADR-014 plus `GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md`. The surrounding research and alternatives remain useful background.
+
+The inventory records these as section-level supersession metadata. No entire document was marked superseded in this pass. A corpus-wide near-duplicate, orphan, and contradiction review is still open.
+
+## 8. Remaining traceability gaps
 
 The mapping is intentionally incomplete in these areas:
 
@@ -225,8 +235,8 @@ The mapping is intentionally incomplete in these areas:
 3. RT-24 remains a candidate research proposal; registration does not accept its schema, identity model, canonical encoding, hash envelope, or merge policy.
 4. Seven provenance/navigation files remain Stage 0-only by design; their purpose is corpus navigation and source attribution, not a missing domain classification.
 5. Scenario 58's RT-16 runtime label conflicts with the taxonomy's RT-16 security/trust definition; RT-10 is the runtime area.
-6. No full semantic duplicate, supersession, orphan, contradiction, or per-experiment reproducibility audit has been completed.
+6. Three explicit section-level supersession cases are now recorded; no whole document was marked superseded. The corpus-wide semantic duplicate/orphan/contradiction and per-experiment reproducibility audits remain incomplete.
 
-## 8. Conclusion
+## 9. Conclusion
 
 The first-pass triage resolves all 36 previous low-confidence root-level mappings. All 136 scenario reports have candidate RT mappings; all 120 prototype-family artifacts have individual file-role mappings; and nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered, but its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 450 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/supersession/orphan/contradiction analysis, and the RT-24 taxonomy decision remain open.
