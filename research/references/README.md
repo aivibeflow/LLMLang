@@ -20,7 +20,7 @@ The files under `snapshots/` are verbatim source snapshots retrieved from the up
 - MCP: the copied root `LICENSE` file records the project's licensing transition. It states that new specification contributions are under Apache-2.0, while non-specification documentation contributions are under CC-BY-4.0. The snapshots in this group are specification material. Preserve the upstream file when copying or redistributing them.
 - OCI and Bazel Remote Execution API: Apache License 2.0; the upstream licence text is included alongside the snapshots.
 - Alive2: MIT License; the upstream licence text is included alongside the README.
-- Source blob SHA values are available in the Git history for each snapshot file. The upstream repository commit is recorded above so the source can be compared with later revisions.
+- Source blob SHA values are available in the Git history for each snapshot file. The upstream repository commit is recorded above so the source can be compared with later revisions. Exact upstream Git blob object IDs and repository paths are listed in [SNAPSHOT-MANIFEST.json](SNAPSHOT-MANIFEST.json). The copied MCP JSON Schema was parsed successfully, and all 13 stored source/licence files were checked against their upstream blob IDs.
 
 ## 2. Official materials linked for study, not copied here
 
@@ -29,7 +29,7 @@ Some standards and documentation are maintained as live/versioned web publicatio
 | Area | Official reference | Relevant preparation brief | Handling |
 |---|---|---|---|
 | SMT solver input language | [SMT-LIB 2.7 standard, release 2026-09-09 (PDF)](https://smt-lib.org/papers/smt-lib-reference-v2.7-r2026-09-09.pdf) | RT-03/06/07 path feasibility | Link-only here. The official PDF permits verbatim redistribution if copyright/permission notices remain and no modified version is made. The PDF was not retrievable into this repository in this session. |
-| Solver proof evidence | [cvc5 proof production](https://cvc5.github.io/docs-ci/docs-main/proofs/proofs.html) | RT-03/06/07; RT-07 evidence | Link-only; pin cvc5 release and proof format (CPC/Alethe) during execution. |
+| Solver proof evidence | [cvc5 1.4.2 proof production](https://cvc5.github.io/docs/cvc5-1.4.2/proofs/proofs.html) | RT-03/06/07; RT-07 evidence | Link-only; the cvc5 1.4.2 versioned proof page is linked. Pin the solver binary and chosen proof format (CPC/Alethe) during execution. |
 | Lean proof kernel/reference | [Lean Language Reference](https://lean-lang.org/doc/reference/latest/) · [Lean releases](https://github.com/leanprover/lean4/releases) | RT-03/06/07; Scenario 34 | Link-only. The online reference currently identifies itself as 4.37.0-rc1; the latest stable release listed at preparation time is 4.36.0. Use the exact `lean-toolchain` pinned by the LLMLang checkout for reproducible work. |
 | LLVM semantics | [LLVM Language Reference](https://llvm.org/docs/LangRef.html) · [LLVM UB Manual](https://llvm.org/docs/UndefinedBehavior.html) | RT-07/09/10/13 | Link-only; live docs can change. Pin LLVM release/commit, target triple and flags in each result. |
 | Rust resource semantics | [Rust Reference — Destructors and Drop Scopes](https://doc.rust-lang.org/reference/destructors.html) | RT-03/04 source semantics and ownership | Link-only; pin the Rust toolchain/reference release used in the experiment. |
