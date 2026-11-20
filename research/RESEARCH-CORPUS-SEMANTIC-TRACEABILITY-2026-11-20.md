@@ -528,3 +528,13 @@ Scenarios 20–24 have executable Python prototypes and paired focused tests, bu
 - 24 adaptively schedules single-factor and factorial blocks with bounded retries and explicit uncovered targets; it is a planner, not a runner or completeness proof.
 
 See corpus audit §2.27 for exact implementation/test mapping and limitations. Preserve the distinctions between discovery candidates, interventions, observed effects, interaction evidence, scheduled coverage, and proof of completeness.
+
+
+## 28. Requirement evolution and impact planning audit — Scenarios 18–19
+
+Scenarios 18–19 have paired executable models/tests in Dependency Graph Prototype 01:
+
+- 18 models immutable typed requirement revisions, snapshot-local selection, hash-relevant dependency edges, separate lineage/provenance, impact closure, verification-key changes, split/merge, and three-way branch merge. It does not compute arbitrary semantic diffs or prove graph completeness.
+- 19 checks coverage of independently observed dependency identities against declared edges within an exact artifact/scope/evidence binding, then selects typed revalidation actions. It does not extract dependencies, execute actions, or verify the proof behind a bound PROVEN non-interference record.
+
+See corpus audit §2.28. The key trust boundary is that impact planning can only reason about dependencies represented in the graph; completeness evidence must be separate and fail closed.
