@@ -71,3 +71,15 @@ The four upstream revisions were resolved and their recursive Git trees were ins
 | **Total** |  |  | **13/13** |
 
 There are no missing upstream paths, unmanifested local snapshot files, or blob mismatches. The local MCP schema parses as JSON Schema draft 2020-12 and contains 155 entries under `$defs`; this is a syntax/structure check, not a full semantic validation of the schema. The OCI and REAPI Apache-2.0 licence copies intentionally share the same blob ID. **No external snapshot or licence content was modified.**
+
+
+### 6.1 Upstream signature and snapshot-completeness notes
+
+GitHub reports valid verified signatures for all four upstream commits listed above. The local `SNAPSHOT-MANIFEST.json` is not itself signed; it records the pinned commits, trees, and blob identities but is not a signed provenance attestation.
+
+- **MCP:** the schema contains 155 top-level `$defs` and 277 local `$ref` references; all local references resolve. This is a JSON syntax/reference check, not full JSON Schema meta-schema validation.
+- **OCI:** the three copied specification documents contain 32 unresolved relative-link occurrences pointing to seven documents not included in this partial snapshot.
+- **Alive2:** the copied README contains six unresolved relative-link occurrences (five image assets and `BugList.md`). Only README and MIT license are copied; the Alive2 tool source is not.
+- **REAPI:** the copied `remote_execution.proto` imports eight other proto files. The local snapshot contains none of them; one is present in the pinned upstream repository and seven are external Google API/Protobuf files. This is a source-file reference, not a self-contained proto compilation closure.
+
+These completeness limits do not affect the verified 13/13 upstream/local blob identity. Do not treat a partial snapshot as a self-contained build or documentation bundle.
