@@ -408,3 +408,14 @@ Scenarios 81–88 are source/specification analyses and fixture preparation, not
 - 88 compares default argument evaluation and API evolution, but its proposed per-call, mutable-value, ordering, and compiled-client experiments have not been run.
 
 No accepted architecture decision covers these syntax choices. The cited language references are largely rolling/current documents as of 2026-11-19; pin versions before building conformance claims. Do not treat the candidate axes or fixture designs as accepted grammar.
+
+
+## 20. Follow-up prior-art and native-reproduction audit
+
+Scenarios 73–80 were classified as specification/prior-art studies, not implementation evidence. Their candidate policies and experiment proposals are not accepted LLMLang semantics; see corpus audit §2.19 for the per-scenario scope and cross-links. No lexer, type checker, parser, regex engine, resource-lifetime runtime, optimizer, float target matrix, formatter, or documentation generator experiment is reported by these eight scenarios.
+
+The native evidence was rerun after the reproducibility harness landed. Research Native Reproduction run 44774296240 passed both jobs:
+- RT-04 native job: 10/10 commands passed, 0 failures, 0 skips; C SQLite 3.46.1 matched its recorded source ID, durable receipts used Python SQLite 3.53.1, and Rust 1.85.1 produced 125,952 matching observations. Artifact 14650095720.
+- LLVM preservation: both probes passed, with 20,978 integer traces and 9,800 byte-view traces at each of O0/O3, zero mismatches, and expected negative-control disagreements. Artifact 14650040345.
+
+The workflow manifest records merge-ref commit 8c4a82c91f039309bba769c49bd00515e3713feb, not the final main merge commit b808c3a8f984bbc5c175ecf45d61e0e8db7a00bb. Required CI on the latter passed in run 44774552406. Native reproduction remains a separate non-required workflow.
