@@ -2,8 +2,8 @@
   "schema_version": 1,
   "generated_at": "2026-11-20",
   "repository": "aivibeflow/LLMLang",
-  "revision": "ab77b1c7d6867a6d23b6f111fa24003822d47d83",
-  "source": "Recursive Git tree at the RT-00 reconciliation commit; inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "c0815d3dbdd6b6acbe0e5479af5f41e26647260c",
+  "source": "Recursive Git tree at c0815d3dbdd6b6acbe0e5479af5f41e26647260c (the inventory baseline); inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
     "research_files": 460,
     "markdown_files": 234,
