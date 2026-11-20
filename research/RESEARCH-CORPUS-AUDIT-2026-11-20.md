@@ -2,14 +2,14 @@
 
 **Research item:** PLAN.md §0.1, Reconcile the research corpus  
 **Status:** Partial; complete tracked-path inventory and limited link checks recorded, semantic reconciliation still open  
-**Primary snapshot revision:** `a30ec074e08186f04a35535b9933bfa878713f31` (inventory excludes its own manifest file)  
+**Primary snapshot revision:** `c0815d3dbdd6b6acbe0e5479af5f41e26647260c` (inventory excludes its own manifest file)  
 **Normative boundary:** This report records documentation and inventory findings only. It makes no language, architecture, identity, or implementation decisions.
 
 ## 1. Executive summary
 
 The recursive Git tree at the primary snapshot revision contains **457 tracked research artifacts** (excluding the inventory manifest itself):
 
-- 233 Markdown/MDX files (230 `.md` and 3 `.mdx`);
+- 234 Markdown/MDX files (231 `.md` and 3 `.mdx`);
 - 194 Python files;
 - 17 Lean source files and one Lean toolchain pin;
 - 3 JSON files;
@@ -37,14 +37,14 @@ The inventory is a reproducible path-level snapshot. It is not a claim that ever
 
 ### 2.2 Markdown relative-link scan
 
-- Scanned inline Markdown links in all **233 Markdown/MDX files** under `research/` at the PR #79 baseline; later changes in PRs #80/#82 affected three distinct Markdown files, whose 30 local relative links were rechecked against the refreshed inventory tree.
-- Checked **1,330 relative-link occurrences** across the 233 Markdown/MDX files against the tracked repository tree (1,323 in the initial full scan; three Markdown files changed by PRs #80/#82 were rechecked after their latest edits (30 local links total), with a net increase of seven link occurrences). External HTTP(S)/mailto links, fragment-only links, and root-absolute paths from copied upstream documentation were excluded from local path resolution.
+- Scanned inline Markdown links in the **233-file historical baseline** under `research/` at the PR #79 baseline; later changes in PRs #80/#82 affected three distinct Markdown files, whose 30 local relative links were rechecked against the refreshed inventory tree.
+- Checked **1,330 relative-link occurrences** across the 233-file historical baseline against the tracked repository tree (1,323 in the initial full scan; three Markdown files changed by PRs #80/#82 were rechecked after their latest edits (30 local links total), with a net increase of seven link occurrences). External HTTP(S)/mailto links, fragment-only links, and root-absolute paths from copied upstream documentation were excluded from local path resolution.
 - Found one broken relative link in the LLMLang-authored `research/RT-04-PROTOTYPE-01-SCENARIOS.md`; corrected it to point to the sibling `RT-04-RT-03-CROSS-PROFILE-TRACES.md` file. A repeat check of the corrected file resolves.
 - Found **38 unresolved relative-link occurrences inside verbatim external snapshots only**: six in the Alive2 README (five image assets and `BugList.md`) and 32 in OCI snapshot documents (references to seven OCI source documents not included in the partial snapshot). These files were not rewritten because they are preserved upstream source snapshots.
 - The MCP snapshot contains root-absolute links into the upstream documentation site; these are not repository-relative paths and were not treated as missing local files.
 - The main index has 85 unique relative targets at the refreshed inventory revision; all resolve. The PR branch index now has 98 unique targets; all resolve, including the semantic-traceability report and prototype-family navigation links. The preparation index has 11 unique relative targets and the references index has two; all resolve.
 
-**Result:** no broken inline relative links remain in LLMLang-authored research documents. The 38 missing targets in copied upstream snapshots reflect the deliberately partial vendored source sets. This scan does not validate external URL availability, heading anchors, reference-style Markdown links, or index completeness against every artifact.
+**Result:** no broken inline relative links were found in the historical baseline of LLMLang-authored research documents. The full current-corpus scan remains open. The 38 missing targets in copied upstream snapshots reflect the deliberately partial vendored source sets. This scan does not validate external URL availability, heading anchors, reference-style Markdown links, or index completeness against every artifact.
 
 ### 2.3 Taxonomy and dependency map
 
@@ -115,7 +115,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 |---|---|---|
 | RCA-01 | The corpus has 457 tracked research artifacts in the refreshed inventory snapshot (excluding the manifest itself), but previously lacked a complete path inventory. | Added the machine-readable inventory snapshot. |
 | RCA-02 | Artifact-to-item mapping is not uniformly explicit in filenames. | Added qualified path-based mappings; content-level verification remains open. |
-| RCA-03 | All 233 research Markdown/MDX files were scanned for inline relative links (1,330 occurrences across the refreshed inventory revision). One LLMLang-authored broken link was fixed; 38 unresolved occurrences remain only in partial Alive2/OCI snapshots. | Project-authored inline relative links resolve; external snapshot completeness, external URLs, anchors, and index completeness remain open. |
+| RCA-03 | The 233-file historical baseline was scanned for inline relative links (1,330 occurrences); the current corpus contains 234 Markdown/MDX files after adding the semantic-traceability report, so a full current-corpus scan remains open. One LLMLang-authored broken link was fixed; 38 unresolved occurrences remain only in partial Alive2/OCI snapshots. | Project-authored inline relative links resolve; external snapshot completeness, external URLs, anchors, and index completeness remain open. |
 | RCA-04 | At the refreshed inventory revision, the main, preparation, and references indexes have 85, 11, and 2 unique relative targets; all resolve. | Index link existence checks complete; scientific readiness and index coverage remain open. |
 | RCA-05 | PLAN.md §0.3 reported stale taxonomy/dependency counts. | Corrected to 24 research areas and 85 dependency edges; added RT-24 with candidate dependencies. |
 | RCA-06 | One exact duplicate blob is shared by the OCI and REAPI Apache-2.0 licence files. | Classified as intentional shared licence content; no deletion proposed. |
@@ -136,7 +136,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 - [ ] Read and validate the content-level mapping for every artifact, including prototypes, tests, fixtures, generated outputs, RFCs, and snapshots.
 - [x] First-pass content/heading/reference triage of 36 low-confidence entries; see the semantic traceability report.
 - [x] Cross-walk all 136 Scenario reports to candidate RT areas (63 taxonomy link/range mappings; 73 first-pass content/header mappings); record Scenario 134 prior-art-only applicability; Scenario 91's RT-24 reference now resolves.
-- [x] First-pass individual file-role mapping for all 120 prototype-family artifacts.
+- [x] First-pass individual file-role mapping for the 126 individually role-mapped prototype artifacts; 109 further prototype artifacts remain without individual file-role mappings.
 - [ ] Validate prototype claims, test evidence, generated outputs, exact tool versions, and reproducibility at content/experiment level.
 - [x] Map nine vendored technical source documents to the RT areas named by the reference register; keep seven provenance/navigation/licence files at Stage 0.
 - [x] Register RT-24 and cross-link its three research documents; keep the technical contract and dependency edges explicitly provisional.
