@@ -2,21 +2,21 @@
   "schema_version": 1,
   "generated_at": "2026-11-20",
   "repository": "aivibeflow/LLMLang",
-  "revision": "612b8757bb6fcc592487dfbf67c17e6b40ed76b6",
+  "revision": "1d1352be4668b540c056a424dca2c92eae18a36b",
   "source": "Recursive Git tree at the RT-00 reconciliation commit; inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
-    "research_files": 457,
+    "research_files": 460,
     "markdown_files": 234,
     "python_files": 194,
     "scenario_named_documents": 136,
-    "prototype_tree_files": 235,
+    "prototype_tree_files": 238,
     "preparation_and_reference_files": 24,
     "category_counts": {
       "research-background-or-design-analysis": 23,
       "structured-fixture-or-schema": 1,
-      "prototype-or-experiment-implementation": 119,
+      "prototype-or-experiment-implementation": 121,
       "prototype-report-or-readme": 20,
-      "prototype-test-evidence": 94,
+      "prototype-test-evidence": 95,
       "other-research-artifact": 2,
       "index-or-research-management": 3,
       "audit-or-review-report": 3,
@@ -29,7 +29,7 @@
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13
     },
-    "lean_source_files": 17,
+    "lean_source_files": 20,
     "taxonomy_research_areas": 24,
     "dependency_edges": 94
   },
@@ -1826,8 +1826,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCommandSemantics.lean",
-      "git_blob_sha": "61418a1da6f1996c9d024886b77dc2b42f873d40",
-      "size_bytes": 19255,
+      "git_blob_sha": "3a5cfac418cd6c91d2d3451b95646d654e67f78d",
+      "size_bytes": 19231,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1870,8 +1870,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
-      "git_blob_sha": "855d5ec23f499ee5497635316c11fb2300c3d262",
-      "size_bytes": 633,
+      "git_blob_sha": "c7d21557ffd07b92b9e5f205a0194740198ef8cf",
+      "size_bytes": 716,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -9737,8 +9737,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-      "git_blob_sha": "d23b19df3444eeb975bbac0aa7647e13e9e61e1d",
-      "size_bytes": 31044,
+      "git_blob_sha": "45d304d2ad7141e0edefdf17a5c55448be194e43",
+      "size_bytes": 32563,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -12244,8 +12244,8 @@
     },
     {
       "path": "research/preparation/RT-03-06-07-PATH-FEASIBILITY-AND-SOURCE-CORRESPONDENCE.md",
-      "git_blob_sha": "b94be2036d765a80137338d0fa1234e9a55723be",
-      "size_bytes": 6281,
+      "git_blob_sha": "a04ff6619015ef493c29875dbebf7c0f0e7b09ca",
+      "size_bytes": 6380,
       "category": "research-preparation-brief-or-index",
       "traceability": {
         "items": [
@@ -12640,6 +12640,69 @@
         "status": "reference-use-case-mapped",
         "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
       }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CanonicalQuerySymbols.lean",
+      "git_blob_sha": "1af1925880316403c86a8b0622218fbaf2403192",
+      "size_bytes": 14002,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07"
+        ],
+        "method": "direct module and Scenario 34 relationship; see semantic traceability report",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean source modules implementing canonical relational-query symbol binding and source-program relational semantics; associated with Scenario 34."
+      },
+      "plan_stages": [
+        3
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQuery.lean",
+      "git_blob_sha": "2b3767827a308a9096d48949f62b93a527665527",
+      "size_bytes": 19065,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07"
+        ],
+        "method": "direct module and Scenario 34 relationship; see semantic traceability report",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean source modules implementing canonical relational-query symbol binding and source-program relational semantics; associated with Scenario 34."
+      },
+      "plan_stages": [
+        3
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQueryTests.lean",
+      "git_blob_sha": "b759a6945ce5d002e03a5b794c95427dc38a0180",
+      "size_bytes": 4785,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07"
+        ],
+        "method": "direct module and Scenario 34 relationship; see semantic traceability report",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean source modules implementing canonical relational-query symbol binding and source-program relational semantics; associated with Scenario 34."
+      },
+      "plan_stages": [
+        3
+      ]
     }
   ],
   "semantic_traceability_review": {
