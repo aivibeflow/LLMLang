@@ -24,6 +24,13 @@ jobs:
           "$HOME/.elan/bin/elan" default leanprover/lean4:v4.36.0
       - name: Resolve pinned Lake dependencies
         run: lake update --keep-toolchain
+      - name: Restore Lake cache
+        uses: actions/cache@v4
+        with:
+          path: research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/.lake
+          key: lean-${{ runner.os }}-${{ hashFiles('research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lean-toolchain', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lake-manifest.json') }}-${{ hashFiles('research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/**/*.lean') }}
+          restore-keys: |
+            lean-${{ runner.os }}-${{ hashFiles('research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lean-toolchain', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lake-manifest.json') }}-
       - name: Build parser-state bridge (fail fast)
         run: lake build --fail-fast LLMLangLogosBinding
       - name: Run parser-state binding and semantic correspondence tests
