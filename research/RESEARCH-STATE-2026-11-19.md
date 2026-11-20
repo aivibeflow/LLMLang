@@ -158,6 +158,8 @@ Scenario 129 shows two distinct premature-release cases after cancellation. Ackn
 
 Scenario 130 checks durable generation allocation and result lookup across process interruption. A shared transaction recovers the effect and result together. With separate commits, an empty terminal lookup can hide a committed effect or a still-live reservation. [Durable invocation results](RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md)
 
+Scenario 131 connects the source caller, two transfer rules, cleanup outcome types, and the next foreign role check. Two execution paths agree on 5,184 inputs. Erasing earlier roles on an error admits 1,020 conflicting proposals across the two rules. [Shared owned-result workload](RESEARCH-SCENARIO-131-SHARED-OWNED-RESULT-WORKLOAD.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
