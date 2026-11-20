@@ -54,10 +54,15 @@ jobs:
           print("source ID:", library.sqlite3_sourceid().decode())
           PY
 
-      - name: Build the Python SQLite 3.53.1 runtime for Scenario 130
+      - name: Build Python 3.12.14 against SQLite 3.53.1 for Scenario 130
         shell: bash
         run: |
           set -euo pipefail
+          apt-get install -y --no-install-recommends \
+            build-essential pkgconf zlib1g-dev libssl-dev libffi-dev libbz2-dev \
+            libreadline-dev libsqlite3-dev liblzma-dev libncursesw5-dev \
+            libgdbm-dev libnss3-dev libgdbm-compat-dev libexpat1-dev uuid-dev tk-dev
+
           cd "$RUNNER_TEMP"
           curl --fail --location --silent --show-error \
             https://www.sqlite.org/2026/sqlite-autoconf-3530100.tar.gz \
@@ -67,7 +72,29 @@ jobs:
           ./configure --prefix="$RUNNER_TEMP/sqlite-3.53.1" --enable-shared --disable-static
           make -j2
           make install
+
+          cd "$RUNNER_TEMP"
+          curl --fail --location --silent --show-error \
+            https://www.python.org/ftp/python/3.12.14/Python-3.12.14.tgz \
+            --output Python-3.12.14.tgz
+          tar -xzf Python-3.12.14.tgz
+          cd Python-3.12.14
+          export SQLITE_PREFIX="$RUNNER_TEMP/sqlite-3.53.1"
+          export CPPFLAGS="-I$SQLITE_PREFIX/include"
+          export LDFLAGS="-L$SQLITE_PREFIX/lib -Wl,-rpath,$SQLITE_PREFIX/lib"
+          export PKG_CONFIG_PATH="$SQLITE_PREFIX/lib/pkgconfig"
+          ./configure --prefix="$RUNNER_TEMP/python-3.12.14" \
+            --enable-shared --enable-loadable-sqlite-extensions --with-ensurepip=install
+          make -j2
+          make install
+          ln -sf "$RUNNER_TEMP/python-3.12.14/bin/python3.12" "$RUNNER_TEMP/python-3.12.14/bin/python"
+          echo "PATH=$RUNNER_TEMP/python-3.12.14/bin:$PATH" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/python-3.12.14/lib:$RUNNER_TEMP/sqlite-3.53.1/lib:${LD_LIBRARY_PATH:-}" >> "$GITHUB_ENV"
           echo "LLMLANG_PYTHON_SQLITE_LIBRARY=$RUNNER_TEMP/sqlite-3.53.1/lib/libsqlite3.so" >> "$GITHUB_ENV"
+          export PATH="$RUNNER_TEMP/python-3.12.14/bin:$PATH"
+          export LD_LIBRARY_PATH="$RUNNER_TEMP/python-3.12.14/lib:$RUNNER_TEMP/sqlite-3.53.1/lib:${LD_LIBRARY_PATH:-}"
+          python --version
+          python -c "import sqlite3; c=sqlite3.connect(':memory:'); print(sqlite3.sqlite_version); print(c.execute('select sqlite_source_id()').fetchone()[0]); assert sqlite3.sqlite_version == '3.53.1'"
 
       - name: Run native SQLite and Rust experiments
         run: |
