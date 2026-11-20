@@ -313,3 +313,7 @@ Focused tests, including the real deadline case:
 ## Wire schema evolution and defaults (Scenario 110)
 
 [`schema_evolution_model.py`](schema_evolution_model.py) and [`test_schema_evolution_model.py`](test_schema_evolution_model.py) compare v1/v2 JSON producers and consumers around an added defaulted Boolean field. The 16-case producer/consumer, unknown-key, and default product shows old payloads can use the new default, while new payloads can be rejected by strict old consumers or accepted with information loss by consumers that ignore unknown keys. Changing the default changes old payload interpretation; an explicit value is stable, and null handling is a separate policy. Six focused tests pass. This is a finite compatibility policy fixture, not a schema standard, real serializer, ABI test, or LLMLang rule.
+
+## Unknown wire variants (Scenario 111)
+
+[`unknown_variant_model.py`](unknown_variant_model.py) and [`test_unknown_variant_model.py`](test_unknown_variant_model.py) compare reject, generic fallback, and opaque-preserve handling when an older consumer receives a new enum case. Reject stops decoding; fallback enables a generic result but loses the case and payload; preserve retains the parsed JSON object so a relay can forward it. Re-encoding preserves JSON structure, not original bytes or whitespace. Malformed known cases remain errors. Seven focused tests pass. This does not implement source-level open enums, exhaustiveness, signatures, or application-level safe behavior.
