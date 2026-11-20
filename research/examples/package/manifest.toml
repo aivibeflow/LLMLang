@@ -1,0 +1,30 @@
+# Illustrative LLMLang package manifest (schema candidate v1).
+# Hash values below are placeholders and do not identify real objects.
+
+format = "llmlang.package"
+schema_version = 1
+
+[package]
+id = "pkg:example.math"
+name = "example-math"
+version = "0.1.0"
+description = "Illustrative package manifest"
+
+[content]
+roots = [
+  "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+]
+dependency_policy = "closure"
+content_root = "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[index]
+path = "index.bin"
+format_version = 1
+logical_hash = "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+
+[cache]
+indexes = [
+  "cache/validation.index",
+  "cache/compilation.index",
+]

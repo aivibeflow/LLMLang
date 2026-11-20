@@ -1,0 +1,21 @@
+name: Strict QF_LIA query profile
+
+on:
+  workflow_call:
+
+jobs:
+  focused-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile prototype modules
+        run: python -m compileall -q src tests
+      - name: Run strict QF_LIA profile tests
+        run: python -m unittest discover -s tests -p 'test_qf_lia_profile.py' -v

@@ -1,0 +1,37 @@
+name: Logos CPC parser-state binding
+
+on:
+  workflow_call:
+
+concurrency:
+  group: ${{ github.workflow }}-logos-binding-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lean-build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean toolchain
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.36.0
+          "$HOME/.elan/bin/elan" default leanprover/lean4:v4.36.0
+      - name: Resolve pinned Lake dependencies
+        run: lake update --keep-toolchain
+      - name: Restore Lake cache
+        uses: actions/cache@v4
+        with:
+          path: research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/.lake
+          key: lean-${{ runner.os }}-${{ hashFiles('research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lean-toolchain', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lake-manifest.json') }}-${{ hashFiles('research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/**/*.lean') }}
+          restore-keys: |
+            lean-${{ runner.os }}-${{ hashFiles('research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lean-toolchain', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lake-manifest.json') }}-
+      - name: Build parser-state bridge (fail fast)
+        run: lake build --fail-fast LLMLangLogosBinding
+      - name: Run parser-state binding and semantic correspondence tests
+        run: timeout 180s lake env lean -DwarningAsError=true --run Main.lean

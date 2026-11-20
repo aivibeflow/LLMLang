@@ -1,0 +1,66 @@
+name: Required CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  logos-binding:
+    uses: ./.github/workflows/logos-binding.yml
+  package-identity:
+    uses: ./.github/workflows/package-identity.yml
+  package-index:
+    uses: ./.github/workflows/package-index.yml
+  qf-lia-profile:
+    uses: ./.github/workflows/qf-lia-profile.yml
+  repository-structure:
+    uses: ./.github/workflows/repository-structure.yml
+  semantic-dependency-index:
+    uses: ./.github/workflows/semantic-dependency-index.yml
+  toolchain-workspace:
+    uses: ./.github/workflows/toolchain-workspace.yml
+
+  ci-required:
+    name: ci-required
+    if: ${{ always() }}
+    needs:
+      - logos-binding
+      - package-identity
+      - package-index
+      - qf-lia-profile
+      - repository-structure
+      - semantic-dependency-index
+      - toolchain-workspace
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every CI suite to pass
+        env:
+          CI_SUITE_RESULTS: ${{ toJSON(needs) }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import sys
+
+          suites = json.loads(os.environ["CI_SUITE_RESULTS"])
+          if not suites:
+              sys.exit("No required CI suite results were reported.")
+
+          failures = [
+              f"{name}: {suite.get('result', 'missing result')}"
+              for name, suite in suites.items()
+              if suite.get("result") != "success"
+          ]
+          if failures:
+              print("Required CI suites did not all succeed:")
+              for failure in failures:
+                  print(f" - {failure}")
+              sys.exit(1)
+          print("All required CI suites passed.")
+          PY

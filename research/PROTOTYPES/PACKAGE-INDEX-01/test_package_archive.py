@@ -1,0 +1,209 @@
+import hashlib
+import io
+import os
+import tempfile
+import unittest
+import zipfile
+
+from package_archive import ArchiveError, build_archive, verify_archive
+from package_index import normalize
+from package_identity import logical_index_hash, package_content_root, parse_manifest
+
+H1 = "sha256:" + hashlib.sha256(b"alpha").hexdigest()
+H2 = "sha256:" + hashlib.sha256(b"beta").hexdigest()
+
+
+def sample_index():
+    return normalize({
+        "objects": [
+            {"hash": H1, "kind": "function", "size": 5},
+            {"hash": H2, "kind": "type", "size": 4},
+        ],
+        "dependencies": [
+            {"source_hash": H1, "edge_id": "dep-1", "kind": "required",
+             "target_hash": H2, "included": True},
+        ],
+        "exports": [
+            {"module_id": "mod:sample", "name": "alpha", "object_hash": H1},
+        ],
+        "modules": [
+            {"module_id": "mod:sample", "members": [H1, H2]},
+        ],
+    })
+
+
+def streams(index):
+    return {table: (row for row in index[table]) for table in index}
+
+
+def payloads(order=(H1, H2)):
+    values = {H1: b"alpha", H2: b"beta"}
+    return ((content_hash, io.BytesIO(values[content_hash])) for content_hash in order)
+
+
+class StreamingArchiveTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.path = os.path.join(self.temp.name, "sample.llpkg")
+        self.manifest = self.make_manifest(sample_index())
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def make_manifest(self, index, *, roots=None, declared_index_hash=None, declared_root=None):
+        roots = roots or [H1]
+        index_hash = declared_index_hash or logical_index_hash(index)
+        root_value = declared_root or ("sha256:" + "0" * 64)
+        root_lines = ", ".join(f'"{value}"' for value in roots)
+        raw = f'''format = "llmlang.package"
+schema_version = 1
+
+[package]
+name = "archive-test"
+
+[content]
+roots = [{root_lines}]
+dependency_policy = "closure"
+content_root = "{root_value}"
+
+[index]
+path = "index"
+format_version = 1
+logical_hash = "{index_hash}"
+'''.encode("utf-8")
+        included = {row["hash"] for row in index["objects"]}
+        if declared_root is None and declared_index_hash is None and set(roots) <= included:
+            model = parse_manifest(raw)
+            actual_root = package_content_root(model, index)
+            raw = raw.replace(root_value.encode(), actual_root.encode())
+        return raw
+
+    def build(self, path=None, object_order=(H1, H2), index=None):
+        return build_archive(
+            self.manifest,
+            streams(index or sample_index()),
+            payloads(object_order),
+            path or self.path,
+            max_records_in_memory=1,
+        )
+
+    def test_build_and_verify(self):
+        self.build()
+        self.assertTrue(verify_archive(self.path, max_records_in_memory=1))
+
+    def test_archive_is_byte_deterministic(self):
+        second = os.path.join(self.temp.name, "second.llpkg")
+        self.build()
+        self.build(second)
+        with open(self.path, "rb") as first, open(second, "rb") as other:
+            self.assertEqual(first.read(), other.read())
+
+    def test_object_hash_mismatch_fails_and_does_not_replace_destination(self):
+        with open(self.path, "wb") as target:
+            target.write(b"existing")
+        bad = ((H1, io.BytesIO(b"wrong")), (H2, io.BytesIO(b"beta")))
+        with self.assertRaisesRegex(ArchiveError, "Content Hash mismatch"):
+            build_archive(self.manifest, streams(sample_index()), bad, self.path)
+        with open(self.path, "rb") as target:
+            self.assertEqual(target.read(), b"existing")
+
+    def test_object_size_mismatch_fails(self):
+        index = sample_index()
+        index["objects"][0]["size"] = 99
+        with self.assertRaisesRegex(ArchiveError, "size mismatch"):
+            build_archive(self.make_manifest(index), streams(index), payloads(), self.path)
+
+    def test_missing_or_extra_payload_fails(self):
+        with self.assertRaisesRegex(ArchiveError, "missing object payload"):
+            build_archive(self.manifest, streams(sample_index()), payloads((H1,)), self.path)
+        with self.assertRaisesRegex(ArchiveError, "stream mismatch"):
+            build_archive(self.manifest, streams(sample_index()), payloads((H2, H1)), self.path)
+
+    def test_unsorted_or_invalid_index_fails(self):
+        index = sample_index()
+        index["objects"].reverse()
+        with self.assertRaisesRegex(ArchiveError, "not sorted"):
+            self.build(index=index)
+
+    def test_verifier_detects_corrupt_object(self):
+        self.build()
+        corrupt = os.path.join(self.temp.name, "corrupt.llpkg")
+        with zipfile.ZipFile(self.path, "r") as source, zipfile.ZipFile(corrupt, "w") as target:
+            for info in source.infolist():
+                data = source.read(info.filename)
+                if info.filename == f"objects/{H1.split(':')[1]}":
+                    data = b"xxxxx"
+                target.writestr(info, data)
+        with self.assertRaisesRegex(ArchiveError, "Content Hash mismatch"):
+            verify_archive(corrupt)
+
+    def test_verifier_rejects_unexpected_entry(self):
+        self.build()
+        altered = os.path.join(self.temp.name, "extra.llpkg")
+        with zipfile.ZipFile(self.path, "r") as source, zipfile.ZipFile(altered, "w") as target:
+            for info in source.infolist():
+                target.writestr(info, source.read(info.filename))
+            target.writestr("unexpected.txt", b"x")
+        with self.assertRaisesRegex(ArchiveError, "unexpected entries"):
+            verify_archive(altered)
+
+    def test_manifest_index_hash_mismatch_fails_build(self):
+        bad_manifest = self.make_manifest(sample_index(), declared_index_hash="sha256:" + "f" * 64)
+        with self.assertRaisesRegex(ArchiveError, "declared index logical hash mismatch"):
+            build_archive(bad_manifest, streams(sample_index()), payloads(), self.path)
+
+    def test_manifest_content_root_mismatch_fails_build(self):
+        bad_manifest = self.make_manifest(sample_index(), declared_root="sha256:" + "f" * 64)
+        with self.assertRaisesRegex(ArchiveError, "declared package content root mismatch"):
+            build_archive(bad_manifest, streams(sample_index()), payloads(), self.path)
+
+    def test_package_root_must_be_included(self):
+        bad_manifest = self.make_manifest(sample_index(), roots=["sha256:" + "3" * 64])
+        with self.assertRaisesRegex(ArchiveError, "root is not present"):
+            build_archive(bad_manifest, streams(sample_index()), payloads(), self.path)
+
+    def test_manifest_index_path_controls_archive_entries(self):
+        self.build()
+        with zipfile.ZipFile(self.path) as archive:
+            names = set(archive.namelist())
+        self.assertIn("index/objects.jsonl", names)
+        self.assertNotIn("index.bin/objects.jsonl", names)
+
+    def test_verifier_rejects_tampered_manifest_index_hash(self):
+        self.build()
+        altered = os.path.join(self.temp.name, "bad-index-hash.llpkg")
+        with zipfile.ZipFile(self.path, "r") as source, zipfile.ZipFile(altered, "w") as target:
+            for info in source.infolist():
+                data = source.read(info.filename)
+                if info.filename == "manifest.toml":
+                    data = data.replace(logical_index_hash(sample_index()).encode(),
+                                        ("sha256:" + "f" * 64).encode())
+                target.writestr(info, data)
+        with self.assertRaisesRegex(ArchiveError, "declared index logical hash mismatch"):
+            verify_archive(altered)
+
+    def test_verifier_rejects_tampered_manifest_content_root(self):
+        self.build()
+        altered = os.path.join(self.temp.name, "bad-content-root.llpkg")
+        with zipfile.ZipFile(self.path, "r") as source, zipfile.ZipFile(altered, "w") as target:
+            for info in source.infolist():
+                data = source.read(info.filename)
+                if info.filename == "manifest.toml":
+                    data = data.replace(self.manifest.split(b'content_root = "')[1].split(b'"')[0],
+                                        ("sha256:" + "f" * 64).encode())
+                target.writestr(info, data)
+        with self.assertRaisesRegex(ArchiveError, "declared package content root mismatch"):
+            verify_archive(altered)
+
+    def test_invalid_manifest_utf8_fails(self):
+        with self.assertRaisesRegex(ArchiveError, "valid UTF-8"):
+            build_archive(bytes([0xff]), streams(sample_index()), payloads(), self.path)
+
+    def test_invalid_memory_bound_fails(self):
+        with self.assertRaisesRegex(ArchiveError, "positive integer"):
+            build_archive(self.manifest, streams(sample_index()), payloads(), self.path,
+                          max_records_in_memory=0)
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
