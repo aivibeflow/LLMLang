@@ -625,3 +625,10 @@ The latest Research Native Reproduction run 44774296240 passed all ten RT-04 com
 The [Dependency Graph prototype evidence review](RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-DEPENDENCY-GRAPH-01-2026-11-20.md) reconciles the current Lean import graph with the historical SCW-04 audit and SCW-05 task breakdown. The SCW-04 coupling finding was accurate for its earlier source snapshot but was resolved by the SCW-15 independent-IR/separate-adapter implementation. SCW-05's seven declaration-context tasks are complete; its separate breakdown is now linked and marked complete. The latest Logos-binding CI run 44766546452 passed on PR #94, and no Lean source/build-toolchain files changed after that merge. Scenario 34 remains in progress on SCW-32 and later source-derived CPC, serialized-query, and parser-state correspondence obligations.
 
 The family README now links the Scenario 34 report, SCW-04/05 records, and the principal Lean proof modules. Its remaining file basename coverage is not treated as an orphan test; the full graph across all 103 family files remains open.
+
+
+## 38. Cross-cutting taxonomy, dependency map, and terminology alignment
+
+The [Cross-Cutting Research Document Alignment Review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) verifies 24 unique RT taxonomy entries and 94 unique DEP register rows (DEP-001–DEP-094), matching the inventory. The dependency map's feedback cycles are documented; no additional undocumented strongly connected component was found in the first pass. The taxonomy, cross-area dependency map, and candidate semantic dependency index have distinct roles and are not duplicates.
+
+The glossary's `ImplHash` and PLAN.md's `ImpHash` spellings remain explicitly unresolved; no normalization or hash-design decision is made. The glossary and semantic dependency index remain proposals, the option matrix remains comparative rather than a selection, and ADR-014 remains Proposed. The duplicate §9 numbering in the semantic dependency index was corrected to §13/§14 without changing its claims.
