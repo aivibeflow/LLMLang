@@ -41,31 +41,21 @@ jobs:
     steps:
       - name: Require every CI suite to pass
         env:
-          LOGOS_BINDING: ${{ needs.logos-binding.result }}
-          PACKAGE_IDENTITY: ${{ needs.package-identity.result }}
-          PACKAGE_INDEX: ${{ needs.package-index.result }}
-          QF_LIA_PROFILE: ${{ needs.qf-lia-profile.result }}
-          REPOSITORY_STRUCTURE: ${{ needs.repository-structure.result }}
-          SEMANTIC_DEPENDENCY_INDEX: ${{ needs.semantic-dependency-index.result }}
-          TOOLCHAIN_WORKSPACE: ${{ needs.toolchain-workspace.result }}
+          CI_SUITE_RESULTS: ${{ toJSON(needs) }}
         run: |
           python - <<'PY'
+          import json
           import os
           import sys
 
-          results = {
-              "logos-binding": os.environ["LOGOS_BINDING"],
-              "package-identity": os.environ["PACKAGE_IDENTITY"],
-              "package-index": os.environ["PACKAGE_INDEX"],
-              "qf-lia-profile": os.environ["QF_LIA_PROFILE"],
-              "repository-structure": os.environ["REPOSITORY_STRUCTURE"],
-              "semantic-dependency-index": os.environ["SEMANTIC_DEPENDENCY_INDEX"],
-              "toolchain-workspace": os.environ["TOOLCHAIN_WORKSPACE"],
-          }
+          suites = json.loads(os.environ["CI_SUITE_RESULTS"])
+          if not suites:
+              sys.exit("No required CI suite results were reported.")
+
           failures = [
-              f"{name}: {result}"
-              for name, result in results.items()
-              if result != "success"
+              f"{name}: {suite.get('result', 'missing result')}"
+              for name, suite in suites.items()
+              if suite.get("result") != "success"
           ]
           if failures:
               print("Required CI suites did not all succeed:")
