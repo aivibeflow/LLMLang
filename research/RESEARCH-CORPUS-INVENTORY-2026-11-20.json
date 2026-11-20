@@ -13008,7 +13008,7 @@
     "index": "research/README.md",
     "unique_relative_targets": 98,
     "broken_relative_targets": 0,
-    "checked_revision": "9c7ac1b372990596ca570d955ba589466251b090",
-    "scope": "All 98 unique relative targets in research/README.md were resolved against the recursive tree at this inventory PR head."
+    "checked_revision": "5177c9c7a6b7d3b265485d29f05fcbcdb7687b06",
+    "scope": "All 98 unique relative targets in research/README.md were resolved against the recursive tree at PR head 5177c9c7a6b7d3b265485d29f05fcbcdb7687b06."
   }
 }
