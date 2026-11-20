@@ -140,12 +140,19 @@ def check_match(function: Function, call: MatchCall) -> frozenset[MatchIssue]:
     """Check an exact match whose arms forward the result and its obligations."""
     if call.callee != function.name:
         raise ValueError("unresolved call")
-    if call.output not in ("plain_result", "tagged_outcome"):
+    return check_result_arms(infer_result_cases(function), call.arms, output=call.output)
+
+
+def check_result_arms(
+    cases: frozenset[ResultCase], arms: tuple[MatchArm, ...], *,
+    output: Literal["plain_result", "tagged_outcome"],
+) -> frozenset[MatchIssue]:
+    """Check exhaustive forwarding against a finite set of result shapes."""
+    if output not in ("plain_result", "tagged_outcome"):
         raise ValueError("unsupported output type")
-    cases = infer_result_cases(function)
     seen = set()
     issues = set()
-    for arm in call.arms:
+    for arm in arms:
         case = arm.pattern
         if case in seen:
             issues.add(MatchIssue("DUPLICATE_ARM", case))
@@ -161,7 +168,7 @@ def check_match(function: Function, call: MatchCall) -> frozenset[MatchIssue]:
             issues.add(MatchIssue("MOVE_WITHOUT_OBLIGATION", case))
         if expected - moved:
             issues.add(MatchIssue("MISSING_MOVE", case))
-        if call.output == "plain_result" and case.tag != "OkWithValue" and expected:
+        if output == "plain_result" and case.tag != "OkWithValue" and expected:
             issues.add(MatchIssue("ERROR_CANNOT_CARRY_OBLIGATIONS", case))
     issues.update(MatchIssue("MISSING_ARM", case) for case in cases - seen)
     return frozenset(issues)

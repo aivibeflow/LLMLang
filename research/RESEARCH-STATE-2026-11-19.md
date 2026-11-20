@@ -142,6 +142,8 @@ Scenario 121 compares three close policies across 510 plans with local and outsi
 
 Scenario 122 derives close facts from a bounded source grammar. On 4,116 executions, an empty local set alone admits 1,092 cases that would return busy. Reusing an observation without a freshness check admits 1,320 such cases. Complete source proof and a current snapshot admit no busy cases in the corpus under their stated assumptions. SQLite independently confirms the stale observation counterexample. [Completeness and freshness of close evidence](RESEARCH-SCENARIO-122-CLOSE-EVIDENCE-FRESHNESS.md)
 
+Scenario 123 combines these policies with a forwarding match on the same 36 workload inputs. The SQLite probe checks 114 admitted pairs. Both guard refusal and busy require a typed slot for the connection. Deferred close consumes it and can leave destruction pending. [Shared close workload](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
@@ -172,7 +174,7 @@ These refine existing dependency hypotheses; they do not add normative rules. Se
 
 - Define source-level rules for calls, branches, Result/error propagation, cancellation, resource acquire/use/release, transfer/return, and cleanup failure.
 - Make ordered effects and payloads visible to type/dependency summaries.
-- Connect the bounded source proof of close to COR-13 forwarding and explicit recovery. Validate source and FFI completeness across aliasing and transfer. Specify how unknown disposition and foreign mutation remain visible in the contract. [Scenario 119](RESEARCH-SCENARIO-119-OWNED-RESULT-MATCHING.md) · [Scenario 121](RESEARCH-SCENARIO-121-SQLITE-LOCAL-CLOSE-RECOVERY.md) · [Scenario 122](RESEARCH-SCENARIO-122-CLOSE-EVIDENCE-FRESHNESS.md)
+- Extend the shared close workload to source-derived transfer and aliases. Validate FFI completeness and synchronization at the close boundary, and specify how unknown disposition stays visible in the caller contract. [Scenario 123](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md)
 - State where profiles differ and what equivalence means for results, traces, resource state, and divergence.
 - Compare total recursion, general partiality, typed divergence, source fuel, VM operator gas, and external limits; define how exhaustion interacts with effects, rollback, and cleanup.
 - Record independent review; parallel evaluators against one hand-authored contract are implementation checks, not independent specification validation.
