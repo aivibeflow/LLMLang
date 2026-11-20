@@ -2,38 +2,38 @@
   "schema_version": 1,
   "generated_at": "2026-11-20",
   "repository": "aivibeflow/LLMLang",
-  "revision": "f560d0f9893f882a6756f1f0a3b070ea7ba1a09f",
-  "source": "Recursive Git tree at current main HEAD f560d0f9893f882a6756f1f0a3b070ea7ba1a09f; inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "8c5f729c1af37695ad1171ab21cf21daee438080",
+  "source": "Recursive Git tree at reviewed RT-00 inventory refresh snapshot 8c5f729c1af37695ad1171ab21cf21daee438080, based on main 47ec6e26ca12e615283d02393656bc0b3e9f656f; inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
-    "research_files": 462,
-    "markdown_files": 234,
-    "python_files": 194,
+    "research_files": 468,
+    "markdown_files": 237,
+    "python_files": 197,
     "scenario_named_documents": 136,
-    "prototype_tree_files": 240,
+    "prototype_tree_files": 243,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "research-background-or-design-analysis": 23,
-      "example-or-fixture": 1,
-      "structured-fixture-or-schema": 1,
-      "research-preparation-brief-or-index": 9,
-      "prototype-or-experiment-implementation": 123,
-      "other-research-artifact": 2,
-      "prototype-test-evidence": 95,
-      "prototype-report-or-readme": 20,
-      "index-or-research-management": 3,
-      "reference-register-or-manifest": 2,
-      "external-source-snapshot-or-license": 13,
       "audit-or-review-report": 3,
       "cross-cutting-synthesis-or-status": 4,
-      "scenario-research-result": 136,
+      "example-or-fixture": 1,
+      "external-source-snapshot-or-license": 13,
+      "index-or-research-management": 3,
+      "other-research-artifact": 2,
+      "prototype-or-experiment-implementation": 125,
+      "prototype-report-or-readme": 20,
+      "prototype-test-evidence": 96,
+      "reference-register-or-manifest": 2,
+      "research-area-or-experiment-document": 28,
+      "research-background-or-design-analysis": 23,
+      "research-preparation-brief-or-index": 9,
       "research-rfc-or-protocol-proposal": 2,
-      "research-area-or-experiment-document": 25
+      "scenario-research-result": 136,
+      "structured-fixture-or-schema": 1
     },
     "lean_source_files": 22,
     "taxonomy_research_areas": 24,
     "dependency_edges": 94
   },
-  "classification_note": "Categories and mappings are inventory metadata. Path-derived mappings are not semantic proof; 36 root-level entries received first-pass content/heading/reference triage, 63 Scenario reports have taxonomy-based candidate RT crosswalks, and remaining gaps are enumerated in semantic_traceability_review.",
+  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory preserves the first-pass root-level and scenario-to-RT crosswalks and records individual role mappings for all 243 prototype-tree files. Individual role mappings do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide semantic duplicate/orphan/contradiction analysis remains open.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 98,
@@ -309,6 +309,28 @@
       "plan_stages": [
         6
       ]
+    },
+    {
+      "path": "research/LLVM-PRESERVATION-REPRODUCTION.md",
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-09",
+          "RT-13"
+        ],
+        "method": "explicit scope and linked Scenario 96A/96B reproduction protocol",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        6
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Pinned reproduction protocol for the bounded LLVM integer and byte-view preservation experiments; documents environment and command evidence, not a complete frontend/backend proof or an accepted backend decision."
+      },
+      "git_blob_sha": "2fdc9308e04a864ff214dbf5a89a532253ed7798",
+      "size_bytes": 3626
     },
     {
       "path": "research/PACKAGE-INDEX-LOGICAL-SCHEMA.md",
@@ -757,8 +779,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
-      "git_blob_sha": "64f78e09a161f2f126e2e10d94e2eb27bb426209",
-      "size_bytes": 750,
+      "git_blob_sha": "bc4be5bb9b83165d777f9eb3ecd68b3f958892ac",
+      "size_bytes": 939,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -803,7 +825,7 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lean-toolchain",
-      "git_blob_sha": "12359f928f18e4a89ebd1444a0310b025931b17d",
+      "git_blob_sha": "00f848359b1cdaf7c12cd6b7acc5b4364752e154",
       "size_bytes": 25,
       "category": "other-research-artifact",
       "traceability": {
@@ -1186,8 +1208,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/RelationalSourceQuerySemantics.lean",
-      "git_blob_sha": "30a184bec53b10d3741a57b9d2a57b7ed19c9f3b",
-      "size_bytes": 17842,
+      "git_blob_sha": "c7bc0f18d31d4c69c3d31a80477d294e74cd667d",
+      "size_bytes": 17843,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -5328,6 +5350,40 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py",
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-09",
+          "RT-13"
+        ],
+        "method": "individual source-role review against the LLVM preservation protocol and Scenario 96A/96B probes",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        6
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-09",
+          "RT-13"
+        ],
+        "plan_stages": [
+          6
+        ],
+        "basis": "Runner pins Python/LLVM/compiler/package identities, executes the integer and byte-view probes, and records environment and per-command outputs."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Reproduction runner for two bounded LLVM preservation experiments; its existence does not extend their fixed target/fixture coverage or establish general source-to-IR correctness."
+      },
+      "git_blob_sha": "7c906da668236777cce986d5646b4edb405289ff",
+      "size_bytes": 7520
+    },
+    {
       "path": "research/PROTOTYPES/PACKAGE-IDENTITY-01/cache_index.py",
       "git_blob_sha": "554a9e73dc0cd211b5db5bd22e892c2646d10640",
       "size_bytes": 5039,
@@ -6146,8 +6202,8 @@
     },
     {
       "path": "research/PROTOTYPES/RT-04-01/README.md",
-      "git_blob_sha": "c8d1e8f3abce1c17c79b0c6af5ddeab419b2ff1b",
-      "size_bytes": 43932,
+      "git_blob_sha": "33e3c5192881079820c3a2eb9015abd1bfc23def",
+      "size_bytes": 59068,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -6938,6 +6994,44 @@
       ]
     },
     {
+      "path": "research/PROTOTYPES/RT-04-01/run_native_probes.py",
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-04",
+          "RT-10",
+          "RT-13"
+        ],
+        "method": "individual source-role review against RT-04 native protocol and the Scenario 120–133 command inventory",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5,
+        6
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-03",
+          "RT-04",
+          "RT-10",
+          "RT-13"
+        ],
+        "plan_stages": [
+          5,
+          6
+        ],
+        "basis": "Runner checks SQLite/Rust runtime identities, executes the versioned native probe commands, and captures machine-readable environment and command output."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Native reproduction runner for the bounded SQLite and generated-Rust experiments; command execution is distinct from Required CI model tests and does not make every scenario a native experiment."
+      },
+      "git_blob_sha": "637283d3b1772eeb53cdd941e97cf3a258a0d5f2",
+      "size_bytes": 13457
+    },
+    {
       "path": "research/PROTOTYPES/RT-04-01/scheduler_fairness_model.py",
       "git_blob_sha": "1309f21c4ce49f8584f03782e742549fc7d817d9",
       "size_bytes": 1976,
@@ -7003,8 +7097,8 @@
     },
     {
       "path": "research/PROTOTYPES/RT-04-01/sqlite_cleanup_probe.py",
-      "git_blob_sha": "088f1a63baf09bf4806c3050e4f87053e800dc36",
-      "size_bytes": 10789,
+      "git_blob_sha": "96b04c616bb6ebf47dcbf0018231a33274ecbe85",
+      "size_bytes": 10843,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -7599,6 +7693,42 @@
       ]
     },
     {
+      "path": "research/PROTOTYPES/RT-04-01/test_rt04_native_probe_runner.py",
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-04",
+          "RT-10",
+          "RT-13"
+        ],
+        "method": "individual test-role review against run_native_probes.py and the RT-04 native reproduction protocol",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5,
+        6
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-04",
+          "RT-10",
+          "RT-13"
+        ],
+        "plan_stages": [
+          5,
+          6
+        ],
+        "basis": "Tests command inventory, tracked probe paths, and pinned historical toolchain/version constants; does not execute or validate native probe outcomes."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Focused tests for the native runner's command inventory and version gates; they are not evidence that the ten native commands themselves ran."
+      },
+      "git_blob_sha": "c095a4ca0261da1e26e364a0eb4bb4a625a4a5f7",
+      "size_bytes": 1924
+    },
+    {
       "path": "research/PROTOTYPES/RT-04-01/test_rt04_owned_call_match.py",
       "git_blob_sha": "6765868751e87bbad9a726e1952aedd114317aec",
       "size_bytes": 9601,
@@ -7857,8 +7987,8 @@
     },
     {
       "path": "research/PROTOTYPES/TOOLCHAIN-SERVER-01/README.md",
-      "git_blob_sha": "f67e04e46d8c200e360f6705302d9559148273a8",
-      "size_bytes": 2629,
+      "git_blob_sha": "9ae73cc35af3aafc1e17bd760f51d04ae753c225",
+      "size_bytes": 3500,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -7905,8 +8035,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "6142243a9132f71ab8384fcf297b6d242aa38dc3",
-      "size_bytes": 22203,
+      "git_blob_sha": "8518b5ea0389415b8209136d25c0770ea90deb6b",
+      "size_bytes": 22647,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -7925,8 +8055,8 @@
     },
     {
       "path": "research/references/README.md",
-      "git_blob_sha": "141d92137f32eb96eeb2513e13d42d0d12bfa043",
-      "size_bytes": 7853,
+      "git_blob_sha": "17bf694f5dbbd3f079835cee221df688ee27d480",
+      "size_bytes": 9256,
       "category": "reference-register-or-manifest",
       "traceability": {
         "items": [
@@ -7941,8 +8071,8 @@
     },
     {
       "path": "research/references/SNAPSHOT-MANIFEST.json",
-      "git_blob_sha": "f7b9e644f1b166d6e90d9afdbea73e49f3a5a0a9",
-      "size_bytes": 3705,
+      "git_blob_sha": "78a884754ae0ca626e89ea86b01b5307444e5c4f",
+      "size_bytes": 4760,
       "category": "reference-register-or-manifest",
       "traceability": {
         "items": [
@@ -8270,8 +8400,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
-      "git_blob_sha": "52ca312acee87b2544b73b33e610d2b2dfb2547f",
-      "size_bytes": 17782,
+      "git_blob_sha": "f98391e8209967806c49b8b3131c72320a785ba4",
+      "size_bytes": 109254,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -8290,8 +8420,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
-      "git_blob_sha": "21f331279a3c8db336a4a939ddb40501f594f573",
-      "size_bytes": 20616,
+      "git_blob_sha": "793d942df0c074e48ef5f5019b13b9aa7d72436e",
+      "size_bytes": 66456,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -8384,8 +8514,8 @@
     },
     {
       "path": "research/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md",
-      "git_blob_sha": "1b40e3edcb706431b84125adceb946ebf1086388",
-      "size_bytes": 16939,
+      "git_blob_sha": "8af7491c83196ce6517bc969492409103090d287",
+      "size_bytes": 17222,
       "category": "cross-cutting-synthesis-or-status",
       "traceability": {
         "items": [
@@ -11971,8 +12101,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md",
-      "git_blob_sha": "5e007770ae5d0dc5b5655c8ba694c40258bab92a",
-      "size_bytes": 6372,
+      "git_blob_sha": "7d43ee10aada45e520b6c4d6918cb5dd12d7fdd9",
+      "size_bytes": 7170,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -11996,8 +12126,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-96B-LLVM-BYTE-VIEW-PRESERVATION.md",
-      "git_blob_sha": "d941744dfccec35787e9af6fc8a1b8b364493808",
-      "size_bytes": 3594,
+      "git_blob_sha": "75110462df686c392a3f1d14ca905b222d53de5b",
+      "size_bytes": 4343,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -12147,8 +12277,8 @@
     },
     {
       "path": "research/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "fbf6feccbc8f4f00b361bd123c78ca906f7e825c",
-      "size_bytes": 44364,
+      "git_blob_sha": "6ba414a89d567549891059116dae69cc1a2b7db5",
+      "size_bytes": 44544,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -12221,8 +12351,8 @@
     },
     {
       "path": "research/RT-01-REFERENCE-WORKLOADS.md",
-      "git_blob_sha": "307c32a4505fb0228accfb91c64d817aef547043",
-      "size_bytes": 8495,
+      "git_blob_sha": "e99a84d4a245228a6f0e93c2abc6687aae37dfa9",
+      "size_bytes": 9638,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -12234,6 +12364,26 @@
       "plan_stages": [
         7
       ]
+    },
+    {
+      "path": "research/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md",
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-02"
+        ],
+        "method": "explicit RT-02 declaration and content review of the worked requirement-reconstruction example",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-02 research proposal with a worked end-to-end example; explicitly non-normative and distinguishes reconstructed explanations from proof of user intent."
+      },
+      "git_blob_sha": "e7cbeba67a10923df04355871472ea8b6d003ab2",
+      "size_bytes": 20928
     },
     {
       "path": "research/RT-03-04-SHARED-SEMANTICS-CORPUS.md",
@@ -12250,6 +12400,30 @@
       "plan_stages": [
         1
       ]
+    },
+    {
+      "path": "research/RT-04-NATIVE-REPRODUCTION.md",
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-04",
+          "RT-10",
+          "RT-13"
+        ],
+        "method": "explicit purpose and scenario-to-command mapping in the native reproduction protocol",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5,
+        6
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Reproduction protocol separates Required CI model tests, native SQLite observations, and generated-Rust execution; manual/focused-PR workflow is not a Required CI gate."
+      },
+      "git_blob_sha": "479b15f7e6b44998e0854bcd14832ec4a47207a3",
+      "size_bytes": 5959
     },
     {
       "path": "research/RT-04-PROTOTYPE-01-RESULTS.md",
@@ -12385,8 +12559,8 @@
     },
     {
       "path": "research/RT-16-THREAT-MODEL-01.md",
-      "git_blob_sha": "2ba3def7ca2dc745ade38577dc30721256dc2570",
-      "size_bytes": 10058,
+      "git_blob_sha": "7712b5cb74045ff6fcb4b8a4c01e50ea6f608d9c",
+      "size_bytes": 11129,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
