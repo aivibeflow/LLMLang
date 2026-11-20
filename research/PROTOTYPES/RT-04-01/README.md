@@ -432,3 +432,18 @@ The following high-overlap clusters were compared by their questions, inputs, me
 | Scenario 134 versus Scenarios 109–111 | Scenario 134 is a standards/prior-art comparison and explicitly does not select a compatibility policy or implement a runtime. Scenarios 109–111 are bounded wire-model experiments. | Complementary evidence types, not duplicates or supersession. |
 
 No semantic duplicate or supersession was confirmed in these inspected clusters. This is a targeted overlap review, not a negative proof over all 136 scenario-named reports; the corpus-wide comparison remains open. Historical scenario records remain unchanged.
+
+
+## Current-main reproduction and runner update — 2026-11-20
+
+The current directory contains 45 `test_*.py` modules and 364 test methods. The earlier 44-module/360-test entry above remains a historical result for its recorded source snapshot; it is not the current suite count. Required CI run [44774552406](https://github.com/aivibeflow/LLMLang/actions/runs/44774552406) passed on main merge commit `b808c3a8f984bbc5c175ecf45d61e0e8db7a00bb`. The required repository-structure workflow discovers this directory with the `test_*.py` pattern, including the four tests in the native-runner test module.
+
+The current native orchestration entrypoints are:
+
+- [`run_native_probes.py`](run_native_probes.py) — runs the eight selected SQLite C-API commands, Scenario 130 durable receipts, and Scenario 133 generated-Rust comparison.
+- [`test_rt04_native_probe_runner.py`](test_rt04_native_probe_runner.py) — four tests for command inventory, suite composition, tracked probe paths, and pinned toolchain baselines. These tests do not execute the native probes.
+- [RT-04 Native Reproduction Protocol](../../RT-04-NATIVE-REPRODUCTION.md) and [workflow](../../../.github/workflows/rt04-native-reproduction.yml).
+
+Research Native Reproduction run [44774296240](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240) passed all ten native commands with zero failures and zero skips. Artifact [14650095720](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240/artifacts/14650095720) contains the manifest and per-command output. The C API probes used SQLite 3.46.1 with the exact recorded distro source ID ending `alt1`; Scenario 130 used SQLite 3.53.1; generated Rust used rustc 1.85.1 and matched 125,952 observations.
+
+The native workflow is separate from Required CI. Its ten commands cover the bounded native probes for Scenarios 120–126 and 128, Scenario 130, and Scenario 133. Scenarios 127, 129, 131, and 132 remain model/process/source-fixture evidence, not additional native SQLite executions. The successful run does not imply general FFI, concurrency, or language-semantic guarantees.
