@@ -416,3 +416,19 @@ The `rt03_blocking_protocol.py` pair is not treated as an orphan with no purpose
 The source ID repeated in Scenarios 120–126 and 128 is not the official SQLite 3.46.1 source ID published by SQLite. The official release log gives `...f69a1e33`; the scenario text gives `...f69aalt1`. The latter contains non-hexadecimal characters in the hash suffix and cannot be reconciled with the published release identity. Because the probe prints `sqlite3_sourceid()` but the raw run log and loaded shared-library artifact are not preserved, the audit cannot determine whether the scenario text contains a transcription error or the run used a modified build. Preserve the historical reports unchanged until the original evidence is recovered; rerun the native probes against a pinned stock build and capture the raw output. Scenario 130 records only version 3.53.1, not its source ID, so its exact build identity is also incomplete.
 
 The scenario reports contain fixtures, commands, expected observations, negative/boundary cases, and explicit limits. Their historical execution environments must not be conflated with the current CI environment. In particular, the 360 passing unit tests do not upgrade the SQLite native probes, Rust native run, benchmark, or untested fuel probes to “reproduced on current main”.
+
+
+### Targeted semantic-overlap review
+
+The following high-overlap clusters were compared by their questions, inputs, methods, outputs, and stated limits. Shared vocabulary (cleanup, fairness, paths, ownership, or serialization) is not treated as proof of duplication.
+
+| Cluster | Distinct contribution established by content | Disposition |
+|---|---|---|
+| Scenarios 35, 36, 39, 40, 97 | Resource return/cleanup; recursion termination and fuel; cleanup failure with ownership transfer; asynchronous cancellation and cleanup; then a six-candidate cleanup-error composition comparison over a 13,230-case outcome/ownership product. Scenario 97 explicitly adds a cross-profile composition experiment rather than replacing the earlier studies. | Related sequence, not a semantic duplicate. Preserve all results; no supersession. |
+| Scenarios 94 and 112 | Scenario 94 studies scheduler fairness/liveness at the semantic-question level. Scenario 112 supplies a bounded executable model with weak, strong, and bounded fairness, starvation cycles, and a round-robin case. | Related broad-study/model pair, not a duplicate. |
+| Scenarios 100–103 | Exhaustive Boolean path baseline; SymPy DPLL2 comparison; soundness of UNKNOWN/UNSAT and pruning policies; then a real per-query worker deadline with kill/reap behavior. | Four-step evidence chain; not duplicates. |
+| Scenarios 109–111 | Optional presence versus null; schema evolution and defaults; preservation of unknown wire variants. | Three distinct wire-compatibility failure modes; not duplicates. |
+| Scenarios 119–133 | Owned-result matching; SQLite cleanup dependency and close recovery; evidence freshness; close call boundary; synchronization/interleavings; reentry; multi-resource roles; source-role correlation; foreign reservation outcomes; cancellation evidence; durable results; shared workload; typed caller recovery; generated Rust. | Sequential, distinct boundary experiments. Scenario 127 and 129–132 are model/process studies, not additional native SQLite probes. |
+| Scenario 134 versus Scenarios 109–111 | Scenario 134 is a standards/prior-art comparison and explicitly does not select a compatibility policy or implement a runtime. Scenarios 109–111 are bounded wire-model experiments. | Complementary evidence types, not duplicates or supersession. |
+
+No semantic duplicate or supersession was confirmed in these inspected clusters. This is a targeted overlap review, not a negative proof over all 136 scenario-named reports; the corpus-wide comparison remains open. Historical scenario records remain unchanged.
