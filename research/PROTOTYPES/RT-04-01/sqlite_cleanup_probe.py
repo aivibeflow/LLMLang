@@ -10,6 +10,9 @@ from rt04_sqlite_recovery import BUSY, ERROR, OK, Policy, cleanup, statement_fix
 
 
 UTF8 = 1
+OPEN_READWRITE = 0x00000002
+OPEN_CREATE = 0x00000004
+OPEN_FULLMUTEX = 0x00010000
 ScalarFunction = CFUNCTYPE(None, c_void_p, c_int, POINTER(c_void_p))
 Destructor = CFUNCTYPE(None, c_void_p)
 
@@ -40,6 +43,8 @@ class SQLiteProbe:
         self.version = bind("libversion", c_char_p)
         self.source_id = bind("sourceid", c_char_p)
         self.open_connection = bind("open", c_int, c_char_p, POINTER(c_void_p))
+        self.open_v2 = bind("open_v2", c_int, c_char_p, POINTER(c_void_p), c_int, c_char_p)
+        self.connection_mutex = bind("db_mutex", c_void_p, c_void_p)
         self.prepare_statement = bind(
             "prepare_v2", c_int, c_void_p, c_char_p, c_int, POINTER(c_void_p), POINTER(c_char_p),
         )
@@ -57,6 +62,18 @@ class SQLiteProbe:
     def connect(self):
         connection = c_void_p()
         require("open memory database", self.open_connection(b":memory:", byref(connection)), OK)
+        return connection
+
+    def connect_serialized(self):
+        connection = c_void_p()
+        flags = OPEN_READWRITE | OPEN_CREATE | OPEN_FULLMUTEX
+        code = self.open_v2(b":memory:", byref(connection), flags, None)
+        if code != OK and connection:
+            self.close(connection)
+        require("open serialized memory database", code, OK)
+        if not self.connection_mutex(connection):
+            self.close(connection)
+            raise RuntimeError("SQLite did not provide a connection mutex")
         return connection
 
     def prepare(self, connection, sql=b"SELECT 1"):

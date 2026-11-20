@@ -33,6 +33,8 @@ Scenario 122 derives dependency coverage from source and call summaries in a bou
 
 Scenario 123 compares source admission, a checked snapshot, busy recovery, and deferred destruction on shared inputs. The call boundary distinguishes a retained capability from pending destruction even when the local cleanup diagnostic is identical. [Shared close workload](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md)
 
+Scenario 124 checks close observations across two threads. A separate validation can precede a mutation even when its version check succeeds. A guard must cover the underlying resource across aliases to protect the observation through use. [Close synchronization](RESEARCH-SCENARIO-124-CLOSE-SYNCHRONIZATION.md)
+
 Scenario 97 isolates cleanup-error composition from cleanup trigger and resource state. Java try-with-resources preserves a primary exception and suppresses ordered close failures; Go specifies LIFO defer but leaves result composition to code (with `errors.Join` available); Rust `Drop` has no ordinary error result and a second panic during unwinding can abort; Swift `defer` constrains control transfer. A cross-outcome ownership/fuel corpus is proposed, not run; no outcome policy is selected.
 
 Scenario 109 tests optional representation at a minimal JSON boundary: a single optional collapses omitted and explicit-null fields under the chosen mapping, while nested optional and tagged presence preserve absent/null/value. Decode errors and uninitialized reads are separate outcomes. The fixture does not resolve schema, serialization, or ABI policy.

@@ -144,6 +144,8 @@ Scenario 122 derives close facts from a bounded source grammar. On 4,116 executi
 
 Scenario 123 combines these policies with a forwarding match on the same 36 workload inputs. The SQLite probe checks 114 admitted pairs. Both guard refusal and busy require a typed slot for the connection. Deferred close consumes it and can leave destruction pending. [Shared close workload](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md)
 
+Scenario 124 verifies 11 close schedules with a statement producer on serialized SQLite. A separate version check leaves a gap before close. A shared guard orders producer entry with close and retirement, while an alias using another lock can still create a dependent in that gap. [Close synchronization](RESEARCH-SCENARIO-124-CLOSE-SYNCHRONIZATION.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
@@ -174,7 +176,7 @@ These refine existing dependency hypotheses; they do not add normative rules. Se
 
 - Define source-level rules for calls, branches, Result/error propagation, cancellation, resource acquire/use/release, transfer/return, and cleanup failure.
 - Make ordered effects and payloads visible to type/dependency summaries.
-- Extend the shared close workload to source-derived transfer and aliases. Validate FFI completeness and synchronization at the close boundary, and specify how unknown disposition stays visible in the caller contract. [Scenario 123](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md)
+- Extend the shared close workload to source-derived transfer and aliases. Check guard coverage across callbacks and further FFI dependency producers, and keep unknown disposition visible in the caller contract. [Scenario 123](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md) · [Scenario 124](RESEARCH-SCENARIO-124-CLOSE-SYNCHRONIZATION.md)
 - State where profiles differ and what equivalence means for results, traces, resource state, and divergence.
 - Compare total recursion, general partiality, typed divergence, source fuel, VM operator gas, and external limits; define how exhaustion interacts with effects, rollback, and cleanup.
 - Record independent review; parallel evaluators against one hand-authored contract are implementation checks, not independent specification validation.
