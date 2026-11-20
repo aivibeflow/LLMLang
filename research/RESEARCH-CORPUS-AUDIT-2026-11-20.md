@@ -70,7 +70,17 @@ The inventory is a reproducible path-level snapshot. It is not a claim that ever
 
 **Result:** the previous 36 low-confidence records no longer have blank/unassigned path-only mappings, but the corpus-wide semantic traceability gate remains open.
 
-### 2.6 Exact blob comparison
+### 2.6 Initial section-level supersession review
+
+Three explicit cases were recorded in the inventory; none supersedes its whole document:
+
+- Scenario 31's first text-based query representation is superseded by the typed canonical query IR v2 in Scenario 32; the Scenario 31 profile analysis remains relevant.
+- Scenario 32 §9's parser-state bridge sketch is superseded by the compiled Logos implementation in `PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; the query IR document remains relevant.
+- The embedded ADR-0001 external-KV-authoritative proposal in `GIT-SEMANTIC-REPOSITORY.md` is historical and superseded by Proposed ADR-014 and `GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md`; the surrounding research remains background.
+
+**Result:** three section-level cases are explicit; no entire document was marked superseded. This is not a complete semantic duplicate/orphan/contradiction audit.
+
+### 2.7 Exact blob comparison
 
 Git blob SHA comparison across the 448 inventory entries found one repeated blob:
 
@@ -91,6 +101,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 | RCA-05 | PLAN.md §0.3 reported stale taxonomy/dependency counts. | Corrected to 24 research areas and 85 dependency edges; added RT-24 with candidate dependencies. |
 | RCA-06 | One exact duplicate blob is shared by the OCI and REAPI Apache-2.0 licence files. | Classified as intentional shared licence content; no deletion proposed. |
 | RCA-07 | External snapshot integrity and experiment reproducibility have not been independently re-established. | Preserve pinned revisions and existing manifest; verify source blobs and experiment environments in a later pass. |
+| RCA-08 | Three section-level supersession cases are explicit; semantic near-duplicates, orphans, and contradictions are not exhaustively reviewed. | Record the three known cases without deleting whole documents; complete the corpus-wide semantic review in a later pass. |
 
 ## 4. Reconciliation rules
 
