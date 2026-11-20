@@ -38,7 +38,7 @@ The inventory is a reproducible path-level snapshot. It is not a claim that ever
 ### 2.2 Research index links
 
 - Read `research/README.md`.
-- Extracted **83 unique relative Markdown link targets**.
+- Extracted **84 unique relative Markdown link targets**.
 - Checked each target against the recursive Git tree at the snapshot revision: **0 missing targets**.
 - Checked the eight preparation briefs linked by `research/preparation/README.md`; all eight exist. The other links in that preparation index, including the reference register and glossary, also resolve.
 
@@ -75,7 +75,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 |---|---|---|
 | RCA-01 | The corpus has 446 tracked paths, but previously lacked a complete path inventory. | Added the machine-readable inventory snapshot. |
 | RCA-02 | Artifact-to-item mapping is not uniformly explicit in filenames. | Added qualified path-based mappings; content-level verification remains open. |
-| RCA-03 | All 83 relative links in the main research index resolve. | Link existence check complete; index completeness remains open. |
+| RCA-03 | All 84 unique relative links in the main research index at the base revision resolve. The PR adds the inventory link; all 85 unique targets in the updated branch index resolve. | Link existence check complete; index completeness remains open. |
 | RCA-04 | All eight preparation briefs linked by the preparation index exist. | Path check complete; scientific readiness and internal link scan remain open. |
 | RCA-05 | PLAN.md §0.3 reported stale taxonomy/dependency counts. | Corrected to 23 research areas and 77 dependency edges. |
 | RCA-06 | One exact duplicate blob is shared by the OCI and REAPI Apache-2.0 licence files. | Classified as intentional shared licence content; no deletion proposed. |
