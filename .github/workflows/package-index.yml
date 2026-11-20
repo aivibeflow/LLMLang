@@ -4,14 +4,14 @@ on:
   workflow_call:
     inputs:
       run_benchmark:
-        description: Run the exploratory Provider resource benchmark
+        description: Run the exploratory Provider resource benchmark and profiler
         required: false
         type: boolean
         default: false
   workflow_dispatch:
     inputs:
       run_benchmark:
-        description: Run the exploratory Provider resource benchmark
+        description: Run the exploratory Provider resource benchmark and profiler
         required: false
         type: boolean
         default: false
@@ -33,10 +33,16 @@ jobs:
         working-directory: research/PROTOTYPES/PACKAGE-INDEX-01
         env:
           PYTHONPATH: ../PACKAGE-IDENTITY-01
-        run: python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py test_package_closure.py package_closure.py test_package_provider.py test_provider_stress.py package_provider.py benchmark_package_provider.py content_store.py test_content_store.py run_tests_with_timings.py ../PACKAGE-IDENTITY-01/package_identity.py
+        run: python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py test_package_closure.py package_closure.py test_package_provider.py test_provider_stress.py package_provider.py benchmark_package_provider.py profile_package_provider.py content_store.py test_content_store.py run_tests_with_timings.py ../PACKAGE-IDENTITY-01/package_identity.py
       - name: Record exploratory Provider resource benchmarks
         if: inputs.run_benchmark
         working-directory: research/PROTOTYPES/PACKAGE-INDEX-01
         env:
           PYTHONPATH: ../PACKAGE-IDENTITY-01
         run: python benchmark_package_provider.py --sizes 1000 5000
+      - name: Profile many-dependencies Provider build
+        if: inputs.run_benchmark
+        working-directory: research/PROTOTYPES/PACKAGE-INDEX-01
+        env:
+          PYTHONPATH: ../PACKAGE-IDENTITY-01
+        run: python profile_package_provider.py --shape many-dependencies --size 5000 --top 40
