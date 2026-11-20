@@ -4,6 +4,7 @@ from argparse import ArgumentParser
 from ctypes import CDLL, CFUNCTYPE, POINTER, byref, c_char_p, c_int, c_void_p
 from ctypes.util import find_library
 from itertools import product
+import os
 from typing import get_args
 
 from rt04_sqlite_recovery import BUSY, ERROR, OK, Policy, cleanup, statement_fixtures
@@ -30,7 +31,7 @@ def record(label, actual, expected):
 
 class SQLiteProbe:
     def __init__(self):
-        name = find_library("sqlite3")
+        name = os.environ.get("LLMLANG_SQLITE_LIBRARY") or find_library("sqlite3")
         if name is None:
             raise SystemExit("The probe requires the SQLite shared library")
         self._library = CDLL(name)

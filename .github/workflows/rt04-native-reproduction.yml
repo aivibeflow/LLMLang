@@ -1,0 +1,183 @@
+name: Research Native Reproduction
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/rt04-native-reproduction.yml"
+      - "research/PROTOTYPES/RT-04-01/**"
+      - "research/RT-04-NATIVE-REPRODUCTION.md"
+      - "research/PROTOTYPES/LLVM-PRESERVATION-01/**"
+      - "research/RESEARCH-SCENARIO-96*.md"
+      - "research/LLVM-PRESERVATION-REPRODUCTION.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-reproduction:
+    name: native-reproduction
+    runs-on: ubuntu-26.04
+    timeout-minutes: 45
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: "1.85.1"
+
+      - name: Install the distribution SQLite library used by the scenarios
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y libsqlite3-0
+          library="$(ldconfig -p | awk '$1 == "libsqlite3.so.0" { print $NF; exit }')"
+          test -n "$library"
+          export LLMLANG_SQLITE_LIBRARY="$library"
+          echo "LLMLANG_SQLITE_LIBRARY=$library" >> "$GITHUB_ENV"
+          python - <<'PY'
+          import ctypes
+          import os
+          library = ctypes.CDLL(os.environ.get("LLMLANG_SQLITE_LIBRARY", ""))
+          library.sqlite3_libversion.restype = ctypes.c_char_p
+          library.sqlite3_sourceid.restype = ctypes.c_char_p
+          print("SQLite", library.sqlite3_libversion().decode())
+          print("source ID:", library.sqlite3_sourceid().decode())
+          PY
+
+      - name: Build Python 3.12.14 against SQLite 3.53.1 for Scenario 130
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get install -y --no-install-recommends \
+            build-essential pkgconf zlib1g-dev libssl-dev libffi-dev libbz2-dev \
+            libreadline-dev libsqlite3-dev liblzma-dev libncursesw5-dev \
+            libgdbm-dev libnss3-dev libgdbm-compat-dev libexpat1-dev uuid-dev tk-dev
+
+          cd "$RUNNER_TEMP"
+          curl --fail --location --silent --show-error \
+            https://www.sqlite.org/2026/sqlite-autoconf-3530100.tar.gz \
+            --output sqlite-autoconf-3530100.tar.gz
+          tar -xzf sqlite-autoconf-3530100.tar.gz
+          cd sqlite-autoconf-3530100
+          ./configure --prefix="$RUNNER_TEMP/sqlite-3.53.1" --enable-shared --disable-static
+          make -j2
+          make install
+
+          cd "$RUNNER_TEMP"
+          curl --fail --location --silent --show-error \
+            https://www.python.org/ftp/python/3.12.14/Python-3.12.14.tgz \
+            --output Python-3.12.14.tgz
+          tar -xzf Python-3.12.14.tgz
+          cd Python-3.12.14
+          export SQLITE_PREFIX="$RUNNER_TEMP/sqlite-3.53.1"
+          export CPPFLAGS="-I$SQLITE_PREFIX/include"
+          export LDFLAGS="-L$SQLITE_PREFIX/lib -Wl,-rpath,$SQLITE_PREFIX/lib"
+          export PKG_CONFIG_PATH="$SQLITE_PREFIX/lib/pkgconfig"
+          ./configure --prefix="$RUNNER_TEMP/python-3.12.14" \
+            --enable-shared --enable-loadable-sqlite-extensions --with-ensurepip=install
+          make -j2
+          make install
+          ln -sf "$RUNNER_TEMP/python-3.12.14/bin/python3.12" "$RUNNER_TEMP/python-3.12.14/bin/python"
+          echo "PATH=$RUNNER_TEMP/python-3.12.14/bin:$PATH" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/python-3.12.14/lib:$RUNNER_TEMP/sqlite-3.53.1/lib:${LD_LIBRARY_PATH:-}" >> "$GITHUB_ENV"
+          echo "LLMLANG_PYTHON_SQLITE_LIBRARY=$RUNNER_TEMP/sqlite-3.53.1/lib/libsqlite3.so" >> "$GITHUB_ENV"
+          export PATH="$RUNNER_TEMP/python-3.12.14/bin:$PATH"
+          export LD_LIBRARY_PATH="$RUNNER_TEMP/python-3.12.14/lib:$RUNNER_TEMP/sqlite-3.53.1/lib:${LD_LIBRARY_PATH:-}"
+          python --version
+          python -c "import sqlite3; c=sqlite3.connect(':memory:'); print(sqlite3.sqlite_version); print(c.execute('select sqlite_source_id()').fetchone()[0]); assert sqlite3.sqlite_version == '3.53.1'"
+
+      - name: Run native SQLite and Rust experiments
+        run: |
+          python -B research/PROTOTYPES/RT-04-01/run_native_probes.py \
+            --suite all \
+            --output-dir artifacts/rt04-native-reproduction
+
+      - name: Preserve native experiment outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt04-native-reproduction-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/rt04-native-reproduction/
+          if-no-files-found: warn
+          retention-days: 30
+
+  llvm-preservation:
+    name: llvm-preservation
+    runs-on: ubuntu-24.04
+    container:
+      image: debian:trixie
+    timeout-minutes: 45
+    steps:
+      - name: Install checkout and package tools
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends ca-certificates git curl
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install the exact Debian LLVM tool package
+        shell: bash
+        run: |
+          set -euo pipefail
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            llvm-19=1:19.1.7-3+b1 gcc-14 binutils
+          apt-get download llvm-19=1:19.1.7-3+b1
+          package="$(find "$GITHUB_WORKSPACE" -maxdepth 1 -type f -name "llvm-19_*.deb" -print -quit)"
+          test -n "$package"
+          test -f "$package"
+          echo "LLMLANG_LLVM_DEB_PATH=$package" >> "$GITHUB_ENV"
+          echo "LLVM package SHA-256:"
+          sha256sum "$package"
+          opt-19 --version
+          llc-19 --version
+          gcc-14 --version
+          ld --version
+          ldd --version
+
+      - name: Build Python 3.12.14
+        shell: bash
+        run: |
+          set -euo pipefail
+          apt-get install -y --no-install-recommends \
+            build-essential pkgconf zlib1g-dev libssl-dev libffi-dev libbz2-dev \
+            libreadline-dev libsqlite3-dev liblzma-dev libncursesw5-dev \
+            libgdbm-dev libnss3-dev libgdbm-compat-dev libexpat1-dev uuid-dev tk-dev
+          cd "$RUNNER_TEMP"
+          curl --fail --location --silent --show-error \
+            https://www.python.org/ftp/python/3.12.14/Python-3.12.14.tgz \
+            --output Python-3.12.14.tgz
+          tar -xzf Python-3.12.14.tgz
+          cd Python-3.12.14
+          ./configure --prefix="$RUNNER_TEMP/python-3.12.14" --enable-shared --with-ensurepip=install
+          make -j2
+          make install
+          ln -sf "$RUNNER_TEMP/python-3.12.14/bin/python3.12" "$RUNNER_TEMP/python-3.12.14/bin/python"
+          echo "PATH=$RUNNER_TEMP/python-3.12.14/bin:$PATH" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/python-3.12.14/lib:${LD_LIBRARY_PATH:-}" >> "$GITHUB_ENV"
+          export PATH="$RUNNER_TEMP/python-3.12.14/bin:$PATH"
+          export LD_LIBRARY_PATH="$RUNNER_TEMP/python-3.12.14/lib:${LD_LIBRARY_PATH:-}"
+          python --version
+
+      - name: Run integer and byte-view preservation experiments
+        run: |
+          python -B research/PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py \
+            --opt /usr/bin/opt-19 \
+            --llc /usr/bin/llc-19 \
+            --cc /usr/bin/gcc-14 \
+            --output-dir artifacts/llvm-preservation-reproduction
+
+      - name: Preserve LLVM experiment outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: llvm-preservation-reproduction-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/llvm-preservation-reproduction/
+          if-no-files-found: warn
+          retention-days: 30

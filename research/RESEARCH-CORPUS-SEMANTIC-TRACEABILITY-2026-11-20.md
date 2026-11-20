@@ -336,3 +336,75 @@ The second evidence slice checks the COR-13 sequence from owned-result shape inf
 The current Required CI repository-structure job runs all RT-04-01 test_*.py modules and passed. It does not invoke the standalone SQLite probes or the native Rust runner. Accordingly, the repository currently has a successful automated test layer plus separately reported native observations; this review has not independently rerun the latter.
 
 This evidence chain supports bounded statements about the tested SQLite API paths and generated COR-13 fixture. It does not establish general ownership/typestate semantics, source-derived dependency completeness, all FFI contracts, or a production concurrency model. The next evidence task is controlled reproduction of native probes and preservation of their exact outputs/toolchain provenance.
+
+
+## 14. Native reproduction harness — first run passed
+
+The RT-04 native evidence boundary now has a dedicated manual workflow, `.github/workflows/rt04-native-reproduction.yml`, and orchestrator `PROTOTYPES/RT-04-01/run_native_probes.py`, with a focused command-inventory test `test_rt04_native_probe_runner.py`. The harness selects the SQLite 3.46.1 distribution shared library and passes its exact path through `LLMLANG_SQLITE_LIBRARY`; the loader override avoids accidental selection of the host's default SQLite library. The first run showed why the source-ID gate matters: upstream 3.46.1 reported a source ID ending `a1e33`, while the scenarios record the distro build ending `alt1`. All eight C-API probes were skipped rather than silently accepting the version-only match. The runner checks the Scenario 120–128 SQLite version and source ID, and the generated-Rust runner enforces Rust 1.85.1.
+
+The workflow covers the base cleanup, recovery matrix, snapshot freshness, close call boundary, interleavings, callback reentry/dependent coverage, backup roles/outcomes, durable invocation receipts, and generated Rust comparison. It records the repository revision, Python/platform metadata, both C-library and Python sqlite3 versions, rustc verbose metadata, exact commands, exit statuses, and separate stdout/stderr files in a JSON manifest and a 30-day Actions artifact.
+
+The Python `sqlite3` runtime used by Scenario 130 is now isolated from the C-API probes: the workflow builds SQLite 3.53.1 and the runner launches the durable-receipt subprocess with that library first on `LD_LIBRARY_PATH`. It verifies the Python module's runtime version and records `sqlite_source_id()` before running the probe. This is a version match to the historical report; the original report did not record a Python SQLite source ID, so byte-identical library provenance is not claimed.
+
+**Status:** the corrected run [44770566744](https://github.com/aivibeflow/LLMLang/actions/runs/44770566744) passed all ten commands with zero failures/skips. It used the exact SQLite 3.46.1 distro source ID and Rust 1.85.1. Artifact [14647056715](https://github.com/aivibeflow/LLMLang/actions/runs/44770566744/artifacts/14647056715) preserves the manifest and all outputs. The C-API and generated-Rust native commands have now executed successfully. The first successful run used Python sqlite3 3.46.1, not Scenario 130's historical 3.53.1. The follow-up run 44771268838 built and preflighted 3.53.1, passed all ten commands, and matched Scenario 130's reported recovery states. Per-case outputs for the other probes have been checked against the corresponding scenario results. Required CI remains Python-test evidence only.
+
+
+## 15. Per-case native output comparison — first successful run
+
+The stdout from [native run 44770910183](https://github.com/aivibeflow/LLMLang/actions/runs/44770910183) was compared directly with Scenarios 120–128 and 133. All eight SQLite C-API probes and the generated-Rust comparison agree with their reported counts and observations: 356/154 admitted/rejected recovery plans; 114 admitted close boundaries with 30 source-proof rejections; 11 interleavings; 12 callback cases plus 8 dependent-coverage cases; 12 shared-source backup traces; and 125,952 Rust observations (62,976 at each optimization level), including the three pairs of reported start counts. The base close, stale-snapshot, finalize-error, deferred-destruction, and writable/read-only backup return codes also match the scenario tables.
+
+Scenario 130's ten durable-receipt cases passed on this run, but Python's sqlite3 runtime was 3.46.1 rather than the report's 3.53.1. The workflow now builds 3.53.1 and uses it in a dedicated subprocess for this probe; exact-version reproduction remains pending that rerun. Artifact [14648440097](https://github.com/aivibeflow/LLMLang/actions/runs/44770910183/artifacts/14648440097) preserves the logs and manifest.
+
+
+## 16. Scenario 130 version-matched rerun
+
+The follow-up [native run 44771268838](https://github.com/aivibeflow/LLMLang/actions/runs/44771268838) built SQLite 3.53.1 separately and loaded it into the Python 3.12.14 child process that executes the durable-receipt probe. Runtime preflight confirmed sqlite3 version 3.53.1 and source ID `2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9`. All ten native commands passed. The durable probe's atomic and separate-commit recovery states match the Scenario 130 report. Artifact [14647107612](https://github.com/aivibeflow/LLMLang/actions/runs/44771268838/artifacts/14647107612) preserves the manifest and outputs.
+
+This closes the documented version mismatch for Scenario 130. The historical scenario did not record its SQLite source ID, so this is a version match, not a claim of byte-identical historical build provenance.
+
+
+## 17. Bounded evidence audit — Scenarios 109–118 and 134
+
+| Scenario | Evidence mapped | What the evidence does not establish |
+|---:|---|---|
+| 109 | optional_presence_model.py; 8 tests. Absent/null/value, decode failure, and uninitialized read are separate. Nested optional and presence-bit encodings preserve three input states. | One JSON integer field only; no language serializer, ABI, or layout claim. |
+| 110 | schema_evolution_model.py; 6 tests. Sixteen producer/consumer cases and explicit default/null/unknown-key policies are checked. | No real schema language, registry, old binaries, migration, or canonical encoding. |
+| 111 | unknown_variant_model.py; 7 tests. Reject/fallback/opaque-preserve policies and nested semantic relay are checked. | JSON fixture only; not byte-preserving and no real interchange runtime. |
+| 112 | scheduler_fairness_model.py; 5 tests. Weak versus strong fairness and a bounded two-task round-robin policy are distinguished. | Finite cycles and fixed runnable tasks only; no real scheduler or general liveness guarantee. |
+| 113–117 | rt04_store_buffering.py and its 12 shared tests. Store buffering, message passing, atomic RMW, four per-object coherence rules, release sequences, version-specific C++17/C++20 behavior, and fence read-from premises are covered. | Axiom-driven finite fixtures; no complete source memory model, compiler, hardware, or selected LLMLang policy. |
+| 116 | LLVM contract analysis. Relaxed→monotonic is a candidate mapping; unordered is identified as too weak for the stated per-object coherence. Target lock-free widths constrain lowering. | Unversioned LLVM docs, no actual compiler/target execution, and no accepted mapping or fallback policy. |
+| 118 | rt04_atomic_execution.py and its 7 tests. 4,096 layouts and six independent interleavings per layout; global-order witnesses match the oracle; weaker relation adds witnesses in 242 layouts and read values in 98. | Six-operation fragment, constant stores, direct release/acquire only; relaxed side still needs independent model/compiler validation. |
+| 134 | Analytical Protobuf/Avro/CBOR standards comparison; no runtime executed. | Accepted architecture decision means cross-version wire compatibility is not a current implementation requirement. |
+
+Required CI run 44771268684 passed all 364 RT-04-01 Python tests, including the focused tests for Scenarios 109–112 and 113–118. Scenario 116 is a source-contract analysis, not an executable experiment. Scenario 134 is an analytical comparison, not a runtime conformance suite.
+
+The accepted [Immutable Components and Single-Version Toolchain Compatibility decision](../draft/ARCHITECTURE-DECISIONS.md) states that compatibility is checked at build time within one coherent toolchain version; it does not require cross-version wire compatibility, schema negotiation, persisted-message migration, or unknown-field forwarding. It explicitly says not to start the Protobuf/Avro/CBOR runtime matrix unless an external/persistent/independently versioned data boundary is introduced. Scenario 134 is therefore prior-art/reference material, not an active implementation requirement.
+
+The draft glossary defines ContractHash, OpHash, ImplHash, CCHash, and optional CandidateSetHash, but not a wire-schema fingerprint. Scenario 134's parsing fingerprint, evolution policy, registry locator, and semantic wire contract are distinct concepts; none should be aliased to the existing semantic hashes. No new wire-hash term is required while the current architecture decision remains in force.
+
+
+## 18. Bounded evidence audit — Scenarios 89–96
+
+Scenarios 89–94 are source/prior-art analyses, not LLMLang implementation experiments. Scenario 89's ECMAScript ASI examples are proposed conformance cases; no parser/formatter was run. Scenario 90 separates runtime hash contracts from persistent identity but selects no hash policy. Scenario 91 leaves canonical semantic addressing and digest migration open under LL-004/LL-005. Scenario 92 separates semantic operation identity from implementation and action identity but selects no OpHash/binding model. Scenario 93 proposes an ActionResult envelope and conservative reuse gate; no cache prototype or falsifying fixture was run, and LL-021 remains open. Scenario 94 is analytical; Scenario 112 is its finite five-test follow-up, not a real scheduler measurement.
+
+Scenario 95's 2026-11-20 execution is a comparative source review, not a compiler/LSP implementation or participant experiment. It records 12 diagnostic-level discriminators and a proposed human/agent evaluation protocol; no LLMLang diagnostics or agent repairs were evaluated. Its quality-gate assessment marks Q4 adversarial coverage partial.
+
+Scenario 96A/B are stronger, bounded native evidence. Scenario 96A reports 41,956 comparisons with zero mismatches and detects a verifier-accepted overflow mutant. Scenario 96B reports 19,600 comparisons with zero mismatches and detects verifier-accepted logical-bound/origin mutants. Both record LLVM 19.1.7, Python 3.12.14, exact input IR hashes, target details, source commits, and the Debian LLVM package SHA-256. They remain one-target fixture results and are not part of Required CI.
+
+The Research Native Reproduction run 44773422416 successfully executed the llvm-preservation job. It verified Debian Trixie package 1:19.1.7-3+b1 against SHA-256 0b1b7263f4f45e261099240fdbf00fc14b42b88410fd829e041bf83ea45866cb, Python 3.12.14, libffi 3.4.8, glibc 2.41, GCC 14.2.0, and GNU ld 2.44. Both probes passed with the reported comparison counts, input IR hashes, and negative-control disagreements. Artifact 14647744441 preserves the manifest and outputs. The fresh reproduction is limited to the same fixed x86-64 target and O0/O3 fixture.
+
+
+## 19. Specification-level prior-art audit — Scenarios 81–88
+
+Scenarios 81–88 are source/specification analyses and fixture preparation, not LLMLang implementation results:
+
+- 81 compares import binding, aliases, wildcard imports, re-exports, and scope; it selects no import grammar or resolution rule.
+- 82 compares source-file headers, imports, declarations, top-level code, and module membership; it selects no file/module/entry-point structure.
+- 83 compares numeric lexical forms and deliberately keeps lexical grammar separate from Scenario 73 typing/conversions and Scenario 78 runtime floating-point semantics.
+- 84 compares signature/call surfaces and keeps them distinct from Scenario 77 argument sequencing, Scenario 58 higher-order function types, Scenario 56 closures, and Scenario 42 generic dispatch.
+- 85 compares local declaration/mutability forms and leaves initialization, binding identity, shadowing, and destructuring policies to the linked semantic studies.
+- 86 compares async/await grammar and contexts while leaving task start/scheduling, cancellation, and lifetime to Scenarios 40, 57, and 58.
+- 87 defines a 13-case language-neutral await parser/diagnostic corpus; no LLMLang parser or profile adapter has executed it.
+- 88 compares default argument evaluation and API evolution, but its proposed per-call, mutable-value, ordering, and compiled-client experiments have not been run.
+
+No accepted architecture decision covers these syntax choices. The cited language references are largely rolling/current documents as of 2026-11-19; pin versions before building conformance claims. Do not treat the candidate axes or fixture designs as accepted grammar.
