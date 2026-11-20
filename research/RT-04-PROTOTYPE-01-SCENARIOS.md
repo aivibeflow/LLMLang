@@ -63,7 +63,7 @@ The CFG tests assume the supplied blocks and edges are complete and correctly re
 
 ## RT-03 × RT-04 shared observable-trace fixtures
 
-The companion [cross-profile report](../RT-04-RT-03-CROSS-PROFILE-TRACES.md) and
+The companion [cross-profile report](RT-04-RT-03-CROSS-PROFILE-TRACES.md) and
 [executable tests](PROTOTYPES/RT-04-01/test_rt03_rt04_cross_profile.py)
 add a deliberately small hand-authored trace oracle. These are not complete
 reference semantics and do not replace the declaration-level tests above.
