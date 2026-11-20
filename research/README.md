@@ -71,6 +71,10 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 - [Shared semantics corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md) maps COR-01–13 fixtures and their evidence boundaries.
 - [COR-13 typed ownership follow-up](RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md) records the bounded policy comparison and preliminary action-list/CFG caller model for owned-resource results; integration with typed call trees remains open.
 
+## Runtime and performance research
+
+- [RT-25 — Memory Allocator Compatibility, Selection, and Benchmarking](RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md) — mandatory comparative study of Rust/platform allocator integration, FFI and deployment constraints, and reproducible LLMLang workload benchmarks.
+
 ## Integration and foundations
 
 - [Research taxonomy](RESEARCH-TAXONOMY.md) tracks areas, coverage, and required report fields.

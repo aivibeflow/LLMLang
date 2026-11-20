@@ -356,3 +356,18 @@ RT-24 is a research proposal, not an accepted SPG schema, identity model, canoni
 
 These edges are research hypotheses derived from the current RT-24 candidate contract and its stated dependencies. They do not make RT-24's proposed representation or algorithm normative. Revisit them if the RT-24 scope or the immutable-component/single-toolchain boundary changes.
 
+
+
+## 13. Runtime memory allocators and allocation strategy (RT-25)
+
+RT-25 evaluates allocator choices for the Rust-based LLMLang runtime and toolchain. It is a measurement and compatibility study, not a prior commitment to replace the platform allocator or to expose allocator selection as a language feature. The study must distinguish Rust-owned allocations, allocations crossing FFI boundaries, and memory owned by external libraries.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-095 | RT-01 → RT-25 | Constrains | Allocator workloads and acceptance criteria must derive from representative LLMLang compiler, graph, package, cache, and concurrent-toolchain workloads rather than synthetic allocation loops alone. | Strong hypothesis |
+| DEP-096 | RT-04 → RT-25 | Constrains | Ownership, lifetime, aliasing, concurrency, and resource-cleanup behavior constrain which allocations can safely share an allocator and where allocator boundaries must remain explicit. | Strong hypothesis |
+| DEP-097 | RT-10 → RT-25 | Requires | Runtime ABI, process initialization/shutdown, threading, platform services, and FFI boundaries determine how a selected allocator can be installed and safely used. | Strong hypothesis |
+| DEP-098 | RT-11 → RT-25 | Influences | Build/cache workloads and their allocation/retention patterns affect allocator performance and memory-pressure measurements; allocator changes must not invalidate reproducibility assumptions. | Open hypothesis |
+| DEP-099 | RT-13 → RT-25 | Constrains | Backend targets, native linking, C ABI interoperability, and platform availability constrain allocator portability and deployment choices. | Strong hypothesis |
+
+These edges schedule the study; they do not imply that any allocator is compatible with every target or that allocator choice should become part of LLMLang language semantics. Revisit them when the runtime target profile or FFI ownership model changes.
