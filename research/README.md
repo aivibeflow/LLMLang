@@ -87,12 +87,12 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 ## Prototype and executable evidence
 
 - [Dependency graph, identity, and Logos proof prototypes](PROTOTYPES/DEPENDENCY-GRAPH-01/README.md) — source modules, tests, prototype result reports, typed source/query correspondence, and proof-boundary work.
-- [RT-04 runtime and semantics prototype suite](PROTOTYPES/RT-04-01/README.md) — executable models and tests for path feasibility, cleanup, atomic behavior, scheduler fairness, SQLite ownership, and wire-format prior art.
+- [RT-04 runtime and semantics prototype suite](PROTOTYPES/RT-04-01/README.md) — executable models and tests for path feasibility, cleanup, atomic behavior, scheduler fairness, SQLite ownership, and wire-format prior art. Its [native runner](PROTOTYPES/RT-04-01/run_native_probes.py) and [runner tests](PROTOTYPES/RT-04-01/test_rt04_native_probe_runner.py) are separate from Required CI's probe execution.
 - [Toolchain Server prototype](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md) — workspace lifecycle, semantic development API, and focused tests.
 - [Package identity prototype](PROTOTYPES/PACKAGE-IDENTITY-01/README.md) — package identity, language-version registry, and cache-index experiments.
 - [Package index prototype](PROTOTYPES/PACKAGE-INDEX-01/README.md) — logical index, closure, archive, provider, content-store, and benchmark experiments.
 - [CLI workload harness](PROTOTYPES/CLI-WORKLOADS-01/run.py) — shared reference workload runner; C and Python reference programs are alongside it.
-- [LLVM integer fixture](PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py), [LLVM IR probe](PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py), and [LLVM byte-view probe](PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py) — backend-preservation evidence.
+- [LLVM integer fixture](PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py), [LLVM IR probe](PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py), [LLVM byte-view probe](PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py), and [LLVM preservation runner](PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py) — bounded backend-preservation evidence and its reproduction entrypoint.
 - [RT-16 authorization policy prototype](PROTOTYPES/RT-16-AUTHORIZATION-01/policy.py) and [policy tests](PROTOTYPES/RT-16-AUTHORIZATION-01/test_policy.py) — bounded authorization-policy fixtures, not a complete security architecture.
 - [Package manifest example](examples/package/manifest.toml) — minimal package metadata fixture.
 
