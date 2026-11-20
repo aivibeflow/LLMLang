@@ -154,6 +154,8 @@ Scenario 127 derives correlated aliases, retained reservations, and conditional 
 
 Scenario 128 distinguishes a consumed reservation, a retained handle, and an unresolved footprint after foreign errors. Typed outcomes avoid false admissions in the bounded corpus and enable compatible sharing while reconciliation is pending. SQLite confirms that a finish error can coincide with consumption. [Foreign reservation outcomes](RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md)
 
+Scenario 129 shows two distinct premature-release cases after cancellation. Acknowledgment can precede completion, and a consumed result for an earlier invocation can arrive after the same role pair is reused. Matching consumption evidence by invocation avoids both conflicts on 5,376 inputs. [Invocation-specific cancellation evidence](RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
@@ -184,7 +186,7 @@ These refine existing dependency hypotheses; they do not add normative rules. Se
 
 - Define source-level rules for calls, branches, Result/error propagation, cancellation, resource acquire/use/release, transfer/return, and cleanup failure.
 - Make ordered effects and payloads visible to type/dependency summaries.
-- Extend source-derived roles and typed foreign outcomes to reconciliation and cancellation. Validate the possible footprint under reentry, alias escape, and broader foreign contracts. [Scenario 127](RESEARCH-SCENARIO-127-SOURCE-ROLE-CORRELATION.md) · [Scenario 128](RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md)
+- Extend invocation-scoped reconciliation to lost results, restarts, and concurrent observers. Validate the possible footprint under reentry, alias escape, and broader foreign contracts. [Scenario 128](RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md) · [Scenario 129](RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md)
 - State where profiles differ and what equivalence means for results, traces, resource state, and divergence.
 - Compare total recursion, general partiality, typed divergence, source fuel, VM operator gas, and external limits; define how exhaustion interacts with effects, rollback, and cleanup.
 - Record independent review; parallel evaluators against one hand-authored contract are implementation checks, not independent specification validation.
