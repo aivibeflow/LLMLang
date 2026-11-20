@@ -392,3 +392,19 @@ Scenario 95's 2026-11-20 execution is a comparative source review, not a compile
 Scenario 96A/B are stronger, bounded native evidence. Scenario 96A reports 41,956 comparisons with zero mismatches and detects a verifier-accepted overflow mutant. Scenario 96B reports 19,600 comparisons with zero mismatches and detects verifier-accepted logical-bound/origin mutants. Both record LLVM 19.1.7, Python 3.12.14, exact input IR hashes, target details, source commits, and the Debian LLVM package SHA-256. They remain one-target fixture results and are not part of Required CI.
 
 The Research Native Reproduction run 44773422416 successfully executed the llvm-preservation job. It verified Debian Trixie package 1:19.1.7-3+b1 against SHA-256 0b1b7263f4f45e261099240fdbf00fc14b42b88410fd829e041bf83ea45866cb, Python 3.12.14, libffi 3.4.8, glibc 2.41, GCC 14.2.0, and GNU ld 2.44. Both probes passed with the reported comparison counts, input IR hashes, and negative-control disagreements. Artifact 14647744441 preserves the manifest and outputs. The fresh reproduction is limited to the same fixed x86-64 target and O0/O3 fixture.
+
+
+## 19. Specification-level prior-art audit — Scenarios 81–88
+
+Scenarios 81–88 are source/specification analyses and fixture preparation, not LLMLang implementation results:
+
+- 81 compares import binding, aliases, wildcard imports, re-exports, and scope; it selects no import grammar or resolution rule.
+- 82 compares source-file headers, imports, declarations, top-level code, and module membership; it selects no file/module/entry-point structure.
+- 83 compares numeric lexical forms and deliberately keeps lexical grammar separate from Scenario 73 typing/conversions and Scenario 78 runtime floating-point semantics.
+- 84 compares signature/call surfaces and keeps them distinct from Scenario 77 argument sequencing, Scenario 58 higher-order function types, Scenario 56 closures, and Scenario 42 generic dispatch.
+- 85 compares local declaration/mutability forms and leaves initialization, binding identity, shadowing, and destructuring policies to the linked semantic studies.
+- 86 compares async/await grammar and contexts while leaving task start/scheduling, cancellation, and lifetime to Scenarios 40, 57, and 58.
+- 87 defines a 13-case language-neutral await parser/diagnostic corpus; no LLMLang parser or profile adapter has executed it.
+- 88 compares default argument evaluation and API evolution, but its proposed per-call, mutable-value, ordering, and compiled-client experiments have not been run.
+
+No accepted architecture decision covers these syntax choices. The cited language references are largely rolling/current documents as of 2026-11-19; pin versions before building conformance claims. Do not treat the candidate axes or fixture designs as accepted grammar.
