@@ -67,6 +67,20 @@ def SymbolicState.denote (state : SymbolicState) (valuation : Env) : Configurati
   { scope := state.scope
     env := fun id => (state.slots id).map (fun slot => ⟨slot.1, evalQuery slot.2 valuation⟩) }
 
+private theorem eval_initialSymbol (name : String) (sort : ExprSort) (valuation : Env) :
+    evalQuery (initialSymbol name sort) valuation = valuation name sort := by
+  cases sort <;> rfl
+
+theorem SymbolicState.initial_lookup {scope : SourceScope} {id : VariableId}
+    {declaration : Declaration} (found : lookupDeclaration scope.context id = some declaration)
+    (valuation : Env) :
+    ((SymbolicState.initial scope).denote valuation).env id =
+      if id ∈ scope.initialized then
+        some ⟨declaration.sort, valuation declaration.sourceName declaration.sort⟩
+      else none := by
+  by_cases initialized : id ∈ scope.initialized <;>
+    simp [SymbolicState.initial, SymbolicState.denote, found, initialized, eval_initialSymbol]
+
 theorem SymbolicState.initial_valid {scope : SourceScope} (valid : scope.WellFormed)
     (valuation : Env) : ((SymbolicState.initial scope).denote valuation).Valid := by
   refine ⟨valid, ?_⟩
@@ -74,10 +88,6 @@ theorem SymbolicState.initial_valid {scope : SourceScope} (valid : scope.WellFor
   have found := scope.context.lookupDeclaration_of_mem valid.1 member
   by_cases initialized : declaration.id ∈ scope.initialized <;>
     simp [SymbolicState.initial, SymbolicState.denote, found, initialized]
-
-private theorem eval_initialSymbol (name : String) (sort : ExprSort) (valuation : Env) :
-    evalQuery (initialSymbol name sort) valuation = valuation name sort := by
-  cases sort <;> rfl
 
 /-- Every satisfying runtime store is represented on the declared slots. -/
 theorem SymbolicState.initial_represents {scope : SourceScope} {env : RuntimeEnv}

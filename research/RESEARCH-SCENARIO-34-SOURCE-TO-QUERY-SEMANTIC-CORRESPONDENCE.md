@@ -1,6 +1,6 @@
 # Research Scenario 34 — Source-to-Query Semantic Correspondence
 
-**Status** — In progress. Lean checks expression, command and program-observation preservation for the initial fragment. Paired runs and canonical relational queries remain open.
+**Status** — In progress. Lean checks expression, command and observation preservation for single and paired runs of the initial fragment. Canonical relational queries remain open.
 
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 26–33.  
@@ -91,6 +91,7 @@ For a selected input factor (p), construct two initial input environments (ho_L
 - the selected factor may differ;
 - every other declared input is equal on both sides;
 - initial state is identical;
+- any already initialized local also has the same entry value on both sides;
 - no other environmental source exists in this fragment.
 
 Run the same source program on both sides from the same initial state. Define the observation as a typed tuple containing:
@@ -174,6 +175,7 @@ Proposed modules:
 - `SourceSemantics.lean` — expression evaluation and deterministic command/program execution.
 - `SymbolicCommandSemantics.lean` — typed substitution, guarded path states and command-sequence preservation.
 - `ProgramObservationSemantics.lean` — observation admission, typed output tuples and their preservation.
+- `PairedObservationSemantics.lean` — admissible input pairs, shared entry slots and preservation of both observations.
 - `Correspondence.lean` — SC-1 through SC-7 theorems.
 - `LogosBinding.lean` — existing CPC parser bridge, JSON decoder, and Eo.Term renderer.
 
@@ -244,13 +246,13 @@ The required Lake build compiles 18 observation examples. They cover both branch
 
 ### 7.5 Paired execution and relational query
 
-- [ ] **SCW-24 — Define paired input environments.** State that exactly the selected input may differ, all other inputs are equal, and initial states are identical.
-- [ ] **SCW-25 — Prove paired execution preservation (SC-5).** Lift SC-4 to arbitrary left/right inputs; do not restrict the theorem to finite test domains.
+- [x] **SCW-24 — Define paired input environments.** `PairedValuations.check` accepts two typed valuations when the selected ID is a visible, initialized input and all other initialized declarations agree. `shared_slot` and `shared_state` prove equality of the corresponding concrete entry slots. `factor_values` ties the chosen inputs to the selected declaration.
+- [x] **SCW-25 — Prove paired execution preservation (SC-5).** `pairedObservations_preserved` proves that executing the program twice and evaluating the compiled observations on the two valuations produce the same ordered pair of typed observations. Both valuations range over arbitrary mathematical Int and Bool values.
 - [ ] **SCW-26 — Define the complete relational proposition.** Construct `FactorDiff ∧ ObservationDiff` from the selected input and contract-selected observations.
 - [ ] **SCW-27 — Prove relational-query correctness (SC-6).** Prove the canonical formula is true iff the source factor differs and source observations differ.
 - [ ] **SCW-28 — Bind formula symbols to source declarations.** Prove declaration completeness, sort correctness, injective naming, and exact left/right/shared identity mapping.
 
-**Outputs:** paired-run semantics; complete relational theorem; proved source-to-symbol binding invariant.
+The pair checker permits equal values at the selected slot. SCW-26 introduces the separate `FactorDiff` condition for dependence queries. The 16 kernel-checked examples include Int and Bool factors, equal factor values, shared initial state, both branch outcomes, and rejection when a second input, initial state or initialized local differs. The paired theorem reuses SC-4 with a separate valuation on each run. Shared canonical query symbols and the relational difference formula remain SCW-26–28. [Paired semantics](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/PairedObservationSemantics.lean) · [Paired examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/PairedObservationTests.lean)
 
 ### 7.6 QF_LIA admissibility and external wire/checker boundary
 
@@ -277,7 +279,7 @@ The required Lake build compiles 18 observation examples. They cover both branch
 
 ### 7.8 Execution order and gates
 
-SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–23 preserve command execution and observations for a single run. SCW-24–25 lift the observation theorem to pairs of related inputs and a shared initial state.
+SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–25 preserve command execution and observations through paired runs. SCW-26–28 construct the relational difference formula and connect its symbols to the source declarations.
 
 | Gate | Required tasks | Exit condition |
 |---|---|---|
