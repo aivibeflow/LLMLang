@@ -483,3 +483,19 @@ Scenarios 41–48 are comparative design/compatibility studies; selected later e
 - 48: clocks/deadlines; no LLMLang time API or cross-platform timing experiment.
 
 See corpus audit §2.24 for the scope, cross-links, and limits. No candidate policy is treated as an accepted language decision.
+
+
+## 25. Executable/formal evidence audit — Scenarios 33–40
+
+Scenarios 33–40 form a mixed evidence slice rather than a uniform implementation set:
+
+- 33 has a pinned Logos parser-state binding wrapper, exact UConst identity binding, and strict JSON decoder tests; this is not source-to-query semantic correspondence.
+- 34 has a formal Lean result for a delimited Int/Bool relational fragment and QF_LIA profile constraints. Source-derived parser binding, JSON correspondence, and declaration closure remain open.
+- 35 has a bounded return/cleanup fixture, not a borrow checker or source-bound ownership proof.
+- 36 has finite abstract recursion/fuel and cleanup probes; the README explicitly says the fuel modules lack dedicated paired tests in the 44-file suite.
+- 37 has finite effect-handler/trace and actor schedule models plus declaration-level effect bounds; effect-row unification/general handlers are not implemented.
+- 38 has declaration-level effect/capability propagation and scoped grant delegation; it does not enforce runtime authority.
+- 39 is a comparative cleanup/ownership-transfer study whose later related models test selected outcomes, not a selected general rule.
+- 40 has synchronous cancellation observations and a separate cancellation-receipt model; neither proves general asynchronous cancellation/cleanup semantics.
+
+The precise mapping and limitations are in corpus audit §2.25. Keep source-to-query proof, finite evaluator observations, static checker results, and runtime authority as separate evidence categories.
