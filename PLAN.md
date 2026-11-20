@@ -840,6 +840,48 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Exit criteria:** a complete server-validated plan precedes all mutations; every relevant call site has an evidence-backed compatibility decision; contract and hash propagation are independently correct; old/new behavior and shared-caller version splits work; every planned change is enforced and unplanned changes are rejected; commit is created only for the exact candidate that passed all mandatory checks.
 
+## 7.8 Knowledge Context and Task Context (RT-14)
+
+**Estimated research complexity:** Knowledge Context **7/10**; Task Context **6/10**; integrated workflow validation **8/10**. Knowledge Context depends on sound identity, dependency, provenance, and access boundaries. Task Context has a narrower object/lifecycle scope but must integrate with Change Sets, patch planning, delegation, and completion gates.
+
+These are two separate research requirements. Do not collapse them into one generic Context object before their responsibilities and invariants are understood.
+
+### Knowledge Context — LL-026
+
+Research a bounded, versioned, provenance-preserving description of the information available to an LLM agent for a task.
+
+- [ ] Define the boundary between Knowledge Context, free-form prompt text, runtime/execution context, semantic dependency closure, and Task Context.
+- [ ] Inventory eligible sources: Specification, Design, and Implementation objects; contracts; requirements; dependency records; diagnostics; tests and proof evidence; project documentation; approved external references.
+- [ ] Compare exact snapshot-pinned object references with derived summaries, retrieved excerpts, and relevance-ranked material. Distinguish mandatory entries from optional supporting information.
+- [ ] Define provenance, source trust classes, revision freshness, conflict handling, unknown/missing sources, and evidence that a context is complete for a declared purpose.
+- [ ] Study context-size/token budgets, deterministic selection, relevance/coverage trade-offs, omission reporting, redaction, data minimization, and permission-aware retrieval.
+- [ ] Separate Knowledge Context identity from semantic object identity, dependency hashes, Action Keys, and rendered prompt identity; specify invalidation and safe reuse conditions.
+- [ ] Define transport-neutral assembly, inspection, serialization, and agent-facing retrieval APIs for RT-19.
+- [ ] Construct discriminating fixtures for stale, conflicting, inaccessible, duplicated, incomplete, and over-budget context inputs; evaluate context precision/recall and task outcomes on representative workloads.
+
+### Task Context — LL-027
+
+Research a typed, versioned object describing the task an agent is expected to perform and the obligations that govern completion.
+
+- [ ] Define the boundary between Task Context, human intent/requirements, Change Impact Plan, Change Set, workspace, Knowledge Context, and authorization grants.
+- [ ] Define task identity and revision semantics; objective, requirement links, in/out-of-scope objects, constraints, non-goals, assumptions, prerequisites, deliverables, and acceptance criteria.
+- [ ] Compare lifecycle models for creation, clarification, planning, execution, blocked/failed states, cancellation, retry, delegation, decomposition, review, handoff, and completion.
+- [ ] Define how a task pins its baseline snapshot, selected Knowledge Context, target objects, and related Change Set/CIP without duplicating their authoritative state.
+- [ ] Specify machine-checkable completion obligations: required mutations, tests, proofs, audits, approvals, evidence bindings, and fail-closed behavior when obligations remain unknown or unsatisfied.
+- [ ] Study multi-agent ownership, concurrent task revisions, subtask dependencies, idempotency, recovery, and the boundary between task completion and commit/push authorization.
+- [ ] Keep authorization independent: a Task Context describes requested work and constraints but does not grant capabilities; RT-16 policy checks remain authoritative.
+- [ ] Build lifecycle and adversarial fixtures for stale baselines, scope expansion, omitted obligations, conflicting delegated work, cancellation/retry, and partial completion.
+
+### Joint integration and exit criteria
+
+- [ ] Define the Knowledge Context ↔ Task Context relationship without making either the authority for the other's semantics.
+- [ ] Map both models onto RT-05/06 identity and dependency evidence, RT-02 requirements, RT-16 permissions, RT-19 workspaces/Change Sets, and RT-20 plan execution.
+- [ ] Validate that context manifests and task records are reproducible, inspectable, revision-bound, and fail closed on unknown completeness, stale baselines, or unauthorized reads/actions.
+- [ ] Compare agent performance with full-context, bounded-context, and deliberately incomplete-context conditions; measure task success, missed constraints, scope violations, token/context cost, review effort, and recovery behavior.
+- [ ] Record candidate schemas, lifecycle alternatives, invariants, falsifiers, compatibility dependencies, and a bounded prototype/test plan. Do not select language syntax or accept a normative architecture as a result of this planning entry.
+
+**Research status:** Required research is now registered as LL-026 and LL-027. No Knowledge Context or Task Context schema, syntax, lifecycle, or architecture has been selected.
+
 ---
 
 # 4. Cross-cutting prior-art research
