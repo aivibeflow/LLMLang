@@ -995,7 +995,7 @@ Research order is dependency-driven, not simply the order topics were proposed. 
 2. Program representation and identity.
 3. Core language semantics, types, effects, ownership, and concurrency.
 4. Specification and verification model.
-5. AI-native authoring and change model.
+5. AI-native authoring and change model, including separate Knowledge Context and Task Context research (LL-026 and LL-027).
 6. Build, incremental computation, and tooling.
 7. Version control and collaboration.
 8. Runtime, deployment, interoperability, and ecosystem.
