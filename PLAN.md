@@ -778,7 +778,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Build representative end-to-end examples.
 - [ ] Define practical adoption criteria and migration strategy.
 
-**Status:** initial workload acceptance criteria and an executable CLI corpus with C and Python host references are recorded in [RT-01 Reference Workloads](research/RT-01-REFERENCE-WORKLOADS.md). These do not yet measure LLMLang implementations or human/agent usability; diagnostics, review quality, context/token use, repair effort, scope violations, and adoption criteria still need controlled study.
+**Status:** initial workload acceptance criteria and an executable CLI corpus with C and Python host references are recorded in [RT-01 Reference Workloads](research/RT-01-REFERENCE-WORKLOADS.md). [Scenario 95 execution](research/RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md) adds an evidence-linked diagnostic/repair contract candidate, 12 structural discriminators, and a controlled evaluation protocol. These are analytical outputs only: LLMLang implementation behavior, human/agent usability, review quality, context/token use, repair effort, scope violations, and adoption criteria still need implementation and controlled study.
 
 **Exit criteria:** representative large-project benchmarks; working collaboration and recovery workflows; documented trust/security model; practical developer workflow evaluated with real tasks.
 
