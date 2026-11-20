@@ -123,7 +123,7 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-016 | RT-03 → RT-09 | Constrains | Lowering and optimization must preserve the source language's semantics. | Established as a design obligation |
 | DEP-017 | RT-04 → RT-09 | Constrains | Type, effect, ownership, and capability rules determine which transformations and target representations are legal. | Strong hypothesis |
 | DEP-018 | RT-03 → RT-10 | Constrains | Runtime behavior must implement the language's evaluation, state, error, concurrency, and resource semantics. | Strong hypothesis |
-| DEP-019 | RT-04 → RT-10 | Constrains | Ownership, effects, capabilities, and memory model determine runtime services and ABI boundaries. | Strong hypothesis |
+| DEP-019 | RT-04 → RT-10 | Constrains | Ownership, effects, capabilities, and memory model determine runtime services and ABI boundaries. Scenario 113 supplies bounded store-buffering and stipulated synchronization outcomes, but does not validate concrete atomic or backend behavior. | Strong hypothesis |
 | DEP-020 | RT-10 → RT-12 | Influences | Library contracts and implementations depend on runtime and platform services available to packages. | Strong hypothesis |
 | DEP-021 | RT-05 → RT-12 | Requires | Reusable libraries/packages need stable artifact identities and reproducible dependency references. | Strong hypothesis |
 | DEP-022 | RT-07 → RT-12 | Constrains | Public contracts and compatibility claims need an explicit evidence model, especially for opaque implementations. | Strong hypothesis |
