@@ -62,11 +62,12 @@ def Command.check (scope : SourceScope) : Command → Option (List VariableId)
       else none
 
 def Program.check {sort : ExprSort} (program : Program sort) (entry : SourceScope) :
-    Option SourceScope := do
-  if !decide entry.WellFormed then none else
+    Option SourceScope :=
+  if entry.WellFormed then do
     let initialized ← program.body.check entry
     let exit := { entry with initialized }
     if ExpressionWellTyped exit program.result then some exit else none
+  else none
 
 /-- The runtime scope tracks the actual initializations along the chosen path. -/
 structure Configuration where
@@ -235,5 +236,112 @@ theorem Program.Executes.deterministic {sort : ExprSort} {program : Program sort
   have state := SourceCommandSemantics.Executes.deterministic first.2.2.1 second.2.2.1
   subst right
   exact ⟨rfl, evaluation_deterministic first.2.2.2 second.2.2.2⟩
+
+/-- Actual initialization may include slots that were initialized on only one arm. -/
+def ScopeCovers (actual required : SourceScope) : Prop :=
+  actual.context = required.context ∧ actual.visible = required.visible ∧
+    required.initialized ⊆ actual.initialized
+
+private theorem typed_of_coverage {sort : ExprSort} {actual required : SourceScope}
+    {expression : Expr sort} (covers : ScopeCovers actual required)
+    (typed : ExpressionWellTyped required expression) :
+    ExpressionWellTyped actual expression := by
+  intro ref mentioned
+  obtain ⟨declaration, resolved⟩ := Option.isSome_iff_exists.mp (typed ref mentioned)
+  obtain ⟨found, sortMatches, readable⟩ := SourceScope.resolveRead_eq_some.mp resolved
+  apply Option.isSome_iff_exists.mpr
+  refine ⟨declaration, SourceScope.resolveRead_eq_some.mpr
+    ⟨by simpa only [covers.1] using found, sortMatches, ?_⟩⟩
+  exact ⟨by simpa only [covers.2.1] using readable.1, covers.2.2 readable.2⟩
+
+private theorem WriteTarget.permitted_of_coverage {target : WriteTarget} {sort : ExprSort}
+    {actual required : SourceScope} (covers : ScopeCovers actual required)
+    (valid : actual.WellFormed) (permitted : target.permitted required sort = true) :
+    target.permitted actual sort = true := by
+  obtain ⟨_, declaration, found, role, sortMatches, writable⟩ :=
+    WriteTarget.permitted_eq_true.mp permitted
+  apply WriteTarget.permitted_eq_true.mpr
+  refine ⟨valid, declaration, by simpa only [covers.1] using found, role, sortMatches, ?_⟩
+  exact ⟨by simpa only [covers.2.1] using writable.1, writable.2⟩
+
+/-- The checker guarantees execution from every valid state covering its input scope. -/
+theorem Command.check_has_execution {command : Command} {required : SourceScope}
+    {initialized : List VariableId} {initial : Configuration}
+    (checked : command.check required = some initialized)
+    (covers : ScopeCovers initial.scope required) (valid : initial.Valid) :
+    ∃ final, Executes command initial final ∧
+      ScopeCovers final.scope { required with initialized } := by
+  induction command generalizing required initialized initial with
+  | skip =>
+    have same := Option.some.inj checked
+    subst initialized
+    exact ⟨initial, .skip initial, covers⟩
+  | assign target rhs =>
+    simp only [Command.check] at checked
+    split at checked
+    · rename_i accepted
+      simp only [Bool.and_eq_true, decide_eq_true_eq] at accepted
+      have permits := WriteTarget.permitted_of_coverage covers valid.1 accepted.1
+      have typed := typed_of_coverage covers accepted.2
+      obtain ⟨value, evaluated⟩ := evaluation_total valid.1 typed valid.2
+      have same := Option.some.inj checked
+      subst initialized
+      refine ⟨initial.write target value, .assign permits evaluated, covers.1, covers.2.1, ?_⟩
+      intro id member
+      rcases List.mem_insert_iff.mp member with rfl | previous
+      · exact List.mem_insert_self
+      · exact List.mem_insert_of_mem (covers.2.2 previous)
+    · contradiction
+  | seq first second firstIH secondIH =>
+    obtain ⟨middleInit, checkedFirst, checkedSecond⟩ := Option.bind_eq_some_iff.mp checked
+    obtain ⟨middle, ranFirst, middleCovers⟩ := firstIH checkedFirst covers valid
+    obtain ⟨final, ranSecond, finalCovers⟩ :=
+      secondIH checkedSecond middleCovers (ranFirst.preserves_validity valid)
+    exact ⟨final, .seq ranFirst ranSecond, finalCovers⟩
+  | branch condition onTrue onFalse trueIH falseIH =>
+    simp only [Command.check] at checked
+    split at checked
+    · rename_i typedCondition
+      obtain ⟨left, checkedLeft, rest⟩ := Option.bind_eq_some_iff.mp checked
+      obtain ⟨right, checkedRight, joined⟩ := Option.bind_eq_some_iff.mp rest
+      have same := Option.some.inj joined
+      subst initialized
+      obtain ⟨value, tested⟩ := evaluation_total valid.1
+        (typed_of_coverage covers typedCondition) valid.2
+      cases value with
+      | boolValue selected =>
+        cases selected
+        · obtain ⟨final, ran, finalCovers⟩ := falseIH checkedRight covers valid
+          refine ⟨final, .branchFalse tested ran, finalCovers.1, finalCovers.2.1, ?_⟩
+          intro _ member
+          exact finalCovers.2.2 (of_decide_eq_true (List.mem_filter.mp member).2)
+        · obtain ⟨final, ran, finalCovers⟩ := trueIH checkedLeft covers valid
+          refine ⟨final, .branchTrue tested ran, finalCovers.1, finalCovers.2.1, ?_⟩
+          intro _ member
+          exact finalCovers.2.2 (List.mem_filter.mp member).1
+    · contradiction
+
+/-- With valid input slots, every accepted program reaches its final return. -/
+theorem Program.checked_execution_exists {sort : ExprSort} {program : Program sort}
+    {initial : Configuration} {exit : SourceScope}
+    (checked : program.check initial.scope = some exit)
+    (satisfies : initial.env.Satisfies initial.scope) :
+    ∃ final result, program.Executes initial final result := by
+  have accepted : (program.check initial.scope).isSome = true := by simp [checked]
+  simp only [Program.check] at checked
+  split at checked
+  · rename_i scopeValid
+    obtain ⟨initialized, checkedBody, checkedReturn⟩ := Option.bind_eq_some_iff.mp checked
+    split at checkedReturn
+    · rename_i typedReturn
+      have valid : initial.Valid := ⟨scopeValid, satisfies⟩
+      obtain ⟨final, commands, covers⟩ :=
+        Command.check_has_execution checkedBody ⟨rfl, rfl, fun _ member => member⟩ valid
+      have finalValid := commands.preserves_validity valid
+      obtain ⟨result, returned⟩ := evaluation_total finalValid.1
+        (typed_of_coverage covers typedReturn) finalValid.2
+      exact ⟨final, result, accepted, satisfies, commands, returned⟩
+    · contradiction
+  · contradiction
 
 end LLMLang.SourceCommandSemantics

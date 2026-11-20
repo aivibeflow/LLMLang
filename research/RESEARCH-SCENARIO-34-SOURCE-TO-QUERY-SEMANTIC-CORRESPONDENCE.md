@@ -1,6 +1,6 @@
 # Research Scenario 34 — Source-to-Query Semantic Correspondence
 
-**Status** — In progress. The typed source core and expression-level source-to-query preservation are implemented in Lean. Command semantics and canonical relational queries for whole programs remain open.
+**Status** — In progress. Lean checks the typed expression core, expression-to-query preservation, and deterministic execution of the initial command fragment. Symbolic command execution and canonical relational queries for whole programs remain open.
 
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 26–33.  
@@ -70,13 +70,7 @@ The prototype may accept a wider set than the first theorem. The theorem's accep
 
 ## 3. Source operational semantics
 
-Define a typed environment as a total mapping from declared names to values of their declared types. Define a machine configuration as:
-
-`Configuration = (programCounter, locals, state)`
-
-For the initial no-loop fragment, a big-step semantics is also acceptable:
-
-`⟨commands, locals, state⟩ ⇓ ⟨locals', state'⟩`
+A configuration consists of the current scope and runtime slots. Every initialized declaration has a slot of its declared sort, keyed by stable ID. Uninitialized declarations have no value. The source evaluator uses big-step rules for the initial fragment without loops. A command takes one configuration to another. The final expression is evaluated in the resulting configuration.
 
 The rules must specify:
 
@@ -174,6 +168,7 @@ Proposed modules:
 
 - `SourceSyntax.lean` — declaration contexts, well-formed scopes, and access checks.
 - `CheckedSourceSemantics.lean` — scope checking for the indexed expression AST, typed runtime slots, and expression-level correspondence with the independent query IR.
+- `SourceCommandSemantics.lean` — command syntax, static initialization checking, concrete execution and its proofs.
 - `SourceSemantics.lean` — expression evaluation and deterministic command/program execution.
 - `SymbolicTranslation.lean` — source-to-symbolic translation and path-condition construction.
 - `Correspondence.lean` — SC-1 through SC-7 theorems.
@@ -223,16 +218,18 @@ The fragment has one namespace, with visible inputs and state regions initialize
 
 ### 7.4 Command and program semantics
 
-- [ ] **SCW-16 — Define the command AST.** Start with assignment, state assignment, conditional command sequences, and one final return; exclude loops, recursion, effects, and early return.
-- [ ] **SCW-17 — Define source big-step execution.** Specify sequential assignments, branch selection, and final return over locals and state.
-- [ ] **SCW-18 — Prove source execution determinism.** Prove that one accepted initial configuration has at most one final configuration/result.
+- [x] **SCW-16 — Define the command AST.** Support local and state writes, sequencing, Boolean branches, and one typed final return. `Program.check` checks write roles and sorts, and derives the definite initialization set before the return.
+- [x] **SCW-17 — Define source big-step execution.** `Executes` evaluates the right-hand side before storing, threads slots through sequences, and runs the selected branch. `Program.execute_eq_some` proves that the executable evaluator agrees with the big-step program rules.
+- [x] **SCW-18 — Prove source execution determinism.** `Program.Executes.deterministic` proves uniqueness of the final configuration and value. `Program.checked_execution_exists` proves a normal return for each program that passes the static check and starts with a satisfying runtime environment.
 - [ ] **SCW-19 — Define symbolic execution state.** Represent current symbolic locals/state and path conditions explicitly.
 - [ ] **SCW-20 — Define symbolic assignment and conditional translation.** Show how writes update symbolic environments and how branches merge (guarded updates or `ite`).
 - [ ] **SCW-21 — Prove command-sequence preservation (SC-3).** Relate source execution to symbolic execution, including state writes followed by reads and nested conditionals.
 - [ ] **SCW-22 — Define the observation contract.** Select return value and an explicit ordered set of observable state regions; exclude internal state.
 - [ ] **SCW-23 — Prove program observation preservation (SC-4).** Show translated observations equal source observations for every accepted input and initial state.
 
-**Outputs:** executable source semantics; symbolic command interpreter/translator; determinism and command/program preservation theorems.
+Declarations and visibility are fixed during execution. The static checker intersects definite initialization at a branch join. Concrete execution keeps any additional locals initialized on the selected path. `Command.check_has_execution` proves that the concrete path maintains the initialization required by the checker. `Executes.preserves_validity` keeps the typed runtime invariant across every command. [Command semantics and theorems](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCommandSemantics.lean)
+
+The required Lake build compiles 22 kernel-checked command examples, including sequential reads after writes, both branches, nested conditionals, initialized locals at joins, and rejected writes or uninitialized reads. The principal theorems depend on Lean's standard axioms `propext`, `Classical.choice`, and `Quot.sound`. The symbolic proof starts at SCW-19. [Command examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCommandTests.lean)
 
 ### 7.5 Paired execution and relational query
 
@@ -269,7 +266,7 @@ The fragment has one namespace, with visible inputs and state regions initialize
 
 ### 7.8 Execution order and gates
 
-SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16 starts the next proof layer with command syntax and the state changes between source points.
+SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–18 give the concrete reference for SCW-19–21, where symbolic execution must preserve writes, branch selection and resulting state.
 
 | Gate | Required tasks | Exit condition |
 |---|---|---|

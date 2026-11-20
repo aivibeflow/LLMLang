@@ -49,6 +49,8 @@ example : (accumulate.execute (initial true)).bind
     (fun (final, _) => final.env.lookup factor.id .int) = some (.intValue 4) := rfl
 example : (accumulate.execute (initial true)).bind
     (fun (final, _) => final.env.lookup flag.id .bool) = some (.boolValue false) := rfl
+example : ∃ final result, accumulate.Executes (initial true) final result :=
+  Program.checked_execution_exists (by rfl) (by decide)
 
 private def conditional : Program .bool :=
   { body := .branch (.boolVar "choice")
@@ -66,6 +68,13 @@ example : (conditional.execute (initial false)).bind
     (fun (final, _) => final.env.lookup count.id .int) = some (.intValue 8) := rfl
 example : (conditional.check entry).map (fun exit => exit.initialized) =
     some entry.initialized := rfl
+
+private def assignAfterJoin : Program .int :=
+  { body := .seq conditional.body (.assign (.local count.id) (.intVar "total"))
+    result := .intVar "count" }
+
+example : (assignAfterJoin.execute (initial true)).map Prod.snd = some (.intValue 10) := rfl
+example : (assignAfterJoin.execute (initial false)).map Prod.snd = some (.intValue 10) := rfl
 
 -- The candidate source contract checks both arms and only trusts definite initialization at joins.
 example : ((Program.mk conditional.body (.intVar "count")).execute (initial false)).isNone =
