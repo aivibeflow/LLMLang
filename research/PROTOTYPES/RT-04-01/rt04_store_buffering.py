@@ -98,3 +98,35 @@ def naive_load_then_store_outcomes(initial, increments_per_task, task_count):
                 next_states.add((new_shared, tuple(new_pcs), tuple(new_locals)))
         states = next_states
     return outcomes
+
+
+def same_location_atomic_reads(initial, stores, load_count):
+    """Enumerate per-location monotone atomic-read outcomes for a reader.
+
+    A reader performs ``load_count`` loads sequenced in program order. Writes
+    have one modification order beginning with the initial value. The reader
+    may start at any point and may advance or remain at its observed write;
+    this witnesses read-read coherence only, not cross-location ordering.
+    """
+    if load_count < 0:
+        raise ValueError("load_count must be non-negative")
+    values = (initial, *stores)
+    if load_count == 0:
+        return {()}
+    states = {(index,) for index in range(len(values))}
+    for _ in range(1, load_count):
+        states = {
+            (*prefix, next_index)
+            for prefix in states
+            for next_index in range(prefix[-1], len(values))
+        }
+    return {tuple(values[index] for index in indices) for indices in states}
+
+
+def independent_atomic_reads(initial, stores, load_count):
+    """Permissive comparison without a per-location coherence constraint."""
+    values = (initial, *stores)
+    outcomes = {()}
+    for _ in range(load_count):
+        outcomes = {(*prefix, value) for prefix in outcomes for value in values}
+    return outcomes
