@@ -182,7 +182,7 @@ All **136 of 136 scenario report files** now have candidate RT-area mappings and
 ### 4.2 Cross-reference and applicability anomalies
 
 - **Scenario 58:** its header labels RT-16 as runtime, but the current taxonomy defines RT-16 as security/trust. The inventory maps its runtime subject to RT-10 and records the stale RT-16 label as an anomaly; the source document still needs correction.
-- **Scenario 91:** references RT-24, which is absent from the current RT-01–RT-23 taxonomy. Its registered RT areas are mapped; RT-24 is not silently added to the taxonomy.
+- **Scenario 91:** references RT-24; this is now a valid taxonomy reference after RT-24 was registered as the 24th area. The inventory crosswalk includes RT-24.
 - **Scenario 134:** mapped to RT-03/04/05/13 for discoverability, but the architecture decision makes it prior-art/reference only. It creates no active requirement for wire-schema evolution or Protobuf/Avro/CBOR runtime experiments.
 
 These are candidate traceability mappings, not accepted design decisions or evidence that an RT research gate is complete.
@@ -222,7 +222,7 @@ The mapping is intentionally incomplete in these areas:
 
 1. Prototype mappings are first-pass file-role classifications; they do not validate every claim, test outcome, generated artifact, or experiment environment.
 2. Explicit RT identifiers in paths and scenario headers are strong traceability evidence, not proof that every claim, experiment, or conclusion is valid or current.
-3. The three RT-24-labelled documents need an explicit taxonomy decision.
+3. RT-24 remains a candidate research proposal; registration does not accept its schema, identity model, canonical encoding, hash envelope, or merge policy.
 4. Seven provenance/navigation files remain Stage 0-only by design; their purpose is corpus navigation and source attribution, not a missing domain classification.
 5. Scenario 58's RT-16 runtime label conflicts with the taxonomy's RT-16 security/trust definition; RT-10 is the runtime area.
 6. No full semantic duplicate, supersession, orphan, contradiction, or per-experiment reproducibility audit has been completed.
