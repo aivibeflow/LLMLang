@@ -19,12 +19,12 @@ LAKEFILE = Path(__file__).with_name("lakefile.lean")
 
 def main() -> int:
     source = LAKEFILE.read_text(encoding="utf-8")
-    match = re.search(r"lean_lib\\s+\\w+\\s+where(?P<body>.*?)(?=\\n\\S|\\Z)", source, re.S)
+    match = re.search(r"lean_lib\s+\w+\s+where(?P<body>.*?)(?=\n\\S|\\Z)", source, re.S)
     if match is None:
         print(f"Could not find lean_lib roots in {LAKEFILE}", file=sys.stderr)
         return 2
 
-    roots_match = re.search(r"roots\\s*:=\\s*#\\[(?P<roots>.*?)\\]", match.group("body"), re.S)
+    roots_match = re.search(r"roots\s*:=\s*#\\[(?P<roots>.*?)\\]", match.group("body"), re.S)
     if roots_match is None:
         print(f"Could not find the lean_lib roots list in {LAKEFILE}", file=sys.stderr)
         return 2
