@@ -10,6 +10,7 @@ from rt04_sqlite_recovery import BUSY, ERROR, OK, Policy, cleanup, statement_fix
 
 
 UTF8 = 1
+OPEN_READONLY = 0x00000001
 OPEN_READWRITE = 0x00000002
 OPEN_CREATE = 0x00000004
 OPEN_FULLMUTEX = 0x00010000
@@ -65,13 +66,13 @@ class SQLiteProbe:
         require("open memory database", self.open_connection(b":memory:", byref(connection)), OK)
         return connection
 
-    def connect_serialized(self):
+    def connect_serialized(self, name=b":memory:", *, read_only=False):
         connection = c_void_p()
-        flags = OPEN_READWRITE | OPEN_CREATE | OPEN_FULLMUTEX
-        code = self.open_v2(b":memory:", byref(connection), flags, None)
+        mode = OPEN_READONLY if read_only else OPEN_READWRITE | OPEN_CREATE
+        code = self.open_v2(name, byref(connection), mode | OPEN_FULLMUTEX, None)
         if code != OK and connection:
             self.close(connection)
-        require("open serialized memory database", code, OK)
+        require("open serialized database", code, OK)
         if not self.connection_mutex(connection):
             self.close(connection)
             raise RuntimeError("SQLite did not provide a connection mutex")
@@ -119,6 +120,7 @@ class BackupProbe(SQLiteProbe):
     def __init__(self):
         super().__init__()
         self.backup_init = self.bind("backup_init", c_void_p, c_void_p, c_char_p, c_void_p, c_char_p)
+        self.backup_step = self.bind("backup_step", c_int, c_void_p, c_int)
         self.backup_finish = self.bind("backup_finish", c_int, c_void_p)
         self.error_code = self.bind("errcode", c_int, c_void_p)
 
