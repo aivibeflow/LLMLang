@@ -2,8 +2,8 @@
   "schema_version": 1,
   "generated_at": "2026-11-20",
   "repository": "aivibeflow/LLMLang",
-  "revision": "0e3115d6e0d6a73986a8111b3313f912e7b20844",
-  "source": "Recursive Git tree at current main HEAD 0e3115d6e0d6a73986a8111b3313f912e7b20844; inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "bf87ede8e3401b93b4a70f619944bea0a6d26dde",
+  "source": "Recursive Git tree at reviewed RT-00 inventory refresh snapshot bf87ede8e3401b93b4a70f619944bea0a6d26dde, based on main 47ec6e26ca12e615283d02393656bc0b3e9f656f; inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
     "research_files": 468,
     "markdown_files": 237,
@@ -8400,8 +8400,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
-      "git_blob_sha": "cfde84337ad23c3b769e140755b41574fe8d11a0",
-      "size_bytes": 108928,
+      "git_blob_sha": "060d8ab9ccc2753889e406a4ff852bb0f7bd279a",
+      "size_bytes": 109297,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -8420,8 +8420,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
-      "git_blob_sha": "d769afeb00981271e4efdf02e24e8d7c65175286",
-      "size_bytes": 66164,
+      "git_blob_sha": "19d57081337d670cf05b2a2af6cb6804a768a055",
+      "size_bytes": 66500,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
