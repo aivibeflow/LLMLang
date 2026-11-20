@@ -49,3 +49,8 @@ The JSON fixture is a test interchange format, not a proposed LLMLang source syn
 ## What the prototype can establish
 
 Passing tests can provide evidence for the local state-transition and precondition logic in this small model. It cannot establish correctness of a future SPG implementation, database durability, filesystem portability beyond the tested environment, MCP interoperability, or the overall RT-19 architecture.
+
+
+## CI evidence and reproducibility
+
+The required `toolchain-workspace / focused-tests` job runs this directory on Python 3.12.16 (Ubuntu 26.04.1, runner image `ubuntu-26.04` / `20261111.196.1`). It executes `python -m compileall -q .` and `python -m unittest discover -s . -p 'test_toolchain.py' -v`. CI run [44746782815](https://github.com/aivibeflow/LLMLang/actions/runs/44746782815) passed all **9 tests** in 0.007 s. This confirms the in-memory workspace lifecycle model and its file import/export checks at the recorded source tree; it does not validate a persistent backend, crash recovery, multi-file transactions, Git integration, MCP, authorization, or a production SPG schema.
