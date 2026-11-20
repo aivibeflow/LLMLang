@@ -316,3 +316,23 @@ This pass follows the RT-03/04 preparation brief and the shared semantics corpus
 The Required CI run 44767733362 on commit 30a064cf5f276a63c2110f8309f7f306af75f987 passed the repository-structure job's full RT-04-01 test-discovery step after installing the pinned solver requirements. This establishes that the checked-out test suite passed in that CI environment. It does not validate source completeness or prove the general claims stated by the scenarios.
 
 The pass therefore finds strong, reproducible bounded fixture evidence for the specific path, cleanup, solver-result, and alias discriminators. The two cross-cutting follow-ups are (1) integrate the conservative UNSAT evidence policy at the actual solver adapter boundary, or clearly keep the raw adapter test-only; and (2) reconcile the Scenario 102 focused-test count with the current eight-method test file. Broader source/CFG extraction, independent contract review, general alias/effect analysis, solver trust/certificates, and production resource bounds remain open.
+
+
+## 13. COR-13 evidence chain and native execution boundary — Scenarios 119–133
+
+The second evidence slice checks the COR-13 sequence from owned-result shape inference through SQLite dependency observations, source-role correlation, invocation receipts, caller recovery, and generated Rust.
+
+| Scenario | Evidence and test mapping | What remains unproven |
+|---:|---|---|
+| 119 | rt04_owned_call_match.py and test_rt04_owned_call_match.py compare AST-derived result shapes with the disposition model; 450 callee-contract combinations and 4,096 concrete inputs are reported; ten focused tests are present. | Hand-built single-call AST and shared COR-13 disposition assumptions; no source parser or native resource. |
+| 120 | sqlite_cleanup_probe.py exercises close BUSY, finalize error with consumption, and close_v2 deferred destruction against SQLite 3.46.1. | Standalone native probe, not run by CI; one thread and prepared-statement cases. |
+| 121–123 | Recovery, evidence freshness, and shared close-boundary models have Python tests; separate native probes report 356 admitted plans and 114 native policy/input pairs. | Native probes are not in CI; complete source/FFI coverage and concurrency are bounded by fixture assumptions. |
+| 124–125 | Interleaving and callback-reentry tests plus native SQLite probes cover 11 schedules, 12 callback cases, statements, BLOBs, and backup dependencies. | One SQLite version and controlled wrapper; probes are manual, and general alias/reentry authority remains open. |
+| 126–128 | Role, source-correlation, and foreign-outcome tests check finite resource identities, 147,456 source-role inputs, and 1,728 outcome inputs per policy; selected SQLite backup paths are probed natively. | Native evidence covers selected consuming outcomes; retained/indeterminate paths remain model contracts. No general points-to or FFI contract extraction. |
+| 129–130 | Cancellation receipt tests use scheduled threads; durable receipt tests use process interruption and SQLite journal recovery. | CancelIoEx is cited API documentation, not a native Windows execution; local SQLite crash recovery is not distributed transaction evidence. |
+| 131–132 | Shared owned-result and typed caller recovery tests compare composed/direct transitions and a separate bounded oracle across 5,184 and 20,736 input spaces. | Fixture parsers and disposition inputs are shared; no complete language semantics or general lowering. |
+| 133 | rt04_rust_owned_probe.py generates Rust; test_rt04_rust_owned_probe.py has three generator tests. The report separately records 62,976 native comparisons per optimization level using Rust 1.85.1. | Python CI does not compile or execute generated Rust. Native run and toolchain reproduction remain separate manual evidence. |
+
+The current Required CI repository-structure job runs all RT-04-01 test_*.py modules and passed. It does not invoke the standalone SQLite probes or the native Rust runner. Accordingly, the repository currently has a successful automated test layer plus separately reported native observations; this review has not independently rerun the latter.
+
+This evidence chain supports bounded statements about the tested SQLite API paths and generated COR-13 fixture. It does not establish general ownership/typestate semantics, source-derived dependency completeness, all FFI contracts, or a production concurrency model. The next evidence task is controlled reproduction of native probes and preservation of their exact outputs/toolchain provenance.
