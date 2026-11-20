@@ -189,7 +189,7 @@ These are candidate traceability mappings, not accepted design decisions or evid
 
 ## 5. Prototype-family traceability review
 
-The first-pass individual role review covers **131 artifacts across five prototype families and the Scenario 34 Lean extension**. Family READMEs, file lists, implementation entry points, and test roles were inspected. **All 131 reviewed files now have first-pass individual role mappings** (3 CLI, 103 dependency-graph, 3 LLVM, 7 package-identity, and 15 package-index). These are traceability mappings, not full claim-level or execution validation:
+The first-pass individual role review covers **235 artifacts across six prototype families and the Scenario 34 Lean extension**. Family READMEs, file lists, implementation entry points, and test roles were inspected. **All 235 reviewed files now have first-pass individual role mappings** (3 CLI, 103 dependency-graph, 3 LLVM, 7 package-identity, 15 package-index, and 104 RT-04-01). These are traceability mappings, not full claim-level or execution validation:
 
 | Prototype family | Files | First-pass finding | Plan stages |
 |---|---:|---|---:|
@@ -198,8 +198,35 @@ The first-pass individual role review covers **131 artifacts across five prototy
 | LLVM-PRESERVATION-01 | 3 | Individual fixture/probe roles mapped to RT-03/09/13 | 1, 6 |
 | PACKAGE-IDENTITY-01 | 7 | All individual files mapped to package identity, language version, and cache-index areas RT-05/11/12 | 1, 3, 7 |
 | PACKAGE-INDEX-01 | 15 | All individual files mapped to logical indexes, archive/closure/provider/content-store and benchmarks; RT-19 is adjacency only (adapter not integrated into Toolchain Server) | 3, 7 |
+| RT-04-01 | 104 | Individual content-based RT traceability: 39 RT-03-only, 59 RT-04-only, and 6 shared cross-profile artifacts; see §5.1 | 1, 5 |
 
-All 131 reviewed prototype files have individual first-pass role mappings; the remaining 109 files under `research/PROTOTYPES/` have not received the same individual role review. The mappings were derived from README sections, source/module docstrings, scenario crosswalks, and paired test imports/names; they do not establish that the implementation is correct or that every experiment is reproducible. Family-level stage lists are navigation ranges, not claims that every file participates in every listed stage.
+All 235 reviewed prototype files have individual first-pass role mappings; the remaining five files under `research/PROTOTYPES/` have not received the same individual role review. The mappings were derived from README sections, source/module docstrings, scenario crosswalks, and paired test imports/names; they do not establish that the implementation is correct or that every experiment is reproducible. Family-level stage lists are navigation ranges, not claims that every file participates in every listed stage.
+
+
+### 5.1 RT-04-01: content-based RT-03 / RT-04 classification
+
+The 104 files under `research/PROTOTYPES/RT-04-01/` were reviewed individually using module purpose/docstrings, imports, paired tests, README descriptions, and cross-references. Their RT mapping is no longer inferred from the directory name:
+
+| Classification | Files | Basis |
+|---|---:|---|
+| RT-03 only | 39 | RT-03 semantic evaluators, path/solver/actor/resource models, their focused tests, and the solver requirements file |
+| RT-04 only | 59 | RT-04 declaration checker, ownership/call-boundary models, concurrency/memory/wire models, SQLite probes, and their focused tests |
+| RT-03 and RT-04 | 6 | Artifacts explicitly spanning the semantic/checker boundary or documenting/testing both prototype areas |
+| **Total** | **104** | Every file in the directory is assigned from inspected content |
+
+The six shared files are:
+
+| Artifact | Why both mappings apply |
+|---|---|
+| `README.md` | Directory guide documents both RT-04 checker work and the RT-03 evaluator, path, typed-call, and cross-profile experiments. |
+| `rt03_typed_calls.py` | Executes RT-03 A/B/D typed-call semantics and derives call-site/type inputs for the RT-04 declaration checker. |
+| `test_rt03_typed_calls.py` | Exercises RT-03 semantic variants and the RT-04 checker projection on the shared typed-call workload. |
+| `test_rt03_rt04_cross_profile.py` | Compares RT-03 observable traces with RT-04 checker vectors. |
+| `test_rt03_reference.py` | Primarily tests the RT-03 reference evaluator and includes an explicit RT-04 effect-summary boundary comparison. |
+| `test_rt04_owned_call.py` | Tests the RT-04 caller ownership checker and compares its result with the RT-03 return-cleanup trace. |
+
+The inventory records `traceability.method = "individual content review (module purpose, imports, paired tests, and README cross-references)"` and high confidence for all 104 entries. The family spans plan stages 1 and 5. This classification records artifact purpose and evidence relationships; it does not claim that the models are normative semantics, that their bounded tests prove general correctness, or that every native probe has been reproduced on current main.
+
 
 ## 6. External-reference and taxonomy reconciliation
 
@@ -239,7 +266,7 @@ The mapping is intentionally incomplete in these areas:
 
 ## 9. Conclusion
 
-The first-pass triage resolves all 36 previous low-confidence root-level mappings. The refreshed inventory now covers 462 research artifacts at `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f`, including 22 Lean source modules and 240 files under `research/PROTOTYPES/`. All 136 scenario reports have candidate RT mappings. The first-pass individual role review covers 131 prototype artifacts across five families and the Scenario 34 Lean extension; 109 further prototype-tree files remain outside that individual role review. Nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family README remain Stage 0-only. RT-24 is registered with dependency edges DEP-086–DEP-093 after preserving the RT-14 DEP-078–DEP-085 register; its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 462 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open.
+The first-pass triage resolves all 36 previous low-confidence root-level mappings. The refreshed inventory now covers 462 research artifacts at `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f`, including 22 Lean source modules and 240 files under `research/PROTOTYPES/`. All 136 scenario reports have candidate RT mappings. The first-pass individual role review covers 235 prototype artifacts across six families and the Scenario 34 Lean extension; five further prototype-tree files remain outside that individual role review. Nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family README remain Stage 0-only. RT-24 is registered with dependency edges DEP-086–DEP-093 after preserving the RT-14 DEP-078–DEP-085 register; its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 462 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open.
 
 
 ## 10. Post-baseline evidence update — Scenario 34
