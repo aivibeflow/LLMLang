@@ -499,3 +499,19 @@ Scenarios 33–40 form a mixed evidence slice rather than a uniform implementati
 - 40 has synchronous cancellation observations and a separate cancellation-receipt model; neither proves general asynchronous cancellation/cleanup semantics.
 
 The precise mapping and limitations are in corpus audit §2.25. Keep source-to-query proof, finite evaluator observations, static checker results, and runtime authority as separate evidence categories.
+
+
+## 26. Formal dependency-analysis and proof-pipeline audit — Scenarios 25–32
+
+Scenarios 25–32 form a staged proof-pipeline investigation. Evidence strength must not be conflated across stages:
+
+- 25 is an architectural/formal proposal, not an implemented dependency prover.
+- 26 is an exhaustive finite-model oracle; its independence result is scoped to the declared finite domain and has no machine-checked Python evaluator proof.
+- 27 emits symbolic relational SMT-LIB, but the report explicitly says actual Z3 integration was not executed.
+- 28 adds typed-IR and evidence-boundary design; independent SMT proof checking is not implemented.
+- 29 tests a fail-closed Logos process adapter with fake executables, not a real cvc5/Logos proof.
+- 30 audits CPC assumption identity and the need for retained parser state; it reports no compiled wrapper at that stage.
+- 31 specifies a strict QF_LIA profile and candidate-query implementation, but its 26 tests used a compatibility fixture, no solver was invoked, and it is not a proof.
+- 32 implements typed canonical query IR, independent rendering, v2 JSON and Lean parser-state binding. The factor-pair gap is closed for exercised fixtures, but Python source-to-query correctness and source-level correspondence remain open.
+
+Scenario 33's later parser-state binding work advances the 30/32 boundary; Scenario 34's Lean theorem covers only the explicitly checked Int/Bool relational fragment. See corpus audit §2.26 for the exact claim/limitation matrix.
