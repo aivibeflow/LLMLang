@@ -172,6 +172,27 @@ All ten runner commands passed with zero failures and zero skips:
 
 The run uploaded [artifact 14647056715](https://github.com/aivibeflow/LLMLang/actions/runs/44770566744/artifacts/14647056715), containing the JSON environment/command manifest and per-command stdout/stderr. This is successful execution evidence for the exact C SQLite source ID and Rust version. The Python `sqlite3` runtime version for Scenario 130 is recorded in the manifest; its equality with the historical 3.53.1 baseline has not yet been inspected. Per-case stdout must still be compared with the numerical observations in Scenarios 120–133 before the scenario claims are marked fully reproduced.
 
+
+### 2.13 Per-case comparison of native outputs — Scenarios 120–128 and 133
+
+The workflow log for [run 44770910183](https://github.com/aivibeflow/LLMLang/actions/runs/44770910183) was compared with the corresponding scenario reports. The eight C-API probes used SQLite 3.46.1 with the exact recorded distro source ID and passed the following discriminators:
+
+| Scenario | Captured native result | Comparison with report |
+|---:|---|---|
+| 120 | sqlite3_close with a live statement returned 5; finalization and later close returned 0; step/finalize after integer overflow returned 1; close_v2 returned 0 and the destructor count advanced from 0 to 1 only after finalization. | Matches the reported BUSY, consuming finalize-error, and deferred destruction observations. |
+| 121 | Compared 356 admitted traces; rejected 154 plans before execution. | Matches the report's 356 native plans and 154 precondition rejections. |
+| 122 | Empty snapshot closed successfully; an intervening prepare made close return 5; after finalize and a fresh empty observation, close returned 0. | Matches the reported snapshot-freshness discriminator. |
+| 123 | Compared 114 call boundaries; source proof rejected 30 plans. | Matches the 114 admitted pairs and 30 source-proof rejections. |
+| 124 | All 11 scheduled interleavings produced the model's expected observations. | Matches the report's 11-schedule matrix, including the shared-guard and split-validation races. |
+| 125 | All 12 callback cases and all 8 dependent-kind/close-operation cases matched the model. | Matches the reported callback and statement/BLOB/backup coverage matrix. |
+| 126 | Twelve shared-source backup traces ran; same-identity initialization was rejected; read/write destination transaction failures were followed by successful retry. | Matches the reported native role and initialization checks. |
+| 128 | Writable destination: backup_step 101 and finish 0. Read-only destination: step 8 and finish 8. In both cases the source was destroyed at finish and destination remained usable. | Matches the report's consuming finish-error behavior. |
+| 133 | 125,952 generated-Rust observations matched the Python reference: 62,976 at each of opt-level 0 and 3. The six per-fixture start counts also match the report: 1,856/2,576, 2,816/2,996, and 2,368/2,590. | Matches the reported native comparison totals and admission counts. |
+
+**Scenario 130 version exception:** the same run executed all ten commands successfully, and all ten durable-receipt crash/recovery cases matched the model. However, the Python 3.12.14 sqlite3 module reported SQLite 3.46.1, whereas Scenario 130 records SQLite 3.53.1. This is a successful rerun on a different engine version, not an exact reproduction of Scenario 130's historical runtime. The workflow has been extended to build SQLite 3.53.1 separately and select it only for the durable-receipt child process; that version-specific rerun is pending.
+
+The run uploaded [artifact 14648440097](https://github.com/aivibeflow/LLMLang/actions/runs/44770910183/artifacts/14648440097), with the manifest and command output. Scenarios 127 and 129 remain finite model/API-documentation evidence; Scenarios 131–132 remain bounded source-fixture/model evidence, not separate native executions.
+
 ## 3. Findings and actions
 
 | ID | Finding | Action / status |
@@ -187,8 +208,8 @@ The run uploaded [artifact 14647056715](https://github.com/aivibeflow/LLMLang/ac
 | RCA-09 | All 104 files in `PROTOTYPES/RT-04-01/` previously inherited RT-04 traceability from the directory name, although their contents include RT-03-only and cross-profile artifacts. | Replaced path inference with individual content-based role mappings: 39 RT-03-only, 59 RT-04-only, and 6 shared; exact shared files and method are recorded in the semantic traceability report. |
 | RCA-10 | Five prototype-tree files remained at family-level mapping only (two RT-16 authorization and three RT-19 Toolchain Server artifacts). | Individually reviewed their purpose and paired test/document relationships; all 240/240 prototype-tree files now have first-pass role mappings. |
 | RCA-11 | Bounded path-feasibility experiments have a solver integration boundary: the raw SymPy adapter prunes UNSAT directly, while the conservative evidence mapper is separate; Scenario 102 also reports seven focused tests although its current test file contains eight methods. | Recorded both as open evidence-audit findings; do not treat the raw adapter as a safe may-analysis interface or the test count as reconciled until the code/report revision is pinned. |
-| RCA-12 | SQLite native probes and the generated-Rust execution are described as evidence, but the Required CI workflow only discovers Python test_*.py files and does not invoke those native probe commands. | The separate native workflow now successfully executes all eight C-API probes and the durable-receipt probe on the recorded SQLite distro source ID. Artifact 14647056715 preserves outputs; per-case comparison with the scenario reports remains open. Required CI and native evidence remain separate. |
-| RCA-13 | The three tests for Scenario 133 exercise Rust code generation and rejection behavior without invoking rustc; the native 125,952-comparison claim is a separate manual command. | The native workflow successfully ran the Rust 1.85.1 comparison and preserved stdout/stderr in artifact 14647056715. Confirm the exact comparison count and output against Scenario 133 when reviewing the artifact; generator CI and native Rust conformance remain separate evidence levels.
+| RCA-12 | SQLite native probes and the generated-Rust execution are described as evidence, but the Required CI workflow only discovers Python test_*.py files and does not invoke those native probe commands. | The separate workflow successfully reproduced Scenarios 120–128 on the exact SQLite distro source ID and Scenario 133 on Rust 1.85.1; per-case outputs match the reports. Scenario 130 passed on SQLite 3.46.1 but its historical 3.53.1 runtime is not yet matched; a separate 3.53.1 child runtime is being added. |
+| RCA-13 | The three tests for Scenario 133 exercise Rust code generation and rejection behavior without invoking rustc; the native 125,952-comparison claim is a separate manual command. | The native workflow ran Rust 1.85.1 and matched all 125,952 observations, including the six reported admission counts. The captured output is in artifact 14648440097; generator CI and native Rust conformance remain separate evidence levels.
 
 ## 4. Reconciliation rules
 
