@@ -32,5 +32,23 @@ def sequentially_consistent_outcomes():
 def per_location_atomic_outcomes():
     """Abstract independently ordered locations; each read sees init or store."""
     # Each load can observe the initial value or the other thread's store; this
-       # profile intentionally has no cross-location global order constraint.
+    # profile intentionally has no cross-location global order constraint.
     return {(rx, ry) for rx in (0, 1) for ry in (0, 1)}
+
+
+def message_passing_outcomes(synchronized):
+    """Enumerate a publication litmus under stated happens-before premises.
+
+    Writer stores payload before flag. Reader loads flag before payload. When
+    ``synchronized`` is true, observing flag=1 creates a synchronizes-with edge
+    and therefore forbids a subsequent payload read of the initial value.
+    Without that edge, all independent read values are admitted in this toy
+    model. Data races and weak memory rules are intentionally out of scope.
+    """
+    outcomes = set()
+    for flag in (0, 1):
+        for payload in (0, 1):
+            if synchronized and flag == 1 and payload == 0:
+                continue
+            outcomes.add((flag, payload))
+    return outcomes

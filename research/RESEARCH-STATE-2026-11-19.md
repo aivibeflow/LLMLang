@@ -122,7 +122,7 @@ The latest bounded type/semantics results include a counterexample: transfer-fir
 
 [Scenario 112](RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md) replays a continuous-enabled starvation cycle and an intermittent-enabled cycle: weak fairness rejects the former but permits the latter, while strong fairness rejects both. A fixed two-task round-robin model gives a one-turn bound only when both tasks remain runnable and each turn returns. Five tests pass; no runtime or unbounded liveness claim follows.
 
-[Scenario 113](RESEARCH-SCENARIO-113-STORE-BUFFERING-MEMORY-ORDERS.md) adds the first executable shared-memory litmus to Scenario 61: one global sequentially consistent order excludes the both-zero outcome, while a deliberately abstract independent per-location profile admits it. Two focused tests pass. This is not a complete language or hardware memory model; message passing, read-modify-write, fences, mixed accesses, target validation, and a candidate formal model remain open.
+[Scenario 113](RESEARCH-SCENARIO-113-STORE-BUFFERING-MEMORY-ORDERS.md) adds bounded shared-memory litmus relations to Scenario 61: one global sequentially consistent order excludes the both-zero store-buffering outcome, while a deliberately abstract independent per-location profile admits it. An axiom-driven message-passing relation shows how a stipulated synchronizes-with edge constrains stale payload reads. Three focused tests pass. These are not complete language or hardware models; read-modify-write, fences, mixed accesses, target validation, and a formal candidate model remain open.
 
 ## 2. Candidate vectors still open
 

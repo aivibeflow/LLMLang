@@ -29,6 +29,8 @@ The outcome `(r2, r1) = (0, 0)` is impossible under sequential consistency: a si
 
 This isolates the cost/guarantee boundary between a single global order and weaker cross-location ordering. It is not a complete C++, Rust, Go, or hardware model: the weak profile is an intentionally minimal abstraction, not a claim that all relaxed atomics permit arbitrary outcomes. The model omits read-modify-write, synchronizes-with edges, fences, dependencies, non-atomic races, and compiler transformations. It says nothing about logical races, progress, or target-specific implementation cost. Real language/runtime validation must bind litmus outcomes to a formal memory model and compiler/backend versions across targets.
 
+The same prototype includes a separate message-passing outcome relation: writer stores payload then flag; reader loads flag then payload. A stated synchronizes-with edge when the reader observes `flag = 1` excludes stale `payload = 0`; without that edge, the toy relation admits it. This is an axiom-driven demonstration of happens-before's observable consequence, not an implementation deriving synchronization from real atomic operations. The additional test makes the premises visible rather than inferring a memory-order rule.
+
 This result complements Scenario 61's ownership/isolation/shared-memory comparison but does not choose among them. A coherent LLMLang proposal still needs a data-race rule, atomic order lattice and defaults, mixed atomic/non-atomic policy, FFI/unsafe boundary, and conformance suite. In particular, the language must state whether ordinary safe code can reach this low-level shared-atomic API and how its guarantee composes with channels, locks, and ownership transfer.
 
 ## Reproduction
