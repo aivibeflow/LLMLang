@@ -35,7 +35,7 @@ Scenarios 127, 129, 131, and 132 are finite model/source-fixture studies whose t
 
 ## Captured evidence
 
-The runner's command inventory is checked by `test_rt04_native_probe_runner.py`, which is part of the normal RT-04-01 Python test-discovery step. The runner writes `summary.json` plus separate stdout/stderr files for every command. The summary records:
+The runner's command inventory is checked by `test_rt04_native_probe_runner.py`, which is part of the normal RT-04-01 Python test-discovery step. The runner prints the pinned runtime identity and each probe's stdout to the workflow log, and writes `summary.json` plus separate stdout/stderr files for every command. The summary records:
 
 - repository commit, Python version, operating system and architecture;
 - C SQLite version and source ID;

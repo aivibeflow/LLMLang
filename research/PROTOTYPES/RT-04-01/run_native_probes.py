@@ -119,6 +119,19 @@ def main():
     output = (ROOT / args.output_dir).resolve()
     output.mkdir(parents=True, exist_ok=True)
     metadata = runtime_metadata()
+    print("Native runtime metadata:")
+    print(json.dumps({
+        "commit": metadata.get("commit"),
+        "python": sys.version.split()[0],
+        "python_sqlite_version": metadata.get("python_sqlite_version"),
+        "python_sqlite_matches_historical_baseline": metadata.get("python_sqlite_matches_historical_baseline"),
+        "c_sqlite_library": metadata.get("c_sqlite_library"),
+        "c_sqlite_version": metadata.get("c_sqlite_version"),
+        "c_sqlite_source_id": metadata.get("c_sqlite_source_id"),
+        "platform": metadata.get("platform"),
+        "rustc_version": metadata.get("rustc_version"),
+        "rustc_verbose": metadata.get("rustc_verbose"),
+    }, indent=2), flush=True)
     summary = {
         "schema_version": 1,
         "suite": args.suite,
@@ -198,6 +211,12 @@ def main():
         summary["finished_at"] = datetime.now(timezone.utc).isoformat()
         (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
         print(f"[{item['status']}] {name}", flush=True)
+        if stdout.strip():
+            print(f"--- {name} stdout ---", flush=True)
+            print(stdout.rstrip(), flush=True)
+        if stderr.strip():
+            print(f"--- {name} stderr ---", flush=True)
+            print(stderr.rstrip(), flush=True)
 
     summary["finished_at"] = datetime.now(timezone.utc).isoformat()
     summary["passed"] = sum(item["status"] == "passed" for item in summary["commands"])
