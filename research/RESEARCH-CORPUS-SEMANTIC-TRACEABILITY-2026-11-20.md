@@ -515,3 +515,16 @@ Scenarios 25–32 form a staged proof-pipeline investigation. Evidence strength 
 - 32 implements typed canonical query IR, independent rendering, v2 JSON and Lean parser-state binding. The factor-pair gap is closed for exercised fixtures, but Python source-to-query correctness and source-level correspondence remain open.
 
 Scenario 33's later parser-state binding work advances the 30/32 boundary; Scenario 34's Lean theorem covers only the explicitly checked Int/Bool relational fragment. See corpus audit §2.26 for the exact claim/limitation matrix.
+
+
+## 27. Dependency discovery and counterfactual-analysis audit — Scenarios 20–24
+
+Scenarios 20–24 have executable Python prototypes and paired focused tests, but their shared trust boundary is that the prototypes consume normalized evidence/observations rather than executing arbitrary LLMLang programs:
+
+- 20 classifies evidence-bearing dependency candidates; it does not implement the discovery tools that produce them.
+- 21 compares repeated one-factor baseline/treatment records; no observed difference is not proof of irrelevance.
+- 22 generates/schedules finite single-factor and t-way interventions under a deterministic budget; it does not execute them.
+- 23 distinguishes joint intervention from factorial interaction and analyzes repeated 2×2 blocks; it consumes normalized run records.
+- 24 adaptively schedules single-factor and factorial blocks with bounded retries and explicit uncovered targets; it is a planner, not a runner or completeness proof.
+
+See corpus audit §2.27 for exact implementation/test mapping and limitations. Preserve the distinctions between discovery candidates, interventions, observed effects, interaction evidence, scheduled coverage, and proof of completeness.
