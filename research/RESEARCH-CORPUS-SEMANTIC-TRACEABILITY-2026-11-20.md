@@ -538,3 +538,12 @@ Scenarios 18–19 have paired executable models/tests in Dependency Graph Protot
 - 19 checks coverage of independently observed dependency identities against declared edges within an exact artifact/scope/evidence binding, then selects typed revalidation actions. It does not extract dependencies, execute actions, or verify the proof behind a bound PROVEN non-interference record.
 
 See corpus audit §2.28. The key trust boundary is that impact planning can only reason about dependencies represented in the graph; completeness evidence must be separate and fail closed.
+
+
+## 29. Business intent and typed Requirement IR audit — Scenarios 15–17
+
+- Scenario 15's Prototype 16 is a finite caller-scoped business-intent/contract experiment. It demonstrates a controlled policy change and provenance-bearing formal candidates, but does not parse arbitrary natural language or establish that the formal candidate matches stakeholder intent. Authorized acceptance is separate.
+- Scenario 16 is absent from the current research tree; preserve the gap and do not infer or renumber it.
+- Scenario 17's Prototype 17 provides typed requirement predicates/provenance and finite-domain consistency/scenario generation. It does not implement temporal logic, general arithmetic/quantification, solver integration, authority checks, or implementation proofs.
+
+See corpus audit §2.29. A proof over an accepted contract and fidelity of that contract to human intent are separate correctness questions.
