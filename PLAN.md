@@ -113,6 +113,32 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Status:** initial taxonomy and dependency map completed; ongoing validation remains part of each research task.
 
+## 1.0 Intent, requirements, and human-validated formalization (RT-02)
+
+**Estimated research complexity:** **7/10** — the core workflow is represented in Scenarios 15, 17, and 18, but faithful reconstruction, semantic-difference detection, human review effectiveness, and end-to-end evidence remain to be researched.
+
+**Existing evidence:** [Scenario 15 — Business Intent to Formal Contracts](research/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md), [Scenario 17 — Typed Requirement IR](research/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md), [Scenario 18 — Requirement Evolution and Semantic Impact](research/RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md), and the [Requirement Reconstruction and Human Semantic Validation research proposal](research/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md). Existing prototypes demonstrate bounded intent/clarification/provenance and typed-IR analysis; they do not implement a complete conversational elicitation or reconstruction workflow.
+
+Research the complete path from a user's request to an accepted, traceable business contract and then to implementation evidence. The reconstructed explanation must be generated from the typed/formal model, not simply paraphrased from the original prompt.
+
+- [ ] Define the end-to-end lifecycle and artifact boundaries: immutable Human Intent, elicitation questions, clarification decisions, typed Requirement IR, formal candidates, analysis results, reconstructed explanation, human approval, accepted contract, component contracts, tests, implementation, and verification evidence.
+- [ ] Define clause-level provenance from every IR/formal clause and reconstructed statement to original source fragments and authorized clarification decisions; detect dangling, unsupported, or conflicting provenance.
+- [ ] Compare deterministic, LLM-assisted, independent-pass, and hybrid reconstruction strategies. In primary fidelity experiments, prevent the reconstruction generator from seeing the original prompt; use the source separately for semantic-difference analysis.
+- [ ] Define reconstruction outputs: human-readable contract, business-rule table, temporal/scenario explanations, counterexamples, semantic differences, unresolved questions, and provenance links.
+- [ ] Define how to detect omitted, added, weakened, strengthened, polarity-flipped, temporally shifted, or scope-shifted semantics, including exceptions and negative obligations.
+- [ ] Define fail-closed handling for unsupported constructs, unresolved assumptions, missing provenance, incomplete source coverage, analyzer UNKNOWN, and reconstruction failure.
+- [ ] Compare FRET/FRETISH and other formal backends for supported requirement classes; do not make FRET mandatory or assume that a FRET explanation proves intent correctness.
+- [ ] Define the human review protocol and exact approval binding: ACCEPT, REVISE, CLARIFY, or REJECT against a specific immutable semantic revision and evidence package.
+- [ ] Define revision/impact behavior: semantic changes regenerate affected reconstructions and invalidate affected approvals; provenance-only changes must remain distinguishable from semantic changes.
+- [ ] Build clause-level round-trip and seeded-mutation experiments; measure semantic fidelity, provenance coverage, false acceptance, and unknown handling.
+- [ ] Run controlled human-review studies comparing prompt-only, formal-only, reconstruction-only, and reconstruction-plus-scenarios/provenance; include domain stakeholders and predeclare thresholds.
+- [ ] Keep intent correctness, formal-contract correctness, and implementation correctness as separate claims with separate evidence and acceptance gates.
+- [ ] Validate the workflow on representative requirement classes and risk levels; record limits before transferring any result into `draft/`.
+
+**Status:** partially researched. The existing Scenario 15/17/18 work supplies important building blocks, but reconstruction fidelity, semantic-difference detection, and human-review effectiveness have not yet been experimentally validated. The linked research proposal includes a worked order-confirmation example and an experiment plan; it is not a normative architecture decision.
+
+**Exit criteria:** every accepted normative clause is traceable to source/decision evidence; reconstruction faithfully exposes the supported formal semantics and marks unknowns; seeded semantic mutations are detected; human reviewers can identify seeded interpretation defects at predeclared thresholds; approval is bound to the exact semantic revision; implementation verification remains separate.
+
 ## 1.1 Semantic Program Graph and program representation
 
 **Estimated research complexity:** **10/10** — the complete SPG model must reconcile graph structure, object lifecycle, identity, evolution, and downstream consumers.
