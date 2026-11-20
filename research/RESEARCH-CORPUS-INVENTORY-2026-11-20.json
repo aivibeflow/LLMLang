@@ -1952,7 +1952,9 @@
         "method": "individual prototype module/test/result role reviewed against prototype README, module description, and paired scenario",
         "confidence": "medium"
       },
-      "plan_stages": [],
+      "plan_stages": [
+        "Stage 0 (prototype family index)"
+      ],
       "family_scope_review": {
         "status": "individual-file-role-triaged",
         "areas": [
@@ -12626,7 +12628,8 @@
       },
       "administrative_stage0_only_files": 7,
       "unregistered_rt24_documents": 3,
-      "basis": "research/references/README.md explicit use-case table; RT-24 files retain their explicit but currently unregistered area identifier"
+      "basis": "research/references/README.md explicit use-case table; RT-24 files retain their explicit but currently unregistered area identifier",
+      "prototype_index_stage0_only_files": 1
     }
   }
 }
