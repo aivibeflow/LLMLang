@@ -336,3 +336,14 @@ The second evidence slice checks the COR-13 sequence from owned-result shape inf
 The current Required CI repository-structure job runs all RT-04-01 test_*.py modules and passed. It does not invoke the standalone SQLite probes or the native Rust runner. Accordingly, the repository currently has a successful automated test layer plus separately reported native observations; this review has not independently rerun the latter.
 
 This evidence chain supports bounded statements about the tested SQLite API paths and generated COR-13 fixture. It does not establish general ownership/typestate semantics, source-derived dependency completeness, all FFI contracts, or a production concurrency model. The next evidence task is controlled reproduction of native probes and preservation of their exact outputs/toolchain provenance.
+
+
+## 14. Native reproduction harness prepared — execution pending
+
+The RT-04 native evidence boundary now has a dedicated manual workflow, `.github/workflows/rt04-native-reproduction.yml`, and orchestrator `PROTOTYPES/RT-04-01/run_native_probes.py`. The harness builds the SQLite 3.46.1 shared library from the official autoconf archive and passes its exact path through `LLMLANG_SQLITE_LIBRARY`; the loader override avoids accidental selection of the host's default SQLite library. The runner checks the Scenario 120–128 SQLite version and source ID, and the generated-Rust runner enforces Rust 1.85.1.
+
+The workflow covers the base cleanup, recovery matrix, snapshot freshness, close call boundary, interleavings, callback reentry/dependent coverage, backup roles/outcomes, durable invocation receipts, and generated Rust comparison. It records the repository revision, Python/platform metadata, both C-library and Python sqlite3 versions, rustc verbose metadata, exact commands, exit statuses, and separate stdout/stderr files in a JSON manifest and a 30-day Actions artifact.
+
+The Python `sqlite3` runtime used by Scenario 130 is intentionally recorded rather than silently assumed to be 3.53.1. The runner marks whether the current runtime matches that historical version. If it differs, the durable-receipt rerun is a new versioned native observation, not an exact reproduction of the historical environment.
+
+**Status:** harness and documentation are committed on the RT-00 work branch; no execution result exists yet. Required CI remains Python-test evidence only. Do not upgrade the native findings to reproduced until the manual workflow succeeds and its artifact is compared against the corresponding Scenario 120–133 reports.
