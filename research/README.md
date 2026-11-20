@@ -101,6 +101,14 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 
 - [Research corpus semantic relationship review — scenario studies (2026-11-20)](RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md) — first-pass classification of scenario relationships, scoped supersession, exact-blob duplicates, and unresolved gaps.
 
+## Cross-cutting research references
+
+- [Research Taxonomy](RESEARCH-TAXONOMY.md) — the 24 research areas and their scope.
+- [Research Dependency Map](RESEARCH-DEPENDENCY-MAP.md) — the 94 directed cross-area dependencies and documented feedback loops.
+- [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md) — candidate immutable dependency-index model; not a canonical schema.
+- [Draft Glossary](../draft/GLOSSARY.md) — provisional hash and semantic terminology; PLAN.md records the unresolved `ImpHash`/`ImplHash` spelling discrepancy.
+- [Cross-cutting alignment review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) — count reconciliation, candidate/non-normative status, and terminology boundaries.
+
 ## Corpus inventory and audit
 
 - [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked research artifact under `research/` at the recorded revision (excluding the inventory manifest itself).
