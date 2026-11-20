@@ -18,6 +18,11 @@ Requires Python 3.11+ and the standard library only.
 python -m unittest discover -s research/PROTOTYPES/TOOLCHAIN-SERVER-01 -v
 ```
 
+## File index
+
+- Implementation: [toolchain.py](toolchain.py)
+- Tests: [test_toolchain.py](test_toolchain.py)
+
 ## Implemented
 
 - Content-addressed immutable entity payloads (prototype SHA-256 envelope).
