@@ -132,6 +132,8 @@ The latest bounded type/semantics results include a counterexample: transfer-fir
 
 Scenario 117 adds executable checks for the three coherence rules left out of Scenario 113's read-read fixture. A write ordered before another write constrains modification order. A read ordered before a write must observe a strictly earlier write. A read ordered after a write can observe that write or a later one. The fixtures take the order premises as inputs. [Atomic coherence relations](RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md)
 
+Scenario 118 derives the ordering premises for fixed atomic load and store sequences. It matches an independent sequential interleaving oracle on 4,096 generated programs. Read values differ under the weaker relation in 98 programs. An acquire that reads a repeated flag value can leave the payload stale when a plain store wrote that value. RMW, fences, mixtures of `seq_cst` with weaker orders, and actual target lowering remain open. [Atomic execution relations](RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:

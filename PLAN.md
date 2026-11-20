@@ -510,7 +510,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define trusted low-level primitives and their contracts.
 - [ ] Define runtime versioning and its contribution to implementation identity.
 
-**Status:** partially validated in bounded execution models. For atomics, the fixtures now cover one example of each of the four coherence rules for a single object. Building one execution relation that derives the ordering and read-from witnesses jointly remains open. [Scenario 113](research/RESEARCH-SCENARIO-113-STORE-BUFFERING-MEMORY-ORDERS.md) · [Scenario 117](research/RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md)
+**Status:** partially validated in bounded execution models. The atomic load and store fragment derives read-from and happens-before and checks all four coherence rules. An independent interleaving oracle agrees on global-order witnesses for 4,096 layouts. RMW, fences, source correspondence, and backend validation remain open. [Coherence fixtures](research/RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md) · [Execution relations](research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
 
 ## 5.3 POSIX architecture and conformance
 
@@ -834,7 +834,7 @@ PR #47 merged the cumulative research snapshot `73d37723e6a759159b354c2cd7432751
 | Identity and digest lifecycle | Scenarios 90–91; RT-05 lifecycle, recursive identity, and call-site refactor experiments; RT-24 decision matrix | Continue Stage 1.2/1.3 and Stage 4 identity work with rename/move, recursion, call-site changes, migration, and branch-conflict cases. Do not finalize hash payloads or canonical SPG fields by implication. |
 | Workloads, measurement, and trust | RT-01 CLI reference workloads, RT-11 binding/invalidation benchmark, RT-16 threat model and authorization prototype, and `RESEARCH-OPTION-MATRIX-01.md` | Continue Stage 3/7 measurements on controlled workloads and hardware, and extend security lifecycle tests. Preserve the current limits: host references are not LLMLang evaluations, synthetic action counts are not production timings, and policy fixtures are not a complete security architecture. |
 
-Subsequent Scenarios 92–117 extend the coverage through atomic coherence. The research index tracks the full numbered corpus and its prototypes across RT-03/04, RT-05/11/16, and dependency analysis. The dated research register records the evidence, open questions, and next experiments. [Research index](research/README.md) · [Research State](research/RESEARCH-STATE-2026-11-19.md)
+Subsequent Scenarios 92–118 extend the coverage through comparisons of atomic execution relations. The research index tracks the full numbered corpus and its prototypes across RT-03/04, RT-05/11/16, and dependency analysis. The dated research register records the evidence, open questions, and next experiments. [Research index](research/README.md) · [Research State](research/RESEARCH-STATE-2026-11-19.md)
 
 ---
 

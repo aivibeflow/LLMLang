@@ -324,3 +324,7 @@ Focused tests, including the real deadline case:
 ## Store buffering memory orders (Scenario 113)
 
 The prototype enumerates global sequentially consistent orders and independent per-location observations for the two-thread store-buffering litmus. The independent profile admits both reads seeing zero. It also includes isolated fixtures for stipulated synchronization, release sequences, fences, and all four coherence rules on one atomic object. Twelve focused tests cover these relations. [Prototype](rt04_store_buffering.py) · [Coherence fixtures](../../RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md)
+
+## Atomic execution relations (Scenario 118)
+
+The enumerator derives modification order, read-from, happens-before, and values for fixed atomic load and store sequences. An independent sequential interleaving oracle matches the global-order witnesses in all 4,096 layouts. The weaker relation permits additional read values in 98 layouts. [Enumerator](rt04_atomic_execution.py) · [Test cases](test_rt04_atomic_execution.py) · [Results and scope](../../RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
