@@ -7,28 +7,28 @@
 
 ## 1. Executive summary
 
-The recursive Git tree at the primary snapshot revision contains **450 tracked research artifacts** (excluding the inventory manifest itself):
+The recursive Git tree at the primary snapshot revision contains **456 tracked research artifacts** (excluding the inventory manifest itself):
 
 - 233 Markdown/MDX files (230 `.md` and 3 `.mdx`);
 - 194 Python files;
-- 11 Lean source files and one Lean toolchain pin;
+- 17 Lean source files and one Lean toolchain pin;
 - 3 JSON files;
 - 1 C file, 1 Rust file, 1 TOML file, 1 Protocol Buffers schema, and 4 text files;
-- 229 files under `research/PROTOTYPES/`;
+- 235 files under `research/PROTOTYPES/`;
 - 24 files under `research/preparation/` and `research/references/`.
 
-A machine-readable inventory snapshot records all 450 paths, Git blob SHAs, byte sizes, coarse categories, and qualified path-based traceability metadata: [RESEARCH-CORPUS-INVENTORY-2026-11-20.json](RESEARCH-CORPUS-INVENTORY-2026-11-20.json).
+A machine-readable inventory snapshot records all 456 paths, Git blob SHAs, byte sizes, coarse categories, and qualified path-based traceability metadata: [RESEARCH-CORPUS-INVENTORY-2026-11-20.json](RESEARCH-CORPUS-INVENTORY-2026-11-20.json).
 
 The main index's relative links and the preparation index's brief links resolve. Exact Git-blob comparison found one repeated blob: the same Apache-2.0 licence text is stored alongside both OCI and REAPI snapshots. This is expected shared licence content, not evidence of duplicated research.
 
-The audit remains **partial**. The inventory classifies paths and records tentative mappings; it does not verify every artifact's semantic contents, determine every supersession relationship, prove index completeness, or reproduce all experiments.
+The audit remains **partial**. The current `main` tree adds six Lean source/test modules since the PR #81 inventory baseline, including the paired-observation proof and tests from PR #85. SCW-24/25 are present and included in the refreshed inventory; they are not missing artifacts. The inventory classifies paths and records tentative mappings; it does not verify every artifact's semantic contents, determine every supersession relationship, prove index completeness, or reproduce all experiments.
 
 ## 2. Evidence and checks performed
 
 ### 2.1 Repository inventory
 
-- Retrieved the recursive Git tree for `main` at revision `a30ec074e08186f04a35535b9933bfa878713f31`; excluded the inventory manifest itself to avoid self-reference.
-- Enumerated all 450 tracked research artifacts whose paths begin with `research/`, excluding the inventory manifest itself.
+- Retrieved the recursive Git tree for `main` at revision `c105766eee22f25532712be115e62beb4d42faf5`; excluded the inventory manifest itself to avoid self-reference.
+- Enumerated all 456 tracked research artifacts whose paths begin with `research/`, excluding the inventory manifest itself.
 - Recorded path, Git blob SHA, byte size, coarse artifact category, and traceability metadata for every file in the inventory JSON.
 - Distinguished scenario-named reports, prototype implementations, tests, prototype readmes/reports, preparation briefs, external snapshots/licences, structured fixtures, and research documents.
 - Recorded direct RT/scenario identifiers as high-confidence path evidence. Prototype-family mappings are explicitly marked medium confidence; files without reliable path identifiers remain unassigned rather than receiving guessed mappings.
@@ -65,7 +65,7 @@ The inventory is a reproducible path-level snapshot. It is not a claim that ever
 
 - Reviewed the 36 inventory entries previously marked low confidence using document titles, scope/status declarations, section structures, explicit research-area declarations, and related-document references.
 - Assigned candidate RT-area mappings or explicit Stage 0 research-management ownership to all 36 entries; recorded the basis and candidate plan stages in [the semantic traceability report](RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md) and inventory JSON.
-- Added `plan_stages` metadata to all 450 inventory records. A taxonomy/header/content crosswalk now maps all 136 Scenario reports to candidate RT areas: 63 from taxonomy links/ranges and 73 from first-pass report scope review. All 120 prototype-family records now have first-pass individual file-role mappings across five families; content/claim and reproducibility validation remains open. Nine vendored technical source documents now have use-case mappings; seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered in the taxonomy; its candidate contract remains non-normative.
+- Added `plan_stages` metadata to all 456 inventory records. A taxonomy/header/content crosswalk now maps all 136 Scenario reports to candidate RT areas: 63 from taxonomy links/ranges and 73 from first-pass report scope review. All 120 prototype-family records now have first-pass individual file-role mappings across five families; content/claim and reproducibility validation remains open. Nine vendored technical source documents now have use-case mappings; seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered in the taxonomy; its candidate contract remains non-normative.
 - The semantic review is explicitly first-pass triage, not full claim-level verification or acceptance of the proposals described by the documents.
 - Scenario numbering review found 136 report files representing 135 unique IDs: Scenario 95 has a main study and an explicitly cross-referenced execution follow-up; Scenario 16 has no report in the current corpus. Its absence is recorded as unresolved (reserved number versus missing artifact), not silently renumbered.
 
@@ -97,7 +97,7 @@ The prototype READMEs and workflow definitions provide reproducibility instructi
 
 The CI configuration is a reproducibility aid, not proof that every research artifact is covered. In particular, the Semantic Dependency Index workflow selects a subset of the Dependency Graph tests; the CLI workload and LLVM preservation prototypes have no dedicated job in the current `ci-required` workflow. Scenario reports also describe additional one-off commands and native-tool observations that are not all repeated by CI.
 
-At the time of this audit update, the current PR's required CI run is still in progress; only completed job results should be treated as execution evidence. No claim is made here that all 120 individually mapped prototype-family artifacts, all 229 files under `research/PROTOTYPES/`, or all scenario experiments have been executed in this run.
+At the time of this audit update, the current PR's required CI run is still in progress; only completed job results should be treated as execution evidence. No claim is made here that all 120 individually mapped prototype-family artifacts, all 235 files under `research/PROTOTYPES/`, or all scenario experiments have been executed in this run.
 
 ### 2.7 Exact blob comparison
 
@@ -113,7 +113,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 
 | ID | Finding | Action / status |
 |---|---|---|
-| RCA-01 | The corpus has 450 tracked research artifacts in the refreshed inventory snapshot (excluding the manifest itself), but previously lacked a complete path inventory. | Added the machine-readable inventory snapshot. |
+| RCA-01 | The corpus has 456 tracked research artifacts in the refreshed inventory snapshot (excluding the manifest itself), but previously lacked a complete path inventory. | Added the machine-readable inventory snapshot. |
 | RCA-02 | Artifact-to-item mapping is not uniformly explicit in filenames. | Added qualified path-based mappings; content-level verification remains open. |
 | RCA-03 | All 233 research Markdown/MDX files were scanned for inline relative links (1,330 occurrences across the refreshed inventory revision). One LLMLang-authored broken link was fixed; 38 unresolved occurrences remain only in partial Alive2/OCI snapshots. | Project-authored inline relative links resolve; external snapshot completeness, external URLs, anchors, and index completeness remain open. |
 | RCA-04 | At the refreshed inventory revision, the main, preparation, and references indexes have 85, 11, and 2 unique relative targets; all resolve. | Index link existence checks complete; scientific readiness and index coverage remain open. |

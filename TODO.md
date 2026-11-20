@@ -291,6 +291,29 @@ Priority is a planning aid, not a measure of correctness:
 - **Reconsideration trigger:** Independently built component exchange, cross-toolchain linking, dynamic loading, external RPC, persisted serialized messages, or a separately versioned binary/plugin ABI.
 - **Related:** [Architecture Decision — Immutable Components and Single-Version Toolchain Compatibility](draft/ARCHITECTURE-DECISIONS.md), [Scenario 134](research/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md).
 
+## AI authoring contexts
+
+### LL-026 — Define the Knowledge Context model
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** What versioned, provenance-preserving, bounded representation defines the knowledge made available to an LLM agent for a specific development task, and how can the Toolchain assemble it without silently omitting required or exposing unauthorized information?
+- **Context:** A Knowledge Context is intended to describe the information an agent may rely on: selected requirements, contracts, design decisions, implementation objects, dependency information, diagnostics, verification evidence, project documents, and explicitly admitted external sources. It is not a runtime variable scope, an unstructured prompt, or automatically the same thing as the complete semantic dependency closure.
+- **Questions to resolve:** Source and trust classes; exact object/snapshot/version references; required versus optional entries; deterministic selection versus relevance ranking; completeness and omission evidence; stale, conflicting, unavailable, or unknown inputs; token/size budgets; access control, redaction, and data minimization; context manifest identity and provenance; cache/reuse and invalidation; relationship to semantic dependencies, snapshot identity, and action-cache identity; agent-facing rendering and retrieval APIs.
+- **Recommendation:** Research an immutable context manifest pinned to an explicit baseline, with typed entries, source provenance, inclusion rationale, required/optional status, access restrictions, and explicit completeness/unknown outcomes. Do not claim completeness from relevance ranking alone, and do not silently treat missing or stale sources as absent.
+- **Related:** RT-14 AI-native authoring; RT-05 representation and identity; RT-06 dependency analysis; RT-16 security and trust; RT-19 Toolchain Server; [Development Engine RFC](research/RFC-DEVELOPMENT-ENGINE.md); [Open-question research program](research/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md).
+
+### LL-027 — Define the Task Context model
+
+- **Status:** Open
+- **Priority:** P1
+- **Question:** What explicit, versioned object describes an agent's development task, its scope, constraints, expected outputs, dependencies, and completion obligations throughout planning, execution, review, and handoff?
+- **Context:** A Task Context should distinguish the task being performed from the Knowledge Context supplied to inform it, from runtime execution state, and from authorization grants. It may refer to a baseline snapshot, target semantic objects, requirements, a Knowledge Context, a Change Set, a Change Impact Plan, acceptance criteria, and required validation evidence.
+- **Questions to resolve:** Task identity and revision lifecycle; objective and traceability to requirements; in-scope and out-of-scope objects; constraints and non-goals; prerequisites and dependency ordering; expected deliverables; acceptance and verification obligations; state transitions, cancellation, retries, delegation, decomposition, and handoff; concurrent agents and ownership; approval boundaries; binding to baseline snapshots and Change Sets; provenance and audit history; relationship to RT-20 planning and RT-19 workspace transactions.
+- **Security boundary:** A Task Context describes what work is requested and what obligations apply; it MUST NOT itself grant capabilities or elevate authority. Authorization must be evaluated through the independent RT-16 capability and policy model.
+- **Recommendation:** Research a typed task record with explicit objective, scope, constraints, linked Knowledge Context and baseline, expected outputs, prerequisites, and machine-checkable completion obligations. Keep lifecycle and schema alternatives open until they are tested against multi-step and delegated agent workflows.
+- **Related:** RT-14 AI-native authoring; RT-02 requirements and intent; RT-16 security and trust; RT-19 Toolchain Server; RT-20 patch planning; [Development Engine RFC](research/RFC-DEVELOPMENT-ENGINE.md); [Open-question research program](research/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md).
+
 ## Deferred engineering tasks
 
 ### DEFERRED-001 — Repair canonical query semantics Lean module

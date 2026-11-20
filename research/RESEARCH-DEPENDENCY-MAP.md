@@ -50,9 +50,6 @@ flowchart TD
   EV[RT-18 Conformance and evolution]
   TS[RT-19 Toolchain Server and semantic development API]
   CP[RT-20 LLM patch planning and verified commit]
-  RW[RT-22 Repository and worktree MCP]
-  MW[RT-23 Shared multi-worktree Toolchain]
-  R24[RT-24 Canonical semantic representation, diff, and merge]
 
   G --> I
   G --> S
@@ -95,14 +92,6 @@ flowchart TD
   Q --> CP
   TS --> CP
   CP --> TS
-  S --> R24
-  P --> R24
-  D --> R24
-  V --> R24
-  TS --> R24
-  CP --> R24
-  RW --> R24
-  MW --> R24
   Q --> R
   Q --> L
   E --> EV
@@ -332,20 +321,38 @@ RT-23 separates immutable semantic development from regular-file Git isolation. 
 | DEP-076 | RT-16 → RT-23 | Constrains | Shared process state, cross-worktree isolation, path containment, watcher input validation, and per-job grants constrain the multi-tenant server design. | Strong hypothesis |
 | DEP-077 | RT-23 → RT-21 | Enables | One shared Toolchain instance and semantic-only workflows reduce infrastructure duplication for LLMLang self-development while preserving isolated regular-file worktrees. | Open hypothesis |
 
-## 11. Canonical semantic representation, diff, and merge (RT-24)
+
+## 11. AI authoring context models (RT-14)
+
+Knowledge Context and Task Context are related but distinct candidate objects. Knowledge Context describes the versioned information available to an agent; Task Context describes the work, scope, constraints, deliverables, and completion obligations. Neither context substitutes for the semantic dependency graph, a Change Impact Plan, or the independent authorization model.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-078 | RT-05 → RT-14 | Requires | Knowledge Context entries and Task Context baselines need stable references to exact semantic objects and snapshots; context identity must remain distinct from the identity of referenced objects. | Strong hypothesis |
+| DEP-079 | RT-06 → RT-14 | Constrains | Context selection and any completeness claim depend on sound dependency discovery and explicit UNKNOWN/insufficient-context outcomes; relevance ranking alone cannot establish dependency completeness. | Strong hypothesis |
+| DEP-080 | RT-02 → RT-14 | Constrains | Task objectives, constraints, and acceptance obligations must retain traceability to human intent, typed requirements, and contracts rather than silently replacing their authoritative meaning. | Strong hypothesis |
+| DEP-081 | RT-16 → RT-14 | Requires | Knowledge retrieval, redaction, task delegation, and agent actions must obey independent authorization, data-minimization, and audit policy; context membership or task assignment must not itself grant capabilities. | Strong hypothesis |
+| DEP-082 | RT-14 → RT-19 | Requires | The Toolchain API must expose inspectable, revision-bound Knowledge Context assembly and Task Context lifecycle operations with provenance, concurrency, and recovery semantics. | Strong hypothesis |
+| DEP-083 | RT-14 → RT-20 | Constrains | A Task Context may bind an agent request to scope, baseline, and completion obligations, but must remain consistent with the authoritative Change Impact Plan and must not bypass plan-before-mutation or validation gates. | Strong hypothesis |
+| DEP-084 | RT-19 → RT-14 | Enables | Workspaces, snapshots, Change Sets, and durable operation records provide the substrate for reproducible Knowledge Context manifests and versioned Task Context state. | Strong hypothesis |
+| DEP-085 | RT-20 → RT-14 | Influences | Caller-impact decisions, plan completeness, and mandatory validation obligations inform what a task context must expose and what counts as completed work; the task model must not duplicate CIP's authoritative change plan. | Strong hypothesis |
+
+These edges are planning hypotheses. They identify the research dependencies for LL-026 and LL-027; they do not select a schema, context assembly algorithm, task lifecycle, or authorization policy.
+
+## 12. Canonical semantic representation, diff, and merge (RT-24)
 
 RT-24 is a research proposal, not an accepted SPG schema, identity model, canonical encoding, or merge policy. It depends on the source semantics and identity/dependency evidence, and must preserve the separate responsibilities of RT-20 caller/hash propagation and RT-22/RT-23 repository/worktree integration.
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
 |---|---|---|---|---|
-| DEP-078 | RT-03 → RT-24 | Requires | Canonical snapshots and semantic diff must represent source meaning, not incidental file layout; the supported semantic subset and observation boundary constrain normalization and merge equality. | Strong hypothesis |
-| DEP-079 | RT-05 → RT-24 | Requires | Semantic values, logical identity, occurrence/selection, and lineage must remain distinct; RT-24 cannot choose between Stable Entity ID and content-addressed values on its own. | Strong hypothesis |
-| DEP-080 | RT-06 → RT-24 | Requires | Complete dependency edges and reverse-impact information are needed to validate repository-wide snapshots, classify semantic changes, and detect unsafe partial merges. | Strong hypothesis |
-| DEP-081 | RT-15 → RT-24 | Constrains | Git branch ancestry and repository merge inputs constrain base/ours/theirs acquisition, but Git file-level merge is not a substitute for semantic three-way merge. | Strong hypothesis |
-| DEP-082 | RT-19 → RT-24 | Enables | The semantic development API and durable snapshot/object services provide the operations and storage boundary needed to expose semantic import, diff, merge, and evidence. | Strong hypothesis |
-| DEP-083 | RT-20 → RT-24 | Requires | Caller migration, hash propagation, and complete impact-plan decisions must be mandatory merge gates; stale or incomplete CIP evidence must fail closed. | Strong hypothesis |
-| DEP-084 | RT-22 → RT-24 | Influences | Repository/worktree operations determine how exact Git trees, external edits, and commit candidates are acquired and reconciled with semantic state. | Strong hypothesis |
-| DEP-085 | RT-23 → RT-24 | Enables | A shared Toolchain and synchronized multi-worktree File Views provide a coherent integration point for semantic snapshots, merge candidates, and commit/recovery evidence. | Strong hypothesis |
+| DEP-086 | RT-03 → RT-24 | Requires | Canonical snapshots and semantic diff must represent source meaning, not incidental file layout; the supported semantic subset and observation boundary constrain normalization and merge equality. | Strong hypothesis |
+| DEP-087 | RT-05 → RT-24 | Requires | Semantic values, logical identity, occurrence/selection, and lineage must remain distinct; RT-24 cannot choose between Stable Entity ID and content-addressed values on its own. | Strong hypothesis |
+| DEP-088 | RT-06 → RT-24 | Requires | Complete dependency edges and reverse-impact information are needed to validate repository-wide snapshots, classify semantic changes, and detect unsafe partial merges. | Strong hypothesis |
+| DEP-089 | RT-15 → RT-24 | Constrains | Git branch ancestry and repository merge inputs constrain base/ours/theirs acquisition, but Git file-level merge is not a substitute for semantic three-way merge. | Strong hypothesis |
+| DEP-090 | RT-19 → RT-24 | Enables | The semantic development API and durable snapshot/object services provide the operations and storage boundary needed to expose semantic import, diff, merge, and evidence. | Strong hypothesis |
+| DEP-091 | RT-20 → RT-24 | Requires | Caller migration, hash propagation, and complete impact-plan decisions must be mandatory merge gates; stale or incomplete CIP evidence must fail closed. | Strong hypothesis |
+| DEP-092 | RT-22 → RT-24 | Influences | Repository/worktree operations determine how exact Git trees, external edits, and commit candidates are acquired and reconciled with semantic state. | Strong hypothesis |
+| DEP-093 | RT-23 → RT-24 | Enables | A shared Toolchain and synchronized multi-worktree File Views provide a coherent integration point for semantic snapshots, merge candidates, and commit/recovery evidence. | Strong hypothesis |
 
 These edges are research hypotheses derived from the current RT-24 candidate contract and its stated dependencies. They do not make RT-24's proposed representation or algorithm normative. Revisit them if the RT-24 scope or the immutable-component/single-toolchain boundary changes.
 

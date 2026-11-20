@@ -4,7 +4,7 @@
 **Status:** Partial first-pass triage; not a completed semantic audit  
 **First-pass content-triage revision:** `e6b5f4a0c9f4365a3fef19283fa0894b7cc82716`  
 **Taxonomy crosswalk revision:** `59a65f29f082b848ffd27b199c89bc2ae97c50ea`  
-**Inventory snapshot:** `a30ec074e08186f04a35535b9933bfa878713f31` (450 tracked research artifacts; inventory manifest excluded)  
+**Inventory snapshot:** `a30ec074e08186f04a35535b9933bfa878713f31` (456 tracked research artifacts; inventory manifest excluded)  
 **Normative boundary:** This report classifies research artifacts and proposes traceability metadata only. It does not accept any language, architecture, hash, compatibility, or implementation decision.
 
 ## 1. Purpose and method
@@ -239,4 +239,9 @@ The mapping is intentionally incomplete in these areas:
 
 ## 9. Conclusion
 
-The first-pass triage resolves all 36 previous low-confidence root-level mappings. All 136 scenario reports have candidate RT mappings; all 120 prototype-family artifacts have individual file-role mappings; and nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered, but its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 450 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open.
+The first-pass triage resolves all 36 previous low-confidence root-level mappings. The refreshed inventory now covers 456 research artifacts at `c105766eee22f25532712be115e62beb4d42faf5`, including 17 Lean source modules and 235 files under `research/PROTOTYPES/`. All 136 scenario reports have candidate RT mappings; the 120 individually role-mapped prototype artifacts; 115 further prototype artifacts remain without individual file-role mappings have individual file-role mappings; and nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered with dependency edges DEP-086–DEP-093 after preserving the RT-14 DEP-078–DEP-085 register; its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 456 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open.
+
+
+## 10. Post-baseline evidence update — Scenario 34
+
+PR #85 added `PairedObservationSemantics.lean` and `PairedObservationTests.lean` to the Logos binding prototype. Both files are present in the current `main` tree and included in the Lake build roots. The Lean CI check passed for PR #85. SCW-24 (paired input environments) and SCW-25 (paired observation preservation) are therefore supported by committed formal source and kernel-checked examples. This confirms the bounded formal claim only; SCW-26–28 and the broader source/CFG completeness and relational-query claims remain separate open work.

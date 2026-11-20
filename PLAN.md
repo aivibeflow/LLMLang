@@ -71,9 +71,11 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Classify every tracked file into a coarse artifact category (research document, scenario result, prototype implementation/test/report, preparation material, reference snapshot, structured fixture, index, or other).
 - [ ] Record exact commit/revision and tool versions for every reproducibility-sensitive result; the inventory pins this snapshot revision and blob identities, but per-experiment execution environments still require content-level review.
 
-**Inventory snapshot:** 450 tracked research artifacts (excluding the inventory manifest itself) at revision `a30ec074e08186f04a35535b9933bfa878713f31`: 233 Markdown/MDX files, 194 Python files, 11 Lean source files, 229 files under `PROTOTYPES/`, and 136 scenario-named documents. The taxonomy contains 24 research areas (RT-01–RT-24); the dependency map contains 85 registered edges (DEP-001–DEP-085).
+**Inventory snapshot:** 456 tracked research artifacts (excluding the inventory manifest itself) at revision `c105766eee22f25532712be115e62beb4d42faf5`: 233 Markdown/MDX files, 194 Python files, 17 Lean source files, 235 files under `PROTOTYPES/`, and 136 scenario-named documents. The taxonomy contains 24 research areas (RT-01–RT-24); the dependency map contains 93 registered edges (DEP-001–DEP-093).
 
-**Status:** partially validated — the complete path inventory, coarse classification, blob-identity scan, full inline relative-link scan, and first-pass triage of 36 low-confidence entries are recorded. Claim-level and reproducibility validation for the 120 prototype-family artifacts, index completeness, semantic duplicate/supersession/orphan/contradiction analysis, external snapshot completeness, and reproducibility verification remain open. RT-24 is now registered in the taxonomy and dependency map; its candidate contract remains non-normative.
+**Post-PR #85 inventory refresh:** the current tree also includes the paired-observation and program/symbolic-observation Lean modules and tests. SCW-24/25 are present in `main`; they are no longer treated as missing evidence. The current inventory contains 456 research artifacts, including 17 Lean source files and 235 prototype-tree files.
+
+**Status:** partially validated — the complete path inventory, coarse classification, blob-identity scan, full inline relative-link scan, and first-pass triage of 36 low-confidence entries are recorded. Claim-level and reproducibility validation for prototype artifacts, index completeness, semantic duplicate/supersession/orphan/contradiction analysis, external snapshot completeness, and reproducibility verification remain open. RT-24 is now registered in the taxonomy and dependency map; its candidate contract remains non-normative.
 
 ### 0.2 Establish research quality and decision rules
 
@@ -100,12 +102,11 @@ Status applies to the current evidence, not to how important the topic is. Where
 ### 0.3 Research taxonomy and cross-aspect dependency map
 
 - [x] Define the research taxonomy and identify the major LLMLang research areas.
-- [x] Register RT-24 in the taxonomy and add candidate dependency edges DEP-078–DEP-085; the RT-24 proposal remains non-normative.
 - [x] Establish an initial directed dependency map with relationship types and confidence levels.
 - [x] Identify feedback loops, foundational topics, and opportunities for parallel research.
 - [ ] Validate and revise dependency edges as research produces evidence; the current map is an initial hypothesis, not a settled architecture.
 
-**Evidence:** [Research taxonomy](research/RESEARCH-TAXONOMY.md) currently enumerates 24 research areas (RT-01–RT-24); [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) currently records 85 dependency edges (DEP-001–DEP-085), research waves, and feedback loops. These are live register counts, not fixed architectural limits.
+**Evidence:** [Research taxonomy](research/RESEARCH-TAXONOMY.md) currently enumerates 23 research areas (RT-01–RT-23); [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) currently records 77 dependency edges (DEP-001–DEP-077), research waves, and feedback loops. These are live register counts, not fixed architectural limits.
 
 **Status:** initial taxonomy and dependency map completed; ongoing validation remains part of each research task.
 
@@ -303,14 +304,14 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Implement strict versioned JSON decoding and rejection of malformed or unsupported input; the full pinned CI test step, including adversarial decoder tests, passes.
 - [x] Kernel-check the expression-level source-to-query preservation theorem for the typed pure Int/Bool expression fragment (`SourceQuerySemantics.lean`, CI run 44175854422); [ ] prove source-to-query correspondence for the actual canonical relational query encoder and expand to commands/paired program executions.
 - [x] Verify the CPC parser-state bridge and exact assumption-list binding adversarially for the version-2 relational-query envelope; pinned Lean CI run [44185102839](https://github.com/aivibeflow/LLMLang/actions/runs/44185102839) passed parser-state binding and factor-pair fixtures. This binds the CPC assumptions to the decoded query; it does not prove the decoded query is semantically derived from source.
-- [ ] Prove that the canonical relational query is semantically derived from the source program. SCW-19–21 compare symbolic command execution with the concrete rules for assignments and branches. [Scenario 34](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md)
+- [ ] Prove that the canonical relational query is semantically derived from the source program. SCW-26–28 define the difference formula and bind its symbols to the source declarations. [Scenario 34](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md)
 - [ ] Keep QF_LIA as a conservative profile; reject unsupported strings, nonlinear arithmetic, and constructs outside the profile.
 - [ ] Test SAT/UNSAT/UNKNOWN handling and solver protocol failures.
 - [ ] Record what is checked by Lean, what is trusted in Logos, and what remains outside the proof boundary.
 
 **Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; QF_LIA Python prototype and focused tests; CI workflow.
 
-**Status:** partially validated. The pinned Lean/Logos build and version-2 CPC parser-state/factor-pair adversarial suite pass (run 44185102839). SCW-06–09 prove expression-to-query preservation for checked scopes and typed slots. SCW-16–18 prove that accepted command programs reach a unique final configuration and value from a satisfying initial environment. Symbolic command preservation, complete program observations, paired runs and source-derived canonical query binding remain open. [Scenario 34 proof boundary](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#74-command-and-program-semantics)
+**Status:** partially validated. The pinned Lean/Logos build and version-2 CPC parser-state/factor-pair adversarial suite pass (run 44185102839). SCW-06–09 prove expression-to-query preservation for checked scopes and typed slots. SCW-16–25 preserve the return and selected state observations in both runs of an admitted input pair. The relational difference formula and source-derived canonical query binding remain open. [Scenario 34 proof boundary](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#75-paired-execution-and-relational-query)
 
 ## 2.4 Correctness of optimization and translation
 
@@ -846,6 +847,48 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Exit criteria:** a complete server-validated plan precedes all mutations; every relevant call site has an evidence-backed compatibility decision; contract and hash propagation are independently correct; old/new behavior and shared-caller version splits work; every planned change is enforced and unplanned changes are rejected; commit is created only for the exact candidate that passed all mandatory checks.
 
+## 7.8 Knowledge Context and Task Context (RT-14)
+
+**Estimated research complexity:** Knowledge Context **7/10**; Task Context **6/10**; integrated workflow validation **8/10**. Knowledge Context depends on sound identity, dependency, provenance, and access boundaries. Task Context has a narrower object/lifecycle scope but must integrate with Change Sets, patch planning, delegation, and completion gates.
+
+These are two separate research requirements. Do not collapse them into one generic Context object before their responsibilities and invariants are understood.
+
+### Knowledge Context — LL-026
+
+Research a bounded, versioned, provenance-preserving description of the information available to an LLM agent for a task.
+
+- [ ] Define the boundary between Knowledge Context, free-form prompt text, runtime/execution context, semantic dependency closure, and Task Context.
+- [ ] Inventory eligible sources: Specification, Design, and Implementation objects; contracts; requirements; dependency records; diagnostics; tests and proof evidence; project documentation; approved external references.
+- [ ] Compare exact snapshot-pinned object references with derived summaries, retrieved excerpts, and relevance-ranked material. Distinguish mandatory entries from optional supporting information.
+- [ ] Define provenance, source trust classes, revision freshness, conflict handling, unknown/missing sources, and evidence that a context is complete for a declared purpose.
+- [ ] Study context-size/token budgets, deterministic selection, relevance/coverage trade-offs, omission reporting, redaction, data minimization, and permission-aware retrieval.
+- [ ] Separate Knowledge Context identity from semantic object identity, dependency hashes, Action Keys, and rendered prompt identity; specify invalidation and safe reuse conditions.
+- [ ] Define transport-neutral assembly, inspection, serialization, and agent-facing retrieval APIs for RT-19.
+- [ ] Construct discriminating fixtures for stale, conflicting, inaccessible, duplicated, incomplete, and over-budget context inputs; evaluate context precision/recall and task outcomes on representative workloads.
+
+### Task Context — LL-027
+
+Research a typed, versioned object describing the task an agent is expected to perform and the obligations that govern completion.
+
+- [ ] Define the boundary between Task Context, human intent/requirements, Change Impact Plan, Change Set, workspace, Knowledge Context, and authorization grants.
+- [ ] Define task identity and revision semantics; objective, requirement links, in/out-of-scope objects, constraints, non-goals, assumptions, prerequisites, deliverables, and acceptance criteria.
+- [ ] Compare lifecycle models for creation, clarification, planning, execution, blocked/failed states, cancellation, retry, delegation, decomposition, review, handoff, and completion.
+- [ ] Define how a task pins its baseline snapshot, selected Knowledge Context, target objects, and related Change Set/CIP without duplicating their authoritative state.
+- [ ] Specify machine-checkable completion obligations: required mutations, tests, proofs, audits, approvals, evidence bindings, and fail-closed behavior when obligations remain unknown or unsatisfied.
+- [ ] Study multi-agent ownership, concurrent task revisions, subtask dependencies, idempotency, recovery, and the boundary between task completion and commit/push authorization.
+- [ ] Keep authorization independent: a Task Context describes requested work and constraints but does not grant capabilities; RT-16 policy checks remain authoritative.
+- [ ] Build lifecycle and adversarial fixtures for stale baselines, scope expansion, omitted obligations, conflicting delegated work, cancellation/retry, and partial completion.
+
+### Joint integration and exit criteria
+
+- [ ] Define the Knowledge Context ↔ Task Context relationship without making either the authority for the other's semantics.
+- [ ] Map both models onto RT-05/06 identity and dependency evidence, RT-02 requirements, RT-16 permissions, RT-19 workspaces/Change Sets, and RT-20 plan execution.
+- [ ] Validate that context manifests and task records are reproducible, inspectable, revision-bound, and fail closed on unknown completeness, stale baselines, or unauthorized reads/actions.
+- [ ] Compare agent performance with full-context, bounded-context, and deliberately incomplete-context conditions; measure task success, missed constraints, scope violations, token/context cost, review effort, and recovery behavior.
+- [ ] Record candidate schemas, lifecycle alternatives, invariants, falsifiers, compatibility dependencies, and a bounded prototype/test plan. Do not select language syntax or accept a normative architecture as a result of this planning entry.
+
+**Research status:** Required research is now registered as LL-026 and LL-027. No Knowledge Context or Task Context schema, syntax, lifecycle, or architecture has been selected.
+
 ---
 
 # 4. Cross-cutting prior-art research
@@ -959,7 +1002,7 @@ Research order is dependency-driven, not simply the order topics were proposed. 
 2. Program representation and identity.
 3. Core language semantics, types, effects, ownership, and concurrency.
 4. Specification and verification model.
-5. AI-native authoring and change model.
+5. AI-native authoring and change model, including separate Knowledge Context and Task Context research (LL-026 and LL-027).
 6. Build, incremental computation, and tooling.
 7. Version control and collaboration.
 8. Runtime, deployment, interoperability, and ecosystem.
