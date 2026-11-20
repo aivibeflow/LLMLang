@@ -1,6 +1,6 @@
 # Research Scenario 34 — Source-to-Query Semantic Correspondence
 
-**Status** — In progress. Lean checks the typed expression core, expression-to-query preservation, and deterministic execution of the initial command fragment. Symbolic command execution and canonical relational queries for whole programs remain open.
+**Status** — In progress. Lean checks expression, command and program-observation preservation for the initial fragment. Paired runs and canonical relational queries remain open.
 
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 26–33.  
@@ -98,6 +98,8 @@ Run the same source program on both sides from the same initial state. Define th
 - returned value;
 - values of exactly the state regions named by the observation contract.
 
+The contract supplies an ordered list of distinct declaration IDs and their sorts. Each ID must name a visible, initialized state region at the return point. A field outside this list has no observation slot. The contract can select an empty state tuple when the return value is the only output.
+
 The initial fragment has only normal termination. The outcome discriminator can therefore be omitted, but this omission is justified only by the source grammar and a proof that every accepted program returns normally. It must not be generalized to a language with exceptions or divergent execution.
 
 Define:
@@ -170,7 +172,8 @@ Proposed modules:
 - `CheckedSourceSemantics.lean` — scope checking for the indexed expression AST, typed runtime slots, and expression-level correspondence with the independent query IR.
 - `SourceCommandSemantics.lean` — command syntax, static initialization checking, concrete execution and its proofs.
 - `SourceSemantics.lean` — expression evaluation and deterministic command/program execution.
-- `SymbolicTranslation.lean` — source-to-symbolic translation and path-condition construction.
+- `SymbolicCommandSemantics.lean` — typed substitution, guarded path states and command-sequence preservation.
+- `ProgramObservationSemantics.lean` — observation admission, typed output tuples and their preservation.
 - `Correspondence.lean` — SC-1 through SC-7 theorems.
 - `LogosBinding.lean` — existing CPC parser bridge, JSON decoder, and Eo.Term renderer.
 
@@ -221,15 +224,23 @@ The fragment has one namespace, with visible inputs and state regions initialize
 - [x] **SCW-16 — Define the command AST.** Support local and state writes, sequencing, Boolean branches, and one typed final return. `Program.check` checks write roles and sorts, and derives the definite initialization set before the return.
 - [x] **SCW-17 — Define source big-step execution.** `Executes` evaluates the right-hand side before storing, threads slots through sequences, and runs the selected branch. `Program.execute_eq_some` proves that the executable evaluator agrees with the big-step program rules.
 - [x] **SCW-18 — Prove source execution determinism.** `Program.Executes.deterministic` proves uniqueness of the final configuration and value. `Program.checked_execution_exists` proves a normal return for each program that passes the static check and starts with a satisfying runtime environment.
-- [ ] **SCW-19 — Define symbolic execution state.** Represent current symbolic locals/state and path conditions explicitly.
-- [ ] **SCW-20 — Define symbolic assignment and conditional translation.** Show how writes update symbolic environments and how branches merge (guarded updates or `ite`).
-- [ ] **SCW-21 — Prove command-sequence preservation (SC-3).** Relate source execution to symbolic execution, including state writes followed by reads and nested conditionals.
-- [ ] **SCW-22 — Define the observation contract.** Select return value and an explicit ordered set of observable state regions; exclude internal state.
-- [ ] **SCW-23 — Prove program observation preservation (SC-4).** Show translated observations equal source observations for every accepted input and initial state.
+- [x] **SCW-19 — Define symbolic execution state.** A symbolic path has typed query-term slots keyed by declaration ID, its current initialization set and its branch tests.
+- [x] **SCW-20 — Define symbolic assignment and conditional translation.** Substitute the current slot terms into the right-hand side before writing. At a join, keep the alternatives with their accumulated guards. Both alternatives must pass the source checker, including definite initialization.
+- [x] **SCW-21 — Prove command-sequence preservation (SC-3).** `translateCommands_preserves` proves that for each initial valuation exactly one path is active and it denotes the concrete final configuration, including current state values and locals initialized only on that path.
+- [x] **SCW-22 — Define the observation contract.** `checkObservedProgram` admits a program and a distinct, ordered list of state slots at their declared sorts. The typed output contains the final return and exactly the selected slots.
+- [x] **SCW-23 — Prove program observation preservation (SC-4).** `translateProgramObservations_exists` constructs a translation for every admitted program and contract. `translateProgramObservations_preserves` proves that for every initial valuation the unique active symbolic observation evaluates to the concrete observation.
 
 Declarations and visibility are fixed during execution. The static checker intersects definite initialization at a branch join. Concrete execution keeps any additional locals initialized on the selected path. `Command.check_has_execution` proves that the concrete path maintains the initialization required by the checker. `Executes.preserves_validity` keeps the typed runtime invariant across every command. [Command semantics and theorems](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCommandSemantics.lean)
 
-The required Lake build compiles 22 kernel-checked command examples, including sequential reads after writes, both branches, nested conditionals, initialized locals at joins, and rejected writes or uninitialized reads. The principal theorems depend on Lean's standard axioms `propext`, `Classical.choice`, and `Quot.sound`. The symbolic proof starts at SCW-19. [Command examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCommandTests.lean)
+The required Lake build compiles 22 kernel-checked examples for concrete commands. [Command examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCommandTests.lean)
+
+`SymbolicState.initial_represents` shows that every well-typed runtime store is represented on declared slots under a suitable initial valuation. This uses declared source spellings. Canonical symbol assignment remains SCW-28. The preservation proof evaluates guards against their terms at the branch point, so a later write cannot retroactively change an earlier branch. Guarded alternatives can grow exponentially with the number of branches. The proof governs the finite fragment and the independent query IR. [Symbolic semantics and theorems](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCommandSemantics.lean)
+
+The required Lake build also compiles 17 kernel-checked symbolic examples. They cover nested branches, a flag changed before a subsequent branch, write-then-read after a join, path-local initialization, and rejected accesses. The two main symbolic theorems use only Lean's standard axioms `propext`, `Classical.choice`, and `Quot.sound`. [Symbolic examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCommandTests.lean)
+
+SC-4 projects the same return and state sorts on both sides. On the symbolic side each path retains its guards and the terms for contract outputs. The proof uses command preservation to select the concrete final state, then proves that each selected slot is present and denotes the corresponding value. Observations can use any declared initial values represented by `SymbolicState.initial_represents`. The result applies to a single run and the independent query IR. [Observation model and theorem](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramObservationSemantics.lean)
+
+The required Lake build compiles 18 observation examples. They cover both branches, different field orders, a return-only contract, and two executions with different writes to an unselected state slot and identical observations. Rejection cases exercise duplicates, undeclared or hidden state, input and local slots, and sort mismatches. The admission, translation and preservation theorems use only Lean's standard axioms `propext`, `Classical.choice`, and `Quot.sound`. [Observation examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramObservationTests.lean)
 
 ### 7.5 Paired execution and relational query
 
@@ -266,7 +277,7 @@ The required Lake build compiles 22 kernel-checked command examples, including s
 
 ### 7.8 Execution order and gates
 
-SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–18 give the concrete reference for SCW-19–21, where symbolic execution must preserve writes, branch selection and resulting state.
+SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–23 preserve command execution and observations for a single run. SCW-24–25 lift the observation theorem to pairs of related inputs and a shared initial state.
 
 | Gate | Required tasks | Exit condition |
 |---|---|---|

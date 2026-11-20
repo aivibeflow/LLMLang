@@ -321,27 +321,46 @@ theorem Command.check_has_execution {command : Command} {required : SourceScope}
           exact finalCovers.2.2 (List.mem_filter.mp member).1
     · contradiction
 
-/-- With valid input slots, every accepted program reaches its final return. -/
-theorem Program.checked_execution_exists {sort : ExprSort} {program : Program sort}
-    {initial : Configuration} {exit : SourceScope}
-    (checked : program.check initial.scope = some exit)
-    (satisfies : initial.env.Satisfies initial.scope) :
-    ∃ final result, program.Executes initial final result := by
-  have accepted : (program.check initial.scope).isSome = true := by simp [checked]
+theorem Program.check_details {sort : ExprSort} {program : Program sort}
+    {entry exit : SourceScope} (checked : program.check entry = some exit) :
+    entry.WellFormed ∧ program.body.check entry = some exit.initialized ∧
+      exit = { entry with initialized := exit.initialized } ∧
+      ExpressionWellTyped exit program.result := by
   simp only [Program.check] at checked
   split at checked
   · rename_i scopeValid
     obtain ⟨initialized, checkedBody, checkedReturn⟩ := Option.bind_eq_some_iff.mp checked
     split at checkedReturn
     · rename_i typedReturn
-      have valid : initial.Valid := ⟨scopeValid, satisfies⟩
-      obtain ⟨final, commands, covers⟩ :=
-        Command.check_has_execution checkedBody ⟨rfl, rfl, fun _ member => member⟩ valid
-      have finalValid := commands.preserves_validity valid
-      obtain ⟨result, returned⟩ := evaluation_total finalValid.1
-        (typed_of_coverage covers typedReturn) finalValid.2
-      exact ⟨final, result, accepted, satisfies, commands, returned⟩
+      cases Option.some.inj checkedReturn
+      exact ⟨scopeValid, checkedBody, rfl, typedReturn⟩
     · contradiction
   · contradiction
+
+/-- Checked execution covers the scope used to type-check the return. -/
+theorem Program.checked_execution_covers {sort : ExprSort} {program : Program sort}
+    {initial : Configuration} {exit : SourceScope}
+    (checked : program.check initial.scope = some exit)
+    (satisfies : initial.env.Satisfies initial.scope) :
+    ∃ final result, program.Executes initial final result ∧ ScopeCovers final.scope exit := by
+  obtain ⟨scopeValid, checkedBody, exitScope, typedReturn⟩ := Program.check_details checked
+  have valid : initial.Valid := ⟨scopeValid, satisfies⟩
+  obtain ⟨final, commands, covers⟩ :=
+    Command.check_has_execution checkedBody ⟨rfl, rfl, fun _ member => member⟩ valid
+  have coversExit : ScopeCovers final.scope exit := by
+    simpa only [← exitScope] using covers
+  have finalValid := commands.preserves_validity valid
+  obtain ⟨result, returned⟩ := evaluation_total finalValid.1
+    (typed_of_coverage coversExit typedReturn) finalValid.2
+  exact ⟨final, result, ⟨by simp [checked], satisfies, commands, returned⟩, coversExit⟩
+
+/-- With valid input slots, every accepted program reaches its final return. -/
+theorem Program.checked_execution_exists {sort : ExprSort} {program : Program sort}
+    {initial : Configuration} {exit : SourceScope}
+    (checked : program.check initial.scope = some exit)
+    (satisfies : initial.env.Satisfies initial.scope) :
+    ∃ final result, program.Executes initial final result := by
+  obtain ⟨final, result, ran, _⟩ := Program.checked_execution_covers checked satisfies
+  exact ⟨final, result, ran⟩
 
 end LLMLang.SourceCommandSemantics

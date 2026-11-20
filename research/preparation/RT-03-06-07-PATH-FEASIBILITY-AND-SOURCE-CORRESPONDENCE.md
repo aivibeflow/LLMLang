@@ -16,7 +16,7 @@ Read:
 - [Research State](../RESEARCH-STATE-2026-11-19.md), especially the RT-06/07 unresolved areas and Gate A.
 - [Research Dependency Map](../RESEARCH-DEPENDENCY-MAP.md), especially solver-negative evidence and dependency completeness.
 
-Scenario 34 records the checked Int/Bool expression core in SCW-06–09, the independent Logos adapter in SCW-15, and the concrete command semantics in SCW-16–18. The concrete execution rules provide the reference for the symbolic executor and its preservation proof. [Scenario 34](../RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#74-command-and-program-semantics)
+Scenario 34 records the checked Int/Bool expression core in SCW-06–09, the independent Logos adapter in SCW-15, and command and observation preservation in SCW-16–23. The observation proof matches the final return and the ordered, selected state fields for each valuation. [Scenario 34](../RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#74-command-and-program-semantics)
 
 ## 3. Questions
 
@@ -59,7 +59,7 @@ For each case record the concrete source executions (or a bounded exhaustive ora
 1. Revalidate the Scenario 34 task ledger and the checked Lean modules.
 2. Use the SCW-06–09 scope, typing and environment invariants as the base for command semantics.
 3. Use the checked command AST and big-step rules from SCW-16–18 as the concrete reference.
-4. Build symbolic command execution and preservation checks (SCW-19–23).
+4. Use the checked observation contract and single-run proof from SCW-22–23 when comparing paired outputs.
 5. Add paired executions, source-bound declarations and relational-query correctness (SCW-24–28).
 6. Establish QF_LIA admissibility, canonical wire/Logos correspondence and explicit solver trust boundary (SCW-29–34).
 7. Add adversarial fixtures, axiom/kernel audit and pinned proof CI (SCW-35–41).
