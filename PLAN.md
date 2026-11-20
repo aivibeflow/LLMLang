@@ -61,14 +61,14 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Enumerate every tracked file under `research/` from the recursive Git tree; record its path, Git blob SHA, byte size, coarse artifact category, and path-based research-item traceability in [the corpus inventory snapshot](research/RESEARCH-CORPUS-INVENTORY-2026-11-20.json).
 - [ ] Validate every inferred artifact-to-research-item mapping against file contents and map all artifacts to explicit plan stages; low-confidence and cross-cutting mappings remain unresolved.
 - [ ] Identify semantic duplicates, superseded versions, orphaned artifacts, and contradictions. Exact-blob comparison found one identical pair: the Apache-2.0 licence text shared by OCI and REAPI snapshots; this appears intentional and is not treated as duplicate research.
-- [x] Check all relative Markdown links in `research/README.md`: 84 unique local targets, zero missing targets. The index's completeness against every artifact is not established; links in all other research Markdown files have not been exhaustively checked.
+- [x] Scan inline relative Markdown links in all 233 research Markdown/MDX files (1,323 link occurrences). No broken project-authored link remains after fixing one RT-04 cross-profile link. 38 unresolved relative-link occurrences are confined to partial verbatim external snapshots (Alive2 and OCI); they point to upstream files not vendored in this repository. External URLs and heading anchors were not validated.
 - [x] Preserve historical findings; the inventory classifies historical scenarios and prototypes without deleting or rewriting them.
 - [x] Classify every tracked file into a coarse artifact category (research document, scenario result, prototype implementation/test/report, preparation material, reference snapshot, structured fixture, index, or other).
 - [ ] Record exact commit/revision and tool versions for every reproducibility-sensitive result; the inventory pins this tree revision and blob identities, but per-experiment execution environments still require content-level review.
 
 **Inventory snapshot:** 446 tracked files under `research/` at revision `2a9b6e5072efc542e823c529cf3cdee838f9ad36`: 233 Markdown/MDX files, 194 Python files, 225 files under `PROTOTYPES/`, and 136 scenario-named documents. The taxonomy contains 23 research areas (RT-01–RT-23); the dependency map contains 77 registered edges (DEP-001–DEP-077).
 
-**Status:** partially validated — the complete path inventory, coarse classification, blob-identity scan, and top-level index-link check are now recorded. Semantic traceability, full cross-document link validation, supersession/orphan/contradiction analysis, and reproducibility verification remain open.
+**Status:** partially validated — the complete path inventory, coarse classification, blob-identity scan, and inline relative-link scan are recorded. Semantic traceability, index completeness, supersession/orphan/contradiction analysis, external snapshot completeness, and reproducibility verification remain open.
 
 ### 0.2 Establish research quality and decision rules
 
