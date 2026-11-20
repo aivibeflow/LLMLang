@@ -51,9 +51,18 @@ The workflow uploads all captured output as a 30-day Actions artifact, including
 
 ## Remaining work
 
-- Execute this workflow on a pinned repository revision and inspect the complete artifact.
-- Compare every captured observation with the corresponding scenario report; record any mismatch as a finding rather than editing expected values to fit.
-- Preserve the version-matched run and its artifact. The historical Scenario 130 report did not record the Python SQLite source ID, so exact historical build identity cannot be established retrospectively.
-- Preserve the artifact reference and workflow run ID in the corpus audit and semantic traceability report.
+- Completed for the merged RT-04 implementation by run 44774296240; its complete artifact, source-tree provenance, and archive hash are recorded below. Rerun if probe code or pinned tools change.
+- The earlier per-case comparison is recorded in the corpus audit. The latest run re-executed the same ten commands; its summary and key observations were checked against the recorded scenario outputs. Future reruns must preserve mismatches as findings rather than editing expected values.
+- Latest artifact 14650095720 is retained by Actions for the configured 30-day period; its SHA-256 is recorded below. The historical Scenario 130 report did not record the Python SQLite source ID, so exact historical build identity cannot be established retrospectively.
+- The latest artifact reference and workflow run ID are recorded in the corpus audit and semantic traceability report.
 - Keep the native workflow non-required until its runtime, timeout, and host assumptions are stable.
 
+
+
+## Latest final-validation rerun — 2026-11-20
+
+Research Native Reproduction run [44774296240](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240) passed all ten RT-04 commands: 10 passed, 0 failed, 0 skipped. Artifact [14650095720](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240/artifacts/14650095720) contains `summary.json` and per-command stdout/stderr. The downloaded archive is 6,975 bytes with SHA-256 `c6c042c2458b0b98fa0d1ed07eb476d75fa59d6192997215080941237a8f4d8b`.
+
+The manifest records C SQLite 3.46.1 with source ID `2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1`, Python 3.12.14 with the separately loaded SQLite 3.53.1 source ID `2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9`, and Rust 1.85.1. The first Ubuntu 24.04 attempt using upstream SQLite 3.46.1 was correctly rejected because its source ID did not match the scenario distro build; the later `alt1` run executed all eight C-API probes. The source ID is pinned, but the distro package version/archive is not separately recorded.
+
+The artifact's repository commit is merge-ref `8c4a82c91f039309bba769c49bd00515e3713feb`; its tree SHA is identical to main merge commit `b808c3a8f984bbc5c175ecf45d61e0e8db7a00bb`. Current main has only subsequent documentation/inventory/audit changes relative to that code tree. This is code-tree-equivalent reproduction, not execution with the latest main commit SHA.
