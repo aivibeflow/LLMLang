@@ -134,6 +134,8 @@ Scenario 117 adds executable checks for the three coherence rules left out of Sc
 
 Scenario 118 derives the ordering premises for fixed atomic load and store sequences. It matches an independent sequential interleaving oracle on 4,096 generated programs. Read values differ under the weaker relation in 98 programs. An acquire that reads a repeated flag value can leave the payload stale when a plain store wrote that value. RMW, fences, mixtures of `seq_cst` with weaker orders, and actual target lowering remain open. [Atomic execution relations](RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
 
+Scenario 119 derives owned call result shapes from a callee AST and checks an exhaustive forwarding match. Across 450 combinations of close contracts and transfer policies, the plain diagnostic error works in 12. A result that carries typed obligations can forward every tested case. Close contract changes can require new arms without adding result tags. [Ownership in matched call results](RESEARCH-SCENARIO-119-OWNED-RESULT-MATCHING.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
@@ -164,7 +166,7 @@ These refine existing dependency hypotheses; they do not add normative rules. Se
 
 - Define source-level rules for calls, branches, Result/error propagation, cancellation, resource acquire/use/release, transfer/return, and cleanup failure.
 - Make ordered effects and payloads visible to type/dependency summaries.
-- Add a typed owned-value return scenario for COR-13.
+- Extend COR-13's typed forwarding fragment with local recovery and actual API disposition evidence. [Scenario 119](RESEARCH-SCENARIO-119-OWNED-RESULT-MATCHING.md)
 - State where profiles differ and what equivalence means for results, traces, resource state, and divergence.
 - Compare total recursion, general partiality, typed divergence, source fuel, VM operator gas, and external limits; define how exhaustion interacts with effects, rollback, and cleanup.
 - Record independent review; parallel evaluators against one hand-authored contract are implementation checks, not independent specification validation.
