@@ -77,8 +77,8 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 |---|---|---|
 | RCA-01 | The corpus has 446 tracked paths, but previously lacked a complete path inventory. | Added the machine-readable inventory snapshot. |
 | RCA-02 | Artifact-to-item mapping is not uniformly explicit in filenames. | Added qualified path-based mappings; content-level verification remains open. |
-| RCA-03 | All 84 unique relative links in the main research index at the base revision resolve. The PR adds the inventory link; all 85 unique targets in the updated branch index resolve. | Link existence check complete; index completeness remains open. |
-| RCA-04 | All eight preparation briefs linked by the preparation index exist. | Path check complete; scientific readiness and internal link scan remain open. |
+| RCA-03 | All 233 research Markdown/MDX files were scanned for inline relative links (1,323 occurrences). One LLMLang-authored broken link was fixed; 38 unresolved occurrences remain only in partial Alive2/OCI snapshots. | Project-authored inline relative links resolve; external snapshot completeness, external URLs, anchors, and index completeness remain open. |
+| RCA-04 | The main, preparation, and references indexes have 85, 10, and 2 unique relative targets on the PR branch; all resolve. | Index link existence checks complete; scientific readiness and index coverage remain open. |
 | RCA-05 | PLAN.md §0.3 reported stale taxonomy/dependency counts. | Corrected to 23 research areas and 77 dependency edges. |
 | RCA-06 | One exact duplicate blob is shared by the OCI and REAPI Apache-2.0 licence files. | Classified as intentional shared licence content; no deletion proposed. |
 | RCA-07 | External snapshot integrity and experiment reproducibility have not been independently re-established. | Preserve pinned revisions and existing manifest; verify source blobs and experiment environments in a later pass. |
@@ -115,4 +115,4 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 
 ---
 
-**Conclusion:** the repository-wide path inventory, coarse artifact classification, Git-blob duplicate check, main-index relative-link check, and preparation-index path check are now recorded. PLAN.md §0.1 remains partially validated until semantic traceability, complete cross-document link validation, supersession/orphan/contradiction analysis, and reproducibility verification are complete.
+**Conclusion:** the repository-wide path inventory, coarse artifact classification, Git-blob duplicate check, and inline relative-link scan across all 233 research Markdown/MDX files are recorded. One LLMLang-authored broken link was fixed; 38 unresolved occurrences are confined to partial verbatim external snapshots. PLAN.md §0.1 remains partially validated until semantic traceability, index completeness, supersession/orphan/contradiction analysis, external snapshot provenance/completeness, and reproducibility verification are complete.
