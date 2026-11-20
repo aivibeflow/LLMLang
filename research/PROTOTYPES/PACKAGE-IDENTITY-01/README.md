@@ -13,6 +13,11 @@ python -m py_compile package_identity.py test_package_identity.py
 
 The tests exercise PMI-001–PMI-014 from the parent design note, plus typed-encoding, duplicate-TOML-key, root-membership, cache-index shape/uniqueness/collision, and canonical-path checks. Run discovery from this directory so both test modules are included: `python -m unittest discover -v`. The prototype uses SHA-256 with domain separation and an explicit typed encoding solely to make the candidate model executable. Neither choice is accepted as the final LLMLang wire/hash specification.
 
+## File index
+
+- Implementation: [package_identity.py](package_identity.py), [language_version.py](language_version.py), [cache_index.py](cache_index.py)
+- Tests: [test_package_identity.py](test_package_identity.py), [test_package_identity_adversarial.py](test_package_identity_adversarial.py), [test_language_version_cache_index.py](test_language_version_cache_index.py)
+
 ## Scope and limitations
 
 - The index fixture is a small in-memory logical table model, not the proposed binary `index.bin` format.
