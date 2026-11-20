@@ -12532,7 +12532,30 @@
         "RT-20": 1,
         "RT-24": 1
       },
-      "anomalies": []
+      "anomalies": [
+        {
+          "scenario": 95,
+          "issue": "Two files share Scenario 95: the main diagnostics study and its 2026-11-20 execution follow-up. The latter explicitly supplements and cross-references the former; treat as one study with two artifacts, not duplicate independent scenarios."
+        },
+        {
+          "scenario": 16,
+          "issue": "No Scenario 16 report is present in the 136 scenario-named files. No evidence yet establishes whether 16 was intentionally reserved or a missing report; do not renumber or invent a mapping."
+        }
+      ],
+      "unique_scenario_ids": 135,
+      "duplicate_scenario_ids": [
+        {
+          "id": "95",
+          "files": [
+            "research/RESEARCH-SCENARIO-95-DIAGNOSTICS-FOR-HUMANS-AND-AGENTS.md",
+            "research/RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md"
+          ],
+          "interpretation": "The execution follow-up is a supplemental evidence record for the main Scenario 95 study, not a separate scenario or duplicate research result."
+        }
+      ],
+      "missing_numeric_scenario_ids": [
+        16
+      ]
     },
     "inventory_revision": "a30ec074e08186f04a35535b9933bfa878713f31",
     "prototype_family_review": {
