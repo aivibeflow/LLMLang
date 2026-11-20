@@ -1,6 +1,6 @@
 # LLVM Preservation Reproduction Protocol
 
-**Status:** freshly reproduced by llvm-preservation job 44773422416; both probes passed and artifact 14647744441 preserves the manifest and outputs.
+**Status:** both probes were freshly reproduced in Research Native Reproduction run 44774296240; latest artifact 14650040345 preserves the manifest and outputs. Earlier run 44773422416 remains historical evidence.
 
 ## Scope
 
@@ -51,6 +51,15 @@ The historical reports do not claim Required CI executes these native experiment
 
 ## Remaining work
 
-- Preserve artifact 14647744441 and workflow run 44773422416 in the RT-00 audit.
+- Preserve the latest artifact 14650040345 and workflow run 44774296240 in the RT-00 audit; retain artifact 14647744441 as the earlier successful run.
 - Keep the tested subset/target limits explicit; the successful run is a fresh reproduction of the fixed fixtures, not a whole-domain proof.
 - Keep the tested subset/target limits explicit; whole-domain proof, other targets, constant folding, general provenance, floating point, atomics, and a complete source-to-LLVM pipeline remain open.
+
+
+## Latest final-validation rerun — 2026-11-20
+
+The `llvm-preservation` job in [Research Native Reproduction run 44774296240](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240) passed both commands. Artifact [14650040345](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240/artifacts/14650040345) contains the manifest and command outputs; the downloaded 3,245-byte archive has SHA-256 `e36739481ea3b57ec7e58265f1e4b378ac4248a9b74d03e4711900a9d775eced`.
+
+The manifest confirms Debian Trixie LLVM package `1:19.1.7-3+b1` with SHA-256 `0b1b7263f4f45e261099240fdbf00fc14b42b88410fd829e041bf83ea45866cb`, Python 3.12.14, GCC 14.2.0, GNU ld 2.44, and x86-64. Integer preservation passed 20,978 comparisons at each of O0/O3; byte-view preservation passed 9,800 comparisons at each level. There were zero mismatches; the expected negative controls disagreed with the source reference.
+
+The workflow invokes [`run_llvm_preservation_probes.py`](PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py). These probes remain separate from Required CI and are bounded to the recorded fixtures, package, target, and optimization levels.
