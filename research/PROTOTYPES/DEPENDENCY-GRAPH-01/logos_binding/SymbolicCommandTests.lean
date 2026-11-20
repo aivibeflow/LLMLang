@@ -22,6 +22,18 @@ private def valuation (enabled : Bool) (n : Int) : Env
   | name, .int => .intValue (if name = "n" then n else 10)
   | _, .bool => .boolValue enabled
 
+private def rawBindings : RuntimeEnv
+  | ⟨1⟩ => some ⟨.int, .intValue 4⟩
+  | ⟨2⟩ => some ⟨.bool, .boolValue true⟩
+  | ⟨3⟩ => some ⟨.int, .intValue 10⟩
+  | ⟨99⟩ => some ⟨.int, .intValue 99⟩
+  | _ => none
+
+example : (SymbolicState.initial entry).denote
+    (extendEnvironment entry rawBindings (valuation false 0)) =
+    ⟨entry, fun id => (lookupDeclaration entry.context id).bind (fun _ => rawBindings id)⟩ :=
+  SymbolicState.initial_represents (by decide) (by decide) _
+
 -- The first branch changes the flag used by the next test. Its own guard
 -- still denotes the entry flag. The nested branch can initialize a local.
 private def nested : Command :=

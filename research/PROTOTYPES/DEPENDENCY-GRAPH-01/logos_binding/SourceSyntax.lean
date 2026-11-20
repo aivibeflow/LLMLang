@@ -98,6 +98,12 @@ theorem DeclarationContext.lookupDeclaration_of_mem {context : DeclarationContex
     lookupDeclaration context declaration.id = some declaration :=
   find_unique_key Declaration.id wellFormed.1 member
 
+theorem DeclarationContext.lookupName_of_mem {context : DeclarationContext}
+    {declaration : Declaration} (wellFormed : context.WellFormed)
+    (member : declaration ∈ context.entries) :
+    context.lookupName declaration.sourceName = some declaration :=
+  find_unique_key Declaration.sourceName wellFormed.2 member
+
 /-- A named reference and its stable-ID lookup select the same declaration. -/
 theorem DeclarationContext.lookupName_binds_identity {context : DeclarationContext}
     {name : String} {declaration : Declaration} (wellFormed : context.WellFormed)

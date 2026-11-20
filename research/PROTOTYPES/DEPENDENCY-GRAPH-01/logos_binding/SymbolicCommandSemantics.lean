@@ -75,6 +75,45 @@ theorem SymbolicState.initial_valid {scope : SourceScope} (valid : scope.WellFor
   by_cases initialized : declaration.id ∈ scope.initialized <;>
     simp [SymbolicState.initial, SymbolicState.denote, found, initialized]
 
+private theorem eval_initialSymbol (name : String) (sort : ExprSort) (valuation : Env) :
+    evalQuery (initialSymbol name sort) valuation = valuation name sort := by
+  cases sort <;> rfl
+
+/-- Every satisfying runtime store is represented on the declared slots. -/
+theorem SymbolicState.initial_represents {scope : SourceScope} {env : RuntimeEnv}
+    (valid : scope.WellFormed) (satisfies : env.Satisfies scope) (fallback : Env) :
+    (SymbolicState.initial scope).denote (extendEnvironment scope env fallback) =
+      ⟨scope, fun id => (lookupDeclaration scope.context id).bind (fun _ => env id)⟩ := by
+  unfold SymbolicState.denote
+  congr 1
+  funext id
+  cases found : lookupDeclaration scope.context id with
+  | none => simp [SymbolicState.initial, found]
+  | some declaration =>
+    have stable := lookupDeclaration_id found
+    subst id
+    have member : declaration ∈ scope.context.entries := List.mem_of_find?_eq_some found
+    have validSlot := satisfies declaration member
+    by_cases initialized : declaration.id ∈ scope.initialized
+    · cases stored : env declaration.id with
+      | none => simp [stored, initialized] at validSlot
+      | some slot =>
+        obtain ⟨sort, value⟩ := slot
+        have sameSort : sort = declaration.sort := by
+          simpa [stored, initialized] using validSlot
+        subst sort
+        have visible := valid.2.2.1 declaration.id initialized
+        have resolved : scope.resolveRead ⟨declaration.sourceName, declaration.sort⟩ =
+            some declaration := SourceScope.resolveRead_eq_some.mpr
+          ⟨scope.context.lookupName_of_mem valid.1 member, rfl, visible, initialized⟩
+        have read : env.read scope ⟨declaration.sourceName, declaration.sort⟩ = some value := by
+          simp [RuntimeEnv.read, RuntimeEnv.lookup, resolved, stored]
+        simp [SymbolicState.initial, found, initialized, eval_initialSymbol,
+          extendEnvironment, read]
+    · cases stored : env declaration.id with
+      | none => simp [SymbolicState.initial, found, initialized]
+      | some _ => simp [stored, initialized] at validSlot
+
 private def SymbolicState.readTerm (state : SymbolicState) (ref : Reference) :
     Option (QueryTerm ref.sort) := do
   let declaration ← state.scope.resolveRead ref
