@@ -361,3 +361,23 @@ Scenario 130's ten durable-receipt cases passed on this run, but Python's sqlite
 The follow-up [native run 44771268838](https://github.com/aivibeflow/LLMLang/actions/runs/44771268838) built SQLite 3.53.1 separately and loaded it into the Python 3.12.14 child process that executes the durable-receipt probe. Runtime preflight confirmed sqlite3 version 3.53.1 and source ID `2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9`. All ten native commands passed. The durable probe's atomic and separate-commit recovery states match the Scenario 130 report. Artifact [14647107612](https://github.com/aivibeflow/LLMLang/actions/runs/44771268838/artifacts/14647107612) preserves the manifest and outputs.
 
 This closes the documented version mismatch for Scenario 130. The historical scenario did not record its SQLite source ID, so this is a version match, not a claim of byte-identical historical build provenance.
+
+
+## 17. Bounded evidence audit — Scenarios 109–118 and 134
+
+| Scenario | Evidence mapped | What the evidence does not establish |
+|---:|---|---|
+| 109 | optional_presence_model.py; 8 tests. Absent/null/value, decode failure, and uninitialized read are separate. Nested optional and presence-bit encodings preserve three input states. | One JSON integer field only; no language serializer, ABI, or layout claim. |
+| 110 | schema_evolution_model.py; 6 tests. Sixteen producer/consumer cases and explicit default/null/unknown-key policies are checked. | No real schema language, registry, old binaries, migration, or canonical encoding. |
+| 111 | unknown_variant_model.py; 7 tests. Reject/fallback/opaque-preserve policies and nested semantic relay are checked. | JSON fixture only; not byte-preserving and no real interchange runtime. |
+| 112 | scheduler_fairness_model.py; 5 tests. Weak versus strong fairness and a bounded two-task round-robin policy are distinguished. | Finite cycles and fixed runnable tasks only; no real scheduler or general liveness guarantee. |
+| 113–117 | rt04_store_buffering.py and its 12 shared tests. Store buffering, message passing, atomic RMW, four per-object coherence rules, release sequences, version-specific C++17/C++20 behavior, and fence read-from premises are covered. | Axiom-driven finite fixtures; no complete source memory model, compiler, hardware, or selected LLMLang policy. |
+| 116 | LLVM contract analysis. Relaxed→monotonic is a candidate mapping; unordered is identified as too weak for the stated per-object coherence. Target lock-free widths constrain lowering. | Unversioned LLVM docs, no actual compiler/target execution, and no accepted mapping or fallback policy. |
+| 118 | rt04_atomic_execution.py and its 7 tests. 4,096 layouts and six independent interleavings per layout; global-order witnesses match the oracle; weaker relation adds witnesses in 242 layouts and read values in 98. | Six-operation fragment, constant stores, direct release/acquire only; relaxed side still needs independent model/compiler validation. |
+| 134 | Analytical Protobuf/Avro/CBOR standards comparison; no runtime executed. | Accepted architecture decision means cross-version wire compatibility is not a current implementation requirement. |
+
+Required CI run 44771268684 passed all 364 RT-04-01 Python tests, including the focused tests for Scenarios 109–112 and 113–118. Scenario 116 is a source-contract analysis, not an executable experiment. Scenario 134 is an analytical comparison, not a runtime conformance suite.
+
+The accepted [Immutable Components and Single-Version Toolchain Compatibility decision](../draft/ARCHITECTURE-DECISIONS.md) states that compatibility is checked at build time within one coherent toolchain version; it does not require cross-version wire compatibility, schema negotiation, persisted-message migration, or unknown-field forwarding. It explicitly says not to start the Protobuf/Avro/CBOR runtime matrix unless an external/persistent/independently versioned data boundary is introduced. Scenario 134 is therefore prior-art/reference material, not an active implementation requirement.
+
+The draft glossary defines ContractHash, OpHash, ImplHash, CCHash, and optional CandidateSetHash, but not a wire-schema fingerprint. Scenario 134's parsing fingerprint, evolution policy, registry locator, and semantic wire contract are distinct concepts; none should be aliased to the existing semantic hashes. No new wire-hash term is required while the current architecture decision remains in force.
