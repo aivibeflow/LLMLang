@@ -132,6 +132,48 @@ def independent_atomic_reads(initial, stores, load_count):
     return outcomes
 
 
+def coherent_write_orders(write_ids, happens_before_pairs):
+    """Enumerate modification orders that satisfy write-write coherence.
+
+    ``happens_before_pairs`` contains (earlier_write, later_write) pairs for
+    one atomic object. The caller supplies every edge used by the fixture.
+    """
+    writes = tuple(write_ids)
+    if len(set(writes)) != len(writes):
+        raise ValueError("write identifiers must be unique")
+    edges = tuple(happens_before_pairs)
+    if any(a not in writes or b not in writes for a, b in edges):
+        raise ValueError("happens-before pair names an unknown write")
+    orders = set()
+    for order in permutations(writes):
+        positions = {write: index for index, write in enumerate(order)}
+        if all(positions[a] < positions[b] for a, b in edges):
+            orders.add(order)
+    return orders
+
+
+def read_write_coherent_sources(modification_order, write_after_load, candidates):
+    """Filter read sources when the load happens before a write."""
+    order = tuple(modification_order)
+    candidates = set(candidates)
+    if len(set(order)) != len(order) or write_after_load not in order:
+        raise ValueError("invalid modification order or target write")
+    if not candidates.issubset(order):
+        raise ValueError("read-from candidate is absent from modification order")
+    return candidates.intersection(order[:order.index(write_after_load)])
+
+
+def write_read_coherent_sources(modification_order, write_before_load, candidates):
+    """Filter read sources when a write happens before the load."""
+    order = tuple(modification_order)
+    candidates = set(candidates)
+    if len(set(order)) != len(order) or write_before_load not in order:
+        raise ValueError("invalid modification order or source write")
+    if not candidates.issubset(order):
+        raise ValueError("read-from candidate is absent from modification order")
+    return candidates.intersection(order[order.index(write_before_load):])
+
+
 def release_relay_payload_outcomes(acquire_reads_release_sequence):
     """Model one explicit C++20 release-sequence/read-from premise.
 

@@ -130,6 +130,34 @@ The latest bounded type/semantics results include a counterexample: transfer-fir
 
 [Scenario 116](RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md) compares the candidate `Relaxed`→LLVM `monotonic` mapping with weaker `unordered`, and records that LLVM IR atomics promise lock-free operations, so unsupported target widths can fail lowering. It compares target-gated widths, lock-backed fallback, and an explicit fallback API; each changes portability/progress trade-offs. A sound source-to-IR mapping, fallback contract, and cross-backend/target litmus validation remain open.
 
+Scenario 117 adds executable checks for the three coherence rules left out of Scenario 113's read-read fixture. A write ordered before another write constrains modification order. A read ordered before a write must observe a strictly earlier write. A read ordered after a write can observe that write or a later one. The fixtures take the order premises as inputs. [Atomic coherence relations](RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md)
+
+Scenario 118 derives the ordering premises for fixed atomic load and store sequences. It matches an independent sequential interleaving oracle on 4,096 generated programs. Read values differ under the weaker relation in 98 programs. An acquire that reads a repeated flag value can leave the payload stale when a plain store wrote that value. RMW, fences, mixtures of `seq_cst` with weaker orders, and actual target lowering remain open. [Atomic execution relations](RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
+
+Scenario 119 derives owned call result shapes from a callee AST and checks an exhaustive forwarding match. Across 450 combinations of close contracts and transfer policies, the plain diagnostic error works in 12. A result that carries typed obligations can forward every tested case. Close contract changes can require new arms without adding result tags. [Ownership in matched call results](RESEARCH-SCENARIO-119-OWNED-RESULT-MATCHING.md)
+
+Scenario 120 probes three cleanup paths on SQLite 3.46.1. A busy close leaves the connection usable. Finalization can consume a statement and return its prior execution error. A successful `close_v2` can defer destruction until the remaining statement is finalized. These observations give the local recovery experiment a concrete dependency to model. [Cleanup dependencies in SQLite](RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md)
+
+Scenario 121 compares three close policies across 510 plans with local and outside statement owners. The native SQLite harness checks 356 admitted traces. Recovery can retry when local finalization clears every dependency. An outside statement leaves an open connection to forward under busy recovery, and a pending destruction under deferred close. [Local close recovery](RESEARCH-SCENARIO-121-SQLITE-LOCAL-CLOSE-RECOVERY.md)
+
+Scenario 122 derives close facts from a bounded source grammar. On 4,116 executions, an empty local set alone admits 1,092 cases that would return busy. Reusing an observation without a freshness check admits 1,320 such cases. Complete source proof and a current snapshot admit no busy cases in the corpus under their stated assumptions. SQLite independently confirms the stale observation counterexample. [Completeness and freshness of close evidence](RESEARCH-SCENARIO-122-CLOSE-EVIDENCE-FRESHNESS.md)
+
+Scenario 123 combines these policies with a forwarding match on the same 36 workload inputs. The SQLite probe checks 114 admitted pairs. Both guard refusal and busy require a typed slot for the connection. Deferred close consumes it and can leave destruction pending. [Shared close workload](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md)
+
+Scenario 124 verifies 11 close schedules with a statement producer on serialized SQLite. A separate version check leaves a gap before close. A shared guard orders producer entry with close and retirement, while an alias using another lock can still create a dependent in that gap. [Close synchronization](RESEARCH-SCENARIO-124-CLOSE-SYNCHRONIZATION.md)
+
+Scenario 125 compares 12 reentrant callback cases and eight close calls over statement, BLOB, and backup dependencies. A close reservation refuses nested preparation. A later observation can instead see a nested statement. An unfinished backup makes close busy with no visible statements. [Reentry and coverage](RESEARCH-SCENARIO-125-CLOSE-REENTRY-AND-COVERAGE.md)
+
+Scenario 126 separates identity-based role compatibility from progress during acquisition. A backup shares a source and reserves a destination. Sequential acquisition by role order can deadlock in the finite model. Native probes confirm overlapping source lifetimes and retry after a known initialization failure. [Multi-resource FFI roles](RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md)
+
+Scenario 127 derives correlated aliases, retained reservations, and conditional release from a source fragment. Its three representations certify 156, 214, and 232 of 12,288 programs respectively as they preserve more relations. An independent input oracle checks 147,456 outcomes. [Source role correlation](RESEARCH-SCENARIO-127-SOURCE-ROLE-CORRELATION.md)
+
+Scenario 128 distinguishes a consumed reservation, a retained handle, and an unresolved footprint after foreign errors. Typed outcomes avoid false admissions in the bounded corpus and enable compatible sharing while reconciliation is pending. SQLite confirms that a finish error can coincide with consumption. [Foreign reservation outcomes](RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md)
+
+Scenario 129 shows two distinct premature-release cases after cancellation. Acknowledgment can precede completion, and a consumed result for an earlier invocation can arrive after the same role pair is reused. Matching consumption evidence by invocation avoids both conflicts on 5,376 inputs. [Invocation-specific cancellation evidence](RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md)
+
+Scenario 130 checks durable generation allocation and result lookup across process interruption. A shared transaction recovers the effect and result together. With separate commits, an empty terminal lookup can hide a committed effect or a still-live reservation. [Durable invocation results](RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
@@ -160,7 +188,7 @@ These refine existing dependency hypotheses; they do not add normative rules. Se
 
 - Define source-level rules for calls, branches, Result/error propagation, cancellation, resource acquire/use/release, transfer/return, and cleanup failure.
 - Make ordered effects and payloads visible to type/dependency summaries.
-- Add a typed owned-value return scenario for COR-13.
+- Extend invocation-scoped reconciliation to independent providers, concurrent observers, and restored snapshots. Validate the possible footprint under reentry, alias escape, and broader foreign contracts. [Scenario 128](RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md) · [Scenario 130](RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md)
 - State where profiles differ and what equivalence means for results, traces, resource state, and divergence.
 - Compare total recursion, general partiality, typed divergence, source fuel, VM operator gas, and external limits; define how exhaustion interacts with effects, rollback, and cleanup.
 - Record independent review; parallel evaluators against one hand-authored contract are implementation checks, not independent specification validation.

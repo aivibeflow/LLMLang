@@ -19,6 +19,34 @@ Scenario 115 records C++ fence synchronization conditions and the scope of the `
 
 Scenario 116 compares source memory-order obligations with LLVM IR and target lowering. It proposes source `Relaxed`→LLVM `monotonic` for validation because LLVM `unordered` is weaker and lacks per-object modification-order/coherence guarantees. LLVM atomics in IR are required lock-free, while unsupported widths may fail code generation. Three width-availability policies are compared: target-gated types, a lock-backed fallback, and native atomics plus an explicit fallback API. Source semantics must not inherit incidental IR behavior; fallback changes progress and async/signal properties. No source-to-IR proof or LLMLang atomic availability policy has been validated.
 
+Scenario 117 adds finite fixtures for the three per-object coherence conditions not executed in Scenario 113: write-write ordering, strict read-write source-before-target ordering, and write-read source-at-or-after ordering. It takes happens-before and modification-order premises as inputs and filters read-from candidates; it does not derive these relations or model a complete execution. All four named per-object conditions now have a focused axiom-level fixture, while cross-location, source-derived, compiler, and hardware validation remain open.
+
+Scenario 118 derives modification order, read-from, and happens-before witnesses for fixed atomic load and store sequences. An independent interleaving oracle agrees on global-order witnesses in all 4,096 generated programs. Relaxed and direct release/acquire operations permit additional observed values in 98 of those programs. The experiment supplies a comparison for RT-04, RT-10, and RT-13. [Atomic execution relations](RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
+
+Scenario 119 infers obligations in a matched call result from lexical scopes and close contracts. In 4,096 concrete inputs, the result shapes agree with the disposition model. Covering every tag can still miss a new obligation when a close contract changes. This connects RT-03 transfer semantics to RT-04 resource checks and RT-05 interface compatibility. [Ownership in matched call results](RESEARCH-SCENARIO-119-OWNED-RESULT-MATCHING.md)
+
+Scenario 120 measures cleanup return codes and destruction timing for a SQLite connection with prepared statements. The probe distinguishes API error reporting from capability availability and remaining cleanup work. This adds implementation evidence for the RT-04 to RT-10 dependency. [Cleanup dependencies in SQLite](RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md)
+
+Scenario 121 compares static close preconditions, explicit busy recovery, and deferred release with 510 bounded plans. SQLite agrees on the call observations for all 356 admitted plans. A statement owned outside the caller makes local release incomplete, even after the caller finalizes all of its own statements. [Local close recovery](RESEARCH-SCENARIO-121-SQLITE-LOCAL-CLOSE-RECOVERY.md)
+
+Scenario 122 derives dependency coverage from source and call summaries in a bounded close fragment. Its 4,116 executions distinguish incomplete local knowledge from stale runtime knowledge. The native SQLite probe confirms that an empty observation can become stale after a single prepare. [Completeness and freshness of close evidence](RESEARCH-SCENARIO-122-CLOSE-EVIDENCE-FRESHNESS.md)
+
+Scenario 123 compares source admission, a checked snapshot, busy recovery, and deferred destruction on shared inputs. The call boundary distinguishes a retained capability from pending destruction even when the local cleanup diagnostic is identical. [Shared close workload](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md)
+
+Scenario 124 checks close observations across two threads. A separate validation can precede a mutation even when its version check succeeds. A guard must cover the underlying resource across aliases to protect the observation through use. [Close synchronization](RESEARCH-SCENARIO-124-CLOSE-SYNCHRONIZATION.md)
+
+Scenario 125 adds reentry and dependent-kind coverage. An application-defined callback can retain a statement under the same recursive lock, and an active backup stays invisible to the enumerated statement set. [Reentry and coverage](RESEARCH-SCENARIO-125-CLOSE-REENTRY-AND-COVERAGE.md)
+
+Scenario 126 compares canonical role checks with checks by binding name. It explores compatible reservations and acquisition deadlock with two contenders, and checks backup role overlap and initialization failure against SQLite. [Multi-resource FFI roles](RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md)
+
+Scenario 127 measures how much static admission depends on alias correlation within and across calls. Its bounded source grammar tracks role identities, conditional release, and what stays live on a refused second call. [Source role correlation](RESEARCH-SCENARIO-127-SOURCE-ROLE-CORRELATION.md)
+
+Scenario 128 compares retention after a known or indeterminate foreign failure. It distinguishes a diagnostic, a usable handle, and a reconciliation obligation over a resource footprint. [Foreign reservation outcomes](RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md)
+
+Scenario 129 distinguishes cancellation acknowledgment from terminal disposition and ties consumption to an invocation. It checks delayed evidence on reused resource roles and repeated delivery after release. [Invocation-specific cancellation evidence](RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md)
+
+Scenario 130 checks durable invocation generations and result recovery across abrupt process exits. It distinguishes a committed result with a lost response from an unresolved outcome under separate effect and journal commits. [Durable invocation results](RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md)
+
 Scenario 97 isolates cleanup-error composition from cleanup trigger and resource state. Java try-with-resources preserves a primary exception and suppresses ordered close failures; Go specifies LIFO defer but leaves result composition to code (with `errors.Join` available); Rust `Drop` has no ordinary error result and a second panic during unwinding can abort; Swift `defer` constrains control transfer. A cross-outcome ownership/fuel corpus is proposed, not run; no outcome policy is selected.
 
 Scenario 109 tests optional representation at a minimal JSON boundary: a single optional collapses omitted and explicit-null fields under the chosen mapping, while nested optional and tagged presence preserve absent/null/value. Decode errors and uninitialized reads are separate outcomes. The fixture does not resolve schema, serialization, or ABI policy.
