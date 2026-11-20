@@ -3,7 +3,7 @@
 **Research item:** `PLAN.md` §0.1 — Reconcile the research corpus  
 **Status:** Partial first-pass triage; not a completed semantic audit  
 **First-pass content-triage revision:** `e6b5f4a0c9f4365a3fef19283fa0894b7cc82716`  
-**Taxonomy crosswalk revision:** `4b947dda7edcc120183e57055f19a04a95714c55`  
+**Taxonomy crosswalk revision:** `59a65f29f082b848ffd27b199c89bc2ae97c50ea`  
 **Inventory snapshot:** `a30ec074e08186f04a35535b9933bfa878713f31` (450 tracked research artifacts; inventory manifest excluded)  
 **Normative boundary:** This report classifies research artifacts and proposes traceability metadata only. It does not accept any language, architecture, hash, compatibility, or implementation decision.
 
@@ -196,7 +196,7 @@ The inventory contains **120 artifacts across five prototype families**. Family 
 | CLI-WORKLOADS-01 | 3 | Individual roles mapped to RT-01/17; no RT-14 ownership retained | 7 |
 | DEPENDENCY-GRAPH-01 | 92 | Individual file roles mapped across prototype result reports, Python modules/tests, Lean source-query modules, and SCW task audits; family spans requirements/intent, identity/dependency, formal core/proof, package/build, and RT-20 patch-planning | 1, 2, 3, 5, 7 |
 | LLVM-PRESERVATION-01 | 3 | Individual fixture/probe roles mapped to RT-03/09/13 | 1, 6 |
-| PACKAGE-IDENTITY-01 | 7 | All individual files mapped to package identity, language version, and cache-index areas RT-05/11/12/18 | 1, 3, 7 |
+| PACKAGE-IDENTITY-01 | 7 | All individual files mapped to package identity, language version, and cache-index areas RT-05/11/12 | 1, 3, 7 |
 | PACKAGE-INDEX-01 | 15 | All individual files mapped to logical indexes, archive/closure/provider/content-store and benchmarks; RT-19 is adjacency only (adapter not integrated into Toolchain Server) | 3, 7 |
 
 All 120 prototype files have individual first-pass role mappings. The mappings were derived from README sections, source/module docstrings, scenario crosswalks, and paired test imports/names; they do not establish that the implementation is correct or that every experiment is reproducible. Family-level stage lists are navigation ranges, not claims that every file participates in every listed stage.
@@ -233,10 +233,10 @@ The mapping is intentionally incomplete in these areas:
 1. Prototype mappings are first-pass file-role classifications; they do not validate every claim, test outcome, generated artifact, or experiment environment.
 2. Explicit RT identifiers in paths and scenario headers are strong traceability evidence, not proof that every claim, experiment, or conclusion is valid or current.
 3. RT-24 remains a candidate research proposal; registration does not accept its schema, identity model, canonical encoding, hash envelope, or merge policy.
-4. Seven provenance/navigation files remain Stage 0-only by design; their purpose is corpus navigation and source attribution, not a missing domain classification.
-5. Scenario 58's RT-16 runtime label conflicts with the taxonomy's RT-16 security/trust definition; RT-10 is the runtime area.
+4. Seven reference/provenance files plus one prototype-family README remain Stage 0-only by design; their purpose is corpus navigation and source attribution, not a missing domain classification.
+5. Scenario 58's stale RT-16 runtime label has been corrected to RT-10 in this PR branch; the inventory retains the pre-correction blob identity for its pinned main snapshot.
 6. Three explicit section-level supersession cases are now recorded; no whole document was marked superseded. The corpus-wide semantic duplicate/orphan/contradiction and per-experiment reproducibility audits remain incomplete.
 
 ## 9. Conclusion
 
-The first-pass triage resolves all 36 previous low-confidence root-level mappings. All 136 scenario reports have candidate RT mappings; all 120 prototype-family artifacts have individual file-role mappings; and nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered, but its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 450 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/supersession/orphan/contradiction analysis, and the RT-24 taxonomy decision remain open.
+The first-pass triage resolves all 36 previous low-confidence root-level mappings. All 136 scenario reports have candidate RT mappings; all 120 prototype-family artifacts have individual file-role mappings; and nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered, but its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 450 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open. RT-24 is registered, while its technical proposal remains non-normative.
