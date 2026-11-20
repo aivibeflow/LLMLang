@@ -1,6 +1,7 @@
 # LLMLang Research Preparation Pack
 
-**Status:** Prepared for execution; the studies below have not been run.  
+**Status** — Prepared for execution. Individual briefs track bounded results as they become available.
+
 **Baseline:** `main` at `cf96386b40604f870f864e8d6bc93dac4d12bbcd` (2026-11-20).  
 **Purpose:** Convert the current plan, open-question register, and existing evidence into executable research briefs.  
 **Normative boundary:** These briefs are research instructions only. They select no language profile, hash schema, runtime, backend, package format, or security policy.
