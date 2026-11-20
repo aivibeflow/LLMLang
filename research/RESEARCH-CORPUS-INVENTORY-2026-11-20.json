@@ -10649,7 +10649,11 @@
           "RT-10"
         ],
         "basis": "explicit Research area(s)/Aspect declaration in scenario report",
-        "anomaly": "Source header calls RT-16 the runtime area, but the current taxonomy defines RT-16 as security/trust; mapped to RT-10 for runtime pending correction of the source header."
+        "anomaly": "The pinned main snapshot contained a stale RT-16 runtime label; corrected to RT-10 in this PR branch. RT-16 remains security/trust."
+      },
+      "semantic_review": {
+        "status": "source-label-corrected-in-review-branch",
+        "basis": "The source header is corrected from RT-16 runtime to RT-10 runtime in this PR; the inventory's Git blob identity remains pinned to the original main snapshot."
       }
     },
     {
@@ -12580,7 +12584,7 @@
             5,
             7
           ],
-          "note": "All 90 files received individual role mappings. The family spans requirement/intent, identity/dependency, formal-core/proof, package/build, and RT-20 patch-planning slices; the broad family scope is navigation context, not a per-file mapping substitute."
+          "note": "All 92 files received individual role mappings. The family spans requirement/intent, identity/dependency, formal-core/proof, package/build, and RT-20 patch-planning slices; the broad family scope is navigation context, not a per-file mapping substitute."
         },
         "LLVM-PRESERVATION-01": {
           "files": 3,
@@ -12661,7 +12665,7 @@
       },
       "administrative_stage0_only_files": 7,
       "unregistered_rt24_documents": 0,
-      "basis": "research/references/README.md explicit use-case table; RT-24 files retain their explicit but currently unregistered area identifier",
+      "basis": "research/references/README.md explicitly maps each vendored technical source snapshot to RT use cases. RT-24 is registered in the taxonomy; its candidate contract and dependency edges remain provisional.",
       "prototype_index_stage0_only_files": 1
     },
     "rt24_registration": {
@@ -12700,6 +12704,14 @@
       ],
       "whole_documents_marked_superseded": 0,
       "full_semantic_duplicate_orphan_contradiction_review": false
-    }
+    },
+    "branch_only_corrections": [
+      {
+        "path": "research/RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md",
+        "change": "Corrected the Research area header from RT-16 runtime to RT-10 runtime.",
+        "reason": "The taxonomy defines RT-16 as security/trust and RT-10 as runtime.",
+        "inventory_note": "The inventory remains a snapshot of main at a30ec074e08186f04a35535b9933bfa878713f31; its blob SHA intentionally records the pre-correction source."
+      }
+    ]
   }
 }
