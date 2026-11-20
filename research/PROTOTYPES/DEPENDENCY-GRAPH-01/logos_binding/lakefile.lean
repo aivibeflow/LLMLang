@@ -9,7 +9,7 @@ require Cpc from git
 lean_lib LLMLangLogosBinding where
   roots := #[`LLMLangLogosBinding, `SourceQuerySemantics, `SourceSyntax, `RelationalSourceQuerySemantics,
     `LogosQueryAdapter, `CheckedSourceSemantics, `SourceCoreTests, `SourceCommandSemantics,
-    `SourceCommandTests]
+    `SourceCommandTests, `SymbolicCommandSemantics, `SymbolicCommandTests]
 
 lean_exe testParserBinding where
   root := `Main
