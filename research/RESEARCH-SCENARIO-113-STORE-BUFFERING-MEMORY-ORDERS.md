@@ -4,6 +4,17 @@
 **Research area:** RT-04 ownership/effects/memory model; RT-10 runtime  
 **Updated:** 2026-11-20
 
+## Prior-art guarantees added after the abstract comparison
+
+The toy profiles above are useful discriminators, but they must not be mistaken for the default contract of a real language. Current official Rust documentation lists `Relaxed`, `Release`, `Acquire`, `AcqRel`, and `SeqCst`; it says relaxed imposes no ordering constraints beyond atomicity, release/acquire can establish ordering when the acquire observes a release value, and a store-load pair of SeqCst operations preserves a total order. Go chooses a more constrained built-in atomic contract: all atomic operations behave as if in one sequentially consistent order, and a race-free program has a sequentially consistent explanation (DRF-SC). These are different choices, not one common “weak vs strong” switch.
+
+| Prior art | Atomic/read-write contract relevant to these litmus cases | Design implication |
+|---|---|---|
+| Rust/C++20 ordering family | Multiple explicit orders. Relaxed atomics remain atomic without ordering other memory; release/acquire can publish preceding writes when the acquire reads from the release sequence/value as specified; SeqCst imposes a total order on SeqCst operations. | A relaxed profile needs formal read-from, modification-order, happens-before, and SC-order rules. An acquire/release profile must state the edge condition precisely. |
+| Go | Atomic operations are collectively sequentially consistent; data-race-free programs also have sequentially consistent outcomes. Go defines constrained outcomes for racy programs rather than making all racy behavior fully undefined. | A simpler atomic ordering API can reduce programmer choice, but does not alone solve data races or logical race conditions. |
+
+The Rust atomic-ordering and Go memory-model references are linked in [Sources](#sources). The store-buffering toy's “independent per-location” row is not a claim about Go, and it should not be treated as a standalone implementation of C++/Rust relaxed ordering. Full C++20 normative review, formal relation modeling, mixed atomic/non-atomic races, compiler litmus runs, and target-specific measurements remain open.
+
 ## Question
 
 What observations should LLMLang permit when concurrent tasks perform atomic writes and reads on distinct locations? Scenario 61 identified this as a discriminating experiment but had no executable corpus. This scenario makes one small case concrete: two tasks each write one location and then read the other.
@@ -36,3 +47,8 @@ This result complements Scenario 61's ownership/isolation/shared-memory comparis
 ## Reproduction
 
 From this directory, run `python -m unittest test_rt04_store_buffering.py`.
+
+## Sources
+
+- [Rust `std::sync::atomic::Ordering` (Rust 1.100 docs, viewed 2026-11-20)](https://doc.rust-lang.org/std/sync/atomic/enum.Ordering.html)
+- [The Go Memory Model (viewed 2026-11-20)](https://go.dev/ref/mem)
