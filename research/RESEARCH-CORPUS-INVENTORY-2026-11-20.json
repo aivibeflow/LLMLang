@@ -2,27 +2,27 @@
   "schema_version": 1,
   "generated_at": "2026-11-20",
   "repository": "aivibeflow/LLMLang",
-  "revision": "3b087952675e51e566cfa90ef8037cc3ac1c2e32",
-  "source": "Recursive Git tree at reviewed RT-00 Dependency Graph evidence snapshot 3b087952675e51e566cfa90ef8037cc3ac1c2e32, based on main e2aa15b8006659f6d256aa61fd294911aa73c21f; inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "1cf2fbfec82373a0094426a168ef4a1e5541c45b",
+  "source": "Recursive Git tree at RT-00 B-02b.5 consolidation snapshot 1cf2fbfec82373a0094426a168ef4a1e5541c45b, based on main dcbb3085bfc6fb45eaaf520ca27aef4e93a628ae; inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
-    "research_files": 471,
-    "markdown_files": 240,
-    "python_files": 197,
+    "research_files": 476,
+    "markdown_files": 243,
+    "python_files": 199,
     "scenario_named_documents": 136,
-    "prototype_tree_files": 243,
+    "prototype_tree_files": 245,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "audit-or-review-report": 6,
+      "audit-or-review-report": 8,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 1,
       "external-source-snapshot-or-license": 13,
       "index-or-research-management": 3,
       "other-research-artifact": 2,
-      "prototype-or-experiment-implementation": 125,
+      "prototype-or-experiment-implementation": 126,
       "prototype-report-or-readme": 20,
-      "prototype-test-evidence": 96,
+      "prototype-test-evidence": 97,
       "reference-register-or-manifest": 2,
-      "research-area-or-experiment-document": 28,
+      "research-area-or-experiment-document": 29,
       "research-background-or-design-analysis": 23,
       "research-preparation-brief-or-index": 9,
       "research-rfc-or-protocol-proposal": 2,
@@ -30,15 +30,15 @@
       "structured-fixture-or-schema": 1
     },
     "lean_source_files": 22,
-    "taxonomy_research_areas": 24,
-    "dependency_edges": 94
+    "taxonomy_research_areas": 25,
+    "dependency_edges": 99
   },
-  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks, individual role mappings for all 243 prototype-tree files, a first-pass relationship review of all 136 scenario-named reports, and bounded evidence-graph reviews for RT-04-01 and the Dependency Graph/Logos Lean family. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide semantic duplicate/orphan/contradiction analysis remains open.",
+  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks, individual role mappings for all 242 prototype-tree files across eight families, a first-pass relationship review of all 136 scenario-named reports, and bounded evidence-graph reviews for RT-04-01 and the Dependency Graph/Logos Lean family. B-02b.1–B-02b.5 add current Lean proof, Python test-evidence, scenario-overlap, orphan, and inventory-reconciliation slices. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
     "index": "research/README.md",
-    "unique_relative_targets": 98,
+    "unique_relative_targets": 110,
     "broken_relative_targets": 0,
-    "checked_scope": "Current main index at f560d0f9893f882a6756f1f0a3b070ea7ba1a09f; 99 inline relative-link occurrences checked against the full repository tree."
+    "checked_scope": "All 110 unique relative targets in research/README.md resolved against the recursive tree at 1cf2fbfec82373a0094426a168ef4a1e5541c45b."
   },
   "duplicate_blob_groups": [
     {
@@ -5643,8 +5643,8 @@
     },
     {
       "path": "research/PROTOTYPES/PACKAGE-INDEX-01/benchmark_package_provider.py",
-      "git_blob_sha": "890812d238bbfdbe20169f0e8a75c2a0973469ad",
-      "size_bytes": 7644,
+      "git_blob_sha": "0be862324cf2187be94e9033b25d9ceaae9fbf50",
+      "size_bytes": 8465,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -5852,9 +5852,45 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/PACKAGE-INDEX-01/profile_package_provider.py",
+      "git_blob_sha": "5f58cbf1e89908a9aef69442aaa043f051b14454",
+      "size_bytes": 2119,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-11",
+          "RT-12",
+          "RT-19"
+        ],
+        "method": "individual source/test/document role reviewed against prototype README and module/test content",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        3,
+        7
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-11",
+          "RT-12",
+          "RT-19"
+        ],
+        "plan_stages": [
+          3,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Provider profiling script for Package Index performance work; CLI, measured output, and workflow invocation inspected."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/PACKAGE-INDEX-01/README.md",
-      "git_blob_sha": "fad0169283e8f294178690ef4b3e031184d95245",
-      "size_bytes": 7716,
+      "git_blob_sha": "41381cba49bcfff85d7850ffe4a0233980c4f121",
+      "size_bytes": 7893,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -5885,6 +5921,41 @@
       "semantic_review": {
         "status": "file-role-triaged",
         "basis": "README documents logical package indexes, archive/closure/provider/content-store experiments and explicitly states the content-store adapter is not wired into Toolchain Server."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/PACKAGE-INDEX-01/run_tests_with_timings.py",
+      "git_blob_sha": "cd5620ba0c464135c6e551e8bf99af09a9d921ca",
+      "size_bytes": 1408,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-11",
+          "RT-12"
+        ],
+        "method": "individual source/test/document role reviewed against prototype README and module/test content",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        3,
+        7
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-11",
+          "RT-12",
+          "RT-19"
+        ],
+        "plan_stages": [
+          3,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Test execution/timing harness for Package Index regression modules; evidence runner rather than an independent semantic implementation."
       }
     },
     {
@@ -8035,8 +8106,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "1a5923f0bdfd2d33c983b65f0ffab14741977c00",
-      "size_bytes": 23466,
+      "git_blob_sha": "1abc8c6ef1f47b0a4a2b0c183235e82df02ceccf",
+      "size_bytes": 24915,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -8522,8 +8593,8 @@
     },
     {
       "path": "research/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "2219bda347696ace747d689f49bc94817b0ded2e",
-      "size_bytes": 43954,
+      "git_blob_sha": "95142544e29d400f4343f16021ed6500d01b4acc",
+      "size_bytes": 45946,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -12337,8 +12408,8 @@
     },
     {
       "path": "research/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "6ba414a89d567549891059116dae69cc1a2b7db5",
-      "size_bytes": 44544,
+      "git_blob_sha": "9d22adc582087044ab44bc1dde78234efb07e34e",
+      "size_bytes": 45119,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -12408,6 +12479,46 @@
         4,
         7
       ]
+    },
+    {
+      "path": "research/RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md",
+      "git_blob_sha": "c7a4bf6a5a92fc3347358a80932dda1518917165",
+      "size_bytes": 7747,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1 — research corpus inventory"
+        ],
+        "method": "RT-00 B-02b.1 content audit of Lean imports, proof declarations, tests, trust boundary, and exact-head CI",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Documentation-only audit mapping Scenario 34 SC-1–SC-7 to Lean declarations and recording current proof/CI boundaries."
+      }
+    },
+    {
+      "path": "research/RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md",
+      "git_blob_sha": "3ec7d5b5acf0c2465316f96e210000d62e5bb2b2",
+      "size_bytes": 9920,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1 — research corpus inventory"
+        ],
+        "method": "RT-00 B-02b.5 consolidation of family, scenario, test, and inventory evidence",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Documentation-only consolidation of B-02b audit slices; records evidence boundaries and exact inventory reconciliation."
+      }
     },
     {
       "path": "research/RT-01-REFERENCE-WORKLOADS.md",
@@ -12878,6 +12989,26 @@
       }
     },
     {
+      "path": "research/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md",
+      "git_blob_sha": "2400e3a95028eaa2d210ba411902f89e607a50b5",
+      "size_bytes": 8139,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-25"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Mandatory RT-25 research brief defining allocator compatibility and reproducible benchmark questions; status is Not started, not implementation evidence."
+      }
+    },
+    {
       "path": "research/SEMANTIC-COMPILATION-CACHE.md",
       "git_blob_sha": "2c4a5321abdf96261d628320b3f5cffa5f9f19b0",
       "size_bytes": 22167,
@@ -13105,7 +13236,7 @@
           "note": "README covers package identity, append-only language version registry, and candidate cache index; no final hash/encoding policy is accepted."
         },
         "PACKAGE-INDEX-01": {
-          "files": 15,
+          "files": 17,
           "status": "individual-file-role-triaged",
           "areas": [
             "RT-11",
@@ -13116,7 +13247,7 @@
             3,
             7
           ],
-          "note": "README covers package indexes, archive/closure/provider/content-store behavior and benchmarks; content_store adapter is not wired into Toolchain Server, so RT-19 is an adjacency rather than a completed integration."
+          "note": "README covers package indexes, archive/closure/provider/content-store behavior, profiling and test-timing harnesses; content_store adapter is not wired into Toolchain Server, so RT-19 is an adjacency rather than a completed integration."
         },
         "RT-04-01": {
           "files": 104,
@@ -13154,13 +13285,13 @@
           "note": "README, in-memory workspace implementation, and paired lifecycle tests reviewed against RT-19; no persistent backend, MCP adapter, or production SPG contract."
         }
       },
-      "individually_mapped_files": 240,
+      "individually_mapped_files": 242,
       "individual_file_mappings": {
         "cli_workloads": 3,
         "dependency_graph": 103,
         "llvm_preservation": 3,
         "package_identity": 7,
-        "package_index": 15,
+        "package_index": 17,
         "rt04_01": 104,
         "rt16_authorization": 2,
         "toolchain_server": 3
@@ -13211,7 +13342,7 @@
       "note": "RT-24 remains a research proposal; registration does not accept its candidate contract."
     },
     "supersession_review": {
-      "status": "initial-known-cases-recorded; corpus-wide review-open",
+      "status": "initial-known-cases-recorded; B-02b section-level review extended; corpus-wide review-open",
       "findings": [
         {
           "path": "research/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md",
@@ -13227,6 +13358,21 @@
           "path": "research/GIT-SEMANTIC-REPOSITORY.md",
           "scope": "embedded ADR-0001 external-KV-authoritative proposal",
           "successor": "ADR-014 and GIT-REPRESENTATION-AND-SEMANTIC-MERGE"
+        },
+        {
+          "path": "research/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md",
+          "scope": "top-level status claim that no Lean wrapper exists",
+          "successor": "Scenario 33 compiled parser-state binding implementation; Scenario 30 source audit/design remains relevant"
+        },
+        {
+          "path": "research/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md",
+          "scope": "top-level 'no code changes yet' status and initial text-based query representation",
+          "successor": "Scenario 31 §10 implementation status and Scenario 32 typed canonical query IR v2; the strict profile analysis remains relevant"
+        },
+        {
+          "path": "research/RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md",
+          "scope": "top-level pending-CI status",
+          "successor": "Scenario 33 completed parser-state bridge and current Required CI evidence; the typed IR document remains relevant"
         }
       ],
       "whole_documents_marked_superseded": 0,
@@ -13242,9 +13388,21 @@
   },
   "branch_index_check": {
     "index": "research/README.md",
-    "unique_relative_targets": 98,
+    "unique_relative_targets": 110,
     "broken_relative_targets": 0,
-    "checked_revision": "5177c9c7a6b7d3b265485d29f05fcbcdb7687b06",
-    "scope": "All 98 unique relative targets in research/README.md were resolved against the recursive tree at PR head 5177c9c7a6b7d3b265485d29f05fcbcdb7687b06."
+    "checked_revision": "1cf2fbfec82373a0094426a168ef4a1e5541c45b",
+    "scope": "All 110 unique relative targets in research/README.md resolved against the recursive tree at 1cf2fbfec82373a0094426a168ef4a1e5541c45b."
+  },
+  "rt25_registration": {
+    "status": "registered",
+    "taxonomy_document": "research/RESEARCH-TAXONOMY.md",
+    "dependency_edges": [
+      "DEP-095",
+      "DEP-096",
+      "DEP-097",
+      "DEP-098",
+      "DEP-099"
+    ],
+    "note": "RT-25 is a mandatory P1 research item; registration does not select an allocator or accept a runtime policy."
   }
 }
