@@ -60,7 +60,7 @@ For each case record the concrete source executions (or a bounded exhaustive ora
 2. Use the SCW-06–09 scope, typing and environment invariants as the base for command semantics.
 3. Use the checked command AST and big-step rules from SCW-16–18 as the concrete reference.
 4. Use the checked observation contract and single-run proof from SCW-22–23 when comparing paired outputs.
-5. Add paired executions, source-bound declarations and relational-query correctness (SCW-24–28).
+5. Use the checked paired observations from SCW-24–25 to prove relational-query correctness and source-bound symbol identity in SCW-26–28.
 6. Establish QF_LIA admissibility, canonical wire/Logos correspondence and explicit solver trust boundary (SCW-29–34).
 7. Add adversarial fixtures, axiom/kernel audit and pinned proof CI (SCW-35–41).
 8. In parallel, extend RT-03 path analysis only where the same source identity and mutation semantics are used; do not substitute finite route enumeration for general symbolic completeness.
