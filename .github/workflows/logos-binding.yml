@@ -27,4 +27,4 @@ jobs:
       - name: Build parser-state bridge
         run: lake build LLMLangLogosBinding
       - name: Run parser-state binding and semantic correspondence tests
-        run: timeout 180s lake env lean --run Main.lean
+        run: timeout 180s lake env lean -DwarningAsError=true --run Main.lean
