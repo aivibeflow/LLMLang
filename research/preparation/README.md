@@ -5,6 +5,10 @@
 **Purpose:** Convert the current plan, open-question register, and existing evidence into executable research briefs.  
 **Normative boundary:** These briefs are research instructions only. They select no language profile, hash schema, runtime, backend, package format, or security policy.
 
+## External source material
+
+The [External Research References and Snapshots](../references/README.md) register maps the briefs to official source documents. It includes versioned local copies of licensed MCP, OCI, Alive2 and Bazel REAPI materials, plus canonical links for SMT-LIB, cvc5, Lean, LLVM, language memory models, SQLite, Git, Nix and POSIX. Use its version/attribution notes before execution.
+
 ## How to use this pack
 
 Start with this index, then read the linked baseline documents and the relevant brief as one unit. A brief is ready to execute when its dependencies and input fixtures are available. During execution, update the result document and the central state/index; do not turn a proposed test matrix into an observed result.
