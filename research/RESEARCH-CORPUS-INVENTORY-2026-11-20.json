@@ -29,7 +29,9 @@
       "research-rfc-or-protocol-proposal": 2,
       "research-area-or-experiment-document": 25
     },
-    "lean_source_files": 11
+    "lean_source_files": 11,
+    "taxonomy_research_areas": 24,
+    "dependency_edges": 85
   },
   "classification_note": "Categories and mappings are inventory metadata. Path-derived mappings are not semantic proof; 36 root-level entries received first-pass content/heading/reference triage, 63 Scenario reports have taxonomy-based candidate RT crosswalks, and remaining gaps are enumerated in semantic_traceability_review.",
   "index_check": {
@@ -11511,7 +11513,8 @@
           "RT-06",
           "RT-11",
           "RT-15",
-          "RT-18"
+          "RT-18",
+          "RT-24"
         ],
         "method": "Scenario ID plus first-pass content/header crosswalk; see semantic traceability report",
         "confidence": "medium"
@@ -11528,10 +11531,11 @@
           "RT-06",
           "RT-11",
           "RT-15",
-          "RT-18"
+          "RT-18",
+          "RT-24"
         ],
         "basis": "explicit Research area(s)/Aspect declaration in scenario report",
-        "anomaly": "The report cites RT-24, which is not registered in the current RT-01..RT-23 taxonomy; mapped only to its registered areas."
+        "anomaly": "RT-24 is now registered in RESEARCH-TAXONOMY.md; this crosswalk includes it as an explicit area reference."
       }
     },
     {
@@ -12305,17 +12309,19 @@
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
-          "RT-24 (unregistered; reconcile taxonomy)"
+          "RT-24"
         ],
-        "method": "explicit RT-24 identifier in path; no current RT-24 taxonomy row",
+        "method": "explicit RT-24 document identity and registered RT-24 taxonomy row",
         "confidence": "high"
       },
       "plan_stages": [
-        "pending-RT-24 taxonomy reconciliation"
+        1,
+        4,
+        7
       ],
       "semantic_review": {
-        "status": "taxonomy-reconciliation-required",
-        "basis": "The document is explicitly labelled RT-24, while RESEARCH-TAXONOMY.md currently enumerates RT-01 through RT-23. Candidate neighboring areas must not be substituted without an explicit taxonomy decision."
+        "status": "taxonomy-crosswalk-resolved",
+        "basis": "RT-24 is now a registered research area; the candidate contract remains non-normative and open on schema, identity, canonical bytes/hash, and merge policy."
       }
     },
     {
@@ -12325,17 +12331,19 @@
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
-          "RT-24 (unregistered; reconcile taxonomy)"
+          "RT-24"
         ],
-        "method": "explicit RT-24 identifier in path; no current RT-24 taxonomy row",
+        "method": "explicit RT-24 document identity and registered RT-24 taxonomy row",
         "confidence": "high"
       },
       "plan_stages": [
-        "pending-RT-24 taxonomy reconciliation"
+        1,
+        4,
+        7
       ],
       "semantic_review": {
-        "status": "taxonomy-reconciliation-required",
-        "basis": "The document is explicitly labelled RT-24, while RESEARCH-TAXONOMY.md currently enumerates RT-01 through RT-23. Candidate neighboring areas must not be substituted without an explicit taxonomy decision."
+        "status": "taxonomy-crosswalk-resolved",
+        "basis": "RT-24 is now a registered research area; the candidate contract remains non-normative and open on schema, identity, canonical bytes/hash, and merge policy."
       }
     },
     {
@@ -12345,17 +12353,19 @@
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
-          "RT-24 (unregistered; reconcile taxonomy)"
+          "RT-24"
         ],
-        "method": "explicit RT-24 identifier in path; no current RT-24 taxonomy row",
+        "method": "explicit RT-24 document identity and registered RT-24 taxonomy row",
         "confidence": "high"
       },
       "plan_stages": [
-        "pending-RT-24 taxonomy reconciliation"
+        1,
+        4,
+        7
       ],
       "semantic_review": {
-        "status": "taxonomy-reconciliation-required",
-        "basis": "The document is explicitly labelled RT-24, while RESEARCH-TAXONOMY.md currently enumerates RT-01 through RT-23. Candidate neighboring areas must not be substituted without an explicit taxonomy decision."
+        "status": "taxonomy-crosswalk-resolved",
+        "basis": "RT-24 is now a registered research area; the candidate contract remains non-normative and open on schema, identity, canonical bytes/hash, and merge policy."
       }
     },
     {
@@ -12461,8 +12471,7 @@
       "semantic duplicate/supersession/orphan/contradiction review",
       "individual file validation inside medium-confidence prototype families",
       "full content validation of high-confidence path-derived mappings",
-      "semantic duplicate/supersession/orphan/contradiction review",
-      "RT taxonomy/source-header consistency for Scenario 58 and unregistered RT-24 reference in Scenario 91"
+      "semantic duplicate/supersession/orphan/contradiction review"
     ],
     "scenario_crosswalk": {
       "basis": "Combined explicit links/ranges in RESEARCH-TAXONOMY.md (63 reports) and first-pass content/header review of remaining Scenario reports (73 reports)",
@@ -12490,16 +12499,13 @@
         "RT-17": 4,
         "RT-18": 4,
         "RT-16": 1,
-        "RT-20": 1
+        "RT-20": 1,
+        "RT-24": 1
       },
       "anomalies": [
         {
           "scenario": 58,
           "issue": "RT-16 used as runtime in report header, while taxonomy defines RT-16 as security/trust; runtime is RT-10."
-        },
-        {
-          "scenario": 91,
-          "issue": "RT-24 referenced but absent from current RT-01..RT-23 taxonomy."
         },
         {
           "scenario": 134,
@@ -12627,9 +12633,24 @@
         ]
       },
       "administrative_stage0_only_files": 7,
-      "unregistered_rt24_documents": 3,
+      "unregistered_rt24_documents": 0,
       "basis": "research/references/README.md explicit use-case table; RT-24 files retain their explicit but currently unregistered area identifier",
       "prototype_index_stage0_only_files": 1
+    },
+    "rt24_registration": {
+      "status": "registered",
+      "taxonomy_document": "research/RESEARCH-TAXONOMY.md",
+      "dependency_edges": [
+        "DEP-078",
+        "DEP-079",
+        "DEP-080",
+        "DEP-081",
+        "DEP-082",
+        "DEP-083",
+        "DEP-084",
+        "DEP-085"
+      ],
+      "note": "RT-24 remains a research proposal; registration does not accept its candidate contract."
     }
   }
 }
