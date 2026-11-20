@@ -7,7 +7,7 @@
 
 ## 1. Snapshot and completeness boundary
 
-At this snapshot, the TODO register contains 24 unique questions after correcting a duplicate stable ID: 6 P0, 14 P1, and 4 P2. They span operation identity, canonical representation/dependencies, package/library distribution, POSIX/runtime, LLVM, caching, Toolchain Server, and LLM change planning. The project also has open research gates in all 23 taxonomy areas. Some topics have substantial analytical reports and bounded prototypes; none of that alone selects a coherent integrated language design.
+At this snapshot, the TODO register contains 24 unique questions after correcting a duplicate stable ID: 6 P0, 14 P1, and 4 P2. They span operation identity, canonical representation/dependencies, package/library distribution, POSIX/runtime, LLVM, caching, Toolchain Server, and LLM change planning. The project also has open research gates in all 24 taxonomy areas, including the newly registered RT-24 proposal. Some topics have substantial analytical reports and bounded prototypes; none of that alone selects a coherent integrated language design.
 
 This inventory is the control sheet for the requested exhaustive research. It makes the scope auditable and prevents a focused report from being mistaken for completion. The work is necessarily incremental: each research batch must be committed and cross-checked against current `TODO.md`, taxonomy, dependency map, option matrix, and CI. “Exhaustive” for this stage means every remaining question receives at least a scoped prior-art comparison, candidate vectors, compatibility conditions, falsifiers, and concrete validation gates. It does not mean every candidate is implemented or independently proven.
 
