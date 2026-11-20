@@ -39,6 +39,10 @@ def runtime_metadata():
         "python_sqlite_version": None,
         "python_sqlite_historical_baseline": HISTORICAL_PYTHON_SQLITE_VERSION,
         "python_sqlite_matches_historical_baseline": False,
+        "durable_python_sqlite_version": None,
+        "durable_python_sqlite_source_id": None,
+        "durable_python_sqlite_matches_historical_baseline": False,
+        "durable_python_sqlite_library": os.environ.get("LLMLANG_PYTHON_SQLITE_LIBRARY"),
         "c_sqlite_library": os.environ.get("LLMLANG_SQLITE_LIBRARY") or find_library("sqlite3"),
         "c_sqlite_version": None,
         "c_sqlite_source_id": None,
@@ -53,6 +57,31 @@ def runtime_metadata():
         )
     except Exception as exc:
         metadata["python_sqlite_error"] = repr(exc)
+
+    durable_env = os.environ.copy()
+    durable_library = durable_env.get("LLMLANG_PYTHON_SQLITE_LIBRARY")
+    if durable_library:
+        durable_lib_dir = str(Path(durable_library).resolve().parent)
+        durable_env["LD_LIBRARY_PATH"] = os.pathsep.join(
+            item for item in (durable_lib_dir, durable_env.get("LD_LIBRARY_PATH", "")) if item
+        )
+    try:
+        probe = subprocess.run(
+            [
+                sys.executable, "-c",
+                "import sqlite3; c=sqlite3.connect(':memory:'); "
+                "print(sqlite3.sqlite_version); print(c.execute('select sqlite_source_id()').fetchone()[0])",
+            ],
+            cwd=ROOT, env=durable_env, capture_output=True, text=True, timeout=15, check=True,
+        )
+        version, source_id = probe.stdout.strip().splitlines()
+        metadata["durable_python_sqlite_version"] = version
+        metadata["durable_python_sqlite_source_id"] = source_id
+        metadata["durable_python_sqlite_matches_historical_baseline"] = (
+            version == HISTORICAL_PYTHON_SQLITE_VERSION
+        )
+    except Exception as exc:
+        metadata["durable_python_sqlite_error"] = repr(exc)
 
     library_name = metadata["c_sqlite_library"]
     if library_name:
@@ -125,6 +154,10 @@ def main():
         "python": sys.version.split()[0],
         "python_sqlite_version": metadata.get("python_sqlite_version"),
         "python_sqlite_matches_historical_baseline": metadata.get("python_sqlite_matches_historical_baseline"),
+        "durable_python_sqlite_version": metadata.get("durable_python_sqlite_version"),
+        "durable_python_sqlite_source_id": metadata.get("durable_python_sqlite_source_id"),
+        "durable_python_sqlite_matches_historical_baseline": metadata.get("durable_python_sqlite_matches_historical_baseline"),
+        "durable_python_sqlite_library": metadata.get("durable_python_sqlite_library"),
         "c_sqlite_library": metadata.get("c_sqlite_library"),
         "c_sqlite_version": metadata.get("c_sqlite_version"),
         "c_sqlite_source_id": metadata.get("c_sqlite_source_id"),
@@ -160,6 +193,17 @@ def main():
             f"source_id={metadata.get('c_sqlite_source_id')!r}"
         )
 
+    run_durable = args.suite in ("all", "durable")
+    durable_sqlite_ok = (
+        metadata.get("durable_python_sqlite_version") == HISTORICAL_PYTHON_SQLITE_VERSION
+    )
+    if run_durable and not durable_sqlite_ok:
+        summary["preflight_errors"].append(
+            "Scenario 130 requires Python sqlite3 "
+            f"{HISTORICAL_PYTHON_SQLITE_VERSION}; observed "
+            f"{metadata.get('durable_python_sqlite_version')!r}"
+        )
+
     if args.suite in ("all", "rust"):
         rustc = metadata.get("rustc_version") or ""
         if not rustc.startswith(f"rustc {EXPECTED_RUSTC_VERSION} "):
@@ -176,6 +220,13 @@ def main():
             })
             (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
             continue
+        if name == "sqlite-durable-receipts" and not durable_sqlite_ok:
+            summary["commands"].append({
+                "name": name, "command": command, "status": "skipped",
+                "reason": "Python sqlite3 preflight did not match the Scenario 130 baseline",
+            })
+            (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\\n", encoding="utf-8")
+            continue
 
         stdout_path = output / f"{index:02d}-{name}.stdout.txt"
         stderr_path = output / f"{index:02d}-{name}.stderr.txt"
@@ -186,8 +237,17 @@ def main():
             "timeout_seconds": args.timeout_seconds,
         }
         try:
+            command_env = None
+            if name == "sqlite-durable-receipts":
+                command_env = os.environ.copy()
+                durable_library = command_env.get("LLMLANG_PYTHON_SQLITE_LIBRARY")
+                if durable_library:
+                    durable_lib_dir = str(Path(durable_library).resolve().parent)
+                    command_env["LD_LIBRARY_PATH"] = os.pathsep.join(
+                        item for item in (durable_lib_dir, command_env.get("LD_LIBRARY_PATH", "")) if item
+                    )
             result = subprocess.run(
-                command, cwd=ROOT, capture_output=True, text=True,
+                command, cwd=ROOT, env=command_env, capture_output=True, text=True,
                 timeout=args.timeout_seconds, check=False,
             )
             stdout, stderr = result.stdout, result.stderr
