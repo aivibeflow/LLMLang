@@ -181,7 +181,6 @@ All **136 of 136 scenario report files** now have candidate RT-area mappings and
 
 ### 4.2 Cross-reference and applicability anomalies
 
-- **Scenario 58:** its header labels RT-16 as runtime, but the current taxonomy defines RT-16 as security/trust. The inventory maps its runtime subject to RT-10 and records the stale RT-16 label as an anomaly; the source document still needs correction.
 - **Scenario 91:** references RT-24; this is now a valid taxonomy reference after RT-24 was registered as the 24th area. The inventory crosswalk includes RT-24.
 - **Scenario 134:** mapped to RT-03/04/05/13 for discoverability, but the architecture decision makes it prior-art/reference only. It creates no active requirement for wire-schema evolution or Protobuf/Avro/CBOR runtime experiments.
 
@@ -234,7 +233,7 @@ The mapping is intentionally incomplete in these areas:
 2. Explicit RT identifiers in paths and scenario headers are strong traceability evidence, not proof that every claim, experiment, or conclusion is valid or current.
 3. RT-24 remains a candidate research proposal; registration does not accept its schema, identity model, canonical encoding, hash envelope, or merge policy.
 4. Seven reference/provenance files plus one prototype-family README remain Stage 0-only by design; their purpose is corpus navigation and source attribution, not a missing domain classification.
-5. Scenario 58's stale RT-16 runtime label has been corrected to RT-10 in this PR branch; the inventory retains the pre-correction blob identity for its pinned main snapshot.
+5. Scenario 58's header and inventory mapping consistently identify RT-10 as the runtime area; no taxonomy/source mismatch remains.
 6. Three explicit section-level supersession cases are now recorded; no whole document was marked superseded. The corpus-wide semantic duplicate/orphan/contradiction and per-experiment reproducibility audits remain incomplete.
 
 ## 9. Conclusion
