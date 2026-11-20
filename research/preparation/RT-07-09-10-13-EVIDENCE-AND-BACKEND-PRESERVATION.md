@@ -1,6 +1,7 @@
 # Research Preparation — RT-07/09/10/13 Evidence and Backend Preservation
 
-**Status:** Prepared; not executed.  
+**Status** — Prepared, with the bounded integer corpus executed in Scenario 96A.
+
 **Priority:** P0/P1 — execute after a bounded source-semantic slice is explicit.  
 **Related open questions:** LL-008, LL-013–020; RT-07, RT-09, RT-10 and RT-13 gates.
 
@@ -19,6 +20,8 @@ Read:
 - [Research State](../RESEARCH-STATE-2026-11-19.md), Gates C and A
 
 Scenario 133 is a bounded generated-Rust result for COR-13 and its tested transfer rules. It does not by itself establish a general translation pipeline, a second production backend, native foreign-effect correspondence or whole-language preservation.
+
+Scenario 96A executes the integer portion of the LLVM discriminators at O0 and O3. The two profiles preserve the tested observations, and the differential corpus detects a lost overflow error in structurally valid IR. [LLVM integer preservation](../RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md)
 
 ## 3. Evidence schema to prepare
 
