@@ -4,7 +4,7 @@
   "sources": [
     {
       "repository": "modelcontextprotocol/modelcontextprotocol",
-      "commit": "5f5440b",
+      "commit": "5f5440bb26a62e2cf3440b92da5a667efa03b267",
       "release": "2026-07-28",
       "files": [
         {
@@ -32,12 +32,14 @@
           "local": "research/references/snapshots/MCP/schema.json",
           "upstream_blob_sha": "213c58f6d9a1c2ce6ad055afe90bbdb095a29ee8"
         }
-      ]
+      ],
+      "commit_date": "2026-07-28T16:44:35Z",
+      "tree_sha": "8957e31e8ecd6fd7f52df82d44b3827cb44cecb1"
     },
     {
       "repository": "opencontainers/image-spec",
       "commit": "4feed4a6674e59d301b9294f187ac46acb2de99f",
-      "commit_date": "2026-10-22",
+      "commit_date": "2026-10-22T17:14:24Z",
       "files": [
         {
           "source": "LICENSE",
@@ -59,12 +61,13 @@
           "local": "research/references/snapshots/OCI/image-layout.md",
           "upstream_blob_sha": "026e71ecd03f780f635da0da9b2ed41da13d4fc5"
         }
-      ]
+      ],
+      "tree_sha": "db49a85ed9c7cf9ea73c3e686587e9d11de3d085"
     },
     {
       "repository": "AliveToolkit/alive2",
       "commit": "3bdd4f5e1cefa47057e93110e707acd11cfe08e4",
-      "commit_date": "2026-11-16",
+      "commit_date": "2026-11-16T22:01:49Z",
       "files": [
         {
           "source": "LICENSE",
@@ -76,12 +79,13 @@
           "local": "research/references/snapshots/Alive2/README.md",
           "upstream_blob_sha": "372a07fc19b0967be02217c01302a59820a7b7d6"
         }
-      ]
+      ],
+      "tree_sha": "00afc2cc9bf27749415d1ab1ac48750d4818a2fe"
     },
     {
       "repository": "bazelbuild/remote-apis",
       "commit": "e0c0554bfc8a37abf336c3e78070684367738e1d",
-      "commit_date": "2026-11-10",
+      "commit_date": "2026-11-10T22:56:06Z",
       "files": [
         {
           "source": "LICENSE",
@@ -93,7 +97,26 @@
           "local": "research/references/snapshots/REAPI/remote_execution.proto",
           "upstream_blob_sha": "67615206f8386fd412bae02e5b2abe75a87160cc"
         }
-      ]
+      ],
+      "tree_sha": "1fc34a272f266ba16d6dd82f6ef21dac9dbdff18"
     }
-  ]
+  ],
+  "verification": {
+    "verified_on": "2026-11-20",
+    "method": "For each source, resolve the exact upstream commit, read its recursive Git tree, and compare every manifest upstream_blob_sha with the blob SHA at the declared upstream path and with the local snapshot file's Git blob SHA.",
+    "result": {
+      "source_and_license_files": 13,
+      "upstream_blob_matches": 13,
+      "local_blob_matches": 13,
+      "missing_upstream_paths": 0,
+      "unmanifested_local_snapshot_files": 0,
+      "blob_mismatches": 0
+    },
+    "mcp_schema": {
+      "json_parse": "passed",
+      "json_schema_draft": "2020-12",
+      "definition_count": 155
+    },
+    "snapshot_contents_modified": false
+  }
 }

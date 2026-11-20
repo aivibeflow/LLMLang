@@ -10,7 +10,7 @@ The files under `snapshots/` are verbatim source snapshots retrieved from the up
 
 | Source | Upstream revision | Relevant local snapshots | Use in LLMLang research |
 |---|---|---|---|
-| Model Context Protocol | Stable specification release `2026-07-28`, upstream commit `5f5440b` | `snapshots/MCP/basic-index.mdx`, `authorization.mdx`, `transports.mdx`, `schema.json`; `LICENSE.md` | RT-16/19/22: protocol/transport boundary, authorization, schema source of truth, versioned server surface |
+| Model Context Protocol | Stable specification release `2026-07-28`, upstream commit `5f5440bb26a62e2cf3440b92da5a667efa03b267` | `snapshots/MCP/basic-index.mdx`, `authorization.mdx`, `transports.mdx`, `schema.json`; `LICENSE.md` | RT-16/19/22: protocol/transport boundary, authorization, schema source of truth, versioned server surface |
 | OCI Image Specification | Upstream commit `4feed4a6674e59d301b9294f187ac46acb2de99f` (2026-10-22) | `snapshots/OCI/descriptor.md`, `manifest.md`, `image-layout.md`; `LICENSE-APACHE-2.0.txt` | RT-05/11/12: typed content descriptors, digests, size/media type, manifest/layout and content-addressed distribution |
 | Alive2 | Upstream commit `3bdd4f5e1cefa47057e93110e707acd11cfe08e4` (2026-11-16) | `snapshots/Alive2/README.md`, `LICENSE-MIT.txt` | RT-07/09/13: LLVM translation validation, refinement checking and limits of the tool |
 | Bazel Remote Execution API | Upstream commit `e0c0554bfc8a37abf336c3e78070684367738e1d` (2026-11-10) | `snapshots/REAPI/remote_execution.proto`, `LICENSE-APACHE-2.0.txt` | RT-11/12: action cache, content-addressed storage, remote execution and API message contracts |
@@ -56,3 +56,18 @@ Some standards and documentation are maintained as live/versioned web publicatio
 - Separate the source's normative scope from LLMLang's candidate design questions.
 - Do not copy additional third-party standards into the repository until their redistribution terms are checked.
 - Research briefs remain the source of execution questions and exit criteria: [Preparation Pack](../preparation/README.md).
+
+
+## 6. Snapshot provenance and integrity verification (2026-11-20)
+
+The four upstream revisions were resolved and their recursive Git trees were inspected. For every entry in `SNAPSHOT-MANIFEST.json`, the blob at the declared upstream path matches the manifest's upstream blob ID, and the local snapshot's Git blob ID matches the same value.
+
+| Source | Resolved upstream commit | Upstream tree | Verified files |
+|---|---|---|---:|
+| MCP stable specification 2026-07-28 | `5f5440bb26a62e2cf3440b92da5a667efa03b267` | `8957e31e8ecd6fd7f52df82d44b3827cb44cecb1` | 5/5 |
+| OCI Image Specification | `4feed4a6674e59d301b9294f187ac46acb2de99f` | `db49a85ed9c7cf9ea73c3e686587e9d11de3d085` | 4/4 |
+| Alive2 | `3bdd4f5e1cefa47057e93110e707acd11cfe08e4` | `00afc2cc9bf27749415d1ab1ac48750d4818a2fe` | 2/2 |
+| Bazel Remote Execution API | `e0c0554bfc8a37abf336c3e78070684367738e1d` | `1fc34a272f266ba16d6dd82f6ef21dac9dbdff18` | 2/2 |
+| **Total** |  |  | **13/13** |
+
+There are no missing upstream paths, unmanifested local snapshot files, or blob mismatches. The local MCP schema parses as JSON Schema draft 2020-12 and contains 155 entries under `$defs`; this is a syntax/structure check, not a full semantic validation of the schema. The OCI and REAPI Apache-2.0 licence copies intentionally share the same blob ID. **No external snapshot or licence content was modified.**
