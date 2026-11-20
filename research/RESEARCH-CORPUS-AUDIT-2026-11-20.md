@@ -584,3 +584,8 @@ The latest relevant Logos-binding CI run 44766546452 passed the parser-state bri
 The [Cross-Cutting Research Document Alignment Review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) confirms that the taxonomy contains 24 unique RT areas and the dependency map contains 94 unique DEP edges, matching the inventory. Their feedback cycles are documented. The semantic dependency index, option matrix, and draft glossary remain candidate/proposal artifacts; none is treated as an accepted architecture decision.
 
 The `ImpHash`/`ImplHash` spelling mismatch is explicitly recorded as unresolved in PLAN.md and is intentionally not normalized. The semantic dependency index's duplicate section numbering was corrected; no semantic content was changed.
+
+
+## 12. Package-index diagnostic inventory delta
+
+The inventory reconciliation found two prototype files present in main but absent from the prior 471-record inventory: `run_tests_with_timings.py` and `profile_package_provider.py`, introduced by PRs #105 and #109. The first is the per-test timing runner used by the package-index workflow; the second is the optional cProfile harness invoked only when `run_benchmark=true`. Their roles and workflow relationships are now recorded, and the package-index README links both. This is an inventory drift correction, not a semantic change to the package-index model.
