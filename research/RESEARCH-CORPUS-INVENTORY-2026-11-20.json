@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-20",
   "repository": "aivibeflow/LLMLang",
-  "revision": "c105766eee22f25532712be115e62beb4d42faf5",
-  "source": "Recursive Git tree at current main revision; inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "c0815d3dbdd6b6acbe0e5479af5f41e26647260c",
+  "source": "Recursive Git tree at the RT-00 reconciliation commit; inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
-    "research_files": 456,
-    "markdown_files": 233,
+    "research_files": 457,
+    "markdown_files": 234,
     "python_files": 194,
     "scenario_named_documents": 136,
     "prototype_tree_files": 235,
@@ -19,7 +19,7 @@
       "prototype-test-evidence": 94,
       "other-research-artifact": 2,
       "index-or-research-management": 3,
-      "audit-or-review-report": 2,
+      "audit-or-review-report": 3,
       "cross-cutting-synthesis-or-status": 4,
       "scenario-research-result": 136,
       "research-rfc-or-protocol-proposal": 2,
@@ -31,7 +31,7 @@
     },
     "lean_source_files": 17,
     "taxonomy_research_areas": 24,
-    "dependency_edges": 93
+    "dependency_edges": 94
   },
   "classification_note": "Categories and mappings are inventory metadata. Path-derived mappings are not semantic proof; 36 root-level entries received first-pass content/heading/reference triage, 63 Scenario reports have taxonomy-based candidate RT crosswalks, and remaining gaps are enumerated in semantic_traceability_review.",
   "index_check": {
@@ -5036,8 +5036,8 @@
     },
     {
       "path": "research/PROTOTYPES/PACKAGE-IDENTITY-01/README.md",
-      "git_blob_sha": "efe05b3da712cd569c2bb4284a9089715e64a1ce",
-      "size_bytes": 3035,
+      "git_blob_sha": "68c094cc5c1e37bf377c8dc8d745afcf77829712",
+      "size_bytes": 3408,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -5294,8 +5294,8 @@
     },
     {
       "path": "research/PROTOTYPES/PACKAGE-INDEX-01/README.md",
-      "git_blob_sha": "6a087fb553896ce7cd4032169d7f65dd527acfe5",
-      "size_bytes": 6977,
+      "git_blob_sha": "fad0169283e8f294178690ef4b3e031184d95245",
+      "size_bytes": 7716,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -7600,8 +7600,8 @@
     },
     {
       "path": "research/PROTOTYPES/TOOLCHAIN-SERVER-01/README.md",
-      "git_blob_sha": "e3a3e5e51d2c1453269a8c0acbc5374b16d8be83",
-      "size_bytes": 2518,
+      "git_blob_sha": "f67e04e46d8c200e360f6705302d9559148273a8",
+      "size_bytes": 2629,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -7648,8 +7648,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "7c4768463c6f2f09c1313bf46473be9d8d881696",
-      "size_bytes": 20044,
+      "git_blob_sha": "6142243a9132f71ab8384fcf297b6d242aa38dc3",
+      "size_bytes": 22203,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -7710,8 +7710,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
-      "git_blob_sha": "7fcdc8ba43357a8b0f1603e65df9da86afe9d900",
-      "size_bytes": 10376,
+      "git_blob_sha": "1b182c98d521460b857136764ac468bc4638fd48",
+      "size_bytes": 17502,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -7723,6 +7723,26 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Direct output of the corpus reconciliation task."
+      },
+      "plan_stages": [
+        0
+      ]
+    },
+    {
+      "path": "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+      "git_blob_sha": "97ac921b6b82abd4b8077d48d71ce111739ff974",
+      "size_bytes": 20646,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "First-pass semantic traceability report; corpus inventory and audit control document",
+        "confidence": "high"
+      },
+      "semantic_review": {
+        "status": "corpus-management-output",
+        "basis": "This report documents first-pass traceability review, not substantive language semantics."
       },
       "plan_stages": [
         0
@@ -7752,8 +7772,8 @@
     },
     {
       "path": "research/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "5096c06a5082336824df9da267c6f6b723cb050e",
-      "size_bytes": 41337,
+      "git_blob_sha": "2219bda347696ace747d689f49bc94817b0ded2e",
+      "size_bytes": 43954,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -7804,8 +7824,8 @@
     },
     {
       "path": "research/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md",
-      "git_blob_sha": "5d15bc8c2a2938d878b4547978321c4362e3d9f9",
-      "size_bytes": 16676,
+      "git_blob_sha": "1b40e3edcb706431b84125adceb946ebf1086388",
+      "size_bytes": 16939,
       "category": "cross-cutting-synthesis-or-status",
       "traceability": {
         "items": [
@@ -10290,7 +10310,7 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md",
-      "git_blob_sha": "5ddef6fb64beb904b7c7db03482e8f762312d04f",
+      "git_blob_sha": "c290e2634efe68c91fb2badc199ec546d082e3f1",
       "size_bytes": 7107,
       "category": "scenario-research-result",
       "traceability": {
@@ -11567,8 +11587,8 @@
     },
     {
       "path": "research/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "eb54e0328c83e65e64793e9bc6748853f0e1c46e",
-      "size_bytes": 43320,
+      "git_blob_sha": "fbf6feccbc8f4f00b361bd123c78ca906f7e825c",
+      "size_bytes": 44364,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
