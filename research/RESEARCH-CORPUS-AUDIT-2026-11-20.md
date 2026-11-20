@@ -27,7 +27,7 @@ The audit remains **partial**. The inventory classifies paths and records tentat
 
 ### 2.1 Repository inventory
 
-- Retrieved the recursive Git tree for `main` at revision `4b947dda7edcc120183e57055f19a04a95714c55`; excluded the inventory manifest itself to avoid self-reference.
+- Retrieved the recursive Git tree for `main` at revision `a30ec074e08186f04a35535b9933bfa878713f31`; excluded the inventory manifest itself to avoid self-reference.
 - Enumerated all 450 tracked research artifacts whose paths begin with `research/`, excluding the inventory manifest itself.
 - Recorded path, Git blob SHA, byte size, coarse artifact category, and traceability metadata for every file in the inventory JSON.
 - Distinguished scenario-named reports, prototype implementations, tests, prototype readmes/reports, preparation briefs, external snapshots/licences, structured fixtures, and research documents.
@@ -96,7 +96,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 |---|---|---|
 | RCA-01 | The corpus has 450 tracked research artifacts in the refreshed inventory snapshot (excluding the manifest itself), but previously lacked a complete path inventory. | Added the machine-readable inventory snapshot. |
 | RCA-02 | Artifact-to-item mapping is not uniformly explicit in filenames. | Added qualified path-based mappings; content-level verification remains open. |
-| RCA-03 | All 233 research Markdown/MDX files were scanned for inline relative links (1,327 occurrences across the refreshed inventory revision). One LLMLang-authored broken link was fixed; 38 unresolved occurrences remain only in partial Alive2/OCI snapshots. | Project-authored inline relative links resolve; external snapshot completeness, external URLs, anchors, and index completeness remain open. |
+| RCA-03 | All 233 research Markdown/MDX files were scanned for inline relative links (1,330 occurrences across the refreshed inventory revision). One LLMLang-authored broken link was fixed; 38 unresolved occurrences remain only in partial Alive2/OCI snapshots. | Project-authored inline relative links resolve; external snapshot completeness, external URLs, anchors, and index completeness remain open. |
 | RCA-04 | At the refreshed inventory revision, the main, preparation, and references indexes have 85, 11, and 2 unique relative targets; all resolve. | Index link existence checks complete; scientific readiness and index coverage remain open. |
 | RCA-05 | PLAN.md §0.3 reported stale taxonomy/dependency counts. | Corrected to 24 research areas and 85 dependency edges; added RT-24 with candidate dependencies. |
 | RCA-06 | One exact duplicate blob is shared by the OCI and REAPI Apache-2.0 licence files. | Classified as intentional shared licence content; no deletion proposed. |
@@ -116,7 +116,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 
 - [ ] Read and validate the content-level mapping for every artifact, including prototypes, tests, fixtures, generated outputs, RFCs, and snapshots.
 - [x] First-pass content/heading/reference triage of 36 low-confidence entries; see the semantic traceability report.
-- [x] Cross-walk all 136 Scenario reports to candidate RT areas (63 taxonomy link/range mappings; 73 first-pass content/header mappings); record Scenario 58's RT-16/runtime mismatch and Scenario 134 prior-art-only applicability; Scenario 91's RT-24 reference now resolves.
+- [x] Cross-walk all 136 Scenario reports to candidate RT areas (63 taxonomy link/range mappings; 73 first-pass content/header mappings); record Scenario 58's RT-16/runtime mismatch, corrected to RT-10 in this PR branch and Scenario 134 prior-art-only applicability; Scenario 91's RT-24 reference now resolves.
 - [x] First-pass individual file-role mapping for all 120 prototype-family artifacts.
 - [ ] Validate prototype claims, test evidence, generated outputs, exact tool versions, and reproducibility at content/experiment level.
 - [x] Map nine vendored technical source documents to the RT areas named by the reference register; keep seven provenance/navigation/licence files at Stage 0.
@@ -129,7 +129,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 
 ## 6. Sources inspected
 
-- Recursive Git tree at `4b947dda7edcc120183e57055f19a04a95714c55`; inventory excludes its own manifest file.
+- Recursive Git tree at `a30ec074e08186f04a35535b9933bfa878713f31`; inventory excludes its own manifest file.
 - `PLAN.md`
 - `research/README.md`
 - `research/RESEARCH-TAXONOMY.md`
@@ -140,4 +140,4 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 
 ---
 
-**Conclusion:** the repository-wide path inventory, coarse artifact classification, Git-blob duplicate check, inline relative-link scan across all 233 research Markdown/MDX files, and first-pass triage of 36 low-confidence entries are recorded. One LLMLang-authored broken link was fixed; 38 unresolved occurrences are confined to partial verbatim external snapshots. PLAN.md §0.1 remains partially validated until content-level and reproducibility validation for all 120 prototype-family artifacts, index completeness, Scenario 58 taxonomy/source consistency, validation of RT-24's candidate contract, supersession/orphan/contradiction analysis, external snapshot provenance/completeness, and reproducibility verification are complete.
+**Conclusion:** the repository-wide path inventory, coarse artifact classification, Git-blob duplicate check, inline relative-link scan across all 233 research Markdown/MDX files, and first-pass triage of 36 low-confidence entries are recorded. One LLMLang-authored broken link was fixed; 38 unresolved occurrences are confined to partial verbatim external snapshots. PLAN.md §0.1 remains partially validated until content-level and reproducibility validation for all 120 prototype-family artifacts, index completeness, Scenario 58 taxonomy/source consistency (corrected in this PR branch), validation of RT-24's candidate contract, supersession/orphan/contradiction analysis, external snapshot provenance/completeness, and reproducibility verification are complete.
