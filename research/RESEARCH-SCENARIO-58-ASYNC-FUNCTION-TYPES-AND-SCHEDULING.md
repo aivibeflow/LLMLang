@@ -1,7 +1,7 @@
 # Research Scenario 58 — Async Function Types and Scheduling
 
 **Status:** Evidence-linked prior-art comparison; no LLMLang async type or execution policy selected  
-**Research area:** RT-03 execution semantics, RT-04 effects/types, RT-16 runtime  
+**Research area:** RT-03 execution semantics, RT-04 effects/types, RT-10 runtime  
 **Updated:** 2026-11-19
 
 ## 1. Question and scope
