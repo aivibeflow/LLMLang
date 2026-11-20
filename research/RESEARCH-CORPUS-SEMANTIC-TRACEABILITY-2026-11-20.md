@@ -556,3 +556,12 @@ See corpus audit §2.29. A proof over an accepted contract and fidelity of that 
 - 14's finite trace-refinement model compares implementation traces with contract-permitted traces and uses PROVEN/DISPROVEN/UNKNOWN only within declared finite complete models. It is not source-level refinement proof.
 
 See corpus audit §2.30. These models preserve separate identities and evidence obligations; no model should be promoted to an end-to-end build, authorization, or implementation-proof guarantee.
+
+
+## 31. Content-addressed evolution, implementation binding, and persistence audit — Scenarios 9–11
+
+- 9 is a conceptual content-addressed dependency model with a 100-caller/three-caller selective migration stress analysis. The report does not identify a separate executable prototype; it does not establish that mandatory occurrence identity is unnecessary across the whole language.
+- 10's binding.py/test_binding.py model immutable contract/implementation values and context-local binding snapshots. Dynamic dispatch, runtime loading, atomic project integration, and formal conformance remain unimplemented.
+- 11's project_state.py/test_project_state.py composes graph and binding documents into a deterministic checksummed envelope and tests integrity/round-trip cases. It is not a multi-writer transaction, atomic branch-head selection, or conformance proof.
+
+See corpus audit §2.31. Object identity, snapshot selection, persistence integrity, atomic publication, and behavioral refinement remain separate guarantees.
