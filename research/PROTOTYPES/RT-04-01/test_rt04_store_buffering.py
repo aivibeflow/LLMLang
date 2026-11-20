@@ -6,6 +6,9 @@ from rt04_store_buffering import (
     naive_load_then_store_outcomes,
     same_location_atomic_reads,
     independent_atomic_reads,
+    coherent_write_orders,
+    read_write_coherent_sources,
+    write_read_coherent_sources,
     release_relay_payload_outcomes,
     same_thread_plain_store_is_release_sequence_member,
     fence_publication_payload_outcomes,
@@ -40,6 +43,42 @@ class StoreBufferingTests(unittest.TestCase):
         self.assertNotIn((2, 1), monotone)
         self.assertNotIn((1, 0), monotone)
         self.assertIn((2, 1), independent_atomic_reads(0, (1, 2), 2))
+
+    def test_write_write_coherence_orders_happens_before_writes(self):
+        self.assertEqual(
+            coherent_write_orders(("w0", "w1"), (("w0", "w1"),)),
+            {("w0", "w1")},
+        )
+        self.assertEqual(
+            coherent_write_orders(("w0", "w1"), (("w0", "w1"), ("w1", "w0"))),
+            set(),
+        )
+
+    def test_read_write_coherence_requires_strictly_earlier_source(self):
+        candidates = {"init", "w1", "w2"}
+        self.assertEqual(
+            read_write_coherent_sources(
+                ("init", "w1", "w2"), "w1", candidates
+            ),
+            {"init"},
+        )
+
+    def test_write_read_coherence_forbids_initial_value_after_write(self):
+        candidates = {"init", "w1", "w2"}
+        self.assertEqual(
+            write_read_coherent_sources(
+                ("init", "w1", "w2"), "w1", candidates
+            ),
+            {"w1", "w2"},
+        )
+
+    def test_coherence_helpers_reject_invalid_relations(self):
+        with self.assertRaises(ValueError):
+            coherent_write_orders(("w1",), (("w1", "missing"),))
+        with self.assertRaises(ValueError):
+            read_write_coherent_sources(("init", "w1"), "w1", {"missing"})
+        with self.assertRaises(ValueError):
+            write_read_coherent_sources(("init", "w1"), "missing", {"init"})
 
     def test_release_sequence_rmw_relay_controls_acquire_edge(self):
         self.assertEqual(release_relay_payload_outcomes(True), {1})

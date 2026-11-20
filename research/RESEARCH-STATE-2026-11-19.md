@@ -130,6 +130,8 @@ The latest bounded type/semantics results include a counterexample: transfer-fir
 
 [Scenario 116](RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md) compares the candidate `Relaxed`→LLVM `monotonic` mapping with weaker `unordered`, and records that LLVM IR atomics promise lock-free operations, so unsupported target widths can fail lowering. It compares target-gated widths, lock-backed fallback, and an explicit fallback API; each changes portability/progress trade-offs. A sound source-to-IR mapping, fallback contract, and cross-backend/target litmus validation remain open.
 
+Scenario 117 adds executable checks for the three coherence rules left out of Scenario 113's read-read fixture. A write ordered before another write constrains modification order. A read ordered before a write must observe a strictly earlier write. A read ordered after a write can observe that write or a later one. The fixtures take the order premises as inputs. [Atomic coherence relations](RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
