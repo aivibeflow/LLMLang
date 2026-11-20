@@ -246,6 +246,16 @@ A separate llvm-preservation job has now been added to the Research Native Repro
 
 **Cross-area status:** Scenarios 90–93 map to still-open identity/cache decisions (LL-004, LL-005, LL-001, LL-021); Scenario 95 remains partial research; Scenario 96 informs LL-020 but does not settle backend selection. These reports must not be promoted into normative language rules or accepted architecture decisions without the corresponding review.
 
+
+### 2.17 Fresh LLVM preservation reproduction — Scenarios 96A/96B
+
+The llvm-preservation job in [Research Native Reproduction run 44773422416](https://github.com/aivibeflow/LLMLang/actions/runs/44773422416) passed both native probes. The environment matched the recorded toolchain: Debian Trixie/glibc 2.41, Python 3.12.14, libffi 3.4.8, Debian llvm-19 package 1:19.1.7-3+b1, GCC 14.2.0, and GNU ld 2.44. The downloaded Debian package SHA-256 matched the report exactly: 0b1b7263f4f45e261099240fdbf00fc14b42b88410fd829e041bf83ea45866cb. Both probes use the explicit x86_64-unknown-linux-gnu triple, x86-64 CPU, PIC, and O0/O3 pipelines.
+
+- **96A integer preservation:** 20,978 traces at O0 and 20,978 at O3, zero mismatches. Outcome counts per level were ok 17,552; overflow 1,765; shift_count 1,566; zero_divisor 95. The verifier-accepted missing-overflow-branch mutant disagreed at the signed-maximum witness. Three unsupported source forms and one invalid dominance relation were rejected. Input IR SHA-256 matched the report: c46111f6b77eb621a5c154b17645044e1d76c7cb2808fe80189a63f447dc173d.
+- **96B byte-view preservation:** 9,800 traces at O0 and 9,800 at O3, zero mismatches. Outcome counts per level were bounds 4,100; ok 580; overflow 1,200; wrong_origin 3,920. The verifier-accepted one_past_read and erased_origin controls disagreed with the source reference. Input IR SHA-256 matched the report: ddb41ceb866c77e957df865cd2102f7a02d3a468150fc82f79c7a7fb2bf782d0.
+
+Artifact [14647744441](https://github.com/aivibeflow/LLMLang/actions/runs/44773422416/artifacts/14647744441) preserves the runtime manifest and both probe outputs. This is a fresh reproduction of the recorded fixtures and toolchain on the current PR revision. It does not expand the claim beyond the fixed x86-64 fixture, target, integer/view operations, and O0/O3 configurations.
+
 ## 3. Findings and actions
 
 | ID | Finding | Action / status |
@@ -265,7 +275,7 @@ A separate llvm-preservation job has now been added to the Research Native Repro
 | RCA-13 | The three tests for Scenario 133 exercise Rust code generation and rejection behavior without invoking rustc; the native 125,952-comparison claim is a separate manual command. | The native workflow ran Rust 1.85.1 and matched all 125,952 observations, including the six reported admission counts. The captured output is in artifact 14648440097; generator CI and native Rust conformance remain separate evidence levels. |
 | RCA-14 | Scenario 134 proposes a Protobuf/Avro/CBOR runtime conformance matrix, but the current accepted architecture requires only same-build, same-toolchain caller/callee compatibility and excludes cross-version wire guarantees. | Classified Scenario 134 as prior-art/reference material, not active implementation work. Do not schedule its runtime matrix unless a documented reconsideration trigger in the accepted architecture decision is introduced. |
 | RCA-15 | Scenario 130's historical report records Python sqlite3 version 3.53.1 but omits its SQLite source ID. | Reproduced at the documented version and recorded the new run's source ID; byte-identical historical build provenance cannot be established retroactively. Require source IDs in future reproducibility reports. |
-| RCA-16 | Scenarios 96A/96B contain detailed historical LLVM experiment evidence, but Required CI does not execute those native probes. | Added an LLVM preservation job to the Research Native Reproduction workflow. It verifies the exact Debian LLVM package archive hash and toolchain before running both probes; first fresh run remains pending.
+| RCA-16 | Scenarios 96A/96B contain detailed historical LLVM experiment evidence, but Required CI does not execute those native probes. | The llvm-preservation job freshly reproduced both probes with the exact Debian LLVM package hash and recorded Python/GCC/linker/libc versions. Both comparison matrices and negative controls matched the reports; artifact 14647744441 preserves outputs. It remains a separate non-required native job.
 
 ## 4. Reconciliation rules
 

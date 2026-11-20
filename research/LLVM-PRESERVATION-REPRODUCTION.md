@@ -1,6 +1,6 @@
 # LLVM Preservation Reproduction Protocol
 
-**Status:** historical experiments are source-pinned; the LLVM preservation job is part of the Research Native Reproduction workflow and awaits its first run.
+**Status:** freshly reproduced by llvm-preservation job 44773422416; both probes passed and artifact 14647744441 preserves the manifest and outputs.
 
 ## Scope
 
@@ -24,7 +24,7 @@ The llvm-preservation job in .github/workflows/rt04-native-reproduction.yml runs
 | C compiler | GCC 14.2.0 |
 | Linker | GNU ld 2.44 |
 
-The archive SHA-256 is checked before the probes run. The package version and executable versions are independently checked by the runner. The workflow records Python, platform/libc, compiler, linker, tool versions, package archive hash, repository commit, commands, exit codes, and stdout/stderr.
+The archive SHA-256 is checked before the probes run. The package version and executable versions are independently checked by the runner. The workflow records Python 3.12.14, platform/libc, compiler, linker, tool versions, package archive hash, repository commit, commands, exit codes, and stdout/stderr. The successful run used glibc 2.41 and libffi 3.4.8, matching the report.
 
 ## Commands
 
@@ -51,6 +51,6 @@ The historical reports do not claim Required CI executes these native experiment
 
 ## Remaining work
 
-- Run the workflow and compare all counts and negative-control traces with Scenarios 96A/96B.
-- Preserve the artifact and workflow run ID in the RT-00 audit.
+- Preserve artifact 14647744441 and workflow run 44773422416 in the RT-00 audit.
+- Keep the tested subset/target limits explicit; the successful run is a fresh reproduction of the fixed fixtures, not a whole-domain proof.
 - Keep the tested subset/target limits explicit; whole-domain proof, other targets, constant folding, general provenance, floating point, atomics, and a complete source-to-LLVM pipeline remain open.
