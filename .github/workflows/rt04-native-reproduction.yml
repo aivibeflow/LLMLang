@@ -1,4 +1,4 @@
-name: RT-04 Native Reproduction
+name: Research Native Reproduction
 
 on:
   pull_request:
@@ -7,6 +7,9 @@ on:
       - ".github/workflows/rt04-native-reproduction.yml"
       - "research/PROTOTYPES/RT-04-01/**"
       - "research/RT-04-NATIVE-REPRODUCTION.md"
+      - "research/PROTOTYPES/LLVM-PRESERVATION-01/**"
+      - "research/RESEARCH-SCENARIO-96*.md"
+      - "research/LLVM-PRESERVATION-REPRODUCTION.md"
   workflow_dispatch:
 
 permissions:
@@ -78,5 +81,61 @@ jobs:
         with:
           name: rt04-native-reproduction-${{ github.run_id }}-${{ github.run_attempt }}
           path: artifacts/rt04-native-reproduction/
+          if-no-files-found: warn
+          retention-days: 30
+
+  llvm-preservation:
+    name: llvm-preservation
+    runs-on: ubuntu-24.04
+    container:
+      image: debian:trixie
+    timeout-minutes: 45
+    steps:
+      - name: Install checkout and package tools
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends ca-certificates git curl
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install the exact Debian LLVM tool package
+        shell: bash
+        run: |
+          set -euo pipefail
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            llvm-19=1:19.1.7-3+b1 gcc-14 binutils
+          apt-get download llvm-19=1:19.1.7-3+b1
+          package="$GITHUB_WORKSPACE/llvm-19_19.1.7-3+b1_amd64.deb"
+          test -f "$package"
+          echo "LLMLANG_LLVM_DEB_PATH=$package" >> "$GITHUB_ENV"
+          echo "LLVM package SHA-256:"
+          sha256sum "$package"
+          opt-19 --version
+          llc-19 --version
+          gcc-14 --version
+          ld --version
+          ldd --version
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+
+      - name: Run integer and byte-view preservation experiments
+        run: |
+          python -B research/PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py \
+            --opt /usr/bin/opt-19 \
+            --llc /usr/bin/llc-19 \
+            --cc /usr/bin/gcc-14 \
+            --output-dir artifacts/llvm-preservation-reproduction
+
+      - name: Preserve LLVM experiment outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: llvm-preservation-reproduction-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/llvm-preservation-reproduction/
           if-no-files-found: warn
           retention-days: 30
