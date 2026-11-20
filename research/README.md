@@ -96,6 +96,10 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 - [RT-16 authorization policy prototype](PROTOTYPES/RT-16-AUTHORIZATION-01/policy.py) and [policy tests](PROTOTYPES/RT-16-AUTHORIZATION-01/test_policy.py) — bounded authorization-policy fixtures, not a complete security architecture.
 - [Package manifest example](examples/package/manifest.toml) — minimal package metadata fixture.
 
+## Semantic relationship review
+
+- [Research corpus semantic relationship review — scenario studies (2026-11-20)](RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md) — first-pass classification of scenario relationships, scoped supersession, exact-blob duplicates, and unresolved gaps.
+
 ## Corpus inventory and audit
 
 - [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked research artifact under `research/` at the recorded revision (excluding the inventory manifest itself).
