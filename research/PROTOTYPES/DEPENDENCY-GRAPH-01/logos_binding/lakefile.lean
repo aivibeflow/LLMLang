@@ -8,7 +8,8 @@ require Cpc from git
 
 lean_lib LLMLangLogosBinding where
   roots := #[`LLMLangLogosBinding, `SourceQuerySemantics, `SourceSyntax, `RelationalSourceQuerySemantics,
-    `LogosQueryAdapter, `CheckedSourceSemantics, `SourceCoreTests]
+    `LogosQueryAdapter, `CheckedSourceSemantics, `SourceCoreTests, `SourceCommandSemantics,
+    `SourceCommandTests]
 
 lean_exe testParserBinding where
   root := `Main
