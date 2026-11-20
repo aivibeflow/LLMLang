@@ -86,5 +86,5 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 
 ## Corpus inventory and audit
 
-- [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked file under `research/` at the recorded revision.
+- [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked research artifact under `research/` at the recorded revision (excluding the inventory manifest itself).
 - [Research corpus audit (2026-11-20)](RESEARCH-CORPUS-AUDIT-2026-11-20.md) — audit scope, verified checks, findings, and remaining work for PLAN.md §0.1.
