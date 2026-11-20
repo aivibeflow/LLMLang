@@ -683,17 +683,25 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Estimated research complexity:** **9/10** — lowering, UB/poison, target behavior, and source-to-IR preservation.
 
-- [ ] Define LLVM's role as a replaceable backend, not the canonical LLMLang semantic representation.
-- [ ] Define a conservative LLVM IR subset and lowering contract.
-- [ ] Research poison, undef, overflow flags, pointer semantics, aliasing, floating-point flags, and memory ordering.
-- [ ] Define how LLVM optimization passes are validated against LLMLang semantics.
+- [ ] Preserve the LLMLang-owned semantic source of truth and replaceable backend boundary; do not make LLVM IR the canonical semantic IR.
+- [ ] Define a conservative LLVM IR subset and source-to-LLVM lowering contract.
+- [ ] Research poison, undef, overflow flags, pointer provenance, aliasing, floating-point flags, atomics, and memory ordering.
+- [ ] Define how LLVM optimization passes and target code generation are validated against LLMLang semantics.
 - [ ] Evaluate Alive2 and Vellvm and their applicability/limitations.
 - [ ] Define supported LLVM versions and reproducible toolchain identity.
-- [ ] Test generated code against reference semantics.
+- [ ] Build a target support matrix: architecture/CPU features, OS, ABI/calling convention, object format, linker, sysroot/system libraries, runtime, and required toolchain components.
+- [ ] Evaluate Cranelift as a candidate for fast Debug compilation and/or JIT; compare its supported targets, ABI/runtime integration, debug information, optimization behavior, and maintenance burden. Do not presume it should replace LLVM.
+- [ ] Define the evidence threshold for considering a direct native backend; first identify a concrete unmet requirement and estimate the full implementation/maintenance cost.
+- [ ] Evaluate WebAssembly target profiles and whether LLVM or a dedicated toolchain provides the better fit.
+- [ ] Specify a reproducible comparative benchmark protocol and shared workload corpus for LLVM, Cranelift, and any justified prototype backend.
+- [ ] Measure cold and incremental compile latency/throughput, Debug and Release runtime performance, output size, peak memory, debug/diagnostic quality, target coverage, and toolchain/build complexity. Report distributions and workload-specific results; do not hide trade-offs in one aggregate score.
+- [ ] Validate every candidate against the same reference semantics and adversarial conformance corpus; performance results do not waive semantic-correctness gates.
+- [ ] Decide whether one backend or mode-specific backends (Debug/Release/JIT) are justified by the combined correctness, performance, portability, and maintenance evidence.
+- [ ] Record the selected initial configuration, explicit non-goals, unsupported target combinations, fallback behavior, and criteria for revisiting the decision.
 
-**Existing evidence:** `research/LLVM-BACKEND-ARCHITECTURE.md`.
+**Existing evidence:** `research/LLVM-BACKEND-ARCHITECTURE.md`; Scenarios 96, 96A, and 96B provide bounded source-to-LLVM preservation evidence, not a general backend validation.
 
-**Status:** researched in `research/LLVM-BACKEND-ARCHITECTURE.md`; implementation, lowering validation, and target-specific correctness evidence remain open.
+**Status:** architectural recommendation exists; backend selection, comparative measurements, full target matrix, lowering validation, and target-specific correctness evidence remain open.
 
 ## 6.4 Implementation discovery, selection, and optimization
 
