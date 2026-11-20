@@ -451,3 +451,19 @@ Scenarios 57–64 are comparative studies, with selected later bounded models li
 - 64: error propagation and recovery; Scenario 97 covers finite cleanup-error composition, not general propagation semantics.
 
 See corpus audit §2.22 for detailed scope and cross-links. The related bounded models must remain explicitly scoped to their tested subquestions.
+
+
+## 23. Specification-level prior-art audit — Scenarios 49–56
+
+Scenarios 49–56 are comparative language-design studies and proposed experiments, not executed LLMLang implementation evidence:
+
+- 49: operator precedence, overloading, conversions, and parse/evaluation consistency; no LLMLang parser/type/evaluator differential run.
+- 50: name resolution, scopes, shadowing, namespaces, and declaration order; later restricted source-alias fixtures do not provide a complete resolver.
+- 51: visibility and module exports; no access-check/module-interface prototype.
+- 52: Unicode identifier and spoofing policy; no LLMLang lexer or confusable corpus execution.
+- 53: statement termination and newline parsing; no LLMLang parser/formatter prototype.
+- 54: pattern matching and exhaustiveness; no LLMLang pattern checker or finite-ADT implementation.
+- 55: loop results and labeled control transfer; no LLMLang CFG/typing prototype.
+- 56: closure capture, callability, escape, and lifetime; no LLMLang closure implementation.
+
+See corpus audit §2.23 for detailed boundaries and cross-links. The reports' proposed experiments should not be mistaken for completed tests.
