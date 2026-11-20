@@ -1,6 +1,6 @@
 # Research Scenario 34 — Source-to-Query Semantic Correspondence
 
-**Status** — In progress. Lean proves that the canonical relational formula is satisfiable exactly when paired executions of the checked Int/Bool fragment witness dependence. The QF_LIA, JSON and Logos correspondence remains open.
+**Status** — In progress. Lean proves that the canonical relational formula is satisfiable exactly when paired executions of the checked Int/Bool fragment witness dependence. Its lowered terms belong to the strict QF_LIA profile. Solver-facing declaration closure, JSON correspondence and source-derived CPC binding remain open.
 
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 26–33.  
@@ -155,13 +155,7 @@ This is the core source-to-query correspondence theorem.
 
 ### SC-7 — QF_LIA admissibility
 
-Every query generated from a program accepted by the strict fragment is in QF_LIA. In particular, the proof must show:
-- all symbols have declared Bool/Int sorts;
-- all arithmetic operators are linear;
-- no unsupported term is emitted;
-- every query symbol is bound to the intended left/right input, local, or state value.
-
-A Python validator test is useful regression coverage, but it cannot replace this theorem or an independently checked Lean validator.
+Every admitted program, contract and factor yields a quantifier-free Boolean formula over `Int` and `Bool` in the strict QF_LIA term profile. Each multiplication has an integer literal operand. Each conjunction or disjunction has at least two operands. Solver-facing declaration closure must preserve the sort and source role of every referenced symbol (SCW-30).
 
 ## 6. Lean implementation architecture
 
@@ -178,6 +172,7 @@ Proposed modules:
 - `PairedObservationSemantics.lean` — admissible input pairs, shared entry slots and preservation of both observations.
 - `CanonicalQuerySymbols.lean` — stable declaration keys, typed symbol bindings and conversion between canonical and paired valuations.
 - `ProgramRelationalQuery.lean` — compilation of the relational formula and proof of equivalence to concrete dependence.
+- `QfLiaQuery.lean` and `QfLiaAdmissibility.lean` — the solver term profile and proof that every compiled formula lowers into it.
 - `Correspondence.lean` — SC-1 through SC-7 theorems.
 - `LogosBinding.lean` — existing CPC parser bridge, JSON decoder, and Eo.Term renderer.
 
@@ -262,12 +257,16 @@ The Lake build includes 16 relational examples covering Int and Bool factors, bo
 
 ### 7.6 QF_LIA admissibility and external wire/checker boundary
 
-- [ ] **SCW-29 — Prove QF_LIA admissibility (SC-7).** Prove all emitted operators and sorts are supported and multiplication always has a literal operand.
+- [x] **SCW-29 — Prove QF_LIA admissibility (SC-7).** `compileRelationalQuery_qfLia` proves that each admitted program, contract and factor compiles to a formula whose lowered term passes the strict QF_LIA check.
 - [ ] **SCW-30 — Prove declaration closure for the solver-facing query.** Carry the Lean table's uniqueness, reference closure, sorts and roles through lowering.
 - [ ] **SCW-31 — Define the canonical JSON correspondence boundary.** Relate the Lean-owned canonical formula to the `/2` wire envelope without trusting Python to choose the semantic expression.
 - [ ] **SCW-32 — Connect the proved formula to Logos terms.** Prove the adapter preserves structure and sort, then retain the CPC parser-state identity checks.
 - [ ] **SCW-33 — Bind exact CPC assumptions to the proved source-derived formula.** The parser-state bridge and structural assumption checks exist; this task replaces the externally supplied expected query with the Lean-reconstructed source-derived formula.
 - [ ] **SCW-34 — State the solver/checker trust boundary.** Document which theorem is Lean-kernel checked, which result is Logos-checked, and what remains trusted or assumed.
+
+`QueryTerm.isQfLia` checks the typed term tree shared by the adapter, JSON decoder and Logos renderer. Its constructors fix the operators and their Int/Bool sorts. The check descends through all operands, including both branches of a conditional. `toLogosQueryTerm_qfLia` proves admissibility by induction on the independent query IR. In particular, `mulConst` lowers to a multiplication with an explicit integer literal, and each binary Boolean connective lowers to a two-element operand list. [Term profile](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/QfLiaQuery.lean) · [Adapter theorem](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosQueryAdapter.lean) · [Program theorem](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/QfLiaAdmissibility.lean)
+
+Seven Lean examples exercise signed literal multiplication, rejected nonlinear multiplication even inside an inactive conditional branch, and rejected short Boolean operand lists. The admissibility proof builds independently of CPC. [Lean examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQueryTests.lean)
 
 **Outputs:** admissibility theorem; canonical wire/Logos adapter; exact source-derived CPC binding; explicit trusted computing base.
 
@@ -285,7 +284,7 @@ The Lake build includes 16 relational examples covering Int and Bool factors, bo
 
 ### 7.8 Execution order and gates
 
-SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–25 preserve command execution and observations through paired runs. SCW-26–28 establish equivalence between the canonical formula and concrete dependence witnesses. SCW-29–34 carry this result to the solver-facing query and proof boundary.
+SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–25 preserve command execution and observations through paired runs. SCW-26–28 establish equivalence between the canonical formula and concrete dependence witnesses. SCW-29 proves that its lowered term is in the strict QF_LIA profile. SCW-30–34 carry declaration and formula correspondence to the solver and proof checker.
 
 | Gate | Required tasks | Exit condition |
 |---|---|---|
