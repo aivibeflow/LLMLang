@@ -136,7 +136,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 - [ ] Read and validate the content-level mapping for every artifact, including prototypes, tests, fixtures, generated outputs, RFCs, and snapshots.
 - [x] First-pass content/heading/reference triage of 36 low-confidence entries; see the semantic traceability report.
 - [x] Cross-walk all 136 Scenario reports to candidate RT areas (63 taxonomy link/range mappings; 73 first-pass content/header mappings); record Scenario 134 prior-art-only applicability; Scenario 91's RT-24 reference now resolves.
-- [x] First-pass individual file-role mapping for the 126 individually role-mapped prototype artifacts; 109 further prototype artifacts remain without individual file-role mappings.
+- [x] First-pass individual file-role mapping for the 131 individually role-mapped prototype artifacts; 109 further prototype artifacts remain without individual file-role mappings.
 - [ ] Validate prototype claims, test evidence, generated outputs, exact tool versions, and reproducibility at content/experiment level.
 - [x] Map nine vendored technical source documents to the RT areas named by the reference register; keep seven provenance/navigation/licence files at Stage 0.
 - [x] Register RT-24 and cross-link its three research documents; keep the technical contract and dependency edges explicitly provisional.
