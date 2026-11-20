@@ -192,6 +192,8 @@ These are not simple one-way dependencies. They must be tested explicitly:
 2. **Semantic identity ↔ dependency semantics (RT-05 ↔ RT-06).** Hash boundaries determine which dependency edges propagate identity; dependency semantics determine which inputs must be committed by an artifact hash.
 3. **Formal semantics ↔ canonical IR (RT-03/05 ↔ RT-07/09).** The IR must be expressive enough for the language but small enough for independently validated semantics and proof encodings.
 4. **Runtime ↔ effects/ownership/concurrency (RT-04 ↔ RT-10).** Runtime primitives may reveal missing language concepts; language concepts may require a different runtime boundary.
+
+   Scenario 120 adds SQLite evidence for DEP-019. A live prepared statement prevents ordinary close and delays destruction under `close_v2`. A wrapper's ownership contract needs to track this dependency separately from the close result and the connection capability. [Cleanup dependencies in SQLite](RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md)
 5. **Backend ↔ language subset (RT-03/04 ↔ RT-09/13).** Backend capability must not silently define source semantics. A target may reject a valid source program, require a different implementation strategy, or impose an explicitly declared profile.
 6. **Requirements ↔ verification evidence (RT-02 ↔ RT-07/08).** A proof can establish implementation conformance to a formal contract; it cannot establish that the contract correctly captures human intent.
 7. **AI change model ↔ Git/semantic merge (RT-14 ↔ RT-15).** Both need stable operations, baselines, provenance, conflict semantics, and reviewable changes.
