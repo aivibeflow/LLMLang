@@ -15,7 +15,7 @@ Read:
 - [Research State](../RESEARCH-STATE-2026-11-19.md), Gates D and the candidate-vector section
 - [Research Option Matrix 01](../RESEARCH-OPTION-MATRIX-01.md)
 - [Scenario 95 — diagnostics for humans and coding agents](../RESEARCH-SCENARIO-95-DIAGNOSTICS-FOR-HUMANS-AND-AGENTS.md)
-- [RT-14 AI authoring / RT-17 DX**] (use the taxonomy and dependency map to locate the current detailed reports before execution)
+- [Research Taxonomy](../RESEARCH-TAXONOMY.md) and [Research Dependency Map](../RESEARCH-DEPENDENCY-MAP.md) (use these to locate the current RT-14/RT-17 source material before execution)
 
 ## 3. Questions
 
