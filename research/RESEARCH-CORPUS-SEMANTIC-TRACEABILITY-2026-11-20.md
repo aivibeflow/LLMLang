@@ -593,7 +593,7 @@ These studies establish the original problem framing, not an implemented rename,
 
 ## 34. Post-baseline inventory refresh — current main
 
-The inventory was reconciled against the complete recursive Git tree at reviewed refresh snapshot `0e3115d6e0d6a73986a8111b3313f912e7b20844`, based on `main` revision `47ec6e26ca12e615283d02393656bc0b3e9f656f`. The refreshed manifest records 468 research artifacts (237 Markdown/MDX, 197 Python, 22 Lean, 243 prototype-tree files, and 136 scenario-named documents). All 462 previously inventoried paths remain present; 17 existing files have updated blob identities and/or sizes, six research files were added, and no inventoried path was deleted.
+The inventory was reconciled against the complete recursive Git tree at reviewed refresh snapshot based on `main` revision `47ec6e26ca12e615283d02393656bc0b3e9f656f`. The refreshed manifest records 468 research artifacts (237 Markdown/MDX, 197 Python, 22 Lean, 243 prototype-tree files, and 136 scenario-named documents). All 462 previously inventoried paths remain present; 17 existing files have updated blob identities and/or sizes, six research files were added, and no inventoried path was deleted.
 
 Three new prototype files received individual role mappings:
 
