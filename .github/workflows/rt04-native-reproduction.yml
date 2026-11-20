@@ -1,0 +1,56 @@
+name: RT-04 Native Reproduction
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-reproduction:
+    name: native-reproduction
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+
+      - name: Set up Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: "1.85.1"
+
+      - name: Build the pinned SQLite C library
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl --fail --location --silent --show-error \
+            https://www.sqlite.org/2024/sqlite-autoconf-3460100.tar.gz \
+            --output sqlite-autoconf-3460100.tar.gz
+          tar -xzf sqlite-autoconf-3460100.tar.gz
+          cd sqlite-autoconf-3460100
+          ./configure --prefix="$RUNNER_TEMP/sqlite-3.46.1" --enable-shared --disable-static
+          make -j2
+          make install
+          echo "LLMLANG_SQLITE_LIBRARY=$RUNNER_TEMP/sqlite-3.46.1/lib/libsqlite3.so" >> "$GITHUB_ENV"
+
+      - name: Run native SQLite and Rust experiments
+        run: |
+          python -B research/PROTOTYPES/RT-04-01/run_native_probes.py \
+            --suite all \
+            --output-dir artifacts/rt04-native-reproduction
+
+      - name: Preserve native experiment outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt04-native-reproduction-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/rt04-native-reproduction/
+          if-no-files-found: warn
+          retention-days: 30

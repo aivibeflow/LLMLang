@@ -1,7 +1,0 @@
-components = [
-  "syntax",
-  "core_semantics",
-  "type_system",
-  "effects_execution",
-  "modules_packages",
-]
