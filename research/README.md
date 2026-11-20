@@ -2,7 +2,7 @@
 
 Research documents are exploratory evidence and do not change the candidate or normative language specification unless a decision is explicitly accepted.
 
-Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the current evidence map, open integrated vectors, synthesis gates, and recommended next work. Use the [Research Option Matrix 01](RESEARCH-OPTION-MATRIX-01.md) to compare cross-area candidate bundles; no bundle is selected. The [Research Preparation Pack](preparation/README.md) contains execution briefs for the planned studies; it is preparation material, not additional research evidence.
+Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the current evidence map, open integrated vectors, synthesis gates, and recommended next work. Use the [Research Option Matrix 01](RESEARCH-OPTION-MATRIX-01.md) to compare cross-area candidate bundles; no bundle is selected. The [Research Preparation Pack](preparation/README.md) contains execution briefs for the planned studies; it is preparation material, not additional research evidence. The [External Research References and Snapshots](references/README.md) register links and preserves versioned primary-source materials for those briefs.
 
 ## Core semantic and type research
 
