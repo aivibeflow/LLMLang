@@ -186,7 +186,59 @@ A cautious implementation sequence would be:
 
 The initial subset should avoid relying on LLVM features whose semantic correspondence has not yet been specified.
 
-## 9. Open design questions
+## 9. Backend selection and comparative evaluation
+
+The replaceable-backend boundary is an architectural constraint, not a decision that every candidate backend must be implemented. The first implementation should reuse a mature backend unless measured requirements justify additional machinery.
+
+### 9.1 Candidate roles (hypotheses, not decisions)
+
+| Candidate | Hypothesized role | Evidence required before selection |
+|---|---|---|
+| LLVM | Leading candidate for optimized native code and broad target coverage | Source-to-IR preservation, optimization validation, target/ABI coverage, reproducible performance and maintenance measurements |
+| Cranelift | Candidate for low-latency Debug compilation and JIT | Same-semantics workload comparison, target and ABI coverage, debug information, runtime integration, and quality of generated code |
+| Direct native backend | Possible specialized path only when a concrete requirement is unmet by existing backends | Demonstrated gap, bounded target scope, implementation/maintenance estimate, independent conformance corpus, and lifecycle plan |
+| WebAssembly toolchain | Candidate for portable sandboxed deployment | WASM feature/profile compatibility, host/runtime interface, resource and security model, and end-to-end conformance |
+
+These roles must not be treated as established performance facts. In particular, do not assume that Cranelift is always faster for LLMLang workloads, that LLVM is always the best Release backend, or that a custom backend will be simpler overall. Measure the actual compiler pipeline and representative programs.
+
+### 9.2 Comparative benchmark protocol
+
+Compare candidates using the same source/semantic workload corpus, equivalent optimization intent, pinned toolchain versions, controlled hardware, and reproducible build configurations. Include:
+- clean/cold compile latency and sustained compile throughput;
+- incremental rebuild latency for representative change scopes;
+- Debug and optimized-build runtime latency/throughput;
+- generated object/executable size and peak compiler memory;
+- startup/JIT latency where applicable;
+- diagnostics, source locations, debug information, and debugger usability;
+- supported target/ABI/runtime combinations and integration effort;
+- toolchain installation, versioning, build reproducibility, and ongoing maintenance burden.
+
+Report per-workload results, distributions, variance, and known confounders. Keep correctness/conformance as a hard gate rather than blending it into a weighted performance score. Separate measurements of frontend, LLMLang lowering, backend optimization/code generation, linking, and runtime where possible so a backend is not blamed for costs elsewhere in the pipeline.
+
+### 9.3 Target support matrix
+
+A target is not defined by an instruction-set architecture alone. Record each supported combination explicitly, including architecture and CPU feature baseline, operating system, ABI/calling convention, object format, linker, sysroot and system libraries, runtime/support libraries, TLS/unwinding requirements, and relevant toolchain versions. Distinguish:
+- code-generation support;
+- successful object emission;
+- successful linking;
+- runtime availability;
+- tested/conformant support.
+
+Do not claim a platform as supported based only on LLVM having a target backend for its CPU architecture.
+
+### 9.4 Decision sequence
+
+1. Establish a reference evaluator and a bounded executable semantic subset.
+2. Validate a conservative LLVM path against that reference and the adversarial semantic corpus.
+3. Add Cranelift or another candidate only for a concrete comparison question and the same semantic subset.
+4. Measure end-to-end and phase-specific performance on representative workloads.
+5. Evaluate platform/runtime coverage and maintenance costs alongside performance.
+6. Select the initial backend configuration. A Debug/Release/JIT split is permitted only if it provides a measured benefit and each path satisfies the same semantic contract.
+7. Keep unsupported combinations explicit and define safe fallback/rejection behavior.
+
+A direct native backend is not an automatic roadmap milestone. It requires evidence that existing backends cannot satisfy a material requirement at acceptable cost.
+
+## 10. Open design questions
 
 The following issues remain unresolved and are tracked in the project TODO register:
 
@@ -199,7 +251,7 @@ The following issues remain unresolved and are tracked in the project TODO regis
 - What evidence is required to trust lowering, optimization, and code generation?
 - Which targets and runtime combinations form the initial support matrix?
 
-## 10. Current conclusion
+## 11. Current conclusion
 
 LLVM appears to be a practical candidate for native code generation and optimization. The recommended architectural constraint is to keep LLVM behind a replaceable backend boundary and preserve LLMLang's own canonical semantics.
 
