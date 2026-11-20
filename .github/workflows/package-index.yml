@@ -28,7 +28,7 @@ jobs:
         working-directory: research/PROTOTYPES/PACKAGE-INDEX-01
         env:
           PYTHONPATH: ../PACKAGE-IDENTITY-01
-        run: python -m unittest discover -v
+        run: python run_tests_with_timings.py
       - name: Compile prototype and tests
         working-directory: research/PROTOTYPES/PACKAGE-INDEX-01
         env:
