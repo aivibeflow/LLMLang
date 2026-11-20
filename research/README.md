@@ -87,6 +87,7 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 ## Prototype and executable evidence
 
 - [Dependency graph, identity, and Logos proof prototypes](PROTOTYPES/DEPENDENCY-GRAPH-01/README.md) — source modules, tests, prototype result reports, typed source/query correspondence, and proof-boundary work.
+- [RT-04-01 prototype evidence graph review](RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md) — source/test/runner/workflow relationships, current native evidence, and provenance limitations.
 - [RT-04 runtime and semantics prototype suite](PROTOTYPES/RT-04-01/README.md) — executable models and tests for path feasibility, cleanup, atomic behavior, scheduler fairness, SQLite ownership, and wire-format prior art. Its [native runner](PROTOTYPES/RT-04-01/run_native_probes.py) and [runner tests](PROTOTYPES/RT-04-01/test_rt04_native_probe_runner.py) are separate from Required CI's probe execution.
 - [Toolchain Server prototype](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md) — workspace lifecycle, semantic development API, and focused tests.
 - [Package identity prototype](PROTOTYPES/PACKAGE-IDENTITY-01/README.md) — package identity, language-version registry, and cache-index experiments.
