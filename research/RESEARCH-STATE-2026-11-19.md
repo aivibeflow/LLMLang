@@ -162,6 +162,8 @@ Scenario 131 connects the source caller, two transfer rules, cleanup outcome typ
 
 Scenario 132 type-checks the caller's result match and compares forwarding with a release on a known handle. It records additional admissions, cleanup effects, and ordered diagnostics across 20,736 inputs per fixture. [Typed caller recovery](RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md)
 
+Scenario 133 adds a pinned Rust backend experiment for the checked caller. All 125,952 native observations match the reference over two optimization levels, including a source change that retargets the second destination. This establishes correspondence for the fixed workload with modeled dispositions. [Generated Rust for owned results](RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:

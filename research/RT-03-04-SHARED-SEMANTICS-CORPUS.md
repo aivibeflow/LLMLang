@@ -48,6 +48,8 @@ Scenarios 119–130 track the obligations induced by a call and what evidence re
 
 Scenario 131 instantiates the workload with a fixed two-scope callee and a source-derived aliased proposal. Two executions agree on admission, ordered effects, diagnostics, result obligations, and held or possibly held roles across 5,184 inputs. The observed result shapes match static inference for both transfer orders. Scenario 132 adds a typed caller match and contrasts forwarding with local recovery. Correspondence beyond the fixed source shape remains open. [Shared owned-result workload](RESEARCH-SCENARIO-131-SHARED-OWNED-RESULT-WORKLOAD.md) · [Typed caller recovery](RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md)
 
+Scenario 133 runs both caller policies as generated Rust and adds a source variant that aliases the second destination to the first source. The compiled executions match the reference on 62,976 traces at each of two optimization levels. The runtime carries cleanup and reconciliation explicitly under the same fixture dispositions. [Generated Rust for owned results](RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
+
 ## 4. Candidate-profile coverage
 
 | Candidate/profile | Executable coverage | Missing evidence before cross-profile score |

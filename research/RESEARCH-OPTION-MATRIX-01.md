@@ -143,6 +143,8 @@ Scenario 123 exercises these constraints on one workload with a local dependent,
 
 Scenario 131 composes call results, cleanup order, and a later foreign role check in one bounded source fixture. Transfer before cleanup can return the original capability with an error and deny the later call. Transfer after cleanup lets a consuming failure release the original roles and admit the later call. Two executions agree on all 5,184 inputs. Scenario 132 adds a typed caller match. Recovery enables 1,380 additional starts and adds release effects even on some already admissible proposals. Whole-profile comparison still needs general source and runtime correspondence. [Shared owned-result workload](RESEARCH-SCENARIO-131-SHARED-OWNED-RESULT-WORKLOAD.md) · [Typed caller recovery](RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md)
 
+Scenario 133 demonstrates that the Rust output candidate can carry both transfer policies through an explicit handle state and ordered close operations. The bounded compiled corpus preserves diagnostics, release authority, and aliased admission at two optimization levels. Full backend comparison still needs a general source profile and correspondence with actual foreign resource dispositions. [Generated Rust for owned results](RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.
