@@ -156,6 +156,8 @@ Scenario 128 distinguishes a consumed reservation, a retained handle, and an unr
 
 Scenario 129 shows two distinct premature-release cases after cancellation. Acknowledgment can precede completion, and a consumed result for an earlier invocation can arrive after the same role pair is reused. Matching consumption evidence by invocation avoids both conflicts on 5,376 inputs. [Invocation-specific cancellation evidence](RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md)
 
+Scenario 130 checks durable generation allocation and result lookup across process interruption. A shared transaction recovers the effect and result together. With separate commits, an empty terminal lookup can hide a committed effect or a still-live reservation. [Durable invocation results](RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
@@ -186,7 +188,7 @@ These refine existing dependency hypotheses; they do not add normative rules. Se
 
 - Define source-level rules for calls, branches, Result/error propagation, cancellation, resource acquire/use/release, transfer/return, and cleanup failure.
 - Make ordered effects and payloads visible to type/dependency summaries.
-- Extend invocation-scoped reconciliation to lost results, restarts, and concurrent observers. Validate the possible footprint under reentry, alias escape, and broader foreign contracts. [Scenario 128](RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md) · [Scenario 129](RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md)
+- Extend invocation-scoped reconciliation to independent providers, concurrent observers, and restored snapshots. Validate the possible footprint under reentry, alias escape, and broader foreign contracts. [Scenario 128](RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md) · [Scenario 130](RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md)
 - State where profiles differ and what equivalence means for results, traces, resource state, and divergence.
 - Compare total recursion, general partiality, typed divergence, source fuel, VM operator gas, and external limits; define how exhaustion interacts with effects, rollback, and cleanup.
 - Record independent review; parallel evaluators against one hand-authored contract are implementation checks, not independent specification validation.

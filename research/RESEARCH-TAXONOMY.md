@@ -45,6 +45,8 @@ Scenario 128 compares retention after a known or indeterminate foreign failure. 
 
 Scenario 129 distinguishes cancellation acknowledgment from terminal disposition and ties consumption to an invocation. It checks delayed evidence on reused resource roles and repeated delivery after release. [Invocation-specific cancellation evidence](RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md)
 
+Scenario 130 checks durable invocation generations and result recovery across abrupt process exits. It distinguishes a committed result with a lost response from an unresolved outcome under separate effect and journal commits. [Durable invocation results](RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md)
+
 Scenario 97 isolates cleanup-error composition from cleanup trigger and resource state. Java try-with-resources preserves a primary exception and suppresses ordered close failures; Go specifies LIFO defer but leaves result composition to code (with `errors.Join` available); Rust `Drop` has no ordinary error result and a second panic during unwinding can abort; Swift `defer` constrains control transfer. A cross-outcome ownership/fuel corpus is proposed, not run; no outcome policy is selected.
 
 Scenario 109 tests optional representation at a minimal JSON boundary: a single optional collapses omitted and explicit-null fields under the chosen mapping, while nested optional and tagged presence preserve absent/null/value. Decode errors and uninitialized reads are separate outcomes. The fixture does not resolve schema, serialization, or ABI policy.
