@@ -72,6 +72,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ### 0.2 Establish research quality and decision rules
 
+**Research output (2026-11-20):** [Research Quality and Decision Rules](research/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) proposes a claim-level evidence vocabulary, report structure, traceability fields, and five review gates. This is a partial result; conventions are not yet accepted and existing artifacts have not been fully audited.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
