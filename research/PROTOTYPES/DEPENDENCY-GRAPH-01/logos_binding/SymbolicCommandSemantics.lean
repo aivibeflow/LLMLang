@@ -7,10 +7,10 @@ open LLMLang.SourceSyntax
 open LLMLang.CheckedSourceSemantics
 open LLMLang.SourceCommandSemantics
 
-private abbrev TermEnv := (name : String) → (sort : ExprSort) → QueryTerm sort
+abbrev TermEnv := (name : String) → (sort : ExprSort) → QueryTerm sort
 
 /-- Typed substitution in the independent query IR. Substitution retains literal multiplication. -/
-private def substitute (bindings : TermEnv) : {s : ExprSort} → QueryTerm s → QueryTerm s
+def substitute (bindings : TermEnv) : {s : ExprSort} → QueryTerm s → QueryTerm s
   | _, .intLit n => .intLit n
   | _, .boolLit b => .boolLit b
   | _, .symbolInt name => bindings name .int
@@ -31,7 +31,7 @@ private def substitute (bindings : TermEnv) : {s : ExprSort} → QueryTerm s →
   | _, .iteBool c a b =>
       .iteBool (substitute bindings c) (substitute bindings a) (substitute bindings b)
 
-private theorem eval_substitute {s : ExprSort} (term : QueryTerm s)
+theorem eval_substitute {s : ExprSort} (term : QueryTerm s)
     (bindings : TermEnv) (valuation : Env) :
     evalQuery (substitute bindings term) valuation =
       evalQuery term (fun name sort => evalQuery (bindings name sort) valuation) := by

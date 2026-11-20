@@ -11,7 +11,8 @@ lean_lib LLMLangLogosBinding where
     `LogosQueryAdapter, `CheckedSourceSemantics, `SourceCoreTests, `SourceCommandSemantics,
     `SourceCommandTests, `SymbolicCommandSemantics, `SymbolicCommandTests,
     `ProgramObservationSemantics, `ProgramObservationTests,
-    `PairedObservationSemantics, `PairedObservationTests]
+    `PairedObservationSemantics, `PairedObservationTests, `CanonicalQuerySymbols,
+    `ProgramRelationalQuery, `ProgramRelationalQueryTests]
 
 lean_exe testParserBinding where
   root := `Main

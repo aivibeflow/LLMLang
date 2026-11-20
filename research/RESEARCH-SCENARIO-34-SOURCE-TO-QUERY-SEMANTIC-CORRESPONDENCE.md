@@ -1,6 +1,6 @@
 # Research Scenario 34 — Source-to-Query Semantic Correspondence
 
-**Status** — In progress. Lean checks expression, command and observation preservation for single and paired runs of the initial fragment. Canonical relational queries remain open.
+**Status** — In progress. Lean proves that the canonical relational formula is satisfiable exactly when paired executions of the checked Int/Bool fragment witness dependence. The QF_LIA, JSON and Logos correspondence remains open.
 
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 26–33.  
@@ -176,6 +176,8 @@ Proposed modules:
 - `SymbolicCommandSemantics.lean` — typed substitution, guarded path states and command-sequence preservation.
 - `ProgramObservationSemantics.lean` — observation admission, typed output tuples and their preservation.
 - `PairedObservationSemantics.lean` — admissible input pairs, shared entry slots and preservation of both observations.
+- `CanonicalQuerySymbols.lean` — stable declaration keys, typed symbol bindings and conversion between canonical and paired valuations.
+- `ProgramRelationalQuery.lean` — compilation of the relational formula and proof of equivalence to concrete dependence.
 - `Correspondence.lean` — SC-1 through SC-7 theorems.
 - `LogosBinding.lean` — existing CPC parser bridge, JSON decoder, and Eo.Term renderer.
 
@@ -206,7 +208,7 @@ The work is split into small reviewable tasks. A task is complete only when its 
 
 The fragment has one namespace, with visible inputs and state regions initialized and locals explicitly marked as initialized after assignment. Reads require a visible initialized declaration. Writes can initialize locals and update state. The observation contract can select initialized state regions. Static checking visits both conditional arms, including an arm the evaluator never takes.
 
-`checkedTranslate_preserves_evaluation` proves that the query has the unique source result whenever the query environment agrees with actual values for the checked reads. The evaluator can adapt the runtime slots to the existing mathematical evaluator with arbitrary defaults for other names, since `evalExpr_agrees_on_reads` proves those defaults cannot change the result. The boundary is the indexed Int/Bool AST and its named references. Text parsing, state transitions between source points, canonical symbol binding for whole programs and CPC correspondence remain separate tasks. [Checked semantics and proofs](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CheckedSourceSemantics.lean)
+`checkedTranslate_preserves_evaluation` proves that the query has the unique source result whenever the query environment agrees with actual values for the checked reads. The evaluator can adapt the runtime slots to the existing mathematical evaluator with arbitrary defaults for other names, since `evalExpr_agrees_on_reads` proves those defaults cannot change the result. This theorem covers the indexed Int/Bool AST and its named references. Later phases extend the result to state transitions and whole-program symbol binding. [Checked semantics and proofs](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CheckedSourceSemantics.lean)
 
 `lake build LLMLangLogosBinding` on Lean 4.34.0 kernel-checks the two modules and `SourceCoreTests.lean` in Required CI. The examples cover duplicate names and IDs, invalid scope and initialization, rejected accesses, missing and wrong-sort slots, and preservation of an expression mixing Int and Bool. The theorem axiom audit reported only Lean's `propext`, `Classical.choice`, and `Quot.sound`. [Checked examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCoreTests.lean)
 
@@ -236,7 +238,7 @@ Declarations and visibility are fixed during execution. The static checker inter
 
 The required Lake build compiles 22 kernel-checked examples for concrete commands. [Command examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCommandTests.lean)
 
-`SymbolicState.initial_represents` shows that every well-typed runtime store is represented on declared slots under a suitable initial valuation. This uses declared source spellings. Canonical symbol assignment remains SCW-28. The preservation proof evaluates guards against their terms at the branch point, so a later write cannot retroactively change an earlier branch. Guarded alternatives can grow exponentially with the number of branches. The proof governs the finite fragment and the independent query IR. [Symbolic semantics and theorems](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCommandSemantics.lean)
+`SymbolicState.initial_represents` shows that every well-typed runtime store is represented on declared slots under a suitable initial valuation. Symbolic execution starts with declared source spellings. SCW-28 replaces them with canonical keys when it builds the relational formula. The preservation proof evaluates guards against their terms at the branch point, so a later write cannot retroactively change an earlier branch. Guarded alternatives can grow exponentially with the number of branches. [Symbolic semantics and theorems](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCommandSemantics.lean)
 
 The required Lake build also compiles 17 kernel-checked symbolic examples. They cover nested branches, a flag changed before a subsequent branch, write-then-read after a join, path-local initialization, and rejected accesses. The two main symbolic theorems use only Lean's standard axioms `propext`, `Classical.choice`, and `Quot.sound`. [Symbolic examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCommandTests.lean)
 
@@ -248,16 +250,20 @@ The required Lake build compiles 18 observation examples. They cover both branch
 
 - [x] **SCW-24 — Define paired input environments.** `PairedValuations.check` accepts two typed valuations when the selected ID is a visible, initialized input and all other initialized declarations agree. `shared_slot` and `shared_state` prove equality of the corresponding concrete entry slots. `factor_values` ties the chosen inputs to the selected declaration.
 - [x] **SCW-25 — Prove paired execution preservation (SC-5).** `pairedObservations_preserved` proves that executing the program twice and evaluating the compiled observations on the two valuations produce the same ordered pair of typed observations. Both valuations range over arbitrary mathematical Int and Bool values.
-- [ ] **SCW-26 — Define the complete relational proposition.** Construct `FactorDiff ∧ ObservationDiff` from the selected input and contract-selected observations.
-- [ ] **SCW-27 — Prove relational-query correctness (SC-6).** Prove the canonical formula is true iff the source factor differs and source observations differ.
-- [ ] **SCW-28 — Bind formula symbols to source declarations.** Prove declaration completeness, sort correctness, injective naming, and exact left/right/shared identity mapping.
+- [x] **SCW-26 — Define the complete relational proposition.** `compileRelationalQuery` constructs `FactorDiff ∧ ObservationDiff` over the checked program and observation contract. `compileRelationalQuery_exists` proves that admitted programs, contracts and factors yield a formula.
+- [x] **SCW-27 — Prove relational-query correctness (SC-6).** `compileRelationalQuery_correct` proves the equivalence for every canonical valuation. `compileRelationalQuery_satisfiable_iff` proves that the formula is satisfiable exactly when an admitted pair of source executions has different factor values and observations.
+- [x] **SCW-28 — Bind formula symbols to source declarations.** `RelationalQuery.symbol_binding` binds every reference by name and sort. `symbolBindings_names_nodup` proves declaration uniqueness. `sideValuation_slot` and `sideValuation_forPair_slot` establish exact left, right and shared identity in both directions.
 
-The pair checker permits equal values at the selected slot. SCW-26 introduces the separate `FactorDiff` condition for dependence queries. The 16 kernel-checked examples include Int and Bool factors, equal factor values, shared initial state, both branch outcomes, and rejection when a second input, initial state or initialized local differs. The paired theorem reuses SC-4 with a separate valuation on each run. Shared canonical query symbols and the relational difference formula remain SCW-26–28. [Paired semantics](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/PairedObservationSemantics.lean) · [Paired examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/PairedObservationTests.lean)
+The pair checker permits equal factor values. The formula requires them to differ and compares the return and each contract-selected state slot. The compiler merges guarded paths with typed `ite` terms for each observation slot, using the unique active path proved by SC-4. The fallback at the end of the conditional chain is unreachable for a checked program. [Paired semantics](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/PairedObservationSemantics.lean) · [Relational compiler and proofs](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQuery.lean)
+
+The internal Lean symbol names use `i_` followed by the decimal value of `3 × stableID + role`. Role 0 is shared, 1 is left, and 2 is right. Only the selected input has separate left and right symbols. Every other initialized entry slot shares one symbol. Encoding an admitted source pair and decoding its valuation restores both concrete initial configurations. SCW-31 will connect these internal keys to the version-2 wire envelope. [Canonical symbol bindings](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CanonicalQuerySymbols.lean)
+
+The Lake build includes 16 relational examples covering Int and Bool factors, both branch directions, equal factors, return-only and state-only differences, a source spelling that collides with a canonical name, replay of a concrete pair, and rejected factors and contracts. [Relational examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQueryTests.lean)
 
 ### 7.6 QF_LIA admissibility and external wire/checker boundary
 
 - [ ] **SCW-29 — Prove QF_LIA admissibility (SC-7).** Prove all emitted operators and sorts are supported and multiplication always has a literal operand.
-- [ ] **SCW-30 — Prove declaration closure.** Every query symbol is declared exactly once, no undeclared symbol is referenced, and each symbol has the intended sort/role.
+- [ ] **SCW-30 — Prove declaration closure for the solver-facing query.** Carry the Lean table's uniqueness, reference closure, sorts and roles through lowering.
 - [ ] **SCW-31 — Define the canonical JSON correspondence boundary.** Relate the Lean-owned canonical formula to the `/2` wire envelope without trusting Python to choose the semantic expression.
 - [ ] **SCW-32 — Connect the proved formula to Logos terms.** Prove the adapter preserves structure and sort, then retain the CPC parser-state identity checks.
 - [ ] **SCW-33 — Bind exact CPC assumptions to the proved source-derived formula.** The parser-state bridge and structural assumption checks exist; this task replaces the externally supplied expected query with the Lean-reconstructed source-derived formula.
@@ -279,7 +285,7 @@ The pair checker permits equal values at the selected slot. SCW-26 introduces th
 
 ### 7.8 Execution order and gates
 
-SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–25 preserve command execution and observations through paired runs. SCW-26–28 construct the relational difference formula and connect its symbols to the source declarations.
+SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–25 preserve command execution and observations through paired runs. SCW-26–28 establish equivalence between the canonical formula and concrete dependence witnesses. SCW-29–34 carry this result to the solver-facing query and proof boundary.
 
 | Gate | Required tasks | Exit condition |
 |---|---|---|
