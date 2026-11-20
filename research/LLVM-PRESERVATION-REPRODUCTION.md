@@ -1,6 +1,6 @@
 # LLVM Preservation Reproduction Protocol
 
-**Status:** historical experiments are source-pinned; the automated reproduction workflow is prepared and awaits its first run.
+**Status:** historical experiments are source-pinned; the LLVM preservation job is part of the Research Native Reproduction workflow and awaits its first run.
 
 ## Scope
 
@@ -13,7 +13,7 @@ These are narrow source-to-LLVM experiments, not a complete frontend/backend pro
 
 ## Pinned environment
 
-The workflow runs in Debian Trixie and requires:
+The llvm-preservation job in .github/workflows/rt04-native-reproduction.yml runs in Debian Trixie and requires:
 
 | Component | Required identity |
 |---|---|
@@ -47,7 +47,7 @@ The workflow does not silently rewrite these expected values. A mismatch is a fa
 
 The report's baseline commit is the pre-experiment source revision, not the commit that introduced the probe. Scenario 96A records experiment source commit a80d94e795d8d2b613d01c09687c181df592c7f5; Scenario 96B records 2a9b6e5072efc542e823c529cf3cdee838f9ad36. The runner executes the checked-out current probe source and records the actual repository commit. This is a fresh reproduction of the recorded fixtures/toolchain, not a claim that the old source commit is checked out.
 
-The historical reports do not claim Required CI executes these native experiments. The dedicated workflow remains separate from Required CI and must pass before a fresh reproduction is recorded.
+The historical reports do not claim Required CI executes these native experiments. The dedicated workflow job remains separate from Required CI and must pass before a fresh reproduction is recorded.
 
 ## Remaining work
 
