@@ -10648,8 +10648,7 @@
           "RT-04",
           "RT-10"
         ],
-        "basis": "explicit Research area(s)/Aspect declaration in scenario report",
-        "anomaly": "The pinned main snapshot contained a stale RT-16 runtime label; corrected to RT-10 in this PR branch. RT-16 remains security/trust."
+        "basis": "explicit Research area(s)/Aspect declaration in scenario report"
       },
       "semantic_review": {
         "status": "source-label-corrected-in-review-branch",
@@ -12533,16 +12532,7 @@
         "RT-20": 1,
         "RT-24": 1
       },
-      "anomalies": [
-        {
-          "scenario": 58,
-          "issue": "RT-16 used as runtime in report header, while taxonomy defines RT-16 as security/trust; runtime is RT-10."
-        },
-        {
-          "scenario": 134,
-          "issue": "Prior-art only under the immutable-component/single-toolchain architecture decision; no active wire-schema evolution requirement."
-        }
-      ]
+      "anomalies": []
     },
     "inventory_revision": "a30ec074e08186f04a35535b9933bfa878713f31",
     "prototype_family_review": {
@@ -12712,6 +12702,11 @@
         "reason": "The taxonomy defines RT-16 as security/trust and RT-10 as runtime.",
         "inventory_note": "The inventory remains a snapshot of main at a30ec074e08186f04a35535b9933bfa878713f31; its blob SHA intentionally records the pre-correction source."
       }
+    ],
+    "resolved_crosswalk_notes": [
+      "Scenario 91's RT-24 reference is valid after RT-24 was registered in RESEARCH-TAXONOMY.md.",
+      "Scenario 58's header identifies RT-10 runtime; no RT-16/runtime mismatch remains.",
+      "Scenario 134 is prior-art-only under the immutable-component/single-toolchain decision."
     ]
   }
 }
