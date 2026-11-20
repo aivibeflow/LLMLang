@@ -154,8 +154,14 @@
         "confidence": "medium"
       },
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Semantic graph persistence, diff/merge, and repository/worktree integration; references current RT-20/22/23 work."
+        "status": "historical-background-retained",
+        "superseded_sections": [
+          {
+            "section": "Embedded ADR-0001: Git + semantic repository architecture",
+            "successor": "docs/adr/014-git-semantic-merge.md and research/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md",
+            "scope": "The external-KV-authoritative proposal is superseded; the surrounding research and alternatives remain historical background."
+          }
+        ]
       },
       "plan_stages": [
         1,
@@ -9971,6 +9977,17 @@
           "RT-08"
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
+      },
+      "semantic_review": {
+        "status": "section-level-supersession-recorded",
+        "superseded_sections": [
+          {
+            "section": "Follow-up: typed canonical query IR (Scenario 32)",
+            "superseded_content": "The first text-based query representation",
+            "successor": "RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md § typed canonical query IR v2",
+            "scope": "Only the text-based query representation is superseded; Scenario 31's profile/prior-art analysis remains relevant."
+          }
+        ]
       }
     },
     {
@@ -9996,6 +10013,16 @@
           "RT-08"
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
+      },
+      "semantic_review": {
+        "status": "section-level-supersession-recorded",
+        "superseded_sections": [
+          {
+            "section": "§9 Parser-state bridge sketch",
+            "successor": "Compiled implementation under PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/",
+            "scope": "Only the source-level parser-state sketch is superseded; the typed query IR specification and current limitations remain relevant."
+          }
+        ]
       }
     },
     {
@@ -12651,6 +12678,28 @@
         "DEP-085"
       ],
       "note": "RT-24 remains a research proposal; registration does not accept its candidate contract."
+    },
+    "supersession_review": {
+      "status": "initial-known-cases-recorded; corpus-wide review-open",
+      "findings": [
+        {
+          "path": "research/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md",
+          "scope": "text-based query representation only",
+          "successor": "Scenario 32 typed canonical query IR v2"
+        },
+        {
+          "path": "research/RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md",
+          "scope": "§9 parser-state bridge sketch only",
+          "successor": "compiled Logos prototype in logos_binding/"
+        },
+        {
+          "path": "research/GIT-SEMANTIC-REPOSITORY.md",
+          "scope": "embedded ADR-0001 external-KV-authoritative proposal",
+          "successor": "ADR-014 and GIT-REPRESENTATION-AND-SEMANTIC-MERGE"
+        }
+      ],
+      "whole_documents_marked_superseded": 0,
+      "full_semantic_duplicate_orphan_contradiction_review": false
     }
   }
 }
