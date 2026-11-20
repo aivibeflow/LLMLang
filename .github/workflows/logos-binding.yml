@@ -24,7 +24,7 @@ jobs:
           "$HOME/.elan/bin/elan" default leanprover/lean4:v4.34.0
       - name: Resolve pinned Lake dependencies
         run: lake update
-      - name: Build parser-state bridge
+      - name: Build parser-state bridge (stop after first failed root)
         run: python3 build_roots_fail_fast.py
       - name: Run parser-state binding and semantic correspondence tests
         run: timeout 180s lake env lean -DwarningAsError=true --run Main.lean
