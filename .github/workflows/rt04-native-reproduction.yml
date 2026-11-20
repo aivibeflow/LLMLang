@@ -39,6 +39,7 @@ jobs:
           sudo apt-get install -y libsqlite3-0
           library="$(ldconfig -p | awk '$1 == "libsqlite3.so.0" { print $NF; exit }')"
           test -n "$library"
+          export LLMLANG_SQLITE_LIBRARY="$library"
           echo "LLMLANG_SQLITE_LIBRARY=$library" >> "$GITHUB_ENV"
           python - <<'PY'
           import ctypes
