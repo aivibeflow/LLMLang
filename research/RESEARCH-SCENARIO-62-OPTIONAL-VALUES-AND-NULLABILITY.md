@@ -4,6 +4,8 @@
 **Research area:** RT-03 value/error semantics, RT-04 algebraic types and references, RT-13 FFI  
 **Updated:** 2026-11-19
 
+**Follow-up:** [Scenario 109](RESEARCH-SCENARIO-109-OPTIONAL-PRESENCE-ROUND-TRIP.md) adds a bounded JSON round-trip fixture showing the information loss/preservation choices for omitted, null, and present fields. It does not change this comparison's open status or select an LLMLang policy.
+
 ## 1. Question and scope
 
 How is the absence of a value represented, checked, composed, and exposed at API/FFI boundaries? Separate: (1) optional values from nullable pointers, (2) absence from failure and uninitialized state, (3) type-level propagation/checking from runtime null checks, (4) optional nesting and flattening, (5) default initialization, (6) ABI/layout guarantees, and (7) interoperability with null-bearing foreign APIs. Scenarios 41 and 54 cover typed errors and sum-type matching; this study focuses on absence as a value-level contract.

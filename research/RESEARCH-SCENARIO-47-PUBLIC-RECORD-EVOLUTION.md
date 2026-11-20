@@ -4,6 +4,8 @@
 **Research area:** RT-04 data types, RT-05 semantic/interface identity, RT-18 source and ABI evolution  
 **Updated:** 2026-11-19
 
+**Wire-format follow-up:** [Scenario 110](RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md) separately probes old/new JSON producers and consumers. It does not extend the prior-art comparison into a source- or ABI-compatibility result.
+
 ## 1. Question and scope
 
 When a library exposes a product type or sum type, which later changes remain compatible with old clients? Focus on adding struct/record fields, enum cases, and fields inside a case. Distinguish:

@@ -344,6 +344,8 @@ This is meaningful executable evidence beyond hand-authored trace fixtures, but 
 
 The original proposed validation gate—explicit Result propagation, cancellation, and resource acquire/use/release—has since been implemented in the bounded A/D evaluators and independently structured resource/path models. See the current coverage inventory in [RT-03/04 Shared Semantics Corpus v1](RT-03-04-SHARED-SEMANTICS-CORPUS.md). Those models cover only their declared finite fixture protocol and do not establish source-level completeness or select an ownership model.
 
+Path-feasibility evidence now includes exhaustive finite assignments, repeated-marker correlation, a bounded DPLL comparison, generated Boolean formula cross-checks, a conservative result contract, one real process-enforced solver deadline, a finite mutation-identity counterexample, and call-summary and field-sensitive alias transitions in [Scenarios 98–108](RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md). A replayable assignment can establish one possible path, but unresolved solver results and unverified negative claims cannot justify pruning a may-path. Broader timeout/failure distributions, hard formula families, general source-derived alias-/call-aware summaries, scalable path-sensitive analysis, larger memory regions, and independent source parser/CFG correspondence remain open.
+
 
 ## 13. Differential evaluator cross-check
 

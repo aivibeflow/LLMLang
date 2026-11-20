@@ -1,3 +1,4 @@
+import random
 import unittest
 
 from rt03_path_model import enumerate_paths
@@ -32,7 +33,56 @@ def _fixture():
     ]}
 
 
+def _generated_predicate(rng, depth):
+    variables = ("x0", "x1", "x2", "x3", "x4", "x5")
+    if depth == 0 or rng.random() < 0.22:
+        return {"bool_var": rng.choice(variables)}
+    op = rng.choice(("bool_not", "bool_and", "bool_or"))
+    if op == "bool_not":
+        return {op: _generated_predicate(rng, depth - 1)}
+    return {
+        op: [
+            _generated_predicate(rng, depth - 1),
+            _generated_predicate(rng, depth - 1),
+        ]
+    }
+
+
+def _evaluate_predicate(predicate, assignment):
+    op, arg = next(iter(predicate.items()))
+    if op == "bool_var":
+        return assignment[arg]
+    if op == "bool_not":
+        return not _evaluate_predicate(arg, assignment)
+    left, right = arg
+    if op == "bool_and":
+        return _evaluate_predicate(left, assignment) and _evaluate_predicate(right, assignment)
+    return _evaluate_predicate(left, assignment) or _evaluate_predicate(right, assignment)
+
+
 class SympyPredicatePathTests(unittest.TestCase):
+    def test_generated_predicates_match_truth_table_and_replay_models(self):
+        rng = random.Random(102)
+        for case in range(128):
+            with self.subTest(case=case):
+                predicate = _generated_predicate(rng, depth=4)
+                expression = {"if": {
+                    "condition": predicate,
+                    "then": {"literal": "then"},
+                    "else": {"literal": "else"},
+                }}
+                exact = {
+                    path.branch_choices for path in enumerate_feasible_paths(expression)
+                }
+                solver_paths = enumerate_solver_paths(expression)
+                actual = {path.branch_choices for path in solver_paths}
+                self.assertEqual(actual, exact)
+                for path in solver_paths:
+                    self.assertEqual(
+                        _evaluate_predicate(predicate, dict(path.witness)),
+                        path.branch_choices[0][1],
+                    )
+
     def test_dpll_routes_equal_truth_table_and_concrete_evaluators(self):
         expression = _fixture()
         truth_table = enumerate_feasible_paths(expression)

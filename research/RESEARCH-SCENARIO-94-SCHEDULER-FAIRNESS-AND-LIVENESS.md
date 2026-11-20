@@ -2,6 +2,8 @@
 
 **Status:** Prior-art comparison and experiment design; no LLMLang policy selected
 **Updated:** 2026-11-19
+
+**Executable follow-up:** [Scenario 112](RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md) checks continuous versus intermittent enablement with explicit starvation cycles and a fixed two-task round-robin bound. It does not validate a real runtime or prove general liveness.
 **Scope:** Separate scheduler progress guarantees from structured task lifetime, actor protocol progress, resource fairness, and deterministic replay.
 
 ## 1. Research question

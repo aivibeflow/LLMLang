@@ -1,7 +1,7 @@
 # LLMLang Cross-Aspect Research Dependency Map
 
 **Status:** Initial dependency hypothesis; relationships require validation  
-**Updated:** 2026-11-18  
+**Updated:** 2026-11-20
 **Companion:** [Research Taxonomy](RESEARCH-TAXONOMY.md)
 
 ## 1. Purpose and interpretation
@@ -64,6 +64,7 @@ flowchart TD
   D --> B
   P --> B
   F --> E
+  F --> D
   S --> E
   P --> C
   S --> C
@@ -122,7 +123,7 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-016 | RT-03 → RT-09 | Constrains | Lowering and optimization must preserve the source language's semantics. | Established as a design obligation |
 | DEP-017 | RT-04 → RT-09 | Constrains | Type, effect, ownership, and capability rules determine which transformations and target representations are legal. | Strong hypothesis |
 | DEP-018 | RT-03 → RT-10 | Constrains | Runtime behavior must implement the language's evaluation, state, error, concurrency, and resource semantics. | Strong hypothesis |
-| DEP-019 | RT-04 → RT-10 | Constrains | Ownership, effects, capabilities, and memory model determine runtime services and ABI boundaries. | Strong hypothesis |
+| DEP-019 | RT-04 → RT-10 | Constrains | Ownership, effects, capabilities, and memory model determine runtime services and ABI boundaries. Scenario 113 supplies bounded store-buffering and stipulated synchronization outcomes, but does not validate concrete atomic or backend behavior. | Strong hypothesis |
 | DEP-020 | RT-10 → RT-12 | Influences | Library contracts and implementations depend on runtime and platform services available to packages. | Strong hypothesis |
 | DEP-021 | RT-05 → RT-12 | Requires | Reusable libraries/packages need stable artifact identities and reproducible dependency references. | Strong hypothesis |
 | DEP-022 | RT-07 → RT-12 | Constrains | Public contracts and compatibility claims need an explicit evidence model, especially for opaque implementations. | Strong hypothesis |
@@ -163,10 +164,13 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-057 | RT-16 → RT-20 | Constrains | Authorization must distinguish plan approval, semantic mutation, validation, commit, and remote push; agents must not bypass completion gates. | Strong hypothesis |
 | DEP-058 | RT-19 → RT-20 | Enables | Workspaces, Change Sets, immutable snapshots, and repository coordination provide the operational substrate for CIP planning and verified commit. | Strong hypothesis |
 | DEP-059 | RT-20 → RT-19 | Influences | Caller migration decisions, hash propagation, mandatory plan execution, and validation-gated commit add workflow and API requirements to the Toolchain Server. | Strong hypothesis |
+| DEP-060 | RT-07 → RT-06 | Constrains | Solver-backed path pruning in dependency analysis requires sound negative evidence; replayed witnesses establish possible routes, while timeout/UNKNOWN and unverified UNSAT must preserve a conservative may-dependency result. | Emerging; bounded result-policy evidence and one real worker-timeout experiment in Scenarios 102–108 |
 
 ## 4. Important feedback loops and conditional relationships
 
 RT-03 is a foundational source for the type/effect model, semantic identity, formal verification, compiler/runtime behavior, incremental computation, semantic merge, security, and conformance. [RT-04 alternatives research](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) now decomposes the type/effect/ownership/capability design space and maps it against profiles A–D; this is a comparative survey, not an accepted architecture. The direct edges DEP-036–DEP-039 remain research hypotheses derived from [RT-03 core semantics](CORE-LANGUAGE-SEMANTICS.md); they do not imply that any particular semantic profile has been accepted. RT-20 adds a further feedback loop: the Toolchain workflow must enforce the dependency and identity model, while practical caller-migration and hash-propagation experiments may reveal missing distinctions in RT-05/RT-06 or transaction requirements in RT-19.
+
+[Scenarios 102–108](RESEARCH-SCENARIO-102-SOLVER-UNKNOWN-AND-SOUND-PATH-PRUNING.md) supply bounded evidence for DEP-060: the evidence threshold for removing a dependency/path is stricter than the threshold for retaining a possible path, an externally timed-out worker can be reaped while preserving UNKNOWN, and reusing a stale predicate or omitting a may-alias target across direct or call-mediated mutation can lose feasible behavior. Scenario 107 extracts aliases and a toggle effect from a bounded AST subset and preserves concrete routes, but a joined alias set can add infeasible routes when target choice correlates with state. Scenario 108 enumerates the finite fixture paths and removes those infeasible routes while keeping all paths for independent choices. This result does not establish scalable path-sensitive analysis, general source-to-route completeness, parser/CFG correctness, memory/concurrency isolation, solver trust, or complete effect/alias summaries.
 
 
 

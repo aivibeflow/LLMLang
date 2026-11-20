@@ -277,3 +277,50 @@ Keep this source-transition count distinct from Wasmtime-style VM operator fuel,
 Scenario [36](../../RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md) also compares the fuel boundary with COR-07's [`rt03_resource_rules.py`](rt03_resource_rules.py): terminating cleanup failures wrap prior `Result` errors in LIFO order, while cancellation remains a separate outcome with an ordered cleanup-error list. That model does not charge cleanup fuel or allow cleanup to diverge. A separate two-frame command probe informed the Scenario 36 note; no full test suite was run for this comparison.
 
 [`rt03_cleanup_fuel_stack.py`](rt03_cleanup_fuel_stack.py) compares a shared cleanup-fuel pool to a fixed reserve per scope across a two-resource LIFO unwind. With inner cost 3 and outer cost 1, shared reserve 3 leaves the outer cleanup blocked; reserve 4 completes both. Per-scope reserve 3 completes both with 6 reserved and 4 spent. A failed inner cleanup consumes its cost, leaves that resource retained, and permits outer cleanup to continue when fuel remains. The probe assumes bounded terminating cleanup actions.
+
+## Real solver timeout isolation (Scenario 103)
+
+[`rt03_bounded_solver_worker.py`](rt03_bounded_solver_worker.py) starts one POSIX worker per query, waits until SymPy is imported, then enforces a wall-clock deadline around a generated pigeonhole query. A 12-pigeon/11-hole DPLL2 query times out at 0.5 seconds; the parent kills and reaps the worker and reports `UNKNOWN` with no model. A completed UNSAT answer from this worker remains untrusted in the path-result classifier and cannot prune a may-path. This experiment has no memory or concurrent-worker limit and does not validate a persistent worker pool.
+
+Focused tests, including the real deadline case:
+
+    python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_rt03_bounded_solver_worker.py' -v
+
+## Mutable predicate identity (Scenario 104)
+
+[`rt03_mutable_predicate_identity.py`](rt03_mutable_predicate_identity.py) compares two concrete initial states with three path formulas for sequential `if x`, `x := not x`, `if x`: one symbolic name reused across reads, independent state versions, and state versions tied by the update relation. Reusing the name prunes the two concrete routes; independent versions admit two extra routes; the explicit toggle relation matches the concrete route set. The exhaustive four-case comparison is in [`test_rt03_mutable_predicate_identity.py`](test_rt03_mutable_predicate_identity.py). Aliasing, calls, loops, and source extraction remain open.
+
+## Call mutation summaries (Scenario 105)
+
+[`rt03_call_mutation_summaries.py`](rt03_call_mutation_summaries.py) exhausts the pre-call/post-call Boolean state relation for complete pure, complete toggle, and may-write/unknown summaries. A complete summary yields the exact two-route set; incomplete effects conservatively allow all four state-pair routes. Reusing one symbolic name across an unknown call drops the crossed routes. Tests are in [`test_rt03_call_mutation_summaries.py`](test_rt03_call_mutation_summaries.py). These summaries are hand-authored; alias/call graph analysis and source binding are not implemented.
+
+## Field-sensitive call-site aliases (Scenario 106)
+
+[`rt03_alias_sensitive_call_paths.py`](rt03_alias_sensitive_call_paths.py) compares a call that toggles a referenced Boolean field under exact `flag`, exact disjoint `other`, may-alias, and unknown target sets. Exact target evidence preserves precise route sets; may-alias and incomplete sets union transitions, while incorrectly assuming no alias drops reachable routes. Five focused tests are in [`test_rt03_alias_sensitive_call_paths.py`](test_rt03_alias_sensitive_call_paths.py). This models a finite target relation, not a points-to analyzer.
+
+## Source-derived call aliases (Scenario 107)
+
+[`rt03_source_alias_extraction.py`](rt03_source_alias_extraction.py) recognizes a bounded Python-shaped AST subset, extracts the `ref.value = not ref.value` toggle summary, propagates reference targets across assignments, and unions targets at branch joins. Its concrete fixture interpreter enumerates Boolean inputs and unknown-reference targets over the same two-field region. Eight tests cover exact/disjoint references, may-alias joins, unknown references, a correlated join that overapproximates, an omitted-target counterexample, and fail-closed handling of unsupported mutations/fields. The analyzer keeps all concrete routes in this subset; its non-relational join loses alias/value correlation. This is not an LLMLang parser, a source-to-CFG completeness result, or a general points-to analysis. Run with `python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_rt03_source_alias_extraction.py' -v`.
+
+## Path-sensitive alias precision (Scenario 108)
+
+`execute_path_sensitive_summary` enumerates the two-field Boolean input domain, follows source branches, propagates exact reference targets per valuation, and applies the extracted toggle summary. In the value-correlated fixture it returns exactly two concrete routes where the joined may-alias analysis allows four; for an independent alias choice it preserves all four. Ten focused tests compare the joined and enumerated analyses with the fixture executor. This is a finite exact enumerator with a shared grammar and semantic contract, not a scalable symbolic analysis or independent proof of source completeness.
+
+## Optional presence at a serialization boundary (Scenario 109)
+
+[`optional_presence_model.py`](optional_presence_model.py) and [`test_optional_presence_model.py`](test_optional_presence_model.py) model absent, explicit JSON `null`, integer value, decode failure, and uninitialized read as distinct fixture outcomes. Under the documented mapping, one-level optional collapses absent/null, while nested optional and a presence bit plus nullable payload preserve all three valid field states over JSON round-trip. Decode failure remains an outer error. Eight focused tests pass. This is a one-field integer JSON fixture, not an LLMLang serializer, schema, ABI/layout, or representation decision.
+
+## Wire schema evolution and defaults (Scenario 110)
+
+[`schema_evolution_model.py`](schema_evolution_model.py) and [`test_schema_evolution_model.py`](test_schema_evolution_model.py) compare v1/v2 JSON producers and consumers around an added defaulted Boolean field. The 16-case producer/consumer, unknown-key, and default product shows old payloads can use the new default, while new payloads can be rejected by strict old consumers or accepted with information loss by consumers that ignore unknown keys. Changing the default changes old payload interpretation; an explicit value is stable, and null handling is a separate policy. Six focused tests pass. This is a finite compatibility policy fixture, not a schema standard, real serializer, ABI test, or LLMLang rule.
+
+## Unknown wire variants (Scenario 111)
+
+[`unknown_variant_model.py`](unknown_variant_model.py) and [`test_unknown_variant_model.py`](test_unknown_variant_model.py) compare reject, generic fallback, and opaque-preserve handling when an older consumer receives a new enum case. Reject stops decoding; fallback enables a generic result but loses the case and payload; preserve retains the parsed JSON object so a relay can forward it. Re-encoding preserves JSON structure, not original bytes or whitespace. Malformed known cases remain errors. Seven focused tests pass. This does not implement source-level open enums, exhaustiveness, signatures, or application-level safe behavior.
+
+## Scheduler fairness witnesses (Scenario 112)
+
+[`scheduler_fairness_model.py`](scheduler_fairness_model.py) replays a continuously enabled starvation self-cycle and an intermittently enabled starvation cycle. The first violates weak and strong fairness; the second satisfies weak fairness but violates strong fairness. A fixed two-task round-robin check gives B a selection within one A turn only when both tasks remain runnable and each step returns. Five tests cover the cycles, bound, and invalid witnesses. This is an abstract finite model, not a runtime scheduler or an unbounded liveness proof.
+## Store buffering memory orders (Scenario 113)
+
+[`rt04_store_buffering.py`](rt04_store_buffering.py) enumerates one global sequentially consistent event order and an intentionally abstract independent per-location outcome profile for the two-thread store-buffering litmus. The global order excludes both reads seeing zero; the weak profile includes it. It also demonstrates stipulated synchronization, release-sequence and fence edges, including the C++20 same-thread plain-store change, contrasts atomic RMW counters with non-atomic lost updates, and isolates same-location read-read coherence from cross-location order. Eight focused tests pin these relations. This is not a complete C++, Rust, Go, compiler, or hardware memory model.
