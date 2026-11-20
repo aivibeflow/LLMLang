@@ -145,3 +145,14 @@ def release_relay_payload_outcomes(acquire_reads_release_sequence):
     modification order or release sequence from executable atomic events.
     """
     return {1} if acquire_reads_release_sequence else {0, 1}
+
+
+def same_thread_plain_store_is_release_sequence_member(cxx_version):
+    """C++ release-sequence membership for a same-thread relaxed plain store.
+
+    Before C++20, writes by the release-head thread could extend a release
+    sequence. Since C++20, only following atomic RMW operations do so.
+    """
+    if cxx_version < 11:
+        raise ValueError("C++ atomics require C++11 or later")
+    return cxx_version < 20
