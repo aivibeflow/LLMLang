@@ -42,6 +42,12 @@ theorem lookupDeclaration_miss_empty (id : VariableId) :
     lookupDeclaration ⟨[]⟩ id = none := by
   rfl
 
+theorem lookupDeclaration_id {context : DeclarationContext} {id : VariableId}
+    {declaration : Declaration} (found : lookupDeclaration context id = some declaration) :
+    declaration.id = id :=
+  of_decide_eq_true (List.find?_some
+    (p := fun entry : Declaration => decide (entry.id = id)) found)
+
 /-- The fragment has a single namespace and does not permit shadowing. -/
 def DeclarationContext.WellFormed (context : DeclarationContext) : Prop :=
   (context.entries.map Declaration.id).Nodup ∧
@@ -86,12 +92,18 @@ private theorem find_unique_key {α κ : Type} [DecidableEq κ] (key : α → κ
         exact List.mem_map_of_mem member
       simpa [List.find?_cons, different] using ih keys.2 member
 
+theorem DeclarationContext.lookupDeclaration_of_mem {context : DeclarationContext}
+    {declaration : Declaration} (wellFormed : context.WellFormed)
+    (member : declaration ∈ context.entries) :
+    lookupDeclaration context declaration.id = some declaration :=
+  find_unique_key Declaration.id wellFormed.1 member
+
 /-- A named reference and its stable-ID lookup select the same declaration. -/
 theorem DeclarationContext.lookupName_binds_identity {context : DeclarationContext}
     {name : String} {declaration : Declaration} (wellFormed : context.WellFormed)
     (found : context.lookupName name = some declaration) :
     lookupDeclaration context declaration.id = some declaration :=
-  find_unique_key Declaration.id wellFormed.1 (context.lookupName_mem found)
+  context.lookupDeclaration_of_mem wellFormed (context.lookupName_mem found)
 
 /-- Visibility and definite initialization at one source point. -/
 structure SourceScope where
