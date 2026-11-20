@@ -242,7 +242,7 @@ The missing scenario slice was checked against its named prototype/test modules,
 
 **LLVM experiment provenance:** Scenario 96A records pre-experiment baseline d58df1640caa72c1bed4e58f02ef78f89185bc7c and experiment source commit a80d94e795d8d2b613d01c09687c181df592c7f5. Scenario 96B records baseline a80d94e795d8d2b613d01c09687c181df592c7f5 and experiment source commit 2a9b6e5072efc542e823c529cf3cdee838f9ad36. The reports pin LLVM 19.1.7, Python 3.12.14, target/tool versions, per-experiment input IR SHA-256, and the Debian LLVM package SHA-256. These native runs are not part of Required CI.
 
-A separate llvm-preservation job has now been added to the Research Native Reproduction workflow. It installs the exact Debian Trixie llvm-19 package 1:19.1.7-3+b1, verifies the package archive SHA-256 and toolchain versions, and reruns both probes. Its first execution is pending. Until it passes, the 96A/96B results remain historically reproduced evidence with pinned provenance, not a fresh current-branch reproduction.
+A separate llvm-preservation job has now been added to the Research Native Reproduction workflow. It installs the exact Debian Trixie llvm-19 package 1:19.1.7-3+b1, verifies the package archive SHA-256 and toolchain versions, and reruns both probes. Its successful fresh execution is recorded in §2.17; the comparison matrices and negative controls match the reports.
 
 **Cross-area status:** Scenarios 90–93 map to still-open identity/cache decisions (LL-004, LL-005, LL-001, LL-021); Scenario 95 remains partial research; Scenario 96 informs LL-020 but does not settle backend selection. These reports must not be promoted into normative language rules or accepted architecture decisions without the corresponding review.
 
