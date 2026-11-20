@@ -906,8 +906,8 @@ After relevant research coverage is sufficient:
 |---|---|---|
 | Define research taxonomy and initial dependency map | **Completed** | 18 research areas and 35 initial dependency edges are documented; ongoing updates remain required |
 | Conduct and complete aspect research | **In progress** | RT-03 now has a candidate-profile survey; semantic validation/reference semantics, types/effects/ownership, security, and other gaps remain |
-| Normalize vectors and validate compatibility | **Not started** | Common option schema and conditional compatibility constraints are defined |
-| Generate candidate specification space | **Not started** | Valid combinations are enumerated or represented by a documented constrained search |
+| Normalize vectors and validate compatibility | **In progress** | The option matrix records initial choices and bounded resource compatibility constraints. Extend normalization and validate constraints across all research areas. [Option matrix](research/RESEARCH-OPTION-MATRIX-01.md) |
+| Generate candidate specification space | **Not started** | The four illustrative bundles anchor the comparison. The full compatible space still needs enumeration or a documented constrained search. [Initial bundles](research/RESEARCH-OPTION-MATRIX-01.md#4-integrated-candidate-vectors) |
 | Compare complete candidate specifications | **Not started** | Integrated candidates are evaluated against shared criteria and representative scenarios |
 | Select and baseline a specification direction | **Not started** | A coherent candidate is selected with rationale and unresolved risks recorded |
 
