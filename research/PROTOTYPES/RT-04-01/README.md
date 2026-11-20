@@ -317,3 +317,7 @@ Focused tests, including the real deadline case:
 ## Unknown wire variants (Scenario 111)
 
 [`unknown_variant_model.py`](unknown_variant_model.py) and [`test_unknown_variant_model.py`](test_unknown_variant_model.py) compare reject, generic fallback, and opaque-preserve handling when an older consumer receives a new enum case. Reject stops decoding; fallback enables a generic result but loses the case and payload; preserve retains the parsed JSON object so a relay can forward it. Re-encoding preserves JSON structure, not original bytes or whitespace. Malformed known cases remain errors. Seven focused tests pass. This does not implement source-level open enums, exhaustiveness, signatures, or application-level safe behavior.
+
+## Scheduler fairness witnesses (Scenario 112)
+
+[`scheduler_fairness_model.py`](scheduler_fairness_model.py) replays a continuously enabled starvation self-cycle and an intermittently enabled starvation cycle. The first violates weak and strong fairness; the second satisfies weak fairness but violates strong fairness. A fixed two-task round-robin check gives B a selection within one A turn only when both tasks remain runnable and each step returns. Five tests cover the cycles, bound, and invalid witnesses. This is an abstract finite model, not a runtime scheduler or an unbounded liveness proof.

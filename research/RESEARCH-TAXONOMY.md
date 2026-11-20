@@ -9,6 +9,8 @@ Scenario 95 compares compiler diagnostic models and repair channels for humans a
 
 Scenario 96 isolates LLVM lowering semantics: immediate/deferred UB and poison are distinct from LLMLang source errors, traps, wrapping results, and memory contracts. A version-pinned source-to-IR corpus remains to be run; no backend or source policy is selected.
 
+Scenario 112 checks explicit starvation cycles: weak fairness excludes a task that stays continuously enabled but allows starvation when it is enabled only intermittently; strong fairness excludes both. A two-task round-robin turn bound assumes both tasks remain runnable and every selection returns. These are abstract finite witnesses, not a runtime result or general liveness proof.
+
 Scenario 97 isolates cleanup-error composition from cleanup trigger and resource state. Java try-with-resources preserves a primary exception and suppresses ordered close failures; Go specifies LIFO defer but leaves result composition to code (with `errors.Join` available); Rust `Drop` has no ordinary error result and a second panic during unwinding can abort; Swift `defer` constrains control transfer. A cross-outcome ownership/fuel corpus is proposed, not run; no outcome policy is selected.
 
 Scenario 109 tests optional representation at a minimal JSON boundary: a single optional collapses omitted and explicit-null fields under the chosen mapping, while nested optional and tagged presence preserve absent/null/value. Decode errors and uninitialized reads are separate outcomes. The fixture does not resolve schema, serialization, or ABI policy.

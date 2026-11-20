@@ -1,6 +1,6 @@
 # LLMLang Research State — 2026-11-19
 
-**Updated:** 2026-11-20; the register now includes Scenarios 107–111 while retaining its original dated filename.
+**Updated:** 2026-11-20; the register now includes Scenarios 107–112 while retaining its original dated filename.
 
 **Status:** Research state and next-work register; not a language decision or normative specification.  
 **Branch:** `codex/save-research-state-2026-11-19`  
@@ -119,6 +119,8 @@ The latest bounded type/semantics results include a counterexample: transfer-fir
 [Scenario 110](RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md) checks 16 combinations of v1/v2 producers and consumers, strict/ignore-unknown policies, and absent-field defaults. An added field with a default reads old payloads, while strict old consumers reject new payloads and permissive readers silently discard the new field. Changing a default changes old-payload meaning; explicit values are stable and `null` remains its own policy choice. Six tests pass; actual schema systems, migrations, ABI and source compatibility remain open.
 
 [Scenario 111](RESEARCH-SCENARIO-111-UNKNOWN-WIRE-VARIANT-PRESERVATION.md) tests an older consumer receiving a new sum case. Reject returns an error; fallback keeps processing but loses the original tag and payload; opaque preserve supports semantic forwarding of nested JSON structure, but not byte-for-byte replay or safe domain interpretation. Official prior art contrasts Protobuf open numeric enums (preserved), closed repeated enums (unknown values can move in order), Avro (reader default or error), and CBOR (unknown-item signaling/forwarding). Seven tests pass; the JSON fixture does not model those formats. Source-level exhaustiveness, canonical/signature behavior, and trust boundaries remain open.
+
+[Scenario 112](RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md) replays a continuous-enabled starvation cycle and an intermittent-enabled cycle: weak fairness rejects the former but permits the latter, while strong fairness rejects both. A fixed two-task round-robin model gives a one-turn bound only when both tasks remain runnable and each turn returns. Five tests pass; no runtime or unbounded liveness claim follows.
 
 ## 2. Candidate vectors still open
 
