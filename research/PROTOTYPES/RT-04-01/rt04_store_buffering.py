@@ -52,3 +52,49 @@ def message_passing_outcomes(synchronized):
                 continue
             outcomes.add((flag, payload))
     return outcomes
+
+
+def atomic_counter_outcomes(initial, increments_per_task, task_count):
+    """Enumerate all serializations of atomic fetch_adds on one counter."""
+    if initial < 0 or increments_per_task < 0 or task_count < 0:
+        raise ValueError("counter fixture expects non-negative integers")
+    # Each operation is one indivisible RMW in the per-object modification order.
+    total = initial
+    for _ in range(increments_per_task * task_count):
+        total += 1
+    return {total}
+
+
+def naive_load_then_store_outcomes(initial, increments_per_task, task_count):
+    """Enumerate schedules of non-atomic load/add/store increments.
+
+    A scheduler step runs one task's load, compute, or store. This finite
+    interleaving model exposes lost updates; it makes no memory-model claim.
+    """
+    if initial < 0 or increments_per_task < 0 or task_count < 0:
+        raise ValueError("counter fixture expects non-negative integers")
+    states = {(initial, (0,) * task_count, (None,) * task_count)}
+    outcomes = set()
+    while states:
+        next_states = set()
+        for shared, pcs, locals_ in states:
+            if all(pc == increments_per_task * 3 for pc in pcs):
+                outcomes.add(shared)
+                continue
+            for i, pc in enumerate(pcs):
+                if pc == increments_per_task * 3:
+                    continue
+                step = pc % 3
+                new_pcs = list(pcs)
+                new_locals = list(locals_)
+                new_shared = shared
+                if step == 0:
+                    new_locals[i] = shared
+                elif step == 1:
+                    new_locals[i] += 1
+                else:
+                    new_shared = new_locals[i]
+                new_pcs[i] += 1
+                next_states.add((new_shared, tuple(new_pcs), tuple(new_locals)))
+        states = next_states
+    return outcomes

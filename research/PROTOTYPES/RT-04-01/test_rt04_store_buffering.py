@@ -2,6 +2,8 @@ import unittest
 
 from rt04_store_buffering import (
     message_passing_outcomes,
+    atomic_counter_outcomes,
+    naive_load_then_store_outcomes,
     per_location_atomic_outcomes,
     sequentially_consistent_outcomes,
 )
@@ -21,6 +23,11 @@ class StoreBufferingTests(unittest.TestCase):
             message_passing_outcomes(synchronized=True),
             {(0, 0), (0, 1), (1, 1)},
         )
+
+    def test_atomic_rmw_prevents_lost_counter_updates(self):
+        self.assertEqual(atomic_counter_outcomes(0, 1, 2), {2})
+        self.assertEqual(naive_load_then_store_outcomes(0, 1, 2), {1, 2})
+        self.assertEqual(atomic_counter_outcomes(10, 2, 3), {16})
         self.assertEqual(
             message_passing_outcomes(synchronized=False),
             {(0, 0), (0, 1), (1, 0), (1, 1)},
