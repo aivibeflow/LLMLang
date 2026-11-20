@@ -30,6 +30,7 @@ def main() -> None:
     snapshot = SyntheticSnapshot(args.size, args.shape)
     manifest = make_manifest(snapshot)
     profiler = cProfile.Profile()
+    archive_bytes = None
     with tempfile.TemporaryDirectory(prefix="llmlang-provider-profile-") as directory:
         archive = str(Path(directory) / "profile.llpkg")
         started = time.perf_counter()
@@ -42,6 +43,7 @@ def main() -> None:
         finally:
             profiler.disable()
         elapsed = time.perf_counter() - started
+        archive_bytes = Path(archive).stat().st_size
 
     print(json.dumps({
         "profile": "disk-backed-provider-build",
@@ -49,7 +51,7 @@ def main() -> None:
         "objects": args.size,
         "dependency_edges": snapshot.edge_count,
         "provider_build_seconds": round(elapsed, 6),
-        "archive_bytes": Path(archive).stat().st_size if Path(archive).exists() else None,
+        "archive_bytes": archive_bytes,
     }, sort_keys=True))
     output = io.StringIO()
     stats = pstats.Stats(profiler, stream=output).strip_dirs()
