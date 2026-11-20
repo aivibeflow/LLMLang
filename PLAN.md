@@ -58,17 +58,17 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Estimated research complexity:** **2/10** — repository-wide inventory, duplicate/orphan audit, traceability, and reproducibility checks.
 
-- [ ] Inventory every document, prototype, test suite, RFC, audit, and generated artifact under `research/`.
-- [ ] Map each artifact to one or more research items and stages in this plan.
-- [ ] Identify duplicate, superseded, orphaned, and contradictory documents.
-- [ ] Verify that links in `research/README.md` resolve and that the index reflects the current corpus.
-- [ ] Preserve useful historical findings; do not delete an old result merely because a newer document supersedes it.
-- [ ] Separate research notes, experiment specifications, implementation artifacts, test evidence, and decisions.
-- [ ] Record the exact commit/revision and tool versions needed to reproduce each important result.
+- [x] Enumerate every tracked file under `research/` from the recursive Git tree; record its path, Git blob SHA, byte size, coarse artifact category, and path-based research-item traceability in [the corpus inventory snapshot](research/RESEARCH-CORPUS-INVENTORY-2026-11-20.json).
+- [ ] Validate every inferred artifact-to-research-item mapping against file contents and map all artifacts to explicit plan stages; low-confidence and cross-cutting mappings remain unresolved.
+- [ ] Identify semantic duplicates, superseded versions, orphaned artifacts, and contradictions. Exact-blob comparison found one identical pair: the Apache-2.0 licence text shared by OCI and REAPI snapshots; this appears intentional and is not treated as duplicate research.
+- [x] Scan inline relative Markdown links in all 233 research Markdown/MDX files (1,323 link occurrences). No broken project-authored link remains after fixing one RT-04 cross-profile link. 38 unresolved relative-link occurrences are confined to partial verbatim external snapshots (Alive2 and OCI); they point to upstream files not vendored in this repository. External URLs and heading anchors were not validated.
+- [x] Preserve historical findings; the inventory classifies historical scenarios and prototypes without deleting or rewriting them.
+- [x] Classify every tracked file into a coarse artifact category (research document, scenario result, prototype implementation/test/report, preparation material, reference snapshot, structured fixture, index, or other).
+- [ ] Record exact commit/revision and tool versions for every reproducibility-sensitive result; the inventory pins this tree revision and blob identities, but per-experiment execution environments still require content-level review.
 
-**Existing evidence:** `research/README.md` indexes the corpus; scenarios 01–33 and dependency-graph prototypes 01–29 are represented in the current research index. A repository-wide audit is also present.
+**Inventory snapshot:** 446 tracked files under `research/` at revision `2a9b6e5072efc542e823c529cf3cdee838f9ad36`: 233 Markdown/MDX files, 194 Python files, 225 files under `PROTOTYPES/`, and 136 scenario-named documents. The taxonomy contains 23 research areas (RT-01–RT-23); the dependency map contains 77 registered edges (DEP-001–DEP-077).
 
-**Status:** partially validated — the research index and taxonomy exist, but a full artifact-by-artifact reconciliation, duplicate/orphan audit, and reproducibility audit remain open.
+**Status:** partially validated — the complete path inventory, coarse classification, blob-identity scan, and inline relative-link scan are recorded. Semantic traceability, index completeness, supersession/orphan/contradiction analysis, external snapshot completeness, and reproducibility verification remain open.
 
 ### 0.2 Establish research quality and decision rules
 
@@ -99,7 +99,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Identify feedback loops, foundational topics, and opportunities for parallel research.
 - [ ] Validate and revise dependency edges as research produces evidence; the current map is an initial hypothesis, not a settled architecture.
 
-**Evidence:** [Research taxonomy](research/RESEARCH-TAXONOMY.md) defines 18 research areas; [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) records 35 initial dependency edges, research waves, and feedback loops.
+**Evidence:** [Research taxonomy](research/RESEARCH-TAXONOMY.md) currently enumerates 23 research areas (RT-01–RT-23); [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) currently records 77 dependency edges (DEP-001–DEP-077), research waves, and feedback loops. These are live register counts, not fixed architectural limits.
 
 **Status:** initial taxonomy and dependency map completed; ongoing validation remains part of each research task.
 
