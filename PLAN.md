@@ -56,6 +56,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ### 0.1 Reconcile the research corpus
 
+**Estimated research complexity:** **2/10** — repository-wide inventory, duplicate/orphan audit, traceability, and reproducibility checks.
+
 - [ ] Inventory every document, prototype, test suite, RFC, audit, and generated artifact under `research/`.
 - [ ] Map each artifact to one or more research items and stages in this plan.
 - [ ] Identify duplicate, superseded, orphaned, and contradictory documents.
@@ -69,6 +71,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Status:** partially validated — the research index and taxonomy exist, but a full artifact-by-artifact reconciliation, duplicate/orphan audit, and reproducibility audit remain open.
 
 ### 0.2 Establish research quality and decision rules
+
+**Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
 - [ ] Distinguish observations, assumptions, conjectures, experimental results, proofs, and accepted decisions.
@@ -99,6 +103,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ## 1.1 Semantic Program Graph and program representation
 
+**Estimated research complexity:** **10/10** — the complete SPG model must reconcile graph structure, object lifecycle, identity, evolution, and downstream consumers.
+
 - [ ] Define the Semantic Program Graph (SPG) as a typed semantic representation.
 - [ ] Define the relationship between Specification Graph, Design Graph, and Implementation Graph.
 - [ ] Define semantic nodes, edges, ownership, references, and graph boundaries.
@@ -114,6 +120,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Status:** researched and prototyped in parts. The concept and research taxonomy establish the graph direction and layers, but canonical graph schema, full node/edge semantics, lifecycle, and identity rules remain open.
 
 ## 1.2 Semantic identity, hashes, and canonical encoding
+
+**Estimated research complexity:** **8/10** — foundational identity and hash boundaries affect caching, dependencies, proofs, merge, and artifact storage.
 
 **Terminology prerequisite:** Review [`draft/GLOSSARY.md`](draft/GLOSSARY.md) before changing this section or related RT-20/RT-24/package identity work. Preserve the distinct proposed identities `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and conformance-evidence identity; reconcile the plan's existing `ImpHash` spelling with the glossary's `ImplHash` before treating either as normative. The glossary is a proposal, not an accepted schema or hash-envelope decision.
 
@@ -135,6 +143,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ## 1.3 Contracts and compatible implementations
 
+**Estimated research complexity:** **6/10** — requires formal compatibility/refinement criteria and evidence rules, integrated with identity and call binding.
+
 - [ ] Define contract structure and semantics: preconditions, postconditions, invariants, effects, errors, state transitions, and assumptions.
 - [ ] Define the difference between exact contract equality, refinement, substitutability, and behavioral equivalence.
 - [ ] Define how one operation can have many implementations and how one implementation can satisfy multiple contracts.
@@ -149,6 +159,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Status:** researched; decision pending on formal compatibility, refinement/substitution criteria, and the evidence needed for implementation selection.
 
 ## 1.4 Core language semantics (RT-03)
+
+**Estimated research complexity:** **7/10** — substantial remaining work on source correspondence, effects, paths, calls, cancellation, resources, and independent review.
 
 - [x] Survey the principal semantic dimensions: value/computation model, evaluation strategy, purity and state, errors and cancellation, determinism, effects and observations, concurrency, termination/resources, and module composition.
 - [x] Compare four coherent candidate profiles: pure functional (A), imperative/linear (B), concurrent/actor (C), and effectful functional (D).
@@ -186,6 +198,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Next work:** integrate the typed-call, owned-result return, cleanup-disposition/composition, bounded-recursion/fuel, actor-progress, and AST-path probes into a grammar-bound source-to-model account. Compare varied satisfiable/unsatisfiable formula families and timeout/unknown behavior; model mutation/version boundaries; bind a parser/IR extractor to branch-node coverage; make effect order/payload observable in cross-profile summaries; and obtain independent human/formal review. Cover call-boundary unwinding, ownership transfer/return, asynchronous cancellation, cleanup divergence, and termination-budget exhaustion before expanding the expression fragment. Keep profile A–D alternatives open.
 
 ### 1.4.1 Type, effect, ownership, and capability alternatives (RT-04)
+
+**Estimated research complexity:** **8/10** — several mutually constraining systems must form one coherent static and runtime model.
 
 - [x] Survey type identity/compatibility, refinement and typestate, inference, effect representations/handlers, ownership/borrowing/lifetimes, capabilities, concurrency/memory models, and error/resource outcomes.
 - [x] Cross-map candidate RT-04 mechanisms against RT-03 profiles A–D without selecting a profile.
@@ -240,6 +254,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ## 2.1 Formal semantics of the language
 
+**Estimated research complexity:** **8/10** — requires a precise executable semantics and correspondence with source programs.
+
 - [ ] Compare operational, denotational, and axiomatic semantics for the initial LLMLang core.
 - [ ] Define an executable reference semantics for a deliberately small subset.
 - [ ] Define observable behavior: return values, errors, state changes, I/O, resource behavior, concurrency, and declared effects.
@@ -253,6 +269,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Status:** partially researched; a complete language semantics is not yet established.
 
 ## 2.2 Proof architecture and proof boundary
+
+**Estimated research complexity:** **8/10** — includes trusted computing base, assumptions, evidence scope, and compositional proof boundaries.
 
 - [ ] Determine which claims belong in Lean, SMT, specialized checkers, testing, or trusted runtime code.
 - [ ] Define the trusted computing base for each proof claim.
@@ -268,6 +286,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Status:** partially validated; pinned Lean 4.34.0 / Logos build and the complete parser-state, typed-renderer, and JSON decoder test step passed in CI run [44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422) on commit `08076b9e95e5b1bfc2368fc00b049efea620b9b4`. `SourceQuerySemantics` compiled successfully, so `translateExpr_preserves_eval` was kernel-checked for the deliberately small pure Int/Bool expression fragment. This is not a proof of source-program-to-query translation, command/program semantics, paired execution, CPC assumption binding end-to-end, or whole-program correctness. Keep those boundaries explicit.
 
 ## 2.3 Lean, Logos, SMT, and solver integration
+
+**Estimated research complexity:** **8/10** — solver behavior, proof evidence, timeout/UNKNOWN handling, and source binding must be validated.
 
 - [x] Complete explicit Lean build and test validation for the pinned Lean 4.34.0 environment and pinned Logos revision; CI run [44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422) passed all build and test steps.
 - [x] Implement the CPC parser-state bridge and exact symbol identity binding; obtain a successful pinned CI build and adversarial validation (CI run 44175854422 passed the existing parser-state tests).
@@ -285,6 +305,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Status:** partially validated. The pinned Lean/Logos build and version-2 CPC parser-state/factor-pair adversarial suite pass (run 44185102839). `SourceQuerySemantics.lean` proves expression-level preservation; `RelationalSourceQuerySemantics.lean` adds kernel-checked expression-level per-side translation, canonical input naming, shared-input/factor-split, and factor/observation-difference lemmas. The SCW-04 audit is recorded in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-04-MODULE-BOUNDARY-AUDIT.md`. SCW-15 implementation separates `RelationalSourceQuerySemantics.lean` (imports only the independent source/query semantics) from `LogosQueryAdapter.lean` (the only module importing both semantic IR and Logos). Scenario 34 records the adapter preservation theorem and pinned Lean CI checks as passing on PR #41 and required CI for PR #43. The next source-core tasks are SCW-06–09; command execution, mutable state, complete program observations, paired program runs, and source-derived canonical query binding remain open. See Scenario 34 for decomposed tasks and gates.
 
 ## 2.4 Correctness of optimization and translation
+
+**Estimated research complexity:** **9/10** — semantic preservation across lowering and optimization needs version-pinned corpora and independent validation.
 
 - [ ] Define proof obligations for semantic graph rewrites.
 - [ ] Define proof obligations for compiler optimizations.
@@ -307,6 +329,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Purpose:** compute only what has actually been invalidated while preserving soundness.
 
 ## 3.1 Semantic dependency model
+
+**Estimated research complexity:** **8/10** — completeness across static, dynamic, external, generated, aliased, and recursive dependencies is foundational.
 
 - [x] Synthesize Scenarios 19, 20, 25 and RT-19/20/23 into a candidate Semantic Dependency Index contract; keep it explicitly non-canonical pending SPG schema decisions.
 - [x] Define and implement an executable candidate SPG subset and typed dependency extractor; this is a research prototype, not the canonical language schema.
@@ -333,6 +357,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ## 3.2 Incremental analysis and invalidation
 
+**Estimated research complexity:** **5/10** — focused binding/invalidation experiments are tractable, though production completeness remains difficult.
+
 - [ ] Define invalidation for type checking, contract checking, optimization, code generation, tests, and proofs.
 - [ ] Define the difference between semantic impact and evidence staleness.
 - [ ] Define how an `ImpHash` change propagates through dependent semantic nodes and action results.
@@ -346,6 +372,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Status:** researched and prototyped in parts; full compiler integration and empirical validation are not implemented.
 
 ## 3.3 Semantic build and cache graph
+
+**Estimated research complexity:** **6/10** — requires sound action keys, dependency closure, and demonstrated invalidation/reuse.
 - [ ] Define optional package-distributed cache-index files for validation, compilation, analysis, tests, and proofs; decide whether indexes and result payloads are embedded or separately fetched.
 - [x] Establish the version-identity split for cache records: composite `LanguageVersion`, append-only component-registry digest, and separate `ToolchainIdentity`; record the candidate design in `research/LANGUAGE-VERSIONING.md`.
 - [x] Add an experimental version-bound cache-record validator and tests covering language-version, registry-digest, and toolchain changes to Action Key inputs. This remains a prototype, not a normative cache-index format.
@@ -367,6 +395,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Status:** researched; the version-binding design and a first experimental cache-record validator now exist. The initial component registry is `language-components.toml` and is append-only. The candidate validator keeps LanguageVersion, registry digest, and ToolchainIdentity distinct and includes them in Action Key construction. The cache-index wire format, compatibility declarations, complete dependency-closure model, merge/conflict policy, and broader implementation validation remain open.
 
 ## 3.4 Quantify compilation speedup
+
+**Estimated research complexity:** **5/10** — controlled benchmark design and measurement; conclusions depend on representative workloads and hardware.
 
 - [ ] Validate the analytical model in `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
 - [ ] Implement reproducible benchmarks for cold, warm, local-edit, component-edit, and broad-change builds.
@@ -391,6 +421,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ## 4.1 Semantic object storage
 
+**Estimated research complexity:** **6/10** — storage, immutable snapshots, recovery, and identity integration.
+
 - [ ] Compare KV databases, content-addressed object stores, relational indexes, and filesystem layouts.
 - [ ] Define canonical object encoding and immutable object lifecycle.
 - [ ] Define indexes for graph traversal, reverse dependencies, contracts, and implementation discovery.
@@ -406,6 +438,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 ## 4.2 Git representation and repository model
 
+**Estimated research complexity:** **6/10** — repository mapping and semantic versioning need consistency with SPG identity.
+
 - [ ] Define the canonical Git-visible representation of a semantic program.
 - [ ] Compare storing canonical serialized semantic objects directly in Git with storing KV-backed objects plus repository manifests.
 - [ ] Define the mapping between Git commits/trees and semantic graph snapshots.
@@ -419,6 +453,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 **Status:** researched; implementation and interoperability tests remain open.
 
 ## 4.3 Semantic diff, merge, and conflict resolution
+
+**Estimated research complexity:** **6/10** — substantial integration and conflict semantics, dependent on canonical representation and identity.
 
 - [ ] Define semantic diff independently of textual diff and AST diff.
 - [ ] Define three-way merge over semantic graph snapshots.
@@ -439,6 +475,8 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [ ] Document repository setup and team workflows.
 
 ### 4.5 End-to-end semantic merge and synchronized commit lifecycle
+
+**Estimated research complexity:** **10/10** — spans graph validation, merge, Git synchronization, failure recovery, and exact-state guarantees.
 
 **Study these documents as one set before changing this workstream:**
 - [Git Representation and Semantic Merge](research/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — primary research source for repository representation and semantic merge rules.
@@ -497,6 +535,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ## 5.1 Type system and data model
 
+**Estimated research complexity:** **8/10** — overlaps the unresolved RT-04 type, ownership, effect, and capability architecture.
+
 - [ ] Define primitive and algebraic data types.
 - [ ] Compare structural and nominal typing.
 - [ ] Research generic and polymorphic types.
@@ -515,6 +555,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ## 5.2 Execution semantics and runtime architecture
 
+**Estimated research complexity:** **9/10** — combines execution, resource lifecycle, cancellation, scheduling, concurrency, and observable behavior.
+
 - [ ] Define interpreter/reference execution.
 - [ ] Define VM requirements, if a VM is needed.
 - [ ] Define runtime representation of values and semantic calls.
@@ -529,6 +571,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Status:** partially validated in bounded execution models. The atomic load and store fragment derives read-from and happens-before and checks all four coherence rules. An independent interleaving oracle agrees on global-order witnesses for 4,096 layouts. RMW, fences, source correspondence, and backend validation remain open. [Coherence fixtures](research/RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md) · [Execution relations](research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
 
 ## 5.3 POSIX architecture and conformance
+
+**Estimated research complexity:** **9/10** — platform profiles, API semantics, conformance evidence, and runtime boundaries.
 
 - [ ] Select initial POSIX edition and explicit conformance profile.
 - [ ] Define LLMLang-facing API: close POSIX mapping versus safer typed facade.
@@ -559,6 +603,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ## 6.1 Translation architecture
 
+**Estimated research complexity:** **9/10** — source semantics and preservation obligations must survive multiple translation stages.
+
 - [ ] Decide whether backends consume typed SPG directly or a normalized target-independent semantic IR.
 - [ ] Define the lowering pipeline and preservation obligations.
 - [ ] Define target capability declarations and unsupported constructs.
@@ -573,6 +619,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Status:** researched at architectural level in `research/TRANSLATION-AND-TARGET-BACKENDS.md`; backend contract, source semantics, and preservation theorem remain open.
 
 ## 6.2 Backend selection and cross-backend validation
+
+**Estimated research complexity:** **9/10** — requires at least two independently validated realizations of a shared semantic subset.
 
 - [ ] Define the minimal common semantic subset for backend experiments.
 - [ ] Evaluate Python as an experimental/reference target.
@@ -590,6 +638,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Status:** researched as a recommendation; no first target is formally selected and no complete cross-backend validation exists.
 
 ## 6.3 LLVM backend
+
+**Estimated research complexity:** **9/10** — lowering, UB/poison, target behavior, and source-to-IR preservation.
 
 - [ ] Define LLVM's role as a replaceable backend, not the canonical LLMLang semantic representation.
 - [ ] Define a conservative LLVM IR subset and lowering contract.
@@ -642,6 +692,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Identify pathological workloads and fallback strategies.
 
 ## 7.2 Libraries, packages, templates, and artifact ecosystem
+
+**Estimated research complexity:** **6/10** — identity, indexes, providers, publication, provenance, and operational policy.
 
 ### Package indexes and dynamic package delivery
 - [ ] Define optional derived-result cache indexes in package archives and their integration with the semantic action cache; indexes must be independently omittable and must not affect logical package identity.
@@ -700,6 +752,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ## 7.4 Security, trust, and reproducibility
 
+**Estimated research complexity:** **5/10** — current threat model and fixture prototype narrow the next experiments, but full operational security remains larger.
+
 - [ ] Define trust boundaries among LLM authors, compiler, runtime, plugins, external tools, and artifact registries.
 - [ ] Define deterministic validation independent of LLM claims.
 - [ ] Define supply-chain provenance and signed evidence.
@@ -712,6 +766,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Status:** an initial threat model and tested authorization-policy experiment now exist in [RT-16 Threat Model 01](research/RT-16-THREAT-MODEL-01.md). They cover scope binding, human approval, replay, evidence identity, and fail-closed checks at fixture level. A complete security architecture remains open; persistent multi-client authorization, concurrency/crash injection, sandbox testing, signed/authenticated evidence, and operational approval policy are high-priority gaps.
 
 ## 7.5 Developer experience and adoption
+
+**Estimated research complexity:** **10/10** — controlled comparative evaluation with real users/agents, correctness, repair effort, cost, and performance.
 
 - [ ] Define human-readable source and semantic review workflows.
 - [ ] Define diagnostics that explain semantic impact and failed contracts.
@@ -727,6 +783,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Exit criteria:** representative large-project benchmarks; working collaboration and recovery workflows; documented trust/security model; practical developer workflow evaluated with real tasks.
 
 ## 7.6 Toolchain Server and semantic development API (RT-19)
+
+**Estimated research complexity:** **5/10** — bounded API, persistence, synchronization, MCP, and recovery experiments.
 
 - [x] Identify the architectural gap between the existing Development Engine RFC and an operational agent-facing Toolchain API.
 - [x] Draft a research proposal for a transport-neutral domain API with MCP, CLI, IDE, and CI adapters.
@@ -752,6 +810,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 ---
 
 ## 7.7 LLM patch planning, caller migration, hash propagation, and verified commit (RT-20)
+
+**Estimated research complexity:** **6/10** — significant multi-step validation and identity/dependency integration.
 
 - [x] Capture the requirement that the complete function-change plan must be established before implementation.
 - [x] Separate upward contract propagation from hash/reference propagation through callers.
