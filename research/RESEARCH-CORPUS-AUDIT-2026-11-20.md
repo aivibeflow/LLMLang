@@ -159,6 +159,19 @@ The first execution of the new native workflow built upstream SQLite 3.46.1 from
 
 The workflow has been changed to use the Ubuntu 26.04 distribution SQLite package, with the same exact source-ID preflight retained. This change is a hypothesis about obtaining the historical distribution build, not a verified result. The next run must confirm the package's source ID before any C-API probe can be counted as reproduced.
 
+
+### 2.12 Successful native reproduction run — RT-04 Scenarios 120–133
+
+The corrected workflow run [44770566744](https://github.com/aivibeflow/LLMLang/actions/runs/44770566744) completed successfully on commit `a4914f72bf9aaa03ffb33652c27e9ffa60bd152f`. The environment was Ubuntu 26.04.1, Python 3.12.14, Rust `1.85.1 (4eb161250 2025-03-15)`, and SQLite 3.46.1 with the exact source ID recorded by Scenarios 120–128: `2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1`.
+
+All ten runner commands passed with zero failures and zero skips:
+
+- Eight C-API probes: base cleanup contracts, recovery matrix, snapshot freshness, close call boundary, close interleavings, callback reentry/dependent coverage, backup roles, and backup outcomes.
+- Scenario 130 durable invocation receipts.
+- Scenario 133 generated-Rust conformance.
+
+The run uploaded [artifact 14647056715](https://github.com/aivibeflow/LLMLang/actions/runs/44770566744/artifacts/14647056715), containing the JSON environment/command manifest and per-command stdout/stderr. This is successful execution evidence for the exact C SQLite source ID and Rust version. The Python `sqlite3` runtime version for Scenario 130 is recorded in the manifest; its equality with the historical 3.53.1 baseline has not yet been inspected. Per-case stdout must still be compared with the numerical observations in Scenarios 120–133 before the scenario claims are marked fully reproduced.
+
 ## 3. Findings and actions
 
 | ID | Finding | Action / status |
@@ -174,8 +187,8 @@ The workflow has been changed to use the Ubuntu 26.04 distribution SQLite packag
 | RCA-09 | All 104 files in `PROTOTYPES/RT-04-01/` previously inherited RT-04 traceability from the directory name, although their contents include RT-03-only and cross-profile artifacts. | Replaced path inference with individual content-based role mappings: 39 RT-03-only, 59 RT-04-only, and 6 shared; exact shared files and method are recorded in the semantic traceability report. |
 | RCA-10 | Five prototype-tree files remained at family-level mapping only (two RT-16 authorization and three RT-19 Toolchain Server artifacts). | Individually reviewed their purpose and paired test/document relationships; all 240/240 prototype-tree files now have first-pass role mappings. |
 | RCA-11 | Bounded path-feasibility experiments have a solver integration boundary: the raw SymPy adapter prunes UNSAT directly, while the conservative evidence mapper is separate; Scenario 102 also reports seven focused tests although its current test file contains eight methods. | Recorded both as open evidence-audit findings; do not treat the raw adapter as a safe may-analysis interface or the test count as reconciled until the code/report revision is pinned. |
-| RCA-12 | SQLite native probes and the generated-Rust execution are described as evidence, but the Required CI workflow only discovers Python test_*.py files and does not invoke those native probe commands. | Added a separate RT-04 Native Reproduction workflow and output manifest. Its first run passed durable-receipt and generated-Rust probes but correctly rejected the upstream SQLite build because its source ID differs from the scenario baseline; a distro-package retry is pending. |
-| RCA-13 | The three tests for Scenario 133 exercise Rust code generation and rejection behavior without invoking rustc; the native 125,952-comparison claim is a separate manual command. | The separate manual workflow now invokes the native runner with Rust 1.85.1 and captures stdout/stderr. Its first run is still pending; generator CI and native Rust conformance remain separate evidence levels.
+| RCA-12 | SQLite native probes and the generated-Rust execution are described as evidence, but the Required CI workflow only discovers Python test_*.py files and does not invoke those native probe commands. | The separate native workflow now successfully executes all eight C-API probes and the durable-receipt probe on the recorded SQLite distro source ID. Artifact 14647056715 preserves outputs; per-case comparison with the scenario reports remains open. Required CI and native evidence remain separate. |
+| RCA-13 | The three tests for Scenario 133 exercise Rust code generation and rejection behavior without invoking rustc; the native 125,952-comparison claim is a separate manual command. | The native workflow successfully ran the Rust 1.85.1 comparison and preserved stdout/stderr in artifact 14647056715. Confirm the exact comparison count and output against Scenario 133 when reviewing the artifact; generator CI and native Rust conformance remain separate evidence levels.
 
 ## 4. Reconciliation rules
 
