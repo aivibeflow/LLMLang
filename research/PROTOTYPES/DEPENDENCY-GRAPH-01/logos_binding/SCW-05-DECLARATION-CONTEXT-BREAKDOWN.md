@@ -1,6 +1,6 @@
 # SCW-05 — Declaration contexts: implementation breakdown
 
-**Status:** In progress  
+**Status:** Complete (2026-11-20; see completion evidence below).
 **Parent:** Research Scenario 34, task SCW-05  
 **Scope:** Define the finite declaration context used by the initial deterministic QF_LIA source fragment. This task defines the data model only; validation rules and typing judgments belong to SCW-06 and SCW-07.
 
@@ -15,13 +15,13 @@
 
 ## Fine-grained tasks
 
-- [ ] **SCW-05.1 — Define variable identity.** Add a small identity type with decidable equality and representation suitable for finite contexts.
-- [ ] **SCW-05.2 — Define declaration roles.** Distinguish input, local, and state declarations without conflating role with sort.
-- [ ] **SCW-05.3 — Define typed declarations.** Store identity, source name, role, and `ExprSort` in one declaration record.
-- [ ] **SCW-05.4 — Define finite declaration contexts.** Represent an ordered finite collection and provide identity-based lookup.
-- [ ] **SCW-05.5 — Add focused examples/tests.** Exercise lookup, role distinction, and both sorts; do not test SCW-06 validation rules here.
-- [ ] **SCW-05.6 — Integrate the module into the pinned Lean build.** Add the module to the library roots and ensure CI kernel-compiles it.
-- [ ] **SCW-05.7 — Record evidence.** Update Scenario 34 only after the module and tests pass in CI; record exact commit and run.
+- [x] **SCW-05.1 — Define variable identity.** Add a small identity type with decidable equality and representation suitable for finite contexts.
+- [x] **SCW-05.2 — Define declaration roles.** Distinguish input, local, and state declarations without conflating role with sort.
+- [x] **SCW-05.3 — Define typed declarations.** Store identity, source name, role, and `ExprSort` in one declaration record.
+- [x] **SCW-05.4 — Define finite declaration contexts.** Represent an ordered finite collection and provide identity-based lookup.
+- [x] **SCW-05.5 — Add focused examples/tests.** Exercise lookup, role distinction, and both sorts; do not test SCW-06 validation rules here.
+- [x] **SCW-05.6 — Integrate the module into the pinned Lean build.** Add the module to the library roots and ensure CI kernel-compiles it.
+- [x] **SCW-05.7 — Record evidence.** Update Scenario 34 only after the module and tests pass in CI; record exact commit and run.
 
 ## Acceptance criteria
 
@@ -39,3 +39,12 @@
 - Enforcing declaration scope, initialization, read/write legality, or observation eligibility.
 - Proving source expression typing or connecting existing string references to declarations.
 - Defining commands, execution, symbolic execution, or relational semantics.
+
+
+## Completion evidence — 2026-11-20
+
+All seven scoped SCW-05 tasks are complete. The implementation is in [`SourceSyntax.lean`](SourceSyntax.lean): stable `VariableId`, declaration role and sort, finite `DeclarationContext`, and identity-based lookup. [`SourceCoreTests.lean`](SourceCoreTests.lean) and [`Main.lean`](Main.lean) cover the bounded identity/context checks; `lakefile.lean` includes the relevant modules.
+
+The completion is recorded in [Research Scenario 34 §7](../../../RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md). The latest relevant [Logos-binding CI run 44766546452](https://github.com/aivibeflow/LLMLang/actions/runs/44766546452) passed the parser-state bridge build and semantic-correspondence tests on PR #94. The Lean source and build files have not changed since that merge.
+
+This completion is limited to the declaration-context data model and its tests. Context-wide uniqueness, scope validation, and later source-to-CPC binding are separate work items (including SCW-06 and SCW-32); they are not silently included in SCW-05.
