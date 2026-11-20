@@ -16,7 +16,7 @@ Read:
 - [Research State](../RESEARCH-STATE-2026-11-19.md), especially the RT-06/07 unresolved areas and Gate A.
 - [Research Dependency Map](../RESEARCH-DEPENDENCY-MAP.md), especially solver-negative evidence and dependency completeness.
 
-The current Scenario 34 ledger records SCW-04, SCW-05 and SCW-15 as completed. SCW-06–09 are the next typed-source-core tasks; only after that gate should the command/program work SCW-16 onward proceed. Reconfirm this against the current source tree before execution.
+Scenario 34 records the checked Int/Bool expression core in SCW-06–09 and the independent Logos adapter in SCW-15. SCW-16 onward extends the proof to commands, with assignment and branch scopes derived from the command semantics.
 
 ## 3. Questions
 
@@ -57,7 +57,7 @@ For each case record the concrete source executions (or a bounded exhaustive ora
 ## 5. Proposed sequence
 
 1. Revalidate the Scenario 34 task ledger and the checked Lean modules.
-2. Complete SCW-06–09: source well-formedness, typing preservation, typed environments, totality and determinism.
+2. Use the SCW-06–09 scope, typing and environment invariants as the base for command semantics.
 3. Define a deliberately bounded command AST and source big-step semantics (SCW-16–18).
 4. Build symbolic command execution and preservation checks (SCW-19–23).
 5. Add paired executions, source-bound declarations and relational-query correctness (SCW-24–28).

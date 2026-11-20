@@ -1,6 +1,7 @@
 # Research Scenario 34 — Source-to-Query Semantic Correspondence
 
-**Status:** In progress. Expression-level source-to-query preservation and expression-level paired relational translation lemmas are implemented in Lean. Command/program semantics and the complete canonical relational-query correspondence theorem remain open.  
+**Status** — In progress. The typed source core and expression-level source-to-query preservation are implemented in Lean. Command semantics and canonical relational queries for whole programs remain open.
+
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 26–33.  
 **Question:** What must be defined and proved before a QF_LIA relational query generated from an LLMLang program can be treated as a faithful encoding of that program's semantics?
@@ -171,7 +172,8 @@ Do not put all semantics into the existing Logos binding module. Split the proof
 
 Proposed modules:
 
-- `SourceSyntax.lean` — typed source expression and command ASTs, declaration contexts, and well-formedness predicates.
+- `SourceSyntax.lean` — declaration contexts, well-formed scopes, and access checks.
+- `CheckedSourceSemantics.lean` — scope checking for the indexed expression AST, typed runtime slots, and expression-level correspondence with the independent query IR.
 - `SourceSemantics.lean` — expression evaluation and deterministic command/program execution.
 - `SymbolicTranslation.lean` — source-to-symbolic translation and path-condition construction.
 - `Correspondence.lean` — SC-1 through SC-7 theorems.
@@ -197,12 +199,16 @@ The work is split into small reviewable tasks. A task is complete only when its 
 ### 7.2 Source syntax, typing, and environments
 
 - [x] **SCW-05 — Define declaration contexts.** `SourceSyntax.lean` represents input, local, and state declarations with stable IDs and `Int`/`Bool` sorts. [Pinned CI](https://github.com/aivibeflow/LLMLang/actions/runs/44508142320/job/135505028634) built the module and passed identity-lookup tests. Context-wide uniqueness and scope checks belong to SCW-06.
-- [ ] **SCW-06 — Define source well-formedness.** Specify unique declarations, scope, initialization, legal reads/writes, and observation eligibility.
-- [ ] **SCW-07 — Prove expression typing preservation.** Connect the current indexed AST to declaration-context validation.
-- [ ] **SCW-08 — Define typed runtime environments.** Bind every declared name to a value of its declared sort and state the environment satisfaction invariant.
-- [ ] **SCW-09 — Prove expression evaluation totality and determinism.** Make assumptions explicit rather than relying only on total Lean functions over unconstrained name lookup.
+- [x] **SCW-06 — Define source well-formedness.** Require unique IDs and spellings, constrain visibility and initialization, and check read, write and observation eligibility. [Scope model](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceSyntax.lean)
+- [x] **SCW-07 — Prove expression typing preservation.** `translateExpr_symbols` preserves the reference list and its sorts. `checkedTranslate_binds_symbol` binds each symbol in an accepted query to the source declaration and its stable ID.
+- [x] **SCW-08 — Define typed runtime environments.** Runtime slots are keyed by stable ID. `RuntimeEnv.Satisfies` checks that every initialized declaration has a value of its declared sort and that the other declared slots are absent.
+- [x] **SCW-09 — Prove expression evaluation totality and determinism.** `evaluation_total` and `evaluation_deterministic` give existence and uniqueness under the scope, expression and environment checks. `evaluateChecked_eq_some` connects that relation to the executable evaluator.
 
-**Outputs:** source context and well-formedness predicates; typed environment invariant; type/totality lemmas.
+The fragment has one namespace, with visible inputs and state regions initialized and locals explicitly marked as initialized after assignment. Reads require a visible initialized declaration. Writes can initialize locals and update state. The observation contract can select initialized state regions. Static checking visits both conditional arms, including an arm the evaluator never takes.
+
+`checkedTranslate_preserves_evaluation` proves that the query has the unique source result whenever the query environment agrees with actual values for the checked reads. The evaluator can adapt the runtime slots to the existing mathematical evaluator with arbitrary defaults for other names, since `evalExpr_agrees_on_reads` proves those defaults cannot change the result. The boundary is the indexed Int/Bool AST and its named references. Text parsing, state transitions between source points, canonical symbol binding for whole programs and CPC correspondence remain separate tasks. [Checked semantics and proofs](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CheckedSourceSemantics.lean)
+
+`lake build LLMLangLogosBinding` on Lean 4.34.0 kernel-checks the two modules and `SourceCoreTests.lean` in Required CI. The examples cover duplicate names and IDs, invalid scope and initialization, rejected accesses, missing and wrong-sort slots, and preservation of an expression mixing Int and Bool. The theorem axiom audit reported only Lean's `propext`, `Classical.choice`, and `Quot.sound`. [Checked examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCoreTests.lean)
 
 ### 7.3 Expression translation and semantic preservation
 
@@ -263,7 +269,7 @@ The work is split into small reviewable tasks. A task is complete only when its 
 
 ### 7.8 Execution order and gates
 
-SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. The next source-core tasks are SCW-06–SCW-09, covering well-formedness, typing, environments, and totality. Complete their theorem checks before extending the program-level proof to commands.
+SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16 starts the next proof layer with command syntax and the state changes between source points.
 
 | Gate | Required tasks | Exit condition |
 |---|---|---|

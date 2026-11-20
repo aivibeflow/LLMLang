@@ -44,9 +44,9 @@ Do not infer completeness from a bounded prototype, passing tests, a second impl
 - **RT-20 / RT-24 / RT-23 are one lifecycle cluster.** Change planning, semantic merge, mapping revisions, repository/worktree state and commit recovery must be reconciled before end-to-end claims.
 - **Formal proof, solver output and test evidence are different evidence classes.** A proof for a restricted fragment does not certify unsupported source constructs.
 
-## Known documentation alignment item
+## Source correspondence milestone
 
-The detailed Scenario 34 work plan records SCW-15 as completed and SCW-06–09 as the next typed-source-core tasks. The older `PLAN.md` sentence still calls SCW-15 the next implementation task. This pack uses Scenario 34's task ledger as the current task state and includes a correction to the stale plan sentence in the accompanying change.
+Scenario 34 records scope validation, typed environments, and expression-level correspondence in SCW-06–09. Use its task ledger for the command and program proof layers. [Scenario 34](../RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#72-source-syntax-typing-and-environments)
 
 ## Completion condition for this preparation pack
 
