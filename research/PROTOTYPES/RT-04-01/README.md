@@ -305,3 +305,7 @@ Focused tests, including the real deadline case:
 ## Path-sensitive alias precision (Scenario 108)
 
 `execute_path_sensitive_summary` enumerates the two-field Boolean input domain, follows source branches, propagates exact reference targets per valuation, and applies the extracted toggle summary. In the value-correlated fixture it returns exactly two concrete routes where the joined may-alias analysis allows four; for an independent alias choice it preserves all four. Ten focused tests compare the joined and enumerated analyses with the fixture executor. This is a finite exact enumerator with a shared grammar and semantic contract, not a scalable symbolic analysis or independent proof of source completeness.
+
+## Optional presence at a serialization boundary (Scenario 109)
+
+[`optional_presence_model.py`](optional_presence_model.py) and [`test_optional_presence_model.py`](test_optional_presence_model.py) model absent, explicit JSON `null`, integer value, decode failure, and uninitialized read as distinct fixture outcomes. Under the documented mapping, one-level optional collapses absent/null, while nested optional and a presence bit plus nullable payload preserve all three valid field states over JSON round-trip. Decode failure remains an outer error. Eight focused tests pass. This is a one-field integer JSON fixture, not an LLMLang serializer, schema, ABI/layout, or representation decision.
