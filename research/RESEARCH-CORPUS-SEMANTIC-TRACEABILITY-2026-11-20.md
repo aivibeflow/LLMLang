@@ -212,7 +212,7 @@ The reference register explicitly maps the vendored source material to research 
 | OCI | 3 | RT-05, RT-11, RT-12 |
 | Bazel REAPI | 1 | RT-11, RT-12 |
 
-The four licence files plus the preparation index, reference index, and snapshot manifest remain Stage 0 provenance/navigation artifacts (**7 files**); they are not assigned substantive RT ownership.
+The four licence files plus the preparation index, reference index, and snapshot manifest remain Stage 0 provenance/navigation artifacts (**7 files**); the Dependency Graph prototype README is an additional Stage 0 family index (**1 file**). These indexes are not assigned substantive RT ownership.
 
 Three documents explicitly identify themselves as **RT-24**, while the current taxonomy contains only RT-01 through RT-23:
 
@@ -235,4 +235,4 @@ The mapping is intentionally incomplete in these areas:
 
 ## 8. Conclusion
 
-The first-pass triage resolves all 36 previous low-confidence root-level mappings. All 136 scenario reports have candidate RT mappings; all 120 prototype-family artifacts have individual file-role mappings; and nine vendored technical source documents are mapped to the areas named by the reference register. Seven provenance/navigation files remain Stage 0-only, while three RT-24-labelled documents await taxonomy reconciliation. Candidate plan-stage metadata is present on all 450 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/supersession/orphan/contradiction analysis, and the RT-24 taxonomy decision remain open.
+The first-pass triage resolves all 36 previous low-confidence root-level mappings. All 136 scenario reports have candidate RT mappings; all 120 prototype-family artifacts have individual file-role mappings; and nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family index remain Stage 0-only, while three RT-24-labelled documents await taxonomy reconciliation. Candidate plan-stage metadata is present on all 450 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/supersession/orphan/contradiction analysis, and the RT-24 taxonomy decision remain open.
