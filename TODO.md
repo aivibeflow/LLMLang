@@ -281,6 +281,16 @@ Priority is a planning aid, not a measure of correctness:
 - **Recommendation:** Introduce a versioned Change Impact Plan with separate Dependency Analysis and Change Implementation Plan views. Make compatibility decisions edge-specific. Validate completeness server-side before permitting mutations. Enforce every planned function/reference change. Expose one authorized completion operation that validates and audits the frozen candidate and creates a Git commit only if all mandatory gates pass; keep remote push separate.
 - **Related:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-19](research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [Development Engine RFC](research/RFC-DEVELOPMENT-ENGINE.md), [RT-05 identity research](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [RT-06 dependency research](research/RESEARCH-SCENARIO-25-FORMAL-SEMANTIC-DEPENDENCY-ANALYSIS.md).
 
+### LL-025 — Define cross-version component and wire compatibility
+
+- **Status:** Resolved
+- **Priority:** P2
+- **Question:** Must immutable LLMLang components interoperate across toolchain versions, and is a general wire-schema evolution protocol required?
+- **Decision (2026-11-20):** Published components are read-only/immutable. Compatibility is required only within a coherent build performed by one toolchain version. The toolchain statically checks caller arguments against the callee's declared callable prototype; mismatches fail the build. The current architecture does not require cross-version wire compatibility, schema negotiation, or persisted-message migration.
+- **Boundary:** This does not resolve behavioral Contract refinement, cross-version ABI, dynamic loading, external RPC, or persistence formats. Callable type compatibility and behavioral contract compatibility remain distinct.
+- **Reconsideration trigger:** Independently built component exchange, cross-toolchain linking, dynamic loading, external RPC, persisted serialized messages, or a separately versioned binary/plugin ABI.
+- **Related:** [Architecture Decision — Immutable Components and Single-Version Toolchain Compatibility](draft/ARCHITECTURE-DECISIONS.md), [Scenario 134](research/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md).
+
 ## Deferred engineering tasks
 
 ### DEFERRED-001 — Repair canonical query semantics Lean module
