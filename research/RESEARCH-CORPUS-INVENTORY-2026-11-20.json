@@ -12731,5 +12731,12 @@
       "Scenario 58's header identifies RT-10 runtime; no RT-16/runtime mismatch remains.",
       "Scenario 134 is prior-art-only under the immutable-component/single-toolchain decision."
     ]
+  },
+  "branch_index_check": {
+    "index": "research/README.md",
+    "unique_relative_targets": 98,
+    "broken_relative_targets": 0,
+    "checked_revision": "PR branch head before final CI run",
+    "scope": "Includes new prototype-family navigation links, corpus audit, and semantic traceability report; this is separate from the pinned main-revision index check."
   }
 }
