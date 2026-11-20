@@ -419,3 +419,19 @@ The native evidence was rerun after the reproducibility harness landed. Research
 - LLVM preservation: both probes passed, with 20,978 integer traces and 9,800 byte-view traces at each of O0/O3, zero mismatches, and expected negative-control disagreements. Artifact 14650040345.
 
 The workflow manifest records merge-ref commit 8c4a82c91f039309bba769c49bd00515e3713feb, not the final main merge commit b808c3a8f984bbc5c175ecf45d61e0e8db7a00bb. Required CI on the latter passed in run 44774552406. Native reproduction remains a separate non-required workflow.
+
+
+## 21. Specification-level prior-art audit — Scenarios 65–72
+
+Scenarios 65–72 are evidence-linked prior-art comparisons, not LLMLang implementation results:
+
+- 65 compares fatal failure, unwind/abort, cleanup, task/process boundaries, and FFI unwind.
+- 66 separates source value/reference semantics, ownership transfer/duplication, and physical representation/copy elision.
+- 67 distinguishes binding reassignment, direct/alias mutation, deep immutability, interior mutability, and race safety.
+- 68 compares zero/default initialization, complete construction, invariant-establishing constructors, and prevention of partial-object escape.
+- 69 separates subtyping, assignability/coercion, generic variance, and function variance.
+- 70 separates aliases, nominal wrappers, opaque abstraction, and representation/ABI guarantees.
+- 71 compares conformance ownership, orphan/coherence restrictions, overlap, structural satisfaction, and lookup scope.
+- 72 separates sum-type source semantics/exhaustiveness from tag/payload layout, calling convention, and FFI representation.
+
+Each report contains candidate axes and discriminating experiment proposals, but does not cite an executed LLMLang implementation or target/compiler experiment for the scoped question. Do not convert these candidates into language rules without a decision record and matched experiments. Cross-links to Scenarios 14, 47, 54, 64, and 65–70 are recorded in corpus audit §2.21.
