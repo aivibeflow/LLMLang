@@ -194,6 +194,8 @@ These are not simple one-way dependencies. They must be tested explicitly:
 4. **Runtime ↔ effects/ownership/concurrency (RT-04 ↔ RT-10).** Runtime primitives may reveal missing language concepts; language concepts may require a different runtime boundary.
 
    Scenario 120 adds SQLite evidence for DEP-019. A live prepared statement prevents ordinary close and delays destruction under `close_v2`. A wrapper's ownership contract needs to track this dependency separately from the close result and the connection capability. [Cleanup dependencies in SQLite](RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md)
+
+   Scenario 121 finds different return obligations for the same complete dependency graph. The busy path returns a live connection when local cleanup leaves an outside dependent. The deferred path consumes the connection while outside owners still determine when destruction completes. Static admission depends on proof of the complete live set, including dependents outside the caller's ownership. [Local close recovery](RESEARCH-SCENARIO-121-SQLITE-LOCAL-CLOSE-RECOVERY.md)
 5. **Backend ↔ language subset (RT-03/04 ↔ RT-09/13).** Backend capability must not silently define source semantics. A target may reject a valid source program, require a different implementation strategy, or impose an explicitly declared profile.
 6. **Requirements ↔ verification evidence (RT-02 ↔ RT-07/08).** A proof can establish implementation conformance to a formal contract; it cannot establish that the contract correctly captures human intent.
 7. **AI change model ↔ Git/semantic merge (RT-14 ↔ RT-15).** Both need stable operations, baselines, provenance, conflict semantics, and reviewable changes.
