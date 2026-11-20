@@ -2,43 +2,43 @@
   "schema_version": 1,
   "generated_at": "2026-11-20",
   "repository": "aivibeflow/LLMLang",
-  "revision": "c0815d3dbdd6b6acbe0e5479af5f41e26647260c",
-  "source": "Recursive Git tree at c0815d3dbdd6b6acbe0e5479af5f41e26647260c (the inventory baseline); inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "f560d0f9893f882a6756f1f0a3b070ea7ba1a09f",
+  "source": "Recursive Git tree at current main HEAD f560d0f9893f882a6756f1f0a3b070ea7ba1a09f; inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
-    "research_files": 460,
+    "research_files": 462,
     "markdown_files": 234,
     "python_files": 194,
     "scenario_named_documents": 136,
-    "prototype_tree_files": 238,
+    "prototype_tree_files": 240,
     "preparation_and_reference_files": 24,
     "category_counts": {
       "research-background-or-design-analysis": 23,
+      "example-or-fixture": 1,
       "structured-fixture-or-schema": 1,
-      "prototype-or-experiment-implementation": 121,
-      "prototype-report-or-readme": 20,
-      "prototype-test-evidence": 95,
+      "research-preparation-brief-or-index": 9,
+      "prototype-or-experiment-implementation": 123,
       "other-research-artifact": 2,
+      "prototype-test-evidence": 95,
+      "prototype-report-or-readme": 20,
       "index-or-research-management": 3,
+      "reference-register-or-manifest": 2,
+      "external-source-snapshot-or-license": 13,
       "audit-or-review-report": 3,
       "cross-cutting-synthesis-or-status": 4,
       "scenario-research-result": 136,
       "research-rfc-or-protocol-proposal": 2,
-      "research-area-or-experiment-document": 25,
-      "example-or-fixture": 1,
-      "research-preparation-brief-or-index": 9,
-      "reference-register-or-manifest": 2,
-      "external-source-snapshot-or-license": 13
+      "research-area-or-experiment-document": 25
     },
-    "lean_source_files": 20,
+    "lean_source_files": 22,
     "taxonomy_research_areas": 24,
     "dependency_edges": 94
   },
   "classification_note": "Categories and mappings are inventory metadata. Path-derived mappings are not semantic proof; 36 root-level entries received first-pass content/heading/reference triage, 63 Scenario reports have taxonomy-based candidate RT crosswalks, and remaining gaps are enumerated in semantic_traceability_review.",
   "index_check": {
     "index": "research/README.md",
-    "unique_relative_targets": 85,
+    "unique_relative_targets": 98,
     "broken_relative_targets": 0,
-    "checked_scope": "All relative Markdown links in the main research index at inventory revision; updated semantic-traceability branch adds one further target."
+    "checked_scope": "Current main index at f560d0f9893f882a6756f1f0a3b070ea7ba1a09f; 99 inline relative-link occurrences checked against the full repository tree."
   },
   "duplicate_blob_groups": [
     {
@@ -47,7 +47,7 @@
         "research/references/snapshots/OCI/LICENSE-APACHE-2.0.txt",
         "research/references/snapshots/REAPI/LICENSE-APACHE-2.0.txt"
       ],
-      "interpretation": "Identical Git blob; verify whether intentional shared licence/reference content."
+      "interpretation": "Expected shared Apache-2.0 licence text; retain both colocated copies for snapshot attribution."
     }
   ],
   "artifacts": [
@@ -89,6 +89,26 @@
       },
       "plan_stages": [
         1
+      ]
+    },
+    {
+      "path": "research/examples/package/manifest.toml",
+      "git_blob_sha": "220db8fc564d85ff1191326fcb22f44fd7c735cf",
+      "size_bytes": 814,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-12"
+        ],
+        "method": "first-pass content/heading/related-document review; see semantic traceability report",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Illustrative package-manifest fixture explicitly follows the package schema candidate."
+      },
+      "plan_stages": [
+        7
       ]
     },
     {
@@ -402,6 +422,150 @@
       ]
     },
     {
+      "path": "research/preparation/README.md",
+      "git_blob_sha": "580436f3d940c672bb806a6e6436222bc8ab154a",
+      "size_bytes": 5616,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "multiple RT items named by preparation brief"
+        ],
+        "method": "brief title/path; inspect brief for exact scope",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        "Stage 0 (corpus/reference management only; domain mapping pending)"
+      ]
+    },
+    {
+      "path": "research/preparation/RT-01-14-17-WORKLOAD-AND-AGENT-EVALUATION.md",
+      "git_blob_sha": "80060d4583d23563001f8b1e47c3ef26c87b6c2e",
+      "size_bytes": 3977,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-01"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        7
+      ]
+    },
+    {
+      "path": "research/preparation/RT-03-04-SOURCE-SEMANTICS-AND-OWNERSHIP.md",
+      "git_blob_sha": "140c24db37a93663a704b862410fecceab2b96a4",
+      "size_bytes": 8815,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-03"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        1
+      ]
+    },
+    {
+      "path": "research/preparation/RT-03-06-07-PATH-FEASIBILITY-AND-SOURCE-CORRESPONDENCE.md",
+      "git_blob_sha": "9ae79bf9993672488c338958252c368c18277a1a",
+      "size_bytes": 6532,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-03"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        1
+      ]
+    },
+    {
+      "path": "research/preparation/RT-04-PROVIDER-RECONCILIATION-AND-GUARD-COVERAGE.md",
+      "git_blob_sha": "bcc834023496868b4e835c9d51fd530527583921",
+      "size_bytes": 6152,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-04"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ]
+    },
+    {
+      "path": "research/preparation/RT-05-06-IDENTITY-AND-DEPENDENCY-COMPLETENESS.md",
+      "git_blob_sha": "c3e141eae6cd1f598431e159ee7c6bc8853e21b8",
+      "size_bytes": 7365,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-05"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        1
+      ]
+    },
+    {
+      "path": "research/preparation/RT-07-09-10-13-EVIDENCE-AND-BACKEND-PRESERVATION.md",
+      "git_blob_sha": "79866a6189a29ab4065f5431485e655811fbd5f5",
+      "size_bytes": 5735,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ]
+    },
+    {
+      "path": "research/preparation/RT-11-12-PACKAGE-CACHE-AND-TRUST.md",
+      "git_blob_sha": "f37ff3d08d7d0508c3c1134fd3f9180877950d50",
+      "size_bytes": 4858,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-11"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        3
+      ]
+    },
+    {
+      "path": "research/preparation/RT-16-19-20-22-23-TOOLCHAIN-SECURITY-AND-LIFECYCLE.md",
+      "git_blob_sha": "6cf66f9cd79945833a77b2ec440d4cbd849ed4e3",
+      "size_bytes": 5827,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-16"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        7
+      ]
+    },
+    {
       "path": "research/PROTOTYPE-01-RESULTS.md",
       "git_blob_sha": "475658b1b36aab9dee8006bc6660d6343aa259bd",
       "size_bytes": 11368,
@@ -520,6 +684,928 @@
         ],
         "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
       }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CanonicalQuerySymbols.lean",
+      "git_blob_sha": "1af1925880316403c86a8b0622218fbaf2403192",
+      "size_bytes": 14002,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07"
+        ],
+        "method": "direct module and Scenario 34 relationship; see semantic traceability report",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean source modules implementing canonical relational-query symbol binding and source-program relational semantics; associated with Scenario 34."
+      },
+      "plan_stages": [
+        3
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CheckedSourceSemantics.lean",
+      "git_blob_sha": "fef6133af0dd7c8014f9a0de7302bbb086614b5d",
+      "size_bytes": 12734,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07"
+        ],
+        "method": "content review of checked source-fragment typing and expression-to-query preservation definitions",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Defines source/query symbol correspondence, expression typing, and checked translation proof obligations."
+      },
+      "plan_stages": [
+        1,
+        2,
+        3,
+        5,
+        7
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
+      "git_blob_sha": "64f78e09a161f2f126e2e10d94e2eb27bb426209",
+      "size_bytes": 750,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-09"
+        ],
+        "method": "individual Lean module/build-file or task-audit content review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2,
+        6
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lean-toolchain",
+      "git_blob_sha": "12359f928f18e4a89ebd1444a0310b025931b17d",
+      "size_bytes": 25,
+      "category": "other-research-artifact",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-09"
+        ],
+        "method": "individual Lean module/build-file or task-audit content review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2,
+        6
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean",
+      "git_blob_sha": "19d6940e6f46e2418df4d57fc1e87d88350a4feb",
+      "size_bytes": 19523,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-08",
+          "RT-09"
+        ],
+        "method": "individual Lean module/build-file or task-audit content review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2,
+        6
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosQueryAdapter.lean",
+      "git_blob_sha": "8d68cd3e8186f21530513fdc846d5bca37fed5a4",
+      "size_bytes": 5187,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-08",
+          "RT-09"
+        ],
+        "method": "individual Lean module/build-file or task-audit content review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2,
+        6
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/Main.lean",
+      "git_blob_sha": "e0cf2ca7292a3e6f2d64b8ff70208fbe75bad7cc",
+      "size_bytes": 14249,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-08",
+          "RT-09"
+        ],
+        "method": "individual Lean module/build-file or task-audit content review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2,
+        6
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/PairedObservationSemantics.lean",
+      "git_blob_sha": "6d6c5d7835d2709d641f27f136aa4f9dc3ffeee5",
+      "size_bytes": 7995,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-module-role-review",
+        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
+      },
+      "plan_stages": [
+        2
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/PairedObservationTests.lean",
+      "git_blob_sha": "e6bb2ebd395d16fcbca1fae6ce2fe17ee9e1ec3b",
+      "size_bytes": 3991,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-module-role-review",
+        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
+      },
+      "plan_stages": [
+        2
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramObservationSemantics.lean",
+      "git_blob_sha": "bc0366442d99d043825c688f38a2ea73ca82e781",
+      "size_bytes": 9947,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-module-role-review",
+        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
+      },
+      "plan_stages": [
+        2
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramObservationTests.lean",
+      "git_blob_sha": "d33f887fae89e44c8b0a48ce6a450f8cc1501067",
+      "size_bytes": 5044,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-module-role-review",
+        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
+      },
+      "plan_stages": [
+        2
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQuery.lean",
+      "git_blob_sha": "2b3767827a308a9096d48949f62b93a527665527",
+      "size_bytes": 19065,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07"
+        ],
+        "method": "direct module and Scenario 34 relationship; see semantic traceability report",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean source modules implementing canonical relational-query symbol binding and source-program relational semantics; associated with Scenario 34."
+      },
+      "plan_stages": [
+        3
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQueryTests.lean",
+      "git_blob_sha": "ad582767226919183c90de1686b64882a2676331",
+      "size_bytes": 5689,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07"
+        ],
+        "method": "direct module and Scenario 34 relationship; see semantic traceability report",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean source modules implementing canonical relational-query symbol binding and source-program relational semantics; associated with Scenario 34."
+      },
+      "plan_stages": [
+        3
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/QfLiaAdmissibility.lean",
+      "git_blob_sha": "2da5166456fd573b9070564dd568a06475df3680",
+      "size_bytes": 1214,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "direct source-module and Scenario 34 SCW-29 content review",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Proves compileRelationalQuery_qfLia from the relational compiler existence theorem and adapter admissibility theorem. This supports SCW-29 for the admitted deterministic Int/Bool fragment only; declaration closure and source-derived wire/CPC binding remain open."
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-03",
+          "RT-07"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Individual module role is established by its definitions/theorem and the explicit SCW-29 relationship; no broader family-wide claim is implied."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/QfLiaQuery.lean",
+      "git_blob_sha": "265734357685a1af6d14b7952b723db3826d7c15",
+      "size_bytes": 2471,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "direct source-module and Scenario 34 SCW-29 content review",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Defines the typed solver-facing query AST and recursive strict QF_LIA profile predicate, including literal-multiplication and Boolean-arity restrictions. It is the term-profile implementation used by the adapter and decoder; this is not proof of wire or solver correctness."
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-03",
+          "RT-07"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Individual module role is established by its definitions/theorem and the explicit SCW-29 relationship; no broader family-wide claim is implied."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/RelationalSourceQuerySemantics.lean",
+      "git_blob_sha": "30a184bec53b10d3741a57b9d2a57b7ed19c9f3b",
+      "size_bytes": 17842,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07"
+        ],
+        "method": "individual Lean module/build-file or task-audit content review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-04-MODULE-BOUNDARY-AUDIT.md",
+      "git_blob_sha": "d3e8b68c2cfa58f3ef34536a0e0bf2c399cf1028",
+      "size_bytes": 2893,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-08",
+          "RT-09"
+        ],
+        "method": "individual Lean module/build-file or task-audit content review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2,
+        6
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-05-DECLARATION-CONTEXT-BREAKDOWN.md",
+      "git_blob_sha": "8f2c44c4da6f1caf36ccde9e45d593bc383cfa8d",
+      "size_bytes": 3002,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-04",
+          "RT-07"
+        ],
+        "method": "individual Lean module/build-file or task-audit content review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2,
+        5
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCommandSemantics.lean",
+      "git_blob_sha": "14085bd2ec96fe1b67b5c5b129a330929b1c24ff",
+      "size_bytes": 18656,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "RT-08"
+        ],
+        "method": "content review of typed source-command checking, scope/write permissions, and command execution semantics",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Defines typed command/sequence/branch/write-target semantics, source scope checks, and deterministic execution configurations."
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "Dependency Graph prototype family scope; individual module mapped to RT-03/07/08."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCommandTests.lean",
+      "git_blob_sha": "30bedd86c65cb9d431d728b24c0da066d5b2ca8a",
+      "size_bytes": 4909,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "RT-08"
+        ],
+        "method": "content review of Lean command-semantics test fixtures and proof checks",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Tests typed local/state writes, branch conditions, scope visibility/initialization, and command execution."
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "Dependency Graph prototype family scope; individual test mapped to RT-03/07/08."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCoreTests.lean",
+      "git_blob_sha": "aa4678daf3fde6367aad7638a6103fa64175df15",
+      "size_bytes": 4285,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "RT-08"
+        ],
+        "method": "content review of typed source-core fixtures and proof-oriented tests",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable Lean examples test well-formed declaration scopes, visibility/initialization, typed evaluation, and checked translation."
+      },
+      "plan_stages": [
+        1,
+        2,
+        3,
+        5,
+        7
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQuerySemantics.lean",
+      "git_blob_sha": "6be100f44f452e115dc44560d7f7c719359607e1",
+      "size_bytes": 7694,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07"
+        ],
+        "method": "individual Lean module/build-file or task-audit content review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceSyntax.lean",
+      "git_blob_sha": "1546ced8af8b553fc9fd80fcca00f9fb54394a7e",
+      "size_bytes": 8435,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-04",
+          "RT-07"
+        ],
+        "method": "individual Lean module/build-file or task-audit content review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2,
+        5
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-02",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-11",
+          "RT-12",
+          "RT-19",
+          "RT-20"
+        ],
+        "plan_stages": [
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCommandSemantics.lean",
+      "git_blob_sha": "3a5cfac418cd6c91d2d3451b95646d654e67f78d",
+      "size_bytes": 19231,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-module-role-review",
+        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
+      },
+      "plan_stages": [
+        2
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCommandTests.lean",
+      "git_blob_sha": "0dce91a40286bf953836b0460363dbb6ee8c521d",
+      "size_bytes": 4347,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
+        "confidence": "medium"
+      },
+      "semantic_review": {
+        "status": "first-pass-module-role-review",
+        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
+      },
+      "plan_stages": [
+        2
+      ]
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-16-RESULTS.md",
@@ -1168,799 +2254,6 @@
       }
     },
     {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CheckedSourceSemantics.lean",
-      "git_blob_sha": "fef6133af0dd7c8014f9a0de7302bbb086614b5d",
-      "size_bytes": 12734,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07"
-        ],
-        "method": "content review of checked source-fragment typing and expression-to-query preservation definitions",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Defines source/query symbol correspondence, expression typing, and checked translation proof obligations."
-      },
-      "plan_stages": [
-        1,
-        2,
-        3,
-        5,
-        7
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean",
-      "git_blob_sha": "9836ea04c5eeeaad425339eaebde5cec1104356a",
-      "size_bytes": 20929,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-07",
-          "RT-08",
-          "RT-09"
-        ],
-        "method": "individual Lean module/build-file or task-audit content review",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        2,
-        6
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosQueryAdapter.lean",
-      "git_blob_sha": "cdc60b749ea2ca9fdb533237600c0c7345342b97",
-      "size_bytes": 4837,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-07",
-          "RT-08",
-          "RT-09"
-        ],
-        "method": "individual Lean module/build-file or task-audit content review",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        2,
-        6
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/Main.lean",
-      "git_blob_sha": "e0cf2ca7292a3e6f2d64b8ff70208fbe75bad7cc",
-      "size_bytes": 14249,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-07",
-          "RT-08",
-          "RT-09"
-        ],
-        "method": "individual Lean module/build-file or task-audit content review",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        2,
-        6
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/PairedObservationSemantics.lean",
-      "git_blob_sha": "6d6c5d7835d2709d641f27f136aa4f9dc3ffeee5",
-      "size_bytes": 7995,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07",
-          "Scenario 34"
-        ],
-        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-module-role-review",
-        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
-      },
-      "plan_stages": [
-        2
-      ]
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/PairedObservationTests.lean",
-      "git_blob_sha": "e6bb2ebd395d16fcbca1fae6ce2fe17ee9e1ec3b",
-      "size_bytes": 3991,
-      "category": "prototype-test-evidence",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07",
-          "Scenario 34"
-        ],
-        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-module-role-review",
-        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
-      },
-      "plan_stages": [
-        2
-      ]
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramObservationSemantics.lean",
-      "git_blob_sha": "bc0366442d99d043825c688f38a2ea73ca82e781",
-      "size_bytes": 9947,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07",
-          "Scenario 34"
-        ],
-        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-module-role-review",
-        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
-      },
-      "plan_stages": [
-        2
-      ]
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramObservationTests.lean",
-      "git_blob_sha": "d33f887fae89e44c8b0a48ce6a450f8cc1501067",
-      "size_bytes": 5044,
-      "category": "prototype-test-evidence",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07",
-          "Scenario 34"
-        ],
-        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-module-role-review",
-        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
-      },
-      "plan_stages": [
-        2
-      ]
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/RelationalSourceQuerySemantics.lean",
-      "git_blob_sha": "30a184bec53b10d3741a57b9d2a57b7ed19c9f3b",
-      "size_bytes": 17842,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07"
-        ],
-        "method": "individual Lean module/build-file or task-audit content review",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        1,
-        2
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-04-MODULE-BOUNDARY-AUDIT.md",
-      "git_blob_sha": "d3e8b68c2cfa58f3ef34536a0e0bf2c399cf1028",
-      "size_bytes": 2893,
-      "category": "prototype-report-or-readme",
-      "traceability": {
-        "items": [
-          "RT-07",
-          "RT-08",
-          "RT-09"
-        ],
-        "method": "individual Lean module/build-file or task-audit content review",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        2,
-        6
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-05-DECLARATION-CONTEXT-BREAKDOWN.md",
-      "git_blob_sha": "8f2c44c4da6f1caf36ccde9e45d593bc383cfa8d",
-      "size_bytes": 3002,
-      "category": "prototype-report-or-readme",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-04",
-          "RT-07"
-        ],
-        "method": "individual Lean module/build-file or task-audit content review",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        1,
-        2,
-        5
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCommandSemantics.lean",
-      "git_blob_sha": "14085bd2ec96fe1b67b5c5b129a330929b1c24ff",
-      "size_bytes": 18656,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07",
-          "RT-08"
-        ],
-        "method": "content review of typed source-command checking, scope/write permissions, and command execution semantics",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Defines typed command/sequence/branch/write-target semantics, source scope checks, and deterministic execution configurations."
-      },
-      "plan_stages": [
-        1,
-        2
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "Dependency Graph prototype family scope; individual module mapped to RT-03/07/08."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCommandTests.lean",
-      "git_blob_sha": "30bedd86c65cb9d431d728b24c0da066d5b2ca8a",
-      "size_bytes": 4909,
-      "category": "prototype-test-evidence",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07",
-          "RT-08"
-        ],
-        "method": "content review of Lean command-semantics test fixtures and proof checks",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Tests typed local/state writes, branch conditions, scope visibility/initialization, and command execution."
-      },
-      "plan_stages": [
-        1,
-        2
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "Dependency Graph prototype family scope; individual test mapped to RT-03/07/08."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCoreTests.lean",
-      "git_blob_sha": "aa4678daf3fde6367aad7638a6103fa64175df15",
-      "size_bytes": 4285,
-      "category": "prototype-test-evidence",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07",
-          "RT-08"
-        ],
-        "method": "content review of typed source-core fixtures and proof-oriented tests",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Executable Lean examples test well-formed declaration scopes, visibility/initialization, typed evaluation, and checked translation."
-      },
-      "plan_stages": [
-        1,
-        2,
-        3,
-        5,
-        7
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQuerySemantics.lean",
-      "git_blob_sha": "6be100f44f452e115dc44560d7f7c719359607e1",
-      "size_bytes": 7694,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07"
-        ],
-        "method": "individual Lean module/build-file or task-audit content review",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        1,
-        2
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceSyntax.lean",
-      "git_blob_sha": "1546ced8af8b553fc9fd80fcca00f9fb54394a7e",
-      "size_bytes": 8435,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-04",
-          "RT-07"
-        ],
-        "method": "individual Lean module/build-file or task-audit content review",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        1,
-        2,
-        5
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCommandSemantics.lean",
-      "git_blob_sha": "3a5cfac418cd6c91d2d3451b95646d654e67f78d",
-      "size_bytes": 19231,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07",
-          "Scenario 34"
-        ],
-        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-module-role-review",
-        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
-      },
-      "plan_stages": [
-        2
-      ]
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCommandTests.lean",
-      "git_blob_sha": "0dce91a40286bf953836b0460363dbb6ee8c521d",
-      "size_bytes": 4347,
-      "category": "prototype-test-evidence",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07",
-          "Scenario 34"
-        ],
-        "method": "Scenario 34 source-to-query Logos binding; module role and proof boundary require source-level review",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-module-role-review",
-        "basis": "Added after PR #81 inventory baseline; module/test role is inferred from source module name and Scenario 34 context, not a claim-level proof audit."
-      },
-      "plan_stages": [
-        2
-      ]
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
-      "git_blob_sha": "c7d21557ffd07b92b9e5f205a0194740198ef8cf",
-      "size_bytes": 716,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-07",
-          "RT-09"
-        ],
-        "method": "individual Lean module/build-file or task-audit content review",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        2,
-        6
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lean-toolchain",
-      "git_blob_sha": "12359f928f18e4a89ebd1444a0310b025931b17d",
-      "size_bytes": 25,
-      "category": "other-research-artifact",
-      "traceability": {
-        "items": [
-          "RT-07",
-          "RT-09"
-        ],
-        "method": "individual Lean module/build-file or task-audit content review",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        2,
-        6
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-02",
-          "RT-03",
-          "RT-04",
-          "RT-05",
-          "RT-06",
-          "RT-07",
-          "RT-08",
-          "RT-11",
-          "RT-12",
-          "RT-19",
-          "RT-20"
-        ],
-        "plan_stages": [
-          1,
-          2,
-          3,
-          5,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
-      }
-    },
-    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/__init__.py",
       "git_blob_sha": "a611c5c0ef8f5d435524387e328c928550f5cd9b",
       "size_bytes": 50,
@@ -2053,20 +2346,20 @@
       }
     },
     {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding.py",
-      "git_blob_sha": "3f6c81ade0aef38044cac155ea193d5846066a15",
-      "size_bytes": 4143,
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
+      "git_blob_sha": "cd63e4ec5c5f0d7ae7e215596a5febe74e28f37b",
+      "size_bytes": 9524,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-05",
+          "RT-11",
           "RT-12"
         ],
         "method": "individual prototype module/test/result role reviewed against prototype README, module description, and paired scenario",
         "confidence": "medium"
       },
       "plan_stages": [
-        1,
+        3,
         7
       ],
       "family_scope_review": {
@@ -2099,20 +2392,20 @@
       }
     },
     {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
-      "git_blob_sha": "cd63e4ec5c5f0d7ae7e215596a5febe74e28f37b",
-      "size_bytes": 9524,
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding.py",
+      "git_blob_sha": "3f6c81ade0aef38044cac155ea193d5846066a15",
+      "size_bytes": 4143,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-11",
+          "RT-05",
           "RT-12"
         ],
         "method": "individual prototype module/test/result role reviewed against prototype README, module description, and paired scenario",
         "confidence": "medium"
       },
       "plan_stages": [
-        3,
+        1,
         7
       ],
       "family_scope_review": {
@@ -3676,9 +3969,9 @@
       }
     },
     {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff.py",
-      "git_blob_sha": "b64427999cf2e8bbcbc5624f26bb15e8954a08c0",
-      "size_bytes": 20265,
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff_cip_v2.py",
+      "git_blob_sha": "45b98b44c524b5978551e1f6c739a9c1f6c31e50",
+      "size_bytes": 23407,
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
@@ -3722,9 +4015,9 @@
       }
     },
     {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff_cip_v2.py",
-      "git_blob_sha": "45b98b44c524b5978551e1f6c739a9c1f6c31e50",
-      "size_bytes": 23407,
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff.py",
+      "git_blob_sha": "b64427999cf2e8bbcbc5624f26bb15e8954a08c0",
+      "size_bytes": 20265,
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
@@ -5035,44 +5328,6 @@
       }
     },
     {
-      "path": "research/PROTOTYPES/PACKAGE-IDENTITY-01/README.md",
-      "git_blob_sha": "68c094cc5c1e37bf377c8dc8d745afcf77829712",
-      "size_bytes": 3408,
-      "category": "prototype-report-or-readme",
-      "traceability": {
-        "items": [
-          "RT-05",
-          "RT-11",
-          "RT-12"
-        ],
-        "method": "individual source/test/document role reviewed against prototype README and module/test content",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        1,
-        3,
-        7
-      ],
-      "family_scope_review": {
-        "status": "individual-file-role-triaged",
-        "areas": [
-          "RT-05",
-          "RT-11",
-          "RT-12"
-        ],
-        "plan_stages": [
-          1,
-          3,
-          7
-        ],
-        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
-      },
-      "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Individual file purpose and imported/implemented interfaces inspected; research area assignment is candidate and does not imply implementation readiness."
-      }
-    },
-    {
       "path": "research/PROTOTYPES/PACKAGE-IDENTITY-01/cache_index.py",
       "git_blob_sha": "554a9e73dc0cd211b5db5bd22e892c2646d10640",
       "size_bytes": 5039,
@@ -5182,16 +5437,15 @@
       }
     },
     {
-      "path": "research/PROTOTYPES/PACKAGE-IDENTITY-01/test_language_version_cache_index.py",
-      "git_blob_sha": "801667259ad1a6b36b04e248a98e267268d8f6e2",
-      "size_bytes": 6005,
-      "category": "prototype-test-evidence",
+      "path": "research/PROTOTYPES/PACKAGE-IDENTITY-01/README.md",
+      "git_blob_sha": "68c094cc5c1e37bf377c8dc8d745afcf77829712",
+      "size_bytes": 3408,
+      "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
           "RT-05",
           "RT-11",
-          "RT-12",
-          "RT-18"
+          "RT-12"
         ],
         "method": "individual source/test/document role reviewed against prototype README and module/test content",
         "confidence": "medium"
@@ -5221,20 +5475,23 @@
       }
     },
     {
-      "path": "research/PROTOTYPES/PACKAGE-IDENTITY-01/test_package_identity.py",
-      "git_blob_sha": "a7266b1fe543920a24b8f3a0c815a69fca98da61",
-      "size_bytes": 6503,
+      "path": "research/PROTOTYPES/PACKAGE-IDENTITY-01/test_language_version_cache_index.py",
+      "git_blob_sha": "801667259ad1a6b36b04e248a98e267268d8f6e2",
+      "size_bytes": 6005,
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
           "RT-05",
-          "RT-12"
+          "RT-11",
+          "RT-12",
+          "RT-18"
         ],
         "method": "individual source/test/document role reviewed against prototype README and module/test content",
         "confidence": "medium"
       },
       "plan_stages": [
         1,
+        3,
         7
       ],
       "family_scope_review": {
@@ -5293,31 +5550,31 @@
       }
     },
     {
-      "path": "research/PROTOTYPES/PACKAGE-INDEX-01/README.md",
-      "git_blob_sha": "fad0169283e8f294178690ef4b3e031184d95245",
-      "size_bytes": 7716,
-      "category": "prototype-report-or-readme",
+      "path": "research/PROTOTYPES/PACKAGE-IDENTITY-01/test_package_identity.py",
+      "git_blob_sha": "a7266b1fe543920a24b8f3a0c815a69fca98da61",
+      "size_bytes": 6503,
+      "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-11",
-          "RT-12",
-          "RT-19"
+          "RT-05",
+          "RT-12"
         ],
-        "method": "individual prototype README scope reviewed against package index, provider, content-store, and Toolchain Server integration statements",
+        "method": "individual source/test/document role reviewed against prototype README and module/test content",
         "confidence": "medium"
       },
       "plan_stages": [
-        3,
+        1,
         7
       ],
       "family_scope_review": {
         "status": "individual-file-role-triaged",
         "areas": [
+          "RT-05",
           "RT-11",
-          "RT-12",
-          "RT-19"
+          "RT-12"
         ],
         "plan_stages": [
+          1,
           3,
           7
         ],
@@ -5325,7 +5582,7 @@
       },
       "semantic_review": {
         "status": "file-role-triaged",
-        "basis": "README documents logical package indexes, archive/closure/provider/content-store experiments and explicitly states the content-store adapter is not wired into Toolchain Server."
+        "basis": "Individual file purpose and imported/implemented interfaces inspected; research area assignment is candidate and does not imply implementation readiness."
       }
     },
     {
@@ -5536,6 +5793,42 @@
       "semantic_review": {
         "status": "file-role-triaged",
         "basis": "Individual file purpose and imported/implemented interfaces inspected; research area assignment is candidate and does not imply implementation readiness."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/PACKAGE-INDEX-01/README.md",
+      "git_blob_sha": "fad0169283e8f294178690ef4b3e031184d95245",
+      "size_bytes": 7716,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-11",
+          "RT-12",
+          "RT-19"
+        ],
+        "method": "individual prototype README scope reviewed against package index, provider, content-store, and Toolchain Server integration statements",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        3,
+        7
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-11",
+          "RT-12",
+          "RT-19"
+        ],
+        "plan_stages": [
+          3,
+          7
+        ],
+        "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "README documents logical package indexes, archive/closure/provider/content-store experiments and explicitly states the content-store adapter is not wired into Toolchain Server."
       }
     },
     {
@@ -5819,22 +6112,6 @@
       }
     },
     {
-      "path": "research/PROTOTYPES/RT-04-01/README.md",
-      "git_blob_sha": "c8d1e8f3abce1c17c79b0c6af5ddeab419b2ff1b",
-      "size_bytes": 43932,
-      "category": "prototype-report-or-readme",
-      "traceability": {
-        "items": [
-          "RT-04"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        5
-      ]
-    },
-    {
       "path": "research/PROTOTYPES/RT-04-01/benchmark_rt03_predicate_paths.py",
       "git_blob_sha": "f847934ff4dea63d4dee748175e82f1a60466cd1",
       "size_bytes": 2170,
@@ -5857,6 +6134,22 @@
       "git_blob_sha": "14e7cc48dd983d7c9bef2021250f533918aa7654",
       "size_bytes": 3692,
       "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-04"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/RT-04-01/README.md",
+      "git_blob_sha": "c8d1e8f3abce1c17c79b0c6af5ddeab419b2ff1b",
+      "size_bytes": 43932,
+      "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
           "RT-04"
@@ -5975,9 +6268,9 @@
       ]
     },
     {
-      "path": "research/PROTOTYPES/RT-04-01/rt03_cleanup_composition.py",
-      "git_blob_sha": "d79e0ff22cf09ff08851ec0c9d2bd431abb5d3ea",
-      "size_bytes": 7394,
+      "path": "research/PROTOTYPES/RT-04-01/rt03_cleanup_composition_audit.py",
+      "git_blob_sha": "6b93089fe6a2d79230ea5d3ea355a6daa637dac8",
+      "size_bytes": 4110,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -5993,9 +6286,9 @@
       ]
     },
     {
-      "path": "research/PROTOTYPES/RT-04-01/rt03_cleanup_composition_audit.py",
-      "git_blob_sha": "6b93089fe6a2d79230ea5d3ea355a6daa637dac8",
-      "size_bytes": 4110,
+      "path": "research/PROTOTYPES/RT-04-01/rt03_cleanup_composition.py",
+      "git_blob_sha": "d79e0ff22cf09ff08851ec0c9d2bd431abb5d3ea",
+      "size_bytes": 7394,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -6065,9 +6358,9 @@
       ]
     },
     {
-      "path": "research/PROTOTYPES/RT-04-01/rt03_fuel_owned_return.py",
-      "git_blob_sha": "b5234a07bf898ec8b711271b793df7fe71430aa3",
-      "size_bytes": 3961,
+      "path": "research/PROTOTYPES/RT-04-01/rt03_fuel_owned_return_audit.py",
+      "git_blob_sha": "086943b6366f0822cec2f42f985cbe8ff77ae321",
+      "size_bytes": 4661,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -6083,9 +6376,9 @@
       ]
     },
     {
-      "path": "research/PROTOTYPES/RT-04-01/rt03_fuel_owned_return_audit.py",
-      "git_blob_sha": "086943b6366f0822cec2f42f985cbe8ff77ae321",
-      "size_bytes": 4661,
+      "path": "research/PROTOTYPES/RT-04-01/rt03_fuel_owned_return.py",
+      "git_blob_sha": "b5234a07bf898ec8b711271b793df7fe71430aa3",
+      "size_bytes": 3961,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -6491,22 +6784,6 @@
       ]
     },
     {
-      "path": "research/PROTOTYPES/RT-04-01/rt04_owned_call.py",
-      "git_blob_sha": "e98377098f1c2b571ed8f69d0c27ef362a803bd6",
-      "size_bytes": 20984,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-04"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        5
-      ]
-    },
-    {
       "path": "research/PROTOTYPES/RT-04-01/rt04_owned_call_match.py",
       "git_blob_sha": "7c84fa78e36ae8c8032de32e8bd8646ccee0f527",
       "size_bytes": 9007,
@@ -6526,6 +6803,22 @@
       "path": "research/PROTOTYPES/RT-04-01/rt04_owned_call_oracle.py",
       "git_blob_sha": "71aaf23ce47af6201e1f63be07d9cce11fe30d62",
       "size_bytes": 5335,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-04"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/RT-04-01/rt04_owned_call.py",
+      "git_blob_sha": "e98377098f1c2b571ed8f69d0c27ef362a803bd6",
+      "size_bytes": 20984,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -7343,22 +7636,6 @@
       ]
     },
     {
-      "path": "research/PROTOTYPES/RT-04-01/test_rt04_owned_call.py",
-      "git_blob_sha": "3c265eb8e9fdecf77f5590fda2ac1c176fae2351",
-      "size_bytes": 13341,
-      "category": "prototype-test-evidence",
-      "traceability": {
-        "items": [
-          "RT-04"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        5
-      ]
-    },
-    {
       "path": "research/PROTOTYPES/RT-04-01/test_rt04_owned_call_match.py",
       "git_blob_sha": "6765868751e87bbad9a726e1952aedd114317aec",
       "size_bytes": 9601,
@@ -7378,6 +7655,22 @@
       "path": "research/PROTOTYPES/RT-04-01/test_rt04_owned_call_oracle.py",
       "git_blob_sha": "c630a6c888ea2d65182fc4e75e9a40653ef6901c",
       "size_bytes": 2329,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-04"
+        ],
+        "method": "explicit RT identifier in path",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/RT-04-01/test_rt04_owned_call.py",
+      "git_blob_sha": "3c265eb8e9fdecf77f5590fda2ac1c176fae2351",
+      "size_bytes": 13341,
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
@@ -7665,6 +7958,309 @@
       "plan_stages": [
         0
       ]
+    },
+    {
+      "path": "research/references/README.md",
+      "git_blob_sha": "141d92137f32eb96eeb2513e13d42d0d12bfa043",
+      "size_bytes": 7853,
+      "category": "reference-register-or-manifest",
+      "traceability": {
+        "items": [
+          "cross-cutting prior art"
+        ],
+        "method": "reference register use-cases; not a single RT item",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        "Stage 0 (corpus/reference management only; domain mapping pending)"
+      ]
+    },
+    {
+      "path": "research/references/SNAPSHOT-MANIFEST.json",
+      "git_blob_sha": "f7b9e644f1b166d6e90d9afdbea73e49f3a5a0a9",
+      "size_bytes": 3705,
+      "category": "reference-register-or-manifest",
+      "traceability": {
+        "items": [
+          "cross-cutting prior art"
+        ],
+        "method": "reference register use-cases; not a single RT item",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        "Stage 0 (corpus/reference management only; domain mapping pending)"
+      ]
+    },
+    {
+      "path": "research/references/snapshots/Alive2/LICENSE-MIT.txt",
+      "git_blob_sha": "82e50dda93fcfb77e6ba072106019c323d015681",
+      "size_bytes": 1084,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "cross-cutting prior art"
+        ],
+        "method": "reference register use-cases; not a single RT item",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        "Stage 0 (corpus/reference management only; domain mapping pending)"
+      ]
+    },
+    {
+      "path": "research/references/snapshots/Alive2/README.md",
+      "git_blob_sha": "372a07fc19b0967be02217c01302a59820a7b7d6",
+      "size_bytes": 14995,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-09",
+          "RT-13"
+        ],
+        "method": "external reference register use-case mapping from research/references/README.md",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2,
+        6
+      ],
+      "semantic_review": {
+        "status": "reference-use-case-mapped",
+        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
+      }
+    },
+    {
+      "path": "research/references/snapshots/MCP/authorization.mdx",
+      "git_blob_sha": "b41b14e23eeecef953025d90d565d4ed18137dbc",
+      "size_bytes": 25678,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "RT-16",
+          "RT-19",
+          "RT-22"
+        ],
+        "method": "external reference register use-case mapping from research/references/README.md",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        4,
+        7
+      ],
+      "semantic_review": {
+        "status": "reference-use-case-mapped",
+        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
+      }
+    },
+    {
+      "path": "research/references/snapshots/MCP/basic-index.mdx",
+      "git_blob_sha": "dfe11ecc1443b7dec051b1b1b9a93982b735c647",
+      "size_bytes": 25134,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "RT-19",
+          "RT-22"
+        ],
+        "method": "external reference register use-case mapping from research/references/README.md",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        4,
+        7
+      ],
+      "semantic_review": {
+        "status": "reference-use-case-mapped",
+        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
+      }
+    },
+    {
+      "path": "research/references/snapshots/MCP/LICENSE.md",
+      "git_blob_sha": "4a93985763241755401a10678395303de4e720ba",
+      "size_bytes": 12227,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "cross-cutting prior art"
+        ],
+        "method": "reference register use-cases; not a single RT item",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        "Stage 0 (corpus/reference management only; domain mapping pending)"
+      ]
+    },
+    {
+      "path": "research/references/snapshots/MCP/schema.json",
+      "git_blob_sha": "213c58f6d9a1c2ce6ad055afe90bbdb095a29ee8",
+      "size_bytes": 181474,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "RT-19",
+          "RT-22"
+        ],
+        "method": "external reference register use-case mapping from research/references/README.md",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        4,
+        7
+      ],
+      "semantic_review": {
+        "status": "reference-use-case-mapped",
+        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
+      }
+    },
+    {
+      "path": "research/references/snapshots/MCP/transports.mdx",
+      "git_blob_sha": "2fb00fecf6a95627d9a46a5898f9ba86e3ac900c",
+      "size_bytes": 4059,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "RT-16",
+          "RT-19",
+          "RT-22"
+        ],
+        "method": "external reference register use-case mapping from research/references/README.md",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        4,
+        7
+      ],
+      "semantic_review": {
+        "status": "reference-use-case-mapped",
+        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
+      }
+    },
+    {
+      "path": "research/references/snapshots/OCI/descriptor.md",
+      "git_blob_sha": "56c76d6e4cd9f266f99c670ff29ccc6a4c313494",
+      "size_bytes": 12950,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "RT-11",
+          "RT-12"
+        ],
+        "method": "external reference register use-case mapping from research/references/README.md",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        3,
+        7
+      ],
+      "semantic_review": {
+        "status": "reference-use-case-mapped",
+        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
+      }
+    },
+    {
+      "path": "research/references/snapshots/OCI/image-layout.md",
+      "git_blob_sha": "026e71ecd03f780f635da0da9b2ed41da13d4fc5",
+      "size_bytes": 8790,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "RT-11",
+          "RT-12"
+        ],
+        "method": "external reference register use-case mapping from research/references/README.md",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        3,
+        7
+      ],
+      "semantic_review": {
+        "status": "reference-use-case-mapped",
+        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
+      }
+    },
+    {
+      "path": "research/references/snapshots/OCI/LICENSE-APACHE-2.0.txt",
+      "git_blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "size_bytes": 11358,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "cross-cutting prior art"
+        ],
+        "method": "reference register use-cases; not a single RT item",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        "Stage 0 (corpus/reference management only; domain mapping pending)"
+      ]
+    },
+    {
+      "path": "research/references/snapshots/OCI/manifest.md",
+      "git_blob_sha": "7a0ef73406543b15c1253d7f0c961b89158dea79",
+      "size_bytes": 14008,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "RT-11",
+          "RT-12"
+        ],
+        "method": "external reference register use-case mapping from research/references/README.md",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        3,
+        7
+      ],
+      "semantic_review": {
+        "status": "reference-use-case-mapped",
+        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
+      }
+    },
+    {
+      "path": "research/references/snapshots/REAPI/LICENSE-APACHE-2.0.txt",
+      "git_blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "size_bytes": 11358,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "cross-cutting prior art"
+        ],
+        "method": "reference register use-cases; not a single RT item",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        "Stage 0 (corpus/reference management only; domain mapping pending)"
+      ]
+    },
+    {
+      "path": "research/references/snapshots/REAPI/remote_execution.proto",
+      "git_blob_sha": "67615206f8386fd412bae02e5b2abe75a87160cc",
+      "size_bytes": 125715,
+      "category": "external-source-snapshot-or-license",
+      "traceability": {
+        "items": [
+          "RT-11",
+          "RT-12"
+        ],
+        "method": "external reference register use-case mapping from research/references/README.md",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        3,
+        7
+      ],
+      "semantic_review": {
+        "status": "reference-use-case-mapped",
+        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
+      }
     },
     {
       "path": "research/REPOSITORY-AUDIT-2026-11-17.md",
@@ -9737,8 +10333,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-      "git_blob_sha": "45d304d2ad7141e0edefdf17a5c55448be194e43",
-      "size_bytes": 32563,
+      "git_blob_sha": "aea4444e95028a0665ff391d95116ec93aca7702",
+      "size_bytes": 33921,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -12172,536 +12768,6 @@
       },
       "plan_stages": [
         6
-      ]
-    },
-    {
-      "path": "research/examples/package/manifest.toml",
-      "git_blob_sha": "220db8fc564d85ff1191326fcb22f44fd7c735cf",
-      "size_bytes": 814,
-      "category": "example-or-fixture",
-      "traceability": {
-        "items": [
-          "RT-12"
-        ],
-        "method": "first-pass content/heading/related-document review; see semantic traceability report",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Illustrative package-manifest fixture explicitly follows the package schema candidate."
-      },
-      "plan_stages": [
-        7
-      ]
-    },
-    {
-      "path": "research/preparation/README.md",
-      "git_blob_sha": "580436f3d940c672bb806a6e6436222bc8ab154a",
-      "size_bytes": 5616,
-      "category": "research-preparation-brief-or-index",
-      "traceability": {
-        "items": [
-          "multiple RT items named by preparation brief"
-        ],
-        "method": "brief title/path; inspect brief for exact scope",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        "Stage 0 (corpus/reference management only; domain mapping pending)"
-      ]
-    },
-    {
-      "path": "research/preparation/RT-01-14-17-WORKLOAD-AND-AGENT-EVALUATION.md",
-      "git_blob_sha": "80060d4583d23563001f8b1e47c3ef26c87b6c2e",
-      "size_bytes": 3977,
-      "category": "research-preparation-brief-or-index",
-      "traceability": {
-        "items": [
-          "RT-01"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        7
-      ]
-    },
-    {
-      "path": "research/preparation/RT-03-04-SOURCE-SEMANTICS-AND-OWNERSHIP.md",
-      "git_blob_sha": "140c24db37a93663a704b862410fecceab2b96a4",
-      "size_bytes": 8815,
-      "category": "research-preparation-brief-or-index",
-      "traceability": {
-        "items": [
-          "RT-03"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        1
-      ]
-    },
-    {
-      "path": "research/preparation/RT-03-06-07-PATH-FEASIBILITY-AND-SOURCE-CORRESPONDENCE.md",
-      "git_blob_sha": "a04ff6619015ef493c29875dbebf7c0f0e7b09ca",
-      "size_bytes": 6380,
-      "category": "research-preparation-brief-or-index",
-      "traceability": {
-        "items": [
-          "RT-03"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        1
-      ]
-    },
-    {
-      "path": "research/preparation/RT-04-PROVIDER-RECONCILIATION-AND-GUARD-COVERAGE.md",
-      "git_blob_sha": "bcc834023496868b4e835c9d51fd530527583921",
-      "size_bytes": 6152,
-      "category": "research-preparation-brief-or-index",
-      "traceability": {
-        "items": [
-          "RT-04"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        5
-      ]
-    },
-    {
-      "path": "research/preparation/RT-05-06-IDENTITY-AND-DEPENDENCY-COMPLETENESS.md",
-      "git_blob_sha": "c3e141eae6cd1f598431e159ee7c6bc8853e21b8",
-      "size_bytes": 7365,
-      "category": "research-preparation-brief-or-index",
-      "traceability": {
-        "items": [
-          "RT-05"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        1
-      ]
-    },
-    {
-      "path": "research/preparation/RT-07-09-10-13-EVIDENCE-AND-BACKEND-PRESERVATION.md",
-      "git_blob_sha": "79866a6189a29ab4065f5431485e655811fbd5f5",
-      "size_bytes": 5735,
-      "category": "research-preparation-brief-or-index",
-      "traceability": {
-        "items": [
-          "RT-07"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        2
-      ]
-    },
-    {
-      "path": "research/preparation/RT-11-12-PACKAGE-CACHE-AND-TRUST.md",
-      "git_blob_sha": "f37ff3d08d7d0508c3c1134fd3f9180877950d50",
-      "size_bytes": 4858,
-      "category": "research-preparation-brief-or-index",
-      "traceability": {
-        "items": [
-          "RT-11"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        3
-      ]
-    },
-    {
-      "path": "research/preparation/RT-16-19-20-22-23-TOOLCHAIN-SECURITY-AND-LIFECYCLE.md",
-      "git_blob_sha": "6cf66f9cd79945833a77b2ec440d4cbd849ed4e3",
-      "size_bytes": 5827,
-      "category": "research-preparation-brief-or-index",
-      "traceability": {
-        "items": [
-          "RT-16"
-        ],
-        "method": "explicit RT identifier in path",
-        "confidence": "high"
-      },
-      "plan_stages": [
-        7
-      ]
-    },
-    {
-      "path": "research/references/README.md",
-      "git_blob_sha": "141d92137f32eb96eeb2513e13d42d0d12bfa043",
-      "size_bytes": 7853,
-      "category": "reference-register-or-manifest",
-      "traceability": {
-        "items": [
-          "cross-cutting prior art"
-        ],
-        "method": "reference register use-cases; not a single RT item",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        "Stage 0 (corpus/reference management only; domain mapping pending)"
-      ]
-    },
-    {
-      "path": "research/references/SNAPSHOT-MANIFEST.json",
-      "git_blob_sha": "f7b9e644f1b166d6e90d9afdbea73e49f3a5a0a9",
-      "size_bytes": 3705,
-      "category": "reference-register-or-manifest",
-      "traceability": {
-        "items": [
-          "cross-cutting prior art"
-        ],
-        "method": "reference register use-cases; not a single RT item",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        "Stage 0 (corpus/reference management only; domain mapping pending)"
-      ]
-    },
-    {
-      "path": "research/references/snapshots/Alive2/LICENSE-MIT.txt",
-      "git_blob_sha": "82e50dda93fcfb77e6ba072106019c323d015681",
-      "size_bytes": 1084,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "cross-cutting prior art"
-        ],
-        "method": "reference register use-cases; not a single RT item",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        "Stage 0 (corpus/reference management only; domain mapping pending)"
-      ]
-    },
-    {
-      "path": "research/references/snapshots/Alive2/README.md",
-      "git_blob_sha": "372a07fc19b0967be02217c01302a59820a7b7d6",
-      "size_bytes": 14995,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "RT-07",
-          "RT-09",
-          "RT-13"
-        ],
-        "method": "external reference register use-case mapping from research/references/README.md",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        2,
-        6
-      ],
-      "semantic_review": {
-        "status": "reference-use-case-mapped",
-        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
-      }
-    },
-    {
-      "path": "research/references/snapshots/MCP/LICENSE.md",
-      "git_blob_sha": "4a93985763241755401a10678395303de4e720ba",
-      "size_bytes": 12227,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "cross-cutting prior art"
-        ],
-        "method": "reference register use-cases; not a single RT item",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        "Stage 0 (corpus/reference management only; domain mapping pending)"
-      ]
-    },
-    {
-      "path": "research/references/snapshots/MCP/authorization.mdx",
-      "git_blob_sha": "b41b14e23eeecef953025d90d565d4ed18137dbc",
-      "size_bytes": 25678,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "RT-16",
-          "RT-19",
-          "RT-22"
-        ],
-        "method": "external reference register use-case mapping from research/references/README.md",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        4,
-        7
-      ],
-      "semantic_review": {
-        "status": "reference-use-case-mapped",
-        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
-      }
-    },
-    {
-      "path": "research/references/snapshots/MCP/basic-index.mdx",
-      "git_blob_sha": "dfe11ecc1443b7dec051b1b1b9a93982b735c647",
-      "size_bytes": 25134,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "RT-19",
-          "RT-22"
-        ],
-        "method": "external reference register use-case mapping from research/references/README.md",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        4,
-        7
-      ],
-      "semantic_review": {
-        "status": "reference-use-case-mapped",
-        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
-      }
-    },
-    {
-      "path": "research/references/snapshots/MCP/schema.json",
-      "git_blob_sha": "213c58f6d9a1c2ce6ad055afe90bbdb095a29ee8",
-      "size_bytes": 181474,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "RT-19",
-          "RT-22"
-        ],
-        "method": "external reference register use-case mapping from research/references/README.md",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        4,
-        7
-      ],
-      "semantic_review": {
-        "status": "reference-use-case-mapped",
-        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
-      }
-    },
-    {
-      "path": "research/references/snapshots/MCP/transports.mdx",
-      "git_blob_sha": "2fb00fecf6a95627d9a46a5898f9ba86e3ac900c",
-      "size_bytes": 4059,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "RT-16",
-          "RT-19",
-          "RT-22"
-        ],
-        "method": "external reference register use-case mapping from research/references/README.md",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        4,
-        7
-      ],
-      "semantic_review": {
-        "status": "reference-use-case-mapped",
-        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
-      }
-    },
-    {
-      "path": "research/references/snapshots/OCI/LICENSE-APACHE-2.0.txt",
-      "git_blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
-      "size_bytes": 11358,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "cross-cutting prior art"
-        ],
-        "method": "reference register use-cases; not a single RT item",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        "Stage 0 (corpus/reference management only; domain mapping pending)"
-      ]
-    },
-    {
-      "path": "research/references/snapshots/OCI/descriptor.md",
-      "git_blob_sha": "56c76d6e4cd9f266f99c670ff29ccc6a4c313494",
-      "size_bytes": 12950,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "RT-05",
-          "RT-11",
-          "RT-12"
-        ],
-        "method": "external reference register use-case mapping from research/references/README.md",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        1,
-        3,
-        7
-      ],
-      "semantic_review": {
-        "status": "reference-use-case-mapped",
-        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
-      }
-    },
-    {
-      "path": "research/references/snapshots/OCI/image-layout.md",
-      "git_blob_sha": "026e71ecd03f780f635da0da9b2ed41da13d4fc5",
-      "size_bytes": 8790,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "RT-05",
-          "RT-11",
-          "RT-12"
-        ],
-        "method": "external reference register use-case mapping from research/references/README.md",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        1,
-        3,
-        7
-      ],
-      "semantic_review": {
-        "status": "reference-use-case-mapped",
-        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
-      }
-    },
-    {
-      "path": "research/references/snapshots/OCI/manifest.md",
-      "git_blob_sha": "7a0ef73406543b15c1253d7f0c961b89158dea79",
-      "size_bytes": 14008,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "RT-05",
-          "RT-11",
-          "RT-12"
-        ],
-        "method": "external reference register use-case mapping from research/references/README.md",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        1,
-        3,
-        7
-      ],
-      "semantic_review": {
-        "status": "reference-use-case-mapped",
-        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
-      }
-    },
-    {
-      "path": "research/references/snapshots/REAPI/LICENSE-APACHE-2.0.txt",
-      "git_blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
-      "size_bytes": 11358,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "cross-cutting prior art"
-        ],
-        "method": "reference register use-cases; not a single RT item",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        "Stage 0 (corpus/reference management only; domain mapping pending)"
-      ]
-    },
-    {
-      "path": "research/references/snapshots/REAPI/remote_execution.proto",
-      "git_blob_sha": "67615206f8386fd412bae02e5b2abe75a87160cc",
-      "size_bytes": 125715,
-      "category": "external-source-snapshot-or-license",
-      "traceability": {
-        "items": [
-          "RT-11",
-          "RT-12"
-        ],
-        "method": "external reference register use-case mapping from research/references/README.md",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        3,
-        7
-      ],
-      "semantic_review": {
-        "status": "reference-use-case-mapped",
-        "basis": "Reference register explicitly names the RT research uses for this upstream source snapshot; the snapshot remains prior art, not an LLMLang specification."
-      }
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CanonicalQuerySymbols.lean",
-      "git_blob_sha": "1af1925880316403c86a8b0622218fbaf2403192",
-      "size_bytes": 14002,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07"
-        ],
-        "method": "direct module and Scenario 34 relationship; see semantic traceability report",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Lean source modules implementing canonical relational-query symbol binding and source-program relational semantics; associated with Scenario 34."
-      },
-      "plan_stages": [
-        3
-      ]
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQuery.lean",
-      "git_blob_sha": "2b3767827a308a9096d48949f62b93a527665527",
-      "size_bytes": 19065,
-      "category": "prototype-or-experiment-implementation",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07"
-        ],
-        "method": "direct module and Scenario 34 relationship; see semantic traceability report",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Lean source modules implementing canonical relational-query symbol binding and source-program relational semantics; associated with Scenario 34."
-      },
-      "plan_stages": [
-        3
-      ]
-    },
-    {
-      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQueryTests.lean",
-      "git_blob_sha": "b759a6945ce5d002e03a5b794c95427dc38a0180",
-      "size_bytes": 4785,
-      "category": "prototype-test-evidence",
-      "traceability": {
-        "items": [
-          "RT-03",
-          "RT-07"
-        ],
-        "method": "direct module and Scenario 34 relationship; see semantic traceability report",
-        "confidence": "medium"
-      },
-      "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Lean source modules implementing canonical relational-query symbol binding and source-program relational semantics; associated with Scenario 34."
-      },
-      "plan_stages": [
-        3
       ]
     }
   ],
