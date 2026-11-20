@@ -70,9 +70,9 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Classify every tracked file into a coarse artifact category (research document, scenario result, prototype implementation/test/report, preparation material, reference snapshot, structured fixture, index, or other).
 - [ ] Record exact commit/revision and tool versions for every reproducibility-sensitive result; the inventory pins this snapshot revision and blob identities, but per-experiment execution environments still require content-level review.
 
-**Inventory snapshot:** 450 tracked research artifacts (excluding the inventory manifest itself) at revision `a30ec074e08186f04a35535b9933bfa878713f31`: 233 Markdown/MDX files, 194 Python files, 11 Lean source files, 229 files under `PROTOTYPES/`, and 136 scenario-named documents. The taxonomy contains 23 research areas (RT-01–RT-23); the dependency map contains 77 registered edges (DEP-001–DEP-077).
+**Inventory snapshot:** 450 tracked research artifacts (excluding the inventory manifest itself) at revision `a30ec074e08186f04a35535b9933bfa878713f31`: 233 Markdown/MDX files, 194 Python files, 11 Lean source files, 229 files under `PROTOTYPES/`, and 136 scenario-named documents. The taxonomy contains 24 research areas (RT-01–RT-24); the dependency map contains 85 registered edges (DEP-001–DEP-085).
 
-**Status:** partially validated — the complete path inventory, coarse classification, blob-identity scan, full inline relative-link scan, and first-pass triage of 36 low-confidence entries are recorded. Per-file prototype validation, taxonomy reconciliation for the three RT-24-labelled documents, index completeness, taxonomy/source consistency, supersession/orphan/contradiction analysis, external snapshot completeness, and reproducibility verification remain open.
+**Status:** partially validated — the complete path inventory, coarse classification, blob-identity scan, full inline relative-link scan, and first-pass triage of 36 low-confidence entries are recorded. Claim-level and reproducibility validation for the 120 prototype-family artifacts, index completeness, the Scenario 58 taxonomy/source mismatch, semantic duplicate/supersession/orphan/contradiction analysis, external snapshot completeness, and reproducibility verification remain open. RT-24 is now registered in the taxonomy and dependency map; its candidate contract remains non-normative.
 
 ### 0.2 Establish research quality and decision rules
 
@@ -99,11 +99,12 @@ Status applies to the current evidence, not to how important the topic is. Where
 ### 0.3 Research taxonomy and cross-aspect dependency map
 
 - [x] Define the research taxonomy and identify the major LLMLang research areas.
+- [x] Register RT-24 in the taxonomy and add candidate dependency edges DEP-078–DEP-085; the RT-24 proposal remains non-normative.
 - [x] Establish an initial directed dependency map with relationship types and confidence levels.
 - [x] Identify feedback loops, foundational topics, and opportunities for parallel research.
 - [ ] Validate and revise dependency edges as research produces evidence; the current map is an initial hypothesis, not a settled architecture.
 
-**Evidence:** [Research taxonomy](research/RESEARCH-TAXONOMY.md) currently enumerates 23 research areas (RT-01–RT-23); [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) currently records 77 dependency edges (DEP-001–DEP-077), research waves, and feedback loops. These are live register counts, not fixed architectural limits.
+**Evidence:** [Research taxonomy](research/RESEARCH-TAXONOMY.md) currently enumerates 24 research areas (RT-01–RT-24); [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) currently records 85 dependency edges (DEP-001–DEP-085), research waves, and feedback loops. These are live register counts, not fixed architectural limits.
 
 **Status:** initial taxonomy and dependency map completed; ongoing validation remains part of each research task.
 
