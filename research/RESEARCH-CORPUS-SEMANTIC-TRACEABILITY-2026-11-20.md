@@ -547,3 +547,12 @@ See corpus audit §2.28. The key trust boundary is that impact planning can only
 - Scenario 17's Prototype 17 provides typed requirement predicates/provenance and finite-domain consistency/scenario generation. It does not implement temporal logic, general arithmetic/quantification, solver integration, authority checks, or implementation proofs.
 
 See corpus audit §2.29. A proof over an accepted contract and fidelity of that contract to human intent are separate correctness questions.
+
+
+## 30. Project identity, binding, and behavioral refinement audit — Scenarios 12–14
+
+- 12's execution prototype separates ProjectSnapshot, BuildSnapshot, BuildArtifact, DeploymentSnapshot, ExecutionSnapshot, and ReleaseManifest, including the distinction between declared build inputs and output artifact digest. It does not build/deploy programs or prove reproducible outputs.
+- 13's scoped binding model records project/tenant/request resolution and distinguishes contract-preserving implementation binding from business-policy selection. It is not authorization and does not prove behavioral conformance.
+- 14's finite trace-refinement model compares implementation traces with contract-permitted traces and uses PROVEN/DISPROVEN/UNKNOWN only within declared finite complete models. It is not source-level refinement proof.
+
+See corpus audit §2.30. These models preserve separate identities and evidence obligations; no model should be promoted to an end-to-end build, authorization, or implementation-proof guarantee.
