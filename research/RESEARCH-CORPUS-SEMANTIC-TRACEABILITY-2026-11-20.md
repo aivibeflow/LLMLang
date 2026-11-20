@@ -408,3 +408,184 @@ Scenarios 81–88 are source/specification analyses and fixture preparation, not
 - 88 compares default argument evaluation and API evolution, but its proposed per-call, mutable-value, ordering, and compiled-client experiments have not been run.
 
 No accepted architecture decision covers these syntax choices. The cited language references are largely rolling/current documents as of 2026-11-19; pin versions before building conformance claims. Do not treat the candidate axes or fixture designs as accepted grammar.
+
+
+## 20. Follow-up prior-art and final native-reproduction audit
+
+Scenarios 73–80 were classified as specification/prior-art studies, not implementation evidence. Their candidate policies and experiment proposals are not accepted LLMLang semantics; see corpus audit §2.19 for the per-scenario scope and cross-links. No lexer, type checker, parser, regex engine, resource-lifetime runtime, optimizer, float target matrix, formatter, or documentation generator experiment is reported by these eight scenarios.
+
+The native evidence was rerun after the reproducibility harness landed. Research Native Reproduction run 44774296240 passed both jobs:
+- RT-04 native job: 10/10 commands passed, 0 failures, 0 skips; C SQLite 3.46.1 matched its recorded source ID, durable receipts used Python SQLite 3.53.1, and Rust 1.85.1 produced 125,952 matching observations. Artifact 14650095720.
+- LLVM preservation: both probes passed, with 20,978 integer traces and 9,800 byte-view traces at each of O0/O3, zero mismatches, and expected negative-control disagreements. Artifact 14650040345.
+
+The workflow manifest records merge-ref commit 8c4a82c91f039309bba769c49bd00515e3713feb, not the final main merge commit b808c3a8f984bbc5c175ecf45d61e0e8db7a00bb. Required CI on the latter passed in run 44774552406. Native reproduction remains a separate non-required workflow.
+
+
+## 21. Specification-level prior-art audit — Scenarios 65–72
+
+Scenarios 65–72 are evidence-linked prior-art comparisons, not LLMLang implementation results:
+
+- 65 compares fatal failure, unwind/abort, cleanup, task/process boundaries, and FFI unwind.
+- 66 separates source value/reference semantics, ownership transfer/duplication, and physical representation/copy elision.
+- 67 distinguishes binding reassignment, direct/alias mutation, deep immutability, interior mutability, and race safety.
+- 68 compares zero/default initialization, complete construction, invariant-establishing constructors, and prevention of partial-object escape.
+- 69 separates subtyping, assignability/coercion, generic variance, and function variance.
+- 70 separates aliases, nominal wrappers, opaque abstraction, and representation/ABI guarantees.
+- 71 compares conformance ownership, orphan/coherence restrictions, overlap, structural satisfaction, and lookup scope.
+- 72 separates sum-type source semantics/exhaustiveness from tag/payload layout, calling convention, and FFI representation.
+
+Each report contains candidate axes and discriminating experiment proposals, but does not cite an executed LLMLang implementation or target/compiler experiment for the scoped question. Do not convert these candidates into language rules without a decision record and matched experiments. Cross-links to Scenarios 14, 47, 54, 64, and 65–70 are recorded in corpus audit §2.21.
+
+
+## 22. Specification-level prior-art audit — Scenarios 57–64
+
+Scenarios 57–64 are comparative studies, with selected later bounded models linked but not equivalent to full language/runtime evidence:
+
+- 57: structured task lifetime, supervision, cancellation/join, and detachment; no LLMLang task runtime.
+- 58: async function values versus future construction, task creation, and scheduling; no LLMLang async lowering or executor.
+- 59: short-circuit control flow and effects versus general operand sequencing; no LLMLang operator/optimizer test.
+- 60: inference scope and annotation boundaries; no LLMLang inference compiler measurements.
+- 61: shared-state safety and memory order; Scenario 113 is only a finite abstract store-buffering model, not a complete memory model.
+- 62: optional/nullable semantics; Scenario 109 is a bounded JSON presence round-trip, not an optional-type or FFI contract.
+- 63: equality, identity, and hashing; no LLMLang equality/hash implementation or stable-hash experiment.
+- 64: error propagation and recovery; Scenario 97 covers finite cleanup-error composition, not general propagation semantics.
+
+See corpus audit §2.22 for detailed scope and cross-links. The related bounded models must remain explicitly scoped to their tested subquestions.
+
+
+## 23. Specification-level prior-art audit — Scenarios 49–56
+
+Scenarios 49–56 are comparative language-design studies and proposed experiments, not executed LLMLang implementation evidence:
+
+- 49: operator precedence, overloading, conversions, and parse/evaluation consistency; no LLMLang parser/type/evaluator differential run.
+- 50: name resolution, scopes, shadowing, namespaces, and declaration order; later restricted source-alias fixtures do not provide a complete resolver.
+- 51: visibility and module exports; no access-check/module-interface prototype.
+- 52: Unicode identifier and spoofing policy; no LLMLang lexer or confusable corpus execution.
+- 53: statement termination and newline parsing; no LLMLang parser/formatter prototype.
+- 54: pattern matching and exhaustiveness; no LLMLang pattern checker or finite-ADT implementation.
+- 55: loop results and labeled control transfer; no LLMLang CFG/typing prototype.
+- 56: closure capture, callability, escape, and lifetime; no LLMLang closure implementation.
+
+See corpus audit §2.23 for detailed boundaries and cross-links. The reports' proposed experiments should not be mistaken for completed tests.
+
+
+## 24. Specification-level prior-art audit — Scenarios 41–48
+
+Scenarios 41–48 are comparative design/compatibility studies; selected later experiments do not amount to complete LLMLang contracts:
+
+- 41: typed errors and API evolution; Scenarios 97 and 109–111 cover only cleanup composition and selected wire cases.
+- 42: generics/constraints/dispatch; Scenarios 69 and 71 refine variance and coherence but do not implement generic dispatch.
+- 43: modules/imports/initialization; restricted Python source-alias adapters are not a module system.
+- 44: comptime/macros and build trust; no LLMLang evaluator or macro sandbox is cited.
+- 45: numeric semantics; LLVM preservation Scenarios 96A/96B cover bounded integer/view operations, not a complete numeric or floating-point profile.
+- 46: Text/Bytes, Unicode, and indexing; no LLMLang string conformance run.
+- 47: public record/variant evolution; Scenario 110 is JSON wire behavior, not source/ABI compatibility.
+- 48: clocks/deadlines; no LLMLang time API or cross-platform timing experiment.
+
+See corpus audit §2.24 for the scope, cross-links, and limits. No candidate policy is treated as an accepted language decision.
+
+
+## 25. Executable/formal evidence audit — Scenarios 33–40
+
+Scenarios 33–40 form a mixed evidence slice rather than a uniform implementation set:
+
+- 33 has a pinned Logos parser-state binding wrapper, exact UConst identity binding, and strict JSON decoder tests; this is not source-to-query semantic correspondence.
+- 34 has a formal Lean result for a delimited Int/Bool relational fragment and QF_LIA profile constraints. Source-derived parser binding, JSON correspondence, and declaration closure remain open.
+- 35 has a bounded return/cleanup fixture, not a borrow checker or source-bound ownership proof.
+- 36 has finite abstract recursion/fuel and cleanup probes; the README explicitly says the fuel modules lack dedicated paired tests in the 44-file suite.
+- 37 has finite effect-handler/trace and actor schedule models plus declaration-level effect bounds; effect-row unification/general handlers are not implemented.
+- 38 has declaration-level effect/capability propagation and scoped grant delegation; it does not enforce runtime authority.
+- 39 is a comparative cleanup/ownership-transfer study whose later related models test selected outcomes, not a selected general rule.
+- 40 has synchronous cancellation observations and a separate cancellation-receipt model; neither proves general asynchronous cancellation/cleanup semantics.
+
+The precise mapping and limitations are in corpus audit §2.25. Keep source-to-query proof, finite evaluator observations, static checker results, and runtime authority as separate evidence categories.
+
+
+## 26. Formal dependency-analysis and proof-pipeline audit — Scenarios 25–32
+
+Scenarios 25–32 form a staged proof-pipeline investigation. Evidence strength must not be conflated across stages:
+
+- 25 is an architectural/formal proposal, not an implemented dependency prover.
+- 26 is an exhaustive finite-model oracle; its independence result is scoped to the declared finite domain and has no machine-checked Python evaluator proof.
+- 27 emits symbolic relational SMT-LIB, but the report explicitly says actual Z3 integration was not executed.
+- 28 adds typed-IR and evidence-boundary design; independent SMT proof checking is not implemented.
+- 29 tests a fail-closed Logos process adapter with fake executables, not a real cvc5/Logos proof.
+- 30 audits CPC assumption identity and the need for retained parser state; it reports no compiled wrapper at that stage.
+- 31 specifies a strict QF_LIA profile and candidate-query implementation, but its 26 tests used a compatibility fixture, no solver was invoked, and it is not a proof.
+- 32 implements typed canonical query IR, independent rendering, v2 JSON and Lean parser-state binding. The factor-pair gap is closed for exercised fixtures, but Python source-to-query correctness and source-level correspondence remain open.
+
+Scenario 33's later parser-state binding work advances the 30/32 boundary; Scenario 34's Lean theorem covers only the explicitly checked Int/Bool relational fragment. See corpus audit §2.26 for the exact claim/limitation matrix.
+
+
+## 27. Dependency discovery and counterfactual-analysis audit — Scenarios 20–24
+
+Scenarios 20–24 have executable Python prototypes and paired focused tests, but their shared trust boundary is that the prototypes consume normalized evidence/observations rather than executing arbitrary LLMLang programs:
+
+- 20 classifies evidence-bearing dependency candidates; it does not implement the discovery tools that produce them.
+- 21 compares repeated one-factor baseline/treatment records; no observed difference is not proof of irrelevance.
+- 22 generates/schedules finite single-factor and t-way interventions under a deterministic budget; it does not execute them.
+- 23 distinguishes joint intervention from factorial interaction and analyzes repeated 2×2 blocks; it consumes normalized run records.
+- 24 adaptively schedules single-factor and factorial blocks with bounded retries and explicit uncovered targets; it is a planner, not a runner or completeness proof.
+
+See corpus audit §2.27 for exact implementation/test mapping and limitations. Preserve the distinctions between discovery candidates, interventions, observed effects, interaction evidence, scheduled coverage, and proof of completeness.
+
+
+## 28. Requirement evolution and impact planning audit — Scenarios 18–19
+
+Scenarios 18–19 have paired executable models/tests in Dependency Graph Prototype 01:
+
+- 18 models immutable typed requirement revisions, snapshot-local selection, hash-relevant dependency edges, separate lineage/provenance, impact closure, verification-key changes, split/merge, and three-way branch merge. It does not compute arbitrary semantic diffs or prove graph completeness.
+- 19 checks coverage of independently observed dependency identities against declared edges within an exact artifact/scope/evidence binding, then selects typed revalidation actions. It does not extract dependencies, execute actions, or verify the proof behind a bound PROVEN non-interference record.
+
+See corpus audit §2.28. The key trust boundary is that impact planning can only reason about dependencies represented in the graph; completeness evidence must be separate and fail closed.
+
+
+## 29. Business intent and typed Requirement IR audit — Scenarios 15–17
+
+- Scenario 15's Prototype 16 is a finite caller-scoped business-intent/contract experiment. It demonstrates a controlled policy change and provenance-bearing formal candidates, but does not parse arbitrary natural language or establish that the formal candidate matches stakeholder intent. Authorized acceptance is separate.
+- Scenario 16 is absent from the current research tree; preserve the gap and do not infer or renumber it.
+- Scenario 17's Prototype 17 provides typed requirement predicates/provenance and finite-domain consistency/scenario generation. It does not implement temporal logic, general arithmetic/quantification, solver integration, authority checks, or implementation proofs.
+
+See corpus audit §2.29. A proof over an accepted contract and fidelity of that contract to human intent are separate correctness questions.
+
+
+## 30. Project identity, binding, and behavioral refinement audit — Scenarios 12–14
+
+- 12's execution prototype separates ProjectSnapshot, BuildSnapshot, BuildArtifact, DeploymentSnapshot, ExecutionSnapshot, and ReleaseManifest, including the distinction between declared build inputs and output artifact digest. It does not build/deploy programs or prove reproducible outputs.
+- 13's scoped binding model records project/tenant/request resolution and distinguishes contract-preserving implementation binding from business-policy selection. It is not authorization and does not prove behavioral conformance.
+- 14's finite trace-refinement model compares implementation traces with contract-permitted traces and uses PROVEN/DISPROVEN/UNKNOWN only within declared finite complete models. It is not source-level refinement proof.
+
+See corpus audit §2.30. These models preserve separate identities and evidence obligations; no model should be promoted to an end-to-end build, authorization, or implementation-proof guarantee.
+
+
+## 31. Content-addressed evolution, implementation binding, and persistence audit — Scenarios 9–11
+
+- 9 is a conceptual content-addressed dependency model with a 100-caller/three-caller selective migration stress analysis. The report does not identify a separate executable prototype; it does not establish that mandatory occurrence identity is unnecessary across the whole language.
+- 10's binding.py/test_binding.py model immutable contract/implementation values and context-local binding snapshots. Dynamic dispatch, runtime loading, atomic project integration, and formal conformance remain unimplemented.
+- 11's project_state.py/test_project_state.py composes graph and binding documents into a deterministic checksummed envelope and tests integrity/round-trip cases. It is not a multi-writer transaction, atomic branch-head selection, or conformance proof.
+
+See corpus audit §2.31. Object identity, snapshot selection, persistence integrity, atomic publication, and behavioral refinement remain separate guarantees.
+
+
+## 32. Semantic identity and occurrence-addressing studies — Scenarios 5–8
+
+Scenarios 5–8 are architectural explorations rather than implementation evidence:
+
+- 5 distinguishes Stable Entity ID, immutable Content Hash, aliases, and context-scoped handles.
+- 6 investigates content-addressed immutable values with specification-anchored provenance and optional occurrence/context objects.
+- 7 stress-tests content-only identity and concludes that hashes identify immutable values while lineage/context/selection supply continuity where needed.
+- 8 analyzes H(ValueHash, ContextHash, Role, Slot) as an immutable occurrence-state address, not a persistent continuity identity.
+
+No implementation or accepted architecture decision is established by these studies. Scenario 9's later 100-caller model and Scenarios 10–11's binding/persistence prototypes extend the investigation but do not retroactively make 5–8 implementation results. See corpus audit §2.32.
+
+
+## 33. Foundational identity, change, impact, and verification studies — Scenarios 1–4
+
+Scenarios 1–4 are exploratory design studies, not executable implementation evidence:
+
+- 1 separates logical entity identity, name, and semantic state; proposes identity-targeted rename with explicit preconditions and atomic change sets.
+- 2 examines concurrent Change Sets, semantic conflicts, immutable rebases, approval binding, and compare-and-swap acceptance.
+- 3 proposes provenance-carrying typed impact traversal with impact paths, stale evidence, missing links, and explicit completeness limits.
+- 4 proposes verification-specific content-addressed records and exact-input reuse, with separately checked rules for cross-input reuse.
+
+These studies establish the original problem framing, not an implemented rename, merge, impact, or proof-cache system. See corpus audit §2.33.
