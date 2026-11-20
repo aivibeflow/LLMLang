@@ -618,3 +618,10 @@ The exact-blob scan found only the expected duplicate Apache-2.0 licence pair in
 The [RT-04-01 Prototype Evidence Graph Review](RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md) records the current 106-file family structure, 45 test modules/364 test methods, the native runner and test relationships, and the workflow/Required CI boundary. The two files absent from the older family README index are not orphaned: the workflow invokes the runner, and Required CI discovers its four tests. The README and reproduction protocols now link those entrypoints directly.
 
 The latest Research Native Reproduction run 44774296240 passed all ten RT-04 commands and both LLVM preservation probes. The report records artifact IDs and archive hashes, verifies that the tested merge-ref tree matches the merged RT-04 implementation tree, and retains the remaining source-package and artifact-retention limitations. This is bounded family-level evidence, not validation of all 243 prototype files.
+
+
+## 37. Dependency Graph/Logos prototype evidence graph — first pass
+
+The [Dependency Graph prototype evidence review](RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-DEPENDENCY-GRAPH-01-2026-11-20.md) reconciles the current Lean import graph with the historical SCW-04 audit and SCW-05 task breakdown. The SCW-04 coupling finding was accurate for its earlier source snapshot but was resolved by the SCW-15 independent-IR/separate-adapter implementation. SCW-05's seven declaration-context tasks are complete; its separate breakdown is now linked and marked complete. The latest Logos-binding CI run 44766546452 passed on PR #94, and no Lean source/build-toolchain files changed after that merge. Scenario 34 remains in progress on SCW-32 and later source-derived CPC, serialized-query, and parser-state correspondence obligations.
+
+The family README now links the Scenario 34 report, SCW-04/05 records, and the principal Lean proof modules. Its remaining file basename coverage is not treated as an orphan test; the full graph across all 103 family files remains open.
