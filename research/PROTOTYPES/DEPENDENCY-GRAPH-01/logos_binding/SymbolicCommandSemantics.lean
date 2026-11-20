@@ -114,11 +114,28 @@ theorem SymbolicState.initial_represents {scope : SourceScope} {env : RuntimeEnv
       | none => simp [SymbolicState.initial, found, initialized]
       | some _ => simp [stored, initialized] at validSlot
 
+private def SymbolicState.lookupTerm (state : SymbolicState) (id : VariableId)
+    (sort : ExprSort) : Option (QueryTerm sort) := do
+  let ⟨actual, term⟩ ← state.slots id
+  if same : actual = sort then some (same ▸ term) else none
+
+private theorem SymbolicState.lookupTerm_denotes (state : SymbolicState)
+    (id : VariableId) (sort : ExprSort) (valuation : Env) :
+    (state.lookupTerm id sort).map (fun term => evalQuery term valuation) =
+      (state.denote valuation).env.lookup id sort := by
+  cases stored : state.slots id with
+  | none => simp [SymbolicState.lookupTerm, SymbolicState.denote, RuntimeEnv.lookup, stored]
+  | some slot =>
+    obtain ⟨actual, term⟩ := slot
+    by_cases same : actual = sort
+    · subst actual
+      simp [SymbolicState.lookupTerm, SymbolicState.denote, RuntimeEnv.lookup, stored]
+    · simp [SymbolicState.lookupTerm, SymbolicState.denote, RuntimeEnv.lookup, stored, same]
+
 private def SymbolicState.readTerm (state : SymbolicState) (ref : Reference) :
     Option (QueryTerm ref.sort) := do
   let declaration ← state.scope.resolveRead ref
-  let ⟨sort, term⟩ ← state.slots declaration.id
-  if same : sort = ref.sort then some (same ▸ term) else none
+  state.lookupTerm declaration.id ref.sort
 
 private theorem SymbolicState.readTerm_denotes (state : SymbolicState)
     (ref : Reference) (valuation : Env) :
@@ -127,32 +144,35 @@ private theorem SymbolicState.readTerm_denotes (state : SymbolicState)
   cases h : state.scope.resolveRead ref with
   | none => simp [SymbolicState.readTerm, RuntimeEnv.read, h]
   | some declaration =>
-    cases stored : state.slots declaration.id with
-    | none => simp [SymbolicState.readTerm, SymbolicState.denote, RuntimeEnv.read,
-        RuntimeEnv.lookup, h, stored]
-    | some slot =>
-      obtain ⟨sort, term⟩ := slot
-      cases ref with
-      | mk name refSort =>
-        by_cases same : sort = refSort
-        · subst sort
-          simp [SymbolicState.readTerm, SymbolicState.denote, RuntimeEnv.read,
-            RuntimeEnv.lookup, h, stored]
-        · simp [SymbolicState.readTerm, SymbolicState.denote, RuntimeEnv.read,
-            RuntimeEnv.lookup, h, stored, same]
+    simpa [SymbolicState.readTerm, RuntimeEnv.read, h] using
+      state.lookupTerm_denotes declaration.id ref.sort valuation
 
 private def defaultTerm : (sort : ExprSort) → QueryTerm sort
   | .int => .intLit 0
   | .bool => .boolLit false
 
+/-- Lower a slot selected by an admitted observation contract. -/
+def SymbolicState.lowerSlot (state : SymbolicState) (id : VariableId)
+    (sort : ExprSort) : QueryTerm sort :=
+  (state.lookupTerm id sort).getD (defaultTerm sort)
+
+theorem SymbolicState.lowerSlot_preserves_lookup {state : SymbolicState}
+    {id : VariableId} {sort : ExprSort} {valuation : Env} {value : Value sort}
+    (present : (state.denote valuation).env.lookup id sort = some value) :
+    evalQuery (state.lowerSlot id sort) valuation = value := by
+  rw [← state.lookupTerm_denotes id sort valuation] at present
+  obtain ⟨term, stored, computed⟩ := Option.map_eq_some_iff.mp present
+  simpa [SymbolicState.lowerSlot, stored] using computed
+
 private def SymbolicState.bindings (state : SymbolicState) : TermEnv :=
   fun name sort => (state.readTerm ⟨name, sort⟩).getD (defaultTerm sort)
 
-private def SymbolicState.lower {s : ExprSort} (state : SymbolicState) (expr : Expr s) :
+/-- Lower a checked expression in the current symbolic slots. -/
+def SymbolicState.lower {s : ExprSort} (state : SymbolicState) (expr : Expr s) :
     QueryTerm s :=
   substitute state.bindings (translateExpr expr)
 
-private theorem SymbolicState.lower_preserves_eval {s : ExprSort} {state : SymbolicState}
+theorem SymbolicState.lower_preserves_eval {s : ExprSort} {state : SymbolicState}
     {valuation : Env} {expr : Expr s} {value : Value s}
     (evaluated : Evaluates state.scope (state.denote valuation).env expr value) :
     evalQuery (state.lower expr) valuation = value := by
@@ -168,8 +188,11 @@ private theorem SymbolicState.lower_preserves_eval {s : ExprSort} {state : Symbo
     simp [SymbolicState.bindings, bound]
   exact (evalExpr_eq_of_extensions agrees sourceAgrees).trans result
 
+def guardsHold (guards : List Guard) (valuation : Env) : Bool :=
+  guards.all (fun guard => asBool (evalQuery guard.test valuation) == guard.expected)
+
 def SymbolicState.active (state : SymbolicState) (valuation : Env) : Bool :=
-  state.guards.all (fun guard => asBool (evalQuery guard.test valuation) == guard.expected)
+  guardsHold state.guards valuation
 
 private def SymbolicState.assume (state : SymbolicState) (test : QueryTerm .bool)
     (expected : Bool) : SymbolicState :=
