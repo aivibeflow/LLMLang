@@ -65,11 +65,11 @@ The inventory is pinned to the exact current `main` tree revision `f560d0f9893f8
 
 - Reviewed the 36 inventory entries previously marked low confidence using document titles, scope/status declarations, section structures, explicit research-area declarations, and related-document references.
 - Assigned candidate RT-area mappings or explicit Stage 0 research-management ownership to all 36 entries; recorded the basis and candidate plan stages in [the semantic traceability report](RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md) and inventory JSON.
-- Added `plan_stages` metadata to all 462 inventory records. A taxonomy/header/content crosswalk now maps all 136 Scenario reports to candidate RT areas: 63 from taxonomy links/ranges and 73 from first-pass report scope review. All 131 individually reviewed prototype artifacts now have first-pass file-role mappings across five families; content/claim and reproducibility validation remains open. Nine vendored technical source documents now have use-case mappings; seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered in the taxonomy; its candidate contract remains non-normative.
+- Added `plan_stages` metadata to all 462 inventory records. A taxonomy/header/content crosswalk now maps all 136 Scenario reports to candidate RT areas: 63 from taxonomy links/ranges and 73 from first-pass report scope review. The first-pass individual role review now covers 235 prototype artifacts across six families and the Scenario 34 Lean extension; five further prototype artifacts remain without individual file-role mappings. The 104-file RT-04-01 family has now received a separate content-based RT-03/RT-04 traceability review (39 RT-03-only, 59 RT-04-only, and 6 shared artifacts). Content/claim and reproducibility validation remains open. Nine vendored technical source documents now have use-case mappings; seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered in the taxonomy; its candidate contract remains non-normative.
 - The semantic review is explicitly first-pass triage, not full claim-level verification or acceptance of the proposals described by the documents.
 - Scenario numbering review found 136 report files representing 135 unique IDs: Scenario 95 has a main study and an explicitly cross-referenced execution follow-up; Scenario 16 has no report in the current corpus. Its absence is recorded as unresolved (reserved number versus missing artifact), not silently renumbered.
 
-**Result:** the previous 36 low-confidence records no longer have blank/unassigned path-only mappings, but the corpus-wide semantic traceability gate remains open.
+**Result:** the previous 36 low-confidence records no longer have blank/unassigned path-only mappings. The RT-04-01 family no longer uses directory-name inference as its RT mapping basis; the corpus-wide semantic traceability gate remains open.
 
 ### 2.6 Initial section-level supersession review
 
@@ -121,6 +121,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 | RCA-06 | One exact duplicate blob is shared by the OCI and REAPI Apache-2.0 licence files. | Classified as intentional shared licence content; no deletion proposed. |
 | RCA-07 | External snapshot integrity and experiment reproducibility have not been independently re-established. | Preserve pinned revisions and existing manifest; verify source blobs and experiment environments in a later pass. |
 | RCA-08 | Three section-level supersession cases are explicit; semantic near-duplicates, orphans, and contradictions are not exhaustively reviewed. | Record the three known cases without deleting whole documents; complete the corpus-wide semantic review in a later pass. |
+| RCA-09 | All 104 files in `PROTOTYPES/RT-04-01/` previously inherited RT-04 traceability from the directory name, although their contents include RT-03-only and cross-profile artifacts. | Replaced path inference with individual content-based role mappings: 39 RT-03-only, 59 RT-04-only, and 6 shared; exact shared files and method are recorded in the semantic traceability report. |
 
 ## 4. Reconciliation rules
 
@@ -136,7 +137,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 - [ ] Read and validate the content-level mapping for every artifact, including prototypes, tests, fixtures, generated outputs, RFCs, and snapshots.
 - [x] First-pass content/heading/reference triage of 36 low-confidence entries; see the semantic traceability report.
 - [x] Cross-walk all 136 Scenario reports to candidate RT areas (63 taxonomy link/range mappings; 73 first-pass content/header mappings); record Scenario 134 prior-art-only applicability; Scenario 91's RT-24 reference now resolves.
-- [x] First-pass individual file-role mapping for the 131 individually role-mapped prototype artifacts; 109 further prototype artifacts remain without individual file-role mappings.
+- [x] First-pass individual file-role mapping for 235 prototype artifacts across six families and the Scenario 34 Lean extension; five further prototype artifacts remain without individual file-role mappings.
 - [ ] Validate prototype claims, test evidence, generated outputs, exact tool versions, and reproducibility at content/experiment level.
 - [x] Map nine vendored technical source documents to the RT areas named by the reference register; keep seven provenance/navigation/licence files at Stage 0.
 - [x] Register RT-24 and cross-link its three research documents; keep the technical contract and dependency edges explicitly provisional.
