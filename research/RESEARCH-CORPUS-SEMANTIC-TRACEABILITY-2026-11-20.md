@@ -4,7 +4,7 @@
 **Status:** Partial first-pass triage; not a completed semantic audit  
 **First-pass content-triage revision:** `e6b5f4a0c9f4365a3fef19283fa0894b7cc82716`  
 **Taxonomy crosswalk revision:** `59a65f29f082b848ffd27b199c89bc2ae97c50ea`  
-**Inventory snapshot:** `c0815d3dbdd6b6acbe0e5479af5f41e26647260c` (460 tracked research artifacts; inventory manifest excluded)  
+**Inventory snapshot:** `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f` (462 tracked research artifacts; inventory manifest excluded)  
 **Normative boundary:** This report classifies research artifacts and proposes traceability metadata only. It does not accept any language, architecture, hash, compatibility, or implementation decision.
 
 ## 1. Purpose and method
@@ -189,17 +189,17 @@ These are candidate traceability mappings, not accepted design decisions or evid
 
 ## 5. Prototype-family traceability review
 
-The inventory contains **120 artifacts across five prototype families**. Family READMEs, file lists, implementation entry points, and test roles were inspected. **All 120 files now have first-pass individual role mappings** (3 CLI, 92 dependency-graph, 3 LLVM, 7 package-identity, and 15 package-index). These are traceability mappings, not full claim-level or execution validation:
+The first-pass individual role review covers **131 artifacts across five prototype families and the Scenario 34 Lean extension**. Family READMEs, file lists, implementation entry points, and test roles were inspected. **All 131 reviewed files now have first-pass individual role mappings** (3 CLI, 103 dependency-graph, 3 LLVM, 7 package-identity, and 15 package-index). These are traceability mappings, not full claim-level or execution validation:
 
 | Prototype family | Files | First-pass finding | Plan stages |
 |---|---:|---|---:|
 | CLI-WORKLOADS-01 | 3 | Individual roles mapped to RT-01/17; no RT-14 ownership retained | 7 |
-| DEPENDENCY-GRAPH-01 | 92 | Individual file roles mapped across prototype result reports, Python modules/tests, Lean source-query modules, and SCW task audits; family spans requirements/intent, identity/dependency, formal core/proof, package/build, and RT-20 patch-planning | 1, 2, 3, 5, 7 |
+| DEPENDENCY-GRAPH-01 | 103 | Individual file roles mapped across prototype result reports, Python modules/tests, Lean source-query modules, and SCW task audits; family spans requirements/intent, identity/dependency, formal core/proof, package/build, and RT-20 patch-planning | 1, 2, 3, 5, 7 |
 | LLVM-PRESERVATION-01 | 3 | Individual fixture/probe roles mapped to RT-03/09/13 | 1, 6 |
 | PACKAGE-IDENTITY-01 | 7 | All individual files mapped to package identity, language version, and cache-index areas RT-05/11/12 | 1, 3, 7 |
 | PACKAGE-INDEX-01 | 15 | All individual files mapped to logical indexes, archive/closure/provider/content-store and benchmarks; RT-19 is adjacency only (adapter not integrated into Toolchain Server) | 3, 7 |
 
-All 120 prototype files have individual first-pass role mappings. The mappings were derived from README sections, source/module docstrings, scenario crosswalks, and paired test imports/names; they do not establish that the implementation is correct or that every experiment is reproducible. Family-level stage lists are navigation ranges, not claims that every file participates in every listed stage.
+All 131 reviewed prototype files have individual first-pass role mappings; the remaining 109 files under `research/PROTOTYPES/` have not received the same individual role review. The mappings were derived from README sections, source/module docstrings, scenario crosswalks, and paired test imports/names; they do not establish that the implementation is correct or that every experiment is reproducible. Family-level stage lists are navigation ranges, not claims that every file participates in every listed stage.
 
 ## 6. External-reference and taxonomy reconciliation
 
@@ -239,9 +239,14 @@ The mapping is intentionally incomplete in these areas:
 
 ## 9. Conclusion
 
-The first-pass triage resolves all 36 previous low-confidence root-level mappings. The refreshed inventory now covers 460 research artifacts at `c0815d3dbdd6b6acbe0e5479af5f41e26647260c`, including 20 Lean source modules and 238 files under `research/PROTOTYPES/`. All 136 scenario reports have candidate RT mappings; the 126 prototype artifacts have individual file-role mappings; 109 further prototype artifacts still need individual file-role mapping; and nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered with dependency edges DEP-086–DEP-093 after preserving the RT-14 DEP-078–DEP-085 register; its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 460 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open.
+The first-pass triage resolves all 36 previous low-confidence root-level mappings. The refreshed inventory now covers 462 research artifacts at `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f`, including 22 Lean source modules and 240 files under `research/PROTOTYPES/`. All 136 scenario reports have candidate RT mappings. The first-pass individual role review covers 131 prototype artifacts across five families and the Scenario 34 Lean extension; 109 further prototype-tree files remain outside that individual role review. Nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family README remain Stage 0-only. RT-24 is registered with dependency edges DEP-086–DEP-093 after preserving the RT-14 DEP-078–DEP-085 register; its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 462 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open.
 
 
 ## 10. Post-baseline evidence update — Scenario 34
 
-PR #85 added `PairedObservationSemantics.lean` and `PairedObservationTests.lean` to the Logos binding prototype. Both files are present in the current `main` tree and included in the Lake build roots. The Lean CI check passed for PR #85. SCW-24 (paired input environments) and SCW-25 (paired observation preservation) are therefore supported by committed formal source and kernel-checked examples. This confirms the bounded formal claim only; SCW-26–28 and the broader source/CFG completeness and relational-query claims remain separate open work.
+PR #85 added `PairedObservationSemantics.lean` and `PairedObservationTests.lean` to the Logos binding prototype. Both files are present in the current `main` tree and included in the Lake build roots. The Lean CI check passed for PR #85. SCW-24 (paired input environments) and SCW-25 (paired observation preservation) are therefore supported by committed formal source and kernel-checked examples. This confirms the bounded formal claim only; later SCW-26–29 evidence is recorded below, while SCW-30–34 and the broader adversarial acceptance gates remain open.
+
+
+## 11. Post-baseline evidence update — Scenario 34 SCW-26–29
+
+The current `main` tree at `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f` contains `CanonicalQuerySymbols.lean`, `ProgramRelationalQuery.lean`, `ProgramRelationalQueryTests.lean`, `QfLiaQuery.lean`, and `QfLiaAdmissibility.lean`. The modules define canonical declaration bindings, compile the complete `FactorDiff ∧ ObservationDiff` proposition, prove relational-query correctness/satisfiability correspondence for the checked fragment, and prove strict QF_LIA admissibility. Scenario 34 marks SCW-26–29 complete. PR #88's Required CI passed the Lean build/test job and the focused QF_LIA profile job. This evidence is conditional on the deterministic Int/Bool fragment and its explicit input/observation assumptions; SCW-30–34 (solver declaration closure, JSON/CPC source correspondence, exact assumptions, trust boundary) and SCW-35–41 (adversarial fixtures, axiom audit, dedicated proof gate, acceptance evidence) remain open.
