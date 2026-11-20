@@ -150,6 +150,8 @@ Scenario 125 compares 12 reentrant callback cases and eight close calls over sta
 
 Scenario 126 separates identity-based role compatibility from progress during acquisition. A backup shares a source and reserves a destination. Sequential acquisition by role order can deadlock in the finite model. Native probes confirm overlapping source lifetimes and retry after a known initialization failure. [Multi-resource FFI roles](RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md)
 
+Scenario 127 derives correlated aliases, retained reservations, and conditional release from a source fragment. Its three representations certify 156, 214, and 232 of 12,288 programs respectively as they preserve more relations. An independent input oracle checks 147,456 outcomes. [Source role correlation](RESEARCH-SCENARIO-127-SOURCE-ROLE-CORRELATION.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
@@ -180,7 +182,7 @@ These refine existing dependency hypotheses; they do not add normative rules. Se
 
 - Define source-level rules for calls, branches, Result/error propagation, cancellation, resource acquire/use/release, transfer/return, and cleanup failure.
 - Make ordered effects and payloads visible to type/dependency summaries.
-- Derive roles, aliases, and ownership transfer in the shared close workload from source. Compare admitted reentry, cancellation, and unknown disposition with the same multi-resource contracts. [Scenario 123](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md) · [Scenario 126](RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md)
+- Extend source-derived roles with foreign outcome types and ownership transfer. Compare reentry, cancellation, and unknown disposition with the same multi-resource contracts. [Scenario 123](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md) · [Scenario 127](RESEARCH-SCENARIO-127-SOURCE-ROLE-CORRELATION.md)
 - State where profiles differ and what equivalence means for results, traces, resource state, and divergence.
 - Compare total recursion, general partiality, typed divergence, source fuel, VM operator gas, and external limits; define how exhaustion interacts with effects, rollback, and cleanup.
 - Record independent review; parallel evaluators against one hand-authored contract are implementation checks, not independent specification validation.

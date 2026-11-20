@@ -39,6 +39,8 @@ Scenario 125 adds reentry and dependent-kind coverage. An application-defined ca
 
 Scenario 126 compares canonical role checks with checks by binding name. It explores compatible reservations and acquisition deadlock with two contenders, and checks backup role overlap and initialization failure against SQLite. [Multi-resource FFI roles](RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md)
 
+Scenario 127 measures how much static admission depends on alias correlation within and across calls. Its bounded source grammar tracks role identities, conditional release, and what stays live on a refused second call. [Source role correlation](RESEARCH-SCENARIO-127-SOURCE-ROLE-CORRELATION.md)
+
 Scenario 97 isolates cleanup-error composition from cleanup trigger and resource state. Java try-with-resources preserves a primary exception and suppresses ordered close failures; Go specifies LIFO defer but leaves result composition to code (with `errors.Join` available); Rust `Drop` has no ordinary error result and a second panic during unwinding can abort; Swift `defer` constrains control transfer. A cross-outcome ownership/fuel corpus is proposed, not run; no outcome policy is selected.
 
 Scenario 109 tests optional representation at a minimal JSON boundary: a single optional collapses omitted and explicit-null fields under the chosen mapping, while nested optional and tagged presence preserve absent/null/value. Decode errors and uninitialized reads are separate outcomes. The fixture does not resolve schema, serialization, or ABI policy.
