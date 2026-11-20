@@ -1,7 +1,7 @@
 # LLMLang Cross-Aspect Research Dependency Map
 
 **Status:** Initial dependency hypothesis; relationships require validation  
-**Updated:** 2026-11-19
+**Updated:** 2026-11-20
 **Companion:** [Research Taxonomy](RESEARCH-TAXONOMY.md)
 
 ## 1. Purpose and interpretation
@@ -164,13 +164,13 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-057 | RT-16 → RT-20 | Constrains | Authorization must distinguish plan approval, semantic mutation, validation, commit, and remote push; agents must not bypass completion gates. | Strong hypothesis |
 | DEP-058 | RT-19 → RT-20 | Enables | Workspaces, Change Sets, immutable snapshots, and repository coordination provide the operational substrate for CIP planning and verified commit. | Strong hypothesis |
 | DEP-059 | RT-20 → RT-19 | Influences | Caller migration decisions, hash propagation, mandatory plan execution, and validation-gated commit add workflow and API requirements to the Toolchain Server. | Strong hypothesis |
-| DEP-060 | RT-07 → RT-06 | Constrains | Solver-backed path pruning in dependency analysis requires sound negative evidence; replayed witnesses establish possible routes, while timeout/UNKNOWN and unverified UNSAT must preserve a conservative may-dependency result. | Emerging; bounded result-policy evidence and one real worker-timeout experiment in Scenarios 102–106 |
+| DEP-060 | RT-07 → RT-06 | Constrains | Solver-backed path pruning in dependency analysis requires sound negative evidence; replayed witnesses establish possible routes, while timeout/UNKNOWN and unverified UNSAT must preserve a conservative may-dependency result. | Emerging; bounded result-policy evidence and one real worker-timeout experiment in Scenarios 102–107 |
 
 ## 4. Important feedback loops and conditional relationships
 
 RT-03 is a foundational source for the type/effect model, semantic identity, formal verification, compiler/runtime behavior, incremental computation, semantic merge, security, and conformance. [RT-04 alternatives research](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) now decomposes the type/effect/ownership/capability design space and maps it against profiles A–D; this is a comparative survey, not an accepted architecture. The direct edges DEP-036–DEP-039 remain research hypotheses derived from [RT-03 core semantics](CORE-LANGUAGE-SEMANTICS.md); they do not imply that any particular semantic profile has been accepted. RT-20 adds a further feedback loop: the Toolchain workflow must enforce the dependency and identity model, while practical caller-migration and hash-propagation experiments may reveal missing distinctions in RT-05/RT-06 or transaction requirements in RT-19.
 
-[Scenarios 102–106](RESEARCH-SCENARIO-102-SOLVER-UNKNOWN-AND-SOUND-PATH-PRUNING.md) supply bounded evidence for DEP-060: the evidence threshold for removing a dependency/path is stricter than the threshold for retaining a possible path, an externally timed-out worker can be reaped while preserving UNKNOWN, and reusing a stale predicate or omitting a may-alias target across direct or call-mediated mutation can lose feasible behavior. They do not establish source-to-route completeness, memory/concurrency isolation, solver trust, or source-derived effect/alias summaries.
+[Scenarios 102–107](RESEARCH-SCENARIO-102-SOLVER-UNKNOWN-AND-SOUND-PATH-PRUNING.md) supply bounded evidence for DEP-060: the evidence threshold for removing a dependency/path is stricter than the threshold for retaining a possible path, an externally timed-out worker can be reaped while preserving UNKNOWN, and reusing a stale predicate or omitting a may-alias target across direct or call-mediated mutation can lose feasible behavior. Scenario 107 extracts aliases and a toggle effect from a bounded AST subset and preserves concrete routes, but a joined alias set can add infeasible routes when target choice correlates with state. These results do not establish general source-to-route completeness, parser/CFG correctness, memory/concurrency isolation, solver trust, or complete effect/alias summaries.
 
 
 

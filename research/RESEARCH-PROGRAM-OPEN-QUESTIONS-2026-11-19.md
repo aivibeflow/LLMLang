@@ -1,6 +1,7 @@
 # Research Program for Open LLMLang Questions — 2026-11-19
 
 **Status:** Scope inventory and sequencing plan; not a design decision
+**Updated:** 2026-11-20
 **Scope rule:** “Open” means every unresolved design item in `TODO.md` plus the unresolved research gates recorded by the RT taxonomy and evidence state. Existing reports count as evidence, not as closure, unless a question's decision gates are met and the project records a decision.
 
 ## 1. Snapshot and completeness boundary
@@ -50,7 +51,7 @@ This inventory is the control sheet for the requested exhaustive research. It ma
 | RT-04 Type/effects/ownership | Complete type/resource/capability model and cross-feature soundness beyond the limited checker. |
 | RT-05 Representation/identity | Canonical SPG and identity envelope, lifecycle, cyclic groups, import/merge completeness. |
 | RT-06 Dependencies | Sound complete reverse-reference extraction and UNKNOWN handling across full programs; solver-backed negative path results need an accepted trust/checking basis before they remove may-dependencies (Scenarios 102–103; source correspondence remains open). |
-| RT-07 Formal semantics | Supported language fragment, projection correspondence, proof obligations and trusted computing base; solver result trust, worker-failure coverage, resource bounds beyond wall time, and checked UNSAT evidence remain open (Scenarios 102–106). |
+| RT-07 Formal semantics | Supported language fragment, projection correspondence, proof obligations and trusted computing base; solver result trust, worker-failure coverage, resource bounds beyond wall time, and checked UNSAT evidence remain open (Scenarios 102–107); Scenario 107 is only a bounded AST adapter, not source/CFG completeness evidence. |
 | RT-08 Testing/evidence | Reusable evidence classes, conformance corpus, model/property testing and exact invalidation rules. |
 | RT-09 Compiler/IR | Comparative pipeline/IR boundaries, diagnostics, optimization trust and executable semantic-preservation evidence. |
 | RT-10 Runtime | Interpreter/VM/native contract, resource and OS behavior, sandboxing and target-specific semantics. |
@@ -97,4 +98,5 @@ Before writing the language RFC, each candidate vector needs: a precise claim; p
 - [Scenario 92](RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md) compares interface contracts, operation identity, implementation bindings, execution action keys and output artifact hashes for LL-001/002/003/007/008/021. It leaves the OpHash meaning open.
 - [Scenario 93](RESEARCH-SCENARIO-93-CACHE-SOUNDNESS-RESULT-ENVELOPES-AND-TRUST.md) compares exact Action Result reuse with material-cache restoration and trust-domain controls for LL-021/RT-11/12/16. It leaves the result schema, validation policy, and trust model open.
 - [Scenario 91](RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md) compares digest migration prior art for LL-004/005; it leaves the canonical envelope and migration mechanism open.
+- [Scenario 107](RESEARCH-SCENARIO-107-SOURCE-DERIVED-CALL-ALIASES.md) derives a toggle summary and branch-joined alias set from a bounded AST subset; its joined targets preserve concrete routes but add infeasible ones when aliases correlate with state. It narrows one fixture gap but does not resolve RT-03, RT-04, RT-06, or RT-07 source-completeness gates.
 - Existing bounded prototypes and reports remain evidence at their documented scope. The open register still controls decisions; this work does not mark open questions resolved.
