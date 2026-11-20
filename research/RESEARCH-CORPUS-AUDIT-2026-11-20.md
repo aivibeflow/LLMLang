@@ -48,11 +48,11 @@ The inventory is a reproducible path-level snapshot. It is not a claim that ever
 
 ### 2.3 Taxonomy and dependency map
 
-- `research/RESEARCH-TAXONOMY.md` contains 23 research-area entries, RT-01 through RT-23.
-- `research/RESEARCH-DEPENDENCY-MAP.md` contains 77 dependency IDs, DEP-001 through DEP-077, with no gaps in that ID range.
+- `research/RESEARCH-TAXONOMY.md` contains 24 research-area entries, RT-01 through RT-24.
+- `research/RESEARCH-DEPENDENCY-MAP.md` contains 85 dependency IDs, DEP-001 through DEP-085, with no gaps in that ID range.
 - The previous Stage 0.3 summary in `PLAN.md` reported 18 areas and 35 edges; this was stale.
 
-**Correction:** PLAN.md §0.3 now reports the current counts (23 areas and 77 edges). The taxonomy and dependency map remain evolving research registers; the existence of an edge does not make it an accepted architecture rule.
+**Correction:** PLAN.md §0.3 now reports the current counts (24 areas and 85 edges); RT-24 was added as a candidate research area with eight explicitly provisional dependency edges (DEP-078–DEP-085). The taxonomy and dependency map remain evolving research registers; the existence of an edge does not make it an accepted architecture rule.
 
 ### 2.4 Preparation pack and external references
 
@@ -65,7 +65,7 @@ The inventory is a reproducible path-level snapshot. It is not a claim that ever
 
 - Reviewed the 36 inventory entries previously marked low confidence using document titles, scope/status declarations, section structures, explicit research-area declarations, and related-document references.
 - Assigned candidate RT-area mappings or explicit Stage 0 research-management ownership to all 36 entries; recorded the basis and candidate plan stages in [the semantic traceability report](RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md) and inventory JSON.
-- Added `plan_stages` metadata to all 450 inventory records. A taxonomy/header/content crosswalk now maps all 136 Scenario reports to candidate RT areas: 63 from taxonomy links/ranges and 73 from first-pass report scope review. All 118 prototype-family records now have first-pass individual file-role mappings across five families; content/claim and reproducibility validation remains open. Nine vendored technical source documents now have use-case mappings; seven reference/provenance files plus one prototype-family index remain Stage 0-only, and three RT-24-labelled documents await taxonomy reconciliation.
+- Added `plan_stages` metadata to all 450 inventory records. A taxonomy/header/content crosswalk now maps all 136 Scenario reports to candidate RT areas: 63 from taxonomy links/ranges and 73 from first-pass report scope review. All 120 prototype-family records now have first-pass individual file-role mappings across five families; content/claim and reproducibility validation remains open. Nine vendored technical source documents now have use-case mappings; seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered in the taxonomy; its candidate contract remains non-normative.
 - The semantic review is explicitly first-pass triage, not full claim-level verification or acceptance of the proposals described by the documents.
 
 **Result:** the previous 36 low-confidence records no longer have blank/unassigned path-only mappings, but the corpus-wide semantic traceability gate remains open.
@@ -88,7 +88,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 | RCA-02 | Artifact-to-item mapping is not uniformly explicit in filenames. | Added qualified path-based mappings; content-level verification remains open. |
 | RCA-03 | All 233 research Markdown/MDX files were scanned for inline relative links (1,327 occurrences across the refreshed inventory revision). One LLMLang-authored broken link was fixed; 38 unresolved occurrences remain only in partial Alive2/OCI snapshots. | Project-authored inline relative links resolve; external snapshot completeness, external URLs, anchors, and index completeness remain open. |
 | RCA-04 | At the refreshed inventory revision, the main, preparation, and references indexes have 85, 11, and 2 unique relative targets; all resolve. | Index link existence checks complete; scientific readiness and index coverage remain open. |
-| RCA-05 | PLAN.md §0.3 reported stale taxonomy/dependency counts. | Corrected to 23 research areas and 77 dependency edges. |
+| RCA-05 | PLAN.md §0.3 reported stale taxonomy/dependency counts. | Corrected to 24 research areas and 85 dependency edges; added RT-24 with candidate dependencies. |
 | RCA-06 | One exact duplicate blob is shared by the OCI and REAPI Apache-2.0 licence files. | Classified as intentional shared licence content; no deletion proposed. |
 | RCA-07 | External snapshot integrity and experiment reproducibility have not been independently re-established. | Preserve pinned revisions and existing manifest; verify source blobs and experiment environments in a later pass. |
 
@@ -105,11 +105,11 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 
 - [ ] Read and validate the content-level mapping for every artifact, including prototypes, tests, fixtures, generated outputs, RFCs, and snapshots.
 - [x] First-pass content/heading/reference triage of 36 low-confidence entries; see the semantic traceability report.
-- [x] Cross-walk all 136 Scenario reports to candidate RT areas (63 taxonomy link/range mappings; 73 first-pass content/header mappings); record Scenario 58 and 91 cross-reference anomalies and Scenario 134 prior-art-only applicability.
+- [x] Cross-walk all 136 Scenario reports to candidate RT areas (63 taxonomy link/range mappings; 73 first-pass content/header mappings); record Scenario 58's RT-16/runtime mismatch and Scenario 134 prior-art-only applicability; Scenario 91's RT-24 reference now resolves.
 - [x] First-pass individual file-role mapping for all 120 prototype-family artifacts.
 - [ ] Validate prototype claims, test evidence, generated outputs, exact tool versions, and reproducibility at content/experiment level.
 - [x] Map nine vendored technical source documents to the RT areas named by the reference register; keep seven provenance/navigation/licence files at Stage 0.
-- [ ] Reconcile three RT-24-labelled documents with the RT-01–RT-23 taxonomy.
+- [x] Register RT-24 and cross-link its three research documents; keep the technical contract and dependency edges explicitly provisional.
 - [ ] Identify semantically duplicate, superseded, orphaned, and contradictory documents.
 - [ ] Decide whether missing relative targets in the partial Alive2/OCI source snapshots should remain documented as non-vendored upstream material or whether additional upstream files/assets should be added while preserving source provenance; validate external URLs and heading anchors if needed.
 - [ ] Verify exact source revision, tool versions, commands, fixtures, expected outputs, and negative cases for each reproducibility-sensitive experiment.
