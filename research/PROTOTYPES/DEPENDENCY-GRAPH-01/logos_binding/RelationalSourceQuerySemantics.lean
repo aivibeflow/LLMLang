@@ -79,7 +79,7 @@ def evalCanonicalQuerySigma :
     (query : Σ s : ExprSort, SourceQuerySemantics.QueryTerm s) →
     SourceQuerySemantics.Env →
     SourceQuerySemantics.Value (querySortToExprSort query.1)
-  | ⟨sort, term⟩, env => SourceQuerySemantics.evalQuery term env
+  | ⟨_sort, term⟩, env => SourceQuerySemantics.evalQuery term env
 
 /-- Evaluate a typed independent query term in the source/query environment. -/
 def evalCanonicalQuery {s : ExprSort}
