@@ -2,7 +2,7 @@
   "schema_version": 1,
   "generated_at": "2026-11-20",
   "repository": "aivibeflow/LLMLang",
-  "revision": "c0815d3dbdd6b6acbe0e5479af5f41e26647260c",
+  "revision": "612b8757bb6fcc592487dfbf67c17e6b40ed76b6",
   "source": "Recursive Git tree at the RT-00 reconciliation commit; inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
     "research_files": 457,
@@ -7710,8 +7710,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
-      "git_blob_sha": "1b182c98d521460b857136764ac468bc4638fd48",
-      "size_bytes": 17502,
+      "git_blob_sha": "03ab8b7fe737c03280bbe47513b3a3fa0e871358",
+      "size_bytes": 17782,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -7730,8 +7730,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
-      "git_blob_sha": "97ac921b6b82abd4b8077d48d71ce111739ff974",
-      "size_bytes": 20646,
+      "git_blob_sha": "822c82322fb7f3a0f28bff81f704e97bbf195b8a",
+      "size_bytes": 20616,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
