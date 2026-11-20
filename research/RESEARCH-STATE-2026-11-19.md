@@ -128,7 +128,7 @@ The latest bounded type/semantics results include a counterexample: transfer-fir
 
 [Scenario 115](RESEARCH-SCENARIO-115-FENCES-AND-SEQUENTIAL-CONSISTENCY.md) documents C++ fence-to-fence synchronization through a specified relaxed atomic read-from link and clarifies that the `seq_cst` total order covers participating operations/fences under standard constraints, not all happens-before edges when weaker orders are mixed. One axiom-driven fence fixture test checks the linked and unlinked payload outcome sets. This is not a full fence or mixed-order model.
 
-[Scenario 116](RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md) records that LLVM IR atomics promise lock-free operations, so unsupported target widths can fail lowering and frontends must account for target features. LLVM's per-object `monotonic` order is not a global source memory model. A sound source-to-IR mapping, lock-fallback contract, and cross-backend/target litmus validation remain open.
+[Scenario 116](RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md) compares the candidate `Relaxed`→LLVM `monotonic` mapping with weaker `unordered`, and records that LLVM IR atomics promise lock-free operations, so unsupported target widths can fail lowering. It compares target-gated widths, lock-backed fallback, and an explicit fallback API; each changes portability/progress trade-offs. A sound source-to-IR mapping, fallback contract, and cross-backend/target litmus validation remain open.
 
 ## 2. Candidate vectors still open
 
