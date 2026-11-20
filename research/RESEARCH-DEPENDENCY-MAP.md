@@ -320,3 +320,21 @@ RT-23 separates immutable semantic development from regular-file Git isolation. 
 | DEP-075 | RT-11 → RT-23 | Influences | Incremental file identity, event journals, Git metadata, and bounded invalidation can reuse incremental computation principles, but filesystem freshness is distinct from build-cache validity. | Open hypothesis |
 | DEP-076 | RT-16 → RT-23 | Constrains | Shared process state, cross-worktree isolation, path containment, watcher input validation, and per-job grants constrain the multi-tenant server design. | Strong hypothesis |
 | DEP-077 | RT-23 → RT-21 | Enables | One shared Toolchain instance and semantic-only workflows reduce infrastructure duplication for LLMLang self-development while preserving isolated regular-file worktrees. | Open hypothesis |
+
+
+## 11. AI authoring context models (RT-14)
+
+Knowledge Context and Task Context are related but distinct candidate objects. Knowledge Context describes the versioned information available to an agent; Task Context describes the work, scope, constraints, deliverables, and completion obligations. Neither context substitutes for the semantic dependency graph, a Change Impact Plan, or the independent authorization model.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-078 | RT-05 → RT-14 | Requires | Knowledge Context entries and Task Context baselines need stable references to exact semantic objects and snapshots; context identity must remain distinct from the identity of referenced objects. | Strong hypothesis |
+| DEP-079 | RT-06 → RT-14 | Constrains | Context selection and any completeness claim depend on sound dependency discovery and explicit UNKNOWN/insufficient-context outcomes; relevance ranking alone cannot establish dependency completeness. | Strong hypothesis |
+| DEP-080 | RT-02 → RT-14 | Constrains | Task objectives, constraints, and acceptance obligations must retain traceability to human intent, typed requirements, and contracts rather than silently replacing their authoritative meaning. | Strong hypothesis |
+| DEP-081 | RT-16 → RT-14 | Requires | Knowledge retrieval, redaction, task delegation, and agent actions must obey independent authorization, data-minimization, and audit policy; context membership or task assignment must not itself grant capabilities. | Strong hypothesis |
+| DEP-082 | RT-14 → RT-19 | Requires | The Toolchain API must expose inspectable, revision-bound Knowledge Context assembly and Task Context lifecycle operations with provenance, concurrency, and recovery semantics. | Strong hypothesis |
+| DEP-083 | RT-14 → RT-20 | Constrains | A Task Context may bind an agent request to scope, baseline, and completion obligations, but must remain consistent with the authoritative Change Impact Plan and must not bypass plan-before-mutation or validation gates. | Strong hypothesis |
+| DEP-084 | RT-19 → RT-14 | Enables | Workspaces, snapshots, Change Sets, and durable operation records provide the substrate for reproducible Knowledge Context manifests and versioned Task Context state. | Strong hypothesis |
+| DEP-085 | RT-20 → RT-14 | Influences | Caller-impact decisions, plan completeness, and mandatory validation obligations inform what a task context must expose and what counts as completed work; the task model must not duplicate CIP's authoritative change plan. | Strong hypothesis |
+
+These edges are planning hypotheses. They identify the research dependencies for LL-026 and LL-027; they do not select a schema, context assembly algorithm, task lifecycle, or authorization policy.

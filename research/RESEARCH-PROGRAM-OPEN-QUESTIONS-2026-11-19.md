@@ -7,7 +7,7 @@
 
 ## 1. Snapshot and completeness boundary
 
-At this snapshot, the TODO register contains 24 unique questions after correcting a duplicate stable ID: 6 P0, 14 P1, and 4 P2. They span operation identity, canonical representation/dependencies, package/library distribution, POSIX/runtime, LLVM, caching, Toolchain Server, and LLM change planning. The project also has open research gates in all 23 taxonomy areas. Some topics have substantial analytical reports and bounded prototypes; none of that alone selects a coherent integrated language design.
+At this snapshot, the TODO register contains 26 open questions after correcting the duplicate stable ID: 6 P0, 16 P1, and 4 P2. The resolved LL-025 compatibility decision remains in `TODO.md` for history and is not counted as open. The open questions span operation identity, canonical representation/dependencies, package/library distribution, POSIX/runtime, LLVM, caching, Toolchain Server, LLM change planning, and the separate Knowledge Context and Task Context models. The project also has open research gates in all 23 taxonomy areas. Some topics have substantial analytical reports and bounded prototypes; none of that alone selects a coherent integrated language design.
 
 This inventory is the control sheet for the requested exhaustive research. It makes the scope auditable and prevents a focused report from being mistaken for completion. The work is necessarily incremental: each research batch must be committed and cross-checked against current `TODO.md`, taxonomy, dependency map, option matrix, and CI. “Exhaustive” for this stage means every remaining question receives at least a scoped prior-art comparison, candidate vectors, compatibility conditions, falsifiers, and concrete validation gates. It does not mean every candidate is implemented or independently proven.
 
@@ -39,6 +39,8 @@ This inventory is the control sheet for the requested exhaustive research. It ma
 | LL-022 | P1 | Package distribution | Manifest/index schemas, binary blocks/compression/sparse lookup, static versus provider-built archives, dependency closure and measured resource bounds. Prototype exists; format and adapter validation remain. |
 | LL-023 | P0 | Change planning | Complete caller/reference discovery, edge-specific migrate/preserve/adapt/fork, contract/hash propagation, shared-caller split, plan approval/revision and exact-tree commit gates. |
 | LL-024 | P0 | Toolchain Server | Transport-neutral API, durable snapshots/workspaces, Change Sets, storage/recovery, concurrency, filesystem/Git synchronization and authorization. This ID replaces the duplicate LL-022 label; wording and question are unchanged. |
+| LL-026 | P1 | AI authoring / Knowledge Context | Define the exact, versioned, provenance-preserving knowledge manifest assembled for an agent task; resolve source classes, baseline pinning, selection/completeness, stale/conflicting inputs, budgets, access control, rendering, and invalidation. |
+| LL-027 | P1 | AI authoring / Task Context | Define a versioned task object for objective, scope, constraints, linked knowledge, baseline, dependencies, deliverables, acceptance evidence, lifecycle, delegation, and handoff; keep authorization grants separate. |
 
 **Stable-ID correction:** `TODO.md` previously assigned `LL-022` to both package distribution and Toolchain Server. The package question keeps LL-022 because it is the earlier register entry; Toolchain Server is now LL-024. Searchable references must use the unique ID. This corrects a tracking collision and does not resolve either design question.
 
@@ -59,7 +61,7 @@ This inventory is the control sheet for the requested exhaustive research. It ma
 | RT-11 Build/cache | Sound action keys, dependency closure, deterministic outputs and cache trust at scale. |
 | RT-12 Packages/libraries | Identity/publication, exact dependency closure, provider composition and scalable index/archive formats. |
 | RT-13 Targets/interoperability | Multiple backends and FFI vertical slices with explicit semantic-preservation guarantees. |
-| RT-14 AI authoring | Model-neutral structured edits, provenance, scope containment, authorization and agent failure recovery. |
+| RT-14 AI authoring | Model-neutral structured edits and change lifecycle; explicit Knowledge Context assembly and Task Context lifecycle; provenance, scope/completeness, baseline binding, model neutrality, authorization separation, delegation, and failure recovery. LL-026 and LL-027 are open research questions, not accepted designs. |
 | RT-15 Collaboration/merge | Repository representation and semantic merge prototypes; identity/schema assumptions and end-to-end merge remain coupled to RT-05/20/24. |
 | RT-16 Security/trust | Persistent service threat validation, sandbox boundary, producer authenticity, supply-chain policy, revocation and recovery. |
 | RT-17 DX/diagnostics | Comparative human/agent studies, debugging, explanation and feedback behavior. |
@@ -88,7 +90,7 @@ Research LL-009–012, LL-021–022 and RT-11/12/16/18. Extend package prototype
 
 ### Wave D — toolchain and AI change protocol
 
-Research LL-023–024 and RT-14/17/19/20/22/23 as one transactional workflow. Validate plan-before-mutation, optimistic concurrency, complete impact closure, scoped authorization, durable recovery, multi-worktree reconciliation, exact Git tree staging, validation gates and failure injection. Keep push authorization separate from local commit creation.
+Research LL-023–024 and LL-026–027 with RT-14/16/17/19/20/22/23 as one transactional AI-authoring workflow. In particular, define and validate Knowledge Context composition, provenance, completeness and freshness separately from Task Context identity, scope, obligations and lifecycle. Bind both to exact baselines and Change Sets where required; keep capabilities/authorization separate from task description and knowledge inclusion. Validate plan-before-mutation, optimistic concurrency, complete impact closure, durable recovery, multi-worktree reconciliation, exact Git tree staging, validation gates and failure injection. Keep push authorization separate from local commit creation.
 
 ### Whole-specification synthesis gate
 
