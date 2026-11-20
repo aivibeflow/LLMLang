@@ -43,9 +43,9 @@ The runner's command inventory is checked by `test_rt04_native_probe_runner.py`,
 - Rust compiler version and verbose target/build metadata;
 - exact command, exit status, timeout status, and output-file names.
 
-The runner requires the C SQLite source ID used by Scenarios 120–128 and Rust 1.85.1. Scenario 130's historical report used Python `sqlite3` 3.53.1; the runner records the current Python runtime version and explicitly marks whether it matches that historical baseline. A different version is a new native observation, not an exact reproduction of the historical run.
+The runner requires the C SQLite source ID used by Scenarios 120–128 and Rust 1.85.1. For Scenario 130 it builds SQLite 3.53.1 separately and launches the durable-receipt probe with that shared library first on `LD_LIBRARY_PATH`. The child preflight checks the actual Python `sqlite3` version and records the SQLite source ID; it skips the probe if the version is not 3.53.1.
 
-The first attempt on Ubuntu 24.04 built upstream SQLite 3.46.1 and correctly rejected it: the library reported source ID ending `a1e33`, while the scenario reports pin the distribution build ending `alt1`. The C-API probes were skipped; the durable-receipt and Rust probes still passed. This is an environment mismatch, not a behavioral counterexample. The corrected Ubuntu 26.04 run selected the distribution library, matched the exact `alt1` source ID, and passed all ten commands. See workflow run 44770566744 and artifact 14647056715. Per-case output comparison and Scenario 130's Python sqlite3 version check remain open.
+The first attempt on Ubuntu 24.04 built upstream SQLite 3.46.1 and correctly rejected it: the library reported source ID ending `a1e33`, while the scenario reports pin the distribution build ending `alt1`. The C-API probes were skipped; the durable-receipt and Rust probes still passed. This is an environment mismatch, not a behavioral counterexample. The corrected Ubuntu 26.04 run selected the distribution library, matched the exact `alt1` source ID, and passed all ten commands. See workflow run 44770910183 and artifact 14648440097. Per-case output comparison confirmed Scenarios 120–128 and 133 against their reports. The Python sqlite3 runtime was 3.46.1, not Scenario 130's 3.53.1; the workflow now builds 3.53.1 separately for the durable-receipt subprocess and awaits confirmation.
 
 The workflow uploads all captured output as a 30-day Actions artifact, including partial output when a command fails. A successful workflow means every listed command completed successfully under the recorded environment; it does not prove general LLMLang semantics, source-to-CFG completeness, untested FFI contracts, or behavior on other platforms.
 
@@ -53,7 +53,7 @@ The workflow uploads all captured output as a 30-day Actions artifact, including
 
 - Execute this workflow on a pinned repository revision and inspect the complete artifact.
 - Compare every captured observation with the corresponding scenario report; record any mismatch as a finding rather than editing expected values to fit.
-- If the Python SQLite runtime does not match 3.53.1, decide whether to recreate that exact interpreter/runtime pairing or treat the rerun as a separate versioned observation.
+- Verify that the dedicated Python SQLite 3.53.1 child runtime is actually loaded, then compare the durable-receipt output with Scenario 130. The original report does not record that runtime's SQLite source ID, so record the newly built source ID without claiming byte-identical provenance.
 - Preserve the artifact reference and workflow run ID in the corpus audit and semantic traceability report.
 - Keep the native workflow non-required until its runtime, timeout, and host assumptions are stable.
 
