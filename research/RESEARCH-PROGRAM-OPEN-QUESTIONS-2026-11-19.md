@@ -2,7 +2,8 @@
 
 **Status:** Scope inventory and sequencing plan; not a design decision
 **Updated:** 2026-11-20
-**Scope rule:** “Open” means every unresolved design item in `TODO.md` plus the unresolved research gates recorded by the RT taxonomy and evidence state. Existing reports count as evidence, not as closure, unless a question's decision gates are met and the project records a decision.
+**Scope rule:** “Open” means every unresolved design item in `TODO.md` plus the unresolved research gates recorded by the RT taxonomy and evidence state. Existing reports count as evidence, not as closure, unless a question's decision gates are met and the project records a decision.  
+**Preparation:** [Research Preparation Pack](preparation/README.md) turns the next research waves into execution briefs; none of those studies has been run by this preparation change.
 
 ## 1. Snapshot and completeness boundary
 
