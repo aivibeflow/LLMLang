@@ -2,6 +2,19 @@ name: Package index logical model
 
 on:
   workflow_call:
+    inputs:
+      run_benchmark:
+        description: Run the exploratory Provider resource benchmark
+        required: false
+        type: boolean
+        default: false
+  workflow_dispatch:
+    inputs:
+      run_benchmark:
+        description: Run the exploratory Provider resource benchmark
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   package-index:
@@ -22,6 +35,7 @@ jobs:
           PYTHONPATH: ../PACKAGE-IDENTITY-01
         run: python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py test_package_closure.py package_closure.py test_package_provider.py test_provider_stress.py package_provider.py benchmark_package_provider.py content_store.py test_content_store.py ../PACKAGE-IDENTITY-01/package_identity.py
       - name: Record exploratory Provider resource benchmarks
+        if: inputs.run_benchmark
         working-directory: research/PROTOTYPES/PACKAGE-INDEX-01
         env:
           PYTHONPATH: ../PACKAGE-IDENTITY-01
