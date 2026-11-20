@@ -98,9 +98,9 @@ Before a research result relies on one of these links as normative evidence, it 
 
 ## 6. Documentation correction
 
-The provenance summary in `research/references/README.md` lists MCP, OCI, and Alive2 in its upstream tree-verification table while stating that four upstream revisions were resolved. The manifest includes REAPI as the fourth source, and this audit independently verifies it. Add the missing REAPI row and explicitly state that its proto import closure is not included.
+The existing `research/references/README.md` table already lists all four upstream sources and the 13/13 blob-verification result. It does not yet record the independently checked GitHub commit-signature statuses or the partial link/import closure limitations. Add those details so the provenance record distinguishes exact blob integrity from self-contained snapshot completeness.
 
-The existing README notes the OCI/Alive2 partial-link state. This audit clarifies that those are completeness limitations, while all 13 stored files remain exact upstream blobs.
+The OCI and Alive2 unresolved relative links and the REAPI proto import closure are completeness limitations, while all 13 stored files remain exact upstream blobs.
 
 ## 7. Disposition
 
