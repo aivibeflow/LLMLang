@@ -73,7 +73,7 @@ Paths above are relative to `research/`.
 
 ## 4. Scenario-to-RT crosswalk
 
-All **136 of 136 scenario report files** now have candidate RT-area mappings and numeric plan-stage mappings in the inventory JSON:
+All **136 of 136 scenario report files** now have candidate RT-area mappings and numeric plan-stage mappings in the inventory JSON. These files represent **135 unique scenario identifiers**: Scenario 95 has a main study plus an explicitly linked execution follow-up; there is no Scenario 16 report in the current corpus, and its absence is not silently renumbered:
 
 - **63 reports** are cross-walked from explicit scenario links and bounded ranges in `RESEARCH-TAXONOMY.md`.
 - **73 reports** were mapped in a first-pass content/header review. Scenarios 1–14 required scope-based triage; the remaining 59 have explicit `Research area(s)` or `Aspect` declarations in their report headers.
@@ -183,6 +183,7 @@ All **136 of 136 scenario report files** now have candidate RT-area mappings and
 
 - **Scenario 91:** references RT-24; this is now a valid taxonomy reference after RT-24 was registered as the 24th area. The inventory crosswalk includes RT-24.
 - **Scenario 134:** mapped to RT-03/04/05/13 for discoverability, but the architecture decision makes it prior-art/reference only. It creates no active requirement for wire-schema evolution or Protobuf/Avro/CBOR runtime experiments.
+- **Scenario numbering:** the two Scenario 95 files are a main study and supplemental execution report, not duplicate independent studies. No Scenario 16 file exists in the current corpus; whether that number was reserved or a report is missing remains unresolved.
 
 These are candidate traceability mappings, not accepted design decisions or evidence that an RT research gate is complete.
 
