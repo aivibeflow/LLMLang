@@ -723,7 +723,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 ## 7.1 Performance and scalability
 
 - [ ] Benchmark semantic graph size and traversal.
-- [ ] Benchmark canonicalization and hashing.- [ ] Benchmark dependency discovery and impact planning.
+- [ ] Benchmark canonicalization and hashing.
+- [ ] Benchmark dependency discovery and impact planning.
 - [ ] Benchmark compilation and cache performance.
 - [ ] Benchmark proof and test execution costs.
 - [ ] Benchmark storage, indexing, and garbage collection.
@@ -732,6 +733,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Compare with Rust, Go, and C++ workflows on representative projects.
 - [ ] Report memory, latency, throughput, cache hit rates, and confidence intervals.
 - [ ] Identify pathological workloads and fallback strategies.
+- [ ] **Mandatory research RT-25:** evaluate whether LLMLang's Rust-based runtime/toolchain should support alternative memory allocators, and whether allocator selection should be configurable per executable, process, or component. Complete the comparative study and its reproducible benchmark before selecting or rejecting an allocator. See [RT-25 — Memory Allocator Compatibility, Selection, and Benchmarking](research/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md).
 
 ## 7.2 Libraries, packages, templates, and artifact ecosystem
 
