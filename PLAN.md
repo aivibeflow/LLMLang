@@ -285,7 +285,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Existing evidence:** scenarios 28–33, prototype 29, Lean CPC parser-state binding prototype, Logos integration, and `research/LLMLang-FORMAL-VERIFICATION.md`.
 
-**Status:** partially validated; pinned Lean 4.34.0 / Logos build and the complete parser-state, typed-renderer, and JSON decoder test step passed in CI run [44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422) on commit `08076b9e95e5b1bfc2368fc00b049efea620b9b4`. `SourceQuerySemantics` compiled successfully, so `translateExpr_preserves_eval` was kernel-checked for the deliberately small pure Int/Bool expression fragment. This is not a proof of source-program-to-query translation, command/program semantics, paired execution, CPC assumption binding end-to-end, or whole-program correctness. Keep those boundaries explicit.
+**Status** — Partially validated. The pinned Lean 4.34.0 and Logos CI run validated the parser-state bridge, typed renderer and JSON decoder. Scenario 34 proves source-to-query preservation in the independent Lean IR for the finite Int/Bool fragment, including paired command executions. The connection from the proved formula to serialized queries and CPC assumptions remains open. [CI run 44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422) · [Scenario 34](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md)
 
 ## 2.3 Lean, Logos, SMT, and solver integration
 
@@ -295,16 +295,17 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Implement the CPC parser-state bridge and exact symbol identity binding; obtain a successful pinned CI build and adversarial validation (CI run 44175854422 passed the existing parser-state tests).
 - [x] Implement construction of expected `Eo.Term` values from the canonical typed Relational Query IR; the pinned CI renderer and AST-equivalence tests pass. Full end-to-end validation against source-derived CPC assumptions remains open.
 - [x] Implement strict versioned JSON decoding and rejection of malformed or unsupported input; the full pinned CI test step, including adversarial decoder tests, passes.
-- [x] Kernel-check the expression-level source-to-query preservation theorem for the typed pure Int/Bool expression fragment (`SourceQuerySemantics.lean`, CI run 44175854422); [ ] prove source-to-query correspondence for the actual canonical relational query encoder and expand to commands/paired program executions.
+- [x] Kernel-check expression-level source-to-query preservation for the typed Int/Bool expression fragment. [CI run 44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422)
 - [x] Verify the CPC parser-state bridge and exact assumption-list binding adversarially for the version-2 relational-query envelope; pinned Lean CI run [44185102839](https://github.com/aivibeflow/LLMLang/actions/runs/44185102839) passed parser-state binding and factor-pair fixtures. This binds the CPC assumptions to the decoded query; it does not prove the decoded query is semantically derived from source.
-- [ ] Prove that the canonical relational query is semantically derived from the source program. SCW-26–28 define the difference formula and bind its symbols to the source declarations. [Scenario 34](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md)
+- [x] Prove that the canonical Lean formula is satisfiable exactly when admissible paired executions differ at the selected input and in the return or selected state. Bind every formula symbol to its source declaration and sort (SCW-26–28). [Scenario 34](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#75-paired-execution-and-relational-query)
+- [ ] Prove QF_LIA admissibility and carry the Lean formula and its declarations through JSON, Logos and the CPC assumptions (SCW-29–34). [Scenario 34](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
 - [ ] Keep QF_LIA as a conservative profile; reject unsupported strings, nonlinear arithmetic, and constructs outside the profile.
 - [ ] Test SAT/UNSAT/UNKNOWN handling and solver protocol failures.
 - [ ] Record what is checked by Lean, what is trusted in Logos, and what remains outside the proof boundary.
 
 **Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; QF_LIA Python prototype and focused tests; CI workflow.
 
-**Status:** partially validated. The pinned Lean/Logos build and version-2 CPC parser-state/factor-pair adversarial suite pass (run 44185102839). SCW-06–09 prove expression-to-query preservation for checked scopes and typed slots. SCW-16–25 preserve the return and selected state observations in both runs of an admitted input pair. The relational difference formula and source-derived canonical query binding remain open. [Scenario 34 proof boundary](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#75-paired-execution-and-relational-query)
+**Status** — Partially validated. Pinned CI passed the version-2 CPC parser-state and factor-pair tests in run 44185102839. SCW-06–28 establish preservation from the checked expression and command AST through paired observations and the canonical Lean difference formula. The solver-facing admissibility and source-derived CPC binding remain open. [Scenario 34 proof boundary](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#75-paired-execution-and-relational-query)
 
 ## 2.4 Correctness of optimization and translation
 
