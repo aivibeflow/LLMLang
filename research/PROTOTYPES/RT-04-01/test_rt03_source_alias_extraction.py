@@ -4,6 +4,7 @@ from rt03_alias_sensitive_call_paths import routes_for_alias_targets
 from rt03_source_alias_extraction import (
     UnsupportedSource,
     compare_source_fixture,
+    execute_path_sensitive_summary,
     extract_call_aliases,
 )
 
@@ -53,6 +54,26 @@ class SourceAliasExtractionTests(unittest.TestCase):
         self.assertTrue(concrete <= analyzed)
         self.assertGreater(len(analyzed), len(concrete))
         self.assertEqual(concrete, frozenset({(False, True), (True, True)}))
+
+    def test_path_sensitive_summary_recovers_correlated_alias_routes(self):
+        source = TOGGLE.replace(
+            "target = ref(flag)",
+            "target = ref(flag)\nif flag:\n    target = ref(other)\nelse:\n    target = ref(flag)",
+        )
+        _, concrete, joined = compare_source_fixture(source)
+        path_sensitive = execute_path_sensitive_summary(source)
+        self.assertEqual(path_sensitive, concrete)
+        self.assertEqual(len(joined), 4)
+        self.assertEqual(len(path_sensitive), 2)
+
+    def test_path_sensitive_summary_keeps_all_independent_branch_routes(self):
+        source = TOGGLE.replace(
+            "target = ref(flag)",
+            "target = ref(flag)\nif choose:\n    target = ref(other)",
+        )
+        _, concrete, _ = compare_source_fixture(source)
+        self.assertEqual(execute_path_sensitive_summary(source), concrete)
+        self.assertEqual(len(concrete), 4)
 
     def test_unknown_reference_is_top_over_the_declared_region(self):
         source = TOGGLE.replace("target = ref(flag)", "target = unknown_ref()")

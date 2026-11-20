@@ -171,6 +171,76 @@ def execute_concrete_fixture(source: str) -> frozenset[Route]:
     return frozenset(routes)
 
 
+def execute_path_sensitive_summary(source: str) -> frozenset[Route]:
+    """Enumerate fixture paths while applying the AST-derived call summary.
+
+    This is an exact finite-state path explorer for the fixture grammar, not a
+    scalable symbolic or general path-sensitive points-to algorithm.
+    """
+    module = ast.parse(source)
+    # Reuse the checked source-subset gate: require exactly one recognized call
+    # and reject constructs the joined alias adapter cannot classify.
+    extract_call_aliases(source)
+    flip = next((node for node in module.body if isinstance(node, ast.FunctionDef) and node.name == "flip"), None)
+    if flip is None:
+        raise UnsupportedSource("missing flip function")
+    summary = _summarize_toggle(flip)
+    callers = [node for node in module.body if not isinstance(node, ast.FunctionDef)]
+    routes: set[Route] = set()
+
+    def run_statement(stmt: ast.stmt, env: dict[str, object], initial_flag: bool) -> None:
+        if isinstance(stmt, ast.Assign) and len(stmt.targets) == 1 and isinstance(stmt.targets[0], ast.Name):
+            name, value = stmt.targets[0].id, stmt.value
+            call = _call_name(value)
+            if call == "input_bool" and isinstance(value, ast.Call) and len(value.args) == 1 and isinstance(value.args[0], ast.Constant):
+                field = value.args[0].value
+                if field not in {"flag", "other", "choose"}:
+                    raise UnsupportedSource("unknown input name")
+                env[name] = env[f"input:{field}"]
+            elif call == "ref" and isinstance(value, ast.Call) and len(value.args) == 1 and isinstance(value.args[0], ast.Name):
+                field = value.args[0].id
+                if field not in FIELDS:
+                    raise UnsupportedSource(f"reference to unmodeled field {field!r}")
+                env[name] = ["ref", field]
+            elif call == "unknown_ref" and isinstance(value, ast.Call) and not value.args:
+                env[name] = ["ref", env["input:unknown_target"]]
+            elif isinstance(value, ast.Name):
+                env[name] = env[value.id]
+            else:
+                raise UnsupportedSource("unsupported path-analysis assignment")
+        elif isinstance(stmt, ast.If) and isinstance(stmt.test, ast.Name):
+            branch = stmt.body if bool(env[stmt.test.id]) else stmt.orelse
+            for inner in branch:
+                run_statement(inner, env, initial_flag)
+        elif isinstance(stmt, ast.Expr) and isinstance(stmt.value, ast.Call):
+            call = stmt.value
+            if _call_name(call) == "flip" and len(call.args) == 1 and isinstance(call.args[0], ast.Name):
+                ref = env[call.args[0].id]
+                if not (isinstance(ref, list) and ref[0] == "ref"):
+                    raise UnsupportedSource("flip argument is not a reference")
+                if summary != "toggle":
+                    raise UnsupportedSource("unsupported call summary")
+                env[ref[1]] = not bool(env[ref[1]])
+            elif _call_name(call) in {"mark", "input_bool"}:
+                return
+            else:
+                raise UnsupportedSource("unsupported call during path analysis")
+        else:
+            raise UnsupportedSource(f"unsupported path-analysis statement: {type(stmt).__name__}")
+
+    for flag, other, choose, unknown_target in product((False, True), repeat=4):
+        env: dict[str, object] = {
+            "input:flag": flag,
+            "input:other": other,
+            "input:choose": choose,
+            "input:unknown_target": "flag" if unknown_target else "other",
+        }
+        for stmt in callers:
+            run_statement(stmt, env, flag)
+        routes.add((flag, bool(env["flag"])))
+    return frozenset(routes)
+
+
 def compare_source_fixture(source: str) -> tuple[Extraction, frozenset[Route], frozenset[Route]]:
     """Return extraction, concrete route set, and alias-summary route set."""
     extracted = extract_call_aliases(source)
