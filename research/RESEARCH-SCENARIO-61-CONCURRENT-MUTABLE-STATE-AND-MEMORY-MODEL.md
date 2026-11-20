@@ -41,7 +41,7 @@ These are compatible with several behaviors for racy programs: reject statically
 
 ## 4. Discriminating experiments
 
-1. A shared litmus corpus: message publication, store buffering, load buffering, read-modify-write counters, lock release/acquire, channel transfer, and atomic/non-atomic mixed access. Record allowed outcomes on each target and under each optimizer.
+1. A shared litmus corpus: message publication, store buffering, load buffering, read-modify-write counters, lock release/acquire, channel transfer, and atomic/non-atomic mixed access. Record allowed outcomes on each target and under each optimizer. [Scenario 113](RESEARCH-SCENARIO-113-STORE-BUFFERING-MEMORY-ORDERS.md) now provides the first bounded store-buffering comparison; it remains an abstract profile rather than a complete language model.
 2. For static candidates, test aliasing, task capture, mutable borrows crossing spawn, transferred values, actor hops, non-Sendable references, generic APIs, global state, unsafe/unchecked assertions, and FFI callbacks.
 3. Distinguish data races from logic races: atomic counter with lost invariant, check-then-act, actor reentrancy across `await`, deadlock, starvation, and cancellation while holding a lock/resource.
 4. Compare static acceptance/rejection, diagnostics, race-detector coverage, runtime overhead, and portability; report which bugs each mechanism prevents and which it cannot.
