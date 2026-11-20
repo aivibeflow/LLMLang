@@ -467,3 +467,19 @@ Scenarios 49–56 are comparative language-design studies and proposed experimen
 - 56: closure capture, callability, escape, and lifetime; no LLMLang closure implementation.
 
 See corpus audit §2.23 for detailed boundaries and cross-links. The reports' proposed experiments should not be mistaken for completed tests.
+
+
+## 24. Specification-level prior-art audit — Scenarios 41–48
+
+Scenarios 41–48 are comparative design/compatibility studies; selected later experiments do not amount to complete LLMLang contracts:
+
+- 41: typed errors and API evolution; Scenarios 97 and 109–111 cover only cleanup composition and selected wire cases.
+- 42: generics/constraints/dispatch; Scenarios 69 and 71 refine variance and coherence but do not implement generic dispatch.
+- 43: modules/imports/initialization; restricted Python source-alias adapters are not a module system.
+- 44: comptime/macros and build trust; no LLMLang evaluator or macro sandbox is cited.
+- 45: numeric semantics; LLVM preservation Scenarios 96A/96B cover bounded integer/view operations, not a complete numeric or floating-point profile.
+- 46: Text/Bytes, Unicode, and indexing; no LLMLang string conformance run.
+- 47: public record/variant evolution; Scenario 110 is JSON wire behavior, not source/ABI compatibility.
+- 48: clocks/deadlines; no LLMLang time API or cross-platform timing experiment.
+
+See corpus audit §2.24 for the scope, cross-links, and limits. No candidate policy is treated as an accepted language decision.
