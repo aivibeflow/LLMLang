@@ -1,0 +1,58 @@
+# External Research References and Snapshots
+
+**Prepared:** 2026-11-20  
+**Purpose:** Preserve primary technical references needed by the LLMLang research programme.  
+**Status:** Reference collection only. No claims from these sources have been evaluated as LLMLang research results.
+
+## 1. Versioned source snapshots stored in this repository
+
+The files under `snapshots/` are verbatim source snapshots retrieved from the upstream repositories and pinned to the revisions below. The upstream licence notice is preserved in each source group. These are reference copies, not LLMLang-authored specifications.
+
+| Source | Upstream revision | Relevant local snapshots | Use in LLMLang research |
+|---|---|---|---|
+| Model Context Protocol | Stable specification release `2026-07-28`, upstream commit `5f5440b` | `snapshots/MCP/basic-index.mdx`, `authorization.mdx`, `transports.mdx`, `schema.json`; `LICENSE.md` | RT-16/19/22: protocol/transport boundary, authorization, schema source of truth, versioned server surface |
+| OCI Image Specification | Upstream commit `4feed4a6674e59d301b9294f187ac46acb2de99f` (2026-10-22) | `snapshots/OCI/descriptor.md`, `manifest.md`, `image-layout.md`; `LICENSE-APACHE-2.0.txt` | RT-05/11/12: typed content descriptors, digests, size/media type, manifest/layout and content-addressed distribution |
+| Alive2 | Upstream commit `3bdd4f5e1cefa47057e93110e707acd11cfe08e4` (2026-11-16) | `snapshots/Alive2/README.md`, `LICENSE-MIT.txt` | RT-07/09/13: LLVM translation validation, refinement checking and limits of the tool |
+| Bazel Remote Execution API | Upstream commit `e0c0554bfc8a37abf336c3e78070684367738e1d` (2026-11-10) | `snapshots/REAPI/remote_execution.proto`, `LICENSE-APACHE-2.0.txt` | RT-11/12: action cache, content-addressed storage, remote execution and API message contracts |
+
+### Attribution and licence notes
+
+- MCP: the copied root `LICENSE` file records the project's licensing transition. It states that new specification contributions are under Apache-2.0, while non-specification documentation contributions are under CC-BY-4.0. The snapshots in this group are specification material. Preserve the upstream file when copying or redistributing them.
+- OCI and Bazel Remote Execution API: Apache License 2.0; the upstream licence text is included alongside the snapshots.
+- Alive2: MIT License; the upstream licence text is included alongside the README.
+- Source blob SHA values are available in the Git history for each snapshot file. The upstream repository commit is recorded above so the source can be compared with later revisions.
+
+## 2. Official materials linked for study, not copied here
+
+Some standards and documentation are maintained as live/versioned web publications or carry separate redistribution terms. Keep them as source links and pin the exact edition/tool version at the start of each future experiment.
+
+| Area | Official reference | Relevant preparation brief | Handling |
+|---|---|---|---|
+| SMT solver input language | [SMT-LIB 2.7 standard, release 2026-09-09 (PDF)](https://smt-lib.org/papers/smt-lib-reference-v2.7-r2026-09-09.pdf) | RT-03/06/07 path feasibility | Link-only here. The official PDF permits verbatim redistribution if copyright/permission notices remain and no modified version is made. The PDF was not retrievable into this repository in this session. |
+| Solver proof evidence | [cvc5 proof production](https://cvc5.github.io/docs-ci/docs-main/proofs/proofs.html) | RT-03/06/07; RT-07 evidence | Link-only; pin cvc5 release and proof format (CPC/Alethe) during execution. |
+| Lean proof kernel/reference | [Lean Language Reference](https://lean-lang.org/doc/reference/latest/) · [Lean releases](https://github.com/leanprover/lean4/releases) | RT-03/06/07; Scenario 34 | Link-only. The online reference currently identifies itself as 4.37.0-rc1; the latest stable release listed at preparation time is 4.36.0. Use the exact `lean-toolchain` pinned by the LLMLang checkout for reproducible work. |
+| LLVM semantics | [LLVM Language Reference](https://llvm.org/docs/LangRef.html) · [LLVM UB Manual](https://llvm.org/docs/UndefinedBehavior.html) | RT-07/09/10/13 | Link-only; live docs can change. Pin LLVM release/commit, target triple and flags in each result. |
+| Rust resource semantics | [Rust Reference — Destructors and Drop Scopes](https://doc.rust-lang.org/reference/destructors.html) | RT-03/04 source semantics and ownership | Link-only; pin the Rust toolchain/reference release used in the experiment. |
+| Go concurrency | [The Go Memory Model](https://go.dev/ref/mem) | RT-03/04; RT-04 provider reconciliation | Link-only; record exact Go release and test/runtime settings. |
+| C++ concurrency | [C++ working draft — data races](https://eel.is/c++draft/intro.races) | RT-03/04; RT-07/13 | Link-only; this is a living working draft, not a frozen published standard. Record access date and relevant revision. |
+| SQLite resource lifetime | [sqlite3_close / sqlite3_close_v2](https://www.sqlite.org/c3ref/close.html) · [Online Backup API](https://www.sqlite.org/c3ref/backup_finish.html) · [SQLite threading modes](https://www.sqlite.org/threadsafe.html) | RT-04 provider reconciliation and guard coverage | Link-only; reproduce against an explicitly pinned SQLite release/build configuration. |
+| Git object/storage/protocol | [Git pack format](https://git-scm.com/docs/gitformat-pack) · [Git protocol v2](https://git-scm.com/docs/gitprotocol-v2) | RT-05/06 identity; RT-16/19/20/22/23 lifecycle | Link-only; record Git version and object format (SHA-1/SHA-256) used. |
+| Nix content addressing | [Nix content-addressed store objects](https://nix.dev/manual/nix/2.35/store/store-object/content-address.html) · [Store Path Specification](https://nix.dev/manual/nix/2.35/protocols/store-path.html) | RT-05/06 and RT-11/12 | Link-only; these are versioned Nix 2.35 manual references. |
+| POSIX system contract | [The Open Group — POSIX Issue 8 online specifications](https://pubs.opengroup.org/onlinepubs/9799919799/) | RT-03/04 and LL-013–019 | Link-only; do not redistribute the standard text from this repository. Select the precise POSIX edition and clauses before experiments. |
+
+## 3. Recommended reading order
+
+1. **Before source/solver work:** SMT-LIB 2.7, cvc5 proof production, Lean version pinned by LLMLang, and Scenario 34's current SCW ledger.
+2. **Before ownership/FFI work:** Rust drop scopes, Go memory model, C++ memory-model draft, and SQLite close/backup/threading contracts.
+3. **Before identity/package/cache work:** OCI descriptors and manifests, Nix store paths, Bazel REAPI, and the LLMLang Draft Glossary.
+4. **Before backend work:** LLVM LangRef/UB manual and Alive2, with target/compiler versions pinned.
+5. **Before Toolchain/MCP work:** the stored MCP release sources/schema, Git pack/protocol docs, and the selected POSIX clauses.
+
+## 4. Use rules
+
+- Read the source as one member of the linked LLMLang document cluster; do not treat a copied document as a research conclusion.
+- Pin moving web references to a release, commit or dated edition before using them in an experiment.
+- Preserve exact source versions, access dates, licence notices and raw test data.
+- Separate the source's normative scope from LLMLang's candidate design questions.
+- Do not copy additional third-party standards into the repository until their redistribution terms are checked.
+- Research briefs remain the source of execution questions and exit criteria: [Preparation Pack](../preparation/README.md).
