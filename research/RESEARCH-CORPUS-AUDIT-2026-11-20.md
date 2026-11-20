@@ -17,7 +17,7 @@ The recursive Git tree at the primary snapshot revision contains **450 tracked r
 - 229 files under `research/PROTOTYPES/`;
 - 24 files under `research/preparation/` and `research/references/`.
 
-A machine-readable inventory snapshot records all 448 paths, Git blob SHAs, byte sizes, coarse categories, and qualified path-based traceability metadata: [RESEARCH-CORPUS-INVENTORY-2026-11-20.json](RESEARCH-CORPUS-INVENTORY-2026-11-20.json).
+A machine-readable inventory snapshot records all 450 paths, Git blob SHAs, byte sizes, coarse categories, and qualified path-based traceability metadata: [RESEARCH-CORPUS-INVENTORY-2026-11-20.json](RESEARCH-CORPUS-INVENTORY-2026-11-20.json).
 
 The main index's relative links and the preparation index's brief links resolve. Exact Git-blob comparison found one repeated blob: the same Apache-2.0 licence text is stored alongside both OCI and REAPI snapshots. This is expected shared licence content, not evidence of duplicated research.
 
@@ -28,7 +28,7 @@ The audit remains **partial**. The inventory classifies paths and records tentat
 ### 2.1 Repository inventory
 
 - Retrieved the recursive Git tree for `main` at revision `4b947dda7edcc120183e57055f19a04a95714c55`; excluded the inventory manifest itself to avoid self-reference.
-- Enumerated all 448 tracked research artifacts whose paths begin with `research/`, excluding the inventory manifest itself.
+- Enumerated all 450 tracked research artifacts whose paths begin with `research/`, excluding the inventory manifest itself.
 - Recorded path, Git blob SHA, byte size, coarse artifact category, and traceability metadata for every file in the inventory JSON.
 - Distinguished scenario-named reports, prototype implementations, tests, prototype readmes/reports, preparation briefs, external snapshots/licences, structured fixtures, and research documents.
 - Recorded direct RT/scenario identifiers as high-confidence path evidence. Prototype-family mappings are explicitly marked medium confidence; files without reliable path identifiers remain unassigned rather than receiving guessed mappings.
@@ -82,7 +82,7 @@ Three explicit cases were recorded in the inventory; none supersedes its whole d
 
 ### 2.7 Exact blob comparison
 
-Git blob SHA comparison across the 448 inventory entries found one repeated blob:
+Git blob SHA comparison across the 450 inventory entries found one repeated blob:
 
 | Blob SHA | Paths | Assessment |
 |---|---|---|
@@ -94,7 +94,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 
 | ID | Finding | Action / status |
 |---|---|---|
-| RCA-01 | The corpus has 448 tracked research artifacts in the refreshed inventory snapshot (excluding the manifest itself), but previously lacked a complete path inventory. | Added the machine-readable inventory snapshot. |
+| RCA-01 | The corpus has 450 tracked research artifacts in the refreshed inventory snapshot (excluding the manifest itself), but previously lacked a complete path inventory. | Added the machine-readable inventory snapshot. |
 | RCA-02 | Artifact-to-item mapping is not uniformly explicit in filenames. | Added qualified path-based mappings; content-level verification remains open. |
 | RCA-03 | All 233 research Markdown/MDX files were scanned for inline relative links (1,327 occurrences across the refreshed inventory revision). One LLMLang-authored broken link was fixed; 38 unresolved occurrences remain only in partial Alive2/OCI snapshots. | Project-authored inline relative links resolve; external snapshot completeness, external URLs, anchors, and index completeness remain open. |
 | RCA-04 | At the refreshed inventory revision, the main, preparation, and references indexes have 85, 11, and 2 unique relative targets; all resolve. | Index link existence checks complete; scientific readiness and index coverage remain open. |
