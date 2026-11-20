@@ -12736,7 +12736,7 @@
     "index": "research/README.md",
     "unique_relative_targets": 98,
     "broken_relative_targets": 0,
-    "checked_revision": "PR branch head before final CI run",
-    "scope": "Includes new prototype-family navigation links, corpus audit, and semantic traceability report; this is separate from the pinned main-revision index check."
+    "checked_revision": "9c07eb2036c1151fb977d0bc62e5b3525c2b9f94",
+    "scope": "All 98 unique relative targets in research/README.md were resolved against the recursive tree at this revision; subsequent branch edits did not change the index links or remove target paths."
   }
 }
