@@ -130,3 +130,18 @@ def independent_atomic_reads(initial, stores, load_count):
     for _ in range(load_count):
         outcomes = {(*prefix, value) for prefix in outcomes for value in values}
     return outcomes
+
+
+def release_relay_payload_outcomes(acquire_reads_release_sequence):
+    """Model one explicit C++20 release-sequence/read-from premise.
+
+    The payload itself is atomic and relaxed. If the acquire load of `flag`
+    reads an RMW member of the release sequence headed by the release store,
+    the release synchronizes with the acquire, so the payload read cannot see
+    its older initial write. If it reads a later relaxed plain store that
+    breaks the sequence, this fixture adds no synchronization edge.
+
+    This maps a supplied source relation to outcomes; it does not infer the
+    modification order or release sequence from executable atomic events.
+    """
+    return {1} if acquire_reads_release_sequence else {0, 1}

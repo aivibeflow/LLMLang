@@ -6,6 +6,7 @@ from rt04_store_buffering import (
     naive_load_then_store_outcomes,
     same_location_atomic_reads,
     independent_atomic_reads,
+    release_relay_payload_outcomes,
     per_location_atomic_outcomes,
     sequentially_consistent_outcomes,
 )
@@ -37,6 +38,10 @@ class StoreBufferingTests(unittest.TestCase):
         self.assertNotIn((2, 1), monotone)
         self.assertNotIn((1, 0), monotone)
         self.assertIn((2, 1), independent_atomic_reads(0, (1, 2), 2))
+
+    def test_release_sequence_rmw_relay_controls_acquire_edge(self):
+        self.assertEqual(release_relay_payload_outcomes(True), {1})
+        self.assertEqual(release_relay_payload_outcomes(False), {0, 1})
         self.assertEqual(
             message_passing_outcomes(synchronized=False),
             {(0, 0), (0, 1), (1, 0), (1, 1)},
