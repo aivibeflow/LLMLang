@@ -1,8 +1,8 @@
 # Scenario 95 — Diagnostics for Humans and Coding Agents
 
-**Status:** Evidence-linked comparison and study design; no diagnostic contract selected
+**Status:** Comparative analysis executed; no diagnostic contract selected; LLMLang implementation and empirical human/agent validation remain open
 **Research areas:** RT-03 semantics, RT-09 compiler, RT-14 AI authoring, RT-17 developer experience
-**Updated:** 2026-11-19
+**Updated:** 2026-11-20
 
 ## 1. Question and scope
 
@@ -69,6 +69,8 @@ Then run a preregistered, blinded repair study with separate strata for humans a
 Baselines should include plain compiler output, structured diagnostic without generated prose, carefully authored explanation, and (if included) LLM-generated explanation. Keep compiler diagnostics identical across arms when isolating presentation effects. Report novice/professional users separately, pin agent model/toolchain versions, and publish the cases and scoring oracle. A study of human preferences cannot establish autonomous repair safety; a syntax-only fix benchmark cannot establish semantic correctness.
 
 ## 7. Current result and open decision questions
+
+The execution follow-up, [Scenario 95 Execution (2026-11-20)](RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md), validates the comparison against current LSP/compiler references and the LLMLang RT-01/14/17 boundaries. It adds a candidate diagnostic/repair envelope, twelve diagnostic-level discriminators, and a controlled human/agent evaluation protocol. It does not implement or select the contract; see the execution report for the evidence and remaining gates.
 
 Prior art supports separating a structured diagnostic record from its human rendering and from any proposed edit. Rust demonstrates structured suggestions with explicit applicability and executable UI tests; LSP demonstrates transport and editor fields; TypeScript illustrates phase-separated incremental queries; Elm illustrates corpus-driven message coverage. Human studies show that message quality can affect novice debugging but that generated LLM explanations do not reliably beat authored explanations. There is no direct evidence here about agent performance on LLMLang or the cost of a full contract.
 
