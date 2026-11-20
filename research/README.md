@@ -2,7 +2,7 @@
 
 Research documents are exploratory evidence and do not change the candidate or normative language specification unless a decision is explicitly accepted.
 
-Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the current evidence map, open integrated vectors, synthesis gates, and recommended next work. The [Research Quality and Decision Rules study (2026-11-20)](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) proposes evidence classes, claim records, report structure, and quality gates; it is not yet accepted project policy. Use the [Research Option Matrix 01](RESEARCH-OPTION-MATRIX-01.md) to compare cross-area candidate bundles; no bundle is selected. The [Research Preparation Pack](preparation/README.md) contains execution briefs for the planned studies; it is preparation material, not additional research evidence. The [Research Corpus Audit (2026-11-20)](RESEARCH-CORPUS-AUDIT-2026-11-20.md) records a partial inventory/index audit and open reconciliation items. The [External Research References and Snapshots](references/README.md) register links and preserves versioned primary-source materials for those briefs.
+Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the current evidence map, open integrated vectors, synthesis gates, and recommended next work. The [Research Quality and Decision Rules study (2026-11-20)](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) proposes evidence classes, claim records, report structure, and quality gates; it is not yet accepted project policy. Use the [Research Option Matrix 01](RESEARCH-OPTION-MATRIX-01.md) to compare cross-area candidate bundles; no bundle is selected. The [Research Preparation Pack](preparation/README.md) contains execution briefs for the planned studies; it is preparation material, not additional research evidence. The [Research Corpus Audit (2026-11-20)](RESEARCH-CORPUS-AUDIT-2026-11-20.md) records a partial inventory/index audit and open reconciliation items. The [first-pass Semantic Traceability Review](RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md) maps all 36 formerly low-confidence root-level entries, all 136 Scenario reports, and all 120 prototype artifacts to candidate research areas and plan stages. Claim-level, semantic duplicate/orphan, and reproducibility checks remain open; RT-24 is now registered as a research area, with its technical contract still provisional. The [External Research References and Snapshots](references/README.md) register links and preserves versioned primary-source materials for those briefs.
 
 ## Core semantic and type research
 
@@ -84,7 +84,19 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 Keep conclusions scoped to the fixtures and assumptions actually checked. A passing test suite, prototype, or proof in a restricted fragment is not evidence that the full language profile is complete or selected.
 
 
+## Prototype and executable evidence
+
+- [Dependency graph, identity, and Logos proof prototypes](PROTOTYPES/DEPENDENCY-GRAPH-01/README.md) — source modules, tests, prototype result reports, typed source/query correspondence, and proof-boundary work.
+- [RT-04 runtime and semantics prototype suite](PROTOTYPES/RT-04-01/README.md) — executable models and tests for path feasibility, cleanup, atomic behavior, scheduler fairness, SQLite ownership, and wire-format prior art.
+- [Toolchain Server prototype](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md) — workspace lifecycle, semantic development API, and focused tests.
+- [Package identity prototype](PROTOTYPES/PACKAGE-IDENTITY-01/README.md) — package identity, language-version registry, and cache-index experiments.
+- [Package index prototype](PROTOTYPES/PACKAGE-INDEX-01/README.md) — logical index, closure, archive, provider, content-store, and benchmark experiments.
+- [CLI workload harness](PROTOTYPES/CLI-WORKLOADS-01/run.py) — shared reference workload runner; C and Python reference programs are alongside it.
+- [LLVM integer fixture](PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py), [LLVM IR probe](PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py), and [LLVM byte-view probe](PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py) — backend-preservation evidence.
+- [RT-16 authorization policy prototype](PROTOTYPES/RT-16-AUTHORIZATION-01/policy.py) and [policy tests](PROTOTYPES/RT-16-AUTHORIZATION-01/test_policy.py) — bounded authorization-policy fixtures, not a complete security architecture.
+- [Package manifest example](examples/package/manifest.toml) — minimal package metadata fixture.
+
 ## Corpus inventory and audit
 
-- [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked file under `research/` at the recorded revision.
+- [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked research artifact under `research/` at the recorded revision (excluding the inventory manifest itself).
 - [Research corpus audit (2026-11-20)](RESEARCH-CORPUS-AUDIT-2026-11-20.md) — audit scope, verified checks, findings, and remaining work for PLAN.md §0.1.
