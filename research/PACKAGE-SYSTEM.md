@@ -2,8 +2,8 @@
 
 **Status:** Research proposal; design decisions remain open  
 **Research area:** RT-12 — Libraries, packages, templates, and artifact reuse  
-**Updated:** 2026-11-18  
-**Scope:** Package identity and contents, compact indexes, index compression and sparse lookup, static archives, dynamic provider-built packages, dependency closure, multi-provider composition, and reproducibility.
+**Updated:** 2026-11-20\
+**Scope:** Package identity and contents, compact indexes, index compression and sparse lookup, static archives, dynamic provider-built packages, dependency closure, multi-provider composition, Git repository discovery, and reproducibility.
 
 ## 1. Problem and goals
 
@@ -292,6 +292,20 @@ The consumer should be able to compare provider indexes with its local index, de
 Multiple providers may serve different subsets of the content graph. The consumer can merge their sorted indexes, retain provider availability metadata, and resolve object locations. Conflicting content claims for the same hash are integrity failures.
 
 The protocol must distinguish metadata-only resolution from object transfer. This permits planning, auditing, and cache checks without downloading object bodies.
+
+### 7.1 Git repository discovery by `ImplHash`
+
+A publisher could generate `llmlang-exports.jsonl` from the public exports and implementation bindings of released packages. Each line maps a full `ImplHash` to a specific package release. The hash scheme identifies the canonicalization and digest algorithm. The file is derived discovery metadata outside the Package Content Root Hash. [Draft `ImplHash` definition](../draft/GLOSSARY.md#implementation-hash-implhash)
+
+An illustrative JSONL row follows.
+
+```jsonl
+{"impl_hash":"<full ImplHash>","hash_scheme":"<scheme and version>","commit":"<full release commit ID>","package_path":"packages/example.llpkg","package_content_root":"<Package Content Root Hash>"}
+```
+
+The release job can update the file on the default branch once the package commit exists and retain rows for supported releases. GitHub REST Code Search can find candidate repositories with `filename:llmlang-exports.jsonl "<full digest>"`. A client reads the matching file and checks the full `impl_hash` field for equality. Search coverage depends on GitHub's default-branch index. A catalogue can also collect these rows with their repository URLs and retain all registered locations for each hash. [GitHub Code Search syntax and limits](https://docs.github.com/en/search-github/searching-on-github/searching-code)
+
+The resolver retrieves the package at the recorded commit and path, verifies its Package Content Root Hash, and recomputes the requested `ImplHash` from the implementation and its hash-relevant dependencies using the declared scheme. On a match, it pins the verified source and exact `ImplHash` in the consumer's lockfile. If a candidate is unavailable or fails verification, the resolver can try another location for the same hash.
 
 ## 8. Trust, provenance, and licensing
 
