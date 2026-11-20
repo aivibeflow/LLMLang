@@ -189,7 +189,7 @@ These are candidate traceability mappings, not accepted design decisions or evid
 
 ## 5. Prototype-family traceability review
 
-The first-pass individual role review covers **235 artifacts across six prototype families and the Scenario 34 Lean extension**. Family READMEs, file lists, implementation entry points, and test roles were inspected. **All 235 reviewed files now have first-pass individual role mappings** (3 CLI, 103 dependency-graph, 3 LLVM, 7 package-identity, 15 package-index, and 104 RT-04-01). These are traceability mappings, not full claim-level or execution validation:
+The first-pass individual role review covers **240 artifacts across eight prototype families and the Scenario 34 Lean extension**. Family READMEs, file lists, implementation entry points, and test roles were inspected. **All 240 prototype-tree files now have first-pass individual role mappings** (3 CLI, 103 dependency-graph, 3 LLVM, 7 package-identity, 15 package-index, 104 RT-04-01, 2 RT-16 authorization, and 3 Toolchain Server). These are traceability mappings, not full claim-level or execution validation:
 
 | Prototype family | Files | First-pass finding | Plan stages |
 |---|---:|---|---:|
@@ -200,7 +200,7 @@ The first-pass individual role review covers **235 artifacts across six prototyp
 | PACKAGE-INDEX-01 | 15 | All individual files mapped to logical indexes, archive/closure/provider/content-store and benchmarks; RT-19 is adjacency only (adapter not integrated into Toolchain Server) | 3, 7 |
 | RT-04-01 | 104 | Individual content-based RT traceability: 39 RT-03-only, 59 RT-04-only, and 6 shared cross-profile artifacts; see §5.1 | 1, 5 |
 
-All 235 reviewed prototype files have individual first-pass role mappings; the remaining five files under `research/PROTOTYPES/` have not received the same individual role review. The mappings were derived from README sections, source/module docstrings, scenario crosswalks, and paired test imports/names; they do not establish that the implementation is correct or that every experiment is reproducible. Family-level stage lists are navigation ranges, not claims that every file participates in every listed stage.
+All 240 prototype-tree files have individual first-pass role mappings; no prototype files remain without an individual role review. The mappings were derived from README sections, source/module docstrings, scenario crosswalks, and paired test imports/names; they do not establish that the implementation is correct or that every experiment is reproducible. Family-level stage lists are navigation ranges, not claims that every file participates in every listed stage.
 
 
 ### 5.1 RT-04-01: content-based RT-03 / RT-04 classification
@@ -227,6 +227,21 @@ The six shared files are:
 
 The inventory records `traceability.method = "individual content review (module purpose, imports, paired tests, and README cross-references)"` and high confidence for all 104 entries. The family spans plan stages 1 and 5. This classification records artifact purpose and evidence relationships; it does not claim that the models are normative semantics, that their bounded tests prove general correctness, or that every native probe has been reproduced on current main.
 
+
+
+### 5.2 Final five prototype artifacts: RT-16 and RT-19
+
+The five remaining prototype-tree files were inspected individually. Their content and paired-document relationships support the following mappings:
+
+| Artifact | Mapping | Content basis and boundary |
+|---|---|---|
+| `RT-16-AUTHORIZATION-01/policy.py` | RT-16 | Models principal/repository/action/base-revision capability checks, human-bound approvals, nonce reservation/consumption, and verification-evidence context/trust checks. The in-memory ledger and unkeyed digest are explicitly not production security or authenticated evidence. |
+| `RT-16-AUTHORIZATION-01/test_policy.py` | RT-16 | Paired tests cover authorization scope, approval binding/expiry/replay, nonce lifecycle, and fail-closed evidence decisions. RT-16 documents 24 cases and a manual reproduction command; its text explicitly says no required CI workflow currently runs this suite, so this review does not claim a fresh execution. |
+| `TOOLCHAIN-SERVER-01/README.md` | RT-19 | Defines the prototype's narrow lifecycle scope, implementation/test entry points, implemented/deferred features, run command, and limitations. |
+| `TOOLCHAIN-SERVER-01/toolchain.py` | RT-19 | Implements the in-memory immutable Entity/Snapshot and isolated Workspace/Change lifecycle, optimistic preconditions, acceptance, and single-file JSON import/export. It is not a persistent backend, MCP server, or canonical SPG/API contract. |
+| `TOOLCHAIN-SERVER-01/test_toolchain.py` | RT-19 | Tests round-trip, atomic rejection, stale revisions, workspace isolation, duplicate targets, external edits, invalid entities, acceptance boundary, and tampered imports. README records the focused CI job and its nine tests; that evidence is distinct from this content-role mapping. |
+
+The inventory now records high-confidence individual content-review mappings for all five files. This closes the **prototype file-role inventory** only; it does not close RT-16 security validation, RT-19 lifecycle/recovery research, or the corpus-wide claim/reproducibility audit.
 
 ## 6. External-reference and taxonomy reconciliation
 
@@ -266,7 +281,7 @@ The mapping is intentionally incomplete in these areas:
 
 ## 9. Conclusion
 
-The first-pass triage resolves all 36 previous low-confidence root-level mappings. The refreshed inventory now covers 462 research artifacts at `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f`, including 22 Lean source modules and 240 files under `research/PROTOTYPES/`. All 136 scenario reports have candidate RT mappings. The first-pass individual role review covers 235 prototype artifacts across six families and the Scenario 34 Lean extension; five further prototype-tree files remain outside that individual role review. Nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family README remain Stage 0-only. RT-24 is registered with dependency edges DEP-086–DEP-093 after preserving the RT-14 DEP-078–DEP-085 register; its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 462 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open.
+The first-pass triage resolves all 36 previous low-confidence root-level mappings. The refreshed inventory now covers 462 research artifacts at `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f`, including 22 Lean source modules and 240 files under `research/PROTOTYPES/`. All 136 scenario reports have candidate RT mappings. The first-pass individual role review covers all 240 prototype-tree artifacts across eight families and the Scenario 34 Lean extension. Nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family README remain Stage 0-only. RT-24 is registered with dependency edges DEP-086–DEP-093 while preserving RT-14's DEP-078–DEP-085 register; its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 462 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open.
 
 
 ## 10. Post-baseline evidence update — Scenario 34
