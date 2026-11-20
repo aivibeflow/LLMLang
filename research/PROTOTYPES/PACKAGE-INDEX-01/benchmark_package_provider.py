@@ -127,8 +127,11 @@ def directory_size(path: str) -> int:
 
 
 def run_case(shape: str, size: int) -> dict:
+    case_started = time.perf_counter()
+    preparation_started = time.perf_counter()
     snapshot = SyntheticSnapshot(size, shape)
     manifest = make_manifest(snapshot)
+    preparation_seconds = time.perf_counter() - preparation_started
     peak_temp_bytes = 0
     original_tempdir = tempfile.TemporaryDirectory
 
@@ -154,23 +157,30 @@ def run_case(shape: str, size: int) -> dict:
                 [snapshot.hashes[0]], snapshot, manifest, archive,
                 policy="closure", max_records_in_memory=1024, sqlite_cache_kib=4096,
             )
-            elapsed = time.perf_counter() - started
+            build_seconds = time.perf_counter() - started
             _, peak_python_bytes = tracemalloc.get_traced_memory()
         finally:
             tracemalloc.stop()
             tempfile.TemporaryDirectory = original_tempdir
+        verification_started = time.perf_counter()
         if not verify_archive(archive):
             raise RuntimeError("provider produced an archive that failed verification")
+        verification_seconds = time.perf_counter() - verification_started
         archive_bytes = os.path.getsize(archive)
 
     peak_rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     peak_rss_bytes = int(peak_rss if platform.system() == "Darwin" else peak_rss * 1024)
+    total_worker_seconds = time.perf_counter() - case_started
     return {
         "shape": shape,
         "objects": size,
         "dependency_edges": snapshot.edge_count,
-        "elapsed_seconds": round(elapsed, 6),
-        "objects_per_second": round(size / elapsed, 2) if elapsed else None,
+        "preparation_seconds": round(preparation_seconds, 6),
+        "provider_build_seconds": round(build_seconds, 6),
+        "archive_verification_seconds": round(verification_seconds, 6),
+        "total_worker_seconds": round(total_worker_seconds, 6),
+        "provider_objects_per_second": round(size / build_seconds, 2) if build_seconds else None,
+        "manifest_bytes": len(manifest),
         "peak_traced_python_bytes": peak_python_bytes,
         "process_peak_rss_bytes": peak_rss_bytes,
         "peak_provider_tempdir_bytes": peak_temp_bytes,
@@ -196,12 +206,15 @@ def main():
     results = []
     for shape in args.shapes:
         for size in args.sizes:
+            process_started = time.perf_counter()
             completed = subprocess.run(
                 [sys.executable, str(Path(__file__).resolve()),
                  "--worker", shape, str(size)],
                 check=True, capture_output=True, text=True,
             )
+            process_wall_seconds = time.perf_counter() - process_started
             result = json.loads(completed.stdout)
+            result["subprocess_wall_seconds"] = round(process_wall_seconds, 6)
             results.append(result)
             print(json.dumps(result, sort_keys=True), flush=True)
     print(json.dumps({"benchmark": "disk-backed-provider", "cases": len(results)}))
