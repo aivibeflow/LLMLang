@@ -1,4 +1,4 @@
-import SourceQuerySemantics
+import QfLiaQuery
 import Lean
 import Cpc.Parser
 
@@ -85,32 +85,6 @@ end LLMLang.LogosBinding
 
 
 namespace LLMLang.LogosBinding
-
-/-- Canonical query sorts accepted by the strict relational QF_LIA profile. -/
-abbrev QuerySort := SourceQuerySemantics.ExprSort
-
-/--
-Typed relational query terms. The result sort is part of the type, so malformed
-operator/sort combinations cannot be represented by these constructors.
--/
-inductive QueryTerm : QuerySort → Type where
-  | intLit : Int → QueryTerm .int
-  | boolLit : Bool → QueryTerm .bool
-  | intSymbol : String → QueryTerm .int
-  | boolSymbol : String → QueryTerm .bool
-  | not : QueryTerm .bool → QueryTerm .bool
-  | neg : QueryTerm .int → QueryTerm .int
-  | add : QueryTerm .int → QueryTerm .int → QueryTerm .int
-  | sub : QueryTerm .int → QueryTerm .int → QueryTerm .int
-  | mul : QueryTerm .int → QueryTerm .int → QueryTerm .int
-  | eqInt : QueryTerm .int → QueryTerm .int → QueryTerm .bool
-  | eqBool : QueryTerm .bool → QueryTerm .bool → QueryTerm .bool
-  | lt : QueryTerm .int → QueryTerm .int → QueryTerm .bool
-  | le : QueryTerm .int → QueryTerm .int → QueryTerm .bool
-  | and : List (QueryTerm .bool) → QueryTerm .bool
-  | or : List (QueryTerm .bool) → QueryTerm .bool
-  | iteInt : QueryTerm .bool → QueryTerm .int → QueryTerm .int → QueryTerm .int
-  | iteBool : QueryTerm .bool → QueryTerm .bool → QueryTerm .bool → QueryTerm .bool
 
 def QuerySort.expected : QuerySort → ExpectedSort
   | .int => LLMLang.LogosBinding.ExpectedSort.int
@@ -317,8 +291,7 @@ partial def decodeQueryTerm : (sort : QuerySort) → Json → Except String (Que
         if args.size != 2 then throw "mul expects exactly two arguments"
         let left ← decodeQueryTerm .int args[0]!
         let right ← decodeQueryTerm .int args[1]!
-        if !(match left with | .intLit _ => true | _ => false) &&
-           !(match right with | .intLit _ => true | _ => false) then
+        if !left.isIntLiteral && !right.isIntLiteral then
           throw "nonlinear multiplication is outside the strict QF_LIA profile"
         pure (.mul left right)
     | "ite" =>

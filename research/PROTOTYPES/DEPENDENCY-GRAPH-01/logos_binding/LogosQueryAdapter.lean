@@ -1,5 +1,4 @@
-import SourceQuerySemantics
-import LLMLangLogosBinding
+import QfLiaQuery
 
 namespace LLMLang.LogosQueryAdapter
 
@@ -30,6 +29,13 @@ def toLogosQueryTerm : {s : ExprSort} →
       .iteInt (toLogosQueryTerm c) (toLogosQueryTerm a) (toLogosQueryTerm b)
   | .bool, .iteBool c a b =>
       .iteBool (toLogosQueryTerm c) (toLogosQueryTerm a) (toLogosQueryTerm b)
+
+/-- Lowering introduces only the supported QF_LIA term shapes at every sort. -/
+theorem toLogosQueryTerm_qfLia {sort : ExprSort} (term : SourceQuerySemantics.QueryTerm sort) :
+    (toLogosQueryTerm term).isQfLia = true := by
+  induction term <;>
+    simp_all [toLogosQueryTerm, LogosBinding.QueryTerm.isQfLia, LogosBinding.QueryTerm.allQfLia,
+      LogosBinding.QueryTerm.isIntLiteral]
 
 mutual
   /--

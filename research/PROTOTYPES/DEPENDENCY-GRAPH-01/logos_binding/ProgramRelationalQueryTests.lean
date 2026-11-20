@@ -1,4 +1,4 @@
-import ProgramRelationalQuery
+import QfLiaAdmissibility
 
 namespace LLMLang.ProgramRelationalQueryTests
 
@@ -95,5 +95,22 @@ example : (compileRelationalQuery program observesCounter entry ⟨99⟩).isNone
 example : (compileRelationalQuery program ⟨[⟨counter.id, .bool⟩]⟩ entry x.id).isNone = true := rfl
 example : (compileRelationalQuery program ⟨[⟨counter.id, .int⟩, ⟨counter.id, .int⟩]⟩
     entry x.id).isNone = true := rfl
+
+private def scaledProgram : Program .int :=
+  { program with result := .mulConst (-3) (.intVar "counter") }
+
+example : ((compileRelationalQuery scaledProgram observesCounter entry x.id).map
+    (fun query => (LogosQueryAdapter.toLogosQueryTerm query.formula).isQfLia)) = some true := rfl
+
+private def variableProduct : LogosBinding.QueryTerm .int :=
+  .mul (.intSymbol "x") (.intSymbol "y")
+
+example : (LogosBinding.QueryTerm.mul (.intSymbol "x") (.intLit (-2))).isQfLia = true := rfl
+example : variableProduct.isQfLia = false := rfl
+example : (LogosBinding.QueryTerm.mul (.neg (.intLit 2)) (.intSymbol "x")).isQfLia = false := rfl
+example : (LogosBinding.QueryTerm.iteInt (.boolLit true) (.intLit 0)
+    (.mul (.intLit 0) variableProduct)).isQfLia = false := rfl
+example : (LogosBinding.QueryTerm.and []).isQfLia = false := rfl
+example : (LogosBinding.QueryTerm.or [.boolLit false]).isQfLia = false := rfl
 
 end LLMLang.ProgramRelationalQueryTests
