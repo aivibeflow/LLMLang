@@ -49,7 +49,7 @@ This inventory is the control sheet for the requested exhaustive research. It ma
 | Area | Open research gates at this snapshot |
 |---|---|
 | RT-01 Product goals/workloads | Workload weighting, user/agent usability, complexity and performance criteria; the host CLI pilot does not measure LLMLang. |
-| RT-02 Intent/requirements | Ambiguity handling, traceability, requirement evolution and source acceptance at scale. |
+| RT-02 Intent/requirements | Ambiguity handling, clause-level traceability, requirement evolution and source acceptance at scale; faithful reconstruction of typed/formal requirements, semantic-difference detection, and evidence that human review catches interpretation defects. See [Requirement Reconstruction and Human Semantic Validation](RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md). |
 | RT-03 Core semantics | One coherent operational/observational semantics for state, errors, effects, recursion, concurrency and modules; no semantic profile chosen. |
 | RT-04 Type/effects/ownership | Complete type/resource/capability model and cross-feature soundness beyond the limited checker. |
 | RT-05 Representation/identity | Canonical SPG and identity envelope, lifecycle, cyclic groups, import/merge completeness. |
