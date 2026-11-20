@@ -632,3 +632,8 @@ The family README now links the Scenario 34 report, SCW-04/05 records, and the p
 The [Cross-Cutting Research Document Alignment Review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) verifies 24 unique RT taxonomy entries and 94 unique DEP register rows (DEP-001–DEP-094), matching the inventory. The dependency map's feedback cycles are documented; no additional undocumented strongly connected component was found in the first pass. The taxonomy, cross-area dependency map, and candidate semantic dependency index have distinct roles and are not duplicates.
 
 The glossary's `ImplHash` and PLAN.md's `ImpHash` spellings remain explicitly unresolved; no normalization or hash-design decision is made. The glossary and semantic dependency index remain proposals, the option matrix remains comparative rather than a selection, and ADR-014 remains Proposed. The duplicate §9 numbering in the semantic dependency index was corrected to §13/§14 without changing its claims.
+
+
+## 39. Package-index diagnostic runners and inventory delta
+
+The reviewed main tree includes two package-index diagnostic scripts missing from the prior 471-record inventory: `run_tests_with_timings.py` (PR #105) and `profile_package_provider.py` (PR #109). The former is invoked on every `package-index` workflow run and emits per-test timing plus the slowest-test summary; the latter is compiled by the workflow and invoked only when `run_benchmark=true` to profile a disk-backed Provider build. Both are individually classified in the refreshed inventory and linked from the package-index family README. Neither is an orphan. The inventory now records 474 research files and 245 prototype-tree files.
