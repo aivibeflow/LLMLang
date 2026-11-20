@@ -37,12 +37,12 @@ The inventory is a reproducible path-level snapshot. It is not a claim that ever
 
 ### 2.2 Markdown relative-link scan
 
-- Scanned inline Markdown links in all **233 Markdown/MDX files** under `research/` at the PR #79 baseline; after PR #80 changed three Markdown files, rechecked all 30 local relative links across the three Markdown files changed by PRs #80/#82 against the refreshed inventory tree.
+- Scanned inline Markdown links in all **233 Markdown/MDX files** under `research/` at the PR #79 baseline; later changes in PRs #80/#82 affected three distinct Markdown files, whose 30 local relative links were rechecked against the refreshed inventory tree.
 - Checked **1,330 relative-link occurrences** across the 233 Markdown/MDX files against the tracked repository tree (1,323 in the initial full scan; three Markdown files changed by PRs #80/#82 were rechecked after their latest edits (30 local links total), with a net increase of seven link occurrences). External HTTP(S)/mailto links, fragment-only links, and root-absolute paths from copied upstream documentation were excluded from local path resolution.
 - Found one broken relative link in the LLMLang-authored `research/RT-04-PROTOTYPE-01-SCENARIOS.md`; corrected it to point to the sibling `RT-04-RT-03-CROSS-PROFILE-TRACES.md` file. A repeat check of the corrected file resolves.
 - Found **38 unresolved relative-link occurrences inside verbatim external snapshots only**: six in the Alive2 README (five image assets and `BugList.md`) and 32 in OCI snapshot documents (references to seven OCI source documents not included in the partial snapshot). These files were not rewritten because they are preserved upstream source snapshots.
 - The MCP snapshot contains root-absolute links into the upstream documentation site; these are not repository-relative paths and were not treated as missing local files.
-- The main index has 85 unique relative targets at the refreshed inventory revision; all resolve. The PR branch index now has 98 unique targets; all resolve, including the semantic-traceability report and prototype-family navigation links. The preparation index has 10 unique relative targets and the references index has two; all resolve.
+- The main index has 85 unique relative targets at the refreshed inventory revision; all resolve. The PR branch index now has 98 unique targets; all resolve, including the semantic-traceability report and prototype-family navigation links. The preparation index has 11 unique relative targets and the references index has two; all resolve.
 
 **Result:** no broken inline relative links remain in LLMLang-authored research documents. The 38 missing targets in copied upstream snapshots reflect the deliberately partial vendored source sets. This scan does not validate external URL availability, heading anchors, reference-style Markdown links, or index completeness against every artifact.
 
