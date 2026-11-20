@@ -170,7 +170,7 @@ python -m unittest discover -s tests -p 'test_symbolic_relational.py' -v
 python -m unittest discover -s tests -p 'test_symbolic_finite_differential.py' -v
 ```
 
-The finite-differential and real-solver integration tests are skipped when the Z3 executable is unavailable. See Prototype 27 Results and Research Scenario 27. This is not yet a full source verifier or independently checked proof system.
+The finite-differential and real-solver integration tests are skipped when the Z3 executable is unavailable. See [Prototype 27 Results](PROTOTYPE-27-RESULTS.md) and [Research Scenario 27](../../RESEARCH-SCENARIO-27-SYMBOLIC-RELATIONAL-VERIFICATION.md). This is not yet a full source verifier or independently checked proof system.
 
 
 ## Typed IR and proof boundary (Scenario 28)
@@ -229,7 +229,7 @@ lake build
 lake exe testParserBinding
 ```
 
-A GitHub Actions workflow runs these commands for relevant pushes and pull requests. The pinned Lean build is validated by CI, not by a local build. The current version-2 change is awaiting its Lean CI result. See [Research Scenario 33](../../RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md).
+A GitHub Actions workflow runs these commands for relevant pushes and pull requests. The pinned Lean build is validated by CI, not by a local build. The latest Logos-binding CI run [44766546452](https://github.com/aivibeflow/LLMLang/actions/runs/44766546452) passed the parser-state bridge build and semantic-correspondence tests. Scenario 34 extends the source-to-query proof and records the remaining open obligations; see [Research Scenario 33](../../RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md) and [Research Scenario 34](../../RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md).
 
 ## Typed semantic dependency extractor (candidate SPG subset)
 
@@ -361,3 +361,21 @@ Planned actions now carry a canonical `subject_kind`; the versioned closed polic
 The CIP planner derives domain-separated SHA-256 identities for each planned edge-change record and each path-specific call-site decision. Both identities commit to all semantic fields and the schema version and are included in the canonical plan identity. They provide stable references for the next action-to-obligation coverage slice; they are not object Content Hashes or dependency edge-set digests.
 
 The identities do not yet bind actions to outputs, edge changes, or call-site decisions. Complete AEA-2 remains open. See [CIP Action-to-Obligation Coverage](../../RT-20-CIP-ACTION-OBLIGATION-COVERAGE.md) and [CIP Action Execution Audit](../../RT-20-CIP-ACTION-EXECUTION-AUDIT.md).
+
+
+## Source-to-query semantic correspondence (Scenario 34)
+
+The [Scenario 34 report](../../RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) records the current proof boundary and remaining work. The historical [SCW-04 module-boundary audit](logos_binding/SCW-04-MODULE-BOUNDARY-AUDIT.md) now has a current-source addendum; the [SCW-05 declaration-context breakdown](logos_binding/SCW-05-DECLARATION-CONTEXT-BREAKDOWN.md) records its seven scoped tasks as complete.
+
+The current Lean source-to-query proof core is divided into the following layers:
+
+| Layer | Source modules and checks |
+|---|---|
+| Source terms and declarations | [SourceQuerySemantics.lean](logos_binding/SourceQuerySemantics.lean), [SourceSyntax.lean](logos_binding/SourceSyntax.lean), [CheckedSourceSemantics.lean](logos_binding/CheckedSourceSemantics.lean), [SourceCoreTests.lean](logos_binding/SourceCoreTests.lean) |
+| Command semantics | [SourceCommandSemantics.lean](logos_binding/SourceCommandSemantics.lean), [SourceCommandTests.lean](logos_binding/SourceCommandTests.lean), [SymbolicCommandSemantics.lean](logos_binding/SymbolicCommandSemantics.lean), [SymbolicCommandTests.lean](logos_binding/SymbolicCommandTests.lean) |
+| Program and paired observations | [ProgramObservationSemantics.lean](logos_binding/ProgramObservationSemantics.lean), [ProgramObservationTests.lean](logos_binding/ProgramObservationTests.lean), [PairedObservationSemantics.lean](logos_binding/PairedObservationSemantics.lean), [PairedObservationTests.lean](logos_binding/PairedObservationTests.lean) |
+| Relational query construction | [RelationalSourceQuerySemantics.lean](logos_binding/RelationalSourceQuerySemantics.lean), [CanonicalQuerySymbols.lean](logos_binding/CanonicalQuerySymbols.lean), [ProgramRelationalQuery.lean](logos_binding/ProgramRelationalQuery.lean), [ProgramRelationalQueryTests.lean](logos_binding/ProgramRelationalQueryTests.lean) |
+| QF_LIA and Logos adapter | [QfLiaQuery.lean](logos_binding/QfLiaQuery.lean), [LogosQueryAdapter.lean](logos_binding/LogosQueryAdapter.lean), [QfLiaAdmissibility.lean](logos_binding/QfLiaAdmissibility.lean), [LLMLangLogosBinding.lean](logos_binding/LLMLangLogosBinding.lean) |
+| Integration/build | [Main.lean](logos_binding/Main.lean), [lakefile.lean](logos_binding/lakefile.lean), [lean-toolchain](logos_binding/lean-toolchain) |
+
+The latest relevant [Logos-binding CI run 44766546452](https://github.com/aivibeflow/LLMLang/actions/runs/44766546452) passed the build and semantic-correspondence test steps. This does not close SCW-32 source-derived CPC binding, serialized-query correspondence, or parser-state identity obligations. The family README is an overview, not an exhaustive manifest for all files in this 103-file prototype family.
