@@ -84,6 +84,18 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 Keep conclusions scoped to the fixtures and assumptions actually checked. A passing test suite, prototype, or proof in a restricted fragment is not evidence that the full language profile is complete or selected.
 
 
+## Prototype and executable evidence
+
+- [Dependency graph, identity, and Logos proof prototypes](PROTOTYPES/DEPENDENCY-GRAPH-01/README.md) — source modules, tests, prototype result reports, typed source/query correspondence, and proof-boundary work.
+- [RT-04 runtime and semantics prototype suite](PROTOTYPES/RT-04-01/README.md) — executable models and tests for path feasibility, cleanup, atomic behavior, scheduler fairness, SQLite ownership, and wire-format prior art.
+- [Toolchain Server prototype](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md) — workspace lifecycle, semantic development API, and focused tests.
+- [Package identity prototype](PROTOTYPES/PACKAGE-IDENTITY-01/README.md) — package identity, language-version registry, and cache-index experiments.
+- [Package index prototype](PROTOTYPES/PACKAGE-INDEX-01/README.md) — logical index, closure, archive, provider, content-store, and benchmark experiments.
+- [CLI workload harness](PROTOTYPES/CLI-WORKLOADS-01/run.py) — shared reference workload runner; C and Python reference programs are alongside it.
+- [LLVM integer fixture](PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py), [LLVM IR probe](PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py), and [LLVM byte-view probe](PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py) — backend-preservation evidence.
+- [RT-16 authorization policy prototype](PROTOTYPES/RT-16-AUTHORIZATION-01/policy.py) and [policy tests](PROTOTYPES/RT-16-AUTHORIZATION-01/test_policy.py) — bounded authorization-policy fixtures, not a complete security architecture.
+- [Package manifest example](examples/package/manifest.toml) — minimal package metadata fixture.
+
 ## Corpus inventory and audit
 
 - [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked research artifact under `research/` at the recorded revision (excluding the inventory manifest itself).
