@@ -32,13 +32,8 @@ class SQLiteProbe:
         name = find_library("sqlite3")
         if name is None:
             raise SystemExit("The probe requires the SQLite shared library")
-        library = CDLL(name)
-
-        def bind(symbol, result, *arguments):
-            function = getattr(library, "sqlite3_" + symbol)
-            function.argtypes = arguments
-            function.restype = result
-            return function
+        self._library = CDLL(name)
+        bind = self.bind
 
         self.version = bind("libversion", c_char_p)
         self.source_id = bind("sourceid", c_char_p)
@@ -58,6 +53,12 @@ class SQLiteProbe:
             ScalarFunction, c_void_p, c_void_p, Destructor,
         )
         self.result_null = bind("result_null", None, c_void_p)
+
+    def bind(self, symbol, result, *arguments):
+        function = getattr(self._library, "sqlite3_" + symbol)
+        function.argtypes = arguments
+        function.restype = result
+        return function
 
     def connect(self):
         connection = c_void_p()
