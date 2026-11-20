@@ -1,7 +1,7 @@
 # Cross-Cutting Research Document Alignment Review — 2026-11-20
 
 **Status:** first-pass consistency review  
-**Baseline:** current main before this review, `01d9e23b061c0b4886493a16a6c910de39d4a1de`  
+**Baseline:** current main before this review, `c35ba93c031684100dcdbc06a34b0e14696c37ab`  
 **Scope:** research taxonomy, dependency map, option matrix, semantic dependency index, draft glossary, PLAN.md, and repository indexes  
 **Decision boundary:** terminology and document alignment only; no identity, hash, semantic-index, or architecture choice is accepted
 
@@ -76,3 +76,15 @@ The taxonomy and dependency map are already linked from the research index and c
 This review does not validate the technical soundness of every DEP rationale, prove the completeness of the option space, or decide any identity/hash boundary. It only checks cross-document consistency and navigation.
 
 **Conclusion:** the taxonomy and dependency map are structurally consistent with the inventory (24 RT areas and 94 DEP edges). The major terminology discrepancy is already explicitly unresolved, and the candidate/non-normative status of the glossary, option matrix, semantic dependency index, and RT-24 proposal is consistent across the reviewed documents. The only confirmed editorial defect was duplicate section numbering in the semantic dependency index; it is corrected without changing content.
+
+
+## 8. Inventory delta discovered during count reconciliation
+
+The reviewed main tree also contains two package-index diagnostics added after the prior 471-record inventory snapshot:
+
+- [`run_tests_with_timings.py`](PROTOTYPES/PACKAGE-INDEX-01/run_tests_with_timings.py), added by PR #105. It is invoked on every `package-index` workflow run. It discovers the package-index unittest suite, records per-test wall-clock durations, and emits the 20 slowest tests plus total suite duration.
+- [`profile_package_provider.py`](PROTOTYPES/PACKAGE-INDEX-01/profile_package_provider.py), added by PR #109. It is compiled by the workflow and invoked only when `run_benchmark=true`; it uses `cProfile` around a bounded disk-backed Provider build.
+
+Both files are prototype diagnostics, not normative package-index semantics. Both are referenced by the workflow; the timing runner is also used by the package-index README's Run instructions. They are not orphan files. Their roles are recorded individually in the refreshed inventory, and the README file index now links both.
+
+Including these two Python files and this review report, the inventory snapshot contains 474 research files: 241 Markdown/MDX, 199 Python, 22 Lean source files, and 245 prototype-tree files. The earlier 471-record inventory was stale by two package-index diagnostics before this report was added.
