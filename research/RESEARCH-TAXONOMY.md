@@ -13,6 +13,8 @@ Scenario 97 isolates cleanup-error composition from cleanup trigger and resource
 
 Scenario 109 tests optional representation at a minimal JSON boundary: a single optional collapses omitted and explicit-null fields under the chosen mapping, while nested optional and tagged presence preserve absent/null/value. Decode errors and uninitialized reads are separate outcomes. The fixture does not resolve schema, serialization, or ABI policy.
 
+Scenario 110 exhausts a small old/new JSON producer-consumer policy product for one added defaulted field. Old payloads decode with the new default; strict old consumers reject new keys while permissive consumers ignore them and lose the field; changing the default changes interpretation of old payloads. Null and unknown-field policies are separate. No schema standard or LLMLang rule is selected.
+
 Scenario 102 compares exact finite, tri-state solver, bounded hybrid, and proof-carrying path-pruning policies. A replayed SAT witness establishes one route; solver timeout/UNKNOWN/error and unverified UNSAT do not prune a may-path. SMT-LIB and Z3 expose tri-state and resource-limit behavior, while the pinned SymPy DPLL API has no documented per-query timeout. A deterministic 128-formula CI cross-check and injected result-policy cases pass; broad timeout behavior, hard formulas, proof checking, and source correspondence remain open.
 
 Scenario 103 uses a one-request POSIX worker to impose a real wall-clock deadline on pinned SymPy DPLL2 despite the API lacking a query timeout. A 12-pigeon/11-hole query is killed/reaped and retained as UNKNOWN; a completed UNSAT response remains untrusted and does not prune. This is a narrow resource-bound experiment, not a worker-pool design or solver trust result.

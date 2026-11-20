@@ -309,3 +309,7 @@ Focused tests, including the real deadline case:
 ## Optional presence at a serialization boundary (Scenario 109)
 
 [`optional_presence_model.py`](optional_presence_model.py) and [`test_optional_presence_model.py`](test_optional_presence_model.py) model absent, explicit JSON `null`, integer value, decode failure, and uninitialized read as distinct fixture outcomes. Under the documented mapping, one-level optional collapses absent/null, while nested optional and a presence bit plus nullable payload preserve all three valid field states over JSON round-trip. Decode failure remains an outer error. Eight focused tests pass. This is a one-field integer JSON fixture, not an LLMLang serializer, schema, ABI/layout, or representation decision.
+
+## Wire schema evolution and defaults (Scenario 110)
+
+[`schema_evolution_model.py`](schema_evolution_model.py) and [`test_schema_evolution_model.py`](test_schema_evolution_model.py) compare v1/v2 JSON producers and consumers around an added defaulted Boolean field. The 16-case producer/consumer, unknown-key, and default product shows old payloads can use the new default, while new payloads can be rejected by strict old consumers or accepted with information loss by consumers that ignore unknown keys. Changing the default changes old payload interpretation; an explicit value is stable, and null handling is a separate policy. Six focused tests pass. This is a finite compatibility policy fixture, not a schema standard, real serializer, ABI test, or LLMLang rule.
