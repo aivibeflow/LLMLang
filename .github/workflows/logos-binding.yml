@@ -25,6 +25,6 @@ jobs:
       - name: Resolve pinned Lake dependencies
         run: lake update
       - name: Build parser-state bridge
-        run: lake build LLMLangLogosBinding
+        run: python3 build_roots_fail_fast.py
       - name: Run parser-state binding and semantic correspondence tests
         run: timeout 180s lake env lean -DwarningAsError=true --run Main.lean
