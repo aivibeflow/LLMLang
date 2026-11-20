@@ -117,3 +117,22 @@ A successful fetch establishes that a path exists at the inspected revision; it 
 ---
 
 **Conclusion:** Stage 0.1 has produced a reproducible partial audit and identified two concrete stale plan metrics. A full artifact-level reconciliation remains open because a complete repository tree and all cross-document links were not enumerated in this pass.
+
+
+## 7. Full tracked-file inventory snapshot (2026-11-20)
+
+A recursive Git tree was retrieved from `main` at revision `2a9b6e5072efc542e823c529cf3cdee838f9ad36`. It contains 444 tracked files under `research/` (232 Markdown/MDX, 193 Python, 3 JSON, 7 Lean source files plus one Lean toolchain pin, 1 C, 1 Rust, 1 TOML, 1 Protocol Buffers schema, 4 text files, and 3 MDX files; extension counts overlap the Markdown/MDX grouping only as stated). The path-level inventory is stored in [RESEARCH-CORPUS-INVENTORY-2026-11-20.json](RESEARCH-CORPUS-INVENTORY-2026-11-20.json).
+
+The inventory records every path, Git blob SHA, byte size, coarse artifact category, and an explicitly qualified traceability mapping. Direct RT identifiers and scenario identifiers are high-confidence path evidence; prototype-family mappings are marked medium confidence; files without reliable identifiers remain unassigned rather than being guessed. This is an inventory, not a content review of all 444 artifacts.
+
+### 7.1 Additional checks
+
+- The tracked `research/PROTOTYPES/` subtree contains 224 files, including implementation code, tests, Lean material, experiment fixtures, and prototype reports.
+- The corpus contains 193 Python files; 92 filenames contain a test/audit/check marker. This is a filename heuristic, not a verified test inventory.
+- There are 135 scenario-named documents under the `RESEARCH-SCENARIO-N` naming pattern; some are scenario reports and some are execution/status supplements. They are not 135 independent completed research items.
+- All 83 unique relative Markdown link targets in `research/README.md` resolve at the inspected revision. The eight preparation briefs linked by `research/preparation/README.md` also resolve. This does not check links in every other Markdown file.
+- Git blob comparison found one repeated blob: the Apache-2.0 licence text used by both OCI and REAPI snapshot directories. This is expected shared licence content, not evidence of duplicate research.
+
+### 7.2 Remaining limits
+
+The path inventory does not establish semantic correctness, whether a file is superseded, whether every artifact is indexed, or whether the experiment can be reproduced. All-artifact content review, complete Markdown link scanning, semantic duplicate/contradiction review, and per-experiment revision/tool/command verification remain open. Do not mark PLAN.md §0.1 complete based on this snapshot.
