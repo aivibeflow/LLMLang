@@ -340,7 +340,7 @@ This evidence chain supports bounded statements about the tested SQLite API path
 
 ## 14. Native reproduction harness prepared — execution pending
 
-The RT-04 native evidence boundary now has a dedicated manual workflow, `.github/workflows/rt04-native-reproduction.yml`, and orchestrator `PROTOTYPES/RT-04-01/run_native_probes.py`. The harness builds the SQLite 3.46.1 shared library from the official autoconf archive and passes its exact path through `LLMLANG_SQLITE_LIBRARY`; the loader override avoids accidental selection of the host's default SQLite library. The runner checks the Scenario 120–128 SQLite version and source ID, and the generated-Rust runner enforces Rust 1.85.1.
+The RT-04 native evidence boundary now has a dedicated manual workflow, `.github/workflows/rt04-native-reproduction.yml`, and orchestrator `PROTOTYPES/RT-04-01/run_native_probes.py`, with a focused command-inventory test `test_rt04_native_probe_runner.py`. The harness builds the SQLite 3.46.1 shared library from the official autoconf archive and passes its exact path through `LLMLANG_SQLITE_LIBRARY`; the loader override avoids accidental selection of the host's default SQLite library. The runner checks the Scenario 120–128 SQLite version and source ID, and the generated-Rust runner enforces Rust 1.85.1.
 
 The workflow covers the base cleanup, recovery matrix, snapshot freshness, close call boundary, interleavings, callback reentry/dependent coverage, backup roles/outcomes, durable invocation receipts, and generated Rust comparison. It records the repository revision, Python/platform metadata, both C-library and Python sqlite3 versions, rustc verbose metadata, exact commands, exit statuses, and separate stdout/stderr files in a JSON manifest and a 30-day Actions artifact.
 
