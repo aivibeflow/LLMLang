@@ -214,13 +214,7 @@ The reference register explicitly maps the vendored source material to research 
 
 The four licence files plus the preparation index, reference index, and snapshot manifest remain Stage 0 provenance/navigation artifacts (**7 files**); the Dependency Graph prototype README is an additional Stage 0 family index (**1 file**). These indexes are not assigned substantive RT ownership.
 
-Three documents explicitly identify themselves as **RT-24**, while the current taxonomy contains only RT-01 through RT-23:
-
-- `RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md`
-- `RT-24-IDENTITY-AND-SPG-RECONCILIATION.md`
-- `RT-24-IDENTITY-DECISION-MATRIX.md`
-
-They are preserved as RT-24-labelled documents with `plan_stages` marked pending taxonomy reconciliation. They are not silently reassigned to RT-05/06/15 or treated as Stage 0. The inventory also records Scenario 91's RT-24 reference as an inconsistency. A separate decision is needed on whether RT-24 should be registered or the documents should be reconciled with existing areas.
+Three documents explicitly identify themselves as **RT-24**. The taxonomy now includes RT-24 as its 24th research area, with links to all three documents. The dependency map adds eight candidate edges, DEP-078–DEP-085, to the existing RT-03/05/06/15/19/20/22/23 areas. The row and edges are explicitly provisional: the RT-24 proposal does not select a canonical SPG schema, identity model, byte encoding, hash envelope, or merge policy. Scenario 91's RT-24 reference now resolves through the taxonomy.
 
 ## 7. Remaining traceability gaps
 
@@ -235,4 +229,4 @@ The mapping is intentionally incomplete in these areas:
 
 ## 8. Conclusion
 
-The first-pass triage resolves all 36 previous low-confidence root-level mappings. All 136 scenario reports have candidate RT mappings; all 120 prototype-family artifacts have individual file-role mappings; and nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family index remain Stage 0-only, while three RT-24-labelled documents await taxonomy reconciliation. Candidate plan-stage metadata is present on all 450 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/supersession/orphan/contradiction analysis, and the RT-24 taxonomy decision remain open.
+The first-pass triage resolves all 36 previous low-confidence root-level mappings. All 136 scenario reports have candidate RT mappings; all 120 prototype-family artifacts have individual file-role mappings; and nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family index remain Stage 0-only. RT-24 is registered, but its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 450 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/supersession/orphan/contradiction analysis, and the RT-24 taxonomy decision remain open.
