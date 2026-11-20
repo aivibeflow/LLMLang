@@ -24,11 +24,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12.14"
-
       - name: Set up Rust
         uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
@@ -58,7 +53,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          apt-get install -y --no-install-recommends \
+          sudo apt-get install -y --no-install-recommends \
             build-essential pkgconf zlib1g-dev libssl-dev libffi-dev libbz2-dev \
             libreadline-dev libsqlite3-dev liblzma-dev libncursesw5-dev \
             libgdbm-dev libnss3-dev libgdbm-compat-dev libexpat1-dev uuid-dev tk-dev
@@ -146,10 +141,29 @@ jobs:
           ld --version
           ldd --version
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12.14"
+      - name: Build Python 3.12.14
+        shell: bash
+        run: |
+          set -euo pipefail
+          apt-get install -y --no-install-recommends \
+            build-essential pkgconf zlib1g-dev libssl-dev libffi-dev libbz2-dev \
+            libreadline-dev libsqlite3-dev liblzma-dev libncursesw5-dev \
+            libgdbm-dev libnss3-dev libgdbm-compat-dev libexpat1-dev uuid-dev tk-dev
+          cd "$RUNNER_TEMP"
+          curl --fail --location --silent --show-error \
+            https://www.python.org/ftp/python/3.12.14/Python-3.12.14.tgz \
+            --output Python-3.12.14.tgz
+          tar -xzf Python-3.12.14.tgz
+          cd Python-3.12.14
+          ./configure --prefix="$RUNNER_TEMP/python-3.12.14" --enable-shared --with-ensurepip=install
+          make -j2
+          make install
+          ln -sf "$RUNNER_TEMP/python-3.12.14/bin/python3.12" "$RUNNER_TEMP/python-3.12.14/bin/python"
+          echo "PATH=$RUNNER_TEMP/python-3.12.14/bin:$PATH" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/python-3.12.14/lib:${LD_LIBRARY_PATH:-}" >> "$GITHUB_ENV"
+          export PATH="$RUNNER_TEMP/python-3.12.14/bin:$PATH"
+          export LD_LIBRARY_PATH="$RUNNER_TEMP/python-3.12.14/lib:${LD_LIBRARY_PATH:-}"
+          python --version
 
       - name: Run integer and byte-view preservation experiments
         run: |
