@@ -2,7 +2,7 @@
 
 # SCW-04 — Lean module and trust-boundary audit
 
-**Status:** Audit complete; implementation remains SCW-15.  
+**Original status at audit date:** Audit complete; SCW-15 implementation remained open. **Current status:** SCW-15 is implemented and validated; SCW-32 remains open (see §5).  
 **Date:** 2026-11-18
 
 ## Observed dependency graph
