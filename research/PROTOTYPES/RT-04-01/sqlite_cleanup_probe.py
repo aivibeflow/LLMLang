@@ -82,6 +82,13 @@ class SQLiteProbe:
         require("prepare statement", self.prepare_statement(connection, sql, -1, byref(statement), None), OK)
         return statement
 
+    def step_once(self, connection, sql, expected):
+        statement = self.prepare(connection, sql)
+        code = self.step(statement)
+        finalized = self.finalize(statement)
+        require("step fixture statement", code, expected)
+        require("finalize fixture statement", finalized, OK)
+
     def prepared_statements(self, connection):
         statements = set()
         handle = self.next_statement(connection, None)
@@ -106,6 +113,14 @@ class SQLiteProbe:
         ), OK)
         # Keep both C callbacks alive until SQLite has destroyed the connection.
         return destructions, marker, observe_destruction
+
+
+class BackupProbe(SQLiteProbe):
+    def __init__(self):
+        super().__init__()
+        self.backup_init = self.bind("backup_init", c_void_p, c_void_p, c_char_p, c_void_p, c_char_p)
+        self.backup_finish = self.bind("backup_finish", c_int, c_void_p)
+        self.error_code = self.bind("errcode", c_int, c_void_p)
 
 
 def probe_contracts(sqlite):

@@ -148,6 +148,8 @@ Scenario 124 verifies 11 close schedules with a statement producer on serialized
 
 Scenario 125 compares 12 reentrant callback cases and eight close calls over statement, BLOB, and backup dependencies. A close reservation refuses nested preparation. A later observation can instead see a nested statement. An unfinished backup makes close busy with no visible statements. [Reentry and coverage](RESEARCH-SCENARIO-125-CLOSE-REENTRY-AND-COVERAGE.md)
 
+Scenario 126 separates identity-based role compatibility from progress during acquisition. A backup shares a source and reserves a destination. Sequential acquisition by role order can deadlock in the finite model. Native probes confirm overlapping source lifetimes and retry after a known initialization failure. [Multi-resource FFI roles](RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:
@@ -178,7 +180,7 @@ These refine existing dependency hypotheses; they do not add normative rules. Se
 
 - Define source-level rules for calls, branches, Result/error propagation, cancellation, resource acquire/use/release, transfer/return, and cleanup failure.
 - Make ordered effects and payloads visible to type/dependency summaries.
-- Extend the shared close workload to source-derived transfer and aliases. Bind the scope of a guard to caller and FFI contracts, including resource roles, allowed reentry, and unknown disposition. [Scenario 123](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md) · [Scenario 125](RESEARCH-SCENARIO-125-CLOSE-REENTRY-AND-COVERAGE.md)
+- Derive roles, aliases, and ownership transfer in the shared close workload from source. Compare admitted reentry, cancellation, and unknown disposition with the same multi-resource contracts. [Scenario 123](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md) · [Scenario 126](RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md)
 - State where profiles differ and what equivalence means for results, traces, resource state, and divergence.
 - Compare total recursion, general partiality, typed divergence, source fuel, VM operator gas, and external limits; define how exhaustion interacts with effects, rollback, and cleanup.
 - Record independent review; parallel evaluators against one hand-authored contract are implementation checks, not independent specification validation.

@@ -8,30 +8,20 @@ from rt04_close_reentry import (
     callback_cases, coverage_cases, predict_callback, predict_coverage,
 )
 from rt04_sqlite_recovery import OK
-from sqlite_cleanup_probe import Destructor, SQLiteProbe, ScalarFunction, UTF8, require
+from sqlite_cleanup_probe import BackupProbe, Destructor, SQLiteProbe, ScalarFunction, UTF8, require
 
 
 ROW = 100
 DONE = 101
 
 
-class CloseProbe(SQLiteProbe):
+class CloseProbe(BackupProbe):
     def __init__(self):
         super().__init__()
         self.blob_open = self.bind(
             "blob_open", c_int, c_void_p, c_char_p, c_char_p, c_char_p, c_int64, c_int, POINTER(c_void_p),
         )
         self.blob_close = self.bind("blob_close", c_int, c_void_p)
-        self.backup_init = self.bind("backup_init", c_void_p, c_void_p, c_char_p, c_void_p, c_char_p)
-        self.backup_finish = self.bind("backup_finish", c_int, c_void_p)
-
-
-def step_once(sqlite: SQLiteProbe, connection, sql, expected):
-    statement = sqlite.prepare(connection, sql)
-    code = sqlite.step(statement)
-    finalized = sqlite.finalize(statement)
-    require("step fixture statement", code, expected)
-    require("finalize fixture statement", finalized, OK)
 
 
 def run_callback(sqlite: SQLiteProbe, case: CallbackCase) -> CallbackObservation:
@@ -77,7 +67,7 @@ def run_callback(sqlite: SQLiteProbe, case: CallbackCase) -> CallbackObservation
             close_code = None
             action = "skipped"
             if initial_count == 0:
-                step_once(sqlite, connection, b"SELECT llmlang_callback()", ROW)
+                sqlite.step_once(connection, b"SELECT llmlang_callback()", ROW)
                 if errors:
                     raise RuntimeError("fixture callback failed") from errors[0]
                 require("callback calls", len(actions), 1)
@@ -118,8 +108,8 @@ def run_coverage(sqlite: CloseProbe, kind: Dependent, operation: CloseCall) -> C
         if kind == "statement":
             dependent = sqlite.prepare(connection)
         elif kind == "blob":
-            step_once(sqlite, connection, b"CREATE TABLE fixture (payload BLOB)", DONE)
-            step_once(sqlite, connection, b"INSERT INTO fixture VALUES (zeroblob(4))", DONE)
+            sqlite.step_once(connection, b"CREATE TABLE fixture (payload BLOB)", DONE)
+            sqlite.step_once(connection, b"INSERT INTO fixture VALUES (zeroblob(4))", DONE)
             release = sqlite.blob_close
             dependent = c_void_p()
             require("open blob", sqlite.blob_open(
