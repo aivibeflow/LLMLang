@@ -116,7 +116,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 
 - [ ] Read and validate the content-level mapping for every artifact, including prototypes, tests, fixtures, generated outputs, RFCs, and snapshots.
 - [x] First-pass content/heading/reference triage of 36 low-confidence entries; see the semantic traceability report.
-- [x] Cross-walk all 136 Scenario reports to candidate RT areas (63 taxonomy link/range mappings; 73 first-pass content/header mappings); record Scenario 58's RT-16/runtime mismatch, corrected to RT-10 in this PR branch and Scenario 134 prior-art-only applicability; Scenario 91's RT-24 reference now resolves.
+- [x] Cross-walk all 136 Scenario reports to candidate RT areas (63 taxonomy link/range mappings; 73 first-pass content/header mappings); record Scenario 134 prior-art-only applicability; Scenario 91's RT-24 reference now resolves.
 - [x] First-pass individual file-role mapping for all 120 prototype-family artifacts.
 - [ ] Validate prototype claims, test evidence, generated outputs, exact tool versions, and reproducibility at content/experiment level.
 - [x] Map nine vendored technical source documents to the RT areas named by the reference register; keep seven provenance/navigation/licence files at Stage 0.
@@ -140,4 +140,4 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 
 ---
 
-**Conclusion:** the repository-wide path inventory, coarse artifact classification, Git-blob duplicate check, inline relative-link scan across all 233 research Markdown/MDX files, and first-pass triage of 36 low-confidence entries are recorded. One LLMLang-authored broken link was fixed; 38 unresolved occurrences are confined to partial verbatim external snapshots. PLAN.md §0.1 remains partially validated until content-level and reproducibility validation for all 120 prototype-family artifacts, index completeness, Scenario 58 taxonomy/source consistency (corrected in this PR branch), validation of RT-24's candidate contract, supersession/orphan/contradiction analysis, external snapshot provenance/completeness, and reproducibility verification are complete.
+**Conclusion:** the repository-wide path inventory, coarse artifact classification, Git-blob duplicate check, inline relative-link scan across all 233 research Markdown/MDX files, and first-pass triage of 36 low-confidence entries are recorded. One LLMLang-authored broken link was fixed; 38 unresolved occurrences are confined to partial verbatim external snapshots. PLAN.md §0.1 remains partially validated until content-level and reproducibility validation for all 120 prototype-family artifacts, index completeness, validation of RT-24's candidate contract, supersession/orphan/contradiction analysis, external snapshot provenance/completeness, and reproducibility verification are complete.
