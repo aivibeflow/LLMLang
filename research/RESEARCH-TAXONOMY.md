@@ -49,6 +49,8 @@ Scenario 130 checks durable invocation generations and result recovery across ab
 
 Scenario 131 composes ordered cleanup, typed return obligations, and alias-sensitive admission. The shared source fixture compares two executions across transfer before and after cleanup. [Shared owned-result workload](RESEARCH-SCENARIO-131-SHARED-OWNED-RESULT-WORKLOAD.md)
 
+Scenario 132 adds typed caller arms and checks how recovery changes admission, live obligations, and diagnostics. Its contract distinguishes a usable handle from an obligation to reconcile. [Typed caller recovery](RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md)
+
 Scenario 97 isolates cleanup-error composition from cleanup trigger and resource state. Java try-with-resources preserves a primary exception and suppresses ordered close failures; Go specifies LIFO defer but leaves result composition to code (with `errors.Join` available); Rust `Drop` has no ordinary error result and a second panic during unwinding can abort; Swift `defer` constrains control transfer. A cross-outcome ownership/fuel corpus is proposed, not run; no outcome policy is selected.
 
 Scenario 109 tests optional representation at a minimal JSON boundary: a single optional collapses omitted and explicit-null fields under the chosen mapping, while nested optional and tagged presence preserve absent/null/value. Decode errors and uninitialized reads are separate outcomes. The fixture does not resolve schema, serialization, or ABI policy.

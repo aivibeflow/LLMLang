@@ -160,6 +160,8 @@ Scenario 130 checks durable generation allocation and result lookup across proce
 
 Scenario 131 connects the source caller, two transfer rules, cleanup outcome types, and the next foreign role check. Two execution paths agree on 5,184 inputs. Erasing earlier roles on an error admits 1,020 conflicting proposals across the two rules. [Shared owned-result workload](RESEARCH-SCENARIO-131-SHARED-OWNED-RESULT-WORKLOAD.md)
 
+Scenario 132 type-checks the caller's result match and compares forwarding with a release on a known handle. It records additional admissions, cleanup effects, and ordered diagnostics across 20,736 inputs per fixture. [Typed caller recovery](RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md)
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:

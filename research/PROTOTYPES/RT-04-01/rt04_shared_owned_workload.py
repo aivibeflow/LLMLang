@@ -1,7 +1,7 @@
 """Connect the COR-13 owned result to a second alias-sensitive call."""
 
 import ast
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Literal, get_args
 
 from rt04_backup_roles import BackupPair, permits
@@ -71,9 +71,12 @@ def _arguments(node, name):
 def parse(source: str) -> Workload:
     """Validate the common callee shape and extract its actual caller bindings."""
     try:
-        statements = ast.parse(source).body
+        return lower(ast.parse(source).body)
     except SyntaxError as exc:
         raise ValueError("malformed workload source") from exc
+
+
+def lower(statements: list[ast.stmt]) -> Workload:
     if len(statements) < 3 or ast.dump(statements[0]) != _CALLEE_SHAPE:
         raise ValueError("expected the COR-13 callee")
     name, call = _assignment(statements[1])
@@ -103,25 +106,32 @@ def function(timing: TransferTiming) -> Function:
     return Function("make", WithOwned("handle", _CLOSE_RESULTS, local), timing)
 
 
-def execute(workload: Workload, timing: TransferTiming, inputs: Inputs) -> Trace:
-    """Compose the existing owned-call evaluator with the backup role guard."""
+def call_boundary(workload: Workload, timing: TransferTiming, inputs: Inputs) -> tuple[Trace, BackupPair]:
+    """Execute through the first call and resolve the second call's roles."""
     canonical = dict(zip(_INPUTS, inputs.identities, strict=True))
     first = BackupPair(canonical[workload.first.source], canonical[workload.first.destination])
     second = BackupPair(canonical[workload.second.source], canonical[workload.second.destination])
     if not permits((), first):
-        return Trace(None, (("check", "handle", "refused"),), False, (), "not_reached", ())
+        return Trace(None, (("check", "handle", "refused"),), False, (), "not_reached", ()), second
 
     called = observe_call(
         function(timing), flag=inputs.wants_value, local_close=inputs.local_close, handle_close=inputs.handle_close,
     )
     holds = any(obligation.slot == "handle" for obligation in called.case.obligations)
     active = (("handle", first),) if holds else ()
-    admitted = permits(tuple(pair for _, pair in active), second)
     events = (("check", "handle", "ok"), *called.events)
-    if admitted:
-        events += (("check", "second", "ok"), ("acquire", "second", "ok"))
-        active += (("second", second),)
-    else:
-        events += (("check", "second", "refused"),)
-    return Trace(called.case, events, called.domain_error, called.cleanup_errors,
-                 "started" if admitted else "refused", active)
+    return Trace(called.case, events, called.domain_error, called.cleanup_errors, "not_reached", active), second
+
+
+def propose(trace: Trace, second: BackupPair) -> Trace:
+    if trace.result is None:
+        return trace
+    if permits(tuple(pair for _, pair in trace.reservations), second):
+        return replace(trace, second="started", reservations=(*trace.reservations, ("second", second)),
+                       events=(*trace.events, ("check", "second", "ok"), ("acquire", "second", "ok")))
+    return replace(trace, second="refused", events=(*trace.events, ("check", "second", "refused")))
+
+
+def execute(workload: Workload, timing: TransferTiming, inputs: Inputs) -> Trace:
+    """Compose the existing owned-call evaluator with the backup role guard."""
+    return propose(*call_boundary(workload, timing, inputs))
