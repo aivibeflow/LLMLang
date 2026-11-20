@@ -1,6 +1,12 @@
 name: RT-04 Native Reproduction
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/rt04-native-reproduction.yml"
+      - "research/PROTOTYPES/RT-04-01/**"
+      - "research/RT-04-NATIVE-REPRODUCTION.md"
   workflow_dispatch:
 
 permissions:
