@@ -60,6 +60,8 @@ Run the finite decision fixtures with:
 
 ```sh
 python3 -m unittest discover -s research/PROTOTYPES/RT-16-AUTHORIZATION-01 -p 'test_*.py' -v
+
+The executable test file is [test_policy.py](PROTOTYPES/RT-16-AUTHORIZATION-01/test_policy.py). It contains 24 unit-test cases for principal/repository/action/base-revision binding, human approval, expiry, replay protection, nonce reservation/consumption, evidence context, verifier trust, duplicate/missing evidence, and fail-closed decisions. The tests use only the Python standard library. No required GitHub Actions workflow currently runs this suite; the command above is a documented manual reproduction path, not CI evidence. The Python minor/patch version and runner image for the historical test result are not pinned, so a fresh run is still required for a reproducible execution record.
 ```
 
 The 24 fixtures cover exact authorization, cross-principal and cross-repository use, stale base, action separation, target substitution, agent self-approval, expiry, replay, non-privileged validation, nonce reservation, and releasing a reservation after failure. Evidence fixtures cover missing, duplicate, failed, unknown, stale, and untrusted records, plus evidence digest sensitivity to producer and result. They do not establish production security, concurrent storage correctness, or cryptographic approval/evidence authenticity.
