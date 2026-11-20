@@ -577,3 +577,15 @@ Scenarios 5–8 are architectural explorations rather than implementation eviden
 - 8 analyzes H(ValueHash, ContextHash, Role, Slot) as an immutable occurrence-state address, not a persistent continuity identity.
 
 No implementation or accepted architecture decision is established by these studies. Scenario 9's later 100-caller model and Scenarios 10–11's binding/persistence prototypes extend the investigation but do not retroactively make 5–8 implementation results. See corpus audit §2.32.
+
+
+## 33. Foundational identity, change, impact, and verification studies — Scenarios 1–4
+
+Scenarios 1–4 are exploratory design studies, not executable implementation evidence:
+
+- 1 separates logical entity identity, name, and semantic state; proposes identity-targeted rename with explicit preconditions and atomic change sets.
+- 2 examines concurrent Change Sets, semantic conflicts, immutable rebases, approval binding, and compare-and-swap acceptance.
+- 3 proposes provenance-carrying typed impact traversal with impact paths, stale evidence, missing links, and explicit completeness limits.
+- 4 proposes verification-specific content-addressed records and exact-input reuse, with separately checked rules for cross-input reuse.
+
+These studies establish the original problem framing, not an implemented rename, merge, impact, or proof-cache system. See corpus audit §2.33.
