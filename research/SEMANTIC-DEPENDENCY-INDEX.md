@@ -147,6 +147,8 @@ Do not implement a global “replace every reference to latest callee” operati
 
 ## 6. Hashing, storage, and query invariants
 
+Hash terminology in this candidate design remains provisional; see the [draft glossary](../draft/GLOSSARY.md). PLAN.md explicitly leaves the `ImpHash`/`ImplHash` spelling discrepancy unresolved until terminology is reconciled.
+
 1. **Exact source identity.** Every outgoing dependency set is keyed by the exact source Content Hash, never by a mutable Stable ID alone.
 2. **Immutable publication.** Once published, an object's canonical dependency set cannot be silently edited. A changed semantic reference creates a new source object version when that reference is hash-relevant.
 3. **Explicit empty set.** An explicitly empty dependency set is different from missing/uncomputed dependency metadata.
@@ -286,7 +288,7 @@ Adopt this separation as the next research target:
 The immediate implementation target should be a **small, explicit SPG subset and its canonical extractor**, not a generic dependency parser or a production database integration.
 
 
-## 9. Snapshot-scoped reverse-query completeness binding
+## 13. Snapshot-scoped reverse-query completeness binding
 
 The extractor prototype exposes `query_snapshot_incoming(store, snapshot, target_hash, scope, evidence)`. It returns incoming typed edges selected by the exact Semantic Snapshot together with an explicit completeness status. The query result is bound to the exact `snapshot_root` and `target_hash`, caller-supplied scope, dependency-index schema version and extractor identity, and a deterministic digest of the exact returned edge set. It also retains an external evidence identifier, observation-model identity, assumptions, exclusions, and discrepancies.
 
@@ -295,6 +297,6 @@ Statuses are `GAP_FOUND`, `SUPPORTED_WITHIN_SCOPE`, `UNKNOWN`, and `NOT_CHECKED`
 This adapter validates evidence bindings only. It does not authenticate the producer, establish that the observation model is sound, or prove completeness. The evidence producer must independently audit the declared reverse-reference scope. Production integration must bind evidence to the accepted SPG semantic model, exact Toolchain/Snapshot generation, analyzer and observation-model versions, and authenticated evidence storage.
 
 
-## RT-24 relationship
+## 14. RT-24 relationship
 
 RT-24 consumes typed semantic and hash-relevant relations from this research but does not treat the index as the source of semantic truth. In particular, a snapshot-scoped incoming-edge query is not a complete reverse-reference proof unless matching scoped dependency-completeness evidence exists. See [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md) for the current prototype limitations and the required fail-closed boundary.
