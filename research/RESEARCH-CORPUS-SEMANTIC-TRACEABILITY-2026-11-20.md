@@ -410,7 +410,7 @@ Scenarios 81–88 are source/specification analyses and fixture preparation, not
 No accepted architecture decision covers these syntax choices. The cited language references are largely rolling/current documents as of 2026-11-19; pin versions before building conformance claims. Do not treat the candidate axes or fixture designs as accepted grammar.
 
 
-## 20. Follow-up prior-art and native-reproduction audit
+## 20. Follow-up prior-art and final native-reproduction audit
 
 Scenarios 73–80 were classified as specification/prior-art studies, not implementation evidence. Their candidate policies and experiment proposals are not accepted LLMLang semantics; see corpus audit §2.19 for the per-scenario scope and cross-links. No lexer, type checker, parser, regex engine, resource-lifetime runtime, optimizer, float target matrix, formatter, or documentation generator experiment is reported by these eight scenarios.
 

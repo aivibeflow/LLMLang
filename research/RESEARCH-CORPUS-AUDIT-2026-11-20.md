@@ -293,9 +293,9 @@ Artifact [14647744441](https://github.com/aivibeflow/LLMLang/actions/runs/447734
 **Architecture cross-check:** these eight reports provide research axes and candidate experiments, not accepted language decisions. No corresponding accepted decision was found in `draft/ARCHITECTURE-DECISIONS.md`. Their rolling/version-sensitive references must be pinned before a future implementation conformance suite. This pass classifies the evidence; it does not independently revalidate every external source citation.
 
 
-### 2.20 Post-merge native reproduction rerun — RT-04 and LLVM
+### 2.20 Final PR validation run — RT-04 and LLVM
 
-After PR #97 merged, the focused Research Native Reproduction workflow completed successfully again on PR merge-ref commit `8c4a82c91f039309bba769c49bd00515e3713feb` (the merge of PR head `0496ad43783bc86105dd617fdc4d679cdf4637b8` into base `4d7580504962d60bb98e29127eae39263c84bb0c`). PR #97 was merged as `b808c3a8f984bbc5c175ecf45d61e0e8db7a00bb`; Required CI on that main commit passed.
+The final focused Research Native Reproduction workflow run before PR #97 was merged completed successfully on PR merge-ref commit `8c4a82c91f039309bba769c49bd00515e3713feb` (the merge of PR head `0496ad43783bc86105dd617fdc4d679cdf4637b8` into base `4d7580504962d60bb98e29127eae39263c84bb0c`). PR #97 was merged as `b808c3a8f984bbc5c175ecf45d61e0e8db7a00bb`; Required CI on that main commit passed.
 
 - **RT-04 native job:** run [44774296240](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240), artifact [14650095720](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240/artifacts/14650095720). All 10 commands passed, zero failed/skipped. SQLite C probes used 3.46.1 and the recorded distro source ID; durable receipts used Python 3.12.14 with SQLite 3.53.1 and the newly recorded source ID; generated Rust used rustc 1.85.1 and all 125,952 observations matched.
 - **LLVM job:** the same run's artifact [14650040345](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240/artifacts/14650040345) records both probes passing. Integer preservation: 20,978 traces per optimization level; byte-view preservation: 9,800 traces per level. Both O0/O3 runs had zero mismatches, and the expected negative controls disagreed with the source reference.
