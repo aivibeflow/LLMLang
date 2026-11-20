@@ -107,7 +107,8 @@ jobs:
           apt-get install -y --no-install-recommends \
             llvm-19=1:19.1.7-3+b1 gcc-14 binutils
           apt-get download llvm-19=1:19.1.7-3+b1
-          package="$GITHUB_WORKSPACE/llvm-19_19.1.7-3+b1_amd64.deb"
+          package="$(find "$GITHUB_WORKSPACE" -maxdepth 1 -type f -name "llvm-19_*.deb" -print -quit)"
+          test -n "$package"
           test -f "$package"
           echo "LLMLANG_LLVM_DEB_PATH=$package" >> "$GITHUB_ENV"
           echo "LLVM package SHA-256:"
