@@ -66,7 +66,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Classify every tracked file into a coarse artifact category (research document, scenario result, prototype implementation/test/report, preparation material, reference snapshot, structured fixture, index, or other).
 - [ ] Record exact commit/revision and tool versions for every reproducibility-sensitive result; the inventory pins this tree revision and blob identities, but per-experiment execution environments still require content-level review.
 
-**Inventory snapshot:** 444 tracked files under `research/` at revision `2a9b6e5072efc542e823c529cf3cdee838f9ad36`: 232 Markdown/MDX files, 193 Python files, 224 files under `PROTOTYPES/`, and 135 scenario-named documents. The taxonomy contains 23 research areas (RT-01–RT-23); the dependency map contains 77 registered edges (DEP-001–DEP-077).
+**Inventory snapshot:** 446 tracked files under `research/` at revision `2a9b6e5072efc542e823c529cf3cdee838f9ad36`: 233 Markdown/MDX files, 194 Python files, 225 files under `PROTOTYPES/`, and 136 scenario-named documents. The taxonomy contains 23 research areas (RT-01–RT-23); the dependency map contains 77 registered edges (DEP-001–DEP-077).
 
 **Status:** partially validated — the complete path inventory, coarse classification, blob-identity scan, and top-level index-link check are now recorded. Semantic traceability, full cross-document link validation, supersession/orphan/contradiction analysis, and reproducibility verification remain open.
 
