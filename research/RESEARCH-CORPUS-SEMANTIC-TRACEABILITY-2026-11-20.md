@@ -565,3 +565,15 @@ See corpus audit §2.30. These models preserve separate identities and evidence 
 - 11's project_state.py/test_project_state.py composes graph and binding documents into a deterministic checksummed envelope and tests integrity/round-trip cases. It is not a multi-writer transaction, atomic branch-head selection, or conformance proof.
 
 See corpus audit §2.31. Object identity, snapshot selection, persistence integrity, atomic publication, and behavioral refinement remain separate guarantees.
+
+
+## 32. Semantic identity and occurrence-addressing studies — Scenarios 5–8
+
+Scenarios 5–8 are architectural explorations rather than implementation evidence:
+
+- 5 distinguishes Stable Entity ID, immutable Content Hash, aliases, and context-scoped handles.
+- 6 investigates content-addressed immutable values with specification-anchored provenance and optional occurrence/context objects.
+- 7 stress-tests content-only identity and concludes that hashes identify immutable values while lineage/context/selection supply continuity where needed.
+- 8 analyzes H(ValueHash, ContextHash, Role, Slot) as an immutable occurrence-state address, not a persistent continuity identity.
+
+No implementation or accepted architecture decision is established by these studies. Scenario 9's later 100-caller model and Scenarios 10–11's binding/persistence prototypes extend the investigation but do not retroactively make 5–8 implementation results. See corpus audit §2.32.
