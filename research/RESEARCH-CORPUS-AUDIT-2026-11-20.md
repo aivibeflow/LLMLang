@@ -35,14 +35,16 @@ The audit remains **partial**. The inventory classifies paths and records tentat
 
 The inventory is a reproducible path-level snapshot. It is not a claim that every file's contents have been read or validated.
 
-### 2.2 Research index links
+### 2.2 Markdown relative-link scan
 
-- Read `research/README.md`.
-- Extracted **84 unique relative Markdown link targets**.
-- Checked each target against the recursive Git tree at the snapshot revision: **0 missing targets**.
-- Checked the eight preparation briefs linked by `research/preparation/README.md`; all eight exist. The other links in that preparation index, including the reference register and glossary, also resolve.
+- Scanned inline Markdown links in all **233 Markdown/MDX files** under `research/` on the PR branch.
+- Checked **1,323 relative-link occurrences** against the tracked repository tree. External HTTP(S)/mailto links, fragment-only links, and root-absolute paths from copied upstream documentation were excluded from local path resolution.
+- Found one broken relative link in the LLMLang-authored `research/RT-04-PROTOTYPE-01-SCENARIOS.md`; corrected it to point to the sibling `RT-04-RT-03-CROSS-PROFILE-TRACES.md` file. A repeat check of the corrected file resolves.
+- Found **38 unresolved relative-link occurrences inside verbatim external snapshots only**: six in the Alive2 README (five image assets and `BugList.md`) and 32 in OCI snapshot documents (references to seven OCI source documents not included in the partial snapshot). These files were not rewritten because they are preserved upstream source snapshots.
+- The MCP snapshot contains root-absolute links into the upstream documentation site; these are not repository-relative paths and were not treated as missing local files.
+- The main index has 84 unique relative targets at the base revision and 85 on the updated PR branch; all resolve. The preparation index has 10 unique relative targets and the references index has two; all resolve.
 
-**Result:** all local links checked in these two index files resolve. Links in the other research Markdown/MDX files have not been exhaustively checked. Successful path resolution does not prove that the main index covers every artifact.
+**Result:** no broken inline relative links remain in LLMLang-authored research documents. The 38 missing targets in copied upstream snapshots reflect the deliberately partial vendored source sets. This scan does not validate external URL availability, heading anchors, reference-style Markdown links, or index completeness against every artifact.
 
 ### 2.3 Taxonomy and dependency map
 
@@ -95,7 +97,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 - [ ] Read and validate the content-level mapping for every artifact, including prototypes, tests, fixtures, generated outputs, RFCs, and snapshots.
 - [ ] Map every artifact to explicit research item(s) and plan stage(s); resolve low-confidence and unassigned entries.
 - [ ] Identify semantically duplicate, superseded, orphaned, and contradictory documents.
-- [ ] Check every relative link in all research Markdown/MDX files, not only the main and preparation indexes.
+- [ ] Decide whether missing relative targets in the partial Alive2/OCI source snapshots should remain documented as non-vendored upstream material or whether additional upstream files/assets should be added while preserving source provenance; validate external URLs and heading anchors if needed.
 - [ ] Verify exact source revision, tool versions, commands, fixtures, expected outputs, and negative cases for each reproducibility-sensitive experiment.
 - [ ] Independently re-verify external snapshot blob identities and licence provenance.
 - [ ] Confirm that the research index exposes every relevant artifact or provides clear directory-level indexes for grouped artifacts.
