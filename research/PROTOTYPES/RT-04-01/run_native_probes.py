@@ -225,7 +225,7 @@ def main():
                 "name": name, "command": command, "status": "skipped",
                 "reason": "Python sqlite3 preflight did not match the Scenario 130 baseline",
             })
-            (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\\n", encoding="utf-8")
+            (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
             continue
 
         stdout_path = output / f"{index:02d}-{name}.stdout.txt"
