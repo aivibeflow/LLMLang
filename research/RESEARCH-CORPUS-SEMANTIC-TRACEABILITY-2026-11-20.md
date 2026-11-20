@@ -589,3 +589,18 @@ Scenarios 1–4 are exploratory design studies, not executable implementation ev
 - 4 proposes verification-specific content-addressed records and exact-input reuse, with separately checked rules for cross-input reuse.
 
 These studies establish the original problem framing, not an implemented rename, merge, impact, or proof-cache system. See corpus audit §2.33.
+
+
+## 34. Post-baseline inventory refresh — current main
+
+The inventory was reconciled against the complete recursive Git tree at `main` revision `47ec6e26ca12e615283d02393656bc0b3e9f656f`. The refreshed manifest records 468 research artifacts (237 Markdown/MDX, 197 Python, 22 Lean, 243 prototype-tree files, and 136 scenario-named documents). All 462 previously inventoried paths remain present; 17 existing files have updated blob identities and/or sizes, six research files were added, and no inventoried path was deleted.
+
+Three new prototype files received individual role mappings:
+
+| Artifact | Role | Traceability | Evidence boundary |
+|---|---|---|---|
+| `PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py` | Native reproduction runner | RT-07, RT-09, RT-13 | Pins the LLVM toolchain/package and runs the bounded Scenario 96A/96B probes; does not extend their target or fixture coverage. |
+| `PROTOTYPES/RT-04-01/run_native_probes.py` | Native reproduction runner | RT-03, RT-04, RT-10, RT-13 | Runs the selected SQLite and generated-Rust probes with version checks and captured outputs; not every RT-04 experiment is native or CI-covered. |
+| `PROTOTYPES/RT-04-01/test_rt04_native_probe_runner.py` | Runner command-inventory/version-gate tests | RT-04, RT-10, RT-13 | Checks command inventory, tracked probe paths, and pinned constants; it does not execute the native probes. |
+
+The previous 240-file role mapping is preserved as the historical baseline; the current inventory contains 243 individually role-mapped prototype files. The 17 changed existing files retain their prior role/RT metadata where their scope remains stable; the blob/size refresh is not a substitute for the corpus-wide semantic review. The six new research records are indexed in the refreshed JSON inventory. This update does not close claim-level validation, full semantic duplicate/orphan/contradiction analysis, or current-corpus link/anchor verification.
