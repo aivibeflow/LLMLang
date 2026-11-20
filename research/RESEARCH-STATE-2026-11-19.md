@@ -126,6 +126,8 @@ The latest bounded type/semantics results include a counterexample: transfer-fir
 
 [Scenario 114](RESEARCH-SCENARIO-114-RELEASE-SEQUENCES-AND-ACQUIRE-RELAY.md) separates release-sequence membership from numeric flag equality and records the C++20 change: a same-thread relaxed plain store could extend a release sequence before C++20 but cannot since C++20. An acquire reading an RMW member synchronizes with the release head; reading the equal value from a same-thread plain store creates that edge only under the older rule. Two focused tests check version membership and resulting axiom-driven atomic-payload outcomes; the model does not derive modification order/read-from or claim complete C++ semantics.
 
+[Scenario 115](RESEARCH-SCENARIO-115-FENCES-AND-SEQUENTIAL-CONSISTENCY.md) documents C++ fence-to-fence synchronization through a specified relaxed atomic read-from link and clarifies that the `seq_cst` total order covers participating operations/fences under standard constraints, not all happens-before edges when weaker orders are mixed. One axiom-driven fence fixture test checks the linked and unlinked payload outcome sets. This is not a full fence or mixed-order model.
+
 ## 2. Candidate vectors still open
 
 The current matrix keeps these integrated candidates for comparison:

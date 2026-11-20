@@ -8,6 +8,7 @@ from rt04_store_buffering import (
     independent_atomic_reads,
     release_relay_payload_outcomes,
     same_thread_plain_store_is_release_sequence_member,
+    fence_publication_payload_outcomes,
     per_location_atomic_outcomes,
     sequentially_consistent_outcomes,
 )
@@ -59,6 +60,10 @@ class StoreBufferingTests(unittest.TestCase):
             ),
             {0, 1},
         )
+
+    def test_release_acquire_fences_require_atomic_read_from_link(self):
+        self.assertEqual(fence_publication_payload_outcomes(True), {1})
+        self.assertEqual(fence_publication_payload_outcomes(False), {0, 1})
         self.assertEqual(
             message_passing_outcomes(synchronized=False),
             {(0, 0), (0, 1), (1, 0), (1, 1)},

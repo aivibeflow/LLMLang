@@ -156,3 +156,15 @@ def same_thread_plain_store_is_release_sequence_member(cxx_version):
     if cxx_version < 11:
         raise ValueError("C++ atomics require C++11 or later")
     return cxx_version < 20
+
+
+def fence_publication_payload_outcomes(fence_sync_premise):
+    """Map an explicit release-fence/acquire-fence read-from premise.
+
+    The payload is atomic and relaxed. If the reader's relaxed flag load reads
+    from the post-release-fence flag store (or its hypothetical release
+    sequence), the stipulated C++ fence rule creates synchronization and
+    excludes the initial payload write. This is an axiom-driven outcome map,
+    not an execution or fence-model implementation.
+    """
+    return {1} if fence_sync_premise else {0, 1}
