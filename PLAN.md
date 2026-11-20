@@ -52,7 +52,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 # Stage 0 — Research inventory and evidence hygiene
 
 **Order:** first; can run alongside maintenance of existing prototypes.  
-**Purpose:** establish what the 102-file research corpus actually proves and what remains open.
+**Purpose:** establish what the 462-artifact research corpus actually proves and what remains open.
 
 ### 0.1 Reconcile the research corpus
 
@@ -62,7 +62,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Perform first-pass content/heading/reference triage of all 36 previously low-confidence root-level entries; add explicit RT/Stage 0 mappings, candidate plan-stage metadata, and review basis in the inventory and [semantic traceability report](research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md). This is triage, not full claim-level validation.
 - [x] Map 63 Scenario reports from explicit links/ranges in `RESEARCH-TAXONOMY.md`.
 - [x] Complete first-pass crosswalk for all 136 Scenario report files: the remaining 73 use report header/scope review. Record Scenario 91's RT-24 cross-reference (now registered), Scenario 134's prior-art-only applicability, Scenario 95's supplemental execution report, and the absent Scenario 16 number without renumbering; Scenario 58 is consistently mapped to RT-10.
-- [x] Complete first-pass individual file-role mapping for 131 artifacts: 120 across five prototype families plus 11 individually content-reviewed Lean modules/tests, including the paired-observation, program/symbolic-observation, canonical-query, and QF_LIA proof modules. Mapping uses family READMEs, source/module declarations and docstrings, scenario crosswalks, and paired test imports. This remains role triage, not claim-level or reproducibility validation.
+- [x] Complete first-pass individual file-role mapping for all 240 prototype-tree artifacts across eight families: CLI workloads (3), Dependency Graph (103, including the Scenario 34 Lean extension), LLVM preservation (3), Package Identity (7), Package Index (15), RT-04-01 (104), RT-16 authorization (2), and Toolchain Server (3). Mapping uses family READMEs, source/module declarations and docstrings, scenario crosswalks, paired test imports, and individual content review. This remains role triage, not claim-level or reproducibility validation.
 - [ ] Validate prototype claims, test evidence, generated outputs, exact tool versions, and reproducibility at content/experiment level.
 - [x] Record three explicit section-level supersession cases (Scenario 31 query representation; Scenario 32 parser-state bridge sketch; embedded ADR-0001 proposal); no whole document is marked superseded.
 - [ ] Complete the corpus-wide semantic duplicate, superseded-version, orphan, and contradiction review. Exact-blob comparison found one identical pair: the Apache-2.0 licence text shared by OCI and REAPI snapshots; this appears intentional and is not treated as duplicate research.
@@ -73,9 +73,12 @@ Status applies to the current evidence, not to how important the topic is. Where
 
 **Inventory snapshot:** 462 tracked research artifacts (excluding the inventory manifest itself) at revision `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f`: 234 Markdown/MDX files, 194 Python files, 22 Lean source files, 240 files under `PROTOTYPES/`, and 136 scenario-named documents. The taxonomy contains 24 research areas (RT-01–RT-24); the dependency map contains 94 registered edges (DEP-001–DEP-094).
 
-**Current-main inventory refresh:** the snapshot includes the paired-observation and program/symbolic-observation modules/tests plus canonical-query and QF_LIA proof modules. SCW-24–29 are represented in source and CI; SCW-30–41 remain open. The current inventory contains 462 research artifacts, including 22 Lean source files and 240 prototype-tree files. The first-pass individual role review covers 131 prototype artifacts; 109 prototype-tree files remain outside that review.
+**Current-main inventory refresh:** the snapshot includes the paired-observation and program/symbolic-observation modules/tests plus canonical-query and QF_LIA proof modules. SCW-24–29 are represented in source and CI; SCW-30–41 remain open. The current inventory contains 462 research artifacts, including 22 Lean source files and 240 prototype-tree files. The first-pass individual role review covers all 240 prototype-tree files; no prototype-tree files remain without an individual role mapping.
 
 **Status:** partially validated — the current-main path inventory, coarse classification, blob-identity scan, historical full inline-link scan, and first-pass triage of 36 low-confidence entries plus 131 prototype file roles are recorded. The remaining 109 prototype file roles, claim-level and reproducibility validation, current-corpus link/anchor scan, semantic duplicate/supersession/orphan/contradiction analysis, and external snapshot completeness remain open. RT-24 is now registered in the taxonomy and dependency map; its candidate contract remains non-normative.
+
+
+**Evidence-audit progress (2026-11-20):** the first bounded claim/evidence pass covers Scenarios 97–108 and their linked RT-04-01 prototype code/tests. It records finite-fixture support and explicit limitations, confirms the full RT-04-01 test-discovery step passed in Required CI run 44767733362, and identifies an integration boundary: the exploratory SymPy path adapter prunes raw UNSAT results directly, while the separate conservative result mapper requires an explicit accepted evidence basis. These components are not yet integrated. Scenario 102's report says seven focused result-policy tests passed, while the current test file contains eight test methods; this count/revision discrepancy remains to reconcile. This is partial evidence review, not completion of prototype validation.
 
 ### 0.2 Establish research quality and decision rules
 
@@ -106,7 +109,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Identify feedback loops, foundational topics, and opportunities for parallel research.
 - [ ] Validate and revise dependency edges as research produces evidence; the current map is an initial hypothesis, not a settled architecture.
 
-**Evidence:** [Research taxonomy](research/RESEARCH-TAXONOMY.md) currently enumerates 23 research areas (RT-01–RT-23); [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) currently records 77 dependency edges (DEP-001–DEP-077), research waves, and feedback loops. These are live register counts, not fixed architectural limits.
+**Evidence:** [Research taxonomy](research/RESEARCH-TAXONOMY.md) currently enumerates 24 research areas (RT-01–RT-24); [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) currently records 94 dependency edges (DEP-001–DEP-094), research waves, and feedback loops. These are live register counts, not fixed architectural limits.
 
 **Status:** initial taxonomy and dependency map completed; ongoing validation remains part of each research task.
 
