@@ -435,3 +435,19 @@ Scenarios 65–72 are evidence-linked prior-art comparisons, not LLMLang impleme
 - 72 separates sum-type source semantics/exhaustiveness from tag/payload layout, calling convention, and FFI representation.
 
 Each report contains candidate axes and discriminating experiment proposals, but does not cite an executed LLMLang implementation or target/compiler experiment for the scoped question. Do not convert these candidates into language rules without a decision record and matched experiments. Cross-links to Scenarios 14, 47, 54, 64, and 65–70 are recorded in corpus audit §2.21.
+
+
+## 22. Specification-level prior-art audit — Scenarios 57–64
+
+Scenarios 57–64 are comparative studies, with selected later bounded models linked but not equivalent to full language/runtime evidence:
+
+- 57: structured task lifetime, supervision, cancellation/join, and detachment; no LLMLang task runtime.
+- 58: async function values versus future construction, task creation, and scheduling; no LLMLang async lowering or executor.
+- 59: short-circuit control flow and effects versus general operand sequencing; no LLMLang operator/optimizer test.
+- 60: inference scope and annotation boundaries; no LLMLang inference compiler measurements.
+- 61: shared-state safety and memory order; Scenario 113 is only a finite abstract store-buffering model, not a complete memory model.
+- 62: optional/nullable semantics; Scenario 109 is a bounded JSON presence round-trip, not an optional-type or FFI contract.
+- 63: equality, identity, and hashing; no LLMLang equality/hash implementation or stable-hash experiment.
+- 64: error propagation and recovery; Scenario 97 covers finite cleanup-error composition, not general propagation semantics.
+
+See corpus audit §2.22 for detailed scope and cross-links. The related bounded models must remain explicitly scoped to their tested subquestions.
