@@ -29,6 +29,8 @@ Scenario 120 measures cleanup return codes and destruction timing for a SQLite c
 
 Scenario 121 compares static close preconditions, explicit busy recovery, and deferred release with 510 bounded plans. SQLite agrees on the call observations for all 356 admitted plans. A statement owned outside the caller makes local release incomplete, even after the caller finalizes all of its own statements. [Local close recovery](RESEARCH-SCENARIO-121-SQLITE-LOCAL-CLOSE-RECOVERY.md)
 
+Scenario 122 derives dependency coverage from source and call summaries in a bounded close fragment. Its 4,116 executions distinguish incomplete local knowledge from stale runtime knowledge. The native SQLite probe confirms that an empty observation can become stale after a single prepare. [Completeness and freshness of close evidence](RESEARCH-SCENARIO-122-CLOSE-EVIDENCE-FRESHNESS.md)
+
 Scenario 97 isolates cleanup-error composition from cleanup trigger and resource state. Java try-with-resources preserves a primary exception and suppresses ordered close failures; Go specifies LIFO defer but leaves result composition to code (with `errors.Join` available); Rust `Drop` has no ordinary error result and a second panic during unwinding can abort; Swift `defer` constrains control transfer. A cross-outcome ownership/fuel corpus is proposed, not run; no outcome policy is selected.
 
 Scenario 109 tests optional representation at a minimal JSON boundary: a single optional collapses omitted and explicit-null fields under the chosen mapping, while nested optional and tagged presence preserve absent/null/value. Decode errors and uninitialized reads are separate outcomes. The fixture does not resolve schema, serialization, or ABI policy.

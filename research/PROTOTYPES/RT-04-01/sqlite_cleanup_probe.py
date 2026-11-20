@@ -173,15 +173,34 @@ def probe_recovery_matrix(sqlite):
     print(f"Compared {compared} admitted traces with SQLite and skipped {rejected} rejected plans")
 
 
+def probe_snapshot_freshness(sqlite):
+    connection = sqlite.connect()
+    record("initial statement count", len(sqlite.prepared_statements(connection)), 0)
+    record("close with unchanged empty set", sqlite.close(connection), OK)
+
+    connection = sqlite.connect()
+    record("statement count when snapshot was captured", len(sqlite.prepared_statements(connection)), 0)
+    statement = sqlite.prepare(connection)
+    record("statement count after an intervening prepare", len(sqlite.prepared_statements(connection)), 1)
+    record("close after relying on a stale snapshot", sqlite.close(connection), BUSY)
+    record("finalize intervening statement", sqlite.finalize(statement), OK)
+    record("statement count after refreshing the snapshot", len(sqlite.prepared_statements(connection)), 0)
+    record("close after refreshing the snapshot", sqlite.close(connection), OK)
+
+
 def main():
     parser = ArgumentParser(description=__doc__)
-    parser.add_argument("--recovery-matrix", action="store_true", help="compare the bounded model with SQLite")
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--recovery-matrix", action="store_true", help="compare the bounded model with SQLite")
+    modes.add_argument("--snapshot-freshness", action="store_true", help="check whether an older empty list suffices")
     args = parser.parse_args()
     sqlite = SQLiteProbe()
     print(f"SQLite {sqlite.version().decode('ascii')}")
     print(f"source ID: {sqlite.source_id().decode('ascii')}")
     if args.recovery_matrix:
         probe_recovery_matrix(sqlite)
+    elif args.snapshot_freshness:
+        probe_snapshot_freshness(sqlite)
     else:
         probe_contracts(sqlite)
 
