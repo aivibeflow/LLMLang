@@ -30,6 +30,12 @@ PYTHONPATH=../PACKAGE-IDENTITY-01 python benchmark_package_provider.py --sizes 1
 - Stress coverage for 1,200-object chain and high-fan-out graphs.
 - A subprocess-isolated benchmark harness for chain, diamond, high-fan-out, and many-dependency graphs, reporting wall time, throughput, traced Python peak, process peak RSS, temporary-directory high-water size, archive size, and verification.
 
+## File index
+
+- Implementation: [package_index.py](package_index.py), [package_archive.py](package_archive.py), [package_closure.py](package_closure.py), [package_provider.py](package_provider.py), [content_store.py](content_store.py)
+- Benchmark: [benchmark_package_provider.py](benchmark_package_provider.py)
+- Tests: [test_package_index.py](test_package_index.py), [test_streaming_merge.py](test_streaming_merge.py), [test_external_validation.py](test_external_validation.py), [test_package_archive.py](test_package_archive.py), [test_package_closure.py](test_package_closure.py), [test_package_provider.py](test_package_provider.py), [test_provider_stress.py](test_provider_stress.py), [test_content_store.py](test_content_store.py)
+
 ## Limitations
 
 - Uses in-memory Python dictionaries/lists and a prototype JSON canonicalizer.
