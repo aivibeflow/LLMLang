@@ -53,6 +53,8 @@ Use a small, shared source corpus with reference semantics and IR witnesses. For
 
 For each case, declare source-level expected outcome, allowed observations, whether the program is defined, expected runtime check, relevant LLVM IR flags/intrinsics, and a transformation that would be invalid if the source contract were stricter. Include negative controls with deliberately invalid IR/source preconditions so the test harness verifies that its oracle distinguishes a genuine allowed optimization from an accidental behavior match.
 
+Scenario 96A runs the integer cases with a fixed source shape, ordered effects, and a pinned LLVM pipeline. It records structural rejection separately from a semantic mismatch in valid IR. Constant-folding and memory cases are further discriminators. [LLVM integer preservation](RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md)
+
 ## 6. Validation and falsifiers
 
 - Differentially execute reference semantics and LLVM output at `-O0` and selected optimized levels for the same fixed-width inputs, including boundary values and generated combinations.

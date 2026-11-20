@@ -249,7 +249,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Context:** LLVM can provide IR processing, optimization, target code generation, object emission, and JIT infrastructure. LLVM IR/bitcode is not the canonical semantic representation of LLMLang, and LLVM's own semantics (including poison/undefined behavior, overflow flags, pointer rules, floating-point flags, and memory ordering) may not match LLMLang semantics.
 - **Options to investigate:** LLVM as the primary native backend; LLVM as one optional backend; multiple backends sharing a canonical LLMLang IR. Also investigate a conservative initial LLVM IR profile and explicit evidence requirements for lowering and optimization.
 - **Recommendation:** Keep LLVM behind a replaceable backend boundary. Preserve SPG and LLMLang semantics as the source of truth; introduce LLVM only after defining a small semantic subset and a conservative lowering contract. Treat LLVM verification/compilation as distinct from proof of source-contract correctness.
-- **Related:** [LLVM Backend Architecture](research/LLVM-BACKEND-ARCHITECTURE.md); [Translation and Target Backends](research/TRANSLATION-AND-TARGET-BACKENDS.md).
+- **Related** — [LLVM Backend Architecture](research/LLVM-BACKEND-ARCHITECTURE.md) · [Translation and Target Backends](research/TRANSLATION-AND-TARGET-BACKENDS.md) · [LLVM integer preservation evidence](research/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md)
 
 ### LL-021 — Define semantic action caching and incremental compilation
 
