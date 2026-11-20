@@ -284,7 +284,7 @@ RT-21 is a staged capability goal, not a prerequisite to completing the language
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
 |---|---|---|---|---|
-| DEP-060 | RT-03 → RT-21 | Requires | A LLMLang-authored tool needs a stable executable semantic subset; the subset must define values, control flow, functions, errors, and observable effects used by that tool. | Strong hypothesis |
+| DEP-094 | RT-03 → RT-21 | Requires | A LLMLang-authored tool needs a stable executable semantic subset; the subset must define values, control flow, functions, errors, and observable effects used by that tool. | Strong hypothesis |
 | DEP-061 | RT-05 → RT-21 | Requires | Reproducible tool representation, semantic editing, and dependency analysis require canonical graph/IR objects and explicit identity boundaries. | Strong hypothesis |
 | DEP-062 | RT-09 → RT-21 | Requires | A bootstrap compiler and typed intermediate representation are needed to build LLMLang tools deterministically. | Strong hypothesis |
 | DEP-063 | RT-10 → RT-21 | Requires | A minimal runtime and explicit platform capability boundary are needed for tools that inspect and validate repository state. | Strong hypothesis |

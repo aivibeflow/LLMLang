@@ -7,7 +7,7 @@
 
 ## 1. Executive summary
 
-The recursive Git tree at the primary snapshot revision contains **456 tracked research artifacts** (excluding the inventory manifest itself):
+The recursive Git tree at the primary snapshot revision contains **457 tracked research artifacts** (excluding the inventory manifest itself):
 
 - 233 Markdown/MDX files (230 `.md` and 3 `.mdx`);
 - 194 Python files;
@@ -28,7 +28,7 @@ The audit remains **partial**. The current `main` tree adds six Lean source/test
 ### 2.1 Repository inventory
 
 - Retrieved the recursive Git tree for `main` at revision `c105766eee22f25532712be115e62beb4d42faf5`; excluded the inventory manifest itself to avoid self-reference.
-- Enumerated all 456 tracked research artifacts whose paths begin with `research/`, excluding the inventory manifest itself.
+- Enumerated all 457 tracked research artifacts whose paths begin with `research/`, excluding the inventory manifest itself.
 - Recorded path, Git blob SHA, byte size, coarse artifact category, and traceability metadata for every file in the inventory JSON.
 - Distinguished scenario-named reports, prototype implementations, tests, prototype readmes/reports, preparation briefs, external snapshots/licences, structured fixtures, and research documents.
 - Recorded direct RT/scenario identifiers as high-confidence path evidence. Prototype-family mappings are explicitly marked medium confidence; files without reliable path identifiers remain unassigned rather than receiving guessed mappings.
@@ -113,7 +113,7 @@ No other byte-identical files were found by this Git-blob comparison. This does 
 
 | ID | Finding | Action / status |
 |---|---|---|
-| RCA-01 | The corpus has 456 tracked research artifacts in the refreshed inventory snapshot (excluding the manifest itself), but previously lacked a complete path inventory. | Added the machine-readable inventory snapshot. |
+| RCA-01 | The corpus has 457 tracked research artifacts in the refreshed inventory snapshot (excluding the manifest itself), but previously lacked a complete path inventory. | Added the machine-readable inventory snapshot. |
 | RCA-02 | Artifact-to-item mapping is not uniformly explicit in filenames. | Added qualified path-based mappings; content-level verification remains open. |
 | RCA-03 | All 233 research Markdown/MDX files were scanned for inline relative links (1,330 occurrences across the refreshed inventory revision). One LLMLang-authored broken link was fixed; 38 unresolved occurrences remain only in partial Alive2/OCI snapshots. | Project-authored inline relative links resolve; external snapshot completeness, external URLs, anchors, and index completeness remain open. |
 | RCA-04 | At the refreshed inventory revision, the main, preparation, and references indexes have 85, 11, and 2 unique relative targets; all resolve. | Index link existence checks complete; scientific readiness and index coverage remain open. |
