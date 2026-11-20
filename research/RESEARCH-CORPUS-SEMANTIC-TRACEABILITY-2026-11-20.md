@@ -189,7 +189,7 @@ These are candidate traceability mappings, not accepted design decisions or evid
 
 ## 5. Prototype-family traceability review
 
-The first-pass individual role review covers **131 artifacts across five prototype families and the Scenario 34 Lean extension**. Family READMEs, file lists, implementation entry points, and test roles were inspected. **All 131 reviewed files now have first-pass individual role mappings** (3 CLI, 103 dependency-graph, 3 LLVM, 7 package-identity, and 15 package-index). These are traceability mappings, not full claim-level or execution validation:
+The first-pass individual role review covers **240 artifacts across eight prototype families and the Scenario 34 Lean extension**. Family READMEs, file lists, implementation entry points, and test roles were inspected. **All 240 prototype-tree files now have first-pass individual role mappings** (3 CLI, 103 dependency-graph, 3 LLVM, 7 package-identity, 15 package-index, 104 RT-04-01, 2 RT-16 authorization, and 3 Toolchain Server). These are traceability mappings, not full claim-level or execution validation:
 
 | Prototype family | Files | First-pass finding | Plan stages |
 |---|---:|---|---:|
@@ -198,8 +198,50 @@ The first-pass individual role review covers **131 artifacts across five prototy
 | LLVM-PRESERVATION-01 | 3 | Individual fixture/probe roles mapped to RT-03/09/13 | 1, 6 |
 | PACKAGE-IDENTITY-01 | 7 | All individual files mapped to package identity, language version, and cache-index areas RT-05/11/12 | 1, 3, 7 |
 | PACKAGE-INDEX-01 | 15 | All individual files mapped to logical indexes, archive/closure/provider/content-store and benchmarks; RT-19 is adjacency only (adapter not integrated into Toolchain Server) | 3, 7 |
+| RT-04-01 | 104 | Individual content-based RT traceability: 39 RT-03-only, 59 RT-04-only, and 6 shared cross-profile artifacts; see §5.1 | 1, 5 |
 
-All 131 reviewed prototype files have individual first-pass role mappings; the remaining 109 files under `research/PROTOTYPES/` have not received the same individual role review. The mappings were derived from README sections, source/module docstrings, scenario crosswalks, and paired test imports/names; they do not establish that the implementation is correct or that every experiment is reproducible. Family-level stage lists are navigation ranges, not claims that every file participates in every listed stage.
+All 240 prototype-tree files have individual first-pass role mappings; no prototype files remain without an individual role review. The mappings were derived from README sections, source/module docstrings, scenario crosswalks, and paired test imports/names; they do not establish that the implementation is correct or that every experiment is reproducible. Family-level stage lists are navigation ranges, not claims that every file participates in every listed stage.
+
+
+### 5.1 RT-04-01: content-based RT-03 / RT-04 classification
+
+The 104 files under `research/PROTOTYPES/RT-04-01/` were reviewed individually using module purpose/docstrings, imports, paired tests, README descriptions, and cross-references. Their RT mapping is no longer inferred from the directory name:
+
+| Classification | Files | Basis |
+|---|---:|---|
+| RT-03 only | 39 | RT-03 semantic evaluators, path/solver/actor/resource models, their focused tests, and the solver requirements file |
+| RT-04 only | 59 | RT-04 declaration checker, ownership/call-boundary models, concurrency/memory/wire models, SQLite probes, and their focused tests |
+| RT-03 and RT-04 | 6 | Artifacts explicitly spanning the semantic/checker boundary or documenting/testing both prototype areas |
+| **Total** | **104** | Every file in the directory is assigned from inspected content |
+
+The six shared files are:
+
+| Artifact | Why both mappings apply |
+|---|---|
+| `README.md` | Directory guide documents both RT-04 checker work and the RT-03 evaluator, path, typed-call, and cross-profile experiments. |
+| `rt03_typed_calls.py` | Executes RT-03 A/B/D typed-call semantics and derives call-site/type inputs for the RT-04 declaration checker. |
+| `test_rt03_typed_calls.py` | Exercises RT-03 semantic variants and the RT-04 checker projection on the shared typed-call workload. |
+| `test_rt03_rt04_cross_profile.py` | Compares RT-03 observable traces with RT-04 checker vectors. |
+| `test_rt03_reference.py` | Primarily tests the RT-03 reference evaluator and includes an explicit RT-04 effect-summary boundary comparison. |
+| `test_rt04_owned_call.py` | Tests the RT-04 caller ownership checker and compares its result with the RT-03 return-cleanup trace. |
+
+The inventory records `traceability.method = "individual content review (module purpose, imports, paired tests, and README cross-references)"` and high confidence for all 104 entries. The family spans plan stages 1 and 5. This classification records artifact purpose and evidence relationships; it does not claim that the models are normative semantics, that their bounded tests prove general correctness, or that every native probe has been reproduced on current main.
+
+
+
+### 5.2 Final five prototype artifacts: RT-16 and RT-19
+
+The five remaining prototype-tree files were inspected individually. Their content and paired-document relationships support the following mappings:
+
+| Artifact | Mapping | Content basis and boundary |
+|---|---|---|
+| `RT-16-AUTHORIZATION-01/policy.py` | RT-16 | Models principal/repository/action/base-revision capability checks, human-bound approvals, nonce reservation/consumption, and verification-evidence context/trust checks. The in-memory ledger and unkeyed digest are explicitly not production security or authenticated evidence. |
+| `RT-16-AUTHORIZATION-01/test_policy.py` | RT-16 | Paired tests cover authorization scope, approval binding/expiry/replay, nonce lifecycle, and fail-closed evidence decisions. RT-16 documents 24 cases and a manual reproduction command; its text explicitly says no required CI workflow currently runs this suite, so this review does not claim a fresh execution. |
+| `TOOLCHAIN-SERVER-01/README.md` | RT-19 | Defines the prototype's narrow lifecycle scope, implementation/test entry points, implemented/deferred features, run command, and limitations. |
+| `TOOLCHAIN-SERVER-01/toolchain.py` | RT-19 | Implements the in-memory immutable Entity/Snapshot and isolated Workspace/Change lifecycle, optimistic preconditions, acceptance, and single-file JSON import/export. It is not a persistent backend, MCP server, or canonical SPG/API contract. |
+| `TOOLCHAIN-SERVER-01/test_toolchain.py` | RT-19 | Tests round-trip, atomic rejection, stale revisions, workspace isolation, duplicate targets, external edits, invalid entities, acceptance boundary, and tampered imports. README records the focused CI job and its nine tests; that evidence is distinct from this content-role mapping. |
+
+The inventory now records high-confidence individual content-review mappings for all five files. This closes the **prototype file-role inventory** only; it does not close RT-16 security validation, RT-19 lifecycle/recovery research, or the corpus-wide claim/reproducibility audit.
 
 ## 6. External-reference and taxonomy reconciliation
 
@@ -239,7 +281,7 @@ The mapping is intentionally incomplete in these areas:
 
 ## 9. Conclusion
 
-The first-pass triage resolves all 36 previous low-confidence root-level mappings. The refreshed inventory now covers 462 research artifacts at `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f`, including 22 Lean source modules and 240 files under `research/PROTOTYPES/`. All 136 scenario reports have candidate RT mappings. The first-pass individual role review covers 131 prototype artifacts across five families and the Scenario 34 Lean extension; 109 further prototype-tree files remain outside that individual role review. Nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family README remain Stage 0-only. RT-24 is registered with dependency edges DEP-086–DEP-093 after preserving the RT-14 DEP-078–DEP-085 register; its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 462 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open.
+The first-pass triage resolves all 36 previous low-confidence root-level mappings. The refreshed inventory now covers 462 research artifacts at `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f`, including 22 Lean source modules and 240 files under `research/PROTOTYPES/`. All 136 scenario reports have candidate RT mappings. The first-pass individual role review covers all 240 prototype-tree artifacts across eight families and the Scenario 34 Lean extension. Nine vendored technical source documents are mapped to the areas named by the reference register. Seven reference/provenance files plus one prototype-family README remain Stage 0-only. RT-24 is registered with dependency edges DEP-086–DEP-093 while preserving RT-14's DEP-078–DEP-085 register; its candidate technical contract remains non-normative. Candidate plan-stage metadata is present on all 462 inventory records. This does **not** close PLAN.md §0.1: claim-level and reproducibility validation, semantic duplicate/orphan/contradiction analysis, and full supersession review remain open.
 
 
 ## 10. Post-baseline evidence update — Scenario 34
@@ -250,3 +292,47 @@ PR #85 added `PairedObservationSemantics.lean` and `PairedObservationTests.lean`
 ## 11. Post-baseline evidence update — Scenario 34 SCW-26–29
 
 The current `main` tree at `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f` contains `CanonicalQuerySymbols.lean`, `ProgramRelationalQuery.lean`, `ProgramRelationalQueryTests.lean`, `QfLiaQuery.lean`, and `QfLiaAdmissibility.lean`. The modules define canonical declaration bindings, compile the complete `FactorDiff ∧ ObservationDiff` proposition, prove relational-query correctness/satisfiability correspondence for the checked fragment, and prove strict QF_LIA admissibility. Scenario 34 marks SCW-26–29 complete. PR #88's Required CI passed the Lean build/test job and the focused QF_LIA profile job. This evidence is conditional on the deterministic Int/Bool fragment and its explicit input/observation assumptions; SCW-30–34 (solver declaration closure, JSON/CPC source correspondence, exact assumptions, trust boundary) and SCW-35–41 (adversarial fixtures, axiom audit, dedicated proof gate, acceptance evidence) remain open.
+
+
+## 12. First bounded claim/evidence audit — Scenarios 97–108
+
+This pass follows the RT-03/04 preparation brief and the shared semantics corpus. It checked each scenario's stated result against its named prototype and tests, and records only the bounded fragment actually exercised. It does not promote any profile, ownership rule, solver, alias policy, or language semantics to an accepted decision.
+
+| Scenario | Implementation/test evidence | Supported claim | Unresolved boundary |
+|---:|---|---|---|
+| 97 | rt03_cleanup_composition.py, rt03_cleanup_composition_audit.py, test_rt03_cleanup_composition.py | Six cleanup composition vectors preserve distinct cause carriers over 72 named observations; the test exhausts 13,230 combinations and checks owner/debt projection. | Auditor is separately implemented but shares the observation vocabulary and fixture inputs; no native cleanup execution or independent language contract. |
+| 98 | rt03_path_model.py, test_rt03_path_model.py | Seven unique unknown conditions yield eight structural paths, witnessed by all 128 Boolean assignments and cross-checked against recursive and small-step evaluator traces. | Hand-built AST; no LLMLang parser or source/CFG completeness evidence. |
+| 99 | test_rt03_path_model.py repeated-marker case | Repeated identical fixture markers retain only TT/FF routes and match the two concrete assignments. | Marker identity is a fixture convention; source resolution and mutation boundaries are not modeled. |
+| 100 | rt03_predicate_paths.py, test_rt03_predicate_paths.py | Exhaustive truth-table evaluation of the finite Boolean IR finds exactly three feasible routes and replayable witnesses. | Four-input finite domain only; no source extraction or general solver claim. |
+| 101 | rt03_sympy_predicate_paths.py, test_rt03_sympy_predicate_paths.py | SymPy 1.14.0 DPLL2 agrees with the finite oracle on the reported fixtures and produces replayable witnesses; local timing is recorded for one conjunction family. | Raw adapter skips routes on solver UNSAT directly and does not call the conservative Scenario 102 classifier. Keep it as a differential experiment only; do not reuse as a may-analysis pruning API without a trusted/checked UNSAT basis. |
+| 102 | rt03_feasibility_outcomes.py, test_rt03_feasibility_outcomes.py | SAT/UNKNOWN candidate models are locally replayed; incomplete or invalid answers remain UNKNOWN; UNSAT is accepted only with an explicit basis. | The basis is caller-supplied and not authenticated by this module. The current test file has eight test methods, while the report says seven focused tests passed; reconcile historical revision/count. |
+| 103 | rt03_bounded_solver_worker.py, test_rt03_bounded_solver_worker.py | One-process-per-query worker enforces a real wall-clock deadline, kills/reaps the worker, and maps timeout to UNKNOWN; four focused tests cover SAT, untrusted UNSAT, timeout, and invalid timeout. | POSIX-only pipe handling, no memory/CPU/descendant bound, and no full startup/crash/malformed-response or persistent-pool test matrix. |
+| 104 | rt03_mutable_predicate_identity.py, test_rt03_mutable_predicate_identity.py | Exhaustive two-value fixture demonstrates that reusing a variable name across a write can remove reachable routes; version plus transition relation restores the exact route set. | Hand-authored finite oracle; no SSA/source extraction, aliasing, loops, or concurrency. |
+| 105 | rt03_call_mutation_summaries.py, test_rt03_call_mutation_summaries.py | Pure, toggle, and may-write/unknown summaries produce the expected finite route sets; unsafe name-conflation drops possible routes. | Summary is supplied, not derived from a source call graph or effect analysis. |
+| 106 | rt03_alias_sensitive_call_paths.py, test_rt03_alias_sensitive_call_paths.py | Exact, disjoint, may-alias, unknown, and incorrect no-alias sets distinguish precision from soundness in a two-field fixture. | Points-to sets are supplied; no heap model or source-level alias extraction. |
+| 107 | rt03_source_alias_extraction.py, test_rt03_source_alias_extraction.py | A restricted Python AST adapter derives a direct toggle summary and bounded call-site target union; unsupported mutators/fields fail closed. | Not LLMLang parsing; source executor and adapter share AST grammar and a hand-authored contract. |
+| 108 | execute_path_sensitive_summary and the same source-alias tests | Finite path-state enumeration recovers correlated-alias precision while preserving independent/unknown routes in 16 fixture valuations. | Not a scalable relational points-to analysis; no independent source-to-CFG oracle. |
+
+The Required CI run 44767733362 on commit 30a064cf5f276a63c2110f8309f7f306af75f987 passed the repository-structure job's full RT-04-01 test-discovery step after installing the pinned solver requirements. This establishes that the checked-out test suite passed in that CI environment. It does not validate source completeness or prove the general claims stated by the scenarios.
+
+The pass therefore finds strong, reproducible bounded fixture evidence for the specific path, cleanup, solver-result, and alias discriminators. The two cross-cutting follow-ups are (1) integrate the conservative UNSAT evidence policy at the actual solver adapter boundary, or clearly keep the raw adapter test-only; and (2) reconcile the Scenario 102 focused-test count with the current eight-method test file. Broader source/CFG extraction, independent contract review, general alias/effect analysis, solver trust/certificates, and production resource bounds remain open.
+
+
+## 13. COR-13 evidence chain and native execution boundary — Scenarios 119–133
+
+The second evidence slice checks the COR-13 sequence from owned-result shape inference through SQLite dependency observations, source-role correlation, invocation receipts, caller recovery, and generated Rust.
+
+| Scenario | Evidence and test mapping | What remains unproven |
+|---:|---|---|
+| 119 | rt04_owned_call_match.py and test_rt04_owned_call_match.py compare AST-derived result shapes with the disposition model; 450 callee-contract combinations and 4,096 concrete inputs are reported; ten focused tests are present. | Hand-built single-call AST and shared COR-13 disposition assumptions; no source parser or native resource. |
+| 120 | sqlite_cleanup_probe.py exercises close BUSY, finalize error with consumption, and close_v2 deferred destruction against SQLite 3.46.1. | Standalone native probe, not run by CI; one thread and prepared-statement cases. |
+| 121–123 | Recovery, evidence freshness, and shared close-boundary models have Python tests; separate native probes report 356 admitted plans and 114 native policy/input pairs. | Native probes are not in CI; complete source/FFI coverage and concurrency are bounded by fixture assumptions. |
+| 124–125 | Interleaving and callback-reentry tests plus native SQLite probes cover 11 schedules, 12 callback cases, statements, BLOBs, and backup dependencies. | One SQLite version and controlled wrapper; probes are manual, and general alias/reentry authority remains open. |
+| 126–128 | Role, source-correlation, and foreign-outcome tests check finite resource identities, 147,456 source-role inputs, and 1,728 outcome inputs per policy; selected SQLite backup paths are probed natively. | Native evidence covers selected consuming outcomes; retained/indeterminate paths remain model contracts. No general points-to or FFI contract extraction. |
+| 129–130 | Cancellation receipt tests use scheduled threads; durable receipt tests use process interruption and SQLite journal recovery. | CancelIoEx is cited API documentation, not a native Windows execution; local SQLite crash recovery is not distributed transaction evidence. |
+| 131–132 | Shared owned-result and typed caller recovery tests compare composed/direct transitions and a separate bounded oracle across 5,184 and 20,736 input spaces. | Fixture parsers and disposition inputs are shared; no complete language semantics or general lowering. |
+| 133 | rt04_rust_owned_probe.py generates Rust; test_rt04_rust_owned_probe.py has three generator tests. The report separately records 62,976 native comparisons per optimization level using Rust 1.85.1. | Python CI does not compile or execute generated Rust. Native run and toolchain reproduction remain separate manual evidence. |
+
+The current Required CI repository-structure job runs all RT-04-01 test_*.py modules and passed. It does not invoke the standalone SQLite probes or the native Rust runner. Accordingly, the repository currently has a successful automated test layer plus separately reported native observations; this review has not independently rerun the latter.
+
+This evidence chain supports bounded statements about the tested SQLite API paths and generated COR-13 fixture. It does not establish general ownership/typestate semantics, source-derived dependency completeness, all FFI contracts, or a production concurrency model. The next evidence task is controlled reproduction of native probes and preservation of their exact outputs/toolchain provenance.

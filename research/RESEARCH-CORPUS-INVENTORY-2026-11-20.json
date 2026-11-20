@@ -6118,10 +6118,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6138,7 +6137,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6152,9 +6151,10 @@
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
+          "RT-03",
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6168,9 +6168,9 @@
       "category": "other-research-artifact",
       "traceability": {
         "items": [
-          "RT-04"
+          "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6184,10 +6184,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6202,10 +6201,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6220,10 +6218,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6238,10 +6235,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6256,10 +6252,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6274,10 +6269,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6292,10 +6286,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6310,10 +6303,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6328,10 +6320,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6346,10 +6337,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6364,10 +6354,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6382,10 +6371,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6400,10 +6388,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6418,10 +6405,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6436,10 +6422,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6454,10 +6439,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6472,10 +6456,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6490,10 +6473,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6508,10 +6490,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6526,10 +6507,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6544,10 +6524,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6562,10 +6541,9 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6580,10 +6558,10 @@
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
-          "RT-04",
-          "RT-03"
+          "RT-03",
+          "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6600,7 +6578,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6616,7 +6594,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6632,7 +6610,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6648,7 +6626,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6664,7 +6642,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6680,7 +6658,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6696,7 +6674,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6712,7 +6690,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6728,7 +6706,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6744,7 +6722,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6760,7 +6738,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6776,7 +6754,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6792,7 +6770,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6808,7 +6786,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6824,7 +6802,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6840,7 +6818,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6856,7 +6834,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6872,7 +6850,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6888,7 +6866,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6904,7 +6882,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6920,7 +6898,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6936,7 +6914,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6952,7 +6930,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6968,7 +6946,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -6984,7 +6962,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7000,7 +6978,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7016,7 +6994,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7032,7 +7010,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7048,7 +7026,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7064,7 +7042,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7080,7 +7058,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7096,7 +7074,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7112,7 +7090,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7126,10 +7104,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7144,10 +7121,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7162,10 +7138,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7180,10 +7155,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7198,10 +7172,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7216,10 +7189,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7234,10 +7206,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7252,10 +7223,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7270,10 +7240,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7288,10 +7257,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7306,10 +7274,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7324,10 +7291,10 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
-          "RT-03"
+          "RT-03",
+          "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7342,10 +7309,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7360,10 +7326,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7378,10 +7343,10 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
-          "RT-03"
+          "RT-03",
+          "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7396,10 +7361,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7414,10 +7378,9 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
           "RT-03"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7432,10 +7395,10 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
-          "RT-04",
-          "RT-03"
+          "RT-03",
+          "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7452,7 +7415,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7468,7 +7431,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7484,7 +7447,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7500,7 +7463,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7516,7 +7479,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7532,7 +7495,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7548,7 +7511,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7564,7 +7527,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7580,7 +7543,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7596,7 +7559,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7612,7 +7575,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7628,7 +7591,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7644,7 +7607,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7660,7 +7623,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7674,9 +7637,10 @@
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
+          "RT-03",
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7692,7 +7656,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7708,7 +7672,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7724,7 +7688,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7740,7 +7704,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7756,7 +7720,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7772,7 +7736,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7788,7 +7752,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7804,7 +7768,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7820,7 +7784,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7836,7 +7800,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7852,7 +7816,7 @@
         "items": [
           "RT-04"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "individual content review (module purpose, imports, paired tests, and README cross-references)",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7868,7 +7832,7 @@
         "items": [
           "RT-16"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "content review of authorization model, capability/approval bindings, evidence verification, and RT-16 threat-model cross-references",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7884,7 +7848,7 @@
         "items": [
           "RT-16"
         ],
-        "method": "explicit RT identifier in path",
+        "method": "content review of paired authorization/evidence tests and RT-16 threat-model test coverage",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7900,7 +7864,7 @@
         "items": [
           "RT-19"
         ],
-        "method": "prototype family mapping",
+        "method": "content review of prototype scope, file index, implemented/deferred boundaries, and RT-19 research link",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7916,7 +7880,7 @@
         "items": [
           "RT-19"
         ],
-        "method": "prototype family mapping",
+        "method": "content review of paired workspace lifecycle tests and README/RT-19 exit-criteria cross-reference",
         "confidence": "high"
       },
       "plan_stages": [
@@ -7932,7 +7896,7 @@
         "items": [
           "RT-19"
         ],
-        "method": "prototype family mapping",
+        "method": "content review of in-memory semantic workspace, snapshot, Change Set, validation, acceptance, and import/export implementation",
         "confidence": "high"
       },
       "plan_stages": [
@@ -12777,9 +12741,9 @@
     "method": "First-pass review of previously low-confidence root-level documents using titles, scope/status declarations, section structure, explicit research-area labels, and related-document references. This is not a full claim-by-claim audit.",
     "low_confidence_items_triaged": 36,
     "unresolved_classes": [
-      "individual file validation inside medium-confidence prototype families",
       "full content validation of high-confidence path-derived mappings",
-      "semantic duplicate/supersession/orphan/contradiction review"
+      "semantic duplicate/supersession/orphan/contradiction review",
+      "full claim-level validation and reproducibility verification of individually role-mapped prototype artifacts"
     ],
     "scenario_crosswalk": {
       "basis": "Combined explicit links/ranges in RESEARCH-TAXONOMY.md (63 reports) and first-pass content/header review of remaining Scenario reports (73 reports)",
@@ -12838,7 +12802,7 @@
     "inventory_revision": "f560d0f9893f882a6756f1f0a3b070ea7ba1a09f",
     "prototype_family_review": {
       "reviewed_at": "2026-11-20",
-      "method": "First-pass individual file-role mapping using family README descriptions, file paths, source/module docstrings, scenario links, and paired test imports/names. This is not full claim-level validation or an execution audit.",
+      "method": "First-pass individual file-role mapping using family README descriptions, file paths, source/module docstrings, scenario links, paired test imports/names, and direct content review of the final five previously family-only artifacts. This is not full claim-level validation or an execution audit.",
       "families": {
         "CLI-WORKLOADS-01": {
           "files": 3,
@@ -12919,17 +12883,55 @@
             7
           ],
           "note": "README covers package indexes, archive/closure/provider/content-store behavior and benchmarks; content_store adapter is not wired into Toolchain Server, so RT-19 is an adjacency rather than a completed integration."
+        },
+        "RT-04-01": {
+          "files": 104,
+          "status": "individual-file-role-triaged",
+          "areas": [
+            "RT-03",
+            "RT-04"
+          ],
+          "stages": [
+            1,
+            5
+          ],
+          "note": "104 files individually classified by content: 39 RT-03-only, 59 RT-04-only, and 6 shared."
+        },
+        "RT-16-AUTHORIZATION-01": {
+          "files": 2,
+          "status": "individual-file-role-triaged",
+          "areas": [
+            "RT-16"
+          ],
+          "stages": [
+            7
+          ],
+          "note": "Authorization policy model and paired tests reviewed against RT-16 threat model; bounded in-memory model only, not production authorization."
+        },
+        "TOOLCHAIN-SERVER-01": {
+          "files": 3,
+          "status": "individual-file-role-triaged",
+          "areas": [
+            "RT-19"
+          ],
+          "stages": [
+            7
+          ],
+          "note": "README, in-memory workspace implementation, and paired lifecycle tests reviewed against RT-19; no persistent backend, MCP adapter, or production SPG contract."
         }
       },
-      "individually_mapped_files": 131,
+      "individually_mapped_files": 240,
       "individual_file_mappings": {
         "cli_workloads": 3,
         "dependency_graph": 103,
         "llvm_preservation": 3,
         "package_identity": 7,
-        "package_index": 15
+        "package_index": 15,
+        "rt04_01": 104,
+        "rt16_authorization": 2,
+        "toolchain_server": 3
       },
-      "remaining_family_only_files": 109
+      "remaining_family_only_files": 0
     },
     "reference_crosswalk": {
       "source_documents_mapped": 9,
