@@ -99,7 +99,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Identify feedback loops, foundational topics, and opportunities for parallel research.
 - [ ] Validate and revise dependency edges as research produces evidence; the current map is an initial hypothesis, not a settled architecture.
 
-**Evidence:** [Research taxonomy](research/RESEARCH-TAXONOMY.md) defines 18 research areas; [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) records 35 initial dependency edges, research waves, and feedback loops.
+**Evidence:** [Research taxonomy](research/RESEARCH-TAXONOMY.md) currently enumerates 23 research areas (RT-01–RT-23); [cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) currently records 77 dependency edges (DEP-001–DEP-077), research waves, and feedback loops. These are live register counts, not fixed architectural limits.
 
 **Status:** initial taxonomy and dependency map completed; ongoing validation remains part of each research task.
 
