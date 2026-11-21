@@ -78,6 +78,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 
 ## Integration and foundations
 
+- [RT-17 diagnostic replay](RT-17-DIAGNOSTIC-REPLAY.md) checks diagnostic locations, edit applicability, and behavioral validation on deterministic fixtures.
 - [Research taxonomy](RESEARCH-TAXONOMY.md) tracks areas, coverage, and required report fields.
 - [Research dependency map](RESEARCH-DEPENDENCY-MAP.md) records cross-area hypotheses and sequencing.
 - [Formal verification architecture](LLMLang-FORMAL-VERIFICATION.md) describes proof and trusted-boundary questions.
