@@ -36,6 +36,8 @@ jobs:
       - name: Check source-owned query envelope
         run: lake env lean -DwarningAsError=true --run SourceQueryEnvelopeTests.lean
       - name: Run parser-state binding and semantic correspondence tests
-        run: timeout 180s lake env lean -DwarningAsError=true --run Main.lean
+        run: |
+          timeout 180s lake env lean -DwarningAsError=true --run Main.lean
+          timeout 180s lake env lean -DwarningAsError=true --run SourceCpcRefutationTests.lean
       - name: Check observable rewrite proof
         run: lean -DwarningAsError=true ObservableRewrite.lean
