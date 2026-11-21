@@ -7,7 +7,7 @@
 
 ## 1. Current corpus and register counts
 
-The current machine-readable inventory records:
+The inventory manifest at revision b118346ecd499d7962a6ac546fb1031bc7e2bc26 records the following baseline values; it is stale relative to main at 017e64b87c87371309197a392165258b8b088dd1:
 
 | Measure | Current value |
 |---|---:|
@@ -21,7 +21,7 @@ The current machine-readable inventory records:
 | Research areas | 26 (RT-01–RT-26) |
 | Dependency edges | 108 (DEP-001–DEP-108) |
 
-The earlier cross-cutting alignment review's 24 RT / 94 DEP counts are historical. The current research README already states that those figures are superseded by the current taxonomy and dependency map. The old review's §1 and conclusion should be read as a first-pass result at its own baseline, not as a current count.
+GitHub commit comparison shows three research paths added after that inventory revision and absent from its artifact records: the RT-00 B3 audit report, the RT-24 merged-tree source-completeness report, and tests/test_rt24_merge_tree_gate.py. Therefore current main has at least 491 research artifacts and at least 249 prototype files; a fresh recursive-tree enumeration is required to establish exact totals and family counts. The E workflow separately measured 251 Markdown files and 3 MDX files in its PR checkout. The earlier cross-cutting alignment review's 24 RT / 94 DEP counts are historical. The current research README already states that those figures are superseded by the current taxonomy and dependency map. The old review's §1 and conclusion should be read as a first-pass result at its own baseline, not as a current count.
 
 ## 2. Structural dependency-map validation
 
@@ -60,11 +60,11 @@ No semantic, hash, identity, backend, or architecture decision is made by this a
 
 Three different counts currently describe prototype-family role coverage:
 
-1. The current tree contains **248** prototype paths. The inventory has a per-artifact traceability record for all 248.
+1. The inventory baseline contains **248** prototype paths and per-artifact traceability records for all 248. Current main contains at least **249** prototype paths because tests/test_rt24_merge_tree_gate.py was added after the inventory revision and is absent from its records.
 2. The inventory's prototype_family_review.individually_mapped_files aggregate still reports **242**, with family counts 3/103/3/7/17/104/2/3.
 3. PLAN.md's previous first-pass role-mapping statement reports **245**, with family counts 3/103/4/7/17/106/2/3.
 
-The current family path counts are 3/106/4/7/17/106/2/3 (total 248). The aggregate review metadata and the PLAN statement therefore do not agree with the current tree or with each other. The 248 per-file traceability records establish that mappings are present; they do not prove equivalent depth of content review for every added artifact. The six-file delta from the inventory aggregate must be reconciled at the family/file level before declaring the content-role review complete.
+The inventory baseline family counts are 3/106/4/7/17/106/2/3 (total 248). Current main has at least one additional Dependency Graph test, making that family at least 107 and the total at least 249. The aggregate review metadata and the PLAN statement therefore do not agree with the current tree or with each other. The 248 per-file traceability records establish that mappings are present; they do not prove equivalent depth of content review for every added artifact. The six-file delta from the inventory aggregate must be reconciled at the family/file level before declaring the content-role review complete.
 
 This finding is kept open rather than silently replacing 242 or 245 with 248. A path/traceability record is not itself a claim-level audit or reproduction result.
 
@@ -83,4 +83,4 @@ The previous first-pass supersession cases remain scoped: Scenario 31 query repr
 - Complete claim-level and reproducibility validation; file-role mapping does not prove claims.
 - Preserve RT-24 and the option matrix as non-normative until explicit decisions are accepted.
 
-**Disposition:** current taxonomy/dependency structure and candidate/non-normative statuses are aligned. Current counts are 26/108 and 488/248. Prototype-family role-review aggregate remains inconsistent and open. No architecture decision or RT-00 completion is claimed.
+**Disposition:** current taxonomy/dependency structure and candidate/non-normative statuses are aligned. Current taxonomy/dependency counts are 26/108. The inventory manifest's 488/248 counts are stale; current main has at least 491 research artifacts and 249 prototype files pending a fresh full-tree enumeration. Prototype-family role-review aggregate remains inconsistent and open. No architecture decision or RT-00 completion is claimed.
