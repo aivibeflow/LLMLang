@@ -1,6 +1,6 @@
 # RT-26 — Hierarchical Resource Accounting, Limits, Throttlers, and Handlers
 
-**Status:** Not started — mandatory research item in `PLAN.md` §§5.2 and 7.1  
+**Status:** Partially validated in two cooperative cumulative-budget models (reservation and cancellation settlement); mandatory resource dimensions and real-time enforcement remain open. See [cooperative reservation](RT-26-COOPERATIVE-BUDGET-RESERVATION.md) and [cancellation settlement](RT-26-CANCELLATION-ACCOUNTING.md).  
 **Research area:** RT-26  
 **Priority:** P1  
 **Scope:** LLMLang language semantics, runtime, task/coroutine model, native targets, and Toolchain Server workloads  
@@ -170,3 +170,8 @@ RT-26 is complete only when:
 - The final recommendation distinguishes guaranteed language semantics from best-effort runtime and OS facilities.
 
 Until these criteria are met, resource accounting and enforcement remain research topics; no syntax or universal enforcement guarantee is accepted.
+
+
+## Current reproducibility evidence — 2026-11-21
+
+Both bounded cooperative models were independently rerun under CPython 3.12.14 on Ubuntu 24.04 from exact checkout `00857e7dee48d0026e6d47c776c8792f6f1f245d` in [workflow run #44949563913](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913): cancellation/terminal settlement 3/3 and cumulative reservation 4/4 tests passed. Artifact [14724622101](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913/artifacts/14724622101), digest `sha256:a7c9d8e75c857b59d4827c3cad2aaabe40e0820d13f4f2982fa3db832964b12b`, records exact report/test hashes, environment and full logs. This reproduction does not validate instantaneous resource accounting, production runtime atomicity, OS enforcement, crash consistency or authentic terminal evidence.
