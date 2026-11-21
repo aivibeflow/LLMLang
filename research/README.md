@@ -109,15 +109,15 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 
 ## Cross-cutting research references
 
-- [Research Taxonomy](RESEARCH-TAXONOMY.md) — the 24 research areas and their scope.
-- [Research Dependency Map](RESEARCH-DEPENDENCY-MAP.md) — the 94 directed cross-area dependencies and documented feedback loops.
+- [Research Taxonomy](RESEARCH-TAXONOMY.md) — the 26 research areas and their scope.
+- [Research Dependency Map](RESEARCH-DEPENDENCY-MAP.md) — the 108 directed cross-area dependencies and documented feedback loops.
 - [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md) — candidate immutable dependency-index model; not a canonical schema.
 - [Draft Glossary](../draft/GLOSSARY.md) — provisional hash and semantic terminology; PLAN.md records the unresolved `ImpHash`/`ImplHash` spelling discrepancy.
-- [Cross-cutting alignment review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) — count reconciliation, candidate/non-normative status, and terminology boundaries.
+- [Cross-cutting alignment review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) — historical first-pass count reconciliation, candidate/non-normative status, and terminology boundaries; its 24/94 counts are superseded by the current taxonomy and dependency map.\n- [RT-00 B3 cross-cutting semantic consistency audit (2026-11-21)](RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md) — identity, contract, dependency/cache, backend, package trust, resource accounting, and authority consistency review.
 
 ## Corpus inventory and audit
 
-- [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked research artifact under `research/` at the recorded revision (excluding the inventory manifest itself).
+- [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked research artifact under `research/` at the recorded revision (excluding the inventory manifest itself); refreshed through RT-00 B3.
 - [Research corpus audit (2026-11-20)](RESEARCH-CORPUS-AUDIT-2026-11-20.md) — audit scope, verified checks, findings, and remaining work for PLAN.md §0.1.
 - [RT-00 B-02b.1 Lean proof graph audit](RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md) — current SC-1–SC-7 declaration crosswalk and Lean proof boundary.
 - [RT-00 B-02b.5 Dependency Graph evidence consolidation](RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md) — consolidated family graph, CI/test evidence, and inventory reconciliation.
