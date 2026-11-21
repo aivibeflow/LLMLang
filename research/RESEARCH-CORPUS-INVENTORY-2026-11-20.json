@@ -2,36 +2,37 @@
   "schema_version": 1,
   "generated_at": "2026-11-21",
   "repository": "aivibeflow/LLMLang",
-  "revision": "b118346ecd499d7962a6ac546fb1031bc7e2bc26",
-  "source": "Recursive Git tree at RT-00-B3 report snapshot b118346ecd499d7962a6ac546fb1031bc7e2bc26; inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "e09096814c46ed66fdae5d164e49fbe9218be3d5",
+  "source": "Rebased on current main 9dfc01bd8acf7da602f1c927e519256bd4c810b1; manifest source revision is the branch tree immediately before this manifest update. The inventory manifest itself is excluded from artifact records.",
   "counts": {
-    "research_files": 488,
-    "markdown_files": 249,
-    "python_files": 201,
-    "scenario_named_documents": 136,
-    "prototype_tree_files": 248,
+    "research_files": 526,
+    "markdown_files": 269,
+    "python_files": 214,
+    "scenario_named_documents": 137,
+    "prototype_tree_files": 265,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "audit-or-review-report": 15,
-      "cross-cutting-synthesis-or-status": 4,
+      "audit-or-review-report": 21,
+      "cross-cutting-synthesis-or-status": 5,
       "example-or-fixture": 1,
       "external-source-snapshot-or-license": 13,
       "index-or-research-management": 3,
       "other-research-artifact": 2,
-      "prototype-or-experiment-implementation": 128,
+      "prototype-or-experiment-implementation": 135,
       "prototype-report-or-readme": 20,
-      "prototype-test-evidence": 98,
+      "prototype-test-evidence": 108,
       "reference-register-or-manifest": 2,
-      "research-area-or-experiment-document": 31,
+      "research-area-or-experiment-document": 45,
       "research-background-or-design-analysis": 23,
       "research-preparation-brief-or-index": 9,
       "research-rfc-or-protocol-proposal": 2,
       "scenario-research-result": 136,
       "structured-fixture-or-schema": 1
     },
-    "lean_source_files": 23,
+    "lean_source_files": 26,
     "taxonomy_research_areas": 26,
-    "dependency_edges": 108
+    "dependency_edges": 108,
+    "mdx_files": 3
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks, individual role mappings for all 242 prototype-tree files across eight families, a first-pass relationship review of all 136 scenario-named reports, and bounded evidence-graph reviews for RT-04-01 and the Dependency Graph/Logos Lean family. B-02b.1–B-02b.5 add current Lean proof, Python test-evidence, scenario-overlap, orphan, and inventory-reconciliation slices. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
@@ -612,6 +613,26 @@
       ]
     },
     {
+      "path": "research/PROTOTYPES/BUDGET-RESERVATION-01/test_budget_reservation.py",
+      "git_blob_sha": "ad432a046427586834c5f7a22646dd3e15235758",
+      "size_bytes": 5272,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-26"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ],
+      "semantic_review": {
+        "status": "bounded-test-evidence",
+        "basis": "Four focused tests compare split check/charge with serialized reservation, cancellation, retry, and subtree accounting."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/CLI-WORKLOADS-01/reference.c",
       "git_blob_sha": "4063bcc343451667d295bbe3826e9128defe6360",
       "size_bytes": 3042,
@@ -779,8 +800,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
-      "git_blob_sha": "f768bb901e6f7cdb4067e4232b83c6db04a9da7e",
-      "size_bytes": 967,
+      "git_blob_sha": "1a9905cca118007faad6bba4da95e4444d7ef4a3",
+      "size_bytes": 989,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1008,6 +1029,26 @@
       "semantic_review": {
         "status": "file-role-triaged",
         "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ObservableRewrite.lean",
+      "git_blob_sha": "98bd38f297e91840c56664ef00fbd5f28c3a81b8",
+      "size_bytes": 4788,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Lean model and theorems for observable order/failure preservation under bounded expression rewrites."
       }
     },
     {
@@ -1512,6 +1553,50 @@
           7
         ],
         "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean",
+      "git_blob_sha": "542267010d9b47f2e75f3b63ba5551c1fb43c623",
+      "size_bytes": 6069,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "Scenario 34",
+          "SCW-31"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Source-owned QF_LIA query envelope construction, decoding, and correspondence theorem."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelopeTests.lean",
+      "git_blob_sha": "0d33054aa9d73c3cc0f6ed56708e51e81ae90f6d",
+      "size_bytes": 3367,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "Scenario 34",
+          "SCW-31"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "bounded-test-evidence",
+        "basis": "Lean executable controls for the source-owned query envelope."
       }
     },
     {
@@ -2256,8 +2341,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md",
-      "git_blob_sha": "3160239491e98b5deb21fcbc76c012eff02eac59",
-      "size_bytes": 34404,
+      "git_blob_sha": "505c759a0d0d0927529c0ef0a0f77573e7d7deaa",
+      "size_bytes": 35110,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -3691,6 +3776,49 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py",
+      "git_blob_sha": "fd5078b5ec91148fae8a78b783f5a0d7955ae3d4",
+      "size_bytes": 7607,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "DEP-009",
+          "DEP-087"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Independent typed graph admission checker over imported SPG values."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_ordered_lowering.py",
+      "git_blob_sha": "c58981e2fc952b86c7d5bf3f75039a3f69127d86",
+      "size_bytes": 5991,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-09",
+          "Plan §6.1"
+        ],
+        "method": "content review of ordered lowering from the typed SPG and its paired differential tests",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        6
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-implementation",
+        "basis": "Executable ordered instruction fixture generated from typed SPG inputs; target and full compiler conformance remain outside scope."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py",
       "git_blob_sha": "918dfa431a066b321899fc7f1e5e0593db3104e3",
       "size_bytes": 13589,
@@ -5012,6 +5140,114 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt06_negative_binding_reads.py",
+      "git_blob_sha": "71f5362aa7a2cc088a2f035675927ff40f67cf72",
+      "size_bytes": 7881,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-06",
+          "Plan §3.1"
+        ],
+        "method": "paired content review with RT-06 scoped binding-read dependency experiment",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        3
+      ],
+      "semantic_review": {
+        "status": "bounded-test-evidence",
+        "basis": "Five tests compare exact scoped binding resolution with dependency projection, negative dependencies, policy, contracts, and validated layer boundaries."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_commit_recovery.py",
+      "git_blob_sha": "86803dbf109c598aead2182ce450e6d5a0c9d2d0",
+      "size_bytes": 9318,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-23",
+          "Plan §4.5"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "bounded-test-evidence",
+        "basis": "Eight tests exercise exact commit publication, receipt recovery, ref movement, and retry semantics."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_interface_mapping_merge.py",
+      "git_blob_sha": "fc7c3fbd698954e510c13ef860650063be042371",
+      "size_bytes": 7928,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-23",
+          "RT-24",
+          "Plan §4.5"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "bounded-test-evidence",
+        "basis": "Six tests compare content-only and revision-bound interface-mapping revision updates."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_merge_tree_gate.py",
+      "git_blob_sha": "b78452a9c86d7ae7e078c5fcd3b11b77a37513c3",
+      "size_bytes": 19230,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-24",
+          "DEP-088",
+          "DEP-091",
+          "DEP-093"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "bounded-test-evidence",
+        "basis": "Seven tests validate closed source inventories, merge-tree completeness, exact call reconstruction, and evidence replay."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_semantic_merge_core.py",
+      "git_blob_sha": "8234a37704aecba74b8874da068bfe5ed3f21ce1",
+      "size_bytes": 9651,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-24",
+          "Plan §4.5"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "bounded-test-evidence",
+        "basis": "Six tests exercise semantic slot composition, conflicts, caller pins, and pre-composition validation."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_scoped_binding.py",
       "git_blob_sha": "b2d848bb0497810446bff4489c5b71ef75f1fcca",
       "size_bytes": 5048,
@@ -5148,6 +5384,49 @@
       "semantic_review": {
         "status": "file-role-triaged",
         "basis": "Test file paired to the corresponding README-described source module; test import and class names inspected."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_admission.py",
+      "git_blob_sha": "5d95e3eddfe1b351ff09163d3dcec76047929549",
+      "size_bytes": 4646,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "DEP-009",
+          "DEP-087"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "bounded-test-evidence",
+        "basis": "Tests compare digest integrity with independent typed admission, malformed graphs, and snapshot-bounded targets."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_ordered_lowering.py",
+      "git_blob_sha": "a5a21fb3a16f563ad9e43745930ba56478c326c9",
+      "size_bytes": 4449,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-09",
+          "Plan §6.1"
+        ],
+        "method": "paired content review with RT-09 ordered SPG lowering experiment",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        6
+      ],
+      "semantic_review": {
+        "status": "bounded-test-evidence",
+        "basis": "Five tests compare conditional/nested-call observations, binding identity, reachability, recursion/fuel, and trace-sensitive reordering."
       }
     },
     {
@@ -5311,6 +5590,27 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DIAGNOSTIC-REPLAY-01/test_diagnostic_replay.py",
+      "git_blob_sha": "9b90cf5f8c09e157bb215fbeda6a486ee091de42",
+      "size_bytes": 5570,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-17",
+          "Scenario 95"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "bounded-test-evidence",
+        "basis": "Four tests cover Unicode ranges, stale reports, multi-document staging, and behavioral validation boundaries."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py",
       "git_blob_sha": "aa0d691782368e3722fd7afecb03dd0c6ee2b797",
       "size_bytes": 3705,
@@ -5378,6 +5678,28 @@
       "semantic_review": {
         "status": "file-role-triaged",
         "basis": "Individual file purpose and imported/implemented interfaces inspected; research area assignment is candidate and does not imply implementation readiness."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/LLVM-PRESERVATION-01/llvm_mutable_view_probe.py",
+      "git_blob_sha": "2e626f8e520bbfa3b4178a60eb72f0b6bda054ba",
+      "size_bytes": 8161,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-09",
+          "RT-13",
+          "Scenario 96B"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        6
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Native differential probe for mutable byte-view aliasing and LLVM/C++ preservation."
       }
     },
     {
@@ -6301,6 +6623,27 @@
       "semantic_review": {
         "status": "file-role-triaged",
         "basis": "Individual file purpose and imported/implemented interfaces inspected; research area assignment is candidate and does not imply implementation readiness."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/POSIX-IO-01/nonblocking_pipe.c",
+      "git_blob_sha": "42508d9e072c2a4c7036d7304d47939ac5d64374",
+      "size_bytes": 7302,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-10",
+          "Plan §5.3"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Linux x86-64 native libc/syscall nonblocking pipe comparison probe."
       }
     },
     {
@@ -8122,6 +8465,28 @@
       ]
     },
     {
+      "path": "research/PROTOTYPES/STRUCTURED-SCOPE-01/scope_join.py",
+      "git_blob_sha": "344aaed045d716b0a34db3adfe6d75c7c8136517",
+      "size_bytes": 4321,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-10",
+          "Scenario 57",
+          "Scenario 129"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Finite schedule model for nested scope join, cancellation, and result publication."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/TOOLCHAIN-SERVER-01/README.md",
       "git_blob_sha": "9ae73cc35af3aafc1e17bd760f51d04ae753c225",
       "size_bytes": 3500,
@@ -8171,8 +8536,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "b1b7d5321c867531f563603e9938464f8423bc65",
-      "size_bytes": 25831,
+      "git_blob_sha": "90ce36b973849f48272f0daafae04a3a15c24e87",
+      "size_bytes": 28287,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -8556,8 +8921,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md",
-      "git_blob_sha": "e67cf113829fe4e815ead138eb94a5401f9dd692",
-      "size_bytes": 8919,
+      "git_blob_sha": "b64cefa6c3203afc1b0dcafbf146e6f304b3c55b",
+      "size_bytes": 10669,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -8678,8 +9043,8 @@
     },
     {
       "path": "research/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "0122fa1355f4739c173927bd4090ced6d9e7de09",
-      "size_bytes": 49518,
+      "git_blob_sha": "fbd04f247b1296bacd8364234b8a49cf107f1c47",
+      "size_bytes": 52232,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -10643,8 +11008,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-      "git_blob_sha": "5316fbb7761d792b42cd44cf6985d43e700c8a7a",
-      "size_bytes": 35443,
+      "git_blob_sha": "e724812199acd887ae955a9bee8a69b3a63526a8",
+      "size_bytes": 35683,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -12493,8 +12858,8 @@
     },
     {
       "path": "research/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "6a9cd446372c9d7ae2298e3df98b057df6ab5ddd",
-      "size_bytes": 45753,
+      "git_blob_sha": "b114d2cf8166fa0a90750a15cab619f63f60e5e2",
+      "size_bytes": 47367,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -12564,6 +12929,27 @@
         4,
         7
       ]
+    },
+    {
+      "path": "research/RT-00-A-INVENTORY-MANIFEST-FRESHNESS-RECONCILIATION-2026-11-21.md",
+      "git_blob_sha": "ee2d3a83a42cfae69dc0e685d06a1ee818b4daec",
+      "size_bytes": 11554,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00",
+          "PLAN.md §0.1"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-audit-report",
+        "basis": "Exact recursive path/blob/size reconciliation and bounded role triage; not claim-level closure."
+      }
     },
     {
       "path": "research/RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md",
@@ -12687,6 +13073,107 @@
       }
     },
     {
+      "path": "research/RT-00-B-04-CORPUS-DUPLICATE-AND-SUPERSESSION-AUDIT-2026-11-21.md",
+      "git_blob_sha": "2d769a82be6450a5f6b2576c848a178007b96dea",
+      "size_bytes": 20735,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-audit-report",
+        "basis": "B4 exact-content scan and bounded semantic duplicate/supersession review; limitations are explicit."
+      }
+    },
+    {
+      "path": "research/RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md",
+      "git_blob_sha": "b4ede27c15f25c6d521e00d8ab9d886f8229678f",
+      "size_bytes": 8905,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00",
+          "Scenario 130"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-audit-report",
+        "basis": "Bounded report-local claim-to-source/test/CI/evidence traceability pilot; IDs are not a global namespace."
+      }
+    },
+    {
+      "path": "research/RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md",
+      "git_blob_sha": "0fb22a05eac78419be2d68e3c909f9a02c529dad",
+      "size_bytes": 26593,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-audit-report",
+        "basis": "Corpus traceability graph model, reconciled structural layers, and unresolved claim/evidence closure."
+      }
+    },
+    {
+      "path": "research/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.json",
+      "git_blob_sha": "57d5004429400851fd9cf1c23327a5bd344860ca",
+      "size_bytes": 37726,
+      "category": "cross-cutting-synthesis-or-status",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "machine-readable companion to the B6 audit report; record IDs are audit-local, not global research Claim IDs",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-audit-register-data",
+        "basis": "Structured companion containing the B6 unified unresolved register; not a fixture or schema."
+      }
+    },
+    {
+      "path": "research/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.md",
+      "git_blob_sha": "e0b9af362716e6567e462daac175facd83d74293",
+      "size_bytes": 25597,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "content review of the unified contradictions/unresolved register and its dated evidence updates",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-audit-report",
+        "basis": "Cross-cutting audit register for apparent conflicts, unresolved evidence, stale statuses, and pending PR states; not an architecture decision record."
+      }
+    },
+    {
       "path": "research/RT-00-C-REPRODUCIBILITY-AUDIT-2026-11-20.md",
       "git_blob_sha": "60579f8e6240397fd9f72767970166664358fbb2",
       "size_bytes": 16661,
@@ -12724,6 +13211,27 @@
       "semantic_review": {
         "status": "individual-file-role-triaged",
         "basis": "RT-00 provenance and completeness audit of selected external source snapshots."
+      }
+    },
+    {
+      "path": "research/RT-00-F-CROSS-DOCUMENT-ALIGNMENT-AUDIT-2026-11-21.md",
+      "git_blob_sha": "36388000694553535572936b27fcc5b68282b318",
+      "size_bytes": 7923,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00",
+          "PLAN.md §0.1"
+        ],
+        "method": "cross-document audit of current taxonomy, dependency map, status, counts, and unresolved alignment",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-audit-report",
+        "basis": "Current cross-document alignment review; preserves unresolved items and does not declare RT-00 complete."
       }
     },
     {
@@ -12940,6 +13448,180 @@
       }
     },
     {
+      "path": "research/RT-05-TYPED-SPG-IMPORT-VALIDATION.md",
+      "git_blob_sha": "ce1ccd26e4acb511a8d40f0c39f2d1914ecc839b",
+      "size_bytes": 5626,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "DEP-009",
+          "DEP-087"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Bounded experiment showing integrity-valid imported graphs can still fail typed executable admission."
+      }
+    },
+    {
+      "path": "research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md",
+      "git_blob_sha": "2a8e56e2e25a1564a88a553b88bdd7c8088a6851",
+      "size_bytes": 3873,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-06",
+          "Plan §3.1"
+        ],
+        "method": "content review of the bounded negative dependency experiment and its explicit RT/Plan references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        3
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-report",
+        "basis": "Scoped binding read experiment; projection completeness and validated whole-layer assumptions are explicit boundaries."
+      }
+    },
+    {
+      "path": "research/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md",
+      "git_blob_sha": "d80414e9b6a9290f752749a21f7ff33a86ca5aef",
+      "size_bytes": 4582,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "Plan §2.4"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Bounded Lean proof for preservation of ordered observations and failure under expression rewrites."
+      }
+    },
+    {
+      "path": "research/RT-07-SOURCE-OWNED-QUERY-ENVELOPE.md",
+      "git_blob_sha": "d0e5293651e8e4a8e3da2ec22328075a4f7a9ffc",
+      "size_bytes": 4297,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "Scenario 34",
+          "SCW-31",
+          "Plan §2.3"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Scoped Lean implementation and tests bind the solver-facing query to source-derived assumptions."
+      }
+    },
+    {
+      "path": "research/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md",
+      "git_blob_sha": "42b57bc566b8175671ace0319864e55eec28153a",
+      "size_bytes": 5164,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-09",
+          "RT-13",
+          "Scenario 96B"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        6
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Bounded differential experiment for mutable byte-view aliasing across LLVM and C++."
+      }
+    },
+    {
+      "path": "research/RT-09-ORDERED-SPG-LOWERING.md",
+      "git_blob_sha": "738be0dc2e19537be3fcb4c77a651188191eb145",
+      "size_bytes": 4475,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-09",
+          "Plan §6.1"
+        ],
+        "method": "content review of typed-SPG ordered lowering model and paired executable tests",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        6
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-report",
+        "basis": "Bounded executable experiment for ordered instructions derived from typed SPG; no backend or architecture choice is inferred."
+      }
+    },
+    {
+      "path": "research/RT-10-POSIX-NONBLOCKING-PIPE-IO.md",
+      "git_blob_sha": "28e83d59a6e3d193da32fc052f1d3f90513d0b9e",
+      "size_bytes": 5304,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-10",
+          "Plan §5.3"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Bounded Linux x86-64 libc/syscall nonblocking pipe I/O experiment."
+      }
+    },
+    {
+      "path": "research/RT-10-STRUCTURED-SCOPE-JOIN.md",
+      "git_blob_sha": "40ca78251e2d5ba927bde8e57dc8aa4abf4ae131",
+      "size_bytes": 4531,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-10",
+          "Scenario 57",
+          "Scenario 129",
+          "Plan §5.2"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Finite schedule experiment for nested task-scope completion, cleanup, and failure publication."
+      }
+    },
+    {
       "path": "research/RT-11-BINDING-INVALIDATION-BENCHMARK.md",
       "git_blob_sha": "c00d299ee0f329cc01bbfb42150df3e7cb53ae72",
       "size_bytes": 6424,
@@ -12970,6 +13652,28 @@
       "plan_stages": [
         7
       ]
+    },
+    {
+      "path": "research/RT-17-DIAGNOSTIC-REPLAY.md",
+      "git_blob_sha": "8590f960998dedb05650be5e100e839c763cf20d",
+      "size_bytes": 3833,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-17",
+          "Scenario 95",
+          "Plan §7.5"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Executable structural diagnostic replay evaluation with explicit transport and repair limitations."
+      }
     },
     {
       "path": "research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md",
@@ -13133,9 +13837,54 @@
       ]
     },
     {
+      "path": "research/RT-23-EXACT-TREE-COMMIT-RECOVERY.md",
+      "git_blob_sha": "18bc68e12d7cfff6662f547f9c9d5a4aa9149d35",
+      "size_bytes": 6727,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-23",
+          "RT-22",
+          "RT-24",
+          "Plan §4.5"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Local Git commit publication/retry study with explicit durability and remote-push gaps."
+      }
+    },
+    {
+      "path": "research/RT-23-INTERFACE-MAPPING-MERGE.md",
+      "git_blob_sha": "7b5435de6bf11f7e93a7dcffb13e401c37b18f7f",
+      "size_bytes": 4277,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-23",
+          "RT-24",
+          "Plan §4.5"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Bounded experiment comparing content-only and revision-bound interface mapping merge."
+      }
+    },
+    {
       "path": "research/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md",
-      "git_blob_sha": "028da97e2c7d6c9ebc34b65c26e14e567f1faa70",
-      "size_bytes": 39183,
+      "git_blob_sha": "90fcba55d8cbff05141a6e9f53841f1cea1d8101",
+      "size_bytes": 39645,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -13151,8 +13900,8 @@
     },
     {
       "path": "research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
-      "git_blob_sha": "c84833714d61741701005699c1961a4c2503a0ef",
-      "size_bytes": 29174,
+      "git_blob_sha": "2be7ddb8c530127e3c20a2bd383236afdc70e8df",
+      "size_bytes": 29948,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -13169,6 +13918,27 @@
       "semantic_review": {
         "status": "taxonomy-crosswalk-resolved",
         "basis": "RT-24 is now a registered research area; the candidate contract remains non-normative and open on schema, identity, canonical bytes/hash, and merge policy."
+      }
+    },
+    {
+      "path": "research/RT-24-CLOSED-THREE-WAY-MERGE.md",
+      "git_blob_sha": "00035eeeec9e4be33d2b666b33e6780bd31f7418",
+      "size_bytes": 5587,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-24",
+          "Plan §4.5"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Structural experiment for closed semantic inventory three-way composition."
       }
     },
     {
@@ -13216,6 +13986,29 @@
       }
     },
     {
+      "path": "research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md",
+      "git_blob_sha": "847bd2036d36b7a2e58cc22fea62b7e19fe24c84",
+      "size_bytes": 12264,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-24",
+          "DEP-088",
+          "DEP-091",
+          "DEP-093"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Executable study of the first repository-wide merged-tree source completeness gate."
+      }
+    },
+    {
       "path": "research/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md",
       "git_blob_sha": "2400e3a95028eaa2d210ba411902f89e607a50b5",
       "size_bytes": 8139,
@@ -13236,9 +14029,30 @@
       }
     },
     {
+      "path": "research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md",
+      "git_blob_sha": "2f78a3c5800aace05c8b6b950bde04be3cf9e059",
+      "size_bytes": 3501,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-26",
+          "Plan §7.1"
+        ],
+        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        5
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-role-reviewed",
+        "basis": "Bounded hierarchical budget reservation model; runtime and OS enforcement measurements remain open."
+      }
+    },
+    {
       "path": "research/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md",
-      "git_blob_sha": "ec4f245a9ae1fa076d2b3f5f32966ee16d6bd4af",
-      "size_bytes": 14123,
+      "git_blob_sha": "9475e7199dc66d2c18ea2bb331ff9a69c4694cd7",
+      "size_bytes": 14348,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -13751,5 +14565,73 @@
     "index_check_note": "The existing index_check and branch_index_check remain historical checks against their recorded older revisions; global current link/anchor validation is still pending.",
     "b3_note": "B3 report is a bounded semantic consistency audit, not proof of corpus-wide claim validation. Historical inventory checks remain historical.",
     "b3_refreshed_existing_records": 1
+  },
+  "freshness_reconciliation": {
+    "audited_main_revision": "78b06273c4bbc1569e336de5d40cc61be3898c0d",
+    "audit_workflow_head": "b318261faccfc5b20bf5733a267cb722f2ed0bf3",
+    "previous_manifest_revision": "b118346ecd499d7962a6ac546fb1031bc7e2bc26",
+    "exact_audit": {
+      "workflow_run": 44946430131,
+      "artifact_id": 14724290780,
+      "artifact_sha256": "f2f012bfc64dfbc0645f387f02088c1b646f5161d85f09f98313c921054276e8",
+      "research_artifacts": 517,
+      "manifest_records": 488,
+      "missing_paths": 29,
+      "extra_paths": 0,
+      "sha_size_mismatches": 9
+    },
+    "manifest_after_reconciliation": {
+      "revision": "ad48e46e58908f19b57b1e5b0382887df1428b74",
+      "research_files": 526,
+      "markdown_files": 269,
+      "mdx_files": 3,
+      "python_files": 214,
+      "lean_source_files": 26,
+      "prototype_tree_files": 265,
+      "scenario_named_documents": 137,
+      "taxonomy_research_areas": 26,
+      "dependency_edges": 108
+    },
+    "prototype_count_semantics": {
+      "individually_role_mapped": 242,
+      "earlier_plan_aggregate": 245,
+      "previous_manifest_paths": 248,
+      "current_prototype_tree_paths": 262,
+      "note": "These values describe different populations and review states. The added file-role classifications do not imply equal semantic or claim-level review depth."
+    },
+    "reconciliation": {
+      "added_missing_paths": 37,
+      "added_reconciliation_report": 1,
+      "refreshed_metadata_records": 10,
+      "extra_paths": 0,
+      "missing_after_refresh": 0,
+      "sha_size_mismatches_after_refresh": 0
+    },
+    "current_main_delta": {
+      "base": "78b06273c4bbc1569e336de5d40cc61be3898c0d",
+      "head": "7aaf83ae58a6809e94e1211deee0987102603a2e",
+      "added_paths": [
+        "research/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.md",
+        "research/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.json",
+        "research/RT-09-ORDERED-SPG-LOWERING.md",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_ordered_lowering.py",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_ordered_lowering.py",
+        "research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt06_negative_binding_reads.py",
+        "research/RT-00-F-CROSS-DOCUMENT-ALIGNMENT-AUDIT-2026-11-21.md"
+      ],
+      "modified_research_paths": [
+        "research/RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md",
+        "research/RESEARCH-DEPENDENCY-MAP.md",
+        "research/RESEARCH-TAXONOMY.md"
+      ],
+      "deleted_paths": [],
+      "current_main_research_artifacts": 525,
+      "current_main_markdown_files": 268,
+      "current_main_python_files": 214,
+      "current_main_lean_files": 26,
+      "current_main_prototype_tree_files": 265,
+      "method": "Exact Git commit comparison from the audited 78b0627 tree; no research paths deleted."
+    }
   }
 }
