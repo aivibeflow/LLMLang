@@ -412,3 +412,44 @@ The inventory manifest remains at 488 records; it was not changed in the compare
 The earlier open-PR table and statements that audit PRs remain unmerged are historical. Subsequent integrations have added the A, D, E, and F audit reports and the RT-17, RT-24, RT-26 and related prototype evidence. Their integration does not establish corpus-wide claim-level traceability, full reproducibility, complete external snapshot closure, or RT-00 completion.
 
 **Updated disposition:** current-main research paths total 549 by exact commit-delta accounting, while the manifest remains at 488. Claim-level traceability remains a bounded pilot, per-file role review does not cover all 275 prototype paths, and reproducibility/provenance/index-coverage work remains incomplete. **RT-00 is not complete.**
+
+## 15. Current-main status refresh — 2026-11-22
+
+This section supersedes the 549-artifact snapshot in §14. The latest recursive audit is [PR #219](https://github.com/aivibeflow/LLMLang/pull/219), workflow [#44951486838](https://github.com/aivibeflow/LLMLang/actions/runs/44951486838), exact checkout `7f962bb4ffe921891d6c817ddef692fad7421590`, artifact [14725633019](https://github.com/aivibeflow/LLMLang/actions/runs/44951486838/artifacts/14725633019). It found 554 research artifacts excluding the manifest, 66 missing paths, 20 SHA/size mismatches and zero extra paths. The corresponding 554-record reconciliation was merged through PR #221 (merge commit `b40fbaba8ac0d065f402cb59cd851e44840646fa`). The inventory contains 554 unique sorted records and category totals summing to 554.
+
+### 15.1 Current corpus counts
+
+| Measure | Count |
+|---|---:|
+| Research artifacts, excluding inventory manifest | 554 |
+| Markdown / MDX | 284 / 3 |
+| Python / Lean | 222 / 28 |
+| Prototype-tree paths | 278 |
+| Scenario-named paths | 137 |
+| RT taxonomy rows / DEP edges | 26 / 108 |
+
+The stored Scenario crosswalk maps 136 files, leaving one Scenario-named path discrepancy unresolved. The recorded semantic review covers 242 individually role-triaged prototype files; 36 current prototype paths lie outside that recorded individual-role total. The inventory establishes path/blob/size metadata only; it does not infer semantic review for the 66 inventory-only additions.
+
+### 15.2 Integrated bounded evidence
+
+- **RT-06:** 13/13 exact CPython 3.12.14 tests passed in run #44948779526.
+- **RT-09:** 16/16 exact CPython 3.12.14 tests passed in run #44948779526; this is Python-level ordered lowering, not LLVM or machine-code proof.
+- **RT-13:** the report declares 12,800 WebAssembly memory32 oracle comparisons and two negative controls. A retained exact CI reproduction is not yet recorded.
+- **RT-07 / Scenario 34:** the direct typed-source-to-CPC gate binds declarations, compares the complete ordered assumptions, and requires a complete Logos verdict for the tested fragment. JSON/wire correspondence and broader renderer/parser obligations remain open.
+- **RT-24 call-target merge:** 18/18 tests passed under CPython 3.12.14 in run #44950912463. The runner used Git 2.56.1 rather than the report-declared 2.52.0; exact version reproduction remains open.
+- **RT-24 Git replay source closure:** the report and test evidence are present in the 554-path snapshot. Exact reproduction under Git 2.52.0 is the subject of PR #225.
+- **RT-26:** reservation and cancellation models passed 7/7 exact CPython 3.12.14 tests in run #44949563913. Their scope is cooperative cumulative-budget models, not production resource enforcement.
+
+The RT-04 local PLAN anchor correction was merged in PR #218. PR #220 was closed as a duplicate because its only source change was already integrated by #218. PR #222 was closed as already integrated by PR #208; the RT-26 status and reproduction addenda are present on main.
+
+### 15.3 Active follow-up PRs
+
+| PR | Scope | Current disposition |
+|---|---|---|
+| [#224](https://github.com/aivibeflow/LLMLang/pull/224) | Latest research link/anchor audit and RT-04 anchor refresh | Open |
+| [#225](https://github.com/aivibeflow/LLMLang/pull/225) | Reproduce RT-24 Git replay under declared Git 2.52.0 | Open |
+| [#226](https://github.com/aivibeflow/LLMLang/pull/226) | Structure contracts and atomic commit verification synthesis | Open |
+
+### 15.4 Remaining RT-00 gaps
+
+RT-00 is not complete. Inventory path/blob/size reconciliation is merged for the 554-artifact snapshot, but semantic role review of 36 prototype paths, the 137-versus-136 Scenario crosswalk discrepancy, claim-level graph coverage, exact RT-13 reproduction, RT-24 Git 2.52.0 reproduction, external-source snapshot closure, full reproducibility/provenance, and PLAN exit-criteria reconciliation remain open. No bounded experiment is promoted to a general semantic guarantee.
