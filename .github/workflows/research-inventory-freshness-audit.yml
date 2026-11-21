@@ -4,6 +4,7 @@ name: Research Inventory Freshness Audit
 # RT-00 audit rerun after latest RT-24 call-target merge
 # RT-00 exact-tree audit after RT-13 WASM and G report integration
 # RT-00 freshness audit after RT-07 source-bound CPC evidence
+# RT-00 rerun after RT-24 git-replay source closure
 # RT-00 rerun marker: current-main baseline after D/E refresh
 
 on:
