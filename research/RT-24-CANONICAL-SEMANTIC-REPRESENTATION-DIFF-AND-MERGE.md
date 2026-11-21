@@ -187,6 +187,8 @@ Entity-level merge may be an internal optimization, but the externally visible r
 
 The closed-inventory fixture tests this boundary with a real Git merge tree. A historical value can make the store-level graph audit pass even when the tree cannot reconstruct the callee. Comparing the tree's declared source to the indexed snapshot also detects a caller omitted before both graph readers run. [Merged-tree source completeness](RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
 
+The closed-inventory fixture tests this boundary with a real Git merge tree. A historical value can make the store-level graph audit pass even when the tree cannot reconstruct the callee. Comparing the tree's declared source to the indexed snapshot also detects a caller omitted before both graph readers run. [Merged-tree source completeness](RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
+
 ## 8. RT-20 caller migration and hash propagation
 
 Merge must not assume that every caller migrates to the newest callee. For every affected call site, RT-20 records an evidence-backed decision:
