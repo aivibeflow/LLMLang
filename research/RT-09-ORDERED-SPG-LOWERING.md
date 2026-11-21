@@ -38,3 +38,7 @@ Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` with CPython 3.12.14. All 16 
 ```sh
 python -B -m unittest -v tests.test_spg_ordered_lowering tests.test_spg_representation
 ```
+
+### Exact retained reproduction (2026-11-21)
+
+The declared command was rerun on exact checkout `8d2c085f31685457a66669a6d4db604ab7b1c80a` with CPython 3.12.14: **16/16 tests passed**. See [workflow run #44948779526](https://github.com/aivibeflow/LLMLang/actions/runs/44948779526) and retained [artifact 14724810775](https://github.com/aivibeflow/LLMLang/actions/runs/44948779526/artifacts/14724810775). The run records source SHA-256 values and log digest `9c9540d147cdf48c9d2bf563b36dbe8bac232d4d5cc96c6498b5e59fd8e4e1e0`. This validates the bounded Python lowering experiment only; it does not validate LLVM or machine-code generation.

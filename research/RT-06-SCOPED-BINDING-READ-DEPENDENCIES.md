@@ -39,3 +39,7 @@ From `research/PROTOTYPES/DEPENDENCY-GRAPH-01`, run on CPython 3.12.14. The reco
 ```sh
 python -B -m unittest -v tests.test_rt06_negative_binding_reads tests.test_scoped_binding
 ```
+
+### Exact retained reproduction (2026-11-21)
+
+The declared command was rerun on exact checkout `8d2c085f31685457a66669a6d4db604ab7b1c80a` with CPython 3.12.14: **13/13 tests passed**. See [workflow run #44948779526](https://github.com/aivibeflow/LLMLang/actions/runs/44948779526) and retained [artifact 14724810775](https://github.com/aivibeflow/LLMLang/actions/runs/44948779526/artifacts/14724810775). The run records source SHA-256 values and log digest `87d4f265475523f6bfe6d8b104430301a9671873ed4920f5a7a2a132af48cfd0`. This is a bounded reproduction of the declared test suite, not a proof of general cache/dependency completeness.

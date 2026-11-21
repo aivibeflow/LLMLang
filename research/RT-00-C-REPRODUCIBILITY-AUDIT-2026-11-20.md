@@ -260,3 +260,15 @@ Interpretation boundaries:
 The separate documentation correction for the stale RT-04 opening status is proposed in PR [#137](https://github.com/aivibeflow/LLMLang/pull/137). That PR records the already-existing bounded run #44774296240 and does not alter its evidence.
 
 Remaining C gaps are unchanged unless explicitly closed above: Python SQLite source-ID equality is recorded but not enforced against a historical expected value; Python/SQLite source archive checksums and the distro SQLite package identity are not fully pinned; Package Provider benchmark results remain log-only and its profiler remains outside execution; Scenario 36 fuel models still lack dedicated tests; and the broader prototype corpus is not uniformly reproduced.
+
+## RT-06 and RT-09 exact reproduction refresh — 2026-11-21
+
+A dedicated non-required workflow independently reran both reports' declared commands from the exact PR-head checkout `8d2c085f31685457a66669a6d4db604ab7b1c80a` under CPython 3.12.14 on Ubuntu 24.04. The run [#44948779526](https://github.com/aivibeflow/LLMLang/actions/runs/44948779526) completed successfully:
+
+- RT-06: 13/13 tests passed.
+- RT-09: 16/16 tests passed.
+- Total: 29 tests, zero failures/errors.
+
+The retained artifact is [14724810775](https://github.com/aivibeflow/LLMLang/actions/runs/44948779526/artifacts/14724810775), ZIP digest `sha256:9e40d615d60bccad968b4fb4dadac15549d20b1322bf38e3c02c4b7a7b3ac1b2`, with 90-day retention. It records exact report, implementation and test source SHA-256 values, runtime version, full logs and log digests. Log digests: RT-06 `87d4f265475523f6bfe6d8b104430301a9671873ed4920f5a7a2a132af48cfd0`; RT-09 `9c9540d147cdf48c9d2bf563b36dbe8bac232d4d5cc96c6498b5e59fd8e4e1e0`.
+
+This closes the exact reproduction gap for these two bounded Python test suites at this checkout. It does not establish general dependency closure, complete Action Key semantics, LLVM/machine-code preservation, or any untested target/runtime behavior. The workflow is not a Required CI gate.
