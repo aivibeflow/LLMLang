@@ -1,0 +1,269 @@
+# RT-00 B-05 — Complete Traceability Graph Audit — 2026-11-21
+
+**Status:** corpus-wide traceability model consolidated; end-to-end claim/evidence graph remains partially unresolved  
+**Baseline:** `main` at `017e64b87c87371309197a392165258b8b088dd1`  
+**Inventory:** `research/RESEARCH-CORPUS-INVENTORY-2026-11-20.json` at the baseline; 488 artifact records  
+**Scope:** reconcile the research taxonomy, dependency register, corpus inventory, scenario crosswalks, prototype/test/evidence reviews, PLAN stages, and merged-tree evidence.  
+**Decision boundary:** audit only. No research claim, language rule, architecture, identity policy, backend, runtime policy, or candidate vector is accepted by this report.
+
+## 1. Executive result
+
+The corpus has several useful traceability layers, but they do not yet form one complete claim-to-evidence graph.
+
+The baseline contains:
+- 26 registered research areas (RT-01–RT-26);
+- 108 directed dependency edges (DEP-001–DEP-108);
+- 136 scenario-named documents;
+- 488 inventoried research artifacts, including 248 files under `research/PROTOTYPES/`;
+- 249 Markdown files, 201 Python files, and 23 Lean source files.
+
+The strongest existing graph layer is the RT/DEP register. The inventory also provides a file-level crosswalk from artifacts to research areas, with a method, confidence, and semantic-review basis. Scenario-to-RT relationships are recorded in the taxonomy, and bounded prototype-family reviews supply detailed implementation/test/CI/evidence subgraphs.
+
+However, the following are not yet complete corpus-wide:
+1. stable claim-level identifiers and claim-to-requirement/RT links;
+2. explicit scenario-to-prototype-to-test-to-evidence edges for every applicable result;
+3. test-to-fixture, command, external tool, CI job, artifact, and exact revision closure;
+4. a uniform evidence-status model distinguishing authored, executed, reproduced, independently checked, and accepted;
+5. a complete PLAN-stage crosswalk whose links are semantically reviewed rather than inherited from file/path classification;
+6. a complete, current supersession/contradiction overlay.
+
+Therefore, **“complete traceability graph” is not a valid completion claim yet**. This audit consolidates the graph's current structure and identifies where the remaining edges are absent, ambiguous, conditional, or supported only by first-pass triage. It does not infer missing links from filenames, directory proximity, shared RT labels, or the existence of a workflow.
+
+## 2. Graph model and edge semantics
+
+A traceability graph must preserve distinct node types. At minimum:
+
+| Node type | Meaning | Examples |
+|---|---|---|
+| ResearchArea | Registered research topic | RT-03, RT-24, RT-26 |
+| Dependency | Directed cross-area hypothesis/relationship | DEP-005, DEP-088, DEP-100 |
+| Claim | Atomic falsifiable statement made by a report or experiment | Scenario claim, result ID, named finding |
+| Scenario | Numbered comparative or executable research study | Scenario 34, 96A, 96B, 134 |
+| Artifact | Tracked source document, prototype, test, fixture, workflow, or reference | Markdown, Python, Lean, JSON, workflow YAML |
+| Test | A named automated test or test case | A `test_*` method, Lean example, native probe |
+| Evidence | An execution/reproduction record tied to an exact subject and environment | CI run, artifact bundle, native output, proof build |
+| PlanStage | Research/development stage or task in `PLAN.md` | Stage 0, Stage 4.5, Stage 7 |
+| Decision | Explicit accepted or pending project decision | ADR status, accepted compatibility policy |
+
+Permitted edge kinds must be explicit and directional where applicable:
+
+- `classifies`: Artifact → ResearchArea; file-level classification only.
+- `investigates`: Scenario → ResearchArea; study scope, not proof of a claim.
+- `depends_on`: ResearchArea → ResearchArea via a DEP node; a hypothesis unless its evidence and scope establish otherwise.
+- `implements`: Artifact → Artifact or Claim; requires source-level evidence, not a matching filename.
+- `tests`: Test → Claim/subject; a test's existence does not mean it ran or passed.
+- `uses_fixture`: Test/Scenario → Fixture; must be established from the actual test or runner.
+- `executes_under`: Test/Scenario → Tool/Environment/CI job; requires the invocation definition or execution record.
+- `produces`: Execution → Evidence; evidence must identify its exact output and subject.
+- `supports` / `refutes`: Evidence → Claim; scope, assumptions, and outcome are mandatory.
+- `scheduled_in`: ResearchArea/Scenario → PlanStage; scheduling is not validation.
+- `supersedes`: newer Claim/section/artifact → older Claim/section/artifact; scope must be stated.
+- `contradicts`: Claim ↔ Claim; both statements and their assumptions must be identified.
+- `unresolved`: candidate relationship with an explicit reason and missing proof obligation.
+
+Every edge should carry:
+- source and target stable identifiers;
+- edge kind and direction;
+- source citation (path plus section/line/anchor or code symbol);
+- evidence class: explicit declaration, source-derived, execution-derived, bounded semantic review, or unresolved;
+- status and confidence;
+- baseline/revision where source content is revision-sensitive;
+- scope/assumptions and any conditions;
+- reviewer/method where the edge comes from semantic triage.
+
+A link in Markdown establishes a navigational edge. It does not, by itself, establish `implements`, `tests`, `supports`, or `supersedes`.
+
+## 3. Reconciled graph layers
+
+### 3.1 Research-area and dependency layer
+
+The taxonomy declares 26 RT areas. The dependency map contains 108 unique DEP rows and describes direction, relationship kind, rationale, and confidence. Its own preamble explicitly defines the map as an initial research hypothesis, not normative architecture; mentioning two documents does not establish a dependency.
+
+The structural RT/DEP layer is present and internally enumerable. The current graph must nevertheless preserve the confidence labels and evidence scope of each DEP edge. In particular:
+- DEP-005 has scoped experimental support from the typed SPG operand-order observation; it is not a universal semantic proof.
+- DEP-009/010 are established only within the current research model and Scenario 25–34 scope, not across every future language feature.
+- DEP-011/012 have scoped evidence and still require production dependency/action closure.
+- DEP-088, DEP-091, and DEP-093 now have bounded source-inventory/merge evidence from the merged RT-24 study; this does not validate the complete semantic merge or all dispatch mechanisms.
+- DEP-100–108 are the RT-26 dependency family. Their presence records research relationships, not a validated resource-accounting design.
+
+**Finding B5-01 — the RT/DEP graph is a complete register, not a completed proof graph.** The 26 nodes and 108 edges are structurally enumerable. Their semantic validity remains edge-specific and conditional on recorded evidence. Do not convert all 108 edges to “established” because they are registered.
+
+### 3.2 Artifact-to-research-area layer
+
+The inventory has 488 records at this baseline. Each record includes a path, Git blob SHA, size, coarse category, traceability metadata, semantic-review metadata, and plan-stage metadata where applicable. The recorded traceability method distinguishes first-pass content/heading/reference review from weaker path-based classification.
+
+This provides broad file-level navigation, but the inventory itself states that its mappings are not claim-level validation. A primary RT label does not imply that every claim in the file belongs exclusively to that RT. Secondary mappings are not a substitute for a claim-level crosswalk.
+
+**Finding B5-02 — artifact classification is substantially populated, but its semantic resolution varies.** Use the per-record method/confidence/review basis. Do not present a medium-confidence first-pass mapping as a verified semantic edge.
+
+### 3.3 Scenario-to-RT layer
+
+The taxonomy explicitly links scenario reports to research areas. The inventory records 136 scenario-named documents. The known numbering/identity exceptions must remain explicit:
+- Scenario 16 has no report; do not fabricate or renumber it.
+- Scenario 95 has a main study and a supplemental execution report; they are companion artifacts, not duplicate studies.
+- Scenario 96A and 96B are distinct evidence layers under the broader Scenario 96 subject.
+- Scenario 134 is prior-art/reference comparison and does not automatically create a current implementation requirement.
+- Scenarios 25 and 30 do not have dedicated same-numbered prototype directories/results; their implementation/research paths are represented elsewhere.
+- Scenario 31/32/33/34 contain a progression of query representation, parser-state binding, and source-semantics proof. These are related but non-equivalent claims.
+
+The B4 duplicate/supersession audit is in open PR [#127](https://github.com/aivibeflow/LLMLang/pull/127), not in this baseline. Its proposed supersession findings are therefore not treated here as merged graph facts.
+
+**Finding B5-03 — scenario registration is not a one-to-one scenario/prototype mapping.** Any graph generator that assumes matching numbers, filenames, or directories will create false edges.
+
+### 3.4 Prototype, test, fixture, and CI layer
+
+The corpus has 248 prototype-tree files, but a count of files is not a count of independently validated claims. Existing reviews provide detailed slices:
+
+| Evidence slice | Reviewed structure | Boundary |
+|---|---|---|
+| DEPENDENCY-GRAPH-01 | 103 files role-triaged; 32 Python source modules and 32 test modules; 21 Lean source modules and a separate parser bridge | Family review distinguishes source, tests, Lean proof chain, fake solver, and real solver boundaries; it is not a corpus-wide graph |
+| RT-04-01 | Dedicated prototype/evidence review and 364-test Required CI selection | A passed suite supports only the imported/discovered test set and declared inputs |
+| LLVM preservation | Scenarios 96A/96B link the generator/runner and reference rules; pinned LLVM 19.1.7, O0/O3 comparisons and negative controls are recorded | The experiments cover finite integer and byte-view corpora on Linux x86-64, not general lowering or all targets |
+| RT-24 source completeness | Merged PR #125 adds `test_rt24_merge_tree_gate.py` and a seven-test source-inventory/merge fixture | The bounded fixture validates exact source inventory and reverse-edge completeness under its closed schema; not a production repository reader |
+
+The Dependency Graph review reports 32 Python test modules and 376 `test_*` methods in its audited snapshot; Required CI selected 12 modules (177 such methods) and compiled all Python source/test modules. The remaining modules had local/isolated evidence of varying strength. It separately records fake-executable tests and the absence of real cvc5/Logos proof generation. This is precisely why a single boolean `tested=true` edge would be misleading.
+
+For the LLVM studies, the report-level edge from Scenario 96A/96B to its probe is explicit. The result-level edges must retain:
+- exact LLVM version and target;
+- O0 and O3 pipelines;
+- comparison counts and outcome classes;
+- the negative-control mutations and their observed mismatches;
+- the exact reproduction workflow/artifact, where available.
+
+A verifier-accepted LLVM module is not itself evidence of source-level semantic preservation.
+
+**Finding B5-04 — prototype/test links exist in reviewed families, but evidence strength is heterogeneous.** The graph must encode test discovery, actual execution, result, environment, and claim coverage separately. Workflow presence or a green unrelated CI run is not execution evidence for a given claim.
+
+### 3.5 Evidence and exact-revision layer
+
+Evidence must bind to the object actually evaluated. The corpus already contains examples of the required discipline:
+- the inventory records blob SHA and byte size for each artifact;
+- the Lean proof audit records the toolchain/dependency pin and exact-head Required CI;
+- the LLVM reports pin LLVM/toolchain/target and record generated inputs and comparison counts;
+- RT-24 merged-tree source completeness binds its source inventory and reverse evidence to the exact Git tree and inventory digest.
+
+The merged RT-24 study is an important new edge in the baseline: [RT-24 source completeness](RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md) maps to PLAN §4.5, DEP-088/091/093, and the RT-20/RT-23 validation boundary. Its seven focused tests are part of the merged study's reported validation. It demonstrates that a clean Git merge or warm object store can conceal a missing exact declaration, and that a source-inventory comparison detects an omitted caller even when two graph views share the same omission. The conclusion is bounded to the closed fixture and its declared schema.
+
+**Finding B5-05 — evidence identity is not yet normalized across all corpus families.** There is no corpus-wide common record that guarantees every result is bound to exact source revision, test selection, command, environment, output artifact, and claim. Where any field is absent, the evidence edge must remain partial or unresolved.
+
+### 3.6 PLAN-stage layer
+
+PLAN §0.1 explicitly separates inventory/role triage from claim validation and reproducibility. It also leaves claim-level prototype validation, exact per-experiment versions/revisions, current full link/anchor scan, and external snapshot completeness open. The inventory's `plan_stages` metadata is a useful candidate crosswalk, but some mappings are derived from first-pass review and cannot be treated as proof that the PLAN task's exit criteria passed.
+
+PLAN stages are scheduling/acceptance structures, not evidence nodes. A checkmark in PLAN records task disposition; the underlying claim still needs its own evidence path.
+
+**Finding B5-06 — PLAN linkage is available but not a validated acceptance graph.** Do not infer that an artifact completes a stage item solely because its inventory record names that stage or a report is linked from the plan.
+
+## 4. Representative end-to-end traces
+
+These examples demonstrate what a valid trace looks like and where it stops.
+
+### 4.1 Scenario 34 — restricted source-to-query proof chain
+
+`RT-03 / RT-06 / RT-07` → Scenario 34 → Lean source/query declarations and parser-state integration → kernel-checked declarations/examples → Required CI.
+
+Supported within the declared deterministic Int/Bool fragment: the report and B-02b proof audit connect SC-1–SC-7 to checked declarations and 125 Lean examples. The family review separately distinguishes the Python JSON encoder, version-2 envelope, CPC assumptions, Logos adapter, parser-state bridge, and source-derived formula.
+
+**Stops unresolved:** exact correspondence from Python-generated JSON/CPC assumptions to the proved source-derived formula; external Logos proof generation; SCW-34–41 trusted-boundary/adversarial/automation/acceptance obligations. The existence of a Lean proof and parser bridge does not prove the Python encoder.
+
+### 4.2 Scenarios 96A/96B — LLVM semantic-preservation evidence
+
+`RT-03 / RT-07 / RT-09 / RT-13` → Scenario 96 specification → Scenario 96A integer and 96B byte-view studies → Python reference/generator/runner → LLVM 19.1.7 O0/O3 comparisons and negative controls → reproduction artifacts/workflow.
+
+Supported within the finite x86-64 corpora: 96A checks the integer fragment and ordered effects; 96B checks logical view bounds/origin and records verifier-accepted negative controls that violate the source contract.
+
+**Stops unresolved:** general source-to-LLVM preservation, wider target/compiler coverage, allocation provenance beyond the tested views, and end-to-end source/runtime proof.
+
+### 4.3 RT-24 — source inventory and merged-tree completeness
+
+`RT-05 / RT-06 / RT-15 / RT-20 / RT-22 / RT-23 / RT-24` → DEP-088/091/093 → RT-24 merged-tree source completeness → `test_rt24_merge_tree_gate.py` → seven focused tests and pinned fixture environment → PLAN §4.5.
+
+Supported within the closed acyclic fixture: exact callee retention, caller omission, stale evidence, source-slot coverage, and exact-tree binding.
+
+**Stops unresolved:** general parser-to-source completeness, authenticated/authorized evidence producers, external dependency locks, all dispatch mechanisms, production semantic merge, mapping revisions, and full commit recovery integration.
+
+### 4.4 RT-26 — resource accounting and enforcement
+
+`RT-03 / RT-04 / RT-10 / RT-13 / RT-16 / RT-18 / RT-19 / RT-20 / RT-25` → DEP-100–108 → RT-26 research brief → PLAN research programme.
+
+The taxonomy and dependency map register the work and its dependencies. The current RT-26 document says **Not started**. A separate open PR [#129](https://github.com/aivibeflow/LLMLang/pull/129) reports a bounded hierarchical budget-reservation experiment, but it is not part of this main baseline and cannot be treated as merged corpus evidence.
+
+**Stops unresolved:** no merged scenario/prototype/test/evidence chain yet for all mandatory dimensions (memory, CPU, disk/network I/O, coroutine switches, performance counters), attribution, throttling, overshoot, platform enforcement, and handlers. The RT-26 node and DEP edges are planning relationships, not proof of the capability.
+
+## 5. Cross-cutting gaps and unresolved relationships
+
+| ID | Gap | Required graph treatment |
+|---|---|---|
+| B5-U01 | No stable corpus-wide Claim ID scheme across reports, scenarios, prototypes, and PLAN | Keep claim nodes local to report/section until stable IDs are introduced; do not synthesize global IDs from headings |
+| B5-U02 | Many links are navigational or file-level, not semantic implementation/test/support edges | Preserve edge class and evidence basis; do not upgrade links by proximity |
+| B5-U03 | Scenario 16 absent; numbering exceptions and companion reports exist | Keep explicit absent/companion/continuation relationships; never fabricate matching artifacts |
+| B5-U04 | Prototype-to-test/fixture/CI closure is only deeply reviewed for selected families | Mark unreviewed family edges unresolved; reuse existing family audits rather than re-auditing them by filename |
+| B5-U05 | Test source and test execution are frequently conflated in older evidence | Separate `declared_test`, `discovered_test`, `executed_test`, `passed_test`, and `supports_claim` |
+| B5-U06 | Exact tool versions, environment, output artifact, and source revision are not uniformly preserved | Evidence without exact subject/environment remains partial; do not claim reproduction |
+| B5-U07 | PLAN stage mapping is not equivalent to stage acceptance | Keep `scheduled_in` separate from `satisfies_exit_criterion` |
+| B5-U08 | Supersession and duplicate graph overlay is pending B4 PR #127 | Treat proposed edges as pending review, not merged facts |
+| B5-U09 | Open PR branches may contain useful research but are not part of main | Keep branch-only artifacts out of the main-baseline graph until merged |
+| B5-U10 | External snapshots may be incomplete or lack full provenance/import closure | Retain source-snapshot edges with completeness and provenance status; do not treat a URL or local partial copy as full source closure |
+| B5-U11 | Historical report status/CI references can become stale | Bind status claims to the report's pinned revision and add dated current-state evidence instead of rewriting history |
+| B5-U12 | No complete claim-to-contradiction register exists yet | Preserve conflicting/conditional claims as unresolved until B6 reconciles assumptions and scope |
+
+## 6. Required machine-readable graph contract
+
+A future graph artifact should use explicit node/edge records rather than a flat list of links. Minimum node fields:
+
+```json
+{
+  "id": "artifact:research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md",
+  "type": "Artifact",
+  "path": "research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md",
+  "revision": "017e64b87c87371309197a392165258b8b088dd1",
+  "blob_sha": "…",
+  "status": "present"
+}
+```
+
+Minimum edge fields:
+
+```json
+{
+  "id": "edge:<stable-id>",
+  "from": "scenario:RT-24-source-completeness",
+  "to": "test:DEPENDENCY-GRAPH-01/test_rt24_merge_tree_gate.py",
+  "kind": "tests",
+  "basis": "source-derived",
+  "status": "supported_within_scope",
+  "confidence": "high",
+  "source": {
+    "path": "research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md",
+    "section": "§7 Reproduction"
+  },
+  "scope": "seven tests for the closed fixture and declared source inventory",
+  "limitations": ["does not establish production semantic-merge completeness"]
+}
+```
+
+The examples are schema sketches, not a selected canonical graph format. A machine-readable graph must additionally provide:
+- stable IDs for claims, tests, executions, artifacts, and evidence;
+- explicit relation vocabulary and cardinality rules;
+- duplicate-edge detection and dangling-reference validation;
+- revision-aware identity and source citations;
+- confidence/status enums that cannot collapse UNKNOWN into success;
+- provenance and tool/environment records;
+- scoped supersession and contradiction records;
+- validation that every positive `supports` edge reaches a named claim and exact evidence object.
+
+Do not generate or publish a supposedly complete JSON graph until these source records have been extracted and validated. A hand-authored partial graph mislabeled complete would be worse than the current explicit unresolved register.
+
+## 7. Next actions
+
+1. **B6 — unified contradictions and unresolved register:** reconcile the unresolved items in this report with B3 cross-cutting boundaries, B4 duplicate/supersession findings (after review/merge), existing B-02b reports, and PLAN's open gates.
+2. Build a canonical claim/evidence identifier proposal only after B6 inventories existing local claim labels and the costs of retroactive IDs.
+3. Extend the graph in bounded passes: (a) remaining prototype families, (b) scenario claim-to-test/evidence mapping, (c) exact reproduction provenance, (d) external source closure, (e) PLAN exit criteria.
+4. Keep branch-only PR evidence separate from main. Reconcile PRs #126, #127, #128, and #129 only after their review/merge status changes.
+5. Do not mark PLAN §0.1 complete while claim-level validation, current links/anchors, reproduction closure, and external snapshot completeness remain open.
+
+## 8. Conclusion
+
+**Disposition: RT-00 B5 is complete as a graph-model and corpus-wide gap-consolidation pass, not as proof that every claim has a complete traceability path.** The RT/DEP register and file-level inventory are structurally available; selected families have detailed test/evidence subgraphs; representative end-to-end traces demonstrate both supported paths and their boundaries. The remaining corpus-wide claim/evidence edges are explicitly unresolved and must be closed in subsequent work.
+
+No historical artifact, implementation, test, fixture, or external snapshot was modified. No architecture decision was made.
