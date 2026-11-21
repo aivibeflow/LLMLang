@@ -514,6 +514,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define post-merge validation: graph integrity, type checking, contract checking, dependency completeness, tests, and proofs.
 - [ ] Define merge reproducibility and audit history.
 
+**Mapping reconciliation evidence (2026-11-21)** · Disjoint interface keys can claim the same export. Revision and catalog checks reject stale publication even when logical entries repeat. [RT-23/24 mapping merge](research/RT-23-INTERFACE-MAPPING-MERGE.md)
+
 ## 4.4 Git integration workflow
 
 - [ ] Prototype a Git merge driver that invokes the LLMLang semantic merge tool.

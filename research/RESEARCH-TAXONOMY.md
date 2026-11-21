@@ -154,6 +154,8 @@ The highest-leverage gaps to address explicitly are:
 
 These are gaps to research, not predetermined design requirements.
 
+RT-23 and RT-24 have a bounded mapping-revision merge experiment with key and export conflicts. [Interface mapping merge](RT-23-INTERFACE-MAPPING-MERGE.md)
+
 ## 5. Relationship to the specification space
 
 The taxonomy defines dimensions of research, not a checklist of independent toggles. The eventual option space is constructed from the vectors actually supported by research. The dependency map identifies conditional choices and incompatibilities; the synthesis process then generates valid integrated candidate specifications and compares them as wholes.
