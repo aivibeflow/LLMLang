@@ -109,7 +109,7 @@ All listed RT-00 follow-up PRs remain open and unmerged:
 |---|---|---|
 | [#127](https://github.com/aivibeflow/LLMLang/pull/127) | B4 duplicate/supersession | Pinned to older merge-base `f09047a...`; divergent from main `017e64b...`; rebase and inventory reconciliation required |
 | [#130](https://github.com/aivibeflow/LLMLang/pull/130) | B5 traceability graph | Based on main `017e64b...`; report's 488 count is stale and must be refreshed to 490 |
-| [#131](https://github.com/aivibeflow/LLMLang/pull/131) | B6 unresolved register | 40-record bounded register with C–F follow-up addendum; Required CI was still running at report preparation |
+| [#131](https://github.com/aivibeflow/LLMLang/pull/131) | B6 unresolved register | 40-record bounded register with C–F follow-up addendum; Required CI run #44938490969 passed all jobs |
 | [#136](https://github.com/aivibeflow/LLMLang/pull/136) | C reproduction workflow | Non-required workflow; RT-16/CLI run passed |
 | [#137](https://github.com/aivibeflow/LLMLang/pull/137) | RT-04 status correction | Documentation correction based on existing successful run |
 | [#138](https://github.com/aivibeflow/LLMLang/pull/138) | C evidence refresh | Records RT-16/CLI exact inputs and run evidence |
