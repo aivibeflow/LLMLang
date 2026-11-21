@@ -846,6 +846,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Status:** initial workload acceptance criteria and an executable CLI corpus with C and Python host references are recorded in [RT-01 Reference Workloads](research/RT-01-REFERENCE-WORKLOADS.md). [Scenario 95 execution](research/RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md) adds an evidence-linked diagnostic/repair contract candidate, 12 structural discriminators, and a controlled evaluation protocol. These are analytical outputs only: LLMLang implementation behavior, human/agent usability, review quality, context/token use, repair effort, scope violations, and adoption criteria still need implementation and controlled study.
 
+**Research output (2026-11-21)** · Four executable replay tests check Unicode locations, stale or incomplete diagnostics, multi-document repair staging, and a compile-clean edit that changes behavior. Human and agent evaluations remain open. [RT-17 diagnostic replay](research/RT-17-DIAGNOSTIC-REPLAY.md)
+
 **Exit criteria:** representative large-project benchmarks; working collaboration and recovery workflows; documented trust/security model; practical developer workflow evaluated with real tasks.
 
 ## 7.6 Toolchain Server and semantic development API (RT-19)
