@@ -1,6 +1,7 @@
 name: Research Inventory Freshness Audit
 # RT-00 reconciliation rerun marker: refresh exact current-main tree before manifest edit
 # RT-00 latest-main audit rerun after new RT evidence
+# RT-00 audit rerun after latest RT-24 call-target merge
 # RT-00 rerun marker: current-main baseline after D/E refresh
 
 on:
