@@ -40,3 +40,8 @@ From the repository root use CPython 3.12.14. Three cancellation tests and the f
 python -B -m unittest discover -s research/PROTOTYPES/BUDGET-CANCELLATION-01 -v
 python -B -m unittest discover -s research/PROTOTYPES/BUDGET-RESERVATION-01 -v
 ```
+
+
+## Exact retained reproduction (2026-11-21)
+
+The cancellation suite passed 3/3 tests under CPython 3.12.14 on exact checkout `00857e7dee48d0026e6d47c776c8792f6f1f245d` in [run #44949563913](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913), artifact [14724622101](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913/artifacts/14724622101). The artifact digest is `sha256:a7c9d8e75c857b59d4827c3cad2aaabe40e0820d13f4f2982fa3db832964b12b`; test source SHA-256 is `7f1380e7abfe4d23c9814098e75bf7fa9cf357f5314280fe22db0e333e136f59` and log digest is `999d093e520cf4008191bcae30fa8acedcf6d50be7b5a9138f5eba19c47e0de9`.
