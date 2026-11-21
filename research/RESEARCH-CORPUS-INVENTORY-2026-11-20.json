@@ -2,8 +2,8 @@
   "schema_version": 1,
   "generated_at": "2026-11-21",
   "repository": "aivibeflow/LLMLang",
-  "revision": "13a518b2d85f756673346f6204b58229db4edd6c",
-  "source": "Recursive Git tree at RT-00 B4 report snapshot 13a518b2d85f756673346f6204b58229db4edd6c; inventory excludes its own manifest file.",
+  "revision": "84627a11919976e426a5db48c0f1e9280c61e9fb",
+  "source": "Recursive Git tree at RT-00 B4 report snapshot 84627a11919976e426a5db48c0f1e9280c61e9fb; inventory excludes its own manifest file.",
   "counts": {
     "research_files": 489,
     "markdown_files": 250,
@@ -8171,8 +8171,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "b1b7d5321c867531f563603e9938464f8423bc65",
-      "size_bytes": 25831,
+      "git_blob_sha": "ca68b2e63e0431f0fec3361a63fc817e170d5b42",
+      "size_bytes": 26090,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -13676,7 +13676,7 @@
   },
   "snapshot_reconciliation": {
     "reviewed_at": "2026-11-21",
-    "source_revision": "13a518b2d85f756673346f6204b58229db4edd6c",
+    "source_revision": "84627a11919976e426a5db48c0f1e9280c61e9fb",
     "inventory_excludes_its_own_manifest": true,
     "previous_inventory_revision": "b118346ecd499d7962a6ac546fb1031bc7e2bc26",
     "previous_inventory_records": 488,
@@ -13690,6 +13690,13 @@
       }
     ],
     "removed_paths": 0,
-    "note": "B4 performs exact-content SHA grouping over all 488 baseline artifacts and a bounded content-level review of high-risk semantic overlap/supersession families; no duplicate research report or prototype implementation was found. Historical inventory checks remain historical."
+    "note": "B4 performs exact-content SHA grouping over all 488 baseline artifacts and a bounded content-level review of high-risk semantic overlap/supersession families; no duplicate research report or prototype implementation was found. Historical inventory checks remain historical.",
+    "refreshed_existing_records": [
+      {
+        "path": "research/README.md",
+        "git_blob_sha": "ca68b2e63e0431f0fec3361a63fc817e170d5b42",
+        "size_bytes": 26090
+      }
+    ]
   }
 }
