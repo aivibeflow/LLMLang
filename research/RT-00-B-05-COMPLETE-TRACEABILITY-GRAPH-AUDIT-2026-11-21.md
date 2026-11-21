@@ -282,3 +282,12 @@ No historical artifact, implementation, test, fixture, or external snapshot was 
 The [Scenario 130 claim-level traceability pilot](RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md) demonstrates a local, non-global claim identifier scheme for one RT-04 scenario. It traces four falsifiable claims through report sections, model/probe symbols, test methods, exact source blobs, Required CI execution, native reproduction, and retained artifacts. A fifth broader design implication is deliberately left conditional because no independent-provider experiment supports it.
 
 This pilot does not resolve B5-U01's corpus-wide stable Claim ID gap. It demonstrates a bounded extraction method that can be repeated after an identifier policy is explicitly reviewed. The local IDs `S130-C01`–`S130-C05` must not be promoted to a global namespace by inference.
+
+
+## 10. B5-08 — RT-26 bounded claim-level traceability pilot
+
+A second claim-level pilot is recorded in [RT-00 B-05-02](RT-00-B-05-02-RT26-CLAIM-TRACEABILITY-PILOT-2026-11-21.md), based on the current-main cooperative reservation fixture. It maps four local claims to the report and exact test methods, and distinguishes the historical PR #129 validation statement from an exact retained execution-to-blob provenance chain.
+
+This updates the historical statement in §4.5 that RT-26 had no merged scenario/prototype/test/evidence chain: current main now contains one bounded cooperative cumulative-budget model and its four-test module. The broader RT-26 requirements remain open; no evidence is added here for instantaneous resource dimensions, runtime/OS enforcement, throttling, handlers, attribution, fairness, or production atomicity. PR #174 remains branch-only and is excluded.
+
+The local identifiers `R26-C01`–`R26-C04` are pilot-scoped and do not resolve B5-U01's missing corpus-wide Claim ID namespace. Exact CI execution-to-source-blob binding also remains unresolved.

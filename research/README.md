@@ -127,6 +127,7 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 - [RT-00 B6 machine-readable unresolved register](RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.json) — structured companion to the B6 audit report.
 - [RT-00 G current status and exit report (2026-11-21)](RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md) — consolidated A–F findings, current-main deltas through RT-24/RT-09, unresolved work, and explicit RT-00 exit blockers; not a completion declaration.
 - [RT-00 B3 cross-cutting semantic consistency audit (2026-11-21)](RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md) — identity, contract, dependency/cache, backend, package trust, resource accounting, and authority consistency review.
+- [RT-00 B-05-02 RT-26 claim-level traceability pilot (2026-11-21)](RT-00-B-05-02-RT26-CLAIM-TRACEABILITY-PILOT-2026-11-21.md) — bounded report-to-test mapping for cooperative cumulative-budget reservation, with exact execution provenance limitations.
 
 ## Corpus inventory and audit
 
