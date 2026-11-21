@@ -586,6 +586,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - The closed fixture composes independent exact call retargets under a fixed selector policy and rejects a missing upstream branch-version pin. [Call-target merge](research/RT-24-CALL-TARGET-MERGE.md)
 - [ ] Define a structured conflict/result model with provenance, exact input roots, merge policy/tool versions, resolution decisions, and explicit clean/conflict/invalid/insufficient-context outcomes.
 - [ ] Specify merge rules for versioned Interface Mapping Revisions separately from immutable semantic objects; use revision/CAS baselines and fail on same-key or otherwise ambiguous conflicts.
+  - A Git publication fixture binds the materialized mapping bytes to the exact semantic catalog and branch commit. [Mapping tree publication](research/RT-23-MAPPING-TREE-PUBLICATION.md)
 - [ ] Design a repository-level merge coordinator with complete tree context. Do not treat independent per-file merge-driver success as proof of whole-SPG consistency.
   - A closed replay fixture detects a missing semantic patch even when the candidate tree imports and its parent matches. [Semantic patch reconciliation](research/RT-24-SEMANTIC-PATCH-RECONCILIATION.md)
 - [ ] Integrate the semantic engine with ordinary Git merge/rebase/cherry-pick. Prototype the custom merge driver and interactive mergetool, explicit local setup/doctor behavior, and fail-closed behavior when the coordinator or required context is unavailable.
