@@ -363,6 +363,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Direct CPC evidence (2026-11-21)** · A source-derived flat CPC refutation passes the assumption and verdict gates. A refutation of a substituted query passes standalone Logos and fails source binding. [Source-bound CPC refutation](research/RT-07-SOURCE-BOUND-CPC-REFUTATION.md)
 
+**CPC alias evidence (2026-11-21)** · A closed proof profile can admit disjoint nullary abbreviations while checking actual top-level constant declarations separately. [CPC alias binding](research/RT-07-CPC-NULLARY-ALIAS-BINDING.md)
+
 **Status** — Partially validated. Pinned CI passed the version-2 CPC parser-state and factor-pair tests in run 44185102839. SCW-06–30 establish correspondence from the checked source AST to a canonical difference formula and prove QF_LIA admissibility and declaration closure in the solver term representation. JSON correspondence and source-derived CPC binding remain open. [Scenario 34 proof boundary](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
 
 ## 2.4 Correctness of optimization and translation
