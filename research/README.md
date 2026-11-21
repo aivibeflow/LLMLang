@@ -105,14 +105,19 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 
 - [Research corpus semantic relationship review — scenario studies (2026-11-20)](RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md) — first-pass classification of scenario relationships, scoped supersession, exact-blob duplicates, and unresolved gaps.
 
+## Cross-cutting research references
+
+- [Research Taxonomy](RESEARCH-TAXONOMY.md) — the 24 research areas and their scope.
+- [Research Dependency Map](RESEARCH-DEPENDENCY-MAP.md) — the 94 directed cross-area dependencies and documented feedback loops.
+- [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md) — candidate immutable dependency-index model; not a canonical schema.
+- [Draft Glossary](../draft/GLOSSARY.md) — provisional hash and semantic terminology; PLAN.md records the unresolved `ImpHash`/`ImplHash` spelling discrepancy.
+- [Cross-cutting alignment review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) — count reconciliation, candidate/non-normative status, and terminology boundaries.
+
 ## Corpus inventory and audit
 
 - [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked research artifact under `research/` at the recorded revision (excluding the inventory manifest itself).
 - [Research corpus audit (2026-11-20)](RESEARCH-CORPUS-AUDIT-2026-11-20.md) — audit scope, verified checks, findings, and remaining work for PLAN.md §0.1.
-- [Research corpus semantic traceability — first pass (2026-11-20)](RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md) — individual first-pass role mappings for scenario and prototype artifacts; not claim-level validation.
-- [Dependency Graph prototype evidence review (2026-11-20)](RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-DEPENDENCY-GRAPH-01-2026-11-20.md) — historical Lean/SCW-04/05 boundary review, superseded for current status by the RT-00 B-02b reports.
 - [RT-00 B-02b.1 Lean proof graph audit](RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md) — current SC-1–SC-7 declaration crosswalk and Lean proof boundary.
 - [RT-00 B-02b.5 Dependency Graph evidence consolidation](RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md) — consolidated family graph, CI/test evidence, and inventory reconciliation.
-- Pending detailed evidence reviews: [Python prototype/test audit PR #113](https://github.com/aivibeflow/LLMLang/pull/113), [scenario overlap audit PR #115](https://github.com/aivibeflow/LLMLang/pull/115), and [orphan/traceability audit PR #116](https://github.com/aivibeflow/LLMLang/pull/116).
 - [RT-02 Requirement Reconstruction and Human Semantic Validation](RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md) — non-normative proposal with a worked end-to-end requirement example.
 - [RT-04 Native Reproduction Protocol](RT-04-NATIVE-REPRODUCTION.md) and [LLVM Preservation Reproduction Protocol](LLVM-PRESERVATION-REPRODUCTION.md) — separate native reproduction workflows and their evidence boundaries.
