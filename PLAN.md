@@ -659,6 +659,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define conformance evidence, optional features, and implementation-defined behavior.
 - [ ] Define error, resource, process, file, and descriptor semantics.
 - [ ] Define concurrency and environment-dependent behavior.
+  - A blocking pipe probe distinguishes returned EINTR from a handled signal followed by a restarted read. [POSIX read interruption](research/RT-10-POSIX-READ-INTERRUPTION.md)
 - [ ] Define initial vertical slice, such as process startup, basic file I/O, and errors.
 - [ ] Select initial Linux architecture and isolate syscall ABI details.
 - [ ] Define how existing C libraries and external ABI boundaries are called.
