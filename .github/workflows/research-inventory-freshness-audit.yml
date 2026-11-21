@@ -1,4 +1,5 @@
 name: Research Inventory Freshness Audit
+# RT-00 rerun marker: current-main baseline after D/E refresh
 
 on:
   pull_request:
