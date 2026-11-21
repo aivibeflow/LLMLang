@@ -1,6 +1,7 @@
 # RT-25 — Memory Allocator Compatibility, Selection, and Benchmarking
 
-**Status:** Not started — mandatory research item in `PLAN.md` §7.1  
+**Status:** bounded native compatibility evidence. [Rust System with glibc and jemalloc](RT-25-RUST-SYSTEM-ALLOCATOR-COMPATIBILITY.md)
+
 **Research area:** RT-25  
 **Priority:** P1  
 **Scope:** Rust-based LLMLang runtime and toolchain; initial focus on supported native targets  
