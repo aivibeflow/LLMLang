@@ -350,6 +350,8 @@ These edges are planning hypotheses. They identify the research dependencies for
 
 ## 12. Canonical semantic representation, diff, and merge (RT-24)
 
+The typed tree diff fixture informs DEP-087. A deterministic semantic comparison can preserve exact call selectors across a retarget while Git evidence varies independently. [Typed tree diff](RT-24-TYPED-TREE-DIFF.md#model-and-observations)
+
 RT-24 is a research proposal, not an accepted SPG schema, identity model, canonical encoding, or merge policy. It depends on the source semantics and identity/dependency evidence, and must preserve the separate responsibilities of RT-20 caller/hash propagation and RT-22/RT-23 repository/worktree integration.
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |

@@ -91,6 +91,8 @@ A research topic is an area of uncertainty, not necessarily one decision. Each t
 
 The taxonomy is a living index. It must be revised when research reveals new aspects, splits an area into independent questions, or shows that two apparently separate topics are inseparable.
 
+RT-24 reports typed call-site differences after two independently validated closed-tree imports. [Typed tree diff](RT-24-TYPED-TREE-DIFF.md)
+
 ## 2. Research-area inventory
 
 | ID | Research area | Scope / questions | Existing material | Priority / status |
