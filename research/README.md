@@ -117,5 +117,7 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 
 - [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked research artifact under `research/` at the recorded revision (excluding the inventory manifest itself).
 - [Research corpus audit (2026-11-20)](RESEARCH-CORPUS-AUDIT-2026-11-20.md) — audit scope, verified checks, findings, and remaining work for PLAN.md §0.1.
+- [RT-00 B-02b.1 Lean proof graph audit](RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md) — current SC-1–SC-7 declaration crosswalk and Lean proof boundary.
+- [RT-00 B-02b.5 Dependency Graph evidence consolidation](RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md) — consolidated family graph, CI/test evidence, and inventory reconciliation.
 - [RT-02 Requirement Reconstruction and Human Semantic Validation](RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md) — non-normative proposal with a worked end-to-end requirement example.
 - [RT-04 Native Reproduction Protocol](RT-04-NATIVE-REPRODUCTION.md) and [LLVM Preservation Reproduction Protocol](LLVM-PRESERVATION-REPRODUCTION.md) — separate native reproduction workflows and their evidence boundaries.
