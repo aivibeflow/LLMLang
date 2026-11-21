@@ -134,6 +134,8 @@ Every research report should identify:
 
 Research status must distinguish at least: not started, in progress, evidence collected, proposal drafted, independently reviewed, and completed for current scope. “Completed” means the stated research questions have been investigated to the declared scope; it does not mean a vector has been accepted.
 
+RT-10 has a bounded libc/Linux comparison for nonblocking pipe I/O, with explicit typed outcomes and side effects. Wider platform conformance still needs validation. [Nonblocking pipe I/O](RT-10-POSIX-NONBLOCKING-PIPE-IO.md)
+
 ## 4. Research coverage gaps
 
 The current repository has substantial work on requirement evolution, dependency analysis, proof boundaries, artifact storage, compilation caching, runtime, backends, and Git. It does not yet constitute a complete exploration of the language design space.

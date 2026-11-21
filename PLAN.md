@@ -645,7 +645,9 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Existing evidence:** `research/POSIX-RUNTIME-ARCHITECTURE.md`; related open questions LL-013–LL-019 in `TODO.md`.
 
-**Status:** researched at architectural level in `research/POSIX-RUNTIME-ARCHITECTURE.md`; POSIX edition/profile, API, vertical slice, conformance evidence, and implementation decisions remain open.
+**Research output (2026-11-21)** · Libc and raw Linux x86-64 adapters match 112 expected nonblocking pipe observations, including short transfer, would-block, EOF and SIGPIPE. [RT-10 pipe I/O](research/RT-10-POSIX-NONBLOCKING-PIPE-IO.md)
+
+**Status:** partially validated for the bounded POSIX pipe fixture. The overall profile, wider conformance, and runtime integration remain open.
 
 **Exit criteria:** a small typed executable subset; reference execution; one POSIX vertical slice with explicit contracts and conformance scope; tests for observable behavior and error cases.
 
