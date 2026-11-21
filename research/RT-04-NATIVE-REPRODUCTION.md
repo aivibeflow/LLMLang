@@ -1,6 +1,6 @@
 # RT-04 Native Reproduction Protocol
 
-**Status:** reproducibility harness prepared; a workflow execution is still required before any native result is marked reproduced.
+**Status:** bounded native and LLVM reproduction completed in Actions run [44774296240](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240): 10/10 native commands and 2/2 LLVM preservation probes passed. This status applies only to the recorded fixtures, source tree, and toolchains; it is not general backend-correctness evidence. Rerun when relevant probe code or toolchain pins change.
 
 ## Purpose
 
