@@ -535,6 +535,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Detailed candidate contract:** [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md). RT-24 is a research proposal, not an accepted format or merge decision. Its identity/SPG reconciliation is recorded in [RT-24 Identity and SPG Reconciliation](research/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md), with the scenario comparison in [RT-24 Identity Architecture Decision Matrix](research/RT-24-IDENTITY-DECISION-MATRIX.md). There is no standalone RT-05 specification in the current repository; the relevant evidence is distributed across Studies 05–08, RT-03, Semantic Dependency Index research, and the executable prototypes.
 
+**Research output (2026-11-21)** · In a temporary Git repository, valid branch tips merge cleanly into a tree that cannot reconstruct an exact callee. A warm store masks the missing version. Reading the committed inventory also detects a caller omission shared by the reverse index and its payload audit, triggering human review and full revalidation in RT-20. Explicit version retention and a clean clone provide positive controls. [RT-24 merged-tree source completeness](research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
+
 **Refined execution order:**
 - [x] Reconcile RT-24 against the current identity/SPG research and executable subset; record the competing Stable Entity ID versus content-addressed-value models, occurrence/selection and lineage boundary, current prototype fields/limitations, hash-layer distinctions, and dependency-completeness gap in RT-24 Identity and SPG Reconciliation. No identity architecture or canonical SPG schema was selected.
 - [x] Compare Studies 05–08 against rename, identical-value/different-occurrence, split/merge, move, call-site, and branch-merge scenarios in RT-24 Identity Architecture Decision Matrix. This completes the comparison, not the architecture decision.
@@ -565,7 +567,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Add real temporary-repository end-to-end tests for clone/reconstruction, parallel branches, merge/rebase/cherry-pick, cross-file conflicts, mapping conflicts, RT-20 caller splits, clean and failed validation, crash recovery, and no-duplicate commit retry.
 - [ ] Benchmark repository-level merge, semantic import/export, incremental worktree synchronization, and cache/store reconstruction; record platform and repository-size assumptions.
 
-**Status:** architecture research exists and is cross-linked; RT-24 now records a candidate technical contract. Canonical representation, identity/schema reconciliation, semantic diff/merge implementation, Git integration, and tests remain open. ADR-014 remains Proposed. ADR-014 remains Proposed.
+**Status** · Partially validated for exact calls and the closed source-inventory fixture. Canonical representation, identity/schema reconciliation, general dependency evidence, semantic merge, and synchronized commit remain open. ADR-014 stays Proposed.
 
 **Dependency:** canonical SPG/identity and import/export decisions from Stages 1 and 3; RT-20 impact-plan correctness; RT-19 semantic API; RT-22 repository/worktree contract; RT-23 shared-state and synchronized-commit runtime.
 
