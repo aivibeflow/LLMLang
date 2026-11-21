@@ -170,11 +170,13 @@
       "topic": "RT-26 resource accounting and enforcement",
       "sources": [
         "research/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md",
+        "research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md",
+        "research/PROTOTYPES/BUDGET-RESERVATION-01/test_budget_reservation.py",
         "research/RESEARCH-DEPENDENCY-MAP.md",
         "PLAN.md"
       ],
-      "finding": "Main baseline records RT-26 as Not started; mandatory resource dimensions, attribution, limits, overshoot, handlers and platform enforcement lack a merged end-to-end evidence chain.",
-      "required_action": "Separate resource dimensions and platform guarantees; incorporate only merged PR evidence after review.",
+      "finding": "Current main contains a bounded cooperative cumulative-budget reservation model and four-method test module. The fixture reports split check/charge overshoot in four of six schedules and agreement with an independent subtree sum across 720 schedules/4,320 transitions. This does not cover the mandatory resource dimensions or real-time enforcement, and the historical PR #129 execution is not bound to the current test blob by a retained run log/digest.",
+      "required_action": "Preserve the cooperative model as partial evidence; bind future executions to exact test/source blobs and environment; separately investigate instantaneous memory, CPU, disk/network I/O, coroutine switches, PMU counters, attribution, limits/overshoot, handlers, throttling, and OS/platform enforcement.",
       "decision_owner": "RT-26 research"
     },
     {

@@ -69,7 +69,7 @@ The companion JSON records every item in machine-readable form. The main categor
 ### 4.2 Proof and implementation boundaries
 
 - **B6-U04 — LLVM preservation:** finite pinned probes do not establish general lowering, target or runtime preservation.
-- **B6-U06 — RT-26:** the main baseline has no complete merged evidence chain across the required resource dimensions and enforcement mechanisms.
+- **B6-U06 — RT-26:** main now contains a bounded cooperative cumulative-budget reservation model and a four-method test module. This is partial model evidence only; exact historical execution-to-blob provenance, the other mandatory resource dimensions, attribution, real-time limits/overshoot, handlers, and platform enforcement remain unresolved.
 - **B6-U08 — Scenario 34:** SC-1–SC-7 support the restricted Int/Bool source-to-canonical-query fragment; Python JSON/CPC binding, trusted-computing-base and SCW-30–41 obligations remain distinct.
 - **B6-U09 — Python test coverage:** 32 test modules / 376 named test methods are not equivalent to the 12 modules / 177 methods selected by the reviewed Required CI configuration.
 - **B6-U10 — reproduction provenance:** selected native/LLVM slices are reproduced, but exact environment and input/output binding is not uniform. Scenario 130's historical report lacks the exact SQLite source ID, so only version-level equivalence is established.
@@ -233,3 +233,12 @@ D PR #168 revalidates 13/13 local snapshot blob identities; OCI/Alive2/REAPI com
 - F/G: PRs #158/#155 current-main cross-document and status refreshes.
 
 All these PRs remain branch-only. Their evidence must not be described as integrated main evidence until reviewed and merged. The final inventory must be refreshed after any integration. RT-00 remains open.
+
+
+## 13. B6 refresh — RT-26 bounded evidence now present on main (2026-11-21)
+
+The earlier B6-U06 statement that the main baseline had no merged evidence chain is stale in one narrow respect. Current main contains `research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md` and `research/PROTOTYPES/BUDGET-RESERVATION-01/test_budget_reservation.py` (four test methods). The report records a fixed acyclic hierarchy and cumulative cooperative budget: four-of-six split check/charge schedules overshoot; 720 reservation/settlement orders are checked over 4,320 transitions; retry and cancellation behavior are covered.
+
+This changes the evidence classification from “no merged model evidence” to “bounded cooperative model evidence present.” It does not close RT-26. The exact PR #129 test execution checkout is not retained as a source-blob-bound run record. The current test blob was independently run in CPython 3.13.5 with 4/4 passing methods in the RT-00 B-05-02 pilot branch; that pilot itself remains unmerged and its execution is not a CPython 3.12.14 reproduction. No evidence is claimed for instantaneous memory, CPU, disk/network I/O, coroutine switches, PMU counters, OS enforcement, throttling, fairness, or production atomicity.
+
+The separate PR #174 cancellation/terminal-settlement experiment remains branch-only and is not incorporated. B6-U07 authority composition remains unresolved. No architecture decision is implied.
