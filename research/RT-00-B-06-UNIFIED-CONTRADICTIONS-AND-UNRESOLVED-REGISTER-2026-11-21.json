@@ -205,10 +205,13 @@
       "topic": "Scenario 34 trust boundary and source-derived CPC assumptions",
       "sources": [
         "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-        "research/RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md"
+        "research/RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md",
+        "research/RT-07-SOURCE-BOUND-CPC-REFUTATION.md",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCpcRefutation.lean",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCpcRefutationTests.lean"
       ],
-      "finding": "SC-1–SC-7 are kernel-checked for a restricted deterministic Int/Bool fragment, but Python v2 JSON/CPC assumptions are not proved to be exactly the source-derived formula. SCW-30–41 include remaining closure, adversarial, axiom-audit, CI and acceptance gates.",
-      "required_action": "Close each SCW obligation with a separate claim/evidence record; do not call the full source-to-Logos chain proven.",
+      "finding": "A direct typed-source-to-CPC gate now reconstructs the relational query, binds expected declarations to retained parser state, compares the complete ordered assumptions, and requires a complete Logos correct verdict. Negative controls reject valid refutations of the wrong query, different source, reordered assumptions, undeclared factor, missing derivation, and out-of-profile aliases. This partially addresses source-derived CPC binding for the tested fragment. JSON/wire correspondence and general denotation-preservation obligations remain open.",
+      "required_action": "Reproduce the direct Lean source gate on an exact pinned CI checkout; close JSON/wire correspondence separately; specify alias/declaration admission; complete SCW-30–41 and TCB obligations; do not generalize the tested fragment to the whole source language.",
       "decision_owner": "Scenario 34 proof work"
     },
     {

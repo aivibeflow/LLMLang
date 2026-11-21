@@ -346,3 +346,11 @@ This section extends the original graph baseline with later bounded studies pres
 ### Graph status
 
 These additions provide more explicit report-to-test-to-run edges for RT-06, RT-09 and RT-26, and report-to-test declarations for RT-24. RT-13 has a report-declared comparison and source but no retained exact workflow run. The global Claim ID namespace, per-claim evidence edges across all scenarios, full test discovery/execution/support distinction, and PLAN exit-criterion closure remain unresolved. No file-level classification is promoted to claim-level evidence.
+
+## 11. RT-07 source-bound CPC refutation — direct-path evidence (2026-11-21)
+
+Current main adds `research/RT-07-SOURCE-BOUND-CPC-REFUTATION.md` and the Lean implementation/test files `SourceCpcRefutation.lean` and `SourceCpcRefutationTests.lean` under the Dependency Graph Logos-binding prototype.
+
+The direct path reconstructs the relational query from typed source, observation contract, scope and factor; binds expected declarations against retained CPC parser state; structurally compares the complete ordered assumption list; and accepts only a complete Logos `.correct` verdict. The controls include a valid refutation of the wrong query, replay against an input-dependent source, reordered assumptions, undeclared factor, missing derivation, and solver-emitted aliases outside the admitted declaration shape.
+
+This establishes an executable source-bound CPC check for the tested fragment and directly addresses one portion of Scenario 34's source-derived CPC assumption gap. It does not close the JSON/wire path, general alias admission, universal denotation preservation through every renderer/parser state, or a new Logos soundness theorem. The report declares Lean 4.36.0 and the pinned Logos revision; this addendum does not claim an independently retained exact workflow run for the new test driver. The result is bounded evidence, not full Scenario 34 closure.
