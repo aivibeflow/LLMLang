@@ -272,3 +272,13 @@ A dedicated non-required workflow independently reran both reports' declared com
 The retained artifact is [14724810775](https://github.com/aivibeflow/LLMLang/actions/runs/44948779526/artifacts/14724810775), ZIP digest `sha256:9e40d615d60bccad968b4fb4dadac15549d20b1322bf38e3c02c4b7a7b3ac1b2`, with 90-day retention. It records exact report, implementation and test source SHA-256 values, runtime version, full logs and log digests. Log digests: RT-06 `87d4f265475523f6bfe6d8b104430301a9671873ed4920f5a7a2a132af48cfd0`; RT-09 `9c9540d147cdf48c9d2bf563b36dbe8bac232d4d5cc96c6498b5e59fd8e4e1e0`.
 
 This closes the exact reproduction gap for these two bounded Python test suites at this checkout. It does not establish general dependency closure, complete Action Key semantics, LLVM/machine-code preservation, or any untested target/runtime behavior. The workflow is not a Required CI gate.
+
+## RT-26 cooperative reservation and cancellation reproduction — 2026-11-21
+
+The dedicated workflow [#44949563913](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913) reran both current-main RT-26 cooperative budget suites from exact checkout `00857e7dee48d0026e6d47c776c8792f6f1f245d` under CPython 3.12.14 on Ubuntu 24.04:
+
+- Cancellation/terminal settlement: 3/3 tests passed.
+- Cumulative reservation: 4/4 tests passed.
+- Total: 7/7 tests passed, zero failures/errors.
+
+Retained artifact [14724622101](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913/artifacts/14724622101), digest `sha256:a7c9d8e75c857b59d4827c3cad2aaabe40e0820d13f4f2982fa3db832964b12b`, contains exact report/test SHA-256 values, full logs, and log digests. RT-26 now has reproducible bounded evidence for two cooperative cumulative-budget models. It remains incomplete across instantaneous memory/CPU/I/O, coroutine switches, PMU, external attribution, throttling, platform enforcement, and production crash/authenticity guarantees. This workflow is non-required and does not imply Required CI coverage.
