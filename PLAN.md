@@ -159,6 +159,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Research output (2026-11-21)** · The typed SPG study proposes nodes, edges, layer boundaries, lifecycle and granularity. In a closed fixture, 32 pairs of source bodies produce byte-identical graphs and match an independent trace oracle on 224 paired inputs. The experiment also distinguishes exact calls from operation bindings, validates typed recursion in two group encodings, and checks lineage across equal-value selections. [Typed Semantic Program Graph](research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md)
 
+**Research output (2026-11-21)** · Independent graph admission distinguishes persistence integrity from typed executable structure. Nine rehashed invalid graphs pass persistence and fail the new checker. [Typed SPG import validation](research/RT-05-TYPED-SPG-IMPORT-VALIDATION.md)
+
 **Status** · Partially validated for the closed scalar and ordered-event fixture. The canonical schema, wider language and repository correspondence, and identity rules remain open.
 
 ## 1.2 Semantic identity, hashes, and canonical encoding
