@@ -70,7 +70,7 @@ The companion JSON records every item in machine-readable form. The main categor
 
 - **B6-U04 — backend preservation:** RT-09 adds a bounded ordered-instruction lowering from the typed SPG with 140 differential cases and mutation-sensitive trace checking. This is a Python-level experiment, not LLVM or machine-code evidence; finite pinned probes and this intermediate representation do not establish general lowering, target or runtime preservation.
 - **B6-U06 — RT-26:** main now contains a bounded cooperative cumulative-budget reservation model and a four-method test module. This is partial model evidence only; exact historical execution-to-blob provenance, the other mandatory resource dimensions, attribution, real-time limits/overshoot, handlers, and platform enforcement remain unresolved.
-- **B6-U08 — Scenario 34:** SC-1–SC-7 support the restricted Int/Bool source-to-canonical-query fragment; Python JSON/CPC binding, trusted-computing-base and SCW-30–41 obligations remain distinct.
+- **B6-U08 — Scenario 34:** RT-07 now adds a direct typed-source-to-CPC refutation gate for the tested fragment, including declaration binding, ordered full-assumption comparison and complete Logos verdict checking. This partially addresses the source-derived CPC assumption gap. JSON/wire correspondence, general alias admission, universal renderer/parser-state denotation preservation, trusted-computing-base and SCW-30–41 obligations remain open.
 - **B6-U09 — Python test coverage:** 32 test modules / 376 named test methods are not equivalent to the 12 modules / 177 methods selected by the reviewed Required CI configuration.
 - **B6-U10 — reproduction provenance:** selected native/LLVM slices are reproduced, but exact environment and input/output binding is not uniform. Scenario 130's historical report lacks the exact SQLite source ID, so only version-level equivalence is established.
 
@@ -271,3 +271,9 @@ This addendum narrows stale statements in the original B6 baseline while preserv
 - **RT-26 / B6-U06:** reservation and cancellation models have exact CPython 3.12.14 reproduction, 7/7 combined tests, run #44949563913. The result remains cooperative cumulative-budget model evidence, not production enforcement.
 
 No direct semantic contradiction is introduced by these results. They are complementary bounded experiments with distinct scopes. B6 remains an unresolved register; no architecture decision is made.
+
+## 17. RT-07 direct source-bound CPC evidence (2026-11-21)
+
+Current main adds a direct-path CPC refutation gate in `research/RT-07-SOURCE-BOUND-CPC-REFUTATION.md`. It reconstructs the expected relational query from typed source and the observation contract, binds exact declarations in retained CPC parser state, compares the complete ordered assumption list, and requires a complete Logos `.correct` verdict. Negative controls demonstrate that a valid proof of a different query, replay against a different source program, reordered assumptions, undeclared factor, missing derivation, and out-of-profile solver aliases are rejected.
+
+This is an executable direct-path check for the report's tested fragment. It partially addresses B6-U08 and Scenario 34's source-derived CPC gap. It does not close JSON/wire correspondence, broader alias semantics, universal renderer/parser-state denotation preservation, a new Logos soundness theorem, or the remaining SCW obligations. The report declares Lean 4.36.0 and a pinned Logos revision; this register does not claim a retained exact workflow run bound to the new source/test blobs. B6-U08 remains unresolved.
