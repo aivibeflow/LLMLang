@@ -267,7 +267,7 @@ This addendum narrows stale statements in the original B6 baseline while preserv
 - **RT-06 / B6-U03:** the exact per-key negative-dependency projection has 13/13 tests passing in CPython 3.12.14, run #44948779526. Its complete-layer validation precondition and limits remain.
 - **RT-09 / B6-U04:** ordered lowering from typed SPG has 16/16 tests passing in the same run. This is not LLVM or machine-code evidence.
 - **RT-13 / B6-U04:** the memory32 report declares 12,800 oracle comparisons and two controls, with pinned Node/WABT versions and hashes. The report does not cite a retained CI run; exact workflow reproduction remains open.
-- **RT-24:** exact call-target merge is a bounded structural candidate with 18 focused/baseline tests declared passed; no exact CI run-to-blob evidence is asserted in this register.
+- **RT-24:** exact call-target merge passed 18/18 on CPython 3.12.14 in run #44950912463 with retained source hashes; runner Git was 2.56.1 rather than report-declared 2.52.0, so exact Git-version reproduction remains open.
 - **RT-26 / B6-U06:** reservation and cancellation models have exact CPython 3.12.14 reproduction, 7/7 combined tests, run #44949563913. The result remains cooperative cumulative-budget model evidence, not production enforcement.
 
 No direct semantic contradiction is introduced by these results. They are complementary bounded experiments with distinct scopes. B6 remains an unresolved register; no architecture decision is made.
@@ -277,3 +277,7 @@ No direct semantic contradiction is introduced by these results. They are comple
 Current main adds a direct-path CPC refutation gate in `research/RT-07-SOURCE-BOUND-CPC-REFUTATION.md`. It reconstructs the expected relational query from typed source and the observation contract, binds exact declarations in retained CPC parser state, compares the complete ordered assumption list, and requires a complete Logos `.correct` verdict. Negative controls demonstrate that a valid proof of a different query, replay against a different source program, reordered assumptions, undeclared factor, missing derivation, and out-of-profile solver aliases are rejected.
 
 This is an executable direct-path check for the report's tested fragment. It partially addresses B6-U08 and Scenario 34's source-derived CPC gap. It does not close JSON/wire correspondence, broader alias semantics, universal renderer/parser-state denotation preservation, a new Logos soundness theorem, or the remaining SCW obligations. The report declares Lean 4.36.0 and a pinned Logos revision; this register does not claim a retained exact workflow run bound to the new source/test blobs. B6-U08 remains unresolved.
+
+## 18. RT-24 exact-run provenance update (2026-11-21)
+
+The RT-24 call-target merge command passed 18/18 tests under CPython 3.12.14 on exact checkout `fa98a20c8ab5d3f28980b609c04aaec135dddde5` in [run #44950912463](https://github.com/aivibeflow/LLMLang/actions/runs/44950912463). Artifact [14725820800](https://github.com/aivibeflow/LLMLang/actions/runs/44950912463/artifacts/14725820800) records report/test/implementation source hashes and log digest. The actual Git was 2.56.1, not the 2.52.0 declared by the report; this environment discrepancy remains unresolved. This improves test-to-execution provenance but does not generalize the structural merge law beyond the fixture.

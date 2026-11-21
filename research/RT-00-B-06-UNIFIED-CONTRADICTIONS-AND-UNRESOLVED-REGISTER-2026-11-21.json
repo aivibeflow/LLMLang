@@ -236,10 +236,12 @@
         "research/RT-04-NATIVE-REPRODUCTION.md",
         "research/RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md",
         "PLAN.md",
-        "research/RT-00-C-02-SQLITE-IDENTITY-AND-SOURCE-ARCHIVE-INTEGRITY-2026-11-21.md"
+        "research/RT-00-C-02-SQLITE-IDENTITY-AND-SOURCE-ARCHIVE-INTEGRITY-2026-11-21.md",
+        "research/RT-24-CALL-TARGET-MERGE.md",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_call_target_merge.py"
       ],
-      "finding": "Reproduction is bounded and present for selected native/LLVM slices, but experiment metadata is not uniform; Scenario 130 historical record omits exact SQLite source ID, leaving version-level equivalence only. C-02 PR #164 now establishes a prospective Python SQLite 3.53.1 source-ID baseline and enforces it for future runs; SQLite/Python source archives and the LLVM package archive pass pinned SHA-256 checks in native run #44942585953. The original historical Scenario 130 source ID remains unavailable, and runner/container/rustup identity gaps remain.",
-      "required_action": "Bind each execution to source revision, exact tool/build, command, environment, input/output hashes and claim scope.",
+      "finding": "Selected native/LLVM slices and bounded RT-06/09/26/24 experiments have exact retained runs and source hashes. RT-24 passed 18/18 on CPython 3.12.14 but actual Git was 2.56.1 rather than report-declared 2.52.0. Scenario 130 historical report omits exact SQLite source ID, so only version-level equivalence is established.",
+      "required_action": "Keep run-to-source-blob provenance for each experiment; reproduce RT-24 under its declared Git 2.52.0 environment or amend the report with a justified environment policy; recover exact Scenario 130 SQLite source identity where possible.",
       "decision_owner": "RT-00-C reproducibility"
     },
     {

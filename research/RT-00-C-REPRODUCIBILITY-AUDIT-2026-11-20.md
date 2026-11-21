@@ -282,3 +282,7 @@ The dedicated workflow [#44949563913](https://github.com/aivibeflow/LLMLang/acti
 - Total: 7/7 tests passed, zero failures/errors.
 
 Retained artifact [14724622101](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913/artifacts/14724622101), digest `sha256:a7c9d8e75c857b59d4827c3cad2aaabe40e0820d13f4f2982fa3db832964b12b`, contains exact report/test SHA-256 values, full logs, and log digests. RT-26 now has reproducible bounded evidence for two cooperative cumulative-budget models. It remains incomplete across instantaneous memory/CPU/I/O, coroutine switches, PMU, external attribution, throttling, platform enforcement, and production crash/authenticity guarantees. This workflow is non-required and does not imply Required CI coverage.
+
+## RT-24 exact call-target merge reproduction — 2026-11-21
+
+[Workflow run #44950912463](https://github.com/aivibeflow/LLMLang/actions/runs/44950912463) independently executed the declared RT-24 call-target merge test command on exact checkout `fa98a20c8ab5d3f28980b609c04aaec135dddde5` under CPython 3.12.14. All 18 tests passed. Retained artifact [14725820800](https://github.com/aivibeflow/LLMLang/actions/runs/44950912463/artifacts/14725820800), digest `sha256:d5085926c0fe1dfe0a81b4ba1619df422bbecc9b3e9590668e4381ecab78ecf1`, records exact report/test/implementation hashes, the full log and digest `e8896e6e060b87235e1c9ef7f74dae922d302c2823216c6f4ec2f3000f834b80`. The runner used Git 2.56.1, whereas the RT-24 report declares Git 2.52.0; exact reproduction under the declared Git version remains unresolved.
