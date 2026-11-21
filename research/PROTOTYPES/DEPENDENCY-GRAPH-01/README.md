@@ -27,6 +27,14 @@ A closed source inventory in temporary Git repositories exercises exact callee r
 python -B -m unittest -v tests.test_rt24_merge_tree_gate
 ```
 
+## Merged Git tree and source completeness experiment
+
+A closed source inventory in temporary Git repositories exercises exact callee retention, omitted caller selections and tree-bound evidence replay. [Study and reproduction details](../../RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
+
+```sh
+python -B -m unittest -v tests.test_rt24_merge_tree_gate
+```
+
 ## Contract / implementation bindings
 
 `src/binding.py` adds immutable BindingSnapshots. Callers may depend on contract hashes while a snapshot selects concrete implementations. The snapshot hash changes when the implementation selection changes; execution-sensitive verification keys include that root. Binding rows validate semantic kinds and an exact hash-relevant `implements` dependency. Serialization is deterministic and checksummed.
