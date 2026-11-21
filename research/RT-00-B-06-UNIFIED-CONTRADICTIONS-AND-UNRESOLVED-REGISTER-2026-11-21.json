@@ -1,0 +1,722 @@
+{
+  "schema_version": 1,
+  "report": "research/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.md",
+  "repository": "aivibeflow/LLMLang",
+  "baseline_revision": "b0142c27f5632a859c379b78a10cb22f500ebfd8",
+  "generated_at": "2026-11-21",
+  "status": "bounded-audit-register",
+  "note": "B6 IDs identify audit register records, not global research Claim IDs. Pending PR evidence is not part of the main baseline. This refresh includes merged RT-23 PR #126; remaining follow-up PR states are recorded separately.",
+  "summary": {
+    "records": 41,
+    "apparent_conflicts_reconciled": 4,
+    "open_design_proof_evidence_gaps": 18,
+    "scoped_historical_or_complementary_relationships": 7,
+    "stale_status_or_count_discrepancies": 6,
+    "pending_pr_states": 3,
+    "direct_core_semantic_contradictions_confirmed": 0
+  },
+  "records": [
+    {
+      "id": "B6-C01",
+      "class": "apparent-conflict",
+      "status": "reconciled-no-contradiction",
+      "topic": "LLVM backend vs canonical semantics",
+      "sources": [
+        "research/LLVM-BACKEND-ARCHITECTURE.md",
+        "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+        "research/RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md"
+      ],
+      "finding": "LLVM is a replaceable backend; SPG remains the semantic authority. LLVM verifier/codegen success is not source-level preservation proof.",
+      "required_action": "Keep lowering, optimizer, target and runtime preservation as separate evidence gates.",
+      "decision_owner": "Future backend/language design; no decision required by audit"
+    },
+    {
+      "id": "B6-C02",
+      "class": "apparent-conflict",
+      "status": "reconciled-no-contradiction",
+      "topic": "Scenario 32/33 parser bridge vs Scenario 34 open source-to-query proof",
+      "sources": [
+        "research/RESEARCH-SCENARIO-32-TYPED-RELATIONAL-QUERY-IR.md",
+        "research/RESEARCH-SCENARIO-33-LEAN-PARSER-STATE-BINDING.md",
+        "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
+        "research/RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md"
+      ],
+      "finding": "The parser bridge can decode v2 JSON and compare CPC assumptions with a Lean-constructed term without proving that the payload is the formula derived from source semantics.",
+      "required_action": "Preserve separate claims for decoder/parser-state binding and source-derived formula correspondence.",
+      "decision_owner": "Scenario 34 proof work"
+    },
+    {
+      "id": "B6-C03",
+      "class": "apparent-conflict",
+      "status": "reconciled-no-contradiction",
+      "topic": "Scenario 20-24 experimental dependency discovery vs Scenario 25 formal semantic direction",
+      "sources": [
+        "research/RESEARCH-SCENARIO-20-DEPENDENCY-DISCOVERY.md",
+        "research/RESEARCH-SCENARIO-21-COUNTERFACTUAL-DEPENDENCY-DETECTION.md",
+        "research/RESEARCH-SCENARIO-22-COVERAGE-GUIDED-DEPENDENCY-DISCOVERY.md",
+        "research/RESEARCH-SCENARIO-23-MULTI-FACTOR-DEPENDENCY-ANALYSIS.md",
+        "research/RESEARCH-SCENARIO-24-ADAPTIVE-INTERACTION-DISCOVERY.md",
+        "research/RESEARCH-SCENARIO-25-FORMAL-SEMANTIC-DEPENDENCIES.md"
+      ],
+      "finding": "These are complementary layers: experimental observation/classification/scheduling and formal semantic dependency reasoning. Neither invalidates the other.",
+      "required_action": "Retain typed scope and evidence basis for each dependency source.",
+      "decision_owner": "Research taxonomy"
+    },
+    {
+      "id": "B6-C04",
+      "class": "apparent-conflict",
+      "status": "reconciled-no-contradiction",
+      "topic": "RT-05 resource vocabulary vs RT-26 runtime enforcement",
+      "sources": [
+        "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+        "research/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md",
+        "research/RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md"
+      ],
+      "finding": "SPG may represent resource concepts but explicitly excludes runtime resource accounting/enforcement validation. RT-26 is a separate research gate.",
+      "required_action": "Do not treat SPG representation as RT-26 evidence.",
+      "decision_owner": "RT-26 research"
+    },
+    {
+      "id": "B6-T01",
+      "class": "terminology",
+      "status": "unresolved",
+      "topic": "ImpHash vs ImplHash",
+      "sources": [
+        "draft/GLOSSARY.md",
+        "research/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+        "PLAN.md",
+        "research/RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md"
+      ],
+      "finding": "Both spellings occur in active research terminology; no authoritative naming decision is recorded in the reviewed baseline.",
+      "required_action": "Choose one canonical term and define migration/alias policy before normative schema use; do not silently normalize.",
+      "decision_owner": "Glossary/identity design decision"
+    },
+    {
+      "id": "B6-U01",
+      "class": "design-gap",
+      "status": "unresolved",
+      "topic": "Semantic value, managed occurrence, stable ID and lineage",
+      "sources": [
+        "research/LLMLang-CONCEPT.md",
+        "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+        "PLAN.md"
+      ],
+      "finding": "The documents distinguish immutable value identity, scoped occurrence/slot and continuity/lineage but do not specify their normative mapping and lifecycle.",
+      "required_action": "Define create/copy/move/delete-recreate/split-merge/import/recursive-group semantics and canonical hash envelope.",
+      "decision_owner": "Identity model decision"
+    },
+    {
+      "id": "B6-U02",
+      "class": "design-gap",
+      "status": "unresolved",
+      "topic": "Contract refinement to operation/implementation conformance bridge",
+      "sources": [
+        "draft/GLOSSARY.md",
+        "research/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+        "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md"
+      ],
+      "finding": "Call-site required/provided contract refinement is not equivalent to CCHash membership; mapping to exact OpHash, ImplHash and conformance evidence is absent.",
+      "required_action": "Specify typed mapping and fail-closed UNKNOWN behavior.",
+      "decision_owner": "Contract/conformance research"
+    },
+    {
+      "id": "B6-U03",
+      "class": "design-gap",
+      "status": "unresolved",
+      "topic": "Action Key and complete dependency closure",
+      "sources": [
+        "research/SEMANTIC-COMPILATION-CACHE.md",
+        "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+        "PLAN.md",
+        "research/RESEARCH-DEPENDENCY-MAP.md"
+      ],
+      "finding": "Per-action dependency closure, resolved binding inputs, evidence freshness and trust are not complete. Caller semantic hash alone is insufficient for execution-sensitive reuse.",
+      "required_action": "Define per-action key schemas and test binding-only changes for compile/link/execute/test/proof.",
+      "decision_owner": "Cache/dependency design and validation"
+    },
+    {
+      "id": "B6-U04",
+      "class": "proof-gap",
+      "status": "unresolved",
+      "topic": "Source semantics to LLVM/backend/runtime preservation",
+      "sources": [
+        "research/LLVM-BACKEND-ARCHITECTURE.md",
+        "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+        "research/RESEARCH-SCENARIO-96-LLVM-SEMANTIC-PRESERVATION.md",
+        "PLAN.md"
+      ],
+      "finding": "Finite LLVM 19.1.7 x86-64 probes do not prove general lowering preservation, other targets, allocator provenance or end-to-end runtime behavior.",
+      "required_action": "Build revision-pinned source-to-IR-to-target evidence chain and differential/formal checks for declared subsets.",
+      "decision_owner": "Backend validation gate"
+    },
+    {
+      "id": "B6-U05",
+      "class": "trust-gap",
+      "status": "unresolved",
+      "topic": "Package identity, provider closure and publisher trust",
+      "sources": [
+        "research/PROTOTYPES/PACKAGE-IDENTITY-01/README.md",
+        "research/SEMANTIC-COMPILATION-CACHE.md",
+        "research/RESEARCH-DEPENDENCY-MAP.md"
+      ],
+      "finding": "Content digest does not prove publisher authority, provenance authenticity, archive/index identity or complete transitive provider closure.",
+      "required_action": "Specify independent identity, provenance, signature/trust and closure gates.",
+      "decision_owner": "Package/supply-chain research"
+    },
+    {
+      "id": "B6-U06",
+      "class": "research-gap",
+      "status": "unresolved",
+      "topic": "RT-26 resource accounting and enforcement",
+      "sources": [
+        "research/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md",
+        "research/RESEARCH-DEPENDENCY-MAP.md",
+        "PLAN.md"
+      ],
+      "finding": "Main baseline records RT-26 as Not started; mandatory resource dimensions, attribution, limits, overshoot, handlers and platform enforcement lack a merged end-to-end evidence chain.",
+      "required_action": "Separate resource dimensions and platform guarantees; incorporate only merged PR evidence after review.",
+      "decision_owner": "RT-26 research"
+    },
+    {
+      "id": "B6-U07",
+      "class": "authority-gap",
+      "status": "unresolved",
+      "topic": "Composition of resource-budget authority and authorization",
+      "sources": [
+        "research/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md",
+        "research/RT-16-AUTHORIZATION-AND-CAPABILITY-SECURITY.md",
+        "research/RESEARCH-DEPENDENCY-MAP.md"
+      ],
+      "finding": "The composition of parent budget delegation, task capabilities, tool/agent authorization and OS/container enforcement authority is unspecified.",
+      "required_action": "Define authority boundaries and adversarial cases; preserve platform-specific enforcement classes.",
+      "decision_owner": "RT-16/RT-26 cross-cutting design"
+    },
+    {
+      "id": "B6-U08",
+      "class": "proof-gap",
+      "status": "unresolved",
+      "topic": "Scenario 34 trust boundary and source-derived CPC assumptions",
+      "sources": [
+        "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
+        "research/RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md"
+      ],
+      "finding": "SC-1–SC-7 are kernel-checked for a restricted deterministic Int/Bool fragment, but Python v2 JSON/CPC assumptions are not proved to be exactly the source-derived formula. SCW-30–41 include remaining closure, adversarial, axiom-audit, CI and acceptance gates.",
+      "required_action": "Close each SCW obligation with a separate claim/evidence record; do not call the full source-to-Logos chain proven.",
+      "decision_owner": "Scenario 34 proof work"
+    },
+    {
+      "id": "B6-U09",
+      "class": "evidence-gap",
+      "status": "unresolved",
+      "topic": "Python prototype test discovery vs Required CI execution",
+      "sources": [
+        "research/RT-00-B-02B-2-PYTHON-PROTOTYPE-AND-TEST-AUDIT-2026-11-20.md",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md"
+      ],
+      "finding": "The audited family contains 32 test modules/376 test_* methods while Required CI selected 12 modules/177 methods; source inventory and CI selection are not interchangeable.",
+      "required_action": "Track discovered, selected, executed, passed and claim-supporting tests as separate relations.",
+      "decision_owner": "Prototype test/evidence consolidation"
+    },
+    {
+      "id": "B6-U10",
+      "class": "provenance-gap",
+      "status": "unresolved",
+      "topic": "Per-experiment reproduction provenance",
+      "sources": [
+        "research/RT-04-NATIVE-REPRODUCTION.md",
+        "research/RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md",
+        "PLAN.md",
+        "research/RT-00-C-02-SQLITE-IDENTITY-AND-SOURCE-ARCHIVE-INTEGRITY-2026-11-21.md"
+      ],
+      "finding": "Reproduction is bounded and present for selected native/LLVM slices, but experiment metadata is not uniform; Scenario 130 historical record omits exact SQLite source ID, leaving version-level equivalence only. C-02 PR #164 now establishes a prospective Python SQLite 3.53.1 source-ID baseline and enforces it for future runs; SQLite/Python source archives and the LLVM package archive pass pinned SHA-256 checks in native run #44942585953. The original historical Scenario 130 source ID remains unavailable, and runner/container/rustup identity gaps remain.",
+      "required_action": "Bind each execution to source revision, exact tool/build, command, environment, input/output hashes and claim scope.",
+      "decision_owner": "RT-00-C reproducibility"
+    },
+    {
+      "id": "B6-U11",
+      "class": "provenance-gap",
+      "status": "unresolved",
+      "topic": "External snapshot completeness and provenance closure",
+      "sources": [
+        "research/references/snapshots/Alive2/",
+        "research/references/snapshots/OCI/",
+        "research/references/snapshots/REAPI/",
+        "research/RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md"
+      ],
+      "finding": "Some snapshots are partial or lack relative-link/proto import closure; URL presence and local copy do not establish complete source closure.",
+      "required_action": "Record snapshot completeness, source revision, missing imports/links and retrieval provenance per source.",
+      "decision_owner": "RT-00-D external provenance"
+    },
+    {
+      "id": "B6-U12",
+      "class": "validation-gap",
+      "status": "bounded-local-scan-complete-external-and-index-gaps-open",
+      "topic": "Current full-corpus Markdown links and anchors",
+      "sources": [
+        "PLAN.md",
+        "research/RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md",
+        "research/RT-00-D-EXTERNAL-SNAPSHOT-PROVENANCE-AUDIT-2026-11-20.md",
+        "research/RT-00-E-02-CURATED-EXTERNAL-REFERENCE-REACHABILITY-2026-11-21.md"
+      ],
+      "finding": "PR #160 scanned 256 Markdown/MDX documents in the current-main b0142c2 PR merge checkout (253 Markdown, 3 MDX). The run processed 2,891 link occurrences (1,318 unique): 1,641 accepted, 82 errors, and 1,168 excluded. All 82 errors are confined to partial upstream snapshots: 44 MCP root-absolute site paths, 32 OCI omitted-document links, and six Alive2 omitted assets/README links. No unresolved LLMLang-authored local link or available-target anchor was reported. External URLs were offline; non-Markdown resources and index completeness were not checked. E-02 PR #169 additionally checked the 17 curated external URLs: 16 returned content and POSIX returned 403 to the checker (indeterminate); this is not a corpus-wide external URL scan.",
+      "required_action": "Integrate E PR #160 after review; preserve upstream snapshot closure gaps and complete external URL, non-Markdown resource, and index-coverage audits separately.",
+      "decision_owner": "RT-00-E link/anchor audit"
+    },
+    {
+      "id": "B6-U13",
+      "class": "traceability-gap",
+      "status": "unresolved",
+      "topic": "No corpus-wide stable Claim ID namespace",
+      "sources": [
+        "research/RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md",
+        "research/RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md"
+      ],
+      "finding": "Claims are identified locally by section/scenario labels; no stable cross-artifact claim identity model exists. A bounded Scenario 130 pilot in B5 PR #151 assigns local IDs S130-C01–C05 and traces four executable claims; it does not create a corpus-wide namespace.",
+      "required_action": "Inventory local claim labels and design migration-compatible IDs before publishing a complete machine graph.",
+      "decision_owner": "Traceability model"
+    },
+    {
+      "id": "B6-U14",
+      "class": "traceability-gap",
+      "status": "unresolved",
+      "topic": "Test declaration, discovery, execution and support are conflated",
+      "sources": [
+        "research/RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md",
+        "research/RT-00-B-02B-2-PYTHON-PROTOTYPE-AND-TEST-AUDIT-2026-11-20.md",
+        "research/RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md"
+      ],
+      "finding": "A test source, CI selection, successful job and claim-supporting result are distinct states and are not consistently normalized. The Scenario 130 pilot in B5 PR #151 distinguishes report claims, model/test methods, CI execution, native execution, and retained artifacts for one bounded case; corpus-wide edge normalization remains unresolved.",
+      "required_action": "Adopt distinct edge/status types; require exact execution and result evidence before supports_claim.",
+      "decision_owner": "Traceability/evidence model"
+    },
+    {
+      "id": "B6-U15",
+      "class": "plan-gap",
+      "status": "unresolved",
+      "topic": "PLAN scheduling metadata vs exit-criteria acceptance",
+      "sources": [
+        "PLAN.md",
+        "research/RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md"
+      ],
+      "finding": "Inventory plan_stages and links to PLAN are candidate scheduling relations, not proof of exit criteria. PLAN §0.1 retains claim validation, reproducibility, current links and external completeness work.",
+      "required_action": "Represent scheduled_in separately from satisfies_exit_criterion and bind each checked item to evidence.",
+      "decision_owner": "PLAN/RT-00 completion"
+    },
+    {
+      "id": "B6-U16",
+      "class": "audit-gap",
+      "status": "unresolved",
+      "topic": "Semantic duplicate review is not all-pairs corpus exhaustive",
+      "sources": [
+        "research/RT-00-B-04-CORPUS-DUPLICATE-AND-SUPERSESSION-AUDIT-2026-11-21.md"
+      ],
+      "finding": "Exact blob scan covers the pinned 488-file tree, but semantic overlap review covers identified high-risk candidate families rather than every paragraph/section pair.",
+      "required_action": "Keep residual pairs unresolved; prioritize by shared claim/RT/prototype/evidence references.",
+      "decision_owner": "Future targeted semantic duplicate passes"
+    },
+    {
+      "id": "B6-U17",
+      "class": "numbering-gap",
+      "status": "unresolved",
+      "topic": "Scenario 16 missing",
+      "sources": [
+        "research/RESEARCH-TAXONOMY.md",
+        "research/RT-00-B-04-CORPUS-DUPLICATE-AND-SUPERSESSION-AUDIT-2026-11-21.md"
+      ],
+      "finding": "No Scenario 16 report is present; corpus evidence does not determine whether the number was reserved or an artifact is missing.",
+      "required_action": "Retain the gap; do not renumber or fabricate a report.",
+      "decision_owner": "Research history/author clarification"
+    },
+    {
+      "id": "B6-S01",
+      "class": "supersession",
+      "status": "scoped-historical",
+      "topic": "Git semantic repository proposal",
+      "sources": [
+        "research/GIT-SEMANTIC-REPOSITORY.md",
+        "research/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md",
+        "docs/adr/014-git-semantic-merge.md",
+        "research/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+        "research/RT-22-*",
+        "research/RT-23-*"
+      ],
+      "finding": "The earlier broad current-architecture proposal and embedded ADR-0001 are superseded only for the external-KV-authoritative/current direction; surrounding alternatives and historical analysis remain valid background.",
+      "required_action": "Link current readers to successor docs; preserve original report and historical claims.",
+      "decision_owner": "Documentation maintenance"
+    },
+    {
+      "id": "B6-S02",
+      "class": "supersession",
+      "status": "partial-supersession",
+      "topic": "Related-project scan vs deep comparison",
+      "sources": [
+        "research/RESEARCH-RELATED-PROJECTS.md",
+        "research/RESEARCH-DEEP-COMPARISON.md"
+      ],
+      "finding": "Deep comparison supersedes the initial scan only for four deeply reviewed projects and inspected claims; the broad scan remains broader.",
+      "required_action": "Preserve broad scan and scope successor links.",
+      "decision_owner": "Documentation maintenance"
+    },
+    {
+      "id": "B6-S03",
+      "class": "applicability",
+      "status": "inactive-unless-triggered",
+      "topic": "Scenario 134 internal wire compatibility matrix",
+      "sources": [
+        "research/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md"
+      ],
+      "finding": "Cross-version internal component compatibility matrix is inactive under the recorded same-build/same-toolchain decision; prior-art findings and external/persistent boundaries remain relevant.",
+      "required_action": "Do not treat Scenario 134 as a current implementation requirement absent a documented reconsideration trigger.",
+      "decision_owner": "Architecture decision owner"
+    },
+    {
+      "id": "B6-S04",
+      "class": "supersession",
+      "status": "scoped-supersession",
+      "topic": "Scenario 31 initial query representation",
+      "sources": [
+        "research/RESEARCH-SCENARIO-31-QF-LIA-PROFILE.md",
+        "research/RESEARCH-SCENARIO-32-TYPED-RELATIONAL-QUERY-IR.md",
+        "research/RESEARCH-SCENARIO-33-LEAN-PARSER-STATE-BINDING.md",
+        "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md"
+      ],
+      "finding": "Scenario 32/33/34 supersede the initial text-oriented serialization/bridge sketches in scope, but Scenario 31's strict QF_LIA profile remains relevant.",
+      "required_action": "Keep section-level scope; do not mark whole Scenario 31 superseded.",
+      "decision_owner": "Documentation maintenance"
+    },
+    {
+      "id": "B6-S05",
+      "class": "historical-status",
+      "status": "historical-with-open-goal",
+      "topic": "Scenario 30 no-Lean-wrapper status",
+      "sources": [
+        "research/RESEARCH-SCENARIO-30-LOGOS-SOURCE-AUDIT.md",
+        "research/RESEARCH-SCENARIO-33-LEAN-PARSER-STATE-BINDING.md"
+      ],
+      "finding": "Scenario 30's original no-wrapper status is historical after Scenario 33; the source-derived proof-binding goal remains open.",
+      "required_action": "Label historical status and link Scenario 33 without closing proof obligations.",
+      "decision_owner": "Documentation maintenance"
+    },
+    {
+      "id": "B6-R01",
+      "class": "companion",
+      "status": "both-current",
+      "topic": "Scenario 95 study and execution report",
+      "sources": [
+        "research/RESEARCH-SCENARIO-95-*"
+      ],
+      "finding": "The execution report is a companion/follow-up, not a replacement or duplicate of the broader study.",
+      "required_action": "Maintain both nodes and explicit companion edge.",
+      "decision_owner": "Research index"
+    },
+    {
+      "id": "B6-R02",
+      "class": "progression",
+      "status": "complementary",
+      "topic": "Scenario 96 / 96A / 96B",
+      "sources": [
+        "research/RESEARCH-SCENARIO-96-*"
+      ],
+      "finding": "96A integer and 96B byte-view experiments add distinct evidence layers; neither replaces the broader Scenario 96 study.",
+      "required_action": "Keep distinct claims and evidence edges.",
+      "decision_owner": "Research index"
+    },
+    {
+      "id": "B6-F01",
+      "class": "stale-status",
+      "status": "confirmed-stale-at-audit-snapshot",
+      "topic": "Lean version and CI status in Scenario 33/34 and family README",
+      "sources": [
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md",
+        "research/RESEARCH-SCENARIO-33-LEAN-PARSER-STATE-BINDING.md",
+        "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
+        "research/RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md"
+      ],
+      "finding": "The audited implementation/workflow pins Lean 4.36.0 while some current-status text still says 4.34.0 or cites older CI as latest; exact audited-head CI evidence is recorded by B-02b.1.",
+      "required_action": "Update current-state headers/links while preserving historical toolchain/run history.",
+      "decision_owner": "Documentation maintenance"
+    },
+    {
+      "id": "B6-F02",
+      "class": "stale-status",
+      "status": "confirmed-stale-at-audit-snapshot",
+      "topic": "Scenario 30/31/32 status headers",
+      "sources": [
+        "research/RESEARCH-SCENARIO-30-LOGOS-SOURCE-AUDIT.md",
+        "research/RESEARCH-SCENARIO-31-QF-LIA-PROFILE.md",
+        "research/RESEARCH-SCENARIO-32-TYPED-RELATIONAL-QUERY-IR.md",
+        "research/RESEARCH-SCENARIO-33-LEAN-PARSER-STATE-BINDING.md"
+      ],
+      "finding": "Top-level statuses such as no wrapper, no code changes, or CI running lag later implementation/CI evidence. Scenario 31 also contains a status statement inconsistent with its own implementation section.",
+      "required_action": "Add dated status addenda or correct current header while preserving historical chronology.",
+      "decision_owner": "Documentation maintenance"
+    },
+    {
+      "id": "B6-F03",
+      "class": "evidence-count-mismatch",
+      "status": "partially-reconciled-current-suite-historical-focused-run-open",
+      "topic": "Scenario 102 test count 7 vs current file 8 methods",
+      "sources": [
+        "research/RESEARCH-SCENARIO-102-SOLVER-UNKNOWN-AND-SOUND-PATH-PRUNING.md",
+        "research/PROTOTYPES/RT-04-01/test_rt03_feasibility_outcomes.py",
+        "research/RT-00-C-REPRODUCIBILITY-AUDIT-2026-11-20.md"
+      ],
+      "finding": "The historical Scenario 102 report says seven focused result-policy tests passed; the current module contains eight test methods. Its current blob SHA 7f18c604051076b86974adfd96ed79ea718075d4 is identical at main and Required CI run #44801357527 head c35ba93c031684100dcdbc06a34b0e14696c37ab. That run's unittest discovery covered the RT-04-01 directory, and its 364-test suite passed, so the current eight-method module is covered by a successful suite. The exact source revision/selection for the older seven-test focused run remains unresolved.",
+      "required_action": "Preserve the seven-test historical result as a separate execution record; do not rewrite it. If its exact source revision can be recovered, attach it; otherwise retain the historical-run provenance gap while recording the current eight-method suite execution.",
+      "decision_owner": "Prototype evidence maintenance"
+    },
+    {
+      "id": "B6-F04",
+      "class": "stale-plan",
+      "status": "confirmed-stale-historical-blocks",
+      "topic": "PLAN §0.1 contains superseded inventory/count snapshots",
+      "sources": [
+        "PLAN.md",
+        "research/RESEARCH-CORPUS-INVENTORY-2026-11-20.json"
+      ],
+      "finding": "PLAN retains older counts (24 RT/94 DEP, 243/245 prototype counts and 471/474 artifacts in historical narrative) while current main at b0142c2 has 26 RT/108 DEP, 250 prototype-tree files and 493 research artifacts. The main inventory manifest still records only 488 artifacts. Some PLAN blocks are explicitly historical; current-status text must not repeat those values as current.",
+      "required_action": "Reconcile current status paragraph and clearly label older snapshots as historical; refresh the main inventory manifest against the current tree; preserve history.",
+      "decision_owner": "PLAN/RT-00 documentation maintenance"
+    },
+    {
+      "id": "B6-F05",
+      "class": "stale-inventory-note",
+      "status": "pending-a-inventory-pr",
+      "topic": "Historical 243 prototype-file count in research index/inventory note",
+      "sources": [
+        "research/README.md",
+        "research/RESEARCH-CORPUS-INVENTORY-2026-11-20.json",
+        "PR #127"
+      ],
+      "finding": "242 is the semantic-review aggregate of individually role-mapped prototype artifacts; 245 is an earlier PLAN aggregate with unresolved per-file basis; 248 is the previous inventory prototype-path count; current main has 250 prototype paths. PR #149 proposes the current manifest/README reconciliation but is not merged.",
+      "required_action": "After PR #149 disposition, refresh B6's index/register state; do not rewrite the historical 242/245 role-review aggregates.",
+      "decision_owner": "B4/B6 integration"
+    },
+    {
+      "id": "B6-P01",
+      "class": "pending-branch-evidence",
+      "status": "not-in-main",
+      "topic": "RT-17 diagnostic replay study",
+      "sources": [
+        "PR #128"
+      ],
+      "finding": "PR #128 contains bounded diagnostic replay evidence but remains branch-only at this audit snapshot.",
+      "required_action": "Do not add its claims to main-baseline graph until merged and re-audited.",
+      "decision_owner": "PR review"
+    },
+    {
+      "id": "B6-P02",
+      "class": "pending-branch-evidence",
+      "status": "not-in-main",
+      "topic": "RT-26 budget reservation experiment",
+      "sources": [
+        "PR #129"
+      ],
+      "finding": "PR #129 contains bounded hierarchical reservation experiment evidence, but it remains branch-only; it does not close all RT-26 dimensions.",
+      "required_action": "Keep evidence pending; after merge, update RT-26 trace with exact scope and limits.",
+      "decision_owner": "PR review"
+    },
+    {
+      "id": "B6-P03",
+      "class": "merged-evidence-state",
+      "status": "merged-bounded-evidence",
+      "topic": "RT-23 exact-tree recovery PR",
+      "sources": [
+        "PR #126",
+        "PR #125"
+      ],
+      "finding": "PR #126 merged into main at b52ba2f. It adds the RT-23 exact-tree commit-recovery report and eight focused tests. The evidence is bounded to local Git commit publication/retry and does not establish crash durability, remote push semantics, or worktree-generation synchronization.",
+      "required_action": "Include the merged RT-23 report/test in current traceability; preserve remaining crash-durability and generation checks as unresolved.",
+      "decision_owner": "PR maintenance"
+    },
+    {
+      "id": "B6-P04",
+      "class": "merged-evidence-state",
+      "status": "merged-bounded-evidence",
+      "topic": "B4 duplicate/supersession audit",
+      "sources": [
+        "PR #127 (closed, superseded)",
+        "PR #152 (merged)"
+      ],
+      "finding": "B4 PR #152 merged into main at b0142c2. Its incremental exact-content revalidation grouped the 492-artifact pre-report b52ba2f tree and found only the expected OCI/REAPI Apache-2.0 licence pair; no exact duplicate research report or prototype implementation was found. The B4 audit report is now an additional artifact in current main.",
+      "required_action": "Include the merged B4 report and its scoped duplicate/supersession findings in the corpus graph and index; keep claim-level semantic overlay gaps unresolved.",
+      "decision_owner": "PR review"
+    },
+    {
+      "id": "B6-P05",
+      "class": "pending-review",
+      "status": "replacement-pr-open-branch-only",
+      "topic": "B5 traceability graph audit",
+      "sources": [
+        "PR #130 (closed, superseded)",
+        "PR #151"
+      ],
+      "finding": "Original B5 PR #130 was closed as stale. Replacement PR #151 is open on current main b0142c2; it refreshes the graph for 493 current-main artifacts/250 prototypes and adds a bounded Scenario 130 claim-level traceability pilot (four executable local claims, one conditional implication). The replacement remains branch-only.",
+      "required_action": "After PR #151 disposition, register the report and reconcile the graph/index; preserve incomplete claim-level edges as unresolved.",
+      "decision_owner": "PR review"
+    },
+    {
+      "id": "B6-F06",
+      "class": "stale-status",
+      "status": "confirmed-stale-at-audit-snapshot",
+      "topic": "RT-04 Native Reproduction protocol top-level status",
+      "sources": [
+        "research/RT-04-NATIVE-REPRODUCTION.md",
+        "research/RT-00-C-REPRODUCIBILITY-AUDIT-2026-11-20.md"
+      ],
+      "finding": "The protocol's opening status says a workflow execution is still required, while its later section and the C audit record successful run #44774296240 with 10/10 commands passed. The opening status is stale, not a contradictory experiment result.",
+      "required_action": "Update the top-level status to reflect the completed bounded reproduction; retain the run history, artifact retention limit, and exact source-identity caveats.",
+      "decision_owner": "RT-00-C documentation maintenance"
+    },
+    {
+      "id": "B6-E01",
+      "class": "bounded-evidence-update",
+      "status": "branch-only-current-main-pilot",
+      "topic": "Scenario 130 claim-level traceability pilot",
+      "sources": [
+        "research/RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md",
+        "research/RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md",
+        "research/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md",
+        "research/PROTOTYPES/RT-04-01/test_rt04_durable_receipts.py"
+      ],
+      "finding": "B5 PR #151 traces four falsifiable Scenario 130 claims through report sections, model/probe symbols, four test methods, exact source blobs, Required CI run #44942585935, native reproduction run #44942585953, and retained artifacts. A fifth broader provider-reconciliation implication remains conditional. IDs S130-C01–C05 are local to the pilot and do not resolve the corpus-wide Claim ID namespace.",
+      "required_action": "Use this as a bounded extraction pattern only. Inventory local claim labels before any corpus-wide identifier policy; expand to additional scenarios only with exact test/execution/evidence binding.",
+      "decision_owner": "RT-00-B5 traceability model"
+    }
+  ],
+  "follow_up_snapshot": {
+    "observed_at": "2026-11-21",
+    "main_revision": "b0142c27f5632a859c379b78a10cb22f500ebfd8",
+    "main_counts": {
+      "research_artifacts": 493,
+      "prototype_tree_files": 250,
+      "markdown_files": 252,
+      "python_files": 203,
+      "lean_files": 23,
+      "rt_areas": 26,
+      "dep_edges": 108
+    },
+    "inventory_manifest": {
+      "main_records": 488,
+      "missing_paths": 5,
+      "stale_blob_metadata_records": 5,
+      "proposed_refresh_pr": 149
+    },
+    "current_prs": {
+      "inventory_refresh": 149,
+      "b5_current_main": 151,
+      "b6_current_main": 154,
+      "g_current_status": 155,
+      "f_alignment": 158,
+      "e_local_links": 160,
+      "c_sqlite_identity_and_archives": 164,
+      "c_reproducibility_smoke": 165,
+      "c_rt04_status": 166,
+      "c_evidence_refresh": 167,
+      "d_provenance": 168,
+      "e_curated_external_references": 169,
+      "rt17_branch_only": 128,
+      "rt26_branch_only": 129
+    },
+    "superseded_prs": {
+      "inventory_refresh": 148,
+      "b4": 127,
+      "b5": 130,
+      "b6": 131,
+      "f_alignment": 145,
+      "g": 147,
+      "c_reproducibility_old": [
+        136,
+        137,
+        138
+      ],
+      "d_provenance_old": 141,
+      "e_local_links_old": 142,
+      "c_sqlite_identity_old": 163
+    },
+    "note": "PR #126 and PR #152 are merged and included in main. Current-main audit PRs #149, #151, #154, #155, #158, #160, and #164–#169 remain branch-only. Superseded older C/D/E PRs were closed without merge. No merge was performed by this continuation.",
+    "merged_prs": [
+      126,
+      152
+    ],
+    "e_link_audit": {
+      "pr": 160,
+      "workflow_run": 44942704138,
+      "artifact_id": 14721739745,
+      "merge_checkout": "3643ea099bdd89c64e9fa468bddbc3ad29e80155",
+      "markdown_files": 253,
+      "mdx_files": 3,
+      "total_documents": 256,
+      "link_occurrences": 2891,
+      "unique_links": 1318,
+      "accepted": 1641,
+      "errors": 82,
+      "excluded": 1168,
+      "lychee_exit_code": 2,
+      "workflow_job_conclusion": "success",
+      "artifact_sha256": "4b71da045fb1d0b31d53d287b35ce07c8a4cd81ae8d952e4c82e6be278f5704a",
+      "detailed_report_run": 44942627405
+    },
+    "scenario130_claim_traceability_pilot": {
+      "pr": 151,
+      "report": "research/RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md",
+      "local_claim_ids": [
+        "S130-C01",
+        "S130-C02",
+        "S130-C03",
+        "S130-C04",
+        "S130-C05"
+      ],
+      "executable_claims": 4,
+      "conditional_claims": 1,
+      "required_ci_run": 44942585935,
+      "native_run": 44942585953,
+      "artifacts": [
+        14722660960,
+        14722122244
+      ],
+      "status": "branch-only; bounded evidence"
+    },
+    "c_sqlite_integrity": {
+      "pr": 164,
+      "required_ci_run": 44942585935,
+      "native_run": 44942585953,
+      "native_commands_passed": 10,
+      "llvm_probes_passed": 2,
+      "sqlite_python_source_id_match": true,
+      "archive_sha256_checks_passed": [
+        "sqlite-autoconf-3530100.tar.gz",
+        "Python-3.12.14.tgz",
+        "llvm-19_1%3a19.1.7-3+b1_amd64.deb"
+      ],
+      "artifacts": [
+        14722660960,
+        14722122244
+      ],
+      "status": "branch-only; prospective source-ID baseline"
+    },
+    "scenario102_test_reconciliation": {
+      "test_file": "research/PROTOTYPES/RT-04-01/test_rt03_feasibility_outcomes.py",
+      "blob_sha": "7f18c604051076b86974adfd96ed79ea718075d4",
+      "required_ci_run": 44801357527,
+      "test_methods": 8,
+      "suite_tests": 364,
+      "suite_conclusion": "success",
+      "historical_focused_run_count": 7,
+      "historical_source_revision": "unresolved",
+      "status": "current module execution confirmed; historical seven-test provenance unresolved"
+    },
+    "e_curated_external_reference_audit": {
+      "pr": 169,
+      "checked": 17,
+      "content_retrieved": 16,
+      "access_denied_403": 1,
+      "indeterminate": [
+        "POSIX Issue 8"
+      ],
+      "required_ci_run": 44943487418,
+      "required_ci_policy_run": 44943487482,
+      "status": "bounded curated list only; not corpus-wide"
+    }
+  }
+}
