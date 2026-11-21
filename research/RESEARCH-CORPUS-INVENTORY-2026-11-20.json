@@ -2,32 +2,32 @@
   "schema_version": 1,
   "generated_at": "2026-11-21",
   "repository": "aivibeflow/LLMLang",
-  "revision": "e09096814c46ed66fdae5d164e49fbe9218be3d5",
-  "source": "Rebased on current main 9dfc01bd8acf7da602f1c927e519256bd4c810b1; manifest source revision is the branch tree immediately before this manifest update. The inventory manifest itself is excluded from artifact records.",
+  "revision": "62d5a13e1a86269f349addfa137783262c1b5e18",
+  "source": "Recursive Git tree audited at exact checkout 405b2463299f4c01657a775576a8497a4dc800a7, then refreshed for the reconciliation report and research README updates recorded in this branch. The inventory excludes its own manifest file.",
   "counts": {
-    "research_files": 526,
-    "markdown_files": 269,
-    "python_files": 214,
+    "research_files": 549,
+    "markdown_files": 282,
+    "python_files": 221,
     "scenario_named_documents": 137,
-    "prototype_tree_files": 265,
+    "prototype_tree_files": 275,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "audit-or-review-report": 21,
-      "cross-cutting-synthesis-or-status": 5,
-      "example-or-fixture": 1,
-      "external-source-snapshot-or-license": 13,
-      "index-or-research-management": 3,
-      "other-research-artifact": 2,
-      "prototype-or-experiment-implementation": 135,
-      "prototype-report-or-readme": 20,
-      "prototype-test-evidence": 108,
-      "reference-register-or-manifest": 2,
-      "research-area-or-experiment-document": 45,
       "research-background-or-design-analysis": 23,
+      "example-or-fixture": 1,
+      "research-area-or-experiment-document": 54,
+      "structured-fixture-or-schema": 1,
       "research-preparation-brief-or-index": 9,
-      "research-rfc-or-protocol-proposal": 2,
+      "prototype-test-evidence": 113,
+      "prototype-or-experiment-implementation": 140,
+      "other-research-artifact": 2,
+      "prototype-report-or-readme": 20,
+      "index-or-research-management": 3,
+      "reference-register-or-manifest": 2,
+      "external-source-snapshot-or-license": 13,
+      "audit-or-review-report": 26,
+      "cross-cutting-synthesis-or-status": 4,
       "scenario-research-result": 136,
-      "structured-fixture-or-schema": 1
+      "research-rfc-or-protocol-proposal": 2
     },
     "lean_source_files": 26,
     "taxonomy_research_areas": 26,
@@ -613,23 +613,35 @@
       ]
     },
     {
+      "path": "research/PROTOTYPES/BUDGET-CANCELLATION-01/test_budget_cancellation.py",
+      "git_blob_sha": "60ff8c3886ca36acce4809d6f4742c212e44c732",
+      "size_bytes": 4985,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/BUDGET-RESERVATION-01/test_budget_reservation.py",
       "git_blob_sha": "ad432a046427586834c5f7a22646dd3e15235758",
       "size_bytes": 5272,
       "category": "prototype-test-evidence",
       "traceability": {
-        "items": [
-          "RT-26"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        5
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-test-evidence",
-        "basis": "Four focused tests compare split check/charge with serialized reservation, cancellation, retry, and subtree accounting."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -1037,18 +1049,14 @@
       "size_bytes": 4788,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
-        "items": [
-          "RT-07"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        2
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Lean model and theorems for observable order/failure preservation under bounded expression rewrites."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -1561,20 +1569,14 @@
       "size_bytes": 6069,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
-        "items": [
-          "RT-07",
-          "Scenario 34",
-          "SCW-31"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        2
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Source-owned QF_LIA query envelope construction, decoding, and correspondence theorem."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -1583,20 +1585,14 @@
       "size_bytes": 3367,
       "category": "prototype-test-evidence",
       "traceability": {
-        "items": [
-          "RT-07",
-          "Scenario 34",
-          "SCW-31"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        2
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-test-evidence",
-        "basis": "Lean executable controls for the source-owned query envelope."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -3781,20 +3777,14 @@
       "size_bytes": 7607,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
-        "items": [
-          "RT-05",
-          "DEP-009",
-          "DEP-087"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        1
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Independent typed graph admission checker over imported SPG values."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -3803,19 +3793,14 @@
       "size_bytes": 5991,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
-        "items": [
-          "RT-09",
-          "Plan §6.1"
-        ],
-        "method": "content review of ordered lowering from the typed SPG and its paired differential tests",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        6
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-implementation",
-        "basis": "Executable ordered instruction fixture generated from typed SPG inputs; target and full compiler conformance remain outside scope."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -5145,19 +5130,14 @@
       "size_bytes": 7881,
       "category": "prototype-test-evidence",
       "traceability": {
-        "items": [
-          "RT-06",
-          "Plan §3.1"
-        ],
-        "method": "paired content review with RT-06 scoped binding-read dependency experiment",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        3
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-test-evidence",
-        "basis": "Five tests compare exact scoped binding resolution with dependency projection, negative dependencies, policy, contracts, and validated layer boundaries."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -5166,19 +5146,14 @@
       "size_bytes": 9318,
       "category": "prototype-test-evidence",
       "traceability": {
-        "items": [
-          "RT-23",
-          "Plan §4.5"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        4
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-test-evidence",
-        "basis": "Eight tests exercise exact commit publication, receipt recovery, ref movement, and retry semantics."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -5187,20 +5162,30 @@
       "size_bytes": 7928,
       "category": "prototype-test-evidence",
       "traceability": {
-        "items": [
-          "RT-23",
-          "RT-24",
-          "Plan §4.5"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        4
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-test-evidence",
-        "basis": "Six tests compare content-only and revision-bound interface-mapping revision updates."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_call_target_merge.py",
+      "git_blob_sha": "e517cca0355e27576404aa4affc28e640fb78cd0",
+      "size_bytes": 8945,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -5209,21 +5194,14 @@
       "size_bytes": 19230,
       "category": "prototype-test-evidence",
       "traceability": {
-        "items": [
-          "RT-24",
-          "DEP-088",
-          "DEP-091",
-          "DEP-093"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        4
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-test-evidence",
-        "basis": "Seven tests validate closed source inventories, merge-tree completeness, exact call reconstruction, and evidence replay."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -5232,19 +5210,46 @@
       "size_bytes": 9651,
       "category": "prototype-test-evidence",
       "traceability": {
-        "items": [
-          "RT-24",
-          "Plan §4.5"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        4
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-test-evidence",
-        "basis": "Six tests exercise semantic slot composition, conflicts, caller pins, and pre-composition validation."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_tree_bound_cip.py",
+      "git_blob_sha": "bf73517f9cfe2ae2c4b0ed3675bd40513d35aaab",
+      "size_bytes": 9286,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_typed_tree_diff.py",
+      "git_blob_sha": "2b4ab41f07a958575b3ea7df5973cb20fa347a61",
+      "size_bytes": 8285,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -5392,20 +5397,14 @@
       "size_bytes": 4646,
       "category": "prototype-test-evidence",
       "traceability": {
-        "items": [
-          "RT-05",
-          "DEP-009",
-          "DEP-087"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        1
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-test-evidence",
-        "basis": "Tests compare digest integrity with independent typed admission, malformed graphs, and snapshot-bounded targets."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -5414,19 +5413,14 @@
       "size_bytes": 4449,
       "category": "prototype-test-evidence",
       "traceability": {
-        "items": [
-          "RT-09",
-          "Plan §6.1"
-        ],
-        "method": "paired content review with RT-09 ordered SPG lowering experiment",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        6
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-test-evidence",
-        "basis": "Five tests compare conditional/nested-call observations, binding identity, reachability, recursion/fuel, and trace-sensitive reordering."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -5590,24 +5584,67 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DIAGNOSTIC-REPLAY-01/test_diagnostic_publication.py",
+      "git_blob_sha": "dc1aa42afeca6d88bb7c59d25f4c8c909c0931f9",
+      "size_bytes": 5696,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/DIAGNOSTIC-REPLAY-01/test_diagnostic_replay.py",
       "git_blob_sha": "9b90cf5f8c09e157bb215fbeda6a486ee091de42",
       "size_bytes": 5570,
       "category": "prototype-test-evidence",
       "traceability": {
-        "items": [
-          "RT-17",
-          "Scenario 95"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        7
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-test-evidence",
-        "basis": "Four tests cover Unicode ranges, stale reports, multi-document staging, and behavioral validation boundaries."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/IDENTITY-BYTES-01/compare.py",
+      "git_blob_sha": "f37db2261ec155a8aef2ad71f27deb2ef78715c1",
+      "size_bytes": 4653,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/IDENTITY-BYTES-01/encode.mjs",
+      "git_blob_sha": "f868ab7402bacf5bd2d4fe8381663e3a39f009ad",
+      "size_bytes": 2026,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -5686,20 +5723,14 @@
       "size_bytes": 8161,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
-        "items": [
-          "RT-09",
-          "RT-13",
-          "Scenario 96B"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        6
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Native differential probe for mutable byte-view aliasing and LLVM/C++ preservation."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -5769,6 +5800,22 @@
       },
       "git_blob_sha": "7c906da668236777cce986d5646b4edb405289ff",
       "size_bytes": 7520
+    },
+    {
+      "path": "research/PROTOTYPES/ORDERED-EFFECTS-01/compare.py",
+      "git_blob_sha": "d9537b15b7544689d341d23bcb62e9014904f859",
+      "size_bytes": 5514,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
     },
     {
       "path": "research/PROTOTYPES/PACKAGE-IDENTITY-01/cache_index.py",
@@ -6626,24 +6673,35 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/POSIX-INTERRUPT-01/read_interrupt.c",
+      "git_blob_sha": "285280816ee98fe30228cd2dc1e3498c7ebdb02a",
+      "size_bytes": 4893,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/POSIX-IO-01/nonblocking_pipe.c",
       "git_blob_sha": "42508d9e072c2a4c7036d7304d47939ac5d64374",
       "size_bytes": 7302,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
-        "items": [
-          "RT-10",
-          "Plan §5.3"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        5
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Linux x86-64 native libc/syscall nonblocking pipe comparison probe."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -7507,8 +7565,8 @@
         "status": "file-role-triaged",
         "basis": "Native reproduction runner for the bounded SQLite and generated-Rust experiments; command execution is distinct from Required CI model tests and does not make every scenario a native experiment."
       },
-      "git_blob_sha": "637283d3b1772eeb53cdd941e97cf3a258a0d5f2",
-      "size_bytes": 13457
+      "git_blob_sha": "853b7a12fd7e7b18b7bcfec11e070e5cc399d743",
+      "size_bytes": 13971
     },
     {
       "path": "research/PROTOTYPES/RT-04-01/scheduler_fairness_model.py",
@@ -8204,8 +8262,8 @@
         "status": "file-role-triaged",
         "basis": "Focused tests for the native runner's command inventory and version gates; they are not evidence that the ten native commands themselves ran."
       },
-      "git_blob_sha": "c095a4ca0261da1e26e364a0eb4bb4a625a4a5f7",
-      "size_bytes": 1924
+      "git_blob_sha": "45e8c1d58a70ecfbd982e83af9a0e4a74dd18771",
+      "size_bytes": 2225
     },
     {
       "path": "research/PROTOTYPES/RT-04-01/test_rt04_owned_call_match.py",
@@ -8470,20 +8528,14 @@
       "size_bytes": 4321,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
-        "items": [
-          "RT-10",
-          "Scenario 57",
-          "Scenario 129"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        5
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Finite schedule model for nested scope join, cancellation, and result publication."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -8535,9 +8587,25 @@
       ]
     },
     {
+      "path": "research/PROTOTYPES/WASM-VIEWS-01/compare.mjs",
+      "git_blob_sha": "67b066a21e5df48cadd8be616902aaca0286fb66",
+      "size_bytes": 4724,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
       "path": "research/README.md",
-      "git_blob_sha": "90ce36b973849f48272f0daafae04a3a15c24e87",
-      "size_bytes": 28287,
+      "git_blob_sha": "9e3a22f5e2d8d06b04c0cad6896ff40a71352ec8",
+      "size_bytes": 27810,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -8556,8 +8624,8 @@
     },
     {
       "path": "research/references/README.md",
-      "git_blob_sha": "8bd51f48c6deadd01fd7858bdc8a4b3d35581d49",
-      "size_bytes": 10598,
+      "git_blob_sha": "a960e0ebd072b4c41bf2029a76c138d68083a269",
+      "size_bytes": 11092,
       "category": "reference-register-or-manifest",
       "traceability": {
         "items": [
@@ -8901,8 +8969,8 @@
     },
     {
       "path": "research/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
-      "git_blob_sha": "0691010591ca6258d31a09145ca8141ea5a4077a",
-      "size_bytes": 113875,
+      "git_blob_sha": "4a07f724e3e6b2ab21d6a96c138ec079c958b24c",
+      "size_bytes": 115782,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -9043,8 +9111,8 @@
     },
     {
       "path": "research/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "fbd04f247b1296bacd8364234b8a49cf107f1c47",
-      "size_bytes": 52232,
+      "git_blob_sha": "fb24349529ee88a4dc40e5295749438a2f0c6e05",
+      "size_bytes": 52948,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -10337,8 +10405,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md",
-      "git_blob_sha": "4f7ea7e07224d04eff2339afee29b4f36671118e",
-      "size_bytes": 4386,
+      "git_blob_sha": "9fdb7298597965299ab9add721e46650c798492c",
+      "size_bytes": 5449,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -12858,8 +12926,8 @@
     },
     {
       "path": "research/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "b114d2cf8166fa0a90750a15cab619f63f60e5e2",
-      "size_bytes": 47367,
+      "git_blob_sha": "cb25dc48c9995d453a2800931f8c9a87d9520930",
+      "size_bytes": 47894,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -12932,23 +13000,18 @@
     },
     {
       "path": "research/RT-00-A-INVENTORY-MANIFEST-FRESHNESS-RECONCILIATION-2026-11-21.md",
-      "git_blob_sha": "ee2d3a83a42cfae69dc0e685d06a1ee818b4daec",
-      "size_bytes": 11554,
+      "git_blob_sha": "67c860c605d601e5695502960ca9500e0d9f0cf1",
+      "size_bytes": 29535,
       "category": "audit-or-review-report",
       "traceability": {
-        "items": [
-          "RT-00",
-          "PLAN.md §0.1"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        0
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-audit-report",
-        "basis": "Exact recursive path/blob/size reconciliation and bounded role triage; not claim-level closure."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13078,18 +13141,14 @@
       "size_bytes": 20735,
       "category": "audit-or-review-report",
       "traceability": {
-        "items": [
-          "RT-00"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        0
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-audit-report",
-        "basis": "B4 exact-content scan and bounded semantic duplicate/supersession review; limitations are explicit."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13098,19 +13157,14 @@
       "size_bytes": 8905,
       "category": "audit-or-review-report",
       "traceability": {
-        "items": [
-          "RT-00",
-          "Scenario 130"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        0
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-audit-report",
-        "basis": "Bounded report-local claim-to-source/test/CI/evidence traceability pilot; IDs are not a global namespace."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13119,38 +13173,30 @@
       "size_bytes": 26593,
       "category": "audit-or-review-report",
       "traceability": {
-        "items": [
-          "RT-00"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        0
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-audit-report",
-        "basis": "Corpus traceability graph model, reconciled structural layers, and unresolved claim/evidence closure."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
       "path": "research/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.json",
       "git_blob_sha": "57d5004429400851fd9cf1c23327a5bd344860ca",
       "size_bytes": 37726,
-      "category": "cross-cutting-synthesis-or-status",
+      "category": "audit-or-review-report",
       "traceability": {
-        "items": [
-          "RT-00"
-        ],
-        "method": "machine-readable companion to the B6 audit report; record IDs are audit-local, not global research Claim IDs",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        0
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-audit-register-data",
-        "basis": "Structured companion containing the B6 unified unresolved register; not a fixture or schema."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13159,24 +13205,36 @@
       "size_bytes": 25597,
       "category": "audit-or-review-report",
       "traceability": {
-        "items": [
-          "RT-00"
-        ],
-        "method": "content review of the unified contradictions/unresolved register and its dated evidence updates",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        0
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-audit-report",
-        "basis": "Cross-cutting audit register for apparent conflicts, unresolved evidence, stale statuses, and pending PR states; not an architecture decision record."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/RT-00-C-02-SQLITE-IDENTITY-AND-SOURCE-ARCHIVE-INTEGRITY-2026-11-21.md",
+      "git_blob_sha": "d3e87f1451d21af01f9e4a1ee224ba081a5e5788",
+      "size_bytes": 5261,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
       "path": "research/RT-00-C-REPRODUCIBILITY-AUDIT-2026-11-20.md",
-      "git_blob_sha": "60579f8e6240397fd9f72767970166664358fbb2",
-      "size_bytes": 16661,
+      "git_blob_sha": "b94c89afd431178ff5bfa49a579e55cce4ace161",
+      "size_bytes": 20127,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -13195,8 +13253,8 @@
     },
     {
       "path": "research/RT-00-D-EXTERNAL-SNAPSHOT-PROVENANCE-AUDIT-2026-11-20.md",
-      "git_blob_sha": "b09dccdd2b5e11bff5e1316218b28f5a707e64f7",
-      "size_bytes": 7495,
+      "git_blob_sha": "0727ebbcbbc9fba8af0b3e1249a8b6064a3b3423",
+      "size_bytes": 8849,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -13214,30 +13272,73 @@
       }
     },
     {
+      "path": "research/RT-00-E-02-CURATED-EXTERNAL-REFERENCE-REACHABILITY-2026-11-21.md",
+      "git_blob_sha": "45eda2d89c5487893bf57bd54a874e85c5766969",
+      "size_bytes": 4917,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/RT-00-E-GLOBAL-LINK-AND-ANCHOR-AUDIT-2026-11-21.md",
+      "git_blob_sha": "5f8cc17822d0f3433d2e2d440b79b21cce585a6e",
+      "size_bytes": 5242,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
       "path": "research/RT-00-F-CROSS-DOCUMENT-ALIGNMENT-AUDIT-2026-11-21.md",
       "git_blob_sha": "36388000694553535572936b27fcc5b68282b318",
       "size_bytes": 7923,
       "category": "audit-or-review-report",
       "traceability": {
-        "items": [
-          "RT-00",
-          "PLAN.md §0.1"
-        ],
-        "method": "cross-document audit of current taxonomy, dependency map, status, counts, and unresolved alignment",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        0
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-audit-report",
-        "basis": "Current cross-document alignment review; preserves unresolved items and does not declare RT-00 complete."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md",
+      "git_blob_sha": "ced386aa14ebc548e550fdaf84975293058994cf",
+      "size_bytes": 35177,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
       "path": "research/RT-01-REFERENCE-WORKLOADS.md",
-      "git_blob_sha": "e99a84d4a245228a6f0e93c2abc6687aae37dfa9",
-      "size_bytes": 9638,
+      "git_blob_sha": "72bc95a195b9fc52132ab3323d680034c7324485",
+      "size_bytes": 10182,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -13307,8 +13408,24 @@
         "status": "first-pass-content-triage",
         "basis": "Reproduction protocol separates Required CI model tests, native SQLite observations, and generated-Rust execution; manual/focused-PR workflow is not a Required CI gate."
       },
-      "git_blob_sha": "28787820d0da976e726c0564b891b484f48b9b8e",
-      "size_bytes": 8062
+      "git_blob_sha": "755d2c972c0f7f44bb5cab06f91bb89afbdc3dd9",
+      "size_bytes": 8331
+    },
+    {
+      "path": "research/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
+      "git_blob_sha": "c3a40466fd7ab52743e1c211ebd9ddaff9d81dbb",
+      "size_bytes": 3450,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
     },
     {
       "path": "research/RT-04-PROTOTYPE-01-RESULTS.md",
@@ -13393,6 +13510,22 @@
       ]
     },
     {
+      "path": "research/RT-05-PORTABLE-IDENTITY-BYTES.md",
+      "git_blob_sha": "75dd4c1587fa82df02e1ff345e685259e0d50129",
+      "size_bytes": 4202,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
       "path": "research/RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md",
       "git_blob_sha": "44ff4d646055d37e518cbe5aeedbca494f83abe7",
       "size_bytes": 6679,
@@ -13453,20 +13586,14 @@
       "size_bytes": 5626,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-05",
-          "DEP-009",
-          "DEP-087"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        1
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Bounded experiment showing integrity-valid imported graphs can still fail typed executable admission."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13475,19 +13602,14 @@
       "size_bytes": 3873,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-06",
-          "Plan §3.1"
-        ],
-        "method": "content review of the bounded negative dependency experiment and its explicit RT/Plan references",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        3
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-report",
-        "basis": "Scoped binding read experiment; projection completeness and validated whole-layer assumptions are explicit boundaries."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13496,19 +13618,14 @@
       "size_bytes": 4582,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-07",
-          "Plan §2.4"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        2
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Bounded Lean proof for preservation of ordered observations and failure under expression rewrites."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13517,21 +13634,14 @@
       "size_bytes": 4297,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-07",
-          "Scenario 34",
-          "SCW-31",
-          "Plan §2.3"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        2
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Scoped Lean implementation and tests bind the solver-facing query to source-derived assumptions."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13540,20 +13650,14 @@
       "size_bytes": 5164,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-09",
-          "RT-13",
-          "Scenario 96B"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        6
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Bounded differential experiment for mutable byte-view aliasing across LLVM and C++."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13562,19 +13666,14 @@
       "size_bytes": 4475,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-09",
-          "Plan §6.1"
-        ],
-        "method": "content review of typed-SPG ordered lowering model and paired executable tests",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        6
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-report",
-        "basis": "Bounded executable experiment for ordered instructions derived from typed SPG; no backend or architecture choice is inferred."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13583,19 +13682,30 @@
       "size_bytes": 5304,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-10",
-          "Plan §5.3"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        5
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Bounded Linux x86-64 libc/syscall nonblocking pipe I/O experiment."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/RT-10-POSIX-READ-INTERRUPTION.md",
+      "git_blob_sha": "0a05e93585bf0681ec7cb8f7191e8c5746027354",
+      "size_bytes": 3411,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13604,21 +13714,14 @@
       "size_bytes": 4531,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-10",
-          "Scenario 57",
-          "Scenario 129",
-          "Plan §5.2"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        5
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Finite schedule experiment for nested task-scope completion, cleanup, and failure publication."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13638,9 +13741,25 @@
       ]
     },
     {
+      "path": "research/RT-13-WASM-MEMORY32-VIEWS.md",
+      "git_blob_sha": "ecca1a8f2a2abfa0eeb14449f38d5143d1472d6f",
+      "size_bytes": 3484,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
       "path": "research/RT-16-THREAT-MODEL-01.md",
-      "git_blob_sha": "7712b5cb74045ff6fcb4b8a4c01e50ea6f608d9c",
-      "size_bytes": 11129,
+      "git_blob_sha": "c7b6036950c301d11fed418f5567bac8879e1d49",
+      "size_bytes": 11472,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -13654,25 +13773,35 @@
       ]
     },
     {
+      "path": "research/RT-17-DIAGNOSTIC-PUBLICATION.md",
+      "git_blob_sha": "1e45e5add164387cc063881d053649c243358a2b",
+      "size_bytes": 3811,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
       "path": "research/RT-17-DIAGNOSTIC-REPLAY.md",
       "git_blob_sha": "8590f960998dedb05650be5e100e839c763cf20d",
       "size_bytes": 3833,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-17",
-          "Scenario 95",
-          "Plan §7.5"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        7
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Executable structural diagnostic replay evaluation with explicit transport and repair limitations."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13842,21 +13971,14 @@
       "size_bytes": 6727,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-23",
-          "RT-22",
-          "RT-24",
-          "Plan §4.5"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        4
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Local Git commit publication/retry study with explicit durability and remote-push gaps."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13865,20 +13987,14 @@
       "size_bytes": 4277,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-23",
-          "RT-24",
-          "Plan §4.5"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        4
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Bounded experiment comparing content-only and revision-bound interface mapping merge."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13897,6 +14013,22 @@
         4,
         7
       ]
+    },
+    {
+      "path": "research/RT-24-CALL-TARGET-MERGE.md",
+      "git_blob_sha": "68b61bd718a9753aaf8693e74a5de875144dce68",
+      "size_bytes": 3533,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
     },
     {
       "path": "research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
@@ -13926,19 +14058,14 @@
       "size_bytes": 5587,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-24",
-          "Plan §4.5"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        4
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Structural experiment for closed semantic inventory three-way composition."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -13991,21 +14118,46 @@
       "size_bytes": 12264,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-24",
-          "DEP-088",
-          "DEP-091",
-          "DEP-093"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        4
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Executable study of the first repository-wide merged-tree source completeness gate."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/RT-24-TREE-BOUND-CIP-PUBLICATION.md",
+      "git_blob_sha": "be7d45b27db6dd8bbde64369b32e4815d0a919a1",
+      "size_bytes": 3546,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/RT-24-TYPED-TREE-DIFF.md",
+      "git_blob_sha": "e41a78fe73812be4add8ff4b01e6eee4a4d55aff",
+      "size_bytes": 3618,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
@@ -14029,30 +14181,41 @@
       }
     },
     {
+      "path": "research/RT-26-CANCELLATION-ACCOUNTING.md",
+      "git_blob_sha": "701acf13f81d017a18c7650e632ab9da91ceada9",
+      "size_bytes": 3575,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
+      },
+      "plan_stages": [],
+      "semantic_review": {
+        "status": "not-reviewed",
+        "basis": "Added from exact recursive Git-tree audit. This establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
       "path": "research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md",
       "git_blob_sha": "2f78a3c5800aace05c8b6b950bde04be3cf9e059",
       "size_bytes": 3501,
       "category": "research-area-or-experiment-document",
       "traceability": {
-        "items": [
-          "RT-26",
-          "Plan §7.1"
-        ],
-        "method": "bounded content review of the artifact, its explicit RT/Scenario/DEP cross-references, and paired source/test/report where applicable",
-        "confidence": "high"
+        "items": [],
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "confidence": "unresolved"
       },
-      "plan_stages": [
-        5
-      ],
+      "plan_stages": [],
       "semantic_review": {
-        "status": "bounded-experiment-role-reviewed",
-        "basis": "Bounded hierarchical budget reservation model; runtime and OS enforcement measurements remain open."
+        "status": "not-reviewed",
+        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
     },
     {
       "path": "research/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md",
-      "git_blob_sha": "9475e7199dc66d2c18ea2bb331ff9a69c4694cd7",
-      "size_bytes": 14348,
+      "git_blob_sha": "eccbea239f2469c391ee7832a27e1b78c2d6a45b",
+      "size_bytes": 14555,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -14224,7 +14387,10 @@
       ],
       "missing_numeric_scenario_ids": [
         16
-      ]
+      ],
+      "current_tree_scenario_named_paths": 137,
+      "current_tree_unreconciled_delta": 1,
+      "current_tree_note": "Exact path audit counts 137 Scenario-named paths, while this crosswalk contains 136 mapped scenario files. One filename-level difference remains unresolved pending a path-by-path crosswalk refresh."
     },
     "inventory_revision": "f560d0f9893f882a6756f1f0a3b070ea7ba1a09f",
     "prototype_family_review": {
@@ -14358,7 +14524,8 @@
         "rt16_authorization": 2,
         "toolchain_server": 3
       },
-      "remaining_family_only_files": 0
+      "remaining_family_only_files": 22,
+      "note_current_tree": "Current exact tree contains 270 prototype paths. The 242 individually mapped count remains a historical semantic review total; 22 current prototype paths added since that review are inventory-only and not individually role-triaged."
     },
     "reference_crosswalk": {
       "source_documents_mapped": 9,
@@ -14566,72 +14733,54 @@
     "b3_note": "B3 report is a bounded semantic consistency audit, not proof of corpus-wide claim validation. Historical inventory checks remain historical.",
     "b3_refreshed_existing_records": 1
   },
-  "freshness_reconciliation": {
-    "audited_main_revision": "78b06273c4bbc1569e336de5d40cc61be3898c0d",
-    "audit_workflow_head": "b318261faccfc5b20bf5733a267cb722f2ed0bf3",
-    "previous_manifest_revision": "b118346ecd499d7962a6ac546fb1031bc7e2bc26",
-    "exact_audit": {
-      "workflow_run": 44946430131,
-      "artifact_id": 14724290780,
-      "artifact_sha256": "f2f012bfc64dfbc0645f387f02088c1b646f5161d85f09f98313c921054276e8",
-      "research_artifacts": 517,
-      "manifest_records": 488,
-      "missing_paths": 29,
-      "extra_paths": 0,
-      "sha_size_mismatches": 9
-    },
-    "manifest_after_reconciliation": {
-      "revision": "ad48e46e58908f19b57b1e5b0382887df1428b74",
-      "research_files": 526,
-      "markdown_files": 269,
+  "current_tree_reconciliation": {
+    "reviewed_at": "2026-11-21",
+    "source_revision": "405b2463299f4c01657a775576a8497a4dc800a7",
+    "audit_workflow_run": 44950395839,
+    "audit_artifact_id": 14725497257,
+    "audit_artifact_sha256": "c3eaa19d783f17e2e977e9e2563b17c2ef7f791ebc609b4477a689c5418af35f",
+    "previous_records": 488,
+    "current_records": 549,
+    "added_records": 61,
+    "refreshed_existing_records": 20,
+    "removed_paths": 0,
+    "tree_counts": {
+      "research_artifacts_excluding_manifest": 549,
+      "markdown_files": 282,
       "mdx_files": 3,
-      "python_files": 214,
-      "lean_source_files": 26,
-      "prototype_tree_files": 265,
+      "python_files": 221,
+      "lean_files": 26,
+      "prototype_tree_files": 275,
       "scenario_named_documents": 137,
-      "taxonomy_research_areas": 26,
-      "dependency_edges": 108
+      "taxonomy_rt_rows": 26,
+      "dependency_rows": 108
     },
-    "prototype_count_semantics": {
-      "individually_role_mapped": 242,
-      "earlier_plan_aggregate": 245,
-      "previous_manifest_paths": 248,
-      "current_prototype_tree_paths": 262,
-      "note": "These values describe different populations and review states. The added file-role classifications do not imply equal semantic or claim-level review depth."
+    "prototype_family_file_counts": {
+      "BUDGET-CANCELLATION-01": 1,
+      "BUDGET-RESERVATION-01": 1,
+      "CLI-WORKLOADS-01": 3,
+      "DEPENDENCY-GRAPH-01": 121,
+      "DIAGNOSTIC-REPLAY-01": 2,
+      "IDENTITY-BYTES-01": 2,
+      "LLVM-PRESERVATION-01": 5,
+      "ORDERED-EFFECTS-01": 1,
+      "PACKAGE-IDENTITY-01": 7,
+      "PACKAGE-INDEX-01": 17,
+      "POSIX-INTERRUPT-01": 1,
+      "POSIX-IO-01": 1,
+      "RT-04-01": 106,
+      "RT-16-AUTHORIZATION-01": 2,
+      "STRUCTURED-SCOPE-01": 1,
+      "TOOLCHAIN-SERVER-01": 3,
+      "WASM-VIEWS-01": 1
     },
-    "reconciliation": {
-      "added_missing_paths": 37,
-      "added_reconciliation_report": 1,
-      "refreshed_metadata_records": 10,
-      "extra_paths": 0,
-      "missing_after_refresh": 0,
-      "sha_size_mismatches_after_refresh": 0
-    },
-    "current_main_delta": {
-      "base": "78b06273c4bbc1569e336de5d40cc61be3898c0d",
-      "head": "7aaf83ae58a6809e94e1211deee0987102603a2e",
-      "added_paths": [
-        "research/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.md",
-        "research/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.json",
-        "research/RT-09-ORDERED-SPG-LOWERING.md",
-        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_ordered_lowering.py",
-        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_ordered_lowering.py",
-        "research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md",
-        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt06_negative_binding_reads.py",
-        "research/RT-00-F-CROSS-DOCUMENT-ALIGNMENT-AUDIT-2026-11-21.md"
-      ],
-      "modified_research_paths": [
-        "research/RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md",
-        "research/RESEARCH-DEPENDENCY-MAP.md",
-        "research/RESEARCH-TAXONOMY.md"
-      ],
-      "deleted_paths": [],
-      "current_main_research_artifacts": 525,
-      "current_main_markdown_files": 268,
-      "current_main_python_files": 214,
-      "current_main_lean_files": 26,
-      "current_main_prototype_tree_files": 265,
-      "method": "Exact Git commit comparison from the audited 78b0627 tree; no research paths deleted."
-    }
+    "semantic_review_boundary": "The 242 individually role-triaged prototype-file count remains a historical review total. Current tree contains 275 prototype paths; 33 paths are outside the recorded individually role-triaged count. This difference is not a claim that every one of those 33 was newly added. Family counts are path inventory counts, not semantic coverage. The 61 added manifest records are inventory-only and have no semantic RT/Claim/PLAN mapping.",
+    "scenario_crosswalk_boundary": "137 Scenario-named paths are counted by the exact audit; the prior scenario crosswalk records 136 mapped scenario files. The one-path discrepancy remains unresolved.",
+    "audit_status": "path, Git blob SHA, and byte-size reconciliation only; no claim-level or semantic completeness asserted.",
+    "manifest_generation_revision": "62d5a13e1a86269f349addfa137783262c1b5e18",
+    "report_blob_sha": "67c860c605d601e5695502960ca9500e0d9f0cf1",
+    "report_size_bytes": 29535,
+    "readme_blob_sha": "9e3a22f5e2d8d06b04c0cad6896ff40a71352ec8",
+    "readme_size_bytes": 27810
   }
 }
