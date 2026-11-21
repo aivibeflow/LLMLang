@@ -568,6 +568,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Implement a pure three-way merge core over pinned base/ours/theirs snapshots. Apply only unambiguous rules; emit structured conflicts for update/update, delete/update, identity/lineage, retarget, dependency, root, and unsupported-context cases.
 - [ ] Validate the entire merged graph, not just merged files/entities; prove that incomplete source inventory or reverse-reference context cannot yield a clean result.
 - [ ] Integrate RT-20 CIP as a mandatory gate: preserve/migrate/adapt/fork per call site, support mixed old/new callers and shared-caller splits, and rebuild the candidate whenever planned changes alter it.
+  - The exact-tree fixture connects one source-audited caller migration to Git publication and receipt recovery. [Tree-bound CIP](research/RT-24-TREE-BOUND-CIP-PUBLICATION.md)
 - [ ] Integrate Interface Mapping Revision merge separately under RT-23 parent-revision/CAS/scope rules; test disjoint keys, same-key conflicts, delete/update, and stale baselines.
 - [ ] Only after the pure core passes, build a Git repository coordinator with explicit base/ours/theirs trees; then test merge, rebase, and cherry-pick against real temporary repositories. Keep per-file merge driver as an adapter, not a whole-graph correctness boundary.
 - [ ] Finally integrate RT-23 exact-tree synchronized commit and idempotent crash/timeout recovery; test clone reconstruction without the original local semantic database.
