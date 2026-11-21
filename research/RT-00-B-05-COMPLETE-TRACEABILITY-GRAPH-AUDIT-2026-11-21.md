@@ -1,8 +1,9 @@
 # RT-00 B-05 — Complete Traceability Graph Audit — 2026-11-21
 
 **Status:** corpus-wide traceability model consolidated; end-to-end claim/evidence graph remains partially unresolved  
-**Baseline:** `main` at `b0142c27f5632a859c379b78a10cb22f500ebfd8`  
-**Inventory:** main manifest records 488 artifacts; current main contains 493 artifacts. Five paths are absent from the manifest (RT-23 report/test, RT-24 report/test, and the merged B4 audit report); five existing blob metadata records are stale. Proposed reconciliation is in open PR #149.  
+**Original baseline:** `main` at `b0142c27f5632a859c379b78a10cb22f500ebfd8`  
+**Current-main refresh:** `535d5dc9c9eca9bb6ecfaea31a85de666c9e4091` (2026-11-21)  
+**Inventory:** the original audit's 488-record manifest and 493-artifact main count are historical. The manifest was subsequently reconciled by merged PR #189 against main snapshot `9dfc01bd8acf7da602f1c927e519256bd4c810b1` (526 research artifacts); current main has advanced beyond that snapshot. No current recursive tree count is inferred here; a fresh exact-tree audit is required before treating inventory metadata as current.  
 **Scope:** reconcile the research taxonomy, dependency register, corpus inventory, scenario crosswalks, prototype/test/evidence reviews, PLAN stages, and merged-tree evidence.  
 **Decision boundary:** audit only. No research claim, language rule, architecture, identity policy, backend, runtime policy, or candidate vector is accepted by this report.
 
@@ -291,3 +292,30 @@ A second claim-level pilot is recorded in [RT-00 B-05-02](RT-00-B-05-02-RT26-CLA
 This updates the historical statement in §4.5 that RT-26 had no merged scenario/prototype/test/evidence chain: current main now contains one bounded cooperative cumulative-budget model and its four-test module. The broader RT-26 requirements remain open; no evidence is added here for instantaneous resource dimensions, runtime/OS enforcement, throttling, handlers, attribution, fairness, or production atomicity. PR #174 remains branch-only and is excluded.
 
 The local identifiers `R26-C01`–`R26-C04` are pilot-scoped and do not resolve B5-U01's missing corpus-wide Claim ID namespace. Exact CI execution-to-source-blob binding also remains unresolved.
+
+## 11. Current-main refresh — additional bounded claim/evidence edges (2026-11-21)
+
+This addendum refreshes the graph against current `main` at `535d5dc9c9eca9bb6ecfaea31a85de666c9e4091`. It does not rewrite the historical baseline counts in §§1–10. The inventory manifest records a prior source snapshot at `9dfc01bd8acf7da602f1c927e519256bd4c810b1` and 526 research artifacts; subsequent main commits have added further research material. A current recursive tree count must come from a fresh exact-tree audit, not from extrapolating earlier snapshots. PR #189's exact-main audit and manifest reconciliation are merged, but its snapshot is no longer current.
+
+### 11.1 RT-06 — negative dependencies in scoped binding resolution
+
+Current main contains `research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md` and the test module `research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt06_negative_binding_reads.py`. The report declares 432 views across six states in three scopes and two policies, and 3,240 single-scope transitions. Its recorded result distinguishes three key strategies: all-layer revision keys (zero outcome-preserving reuse), exact per-key projection (216 preserving reuse, zero false reuse), and highest-priority-present-row-only (516 false reuses). It also records a duplicate-unrelated-key counterexample where the per-key projection remains equal while the resolver rejects the malformed layer. Thus the claim is explicitly conditional on complete validated immutable layers; the projection is not a replacement for a revision-bound consultation record. The report states 13 focused tests passed under CPython 3.12.14. This report-to-test and report-to-command relation is source-declared; exact CI execution-to-blob provenance is not independently asserted by this addendum.
+
+### 11.2 RT-09 — ordered lowering from typed SPG
+
+Current main contains `research/RT-09-ORDERED-SPG-LOWERING.md`, `src/spg_ordered_lowering.py`, and `tests/test_spg_ordered_lowering.py` in the Dependency Graph prototype family. The report declares 140 differential cases, binding-sensitive artifact identity, reachability-sensitive determinism, recursion/fuel behavior, and a trace mutation detected despite preserving the numeric result. It states that 16 focused tests passed under CPython 3.12.14. The supported scope is the experiment's scalar/effect profile and its two Python execution paths; this is not evidence of machine-code generation, general target preservation, independent IR admission, or full RT-05 conformance.
+
+### 11.3 RT-26 claim pilot
+
+The RT-26 cooperative reservation experiment and its [RT-00 B-05-02 claim-level traceability pilot](RT-00-B-05-02-RT26-CLAIM-TRACEABILITY-PILOT-2026-11-21.md) are now on current main, together with the four-method test module. The pilot uses report-local identifiers R26-C01–R26-C04 and records an independent execution of the exact current test source blob under CPython 3.13.5: 4/4 methods passed with zero failures or errors. The historical PR #129 run still lacks a retained execution-to-blob digest; the independent run verifies the current test blob under CPython 3.13.5, not the declared CPython 3.12.14 environment. The evidence remains limited to a fixed acyclic task hierarchy and cooperative cumulative budgets. It does not validate instantaneous resource limits, CPU/disk/network accounting, OS enforcement, throttling, handlers, fairness, or production atomicity. The local IDs remain pilot-scoped and do not establish a global Claim ID namespace.
+
+### 11.4 Updated graph interpretation
+
+These additions improve the concrete chain for three bounded studies:
+
+- RT-06: research question → report result → exact test methods/fixture → declared command/environment;
+- RT-09: research question → report result → lowering implementation/test methods → declared differential oracle/command/environment;
+- RT-26: local falsifiable claims → report sections → exact test methods/source blob → independent bounded execution, with an explicit runtime-version discrepancy.
+
+They do not close the corpus-wide gaps listed in §1. In particular, the corpus still lacks a global stable Claim ID namespace; exact execution-to-blob provenance is not uniform; tests discovered/declared/executed/passed/supporting claims remain distinct; and PLAN scheduling links are not exit-criterion evidence. No claim is inferred solely from file proximity or shared RT labels. No architecture decision is made.
+
