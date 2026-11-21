@@ -202,3 +202,42 @@ The old-baseline PRs #136–#138, #141, and #142 were closed as superseded by cu
 9. Complete index coverage and non-Markdown resource checks, then reconcile PLAN exit criteria against the integrated current main.
 
 **Final disposition:** B4 is merged and the A–G audit has more current-main, CI-backed slices. The inventory manifest remains stale on main, several audit PRs are still branch-only, claim-level traceability is incomplete, and some experiments/provenance boundaries remain open. **RT-00 is not complete. No merge has been performed in this continuation.**
+
+
+## 10. Claim-level pilot and B6 evidence refresh — 2026-11-21
+
+This addendum supersedes the relevant open-item descriptions in §9 without rewriting the historical 40-record B6 snapshot.
+
+### 10.1 B5 claim-level traceability pilot
+
+B5 PR #151 now includes [Scenario 130 claim-level traceability pilot](RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md). It traces four executable claims through report sections, model/probe symbols, test methods, exact source blobs, Required CI, native reproduction, and retained artifacts. A fifth broader implication remains conditional. The local IDs S130-C01–C05 are not a global Claim ID scheme. The pilot is branch-only; latest Required CI was pending when this addendum was written.
+
+### 10.2 B6 register refresh
+
+B6 PR #154 preserves the original 40 B6-local records and appends one bounded evidence record, bringing the machine-readable register to 41 records. It updates:
+- Scenario 130's prospective exact SQLite source-ID and archive-integrity evidence;
+- Scenario 102's current eight-method test execution evidence while preserving the unresolved historical seven-test run provenance;
+- D's 13/13 local snapshot identity result;
+- E's 16/17 curated external-reference reachability result;
+- the current replacement PR state.
+
+The global Claim ID gap and corpus-wide claim/test/evidence completeness remain unresolved. Latest Required CI was pending when this addendum was written.
+
+### 10.3 Completed reproduction and external-reference checks
+
+- C-02 PR #164: Required CI passed; native reproduction passed 10/10 commands and LLVM preservation passed 2/2 probes. SQLite/Python source archive and LLVM package SHA-256 checks passed; the exact prospective Scenario 130 SQLite source ID matched. Artifacts 14722660960 and 14722122244.
+- C PR #166: Required CI passed; fresh RT-04 native reproduction passed 10/10 commands and LLVM preservation passed 2/2 probes. Artifacts 14722417949 and 14722227550.
+- C PR #165: Required CI and bounded RT-16/CLI smoke workflow passed.
+- E-02 PR #169: 16 of 17 curated reference URLs returned content; POSIX returned 403 to the checker and remains indeterminate. This does not establish corpus-wide external URL availability.
+
+### 10.4 Remaining exit blockers
+
+1. Complete claim-level traces for additional scenarios and RT areas; do not generalize the Scenario 130 pilot to corpus-wide completeness.
+2. Keep the historical Scenario 102 seven-test run provenance unresolved unless its exact source revision can be recovered; current eight-method source execution is confirmed in the 364-test Required CI run.
+3. Preserve the prospective/historical distinction for Scenario 130's SQLite source identity.
+4. Resolve remaining Ubuntu package archive, runner/container image, and rustup bootstrap identity limits.
+5. Complete Provider benchmark/profiler and Scenario 36 fuel-model tests.
+6. Decide whether full external URL availability and full snapshot closure are required; the POSIX 403 is indeterminate and OCI/Alive2/REAPI remain partial.
+7. Complete index coverage and non-Markdown resource checks, refresh the inventory after integrating the audit PRs, and reconcile PLAN exit criteria.
+
+**Updated disposition:** bounded C–E results are now materially stronger, and one claim-level traceability pilot exists. B5/B6 are still branch-only, the main inventory is stale, and corpus-wide claim/evidence closure remains open. **RT-00 is not complete.**
