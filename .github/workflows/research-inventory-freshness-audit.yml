@@ -1,0 +1,132 @@
+name: Research Inventory Freshness Audit
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/research-inventory-freshness-audit.yml"
+      - "research/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inventory-freshness:
+    name: inventory-freshness
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out PR head (or workflow-dispatch revision)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+
+      - name: Compare recursive research tree with inventory manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/research-inventory-freshness
+          python - <<'PY'
+          import collections
+          import json
+          import re
+          import subprocess
+          from pathlib import Path
+
+          manifest_path = "research/RESEARCH-CORPUS-INVENTORY-2026-11-20.json"
+          manifest = json.loads(Path(manifest_path).read_text(encoding="utf-8"))
+          records = manifest["artifacts"]
+          expected = {item["path"]: item for item in records}
+
+          raw = subprocess.check_output(["git", "ls-tree", "-r", "-z", "--full-tree", "HEAD"])
+          actual = {}
+          for record in raw.split(b"\0"):
+              if not record:
+                  continue
+              metadata, raw_path = record.split(b"\t", 1)
+              mode, obj_type, blob_sha = metadata.decode("ascii").split()
+              path = raw_path.decode("utf-8")
+              if path.startswith("research/") and path != manifest_path and obj_type == "blob":
+                  actual[path] = {"git_blob_sha": blob_sha, "size_bytes": int(subprocess.check_output(["git", "cat-file", "-s", blob_sha]))}
+
+          missing = sorted(set(actual) - set(expected))
+          extra = sorted(set(expected) - set(actual))
+          mismatches = []
+          for path in sorted(set(actual) & set(expected)):
+              want, got = expected[path], actual[path]
+              if want.get("git_blob_sha") != got["git_blob_sha"] or want.get("size_bytes") != got["size_bytes"]:
+                  mismatches.append({
+                      "path": path,
+                      "expected_sha": want.get("git_blob_sha"),
+                      "actual_sha": got["git_blob_sha"],
+                      "expected_size": want.get("size_bytes"),
+                      "actual_size": got["size_bytes"],
+                  })
+
+          paths = sorted(actual)
+          family_counts = collections.Counter(
+              path.split("/")[2] for path in paths if path.startswith("research/PROTOTYPES/")
+          )
+          count = {
+              "research_artifacts_excluding_manifest": len(paths),
+              "markdown_files": sum(path.endswith(".md") for path in paths),
+              "mdx_files": sum(path.endswith(".mdx") for path in paths),
+              "python_files": sum(path.endswith(".py") for path in paths),
+              "lean_files": sum(path.endswith(".lean") for path in paths),
+              "prototype_tree_files": sum(path.startswith("research/PROTOTYPES/") for path in paths),
+              "scenario_named_documents": sum(bool(re.search(r"SCENARIO-\d+", path)) for path in paths),
+              "taxonomy_rt_rows": len(re.findall(r"^\|\s*RT-\d{2}\s*\|", Path("research/RESEARCH-TAXONOMY.md").read_text(encoding="utf-8"), re.M)),
+              "dependency_rows": len(re.findall(r"^\|\s*DEP-\d{3}\s*\|", Path("research/RESEARCH-DEPENDENCY-MAP.md").read_text(encoding="utf-8"), re.M)),
+          }
+          summary = {
+              "scanned_revision": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+              "manifest_revision": manifest.get("revision"),
+              "manifest_record_count": len(expected),
+              "counts": count,
+              "prototype_family_counts": dict(sorted(family_counts.items())),
+              "missing_in_manifest": missing,
+              "extra_in_manifest": extra,
+              "sha_or_size_mismatches": mismatches,
+              "status": "exact" if not (missing or extra or mismatches) else "stale_or_inconsistent",
+          }
+          Path("artifacts/research-inventory-freshness/report.json").write_text(
+              json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+          )
+          lines = [
+              "# Research inventory freshness audit",
+              "",
+              f"- Scanned revision: {summary['scanned_revision']}",
+              f"- Manifest revision: {summary['manifest_revision']}",
+              f"- Status: **{summary['status']}**",
+              f"- Manifest records: {summary['manifest_record_count']}",
+              f"- Actual research artifacts (manifest excluded): {count['research_artifacts_excluding_manifest']}",
+              f"- Missing in manifest: {len(missing)}",
+              f"- Extra in manifest: {len(extra)}",
+              f"- SHA/size mismatches: {len(mismatches)}",
+              "",
+              "## Counts",
+              "",
+              *[f"- {key}: {value}" for key, value in count.items()],
+              "",
+              "## Prototype family counts",
+              "",
+              *[f"- {key}: {value}" for key, value in sorted(family_counts.items())],
+              "",
+              "## Missing paths",
+              "",
+              *[f"- {path}" for path in missing],
+          ]
+          Path("artifacts/research-inventory-freshness/summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          print(json.dumps(summary, indent=2, sort_keys=True))
+          PY
+
+      - name: Preserve inventory freshness evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-inventory-freshness-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/research-inventory-freshness/
+          if-no-files-found: error
+          retention-days: 30
