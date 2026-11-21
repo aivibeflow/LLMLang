@@ -737,6 +737,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Evaluate Cranelift as a candidate for fast Debug compilation and/or JIT; compare its supported targets, ABI/runtime integration, debug information, optimization behavior, and maintenance burden. Do not presume it should replace LLVM.
 - [ ] Define the evidence threshold for considering a direct native backend; first identify a concrete unmet requirement and estimate the full implementation/maintenance cost.
 - [ ] Evaluate WebAssembly target profiles and whether LLVM or a dedicated toolchain provides the better fit.
+  - A native-engine memory32 experiment verifies full-width arithmetic and logical view guards across 12,800 observations. [Wasm memory32 views](research/RT-13-WASM-MEMORY32-VIEWS.md)
 - [ ] Specify a reproducible comparative benchmark protocol and shared workload corpus for LLVM, Cranelift, and any justified prototype backend.
 - [ ] Measure cold and incremental compile latency/throughput, Debug and Release runtime performance, output size, peak memory, debug/diagnostic quality, target coverage, and toolchain/build complexity. Report distributions and workload-specific results; do not hide trade-offs in one aggregate score.
 - [ ] Validate every candidate against the same reference semantics and adversarial conformance corpus; performance results do not waive semantic-correctness gates.

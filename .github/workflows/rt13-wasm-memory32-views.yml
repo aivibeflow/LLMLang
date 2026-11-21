@@ -1,0 +1,29 @@
+name: RT-13 WebAssembly Memory32 Views
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/rt13-wasm-memory32-views.yml"
+      - "research/PROTOTYPES/WASM-VIEWS-01/**"
+      - "research/RT-13-WASM-MEMORY32-VIEWS.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wasm-memory32-views:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install WABT
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wabt
+      - name: Run memory32 logical-view comparison
+        run: node research/PROTOTYPES/WASM-VIEWS-01/compare.mjs
