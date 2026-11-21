@@ -137,6 +137,8 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 - [RT-00 A inventory manifest freshness reconciliation (2026-11-21)](RT-00-A-INVENTORY-MANIFEST-FRESHNESS-RECONCILIATION-2026-11-21.md) — exact recursive-tree reconciliation, latest snapshot: 549 records, 61 additions, and 20 refreshed blob records.
 - [RT-00 C reproducibility audit (2026-11-20)](RT-00-C-REPRODUCIBILITY-AUDIT-2026-11-20.md) — bounded reproducibility records and remaining provenance gaps.
 - [Research corpus audit (2026-11-20)](RESEARCH-CORPUS-AUDIT-2026-11-20.md) — audit scope, verified checks, findings, and remaining work for PLAN.md §0.1.
+- [RT-00 B5 complete traceability graph audit (2026-11-21)](RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md) — corpus traceability model and current-main bounded RT-06/09/13/24/26 evidence chains.
+- [RT-00 B6 unified contradictions and unresolved register (2026-11-21)](RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.md) — reconciled apparent conflicts and unresolved design, proof, provenance, and validation gaps.
 - [RT-00 B-02b.1 Lean proof graph audit](RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md) — current SC-1–SC-7 declaration crosswalk and Lean proof boundary.
 - [RT-00 B-02b.5 Dependency Graph evidence consolidation](RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md) — consolidated family graph, CI/test evidence, and inventory reconciliation.
 - [RT-02 Requirement Reconstruction and Human Semantic Validation](RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md) — non-normative proposal with a worked end-to-end requirement example.

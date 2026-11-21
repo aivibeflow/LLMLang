@@ -259,3 +259,15 @@ Current main now includes `research/RT-26-CANCELLATION-ACCOUNTING.md` and `resea
 The exact current source was independently reproduced under CPython 3.12.14 in [run #44949563913](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913): 3 cancellation tests and 4 baseline reservation tests passed. Artifact [14724622101](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913/artifacts/14724622101) retains the exact source hashes and logs. This adds reproducible model evidence, not production enforcement or proof of authentic termination evidence.
 
 B6-U06 remains unresolved: memory/CPU/disk/network I/O, coroutine switches, PMU, external-work attribution, real-time throttling, OS enforcement, crash consistency, and platform guarantees are not closed. No runtime architecture or policy is selected.
+
+## 16. Current-main evidence refresh — RT-06, RT-09, RT-13, RT-24 and RT-26 (2026-11-21)
+
+This addendum narrows stale statements in the original B6 baseline while preserving unresolved status.
+
+- **RT-06 / B6-U03:** the exact per-key negative-dependency projection has 13/13 tests passing in CPython 3.12.14, run #44948779526. Its complete-layer validation precondition and limits remain.
+- **RT-09 / B6-U04:** ordered lowering from typed SPG has 16/16 tests passing in the same run. This is not LLVM or machine-code evidence.
+- **RT-13 / B6-U04:** the memory32 report declares 12,800 oracle comparisons and two controls, with pinned Node/WABT versions and hashes. The report does not cite a retained CI run; exact workflow reproduction remains open.
+- **RT-24:** exact call-target merge is a bounded structural candidate with 18 focused/baseline tests declared passed; no exact CI run-to-blob evidence is asserted in this register.
+- **RT-26 / B6-U06:** reservation and cancellation models have exact CPython 3.12.14 reproduction, 7/7 combined tests, run #44949563913. The result remains cooperative cumulative-budget model evidence, not production enforcement.
+
+No direct semantic contradiction is introduced by these results. They are complementary bounded experiments with distinct scopes. B6 remains an unresolved register; no architecture decision is made.
