@@ -7,11 +7,11 @@
   "status": "bounded-audit-register",
   "note": "B6 IDs identify audit register records, not global research Claim IDs. Pending PR evidence is not part of the main baseline.",
   "summary": {
-    "records": 39,
+    "records": 40,
     "apparent_conflicts_reconciled": 4,
     "open_design_proof_evidence_gaps": 18,
     "scoped_historical_or_complementary_relationships": 7,
-    "stale_status_or_count_discrepancies": 5,
+    "stale_status_or_count_discrepancies": 6,
     "pending_pr_states": 5,
     "direct_core_semantic_contradictions_confirmed": 0
   },
@@ -546,6 +546,19 @@
       "finding": "B5 report PR is open and CI green, but not merged; B6 is independently based on main and treats B5 findings as pending-source audit inputs.",
       "required_action": "After review/merge, register B5 report and reconcile inventory/index without rewriting baseline facts.",
       "decision_owner": "PR review"
+    },
+    {
+      "id": "B6-F06",
+      "class": "stale-status",
+      "status": "confirmed-stale-at-audit-snapshot",
+      "topic": "RT-04 Native Reproduction protocol top-level status",
+      "sources": [
+        "research/RT-04-NATIVE-REPRODUCTION.md",
+        "research/RT-00-C-REPRODUCIBILITY-AUDIT-2026-11-20.md"
+      ],
+      "finding": "The protocol's opening status says a workflow execution is still required, while its later section and the C audit record successful run #44774296240 with 10/10 commands passed. The opening status is stale, not a contradictory experiment result.",
+      "required_action": "Update the top-level status to reflect the completed bounded reproduction; retain the run history, artifact retention limit, and exact source-identity caveats.",
+      "decision_owner": "RT-00-C documentation maintenance"
     }
   ]
 }
