@@ -42,7 +42,7 @@ jobs:
 
           raw = subprocess.check_output(["git", "ls-tree", "-r", "-z", "--full-tree", "HEAD"])
           actual = {}
-          for record in raw.split(b"\\0"):
+          for record in raw.split(b"\0"):
               if not record:
                   continue
               metadata, raw_path = record.split(b"\\t", 1)
@@ -76,9 +76,9 @@ jobs:
               "python_files": sum(path.endswith(".py") for path in paths),
               "lean_files": sum(path.endswith(".lean") for path in paths),
               "prototype_tree_files": sum(path.startswith("research/PROTOTYPES/") for path in paths),
-              "scenario_named_documents": sum(bool(re.search(r"SCENARIO-\\d+", path)) for path in paths),
-              "taxonomy_rt_rows": len(re.findall(r"^\\|\\s*RT-\\d{2}\\s*\\|", Path("research/RESEARCH-TAXONOMY.md").read_text(encoding="utf-8"), re.M)),
-              "dependency_rows": len(re.findall(r"^\\|\\s*DEP-\\d{3}\\s*\\|", Path("research/RESEARCH-DEPENDENCY-MAP.md").read_text(encoding="utf-8"), re.M)),
+              "scenario_named_documents": sum(bool(re.search(r"SCENARIO-\d+", path)) for path in paths),
+              "taxonomy_rt_rows": len(re.findall(r"^\|\s*RT-\d{2}\s*\|", Path("research/RESEARCH-TAXONOMY.md").read_text(encoding="utf-8"), re.M)),
+              "dependency_rows": len(re.findall(r"^\|\s*DEP-\d{3}\s*\|", Path("research/RESEARCH-DEPENDENCY-MAP.md").read_text(encoding="utf-8"), re.M)),
           }
           summary = {
               "scanned_main_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
@@ -92,7 +92,7 @@ jobs:
               "status": "exact" if not (missing or extra or mismatches) else "stale_or_inconsistent",
           }
           Path("artifacts/research-inventory-freshness/report.json").write_text(
-              json.dumps(summary, indent=2, sort_keys=True) + "\\n", encoding="utf-8"
+              json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
           )
           lines = [
               "# Research inventory freshness audit",
@@ -118,7 +118,7 @@ jobs:
               "",
               *[f"- {path}" for path in missing],
           ]
-          Path("artifacts/research-inventory-freshness/summary.md").write_text("\\n".join(lines) + "\\n", encoding="utf-8")
+          Path("artifacts/research-inventory-freshness/summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
           print(json.dumps(summary, indent=2, sort_keys=True))
           PY
 
