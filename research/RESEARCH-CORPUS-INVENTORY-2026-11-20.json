@@ -2,17 +2,17 @@
   "schema_version": 1,
   "generated_at": "2026-11-21",
   "repository": "aivibeflow/LLMLang",
-  "revision": "b118346ecd499d7962a6ac546fb1031bc7e2bc26",
-  "source": "Recursive Git tree at RT-00-B3 report snapshot b118346ecd499d7962a6ac546fb1031bc7e2bc26; inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "d2f7db37e3bb9f6cd4c4de99d6f2feb6c8ff6f4d",
+  "source": "Recursive Git tree at PR branch revision d2f7db37e3bb9f6cd4c4de99d6f2feb6c8ff6f4d, based on audited main baseline 017e64b87c87371309197a392165258b8b088dd1; includes the RT-00 A reconciliation report and branch-updated research index; excludes this inventory manifest to avoid self-reference.",
   "counts": {
-    "research_files": 488,
-    "markdown_files": 249,
-    "python_files": 201,
+    "research_files": 491,
+    "markdown_files": 251,
+    "python_files": 202,
     "scenario_named_documents": 136,
-    "prototype_tree_files": 248,
+    "prototype_tree_files": 249,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "audit-or-review-report": 15,
+      "audit-or-review-report": 17,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 1,
       "external-source-snapshot-or-license": 13,
@@ -20,7 +20,7 @@
       "other-research-artifact": 2,
       "prototype-or-experiment-implementation": 128,
       "prototype-report-or-readme": 20,
-      "prototype-test-evidence": 98,
+      "prototype-test-evidence": 99,
       "reference-register-or-manifest": 2,
       "research-area-or-experiment-document": 31,
       "research-background-or-design-analysis": 23,
@@ -31,7 +31,8 @@
     },
     "lean_source_files": 23,
     "taxonomy_research_areas": 26,
-    "dependency_edges": 108
+    "dependency_edges": 108,
+    "mdx_files": 3
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks, individual role mappings for all 242 prototype-tree files across eight families, a first-pass relationship review of all 136 scenario-named reports, and bounded evidence-graph reviews for RT-04-01 and the Dependency Graph/Logos Lean family. B-02b.1–B-02b.5 add current Lean proof, Python test-evidence, scenario-overlap, orphan, and inventory-reconciliation slices. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
@@ -2256,8 +2257,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md",
-      "git_blob_sha": "3160239491e98b5deb21fcbc76c012eff02eac59",
-      "size_bytes": 34404,
+      "git_blob_sha": "7c089218c455bf23cd5dc4f8063fb471d90818d9",
+      "size_bytes": 34757,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
@@ -5009,6 +5010,29 @@
       "semantic_review": {
         "status": "file-role-triaged",
         "basis": "Test file paired to the corresponding README-described source module; test import and class names inspected."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_merge_tree_gate.py",
+      "git_blob_sha": "cade1018a62a67236f3c650e11faa5a94bfde889",
+      "size_bytes": 19077,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-24",
+          "DEP-088",
+          "DEP-091",
+          "DEP-093"
+        ],
+        "method": "paired content review against RT-24 source-completeness report; seven explicit test methods exercise merge-tree inventory completeness and evidence replay",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "bounded-file-role-reviewed",
+        "basis": "The seven tests directly implement the paired RT-24 experiment; this establishes file role and scoped fixture coverage, not full prototype-family or claim-level validation."
       }
     },
     {
@@ -8171,8 +8195,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "b1b7d5321c867531f563603e9938464f8423bc65",
-      "size_bytes": 25831,
+      "git_blob_sha": "60c6514ce6079b8c5a0caee13af92af6978a8ea1",
+      "size_bytes": 26544,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -8678,8 +8702,8 @@
     },
     {
       "path": "research/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "0122fa1355f4739c173927bd4090ced6d9e7de09",
-      "size_bytes": 49518,
+      "git_blob_sha": "5afa970c7cd5f4bf3e232102a9453b1f91bdb02c",
+      "size_bytes": 49945,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -12566,6 +12590,27 @@
       ]
     },
     {
+      "path": "research/RT-00-A-INVENTORY-MANIFEST-FRESHNESS-RECONCILIATION-2026-11-21.md",
+      "git_blob_sha": "7c698263c7f94014e7cfd781cb552c22e81075f9",
+      "size_bytes": 4834,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1 — research corpus inventory",
+          "RT-00 A — inventory freshness reconciliation"
+        ],
+        "method": "recursive Git-tree and blob/size comparison against the exact main baseline; paired RT-24 report/test role review",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-inventory-reconciliation",
+        "basis": "Applies the exact-tree freshness findings and documents the separate meanings of prototype inventory and semantic-role-review counts; does not claim corpus-wide semantic validation."
+      }
+    },
+    {
       "path": "research/RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md",
       "git_blob_sha": "c7a4bf6a5a92fc3347358a80932dda1518917165",
       "size_bytes": 7747,
@@ -13151,8 +13196,8 @@
     },
     {
       "path": "research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
-      "git_blob_sha": "c84833714d61741701005699c1961a4c2503a0ef",
-      "size_bytes": 29174,
+      "git_blob_sha": "0b5b503e3c5641aaec200865c33fd1ce2b7fa482",
+      "size_bytes": 29561,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -13213,6 +13258,29 @@
       "semantic_review": {
         "status": "taxonomy-crosswalk-resolved",
         "basis": "RT-24 is now a registered research area; the candidate contract remains non-normative and open on schema, identity, canonical bytes/hash, and merge policy."
+      }
+    },
+    {
+      "path": "research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md",
+      "git_blob_sha": "847bd2036d36b7a2e58cc22fea62b7e19fe24c84",
+      "size_bytes": 12264,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-24",
+          "DEP-088",
+          "DEP-091",
+          "DEP-093"
+        ],
+        "method": "content review of the bounded RT-24 source-completeness study and its explicit dependency/Plan cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-experiment-report",
+        "basis": "The report defines a closed-tree source-completeness experiment, identifies its seven paired fixture tests, and explicitly limits evidence to the bounded RT-24/RT-20/RT-23 gates."
       }
     },
     {
@@ -13751,5 +13819,62 @@
     "index_check_note": "The existing index_check and branch_index_check remain historical checks against their recorded older revisions; global current link/anchor validation is still pending.",
     "b3_note": "B3 report is a bounded semantic consistency audit, not proof of corpus-wide claim validation. Historical inventory checks remain historical.",
     "b3_refreshed_existing_records": 1
+  },
+  "freshness_reconciliation": {
+    "reviewed_at": "2026-11-21",
+    "audited_main_revision": "017e64b87c87371309197a392165258b8b088dd1",
+    "previous_manifest_revision": "b118346ecd499d7962a6ac546fb1031bc7e2bc26",
+    "previous_manifest_counts": {
+      "research_files": 488,
+      "prototype_tree_files": 248
+    },
+    "audited_main_counts": {
+      "research_files": 490,
+      "markdown_files": 250,
+      "mdx_files": 3,
+      "python_files": 202,
+      "lean_source_files": 23,
+      "prototype_tree_files": 249,
+      "scenario_named_documents": 136,
+      "taxonomy_research_areas": 26,
+      "dependency_edges": 108
+    },
+    "comparison": {
+      "missing_paths": [
+        "research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_merge_tree_gate.py"
+      ],
+      "extra_paths": [],
+      "stale_blob_metadata_paths": [
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md",
+        "research/README.md",
+        "research/RESEARCH-DEPENDENCY-MAP.md",
+        "research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md"
+      ]
+    },
+    "manifest_after_reconciliation": {
+      "research_files": 491,
+      "markdown_files": 251,
+      "mdx_files": 3,
+      "python_files": 202,
+      "lean_source_files": 23,
+      "prototype_tree_files": 249,
+      "scenario_named_documents": 136,
+      "taxonomy_research_areas": 26,
+      "dependency_edges": 108
+    },
+    "prototype_count_semantics": {
+      "individually_mapped_files": 242,
+      "earlier_plan_aggregate": 245,
+      "previous_manifest_records": 248,
+      "audited_main_paths": 249,
+      "note": "These counts describe different populations and review states; the historical role-review aggregates are not rewritten by inventory refresh."
+    },
+    "evidence": {
+      "workflow_run": 44938305811,
+      "artifact_id": 14720512241,
+      "reconciliation_report": "research/RT-00-A-INVENTORY-MANIFEST-FRESHNESS-RECONCILIATION-2026-11-21.md",
+      "source_revision": "d2f7db37e3bb9f6cd4c4de99d6f2feb6c8ff6f4d"
+    }
   }
 }
