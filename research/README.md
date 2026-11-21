@@ -131,6 +131,7 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 
 ## Corpus inventory and audit
 
+- [RT-00 B5 complete traceability graph audit (2026-11-21)](RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md) — graph model, unresolved corpus-wide edges, and current-main bounded claim/evidence refresh.
 - [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, category, and qualified traceability metadata for all 549 tracked research artifacts at the audited revision (excluding the manifest itself); the exact source revision is recorded in the manifest.
 - [Research corpus audit (2026-11-20)](RESEARCH-CORPUS-AUDIT-2026-11-20.md) — audit scope, verified checks, findings, and remaining work for PLAN.md §0.1.
 - [RT-00 B-02b.1 Lean proof graph audit](RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md) — current SC-1–SC-7 declaration crosswalk and Lean proof boundary.
