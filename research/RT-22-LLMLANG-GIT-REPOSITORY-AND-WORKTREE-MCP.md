@@ -220,3 +220,103 @@ Boundary: RT-22 defines how Git/repository/worktree operations are exposed and r
 ## RT-24 relationship
 
 RT-22 owns the externally observable repository/worktree contract. RT-24 owns the candidate semantic representation/diff/merge algorithm; Git operations supply explicit base/ours/theirs trees, and repository-wide semantic validation must precede finalization.
+
+
+## 18. External orchestrator interoperability contract
+
+This section defines the LLMLang-owned guarantees needed when an external orchestrator such as AIVibeFlow invokes the Toolchain. It refines the Repository/Worktree boundary; it does not redefine the transport-neutral domain API, canonical Tool schemas, or general MCP adapter architecture owned by RT-19.
+
+### 18.1 Capability advertisement and compatibility
+
+The MCP server advertises only capabilities that are implemented and enabled for the connected deployment. Capability discovery must distinguish:
+
+- protocol version from Toolchain API version;
+- capability identifier/version from individual input/output schema versions;
+- supported behavior from optional behavior;
+- configured limits from hard correctness guarantees;
+- available operations from operations authorized for the current principal/scope.
+
+The capability descriptor must provide stable identifiers, schema/version references, required scope and authorization class, whether the operation mutates state, idempotency behavior, whether it may be long-running, and the result/recovery mechanism. Exact descriptor and wire schemas remain owned by RT-19.
+
+An orchestrator pins the negotiated capability/schema versions and records the server instance identity with its workflow provenance. An incompatible major version, missing required guarantee, or unknown capability must fail closed. A server upgrade must not silently change the meaning of an already-running operation. Capability refresh affects new bindings; migration of an active binding is explicit.
+
+The server must not advertise a placeholder, experimental, disabled, or unsupported operation as callable. Research candidate names in this document are not evidence of implementation.
+
+### 18.2 Invocation identity and correlation
+
+Every stateful request carries explicit identifiers for all applicable scopes. The logical invocation context includes:
+
+- authenticated principal and delegated capability lease;
+- external orchestrator and originating process/Job/Node Execution references;
+- repository and worktree handles;
+- expected repository baseline and worktree generation;
+- semantic snapshot and interface mapping revision when relevant;
+- operation ID for continuation/inspection;
+- idempotency key for state-changing requests;
+- trace/correlation reference.
+
+These fields are typed domain/API inputs or authenticated metadata as defined by RT-19; they must not be smuggled through prompt text or inferred from MCP connection/session identity. The server validates every supplied handle and scope independently. A missing required identity is an invalid request, not permission to use a server-global current repository/worktree.
+
+The server returns stable operation and resource references plus structured status/diagnostic information. Large results are retrieved through bounded reads or Resources. Results identify the exact repository baseline, worktree generation, semantic snapshot, mapping revision, and evidence inputs to which they apply.
+
+### 18.3 Durable operation semantics
+
+For every long-running or externally retriable operation:
+
+1. The server durably records the operation identity, authenticated principal/scope, normalized request identity, idempotency key, preconditions, and initial state before reporting that execution has been accepted.
+2. Repeating the same idempotency key with equivalent normalized input returns or references the original operation/result. Reusing the key with different input is rejected.
+3. The operation state is queryable independently of the MCP connection and client process.
+4. A timeout, transport disconnect, or missing notification means outcome unknown. The caller must inspect the operation before retrying.
+5. Cancellation is a request, not proof that side effects have stopped. The final state and any partial effects are reported explicitly.
+6. Recovery inspects actual repository refs, worktree generation, exported tree, and semantic state before resuming/finalizing. It must not duplicate an already completed Git effect.
+7. Terminal results and evidence remain addressable according to the configured retention policy.
+
+The durable operation state machine and persistence model are owned by RT-19/RT-23. This section defines the externally observable requirements for repository/worktree operations.
+
+### 18.4 State and evidence completeness
+
+The server distinguishes a verified empty result from unavailable, incomplete, stale, or unknown data. In particular:
+
+- An empty dependency/caller set is valid only when the relevant index and analysis coverage are known complete for the exact source snapshot.
+- A cached worktree status reports its generation and freshness; stale or unknown freshness is not presented as current.
+- A verification result is bound to exact source hashes, mapping revision, toolchain/checker versions, configuration, and relevant environment identity.
+- Any change to a hash-relevant input invalidates the affected evidence.
+- A partial import/export, interrupted reconciliation, or unknown Git outcome is represented as a recoverable non-success state.
+- A Tool/Resource result must not imply semantic acceptance, export, commit, push, or merge merely because an earlier stage succeeded.
+
+The server returns explicit completeness/freshness states (including unknown where appropriate), diagnostics, and continuation/reconciliation handles. It must never convert missing index data, timeout, or unavailable analysis into an empty successful result.
+
+### 18.5 Events and notifications
+
+MCP notifications or progress events may reduce polling latency, but they are hints that an operation or resource may have changed. They are not the durable source of truth and are not proof of successful completion.
+
+The operation record remains authoritative. A client that disconnects, misses notifications, or restarts must recover by inspecting known operation IDs and reconciling the current state. If event sequence/cursor support is implemented, cursors are scoped and replayable; a gap is reported and can be repaired by operation inspection or bounded reconciliation.
+
+The Toolchain does not assume that an orchestrator remains connected or that a notification is delivered exactly once. Event transport details are optional capabilities and must be advertised explicitly.
+
+## 19. Cross-project integration contract tests
+
+These tests validate the LLMLang side of the AIVibeFlow integration. They complement the local repository/worktree tests in Section 11 and the Toolchain lifecycle tests in RT-19/RT-23.
+
+| ID | Scenario | Required LLMLang behavior |
+|---|---|---|
+| ORCH-01 | Client discovers capabilities | Advertise only enabled/implemented capabilities with stable version/schema identifiers |
+| ORCH-02 | Client pins a supported contract | Existing operations retain their negotiated semantics across reconnect |
+| ORCH-03 | Client requests unsupported major/schema version | Return a typed compatibility failure without executing the operation |
+| ORCH-04 | Two orchestrator Jobs share one server | Enforce independent principals, grants, worktree handles, and operation scopes |
+| ORCH-05 | Request omits required repository/worktree identity | Reject; never fall back to implicit server-global selection |
+| ORCH-06 | Same idempotency key and equivalent request is repeated | Return the original operation/result without duplicate effects |
+| ORCH-07 | Same idempotency key is reused with different input | Reject the conflicting reuse |
+| ORCH-08 | Client disconnects after operation acceptance | Operation remains inspectable and recoverable by durable ID |
+| ORCH-09 | Notification is lost or duplicated | Operation inspection returns authoritative state; no duplicate side effect |
+| ORCH-10 | Dependency/index data is missing | Return incomplete/unknown, never a successful empty dependency result |
+| ORCH-11 | Worktree File View is stale or catching up | Expose freshness/generation and do not claim current status |
+| ORCH-12 | Verification inputs change after success | Mark affected evidence stale and prevent its use for commit finalization |
+| ORCH-13 | Git ref update succeeds but response is lost | Reconcile the actual ref/tree and finalize the existing matching commit without duplication |
+| ORCH-14 | Grant expires or is revoked during operation | Enforce the documented authorization boundary and report partial/final outcome accurately |
+| ORCH-15 | Cancellation races with completion | Report the actual terminal state and any completed side effects |
+| ORCH-16 | Server restarts with pending operations | Recover or expose an explicit recoverable state; never silently drop accepted work |
+
+The tests must run through an independent MCP client as well as direct Toolchain API tests. Passing a transport-level MCP smoke test is insufficient: assertions must cover repository identity, authorization, durable state, semantic/file consistency, and recovery.
+
+The tests are proposed requirements and do not imply that the capabilities or implementation currently exist.
