@@ -577,3 +577,15 @@ The latest native run 44774296240 passed all ten RT-04 commands and both LLVM pr
 The [Dependency Graph prototype evidence review](RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-DEPENDENCY-GRAPH-01-2026-11-20.md) found two stale task/audit statuses: the SCW-04 report still described pre-SCW-15 coupling, and the SCW-05 breakdown still marked seven completed tasks in progress. Current imports show an independent relational semantics module and a separate Logos adapter with an evaluation-preservation theorem; SCW-05's declaration-context model and tests are present. The SCW-04 audit now has a current-source addendum, the SCW-05 tasks are marked complete, and Scenario 34 links both records.
 
 The latest relevant Logos-binding CI run 44766546452 passed the parser-state bridge build and semantic-correspondence test steps on PR #94. No Lean source, lakefile, or lean-toolchain files changed after that merge in the reviewed main history. SCW-32 and later source-derived CPC/JSON/parser-state obligations remain open. The README's incomplete file basename coverage is a navigation limitation, not proof that the remaining family files are orphans.
+
+
+## 11. Cross-cutting research document alignment
+
+The [Cross-Cutting Research Document Alignment Review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) confirms that the taxonomy contains 24 unique RT areas and the dependency map contains 94 unique DEP edges, matching the inventory. Their feedback cycles are documented. The semantic dependency index, option matrix, and draft glossary remain candidate/proposal artifacts; none is treated as an accepted architecture decision.
+
+The `ImpHash`/`ImplHash` spelling mismatch is explicitly recorded as unresolved in PLAN.md and is intentionally not normalized. The semantic dependency index's duplicate section numbering was corrected; no semantic content was changed.
+
+
+## 12. Package-index diagnostic inventory delta
+
+The inventory reconciliation found two prototype files present in main but absent from the prior 471-record inventory: `run_tests_with_timings.py` and `profile_package_provider.py`, introduced by PRs #105 and #109. The first is the per-test timing runner used by the package-index workflow; the second is the optional cProfile harness invoked only when `run_benchmark=true`. Their roles and workflow relationships are now recorded, and the package-index README links both. This is an inventory drift correction, not a semantic change to the package-index model.

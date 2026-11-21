@@ -6,10 +6,14 @@
 
 Requires Python 3.11+.
 
+The [package-index workflow](../../../.github/workflows/package-index.yml) is called by Required CI with its default `run_benchmark=false`: the timing test runner and compile step run, while the benchmark and profiler steps are skipped. Set `run_benchmark=true` on a manual workflow dispatch to run the exploratory benchmark and cProfile harness.
+
 ```sh
 PYTHONPATH=../PACKAGE-IDENTITY-01 python run_tests_with_timings.py
 PYTHONPATH=../PACKAGE-IDENTITY-01 python -m py_compile package_index.py test_package_index.py test_streaming_merge.py test_external_validation.py test_package_archive.py package_closure.py test_package_closure.py package_provider.py test_package_provider.py test_provider_stress.py benchmark_package_provider.py content_store.py test_content_store.py ../PACKAGE-IDENTITY-01/package_identity.py
 PYTHONPATH=../PACKAGE-IDENTITY-01 python benchmark_package_provider.py --sizes 1000 5000
+# Optional profiling run (also exposed by package-index.yml input run_benchmark)
+PYTHONPATH=../PACKAGE-IDENTITY-01 python profile_package_provider.py --shape many-dependencies --size 5000 --top 40
 ```
 
 ## What it tests
@@ -28,12 +32,14 @@ PYTHONPATH=../PACKAGE-IDENTITY-01 python benchmark_package_provider.py --sizes 1
 - A backend-neutral `ContentStore` / `ContentStoreSnapshot` read contract and an append-only SQLite prototype with WAL-pinned read transactions, exact-hash metadata lookup, typed dependency-index rows, and incremental BLOB streams.
 - Provider integration tests proving that an already-open snapshot does not see objects committed by a concurrent writer, while a newly opened snapshot does.
 - Stress coverage for 1,200-object chain and high-fan-out graphs.
-- A subprocess-isolated benchmark harness for chain, diamond, high-fan-out, and many-dependency graphs, reporting preparation, Provider build, archive verification, and subprocess wall times; object/edge counts; manifest/archive sizes; throughput; traced Python peak; process peak RSS; temporary-directory high-water size; and verification. The CI test runner also prints the 20 slowest tests and total suite duration.
+- A subprocess-isolated benchmark harness for chain, diamond, high-fan-out, and many-dependency graphs, reporting preparation, Provider build, archive verification, and subprocess wall times; object/edge counts; manifest/archive sizes; throughput; traced Python peak; process peak RSS; temporary-directory high-water size; and verification. The CI test runner also prints the 20 slowest tests and total suite duration. An optional cProfile harness profiles one disk-backed Provider build without including snapshot setup or verification.
 
 ## File index
 
 - Implementation: [package_index.py](package_index.py), [package_archive.py](package_archive.py), [package_closure.py](package_closure.py), [package_provider.py](package_provider.py), [content_store.py](content_store.py)
+- Test timing runner: [run_tests_with_timings.py](run_tests_with_timings.py)
 - Benchmark: [benchmark_package_provider.py](benchmark_package_provider.py)
+- Optional profiler: [profile_package_provider.py](profile_package_provider.py)
 - Tests: [test_package_index.py](test_package_index.py), [test_streaming_merge.py](test_streaming_merge.py), [test_external_validation.py](test_external_validation.py), [test_package_archive.py](test_package_archive.py), [test_package_closure.py](test_package_closure.py), [test_package_provider.py](test_package_provider.py), [test_provider_stress.py](test_provider_stress.py), [test_content_store.py](test_content_store.py)
 
 ## Limitations
