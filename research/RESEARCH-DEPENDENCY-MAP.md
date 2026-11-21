@@ -371,3 +371,22 @@ RT-25 evaluates allocator choices for the Rust-based LLMLang runtime and toolcha
 | DEP-099 | RT-13 → RT-25 | Constrains | Backend targets, native linking, C ABI interoperability, and platform availability constrain allocator portability and deployment choices. | Strong hypothesis |
 
 These edges schedule the study; they do not imply that any allocator is compatible with every target or that allocator choice should become part of LLMLang language semantics. Revisit them when the runtime target profile or FFI ownership model changes.
+
+
+## 14. Hierarchical resource accounting and real-time enforcement (RT-26)
+
+RT-26 studies resource accounting and enforcement as a potential high-level LLMLang capability. Its central unit is a task or task scope, including nested and delegated task hierarchies. It must distinguish language-level contracts and policy from runtime mechanisms and OS/container enforcement. The research must not assume that every resource metric is available or enforceable with equal precision on every target.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-100 | RT-03 → RT-26 | Constrains | Resource scopes, budget declarations, limit events, and handler outcomes must have precise evaluation, error, effect, and observable semantics. | Strong hypothesis |
+| DEP-101 | RT-04 → RT-26 | Constrains | Ownership, effects, capabilities, and concurrency determine who may allocate, consume, transfer, observe, or modify a task's resource budget. | Strong hypothesis |
+| DEP-102 | RT-10 → RT-26 | Requires | Runtime task identity, scheduling, coroutine lifecycle, cancellation, cleanup, and platform services provide the execution points needed for accounting and enforcement. | Strong hypothesis |
+| DEP-103 | RT-13 → RT-26 | Constrains | Backend and target differences determine which counters, accounting APIs, preemption mechanisms, and enforcement guarantees are available. | Strong hypothesis |
+| DEP-104 | RT-16 → RT-26 | Constrains | Resource exhaustion can be an isolation and denial-of-service boundary; untrusted tasks require authority checks, containment, and fail-safe behavior when enforcement is unavailable. | Strong hypothesis |
+| DEP-105 | RT-18 → RT-26 | Influences | Portability profiles and conformance policy must state which resource metrics and enforcement guarantees are required, optional, approximate, or unsupported. | Strong hypothesis |
+| DEP-106 | RT-19 → RT-26 | Influences | Toolchain Server workspaces, requests, agents, and delegated operations may be modeled as task hierarchies with independent and aggregate resource budgets. | Open hypothesis |
+| DEP-107 | RT-20 → RT-26 | Influences | Change plans and validation workflows may need explicit resource budgets and auditable limit handling for long-running or delegated operations. | Open hypothesis |
+| DEP-108 | RT-25 → RT-26 | Influences | Allocator choice changes the observability and cost of memory accounting, retained-memory measurements, and memory-limit enforcement. | Strong hypothesis |
+
+These edges are research dependencies, not accepted architecture. In particular, they do not establish that all metrics can be attributed exactly to a coroutine, that every limit can be enforced synchronously, or that OS-level controls map one-to-one to language task scopes.
