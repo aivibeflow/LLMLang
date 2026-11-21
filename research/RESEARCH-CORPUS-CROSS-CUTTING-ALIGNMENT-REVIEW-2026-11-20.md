@@ -90,3 +90,14 @@ Both files are prototype diagnostics, not normative package-index semantics. Bot
 Required CI run [44801357527](https://github.com/aivibeflow/LLMLang/actions/runs/44801357527) on this main revision confirms the boundary: the timing test runner and py_compile steps passed, while the benchmark and profiler steps were skipped. `ci-required.yml` calls the reusable package-index workflow without setting `run_benchmark`, whose default is false. A separate manual dispatch [44801436968](https://github.com/aivibeflow/LLMLang/actions/runs/44801436968) ran with the optional benchmark/profile enabled; its timing summary reports 81 tests, 0 failures, 0 errors, and 1.328503 seconds for the test suite. The benchmark/profiler outputs are exploratory diagnostics, not part of the default Required CI path.
 
 Including these two Python files and this review report, the inventory snapshot contains 474 research files: 241 Markdown/MDX, 199 Python, 22 Lean source files, and 245 prototype-tree files. The earlier 471-record inventory was stale by two package-index diagnostics before this report was added.
+
+
+## 10. Current-main refresh after RT-23 merge — 2026-11-21
+
+The structural check was repeated against main at `b0142c27f5632a859c379b78a10cb22f500ebfd8`. The Research Taxonomy still contains 26 unique RT rows and the Research Dependency Map still contains 108 unique DEP rows. The 108 DEP identifiers are unique, all endpoints resolve, and no self-loop was found. The two non-trivial SCCs remain RT-05/RT-12 and RT-14/RT-19/RT-20. The RT-23 merge modified the dependency map's surrounding evidence links but did not change the RT/DEP row totals.
+
+Current main contains 493 research artifacts, 250 prototype paths, 252 Markdown files, 3 MDX files, 203 Python files, and 23 Lean files. These counts are derived from the exhaustive 017e64b recursive audit plus exact PR #126 and #152 commit deltas (two RT-23 paths and one B4 report added, six modified paths, zero deleted); no fresh full recursive enumeration at b0142c2 was run. The main manifest remains at 488 records; five paths are missing and five existing blob metadata records are stale. PR #149 proposes the inventory correction and remains unmerged.
+
+Prototype role-review populations remain distinct: 242 individually mapped artifacts, 245 prior PLAN aggregate, 248 previous manifest prototype paths, and 250 current prototype paths. The current family path counts are 3/108/4/7/17/106/2/3. This is not evidence that all 250 files have equivalent content review.
+
+The candidate/non-normative status conclusions remain unchanged: the option matrix has not selected a vector; the Semantic Dependency Index and Draft Glossary remain proposals; RT-24 remains non-normative; ADR-014 remains Proposed; and ImpHash/ImplHash remains unresolved. No architecture decision is made by this refresh.
