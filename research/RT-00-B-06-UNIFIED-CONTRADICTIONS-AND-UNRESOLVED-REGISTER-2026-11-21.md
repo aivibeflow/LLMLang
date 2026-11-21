@@ -252,3 +252,10 @@ Baseline: current `main` at `fe8d10b4f454b2f05c902b32202ca7dfea8943d5` (rebase p
 
 Both reports declare CPython 3.12.14 reproduction commands and focused test counts. This register records those source declarations; it does not independently assert a retained CI run bound to the exact current test blob. The B6-U03 and B6-U04 gaps therefore remain unresolved with narrower, better-supported partial evidence. PR #199's B5 refresh is merged and its current-main addendum is part of the corpus state.
 
+## 15. RT-26 cancellation-settlement evidence refresh (2026-11-21)
+
+Current main now includes `research/RT-26-CANCELLATION-ACCOUNTING.md` and `research/PROTOTYPES/BUDGET-CANCELLATION-01/test_budget_cancellation.py`. The bounded model exhausts 60 legal schedules per policy with actual spending and repeats with unused reservations. Close-admissions-and-settle-at-terminal-completion has zero post-cancellation admissions, zero root-limit overshoot, and zero undercharge in the measured fixture; refund-at-acknowledgment policies exhibit failures. The report explicitly assumes a serialized ledger and cooperative enforcement.
+
+The exact current source was independently reproduced under CPython 3.12.14 in [run #44949563913](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913): 3 cancellation tests and 4 baseline reservation tests passed. Artifact [14724622101](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913/artifacts/14724622101) retains the exact source hashes and logs. This adds reproducible model evidence, not production enforcement or proof of authentic termination evidence.
+
+B6-U06 remains unresolved: memory/CPU/disk/network I/O, coroutine switches, PMU, external-work attribution, real-time throttling, OS enforcement, crash consistency, and platform guarantees are not closed. No runtime architecture or policy is selected.

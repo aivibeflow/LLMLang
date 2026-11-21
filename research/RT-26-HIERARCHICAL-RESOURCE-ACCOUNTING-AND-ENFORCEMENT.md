@@ -1,6 +1,6 @@
 # RT-26 — Hierarchical Resource Accounting, Limits, Throttlers, and Handlers
 
-**Status:** Partially validated in one cooperative cumulative-budget reservation model; mandatory resource dimensions and real-time enforcement remain open. See the bounded RT-26 claim-level traceability pilot: [RT-00 B-05-02](RT-00-B-05-02-RT26-CLAIM-TRACEABILITY-PILOT-2026-11-21.md).  
+**Status:** Partially validated in two cooperative cumulative-budget models (reservation and cancellation settlement); mandatory resource dimensions and real-time enforcement remain open. See [cooperative reservation](RT-26-COOPERATIVE-BUDGET-RESERVATION.md) and [cancellation settlement](RT-26-CANCELLATION-ACCOUNTING.md).  
 **Research area:** RT-26  
 **Priority:** P1  
 **Scope:** LLMLang language semantics, runtime, task/coroutine model, native targets, and Toolchain Server workloads  

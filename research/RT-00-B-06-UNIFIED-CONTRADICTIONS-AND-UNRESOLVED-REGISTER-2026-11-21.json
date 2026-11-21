@@ -175,10 +175,12 @@
         "research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md",
         "research/PROTOTYPES/BUDGET-RESERVATION-01/test_budget_reservation.py",
         "research/RESEARCH-DEPENDENCY-MAP.md",
-        "PLAN.md"
+        "PLAN.md",
+        "research/RT-26-CANCELLATION-ACCOUNTING.md",
+        "research/PROTOTYPES/BUDGET-CANCELLATION-01/test_budget_cancellation.py"
       ],
-      "finding": "Current main contains a bounded cooperative cumulative-budget reservation model and four-method test module. The fixture reports split check/charge overshoot in four of six schedules and agreement with an independent subtree sum across 720 schedules/4,320 transitions. This does not cover the mandatory resource dimensions or real-time enforcement, and the historical PR #129 execution is not bound to the current test blob by a retained run log/digest.",
-      "required_action": "Preserve the cooperative model as partial evidence; bind future executions to exact test/source blobs and environment; separately investigate instantaneous memory, CPU, disk/network I/O, coroutine switches, PMU counters, attribution, limits/overshoot, handlers, throttling, and OS/platform enforcement.",
+      "finding": "Current main contains two bounded cooperative cumulative-budget models: reservation and task-group cancellation/terminal settlement. The cancellation fixture exhausts 60 legal schedules per policy (with actual and unused reservation variants); close-admissions-and-settle-at-terminal-completion has zero post-cancellation admissions, overshoot, or undercharge in the measured fixture. Both model suites were reproduced under CPython 3.12.14 in run #44949563913 (3 cancellation + 4 reservation tests). These models do not cover the mandatory instantaneous resource dimensions, external attribution, PMU, real-time throttling, OS/platform enforcement, or production crash/authenticity guarantees.",
+      "required_action": "Preserve the two cooperative models as bounded reproducible evidence; separately investigate memory, CPU, disk/network I/O, coroutine switches, PMU, external-work attribution, instantaneous limits, throttling, handlers, crash consistency, and OS/platform enforcement.",
       "decision_owner": "RT-26 research"
     },
     {
