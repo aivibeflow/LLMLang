@@ -192,6 +192,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Status:** researched; decision pending on canonical envelopes, dependency boundaries, stable-ID lifecycle, and exact `OpHash`/`ImpHash` payloads. The current project plan explicitly defers locking identity choices until cross-aspect synthesis.
 
+**Research output (2026-11-21)** · Python and Node agree on a typed UTF-8 identity fixture across 127 cases. The corpus distinguishes exact integers, Unicode, map order and identity domains. [Portable identity bytes](research/RT-05-PORTABLE-IDENTITY-BYTES.md)
+
 ## 1.3 Contracts and compatible implementations
 
 **Estimated research complexity:** **6/10** — requires formal compatibility/refinement criteria and evidence rules, integrated with identity and call binding.
