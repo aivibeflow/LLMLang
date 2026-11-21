@@ -29,7 +29,44 @@ jobs:
             echo "repository_commit=$GITHUB_SHA"
             echo "runner_os=$RUNNER_OS"
             echo "runner_arch=$RUNNER_ARCH"
-            echo "markdown_files=$(find research -type f \\( -iname '*.md' -o -iname '*.mdx' \\) | wc -l)"
+            echo "markdown_files=$(find research -type f | grep -E '\\.(md|mdx))"
+            echo "scan_scope=research/**/*.md;research/**/*.mdx"
+            echo "network_mode=offline"
+            echo "fragment_mode=anchor-only"
+          } | tee artifacts/research-link-anchor-audit/environment.txt
+
+      - name: Pull pinned Lychee image and record resolved digest
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull lycheeverse/lychee:0.24.2
+          docker image inspect --format '{{index .RepoDigests 0}}' lycheeverse/lychee:0.24.2 | tee artifacts/research-link-anchor-audit/lychee-image-digest.txt
+          docker run --rm lycheeverse/lychee:0.24.2 --version | tee artifacts/research-link-anchor-audit/lychee-version.txt
+
+      - name: Scan repository-local Markdown links and anchors
+        shell: bash
+        run: |
+          set -euo pipefail
+          image="$(cat artifacts/research-link-anchor-audit/lychee-image-digest.txt)"
+          set +e
+          docker run --rm -v "$GITHUB_WORKSPACE:/input" -w /input "$image" --offline --include-fragments --root-dir /input --no-progress --verbose 'research/**/*.md' 'research/**/*.mdx' > artifacts/research-link-anchor-audit/lychee-report.log 2>&1
+          status=$?
+          set -e
+          echo "lychee_exit_code=$status" | tee artifacts/research-link-anchor-audit/result.txt
+          cat artifacts/research-link-anchor-audit/lychee-report.log
+          # This is an evidence-gathering audit, not a Required CI gate.
+          # Preserve all findings, including known partial-snapshot misses.
+          exit 0
+
+      - name: Preserve link and anchor audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-link-anchor-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/research-link-anchor-audit/
+          if-no-files-found: error
+          retention-days: 30
+ | wc -l)"
             echo "scan_scope=research/**/*.md;research/**/*.mdx"
             echo "network_mode=offline"
             echo "fragment_mode=anchor-only"
