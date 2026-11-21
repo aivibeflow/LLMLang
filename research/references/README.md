@@ -83,3 +83,8 @@ GitHub reports valid verified signatures for all four upstream commits listed ab
 - **REAPI:** the copied `remote_execution.proto` imports eight other proto files. The local snapshot contains none of them; one is present in the pinned upstream repository and seven are external Google API/Protobuf files. This is a source-file reference, not a self-contained proto compilation closure.
 
 These completeness limits do not affect the verified 13/13 upstream/local blob identity. Do not treat a partial snapshot as a self-contained build or documentation bundle.
+
+
+### 6.2 Curated external-reference reachability check
+
+The external URLs in §2 were checked individually on 2026-11-21. Sixteen returned page/PDF content; the POSIX Issue 8 endpoint returned HTTP 403 to the checker and remains indeterminate rather than classified as broken. This is a one-time availability observation, not a version/content validation. See [RT-00 E-02 — Curated External Reference Reachability Check](../RT-00-E-02-CURATED-EXTERNAL-REFERENCE-REACHABILITY-2026-11-21.md).
