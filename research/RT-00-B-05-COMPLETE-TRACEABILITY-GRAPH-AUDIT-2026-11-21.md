@@ -319,3 +319,30 @@ These additions improve the concrete chain for three bounded studies:
 
 They do not close the corpus-wide gaps listed in §1. In particular, the corpus still lacks a global stable Claim ID namespace; exact execution-to-blob provenance is not uniform; tests discovered/declared/executed/passed/supporting claims remain distinct; and PLAN scheduling links are not exit-criterion evidence. No claim is inferred solely from file proximity or shared RT labels. No architecture decision is made.
 
+## 10. Current-main traceability refresh — RT-06, RT-09, RT-13, RT-24 and RT-26 (2026-11-21)
+
+This section extends the original graph baseline with later bounded studies present on current main. It does not claim a corpus-wide graph closure.
+
+### RT-06 — negative lookup dependencies
+
+`research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md` maps to `tests/test_rt06_negative_binding_reads.py` and `tests/test_scoped_binding.py` in the Dependency Graph prototype. The declared suite was independently rerun on exact checkout `8d2c085f31685457a66669a6d4db604ab7b1c80a` under CPython 3.12.14: 13/13 passed in [run #44948779526](https://github.com/aivibeflow/LLMLang/actions/runs/44948779526), artifact [14724810775](https://github.com/aivibeflow/LLMLang/actions/runs/44948779526/artifacts/14724810775). The result supports a bounded per-key projection over complete validated layers, not a complete Action Key or general dependency closure.
+
+### RT-09 — ordered SPG lowering
+
+`research/RT-09-ORDERED-SPG-LOWERING.md` maps to `src/spg_ordered_lowering.py` and `tests/test_spg_ordered_lowering.py` plus the representation tests. The exact declared suite passed 16/16 under CPython 3.12.14 in the same [run #44948779526](https://github.com/aivibeflow/LLMLang/actions/runs/44948779526). It is Python-level intermediate lowering evidence; it does not establish LLVM, machine-code, or general source-to-runtime preservation.
+
+### RT-13 — WebAssembly memory32 logical byte views
+
+`research/RT-13-WASM-MEMORY32-VIEWS.md` maps to `research/PROTOTYPES/WASM-VIEWS-01/compare.mjs`. The report declares 12,800 differential observations against a JavaScript BigInt oracle and two negative controls: narrowing before the logical bound and relying only on linear-memory bounds. It records Node v24.22.1 and WABT 1.0.36, plus exact WAT/archive hashes. This is report-declared bounded engine evidence; no retained workflow run is cited here. Arbitrary descriptors, capability forgery, memory growth, allocation lifetime, instrumentation, compiler generation and cross-engine comparison remain open.
+
+### RT-24 — exact call-target merge
+
+`research/RT-24-CALL-TARGET-MERGE.md` maps to `tests/test_rt24_call_target_merge.py` and the existing semantic merge/tree gate fixtures. The report declares 18 focused and baseline tests passed under CPython 3.12.14 and Git 2.52.0. It demonstrates a narrow structural merge law for exact retargets in an unchanged caller declaration, with conflict on competing edits to the same selector and fail-closed behavior for unresolved upstream pins. This does not prove arbitrary source occurrence continuity, compatibility, mapping publication, or general merge completeness. Exact CI execution-to-blob provenance is not asserted here.
+
+### RT-26 — cooperative reservation and cancellation settlement
+
+`research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md` and `research/RT-26-CANCELLATION-ACCOUNTING.md` map to the two budget prototype suites. Both were rerun under CPython 3.12.14 from exact checkout `00857e7dee48d0026e6d47c776c8792f6f1f245d`: cancellation 3/3 and reservation 4/4 passed in [run #44949563913](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913), artifact [14724622101](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913/artifacts/14724622101). This supports two cooperative cumulative-budget models only; instantaneous dimensions and production enforcement remain unresolved.
+
+### Graph status
+
+These additions provide more explicit report-to-test-to-run edges for RT-06, RT-09 and RT-26, and report-to-test declarations for RT-24. RT-13 has a report-declared comparison and source but no retained exact workflow run. The global Claim ID namespace, per-claim evidence edges across all scenarios, full test discovery/execution/support distinction, and PLAN exit-criterion closure remain unresolved. No file-level classification is promoted to claim-level evidence.
