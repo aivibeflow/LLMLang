@@ -29,6 +29,8 @@ jobs:
       - name: Run typed RT-24 tree diff tests
         working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01
         run: python -B -m unittest -v tests.test_rt24_typed_tree_diff
+      - name: Run ordered interprocedural effect tests
+        run: python -B research/PROTOTYPES/ORDERED-EFFECTS-01/compare.py
       - name: Run semantic dependency extractor tests
         working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01
         run: python -m unittest -v tests.test_impact_planning tests.test_semantic_dependency_index tests.test_semantic_graph tests.test_identity_lifecycle tests.test_call_site_refactor tests.test_recursive_identity tests.test_contract_model tests.test_candidate_validation tests.test_candidate_graph_audit tests.test_candidate_semantic_diff tests.test_candidate_semantic_diff_cip_v2
