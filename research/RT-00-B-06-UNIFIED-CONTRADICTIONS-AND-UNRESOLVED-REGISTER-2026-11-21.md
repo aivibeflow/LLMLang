@@ -12,8 +12,8 @@ The reviewed corpus does **not** establish a single direct semantic contradictio
 
 The audit records:
 - **4 reconciled apparent conflicts** where claims are compatible once scope is preserved;
-- **17 open design, proof, evidence, provenance, traceability, or validation gaps**;
-- **8 scoped historical/supersession/companion relationships** that must not be widened to whole-document replacement;
+- **18 open terminology, design, proof, evidence, provenance, traceability, or validation gaps**;
+- **7 scoped historical/supersession/companion relationships** that must not be widened to whole-document replacement;
 - **5 stale-status or count/revision discrepancies** requiring documentation reconciliation;
 - **5 branch/PR integration states** whose evidence is not part of the main-baseline corpus.
 
