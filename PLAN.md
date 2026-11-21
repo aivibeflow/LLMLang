@@ -1,7 +1,7 @@
 # LLMLang Research and Development Plan
 
 **Status:** living plan  
-**Updated:** 2026-11-20
+**Updated:** 2026-11-21
 **Restored baseline:** detailed plan from [`aa39c8f`](https://github.com/aivibeflow/LLMLang/commit/aa39c8fc2a611ae72ff85acff3de3c16fcc4eb39), reconciled with the current project plan and repository evidence  
 **PR #47 consolidation:** §5 maps the research in the merged snapshot at `73d37723e6a759159b354c2cd74327517c4036c4` to the current plan. PR #50 restored the text of `PLAN.md`. PR #51 incorporated the research from PR #47 into the plan. [Restoration commit `2c7f3d1`](https://github.com/aivibeflow/LLMLang/commit/2c7f3d1) · [Consolidation commit `7fd8eac`](https://github.com/aivibeflow/LLMLang/commit/7fd8eace9210dffdbdcd98302e19bf6bc18be756)<br>
 **Repository:** `aivibeflow/LLMLang`  
@@ -604,6 +604,10 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define runtime representation of values and semantic calls.
 - [ ] Define explicit call binding to immutable operation identity.
 - [ ] Define error propagation, cancellation, and resource cleanup.
+- [ ] Research first-class resource accounting and enforcement for task scopes and task hierarchies: memory, CPU, disk I/O, network I/O, coroutine/task switches, and hardware/software performance counters.
+- [ ] Define real-time resource limits, quotas, budgets, rate limits, and throttlers, including hierarchical aggregation, inheritance, delegation, and contention between parent/child tasks.
+- [ ] Define limit-exceeded events and typed handlers/policies that can decide whether to continue, throttle, pause, cancel, retry, degrade, shed work, escalate, or terminate; specify overshoot, race, and handler-failure behavior.
+- [ ] Determine which resource controls belong in high-level language semantics and APIs versus runtime, OS/container, and deployment integrations; preserve explicit capability and portability boundaries.
 - [ ] Define memory model and concurrency semantics.
 - [ ] Define threads, synchronization, atomics, signals, blocking I/O, and scheduling boundaries.
 - [ ] Define capability and security model.
@@ -742,6 +746,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Report memory, latency, throughput, cache hit rates, and confidence intervals.
 - [ ] Identify pathological workloads and fallback strategies.
 - [ ] **Mandatory research RT-25:** evaluate whether LLMLang's Rust-based runtime/toolchain should support alternative memory allocators, and whether allocator selection should be configurable per executable, process, or component. Complete the comparative study and its reproducible benchmark before selecting or rejecting an allocator. See [RT-25 — Memory Allocator Compatibility, Selection, and Benchmarking](research/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md).
+- [ ] **Mandatory research RT-26:** investigate high-level, hierarchical resource accounting and real-time enforcement for LLMLang tasks, including memory, CPU, disk/network I/O, coroutine/task switches, performance counters, limits, quotas, throttlers, and limit-exceeded handlers. Define the language/runtime/OS boundary and validate accounting accuracy, enforcement latency, overhead, and portability. See [RT-26 — Hierarchical Resource Accounting, Limits, Throttlers, and Handlers](research/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md).
 
 ## 7.2 Libraries, packages, templates, and artifact ecosystem
 
