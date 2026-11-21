@@ -385,6 +385,8 @@ Required performance properties:
 6. When a full reconciliation is unavoidable, it is explicit, limited to the affected worktree, and reported.
 7. Correctness is maintained after watcher loss, offline edits, and server restart.
 
+[The mapping merge experiment](RT-23-INTERFACE-MAPPING-MERGE.md) compares scoped edits, export collisions, signature checks and revision-bound publication in a closed model.
+
 ## 15. Required test matrix
 
 - One server process serves at least two concurrent worktrees and multiple MCP clients.
