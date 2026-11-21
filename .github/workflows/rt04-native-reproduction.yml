@@ -137,8 +137,8 @@ jobs:
           test -n "$package"
           test -f "$package"
           echo "LLMLANG_LLVM_DEB_PATH=$package" >> "$GITHUB_ENV"
-          echo "LLVM package SHA-256:"
-          sha256sum "$package"
+          # Expected digest captured by the prior LLVM preservation reproduction audit.
+          echo "0b1b7263f4f45e261099240fdbf00fc14b42b88410fd829e041bf83ea45866cb  $package" | sha256sum --check
           opt-19 --version
           llc-19 --version
           gcc-14 --version
