@@ -260,3 +260,8 @@ Interpretation boundaries:
 The separate documentation correction for the stale RT-04 opening status is proposed in PR [#137](https://github.com/aivibeflow/LLMLang/pull/137). That PR records the already-existing bounded run #44774296240 and does not alter its evidence.
 
 Remaining C gaps are unchanged unless explicitly closed above: Python SQLite source-ID equality is recorded but not enforced against a historical expected value; Python/SQLite source archive checksums and the distro SQLite package identity are not fully pinned; Package Provider benchmark results remain log-only and its profiler remains outside execution; Scenario 36 fuel models still lack dedicated tests; and the broader prototype corpus is not uniformly reproduced.
+
+
+## RT-26 cooperative reservation and cancellation reproduction — 2026-11-21
+
+[Workflow run #44949563913](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913) reran the merged cooperative budget models from exact checkout `00857e7dee48d0026e6d47c776c8792f6f1f245d` under CPython 3.12.14 on Ubuntu 24.04. Cancellation/terminal settlement passed 3/3; cumulative reservation passed 4/4. Retained artifact [14724622101](https://github.com/aivibeflow/LLMLang/actions/runs/44949563913/artifacts/14724622101), digest `sha256:a7c9d8e75c857b59d4827c3cad2aaabe40e0820d13f4f2982fa3db832964b12b`, contains exact source hashes, environment, full logs and log digests. This closes exact reproduction for these bounded cooperative models only; mandatory resource dimensions and production enforcement remain open.
