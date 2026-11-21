@@ -389,26 +389,26 @@ At this refresh, the open RT-00 continuation PRs are:
 
 Sections 1–13 preserve their original audit snapshots and exact baselines. In particular, the PR-state table in §13.3 and the 504-artifact count in §13 apply to the 6aaac55 snapshot, not to the later current main. This section updates the derived counts without rewriting those historical observations.
 
-**Current main:** 4a10eafed2f2d56df47e41418199ce04a4ced7ba. Comparing baseline 6aaac5518082e99627d0c28c6dabcddf8bad4933 with current main yields 27 commits, 42 newly added research paths, and no deleted research paths. The additions comprise 23 Markdown, 12 Python, three Lean, one MJS, two C, and one JSON file; 18 of the added paths are under research/PROTOTYPES/.
+**Current main:** dcf727806d6e4495bc941d143e871c22e425fb4d. Comparing baseline 6aaac5518082e99627d0c28c6dabcddf8bad4933 with current main yields 29 commits, 45 newly added research paths, and no deleted research paths. The additions comprise 25 Markdown, 12 Python, three Lean, two MJS, two C, and one JSON file; 19 of the added paths are under research/PROTOTYPES/.
 
 Derived current-main totals are:
 
 | Measure | Count |
 |---|---:|
-| Research artifacts, excluding inventory manifest | 546 |
-| Markdown | 280 |
+| Research artifacts, excluding inventory manifest | 549 |
+| Markdown | 282 |
 | MDX | 3 |
 | Python | 221 |
 | Lean | 26 |
-| Prototype-tree paths | 274 |
+| Prototype-tree paths | 275 |
 | Scenario-named documents | 136 |
 | RT taxonomy rows | 26 |
 | DEP edges | 108 |
 
 The counts start from the documented 6aaac55 totals in §13 and apply the exact Git commit delta. The current taxonomy and dependency map were independently recounted at 26 RT rows and 108 DEP rows. This is a commit-delta reconciliation, not a new exhaustive filesystem enumeration.
 
-The inventory manifest remains at 488 records; it was not changed in the compared commit range. It is therefore 58 records behind the derived 546-path count. A fresh recursive tree/blob/size audit and manifest refresh are still required. The 242/245/248 role-review and historical manifest populations remain distinct from the 274 current prototype-tree paths.
+The inventory manifest remains at 488 records; it was not changed in the compared commit range. It is therefore 61 records behind the derived 549-path count. A fresh recursive tree/blob/size audit and manifest refresh are still required. The 242/245/248 role-review and historical manifest populations remain distinct from the 275 current prototype-tree paths.
 
 The earlier open-PR table and statements that audit PRs remain unmerged are historical. Subsequent integrations have added the A, D, E, and F audit reports and the RT-17, RT-24, RT-26 and related prototype evidence. Their integration does not establish corpus-wide claim-level traceability, full reproducibility, complete external snapshot closure, or RT-00 completion.
 
-**Updated disposition:** current-main research paths total 546 by exact commit-delta accounting, while the manifest remains at 488. Claim-level traceability remains a bounded pilot, per-file role review does not cover all 274 prototype paths, and reproducibility/provenance/index-coverage work remains incomplete. **RT-00 is not complete.**
+**Updated disposition:** current-main research paths total 549 by exact commit-delta accounting, while the manifest remains at 488. Claim-level traceability remains a bounded pilot, per-file role review does not cover all 275 prototype paths, and reproducibility/provenance/index-coverage work remains incomplete. **RT-00 is not complete.**
