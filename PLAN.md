@@ -364,7 +364,9 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Prior art:** Lean, SMT solvers, TLAPS, Dafny, K Framework, Vellvm, Alive2.
 
-**Status:** not started as a complete LLMLang-wide verification architecture; prior-art research and selected formal prototypes exist.
+**Research output (2026-11-21)** · Lean checks preservation of result, error and ordered trace by a bottom-up rewrite over a typed scalar expression grammar. [RT-07 observable rewrites](research/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md)
+
+**Status:** partially validated for the expression model. Source, graph and backend correspondence remain open.
 
 **Exit criteria:** a small, executable reference semantics; at least one end-to-end, independently checked proof path with explicit assumptions; a documented trusted computing base; reproducible CI validation.
 
