@@ -74,6 +74,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 ## Runtime and performance research
 
 - [RT-25 — Memory Allocator Compatibility, Selection, and Benchmarking](RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md) — mandatory comparative study of Rust/platform allocator integration, FFI and deployment constraints, and reproducible LLMLang workload benchmarks.
+- [RT-26 — Hierarchical Resource Accounting, Limits, Throttlers, and Handlers](RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md) — mandatory research into task-scoped and hierarchical resource metrics, real-time limits/throttling, limit-exceeded policy handlers, and high-level language integration.
 
 ## Integration and foundations
 
