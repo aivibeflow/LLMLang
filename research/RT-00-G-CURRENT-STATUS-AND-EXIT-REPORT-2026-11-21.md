@@ -241,3 +241,14 @@ The global Claim ID gap and corpus-wide claim/test/evidence completeness remain 
 7. Complete index coverage and non-Markdown resource checks, refresh the inventory after integrating the audit PRs, and reconcile PLAN exit criteria.
 
 **Updated disposition:** bounded C–E results are now materially stronger, and one claim-level traceability pilot exists. B5/B6 are still branch-only, the main inventory is stale, and corpus-wide claim/evidence closure remains open. **RT-00 is not complete.**
+
+
+## 11. Subsequent validation status
+
+After §10 was authored, the latest B5 and B6 Required CI runs completed:
+
+- B5 PR #151 latest Required CI [#44943905241](https://github.com/aivibeflow/LLMLang/actions/runs/44943905241) and policy [#44943905230](https://github.com/aivibeflow/LLMLang/actions/runs/44943905230) passed after adding the Scenario 130 pilot.
+- B6 PR #154 latest Required CI [#44944020348](https://github.com/aivibeflow/LLMLang/actions/runs/44944020348) and policy [#44944020365](https://github.com/aivibeflow/LLMLang/actions/runs/44944020365) passed after appending the 41st B6 record.
+- G PR #155 Required CI [#44944083284](https://github.com/aivibeflow/LLMLang/actions/runs/44944083284) and policy [#44944083280](https://github.com/aivibeflow/LLMLang/actions/runs/44944083280) passed.
+
+These are successful branch validations, not merged-main evidence. The PRs remain open and unmerged.
