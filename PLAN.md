@@ -553,6 +553,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Only after the pure core passes, build a Git repository coordinator with explicit base/ours/theirs trees; then test merge, rebase, and cherry-pick against real temporary repositories. Keep per-file merge driver as an adapter, not a whole-graph correctness boundary.
 - [ ] Finally integrate RT-23 exact-tree synchronized commit and idempotent crash/timeout recovery; test clone reconstruction without the original local semantic database.
 
+**Research output (2026-11-21)** · A three-way selector composes independent declarations across a textual conflict. Rebuilding the candidate from selected rows detects an exact callee lost across disjoint slot edits. The positive export reconstructs the same selections. [RT-24 closed-inventory merge](research/RT-24-CLOSED-THREE-WAY-MERGE.md)
+
 **Required sequence:**
 - [ ] Reconcile the canonical textual repository representation, manifests/roots, external dependency pins, and deterministic import/export; prove clean-clone reconstruction and round-trip equivalence.
 - [ ] Define semantic diff over stable semantic identities, separating Git object identity, semantic identity, and action/evidence identity.
