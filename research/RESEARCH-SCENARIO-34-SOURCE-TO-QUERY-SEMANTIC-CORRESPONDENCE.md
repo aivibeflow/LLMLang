@@ -1,6 +1,6 @@
 # Research Scenario 34 — Source-to-Query Semantic Correspondence
 
-**Status** — In progress. Lean proves that the canonical relational formula is satisfiable exactly when paired executions of the checked Int/Bool fragment witness dependence. Its lowered terms belong to the strict QF_LIA profile. Solver-facing declaration closure, JSON correspondence and source-derived CPC binding remain open.
+**Status** — In progress. Lean proves that the canonical relational formula is satisfiable exactly when paired executions of the checked Int/Bool fragment witness dependence. The lowered formula fits the strict QF_LIA profile, and each symbol has a unique declaration of the correct sort. JSON correspondence and source-derived CPC binding remain open.
 
 **Date:** 2026-11-17  
 **Depends on:** Scenarios 26–33.  
@@ -173,6 +173,7 @@ Proposed modules:
 - `CanonicalQuerySymbols.lean` — stable declaration keys, typed symbol bindings and conversion between canonical and paired valuations.
 - `ProgramRelationalQuery.lean` — compilation of the relational formula and proof of equivalence to concrete dependence.
 - `QfLiaQuery.lean` and `QfLiaAdmissibility.lean` — the solver term profile and proof that every compiled formula lowers into it.
+- `SolverRelationalQuery.lean` — the lowered formula, its declaration table and the proof that symbol lookups preserve source bindings.
 - `Correspondence.lean` — SC-1 through SC-7 theorems.
 - `LogosBinding.lean` — existing CPC parser bridge, JSON decoder, and Eo.Term renderer.
 
@@ -258,7 +259,7 @@ The Lake build includes 16 relational examples covering Int and Bool factors, bo
 ### 7.6 QF_LIA admissibility and external wire/checker boundary
 
 - [x] **SCW-29 — Prove QF_LIA admissibility (SC-7).** `compileRelationalQuery_qfLia` proves that each admitted program, contract and factor compiles to a formula whose lowered term passes the strict QF_LIA check.
-- [ ] **SCW-30 — Prove declaration closure for the solver-facing query.** Carry the Lean table's uniqueness, reference closure, sorts and roles through lowering.
+- [x] **SCW-30 — Prove declaration closure for the solver-facing query.** Every symbol has exactly one declaration with its sort, and lookup recovers its original stable source declaration and shared, left or right role.
 - [ ] **SCW-31 — Define the canonical JSON correspondence boundary.** Relate the Lean-owned canonical formula to the `/2` wire envelope without trusting Python to choose the semantic expression.
 - [ ] **SCW-32 — Connect the proved formula to Logos terms.** Prove the adapter preserves structure and sort, then retain the CPC parser-state identity checks.
 - [ ] **SCW-33 — Bind exact CPC assumptions to the proved source-derived formula.** The parser-state bridge and structural assumption checks exist; this task replaces the externally supplied expected query with the Lean-reconstructed source-derived formula.
@@ -267,6 +268,8 @@ The Lake build includes 16 relational examples covering Int and Bool factors, bo
 `QueryTerm.isQfLia` checks the typed term tree shared by the adapter, JSON decoder and Logos renderer. Its constructors fix the operators and their Int/Bool sorts. The check descends through all operands, including both branches of a conditional. `toLogosQueryTerm_qfLia` proves admissibility by induction on the independent query IR. In particular, `mulConst` lowers to a multiplication with an explicit integer literal, and each binary Boolean connective lowers to a two-element operand list. [Term profile](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/QfLiaQuery.lean) · [Adapter theorem](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosQueryAdapter.lean) · [Program theorem](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/QfLiaAdmissibility.lean)
 
 Seven Lean examples exercise signed literal multiplication, rejected nonlinear multiplication even inside an inactive conditional branch, and rejected short Boolean operand lists. The admissibility proof builds independently of CPC. [Lean examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQueryTests.lean)
+
+`toLogosQueryTerm_symbols` proves that lowering preserves the list of symbol occurrences with their sorts. `RelationalQuery.lower` combines the lowered term with the canonical bindings and projects the solver's name and sort table from those bindings. `symbol_declared_once` proves that each referenced name occurs exactly once in that table and has the required sort. `lower_symbol_binding` recovers the original binding by name, preserving the source ID and role. The examples cover a source spelling that matches another symbol's canonical name and a Boolean factor with distinct left and right entries. [Adapter proof](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosQueryAdapter.lean) · [Declaration proofs](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SolverRelationalQuery.lean) · [Lean examples](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ProgramRelationalQueryTests.lean)
 
 **Outputs:** admissibility theorem; canonical wire/Logos adapter; exact source-derived CPC binding; explicit trusted computing base.
 
@@ -284,7 +287,7 @@ Seven Lean examples exercise signed literal multiplication, rejected nonlinear m
 
 ### 7.8 Execution order and gates
 
-SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–25 preserve command execution and observations through paired runs. SCW-26–28 establish equivalence between the canonical formula and concrete dependence witnesses. SCW-29 proves that its lowered term is in the strict QF_LIA profile. SCW-30–34 carry declaration and formula correspondence to the solver and proof checker.
+SCW-04 completed the dependency and trust boundary audit. SCW-05 and SCW-15 passed pinned Lean CI. SCW-06–09 cover the typed expression core. SCW-16–25 preserve command execution and observations through paired runs. SCW-26–28 establish equivalence between the canonical formula and concrete dependence witnesses. SCW-29 and SCW-30 prove admissibility and declaration closure for the lowered solver term. SCW-31–34 carry that result through serialization and the proof checker.
 
 | Gate | Required tasks | Exit condition |
 |---|---|---|

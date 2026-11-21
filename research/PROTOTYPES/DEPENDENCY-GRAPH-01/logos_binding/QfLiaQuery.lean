@@ -1,9 +1,17 @@
-import SourceQuerySemantics
+import SourceSyntax
 
 namespace LLMLang.LogosBinding
 
+open LLMLang.SourceSyntax
+
 /-- Sorts used by the strict relational QF_LIA term profile. -/
 abbrev QuerySort := SourceQuerySemantics.ExprSort
+
+/-- A name and sort in the solver's declaration table. -/
+structure WireDeclaration where
+  name : String
+  sort : QuerySort
+  deriving DecidableEq, Repr
 
 /--
 Typed solver terms shared by the decoder, adapter and renderer. The indices
@@ -50,6 +58,25 @@ mutual
   def QueryTerm.allQfLia : List (QueryTerm .bool) → Bool
     | [] => true
     | term :: rest => term.isQfLia && QueryTerm.allQfLia rest
+end
+
+mutual
+  /-- List all symbol occurrences with their sorts in a solver term. -/
+  def QueryTerm.symbols : {sort : QuerySort} → QueryTerm sort → List Reference
+    | _, .intLit _ | _, .boolLit _ => []
+    | _, .intSymbol name => [⟨name, .int⟩]
+    | _, .boolSymbol name => [⟨name, .bool⟩]
+    | _, .not term | _, .neg term => term.symbols
+    | _, .add left right | _, .sub left right | _, .mul left right | _, .eqInt left right
+    | _, .eqBool left right | _, .lt left right | _, .le left right =>
+      left.symbols ++ right.symbols
+    | _, .and terms | _, .or terms => QueryTerm.symbolsList terms
+    | _, .iteInt condition yes no | _, .iteBool condition yes no =>
+      condition.symbols ++ yes.symbols ++ no.symbols
+
+  def QueryTerm.symbolsList : List (QueryTerm .bool) → List Reference
+    | [] => []
+    | term :: rest => term.symbols ++ QueryTerm.symbolsList rest
 end
 
 end LLMLang.LogosBinding

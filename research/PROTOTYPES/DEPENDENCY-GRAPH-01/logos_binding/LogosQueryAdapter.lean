@@ -1,8 +1,10 @@
 import QfLiaQuery
+import CheckedSourceSemantics
 
 namespace LLMLang.LogosQueryAdapter
 
 open LLMLang.SourceQuerySemantics
+open LLMLang.CheckedSourceSemantics
 
 /--
 Translate the Logos-independent semantic query IR into the pinned Logos
@@ -36,6 +38,13 @@ theorem toLogosQueryTerm_qfLia {sort : ExprSort} (term : SourceQuerySemantics.Qu
   induction term <;>
     simp_all [toLogosQueryTerm, LogosBinding.QueryTerm.isQfLia, LogosBinding.QueryTerm.allQfLia,
       LogosBinding.QueryTerm.isIntLiteral]
+
+/-- Lowering preserves all symbol occurrences, including their names and sorts. -/
+theorem toLogosQueryTerm_symbols {sort : ExprSort} (term : SourceQuerySemantics.QueryTerm sort) :
+    (toLogosQueryTerm term).symbols = querySymbols term := by
+  induction term <;>
+    simp_all [toLogosQueryTerm, LogosBinding.QueryTerm.symbols, LogosBinding.QueryTerm.symbolsList,
+      querySymbols]
 
 mutual
   /--
