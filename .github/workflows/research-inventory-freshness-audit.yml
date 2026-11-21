@@ -45,7 +45,7 @@ jobs:
           for record in raw.split(b"\0"):
               if not record:
                   continue
-              metadata, raw_path = record.split(b"\\t", 1)
+              metadata, raw_path = record.split(b"\t", 1)
               mode, obj_type, blob_sha = metadata.decode("ascii").split()
               path = raw_path.decode("utf-8")
               if path.startswith("research/") and path != manifest_path and obj_type == "blob":
