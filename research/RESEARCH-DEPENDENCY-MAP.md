@@ -1,7 +1,7 @@
 # LLMLang Cross-Aspect Research Dependency Map
 
 **Status:** Initial dependency hypothesis; relationships require validation  
-**Updated:** 2026-11-20
+**Updated:** 2026-11-21
 **Companion:** [Research Taxonomy](RESEARCH-TAXONOMY.md)
 
 ## 1. Purpose and interpretation
@@ -109,14 +109,14 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-002 | RT-01 → RT-03 | Constrains | Workloads, correctness expectations, portability, and non-goals shape the required semantic core. | Strong hypothesis |
 | DEP-003 | RT-02 → RT-03 | Influences | Requirement and contract concepts need semantic values, predicates, states, and observable behavior to be defined. | Strong hypothesis |
 | DEP-004 | RT-03 → RT-04 | Constrains | Type/effect/ownership choices must preserve the core evaluation and observable semantics. | Strong hypothesis |
-| DEP-005 | RT-03 → RT-05 | Constrains | Graph node kinds and semantic identity must encode distinctions that actually affect program meaning. | Strong hypothesis |
+| DEP-005 | RT-03 → RT-05 | Constrains | Graph node kinds and value identity must retain distinctions that affect meaning. Reversing effectful operands changes the ordered trace with the same result in the typed SPG fixture. [SPG-02](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md#7-results-and-falsifiers) | Strong hypothesis with scoped experimental evidence |
 | DEP-006 | RT-04 → RT-05 | Influences | Types, effects, capabilities, and ownership may be hash-relevant or may be referenced as separate artifacts; the identity boundary depends on their semantics. | Open hypothesis |
 | DEP-007 | RT-03 → RT-07 | Requires | Formal semantics and proofs need a precisely defined source-language fragment and observation model. | Strong hypothesis |
 | DEP-008 | RT-04 → RT-07 | Constrains | Proof rules and encodings must account for type/effect/resource semantics, or explicitly exclude them. | Strong hypothesis |
 | DEP-009 | RT-05 → RT-06 | Requires | Dependency analysis needs stable typed entities and a defined semantic identity model. | Established within current research model |
 | DEP-010 | RT-03 → RT-06 | Requires | Sound semantic dependency analysis depends on the language's formal behavior and observable boundary. | Established within Scenarios 25–34 scope |
 | DEP-011 | RT-06 → RT-11 | Requires | Safe incremental planning/cache invalidation depends on dependency completeness and conservative unknown handling. | Established within Scenarios 18–25 scope |
-| DEP-012 | RT-05 → RT-11 | Requires | Action cache keys and reusable results need stable semantic input identities, while remaining distinct from semantic hashes. | Strong hypothesis |
+| DEP-012 | RT-05 → RT-11 | Requires | Action cache keys need exact semantic inputs. In the SPG fixture, a binding change alters an execution result at the same caller hash, so execution reuse needs the relevant binding and implementation closure. [SPG-03](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md#7-results-and-falsifiers) | Strong hypothesis with a scoped counterexample to caller-only reuse |
 | DEP-013 | RT-03 → RT-08 | Constrains | Tests, models, and proof claims need a defined meaning for program execution and observations. | Strong hypothesis |
 | DEP-014 | RT-07 → RT-08 | Enables | Formal semantics and verified proof boundaries enable stronger evidence than tests alone. | Strong hypothesis |
 | DEP-015 | RT-05 → RT-09 | Requires | Compiler stages need canonical program entities/IR and reproducible references to semantic inputs. | Strong hypothesis |
@@ -156,7 +156,7 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-049 | RT-19 → RT-17 | Influences | Structured semantic operations, stable diagnostics, and bounded context may improve agent and human workflows; this requires comparative usability evidence. | Open hypothesis |
 | DEP-050 | RT-19 → RT-11 | Influences | Persistent workspace and semantic stores may reuse action-cache infrastructure, but workspace durability and cache validity are separate concerns. | Open hypothesis |
 | DEP-051 | RT-02 → RT-20 | Requires | A complete patch plan needs traceable requirements to determine the initial semantic changes and the obligations propagated to callers. | Strong hypothesis |
-| DEP-052 | RT-05 → RT-20 | Constrains | Immutable content-addressed function versions and hash-relevant references determine which caller versions and entry-point roots must be recomputed. | Strong hypothesis |
+| DEP-052 | RT-05 → RT-20 | Constrains | Hash-relevant references determine which caller values change. Exact implementation pins propagate a callee edit in the SPG fixture. A binding-resolved call also requires checking execution impact when its caller value stays equal. [SPG-03](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md#7-results-and-falsifiers) | Strong hypothesis with scoped experimental evidence |
 | DEP-053 | RT-06 → RT-20 | Requires | Complete reverse-reference discovery and dependency evidence are prerequisites for a sound caller-impact closure and plan completeness audit. | Strong hypothesis |
 | DEP-054 | RT-08 → RT-20 | Requires | Plan execution and commit gates require validation evidence bound to exact candidate hashes, dependency closure, and toolchain configuration. | Strong hypothesis |
 | DEP-055 | RT-14 → RT-20 | Influences | The agent change protocol must enforce plan-before-mutation, mandatory planned work, and controlled completion rather than trusting model self-report. | Strong hypothesis |
@@ -346,7 +346,7 @@ RT-24 is a research proposal, not an accepted SPG schema, identity model, canoni
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
 |---|---|---|---|---|
 | DEP-086 | RT-03 → RT-24 | Requires | Canonical snapshots and semantic diff must represent source meaning, not incidental file layout; the supported semantic subset and observation boundary constrain normalization and merge equality. | Strong hypothesis |
-| DEP-087 | RT-05 → RT-24 | Requires | Semantic values, logical identity, occurrence/selection, and lineage must remain distinct; RT-24 cannot choose between Stable Entity ID and content-addressed values on its own. | Strong hypothesis |
+| DEP-087 | RT-05 → RT-24 | Requires | Merge needs identities for values, managed selections, and asserted continuity. The SPG fixture shares values across separate selections and matches splits or merges through declared lineage. The managed identity policy remains open. [SPG-05](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md#7-results-and-falsifiers) | Strong hypothesis with scoped experimental evidence |
 | DEP-088 | RT-06 → RT-24 | Requires | Complete dependency edges and reverse-impact information are needed to validate repository-wide snapshots, classify semantic changes, and detect unsafe partial merges. | Strong hypothesis |
 | DEP-089 | RT-15 → RT-24 | Constrains | Git branch ancestry and repository merge inputs constrain base/ours/theirs acquisition, but Git file-level merge is not a substitute for semantic three-way merge. | Strong hypothesis |
 | DEP-090 | RT-19 → RT-24 | Enables | The semantic development API and durable snapshot/object services provide the operations and storage boundary needed to expose semantic import, diff, merge, and evidence. | Strong hypothesis |

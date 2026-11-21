@@ -157,7 +157,9 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Existing evidence:** `research/LLMLang-CONCEPT.md` describes the SPG and the three logical graph layers; dependency-graph scenarios 18–28 explore requirement evolution, dependency discovery, and formal dependency analysis.
 
-**Status:** researched and prototyped in parts. The concept and research taxonomy establish the graph direction and layers, but canonical graph schema, full node/edge semantics, lifecycle, and identity rules remain open.
+**Research output (2026-11-21)** · The typed SPG study proposes nodes, edges, layer boundaries, lifecycle and granularity. In a closed fixture, 32 pairs of source bodies produce byte-identical graphs and match an independent trace oracle on 224 paired inputs. The experiment also distinguishes exact calls from operation bindings, validates typed recursion in two group encodings, and checks lineage across equal-value selections. [Typed Semantic Program Graph](research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md)
+
+**Status** · Partially validated for the closed scalar and ordered-event fixture. The canonical schema, wider language and repository correspondence, and identity rules remain open.
 
 ## 1.2 Semantic identity, hashes, and canonical encoding
 
