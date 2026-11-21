@@ -113,6 +113,8 @@ Do not claim that a language-level per-coroutine limit can be enforced by an OS 
 
 ## 8. Required experiments and benchmarks
 
+A bounded model compares split check-and-charge with serialized ancestor reservation, including duplicate attempts and cancellation after settlement. [Cooperative budget reservation](RT-26-COOPERATIVE-BUDGET-RESERVATION.md)
+
 Build a reproducible comparison using representative LLMLang workloads and task trees. Include nested tasks, sibling contention, high fan-out, task migration, blocking I/O, native/FFI work, cancellation, cleanup, and detached/background operations.
 
 Measure:

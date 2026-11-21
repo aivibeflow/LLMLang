@@ -619,6 +619,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Status:** partially validated in bounded execution models. The atomic load and store fragment derives read-from and happens-before and checks all four coherence rules. An independent interleaving oracle agrees on global-order witnesses for 4,096 layouts. RMW, fences, source correspondence, and backend validation remain open. [Coherence fixtures](research/RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md) · [Execution relations](research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
 
+**Resource accounting evidence (2026-11-21)** · A bounded RT-26 model compares separate checks with serialized hierarchical reservation. Separate checks overshoot in four of six schedules. The serialized ledger matches direct subtree accounting across 4,320 transitions. Runtime and OS enforcement measurements remain open. [Cooperative budget reservation](research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md)
+
 ## 5.3 POSIX architecture and conformance
 
 **Estimated research complexity:** **9/10** — platform profiles, API semantics, conformance evidence, and runtime boundaries.
