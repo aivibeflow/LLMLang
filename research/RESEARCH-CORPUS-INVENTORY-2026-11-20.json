@@ -2,17 +2,17 @@
   "schema_version": 1,
   "generated_at": "2026-11-21",
   "repository": "aivibeflow/LLMLang",
-  "revision": "2a6baa8a4f270e1e9326d04c4f57a15502e3b5e6",
-  "source": "Recursive Git tree at RT-00-A2 reconciliation snapshot 2a6baa8a4f270e1e9326d04c4f57a15502e3b5e6; inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "b118346ecd499d7962a6ac546fb1031bc7e2bc26",
+  "source": "Recursive Git tree at RT-00-B3 report snapshot b118346ecd499d7962a6ac546fb1031bc7e2bc26; inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
-    "research_files": 487,
-    "markdown_files": 248,
+    "research_files": 488,
+    "markdown_files": 249,
     "python_files": 201,
     "scenario_named_documents": 136,
     "prototype_tree_files": 248,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "audit-or-review-report": 14,
+      "audit-or-review-report": 15,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 1,
       "external-source-snapshot-or-license": 13,
@@ -8171,8 +8171,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "14fae934284e7f4a88f47979e7e5fb01fcd2b1be",
-      "size_bytes": 25449,
+      "git_blob_sha": "b1b7d5321c867531f563603e9938464f8423bc65",
+      "size_bytes": 25831,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -12666,6 +12666,27 @@
       }
     },
     {
+      "path": "research/RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md",
+      "git_blob_sha": "6e9192fa2db89a8c248f9c18307982b1225d21ec",
+      "size_bytes": 20115,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1 — research corpus inventory",
+          "RT-00 B3 — cross-cutting semantic consistency"
+        ],
+        "method": "content-level cross-document review of identity, contracts, dependency/cache, backend, package trust, resource accounting, and authority boundaries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-cross-cutting-semantic-audit",
+        "basis": "Reviewed primary cross-cutting documents and recorded eight findings with evidence, scope, confidence, and follow-up; not a corpus-wide claim audit."
+      }
+    },
+    {
       "path": "research/RT-00-C-REPRODUCIBILITY-AUDIT-2026-11-20.md",
       "git_blob_sha": "60579f8e6240397fd9f72767970166664358fbb2",
       "size_bytes": 16661,
@@ -13634,11 +13655,11 @@
   },
   "snapshot_reconciliation": {
     "reviewed_at": "2026-11-21",
-    "source_revision": "2a6baa8a4f270e1e9326d04c4f57a15502e3b5e6",
+    "source_revision": "d3afcb047e36573efad8f53f95ee4ec4ab8f95cb",
     "inventory_excludes_its_own_manifest": true,
-    "previous_inventory_revision": "1cf2fbfec82373a0094426a168ef4a1e5541c45b",
-    "previous_inventory_records": 476,
-    "current_inventory_records": 487,
+    "previous_inventory_revision": "2a6baa8a4f270e1e9326d04c4f57a15502e3b5e6",
+    "previous_inventory_records": 487,
+    "current_inventory_records": 488,
     "added_artifacts": [
       {
         "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SolverRelationalQuery.lean",
@@ -13705,6 +13726,12 @@
         "category": "research-area-or-experiment-document",
         "git_blob_sha": "ec4f245a9ae1fa076d2b3f5f32966ee16d6bd4af",
         "size_bytes": 14123
+      },
+      {
+        "path": "research/RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md",
+        "category": "audit-or-review-report",
+        "git_blob_sha": "6e9192fa2db89a8c248f9c18307982b1225d21ec",
+        "size_bytes": 20115
       }
     ],
     "refreshed_existing_records": 18,
@@ -13721,6 +13748,8 @@
     },
     "prototype_role_mapping_note": "The three previously absent prototype records were individually classified in this reconciliation. The older semantic_traceability_review.prototype_family_review.individually_mapped_files value remains a historical baseline (242) and is not silently rewritten as a corpus-wide claim-level audit. The current family file counts above are inventory counts, not evidence that every prototype claim or test was validated.",
     "taxonomy_and_dependency_note": "Current main contains 26 registered taxonomy RT entries and 108 DEP entries. Registration does not imply that a research proposal is accepted or its claims validated.",
-    "index_check_note": "The existing index_check and branch_index_check remain historical checks against their recorded older revisions; global current link/anchor validation is still pending."
+    "index_check_note": "The existing index_check and branch_index_check remain historical checks against their recorded older revisions; global current link/anchor validation is still pending.",
+    "b3_note": "B3 report is a bounded semantic consistency audit, not proof of corpus-wide claim validation. Historical inventory checks remain historical.",
+    "b3_refreshed_existing_records": 1
   }
 }
