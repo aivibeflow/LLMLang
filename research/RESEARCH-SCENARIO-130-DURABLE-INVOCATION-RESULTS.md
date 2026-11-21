@@ -40,3 +40,16 @@ python -B research/PROTOTYPES/RT-04-01/sqlite_durable_receipts_probe.py
 ```
 
 The probe ran with Python 3.12.14 and its `sqlite3` module linked to SQLite 3.53.1. The backend effect is a modeled row change. The experiment covers abrupt process exits on one local database and an already known invocation key. Crash recovery across independent services, reconciliation under concurrent delivery, loss of the allocated key before the initial reply, restored older snapshots, and terminal-record expiry remain open.
+
+
+## Reproduction identity baseline — 2026-11-21
+
+The native reproduction run [#44774296240](https://github.com/aivibeflow/LLMLang/actions/runs/44774296240) recorded the separately loaded Python SQLite runtime as version `3.53.1`, source ID:
+
+```text
+2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9
+```
+
+The original Scenario 130 execution record did not preserve this source ID. Therefore the value above is adopted as an explicit **future reproduction baseline**, not as proof that the original historical run used the same SQLite build. The native runner now requires both version and exact source-ID equality before it executes the durable-receipt probe. A version-only match is no longer reported as reproduction-baseline equivalence.
+
+Before extraction, the workflow also verifies the downloaded SQLite 3.53.1 and Python 3.12.14 source archives against pinned SHA-256 values. The SQLite digest is recorded in Buildroot's package hash update; the Python digest is published on the official Python 3.12.14 release page.

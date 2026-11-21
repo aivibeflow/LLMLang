@@ -40,6 +40,11 @@ class NativeProbeRunnerTests(unittest.TestCase):
                       run_native_probes.EXPECTED_C_SQLITE_SOURCE_ID)
         self.assertEqual(run_native_probes.EXPECTED_RUSTC_VERSION, "1.85.1")
         self.assertEqual(run_native_probes.HISTORICAL_PYTHON_SQLITE_VERSION, "3.53.1")
+        self.assertEqual(run_native_probes.EXPECTED_DURABLE_PYTHON_SQLITE_VERSION, "3.53.1")
+        self.assertEqual(
+            run_native_probes.EXPECTED_DURABLE_PYTHON_SQLITE_SOURCE_ID,
+            "2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9",
+        )
 
 
 if __name__ == "__main__":
