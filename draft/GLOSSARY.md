@@ -1,9 +1,55 @@
 # LLMLang Draft Glossary
 
 **Status:** Terminology proposal for the draft specification  
-**Scope:** Semantic identity, operation calls, implementation identity, and contract-based implementation discovery.
+**Scope:** Semantic identity, type identity and representation, ABI contracts, operation calls, implementation identity, and contract-based implementation discovery.
 
 This glossary establishes names for concepts that must remain distinct in the language model. Definitions are proposed terminology, not yet normative language semantics.
+
+## Type, identity, and ABI terms
+
+### Structural Identity
+
+The canonical, name-independent identity of a data shape. For aggregate types it commits to the aggregate kind, field count and order, and the structural identities of member types. Field names, type names, aliases, source locations, and consumer-specific meaning are excluded. The exact canonical encoding and recursive-type algorithm remain open.
+
+### Identity Hash
+
+The domain-separated content hash of a canonical Structural Identity. Equal Identity Hash values identify equal canonical structural descriptions; they do not establish foreign-language nominal compatibility, physical layout equality, or behavioral equivalence.
+
+### Type
+
+A structural Identity extended by canonical requirements that constrain admissible representations or uses of values, such as a representation family, required alignment, or packing constraints. Consumer-specific domain semantics and behavioral expectations remain in consumer contracts unless explicitly defined as type requirements.
+
+### Type Hash
+
+The domain-separated hash of Structural Identity plus canonical Type requirements. One Identity Hash may correspond to multiple Type Hash values when different representation requirements are imposed. A Type Hash does not by itself identify a target-resolved layout or function-call sequence.
+
+### Layout
+
+The target-resolved physical representation of a Type, including size, alignment, field offsets, padding, array stride, and ABI-specific aggregate details. Layout is derived by the compiler from the Type and a target ABI profile; it is not an independently declared source-level type.
+
+### Layout Hash
+
+The hash of a Type Hash, target ABI profile identity/version, and canonical resolved layout descriptor. It identifies one concrete physical representation and does not establish how a function passes that value.
+
+### ABI Profile
+
+A versioned set of target-specific rules for data representation and function-call lowering, including aggregate classification and argument/result passing. A profile is selected using the compilation target and relevant toolchain configuration.
+
+### Function ABI Contract
+
+The resolved call-boundary contract for a function: calling convention, target ABI profile, parameter/result classification, register/stack/indirect passing, hidden parameters, and other applicable ABI rules. The source function declaration supplies the calling-convention requirement; the compiler derives the target-specific contract.
+
+### Function ABI Hash
+
+The domain-separated hash of the canonical function signature, calling convention, target ABI profile, and resolved parameter/result ABI description. Equal type layouts alone do not establish equal Function ABI contracts.
+
+### Foreign Declaration Identity
+
+The identity and provenance of a declaration in an imported foreign language, including C tags, typedef relationships, source names, qualifiers, attributes, and applicable foreign compatibility rules. It is preserved separately from LLMLang Structural Identity; equal LLMLang structural hashes do not automatically make two C declarations compatible.
+
+### Consumer Semantic Contract
+
+The consumer-specific interpretation and behavioral expectations applied to values of a Type, such as units, coordinate meaning, protocol role, preconditions, postconditions, effects, or ownership obligations. It is not part of Structural Identity or Type Hash unless an explicit type-system rule makes a particular constraint part of Type.
 
 ## Core terms
 

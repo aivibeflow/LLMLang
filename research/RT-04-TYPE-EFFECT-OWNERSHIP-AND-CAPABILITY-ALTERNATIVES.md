@@ -4,7 +4,7 @@
 **Status:** comparative alternatives report; no architecture selected  
 **Updated:** 2026-11-18  
 **Depends on:** [RT-03 Core Language Semantics](CORE-LANGUAGE-SEMANTICS.md)  
-**Related:** [LLMLang Concept](LLMLang-CONCEPT.md), [POSIX Runtime Architecture](POSIX-RUNTIME-ARCHITECTURE.md), [RT-24 identity work](RT-24-IDENTITY-DECISION-MATRIX.md), [Research Dependency Map](RESEARCH-DEPENDENCY-MAP.md)
+**Related:** [LLMLang Concept](LLMLang-CONCEPT.md), [POSIX Runtime Architecture](POSIX-RUNTIME-ARCHITECTURE.md), [RT-24 identity work](RT-24-IDENTITY-DECISION-MATRIX.md), [Research Dependency Map](RESEARCH-DEPENDENCY-MAP.md), [RT-09 structural type identity and C ABI proposal](RESEARCH-RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md)
 
 ## 1. Purpose and boundaries
 
@@ -86,6 +86,12 @@ Keep three relations distinct:
 - behavioral substitutability: whether an implementation satisfies a consumer's contract under declared assumptions.
 
 Type-compatible replacement is not automatically behaviorally compatible. Refinement, error sets, effects, resource obligations, and capability requirements can change the contract. Implicit coercions are semantic operations and should be visible to diagnostics, canonical IR, and evidence.
+
+### 2.5 Structural identity and representation requirements
+
+A separate cross-area proposal explores a name-independent Structural Identity Hash, a Type Hash that extends that identity with canonical representation requirements, and compiler-derived Layout and Function ABI descriptors. It also separates consumer-specific semantic contracts from the data shape and preserves foreign C declaration identity independently from LLMLang structural identity.
+
+This is a candidate architecture, not a conclusion of the RT-04 comparison and not an accepted type-system or ABI policy. See [RT-09 structural type identity, representation requirements, layout, and C ABI proposal](RESEARCH-RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md). The open questions include recursive canonicalization, type/nominal compatibility, requirement composition, target ABI profiles, and cross-target FFI validation.
 
 ## 3. Effect-system alternatives
 
