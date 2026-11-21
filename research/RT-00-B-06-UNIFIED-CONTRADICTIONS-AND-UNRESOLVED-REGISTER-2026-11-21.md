@@ -153,3 +153,25 @@ UNKNOWN is not success. “Not found in this pass” is not “does not exist.�
 **Disposition: B6 register consolidation complete as a bounded audit pass. No direct core semantic contradiction was confirmed.** The corpus has material unresolved design/proof/provenance/traceability issues and several stale status/count discrepancies. Scoped supersession and complementary study relationships are recorded without deleting history or promoting unmerged branch evidence.
 
 RT-00 is **not complete**. B6 does not close the remaining proof, reproducibility, external-source, link/anchor, or PLAN acceptance gates. No architecture decision was made.
+
+
+## 11. Follow-up status after C–F audits — 2026-11-21
+
+This addendum updates the sequencing/status in §9 without changing the original 40-record B6 register or treating any open PR as merged.
+
+### Completed bounded follow-ups (branch-only until merged)
+
+1. **C — reproducibility:** PR #136 adds a non-required workflow. Run [44937172020](https://github.com/aivibeflow/LLMLang/actions/runs/44937172020) passed RT-16 tests 24/24 and CLI Python/C host references 34/34 each. PR #138 records exact commit/tool/input hashes and the retained artifact. PR #137 corrects the stale RT-04 native-reproduction opening status using the already recorded run #44774296240 (10/10 native commands and 2/2 LLVM probes). Remaining SQLite source identity, Provider benchmark/profiler, Scenario 36 fuel, and broad prototype reproducibility gaps remain open.
+2. **D — external provenance:** PR #141 corrects the stale D report statement about README provenance documentation and revalidates 13/13 local snapshot blobs against the manifest. It does not re-fetch upstream repositories or repeat signature verification. OCI/Alive2/REAPI completeness and external URL/version refresh remain open.
+3. **E — local links and anchors:** PR #142 scans 251 Markdown + 3 MDX files in its PR checkout (254 documents). Run [44938052704](https://github.com/aivibeflow/LLMLang/actions/runs/44938052704) records 2,876 link occurrences, 1,312 unique, 1,630 accepted, 82 errors, and 1,164 excluded. All 82 errors are in upstream snapshots: 44 MCP root-absolute upstream-site paths, 32 OCI omitted-document links, and six Alive2 omitted assets/README links. No LLMLang-authored local link or available-target anchor error was found. External URL availability was not checked because the scan was offline.
+4. **F — document alignment:** PR #145 verifies 26 unique RT areas and 108 unique DEP edges, with all endpoints valid, no duplicate IDs or self-loops, and the two documented SCCs. Candidate/non-normative statuses remain aligned. The inventory role-review counts remain inconsistent (242 aggregate, 245 prior PLAN count, 248 per-file traceability records, 249 current prototype paths).
+5. **A — inventory freshness follow-up:** PR #146's recursive audit scanned exact main commit `017e64b87c87371309197a392165258b8b088dd1`: 490 research artifacts excluding the manifest, 249 prototype files, 250 Markdown, 3 MDX, 202 Python, 23 Lean, and 136 Scenario-named documents. The manifest has two missing paths (RT-24 source-completeness report and Dependency Graph RT-24 merge-tree test), zero extra paths, and four SHA/size mismatches (Dependency Graph README, research README, dependency map, RT-24 canonical representation report). Artifact [14720512241](https://github.com/aivibeflow/LLMLang/actions/runs/44938305811/artifacts/14720512241) preserves the exact report.
+
+### Pending branch reconciliation
+
+- B4 PR #127 is based on the older merge-base `f09047a65bc77e8756d9d36def836c193a500dfa`, while current main is `017e64b87c87371309197a392165258b8b088dd1`; the compare shows divergent histories. Its branch inventory count (489) must be reconciled with the exact current-main count (490) and the two missing/four mismatched manifest entries before merge.
+- B5 PR #130 is based on current main but reports the stale 488-record manifest baseline. Its count and traceability summary must be reconciled with PR #146's exact 490-file tree and the missing RT-24 report/test.
+- B6 remains an open branch; its 40-record register is a bounded snapshot, not a live state database. Refresh the register after B4/B5 and the C–F reports are integrated.
+- PRs #136–#146 remain open. Their results are branch/run evidence, not current-main changes. No merge has been performed.
+
+**Updated sequencing:** C, D, and E have bounded evidence follow-ups; F has a current cross-document alignment pass; A inventory freshness remains open pending manifest correction. Next, reconcile the B4/B5 branches and manifest, then refresh B6, complete claim-level traceability/reproducibility and index coverage, and only then prepare the final G report. RT-00 is not complete.
