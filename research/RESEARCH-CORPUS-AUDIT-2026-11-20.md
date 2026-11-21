@@ -589,3 +589,14 @@ The `ImpHash`/`ImplHash` spelling mismatch is explicitly recorded as unresolved 
 ## 12. Package-index diagnostic inventory delta
 
 The inventory reconciliation found two prototype files present in main but absent from the prior 471-record inventory: `run_tests_with_timings.py` and `profile_package_provider.py`, introduced by PRs #105 and #109. The first is the per-test timing runner used by the package-index workflow; the second is the optional cProfile harness invoked only when `run_benchmark=true`. Their roles and workflow relationships are now recorded, and the package-index README links both. This is an inventory drift correction, not a semantic change to the package-index model.
+
+
+## 13. Current-corpus local link and anchor audit — 2026-11-21
+
+The previous RCA-03 finding that a full current-corpus scan remained open is now superseded by the bounded [RT-00 E audit](RT-00-E-GLOBAL-LINK-AND-ANCHOR-AUDIT-2026-11-21.md). Lychee 0.24.2 scanned 250 Markdown and 3 MDX files (253 total) in offline mode with anchor-fragment checks. The run processed 2,871 link occurrences (1,309 unique): 1,629 accepted, 82 errors, and 1,160 excluded.
+
+All 82 unresolved occurrences are confined to copied upstream snapshots: 44 MCP root-absolute upstream-site paths, 32 OCI links to seven omitted documents, and six Alive2 references to omitted assets/README material. No unresolved LLMLang-authored local link or anchor was reported. The 38 OCI/Alive2 occurrences match the previously recorded partial-snapshot limitations; MCP's 44 root-absolute paths are not repository-relative links and were explicitly excluded from the earlier local-path scan.
+
+The workflow run [44937660874](https://github.com/aivibeflow/LLMLang/actions/runs/44937660874) preserves the raw report in artifact [14719958917](https://github.com/aivibeflow/LLMLang/actions/runs/44937660874/artifacts/14719958917). Its exact scan checkout was merge commit `60f3613b5196deee915011765fa6fdcd0920f6fe`, based on main `017e64b87c87371309197a392165258b8b088dd1` plus PR #142. External URLs were not checked because the scan was offline; missing-target fragments cannot be validated. Index completeness and non-Markdown resource links remain separate work.
+
+**Updated RCA-03 disposition:** the current Markdown/MDX local path and available-target anchor scan is complete for the pinned checkout. The 82 upstream snapshot errors remain documented completeness limitations, not LLMLang-authored broken links. This does not complete RT-00 or PLAN.md §0.1.
