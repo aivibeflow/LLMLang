@@ -2,17 +2,17 @@
   "schema_version": 1,
   "generated_at": "2026-11-21",
   "repository": "aivibeflow/LLMLang",
-  "revision": "2a6baa8a4f270e1e9326d04c4f57a15502e3b5e6",
-  "source": "Recursive Git tree at RT-00-A2 reconciliation snapshot 2a6baa8a4f270e1e9326d04c4f57a15502e3b5e6; inventory excludes its own manifest file to avoid self-reference.",
+  "revision": "b118346ecd499d7962a6ac546fb1031bc7e2bc26",
+  "source": "Recursive Git tree at RT-00-B3 report snapshot b118346ecd499d7962a6ac546fb1031bc7e2bc26; inventory excludes its own manifest file to avoid self-reference.",
   "counts": {
-    "research_files": 487,
-    "markdown_files": 248,
+    "research_files": 488,
+    "markdown_files": 249,
     "python_files": 201,
     "scenario_named_documents": 136,
     "prototype_tree_files": 248,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "audit-or-review-report": 14,
+      "audit-or-review-report": 15,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 1,
       "external-source-snapshot-or-license": 13,
@@ -12666,6 +12666,27 @@
       }
     },
     {
+      "path": "research/RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md",
+      "git_blob_sha": "5e4cb9fa6923a1067283816772107dd116d89edd",
+      "size_bytes": 20105,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1 — research corpus inventory",
+          "RT-00 B3 — cross-cutting semantic consistency"
+        ],
+        "method": "content-level cross-document review of identity, contracts, dependency/cache, backend, package trust, resource accounting, and authority boundaries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "bounded-cross-cutting-semantic-audit",
+        "basis": "Reviewed primary cross-cutting documents and recorded eight findings with evidence, scope, confidence, and follow-up; not a corpus-wide claim audit."
+      }
+    },
+    {
       "path": "research/RT-00-C-REPRODUCIBILITY-AUDIT-2026-11-20.md",
       "git_blob_sha": "60579f8e6240397fd9f72767970166664358fbb2",
       "size_bytes": 16661,
@@ -13634,93 +13655,20 @@
   },
   "snapshot_reconciliation": {
     "reviewed_at": "2026-11-21",
-    "source_revision": "2a6baa8a4f270e1e9326d04c4f57a15502e3b5e6",
+    "source_revision": "b118346ecd499d7962a6ac546fb1031bc7e2bc26",
     "inventory_excludes_its_own_manifest": true,
-    "previous_inventory_revision": "1cf2fbfec82373a0094426a168ef4a1e5541c45b",
-    "previous_inventory_records": 476,
-    "current_inventory_records": 487,
+    "previous_inventory_revision": "2a6baa8a4f270e1e9326d04c4f57a15502e3b5e6",
+    "previous_inventory_records": 487,
+    "current_inventory_records": 488,
     "added_artifacts": [
       {
-        "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SolverRelationalQuery.lean",
-        "category": "prototype-or-experiment-implementation",
-        "git_blob_sha": "1c41458a886027c81915ad2f45d252f9a6ac17c6",
-        "size_bytes": 3458
-      },
-      {
-        "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py",
-        "category": "prototype-or-experiment-implementation",
-        "git_blob_sha": "918dfa431a066b321899fc7f1e5e0593db3104e3",
-        "size_bytes": 13589
-      },
-      {
-        "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_representation.py",
-        "category": "prototype-test-evidence",
-        "git_blob_sha": "66a719e6c11f925c9c871d8d5f734b3dee23245c",
-        "size_bytes": 17369
-      },
-      {
-        "path": "research/RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md",
+        "path": "research/RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md",
         "category": "audit-or-review-report",
-        "git_blob_sha": "e67cf113829fe4e815ead138eb94a5401f9dd692",
-        "size_bytes": 8919
-      },
-      {
-        "path": "research/RT-00-B-02B-2-PYTHON-PROTOTYPE-AND-TEST-AUDIT-2026-11-20.md",
-        "category": "audit-or-review-report",
-        "git_blob_sha": "ba3912e0423e0367944b4724e63206f074185b7a",
-        "size_bytes": 15829
-      },
-      {
-        "path": "research/RT-00-B-02B-3-SCENARIO-OVERLAP-AND-SUPERSESSION-AUDIT-2026-11-20.md",
-        "category": "audit-or-review-report",
-        "git_blob_sha": "7832aadabb8bb1b325a13f5304408029d6a78be3",
-        "size_bytes": 13598
-      },
-      {
-        "path": "research/RT-00-B-02B-4-ORPHAN-AND-TRACEABILITY-AUDIT-2026-11-20.md",
-        "category": "audit-or-review-report",
-        "git_blob_sha": "db94822b7fbcaabd3b5332798fa9232067062f5f",
-        "size_bytes": 9580
-      },
-      {
-        "path": "research/RT-00-C-REPRODUCIBILITY-AUDIT-2026-11-20.md",
-        "category": "audit-or-review-report",
-        "git_blob_sha": "60579f8e6240397fd9f72767970166664358fbb2",
-        "size_bytes": 16661
-      },
-      {
-        "path": "research/RT-00-D-EXTERNAL-SNAPSHOT-PROVENANCE-AUDIT-2026-11-20.md",
-        "category": "audit-or-review-report",
-        "git_blob_sha": "b09dccdd2b5e11bff5e1316218b28f5a707e64f7",
-        "size_bytes": 7495
-      },
-      {
-        "path": "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
-        "category": "research-area-or-experiment-document",
-        "git_blob_sha": "e94c41a2faccd3b80e0535e9ffc7162f2521e4db",
-        "size_bytes": 25444
-      },
-      {
-        "path": "research/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md",
-        "category": "research-area-or-experiment-document",
-        "git_blob_sha": "ec4f245a9ae1fa076d2b3f5f32966ee16d6bd4af",
-        "size_bytes": 14123
+        "git_blob_sha": "5e4cb9fa6923a1067283816772107dd116d89edd",
+        "size_bytes": 20105
       }
     ],
-    "refreshed_existing_records": 18,
     "removed_paths": 0,
-    "prototype_tree_file_counts": {
-      "CLI-WORKLOADS-01": 3,
-      "DEPENDENCY-GRAPH-01": 106,
-      "LLVM-PRESERVATION-01": 4,
-      "PACKAGE-IDENTITY-01": 7,
-      "PACKAGE-INDEX-01": 17,
-      "RT-04-01": 106,
-      "RT-16-AUTHORIZATION-01": 2,
-      "TOOLCHAIN-SERVER-01": 3
-    },
-    "prototype_role_mapping_note": "The three previously absent prototype records were individually classified in this reconciliation. The older semantic_traceability_review.prototype_family_review.individually_mapped_files value remains a historical baseline (242) and is not silently rewritten as a corpus-wide claim-level audit. The current family file counts above are inventory counts, not evidence that every prototype claim or test was validated.",
-    "taxonomy_and_dependency_note": "Current main contains 26 registered taxonomy RT entries and 108 DEP entries. Registration does not imply that a research proposal is accepted or its claims validated.",
-    "index_check_note": "The existing index_check and branch_index_check remain historical checks against their recorded older revisions; global current link/anchor validation is still pending."
+    "note": "B3 report is a bounded semantic consistency audit, not proof of corpus-wide claim validation. Existing historical inventory checks remain historical."
   }
 }
