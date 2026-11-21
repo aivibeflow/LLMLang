@@ -1,0 +1,73 @@
+name: RT-00 RT-26 Cancellation and Reservation Reproduction
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/rt00-rt26-cancellation-reproduction.yml"
+      - "research/RT-26-CANCELLATION-ACCOUNTING.md"
+      - "research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md"
+      - "research/PROTOTYPES/BUDGET-CANCELLATION-01/**"
+      - "research/PROTOTYPES/BUDGET-RESERVATION-01/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    name: reproduce-rt26-cancellation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact tested revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Set up declared Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+
+      - name: Record source identity and environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/rt26-reproduction
+          {
+            echo "commit=$(git rev-parse HEAD)"
+            python --version
+            python -c 'import sys; print(sys.version)'
+            sha256sum research/RT-26-CANCELLATION-ACCOUNTING.md
+            sha256sum research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md
+            sha256sum research/PROTOTYPES/BUDGET-CANCELLATION-01/test_budget_cancellation.py
+            sha256sum research/PROTOTYPES/BUDGET-RESERVATION-01/test_budget_reservation.py
+          } | tee artifacts/rt26-reproduction/environment-and-inputs.txt
+
+      - name: Reproduce cancellation settlement model
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B -m unittest discover -s research/PROTOTYPES/BUDGET-CANCELLATION-01 -v 2>&1 | tee artifacts/rt26-reproduction/cancellation.log
+
+      - name: Reproduce cumulative reservation model
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B -m unittest discover -s research/PROTOTYPES/BUDGET-RESERVATION-01 -v 2>&1 | tee artifacts/rt26-reproduction/reservation.log
+
+      - name: Hash reproduction logs
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum artifacts/rt26-reproduction/*.log | tee artifacts/rt26-reproduction/log-digests.txt
+
+      - name: Retain exact reproduction evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt00-rt26-cancellation-reproduction-${{ github.sha }}
+          path: artifacts/rt26-reproduction/
+          if-no-files-found: error
+          retention-days: 90
