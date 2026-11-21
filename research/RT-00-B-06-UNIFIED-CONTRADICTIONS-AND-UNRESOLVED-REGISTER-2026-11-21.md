@@ -62,13 +62,13 @@ The companion JSON records every item in machine-readable form. The main categor
 - **B6-T01 — ImpHash / ImplHash:** unresolved naming discrepancy. No silent normalization.
 - **B6-U01 — identity layers:** semantic value, managed occurrence/slot, stable ID and lineage have no normative lifecycle mapping.
 - **B6-U02 — contract conformance:** call-site refinement is not mapped to OpHash, ImplHash, CCHash and exact evidence.
-- **B6-U03 — cache/action identity:** complete per-action dependency closure, resolved binding inputs and evidence freshness remain open.
+- **B6-U03 — cache/action identity:** RT-06 now supplies a bounded exact per-key projection experiment that preserves negative lookup dependencies across its enumerated complete-layer fixtures (216 outcome-preserving transitions, zero false reuse). It does not establish complete per-action dependency closure, immutable-layer admission, revision-bound consultation provenance, or evidence freshness.
 - **B6-U05 — package trust:** content identity, provider closure, provenance authenticity and publisher trust remain independent gates.
 - **B6-U07 — authority composition:** parent budget delegation, task capabilities, tool/agent authorization and OS/container enforcement are not composed into one explicit model.
 
 ### 4.2 Proof and implementation boundaries
 
-- **B6-U04 — LLVM preservation:** finite pinned probes do not establish general lowering, target or runtime preservation.
+- **B6-U04 — backend preservation:** RT-09 adds a bounded ordered-instruction lowering from the typed SPG with 140 differential cases and mutation-sensitive trace checking. This is a Python-level experiment, not LLVM or machine-code evidence; finite pinned probes and this intermediate representation do not establish general lowering, target or runtime preservation.
 - **B6-U06 — RT-26:** main now contains a bounded cooperative cumulative-budget reservation model and a four-method test module. This is partial model evidence only; exact historical execution-to-blob provenance, the other mandatory resource dimensions, attribution, real-time limits/overshoot, handlers, and platform enforcement remain unresolved.
 - **B6-U08 — Scenario 34:** SC-1–SC-7 support the restricted Int/Bool source-to-canonical-query fragment; Python JSON/CPC binding, trusted-computing-base and SCW-30–41 obligations remain distinct.
 - **B6-U09 — Python test coverage:** 32 test modules / 376 named test methods are not equivalent to the 12 modules / 177 methods selected by the reviewed Required CI configuration.
@@ -239,6 +239,16 @@ All these PRs remain branch-only. Their evidence must not be described as integr
 
 The earlier B6-U06 statement that the main baseline had no merged evidence chain is stale in one narrow respect. Current main contains `research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md` and `research/PROTOTYPES/BUDGET-RESERVATION-01/test_budget_reservation.py` (four test methods). The report records a fixed acyclic hierarchy and cumulative cooperative budget: four-of-six split check/charge schedules overshoot; 720 reservation/settlement orders are checked over 4,320 transitions; retry and cancellation behavior are covered.
 
-This changes the evidence classification from “no merged model evidence” to “bounded cooperative model evidence present.” It does not close RT-26. The exact PR #129 test execution checkout is not retained as a source-blob-bound run record. The current test blob was independently run in CPython 3.13.5 with 4/4 passing methods in the RT-00 B-05-02 pilot branch; that pilot itself remains unmerged and its execution is not a CPython 3.12.14 reproduction. No evidence is claimed for instantaneous memory, CPU, disk/network I/O, coroutine switches, PMU counters, OS enforcement, throttling, fairness, or production atomicity.
+This changes the evidence classification from “no merged model evidence” to “bounded cooperative model evidence present.” It does not close RT-26. The exact PR #129 test execution checkout is not retained as a source-blob-bound run record. The RT-00 B-05-02 pilot was subsequently merged in PR #197; it records an independent CPython 3.13.5 run of the current test blob with 4/4 passing methods. That run is not a CPython 3.12.14 reproduction. No evidence is claimed for instantaneous memory, CPU, disk/network I/O, coroutine switches, PMU counters, OS enforcement, throttling, fairness, or production atomicity.
 
 The separate PR #174 cancellation/terminal-settlement experiment remains branch-only and is not incorporated. B6-U07 authority composition remains unresolved. No architecture decision is implied.
+
+## 14. Current-main refresh — RT-06 and RT-09 evidence (2026-11-21)
+
+Baseline: current `main` at `fe8d10b4f454b2f05c902b32202ca7dfea8943d5` (rebase point). This refresh adds two bounded evidence records without closing the associated B6 gaps.
+
+- **B6-U03 / RT-06:** `research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md` reports an exhaustive finite fixture of 432 views and 3,240 single-scope transitions. An exact per-key projection preserves 216 outcome-equivalent transitions with zero false reuse, while a positive-only key has 516 false reuses. A duplicate unrelated key demonstrates that the projection is only sound after complete-layer validation. This is evidence for one scoped lookup model, not a complete Action Key or dependency-closure proof.
+- **B6-U04 / RT-09:** `research/RT-09-ORDERED-SPG-LOWERING.md` reports 140 differential cases, binding-sensitive artifact identity, reachability-sensitive determinism, recursion/fuel checks, and a trace-order mutation detected despite preserving the numeric result. It compares Python-level execution paths over a bounded scalar/effect profile. It does not validate LLVM lowering, machine code, other targets, or general source-to-runtime preservation.
+
+Both reports declare CPython 3.12.14 reproduction commands and focused test counts. This register records those source declarations; it does not independently assert a retained CI run bound to the exact current test blob. The B6-U03 and B6-U04 gaps therefore remain unresolved with narrower, better-supported partial evidence. PR #199's B5 refresh is merged and its current-main addendum is part of the corpus state.
+

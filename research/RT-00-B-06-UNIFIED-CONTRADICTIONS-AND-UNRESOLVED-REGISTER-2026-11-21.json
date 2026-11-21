@@ -128,10 +128,11 @@
         "research/SEMANTIC-COMPILATION-CACHE.md",
         "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
         "PLAN.md",
-        "research/RESEARCH-DEPENDENCY-MAP.md"
+        "research/RESEARCH-DEPENDENCY-MAP.md",
+        "research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md"
       ],
-      "finding": "Per-action dependency closure, resolved binding inputs, evidence freshness and trust are not complete. Caller semantic hash alone is insufficient for execution-sensitive reuse.",
-      "required_action": "Define per-action key schemas and test binding-only changes for compile/link/execute/test/proof.",
+      "finding": "RT-06 supplies a bounded exact per-key projection experiment over 432 views and 3,240 transitions: 216 outcome-preserving reuses and zero false reuse in the enumerated complete-layer fixtures. A duplicate unrelated key shows that complete-layer validation is a precondition. This does not establish complete per-action dependency closure, revision-bound consultation provenance, or evidence freshness.",
+      "required_action": "Preserve the projection as a conditional per-key lookup result only; define complete Action Key inputs, layer admission/validation, negative dependency closure, revision-bound consultation records, and evidence freshness.",
       "decision_owner": "Cache/dependency design and validation"
     },
     {
@@ -143,10 +144,11 @@
         "research/LLVM-BACKEND-ARCHITECTURE.md",
         "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
         "research/RESEARCH-SCENARIO-96-LLVM-SEMANTIC-PRESERVATION.md",
-        "PLAN.md"
+        "PLAN.md",
+        "research/RT-09-ORDERED-SPG-LOWERING.md"
       ],
-      "finding": "Finite LLVM 19.1.7 x86-64 probes do not prove general lowering preservation, other targets, allocator provenance or end-to-end runtime behavior.",
-      "required_action": "Build revision-pinned source-to-IR-to-target evidence chain and differential/formal checks for declared subsets.",
+      "finding": "RT-09 adds a bounded Python-level ordered-instruction lowering from typed SPG with 140 differential cases, binding-sensitive artifact identity, reachability-sensitive determinism, recursion/fuel checks, and trace-order mutation detection. It is not LLVM or machine-code evidence and does not establish general source-to-runtime preservation.",
+      "required_action": "Keep the Python IR result scoped to its scalar/effect profile; separately validate LLVM lowering, target code generation, independent IR admission, other targets, and runtime preservation.",
       "decision_owner": "Backend validation gate"
     },
     {
