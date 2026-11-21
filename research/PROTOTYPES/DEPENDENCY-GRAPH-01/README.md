@@ -11,6 +11,14 @@ python -m src.semantic_graph
 
 The prototype includes deterministic JSON persistence for semantic values, context-scoped relations, and project snapshots (`src/persistence.py`).
 
+## Typed Semantic Program Graph experiment
+
+Two textual expression syntaxes lower to stored, well-typed values with exact call references. The corpus tests structural equality, ordered observations, binding changes, recursion, and lineage over shared values. [Study and reproduction details](../../RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md)
+
+```sh
+python -B -m unittest -v tests.test_spg_representation
+```
+
 ## Contract / implementation bindings
 
 `src/binding.py` adds immutable BindingSnapshots. Callers may depend on contract hashes while a snapshot selects concrete implementations. The snapshot hash changes when the implementation selection changes; execution-sensitive verification keys include that root. Binding rows validate semantic kinds and an exact hash-relevant `implements` dependency. Serialization is deterministic and checksummed.

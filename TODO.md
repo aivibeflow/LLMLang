@@ -92,6 +92,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Question:** Which entities must be independently addressable in the first model, and what is the smallest useful reusable unit?
 - **Context:** Candidate entities include operations, interfaces, contracts, types, expressions, implementation components, tests, models, and proofs. Excessive fragmentation can make the graph difficult to manage.
 - **Recommendation:** Start with stable semantic boundaries that support independent reuse, verification, or change-impact analysis; do not require every expression to become a global artifact.
+- **New evidence** · The typed SPG fixture measures which selected values change after a body edit, a binding update, and a contract revision. It also compares the addressable units for interfaces, types, tests, models, and proofs. [RT-05 Typed Semantic Program Graph](research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md#6-artifact-granularity-and-trade-offs)
 - **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 4 and 6.
 
 ### LL-007 — Separate target-profile semantics from implementation identity
