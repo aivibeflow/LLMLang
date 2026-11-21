@@ -576,6 +576,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Integrate Interface Mapping Revision merge separately under RT-23 parent-revision/CAS/scope rules; test disjoint keys, same-key conflicts, delete/update, and stale baselines.
 - [ ] Only after the pure core passes, build a Git repository coordinator with explicit base/ours/theirs trees; then test merge, rebase, and cherry-pick against real temporary repositories. Keep per-file merge driver as an adapter, not a whole-graph correctness boundary.
 - [ ] Finally integrate RT-23 exact-tree synchronized commit and idempotent crash/timeout recovery; test clone reconstruction without the original local semantic database.
+  - A coordinated Git generation detects an intervening change even when the branch returns to the same OID. [Ref generation experiment](research/RT-23-COORDINATED-REF-GENERATION.md)
 
 **Research output (2026-11-21)** · A three-way selector composes independent declarations across a textual conflict. Rebuilding the candidate from selected rows detects an exact callee lost across disjoint slot edits. The positive export reconstructs the same selections. [RT-24 closed-inventory merge](research/RT-24-CLOSED-THREE-WAY-MERGE.md)
 
