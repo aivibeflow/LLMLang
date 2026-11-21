@@ -8,6 +8,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 
 - [Core language semantics](CORE-LANGUAGE-SEMANTICS.md) compares pure, imperative, actor, and effectful-functional profiles.
 - [RT-04 type/effect/ownership/capability alternatives](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) records checker vectors and limits.
+- [RT-09 structural type identity, representation requirements, layout, and C ABI proposal](RESEARCH-RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md) records a proposed Identity → Type → Layout → Function ABI pipeline, consumer-side semantics, C declaration identity, and the validation work still required; it is not a normative decision.
 - [Scenario 36 — recursion, termination, and fuel](RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md), [Scenario 37 — effect rows, handlers, and traces](RESEARCH-SCENARIO-37-EFFECT-ROWS-HANDLERS-AND-OBSERVATION.md), and [Scenario 38 — effects, capabilities, and authority](RESEARCH-SCENARIO-38-EFFECTS-CAPABILITIES-AND-AUTHORITY.md) extend the RT-03/04 comparison without selecting language rules.
 - [Scenario 39 — cleanup failure and ownership transfer](RESEARCH-SCENARIO-39-CLEANUP-FAILURE-AND-OWNERSHIP-TRANSFER.md) compares Zig, Rust, Swift, and Go cleanup/error mechanisms against COR-13's owned-return boundary.
 - [Scenario 40 — async cancellation and resource cleanup](RESEARCH-SCENARIO-40-ASYNC-CANCELLATION-AND-CLEANUP.md) distinguishes cancellation requests, task termination, and completed cleanup across Rust, Swift, and Go.
