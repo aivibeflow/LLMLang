@@ -118,12 +118,19 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 - [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md) — candidate immutable dependency-index model; not a canonical schema.
 - [Draft Glossary](../draft/GLOSSARY.md) — provisional hash and semantic terminology; PLAN.md records the unresolved `ImpHash`/`ImplHash` spelling discrepancy.
 - [Cross-cutting alignment review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) — historical first-pass count reconciliation, candidate/non-normative status, and terminology boundaries; its 24/94 counts are superseded by the current taxonomy and dependency map.
+- [RT-00 A inventory manifest freshness reconciliation (2026-11-21)](RT-00-A-INVENTORY-MANIFEST-FRESHNESS-RECONCILIATION-2026-11-21.md) — exact recursive path/blob/size audit and qualified file-role reconciliation.
+- [RT-00 B4 corpus duplicate and supersession audit (2026-11-21)](RT-00-B-04-CORPUS-DUPLICATE-AND-SUPERSESSION-AUDIT-2026-11-21.md) — exact-content grouping and scoped semantic duplicate/supersession review.
+- [RT-00 B5 complete traceability graph audit (2026-11-21)](RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md) — graph layers, edge semantics, and corpus-wide claim/evidence traceability gaps.
+- [RT-00 B5 Scenario 130 claim-level traceability pilot (2026-11-21)](RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md) — bounded report-local claim-to-source/test/CI/evidence trace.
+- [RT-00 B6 unified contradictions and unresolved register (2026-11-21)](RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.md) — consolidated audit register for apparent conflicts, unresolved claims, stale status and pending evidence.
+- [RT-00 F cross-document alignment audit (2026-11-21)](RT-00-F-CROSS-DOCUMENT-ALIGNMENT-AUDIT-2026-11-21.md) — taxonomy, dependency, status, and count alignment review with remaining cross-document blockers.
+- [RT-00 B6 machine-readable unresolved register](RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.json) — structured companion to the B6 audit report.
 - [RT-00 G current status and exit report (2026-11-21)](RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md) — consolidated A–F findings, current-main deltas through RT-24/RT-09, unresolved work, and explicit RT-00 exit blockers; not a completion declaration.
 - [RT-00 B3 cross-cutting semantic consistency audit (2026-11-21)](RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md) — identity, contract, dependency/cache, backend, package trust, resource accounting, and authority consistency review.
 
 ## Corpus inventory and audit
 
-- [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, coarse category, and qualified traceability metadata for every tracked research artifact under `research/` at the recorded revision (excluding the inventory manifest itself); refreshed through RT-00 B3.
+- [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — path, Git blob identity, size, category, and qualified traceability metadata for all 549 tracked research artifacts at the audited revision (excluding the manifest itself); the exact source revision is recorded in the manifest.
 - [Research corpus audit (2026-11-20)](RESEARCH-CORPUS-AUDIT-2026-11-20.md) — audit scope, verified checks, findings, and remaining work for PLAN.md §0.1.
 - [RT-00 B-02b.1 Lean proof graph audit](RT-00-B-02B-1-LEAN-PROOF-GRAPH-AUDIT-2026-11-20.md) — current SC-1–SC-7 declaration crosswalk and Lean proof boundary.
 - [RT-00 B-02b.5 Dependency Graph evidence consolidation](RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md) — consolidated family graph, CI/test evidence, and inventory reconciliation.
