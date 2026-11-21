@@ -39,5 +39,6 @@ jobs:
         run: |
           timeout 180s lake env lean -DwarningAsError=true --run Main.lean
           timeout 180s lake env lean -DwarningAsError=true --run SourceCpcRefutationTests.lean
+          timeout 180s lake env lean -DwarningAsError=true --run CpcNullaryAliasesTests.lean
       - name: Check observable rewrite proof
         run: lean -DwarningAsError=true ObservableRewrite.lean
