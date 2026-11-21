@@ -21,7 +21,7 @@ The inventory manifest at revision b118346ecd499d7962a6ac546fb1031bc7e2bc26 reco
 | Research areas | 26 (RT-01–RT-26) |
 | Dependency edges | 108 (DEP-001–DEP-108) |
 
-GitHub commit comparison shows three research paths added after that inventory revision and absent from its artifact records: the RT-00 B3 audit report, the RT-24 merged-tree source-completeness report, and tests/test_rt24_merge_tree_gate.py. Therefore current main has at least 491 research artifacts and at least 249 prototype files; a fresh recursive-tree enumeration is required to establish exact totals and family counts. The E workflow separately measured 251 Markdown files and 3 MDX files in its PR checkout. The earlier cross-cutting alignment review's 24 RT / 94 DEP counts are historical. The current research README already states that those figures are superseded by the current taxonomy and dependency map. The old review's §1 and conclusion should be read as a first-pass result at its own baseline, not as a current count.
+The recursive inventory audit in PR #146 scanned main at 017e64b87c87371309197a392165258b8b088dd1 and measured exactly 490 research artifacts excluding the manifest, 250 Markdown files, 3 MDX files, 202 Python files, 23 Lean files, 249 prototype files, and 136 Scenario-named documents. The manifest has two missing paths (research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md and research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_merge_tree_gate.py), zero extra paths, and four SHA/size mismatches (Dependency Graph README, research README, dependency map, and RT-24 canonical representation report). The E workflow separately measured 251 Markdown files and 3 MDX files in its PR checkout because it includes the additional E report. The earlier cross-cutting alignment review's 24 RT / 94 DEP counts are historical. The current research README already states that those figures are superseded by the current taxonomy and dependency map. The old review's §1 and conclusion should be read as a first-pass result at its own baseline, not as a current count.
 
 ## 2. Structural dependency-map validation
 
@@ -60,11 +60,11 @@ No semantic, hash, identity, backend, or architecture decision is made by this a
 
 Three different counts currently describe prototype-family role coverage:
 
-1. The inventory baseline contains **248** prototype paths and per-artifact traceability records for all 248. Current main contains at least **249** prototype paths because tests/test_rt24_merge_tree_gate.py was added after the inventory revision and is absent from its records.
+1. The inventory baseline contains **248** prototype paths and per-artifact traceability records for all 248. Current main contains exactly **249** prototype paths; tests/test_rt24_merge_tree_gate.py is the one prototype path absent from the manifest.
 2. The inventory's prototype_family_review.individually_mapped_files aggregate still reports **242**, with family counts 3/103/3/7/17/104/2/3.
 3. PLAN.md's previous first-pass role-mapping statement reports **245**, with family counts 3/103/4/7/17/106/2/3.
 
-The inventory baseline family counts are 3/106/4/7/17/106/2/3 (total 248). Current main has at least one additional Dependency Graph test, making that family at least 107 and the total at least 249. The aggregate review metadata and the PLAN statement therefore do not agree with the current tree or with each other. The 248 per-file traceability records establish that mappings are present; they do not prove equivalent depth of content review for every added artifact. The six-file delta from the inventory aggregate must be reconciled at the family/file level before declaring the content-role review complete.
+The inventory baseline family counts are 3/106/4/7/17/106/2/3 (total 248). Current main has 107 Dependency Graph paths and 249 prototype paths total. The aggregate review metadata and the PLAN statement therefore do not agree with the current tree or with each other. The 248 per-file traceability records establish that mappings are present; they do not prove equivalent depth of content review for every added artifact. The six-file delta from the inventory aggregate must be reconciled at the family/file level before declaring the content-role review complete.
 
 This finding is kept open rather than silently replacing 242 or 245 with 248. A path/traceability record is not itself a claim-level audit or reproduction result.
 
