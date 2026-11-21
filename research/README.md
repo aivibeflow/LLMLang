@@ -113,7 +113,8 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 - [Research Dependency Map](RESEARCH-DEPENDENCY-MAP.md) — the 108 directed cross-area dependencies and documented feedback loops.
 - [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md) — candidate immutable dependency-index model; not a canonical schema.
 - [Draft Glossary](../draft/GLOSSARY.md) — provisional hash and semantic terminology; PLAN.md records the unresolved `ImpHash`/`ImplHash` spelling discrepancy.
-- [Cross-cutting alignment review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) — historical first-pass count reconciliation, candidate/non-normative status, and terminology boundaries; its 24/94 counts are superseded by the current taxonomy and dependency map.\n- [RT-00 B3 cross-cutting semantic consistency audit (2026-11-21)](RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md) — identity, contract, dependency/cache, backend, package trust, resource accounting, and authority consistency review.
+- [Cross-cutting alignment review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) — historical first-pass count reconciliation, candidate/non-normative status, and terminology boundaries; its 24/94 counts are superseded by the current taxonomy and dependency map.
+- [RT-00 B3 cross-cutting semantic consistency audit (2026-11-21)](RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md) — identity, contract, dependency/cache, backend, package trust, resource accounting, and authority consistency review.
 
 ## Corpus inventory and audit
 
