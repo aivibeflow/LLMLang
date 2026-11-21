@@ -627,6 +627,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Resource accounting evidence (2026-11-21)** · A bounded RT-26 model compares separate checks with serialized hierarchical reservation. Separate checks overshoot in four of six schedules. The serialized ledger matches direct subtree accounting across 4,320 transitions. Runtime and OS enforcement measurements remain open. [Cooperative budget reservation](research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md)
 
+**Research output (2026-11-21)** · Across 1,260 orderings of nested task events, a transitive join matches the lifetime oracle. Publishing after direct task bodies leaves live loans in 198 schedules. [RT-10 structured scope join](research/RT-10-STRUCTURED-SCOPE-JOIN.md)
+
 ## 5.3 POSIX architecture and conformance
 
 **Estimated research complexity:** **9/10** — platform profiles, API semantics, conformance evidence, and runtime boundaries.
