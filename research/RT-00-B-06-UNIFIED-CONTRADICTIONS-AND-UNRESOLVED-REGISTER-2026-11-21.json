@@ -9,8 +9,8 @@
   "summary": {
     "records": 39,
     "apparent_conflicts_reconciled": 4,
-    "open_design_proof_evidence_gaps": 17,
-    "scoped_historical_or_complementary_relationships": 8,
+    "open_design_proof_evidence_gaps": 18,
+    "scoped_historical_or_complementary_relationships": 7,
     "stale_status_or_count_discrepancies": 5,
     "pending_pr_states": 5,
     "direct_core_semantic_contradictions_confirmed": 0
