@@ -50,14 +50,17 @@ class SourceEvidence:
     reverse: ReverseLookupEvidence
 
 
-def git(repo: Path, *args: str) -> bytes:
+def git(repo: Path, *args: str, stdin: bytes | None = None,
+        index: Path | None = None) -> bytes:
     environment = {
         **os.environ, "GIT_CONFIG_NOSYSTEM": "1", "GIT_CONFIG_GLOBAL": os.devnull,
         "GIT_AUTHOR_DATE": "2000-01-01T00:00:00Z", "GIT_COMMITTER_DATE": "2000-01-01T00:00:00Z",
     }
+    if index is not None:
+        environment["GIT_INDEX_FILE"] = str(index)
     return subprocess.run(
         ["git", "-c", "user.name=RT-24 fixture", "-c", "user.email=fixture@example.invalid",
-         *args], cwd=repo, env=environment, capture_output=True, check=True, timeout=30,
+         *args], cwd=repo, env=environment, input=stdin, capture_output=True, check=True, timeout=30,
     ).stdout
 
 
