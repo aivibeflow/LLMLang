@@ -1,5 +1,6 @@
 import SolverRelationalQuery
 import LLMLangLogosBinding
+import QuerySymbolRenaming
 
 open Lean
 
@@ -28,40 +29,50 @@ private def wireName (binding : SymbolBinding) : String :=
     | .left => "_L"
     | .right => "_R"
 
-private def rename (bindings : List SymbolBinding) (name : String) : Except String String :=
-  match bindings.find? (fun binding => binding.name == name) with
-  | some binding => .ok (wireName binding)
-  | none => .error s!"missing source binding for {name}"
+private def wireNames (bindings : List SymbolBinding) (name : String) : String :=
+  ((bindings.find? (fun binding => binding.name == name)).map wireName).getD name
+
+def wireTerm (bindings : List SymbolBinding) {sort : QuerySort} (term : QueryTerm sort) :
+    QueryTerm sort :=
+  QuerySymbolRenaming.rename (wireNames bindings) term
+
+/-- Relate the typed wire term to the internal term under the same name map. -/
+theorem wireTerm_preserves {sort : QuerySort} (bindings : List SymbolBinding)
+    (term : QueryTerm sort) (env : SourceQuerySemantics.Env) :
+    LogosQueryAdapter.evalLogosQuery (wireTerm bindings term) env =
+      LogosQueryAdapter.evalLogosQuery term
+        (QuerySymbolRenaming.pullback (wireNames bindings) env) :=
+  QuerySymbolRenaming.eval_rename (wireNames bindings) env term
+
+private def requireCoverage {sort : QuerySort} (bindings : List SymbolBinding)
+    (term : QueryTerm sort) : Except String Unit := do
+  for ref in term.symbols do
+    unless bindings.any (fun binding => decide (binding.reference = ref)) do
+      throw s!"missing exact source binding for {ref.name}"
 
 mutual
-  private def encode (bindings : List SymbolBinding) :
-      {sort : QuerySort} → QueryTerm sort → Except String Json
-    | _, .intLit n => pure (node .int "int" [] (toJson n))
-    | _, .boolLit b => pure (node .bool "bool" [] (toJson b))
-    | _, .intSymbol name => do
-        pure (node .int "symbol" [] (toJson (← rename bindings name)))
-    | _, .boolSymbol name => do
-        pure (node .bool "symbol" [] (toJson (← rename bindings name)))
-    | _, .neg x => do pure (node .int "neg" [← encode bindings x])
-    | _, .not x => do pure (node .bool "not" [← encode bindings x])
-    | _, .add a b => do pure (node .int "add" [← encode bindings a, ← encode bindings b])
-    | _, .sub a b => do pure (node .int "sub" [← encode bindings a, ← encode bindings b])
-    | _, .mul a b => do pure (node .int "mul" [← encode bindings a, ← encode bindings b])
-    | _, .eqInt a b => do pure (node .bool "eq" [← encode bindings a, ← encode bindings b])
-    | _, .eqBool a b => do pure (node .bool "eq" [← encode bindings a, ← encode bindings b])
-    | _, .lt a b => do pure (node .bool "lt" [← encode bindings a, ← encode bindings b])
-    | _, .le a b => do pure (node .bool "le" [← encode bindings a, ← encode bindings b])
-    | _, .and terms => do pure (node .bool "and" (← encodeList bindings terms))
-    | _, .or terms => do pure (node .bool "or" (← encodeList bindings terms))
-    | _, .iteInt c a b => do
-        pure (node .int "ite" [← encode bindings c, ← encode bindings a, ← encode bindings b])
-    | _, .iteBool c a b => do
-        pure (node .bool "ite" [← encode bindings c, ← encode bindings a, ← encode bindings b])
+  private def encode : {sort : QuerySort} → QueryTerm sort → Json
+    | _, .intLit n => node .int "int" [] (toJson n)
+    | _, .boolLit b => node .bool "bool" [] (toJson b)
+    | _, .intSymbol name => node .int "symbol" [] (toJson name)
+    | _, .boolSymbol name => node .bool "symbol" [] (toJson name)
+    | _, .neg x => node .int "neg" [encode x]
+    | _, .not x => node .bool "not" [encode x]
+    | _, .add a b => node .int "add" [encode a, encode b]
+    | _, .sub a b => node .int "sub" [encode a, encode b]
+    | _, .mul a b => node .int "mul" [encode a, encode b]
+    | _, .eqInt a b => node .bool "eq" [encode a, encode b]
+    | _, .eqBool a b => node .bool "eq" [encode a, encode b]
+    | _, .lt a b => node .bool "lt" [encode a, encode b]
+    | _, .le a b => node .bool "le" [encode a, encode b]
+    | _, .and terms => node .bool "and" (encodeList terms)
+    | _, .or terms => node .bool "or" (encodeList terms)
+    | _, .iteInt c a b => node .int "ite" [encode c, encode a, encode b]
+    | _, .iteBool c a b => node .bool "ite" [encode c, encode a, encode b]
 
-  private def encodeList (bindings : List SymbolBinding) :
-      List (QueryTerm .bool) → Except String (List Json)
-    | [] => pure []
-    | term :: tail => do pure ((← encode bindings term) :: (← encodeList bindings tail))
+  private def encodeList : List (QueryTerm .bool) → List Json
+    | [] => []
+    | term :: tail => encode term :: encodeList tail
 end
 
 private def declarationJson (binding : SymbolBinding) : Json :=
@@ -79,6 +90,10 @@ def sourceEnvelope {sort : QuerySort} (program : Program sort) (contract : Obser
   let lowered := query.lower
   let .and [factorTerm, observationTerm] := lowered.formula
     | throw "source formula must contain two ordered assumptions"
+  requireCoverage lowered.bindings lowered.formula
+  let wireSymbols := lowered.bindings.map wireName
+  if wireSymbols.eraseDups.length != wireSymbols.length then
+    throw "wire symbol names are ambiguous"
   let left := wireName (bindingOnSide query.selected factor .left)
   let right := wireName (bindingOnSide query.selected factor .right)
   pure (Json.mkObj [
@@ -86,8 +101,8 @@ def sourceEnvelope {sort : QuerySort} (program : Program sort) (contract : Obser
     ("factor", toJson ("f_" ++ Nat.repr factor.value)),
     ("factor_left", toJson left), ("factor_right", toJson right),
     ("declarations", toJson (lowered.bindings.map declarationJson)),
-    ("factor_difference", ← encode lowered.bindings factorTerm),
-    ("observations_differ", ← encode lowered.bindings observationTerm),
+    ("factor_difference", encode (wireTerm lowered.bindings factorTerm)),
+    ("observations_differ", encode (wireTerm lowered.bindings observationTerm)),
     ("observation_contract", toJson (contractName sort contract))]).compress
 
 private def decodeExact (expected : Except String String) (actual : String) :
