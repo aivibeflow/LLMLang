@@ -64,7 +64,7 @@ Three different counts currently describe prototype-family role coverage:
 2. The inventory's prototype_family_review.individually_mapped_files aggregate still reports **242**, with family counts 3/103/3/7/17/104/2/3.
 3. PLAN.md's previous first-pass role-mapping statement reports **245**, with family counts 3/103/4/7/17/106/2/3.
 
-The inventory baseline family counts are 3/106/4/7/17/106/2/3 (total 248). Current main has 107 Dependency Graph paths and 249 prototype paths total. The aggregate review metadata and the PLAN statement therefore do not agree with the current tree or with each other. The 248 per-file traceability records establish that mappings are present; they do not prove equivalent depth of content review for every added artifact. The six-file delta from the inventory aggregate must be reconciled at the family/file level before declaring the content-role review complete.
+The inventory baseline family counts are 3/106/4/7/17/106/2/3 (total 248). Current main has 107 Dependency Graph paths and 249 prototype paths total. The aggregate review metadata and the PLAN statement therefore do not agree with the current tree or with each other. The 248 per-file traceability records establish that mappings are present; they do not prove equivalent depth of content review for every added artifact. The seven-file delta from the inventory aggregate (242 to 249 current prototype paths) must be reconciled at the family/file level before declaring the content-role review complete.
 
 This finding is kept open rather than silently replacing 242 or 245 with 248. A path/traceability record is not itself a claim-level audit or reproduction result.
 
@@ -76,11 +76,11 @@ The previous first-pass supersession cases remain scoped: Scenario 31 query repr
 
 ## 6. Remaining alignment gaps
 
-- Reconcile the 242/245/248 prototype-family review counts and identify the six-file delta from the inventory aggregate.
+- Reconcile the 242/245/248/249 prototype-family counts and identify the seven-file delta from the inventory aggregate.
 - Update inventory and index references only after the open B4 inventory/README PR #127 is reconciled; do not race its shared-file edits.
 - Keep the ImpHash/ImplHash issue unresolved until an explicit decision.
 - Complete index coverage review: current link existence does not prove every relevant artifact is discoverable from the intended index.
 - Complete claim-level and reproducibility validation; file-role mapping does not prove claims.
 - Preserve RT-24 and the option matrix as non-normative until explicit decisions are accepted.
 
-**Disposition:** current taxonomy/dependency structure and candidate/non-normative statuses are aligned. Current taxonomy/dependency counts are 26/108. The inventory manifest's 488/248 counts are stale; current main has at least 491 research artifacts and 249 prototype files pending a fresh full-tree enumeration. Prototype-family role-review aggregate remains inconsistent and open. No architecture decision or RT-00 completion is claimed.
+**Disposition:** current taxonomy/dependency structure and candidate/non-normative statuses are aligned. Current taxonomy/dependency counts are 26/108. The inventory manifest's 488/248 counts are stale; current main has exactly 490 research artifacts and 249 prototype files, measured by PR #146's recursive-tree audit. Prototype-family role-review aggregate remains inconsistent and open. No architecture decision or RT-00 completion is claimed.
