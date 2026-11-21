@@ -224,3 +224,39 @@ Scenario 36 leaves the policy comparison open and selects no normative fuel vect
 Strongest current evidence: RT-04 Required CI (364 tests), native SQLite/Rust run (10/10), LLVM preservation (2/2), and Package Provider manual benchmark (8/8 verified cases). Main gaps: RT-16 and CLI execution coverage, Python SQLite source identity enforcement, download/package checksum pinning, non-persistent benchmark output, and untested fuel models.
 
 No source code, tests, workflows, or benchmark settings were changed by this audit.
+
+
+## 12. Follow-up reproduction closure — RT-16 and CLI host references (2026-11-21)
+
+A bounded, non-required workflow was added in PR [#136](https://github.com/aivibeflow/LLMLang/pull/136): [Research Reproducibility Smoke](../.github/workflows/research-reproducibility-smoke.yml). It runs on relevant pull requests and supports manual dispatch. It does not enter Required CI.
+
+Run [#44937172020](https://github.com/aivibeflow/LLMLang/actions/runs/44937172020) completed successfully. The workflow checked out merge commit `784f3ad263ec2d0b244ee1f2c938901c5245aa3e`, which combines PR #136 head `ef928af8f72fc77142cb50986c4101962d945df6` with baseline main `017e64b87c87371309197a392165258b8b088dd1`. This exact distinction matters: the workflow's `GITHUB_SHA` and recorded input hashes refer to the merge checkout, not to a later main commit.
+
+Results:
+
+- RT-16 authorization decision suite: **24/24 tests passed**.
+- CLI Python host reference: **34/34 cases passed**.
+- CLI C host reference: **34/34 cases passed**.
+- Workflow job: success; no failed or skipped step.
+
+Recorded environment: Ubuntu 24.04.5 LTS, Linux x86_64, Python 3.12.16, GCC 13.3.0, runner image `ubuntu-24.04` version `20261116.133.1`. The artifact records the repository checkout and SHA-256 for all five exercised source files:
+
+| Input | SHA-256 |
+|---|---|
+| RT-16 `policy.py` | `9bde40efd58f19ff9fbd79d3bef49bfba4d13e887aff04a283e9ca03cad12b86` |
+| RT-16 `test_policy.py` | `5a4850fe8b867deff1d2c2e7ca38df77a2f359129367720a9c8ee1b53c0770e2` |
+| CLI `run.py` | `c9586d209c2ab0caef35dc071f6e482427851e8669fe7c55d80425835b632881` |
+| CLI `reference.py` | `04a357c8ff550e661ba31bb5ba3403a8ed76cbe49e865314856570e6388f9ce7` |
+| CLI `reference.c` | `93c5aedc291cc5fcabb7ff0defe64da140769cf71bde2531d7088f268150d1b4` |
+
+Artifact [14720410382](https://github.com/aivibeflow/LLMLang/actions/runs/44937172020/artifacts/14720410382) contains the environment/input manifest and three execution logs. Its ZIP SHA-256 is `3c116f61342d2669fa0fe6764d2c02a8af6bd4cfa488ec7bc4afb72663feb885`; configured retention expires 2026-12-21.
+
+Interpretation boundaries:
+
+- RT-16 now has an actual execution record for its finite in-memory decision model. It still does not test persistent multi-client nonce storage, authenticated human approvals, cryptographic evidence provenance, or production authorization enforcement.
+- CLI host-reference modes now have a fresh, revision-bound 34/34 result for both Python and C implementations. This does not repair or supersede the historical three-executable pilot's negative-division mismatch and does not demonstrate a compiled LLMLang implementation.
+- The workflow is a non-required reproduction gate; passing it does not imply Required CI coverage.
+
+The separate documentation correction for the stale RT-04 opening status is proposed in PR [#137](https://github.com/aivibeflow/LLMLang/pull/137). That PR records the already-existing bounded run #44774296240 and does not alter its evidence.
+
+Remaining C gaps are unchanged unless explicitly closed above: Python SQLite source-ID equality is recorded but not enforced against a historical expected value; Python/SQLite source archive checksums and the distro SQLite package identity are not fully pinned; Package Provider benchmark results remain log-only and its profiler remains outside execution; Scenario 36 fuel models still lack dedicated tests; and the broader prototype corpus is not uniformly reproduced.
