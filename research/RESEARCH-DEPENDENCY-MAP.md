@@ -367,6 +367,8 @@ These edges are research hypotheses derived from the current RT-24 candidate con
 
 
 
+The portable identity byte fixture informs DEP-087. Address comparison depends on the canonical preimage, including numeric encoding, string handling and ordered collections. [Portable identity bytes](RT-05-PORTABLE-IDENTITY-BYTES.md#profile-and-results)
+
 ## 13. Runtime memory allocators and allocation strategy (RT-25)
 
 RT-25 evaluates allocator choices for the Rust-based LLMLang runtime and toolchain. It is a measurement and compatibility study, not a prior commitment to replace the platform allocator or to expose allocator selection as a language feature. The study must distinguish Rust-owned allocations, allocations crossing FFI boundaries, and memory owned by external libraries.
