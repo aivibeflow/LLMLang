@@ -84,3 +84,5 @@ The previous first-pass supersession cases remain scoped: Scenario 31 query repr
 - Preserve RT-24 and the option matrix as non-normative until explicit decisions are accepted.
 
 **Disposition:** current taxonomy/dependency structure and candidate/non-normative statuses are aligned. Current taxonomy/dependency counts are 26/108. The inventory manifest's 488/248 counts are stale; current main has exactly 490 research artifacts and 249 prototype files, measured by PR #146's recursive-tree audit. Prototype-family role-review aggregate remains inconsistent and open. No architecture decision or RT-00 completion is claimed.
+
+**Validation evidence:** PR #146 inventory audit run [44938305811](https://github.com/aivibeflow/LLMLang/actions/runs/44938305811) completed successfully and preserved artifact [14720512241](https://github.com/aivibeflow/LLMLang/actions/runs/44938305811/artifacts/14720512241). The F PR's Required CI attempt was cancelled during successive branch updates; a clean validation run is required for the final head.
