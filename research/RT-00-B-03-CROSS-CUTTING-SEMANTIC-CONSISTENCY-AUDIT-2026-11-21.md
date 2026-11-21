@@ -12,11 +12,11 @@ The reviewed documents are broadly consistent about one central separation: sema
 
 This review found:
 - No demonstrated direct contradiction requiring an immediate architectural choice in the reviewed core documents.
-- Five material unresolved cross-document boundaries where independently coherent proposals still lack a binding definition or end-to-end validation.
+- Seven material unresolved cross-document boundaries where independently coherent proposals still lack a binding definition or end-to-end validation.
 - Two known terminology/status issues that remain active and must not be silently normalized.
 - One important evidence limitation: the RT-05 SPG experiment does not validate ownership, resource accounting, concurrency, FFI, or compiler lowering; RT-26 remains Not started. The SPG model's inclusion of resource-related graph concepts must therefore not be read as validation of resource semantics.
 
-This is a semantic consistency pass over the documents listed in §8, not a claim that all 487 inventory records or every claim in all 26 RT areas have been content-validated.
+This is a semantic consistency pass over the documents listed in §8, not a claim that all 487 baseline inventory records or every claim in all 26 RT areas have been content-validated.
 
 ## 2. Consistency matrix
 
@@ -184,7 +184,7 @@ Model resource-budget delegation as a constrained authority relation. Separate (
 
 ## 6. Recommended next steps
 
-1. B-04 — corpus-wide duplicate and supersession audit: use the refreshed 487-record inventory and distinguish exact duplicates, semantic overlap, section-level supersession, and historical evidence.
+1. B-04 — corpus-wide duplicate and supersession audit: use the refreshed 488-record inventory and distinguish exact duplicates, semantic overlap, section-level supersession, and historical evidence.
 2. B-05 — complete traceability graph: reconcile artifact → claim → RT/DEP → scenario/prototype/test/evidence → plan stage links, preserving unresolved edges.
 3. B-06 — contradictions and unresolved register: consolidate B3 and prior known issues with exact scope, evidence, confidence, and owner/decision boundary.
 4. Later targeted research should close the B3 gaps in dependency closure/action identity, contract conformance mapping, and RT-26 authority/resource semantics; this audit does not prescribe their architectural outcome.
