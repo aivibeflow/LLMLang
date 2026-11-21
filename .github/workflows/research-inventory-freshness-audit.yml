@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - name: Check out PR head (or workflow-dispatch revision)
+      - name: Check out the exact PR head (or dispatched ref)
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -39,6 +39,8 @@ jobs:
           manifest = json.loads(Path(manifest_path).read_text(encoding="utf-8"))
           records = manifest["artifacts"]
           expected = {item["path"]: item for item in records}
+          if len(expected) != len(records):
+              raise SystemExit("duplicate paths in inventory manifest")
 
           raw = subprocess.check_output(["git", "ls-tree", "-r", "-z", "--full-tree", "HEAD"])
           actual = {}
@@ -49,7 +51,8 @@ jobs:
               mode, obj_type, blob_sha = metadata.decode("ascii").split()
               path = raw_path.decode("utf-8")
               if path.startswith("research/") and path != manifest_path and obj_type == "blob":
-                  actual[path] = {"git_blob_sha": blob_sha, "size_bytes": int(subprocess.check_output(["git", "cat-file", "-s", blob_sha]))}
+                  size = int(subprocess.check_output(["git", "cat-file", "-s", blob_sha]))
+                  actual[path] = {"git_blob_sha": blob_sha, "size_bytes": size}
 
           missing = sorted(set(actual) - set(expected))
           extra = sorted(set(expected) - set(actual))
@@ -69,6 +72,8 @@ jobs:
           family_counts = collections.Counter(
               path.split("/")[2] for path in paths if path.startswith("research/PROTOTYPES/")
           )
+          taxonomy = Path("research/RESEARCH-TAXONOMY.md").read_text(encoding="utf-8")
+          dependencies = Path("research/RESEARCH-DEPENDENCY-MAP.md").read_text(encoding="utf-8")
           count = {
               "research_artifacts_excluding_manifest": len(paths),
               "markdown_files": sum(path.endswith(".md") for path in paths),
@@ -77,11 +82,11 @@ jobs:
               "lean_files": sum(path.endswith(".lean") for path in paths),
               "prototype_tree_files": sum(path.startswith("research/PROTOTYPES/") for path in paths),
               "scenario_named_documents": sum(bool(re.search(r"SCENARIO-\d+", path)) for path in paths),
-              "taxonomy_rt_rows": len(re.findall(r"^\|\s*RT-\d{2}\s*\|", Path("research/RESEARCH-TAXONOMY.md").read_text(encoding="utf-8"), re.M)),
-              "dependency_rows": len(re.findall(r"^\|\s*DEP-\d{3}\s*\|", Path("research/RESEARCH-DEPENDENCY-MAP.md").read_text(encoding="utf-8"), re.M)),
+              "taxonomy_rt_rows": len(re.findall(r"^\|\s*RT-\d{2}\s*\|", taxonomy, re.M)),
+              "dependency_rows": len(re.findall(r"^\|\s*DEP-\d{3}\s*\|", dependencies, re.M)),
           }
           summary = {
-              "scanned_revision": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+              "scanned_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
               "manifest_revision": manifest.get("revision"),
               "manifest_record_count": len(expected),
               "counts": count,
@@ -97,7 +102,7 @@ jobs:
           lines = [
               "# Research inventory freshness audit",
               "",
-              f"- Scanned revision: {summary['scanned_revision']}",
+              f"- Scanned commit: {summary['scanned_commit']}",
               f"- Manifest revision: {summary['manifest_revision']}",
               f"- Status: **{summary['status']}**",
               f"- Manifest records: {summary['manifest_record_count']}",
@@ -117,6 +122,14 @@ jobs:
               "## Missing paths",
               "",
               *[f"- {path}" for path in missing],
+              "",
+              "## Extra paths",
+              "",
+              *[f"- {path}" for path in extra],
+              "",
+              "## SHA/size mismatches",
+              "",
+              *[f"- {item['path']}: expected {item['expected_sha']}/{item['expected_size']}, actual {item['actual_sha']}/{item['actual_size']}" for item in mismatches],
           ]
           Path("artifacts/research-inventory-freshness/summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
           print(json.dumps(summary, indent=2, sort_keys=True))
