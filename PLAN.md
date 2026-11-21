@@ -562,6 +562,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Select the smallest supported SPG subset and specify its textual source inventory/manifest fixture. Keep the repository source textual; treat local stores, caches, and indexes as reconstructible derived state.
 - [ ] Implement deterministic importer/exporter for that subset and test semantic round-trip, byte-identical canonical export, physical independence (format/order/file moves), explicit schema versioning, and fail-closed errors.
 - [ ] Implement typed SemanticDiff with exact snapshot binding, per-call-site reference changes, root/dependency changes, lineage records, and deterministic output.
+  - Closed-inventory evidence covers exact retargets, conditions, physical moves and missing input. [Typed tree diff](research/RT-24-TYPED-TREE-DIFF.md)
 - [ ] Implement a pure three-way merge core over pinned base/ours/theirs snapshots. Apply only unambiguous rules; emit structured conflicts for update/update, delete/update, identity/lineage, retarget, dependency, root, and unsupported-context cases.
 - [ ] Validate the entire merged graph, not just merged files/entities; prove that incomplete source inventory or reverse-reference context cannot yield a clean result.
 - [ ] Integrate RT-20 CIP as a mandatory gate: preserve/migrate/adapt/fork per call site, support mixed old/new callers and shared-caller splits, and rebuild the candidate whenever planned changes alter it.
