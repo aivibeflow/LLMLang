@@ -1,0 +1,78 @@
+name: RT-00 RT-06 and RT-09 Exact Reproduction
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/rt00-rt06-rt09-reproduction.yml"
+      - "research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md"
+      - "research/RT-09-ORDERED-SPG-LOWERING.md"
+      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    name: reproduce-rt06-rt09
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact tested revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Set up declared Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+
+      - name: Record source identity and environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/rt00-reproduction
+          {
+            echo "commit=$(git rev-parse HEAD)"
+            python --version
+            python -c 'import sys; print(sys.version)'
+            sha256sum research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md
+            sha256sum research/RT-09-ORDERED-SPG-LOWERING.md
+            sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/scoped_binding.py
+            sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_ordered_lowering.py
+            sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt06_negative_binding_reads.py
+            sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_scoped_binding.py
+            sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_ordered_lowering.py
+            sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_representation.py
+          } | tee artifacts/rt00-reproduction/environment-and-inputs.txt
+
+      - name: Reproduce RT-06 scoped binding negative dependencies
+        working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B -m unittest -v tests.test_rt06_negative_binding_reads tests.test_scoped_binding 2>&1 | tee "$GITHUB_WORKSPACE/artifacts/rt00-reproduction/rt06.log"
+
+      - name: Reproduce RT-09 ordered SPG lowering
+        working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B -m unittest -v tests.test_spg_ordered_lowering tests.test_spg_representation 2>&1 | tee "$GITHUB_WORKSPACE/artifacts/rt00-reproduction/rt09.log"
+
+      - name: Hash reproduction logs
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum artifacts/rt00-reproduction/*.log | tee artifacts/rt00-reproduction/log-digests.txt
+
+      - name: Retain exact reproduction evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt00-rt06-rt09-reproduction-${{ github.sha }}
+          path: artifacts/rt00-reproduction/
+          if-no-files-found: error
+          retention-days: 90
