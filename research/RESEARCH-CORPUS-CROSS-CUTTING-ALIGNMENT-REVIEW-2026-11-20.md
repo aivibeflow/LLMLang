@@ -77,6 +77,19 @@ This review does not validate the technical soundness of every DEP rationale, pr
 
 **Conclusion:** the taxonomy and dependency map are structurally consistent with the inventory (24 RT areas and 94 DEP edges). The major terminology discrepancy is already explicitly unresolved, and the candidate/non-normative status of the glossary, option matrix, semantic dependency index, and RT-24 proposal is consistent across the reviewed documents. The only confirmed editorial defect was duplicate section numbering in the semantic dependency index; it is corrected without changing content.
 
+## 9. Current-main reconciliation — 2026-11-21
+
+The original 24 RT / 94 DEP counts in §1 are historical. The current taxonomy contains 26 unique RT areas and the current dependency map contains 108 unique DEP edges. Structural validation found unique IDs, no self-loops, and no missing RT endpoints; the two non-trivial SCCs remain RT-05/RT-12 and RT-14/RT-19/RT-20, as documented in the dependency map. The current inventory records 488 research artifacts and 248 prototype-tree files.
+
+The candidate status conclusions remain unchanged: the option matrix has not selected a vector; the Semantic Dependency Index and Draft Glossary remain proposals; RT-24 remains non-normative; ADR-014 remains Proposed; and ImpHash/ImplHash remains unresolved.
+
+A current metadata discrepancy was found: the inventory's per-artifact prototype traceability records cover 248 paths, while its aggregate prototype_family_review.individually_mapped_files says 242 and PLAN.md's prior statement says 245. Current family path counts total 248. This does not establish equivalent content-review depth for all 248; reconcile the six-file delta from the aggregate before marking role review complete. See RT-00 F (RT-00-F-CROSS-DOCUMENT-ALIGNMENT-AUDIT-2026-11-21.md).
+
+The high-level dependency Mermaid graph is intentionally simplified and shows only RT-01–RT-20; RT-21–RT-26 are present in the detailed taxonomy and dependency register. No architecture or identity decision is made by this addendum.
+
+**Updated disposition:** structural taxonomy/dependency alignment is verified at 26/108. Candidate/non-normative status remains consistent. Prototype role-review aggregate is unresolved; claim-level validation and index completeness remain open.
+
+
 
 ## 8. Inventory delta discovered during count reconciliation
 
