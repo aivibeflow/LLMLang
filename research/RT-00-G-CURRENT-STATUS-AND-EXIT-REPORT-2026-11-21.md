@@ -118,10 +118,10 @@ All listed RT-00 follow-up PRs remain open and unmerged:
 | [#138](https://github.com/aivibeflow/LLMLang/pull/138) | C evidence refresh | Records RT-16/CLI exact inputs and run evidence |
 | [#141](https://github.com/aivibeflow/LLMLang/pull/141) | D provenance reconciliation | Records 13/13 local blob verification and corrects stale D statement |
 | [#142](https://github.com/aivibeflow/LLMLang/pull/142) | E link/anchor audit | Offline scan workflow and report; Required CI passed on latest checked head |
-| [#145](https://github.com/aivibeflow/LLMLang/pull/145) | F cross-document alignment | PLAN/report updates; latest Required CI attempt was cancelled during superseding commits and needs a clean completed run |
+| [#158](https://github.com/aivibeflow/LLMLang/pull/158) | F cross-document alignment | Current-main baseline b52ba2f; 26 RT/108 DEP structure revalidated; prototype counts reconciled; Required CI pending |
 | [#149](https://github.com/aivibeflow/LLMLang/pull/149) | A inventory freshness | Current-main manifest reconciliation; 493 records including its own report; branch-only |
 
-RT-23 PR #126 is merged and is part of the b52ba2f baseline. Other branch-only experiments #128 and #129 remain separate research inputs and are not silently treated as merged evidence. C/D/E/F follow-up PRs #136–#145 remain branch-only.
+RT-23 PR #126 is merged and is part of the b52ba2f baseline. Other branch-only experiments #128 and #129 remain separate research inputs and are not silently treated as merged evidence. C/D/E follow-ups #136–#142 and replacement F PR #158 remain branch-only; original F PR #145 is closed as superseded.
 
 PR #126 was already merged into main before this refresh. No additional PR was merged during this status-report update.
 
