@@ -98,9 +98,7 @@ Before a research result relies on one of these links as normative evidence, it 
 
 ## 6. Documentation correction
 
-The existing `research/references/README.md` table already lists all four upstream sources and the 13/13 blob-verification result. It does not yet record the independently checked GitHub commit-signature statuses or the partial link/import closure limitations. Add those details so the provenance record distinguishes exact blob integrity from self-contained snapshot completeness.
-
-The OCI and Alive2 unresolved relative links and the REAPI proto import closure are completeness limitations, while all 13 stored files remain exact upstream blobs.
+The follow-up documentation correction was completed by commit `761549a088ed095e579b25e836226d648c48c61b` (PR #119). The current `research/references/README.md` §6.1 records the verified upstream commit signatures, the unsigned local manifest boundary, MCP schema-reference limits, OCI and Alive2 unresolved relative links, and the REAPI import-closure limitation. This documentation gap is closed; the partial snapshots remain intentionally partial.
 
 ## 7. Disposition
 
@@ -109,3 +107,14 @@ The OCI and Alive2 unresolved relative links and the REAPI proto import closure 
 No snapshot or license file needs replacement based on this audit. The actionable work is documentation clarification and, only if future experiments require self-contained compilation or browsing, adding the missing OCI/Alive2/REAPI dependency files with their own pinned revisions, blob IDs, and licenses.
 
 No external snapshot content was changed by this audit.
+
+
+## 8. Follow-up validation on current main — 2026-11-21
+
+The earlier audit pinned upstream commits, trees, and source blobs. This follow-up independently re-read the current `main` manifest and fetched every listed local snapshot file through the repository contents API. All **13/13** local Git blob SHAs match their manifest `upstream_blob_sha` values; there were **0 mismatches**. The two Apache-2.0 licence copies remain the same blob, as expected.
+
+This check confirms current local snapshot-to-manifest integrity. It does not re-fetch the upstream repositories or re-run GitHub signature verification; those external checks remain the evidence recorded in the 2026-11-20 audit. No snapshot bytes, manifest entries, or licence files were changed.
+
+The README correction noted in §6 is present in current main. The unresolved OCI/Alive2 links and REAPI proto imports remain completeness limitations, not integrity defects. The MCP schema check remains structural rather than full meta-schema validation. Link-only references still require a precise edition/revision to be recorded when used as normative experimental inputs.
+
+**Updated disposition:** local snapshot integrity revalidated at 13/13; upstream commit/tree/signature verification retained from the pinned 2026-11-20 audit; README provenance/completeness documentation gap closed by PR #119; OCI/Alive2/REAPI snapshots remain intentionally incomplete for full browsing/build use.
