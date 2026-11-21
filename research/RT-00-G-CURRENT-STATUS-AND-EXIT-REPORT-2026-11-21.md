@@ -13,7 +13,7 @@ The most important current findings are:
 1. Current main contains **493 tracked research artifacts excluding the inventory manifest** and **250 prototype-tree files**. The inventory manifest still records 488 artifacts/248 prototypes and is stale: five current paths are missing and five tracked research files have stale blob metadata. The 493 count is derived from the exhaustive 017e64b audit plus exact commit deltas through b0142c2 (two RT-23 paths and one B4 report added, zero deleted paths); no fresh recursive enumeration at b0142c2 was run.
 2. The taxonomy/dependency register is structurally consistent at **26 RT areas and 108 DEP edges**: all IDs unique, all endpoints valid, no self-loops, and two documented non-trivial SCCs.
 3. Reproducibility has been refreshed for RT-16 (24/24 tests) and CLI host references (34/34 Python and 34/34 C). RT-04's prior bounded native/LLVM run remains 10/10 native commands and 2/2 LLVM probes. These are scoped results, not broad compiler/runtime conformance.
-4. The offline local Markdown/MDX link/anchor scan covered 254 documents in the E PR checkout. It found 82 unresolved occurrences, all in copied upstream snapshots or upstream-site-root paths; no LLMLang-authored local link or available-target anchor error was reported.
+4. The current-main E scan covered 256 documents (253 Markdown, 3 MDX) in the PR merge checkout. It processed 2,891 occurrences (1,318 unique): 1,641 accepted, 82 errors, and 1,168 excluded. All 82 errors are in copied upstream snapshots; no LLMLang-authored local link or available-target anchor error was reported.
 5. The prototype counts refer to different populations: 242 individual role mappings, 245 previous PLAN aggregate, 248 previous manifest prototype paths, and 250 current prototype paths.
 
 No architectural or language-semantic decision is accepted by RT-00. In particular, the ImpHash/ImplHash discrepancy, identity boundaries, contract conformance, dependency/cache completeness, LLVM preservation proof, package trust, and resource enforcement remain unresolved.
@@ -29,7 +29,7 @@ No architectural or language-semantic decision is accepted by RT-00. In particul
 | B-06 — contradictions/unresolved | 40-record register; four apparent conflicts reconciled by scope; 18 open design/proof/evidence gaps; no direct core contradiction confirmed | **Open/branch-only:** PR #154 refreshed to b0142c2 |
 | C — reproducibility | RT-04, RT-16, and CLI host-reference bounded runs recorded | **Partial:** SQLite provenance, Provider benchmark/profiler, fuel models, and broad prototype reproduction remain open |
 | D — external provenance | 13/13 local snapshot blobs match the manifest; README provenance correction is present | **Partial:** upstream signatures were not re-run; OCI/Alive2/REAPI closure and external URL freshness remain open |
-| E — links/anchors | Prior offline scan covered 254 docs; replacement scan will cover current main plus E report (256 docs expected) | **Open/branch-only:** current-main recheck PR #160; external URLs remain out of scope |
+| E — links/anchors | Current-main PR merge checkout: 256 docs, 2,891 occurrences, 82 errors all in copied upstream snapshots | **Bounded scan complete in branch-only PR #160:** external URLs, non-Markdown resources and index completeness remain open |
 | F — document alignment | 26/108 structure validated; candidate/non-normative statuses aligned; stale inventory and prototype-review metadata identified | **Partial:** role-review aggregate and index coverage remain open |
 | G — status | Current bounded results and exit gaps consolidated | **Not a closure declaration** |
 
@@ -97,13 +97,13 @@ The 13 local snapshot files match their manifest upstream blob SHAs (13/13). Thi
 
 The E workflow's final run [#44938052704](https://github.com/aivibeflow/LLMLang/actions/runs/44938052704) scanned 251 Markdown and 3 MDX files (254 total) in the PR checkout:
 
-- 2,876 link occurrences;
-- 1,312 unique;
-- 1,630 accepted;
+- 2,891 link occurrences;
+- 1,318 unique;
+- 1,641 accepted;
 - 82 errors;
-- 1,164 excluded.
+- 1,168 excluded.
 
-All 82 errors are confined to upstream snapshots: 44 MCP root-absolute upstream-site paths, 32 OCI links to omitted documents, and six Alive2 references to omitted assets/README material. No LLMLang-authored local link or available-target anchor error was reported. The scan ran offline, so external URL availability and fragments on missing targets remain unverified. It does not validate non-Markdown resources or index completeness.
+All 82 errors are confined to upstream snapshots: 44 MCP root-absolute upstream-site paths, 32 OCI links to omitted documents, and six Alive2 references to omitted assets/README material. No LLMLang-authored local link or available-target anchor error was reported. The scan ran offline on merge checkout `94f459d4facfde50ca0eae62d5b801e1d1f6ff96` (current main b0142c2 plus PR #160), so external URL availability and fragments on missing targets remain unverified. It does not validate non-Markdown resources or index completeness.
 
 ## 7. Open PR and branch state
 
@@ -118,11 +118,11 @@ All listed RT-00 follow-up PRs remain open and unmerged:
 | [#137](https://github.com/aivibeflow/LLMLang/pull/137) | RT-04 status correction | Documentation correction based on existing successful run |
 | [#138](https://github.com/aivibeflow/LLMLang/pull/138) | C evidence refresh | Records RT-16/CLI exact inputs and run evidence |
 | [#141](https://github.com/aivibeflow/LLMLang/pull/141) | D provenance reconciliation | Records 13/13 local blob verification and corrects stale D statement |
-| [#142](https://github.com/aivibeflow/LLMLang/pull/142) | E link/anchor audit | Offline scan workflow and report; Required CI passed on latest checked head |
+| [#160](https://github.com/aivibeflow/LLMLang/pull/160) | E link/anchor audit | Current-main scan complete: 256 docs, 2,891 occurrences, 82 upstream-snapshot errors; branch-only |
 | [#158](https://github.com/aivibeflow/LLMLang/pull/158) | F cross-document alignment | Current-main baseline b0142c2; 26 RT/108 DEP structure revalidated; prototype counts reconciled; branch-only |
 | [#149](https://github.com/aivibeflow/LLMLang/pull/149) | A inventory freshness | Current-main manifest reconciliation; 494 records including its own report; branch-only |
 
-RT-23 PR #126 and B4 PR #152 are merged and part of current main b0142c2. Other branch-only experiments #128 and #129 remain separate research inputs. C/D follow-ups #136–#141, E replacement #160, and F replacement #158 remain branch-only; original E #142 and F #145 are closed as superseded.
+RT-23 PR #126 and B4 PR #152 are merged and part of current main b0142c2. Other branch-only experiments #128 and #129 remain separate research inputs. C/D follow-ups #136–#141, E replacement #160 (scan complete, branch-only) and F replacement #158 remain branch-only; original E #142 and F #145 are closed as superseded.
 
 PR #126 was already merged into main before this refresh. No additional PR was merged during this status-report update.
 
