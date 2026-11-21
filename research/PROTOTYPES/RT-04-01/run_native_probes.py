@@ -20,7 +20,11 @@ EXPECTED_C_SQLITE_SOURCE_ID = (
     "2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1"
 )
 EXPECTED_RUSTC_VERSION = "1.85.1"
-HISTORICAL_PYTHON_SQLITE_VERSION = "3.53.1"
+EXPECTED_DURABLE_PYTHON_SQLITE_VERSION = "3.53.1"
+EXPECTED_DURABLE_PYTHON_SQLITE_SOURCE_ID = (
+    "2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9"
+)
+HISTORICAL_PYTHON_SQLITE_VERSION = EXPECTED_DURABLE_PYTHON_SQLITE_VERSION
 
 
 def _decode(value):
@@ -41,7 +45,7 @@ def runtime_metadata():
         "python_sqlite_matches_historical_baseline": False,
         "durable_python_sqlite_version": None,
         "durable_python_sqlite_source_id": None,
-        "durable_python_sqlite_matches_historical_baseline": False,
+        "durable_python_sqlite_matches_reproduction_baseline": False,
         "durable_python_sqlite_library": os.environ.get("LLMLANG_PYTHON_SQLITE_LIBRARY"),
         "c_sqlite_library": os.environ.get("LLMLANG_SQLITE_LIBRARY") or find_library("sqlite3"),
         "c_sqlite_version": None,
@@ -77,8 +81,9 @@ def runtime_metadata():
         version, source_id = probe.stdout.strip().splitlines()
         metadata["durable_python_sqlite_version"] = version
         metadata["durable_python_sqlite_source_id"] = source_id
-        metadata["durable_python_sqlite_matches_historical_baseline"] = (
+        metadata["durable_python_sqlite_matches_reproduction_baseline"] = (
             version == HISTORICAL_PYTHON_SQLITE_VERSION
+            and source_id == EXPECTED_DURABLE_PYTHON_SQLITE_SOURCE_ID
         )
     except Exception as exc:
         metadata["durable_python_sqlite_error"] = repr(exc)
@@ -156,7 +161,7 @@ def main():
         "python_sqlite_matches_historical_baseline": metadata.get("python_sqlite_matches_historical_baseline"),
         "durable_python_sqlite_version": metadata.get("durable_python_sqlite_version"),
         "durable_python_sqlite_source_id": metadata.get("durable_python_sqlite_source_id"),
-        "durable_python_sqlite_matches_historical_baseline": metadata.get("durable_python_sqlite_matches_historical_baseline"),
+        "durable_python_sqlite_matches_reproduction_baseline": metadata.get("durable_python_sqlite_matches_reproduction_baseline"),
         "durable_python_sqlite_library": metadata.get("durable_python_sqlite_library"),
         "c_sqlite_library": metadata.get("c_sqlite_library"),
         "c_sqlite_version": metadata.get("c_sqlite_version"),
@@ -194,14 +199,14 @@ def main():
         )
 
     run_durable = args.suite in ("all", "durable")
-    durable_sqlite_ok = (
-        metadata.get("durable_python_sqlite_version") == HISTORICAL_PYTHON_SQLITE_VERSION
-    )
+    durable_sqlite_ok = metadata.get("durable_python_sqlite_matches_reproduction_baseline") is True
     if run_durable and not durable_sqlite_ok:
         summary["preflight_errors"].append(
-            "Scenario 130 requires Python sqlite3 "
-            f"{HISTORICAL_PYTHON_SQLITE_VERSION}; observed "
-            f"{metadata.get('durable_python_sqlite_version')!r}"
+            "Scenario 130 requires the pinned Python SQLite reproduction baseline: "
+            f"version={metadata.get('durable_python_sqlite_version')!r}, "
+            f"source_id={metadata.get('durable_python_sqlite_source_id')!r}; "
+            f"expected version={HISTORICAL_PYTHON_SQLITE_VERSION!r}, "
+            f"source_id={EXPECTED_DURABLE_PYTHON_SQLITE_SOURCE_ID!r}"
         )
 
     if args.suite in ("all", "rust"):
@@ -223,7 +228,7 @@ def main():
         if name == "sqlite-durable-receipts" and not durable_sqlite_ok:
             summary["commands"].append({
                 "name": name, "command": command, "status": "skipped",
-                "reason": "Python sqlite3 preflight did not match the Scenario 130 baseline",
+                "reason": "Python sqlite3 version/source-ID preflight did not match the pinned Scenario 130 reproduction baseline",
             })
             (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
             continue
