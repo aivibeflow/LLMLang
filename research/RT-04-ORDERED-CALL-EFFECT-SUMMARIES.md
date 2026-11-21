@@ -4,7 +4,7 @@
 
 **Baseline** · `b0142c27f5632a859c379b78a10cb22f500ebfd8`
 
-**Status** · Bounded experiment for [Plan §1.4.1](../PLAN.md#141-type-effect-ownership-and-capability-alternatives-rt-04)
+**Status** · Bounded experiment for [Plan §1.4.1](../PLAN.md#141-type-effect-ownership-and-capability-alternatives)
 
 ## Question and alternatives
 
