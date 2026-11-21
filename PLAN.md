@@ -680,7 +680,9 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Existing evidence:** `research/TRANSLATION-AND-TARGET-BACKENDS.md`, `research/LLVM-BACKEND-ARCHITECTURE.md`, and formal-verification research.
 
-**Status:** researched at architectural level in `research/TRANSLATION-AND-TARGET-BACKENDS.md`; backend contract, source semantics, and preservation theorem remain open.
+**Research output (2026-11-21)** · Direct SPG execution and a lowered instruction stream agree with an independent oracle over 140 observations. An operation-binding change alters the reachable artifact while leaving the caller address fixed. [Ordered SPG lowering](research/RT-09-ORDERED-SPG-LOWERING.md)
+
+**Status:** partially validated for the scalar instruction fixture. External code generation, canonical IR and general preservation remain open.
 
 ## 6.2 Backend selection and cross-backend validation
 

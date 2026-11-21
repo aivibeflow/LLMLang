@@ -79,6 +79,8 @@ Scenario 80 compares nested and line-only comments, comment newline semantics, d
 
 The [initial cross-area comparison](RESEARCH-OPTION-MATRIX-01.md) links candidate bundles to evidence and compatibility constraints. The RT-03 and RT-04 evidence includes a direct projection from typed call trees into the existing checker and a comparison of immutable bindings with private local assignment. [Shared semantics corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md#7-cor-09--typed-calls-and-private-local-state)
 
+RT-09 compares direct graph interpretation with an ordered instruction stream and measures artifact sensitivity to provider selection. [Ordered SPG lowering](RT-09-ORDERED-SPG-LOWERING.md)
+
 ## 1. Purpose
 
 This taxonomy defines the research space that must be explored before selecting an integrated LLMLang specification. It is deliberately broader than the current prototype or the next implementation milestone.

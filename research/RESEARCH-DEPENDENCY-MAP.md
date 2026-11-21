@@ -269,6 +269,8 @@ The current Scenario 15–34 sequence is a substantial research line primarily s
 
 This sequence is not a substitute for the other taxonomy areas. In particular, proving one narrow deterministic fragment does not define the complete LLMLang language semantics or settle the full type, ownership, effect, concurrency, runtime, or backend designs.
 
+The ordered instruction fixture adds evidence for DEP-015 and DEP-023. A stable caller address can lower to a different artifact when a reachable provider changes. [Ordered SPG lowering](RT-09-ORDERED-SPG-LOWERING.md#model-and-observations)
+
 ## 7. Maintaining the map
 
 For each new or revised edge:
