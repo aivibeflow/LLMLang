@@ -131,6 +131,8 @@ Measure:
 
 Publish exact environment, kernel/runtime/toolchain versions, permissions, fixtures, commands, raw machine-readable results, and analysis scripts. Include adversarial tests that attempt to evade accounting through child tasks, native calls, shared handles, background work, and rapid concurrent limit crossings.
 
+[The cancellation accounting fixture](RT-26-CANCELLATION-ACCOUNTING.md) compares task closure and refund rules across bounded event schedules. It shows overshoot if acknowledgment frees a live reservation.
+
 ## 9. Correctness, safety, and security gates
 
 - No task may gain more authority or budget than its parent/supervisor explicitly delegates.

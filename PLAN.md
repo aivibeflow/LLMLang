@@ -634,6 +634,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Research first-class resource accounting and enforcement for task scopes and task hierarchies: memory, CPU, disk I/O, network I/O, coroutine/task switches, and hardware/software performance counters.
 - [ ] Define real-time resource limits, quotas, budgets, rate limits, and throttlers, including hierarchical aggregation, inheritance, delegation, and contention between parent/child tasks.
 - [ ] Define limit-exceeded events and typed handlers/policies that can decide whether to continue, throttle, pause, cancel, retry, degrade, shed work, escalate, or terminate; specify overshoot, race, and handler-failure behavior.
+  - In a closed task tree, cancellation can stop new admissions immediately. Releasing existing capacity requires terminal settlement. [Cancellation accounting](research/RT-26-CANCELLATION-ACCOUNTING.md)
 - [ ] Determine which resource controls belong in high-level language semantics and APIs versus runtime, OS/container, and deployment integrations; preserve explicit capability and portability boundaries.
 - [ ] Define memory model and concurrency semantics.
 - [ ] Define threads, synchronization, atomics, signals, blocking I/O, and scheduling boundaries.
