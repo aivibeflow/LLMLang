@@ -256,6 +256,8 @@ Use dependency depth and risk of architectural rework to order research. This is
 - RT-16 is cross-cutting and should audit each wave, not be postponed entirely to Wave 5.
 - Existing implementation prototypes may continue when they test a bounded hypothesis, but they must not be treated as commitment to a language-wide architecture.
 
+The SCW-31 envelope fixture adds evidence for DEP-007. A valid wire schema can carry a different observation formula. Rebuilding the envelope from the typed source rejects the substitution before interpretation. [Source-owned query envelope](RT-07-SOURCE-OWNED-QUERY-ENVELOPE.md#implementation-and-checks)
+
 ## 6. Existing research-line placement
 
 The current Scenario 15–34 sequence is a substantial research line primarily spanning RT-02, RT-06, RT-07, and RT-08:

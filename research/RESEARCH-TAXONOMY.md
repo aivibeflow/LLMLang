@@ -121,6 +121,8 @@ The taxonomy is a living index. It must be revised when research reveals new asp
 
 Priority is provisional and indicates dependency leverage, not importance to users. Research may be split into smaller topics where separate vectors can be evaluated independently.
 
+RT-07 includes an exact-byte gate for source-derived query envelopes. Structural preservation through the decoder and CPC verification remain open. [Source-owned query envelope](RT-07-SOURCE-OWNED-QUERY-ENVELOPE.md)
+
 ## 3. Required research artifact
 
 Every research report should identify:

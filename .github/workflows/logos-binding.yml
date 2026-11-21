@@ -33,6 +33,8 @@ jobs:
             lean-${{ runner.os }}-${{ hashFiles('research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lean-toolchain', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lake-manifest.json') }}-
       - name: Build parser-state bridge (fail fast)
         run: lake build --fail-fast LLMLangLogosBinding
+      - name: Check source-owned query envelope
+        run: lake env lean -DwarningAsError=true --run SourceQueryEnvelopeTests.lean
       - name: Run parser-state binding and semantic correspondence tests
         run: timeout 180s lake env lean -DwarningAsError=true --run Main.lean
       - name: Check observable rewrite proof
