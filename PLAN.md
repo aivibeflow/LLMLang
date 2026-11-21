@@ -738,6 +738,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define how LLVM optimization passes and target code generation are validated against LLMLang semantics.
 - [ ] Evaluate Alive2 and Vellvm and their applicability/limitations.
 - [ ] Define supported LLVM versions and reproducible toolchain identity.
+  - Debian LLVM/lld 19.1.7 emits working Wasm at O0 and O3 for the read-only view corpus. [LLVM to Wasm byte views](research/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md)
 - [ ] Build a target support matrix: architecture/CPU features, OS, ABI/calling convention, object format, linker, sysroot/system libraries, runtime, and required toolchain components.
 - [ ] Evaluate Cranelift as a candidate for fast Debug compilation and/or JIT; compare its supported targets, ABI/runtime integration, debug information, optimization behavior, and maintenance burden. Do not presume it should replace LLVM.
 - [ ] Define the evidence threshold for considering a direct native backend; first identify a concrete unmet requirement and estimate the full implementation/maintenance cost.
