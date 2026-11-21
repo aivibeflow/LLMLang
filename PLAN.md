@@ -535,12 +535,6 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Detailed candidate contract:** [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md). RT-24 is a research proposal, not an accepted format or merge decision. Its identity/SPG reconciliation is recorded in [RT-24 Identity and SPG Reconciliation](research/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md), with the scenario comparison in [RT-24 Identity Architecture Decision Matrix](research/RT-24-IDENTITY-DECISION-MATRIX.md). There is no standalone RT-05 specification in the current repository; the relevant evidence is distributed across Studies 05–08, RT-03, Semantic Dependency Index research, and the executable prototypes.
 
-**Research output (2026-11-21)** · In a temporary Git repository, valid branch tips merge cleanly into a tree that cannot reconstruct an exact callee. A warm store masks the missing version. Reading the committed inventory also detects a caller omission shared by the reverse index and its payload audit, triggering human review and full revalidation in RT-20. Explicit version retention and a clean clone provide positive controls. [RT-24 merged-tree source completeness](research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
-
-**Commit recovery evidence (2026-11-21)** · A temporary Git fixture publishes a validated tree and records the exact commit in an operation-keyed receipt. Lost replies recover the same commit. A stale ref or a conflicting receipt blocks publication. Ref OID comparison misses movement away and back, so the worktree generation and mapping checks remain open. [RT-23 exact-tree commit recovery](research/RT-23-EXACT-TREE-COMMIT-RECOVERY.md)
-
-**Research output (2026-11-21)** · In a temporary Git repository, valid branch tips merge cleanly into a tree that cannot reconstruct an exact callee. A warm store masks the missing version. Reading the committed inventory also detects a caller omission shared by the reverse index and its payload audit, triggering human review and full revalidation in RT-20. Explicit version retention and a clean clone provide positive controls. [RT-24 merged-tree source completeness](research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
-
 **Refined execution order:**
 - [x] Reconcile RT-24 against the current identity/SPG research and executable subset; record the competing Stable Entity ID versus content-addressed-value models, occurrence/selection and lineage boundary, current prototype fields/limitations, hash-layer distinctions, and dependency-completeness gap in RT-24 Identity and SPG Reconciliation. No identity architecture or canonical SPG schema was selected.
 - [x] Compare Studies 05–08 against rename, identical-value/different-occurrence, split/merge, move, call-site, and branch-merge scenarios in RT-24 Identity Architecture Decision Matrix. This completes the comparison, not the architecture decision.
@@ -571,7 +565,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Add real temporary-repository end-to-end tests for clone/reconstruction, parallel branches, merge/rebase/cherry-pick, cross-file conflicts, mapping conflicts, RT-20 caller splits, clean and failed validation, crash recovery, and no-duplicate commit retry.
 - [ ] Benchmark repository-level merge, semantic import/export, incremental worktree synchronization, and cache/store reconstruction; record platform and repository-size assumptions.
 
-**Status** · Partially validated for exact calls, closed source inventory, and local publication and retry of a validated tree. General dependency evidence, semantic merge, synchronized worktree generation and mapping, and crash durability remain open. ADR-014 stays Proposed.
+**Status:** architecture research exists and is cross-linked; RT-24 now records a candidate technical contract. Canonical representation, identity/schema reconciliation, semantic diff/merge implementation, Git integration, and tests remain open. ADR-014 remains Proposed. ADR-014 remains Proposed.
 
 **Dependency:** canonical SPG/identity and import/export decisions from Stages 1 and 3; RT-20 impact-plan correctness; RT-19 semantic API; RT-22 repository/worktree contract; RT-23 shared-state and synchronized-commit runtime.
 
@@ -624,6 +618,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define runtime versioning and its contribution to implementation identity.
 
 **Status:** partially validated in bounded execution models. The atomic load and store fragment derives read-from and happens-before and checks all four coherence rules. An independent interleaving oracle agrees on global-order witnesses for 4,096 layouts. RMW, fences, source correspondence, and backend validation remain open. [Coherence fixtures](research/RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md) · [Execution relations](research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
+
+**Resource accounting evidence (2026-11-21)** · A bounded RT-26 model compares separate checks with serialized hierarchical reservation. Separate checks overshoot in four of six schedules. The serialized ledger matches direct subtree accounting across 4,320 transitions. Runtime and OS enforcement measurements remain open. [Cooperative budget reservation](research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md)
 
 ## 5.3 POSIX architecture and conformance
 
@@ -845,8 +841,6 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define practical adoption criteria and migration strategy.
 
 **Status:** initial workload acceptance criteria and an executable CLI corpus with C and Python host references are recorded in [RT-01 Reference Workloads](research/RT-01-REFERENCE-WORKLOADS.md). [Scenario 95 execution](research/RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md) adds an evidence-linked diagnostic/repair contract candidate, 12 structural discriminators, and a controlled evaluation protocol. These are analytical outputs only: LLMLang implementation behavior, human/agent usability, review quality, context/token use, repair effort, scope violations, and adoption criteria still need implementation and controlled study.
-
-**Research output (2026-11-21)** · Four executable replay tests check Unicode locations, stale or incomplete diagnostics, multi-document repair staging, and a compile-clean edit that changes behavior. Human and agent evaluations remain open. [RT-17 diagnostic replay](research/RT-17-DIAGNOSTIC-REPLAY.md)
 
 **Exit criteria:** representative large-project benchmarks; working collaboration and recovery workflows; documented trust/security model; practical developer workflow evaluated with real tasks.
 
