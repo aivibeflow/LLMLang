@@ -10,7 +10,7 @@ require Cpc from git
   "https://github.com/cvc5/logos" @ "cf18742973861b3718d04c5f25775448098ff474"
 
 lean_lib LLMLangLogosBinding where
-  roots := #[`LLMLangLogosBinding, `SourceQuerySemantics, `SourceSyntax, `RelationalSourceQuerySemantics,
+  roots := #[`LLMLangLogosBinding, `SourceQuerySemantics, `SourceSyntax, `RelationalSourceQuerySemantics, `QuerySymbolRenaming,
     `LogosQueryAdapter, `CheckedSourceSemantics, `SourceCoreTests, `SourceCommandSemantics,
     `SourceCommandTests, `SymbolicCommandSemantics, `SymbolicCommandTests,
     `CpcNullaryAliases, `SourceCpcRefutation, `ProgramObservationSemantics, `ProgramObservationTests,
