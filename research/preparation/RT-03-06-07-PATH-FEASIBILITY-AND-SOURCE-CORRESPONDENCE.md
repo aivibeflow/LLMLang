@@ -16,7 +16,7 @@ Read:
 - [Research State](../RESEARCH-STATE-2026-11-19.md), especially the RT-06/07 unresolved areas and Gate A.
 - [Research Dependency Map](../RESEARCH-DEPENDENCY-MAP.md), especially solver-negative evidence and dependency completeness.
 
-Scenario 34 records the checked Int/Bool expression core, command and observation preservation, and the Lean relational compiler. SCW-26–28 prove that the formula is satisfiable exactly when an admitted pair differs at the selected input and in the final return or selected state. SCW-29 proves that the lowered terms belong to the strict QF_LIA profile. Solver-facing declaration closure and correspondence remain open in SCW-30–34. [Scenario 34](../RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
+Scenario 34 records the checked Int/Bool expression core, command and observation preservation, and the Lean relational compiler. SCW-26–28 prove that the formula is satisfiable exactly when an admitted pair differs at the selected input and in the final return or selected state. SCW-29 and SCW-30 prove that the lowered formula belongs to the strict QF_LIA profile and that every symbol has a unique declaration of its sort and source role. JSON and proof checker correspondence remain open in SCW-31–34. [Scenario 34](../RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
 
 ## 3. Questions
 
@@ -61,7 +61,7 @@ For each case record the concrete source executions (or a bounded exhaustive ora
 3. Use the checked command AST and big-step rules from SCW-16–18 as the concrete reference.
 4. Use the checked observation contract and single-run proof from SCW-22–23 when comparing paired outputs.
 5. Use the checked relational formula, canonical binding table and concrete-witness equivalence from SCW-26–28 as the input to solver-facing lowering.
-6. Use the QF_LIA admissibility theorem from SCW-29 when proving solver-facing declaration closure, wire and Logos correspondence, and the solver trust boundary (SCW-30–34).
+6. Use the admissibility and declaration closure theorems from SCW-29–30 to prove wire and Logos correspondence and establish the solver trust boundary (SCW-31–34).
 7. Add adversarial fixtures, axiom/kernel audit and pinned proof CI (SCW-35–41).
 8. In parallel, extend RT-03 path analysis only where the same source identity and mutation semantics are used; do not substitute finite route enumeration for general symbolic completeness.
 

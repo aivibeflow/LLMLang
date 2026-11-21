@@ -202,7 +202,8 @@ def pairedValuations {scope : SourceScope} {factor : VariableId}
     rw [sideValuation_slot valid member initialized, sideValuation_slot valid member initialized,
       shared_binding other]
 
-private theorem find_binding {scope : SourceScope} {factor : VariableId} {binding : SymbolBinding}
+/-- Looking up the name of a canonical binding recovers that exact binding. -/
+theorem symbolBindings_find {scope : SourceScope} {factor : VariableId} {binding : SymbolBinding}
     (valid : scope.WellFormed) (member : binding ∈ symbolBindings scope factor) :
     (symbolBindings scope factor).find? (fun other => decide (other.name = binding.name)) =
       some binding := by
@@ -240,7 +241,7 @@ theorem sideValuation_forPair_slot {scope : SourceScope} {factor : VariableId}
   have valid := (resolveInputFactor_eq_some.mp found).1
   rw [sideValuation_slot valid member initialized]
   simp only [valuationForPair,
-    find_binding valid (bindingOnSide_mem (factor := factor) side member initialized)]
+    symbolBindings_find valid (bindingOnSide_mem (factor := factor) side member initialized)]
   cases side with
   | left => by_cases selected : declaration.id = factor <;> simp [bindingOnSide, selected]
   | right =>

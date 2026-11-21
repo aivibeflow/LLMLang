@@ -191,12 +191,6 @@ end LLMLang.LogosBinding
 
 namespace LLMLang.LogosBinding
 
-/-- Strict wire declaration decoded from the canonical query document. -/
-structure WireDeclaration where
-  name : String
-  sort : QuerySort
-  deriving DecidableEq, Repr
-
 /-- A decoded, versioned canonical relational query. -/
 structure DecodedRelationalQuery where
   factor : String

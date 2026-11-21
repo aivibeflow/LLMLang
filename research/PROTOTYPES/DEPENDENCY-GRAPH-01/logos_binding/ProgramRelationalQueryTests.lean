@@ -1,4 +1,4 @@
-import QfLiaAdmissibility
+import SolverRelationalQuery
 
 namespace LLMLang.ProgramRelationalQueryTests
 
@@ -112,5 +112,16 @@ example : (LogosBinding.QueryTerm.iteInt (.boolLit true) (.intLit 0)
     (.mul (.intLit 0) variableProduct)).isQfLia = false := rfl
 example : (LogosBinding.QueryTerm.and []).isQfLia = false := rfl
 example : (LogosBinding.QueryTerm.or [.boolLit false]).isQfLia = false := rfl
+
+example : ((compileRelationalQuery program observesCounter entry x.id).map
+    (fun query => query.lower.declarations)) =
+    some [⟨"i_4", .int⟩, ⟨"i_5", .int⟩, ⟨"i_6", .int⟩, ⟨"i_9", .int⟩,
+      ⟨"i_12", .int⟩, ⟨"i_15", .bool⟩, ⟨"i_18", .bool⟩] := rfl
+
+example : ((compileRelationalQuery boolProgram returnsOnly entry gate.id).map
+    (fun query => query.lower.bindings.map (fun binding =>
+      (binding.name, binding.declaration.id.value, binding.role)))) =
+    some [("i_3", 1, .shared), ("i_6", 2, .shared), ("i_9", 3, .shared), ("i_12", 4, .shared),
+      ("i_15", 5, .shared), ("i_19", 6, .left), ("i_20", 6, .right)] := rfl
 
 end LLMLang.ProgramRelationalQueryTests
