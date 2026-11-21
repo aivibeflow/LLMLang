@@ -1,0 +1,58 @@
+name: Research Index Coverage Audit
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/research-index-coverage-audit.yml"
+      - ".github/scripts/audit_research_index_coverage.py"
+      - ".github/scripts/test_audit_research_index_coverage.py"
+      - "research/**"
+      - "PLAN.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  index-coverage:
+    name: index-coverage
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run auditor unit tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -B .github/scripts/test_audit_research_index_coverage.py
+
+      - name: Audit research document discoverability
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/research-index-coverage
+          {
+            echo "repository_commit=$GITHUB_SHA"
+            echo "runner_os=$RUNNER_OS"
+            echo "runner_arch=$RUNNER_ARCH"
+            python3 --version
+          } | tee artifacts/research-index-coverage/environment.txt
+          python3 -B .github/scripts/audit_research_index_coverage.py \
+            --root . \
+            --revision "$GITHUB_SHA" \
+            --output-json artifacts/research-index-coverage/index-coverage.json \
+            --output-md artifacts/research-index-coverage/index-coverage.md \
+            | tee artifacts/research-index-coverage/summary.json
+          cat artifacts/research-index-coverage/index-coverage.md
+
+      - name: Preserve index coverage evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-index-coverage-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/research-index-coverage/
+          if-no-files-found: error
+          retention-days: 30
