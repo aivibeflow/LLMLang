@@ -95,7 +95,7 @@ The 13 local snapshot files match their manifest upstream blob SHAs (13/13). Thi
 
 ## 6. Local links and anchors
 
-The E workflow's final run [#44938052704](https://github.com/aivibeflow/LLMLang/actions/runs/44938052704) scanned 251 Markdown and 3 MDX files (254 total) in the PR checkout:
+The final E workflow run [#44942704138](https://github.com/aivibeflow/LLMLang/actions/runs/44942704138) scanned 253 Markdown and 3 MDX files (256 total) in the PR merge checkout:
 
 - 2,891 link occurrences;
 - 1,318 unique;
