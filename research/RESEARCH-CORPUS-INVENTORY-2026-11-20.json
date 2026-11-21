@@ -12667,8 +12667,8 @@
     },
     {
       "path": "research/RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md",
-      "git_blob_sha": "5e4cb9fa6923a1067283816772107dd116d89edd",
-      "size_bytes": 20105,
+      "git_blob_sha": "6e9192fa2db89a8c248f9c18307982b1225d21ec",
+      "size_bytes": 20115,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -13655,7 +13655,7 @@
   },
   "snapshot_reconciliation": {
     "reviewed_at": "2026-11-21",
-    "source_revision": "b118346ecd499d7962a6ac546fb1031bc7e2bc26",
+    "source_revision": "287a84c56d38e1a7e0a9368273d5b06e6e0aa2f0",
     "inventory_excludes_its_own_manifest": true,
     "previous_inventory_revision": "2a6baa8a4f270e1e9326d04c4f57a15502e3b5e6",
     "previous_inventory_records": 487,
@@ -13730,8 +13730,8 @@
       {
         "path": "research/RT-00-B-03-CROSS-CUTTING-SEMANTIC-CONSISTENCY-AUDIT-2026-11-21.md",
         "category": "audit-or-review-report",
-        "git_blob_sha": "5e4cb9fa6923a1067283816772107dd116d89edd",
-        "size_bytes": 20105
+        "git_blob_sha": "6e9192fa2db89a8c248f9c18307982b1225d21ec",
+        "size_bytes": 20115
       }
     ],
     "refreshed_existing_records": 18,
