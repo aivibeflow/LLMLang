@@ -84,6 +84,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 - [Semantic artifact store](GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [identity studies](RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md), and [semantic merge research](RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) cover representation, identity, and change.
 - The typed SPG study proposes Specification, Design, and Implementation views and checks source normalization, call binding, recursion, and lineage in a closed fixture. [RT-05 Typed Semantic Program Graph](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md)
 - A temporary Git repository tests exact call resolution after merge, independent source coverage, and replay of tree-bound evidence. [RT-24 merged-tree source completeness](RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
+- A local Git experiment recovers an exact commit after a lost reply and checks stale ref and receipt outcomes. [RT-23 exact-tree commit recovery](RT-23-EXACT-TREE-COMMIT-RECOVERY.md)
 - [Runtime and backend proposals](POSIX-RUNTIME-ARCHITECTURE.md), [translation/backends](TRANSLATION-AND-TARGET-BACKENDS.md), and [LLVM architecture](LLVM-BACKEND-ARCHITECTURE.md) are analytical until tested against shared semantics.
 - [RT-16 threat model](RT-16-THREAT-MODEL-01.md) covers agent authority and bounded authorization experiments.
 - [TODO](../TODO.md) remains the authoritative register of unresolved project decisions.
