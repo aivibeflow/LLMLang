@@ -233,6 +233,8 @@ The implementation may use temporary index files, an export staging area, or ano
 
 ### 9.3 Failure, crash recovery, and atomicity boundary
 
+A local Git experiment checks exact-tree commit recovery with an operation-keyed receipt. It records replay, ordinary transaction precondition failures, and the limit of OID comparison when a ref moves away and returns. [Exact-tree commit recovery](RT-23-EXACT-TREE-COMMIT-RECOVERY.md)
+
 A filesystem write, semantic-store update, and Git ref update cannot generally be assumed to form one native atomic transaction. The Toolchain therefore implements a recoverable commit protocol, not an unsupported claim of cross-store atomicity.
 
 - Before Git commit creation, any failure leaves no new commit. The Change Set and operation record remain available for correction/retry; partial export is detectable and is either rolled back from the operation's staging area or safely resumed.
