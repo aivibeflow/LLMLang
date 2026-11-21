@@ -103,7 +103,7 @@ The E workflow's final run [#44938052704](https://github.com/aivibeflow/LLMLang/
 - 82 errors;
 - 1,168 excluded.
 
-All 82 errors are confined to upstream snapshots: 44 MCP root-absolute upstream-site paths, 32 OCI links to omitted documents, and six Alive2 references to omitted assets/README material. No LLMLang-authored local link or available-target anchor error was reported. The scan ran offline on merge checkout `94f459d4facfde50ca0eae62d5b801e1d1f6ff96` (current main b0142c2 plus PR #160), so external URL availability and fragments on missing targets remain unverified. It does not validate non-Markdown resources or index completeness.
+All 82 errors are confined to upstream snapshots: 44 MCP root-absolute upstream-site paths, 32 OCI links to omitted documents, and six Alive2 references to omitted assets/README material. No LLMLang-authored local link or available-target anchor error was reported. The scan ran offline on final merge checkout `3643ea099bdd89c64e9fa468bddbc3ad29e80155` (current main b0142c2 plus PR #160), so external URL availability and fragments on missing targets remain unverified. It does not validate non-Markdown resources or index completeness.
 
 ## 7. Open PR and branch state
 
