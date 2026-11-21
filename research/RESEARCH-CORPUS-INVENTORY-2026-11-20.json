@@ -2,8 +2,8 @@
   "schema_version": 1,
   "generated_at": "2026-11-21",
   "repository": "aivibeflow/LLMLang",
-  "revision": "622fc452c7030e830b8f3087317d322662584ee2",
-  "source": "Recursive Git tree audited at exact checkout 7f962bb4ffe921891d6c817ddef692fad7421590, then refreshed for the reconciliation report and research README updates recorded in this branch. The inventory excludes its own manifest file.",
+  "revision": "85b3da9014efe1b43399a073e31105fc3d715f40",
+  "source": "Recursive Git tree audited at 7f962bb4ffe921891d6c817ddef692fad7421590, then refreshed for the rebased current-main README and G status report update. The inventory excludes its own manifest file.",
   "counts": {
     "research_files": 554,
     "markdown_files": 284,
@@ -8652,8 +8652,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "0936bd3aca7cd7f28c11733f82fa521870fe480a",
-      "size_bytes": 27810,
+      "git_blob_sha": "b881cac706dec62a09094387dfa7359326fd2b03",
+      "size_bytes": 30006,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -13369,8 +13369,8 @@
     },
     {
       "path": "research/RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md",
-      "git_blob_sha": "ced386aa14ebc548e550fdaf84975293058994cf",
-      "size_bytes": 35177,
+      "git_blob_sha": "3cf3177691306feca2eaca47e7479435bd5cd465",
+      "size_bytes": 39144,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -14857,10 +14857,12 @@
     "semantic_review_boundary": "The 242 individually role-triaged prototype-file count remains a historical review total. Current tree contains 278 prototype paths; 36 paths are outside the recorded individually role-triaged count. This difference is not a claim that every one of those 36 was newly added. Family counts are path inventory counts, not semantic coverage. The 66 added manifest records are inventory-only and have no semantic RT/Claim/PLAN mapping.",
     "scenario_crosswalk_boundary": "137 Scenario-named paths are counted by the exact audit; the prior scenario crosswalk records 136 mapped scenario files. The one-path discrepancy remains unresolved.",
     "audit_status": "path, Git blob SHA, and byte-size reconciliation only; no claim-level or semantic completeness asserted.",
-    "manifest_generation_revision": "622fc452c7030e830b8f3087317d322662584ee2",
+    "manifest_generation_revision": "85b3da9014efe1b43399a073e31105fc3d715f40",
     "report_blob_sha": "4764d57b5ac5ead4818831eae8f4e2fb291c8b55",
     "report_size_bytes": 31401,
     "readme_blob_sha": "0936bd3aca7cd7f28c11733f82fa521870fe480a",
-    "readme_size_bytes": 27810
+    "readme_size_bytes": 27810,
+    "g_report_blob_sha": "22f9aa8f2521de457f89416657e15c27450c6c66",
+    "g_report_size_bytes": 39346
   }
 }
