@@ -285,6 +285,8 @@ For each new or revised edge:
 Do not turn a strong hypothesis into a hard compatibility constraint without evidence. Do not silently discard an option because it complicates another topic; record the interaction and assess complete specifications during synthesis.
 
 
+For RT-06 and RT-11, a scoped-lookup result can depend on absent rows and on lower-priority candidates. Per-key reuse requires whole-layer admission, and the consultation record still follows the exact revisions. [Negative binding reads](RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md#results)
+
 ## 8. Self-development and bootstrap dependencies (RT-21)
 
 RT-21 is a staged capability goal, not a prerequisite to completing the language design and not synonymous with compiler self-hosting. The first useful milestone depends on a bounded semantic slice and an independently testable bootstrap implementation.

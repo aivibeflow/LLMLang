@@ -405,6 +405,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Status:** extensively researched and prototyped in Scenarios 18–28 and dependency-graph prototypes 18–28. A candidate index contract and executable typed extractor now exist in `research/SEMANTIC-DEPENDENCY-INDEX.md` and `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`. The candidate schema is not canonical; reconciliation with the accepted SPG model, formal soundness, and Toolchain integration remain open.
 
+**Research output (2026-11-21)** · A closed scoped-lookup fixture distinguishes absent and present binding reads. Per-key projection reuses 216 results with zero observed false reuse, conditional on whole-layer admission. [Negative binding reads](research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md)
+
 ## 3.2 Incremental analysis and invalidation
 
 **Estimated research complexity:** **5/10** — focused binding/invalidation experiments are tractable, though production completeness remains difficult.

@@ -165,3 +165,5 @@ RT-23 and RT-24 have a bounded mapping-revision merge experiment with key and ex
 The taxonomy defines dimensions of research, not a checklist of independent toggles. The eventual option space is constructed from the vectors actually supported by research. The dependency map identifies conditional choices and incompatibilities; the synthesis process then generates valid integrated candidate specifications and compares them as wholes.
 
 See [Research Dependency Map](RESEARCH-DEPENDENCY-MAP.md) for sequencing and cross-aspect relationships.
+
+RT-06 compares full revision dependencies with exact per-key reads, including absence and lookup rejection. [Negative binding reads](RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md)
