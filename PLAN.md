@@ -690,7 +690,9 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Existing evidence:** target selection recommendation in `research/TRANSLATION-AND-TARGET-BACKENDS.md`.
 
-**Status:** researched as a recommendation; no first target is formally selected and no complete cross-backend validation exists.
+**Research output (2026-11-21)** · Direct LLVM and C++ realizations of one checked mutable byte-view operation match a Python oracle over 470,400 comparisons. An invalid LLVM alias annotation changes an ordered observation under O3 while preserving the final slab. [RT-09/13 mutable byte views](research/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md)
+
+**Status:** partially validated for this sequential mutable byte-view fixture. Broader cross-backend validation and initial target selection remain open.
 
 ## 6.3 LLVM backend
 
