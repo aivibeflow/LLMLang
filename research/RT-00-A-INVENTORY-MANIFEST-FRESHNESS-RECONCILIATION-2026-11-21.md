@@ -305,3 +305,84 @@ Current-main blob metadata:
 - `research/RESEARCH-TAXONOMY.md`: `c819fa190067263b51b52a75fedfd62a5b051290`, 47,000 bytes.
 
 The A branch remains at 515 inventory records: 514 current-main research artifacts plus this report. Its manifest has 26 added-path records relative to the original 488-record manifest, and its stale metadata list is refreshed to the exact current main blobs. No new research paths were introduced by this latest metadata-only delta.
+
+
+## 16. Exact current-tree reconciliation — 2026-11-21
+
+A fresh recursive Git-tree audit was run by [PR #203](https://github.com/aivibeflow/LLMLang/pull/203), workflow [#44949110891](https://github.com/aivibeflow/LLMLang/actions/runs/44949110891), against exact checkout `853a52c61f35f9022a1e6075e9b7079273eb7d9f`. The retained artifact is [14724657613](https://github.com/aivibeflow/LLMLang/actions/runs/44949110891/artifacts/14724657613), digest `sha256:9992b378a2dc02af32adc46dff8c130fd1b3c27d929bf3c9fd3e43c00beadfd1`.
+
+### 16.1 Exact result
+
+| Measure | Result |
+|---|---:|
+| Research artifacts excluding manifest | 538 |
+| Previous manifest records | 488 |
+| Missing paths | 50 |
+| Extra manifest paths | 0 |
+| SHA/size mismatches | 20 |
+| Markdown | 276 |
+| MDX | 3 |
+| Python | 218 |
+| Lean | 26 |
+| Prototype-tree paths | 270 |
+| Scenario-named paths | 137 |
+| Taxonomy RT rows | 26 |
+| Dependency rows | 108 |
+
+The reconciliation adds 50 exact path/blob/size records and refreshes all 20 stale existing blob metadata records. No path was removed. The manifest now contains 538 sorted records, and category counts sum to exactly 538. The manifest excludes itself to avoid self-reference.
+
+### 16.2 Semantic-review boundary
+
+The 50 added records are explicitly marked inventory-only: no semantic RT ownership, Claim mapping, or PLAN-stage mapping is inferred from a filename or directory. Of the 270 prototype-tree paths, 242 remain the historical individually role-triaged count; 22 current prototype paths added since that review remain unreviewed at individual-file role level. Prototype family counts in this audit are path counts, not semantic coverage.
+
+The exact audit counts 137 Scenario-named paths while the stored scenario crosswalk contains 136 mapped files. This one-path discrepancy is preserved as unresolved; no scenario ID or mapping is invented. The historical Scenario 16 gap remains separately unresolved.
+
+### 16.3 Scope and next work
+
+This closes the path/SHA/size freshness defect for the audited tree only. It does not close individual role review for the 22 prototype paths, refresh the complete scenario crosswalk, or validate every claim/test/evidence edge. The inventory's historical index checks and role-review counts remain explicitly dated. A separate semantic follow-up must review the 22 prototype files and reconcile the 137-versus-136 scenario path count without changing historical mappings absent evidence.
+
+
+## 17. Latest-main exact-tree refresh — 2026-11-21
+
+A second recursive audit was required because main advanced with RT-24 call-target merge evidence after the prior 538-path snapshot. The latest exact audit is [PR #207](https://github.com/aivibeflow/LLMLang/pull/207), workflow [#44949694311](https://github.com/aivibeflow/LLMLang/actions/runs/44949694311), scanned checkout `0bffdf1ee7e4db1b2c78394257b3530fc8f2cddd`. Artifact [14725405742](https://github.com/aivibeflow/LLMLang/actions/runs/44949694311/artifacts/14725405742), digest `sha256:65c2a0b4d0b60504c098d0f53bf95e23a2f06becd1a56983af31022d873c21db`.
+
+| Measure | Latest exact result |
+|---|---:|
+| Research artifacts excluding manifest | 546 |
+| Missing paths in previous manifest | 58 |
+| Extra manifest paths | 0 |
+| SHA/size mismatches | 20 |
+| Markdown / MDX | 280 / 3 |
+| Python / Lean | 221 / 26 |
+| Prototype-tree paths | 274 |
+| Scenario-named paths | 137 |
+| RT / DEP rows | 26 / 108 |
+
+The final reconciliation now records 546 sorted artifacts, adds the 58 missing paths, refreshes all 20 stale existing SHA/size records, and removes no paths. Category totals sum to 546. The 58 new records are explicitly inventory-only and do not infer semantic ownership, claim links, or PLAN stages.
+
+The 242 individually role-triaged prototype-file count remains a historical semantic review result. The current 274-path prototype tree must not be described as 274 individually reviewed files. The difference of 32 paths lies outside the recorded individual role-triage count; this is a coverage gap, not a claim that all 32 were newly added. The Scenario crosswalk still maps 136 files while the exact path scan counts 137 Scenario-named paths; that one-path discrepancy remains unresolved.
+
+The 538-path snapshot in §16 is retained as a historical audit result. §17 supersedes it for the latest main tree. RT-00 remains incomplete at semantic review, claim/evidence traceability, and external provenance layers.
+
+
+## 18. Latest-main exact-tree refresh — 2026-11-21
+
+Main advanced with RT-13 WASM memory32 evidence and the updated G status report after the 546-path audit. A new recursive audit was run in [PR #210](https://github.com/aivibeflow/LLMLang/pull/210), workflow [#44950395839](https://github.com/aivibeflow/LLMLang/actions/runs/44950395839), against exact checkout `405b2463299f4c01657a775576a8497a4dc800a7`. Artifact [14725497257](https://github.com/aivibeflow/LLMLang/actions/runs/44950395839/artifacts/14725497257), digest `sha256:c3eaa19d783f17e2e977e9e2563b17c2ef7f791ebc609b4477a689c5418af35f`.
+
+| Measure | Latest exact result |
+|---|---:|
+| Research artifacts excluding manifest | 549 |
+| Missing paths in previous manifest | 61 |
+| Extra manifest paths | 0 |
+| SHA/size mismatches | 20 |
+| Markdown / MDX | 282 / 3 |
+| Python / Lean | 221 / 26 |
+| Prototype-tree paths | 275 |
+| Scenario-named paths | 137 |
+| RT / DEP rows | 26 / 108 |
+
+The latest manifest reconciliation now records 549 sorted paths, adds 61 records, refreshes 20 existing blob/size records, and removes no paths. Category totals sum to 549. All 61 additions are inventory-only; no semantic RT ownership, claim links, or PLAN stages are inferred from filenames.
+
+The historical semantic review records 242 individually role-triaged prototype files. The latest tree has 275 prototype paths, leaving 33 paths outside that recorded individual-role total; this is a coverage difference, not a claim that every such path is newly added. The Scenario crosswalk remains at 136 mapped files while the exact tree counts 137 Scenario-named paths. That one-path discrepancy remains unresolved.
+
+Sections 16 and 17 preserve the 538- and 546-path snapshots respectively. Section 18 supersedes both for the latest main snapshot. RT-00 remains incomplete: inventory freshness is reconciled for this snapshot, but semantic role review, Scenario crosswalk reconciliation, claim-level traceability, reproducibility, and provenance are still open.
