@@ -579,6 +579,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Reconcile the canonical textual repository representation, manifests/roots, external dependency pins, and deterministic import/export; prove clean-clone reconstruction and round-trip equivalence.
 - [ ] Define semantic diff over stable semantic identities, separating Git object identity, semantic identity, and action/evidence identity.
 - [ ] Specify deterministic three-way SPG merge over exact base/ours/theirs snapshots, including independent add/add, same-entity update/update, delete/update, rename/move, split/merge, replacement, and dependency/lock changes.
+  - The closed fixture composes independent exact call retargets under a fixed selector policy and rejects a missing upstream branch-version pin. [Call-target merge](research/RT-24-CALL-TARGET-MERGE.md)
 - [ ] Define a structured conflict/result model with provenance, exact input roots, merge policy/tool versions, resolution decisions, and explicit clean/conflict/invalid/insufficient-context outcomes.
 - [ ] Specify merge rules for versioned Interface Mapping Revisions separately from immutable semantic objects; use revision/CAS baselines and fail on same-key or otherwise ambiguous conflicts.
 - [ ] Design a repository-level merge coordinator with complete tree context. Do not treat independent per-file merge-driver success as proof of whole-SPG consistency.
