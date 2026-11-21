@@ -288,6 +288,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Status:** comparative survey and bounded prototypes are in place, but no type/effect/ownership/capability architecture is selected. The corpus now includes typed calls, owned-resource returns, cleanup dispositions/composition, effect-bound and capability checks, shared RT-03/RT-04 trace fixtures, and independent resource outcome/obligation projections. New studies include [COR-13](research/RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md), [Scenario 35](research/RESEARCH-SCENARIO-35-RESOURCE-RETURN-AND-CLEANUP.md), and [Scenario 97](research/RESEARCH-SCENARIO-97-CLEANUP-ERROR-COMPOSITION-AND-OWNERSHIP.md). The call-graph completeness metadata remains fixture asserted rather than source/snapshot-bound; source-to-CFG and path-condition completeness, ordered effect summaries, row unification/handler coverage, trusted capability evidence, and concurrent revocation remain open. Independent review and reconciliation with RT-05 identity and RT-07 proof boundaries are required before hash-boundary or architecture decisions.
 
+**Research output (2026-11-21)** · Valuation-indexed ordered effect summaries match 128 executions. Combining independent callee summaries introduces 28 impossible traces across 16 programs. [Ordered call effects](research/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md)
+
 ## 1.5 Prior-art study for semantic representation and identity
 
 - [ ] Compare Unison's content-addressed code identity and codebase model.

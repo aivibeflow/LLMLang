@@ -27,6 +27,8 @@ RT-10 also compares three policies for publishing a nested task scope result. A 
 
 Scenario 118 derives modification order, read-from, and happens-before witnesses for fixed atomic load and store sequences. An independent interleaving oracle agrees on global-order witnesses in all 4,096 generated programs. Relaxed and direct release/acquire operations permit additional observed values in 98 of those programs. The experiment supplies a comparison for RT-04, RT-10, and RT-13. [Atomic execution relations](RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
 
+RT-04 compares ordered summaries under shared call contexts with independent callee traces. The latter can admit paths that require contradictory guards. [Ordered call effects](RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md)
+
 Scenario 119 infers obligations in a matched call result from lexical scopes and close contracts. In 4,096 concrete inputs, the result shapes agree with the disposition model. Covering every tag can still miss a new obligation when a close contract changes. This connects RT-03 transfer semantics to RT-04 resource checks and RT-05 interface compatibility. [Ownership in matched call results](RESEARCH-SCENARIO-119-OWNED-RESULT-MATCHING.md)
 
 Scenario 120 measures cleanup return codes and destruction timing for a SQLite connection with prepared statements. The probe distinguishes API error reporting from capability availability and remaining cleanup work. This adds implementation evidence for the RT-04 to RT-10 dependency. [Cleanup dependencies in SQLite](RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md)

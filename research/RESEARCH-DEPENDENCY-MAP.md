@@ -231,6 +231,8 @@ These are not simple one-way dependencies. They must be tested explicitly:
 10. **AI change protocol ↔ Toolchain API (RT-14 ↔ RT-19).** The AI-facing change model defines the semantic intent and provenance; RT-19 defines durable workspaces, transaction boundaries, adapters, and repository synchronization.
 11. **Semantic repository ↔ Toolchain synchronization (RT-15 ↔ RT-19).** Git portability and semantic merge constrain import/export and external-edit reconciliation; Toolchain experiments may expose missing repository-level atomicity or recovery requirements.
 
+The ordered call-effect fixture informs DEP-004 and DEP-037. Exact trace witnesses require preservation of shared guards across calls. [Ordered call effects](RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md#method-and-results)
+
 ## 5. Research sequence
 
 Use dependency depth and risk of architectural rework to order research. This is a sequence of research waves, not a waterfall. Parallel work is encouraged within a wave and across independent branches.
