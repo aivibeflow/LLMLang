@@ -32,7 +32,7 @@ PR #120 merged as `134accb0d65c8a253cdd5af098d5777f985a5a2f`. It:
 
 The prior B-03 baseline `bd6daf5` is after this merge. Its 26-RT / 108-DEP scope therefore already includes RT-26. Current taxonomy, dependency map, and PLAN remain structurally consistent at 26 RT areas and 108 DEP edges. The nine RT-26 edges are research dependency hypotheses, not proof that their relationships or enforcement obligations have been validated.
 
-**Current status issue:** the RT-26 taxonomy row and the RT-26 parent document still describe the mandatory research as “not started.” That wording is no longer accurate for the entire RT-26 area because later mainline changes added two bounded prototype studies and a reproduced test run. It remains accurate that the broad research program is incomplete.
+**Current status issue:** the RT-26 parent document now correctly says “partially validated in two cooperative cumulative-budget models”; the taxonomy row still says “mandatory research not started.” The latter may refer to the broader mandatory research program, which remains incomplete, but it does not expose the bounded prototype progress. This is a taxonomy/status-scope alignment gap, not evidence that the parent document is stale.
 
 ### 2.2 PR #121 — SCW-30 declaration closure
 
@@ -52,7 +52,7 @@ The two current-main files have the same Git blob identities as at PR #121's mer
 
 ## 3. RT-26 — later bounded prototype evidence
 
-After the previous B-03 baseline, commit `00857e7dee48d0026e6d47c776c8792f6f1f245d` added the cancellation and cumulative-reservation prototype studies and a dedicated reproduction workflow. It is 38 commits after the prior B-03 baseline.
+After the previous B-03 baseline, PR #129 added the reservation model (merged as `26ab2bea1b70b8b735803ff5d9ce3bce657e8c17`), PR #174 added cancellation settlement (merged as `74b48d1101e61485f132e51f36ff8893d8c63b17`), PR #206 added the reproduction workflow, and PR #208 recorded the exact reproduction and updated the RT-26 parent status (merge commit `00857e7dee48d0026e6d47c776c8792f6f1f245d`). PR #213 then refreshed B5/B6 traceability. The current-main delta from the previous B-03 baseline through the reproduction commit is 38 commits.
 
 The current-main Git blob identities of both test modules are identical to those at the reproduction commit:
 - `test_budget_cancellation.py`: `60ff8c3886ca36acce4809d6f4742c212e44c732`;
@@ -69,7 +69,7 @@ The reservation model compares separate checks with serialized hierarchical rese
 
 **What it does not support:** accurate memory/CPU/disk/network metering, coroutine/task-switch accounting, hardware/software performance-counter attribution, throttling latency, real-time enforcement, OS/container hard limits, concurrent durable multi-process accounting, distributed crash recovery, or production resource-handler correctness.
 
-The RT-26 parent document and taxonomy still say “not started.” The current status should be represented as **in progress — bounded cooperative reservation/cancellation evidence reproduced; broad accounting and enforcement research remains open**. PLAN stage 5 already records the bounded evidence; the mandatory Stage 7 research item correctly remains unchecked.
+The RT-26 parent document already represents the bounded evidence as “partially validated in two cooperative cumulative-budget models.” The taxonomy row still says “mandatory research not started”; update it to distinguish the reproduced pilot evidence from the still-open mandatory dimensions and enforcement study. PLAN stage 5 records the bounded evidence; the mandatory Stage 7 research item correctly remains unchecked.
 
 The nine DEP-100–108 relations remain hypotheses. The prototype results do not validate all nine edges or establish the authority model required to enforce them. The bounded RT-26 claim/test/run chain is also documented in B5 §10–11.3 and the B6 unresolved register; this delta reconciles its current cross-cutting status rather than repeating those audits.
 
@@ -127,6 +127,12 @@ The pre-PR-121 B-02b.1 statement that SCW-30 is open is superseded by the merged
 
 Two reproducible prototype studies exist and the current test source is identical to the tested source. The broad RT-26 research remains incomplete. The taxonomy and parent RT-26 document should distinguish “bounded pilot evidence exists” from “full resource accounting/enforcement research complete.”
 
+### B3-12 — B6-P02 retains a stale branch-only status for merged PR #129
+
+**Status:** confirmed unresolved-register status defect.
+
+The B6 JSON still marks `B6-P02` (“PR #129 reservation evidence”) as `not-in-main`. PR #129 is merged; its merge commit `26ab2bea1b70b8b735803ff5d9ce3bce657e8c17` is an ancestor of current main, and both the reservation test module and its report have identical Git blob identities at the PR merge commit and current main. B6-U06 already records the later current-main reservation/cancellation evidence and run #44949563913. Preserve P02's historical provenance, but remove the current `not-in-main` status and consolidate it with the current-main evidence rather than treating the same model as branch-only.
+
 ### Clarification — original B-03 finding count
 
 The original B-03 executive summary's “seven material unresolved cross-document boundaries” plus “one important evidence limitation” is consistent with eight numbered findings: one finding is an evidence limitation rather than an additional cross-document boundary. No count defect is recorded, and the historical summary is not changed.
@@ -145,9 +151,9 @@ The original B-03 executive summary's “seven material unresolved cross-documen
 
 ## 8. Required document alignment (defer to Stage F)
 
-1. Update the RT-26 taxonomy row and parent-document status to “in progress — bounded cooperative model evidence exists; broad accounting/enforcement remains open.”
+1. Update the RT-26 taxonomy row to expose the two bounded validated models while keeping the broader mandatory dimensions/enforcement study open; the parent RT-26 document already carries the bounded status.
 2. Preserve the historical B-02b.1 SCW-30 statement but add a current-status reference to PR #121 and this delta; do not rewrite its baseline.
-3. Update the current unresolved register with B3-09 through B3-11 and preserve `ImpHash` / `ImplHash`.
+3. Update the current unresolved register with B3-09 through B3-12, correct B6-P02's stale `not-in-main` state, and preserve `ImpHash` / `ImplHash`.
 4. Update PLAN/README/G and the RT-26 status references only after the B–E audits are reconciled.
 5. Keep ADR-017's MCP-only scope explicit wherever JSON is discussed; do not extend it to repository serialization or canonical hashing.
 
