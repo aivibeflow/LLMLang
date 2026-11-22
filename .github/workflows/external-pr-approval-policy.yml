@@ -37,14 +37,13 @@ jobs:
 
           repo="$GITHUB_REPOSITORY"
 
-          # Any repository collaborator may open a PR without an approval.
-          author_permission="$(gh api "repos/$repo/collaborators/$PR_AUTHOR/permission" --jq '.permission' 2>/dev/null || true)"
-          case "$author_permission" in
-            read|triage|write|maintain|admin)
-              echo "PR author $PR_AUTHOR is a repository collaborator ($author_permission); approval is not required."
-              exit 0
-              ;;
-          esac
+          # Check actual collaborator membership. The permission endpoint reports
+          # "read" for arbitrary users on public repositories, so it cannot be
+          # used to distinguish collaborators from the public.
+          if gh api --silent "repos/$repo/collaborators/$PR_AUTHOR" >/dev/null 2>&1; then
+            echo "PR author $PR_AUTHOR is a repository collaborator; approval is not required."
+            exit 0
+          fi
 
           echo "PR author $PR_AUTHOR is not a repository collaborator; checking approvals from collaborators with write access."
 
