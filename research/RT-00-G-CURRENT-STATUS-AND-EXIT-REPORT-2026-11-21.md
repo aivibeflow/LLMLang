@@ -46,21 +46,22 @@ The historical PR table in §7 below is a 2026-11-21 snapshot and is superseded 
 
 The later E audit in PR #224 scanned 285 Markdown plus 3 MDX documents (288 total): 3,142 link occurrences, 1,463 unique links, 1,797 accepted, 82 unresolved, and 1,263 excluded. All 82 unresolved cases remain confined to upstream snapshots/upstream-site-root paths; external URL availability and fragments on omitted snapshot targets remain unverified. The RT-24 replay reproduction is now represented by merged workflow PR #225; the workflow itself must be checked for its exact final run before treating Git 2.52.0 as reproduced.
 
-## 2. Stage-by-stage status
+## 2. Current stage-by-stage status (2026-11-22)
 
-| Stage | Result | Status |
+| Stage | Current integrated result | Status |
 |---|---|---|
-| A — inventory | Recursive audit on main found 490 artifacts, 249 prototype files, two manifest-missing paths, zero extras, four SHA/size mismatches | **Open:** refresh inventory and reconcile per-file role metadata |
-| B-03 — cross-cutting semantics | Eight interface/proof gaps recorded; no direct contradiction in reviewed scope | **Bounded pass merged** in PR #124 |
-| B-04 — duplicates/supersession | Exact blob grouping and bounded high-risk semantic family review; one expected duplicate licence blob; scoped supersession | **Open/branch-only:** PR #127 is stale/divergent and needs rebase |
-| B-05 — traceability graph | Graph semantics, evidence distinctions, and four representative traces | **Open/branch-only:** PR #130 uses stale 488-record count; reconcile against current tree |
-| B-06 — contradictions/unresolved | 40-record register; four apparent conflicts reconciled by scope; 18 open design/proof/evidence gaps; no direct core contradiction confirmed | **Open/branch-only:** PR #131 has a C–F follow-up addendum; Required CI run #44938490969 passed all jobs on its updated head |
-| C — reproducibility | RT-04, RT-16, and CLI host-reference bounded runs recorded | **Partial:** SQLite provenance, Provider benchmark/profiler, fuel models, and broad prototype reproduction remain open |
-| D — external provenance | 13/13 local snapshot blobs match the manifest; README provenance correction is present | **Partial:** upstream signatures were not re-run; OCI/Alive2/REAPI closure and external URL freshness remain open |
-| E — links/anchors | Offline scan of 251 Markdown + 3 MDX files; 82 errors all confined to copied snapshots/upstream-root paths | **Local scan complete for pinned checkout:** external URLs and missing-target fragments remain unverified |
-| F — document alignment | 26/108 structure validated; candidate/non-normative statuses aligned; stale inventory and prototype-review metadata identified | **Partial:** role-review aggregate and index coverage remain open |
-| G — status | Current bounded results and exit gaps consolidated | **Not a closure declaration** |
+| A — inventory | Current-main baseline at `fc717d9` has 578 research files, 24 absent manifest paths, 20 stale existing blob identities, and 289 prototype paths. The open PR #234 branch adds the two RT-00 audit reports, refreshes the manifest to 580 records, refreshes 21 existing blobs (including the updated G report), and records 253 individually role-triaged prototype paths; 36 remain outside that total. | **Open / PR #234:** final CI and research audits are being checked; 36 prototype paths and claim-level validation remain open |
+| B-03 — cross-cutting semantics | Eight interface/proof gaps recorded; no direct contradiction in the reviewed scope. | **Bounded audit merged** in PR #124 |
+| B-04 — duplicates/supersession | Current-main duplicate/supersession audit integrated in PR #152; exact-blob and scoped section-supersession findings retained. | **Bounded audit merged;** corpus-wide semantic duplicate/orphan/contradiction review remains open |
+| B-05 — traceability graph | Current-main graph audit and bounded claim pilots integrated in PRs #151, #213 and #216. | **Bounded audit merged;** selected claim traces do not establish exhaustive claim-level coverage |
+| B-06 — contradictions/unresolved | Unified register integrated in PRs #154, #213 and #216; scoped apparent conflicts and open design/proof/evidence gaps are recorded. | **Bounded register merged;** unresolved items remain |
+| C — reproducibility | RT-04 native/LLVM probes 10/10 and 2/2; RT-16 authorization 24/24; CLI host references 34/34; RT-24 call-target merge 18/18 under Git 2.56.1; RT-26 cooperative reservation/cancellation 7/7. | **Partial:** these are bounded fixtures; Provider profiler, fuel models, full RT-24 Git 2.52.0 replay reproduction, and broad prototype reproduction remain open |
+| D — external provenance | 13/13 local snapshot blobs match the pinned manifest; 4/4 upstream commit trees and GitHub signature checks were verified in the pinned provenance audit. | **Partial:** OCI/Alive2 link closure, REAPI proto import closure, and external URL freshness remain open |
+| E — links/anchors | PR #224 scan covered 285 Markdown + 3 MDX files: 3,142 occurrences, 1,463 unique, 1,797 accepted, 82 unresolved, 1,263 excluded. All unresolved cases are confined to upstream snapshots/upstream-site-root paths. | **Local offline scan complete for that pinned checkout;** external URLs and omitted-target fragments remain unverified |
+| F — document alignment | 26 RT areas and 108 DEP edges structurally registered; 137 Scenario-named paths versus 136 mapped files; prototype role-triage total 253/289 on PR #234 branch. | **Partial:** one Scenario path discrepancy, 36 prototype paths, candidate status alignment and broader index/provenance checks remain open |
+| G — status | This report distinguishes merged bounded evidence from branch-only work and historical snapshots. | **Not a closure declaration** |
 
+This table supersedes the historical stage counts in the 2026-11-21 executive snapshot above.
 ## 3. Exact inventory freshness result
 
 The non-required recursive audit workflow in PR [#146](https://github.com/aivibeflow/LLMLang/pull/146) checked out exact main commit `017e64b87c87371309197a392165258b8b088dd1` and compared its Git tree with the inventory manifest at revision `b118346ecd499d7962a6ac546fb1031bc7e2bc26`.
