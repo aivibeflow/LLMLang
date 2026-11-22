@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "c03c6d688df62f66e8b31ad0c98b2a99817c38fe",
-  "source": "Exact research-tree baseline from the RT-00 C delta branch at c03c6d688df62f66e8b31ad0c98b2a99817c38fe; the inventory manifest itself is excluded.",
+  "revision": "f4a87721376c23a0b0dfd142a5de6676e28eb988",
+  "source": "Exact research-tree baseline from the RT-00 D delta branch at f4a87721376c23a0b0dfd142a5de6676e28eb988; the inventory manifest itself is excluded.",
   "counts": {
-    "research_files": 583,
-    "markdown_files": 302,
+    "research_files": 584,
+    "markdown_files": 303,
     "python_files": 226,
     "scenario_named_documents": 137,
     "prototype_tree_files": 289,
@@ -24,7 +24,7 @@
       "index-or-research-management": 3,
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13,
-      "audit-or-review-report": 32,
+      "audit-or-review-report": 33,
       "cross-cutting-synthesis-or-status": 4,
       "scenario-research-result": 136,
       "research-rfc-or-protocol-proposal": 2
@@ -9027,8 +9027,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "5d934304568869aae19e8310b62867921c27bfb9",
-      "size_bytes": 33059,
+      "git_blob_sha": "e900fc063ab9d86278da0043dc0be416a355f420",
+      "size_bytes": 33565,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -9047,8 +9047,8 @@
     },
     {
       "path": "research/references/README.md",
-      "git_blob_sha": "a960e0ebd072b4c41bf2029a76c138d68083a269",
-      "size_bytes": 11092,
+      "git_blob_sha": "32a064f14355fec7fd4c8c5ea660625454ea4d7b",
+      "size_bytes": 11459,
       "category": "reference-register-or-manifest",
       "traceability": {
         "items": [
@@ -15139,6 +15139,27 @@
         "status": "content-role-triaged",
         "basis": "RT-00 C current-main delta reconciles PR165/166, RT16/CLI, RT04, SQLite, RT24, fuel, and benchmark evidence."
       }
+    },
+    {
+      "path": "research/RT-00-D-CURRENT-MAIN-SNAPSHOT-COMPLETENESS-DELTA-2026-11-23.md",
+      "git_blob_sha": "3bc00a31838f542ee1f2afe38eaeabf424f2839e",
+      "size_bytes": 6786,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00",
+          "Stage D"
+        ],
+        "method": "current-main external snapshot completeness and global link-audit reconciliation",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "RT-00 D delta documents 44 unresolved MCP relative links separately from resolved JSON Schema references and preserves the intentional snapshot boundaries."
+      }
     }
   ],
   "semantic_traceability_review": {
@@ -15684,18 +15705,18 @@
   },
   "current_tree_reconciliation": {
     "reviewed_at": "2026-11-23",
-    "source_revision": "c03c6d688df62f66e8b31ad0c98b2a99817c38fe",
+    "source_revision": "f4a87721376c23a0b0dfd142a5de6676e28eb988",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
-    "previous_records": 582,
-    "current_records": 583,
+    "previous_records": 583,
+    "current_records": 584,
     "added_records": 1,
-    "refreshed_existing_records": 1,
+    "refreshed_existing_records": 2,
     "removed_paths": 0,
     "tree_counts": {
-      "research_artifacts_excluding_manifest": 583,
-      "markdown_files": 302,
+      "research_artifacts_excluding_manifest": 584,
+      "markdown_files": 303,
       "mdx_files": 3,
       "python_files": 226,
       "lean_files": 33,
@@ -15726,29 +15747,31 @@
     },
     "semantic_review_boundary": "All 289 current prototype paths have individual content-role triage, including the 36 paths outside the prior 253-file total. This does not validate every claim, reproduce every test, or establish implementation readiness.",
     "scenario_crosswalk_boundary": "137 Scenario-named paths are present; the explicit scenario crosswalk still maps 136 files. One path discrepancy remains unresolved.",
-    "audit_status": "The previous 582-artifact tree passed exact recursive-tree verification in run #45076593238 at PR head 3acb94cb60324acecc6cb7f005881b286b8a77d0 (0 missing, 0 extra, 0 SHA mismatches, 0 size mismatches). This C delta branch adds one report and updates research/README.md; a fresh exact-tree check is pending.",
-    "manifest_generation_revision": "c03c6d688df62f66e8b31ad0c98b2a99817c38fe",
-    "report_blob_sha": "f25a1c37eab61fcd97952822e9f1e1596ccff714",
-    "report_size_bytes": 8926,
+    "audit_status": "The previous 583-artifact tree passed exact recursive-tree verification in run #45077018545 at PR head 9e2ccaedcb45fc021fb8a6a531c2a4d6072b90fc (0 missing, 0 extra, 0 SHA mismatches, 0 size mismatches). This D delta branch adds one report and updates research/README.md and research/references/README.md; a fresh exact-tree check is pending.",
+    "manifest_generation_revision": "f4a87721376c23a0b0dfd142a5de6676e28eb988",
+    "report_blob_sha": "3bc00a31838f542ee1f2afe38eaeabf424f2839e",
+    "report_size_bytes": 6786,
     "role_triage_report_blob_sha": "62b33f8ff95fad08a83602ac790b8956e8c5153b",
     "role_triage_report_size_bytes": 20145,
-    "readme_blob_sha": "5d934304568869aae19e8310b62867921c27bfb9",
-    "readme_size_bytes": 33059,
+    "readme_blob_sha": "e900fc063ab9d86278da0043dc0be416a355f420",
+    "readme_size_bytes": 33565,
     "g_report_blob_sha": "aec8cf203c60ff1cfb161c7a1dc88f03e0141c29",
     "g_report_size_bytes": 48115,
     "previous_verified_tree": {
-      "source_revision": "54073108abdefcacaf32cdfa6f8f3b4228fb2b2f",
-      "scanned_commit": "3acb94cb60324acecc6cb7f005881b286b8a77d0",
-      "workflow_run": 45076593238,
-      "artifact_id": 14775332743,
-      "artifact_sha256": "1e3c15c52995d0cc4fbaca8178f8bb593f5b5c76b58b1754c775679f3ff11829",
-      "research_artifacts": 582,
+      "source_revision": "c03c6d688df62f66e8b31ad0c98b2a99817c38fe",
+      "scanned_commit": "9e2ccaedcb45fc021fb8a6a531c2a4d6072b90fc",
+      "workflow_run": 45077018545,
+      "artifact_id": 14775906200,
+      "artifact_sha256": "7e7c246659f97cd8b95aa839a5630eaa70a42adbe77617329be92a2a4b7cb729",
+      "research_artifacts": 583,
       "missing_paths": 0,
       "extra_paths": 0,
       "blob_mismatches": 0,
       "size_mismatches": 0,
       "status": "passed"
-    }
+    },
+    "references_readme_blob_sha": "32a064f14355fec7fd4c8c5ea660625454ea4d7b",
+    "references_readme_size_bytes": 11459
   },
   "previous_tree_reconciliation": {
     "reviewed_at": "2026-11-21",
