@@ -1,40 +1,40 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-21",
+  "generated_at": "2026-11-22",
   "repository": "aivibeflow/LLMLang",
-  "revision": "85b3da9014efe1b43399a073e31105fc3d715f40",
-  "source": "Recursive Git tree audited at 7f962bb4ffe921891d6c817ddef692fad7421590, then refreshed for the rebased current-main README and G status report update. The inventory excludes its own manifest file.",
+  "revision": "2517be5c530d91739c2ab1a5842557cb3524d5aa",
+  "source": "Recursive Git tree audited at 2517be5c530d91739c2ab1a5842557cb3524d5aa; manifest excludes itself. This branch includes the current-main freshness audit and content-role triage reports.",
   "counts": {
-    "research_files": 554,
-    "markdown_files": 284,
-    "python_files": 222,
+    "research_files": 580,
+    "markdown_files": 299,
+    "python_files": 226,
     "scenario_named_documents": 137,
-    "prototype_tree_files": 278,
+    "prototype_tree_files": 289,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "research-background-or-design-analysis": 23,
+      "research-background-or-design-analysis": 27,
       "example-or-fixture": 1,
-      "research-area-or-experiment-document": 56,
+      "research-area-or-experiment-document": 64,
       "structured-fixture-or-schema": 1,
       "research-preparation-brief-or-index": 9,
-      "prototype-test-evidence": 115,
-      "prototype-or-experiment-implementation": 141,
+      "prototype-or-experiment-implementation": 146,
+      "prototype-test-evidence": 121,
       "other-research-artifact": 2,
       "prototype-report-or-readme": 20,
       "index-or-research-management": 3,
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13,
-      "audit-or-review-report": 26,
+      "audit-or-review-report": 29,
       "cross-cutting-synthesis-or-status": 4,
       "scenario-research-result": 136,
       "research-rfc-or-protocol-proposal": 2
     },
-    "lean_source_files": 28,
+    "lean_source_files": 33,
     "taxonomy_research_areas": 26,
     "dependency_edges": 108,
     "mdx_files": 3
   },
-  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks, individual role mappings for all 242 prototype-tree files across eight families, a first-pass relationship review of all 136 scenario-named reports, and bounded evidence-graph reviews for RT-04-01 and the Dependency Graph/Logos Lean family. B-02b.1–B-02b.5 add current Lean proof, Python test-evidence, scenario-overlap, orphan, and inventory-reconciliation slices. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
+  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for 253 prototype-tree files across the reviewed families; first-pass relationship review of 136 mapped Scenario reports (137 Scenario-named paths remain one apart); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and the 2026-11-22 content-role triage of 24 previously absent artifacts. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 110,
@@ -52,6 +52,32 @@
     }
   ],
   "artifacts": [
+    {
+      "path": "research/CHANGESET-VERIFICATION-AND-ACCEPTANCE-GATE.md",
+      "git_blob_sha": "284d1f1dbf016d3e26637edd3c4b53c1e29743bd",
+      "size_bytes": 9835,
+      "category": "research-background-or-design-analysis",
+      "traceability": {
+        "items": [
+          "RT-19",
+          "RT-05",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-20",
+          "RT-24"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Explicit primary RT-19 and related-area declarations; candidate Change Set verification and acceptance lifecycle, not a normative API."
+      }
+    },
     {
       "path": "research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md",
       "git_blob_sha": "c3ea40d331c113a4cba5d077edba1846694f5799",
@@ -241,8 +267,8 @@
     },
     {
       "path": "research/LLMLang-CONCEPT.md",
-      "git_blob_sha": "297c0f2fa929a1a0b37ac7b86f289271b7ad096d",
-      "size_bytes": 63412,
+      "git_blob_sha": "68466d87e17b668085b53b8385bae2526aab8d73",
+      "size_bytes": 66137,
       "category": "research-background-or-design-analysis",
       "traceability": {
         "items": [
@@ -613,6 +639,26 @@
       ]
     },
     {
+      "path": "research/PROTOTYPES/ALLOCATOR-COMPAT-01/probe.rs",
+      "git_blob_sha": "40f3a1cc16b7d81a2796e3bf99ca9f1fe4cbb018",
+      "size_bytes": 4332,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-25"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Rust System/C allocation probe checks provider identity, zeroing, alignment, resize ownership and failure preservation; file presence is not run evidence."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/BUDGET-CANCELLATION-01/test_budget_cancellation.py",
       "git_blob_sha": "60ff8c3886ca36acce4809d6f4742c212e44c732",
       "size_bytes": 4985,
@@ -811,9 +857,49 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CpcNullaryAliases.lean",
+      "git_blob_sha": "3d6d177b5f5fea1df758e09811fb526252e6ba85",
+      "size_bytes": 2266,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Lean parser module classifies top-level declarations and disjoint nullary aliases, then checks parser-state consistency."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CpcNullaryAliasesTests.lean",
+      "git_blob_sha": "4e1bf277c657b3036e7210ec3ac6e5aab5969948",
+      "size_bytes": 2001,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Paired Lean positive/negative controls for aliases, shadowing, extra declarations, wrong sorts and alternate forms; no execution claim."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
-      "git_blob_sha": "8d3b8efae00fda2dab47699891df2d71024d8b23",
-      "size_bytes": 1011,
+      "git_blob_sha": "0ae5c89d9dde4582603c75db37c5d32e3d56a89c",
+      "size_bytes": 1076,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1256,6 +1342,26 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/QuerySymbolRenaming.lean",
+      "git_blob_sha": "442df6188c00fc4b70d7ed6ca976a7c0b85b4d88",
+      "size_bytes": 3805,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Typed symbol-renaming transformation and evaluator-preservation theorem."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/RelationalSourceQuerySemantics.lean",
       "git_blob_sha": "c7bc0f18d31d4c69c3d31a80477d294e74cd667d",
       "size_bytes": 17843,
@@ -1597,8 +1703,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean",
-      "git_blob_sha": "542267010d9b47f2e75f3b63ba5551c1fb43c623",
-      "size_bytes": 6069,
+      "git_blob_sha": "31e4df896207a254ae961abd6d870ea93424a5cd",
+      "size_bytes": 6453,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [],
@@ -1719,6 +1825,46 @@
       "semantic_review": {
         "status": "file-role-triaged",
         "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutation.lean",
+      "git_blob_sha": "2f8570700ef03043033bdd68e35582465ab8989c",
+      "size_bytes": 1084,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Composes source-envelope decoding, canonical CPC assumptions and complete Logos verdict."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutationTests.lean",
+      "git_blob_sha": "89b1a300ed660b64856f5af36cbf7270bc05d6ce",
+      "size_bytes": 3028,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Paired Lean controls for altered envelope, wrong assumptions, changed source and invalid derivation."
       }
     },
     {
@@ -5205,6 +5351,46 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_mapping_tree_publication.py",
+      "git_blob_sha": "0d1080e901ec3fe8a8739c94cebc1dd7b59d28ce",
+      "size_bytes": 6190,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-23"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Python tests bind mapping/catalog bytes to a closed semantic snapshot and Git tree publication."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_ref_generation.py",
+      "git_blob_sha": "4f4c2e39e3683b1267bbaca750d163228de539ab",
+      "size_bytes": 4564,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-23"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Python tests exercise generation tokens across branch move-away-and-back histories."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_call_target_merge.py",
       "git_blob_sha": "e517cca0355e27576404aa4affc28e640fb78cd0",
       "size_bytes": 8945,
@@ -5250,6 +5436,26 @@
       "semantic_review": {
         "status": "not-reviewed",
         "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_replay_patch_correspondence.py",
+      "git_blob_sha": "4e28eb1ae317c2a97506428014fb45d588a6d14f",
+      "size_bytes": 4835,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-24"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Python tests compare native replay trees with independent semantic patch composition and negative controls."
       }
     },
     {
@@ -5816,6 +6022,26 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/LLVM-PRESERVATION-01/llvm_wasm_view_probe.py",
+      "git_blob_sha": "e616c5fcbb82143f65ec5e87af4a12b689b073c4",
+      "size_bytes": 2995,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-13"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        6
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "LLVM-to-Wasm memory32 compiler probe reuses checked view IR/reference evaluator; runtime result requires retained execution."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py",
       "category": "prototype-or-experiment-implementation",
       "traceability": {
@@ -5848,6 +6074,26 @@
       },
       "git_blob_sha": "7c906da668236777cce986d5646b4edb405289ff",
       "size_bytes": 7520
+    },
+    {
+      "path": "research/PROTOTYPES/LLVM-PRESERVATION-01/wasm_view_host.mjs",
+      "git_blob_sha": "c0d0a480b804446edd19bfc3060abdf7fea73807",
+      "size_bytes": 1355,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-13"
+        ],
+        "method": "individual content review of source/module role and paired tests or harness",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        6
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Node Wasm host validates statuses, values, sentinel preservation and unchanged input memory for a finite corpus."
+      }
     },
     {
       "path": "research/PROTOTYPES/ORDERED-EFFECTS-01/compare.py",
@@ -8652,8 +8898,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "b881cac706dec62a09094387dfa7359326fd2b03",
-      "size_bytes": 30006,
+      "git_blob_sha": "138f3fb800df6be4f841c088d20cd95fcd8165fb",
+      "size_bytes": 31793,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -11124,8 +11370,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-      "git_blob_sha": "e724812199acd887ae955a9bee8a69b3a63526a8",
-      "size_bytes": 35683,
+      "git_blob_sha": "379f9450afed5f5708713f0120e69377a95e4a49",
+      "size_bytes": 36077,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -13047,9 +13293,45 @@
       ]
     },
     {
+      "path": "research/RT-00-A-CONTENT-ROLE-TRIAGE-2026-11-22.md",
+      "git_blob_sha": "7174f961c56599e00a3283322c6a0ef16a22e6b8",
+      "size_bytes": 10192,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "explicit Stage 0 audit scope and exact evidence review",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Content-role triage of the 24 previously absent paths, including 11 prototype artifacts; not claim or execution validation."
+      }
+    },
+    {
+      "path": "research/RT-00-A-CURRENT-MAIN-INVENTORY-FRESHNESS-RECONCILIATION-2026-11-22.md",
+      "git_blob_sha": "a4884363772de304d922c4cb1570b5b98abee91d",
+      "size_bytes": 11216,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "explicit Stage 0 audit scope and exact evidence review",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Exact recursive Git-tree versus manifest path/SHA/size reconciliation for the pinned current-main baseline."
+      }
+    },
+    {
       "path": "research/RT-00-A-INVENTORY-MANIFEST-FRESHNESS-RECONCILIATION-2026-11-21.md",
-      "git_blob_sha": "4764d57b5ac5ead4818831eae8f4e2fb291c8b55",
-      "size_bytes": 31401,
+      "git_blob_sha": "c3bc1006dc2df267103b70693d269a447b8a003a",
+      "size_bytes": 31400,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -13216,9 +13498,30 @@
       }
     },
     {
+      "path": "research/RT-00-B-05-02-RT26-CLAIM-TRACEABILITY-PILOT-2026-11-21.md",
+      "git_blob_sha": "da3ed6efb1f7fcadb41197f5b44fc0ab090f874c",
+      "size_bytes": 7161,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-26"
+        ],
+        "method": "explicit Stage 0 audit scope and exact evidence review",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0,
+        7
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Bounded RT-26 claim-level traceability pilot with four report-local claims; cooperative reservation only, exact execution-to-blob binding incomplete."
+      }
+    },
+    {
       "path": "research/RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md",
-      "git_blob_sha": "0fb22a05eac78419be2d68e3c909f9a02c529dad",
-      "size_bytes": 26593,
+      "git_blob_sha": "1374a2b80b1657ac62b3faa2381014df7ea371e5",
+      "size_bytes": 39148,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -13233,8 +13536,8 @@
     },
     {
       "path": "research/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.json",
-      "git_blob_sha": "57d5004429400851fd9cf1c23327a5bd344860ca",
-      "size_bytes": 37726,
+      "git_blob_sha": "e66204f33a755af9f760a8b695509e814fa96970",
+      "size_bytes": 39491,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -13249,8 +13552,8 @@
     },
     {
       "path": "research/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.md",
-      "git_blob_sha": "e0b9af362716e6567e462daac175facd83d74293",
-      "size_bytes": 25597,
+      "git_blob_sha": "65a2f50c7dcd09e5905e2e7e211729bc0e93e6a1",
+      "size_bytes": 34232,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -13281,8 +13584,8 @@
     },
     {
       "path": "research/RT-00-C-REPRODUCIBILITY-AUDIT-2026-11-20.md",
-      "git_blob_sha": "b94c89afd431178ff5bfa49a579e55cce4ace161",
-      "size_bytes": 20127,
+      "git_blob_sha": "06d7064ba9a3c8d3b8f29f838fe0fe1f99a6affb",
+      "size_bytes": 23334,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -13337,8 +13640,8 @@
     },
     {
       "path": "research/RT-00-E-GLOBAL-LINK-AND-ANCHOR-AUDIT-2026-11-21.md",
-      "git_blob_sha": "5f8cc17822d0f3433d2e2d440b79b21cce585a6e",
-      "size_bytes": 5242,
+      "git_blob_sha": "dad6ef8ca2a20bf3deda410b52cc43a7effc92bd",
+      "size_bytes": 6496,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -13369,8 +13672,8 @@
     },
     {
       "path": "research/RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md",
-      "git_blob_sha": "3cf3177691306feca2eaca47e7479435bd5cd465",
-      "size_bytes": 39144,
+      "git_blob_sha": "a9b2adb6e1fe5f086036140108795e7085846997",
+      "size_bytes": 41307,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -13461,8 +13764,8 @@
     },
     {
       "path": "research/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
-      "git_blob_sha": "c3a40466fd7ab52743e1c211ebd9ddaff9d81dbb",
-      "size_bytes": 3450,
+      "git_blob_sha": "beb0148f488d672fbdf37c593505df44f7e4b6cc",
+      "size_bytes": 3456,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [],
@@ -13527,8 +13830,8 @@
     },
     {
       "path": "research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md",
-      "git_blob_sha": "ce6c257473b3ad1daa82a21f3df43e995378d054",
-      "size_bytes": 35100,
+      "git_blob_sha": "39b4f6864499c100d462faeeec19ac6739b13527",
+      "size_bytes": 36129,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -13646,8 +13949,8 @@
     },
     {
       "path": "research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md",
-      "git_blob_sha": "2a8e56e2e25a1564a88a553b88bdd7c8088a6851",
-      "size_bytes": 3873,
+      "git_blob_sha": "09f9ad447aca0844c1e3741d56bf5576f1f513ff",
+      "size_bytes": 4511,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [],
@@ -13658,6 +13961,26 @@
       "semantic_review": {
         "status": "not-reviewed",
         "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/RT-07-CPC-NULLARY-ALIAS-BINDING.md",
+      "git_blob_sha": "066a08d1f9402a970799444447a3cf61505ec3f9",
+      "size_bytes": 3329,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Explicit Plan §2.3 experiment on separating CPC declarations from nullary proof aliases."
       }
     },
     {
@@ -13709,6 +14032,46 @@
       }
     },
     {
+      "path": "research/RT-07-SOURCE-WIRE-LOGOS-ACCEPTANCE.md",
+      "git_blob_sha": "2152b3f90eb34447d5f8a7fd024514863838ef90",
+      "size_bytes": 3422,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Explicit SCW-31–34 source-owned wire, CPC assumption and complete Logos verdict fixture."
+      }
+    },
+    {
+      "path": "research/RT-07-WIRE-SYMBOL-RENAMING.md",
+      "git_blob_sha": "67371a882a6c0745f66344e3431c275dbbc1a643",
+      "size_bytes": 3123,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Typed wire-symbol renaming and evaluator preservation report; bounded typed query grammar."
+      }
+    },
+    {
       "path": "research/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md",
       "git_blob_sha": "42b57bc566b8175671ace0319864e55eec28153a",
       "size_bytes": 5164,
@@ -13726,8 +14089,8 @@
     },
     {
       "path": "research/RT-09-ORDERED-SPG-LOWERING.md",
-      "git_blob_sha": "738be0dc2e19537be3fcb4c77a651188191eb145",
-      "size_bytes": 4475,
+      "git_blob_sha": "df899fb22439f42b989f059a6852ad26644d4cd4",
+      "size_bytes": 5114,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [],
@@ -13738,6 +14101,31 @@
       "semantic_review": {
         "status": "not-reviewed",
         "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md",
+      "git_blob_sha": "2d7dbe168314f33fae2dada745f2213a2a3a4668",
+      "size_bytes": 22237,
+      "category": "research-background-or-design-analysis",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-09"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        1,
+        5,
+        6
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Explicit RT-03/04/05/09 scope and identity→type→layout→function ABI proposal; not accepted ABI implementation."
       }
     },
     {
@@ -13803,6 +14191,26 @@
       "plan_stages": [
         3
       ]
+    },
+    {
+      "path": "research/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md",
+      "git_blob_sha": "487a20167267b4c22784b483be8e419a753a55ce",
+      "size_bytes": 3564,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-13"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        6
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Explicit Plan §6.3 bounded LLVM-to-Wasm memory32 lowering experiment."
+      }
     },
     {
       "path": "research/RT-13-WASM-MEMORY32-VIEWS.md",
@@ -14014,8 +14422,8 @@
     },
     {
       "path": "research/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md",
-      "git_blob_sha": "8bf14febdbdc6ab90a30fe985a856f5b8fdf2da6",
-      "size_bytes": 18687,
+      "git_blob_sha": "1f2779e5d7672c2a9d5b377df31c08cca1ccfacd",
+      "size_bytes": 27772,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -14028,6 +14436,26 @@
         4,
         7
       ]
+    },
+    {
+      "path": "research/RT-23-COORDINATED-REF-GENERATION.md",
+      "git_blob_sha": "90d0c6610be35e1560fef6db4ad82870e556e2df",
+      "size_bytes": 3178,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-23"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Explicit Plan §4.5 experiment on coordinated branch generation and ABA-style ref movement."
+      }
     },
     {
       "path": "research/RT-23-EXACT-TREE-COMMIT-RECOVERY.md",
@@ -14062,6 +14490,26 @@
       }
     },
     {
+      "path": "research/RT-23-MAPPING-TREE-PUBLICATION.md",
+      "git_blob_sha": "e706b91d5b12608055c4b3e704927f7317f2b996",
+      "size_bytes": 3303,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-23"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Explicit Plan §4.5 experiment binding exact interface mapping bytes to semantic catalog and Git tree."
+      }
+    },
+    {
       "path": "research/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md",
       "git_blob_sha": "90fcba55d8cbff05141a6e9f53841f1cea1d8101",
       "size_bytes": 39645,
@@ -14080,8 +14528,8 @@
     },
     {
       "path": "research/RT-24-CALL-TARGET-MERGE.md",
-      "git_blob_sha": "68b61bd718a9753aaf8693e74a5de875144dce68",
-      "size_bytes": 3533,
+      "git_blob_sha": "e37a99c8a609c2640aae8063776a6cdf8135298b",
+      "size_bytes": 4190,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [],
@@ -14209,6 +14657,26 @@
       }
     },
     {
+      "path": "research/RT-24-SEMANTIC-PATCH-RECONCILIATION.md",
+      "git_blob_sha": "34ee16caa3c3b0b2f52a22d1feac558f1a8d3f8c",
+      "size_bytes": 2797,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-24"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Explicit Plan §4.5 bounded comparison of semantic patch composition and observed Git replay."
+      }
+    },
+    {
       "path": "research/RT-24-TREE-BOUND-CIP-PUBLICATION.md",
       "git_blob_sha": "be7d45b27db6dd8bbde64369b32e4815d0a919a1",
       "size_bytes": 3546,
@@ -14242,8 +14710,8 @@
     },
     {
       "path": "research/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md",
-      "git_blob_sha": "2400e3a95028eaa2d210ba411902f89e607a50b5",
-      "size_bytes": 8139,
+      "git_blob_sha": "f29041a11f1be8340b43cee4b58dbe96b83de565",
+      "size_bytes": 8202,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -14261,9 +14729,29 @@
       }
     },
     {
+      "path": "research/RT-25-RUST-SYSTEM-ALLOCATOR-COMPATIBILITY.md",
+      "git_blob_sha": "8d79d176a93e3eb246311be06d76d9e1064e1d3c",
+      "size_bytes": 3270,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-25"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Explicit RT-25 native allocator compatibility probe; does not select allocator or complete comparative benchmark."
+      }
+    },
+    {
       "path": "research/RT-26-CANCELLATION-ACCOUNTING.md",
-      "git_blob_sha": "701acf13f81d017a18c7650e632ab9da91ceada9",
-      "size_bytes": 3575,
+      "git_blob_sha": "937d33e06d1275ecfe9b53a052e33266c6dad319",
+      "size_bytes": 4223,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [],
@@ -14294,8 +14782,8 @@
     },
     {
       "path": "research/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md",
-      "git_blob_sha": "eccbea239f2469c391ee7832a27e1b78c2d6a45b",
-      "size_bytes": 14555,
+      "git_blob_sha": "47277c95fd8baf3b9c5daf48355fa701fcb37f68",
+      "size_bytes": 14798,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -14363,6 +14851,63 @@
       ]
     },
     {
+      "path": "research/STRUCTURE-CONTRACTS-AND-ATOMIC-COMMIT-VERIFICATION.md",
+      "git_blob_sha": "924b502aed4a2ffa975202ecf950e69662dfada1",
+      "size_bytes": 14967,
+      "category": "research-background-or-design-analysis",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-04",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-19",
+          "RT-20",
+          "RT-22",
+          "RT-23"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "User-confirmed discussion synthesis for contracts, invariant composition and atomic commit; candidate semantics only."
+      }
+    },
+    {
+      "path": "research/STRUCTURE-INHERITANCE-COMPOSITION-AND-TEMPLATE-SPECIALIZATION.md",
+      "git_blob_sha": "928d5f6ee816b0e35c111328d40c6019f5594997",
+      "size_bytes": 16626,
+      "category": "research-background-or-design-analysis",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-04",
+          "RT-06",
+          "RT-07",
+          "RT-08",
+          "RT-20"
+        ],
+        "method": "individual content review of explicit scope, status, headings, paired artifacts and PLAN/research cross-references",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        1,
+        5
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "User-confirmed structure inheritance, composition and specialization synthesis; unresolved points retained."
+      }
+    },
+    {
       "path": "research/TOKEN_EFFICIENCY.md",
       "git_blob_sha": "2bb8bcbd90430a578d3ceab85846afbbd970c8e6",
       "size_bytes": 7452,
@@ -14413,7 +14958,8 @@
     "unresolved_classes": [
       "full content validation of high-confidence path-derived mappings",
       "semantic duplicate/supersession/orphan/contradiction review",
-      "full claim-level validation and reproducibility verification of individually role-mapped prototype artifacts"
+      "full claim-level validation and reproducibility verification of individually role-mapped prototype artifacts",
+      "36 current prototype paths remain outside the individually role-triaged total; exact per-path coverage still requires reconciliation"
     ],
     "scenario_crosswalk": {
       "basis": "Combined explicit links/ranges in RESEARCH-TAXONOMY.md (63 reports) and first-pass content/header review of remaining Scenario reports (73 reports)",
@@ -14474,8 +15020,8 @@
     },
     "inventory_revision": "f560d0f9893f882a6756f1f0a3b070ea7ba1a09f",
     "prototype_family_review": {
-      "reviewed_at": "2026-11-20",
-      "method": "First-pass individual file-role mapping using family README descriptions, file paths, source/module docstrings, scenario links, paired test imports/names, and direct content review of the final five previously family-only artifacts. This is not full claim-level validation or an execution audit.",
+      "reviewed_at": "2026-11-22",
+      "method": "First-pass individual file-role mapping using family README descriptions, file paths, source/module docstrings, scenario links, paired test imports/names, and direct content review of the final five previously family-only artifacts. This is not full claim-level validation or an execution audit. The 2026-11-22 content-role pass individually reviewed eight additional DEPENDENCY-GRAPH-01 files, two LLVM-PRESERVATION-01 files, and one ALLOCATOR-COMPAT-01 file. This remains role triage, not claim-level or execution validation.",
       "families": {
         "CLI-WORKLOADS-01": {
           "files": 3,
@@ -14490,7 +15036,7 @@
           "note": "Shared CLI acceptance harness and C/Python reference implementations; removed unsupported RT-14 mapping."
         },
         "DEPENDENCY-GRAPH-01": {
-          "files": 103,
+          "files": 111,
           "status": "individual-file-role-triaged",
           "areas": [
             "RT-02",
@@ -14503,19 +15049,22 @@
             "RT-11",
             "RT-12",
             "RT-19",
-            "RT-20"
+            "RT-20",
+            "RT-23",
+            "RT-24"
           ],
           "stages": [
             1,
             2,
             3,
+            4,
             5,
             7
           ],
-          "note": "The original 92 individually mapped family files are supplemented by nine content-reviewed Lean modules and two QF_LIA modules, for 103 individually role-triaged artifacts. Roles are grounded in module declarations/imports, paired tests, Scenario 34 task references, and the exact QF_LIA admissibility theorem; this remains first-pass role mapping, not claim-level or reproducibility validation."
+          "note": "The 103 previously individually mapped files are supplemented by eight content-reviewed RT-07/RT-23/RT-24 Lean and Python artifacts, for 111 individually role-triaged artifacts. Roles are grounded in module behavior, paired tests and explicit report cross-references; this remains first-pass role mapping, not claim-level or reproducibility validation."
         },
         "LLVM-PRESERVATION-01": {
-          "files": 3,
+          "files": 5,
           "status": "individual-file-role-triaged",
           "areas": [
             "RT-03",
@@ -14526,7 +15075,7 @@
             1,
             6
           ],
-          "note": "Integer fixture plus LLVM IR probe and LLVM view probe; backend/compiler mapping is clear, source integer semantics are relevant to the fixture."
+          "note": "The three previously individually mapped files are supplemented by the RT-13 Wasm lowering compiler probe and Node host harness, for five individually role-triaged artifacts. This is role mapping, not a new compiler/engine reproduction."
         },
         "PACKAGE-IDENTITY-01": {
           "files": 7,
@@ -14591,21 +15140,34 @@
             7
           ],
           "note": "README, in-memory workspace implementation, and paired lifecycle tests reviewed against RT-19; no persistent backend, MCP adapter, or production SPG contract."
+        },
+        "ALLOCATOR-COMPAT-01": {
+          "files": 1,
+          "status": "individual-file-role-triaged",
+          "areas": [
+            "RT-25"
+          ],
+          "stages": [
+            7
+          ],
+          "note": "Rust System allocator/provider compatibility probe; this is a bounded experiment source, not evidence of allocator selection or a comparative benchmark."
         }
       },
-      "individually_mapped_files": 242,
+      "individually_mapped_files": 253,
       "individual_file_mappings": {
         "cli_workloads": 3,
-        "dependency_graph": 103,
-        "llvm_preservation": 3,
+        "dependency_graph": 111,
+        "llvm_preservation": 5,
         "package_identity": 7,
         "package_index": 17,
         "rt04_01": 104,
         "rt16_authorization": 2,
-        "toolchain_server": 3
+        "toolchain_server": 3,
+        "allocator_compat": 1
       },
       "remaining_family_only_files": 22,
-      "note_current_tree": "Current exact tree contains 270 prototype paths. The 242 individually mapped count remains a historical semantic review total; 22 current prototype paths added since that review are inventory-only and not individually role-triaged."
+      "note_current_tree": "Current exact tree contains 289 prototype paths. 253 have individual content-role triage, including the 11 new paths reviewed on 2026-11-22. 36 paths remain outside the recorded individually role-triaged total. Family path counts are inventory counts, not semantic or execution coverage.",
+      "remaining_unreviewed_current_paths": 36
     },
     "reference_crosswalk": {
       "source_documents_mapped": 9,
@@ -14814,6 +15376,61 @@
     "b3_refreshed_existing_records": 1
   },
   "current_tree_reconciliation": {
+    "reviewed_at": "2026-11-22",
+    "source_revision": "2517be5c530d91739c2ab1a5842557cb3524d5aa",
+    "audit_workflow_run": null,
+    "audit_artifact_id": null,
+    "audit_artifact_sha256": null,
+    "previous_records": 554,
+    "current_records": 580,
+    "added_records": 26,
+    "refreshed_existing_records": 0,
+    "removed_paths": 0,
+    "tree_counts": {
+      "research_artifacts_excluding_manifest": 580,
+      "markdown_files": 299,
+      "mdx_files": 3,
+      "python_files": 226,
+      "lean_files": 33,
+      "prototype_tree_files": 289,
+      "scenario_named_documents": 137,
+      "taxonomy_rt_rows": 26,
+      "dependency_rows": 108
+    },
+    "prototype_family_file_counts": {
+      "ALLOCATOR-COMPAT-01": 1,
+      "BUDGET-CANCELLATION-01": 1,
+      "BUDGET-RESERVATION-01": 1,
+      "CLI-WORKLOADS-01": 3,
+      "DEPENDENCY-GRAPH-01": 132,
+      "DIAGNOSTIC-REPLAY-01": 2,
+      "IDENTITY-BYTES-01": 2,
+      "LLVM-PRESERVATION-01": 7,
+      "ORDERED-EFFECTS-01": 1,
+      "PACKAGE-IDENTITY-01": 7,
+      "PACKAGE-INDEX-01": 17,
+      "POSIX-INTERRUPT-01": 1,
+      "POSIX-IO-01": 1,
+      "RT-04-01": 106,
+      "RT-16-AUTHORIZATION-01": 2,
+      "STRUCTURED-SCOPE-01": 1,
+      "TOOLCHAIN-SERVER-01": 3,
+      "WASM-VIEWS-01": 1
+    },
+    "semantic_review_boundary": "253 prototype paths have individual content-role triage; 36 of 289 current prototype paths remain outside that total. The 11 newly absent prototype paths were reviewed in the 2026-11-22 A content-role pass. This does not validate every claim or reproduce every test.",
+    "scenario_crosswalk_boundary": "137 Scenario-named paths are present; the explicit scenario crosswalk still maps 136 files. One path discrepancy remains unresolved.",
+    "audit_status": "Exact path, Git blob SHA and byte-size reconciliation plus content-role triage of 24 newly inventoried artifacts; no corpus-wide claim-level or reproducibility completeness asserted.",
+    "manifest_generation_revision": "2517be5c530d91739c2ab1a5842557cb3524d5aa",
+    "report_blob_sha": "a4884363772de304d922c4cb1570b5b98abee91d",
+    "report_size_bytes": 11216,
+    "role_triage_report_blob_sha": "7174f961c56599e00a3283322c6a0ef16a22e6b8",
+    "role_triage_report_size_bytes": 10192,
+    "readme_blob_sha": "138f3fb800df6be4f841c088d20cd95fcd8165fb",
+    "readme_size_bytes": 31793,
+    "g_report_blob_sha": "a9b2adb6e1fe5f086036140108795e7085846997",
+    "g_report_size_bytes": 41307
+  },
+  "previous_tree_reconciliation": {
     "reviewed_at": "2026-11-21",
     "source_revision": "7f962bb4ffe921891d6c817ddef692fad7421590",
     "audit_workflow_run": 44951486838,
