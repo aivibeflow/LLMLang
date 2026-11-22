@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "f2b3440bb153c8c9926dbec6ea0bf944729e9c68",
-  "source": "Exact research-tree baseline from the RT-00 A refresh branch at f2b3440bb153c8c9926dbec6ea0bf944729e9c68; the inventory manifest itself is excluded.",
+  "revision": "36746f287401702984574025843a63a037de1ae8",
+  "source": "Exact research-tree baseline from the RT-00 B-03 delta branch at 36746f287401702984574025843a63a037de1ae8; the inventory manifest itself is excluded.",
   "counts": {
-    "research_files": 581,
-    "markdown_files": 300,
+    "research_files": 582,
+    "markdown_files": 301,
     "python_files": 226,
     "scenario_named_documents": 137,
     "prototype_tree_files": 289,
@@ -24,7 +24,7 @@
       "index-or-research-management": 3,
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13,
-      "audit-or-review-report": 30,
+      "audit-or-review-report": 31,
       "cross-cutting-synthesis-or-status": 4,
       "scenario-research-result": 136,
       "research-rfc-or-protocol-proposal": 2
@@ -9027,8 +9027,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "99b43819b0c1ab064de3098ff2aa362ebf77b707",
-      "size_bytes": 32412,
+      "git_blob_sha": "f4a1d74a877377e0d1b8dccf109a20a7308e6f18",
+      "size_bytes": 32790,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -13615,6 +13615,27 @@
       }
     },
     {
+      "path": "research/RT-00-B-03-CURRENT-MAIN-DELTA-REVIEW-2026-11-23.md",
+      "git_blob_sha": "edb6697d97772bb50cd4e35f835262894a46a8a6",
+      "size_bytes": 14532,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00",
+          "B-03"
+        ],
+        "method": "current-main delta review against the pinned B-03 baseline and merged PR evidence",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "RT-00 B-03 current-main delta review documenting SCW-30, RT-26, ADR-017, and cross-cutting unresolved boundaries."
+      }
+    },
+    {
       "path": "research/RT-00-B-04-CORPUS-DUPLICATE-AND-SUPERSESSION-AUDIT-2026-11-21.md",
       "git_blob_sha": "2d769a82be6450a5f6b2576c848a178007b96dea",
       "size_bytes": 20735,
@@ -15642,18 +15663,18 @@
   },
   "current_tree_reconciliation": {
     "reviewed_at": "2026-11-23",
-    "source_revision": "f2b3440bb153c8c9926dbec6ea0bf944729e9c68",
+    "source_revision": "36746f287401702984574025843a63a037de1ae8",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
-    "previous_records": 580,
-    "current_records": 581,
+    "previous_records": 581,
+    "current_records": 582,
     "added_records": 1,
-    "refreshed_existing_records": 3,
+    "refreshed_existing_records": 1,
     "removed_paths": 0,
     "tree_counts": {
-      "research_artifacts_excluding_manifest": 581,
-      "markdown_files": 300,
+      "research_artifacts_excluding_manifest": 582,
+      "markdown_files": 301,
       "mdx_files": 3,
       "python_files": 226,
       "lean_files": 33,
@@ -15684,16 +15705,29 @@
     },
     "semantic_review_boundary": "All 289 current prototype paths have individual content-role triage, including the 36 paths outside the prior 253-file total. This does not validate every claim, reproduce every test, or establish implementation readiness.",
     "scenario_crosswalk_boundary": "137 Scenario-named paths are present; the explicit scenario crosswalk still maps 136 files. One path discrepancy remains unresolved.",
-    "audit_status": "Preliminary exact-delta reconciliation: PR #237 changes only RT-19 within research/; its manifest blob/size record is refreshed. The new A report and updated README/G report are included. Final recursive-tree path/blob/size exactness is pending the PR-head inventory freshness workflow.",
-    "manifest_generation_revision": "f2b3440bb153c8c9926dbec6ea0bf944729e9c68",
-    "report_blob_sha": "62b33f8ff95fad08a83602ac790b8956e8c5153b",
-    "report_size_bytes": 20145,
+    "audit_status": "A prior 581-artifact tree passed exact recursive-tree verification in run #45075561440 at PR head 30645fb5b38735fa02feff360401ff1155a7e3b7. This B-03 delta branch adds one report and updates research/README.md; a new exact recursive-tree check is pending.",
+    "manifest_generation_revision": "36746f287401702984574025843a63a037de1ae8",
+    "report_blob_sha": "edb6697d97772bb50cd4e35f835262894a46a8a6",
+    "report_size_bytes": 14532,
     "role_triage_report_blob_sha": "62b33f8ff95fad08a83602ac790b8956e8c5153b",
     "role_triage_report_size_bytes": 20145,
-    "readme_blob_sha": "99b43819b0c1ab064de3098ff2aa362ebf77b707",
-    "readme_size_bytes": 32412,
+    "readme_blob_sha": "f4a1d74a877377e0d1b8dccf109a20a7308e6f18",
+    "readme_size_bytes": 32790,
     "g_report_blob_sha": "aec8cf203c60ff1cfb161c7a1dc88f03e0141c29",
-    "g_report_size_bytes": 48115
+    "g_report_size_bytes": 48115,
+    "previous_verified_tree": {
+      "source_revision": "f2b3440bb153c8c9926dbec6ea0bf944729e9c68",
+      "scanned_commit": "30645fb5b38735fa02feff360401ff1155a7e3b7",
+      "workflow_run": 45075561440,
+      "artifact_id": 14774509697,
+      "artifact_sha256": "a9f1cf95deb3cdae06569cbdda8f8b36e58caa50c057b90127a8b82f0afb1dd5",
+      "research_artifacts": 581,
+      "missing_paths": 0,
+      "extra_paths": 0,
+      "blob_mismatches": 0,
+      "size_mismatches": 0,
+      "status": "passed"
+    }
   },
   "previous_tree_reconciliation": {
     "reviewed_at": "2026-11-21",
