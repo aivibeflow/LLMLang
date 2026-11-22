@@ -603,7 +603,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Add real temporary-repository end-to-end tests for clone/reconstruction, parallel branches, merge/rebase/cherry-pick, cross-file conflicts, mapping conflicts, RT-20 caller splits, clean and failed validation, crash recovery, and no-duplicate commit retry.
 - [ ] Benchmark repository-level merge, semantic import/export, incremental worktree synchronization, and cache/store reconstruction; record platform and repository-size assumptions.
 
-**Status:** architecture research exists and is cross-linked; RT-24 now records a candidate technical contract. Canonical representation, identity/schema reconciliation, semantic diff/merge implementation, Git integration, and tests remain open. ADR-014 remains Proposed. ADR-014 remains Proposed.
+**Status:** architecture research exists and is cross-linked; RT-24 records a candidate technical contract, and its bounded source-closure/merge-tree fixture is reproduced on Git 2.52.0/CPython 3.12.14 (workflow #45072410771, 11/11 tests). Canonical representation, identity/schema reconciliation, a general semantic diff/merge implementation, multi-commit replay/conflict handling, and concurrent Git publication remain open. ADR-014 remains Proposed.
 
 **Dependency:** canonical SPG/identity and import/export decisions from Stages 1 and 3; RT-20 impact-plan correctness; RT-19 semantic API; RT-22 repository/worktree contract; RT-23 shared-state and synchronized-commit runtime.
 
