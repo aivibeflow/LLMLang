@@ -30,6 +30,22 @@ The prior sections above describe their explicitly pinned historical audit basel
 
 The 24 paths absent from the previous manifest were individually content-reviewed. This includes 11 prototype artifacts: eight Dependency Graph files, two LLVM preservation files, and one allocator probe. The individually role-triaged prototype total is now 253 of 289 current prototype paths; 36 remain outside the recorded total. The review records primary role, research area and candidate PLAN stage while explicitly separating source/test existence from execution evidence. See [RT-00 A content-role triage](RT-00-A-CONTENT-ROLE-TRIAGE-2026-11-22.md). This closes the bounded role triage for the 24 missing paths, not prototype reproduction or Stage A as a whole.
 
+
+## 1C. PR integration and evidence refresh (2026-11-22)
+
+The historical PR table in §7 below is a 2026-11-21 snapshot and is superseded by this reconciliation:
+
+- PRs [#127](https://github.com/aivibeflow/LLMLang/pull/127), [#130](https://github.com/aivibeflow/LLMLang/pull/130), and [#131](https://github.com/aivibeflow/LLMLang/pull/131) were closed without merging. Their branch-only changes are not treated as main evidence.
+- B4's later current-main duplicate/supersession audit was merged in [#152](https://github.com/aivibeflow/LLMLang/pull/152).
+- B5 and B6 current-main refreshes were merged in [#151](https://github.com/aivibeflow/LLMLang/pull/151) and [#154](https://github.com/aivibeflow/LLMLang/pull/154), with further bounded evidence updates in [#213](https://github.com/aivibeflow/LLMLang/pull/213) and [#216](https://github.com/aivibeflow/LLMLang/pull/216).
+- Inventory reconciliation [#149](https://github.com/aivibeflow/LLMLang/pull/149) and link/anchor audit workflow [#160](https://github.com/aivibeflow/LLMLang/pull/160) are merged; their earlier counts remain historical snapshots.
+- Subsequent merged updates include RT-24 evidence [#217](https://github.com/aivibeflow/LLMLang/pull/217), the RT-04 anchor correction [#218](https://github.com/aivibeflow/LLMLang/pull/218), the 554-record inventory refresh [#221](https://github.com/aivibeflow/LLMLang/pull/221), this G-report predecessor [#223](https://github.com/aivibeflow/LLMLang/pull/223), the newer link audit [#224](https://github.com/aivibeflow/LLMLang/pull/224), the RT-24 Git replay workflow [#225](https://github.com/aivibeflow/LLMLang/pull/225), and the structure-contract synthesis [#226](https://github.com/aivibeflow/LLMLang/pull/226).
+- PRs [#220](https://github.com/aivibeflow/LLMLang/pull/220) and [#222](https://github.com/aivibeflow/LLMLang/pull/222) were closed without merging. Their proposed changes are not treated as current-main changes unless independently present in another merged commit.
+- PR [#232](https://github.com/aivibeflow/LLMLang/pull/232) merged a workflow-only change and did not change the research tree used by the pinned A audit.
+- Current RT-00 A freshness and content-role work is proposed in [#234](https://github.com/aivibeflow/LLMLang/pull/234), which remains open and unmerged at the time of this report update.
+
+The later E audit in PR #224 scanned 285 Markdown plus 3 MDX documents (288 total): 3,142 link occurrences, 1,463 unique links, 1,797 accepted, 82 unresolved, and 1,263 excluded. All 82 unresolved cases remain confined to upstream snapshots/upstream-site-root paths; external URL availability and fragments on omitted snapshot targets remain unverified. The RT-24 replay reproduction is now represented by merged workflow PR #225; the workflow itself must be checked for its exact final run before treating Git 2.52.0 as reproduced.
+
 ## 2. Stage-by-stage status
 
 | Stage | Result | Status |
