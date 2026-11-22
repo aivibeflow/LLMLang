@@ -6,6 +6,7 @@
 - **Related research:** [RT-19 — Toolchain Server and Semantic Development API](../../research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
 - **Related architecture:** [RFC — LLMLang Development Engine](../../research/RFC-DEVELOPMENT-ENGINE.md)
 - **Related repository decision:** [ADR-014 — Git repository representation and semantic merge](014-git-semantic-merge.md)
+- **Related agent interchange decision:** [ADR-017 — Default object format for agent interaction through MCP](017-mcp-agent-object-format.md)
 
 > This ADR records a proposed architectural direction for research and prototype evaluation. Its status is not Accepted. It does not authorize implementation to bypass the current semantic, identity, or repository constraints.
 
@@ -36,7 +37,7 @@ At the same time, making an external database the only authoritative copy of pro
 This ADR does not select:
 - a canonical SPG schema or final semantic mutation vocabulary;
 - a database engine or final on-disk storage format;
-- a final canonical serialization or digest algorithm;
+- the canonical repository/on-disk serialization or digest algorithm; the scoped MCP-facing SPG object format is decided separately by [ADR-017](017-mcp-agent-object-format.md);
 - an MCP transport/version profile or exhaustive Tool list;
 - distributed collaboration, remote workspaces, or a hosted Toolchain service;
 - automatic acceptance, commit, push, or package publication;
