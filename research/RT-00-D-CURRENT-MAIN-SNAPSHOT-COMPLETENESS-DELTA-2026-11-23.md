@@ -20,7 +20,7 @@ PR #119 is merged. The current reference register records all four pinned upstre
 - REAPI's eight missing proto imports;
 - the MCP JSON Schema's 155 top-level `$defs` and 277 local `$ref` references.
 
-The README's statement that the MCP schema references resolve is accurate, but it covers JSON Schema references only. It does not describe the relative Markdown/MDX links from the three selected MCP documentation pages to omitted specification pages. That is an additional completeness limitation discovered by the global link audit.
+The README's statement that the MCP schema references resolve is accurate, but it covers JSON Schema references only. It does not describe the root-absolute upstream-site path references from the three selected MCP documentation pages to omitted specification pages. That is an additional completeness limitation discovered by the global link audit.
 
 ## 3. Current-main link audit evidence
 
@@ -44,7 +44,7 @@ The 86 errors divide as follows:
 
 ### 3.1 MCP — additional partial-documentation finding
 
-The 44 unresolved MCP links originate in the three selected documentation pages and target omitted paths under the pinned `specification/2026-07-28/` tree and `docs/draft/tutorials/`. The selected MCP snapshot therefore preserves its declared source files and licence, but it is not a closed documentation tree.
+The 44 unresolved MCP root-absolute path references originate in the three selected documentation pages and target omitted paths under the pinned `specification/2026-07-28/` tree and `docs/draft/tutorials/`. The selected MCP snapshot therefore preserves its declared source files and licence, but it is not a closed documentation tree.
 
 This is separate from the JSON Schema check: all 277 local `$ref` references in the copied schema still resolve. Schema reference closure does not establish Markdown/MDX documentation-link closure.
 
@@ -78,7 +78,7 @@ The REAPI import closure remains incomplete: eight imports are referenced, none 
 
 The MCP entry in `research/references/README.md` now explicitly states:
 - the documentation snapshot is selected and intentionally partial;
-- 44 relative-link occurrences lead to omitted documentation pages;
+- 44 root-absolute upstream-site path occurrences lead to omitted documentation pages;
 - the 277 resolved schema references are a separate result;
 - no full documentation-link closure is claimed.
 
