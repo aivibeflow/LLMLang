@@ -2,8 +2,8 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "700de0fafda7a8841f54bcec36e44fb89f1ba78c",
-  "source": "Exact research-tree baseline from the RT-00 B-03 delta branch at 700de0fafda7a8841f54bcec36e44fb89f1ba78c; the inventory manifest itself is excluded.",
+  "revision": "36746f287401702984574025843a63a037de1ae8",
+  "source": "Exact research-tree baseline from the RT-00 B-03 delta branch at 36746f287401702984574025843a63a037de1ae8; the inventory manifest itself is excluded.",
   "counts": {
     "research_files": 582,
     "markdown_files": 301,
@@ -13616,8 +13616,8 @@
     },
     {
       "path": "research/RT-00-B-03-CURRENT-MAIN-DELTA-REVIEW-2026-11-23.md",
-      "git_blob_sha": "c89531eadebc6862212ef54b2124345eb1d7560c",
-      "size_bytes": 14461,
+      "git_blob_sha": "edb6697d97772bb50cd4e35f835262894a46a8a6",
+      "size_bytes": 14532,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -15663,7 +15663,7 @@
   },
   "current_tree_reconciliation": {
     "reviewed_at": "2026-11-23",
-    "source_revision": "700de0fafda7a8841f54bcec36e44fb89f1ba78c",
+    "source_revision": "36746f287401702984574025843a63a037de1ae8",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
@@ -15705,10 +15705,10 @@
     },
     "semantic_review_boundary": "All 289 current prototype paths have individual content-role triage, including the 36 paths outside the prior 253-file total. This does not validate every claim, reproduce every test, or establish implementation readiness.",
     "scenario_crosswalk_boundary": "137 Scenario-named paths are present; the explicit scenario crosswalk still maps 136 files. One path discrepancy remains unresolved.",
-    "audit_status": "A prior 581-artifact tree passed exact recursive-tree verification in run #45075561440 at PR head 30645fb5b38735fa02feff360401ff1155a7e3b7 (0 missing, 0 extra, 0 SHA mismatches, 0 size mismatches). This B-03 delta branch adds one report and updates research/README.md; a new exact recursive-tree check is pending.",
-    "manifest_generation_revision": "700de0fafda7a8841f54bcec36e44fb89f1ba78c",
-    "report_blob_sha": "c89531eadebc6862212ef54b2124345eb1d7560c",
-    "report_size_bytes": 14461,
+    "audit_status": "A prior 581-artifact tree passed exact recursive-tree verification in run #45075561440 at PR head 30645fb5b38735fa02feff360401ff1155a7e3b7. This B-03 delta branch adds one report and updates research/README.md; a new exact recursive-tree check is pending.",
+    "manifest_generation_revision": "36746f287401702984574025843a63a037de1ae8",
+    "report_blob_sha": "edb6697d97772bb50cd4e35f835262894a46a8a6",
+    "report_size_bytes": 14532,
     "role_triage_report_blob_sha": "62b33f8ff95fad08a83602ac790b8956e8c5153b",
     "role_triage_report_size_bytes": 20145,
     "readme_blob_sha": "f4a1d74a877377e0d1b8dccf109a20a7308e6f18",
