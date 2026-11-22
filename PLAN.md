@@ -89,6 +89,9 @@ The 26/108 taxonomy/dependency register was structurally checked: all 108 DEP ID
 
 Prototype role-review counts are not reconciled: the inventory aggregate says 242; the previous PLAN statement says 245; the previous inventory per-file traceability covers 248 paths; current main has 250 prototype paths. Current family path counts are 3/108/4/7/17/106/2/3. Do not infer equivalent content-review depth for every current file from path or traceability metadata.
 
+
+**Current-main inventory freshness addendum (2026-11-22):** A fresh recursive-tree comparison at `fc717d9c5a69085d7a524fd6dfc27145f0c35a1c` found 578 research files excluding the manifest: 297 Markdown, 3 MDX, 226 Python, 33 Lean, 289 prototype-tree paths, and 137 Scenario-named documents. The manifest has 554 records, 24 missing paths, 20 stale blob SHA/size records, and no extra paths. 11 prototype paths are absent from the manifest; represented-path traceability metadata is not equivalent to content review or reproduced evidence. The current manifest has no aggregate prototype role-review field, so historical 242/245/248 totals remain unresolved. See [RT-00 A current-main inventory freshness reconciliation](research/RT-00-A-CURRENT-MAIN-INVENTORY-FRESHNESS-RECONCILIATION-2026-11-22.md). Stage 0.1 remains open pending a content-aware manifest refresh and per-path prototype-family role review. This exact-tree count supersedes older numeric snapshots for the named commit only.
+
 ### 0.2 Establish research quality and decision rules
 
 **Research output (2026-11-20):** [Research Quality and Decision Rules](research/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) proposes a claim-level evidence vocabulary, report structure, traceability fields, and five review gates. This is a partial result; conventions are not yet accepted and existing artifacts have not been fully audited.
