@@ -1,6 +1,12 @@
 name: Enforce external PR approval policy
 
 on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Pull request number to check
+        required: true
+        type: number
   pull_request_target:
     types:
       - opened
@@ -17,25 +23,40 @@ permissions:
   pull-requests: read
 
 concurrency:
-  group: external-approval-policy-${{ github.event.pull_request.number }}
+  group: external-approval-policy-${{ github.event.pull_request.number || inputs.pr_number }}
   cancel-in-progress: true
 
 jobs:
   approval-policy:
-    name: external-approval-policy
-    if: github.event.pull_request.draft == false
+    name: external-pr-approval-policy
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - name: Check collaborator status and approval
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ inputs.pr_number || github.event.pull_request.number }}
         run: |
           set -euo pipefail
 
           repo="$GITHUB_REPOSITORY"
+          pr="$(gh api "repos/$repo/pulls/$PR_NUMBER")"
+          PR_AUTHOR="$(jq -r '.user.login' <<< "$pr")"
+          HEAD_SHA="$(jq -r '.head.sha' <<< "$pr")"
+          PR_STATE="$(jq -r '.state' <<< "$pr")"
+          PR_DRAFT="$(jq -r '.draft' <<< "$pr")"
+
+          if [ "$PR_STATE" != "open" ]; then
+            echo "::error::Pull request #$PR_NUMBER is not open."
+            exit 1
+          fi
+
+          if [ "$PR_DRAFT" = "true" ]; then
+            echo "::error::Pull request #$PR_NUMBER is still a draft."
+            exit 1
+          fi
+
+          echo "Checking PR #$PR_NUMBER by $PR_AUTHOR at head $HEAD_SHA."
 
           # Check actual collaborator membership. The permission endpoint reports
           # "read" for arbitrary users on public repositories, so it cannot be
