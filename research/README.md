@@ -81,6 +81,8 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 
 ## Integration and foundations
 
+- [Change Set verification and acceptance gate](CHANGESET-VERIFICATION-AND-ACCEPTANCE-GATE.md) records the user-confirmed rule: validate SPG after every change, optionally run contract/formal checks in the background, notify agents about failures, and block both automatic and explicit acceptance until current required checks pass; candidate Toolchain behavior, not yet a normative API contract.
+
 - [RT-17 diagnostic replay](RT-17-DIAGNOSTIC-REPLAY.md) checks diagnostic locations, edit applicability, and behavioral validation on deterministic fixtures.
 - [Research taxonomy](RESEARCH-TAXONOMY.md) tracks areas, coverage, and required report fields.
 - [Research dependency map](RESEARCH-DEPENDENCY-MAP.md) records cross-area hypotheses and sequencing.
