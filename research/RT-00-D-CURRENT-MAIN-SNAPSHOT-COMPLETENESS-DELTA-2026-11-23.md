@@ -94,6 +94,6 @@ The existing OCI, Alive2, and REAPI limitations remain unchanged. No external pa
 
 ## 7. Conclusion
 
-PR #119's provenance-integrity result remains valid, and its README already describes the OCI, Alive2, and REAPI limitations. The global link audit exposed one missing statement: the selected MCP documentation pages have 44 unresolved relative links even though the JSON Schema's 277 local references resolve. The reference README now records that distinction.
+PR #119's provenance-integrity result remains valid, and its README already describes the OCI, Alive2, and REAPI limitations. The global link audit exposed one missing statement: the selected MCP documentation pages have 44 unresolved root-absolute upstream-site path references even though the JSON Schema's 277 local references resolve. The reference README now records that distinction.
 
 The external snapshots remain intentionally incomplete and provenance-verifiable. The correct response is to document the boundary, not to expand the snapshots without a research need.
