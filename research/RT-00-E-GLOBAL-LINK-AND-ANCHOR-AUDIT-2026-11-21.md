@@ -70,3 +70,11 @@ Artifact ZIP SHA-256: `a7b505492b4d54e786bb7cf6bc08725f6c4eaef7a3b0c88fcba07feb9
 No LLMLang-authored broken local link or anchor was found in this pass. The remaining 82 errors are known upstream snapshot path/closure limitations and must not be “fixed” by rewriting verbatim source files. If self-contained snapshots are later required, add missing upstream files/assets only with their own pinned revisions, blob IDs, and license provenance.
 
 External URL availability, full non-Markdown resource link validation, and index completeness against every research artifact remain separate tasks. This report does not claim RT-00 or PLAN.md §0.1 complete.
+
+## 7. Latest-main link/anchor rerun — 2026-11-21
+
+The RT-04 local PLAN fragment was corrected to match the actual §1.4.1 heading slug, including the `rt-04` suffix. The latest rerun is [workflow #44951564661](https://github.com/aivibeflow/LLMLang/actions/runs/44951564661) on exact checkout `1e20da507308bccdb5780ad4834e939d0f3bb8eb`, artifact [14725687794](https://github.com/aivibeflow/LLMLang/actions/runs/44951564661/artifacts/14725687794), digest `sha256:e052d0286b982d19e6bac64ddf8f77b4f9d39146f4710d2f75035601215917c1`.
+
+The offline scan covered 285 Markdown and 3 MDX documents: 3,142 link occurrences, 1,463 unique links, 1,797 accepted, 82 errors, and 1,263 excluded. All 82 remaining errors are confined to upstream MCP/OCI/Alive2 snapshot paths/assets. No LLMLang-authored local link or anchor error remains in this scanned checkout. External URL availability was not checked because the run was offline. The 82 upstream errors are not to be “fixed” by rewriting verbatim snapshots; any closure requires separately pinned source additions and provenance.
+
+This rerun supersedes the 256-document snapshot in §6. It does not establish external URL availability, completeness of non-Markdown resources, or full research index coverage.
