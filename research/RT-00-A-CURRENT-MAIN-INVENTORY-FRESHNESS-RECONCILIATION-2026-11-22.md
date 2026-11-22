@@ -90,7 +90,7 @@ The current tree contains 289 paths under `research/PROTOTYPES/`; the manifest h
 
 The current tree contains 137 Scenario-named documents and the manifest has 137 such records. This count agreement does not validate every scenario-to-RT mapping, claim, test outcome, or evidence edge. The manifest's category count labels 136 artifacts as `scenario-research-result`; this is not directly interchangeable with the filename-pattern count because supplemental execution and other scenario-related documents can have different categories.
 
-No aggregate prototype role-review field exists in the current manifest schema at the audited revision. Therefore historical 242/245/248 role-review totals cannot be reconciled by reading the current manifest alone. A separate content-level family review is still required.
+The manifest does contain `semantic_traceability_review.prototype_family_review.individually_mapped_files = 242`, with a family breakdown recorded in the manifest. This is a historical content-role-triage total, not a live count automatically refreshed with the inventory. At the audited main tree there are 289 prototype paths: 11 are absent from the manifest and 278 are represented by inventory records. The 242 reviewed total is therefore 47 below the current path count. The difference must not be assigned to specific files by subtraction alone; the existing per-family review ledger and path-level records need reconciliation to identify exactly which paths received content-role review. Inventory presence and generic traceability metadata do not establish individual role review, execution, or independent reproduction.
 
 ## 6. Required follow-up
 
