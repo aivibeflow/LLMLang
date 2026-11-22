@@ -40,13 +40,15 @@ Multiple inheritance is supported. Parent contracts remain independently identif
 - A duplicated field name is accessed with explicit parent qualification, such as A.id or B.id.
 - A field whose name is unique across the inherited fields may be accessed without qualification.
 - Local aliases for inherited fields remain an open design question; no support decision has been made.
+- Multiple-inheritance field identity and object representation follow the C/C++ inheritance model: distinct parent subobjects and their fields are not merged. Parent declaration order determines parent initialization order. Exact offsets, padding, and ABI guarantees remain a separate specification question.
 
 ### 2.3 Initialization and destruction
 
 - The child initializer is responsible for initializing every inherited and child-owned field.
 - Parent initialization is explicit; there is no implicit default initialization of parent parts.
 - A child initializer may explicitly invoke parent initializers and reconcile their requirements.
-- Initialization order follows C++ rules; the analyzer checks correctness and ordering.
+- Parent subobjects are initialized in the order in which the parents are declared, regardless of the order in which their initializers are written in the child initializer; the analyzer checks this order.
+- Child-owned fields are initialized after parent subobjects, following their declaration order.
 - If parent initializers have incompatible requirements, the child may explicitly reconcile them only when the reconciliation is statically provable and the resulting state satisfies every parent and child invariant.
 - Destruction follows reverse initialization order: the child part is destroyed first, followed by parent parts in reverse order of initialization.
 - Each parent is responsible for lifecycle and resource cleanup of its own fields.
@@ -73,10 +75,13 @@ Composition embeds another structure as a field and is distinct from inheritance
 
 ## 4. Function implementations and structure types
 
-Structure inheritance does not imply implicit subtype conversion for function arguments.
+Structure inheritance does not imply implicit subtype conversion or implicit type conversion.
 
 - Function argument types match exactly.
 - A function accepting a parent structure does not thereby accept a child structure.
+- Distinct specializations of the same template are distinct, incompatible types unless an explicit LLMLang conversion mechanism is used.
+- Inheritance does not itself create an implicit conversion between parent and child types.
+- Conversions are permitted only through explicitly defined LLMLang mechanisms; no implicit conversion is inferred from structural similarity, inheritance, or shared template origin.
 - When behavior is intended for multiple concrete structure types, a template function may be used.
 - Template function specialization is separate for each explicitly supplied concrete type.
 - Function implementations and contracts remain independent entities linked through ImplHash; structural inheritance alone does not implicitly inherit or override an implementation.
@@ -96,6 +101,12 @@ Copyability is inferred from the complete structure:
 
 If any parent part, field, or nested component is non-copyable, the complete structure is non-copyable. A developer may explicitly prohibit copying even when all parts are otherwise copyable. A parent's prohibition propagates to descendants and cannot be lifted by a child.
 
+Reference fields follow Rust-like capability semantics:
+- An immutable reference is copyable. Copying it copies the reference, not the referred-to value, and preserves the same lifetime constraints.
+- A mutable exclusive reference is not copyable; moving it transfers the exclusive borrow.
+- A structure containing references is copyable when every field is copyable and the structure's other Copy conditions are satisfied. The mere presence of a reference does not prohibit Copy.
+- Shared-ownership handles analogous to `Rc`/`Arc` are not implicitly copied. Explicit cloning creates another strong owner and updates the ownership count; it does not copy the underlying object.
+
 ### 5.2 Move
 
 Move is an ownership transfer, not a user-defined move-constructor mechanism. Moving an outer structure transfers its owned fields and nested components as a whole. References and borrows retain their own lifetime and ownership constraints. The moved-from binding is unavailable unless the type is copyable under the language's Copy rules.
@@ -113,13 +124,28 @@ Move is an ownership transfer, not a user-defined move-constructor mechanism. Mo
 
 ### 6.2 Constraints on template parameters
 
-Template parameters may declare explicit constraints describing the properties required of the supplied type. Invariant and contract verification uses those declared constraints and the concrete specialization.
+Template parameters may declare explicit constraints describing the properties required of the supplied type. Invariant and contract verification uses those declared constraints and the concrete specialization. The candidate model provisionally supports three constraint categories:
+- structural constraints, describing required fields and their types;
+- contract constraints, requiring the parameter type to satisfy a specified contract through the ordinary contract/`ImplHash` mechanism;
+- invariant constraints, requiring specified invariants to be established for the parameter type.
+
+The three categories are accepted provisionally. Their exact syntax, formal semantics, interaction, and proof/checking rules are intentionally deferred to detailed design during implementation.
 
 For example, if a template invariant requires an ordering operation, the template must explicitly constrain its parameter to provide the required operation and semantics. The checker does not assume that an arbitrary type supports that operation.
 
 A child of a template structure may add constraints to the specialization parameters only when those constraints are compatible with the parent template's contracts and invariants. Compatibility is checked statically.
 
-### 6.3 Full and partial specialization
+### 6.3 Template and specialization contracts
+
+Contracts are associated with template structures and their specializations using the same contract and `ImplHash` model as for ordinary structures; no separate template-only contract mechanism is introduced.
+
+- A contract declared for a template structure applies to every specialization of that template.
+- A specialization creates a new concrete type and may therefore have additional contracts of its own.
+- A specialization-specific contract supplements the template-level contract; the specialization must satisfy both.
+- A specialization may not weaken, remove, cancel, or violate any requirement or guarantee of the template-level contract.
+- Compatibility is checked statically.
+
+### 6.4 Full and partial specialization
 
 Both full and partial specialization are supported, subject to these restrictions:
 
@@ -140,23 +166,26 @@ Specialization identity and selection follow the same hash-based rules as functi
 | Multiple inheritance | Supported; parent obligations remain independently identifiable |
 | Field redefinition | Inherited fields cannot be redefined with different type or semantics |
 | Duplicate parent fields | Remain distinct; explicit qualification resolves name collisions |
-| Initialization | Child initializes all fields; parent initialization is explicit; C++ ordering rules are used and checked |
+| Object representation | Multiple-inheritance field identity and parent-subobject model follow C/C++ semantics; exact ABI/layout guarantees remain open |
+| Initialization | Child initializes all fields; parent initialization is explicit; parents initialize in declaration order, then child fields in declaration order |
 | Destruction | Reverse initialization order, child part first |
 | Cross-parent invariants | May relate fields from multiple parent parts and child fields |
 | Composition | Nested values retain independent identity, ownership, invariants, and lifecycle |
 | Component mutation | Direct mutation is permitted subject to borrowing and all affected invariants |
 | Implementation association | ImplHash identifies the target structure; composition does not imply delegation |
 | Function argument types | Exact type matching; inheritance does not imply implicit argument compatibility |
+| Type conversions | Only explicitly defined LLMLang conversions; no implicit conversion from inheritance or shared template origin |
 | Template functions | Separate specialization for each explicitly supplied concrete type |
 | Template structures | Supported with separate specializations for explicit concrete type arguments |
-| Template parameter constraints | Explicit constraints; static compatibility checking |
+| Template parameter constraints | Structural, contract, and invariant constraints provisionally supported; details deferred to implementation design |
+| Template contracts | Template-level contract applies to every specialization; specialization contracts may only strengthen it |
 | Specialization | Full and partial specialization supported |
 | Specialization contracts | Must preserve all original template guarantees; may add compatible stricter constraints |
 | Specialization identity and selection | Hash-based, following the same rules as function `ImplHash`; no automatic specificity ranking |
 | Duplicate specializations | Allowed only for completely identical declarations; same hash with differing declarations is a conflict |
 | Type inference | Not supported |
 | Metaprogramming | Not supported |
-| Copy | Inferred from all parent parts and fields; explicit prohibition propagates |
+| Copy | Inferred from all parent parts and fields; immutable references are Copy, mutable exclusive references are not; shared-ownership handles require explicit cloning; explicit prohibition propagates |
 | Move | Ownership transfer of the complete owned value |
 
 ## 8. Open questions and boundaries
@@ -165,7 +194,7 @@ The discussion has not yet selected:
 - whether child-local aliases for inherited fields are supported;
 - the concrete syntax and formal semantics for template constraints and specialization declarations;
 - the exact proof calculus for compatibility and constraint satisfaction;
-- the complete assignability/conversion model beyond the confirmed exact function-argument matching rule;
+- the exact set and semantics of explicit conversion mechanisms;
 - the ABI/layout consequences of multiple inheritance and composition.
 
 These are not to be inferred from C++ or another language. They require explicit LLMLang decisions and consistency review against RT-03/RT-04 and the invariant model.
