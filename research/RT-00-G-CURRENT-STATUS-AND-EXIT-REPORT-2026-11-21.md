@@ -18,6 +18,13 @@ The most important current findings are:
 
 No architectural or language-semantic decision is accepted by RT-00. In particular, the ImpHash/ImplHash discrepancy, identity boundaries, contract conformance, dependency/cache completeness, LLVM preservation proof, package trust, and resource enforcement remain unresolved.
 
+
+## 1A. Current-main inventory freshness update (2026-11-22)
+
+The prior sections above describe their explicitly pinned historical audit baselines and should not be read as current-main counts. A fresh recursive Git-tree comparison at main commit `fc717d9c5a69085d7a524fd6dfc27145f0c35a1c` found 578 research files excluding the inventory manifest (297 Markdown, 3 MDX, 226 Python, 33 Lean), 289 prototype-tree paths, and 137 Scenario-named documents. The manifest records 554 artifacts, has 24 missing paths, 20 stale blob SHA/size records, and no extra paths. 11 prototype paths are absent from the manifest. Traceability metadata on represented paths is not content-review or reproduction evidence. The current manifest has no aggregate prototype role-review field, so historical 242/245/248 counts remain unresolved. Exact path/SHA/size evidence and discrepancy lists are in [RT-00 A current-main inventory freshness reconciliation](RT-00-A-CURRENT-MAIN-INVENTORY-FRESHNESS-RECONCILIATION-2026-11-22.md).
+
+**Effect on RT-00:** Stage A is still open. The inventory manifest itself has not yet been rewritten; the next A task is content-aware reconciliation of the absent paths and per-path prototype review.
+
 ## 2. Stage-by-stage status
 
 | Stage | Result | Status |
