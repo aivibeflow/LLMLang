@@ -2,8 +2,8 @@
   "schema_version": 1,
   "generated_at": "2026-11-22",
   "repository": "aivibeflow/LLMLang",
-  "revision": "d4616f4738e998bac725a84f30ad13414e9b4e4a",
-  "source": "Recursive Git tree audited at d4616f4738e998bac725a84f30ad13414e9b4e4a; manifest excludes itself. This branch includes the current-main freshness audit and content-role triage reports.",
+  "revision": "ca484a214ed464c43696e3a1f7ab1a0e0ae8d5e4",
+  "source": "Recursive Git tree audited at ca484a214ed464c43696e3a1f7ab1a0e0ae8d5e4; manifest excludes itself. This branch includes the current-main freshness audit and content-role triage reports.",
   "counts": {
     "research_files": 580,
     "markdown_files": 299,
@@ -15378,7 +15378,7 @@
   },
   "current_tree_reconciliation": {
     "reviewed_at": "2026-11-22",
-    "source_revision": "d4616f4738e998bac725a84f30ad13414e9b4e4a",
+    "source_revision": "ca484a214ed464c43696e3a1f7ab1a0e0ae8d5e4",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
@@ -15421,7 +15421,7 @@
     "semantic_review_boundary": "253 prototype paths have individual content-role triage; 36 of 289 current prototype paths remain outside that total. The 11 newly absent prototype paths were reviewed in the 2026-11-22 A content-role pass. This does not validate every claim or reproduce every test.",
     "scenario_crosswalk_boundary": "137 Scenario-named paths are present; the explicit scenario crosswalk still maps 136 files. One path discrepancy remains unresolved.",
     "audit_status": "Exact path, Git blob SHA and byte-size reconciliation plus content-role triage of 24 newly inventoried artifacts; no corpus-wide claim-level or reproducibility completeness asserted.",
-    "manifest_generation_revision": "d4616f4738e998bac725a84f30ad13414e9b4e4a",
+    "manifest_generation_revision": "ca484a214ed464c43696e3a1f7ab1a0e0ae8d5e4",
     "report_blob_sha": "a4884363772de304d922c4cb1570b5b98abee91d",
     "report_size_bytes": 11216,
     "role_triage_report_blob_sha": "7174f961c56599e00a3283322c6a0ef16a22e6b8",
