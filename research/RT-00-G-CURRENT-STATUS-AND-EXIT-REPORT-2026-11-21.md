@@ -25,6 +25,11 @@ The prior sections above describe their explicitly pinned historical audit basel
 
 **Effect on RT-00:** Stage A is still open. The inventory manifest itself has not yet been rewritten; the next A task is content-aware reconciliation of the absent paths and per-path prototype review.
 
+
+## 1B. Content-role triage of newly inventoried paths (2026-11-22)
+
+The 24 paths absent from the previous manifest were individually content-reviewed. This includes 11 prototype artifacts: eight Dependency Graph files, two LLVM preservation files, and one allocator probe. The individually role-triaged prototype total is now 253 of 289 current prototype paths; 36 remain outside the recorded total. The review records primary role, research area and candidate PLAN stage while explicitly separating source/test existence from execution evidence. See [RT-00 A content-role triage](RT-00-A-CONTENT-ROLE-TRIAGE-2026-11-22.md). This closes the bounded role triage for the 24 missing paths, not prototype reproduction or Stage A as a whole.
+
 ## 2. Stage-by-stage status
 
 | Stage | Result | Status |
