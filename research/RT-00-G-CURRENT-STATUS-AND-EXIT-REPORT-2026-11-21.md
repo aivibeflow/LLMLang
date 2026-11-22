@@ -2,11 +2,11 @@
 
 **Date:** 2026-11-21  
 **Audited main baseline:** `017e64b87c87371309197a392165258b8b088dd1`  
-**Disposition:** **RT-00 is not complete.** This is a bounded status report; several audit results remain in unmerged PRs and the current inventory manifest is stale.
+**Disposition:** **RT-00 is not complete.** This is a bounded status report. PR #234 and PR #237 have merged; the 2026-11-23 A follow-up refreshes the inventory after PR #237 and completes individual file-role triage for all 289 prototype paths. Claim-level validation, reproducibility, semantic consistency, external provenance, and Scenario crosswalk work remain open.
 
 ## 1. Executive status
 
-The audit now has substantive bounded results across inventory freshness, semantic consistency, reproducibility, external provenance, local links/anchors, and cross-document alignment. Those results do not yet form a fully integrated current-main evidence corpus because the relevant PRs remain open and no merge has been performed.
+The audit has substantive bounded results across inventory freshness, semantic consistency, reproducibility, external provenance, local links/anchors, and cross-document alignment. The later PR integrations do not make the corpus claim-complete: historical reports remain pinned to their stated revisions, and several evidence/provenance gaps remain unresolved.
 
 The most important current findings are:
 
@@ -16,7 +16,7 @@ The most important current findings are:
 4. The offline local Markdown/MDX link/anchor scan covered 254 documents in the E PR checkout. It found 82 unresolved occurrences, all in copied upstream snapshots or upstream-site-root paths; no LLMLang-authored local link or available-target anchor error was reported.
 5. The prototype role-review counts remain inconsistent: 242 in the inventory aggregate, 245 in the previous PLAN statement, 248 per-file traceability records, and 249 current prototype paths.
 
-No architectural or language-semantic decision is accepted by RT-00. In particular, the ImpHash/ImplHash discrepancy, identity boundaries, contract conformance, dependency/cache completeness, LLVM preservation proof, package trust, and resource enforcement remain unresolved.
+RT-00 itself accepts no language-semantic or general architecture decision. ADR-017 is a separate, accepted and narrowly scoped decision for JSON as the default MCP-facing SPG object representation; it does not select canonical repository serialization, storage, canonicalization, or Content Hash. The ImpHash/ImplHash discrepancy, broader identity boundaries, contract conformance, dependency/cache completeness, LLVM preservation proof, package trust, and resource enforcement remain unresolved.
 
 
 ## 1A. Current-main inventory freshness update (2026-11-22)
@@ -42,23 +42,23 @@ The historical PR table in §7 below is a 2026-11-21 snapshot and is superseded 
 - Subsequent merged updates include RT-24 evidence [#217](https://github.com/aivibeflow/LLMLang/pull/217), the RT-04 anchor correction [#218](https://github.com/aivibeflow/LLMLang/pull/218), the 554-record inventory refresh [#221](https://github.com/aivibeflow/LLMLang/pull/221), this G-report predecessor [#223](https://github.com/aivibeflow/LLMLang/pull/223), the newer link audit [#224](https://github.com/aivibeflow/LLMLang/pull/224), the RT-24 Git replay workflow [#225](https://github.com/aivibeflow/LLMLang/pull/225), and the structure-contract synthesis [#226](https://github.com/aivibeflow/LLMLang/pull/226).
 - PRs [#220](https://github.com/aivibeflow/LLMLang/pull/220) and [#222](https://github.com/aivibeflow/LLMLang/pull/222) were closed without merging. Their proposed changes are not treated as current-main changes unless independently present in another merged commit.
 - PR [#232](https://github.com/aivibeflow/LLMLang/pull/232) merged a workflow-only change and did not change the research tree used by the pinned A audit.
-- Current RT-00 A freshness and content-role work is proposed in [#234](https://github.com/aivibeflow/LLMLang/pull/234), which remains open and unmerged at the time of this report update.
+- PR [#234](https://github.com/aivibeflow/LLMLang/pull/234) has since merged. Its 580-record inventory and 253/289 role-triage baseline are superseded by the 2026-11-23 A follow-up in §16.
 
 The later E audit in PR #224 scanned 285 Markdown plus 3 MDX documents (288 total): 3,142 link occurrences, 1,463 unique links, 1,797 accepted, 82 unresolved, and 1,263 excluded. All 82 unresolved cases remain confined to upstream snapshots/upstream-site-root paths; external URL availability and fragments on omitted snapshot targets remain unverified. The RT-24 replay reproduction is now represented by merged workflow PR #225; the workflow itself must be checked for its exact final run before treating Git 2.52.0 as reproduced.
 
-## 2. Current stage-by-stage status (2026-11-22)
+## 2. Current stage-by-stage status (2026-11-23; supersedes the earlier table)
 
 | Stage | Current integrated result | Status |
 |---|---|---|
-| A — inventory | Current-main baseline at `fc717d9` has 578 research files, 24 absent manifest paths, 20 stale existing blob identities, and 289 prototype paths. The open PR #234 branch adds the two RT-00 audit reports, refreshes the manifest to 580 records, refreshes 21 existing blobs (including the updated G report), and records 253 individually role-triaged prototype paths; 36 remain outside that total. | **Open / PR #234:** Required CI, link/anchor and inventory freshness checks passed; index coverage passed on the unchanged README revision. Thirty-six prototype paths and claim-level validation remain open |
-| B-03 — cross-cutting semantics | Eight interface/proof gaps recorded; no direct contradiction in the reviewed scope. | **Bounded audit merged** in PR #124 |
+| A — inventory | PR #234 merged a 580-record snapshot with 253/289 individually role-triaged prototype paths. PR #237 changed RT-19 (the only changed `research/` path in its three-file commit delta) and added ADR-017 outside `research/`; the prior manifest therefore had one stale RT-19 blob/size record. The 2026-11-23 A follow-up adds one role-review report, refreshes RT-19 and the updated index/status records, and maps all 289 prototype paths. | **In progress / A follow-up branch:** final recursive-tree workflow pending; 137/136 Scenario crosswalk and claim-level/reproducibility validation remain open |
+| B-03 — cross-cutting semantics | Eight interface/proof gaps recorded in the bounded audit. ADR-017 subsequently accepted JSON as the default MCP-facing SPG object format, without deciding repository serialization or hashing; this scoped change requires a B3/F delta review. | **Bounded audit merged** in PR #124; post-ADR-017 refresh open |
 | B-04 — duplicates/supersession | Current-main duplicate/supersession audit integrated in PR #152; exact-blob and scoped section-supersession findings retained. | **Bounded audit merged;** corpus-wide semantic duplicate/orphan/contradiction review remains open |
 | B-05 — traceability graph | Current-main graph audit and bounded claim pilots integrated in PRs #151, #213 and #216. | **Bounded audit merged;** selected claim traces do not establish exhaustive claim-level coverage |
 | B-06 — contradictions/unresolved | Unified register integrated in PRs #154, #213 and #216; scoped apparent conflicts and open design/proof/evidence gaps are recorded. | **Bounded register merged;** unresolved items remain |
 | C — reproducibility | RT-04 native/LLVM probes 10/10 and 2/2; RT-16 authorization 24/24; CLI host references 34/34; RT-24 call-target merge 18/18 under Git 2.56.1; RT-26 cooperative reservation/cancellation 7/7. | **Partial:** these are bounded fixtures; Provider profiler, fuel models, full RT-24 Git 2.52.0 replay reproduction, and broad prototype reproduction remain open |
 | D — external provenance | 13/13 local snapshot blobs match the pinned manifest; 4/4 upstream commit trees and GitHub signature checks were verified in the pinned provenance audit. | **Partial:** OCI/Alive2 link closure, REAPI proto import closure, and external URL freshness remain open |
 | E — links/anchors | PR #224 scan covered 285 Markdown + 3 MDX files: 3,142 occurrences, 1,463 unique, 1,797 accepted, 82 unresolved, 1,263 excluded. All unresolved cases are confined to upstream snapshots/upstream-site-root paths. | **Local offline scan complete for that pinned checkout;** external URLs and omitted-target fragments remain unverified |
-| F — document alignment | 26 RT areas and 108 DEP edges structurally registered; 137 Scenario-named paths versus 136 mapped files; prototype role-triage total 253/289 on PR #234 branch. | **Partial:** one Scenario path discrepancy, 36 prototype paths, candidate status alignment and broader index/provenance checks remain open |
+| F — document alignment | 26 RT areas and 108 DEP edges structurally registered; 137 Scenario-named paths versus 136 mapped files; prototype role-triage total 289/289 on the 2026-11-23 A branch. ADR-017's scoped MCP JSON decision postdates the B3/F baseline. | **Partial:** Scenario crosswalk discrepancy, ADR-017 delta alignment, candidate status alignment and broader index/provenance checks remain open |
 | G — status | This report distinguishes merged bounded evidence from branch-only work and historical snapshots. | **Not a closure declaration** |
 
 This table supersedes the historical stage counts in the 2026-11-21 executive snapshot above.
@@ -482,3 +482,16 @@ The RT-04 local PLAN anchor correction was merged in PR #218. PR #220 was closed
 ### 15.4 Remaining RT-00 gaps
 
 RT-00 is not complete. Inventory path/blob/size reconciliation is merged for the 554-artifact snapshot, but semantic role review of 36 prototype paths, the 137-versus-136 Scenario crosswalk discrepancy, claim-level graph coverage, exact RT-13 reproduction, RT-24 Git 2.52.0 reproduction, external-source snapshot closure, full reproducibility/provenance, and PLAN exit-criteria reconciliation remain open. No bounded experiment is promoted to a general semantic guarantee.
+
+
+## 16. Current-main refresh after PR #234/#237 — 2026-11-23
+
+Current main is `09db9b75f7ee928285fcfd8005f62ad1513202e7`. PR #234 is merged. The exact comparison from its merge commit `ad5b81723ac7995408054b311ac523154fefac85` to current main contains one commit and three changed paths: ADR-015, new ADR-017, and RT-19. RT-19 is the only changed path under `research/`.
+
+The inventory manifest inherited from PR #234 had 580 records and a single stale record for RT-19: the manifest stored blob `555fb44b07e128598ca65d46d93f072934621d7c` at 31,844 bytes, while current main has blob `fcc78370362f93261b7117ca86a7afcaaa09cf7b` at 32,848 bytes. The README and this G report matched their recorded blob identities at the baseline check. No research path addition or deletion was present in the PR #237 delta.
+
+The 2026-11-23 A follow-up adds [the prototype role review](RT-00-A-PROTOTYPE-ROLE-REVIEW-2026-11-23.md), refreshes the RT-19 record and the changed report/index blobs, and updates the prototype-family review ledger. It maps all **289/289** prototype paths individually by content role. This is not claim-level or execution validation. The new report makes the research-tree target 581 artifacts excluding the manifest (580 from the main baseline plus the new report); the exact recursive-tree workflow must pass on the final PR head before this target is treated as verified.
+
+ADR-017 is accepted but narrowly scoped: JSON is the default representation for independently addressable SPG objects exchanged with agents through MCP; nested structures remain inside one object value and inter-object references use SPG IDs. It does not select the canonical Git repository representation, on-disk/in-memory storage, canonicalization profile, or Content Hash. The earlier B3 and F audits predate this decision and require a bounded follow-up, not a retroactive rewrite.
+
+The 137 Scenario-named paths versus 136 mapped Scenario files remains unresolved. The `ImpHash` / `ImplHash` issue remains unresolved. RT-00 is not complete.
