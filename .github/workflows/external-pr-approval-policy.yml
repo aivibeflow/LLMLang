@@ -45,7 +45,7 @@ jobs:
             exit 0
           fi
 
-          echo "PR author $PR_AUTHOR is not a repository collaborator; checking approvals from collaborators with write access."
+          echo "PR author $PR_AUTHOR is not a repository collaborator; checking approvals from repository collaborators."
 
           # Keep only each reviewer's latest submitted review. An approval is
           # valid only when it targets the current PR head commit.
@@ -61,14 +61,11 @@ jobs:
 
           while IFS= read -r reviewer; do
             [ -n "$reviewer" ] || continue
-            reviewer_permission="$(gh api "repos/$repo/collaborators/$reviewer/permission" --jq '.permission' 2>/dev/null || true)"
-            case "$reviewer_permission" in
-              write|maintain|admin)
-                echo "Approval from collaborator $reviewer ($reviewer_permission) is valid for head $HEAD_SHA."
-                exit 0
-                ;;
-            esac
+            if gh api --silent "repos/$repo/collaborators/$reviewer" >/dev/null 2>&1; then
+              echo "Approval from repository collaborator $reviewer is valid for head $HEAD_SHA."
+              exit 0
+            fi
           done <<< "$approvers"
 
-          echo "::error::This PR is from a non-collaborator and needs an approval on the current commit from a repository collaborator with write access or higher."
+          echo "::error::This PR is from a non-collaborator and needs an approval on the current commit from any repository collaborator."
           exit 1
