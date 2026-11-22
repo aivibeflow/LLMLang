@@ -71,7 +71,7 @@ The reservation model compares separate checks with serialized hierarchical rese
 
 The RT-26 parent document and taxonomy still say “not started.” The current status should be represented as **in progress — bounded cooperative reservation/cancellation evidence reproduced; broad accounting and enforcement research remains open**. PLAN stage 5 already records the bounded evidence; the mandatory Stage 7 research item correctly remains unchecked.
 
-The nine DEP-100–108 relations remain hypotheses. The prototype results do not validate all nine edges or establish the authority model required to enforce them.
+The nine DEP-100–108 relations remain hypotheses. The prototype results do not validate all nine edges or establish the authority model required to enforce them. The bounded RT-26 claim/test/run chain is also documented in B5 §10–11.3 and the B6 unresolved register; this delta reconciles its current cross-cutting status rather than repeating those audits.
 
 ## 4. PR #237 — accepted but narrowly scoped MCP object format
 
@@ -127,9 +127,9 @@ The pre-PR-121 B-02b.1 statement that SCW-30 is open is superseded by the merged
 
 Two reproducible prototype studies exist and the current test source is identical to the tested source. The broad RT-26 research remains incomplete. The taxonomy and parent RT-26 document should distinguish “bounded pilot evidence exists” from “full resource accounting/enforcement research complete.”
 
-### B3-12 — B-03 summary count is internally inconsistent
+### Clarification — original B-03 finding count
 
-The original B-03 executive summary says **seven** material unresolved cross-document boundaries, while its findings are numbered B3-01 through B3-08 and its matrix contains eight cross-cutting domains. The report does not explain whether one finding is a subfinding or whether the summary count is wrong. Preserve this as an editorial unresolved item until the original report's intended counting rule is established; do not silently change the historical count.
+The original B-03 executive summary's “seven material unresolved cross-document boundaries” plus “one important evidence limitation” is consistent with eight numbered findings: one finding is an evidence limitation rather than an additional cross-document boundary. No count defect is recorded, and the historical summary is not changed.
 
 ## 7. Findings that remain unresolved
 
@@ -147,7 +147,7 @@ The original B-03 executive summary says **seven** material unresolved cross-doc
 
 1. Update the RT-26 taxonomy row and parent-document status to “in progress — bounded cooperative model evidence exists; broad accounting/enforcement remains open.”
 2. Preserve the historical B-02b.1 SCW-30 statement but add a current-status reference to PR #121 and this delta; do not rewrite its baseline.
-3. Update the current unresolved register with B3-09 through B3-12 and preserve `ImpHash` / `ImplHash`.
+3. Update the current unresolved register with B3-09 through B3-11 and preserve `ImpHash` / `ImplHash`.
 4. Update PLAN/README/G and the RT-26 status references only after the B–E audits are reconciled.
 5. Keep ADR-017's MCP-only scope explicit wherever JSON is discussed; do not extend it to repository serialization or canonical hashing.
 
