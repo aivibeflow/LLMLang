@@ -15167,7 +15167,8 @@
       },
       "remaining_family_only_files": 22,
       "note_current_tree": "Current exact tree contains 289 prototype paths. 253 have individual content-role triage, including the 11 new paths reviewed on 2026-11-22. 36 paths remain outside the recorded individually role-triaged total. Family path counts are inventory counts, not semantic or execution coverage.",
-      "remaining_unreviewed_current_paths": 36
+      "remaining_unreviewed_current_paths": 36,
+      "remaining_family_only_files_note": "The numeric remaining_family_only_files field is retained from the earlier family-only review snapshot (22); use remaining_unreviewed_current_paths=36 for the current exact-tree difference."
     },
     "reference_crosswalk": {
       "source_documents_mapped": 9,
@@ -15384,7 +15385,7 @@
     "previous_records": 554,
     "current_records": 580,
     "added_records": 26,
-    "refreshed_existing_records": 0,
+    "refreshed_existing_records": 21,
     "removed_paths": 0,
     "tree_counts": {
       "research_artifacts_excluding_manifest": 580,
