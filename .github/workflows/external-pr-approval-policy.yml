@@ -1,0 +1,71 @@
+name: Enforce external PR approval policy
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+  pull_request_review:
+    types:
+      - submitted
+      - dismissed
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: external-approval-policy-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  approval-policy:
+    name: external-approval-policy
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check collaborator status and approval
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          repo="$GITHUB_REPOSITORY"
+
+          # Check actual collaborator membership. The permission endpoint reports
+          # "read" for arbitrary users on public repositories, so it cannot be
+          # used to distinguish collaborators from the public.
+          if gh api --silent "repos/$repo/collaborators/$PR_AUTHOR" >/dev/null 2>&1; then
+            echo "PR author $PR_AUTHOR is a repository collaborator; approval is not required."
+            exit 0
+          fi
+
+          echo "PR author $PR_AUTHOR is not a repository collaborator; checking approvals from repository collaborators."
+
+          # Keep only each reviewer's latest submitted review. An approval is
+          # valid only when it targets the current PR head commit.
+          reviews="$(gh api --paginate --slurp "repos/$repo/pulls/$PR_NUMBER/reviews?per_page=100" | jq 'add')"
+          approvers="$(jq -r --arg head "$HEAD_SHA" '
+            map(select(.user.login != null))
+            | sort_by(.submitted_at // "")
+            | group_by(.user.login)
+            | map(last)
+            | map(select(.state == "APPROVED" and .commit_id == $head))
+            | .[].user.login
+          ' <<< "$reviews")"
+
+          while IFS= read -r reviewer; do
+            [ -n "$reviewer" ] || continue
+            if gh api --silent "repos/$repo/collaborators/$reviewer" >/dev/null 2>&1; then
+              echo "Approval from repository collaborator $reviewer is valid for head $HEAD_SHA."
+              exit 0
+            fi
+          done <<< "$approvers"
+
+          echo "::error::This PR is from a non-collaborator and needs an approval on the current commit from any repository collaborator."
+          exit 1
