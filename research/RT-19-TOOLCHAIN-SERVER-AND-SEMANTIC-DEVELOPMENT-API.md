@@ -1,9 +1,9 @@
 # RT-19 — Toolchain Server and Semantic Development API
 
-**Status:** Research proposal; no implementation architecture or wire contract is accepted  
+**Status:** Research proposal; the general implementation architecture and wire contract remain unaccepted. The scoped MCP-facing object format is decided by [ADR-017](../docs/adr/017-mcp-agent-object-format.md).  
 **Date:** 2026-11-18  
 **Research area:** Development tooling, semantic editing, storage, collaboration, and AI integration  
-**Related:** [RFC — LLMLang Development Engine](RFC-DEVELOPMENT-ENGINE.md), [Git Semantic Repository](GIT-SEMANTIC-REPOSITORY.md), [ADR-014](../docs/adr/014-git-semantic-merge.md), [Semantic Compilation Cache](SEMANTIC-COMPILATION-CACHE.md), [Package System](PACKAGE-SYSTEM.md), [ADR-015](../docs/adr/015-toolchain-server-semantic-api.md), [Prototype 01](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md)
+**Related:** [RFC — LLMLang Development Engine](RFC-DEVELOPMENT-ENGINE.md), [Git Semantic Repository](GIT-SEMANTIC-REPOSITORY.md), [ADR-014](../docs/adr/014-git-semantic-merge.md), [Semantic Compilation Cache](SEMANTIC-COMPILATION-CACHE.md), [Package System](PACKAGE-SYSTEM.md), [ADR-015](../docs/adr/015-toolchain-server-semantic-api.md), [ADR-017 — MCP agent object format](../docs/adr/017-mcp-agent-object-format.md), [Prototype 01](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md)
 
 > This research investigates making structured Toolchain API operations—not direct source-file editing—the primary way for agents and automation to inspect and change LLMLang programs. It does not amend the candidate language specification or silently turn the proposed architecture into an accepted decision.
 
@@ -116,6 +116,13 @@ The MCP adapter maps the domain API to MCP primitives:
 The MCP server advertises only capabilities it actually implements. Long-running operations should expose progress/cancellation where supported. Tool results should be concise and structured, with stable diagnostic codes and handles for retrieving large results.
 
 The adapter must not treat MCP connection identity as durable workspace identity. Every stateful operation carries explicit identifiers and authorization context. Reconnection or a new client process must not silently select another workspace.
+
+
+### 3.2.1 Default format for SPG objects exchanged through MCP
+
+[ADR-017](../docs/adr/017-mcp-agent-object-format.md) records the accepted scoped decision: **JSON is the default representation for SPG objects exchanged with agents through MCP**. Each independently addressable graph object is one JSON value; its nested structures remain inside that value, and references to other graph objects use their SPG IDs.
+
+Other textual formats are permitted when a concrete need justifies them, but their support is not a priority and must not fragment the default agent workflow. This is a decision about MCP-facing object payloads, not MCP's JSON-RPC framing. It does not select the canonical Git repository representation, internal storage format, canonicalization profile, or Content Hash algorithm.
 
 ### 3.3 Other adapters
 
