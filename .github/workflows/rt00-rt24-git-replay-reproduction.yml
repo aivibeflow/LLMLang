@@ -1,0 +1,79 @@
+name: RT-00 RT-24 Git Replay Exact Reproduction
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/rt00-rt24-git-replay-reproduction.yml"
+      - "research/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md"
+      - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    name: reproduce-rt24-git-replay
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out exact tested revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Set up declared Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+
+      - name: Install pinned Git 2.52.0 from upstream source
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y build-essential libssl-dev libcurl4-openssl-dev libexpat1-dev gettext zlib1g-dev libpcre2-dev
+          curl -fsSL https://github.com/git/git/archive/refs/tags/v2.52.0.tar.gz -o /tmp/git-v2.52.0.tar.gz
+          sha256sum /tmp/git-v2.52.0.tar.gz | tee "$GITHUB_WORKSPACE/git-source-digest.txt"
+          tar -xzf /tmp/git-v2.52.0.tar.gz -C /tmp
+          make -C /tmp/git-2.52.0 prefix="$HOME/git-2.52.0" NO_GETTEXT=YesPlease NO_TCLTK=YesPlease NO_PERL=YesPlease NO_PYTHON=YesPlease install
+          echo "$HOME/git-2.52.0/bin" >> "$GITHUB_PATH"
+
+      - name: Record exact source identity and environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/rt24-git-replay
+          {
+            echo "commit=$(git rev-parse HEAD)"
+            python --version
+            python -c 'import sys; print(sys.version)'
+            git --version
+            sha256sum research/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md
+            sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_git_replay.py
+            sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_merge_tree_gate.py
+          } | tee artifacts/rt24-git-replay/environment-and-inputs.txt
+          cp git-source-digest.txt artifacts/rt24-git-replay/
+
+      - name: Reproduce source closure after Git replay
+        working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B -m unittest -v tests.test_rt24_git_replay tests.test_rt24_merge_tree_gate 2>&1 | tee "$GITHUB_WORKSPACE/artifacts/rt24-git-replay/rt24-git-replay.log"
+
+      - name: Hash reproduction log
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum artifacts/rt24-git-replay/rt24-git-replay.log | tee artifacts/rt24-git-replay/log-digest.txt
+
+      - name: Retain exact reproduction evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: rt00-rt24-git-replay-reproduction-${{ github.sha }}
+          path: artifacts/rt24-git-replay/
+          if-no-files-found: error
+          retention-days: 90
