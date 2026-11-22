@@ -2,8 +2,8 @@
   "schema_version": 1,
   "generated_at": "2026-11-22",
   "repository": "aivibeflow/LLMLang",
-  "revision": "0a13a6abc5e1c644b6fe7a9393d1f94124eeaea9",
-  "source": "Recursive Git tree audited at 0a13a6abc5e1c644b6fe7a9393d1f94124eeaea9; manifest excludes itself. This branch includes the current-main freshness audit and content-role triage reports.",
+  "revision": "6528892f88b946b72bb8277e93f0844a00237661",
+  "source": "Recursive Git tree audited at 6528892f88b946b72bb8277e93f0844a00237661; manifest excludes itself. This branch includes the current-main freshness audit and content-role triage reports.",
   "counts": {
     "research_files": 580,
     "markdown_files": 299,
@@ -13672,8 +13672,8 @@
     },
     {
       "path": "research/RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md",
-      "git_blob_sha": "f5a52a45a3a3d0734fb6c0778d483b9f95132f78",
-      "size_bytes": 44175,
+      "git_blob_sha": "38650d3b589fc27c94c55011a75ab5a28b446b81",
+      "size_bytes": 45117,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -15378,7 +15378,7 @@
   },
   "current_tree_reconciliation": {
     "reviewed_at": "2026-11-22",
-    "source_revision": "0a13a6abc5e1c644b6fe7a9393d1f94124eeaea9",
+    "source_revision": "6528892f88b946b72bb8277e93f0844a00237661",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
@@ -15421,15 +15421,15 @@
     "semantic_review_boundary": "253 prototype paths have individual content-role triage; 36 of 289 current prototype paths remain outside that total. The 11 newly absent prototype paths were reviewed in the 2026-11-22 A content-role pass. This does not validate every claim or reproduce every test.",
     "scenario_crosswalk_boundary": "137 Scenario-named paths are present; the explicit scenario crosswalk still maps 136 files. One path discrepancy remains unresolved.",
     "audit_status": "Exact path, Git blob SHA and byte-size reconciliation plus content-role triage of 24 newly inventoried artifacts; no corpus-wide claim-level or reproducibility completeness asserted.",
-    "manifest_generation_revision": "0a13a6abc5e1c644b6fe7a9393d1f94124eeaea9",
+    "manifest_generation_revision": "6528892f88b946b72bb8277e93f0844a00237661",
     "report_blob_sha": "a4884363772de304d922c4cb1570b5b98abee91d",
     "report_size_bytes": 11216,
     "role_triage_report_blob_sha": "7174f961c56599e00a3283322c6a0ef16a22e6b8",
     "role_triage_report_size_bytes": 10192,
     "readme_blob_sha": "138f3fb800df6be4f841c088d20cd95fcd8165fb",
     "readme_size_bytes": 31793,
-    "g_report_blob_sha": "f5a52a45a3a3d0734fb6c0778d483b9f95132f78",
-    "g_report_size_bytes": 44175
+    "g_report_blob_sha": "38650d3b589fc27c94c55011a75ab5a28b446b81",
+    "g_report_size_bytes": 45117
   },
   "previous_tree_reconciliation": {
     "reviewed_at": "2026-11-21",
