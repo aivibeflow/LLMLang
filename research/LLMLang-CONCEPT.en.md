@@ -510,11 +510,11 @@ The existence of a test is not, by itself, a formal proof that a property holds 
 
 ---
 
-## 11. Декларативные ограничения и автоматическая реализация
+## 11. Declarative Constraints and Automatic Implementation
 
-Одна из исследовательских возможностей — описывать ограничения и гарантии, позволяя LLM предлагать реализацию.
+One research direction is to describe constraints and guarantees while letting the LLM propose an implementation.
 
-Пример:
+Example:
 
 ```text
 component OrderProcessor:
@@ -532,22 +532,22 @@ component OrderProcessor:
         automatic
 ```
 
-Предполагаемый процесс:
-1. Формализовать гарантии и ограничения.
-2. Проверить их непротиворечивость и достаточность.
-3. Предложить архитектуру и алгоритм.
-4. Сформировать реализацию.
-5. Выполнить статические и формальные проверки.
-6. Запустить тесты и измерения.
-7. Отклонить реализацию, не удовлетворяющую установленным критериям.
+Proposed process:
+1. Formalize the guarantees and constraints.
+2. Check them for consistency and sufficiency.
+3. Propose an architecture and algorithm.
+4. Generate the implementation.
+5. Run static and formal checks.
+6. Run tests and measurements.
+7. Reject any implementation that fails to meet the established criteria.
 
-`implementation: automatic` означает генерацию кандидата реализации, а не магическое решение произвольной задачи компилятором. Кандидат остаётся недоверенным до проверки.
+`implementation: automatic` means generating an implementation candidate, not magically having the compiler solve an arbitrary problem. The candidate remains untrusted until verified.
 
 ---
 
-## 12. Компилятор и общая архитектура
+## 12. Compiler and Overall Architecture
 
-Предлагается не традиционный монолитный компилятор, а многоступенчатая система трансляции и верификации.
+Rather than a conventional monolithic compiler, a multi-stage translation and verification system is proposed.
 
 ```text
 Intent / Specification
@@ -584,31 +584,31 @@ Lowering / Optimization
         Runtime
 ```
 
-LLM формирует и изменяет предложения программы. Проверяющие подсистемы должны быть детерминированными и независимыми от LLM.
+The LLM creates and modifies program proposals. The checking subsystems must be deterministic and independent of the LLM.
 
 ### 12.1. Structural Validator
 
-Проверяет:
-- существование всех ссылок;
-- корректность типов объектов;
-- уникальность ID;
-- обязательные поля;
-- допустимость циклов;
-- соответствие графа схеме языка.
+Checks:
+- that all references exist;
+- object type correctness;
+- ID uniqueness;
+- required fields;
+- whether cycles are permitted;
+- conformance of the graph to the language schema.
 
 ### 12.2. Type Checker
 
-Проверяет статическую корректность типов, включая алгебраические, refinement- и типы состояний.
+Checks static type correctness, including algebraic, refinement, and state types.
 
 ### 12.3. Effect Checker
 
-Проверяет, что реализация использует только объявленные эффекты и capabilities. Анализ должен учитывать транзитивные вызовы.
+Checks that an implementation uses only declared effects and capabilities. Analysis must account for transitive calls.
 
 ### 12.4. Contract Verifier
 
-Проверяет выполнение контрактов. Для подходящих задач может строить условия верификации и передавать их SMT-решателю.
+Checks contract satisfaction. For suitable problems, it may construct verification conditions and pass them to an SMT solver.
 
-Пример:
+Example:
 
 ```text
 requires:
@@ -619,54 +619,54 @@ ensures:
     balance - amount >= 0
 ```
 
-Упрощённое математическое обязательство:
+Simplified mathematical obligation:
 
 \[
 balance \ge amount \land amount \ge 0
 \Rightarrow balance - amount \ge 0
 \]
 
-Результаты должны иметь как минимум следующие статусы:
-- `PROVEN` — свойство доказано;
-- `DISPROVEN` — найден контрпример;
-- `UNKNOWN` — доказать или опровергнуть не удалось;
-- `NOT_CHECKED` — проверка не выполнялась.
+Results must have at least the following statuses:
+- `PROVEN` — the property has been proved;
+- `DISPROVEN` — a counterexample has been found;
+- `UNKNOWN` — neither proof nor disproof was obtained;
+- `NOT_CHECKED` — verification was not performed.
 
-`UNKNOWN` и `NOT_CHECKED` не должны считаться успешной проверкой.
+`UNKNOWN` and `NOT_CHECKED` must not count as successful verification.
 
 ### 12.5. Dependency Analyzer
 
-Отслеживает зависимости между:
-- требованиями;
-- контрактами;
-- типами;
-- архитектурными объектами;
-- алгоритмами;
-- реализациями;
-- тестами;
-- доказательствами.
+Tracks dependencies between:
+- requirements;
+- contracts;
+- types;
+- architectural objects;
+- algorithms;
+- implementations;
+- tests;
+- proofs.
 
-Изменение объекта должно инвалидировать зависимые результаты проверки, если они больше не гарантированно актуальны. Это основа инкрементальной компиляции.
+Changing an object must invalidate dependent verification results if they are no longer guaranteed to be current. This forms the basis for incremental compilation.
 
 ---
 
-## 13. Взаимодействие LLM и компилятора
+## 13. Interaction Between the LLM and the Compiler
 
-Традиционная модель:
+Conventional model:
 
 ```text
 LLM -> source code -> compiler -> errors
 ```
 
-Предлагаемая модель:
+Proposed model:
 
 ```text
 LLM -> structured proposal -> compiler -> verification feedback
 ```
 
-LLM создаёт типизированные объекты или предложения об изменении графа. Компилятор проверяет их и возвращает структурированные диагностики.
+The LLM creates typed objects or proposals for graph changes. The compiler checks them and returns structured diagnostics.
 
-Пример:
+Example:
 
 ```text
 RESULT: REJECTED
@@ -689,14 +689,14 @@ ACTUAL:
     total_balance = 120
 ```
 
-Диагностика должна быть:
-- привязана к объектам SPG;
-- машиночитаемой;
-- детерминированной;
-- максимально локальной;
-- снабжённой контрпримером, если он доступен.
+Diagnostics should be:
+- associated with SPG objects;
+- machine-readable;
+- deterministic;
+- as localized as possible;
+- accompanied by a counterexample when one is available.
 
-LLM может исправлять отклонённые объекты, но компилятор не должен считать собственное AI-исправление доказательством корректности.
+The LLM may repair rejected objects, but the compiler must not treat its own AI-generated fix as proof of correctness.
 
 ---
 
