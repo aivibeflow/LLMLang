@@ -7,6 +7,8 @@ on:
       - "research/**"
       - ".github/scripts/check_research_quality.py"
       - ".github/scripts/test_check_research_quality.py"
+      - ".github/scripts/replay_research_quality_sample.py"
+      - ".github/scripts/test_replay_research_quality_sample.py"
       - ".github/scripts/validate_research_quality_adjudication.py"
       - ".github/scripts/test_validate_research_quality_adjudication.py"
       - ".github/workflows/research-quality-pilot.yml"
@@ -38,6 +40,8 @@ jobs:
             echo '{"scope":"manual dispatch: no PR diff to inspect","reports_checked":0,"warnings":0,"reports":[]}' | tee artifacts/research-quality-pilot/warnings.json
           fi
           python3 --version | tee artifacts/research-quality-pilot/python-version.txt
+      - name: Test that historical warning sample survives document revision
+        run: python3 -B -m unittest discover -s .github/scripts -p 'test_replay_research_quality_sample.py' -v
       - name: Replay pinned historical report sample (output-only)
         shell: bash
         run: |
@@ -45,6 +49,8 @@ jobs:
           python3 -B .github/scripts/replay_research_quality_sample.py \
             --root . \
             --manifest research/quality-audit/2026-11-23-sample.json \
+            --from-baseline \
+            --assert-snapshot \
             --json-out artifacts/research-quality-pilot/real-report-sample.json
 
       - name: Check adjudication register accounting (not claim truth)
