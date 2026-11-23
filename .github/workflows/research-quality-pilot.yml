@@ -36,6 +36,15 @@ jobs:
             echo '{"scope":"manual dispatch: no PR diff to inspect","reports_checked":0,"warnings":0,"reports":[]}' | tee artifacts/research-quality-pilot/warnings.json
           fi
           python3 --version | tee artifacts/research-quality-pilot/python-version.txt
+      - name: Replay pinned historical report sample (output-only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -B .github/scripts/replay_research_quality_sample.py \
+            --root . \
+            --manifest research/quality-audit/2026-11-23-sample.json \
+            --json-out artifacts/research-quality-pilot/real-report-sample.json
+
       - name: Preserve pilot warnings (non-blocking)
         if: always()
         uses: actions/upload-artifact@v4

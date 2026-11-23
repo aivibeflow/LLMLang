@@ -49,7 +49,10 @@ def inspect(text: str) -> list[str]:
         if not re.search(pattern, headings, re.IGNORECASE):
             findings.append(f"missing section for {name}")
     for label in ("Status", "Baseline"):
-        if not re.search(rf"(?im)^\*\*{label}:\*\*\s*\S", text):
+        # Historical reports use "**Status:** ...", "**Status** — ...",
+        # or "- **Status** · ...". This is formatting variation, not absence.
+        marker = rf"(?im)^[ \t]*(?:-[ \t]*)?\*\*{label}:?\*\*[ \t]*(?:[:·—–-][ \t]*)?\S"
+        if not re.search(marker, text):
             findings.append(f"missing metadata: {label}")
     if not re.search(r"(?i)observation|assumption|conjecture|hypothesis|model result|experimental result|proof|prior.art claim", text):
         findings.append("no recognizable evidence class; human claim-level review required")

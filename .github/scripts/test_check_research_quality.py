@@ -48,6 +48,16 @@ class CheckerTests(unittest.TestCase):
         report = report.replace("**Fixture:** fixture.json\n", "").replace("**Tool versions:** Python 3.12.2\n", "").replace("**Expected output:** PASS; reject count 1\n", "")
         self.assertFalse(any("executable evidence" in f for f in inspect(report)))
 
+    def test_existing_metadata_punctuation_is_not_a_missing_field(self):
+        variants = [
+            COMPLETE.replace("**Status:** Research only", "- **Status** · Research only")
+                    .replace("**Baseline:** abc123", "- **Baseline** · `abc123`"),
+            COMPLETE.replace("**Status:** Research only", "**Status** — Research only")
+                    .replace("**Baseline:** abc123", "**Baseline** — abc123"),
+        ]
+        for report in variants:
+            self.assertEqual(inspect(report), [])
+
     def test_omissions_are_warnings(self):
         findings = inspect("# Proposal\n## Conclusions\n")
         self.assertIn("missing metadata: Baseline", findings)
