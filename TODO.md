@@ -21,6 +21,8 @@ The [Stage 0.2 warning adjudication](research/RT-00-QUALITY-RULES-ADJUDICATION-2
 
 **Stage 0.2 independent review handoff (pending):** [Eight diverse claim IDs](research/quality-audit/2026-11-23-independent-review-handoff.md) have a ready-to-use human Q1–Q5 reviewer protocol, but **no independent reviewer has completed it**. Separate [orthogonal model CI #45261537559](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559) passed seven tests on 3,456 JSON and 21,840 fairness inputs plus a Git-negative control; this is experimental corroboration in restricted models, not source-to-compiler correctness or accepted language policy. Keep [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) open for original-run provenance, independent claim review, generalization and maintainer quality-process adoption.
 
+**Stage 0.2 corpus sampling task:** the [root research census and 24-document independent-review queue](research/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md) is a fixed Git-tree structural sweep with per-file warnings and source identity. Every queued document initially has `NOT REVIEWED`; an independent human must inspect actual claims and evidence, including zero-warning reports, before correctness/false-negative judgments or policy decisions. Continue [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) without treating structural metrics as full research acceptance.
+
 ## How to use this register
 
 Each item has a stable ID. Keep the ID when the wording or status changes.
