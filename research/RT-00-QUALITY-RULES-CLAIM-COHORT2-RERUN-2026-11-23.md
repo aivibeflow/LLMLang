@@ -1,7 +1,7 @@
 # RT-00 — Second-cohort selected finite-experiment rerun protocol
 
 **Date:** 2026-11-23  
-**Status:** Three independent archived-source CI cases proposed; review GitHub Actions before citing new results  
+**Status:** Three independently executed archived-source CI cases passed; full CI run, exact source identities, host and output artifacts recorded below  
 **Issue:** [#285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../PLAN.md#02-establish-research-quality-and-decision-rules)  
 **Related claim audit:** [12 reports and 24 material claims](RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md), [frozen claim manifest](quality-audit/2026-11-23-claim-cohort2.json)  
 **Pinned source baseline:** `ff1295c1769bfe8546c4b63590c9f607349215ee`  
@@ -38,11 +38,19 @@ python3 -B -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_schedul
 (cd research/PROTOTYPES/DEPENDENCY-GRAPH-01 && python3 -B -m unittest -v tests.test_rt24_merge_tree_gate)
 ```
 
-The workflow stores original stdout/stderr as `result.log` and exact checkout information as `environment.txt`. An independently successful rerun should yield **6 / 5 / 7** tests respectively; failed or unsupported environments must be reported rather than removed or reinterpreted as proof. The version of Git supplied by Ubuntu is recorded, **not** assumed equal to the original RT-24 historical Git 2.52.0.
+The workflow stores original stdout/stderr as `result.log` and exact checkout information as `environment.txt`. The independent CI run reported **6 / 5 / 7** passing tests respectively with job-specific complete logs. Any future failed or unsupported environment must still be preserved rather than removed or reinterpreted as a proof. The version of Git supplied by Ubuntu is recorded, **not** assumed equal to the original RT-24 historical Git 2.52.0.
 
 ## 3. Observed result and scope limitations
 
-**Outcome pending when this report was authored.** Only a finished GitHub Actions run with exact job IDs, test logs and verified source identities qualifies as *new observed evidence*. The associated [claim-evidence cohort](RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md) independently verified the immutable source pointers, but **did not run these three experiments**.
+**Observed 2026-11-23 results:** [GitHub Actions run #45259153864](https://github.com/aivibeflow/LLMLang/actions/runs/45259153864) reports **all 3 / 3 jobs successful** with expected Git test blobs and CPython **3.12.14**, Git **2.56.1** on Ubuntu 24.04. Exact job IDs, source blobs, outcomes, per-job logs and artifact links are frozen in the [machine-readable outcome register](quality-audit/2026-11-23-claim-cohort2-rerun-results.json).
+
+| Study | Observed new result | Job / result artifact |
+| --- | --- | --- |
+| Scenario 110 finite JSON | **6 passing tests**, no failures | [Job #137988897112](https://github.com/aivibeflow/LLMLang/actions/runs/45259153864/job/137988897112), [artifact](https://github.com/aivibeflow/LLMLang/actions/runs/45259153864/artifacts/14858974727) |
+| Scenario 112 finite fairness | **5 passing tests**, no failures | [Job #137988896861](https://github.com/aivibeflow/LLMLang/actions/runs/45259153864/job/137988896861), [artifact](https://github.com/aivibeflow/LLMLang/actions/runs/45259153864/artifacts/14858779039) |
+| RT-24 closed Git-tree source gate | **7 passing tests**, no failures | [Job #137988896405](https://github.com/aivibeflow/LLMLang/actions/runs/45259153864/job/137988896405), [artifact](https://github.com/aivibeflow/LLMLang/actions/runs/45259153864/artifacts/14858284758) |
+
+This is fresh bounded **executable corroboration of selected claims**, not an additional formal theorem. The [source-bound 24-claim audit](RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md) still has 21 other claims without an independent execution specifically in this new workflow. In particular, passing the RT-24 suite on Git 2.56.1 **does not exactly reproduce** its originally reported Git 2.52.0 environment.
 
 - **Scenario 110:** passing six finite JSON decoding tests supports the supplied one-added-Boolean-field model only. No binary serializer, Protobuf, Avro, CBOR, wire format selection, schema evolution policy, ABI, or real migration tested.
 - **Scenario 112:** passing five finite-cycle/round-robin tests supports a limited difference between weak and strong fairness on a repeating enabledness trace. It does not establish runtime scheduler latency, crash tolerance, blocked task progress or a normative fairness promise.
