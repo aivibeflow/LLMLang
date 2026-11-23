@@ -1,0 +1,290 @@
+{
+  "kind": "manual adjudication of 33 previously unclassified warning instances; not technical claim validation",
+  "date": "2026-11-23",
+  "baseline_commit": "419ae2c02b27eb52c63eef3a255a83004444222e",
+  "source_sample": "research/quality-audit/2026-11-23-sample.json",
+  "decision_rule": "layout-only means content is present under another heading; documentation-gap means an expected documentation field/crosswalk is missing or incomplete, not that a scientific claim is false",
+  "summary": {
+    "remaining_initial": 33,
+    "documentation-gap": 17,
+    "layout-only": 16
+  },
+  "files": [
+    {
+      "path": "research/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md",
+      "judgments": [
+        {
+          "warning": "missing section for hypotheses/alternatives",
+          "disposition": "documentation-gap",
+          "source_lines": "L7–11, L17–25",
+          "assessment": "A bounded question and two-evaluator cross-check exist, but rival hypotheses or an explicit N/A to an alternatives comparison are not recorded.",
+          "follow_up": "Add a compact alternative/falsifier statement or justified N/A; do not call agreement a proof."
+        },
+        {
+          "warning": "missing section for prior art/sources",
+          "disposition": "documentation-gap",
+          "source_lines": "L9–11, L25",
+          "assessment": "COR-06 is named and a test is linked, but a pinned prior-art/research reference list is not exposed.",
+          "follow_up": "Link precise COR-06/RT source and versions, or record source-only N/A."
+        },
+        {
+          "warning": "missing section for draft impact/traceability",
+          "disposition": "documentation-gap",
+          "source_lines": "L3–5, L31, L41",
+          "assessment": "RT areas and a non-selection boundary are stated, but there is no explicit draft impact and stable TODO/question crosswalk.",
+          "follow_up": "Add explicit draft impact: none, plus applicable stable research/TODO references."
+        },
+        {
+          "warning": "missing metadata: Baseline",
+          "disposition": "documentation-gap",
+          "source_lines": "L3–5, L43–49",
+          "assessment": "Updated date and test command do not pin the exact original source revision/dirty state.",
+          "follow_up": "Recover exact historical commit/fixture provenance or mark original revision unrecoverable."
+        }
+      ]
+    },
+    {
+      "path": "research/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md",
+      "judgments": [
+        {
+          "warning": "missing section for hypotheses/alternatives",
+          "disposition": "documentation-gap",
+          "source_lines": "L7–15, L51–57",
+          "assessment": "The question, POSIX worker approach and next discriminators are explicit, but competing process/timeout designs and falsifiers are not tabulated.",
+          "follow_up": "Add scoped alternatives or a reason this single-vector probe needs no comparison."
+        },
+        {
+          "warning": "missing section for draft impact/traceability",
+          "disposition": "documentation-gap",
+          "source_lines": "L3–5, L38, L51–57",
+          "assessment": "RT areas and not-selected policy exist; no concise link to TODO/draft or an explicit none is present.",
+          "follow_up": "Add stable LL question and draft non-impact record."
+        },
+        {
+          "warning": "missing metadata: Baseline",
+          "disposition": "documentation-gap",
+          "source_lines": "L19, L40–49",
+          "assessment": "Versions/requirements and commands are present, but the original exact repository revision is not given.",
+          "follow_up": "Pin source tree and environment of the reported run before claiming independent reproduction."
+        }
+      ]
+    },
+    {
+      "path": "research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
+      "judgments": [
+        {
+          "warning": "missing section for hypotheses/alternatives",
+          "disposition": "layout-only",
+          "source_lines": "L9–15, L28–35",
+          "assessment": "The report explicitly compares global sequential ordering and direct release/acquire+relaxed alternatives, but does not use an Alternatives heading.",
+          "follow_up": "No substantive change; optional heading alias in a future heuristic."
+        },
+        {
+          "warning": "missing section for draft impact/traceability",
+          "disposition": "documentation-gap",
+          "source_lines": "L3–5, L43–47",
+          "assessment": "Research areas, candidate implications and unselected LLMLang policy are present, but no explicit candidate draft section/none and stable open question are mapped.",
+          "follow_up": "Record draft: none and relevant memory-model open question when reused for design."
+        },
+        {
+          "warning": "missing metadata: Baseline",
+          "disposition": "documentation-gap",
+          "source_lines": "L37–41",
+          "assessment": "A short historical base plus scenario files is not an immutable complete source snapshot.",
+          "follow_up": "Record source commit and source changes in a reproducible tree or note unavailability."
+        }
+      ]
+    },
+    {
+      "path": "research/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md",
+      "judgments": [
+        {
+          "warning": "missing section for hypotheses/alternatives",
+          "disposition": "layout-only",
+          "source_lines": "L9–17, L19–29",
+          "assessment": "Transfer-before/after cleanup and caller-policy variations are explicit comparisons under Translation and Results.",
+          "follow_up": "No additional section required for this bounded fixture comparison."
+        },
+        {
+          "warning": "missing section for draft impact/traceability",
+          "disposition": "layout-only",
+          "source_lines": "L3–5, L11, L37–39",
+          "assessment": "The RT areas, ADR-016, typed caller recovery, and non-generalized scope are explicit; no draft mutation is proposed.",
+          "follow_up": "Optional concise draft impact: none can improve discoverability."
+        },
+        {
+          "warning": "missing metadata: Baseline",
+          "disposition": "documentation-gap",
+          "source_lines": "L31–39",
+          "assessment": "Pinned rustc and host information exists, but no exact repository/fixture commit identifies all source files used in the reported 125,952 comparisons.",
+          "follow_up": "Pin complete source state before describing a clean independent rerun."
+        }
+      ]
+    },
+    {
+      "path": "research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md",
+      "judgments": [
+        {
+          "warning": "missing section for experiments/method",
+          "disposition": "layout-only",
+          "source_lines": "L9–40, L281–312, L336–351",
+          "assessment": "A source-based comparative method and separately linked prototype/scenario matrix are described; a single executable command is not this survey’s method.",
+          "follow_up": "Keep evidence-specific reproduction in linked prototype; consider a short Method navigation pointer."
+        },
+        {
+          "warning": "missing section for draft impact/traceability",
+          "disposition": "layout-only",
+          "source_lines": "L3–11, L38–40, L313–325, L340–351",
+          "assessment": "RT scope, open alternatives, non-selection and remaining exit gates make no draft authorization; linked RT-24 evidence clarifies dependencies.",
+          "follow_up": "Optional explicit draft impact none; no spec text should be inferred."
+        },
+        {
+          "warning": "missing metadata: Baseline",
+          "disposition": "documentation-gap",
+          "source_lines": "L3–7, L336–338",
+          "assessment": "An update date and prototype links do not establish the exact snapshot/version of all reviewed comparative sources.",
+          "follow_up": "Add source editions/commit manifest or acknowledge review-date limitation."
+        }
+      ]
+    },
+    {
+      "path": "research/RT-11-BINDING-INVALIDATION-BENCHMARK.md",
+      "judgments": [
+        {
+          "warning": "missing section for hypotheses/alternatives",
+          "disposition": "layout-only",
+          "source_lines": "L5–21, L27–38",
+          "assessment": "Exact linkage versus separate linkage and root/projection evidence-key alternatives are the core of the experiment.",
+          "follow_up": "Optional shared heading would reduce false alarms."
+        },
+        {
+          "warning": "missing section for decision boundary",
+          "disposition": "layout-only",
+          "source_lines": "L40–44",
+          "assessment": "Consequences for the RFC explicitly say what synthetic benchmark findings cannot establish.",
+          "follow_up": "This is an explicit non-selection boundary despite its heading."
+        },
+        {
+          "warning": "missing section for draft impact/traceability",
+          "disposition": "layout-only",
+          "source_lines": "L5–9, L40–44, L54",
+          "assessment": "The linked RFC and explicit statement that an LLMLang ABI/general toolchain is not established bound the draft impact.",
+          "follow_up": "Optional draft: none entry for reviewer navigation."
+        },
+        {
+          "warning": "missing metadata: Baseline",
+          "disposition": "documentation-gap",
+          "source_lines": "L46–54",
+          "assessment": "A base commit plus an unspecified working-tree experiment does not pin a full reproducible experiment tree.",
+          "follow_up": "Recover complete source revision/patch or label provenance partial."
+        },
+        {
+          "warning": "no recognizable evidence class; human claim-level review required",
+          "disposition": "layout-only",
+          "source_lines": "L3, L23–38, L46–54",
+          "assessment": "Status explicitly says executable compiler experiment, and measured action counts and input/output witnesses are described; a literal vocabulary token is absent.",
+          "follow_up": "Do not convert measured counts into proofs; optional primary class Experimental result in future report."
+        }
+      ]
+    },
+    {
+      "path": "research/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md",
+      "judgments": [
+        {
+          "warning": "missing section for hypotheses/alternatives",
+          "disposition": "layout-only",
+          "source_lines": "L8–22, L57–89",
+          "assessment": "The narrative compares Logos, Ethos and Carcara and explicitly rejects solver UNSAT as proof, but uses Candidate checker research heading.",
+          "follow_up": "No substantive change; keep proposal distinct from executed proof."
+        },
+        {
+          "warning": "missing section for experiments/method",
+          "disposition": "documentation-gap",
+          "source_lines": "L329–358, L397–403",
+          "assessment": "Adversarial cases are proposed and 15 fake-executable runner tests are described, but there is no local exact runner command/toolchain fixture bundle in this report.",
+          "follow_up": "Link exact test invocation, versions, fixture paths and expected output, or explicitly defer to pinned Prototype 29 results."
+        },
+        {
+          "warning": "missing section for results",
+          "disposition": "layout-only",
+          "source_lines": "L349–358, L397–403",
+          "assessment": "Explicit unestablished obligations and bounded 15 fake-runner tests are reported under non-Results headings. No real proof success is claimed.",
+          "follow_up": "If navigating, add a Results pointer without upgrading proof status."
+        },
+        {
+          "warning": "missing metadata: Baseline",
+          "disposition": "documentation-gap",
+          "source_lines": "L3–6, L59–62, L397–403",
+          "assessment": "The Logos source commit is pinned, but there is no exact LLMLang source/runner baseline for the reported fake-executable tests.",
+          "follow_up": "Pin LLMLang runner/test revision separately from Logos dependency revision."
+        }
+      ]
+    },
+    {
+      "path": "research/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+      "judgments": [
+        {
+          "warning": "missing section for hypotheses/alternatives",
+          "disposition": "layout-only",
+          "source_lines": "L11–32, L52–88, L171–184",
+          "assessment": "Protobuf, Avro and CBOR alternatives, scoped official sources and non-adoption are explicit under format comparison.",
+          "follow_up": "Do not require executable commands for the standards-only source review."
+        },
+        {
+          "warning": "missing metadata: Baseline",
+          "disposition": "documentation-gap",
+          "source_lines": "L17–32, L198–203",
+          "assessment": "The official source editions and related scenario names are listed, but the examined LLMLang repository revision is not pinned.",
+          "follow_up": "Add inspected repo commit for traceability; do not pretend formats were executed."
+        }
+      ]
+    },
+    {
+      "path": "research/RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md",
+      "judgments": [
+        {
+          "warning": "missing section for question/problem",
+          "disposition": "documentation-gap",
+          "source_lines": "L3–6, L8–17",
+          "assessment": "The research edge and disposition are explicit, but the discriminating question is not stated as a standalone answerable question.",
+          "follow_up": "Add a one-sentence question about observational equivalence of rewrites."
+        },
+        {
+          "warning": "missing section for hypotheses/alternatives",
+          "disposition": "layout-only",
+          "source_lines": "L6, L8–17",
+          "assessment": "Four compared verification strategies, including falsified value-only observations, are explicitly presented in the strategy table.",
+          "follow_up": "No new experiment is implied."
+        },
+        {
+          "warning": "missing section for prior art/sources",
+          "disposition": "layout-only",
+          "source_lines": "L19–25",
+          "assessment": "The RT-07 model, exact proof blob and linked CI evidence are given even without a Prior Art heading.",
+          "follow_up": "Preserve exact upstream/theorem reference."
+        },
+        {
+          "warning": "missing section for formal model/assumptions",
+          "disposition": "layout-only",
+          "source_lines": "L17, L19–21, L27–29",
+          "assessment": "The grammar, ordered traces, failure observations and excluded effects are explicitly scoped with a link to RT-07.",
+          "follow_up": "A linked proof model is not a complete LLMLang source model."
+        },
+        {
+          "warning": "missing section for draft impact/traceability",
+          "disposition": "documentation-gap",
+          "source_lines": "L3–6, L27–31",
+          "assessment": "The edge status/dependencies are stated, but candidate draft sections/explicit none and open-question IDs are not given.",
+          "follow_up": "Add explicit no draft change and question identifiers if proposed for specification."
+        },
+        {
+          "warning": "missing metadata: Status",
+          "disposition": "layout-only",
+          "source_lines": "L3–6, L27–31",
+          "assessment": "Disposition retains DEP-007 as a strong hypothesis and describes open dependencies; it functions as an unambiguous research-status statement.",
+          "follow_up": "Optional explicit Status metadata in future reports."
+        }
+      ]
+    }
+  ]
+}
