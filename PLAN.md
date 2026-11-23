@@ -129,6 +129,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Root research structural census (2026-11-23):** [Stage 0.2 corpus census report](research/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md) defines an immutable 309-document root Markdown/MDX scope, a warning-only checker sweep and a 24-document SHA-256-selected review queue across Scenario, RT and other root reports. This is structural *coverage*, not an audited 309-document claim register or a representative statistical validity estimate; individual review, original-run provenance and process adoption are still open.
 
+**Verified root census result (2026-11-23):** [Pinned CI #45263179285](https://github.com/aivibeflow/LLMLang/actions/runs/45263179285) inspected all 309 root research Markdown/MDX documents at commit `627c708`; 2,035 **surface-only** warnings occurred across 308 files, and only 7 exact evidence-type metadata fields were found (67 unvalidated executable-status hints). The [24-item SHA-256 selected review queue](research/quality-audit/2026-11-23-root-census-observations.json) remains entirely **NOT REVIEWED** by a second person. This does not fulfill corpus-wide claim validation or justify blocking CI; no method-policy adoption is recorded.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.

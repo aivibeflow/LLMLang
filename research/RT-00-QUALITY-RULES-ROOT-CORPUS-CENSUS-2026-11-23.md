@@ -2,7 +2,7 @@
 
 **Issue:** [#285](https://github.com/aivibeflow/LLMLang/issues/285), PLAN §0.2  
 **Date:** 2026-11-23  
-**Status:** Full root-document structural census at a fixed Git commit proposed; CI output must be inspected before treating totals as verified  
+**Status:** Source-pinned root-document structural census executed successfully; complete report artifact, permanent summary and unreviewed queue recorded  
 **Baseline:** `627c70878863b519a358815f8a96ddbae1303136` (post-orthogonal source-oracle PR #384)  
 **Evidence class:** Repository/Git object inventory and warning-only heading/metadata heuristic, **not a technical result or corpus-wide claim validation**  
 **Relevant earlier work:** [Ten-document warning pilot](RT-00-QUALITY-RULES-REAL-REPORT-PILOT-2026-11-23.md), [12-report/24-claim second-cohort study](RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md), [orthogonal oracle observations](quality-audit/2026-11-23-orthogonal-oracle-results.json)  
@@ -42,7 +42,24 @@ python3 -B .github/scripts/research_quality_corpus_census.py \
 
 The example assumes `./archival` is a clean checkout of the specified baseline (the [dedicated workflow](../.github/workflows/research-quality-root-census.yml) prepares it automatically). The census returns `CORPUS_CENSUS_SUMMARY` and `CORPUS_CENSUS_SAMPLE` log lines and a full machine-readable `reports` array with 309 exact source blobs and their heuristic warnings.
 
-**Expected structural checks:** five new unit tests; root corpus 309, strata 136 / 127 / 46, reviewer queue 24 unreviewed records. The warning counts and evidence-field coverage will be reported **only after actual CI execution**, without interpreting a warning as falsity or promoting source metadata to peer review. The CI artifact retains the full warning register even if future Git edits change the corpus.
+**Observed fixed-baseline results:** [GitHub Actions run #45263179285](https://github.com/aivibeflow/LLMLang/actions/runs/45263179285) completed successfully: **five** census/sampling unit tests passed, all **309** exact root report blobs were inspected, and **24** queue items retained the `NOT REVIEWED` status. Environment was CPython **3.12.14**, Git **2.56.1**, Linux `7.0.0-1017-azure x86_64` (Ubuntu 24.04). The full per-file [warning corpus artifact](https://github.com/aivibeflow/LLMLang/actions/runs/45263179285/artifacts/14862435235) is retained by GitHub Actions; the [permanent machine-readable summary and 24 source-pinned reviewer candidates](quality-audit/2026-11-23-root-census-observations.json) are tracked in this repository.
+
+| Observed baseline metric | Count | Meaning |
+| --- | ---: | --- |
+| Root research Markdown/MDX docs at fixed Git commit | **309** | 136 Scenario, 127 RT, 46 heterogeneous other root documents |
+| Documents with at least one surface warning | **308** | No scientific correctness or error verdict follows |
+| Documents with no surface warnings | **1** | **Not** a certificate of adequate scientific evidence |
+| Total warning instances across 309 files | **2,035** | Keyword/heading heuristic findings, **not** 2,035 technical defects |
+| Missing exact `Baseline` metadata | **238** | Literal formatting check, not proof that no revision provenance exists elsewhere |
+| Missing literal `draft impact`/traceability heading | **285** | May be covered under other headings or explicitly in prose |
+| Missing literal alternatives/hypotheses heading | **259** | May be a short experiment or source-only comparison |
+| Exact `Evidence type` metadata found | **7** | Explicit field presence only, no evidence validity |
+| Status-line heuristic suggests an executable/probe | **67** | Non-authoritative hint; cannot be equated with an authenticated executable evidence class |
+| SHA-256 sampled human review queue | **24** | 8 per stratum, **0 reviewed by a second human** |
+
+**Critical interpretation:** **308/309** files produced warnings, so this scanner currently has almost no power to separate legacy documentation from genuinely defective science without a reviewer. This does *not* measure its precision, sensitivity or error rate; neither warned nor unwarned reports were independently labeled across this whole corpus. In particular, **7 exact evidence-type fields vs 67 executable status hints** is a coverage signal for metadata migration, not proof that exactly 60 experiments are missing evidence.
+
+**Reproduction notes:** all warning totals belong to the immutable `627c70878863b519a358815f8a96ddbae1303136` source state, not to moving `main`. The full JSON artifact includes every selected root path, Git blob hash, warning list and the 24 preselected reviewer source identities.
 
 ## Negative results and decision boundaries
 

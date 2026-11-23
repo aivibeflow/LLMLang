@@ -23,6 +23,8 @@ The [Stage 0.2 warning adjudication](research/RT-00-QUALITY-RULES-ADJUDICATION-2
 
 **Stage 0.2 corpus sampling task:** the [root research census and 24-document independent-review queue](research/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md) is a fixed Git-tree structural sweep with per-file warnings and source identity. Every queued document initially has `NOT REVIEWED`; an independent human must inspect actual claims and evidence, including zero-warning reports, before correctness/false-negative judgments or policy decisions. Continue [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) without treating structural metrics as full research acceptance.
 
+**Observed Stage 0.2 root census:** [309-file/2,035-warning summary](research/quality-audit/2026-11-23-root-census-observations.json) is a reproducible *heading/metadata* scan of one pinned Git tree, not a defect count. The [24 selected reviewer candidates](research/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md) include 8 Scenario, 8 RT and 8 other root research documents; all remain unreviewed. Ask independent human reviewers to identify real claim-quality gaps and false negatives before applying required quality gates. Keep issue #285 open for scientific verification and maintainer adoption.
+
 ## How to use this register
 
 Each item has a stable ID. Keep the ID when the wording or status changes.
