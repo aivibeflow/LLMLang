@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 
@@ -45,8 +46,8 @@ def validate(sample: dict, adjudication: dict, root: Path) -> list[str]:
             if not row.get("source_lines", "").strip():
                 errors.append(f"missing cited lines: {pair}")
             else:
-                import re
-                nums = [int(n) for n in re.findall(r"\bL(\d+)\b|[–-](\d+)", row["source_lines"]) for n in n if n]
+                tokens = re.findall(r"\bL(\d+)\b|[–-](\d+)", row["source_lines"])
+                nums = [int(part) for pair in tokens for part in pair if part]
                 # The citation is intentionally human-readable; only its explicitly
                 # prefixed L markers and range endpoints are checked.
                 if not nums or any(n < 1 or n > line_count for n in nums):
