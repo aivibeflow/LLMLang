@@ -1,7 +1,7 @@
 # RT-00 A — Current-main inventory freshness reconciliation
 
 **Date:** 2026-11-23
-**Baseline:** `main` at `9d3dc0e127f8df162831918ae947c927b9a3eb58`
+**Baseline:** `main` at `96431c71cd479a742831ebd7d28d4b1e60c1ebe3`
 **Scope:** recursive `research/` tree versus `RESEARCH-CORPUS-INVENTORY-2026-11-20.json`
 **Disposition:** exact path/blob/size reconciliation; no claim validation or experiment reproduction
 
@@ -13,21 +13,23 @@ The inventory workflow uses the same Git-tree, blob-size, and path comparison mo
 
 ## 2. Baseline result
 
-At baseline `9d3dc0e127f8df162831918ae947c927b9a3eb58`, the recursive tree contains 586 research artifacts excluding the manifest. The manifest contains 585 records: one path is missing, with zero extra records and zero stale SHA/size records.
+At baseline `96431c71cd479a742831ebd7d28d4b1e60c1ebe3`, the recursive tree contains 588 research artifacts excluding the manifest. The manifest contains 585 records: three paths are missing, there are zero extra records, and one existing record has a stale SHA/size pair.
 
 | Missing path | Role observed in content | Traceability boundary |
 |---|---|---|
 | `research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md` | Requirements and evaluation criteria for Git-resident SPG storage; no physical layout or serialization format is selected. | The report identifies itself as RT-27 and is related to RT-24/Git representation work in Stage 4. RT-27 is not registered as a row in the current research taxonomy or dependency map. This inventory entry is a provisional file-to-plan mapping, not proof that RT-27 is an accepted standalone research area. |
+| `research/GIT-BINARY-SPG-STORAGE-EFFICIENCY.md` | Preliminary comparison and benchmark plan for Git delta storage of immutable SPG containers. It explicitly marks the earlier synthetic measurements unverified. | Stage 4.2 is the current plan location. Its relationship to a standalone RT area and dependency edges remains unregistered. |
+| `research/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md` | Qualitative comparison of corpus-wide, priority-ordered, and hybrid rollout strategies for the RT-08 evidence conventions. | The document is linked from the 0.2 plan entry and is a recommendation, not adopted policy. |
 
-No path was removed, and the 585 existing manifest SHA/size records match the baseline tree. The gap is one newly added document, not broad manifest drift.
+The one stale record is `research/RESEARCH-TAXONOMY.md`, changed when PR #247 linked the quality-rules rollout study from RT-08. No path was removed and no extra path is present. The three missing documents and one changed taxonomy file account for the full delta from the prior manifest.
 
 ## 3. Refreshed snapshot and verification
 
-The refreshed manifest contains 587 records for the exact PR tree: the 586 baseline artifacts plus this audit report. It includes the RT-27 document and this report, updates the reviewed baseline revision, and records the open taxonomy/dependency-map registration boundary. Recomputed tree totals are 306 Markdown, 3 MDX, 226 Python, 33 Lean, 289 prototype paths, and 137 Scenario-named paths; the taxonomy and dependency map remain at 26 RT rows and 108 DEP edges.
+The refreshed manifest contains 589 records for the exact PR tree: the 588 baseline artifacts plus this audit report. It includes the three previously absent documents and this report, refreshes the taxonomy and README blob records, and records the open RT-27 taxonomy/dependency-map registration boundary. Recomputed tree totals are 308 Markdown, 3 MDX, 226 Python, 33 Lean, 289 prototype paths, and 137 Scenario-named paths; the taxonomy and dependency map remain at 26 RT rows and 108 DEP edges.
 
 The local exact-tree check compares all 587 record paths, Git blob SHAs, and byte sizes against the staged PR tree. The GitHub inventory-freshness workflow is the independent PR-head check; its result is pending until the pull request runs.
 
-The existing [research index coverage auditor](../.github/scripts/audit_research_index_coverage.py) was run after adding RT-27 and this report to `research/README.md`. It scanned 309 research Markdown/MDX documents and found 286 with at least one inbound research-document link; 57 lacked a link from a designated index and 23 had no inbound link at all. Neither new document appears in those two candidate lists. It also found 38 unresolved local targets, all in the partial OCI and Alive2 snapshots, and 491 links to existing non-Markdown resources. These are candidate discoverability findings from a conservative parser, not automatic proof of orphaning or corpus completeness.
+The existing [research index coverage auditor](../.github/scripts/audit_research_index_coverage.py) was run after adding RT-27, the Git storage-efficiency report, the quality-rules rollout report, and this report to `research/README.md`. It scanned 311 research Markdown/MDX documents; all four new index targets have designated-index inbound links. Across the full corpus, 57 documents lacked a link from a designated index and 23 had no inbound link at all. It found 38 unresolved local targets, all in the partial OCI and Alive2 snapshots, and 492 links to existing non-Markdown resources. These are candidate discoverability findings from a conservative parser, not automatic proof of orphaning or corpus completeness.
 
 ## 4. Limits and remaining dependencies
 
