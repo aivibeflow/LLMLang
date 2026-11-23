@@ -843,90 +843,89 @@ LLVM is considered a possible backend, not the central language model.
 
 ---
 
-## 18A. Единая семантика и автоматическая формальная верификация
+## 18A. Unified Semantics and Automated Formal Verification
 
-### 18A.1. Единственное описание алгоритма
+### 18A.1. A Single Description of the Algorithm
 
-Алгоритм должен задаваться один раз в канонической семантической модели LLMLang (SPG и/или её типизированном семантическом IR). Модель исполнения и модель верификации являются производными представлениями этой модели, а не независимо поддерживаемыми описаниями.
+An algorithm must be specified once in LLMLang's canonical semantic model (the SPG and/or its typed semantic IR). The execution model and verification model are derived representations of that model, not independently maintained descriptions.
 
-Разработчик не должен вручную переписывать алгоритм на TLA+ для того, чтобы получить проверяемую модель. Ручные дополнительные доказательные леммы, инварианты, абстракции и environmental assumptions допустимы, но они не должны становиться вторым независимым описанием исполняемой логики. Каждое такое дополнение должно быть явно связано с исходными объектами LLMLang и проверяемыми свойствами.
+Developers should not have to manually rewrite an algorithm in TLA+ to obtain a verifiable model. Additional manually written proof lemmas, invariants, abstractions, and environmental assumptions are permissible, but they must not become a second, independent description of executable logic. Each such addition must be explicitly linked to the original LLMLang objects and the properties being verified.
 
-### 18A.2. Формальная семантика языка
+### 18A.2. Formal Language Semantics
 
-Каждая конструкция, включённая в формально поддерживаемое ядро LLMLang, MUST иметь точную формальную семантику: значения, состояния, эффекты, правила вычисления и наблюдаемое поведение.
+Every construct included in the formally supported LLMLang core MUST have precise formal semantics: values, states, effects, evaluation rules, and observable behavior.
 
-Семантика должна быть определена независимо от конкретного backend. Интерпретатор, VM, нативный backend и верификационные backend обязаны сохранять эту семантику в заявленных пределах.
+The semantics must be defined independently of any particular backend. The interpreter, VM, native backend, and verification backends are required to preserve these semantics within their stated scope.
 
-Конструкция без формальной семантики может существовать только как явно обозначенное расширение с ограниченными гарантиями; её нельзя молча включать в доказанную часть программы.
+A construct without formal semantics may exist only as an explicitly designated extension with limited guarantees; it must not be silently included in the proved portion of a program.
 
-### 18A.3. Генерация моделей верификации
+### 18A.3. Generating Verification Models
 
-Компилятор SHOULD автоматически строить формальные модели из канонической семантической модели LLMLang для алгоритмов и свойств, которые поддерживаются выбранной доказательной системой.
+The compiler SHOULD automatically generate formal models from LLMLang's canonical semantic model for algorithms and properties supported by the selected proof system.
 
-TLA+ является одним из backend, особенно подходящим для систем переходов состояний, протоколов, конкурентных и распределённых алгоритмов. TLAPS может использоваться для проверки математических доказательств свойств TLA+-модели; TLC и другие инструменты могут использоваться для проверки конечных моделей и поиска контрпримеров. Успешная проверка конечной модели не должна выдаваться за доказательство для неограниченного пространства состояний.
+TLA+ is one possible backend, particularly suitable for state-transition systems, protocols, and concurrent and distributed algorithms. TLAPS may be used to check mathematical proofs of TLA+ model properties; TLC and other tools may be used for finite-state model checking and counterexample discovery. Successful finite-state model checking must not be presented as a proof over an unbounded state space.
 
-### 18A.4. Композиционная верификация и границы доказательств
+### 18A.4. Compositional Verification and Proof Boundaries
 
-Верификация должна быть композиционной: caller может использовать гарантии callee через его контракт, не анализируя каждый раз внутреннюю реализацию. Однако наличие контракта само по себе не доказывает, что реализация ему соответствует.
+Verification should be compositional: a caller may use a callee's guarantees through its contract without reanalyzing the callee's internal implementation every time. However, the mere existence of a contract does not prove that the implementation satisfies it.
 
-Для каждого вызываемого объекта необходимо различать:
-- **контрактные гарантии** — предусловия, постусловия, инварианты, эффекты, гарантии завершения и допустимые исходы;
-- **соответствие реализации контракту** — доказано ли, что конкретная реализация действительно обеспечивает эти гарантии;
-- **доказательства свойств реализации** — какие свойства самой реализации установлены независимо от контракта.
+For each called object, it is necessary to distinguish:
+- **contract guarantees** — preconditions, postconditions, invariants, effects, termination guarantees, and permitted outcomes;
+- **implementation conformance to the contract** — whether a particular implementation has actually been proved to provide those guarantees;
+- **proofs of implementation properties** — which properties of the implementation itself have been established independently of the contract.
 
-Caller вправе опираться на контракт callee как на доказанную гарантию только тогда, когда соответствие реализации этому контракту доказано в текущем proof context либо обеспечено явно обозначенным доверенным предположением. Если соответствие лишь предполагается или не проверено, доказательство caller должно сохранять эту зависимость и не может считаться безусловным end-to-end доказательством.
+A caller may rely on a callee's contract as a proved guarantee only when implementation conformance to that contract has been proved in the current proof context or is supported by an explicitly identified trusted assumption. If conformance is merely assumed or unchecked, the caller's proof must retain that dependency and cannot be treated as an unconditional end-to-end proof.
 
-Статусы назначаются отдельным свойствам, а не функции целиком. Недоказанность должна распространяться по графу фактических зависимостей конкретного свойства: вызовов, потоков данных, управления и эффектов. Она не должна автоматически делать неверифицируемыми все функции, которые прямо или транзитивно вызывают данную функцию. Если свойство caller не зависит от недоказанного поведения callee, это свойство может быть доказано независимо.
+Statuses are assigned to individual properties, not to a function as a whole. Lack of proof must propagate along the actual dependency graph for the specific property: calls, data flow, control flow, and effects. It must not automatically make every function that directly or transitively calls that function unverifiable. If a caller property does not depend on the callee's unproved behavior, it may be proved independently.
 
-Система MUST различать:
-- доказанные гарантии реализации;
-- предположения о соблюдении контрактов;
-- свойства, проверяемые только во время исполнения;
-- свойства, для которых доказательство отсутствует или невозможно в текущем backend.
+The system MUST distinguish:
+- proved implementation guarantees;
+- assumptions that contracts are satisfied;
+- properties checked only at runtime;
+- properties for which proof is unavailable or impossible in the current backend.
 
-Runtime-проверка может обнаруживать нарушение в конкретном исполнении, но сама по себе не доказывает универсальное соблюдение свойства. Доверенное предположение может использоваться в композиции, но должно быть явно отражено в контексте доказательства и итоговых гарантиях.
+A runtime check can detect a violation in a particular execution, but does not by itself prove that a property always holds. A trusted assumption may be used in composition, but must be explicitly recorded in the proof context and resulting guarantees.
 
-Должна поддерживаться трассируемость цепочки:
+Traceability must be supported along the chain:
 `requirement → contract property → implementation evidence → call/dependency edges → caller property → system-level claim`.
-При изменении контракта, реализации, предположения или hash-relevant зависимости система должна инвалидировать затронутые доказательства и пересчитывать только реально зависимые свойства.
+When a contract, implementation, assumption, or hash-relevant dependency changes, the system must invalidate affected proofs and recompute only properties that actually depend on the change.
 
+Other backends (such as SMT/Why3, Lean, or Coq) may be appropriate for other classes of problems. Backend selection should depend on the formalized semantics and required properties, rather than on an insistence on translating every program to TLA+.
 
-Для других классов задач могут применяться иные backend (например, SMT/Why3, Lean или Coq). Выбор backend должен зависеть от формализованной семантики и требуемых свойств, а не от желания любой ценой перевести программу в TLA+.
+### 18A.5. Connecting the Model to Executable Code
 
-### 18A.5. Связь модели с исполняемым кодом
+Model generation and executable code generation must originate from the same LLMLang semantics. Simply generating both artifacts from a shared AST is not enough: each transformation's preservation of semantics must be justified.
 
-Генерация модели и исполняемого кода должна исходить из одной и той же семантики LLMLang. Недостаточно лишь генерировать оба артефакта из общего AST: необходимо обосновать сохранение семантики каждым преобразованием.
+The target proof obligation is to establish that the observable behavior of the generated model and executable code conforms to the semantics of the source program. For backends with additional internal states, a refinement relation or another explicitly defined correspondence relation may be used instead of literal state equality.
 
-Целевое обязательство — доказать, что наблюдаемое поведение сгенерированной модели и исполняемого кода соответствует семантике исходной программы. Для backend с дополнительными внутренними состояниями допускается отношение refinement или иное явно определённое отношение соответствия вместо буквального равенства состояний.
+The preferred long-term mechanism is provably correct translators and proof-carrying compilation. A practical initial mechanism is independent translation validation of each translation result. The checker must not unconditionally trust the same unverified generator whose correctness it is checking.
 
-Предпочтительный долгосрочный механизм — доказуемые трансляторы и proof-carrying compilation. Практический начальный механизм — независимая translation validation каждого результата трансляции. Проверяющий механизм не должен безусловно доверять тому же непроверенному генератору, корректность которого он проверяет.
+### 18A.6. Applicability Limits and Statuses
 
-### 18A.6. Границы применимости и статусы
+Not every algorithm or property can conveniently or automatically be represented and proved in TLA+/TLAPS. This must not restrict the expressiveness of the language as a whole or block ordinary compilation when the program satisfies execution requirements.
 
-Не каждый алгоритм или каждое свойство удобно либо возможно автоматически представить и доказать в TLA+/TLAPS. Это не должно ограничивать выразительность всего языка и не должно блокировать обычную компиляцию, если программа удовлетворяет требованиям исполнения.
+For each property and each verification artifact, at least the following statuses must be distinguished:
+- `PROVEN` — a trusted proof checker has checked the proof under the stated assumptions;
+- `DISPROVEN` — a validated counterexample has been obtained or the negation of the property has been proved;
+- `UNKNOWN` — the verification attempt produced neither proof nor disproof;
+- `NOT_SUPPORTED` — the selected backend does not support the required construct or property;
+- `NOT_CHECKED` — verification was not run.
 
-Для каждого свойства и каждого артефакта верификации необходимо различать как минимум:
-- `PROVEN` — доказательство проверено доверенным proof checker в заявленных предположениях;
-- `DISPROVEN` — получен проверенный контрпример или доказано отрицание свойства;
-- `UNKNOWN` — попытка проверки не дала ни доказательства, ни опровержения;
-- `NOT_SUPPORTED` — выбранный backend не поддерживает нужную конструкцию или свойство;
-- `NOT_CHECKED` — проверка не запускалась.
+Finite-state model checking, testing, fuzzing, and runtime monitoring must have their own result types and must not be substituted for `PROVEN`.
 
-Конечная проверка модели, тестирование, fuzzing и runtime monitoring должны иметь собственные типы результатов и не подменять `PROVEN`.
+All assumptions about the environment, fairness, input bounds, numerical model, external components, and abstraction boundaries must be explicit and included in the proof context. A proof status applies only to the property under those assumptions.
 
-Все предположения о среде, fairness, ограничениях входов, числовой модели, внешних компонентах и границах абстракции должны быть явными и входить в контекст доказательства. Статус доказательства относится только к свойству при этих предположениях.
+### 18A.7. Proof Invalidation and Provenance
 
-### 18A.7. Инвалидация и происхождение доказательств
+Every model, proof obligation, proof, and translation-validation result must be tied to the Content Hashes of the source semantic objects, the LLMLang semantics version, the backend version, the configuration, and explicit assumptions.
 
-Каждая модель, proof obligation, доказательство и результат translation validation должны быть привязаны к Content Hash исходных семантических объектов, версии семантики LLMLang, версии backend, конфигурации и явным предположениям.
+Changing any hash-relevant element must invalidate all potentially stale dependent proofs and verification results. Unchanged independent subgraphs may reuse cached results.
 
-Изменение любого hash-relevant элемента должно инвалидировать все потенциально устаревшие зависимые доказательства и результаты верификации. Неизменённые независимые подграфы могут повторно использовать кэшированные результаты.
+### 18A.8. Trusted Computing Base
 
-### 18A.8. Доверенная база
+The trust boundary must be documented. At minimum, it includes the proof checker, the mechanisms for checking translation validation or compiler proofs, and the parts of the compiler and runtime on which the claimed guarantee depends.
 
-Граница доверия должна быть документирована. В неё входят как минимум proof checker, механизмы проверки translation validation или доказательств компилятора, а также те части компилятора и runtime, от которых зависит заявленная гарантия.
-
-Доказательство модели само по себе не доказывает корректность нативного кода, компилятора, runtime, ОС или оборудования. Каждая гарантия должна указывать, какие звенья цепочки доказаны, проверены независимо или остаются доверенными.
+A proof of a model does not in itself prove the correctness of native code, the compiler, the runtime, the operating system, or the hardware. Every guarantee must state which links in the chain are proved, independently checked, or still trusted.
 
 
 ## 19. Основные открытые вопросы
