@@ -1,0 +1,294 @@
+{
+  "kind": "bounded qualitative research-format audit, not experimental claim verification",
+  "baseline_commit": "419ae2c02b27eb52c63eef3a255a83004444222e",
+  "checker_at_baseline": ".github/scripts/check_research_quality.py",
+  "date": "2026-11-23",
+  "selection": "10 purposively selected preexisting first-party reports spanning distinct evidence shapes",
+  "summary": {
+    "reports": 10,
+    "before": 65,
+    "after": 62,
+    "confirmed": 29,
+    "metadata_fixes": 3
+  },
+  "files": [
+    {
+      "path": "research/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md",
+      "git_blob": "5af8305b8838f11570892a818d8ae54de914c67b",
+      "evidence_shape": "bounded AST executable",
+      "warnings_before_metadata_fix": 6,
+      "expected_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "confirmed_layout_only": [
+        {
+          "warning": "missing section for formal model/assumptions",
+          "grounding": "L13–25: finite AST grammar and procedure under Method"
+        },
+        {
+          "warning": "missing section for decision boundary",
+          "grounding": "L29–41: bounded conclusion and source-extraction gap"
+        }
+      ]
+    },
+    {
+      "path": "research/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md",
+      "git_blob": "3ecbeb0d879e61d4f18a9618834399b953fc63ee",
+      "evidence_shape": "solver process executable",
+      "warnings_before_metadata_fix": 6,
+      "expected_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "confirmed_layout_only": [
+        {
+          "warning": "missing section for prior art/sources",
+          "grounding": "L38–42: Scenario 102 link and solver dependency provenance"
+        },
+        {
+          "warning": "missing section for formal model/assumptions",
+          "grounding": "L13–15: pigeonhole fragment, worker model, POSIX assumption"
+        },
+        {
+          "warning": "missing section for decision boundary",
+          "grounding": "L38: explicitly no solver/pruning architecture selected"
+        }
+      ]
+    },
+    {
+      "path": "research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
+      "git_blob": "1da764213b3249e48d90d40fdf9864e02accb48c",
+      "evidence_shape": "bounded memory model",
+      "warnings_before_metadata_fix": 7,
+      "expected_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for experiments/method",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "confirmed_layout_only": [
+        {
+          "warning": "missing section for prior art/sources",
+          "grounding": "L15: C++20 and Go primary source links"
+        },
+        {
+          "warning": "missing section for experiments/method",
+          "grounding": "L17–22: enumerator and independent oracle procedure"
+        },
+        {
+          "warning": "missing section for limitations",
+          "grounding": "L47: excluded memory features and correspondence limits"
+        },
+        {
+          "warning": "missing section for decision boundary",
+          "grounding": "L47: LLMLang memory-model choice remains open"
+        }
+      ]
+    },
+    {
+      "path": "research/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md",
+      "git_blob": "34a74e0763bb3b392c26c89da4b2b6b9ae362934",
+      "evidence_shape": "generated Rust native experiment",
+      "warnings_before_metadata_fix": 7,
+      "expected_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "confirmed_layout_only": [
+        {
+          "warning": "missing section for prior art/sources",
+          "grounding": "L11,17: ADR-016, Scenario 132 and Python reference"
+        },
+        {
+          "warning": "missing section for limitations",
+          "grounding": "L37–39: target/toolchain and excluded general lowering"
+        },
+        {
+          "warning": "missing section for decision boundary",
+          "grounding": "L39: scope restricted to supplied fixture"
+        }
+      ]
+    },
+    {
+      "path": "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+      "git_blob": "e94c41a2faccd3b80e0535e9ffc7162f2521e4db",
+      "evidence_shape": "mixed candidate model and executable",
+      "warnings_before_metadata_fix": 3,
+      "expected_warnings": [
+        "missing section for hypotheses/alternatives"
+      ],
+      "confirmed_layout_only": [
+        {
+          "warning": "missing section for hypotheses/alternatives",
+          "grounding": "L54–89: recursive-policy and artifact-granularity alternatives"
+        }
+      ]
+    },
+    {
+      "path": "research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md",
+      "git_blob": "318c31743feb896fdd056baef2a27dfd8173bf50",
+      "evidence_shape": "comparative survey",
+      "warnings_before_metadata_fix": 6,
+      "expected_warnings": [
+        "missing section for question/problem",
+        "missing section for experiments/method",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "confirmed_layout_only": [
+        {
+          "warning": "missing section for question/problem",
+          "grounding": "L9–11: purpose defines research problem"
+        },
+        {
+          "warning": "missing section for limitations",
+          "grounding": "L38–40,340–351: non-goals and missing exit gates"
+        },
+        {
+          "warning": "missing section for decision boundary",
+          "grounding": "L325,351: no architecture candidate selected"
+        }
+      ]
+    },
+    {
+      "path": "research/RT-11-BINDING-INVALIDATION-BENCHMARK.md",
+      "git_blob": "c00d299ee0f329cc01bbfb42150df3e7cb53ae72",
+      "evidence_shape": "synthetic compiler executable",
+      "warnings_before_metadata_fix": 8,
+      "expected_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline",
+        "no recognizable evidence class; human claim-level review required"
+      ],
+      "confirmed_layout_only": [
+        {
+          "warning": "missing section for prior art/sources",
+          "grounding": "L7–9: GHC and build-systems references"
+        },
+        {
+          "warning": "missing section for formal model/assumptions",
+          "grounding": "L13–21: fixed workload, source/ABI/action-key assumptions"
+        },
+        {
+          "warning": "missing section for limitations",
+          "grounding": "L21,44: synthetic-only and no general Toolchain claim"
+        }
+      ]
+    },
+    {
+      "path": "research/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md",
+      "git_blob": "b6553717a0a7b48b39fc913041ac0941b9435d29",
+      "evidence_shape": "proof-integration proposal, fake adapter tests",
+      "warnings_before_metadata_fix": 8,
+      "expected_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "confirmed_layout_only": [
+        {
+          "warning": "missing section for question/problem",
+          "grounding": "L6: question in metadata"
+        },
+        {
+          "warning": "missing section for prior art/sources",
+          "grounding": "L360–381: primary references section"
+        },
+        {
+          "warning": "missing section for limitations",
+          "grounding": "L349–358: explicit list of absent proof integration"
+        },
+        {
+          "warning": "missing section for draft impact/traceability",
+          "grounding": "L394: explicit no normative document changed"
+        }
+      ]
+    },
+    {
+      "path": "research/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+      "git_blob": "9b61177af2e057a8620f48ff0c3483167fa15c33",
+      "evidence_shape": "standards prior-art comparison",
+      "warnings_before_metadata_fix": 5,
+      "expected_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for experiments/method",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "confirmed_layout_only": [
+        {
+          "warning": "missing section for experiments/method",
+          "grounding": "L7: source-comparison method in metadata, not executable"
+        },
+        {
+          "warning": "missing section for limitations",
+          "grounding": "L32,184: absent runtime tests and design boundary"
+        },
+        {
+          "warning": "missing section for draft impact/traceability",
+          "grounding": "L9,184: accepted ADR link and no new draft change"
+        }
+      ]
+    },
+    {
+      "path": "research/RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md",
+      "git_blob": "17fab1f6bcdba1519752e2b9eb93adbee724f1ed",
+      "evidence_shape": "Lean checked-proof evidence recheck",
+      "warnings_before_metadata_fix": 9,
+      "expected_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status"
+      ],
+      "confirmed_layout_only": [
+        {
+          "warning": "missing section for results",
+          "grounding": "L19–25: proof blob, theorem names and CI evidence"
+        },
+        {
+          "warning": "missing section for experiments/method",
+          "grounding": "L23–25: pinned Lean command and non-rerun disclosure"
+        },
+        {
+          "warning": "missing section for decision boundary",
+          "grounding": "L6,31: disposition and still-open dependencies"
+        }
+      ]
+    }
+  ]
+}
