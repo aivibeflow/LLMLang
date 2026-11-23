@@ -117,6 +117,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Historical source provenance (2026-11-23, issue #285):** [Eight-report publication snapshot audit](research/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md) pins earliest report commits and corresponding committed source blobs. [Five bounded historical reruns](.github/workflows/research-historical-rechecks.yml) test publication snapshots, not necessarily the original author workspace. An archived Git tree does not establish historical experiment provenance; the associated §0.2 evidence gates remain open until original run inputs are attested, critical results reproduced, corpus claims reviewed, and maintainers approve conventions.
 
+**Nine evidence-navigation corrections (2026-11-23):** [Stage 0.2 supplementary report](research/RT-00-QUALITY-RULES-NAVIGATION-REMEDIATION-2026-11-23.md) documents completed *metadata/traceability* crosswalks on Scenarios 98/103/118/29 and DEP-007. The previous eight original-execution attestations, independent claim review and maintainer policy adoption remain open. The frozen 10-report sample now replays exact historic Git bytes instead of assuming current reports have not been edited.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
