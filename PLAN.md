@@ -538,7 +538,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Compare bounded stable shards, immutable segments, and chunked containers; measure packfile size, delta depth/size, CPU, memory, read/checkout/reconstruction time, and history growth.
 - [ ] Select no physical format or shard key until benchmark results are reviewed against the unresolved SPG identity/lineage model.
 
-**Research output (2026-11-23):** [RT-27 SPG Repository Storage Format Requirements](research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md) records mandatory reconstruction, cache-first metadata, determinism, merge-safety, and workload-evaluation requirements without selecting a format. RT-27 is not yet registered in the research taxonomy or dependency map; decide whether it is a standalone research area or a Stage 4 subtopic and assign justified dependency edges before treating the taxonomy crosswalk as complete. Format comparison/benchmarks also depend on stabilized SPG identity, import/export, semantic merge, and representative workloads.
+**Research output (2026-11-23):** [RT-27 SPG Repository Storage Format Requirements](research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md) records mandatory reconstruction, cache-first metadata, determinism, merge-safety, and workload-evaluation requirements without selecting a format. RT-27 is now registered as a standalone research area in the taxonomy and dependency map. RT-28 also depends on RT-27's storage requirements; this dependency does not select a physical storage format. Format comparison/benchmarks also depend on stabilized SPG identity, import/export, semantic merge, and representative workloads.
 
 ## 4.3 Semantic diff, merge, and conflict resolution
 
