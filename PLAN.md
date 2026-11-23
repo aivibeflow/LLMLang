@@ -133,6 +133,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Stage 0.2 proof-source provenance continuation (2026-11-23):** [Lean 4.36.0 archival proof recheck](research/RT-00-QUALITY-RULES-PINNED-LEAN-PROOF-2026-11-23.md) proposes exact Git/SHA-256 source identity validation, source-pinned kernel checking and saved actual `#print axioms` output. This improves the boundary between *formal bounded proof* and *reported executable test*, but does not prove source-to-SPG/backend semantics, validate all corpus claims, reconstruct eight historical runs, or adopt Stage 0.2 policy.
 
+**Pinned formal proof recheck observed (2026-11-23):** [Lean CI #45264153180](https://github.com/aivibeflow/LLMLang/actions/runs/45264153180) checked the exact archived `ObservableRewrite.lean` SHA-256 with Lean 4.36.0 and preserved the actual axioms `propext`, `Classical.choice`, `Quot.sound`. See [proof source/host outcome ledger](research/quality-audit/2026-11-23-pinned-lean-proof-observations.json). This establishes a *bounded model theorem check*, not production optimizer correctness, comprehensive research claim review, or maintainer acceptance of §0.2 rules.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
