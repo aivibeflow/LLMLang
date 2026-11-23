@@ -1,0 +1,74 @@
+name: Research Quality Orthogonal Finite Oracles
+
+# Separate code/decision-table falsifiers; passing does not imply proof,
+# production conformance or independent human reviewer approval.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/scripts/test_research_orthogonal_oracles.py"
+      - ".github/workflows/research-quality-orthogonal-oracles.yml"
+      - "research/RT-00-QUALITY-RULES-ORTHOGONAL-ORACLES-2026-11-23.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  orthogonal-finite-models:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Get new reference tests and report
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Check out exact previously audited implementation
+        uses: actions/checkout@v4
+        with:
+          ref: ff1295c1769bfe8546c4b63590c9f607349215ee
+          path: archival
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Verify subject source identities and record host metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/orthogonal-oracles
+          src=archival/research/PROTOTYPES/RT-04-01
+          test "$(git -C archival rev-parse HEAD)" = "ff1295c1769bfe8546c4b63590c9f607349215ee"
+          test "$(git hash-object "$src/schema_evolution_model.py")" = "59a3a8b2fdd3bd2b2d6167a7f5cedb02551e512e"
+          test "$(git hash-object "$src/scheduler_fairness_model.py")" = "1309f21c4ce49f8584f03782e742549fc7d817d9"
+          {
+            echo "archival_commit=$(git -C archival rev-parse HEAD)"
+            echo "schema_model_blob=$(git hash-object "$src/schema_evolution_model.py")"
+            echo "fairness_model_blob=$(git hash-object "$src/scheduler_fairness_model.py")"
+            echo "oracle_test_blob=$(git hash-object .github/scripts/test_research_orthogonal_oracles.py)"
+            echo "python=$(python3 --version)"
+            echo "git=$(git --version)"
+            echo "uname=$(uname -srm)"
+          } | tee artifacts/orthogonal-oracles/environment.txt
+      - name: Run independent source-level decision tables and negative Git counterexample
+        shell: bash
+        env:
+          LLMLANG_ORACLE_MODEL_DIR: ${{ github.workspace }}/archival/research/PROTOTYPES/RT-04-01
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          set -euo pipefail
+          python3 -B -m unittest discover -s .github/scripts -p 'test_research_orthogonal_oracles.py' -v 2>&1 | tee artifacts/orthogonal-oracles/result.log
+          grep -q 'Ran 7 tests' artifacts/orthogonal-oracles/result.log
+          grep -q 'INDEPENDENT_SCHEMA_CASES=' artifacts/orthogonal-oracles/result.log
+          grep -q 'INDEPENDENT_FAIRNESS_WORDS=' artifacts/orthogonal-oracles/result.log
+          grep -q 'INDEPENDENT_GIT_WITNESS=' artifacts/orthogonal-oracles/result.log
+      - name: Preserve test results and exact model identities even after failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: orthogonal-finite-model-oracles
+          path: artifacts/orthogonal-oracles/
+          retention-days: 30
+          if-no-files-found: warn
