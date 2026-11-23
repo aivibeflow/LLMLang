@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "b10edf42486bb91791af5489c2bf581d6250d8b6",
-  "source": "Exact research-tree inventory at baseline b10edf42486bb91791af5489c2bf581d6250d8b6 plus the RT-15 prior-art comparison report; manifest excluded.",
+  "revision": "02d0c3d065e160277b498e106646e8a02f2a43fd",
+  "source": "Exact current-main research-tree inventory at 02d0c3d065e160277b498e106646e8a02f2a43fd plus RT-00 B7 content/index recheck report; manifest excluded.",
   "counts": {
-    "research_files": 607,
-    "markdown_files": 324,
+    "research_files": 608,
+    "markdown_files": 325,
     "python_files": 227,
     "scenario_named_documents": 139,
     "prototype_tree_files": 289,
@@ -33,7 +33,7 @@
     "taxonomy_research_areas": 28,
     "dependency_edges": 135,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 607
+    "research_artifacts_excluding_manifest": 608
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
@@ -15533,6 +15533,20 @@
       "semantic_review": {
         "status": "reviewed",
         "basis": "primary-source comparison and scoped synthesis"
+      }
+    },
+    {
+      "path": "research/RT-00-B-07-CURRENT-MAIN-EXACT-CONTENT-AND-INDEX-RECHECK-2026-11-23.md",
+      "git_blob_sha": "23e9a2637d7407d5c88236f338959a14fe8212aa",
+      "size_bytes": 3473,
+      "category": "audit-or-review-report",
+      "traceability": "RT-00 B7 current-main exact-content and index recheck",
+      "plan_stages": [
+        "0.1"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "exact blob grouping and bounded index coverage audit"
       }
     }
   ],
