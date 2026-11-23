@@ -2,7 +2,7 @@
 
 **Research item:** [issue #285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../PLAN.md#02-establish-research-quality-and-decision-rules)  
 **Date:** 2026-11-23  
-**Status:** Fresh, source-pinned Lean 4.36.0 proof check proposed; CI outcome not yet observed  
+**Status:** Fresh source-pinned Lean 4.36.0 proof check completed successfully, with the actual theorem axioms archived  
 **Provenance baseline:** `ff1295c1769bfe8546c4b63590c9f607349215ee`  
 **Evidence class:** Independent *toolchain execution* of archived Lean proofs; not an independent mathematical peer review or full-language semantics guarantee  
 **Source:** `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ObservableRewrite.lean`  
@@ -36,7 +36,17 @@ lean -DwarningAsError=true ObservableRewrite.lean
 
 The source explicitly declares `foldAdd_preserves`, `foldChoose_preserves`, `rewrite_preserves`, `swapping_addends_changes_trace`, `discarding_equal_branch_guard_hides_failure`, and `keeping_trace_before_failure`. The last three are finite-grammar counterexample/failure witnesses. The proof-level expected observations are equality of `Except Nat` outcome and ordered `List Nat` event trace under the selected rewrites, with concrete negative cases for swapping emitting operands or erasing a failing guard.
 
-**Observed run:** **pending**. Neither this new workflow nor the report alone can assert a passing Lean run before successful CI.
+**Observed pinned CI:** [GitHub Actions run #45264153180](https://github.com/aivibeflow/LLMLang/actions/runs/45264153180), [job #138006488633](https://github.com/aivibeflow/LLMLang/actions/runs/45264153180/job/138006488633) **completed successfully**. The archival source was `ff1295c1769bfe8546c4b63590c9f607349215ee`; source Git blob and SHA-256 matched the identities above; Lean was **4.36.0** at commit `611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9` (x86_64 Linux). The standalone source passed `lean -DwarningAsError=true ObservableRewrite.lean` with exit **0**.
+
+The Lean checker printed these **actual trusted axioms**, not "no axioms":
+
+| Checked theorem | Kernel-reported axioms |
+| --- | --- |
+| `ObservableRewrite.rewrite_preserves` | `propext`, `Classical.choice`, `Quot.sound` |
+| `ObservableRewrite.swapping_addends_changes_trace` | `propext`, `Classical.choice`, `Quot.sound` |
+| `ObservableRewrite.discarding_equal_branch_guard_hides_failure` | `propext`, `Classical.choice`, `Quot.sound` |
+
+**Evidence retained:** [complete raw proof/axioms log and environment](https://github.com/aivibeflow/LLMLang/actions/runs/45264153180/artifacts/14862606439) and a [versioned machine-readable proof record](quality-audit/2026-11-23-pinned-lean-proof-observations.json). The checked file contains six named theorem declarations, and this new result corroborates their type-checking in the bounded model. It is not an independent human proof audit, original workstation attestation or a source-to-LLMLang compiler correctness proof.
 
 ## Scope, falsifiers and evidence interpretation
 
