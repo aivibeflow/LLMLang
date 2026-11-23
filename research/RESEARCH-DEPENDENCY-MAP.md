@@ -471,3 +471,26 @@ RT-29 integrates Rust-focused language scenarios and generated-Rust evidence int
 | DEP-147 | RT-29 → RT-13 | Influences | The study may identify feasible Rust-based backend, ABI, and interoperability adapters or their limitations. | Open hypothesis |
 
 These edges are research hypotheses, not adoption decisions. Rust's ownership model, borrow checker, Drop, traits, async runtime, compiler architecture, and package ecosystem must be assessed independently. Reuse is justified only where semantic fit, portability, security, maintenance, and reproducible evidence support it.
+
+## 18. Bidirectional semantic translation across LLMLang and C/C++/Go/Rust (RT-30)
+
+RT-30 studies source-to-target generation and target-to-LLMLang import as separate preservation problems, plus round-trip and cross-target migration. The C runtime is a hypothesis for realizing LLMLang constructs, not a semantic authority or a reason to constrain the language to C.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-148 | RT-03 → RT-30 | Requires | A precise LLMLang observation model and reference semantics are prerequisites for stating what each backend must preserve. | Strong hypothesis |
+| DEP-149 | RT-04 → RT-30 | Requires | Types, ownership, effects, capabilities, object lifecycle, and resource protocols determine representability and runtime obligations. | Strong hypothesis |
+| DEP-150 | RT-05 → RT-30 | Constrains | SPG identity, typed relationships, and provenance affect import, generated artifacts, stable bindings, and incremental round trips. | Strong hypothesis |
+| DEP-151 | RT-07 → RT-30 | Requires | Translation claims need independent preservation obligations, differential checks, and explicit proof/evidence boundaries. | Strong hypothesis |
+| DEP-152 | RT-09 → RT-30 | Requires | Frontend, IR, lowering, code generation, diagnostics, and incremental compiler architecture are core translation mechanisms. | Strong hypothesis |
+| DEP-153 | RT-10 → RT-30 | Requires | Runtime contracts and target-specific runtime implementations determine whether high-level LLMLang semantics can be realized on C and other targets. | Strong hypothesis |
+| DEP-154 | RT-13 → RT-30 | Requires | Existing backend, ABI, target, and FFI research constrains code generation and cross-language boundaries. | Strong hypothesis |
+| DEP-155 | RT-18 → RT-30 | Influences | Language/compiler/runtime versioning and compatibility policy are required to make translation reproducible and maintainable. | Strong hypothesis |
+| DEP-156 | RT-28 → RT-30 | Influences | Incremental migration, Mirror Bindings, mixed-language projects, and upstream reconciliation consume source import and semantic equivalence capabilities. | Strong hypothesis |
+| DEP-157 | RT-29 → RT-30 | Influences | Rust-specific semantic and implementation findings inform the Rust frontend/backend and cross-language capability matrix. | Strong hypothesis |
+| DEP-158 | RT-30 → RT-03 | Influences | Translation counterexamples and semantic gaps may require refining the LLMLang reference semantics or explicitly narrowing supported source profiles. | Open hypothesis |
+| DEP-159 | RT-30 → RT-09 | Influences | Prototype results may change canonical IR, frontend/backend boundaries, target selection, and compiler architecture. | Open hypothesis |
+| DEP-160 | RT-30 → RT-10 | Influences | C-runtime feasibility and target runtime gaps may refine runtime decomposition and semantic support contracts. | Open hypothesis |
+| DEP-161 | RT-30 → RT-13 | Influences | Cross-target preservation and ABI probes may refine backend and interoperability architecture. | Open hypothesis |
+
+These edges are research hypotheses, not implementation commitments. Semantic equivalence, ABI compatibility, source fidelity, and textual round-tripping must remain distinct claims.
