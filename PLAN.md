@@ -123,6 +123,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Stage 0.2 reproducibility continuation (2026-11-23):** [Three archived-source second-cohort rerun cases](research/RT-00-QUALITY-RULES-CLAIM-COHORT2-RERUN-2026-11-23.md) now pin the Scenario 110/112 and RT-24 merge test inputs, provide Python 3.12.14 Ubuntu execution commands and preserve exact output/environment through [GitHub Actions](.github/workflows/research-claim-cohort2-reruns.yml). Passing these tests would corroborate those bounded fixtures, **not** the general language, scheduler or production semantic merge policy. Issue #285 exit criteria remain open.
 
+**Additional Stage 0.2 falsification control (2026-11-23):** [Orthogonal finite-model oracle experiment](research/RT-00-QUALITY-RULES-ORTHOGONAL-ORACLES-2026-11-23.md) compares the archived JSON-decoder and fairness models to separately authored reference tables, plus a Git-source-inventory negative fixture. This goes beyond re-running the author tests but remains bounded model evidence, not an independently peer-reviewed protocol or accepted `draft/` rule. Reviewer/maintainer adoption and broad corpus/attestation obligations remain open.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
