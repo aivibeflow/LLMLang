@@ -50,13 +50,19 @@ The physical format may implement this through record headers, a side index, blo
 
 The trust and integrity relationship between record metadata, payload bytes, Git object integrity, and cached values must be specified. A cache hit must not permit incorrect or forged metadata to cause a different payload to be treated as the cached object.
 
-### R-STORE-004 — Deterministic representation
+### R-STORE-004 — Deterministic physical serialization
 
-For identical semantic input and the same explicitly versioned serialization profile, canonical output must be byte-for-byte deterministic.
+Within the same storage-format version and explicitly identified serialization profile, serializing the same logical SPG state must produce byte-for-byte identical repository output.
 
-Determinism must not depend on thread count or task completion order, hash-map iteration order, process or machine, cache hit/miss state, incidental traversal order, or nondeterministic compression metadata.
+This is a requirement on the complete physical representation, not merely on individual object encodings. It applies to record ordering and framing, field/element ordering wherever the format permits multiple encodings, record placement, indexes and offset tables, manifests, padding and alignment, compression blocks and their metadata, and any other bytes written to the repository. Parallel serialization must produce identical output regardless of thread count, task scheduling, or completion order.
 
-Stable ordering and stable encoding are important both for reproducibility and for Git's ability to delta-compress successive binary versions.
+Determinism must not depend on process or machine, hash-map iteration order, incidental traversal order, cache hit/miss state, timestamps, nondeterministic compressor metadata, or other environmental state. The serialization profile must specify or constrain any implementation or compressor behavior that can affect output bytes.
+
+This requirement is independent of semantic canonicalization and Content Hash calculation. Content Hash may be computed from a canonical semantic representation; it is not required to be the hash of the serialized bytes, and the physical serialization does not need to be the mechanism used to calculate Content Hash.
+
+The byte-identity guarantee applies within one format version and serialization profile. It does not require byte-identical output across different format versions or profiles; version changes and migrations must be evaluated separately.
+
+The purpose includes reproducible builds and avoiding spurious Git changes: unchanged logical state must not cause container files or blobs to change merely because serialization order, placement, parallel execution, or compression output varied. This is important for useful Git diffs, delta compression, and limiting repository-history growth.
 
 ### R-STORE-005 — No ordinary text merge of SPG containers
 
@@ -137,7 +143,9 @@ Compaction must preserve semantic content and identities. It must not require re
 
 ### R-STORE-012 — Recoverable and verifiable indexes
 
-Any index, manifest, offset table, or directory structure needed for efficient lookup must be stored in Git or be deterministically rebuildable from Git-resident data.
+Indexes, manifests, offset tables, and directory structures are permitted and may be used to provide efficient lookup, random access, cache-first metadata access, and parallel processing. An index is not required to be embedded in the same container as the records.
+
+Any index or other lookup structure required for efficient operation must either be stored in Git or be deterministically rebuildable from Git-resident data. Rebuilding it from the repository must produce the same logical index and, within the same format version and serialization profile, the same serialized bytes.
 
 The repository must remain reconstructible if all local indexes and KV state are deleted. Index corruption or mismatch must be detected; the implementation must have a defined rebuild or explicit failure path.
 
@@ -177,6 +185,8 @@ At minimum, report:
 Test at least cache hit rates of 0%, 50%, 90%, and 99%, and mutation rates of 0.01%, 1%, and 10%.
 
 The experiments must verify that cache hits avoid payload deserialization, not merely that deserialization is faster. They must also verify identical semantic results across thread counts and task schedules.
+
+For each candidate, serialize an unchanged logical SPG state repeatedly under the same format version and serialization profile, including with different thread counts and task schedules. Verify byte-for-byte identical complete repository output. Then measure, for representative small and large mutations, the number of changed working-tree files and Git blobs, changed byte ranges/locality, Git diff churn, incremental packfile growth, and delta-compression effectiveness. Include index/manifest changes and compression metadata in these measurements. Evaluate cross-version/profile migration separately; do not conflate migration rewrites with same-version determinism.
 
 ## 7. Current research position
 
