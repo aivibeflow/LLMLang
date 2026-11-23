@@ -4,7 +4,7 @@ LLMLang is a research project designing a programming language and development t
 
 LLMLang — исследовательский проект языка программирования для ИИ-агентов и больших языковых моделей. Модель предлагает изменения в типизированном графе программы, человек утверждает требования и решения, а инструменты независимо проверяют результат.
 
-**Project status:** Research prototypes and a candidate specification in progress. The `.llmlang` examples illustrate the proposed language. A complete compiler and runtime are still future work. [Candidate specification](draft/README.md) · [Example implementations](draft/examples/README.md)
+**Project status:** Research prototypes and a candidate specification in progress. The `.llmlang` examples illustrate the proposed language. A complete compiler and runtime are still future work. [Candidate specification](draft/README.md) · [Example implementations](draft/examples/README.md) · [Feature registry](FEATURE-REGISTRY.md)
 
 ## How the language is designed
 
