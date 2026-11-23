@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "338c47aee8fc3c8f6780ef1b15b0d249ab0bf63f",
-  "source": "Exact main-baseline research-tree inventory at 338c47aee8fc3c8f6780ef1b15b0d249ab0bf63f plus the RT-11 cache speedup model recheck report; manifest excluded.",
+  "revision": "1fd75fe3f9d6973b8a3a1ecab726fe948725de50",
+  "source": "Exact research-tree inventory at baseline 1fd75fe3f9d6973b8a3a1ecab726fe948725de50 plus RT-33 build graph/cache options recheck; manifest excluded.",
   "counts": {
-    "research_files": 603,
-    "markdown_files": 320,
+    "research_files": 604,
+    "markdown_files": 321,
     "python_files": 227,
     "scenario_named_documents": 139,
     "prototype_tree_files": 289,
@@ -33,7 +33,7 @@
     "taxonomy_research_areas": 28,
     "dependency_edges": 135,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 603
+    "research_artifacts_excluding_manifest": 604
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
@@ -15477,6 +15477,20 @@
       "semantic_review": {
         "status": "reviewed",
         "basis": "report scope and reproduction metadata"
+      }
+    },
+    {
+      "path": "research/RT-33-BUILD-GRAPH-CACHE-OPTIONS-RECHECK-2026-11-23.md",
+      "git_blob_sha": "014779e8d52d51023ac3dc540b36cb979d17f97f",
+      "size_bytes": 4689,
+      "category": "audit-or-review-report",
+      "traceability": "RT-33 build graph/cache options recheck",
+      "plan_stages": [
+        "3.3"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "bounded options comparison and focused tests"
       }
     }
   ],
