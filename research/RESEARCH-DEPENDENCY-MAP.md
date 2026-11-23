@@ -538,5 +538,8 @@ RT-32 depends on authoritative semantics, typed SPG identities, proof architectu
 | DEP-185 | RT-32 → RT-07 | Influences | Embedding and source-correspondence results may refine formal semantics, proof architecture, and the trusted computing boundary. | Open hypothesis |
 | DEP-186 | RT-32 → RT-09 | Influences | Proof-obligation extraction and Lean lowering experiments may refine canonical IR and compiler/source-mapping requirements. | Open hypothesis |
 | DEP-187 | RT-32 → RT-11 | Influences | Proof dependency and artifact measurements may refine incremental verification keys, invalidation closure, and evidence reuse. | Open hypothesis |
+| DEP-188 | RT-05 → RT-32 | Requires | The PDG must bind proof nodes and call-site dependency edges to canonical SPG function, call-site, contract, and snapshot identities without duplicating semantic authority. | Strong hypothesis |
+| DEP-189 | RT-32 → RT-11 | Influences | Typed proof-dependency closure and explicit assumption-discharge events may refine incremental invalidation and safe proof-artifact reuse. | Open hypothesis |
+| DEP-190 | RT-32 → RT-08 | Influences | Conditional/pending/proven/stale evidence states and PDG closure queries may refine unified evidence reporting and independent replay fixtures. | Open hypothesis |
 
 These edges are research hypotheses, not an accepted embedding or verifier choice. A Lean kernel-checked theorem does not establish LLMLang source correctness unless the generated Lean representation is soundly bound to authoritative LLMLang semantics for the exact SPG snapshot.
