@@ -1279,7 +1279,7 @@ The [Research State 2026-11-19](research/RESEARCH-STATE-2026-11-19.md) consolida
 5. **Extend security and operational-lifecycle evidence.** Build on RT-16's threat model and policy fixtures with persistent multi-client authorization, concurrent reservation, crash recovery around apply/accept/commit/push/publication, hostile build-worker sandbox cases, and authenticated evidence/provenance. Specify which lifecycle actions require human or policy approval.
 6. **Continue package/cache validation without fixing speculative wire formats.** For RT-11/12/19/23, measure controlled cold/warm and scoped-change cases, implement a public immutable snapshot adapter and canonical dependency extraction against the SPG, and extend manifest/cache-index validation. Keep ZIP, binary index, codec, and provider choices provisional until the contracts and resource bounds are validated.
 7. **Refresh the option matrix and synthesis gates from results.** Record evidence class, assumptions, confidence, unknowns, compatibility constraints, and falsifiers for each surviving vector. Compare complete candidate specifications only after major criteria have evidence; publish workload-weight sensitivity and preserve failed or unknown cases.
-8. **Run the final feature compatibility and feasibility audit after all other research is complete.** This is the final cross-cutting research activity, not an early filter for individual research proposals. Start it only after all other registered aspect research, required follow-up experiments, evidence reviews, and candidate-vector synthesis have reached their documented completion gates. Re-read the then-current feature registry and the relevant research, option-matrix, and dependency-map evidence; do not rely on earlier preliminary estimates or assume the registry's current feature count will remain unchanged.
+8. **[Run the final feature compatibility and feasibility audit after all other research is complete](https://github.com/aivibeflow/LLMLang/issues/370).** This is the final cross-cutting research activity, not an early filter for individual research proposals. Start it only after all other registered aspect research, required follow-up experiments, evidence reviews, and candidate-vector synthesis have reached their documented completion gates. Re-read the then-current feature registry and the relevant research, option-matrix, and dependency-map evidence; do not rely on earlier preliminary estimates or assume the registry's current feature count will remain unchanged.
 
    - Assess every registered feature and every materially relevant feature pair or group for compatibility and feasibility. Distinguish direct contradictions from conditional tensions, dependencies, scope limitations, unresolved evidence, and ordinary implementation difficulty.
    - Use explicit classifications: **Compatible**, **Conditional**, **Conflict**, **Impossible**, **Unresolved**, and **Not Selected**. A **Conflict** or **Impossible** finding must identify the exact assumptions and requirements that cannot jointly be satisfied; complexity, cost, or lack of a current prototype is not by itself proof of impossibility.
@@ -1290,7 +1290,59 @@ The [Research State 2026-11-19](research/RESEARCH-STATE-2026-11-19.md) consolida
 
    **Expected output:** `research/FEATURE-COMPATIBILITY-AND-FEASIBILITY-AUDIT.md` (or a successor path recorded in the plan), with supporting machine-readable matrix if useful. **Exit condition:** every current registry feature has an explicit assessment; all material pairwise and higher-order interactions are classified or explicitly marked unresolved; every claimed conflict/impossibility is evidence-backed; and remaining limitations and decisions are recorded for specification synthesis.
 
-9. **Draft the RFC after the final audit and candidate comparison.** Select and baseline only a coherent candidate with explicit rationale, compatibility evidence, and unresolved risks. A narrower RFC may proceed earlier only if it clearly scopes and labels unresolved design choices. Keep ADR-014 Proposed and defer end-to-end semantic-merge implementation/benchmarks until synthesis narrows the representation and merge policy.
+9. **[Draft the RFC after the final audit and candidate comparison](https://github.com/aivibeflow/LLMLang/issues/371).** Select and baseline only a coherent candidate with explicit rationale, compatibility evidence, and unresolved risks. A narrower RFC may proceed earlier only if it clearly scopes and labels unresolved design choices. Keep ADR-014 Proposed and defer end-to-end semantic-merge implementation/benchmarks until synthesis narrows the representation and merge policy.
+
+## GitHub issue index
+
+The issue numbers below are navigation links, not execution priorities. Execute the research work packages in the dependency-aware stage/order defined by this plan and the predecessor gates in each issue. Complexity estimates and detailed checklists are maintained in the issue bodies. Research 18 has one canonical active issue (#318); the duplicate #301 is closed.
+
+| Research order | Work package | GitHub issue |
+|---:|---|---:|
+| 01 | Reconcile the research corpus | [#284](https://github.com/aivibeflow/LLMLang/issues/284) |
+| 02 | Research quality and decision rules | [#285](https://github.com/aivibeflow/LLMLang/issues/285) |
+| 03 | Research taxonomy and cross-aspect dependency map | [#286](https://github.com/aivibeflow/LLMLang/issues/286) |
+| 04 | Intent, requirements, and human-validated formalization (RT-02) | [#287](https://github.com/aivibeflow/LLMLang/issues/287) |
+| 05 | Semantic Program Graph and program representation | [#288](https://github.com/aivibeflow/LLMLang/issues/288) |
+| 06 | Semantic identity, hashes, and canonical encoding | [#289](https://github.com/aivibeflow/LLMLang/issues/289) |
+| 07 | Contracts and compatible implementations | [#290](https://github.com/aivibeflow/LLMLang/issues/290) |
+| 08 | Core language semantics (RT-03) | [#291](https://github.com/aivibeflow/LLMLang/issues/291) |
+| 09 | Type, effect, ownership, and capability alternatives (RT-04) | [#292](https://github.com/aivibeflow/LLMLang/issues/292) |
+| 10 | Formal semantics of the language | [#293](https://github.com/aivibeflow/LLMLang/issues/293) |
+| 11 | Proof architecture and proof boundary | [#294](https://github.com/aivibeflow/LLMLang/issues/294) |
+| 12 | Lean, Logos, SMT, and solver integration | [#295](https://github.com/aivibeflow/LLMLang/issues/295) |
+| 13 | Verified SPG-to-Lean pipeline (RT-32) | [#296](https://github.com/aivibeflow/LLMLang/issues/296) |
+| 14 | Correctness of optimization and translation | [#297](https://github.com/aivibeflow/LLMLang/issues/297) |
+| 15 | Semantic dependency model | [#298](https://github.com/aivibeflow/LLMLang/issues/298) |
+| 16 | Incremental analysis and invalidation | [#299](https://github.com/aivibeflow/LLMLang/issues/299) |
+| 17 | Semantic build and cache graph | [#300](https://github.com/aivibeflow/LLMLang/issues/300) |
+| 18 | Quantify compilation speedup | [#318](https://github.com/aivibeflow/LLMLang/issues/318) |
+| 19 | Semantic object storage | [#319](https://github.com/aivibeflow/LLMLang/issues/319) |
+| 20 | Git representation and repository model | [#320](https://github.com/aivibeflow/LLMLang/issues/320) |
+| 21 | Semantic diff, merge, and conflict resolution | [#321](https://github.com/aivibeflow/LLMLang/issues/321) |
+| 22 | Git integration workflow | [#322](https://github.com/aivibeflow/LLMLang/issues/322) |
+| 23 | End-to-end semantic merge and synchronized commit lifecycle | [#323](https://github.com/aivibeflow/LLMLang/issues/323) |
+| 24 | Type system and data model | [#324](https://github.com/aivibeflow/LLMLang/issues/324) |
+| 25 | Execution semantics and runtime architecture | [#325](https://github.com/aivibeflow/LLMLang/issues/325) |
+| 26 | POSIX architecture and conformance | [#326](https://github.com/aivibeflow/LLMLang/issues/326) |
+| 27 | Translation architecture | [#327](https://github.com/aivibeflow/LLMLang/issues/327) |
+| 28 | Required bidirectional translation study (RT-30) | [#328](https://github.com/aivibeflow/LLMLang/issues/328) |
+| 29 | Backend selection and cross-backend validation | [#329](https://github.com/aivibeflow/LLMLang/issues/329) |
+| 30 | LLVM backend | [#330](https://github.com/aivibeflow/LLMLang/issues/330) |
+| 31 | Implementation discovery, selection, and optimization | [#331](https://github.com/aivibeflow/LLMLang/issues/331) |
+| 32 | Performance and scalability | [#332](https://github.com/aivibeflow/LLMLang/issues/332) |
+| 33 | Package indexes and dynamic package delivery | [#333](https://github.com/aivibeflow/LLMLang/issues/333) |
+| 34 | Parallel development and collaboration | [#334](https://github.com/aivibeflow/LLMLang/issues/334) |
+| 35 | Security, trust, and reproducibility | [#335](https://github.com/aivibeflow/LLMLang/issues/335) |
+| 36 | Developer experience and adoption | [#336](https://github.com/aivibeflow/LLMLang/issues/336) |
+| 37 | Toolchain Server and semantic development API (RT-19) | [#337](https://github.com/aivibeflow/LLMLang/issues/337) |
+| 38 | LLM patch planning, caller migration, hash propagation, and verified commit (RT-20) | [#338](https://github.com/aivibeflow/LLMLang/issues/338) |
+| 39 | Knowledge Context (LL-026) | [#339](https://github.com/aivibeflow/LLMLang/issues/339) |
+| 40 | Task Context (LL-027) | [#340](https://github.com/aivibeflow/LLMLang/issues/340) |
+| 41 | Joint integration and exit criteria | [#341](https://github.com/aivibeflow/LLMLang/issues/341) |
+| 42 | AI-oriented syntax experimentation and MCP session observability (RT-31) | [#342](https://github.com/aivibeflow/LLMLang/issues/342) |
+| 43 | Final feature compatibility and feasibility audit | [#370](https://github.com/aivibeflow/LLMLang/issues/370) |
+| 44 | Draft the LLMLang RFC after final audit and candidate comparison | [#371](https://github.com/aivibeflow/LLMLang/issues/371) |
+
 
 The package work has separate implementation details in Stage 7.2 and the semantic storage work in Stage 4. Do not skip a gate because a document or prototype exists: each artifact is evidence for only the claims and inputs it actually covers, not proof that its design is correct or complete.
 
