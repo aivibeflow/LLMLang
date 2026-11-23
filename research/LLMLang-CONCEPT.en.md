@@ -167,46 +167,46 @@ This is content addressing, not a claim that equal hashes prove arbitrary behavi
 
 ---
 
-## 4. Три логических слоя программы
+## 4. Three Logical Program Layers
 
-Предлагается разделять SPG на три связанных, но независимо существующих слоя.
+The SPG is proposed to be divided into three related but independently existing layers.
 
 ### 4.1. Specification Graph
 
-Описывает, **что программа должна делать**:
-- требования;
-- предусловия и постусловия;
-- инварианты;
-- ограничения;
-- модели состояний;
-- допустимые ошибки;
-- свойства безопасности.
+Describes **what the program must do**:
+- requirements;
+- preconditions and postconditions;
+- invariants;
+- constraints;
+- state models;
+- permitted errors;
+- safety properties.
 
 ### 4.2. Design Graph
 
-Описывает, **как программа должна быть устроена**:
-- компоненты;
-- интерфейсы;
-- зависимости;
-- архитектурные границы;
-- алгоритмы;
-- структуры данных;
-- распределение ответственности.
+Describes **how the program should be structured**:
+- components;
+- interfaces;
+- dependencies;
+- architectural boundaries;
+- algorithms;
+- data structures;
+- allocation of responsibilities.
 
 ### 4.3. Implementation Graph
 
-Описывает, **как программа реализована**:
-- выражения;
-- инструкции;
-- поток управления;
-- операции с памятью;
-- вызовы;
-- операции runtime;
-- конкретные реализации алгоритмов.
+Describes **how the program is implemented**:
+- expressions;
+- instructions;
+- control flow;
+- memory operations;
+- calls;
+- runtime operations;
+- concrete algorithm implementations.
 
-### 4.4. Связи между слоями
+### 4.4. Relationships Between Layers
 
-Ожидаемые отношения соответствия:
+Expected conformance relationships:
 
 ```text
 Specification Graph
@@ -216,34 +216,34 @@ Design Graph
 Implementation Graph
 ```
 
-Фактически реализация должна соответствовать проектным решениям, а проектные решения — спецификации.
+In practice, the implementation must conform to the design decisions, and those decisions must conform to the specification.
 
-Связи должны быть явными и проверяемыми настолько, насколько это возможно.
+These relationships should be explicit and verifiable to the extent possible.
 
-### 4.5. Обязательность слоёв
+### 4.5. Whether Layers Are Mandatory
 
-Предпочтительное решение: слои независимы и опциональны.
+The preferred approach is for the layers to be independent and optional.
 
-- Небольшую программу можно создать непосредственно в Implementation Graph.
-- Для более сложной программы можно добавить Design Graph.
-- Для критичной или крупной системы можно потребовать Specification Graph и соответствие всех нижележащих слоёв.
+- A small program may be created directly in the Implementation Graph.
+- A more complex program may add a Design Graph.
+- A critical or large system may require a Specification Graph and conformance of all lower layers.
 
-Политика проекта может устанавливать минимально обязательный уровень детализации. Это позволяет не перегружать простые задачи, сохраняя строгую дисциплину для больших систем.
+Project policy may establish a minimum required level of detail. This avoids overburdening simple tasks while retaining rigorous discipline for large systems.
 
 ---
 
-## 5. Контрактно-ориентированное программирование
+## 5. Contract-Oriented Programming
 
-Контракты являются частью семантики языка, а не комментариями или внешней документацией.
+Contracts are part of the language's semantics, not comments or external documentation.
 
-Основные элементы:
-- **Preconditions** — условия, истинные до выполнения.
-- **Postconditions** — гарантии после выполнения.
-- **Invariants** — свойства, сохраняющиеся на протяжении определённого жизненного цикла.
-- **Effects** — разрешённые побочные эффекты.
-- **Errors** — явно объявленные исходы ошибки.
+Core elements:
+- **Preconditions** — conditions that must hold before execution.
+- **Postconditions** — guarantees that must hold after execution.
+- **Invariants** — properties preserved throughout a defined lifecycle.
+- **Effects** — permitted side effects.
+- **Errors** — explicitly declared error outcomes.
 
-Пример:
+Example:
 
 ```text
 operation transfer:
@@ -274,26 +274,26 @@ operation transfer:
         InsufficientFunds
 ```
 
-Компилятор и средства верификации должны проверять реализацию относительно контрактов. Если доказательство невозможно, результат должен быть явно обозначен как неизвестный или непроверенный, а не как успешный.
+The compiler and verification tools must check implementations against their contracts. If proof is impossible, the outcome must be explicitly marked as unknown or unverified rather than successful.
 
 ---
 
-## 6. Типовая система
+## 6. Type System
 
-### 6.1. Статическая строгая типизация
+### 6.1. Strict Static Typing
 
-Предлагается статическая строгая типизация с минимальным количеством неявного поведения.
+A strict static type system with minimal implicit behavior is proposed.
 
-Желательные свойства:
-- отсутствие неявных преобразований типов;
-- отсутствие неявного превращения nullable в non-null;
-- исчерпывающая обработка алгебраических типов;
-- явные ошибки;
-- типизированные состояния;
-- поддержка refinement types;
-- явное владение ресурсами.
+Desirable properties:
+- no implicit type conversions;
+- no implicit conversion from nullable to non-null;
+- exhaustive handling of algebraic types;
+- explicit errors;
+- typed states;
+- support for refinement types;
+- explicit resource ownership.
 
-### 6.2. Алгебраические типы
+### 6.2. Algebraic Types
 
 ```text
 type UserLookup =
@@ -302,21 +302,21 @@ type UserLookup =
     Forbidden
 ```
 
-`match` должен быть исчерпывающим. Добавление нового варианта типа должно выявлять все места, где обработка стала неполной.
+A `match` must be exhaustive. Adding a new type variant must identify every location where handling becomes incomplete.
 
-### 6.3. Refinement types
+### 6.3. Refinement Types
 
-Тип может уточняться предикатом:
+A type may be refined by a predicate:
 
 ```text
 PositiveMoney = Money where value > 0
 ```
 
-Это позволяет переносить проверяемые ограничения в систему типов и устранять часть некорректных состояний до исполнения.
+This moves verifiable constraints into the type system and eliminates some invalid states before execution.
 
-### 6.4. Типизированные состояния
+### 6.4. Typed States
 
-Состояние сущности может отражаться в типе:
+An entity's state may be reflected in its type:
 
 ```text
 Account<Active>
@@ -324,25 +324,25 @@ Account<Frozen>
 Account<Closed>
 ```
 
-Операция снятия средств принимает только `Account<Active>`.
+A withdrawal operation accepts only `Account<Active>`.
 
-Переход состояния меняет типизированное представление сущности. Конкретная модель владения и изменения типов при переходах требует дальнейшей проработки.
+A state transition changes the entity's typed representation. The specific ownership model and type changes during transitions require further investigation.
 
-### 6.5. Структурная идентичность, требования представления и ABI
+### 6.5. Structural Identity, Representation Requirements, and ABI
 
-Отдельное архитектурное предложение рассматривает тип как расширение структурной идентичности требованиями к представлению. Имена типов и полей, а также семантическое назначение данных не входят в структурную идентичность. Семантические ожидания задаются потребителем в его контракте.
+A separate architectural proposal treats a type as an extension of structural identity with representation requirements. Type and field names, as well as the semantic purpose of data, are not part of structural identity. Semantic expectations are specified by the consumer in its contract.
 
-Предлагаемая цепочка компиляции разделяет:
-- **Identity** — каноническая структура данных и её Identity Hash;
-- **Type** — Identity плюс канонические требования к представлению и Type Hash;
-- **Layout** — вычисленная для target ABI физическая раскладка и Layout Hash;
-- **Function ABI** — вычисленный контракт передачи аргументов и результата для конкретной функции и ABI.
+The proposed compilation pipeline distinguishes:
+- **Identity** — the canonical data structure and its Identity Hash;
+- **Type** — Identity plus canonical representation requirements and a Type Hash;
+- **Layout** — the physical layout computed for a target ABI and its Layout Hash;
+- **Function ABI** — the argument-passing and result-return contract computed for a particular function and ABI.
 
-В исходном коде разработчик оперирует Type и объявлениями функций. Layout и Function ABI вычисляются компилятором для выбранной цели; Layout Engine является единым источником истины для раскладки. Требования, которые невозможно выполнить, должны приводить к диагностике, а не к молчаливому ослаблению.
+In source code, developers work with Types and function declarations. Layout and Function ABI are computed by the compiler for the selected target; the Layout Engine is the single source of truth for layout. Unsatisfiable requirements must produce diagnostics rather than being silently weakened.
 
-ABI внешней функции указывается на границе объявления функции (например, иллюстративное `extern "C"`), а не глобально на каждом типе. Тип при этом может нести требования к C-совместимому представлению, alignment и packing. Конкретная раскладка и способ передачи агрегата разрешаются с учётом target ABI profile.
+The ABI of an external function is specified at the function declaration boundary (for example, the illustrative `extern "C"`), not globally on every type. A type may nevertheless carry C-compatible representation, alignment, and packing requirements. The concrete layout and aggregate-passing convention are resolved according to the target ABI profile.
 
-Полная модель, границы хешей, C interoperability и открытые вопросы описаны в [предложении RT-09 о структурной идентичности типов, Layout и C ABI](RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md). Это предложение не является утверждённой нормативной семантикой.
+The full model, hash boundaries, C interoperability, and open questions are documented in the [RT-09 proposal on structural type identity, layout, and C ABI](RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md). This proposal is not approved normative semantics.
 
 ---
 
