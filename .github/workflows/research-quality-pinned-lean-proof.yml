@@ -1,0 +1,80 @@
+name: Research Quality Pinned Lean Rewrite Proof
+
+# Independently re-checks the *archived proof file* with the archived Lean
+# toolchain. Does NOT establish source/SPG/backend preservation or an ADR.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/research-quality-pinned-lean-proof.yml"
+      - "research/RT-00-QUALITY-RULES-PINNED-LEAN-PROOF-2026-11-23.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  archival-lean-proof:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check out proof rerun documentation and workflow
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Recover exact previously audited proof and Lean metadata
+        uses: actions/checkout@v4
+        with:
+          ref: ff1295c1769bfe8546c4b63590c9f607349215ee
+          path: archival
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Verify exact proof bytes before any toolchain installation
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/pinned-lean
+          root=archival/research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding
+          test "$(git -C archival rev-parse HEAD)" = "ff1295c1769bfe8546c4b63590c9f607349215ee"
+          test "$(git hash-object "$root/ObservableRewrite.lean")" = "98bd38f297e91840c56664ef00fbd5f28c3a81b8"
+          test "$(git hash-object "$root/lean-toolchain")" = "00f848359b1cdaf7c12cd6b7acc5b4364752e154"
+          test "$(cat "$root/lean-toolchain")" = "leanprover/lean4:v4.36.0"
+          echo "039808b6adf5d5baa97f6498a15fd04843a4f4c6b1147c9dade68f4440252765  $root/ObservableRewrite.lean" | sha256sum --check
+          {
+            echo "archived_commit=$(git -C archival rev-parse HEAD)"
+            echo "proof_blob=$(git hash-object "$root/ObservableRewrite.lean")"
+            echo "lean_toolchain_file=$(cat "$root/lean-toolchain")"
+            echo "proof_sha256=$(sha256sum "$root/ObservableRewrite.lean" | cut -d' ' -f1)"
+            uname -srm
+          } | tee artifacts/pinned-lean/environment.txt
+      - name: Install Lean 4.36.0 as in existing required CI
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.36.0
+          "$HOME/.elan/bin/elan" default leanprover/lean4:v4.36.0
+      - name: Recheck the fixed theorem file and report actual axioms
+        shell: bash
+        run: |
+          set -euo pipefail
+          lean --version | tee -a artifacts/pinned-lean/environment.txt
+          lean --version | grep -F '4.36.0'
+          cd archival/research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding
+          lean -DwarningAsError=true ObservableRewrite.lean 2>&1 | tee "$GITHUB_WORKSPACE/artifacts/pinned-lean/lean-check.log"
+          grep -q 'rewrite_preserves' "$GITHUB_WORKSPACE/artifacts/pinned-lean/lean-check.log"
+          grep -q 'swapping_addends_changes_trace' "$GITHUB_WORKSPACE/artifacts/pinned-lean/lean-check.log"
+          grep -q 'discarding_equal_branch_guard_hides_failure' "$GITHUB_WORKSPACE/artifacts/pinned-lean/lean-check.log"
+      - name: Keep proof output and exact environment even if the check fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-pinned-lean-rewrite-proof
+          path: artifacts/pinned-lean/
+          if-no-files-found: warn
+          retention-days: 30
