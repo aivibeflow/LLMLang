@@ -119,6 +119,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Nine evidence-navigation corrections (2026-11-23):** [Stage 0.2 supplementary report](research/RT-00-QUALITY-RULES-NAVIGATION-REMEDIATION-2026-11-23.md) documents completed *metadata/traceability* crosswalks on Scenarios 98/103/118/29 and DEP-007. The previous eight original-execution attestations, independent claim review and maintainer policy adoption remain open. The frozen 10-report sample now replays exact historic Git bytes instead of assuming current reports have not been edited.
 
+**Stage 0.2 second claim audit (2026-11-23):** [24 source-bound claims across 12 further reports](research/RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md) are documented with exact Git object IDs, evidence types, statement/limitation line bounds and downstream decision caveats. [Machine-readable register](research/quality-audit/2026-11-23-claim-cohort2.json) plus optional [CI source validator](.github/workflows/research-claim-cohort-audit.yml) test link integrity and bookkeeping, **not** underlying scientific correctness. This remains a purposive small cohort, not full corpus coverage or formal process adoption; section 0.2 exit gates remain open.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.

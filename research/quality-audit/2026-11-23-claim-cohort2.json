@@ -1,0 +1,466 @@
+{
+  "schema": "research-quality-claim-audit-cohort2-v1",
+  "date": "2026-11-23",
+  "baseline_commit": "ff1295c1769bfe8546c4b63590c9f607349215ee",
+  "sample_method": "Purposive second cohort of 12 reports not included in the initial ten-document formatting pilot, across a proof, candidate architecture, models, SQLite/C interop, experiments and audit summaries; no prevalence estimate",
+  "source_binding": "All report and one principal referenced-source Git blob hashes verified through GitHub at baseline",
+  "verdict_boundary": "These are scoped report-to-source trace interpretations, not independent re-runs, proof checking, authoritative acceptance or full-corpus correctness",
+  "reports": [
+    {
+      "report_id": "RT07",
+      "report_path": "research/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md",
+      "report_blob": "d80414e9b6a9290f752749a21f7ff33a86ca5aef",
+      "evidence_shape": "bounded formal Lean proof report",
+      "reference_path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ObservableRewrite.lean",
+      "reference_blob": "98bd38f297e91840c56664ef00fbd5f28c3a81b8",
+      "claims": [
+        {
+          "id": "Q285-C2-01-1",
+          "primary_evidence_class": "Proof",
+          "statement": "The reported Lean theorem rewrite_preserves quantifies over finite typed expressions and integer inputs, preserving outcome and ordered event trace.",
+          "report_line_start": 25,
+          "report_line_end": 25,
+          "boundary_line_start": 31,
+          "boundary_line_end": 33,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Proof reported in source and CI-referenced; not independently recompiled during this audit.",
+          "unproven_or_negative": "No LLMLang source/SPG/backend correspondence, machine overflow, ownership or concurrency proof.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-01-2",
+          "primary_evidence_class": "Proof",
+          "statement": "Lean-checked counterexamples distinguish identical scalar return from ordered traces and a failing condition from successful constant folding.",
+          "report_line_start": 27,
+          "report_line_end": 29,
+          "boundary_line_start": 31,
+          "boundary_line_end": 31,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Two finite-grammar witness theorems are described, not a universal real-optimizer test.",
+          "unproven_or_negative": "Real-runtime observational equivalence still depends on additional effects and lowering evidence.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "RT24-PROPOSAL",
+      "report_path": "research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
+      "report_blob": "2be7ddb8c530127e3c20a2bd383236afdc70e8df",
+      "evidence_shape": "proposed design contract, not executed result",
+      "reference_path": "docs/adr/014-git-semantic-merge.md",
+      "reference_blob": "8ae09e015bb42ccf49dadc1bc989b14b01f434d4",
+      "claims": [
+        {
+          "id": "Q285-C2-02-1",
+          "primary_evidence_class": "Hypothesis / conjecture",
+          "statement": "Semantic merge correctness is proposed at repository-state granularity, not guaranteed by Git file-level merge success.",
+          "report_line_start": 9,
+          "report_line_end": 22,
+          "boundary_line_start": 24,
+          "boundary_line_end": 28,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Proposed requirements, not an implemented end-to-end merge proof.",
+          "unproven_or_negative": "Requires input-source completeness, selected identity policy and typed schema.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-02-2",
+          "primary_evidence_class": "Hypothesis / conjecture",
+          "statement": "A scoped prototype is proposed to pass explicit import/diff/merge, RT-20 and RT-23 recovery gates before advancing.",
+          "report_line_start": 347,
+          "report_line_end": 360,
+          "boundary_line_start": 329,
+          "boundary_line_end": 345,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Acceptance conditions are a proposal, not evidence that each has run.",
+          "unproven_or_negative": "ADR-014 remains unaccepted by this source; none of the listed gates is marked complete here.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "RT05-LIFECYCLE",
+      "report_path": "research/RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md",
+      "report_blob": "4877f578d9d3cf7e928b930a90f9f2e91c0701b1",
+      "evidence_shape": "bounded identity/continuity executable model",
+      "reference_path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_identity_lifecycle.py",
+      "reference_blob": "348a8178068f67b18dced675cbf7942f13b9465a",
+      "claims": [
+        {
+          "id": "Q285-C2-03-1",
+          "primary_evidence_class": "Experimental result",
+          "statement": "In the fixture, identical values share a value hash but different occurrences remain separately managed; reused slots can imply false continuation.",
+          "report_line_start": 28,
+          "report_line_end": 33,
+          "boundary_line_start": 38,
+          "boundary_line_end": 44,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Fixture-specific identity and lineage observations.",
+          "unproven_or_negative": "No canonical SPG/typed hash envelope, general Git import/export or behavioral equivalence.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-03-2",
+          "primary_evidence_class": "Observation",
+          "statement": "The report explicitly records two full-discovery unsuccessful tests and a skip, alongside 122 selected passing tests.",
+          "report_line_start": 54,
+          "report_line_end": 54,
+          "boundary_line_start": 44,
+          "boundary_line_end": 54,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Historical test-summary report; source base plus working-tree modifications not a full immutable run tree.",
+          "unproven_or_negative": "Selected tests passing cannot erase the two reported full-suite failures.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "SC101",
+      "report_path": "research/RESEARCH-SCENARIO-101-SOLVER-VS-TRUTH-TABLE-PATHS.md",
+      "report_blob": "fa86c666ab123d91073f1738beea44f15e47f3aa",
+      "evidence_shape": "solver-path differential experiment and timing microbenchmark",
+      "reference_path": "research/PROTOTYPES/RT-04-01/benchmark_rt03_predicate_paths.py",
+      "reference_blob": "f847934ff4dea63d4dee748175e82f1a60466cd1",
+      "claims": [
+        {
+          "id": "Q285-C2-04-1",
+          "primary_evidence_class": "Experimental result",
+          "statement": "SymPy DPLL2 and finite truth-table route sets agreed on tested fixtures, with replayable solver models.",
+          "report_line_start": 17,
+          "report_line_end": 23,
+          "boundary_line_start": 36,
+          "boundary_line_end": 42,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Fixed Boolean predicate IR; test suite results reported, not rerun in this audit.",
+          "unproven_or_negative": "No proof that the solver/adapter is complete for arbitrary predicates or source CFG.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-04-2",
+          "primary_evidence_class": "Experimental result",
+          "statement": "On an especially regular conjunction family, reported truth-table median rose from 0.000885 s to 1.635340 s (8 to 18 variables), while DPLL2 remained within 0.000886–0.002722 s.",
+          "report_line_start": 25,
+          "report_line_end": 34,
+          "boundary_line_start": 38,
+          "boundary_line_end": 41,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Local three-run medians on a single formula family, not a stable performance estimate.",
+          "unproven_or_negative": "Hard formulas, timeouts, unknown results, source-level identity and host-to-host timing unknown.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "SC110",
+      "report_path": "research/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md",
+      "report_blob": "a95ce68d89c2b73d381699618c338e2884e03c5f",
+      "evidence_shape": "finite JSON compatibility fixture",
+      "reference_path": "research/PROTOTYPES/RT-04-01/test_schema_evolution_model.py",
+      "reference_blob": "bb5f5bdf3ea0ed71d6ef7a565263740f6febb944",
+      "claims": [
+        {
+          "id": "Q285-C2-05-1",
+          "primary_evidence_class": "Model result",
+          "statement": "In a two-version JSON fixture, a v1 payload is decoded by v2 via a defaulted new field while v2-to-v1 is rejected or drops the new field depending on unknown-key policy.",
+          "report_line_start": 13,
+          "report_line_end": 22,
+          "boundary_line_start": 24,
+          "boundary_line_end": 28,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "One required integer, one added Boolean, two hand-picked unknown/null policies.",
+          "unproven_or_negative": "Does not establish Protobuf/Avro/CBOR runtime or LLMLang wire-policy compatibility.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-05-2",
+          "primary_evidence_class": "Model result",
+          "statement": "Changing a default alters meaning of absent-field payloads; explicit null differs from absent under the reject policy.",
+          "report_line_start": 22,
+          "report_line_end": 24,
+          "boundary_line_start": 26,
+          "boundary_line_end": 30,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Finite 16-case cross-product and explicit hand-selected policies.",
+          "unproven_or_negative": "Not a general rule for all serializers, canonical hashing, migrations or schema identity.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "SC112",
+      "report_path": "research/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md",
+      "report_blob": "f5bb48d349ba90818d743d8f15da5d881a3db0f0",
+      "evidence_shape": "finite abstract liveness model",
+      "reference_path": "research/PROTOTYPES/RT-04-01/test_scheduler_fairness_model.py",
+      "reference_blob": "f0770463ee0a13e363394f058a563ff51b9cddca",
+      "claims": [
+        {
+          "id": "Q285-C2-06-1",
+          "primary_evidence_class": "Model result",
+          "statement": "An intermittently enabled but perpetually starved task is allowed under weak fairness but rejected under strong fairness on a repeated cycle.",
+          "report_line_start": 13,
+          "report_line_end": 28,
+          "boundary_line_start": 30,
+          "boundary_line_end": 34,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Two-task finite cycles and explicit enabledness predicates.",
+          "unproven_or_negative": "Not a guarantee for any scheduler implementation, I/O completion or arbitrary task graphs.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-06-2",
+          "primary_evidence_class": "Model result",
+          "statement": "The round-robin two-task fixture has a one-turn selection bound under fixed always-runnable and terminating-step premises.",
+          "report_line_start": 17,
+          "report_line_end": 28,
+          "boundary_line_start": 30,
+          "boundary_line_end": 34,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Fixed two-task abstract scheduling only.",
+          "unproven_or_negative": "Blocked/external tasks, crashes, unbounded creation and real-time latency not modeled.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "SC120",
+      "report_path": "research/RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md",
+      "report_blob": "b230f8a511b75cdc82519c211c0d37dda7c12c77",
+      "evidence_shape": "SQLite single-thread native API probe",
+      "reference_path": "research/PROTOTYPES/RT-04-01/sqlite_cleanup_probe.py",
+      "reference_blob": "96b04c616bb6ebf47dcbf0018231a33274ecbe85",
+      "claims": [
+        {
+          "id": "Q285-C2-07-1",
+          "primary_evidence_class": "Experimental result",
+          "statement": "With a prepared statement, sqlite3_close returned SQLITE_BUSY and the connection remained usable in the probed fixture; finalizing statements enabled successful close.",
+          "report_line_start": 15,
+          "report_line_end": 17,
+          "boundary_line_start": 33,
+          "boundary_line_end": 35,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "SQLite 3.46.1 local C API, one in-memory connection and statement dependencies.",
+          "unproven_or_negative": "Does not establish all handles, multithreaded aliases or a chosen LLMLang ownership type.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-07-2",
+          "primary_evidence_class": "Experimental result",
+          "statement": "sqlite3_close_v2 returned success before a dependent statement finished; callback observation identified later destruction after finalization.",
+          "report_line_start": 19,
+          "report_line_end": 25,
+          "boundary_line_start": 33,
+          "boundary_line_end": 35,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "One registered destructor callback, one statement, single-thread probe.",
+          "unproven_or_negative": "Logical close and physical release are distinct; no general lifetime enforcement shown.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "SC124",
+      "report_path": "research/RESEARCH-SCENARIO-124-CLOSE-SYNCHRONIZATION.md",
+      "report_blob": "ae645310f2bb7c4adfd7863e6578925115bf9883",
+      "evidence_shape": "native two-thread SQLite schedule experiment",
+      "reference_path": "research/PROTOTYPES/RT-04-01/sqlite_close_interleavings_probe.py",
+      "reference_blob": "2306c526ced59f0c96f3064454c483e7b3f2431f",
+      "claims": [
+        {
+          "id": "Q285-C2-08-1",
+          "primary_evidence_class": "Experimental result",
+          "statement": "The native interleaving harness matched an 11-schedule finite model; a separate validation/close gap admitted SQLITE_BUSY after a previously matching version check.",
+          "report_line_start": 24,
+          "report_line_end": 35,
+          "boundary_line_start": 43,
+          "boundary_line_end": 50,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "SQLite 3.46.1, one producer and one statement dependent.",
+          "unproven_or_negative": "No proof for unrestricted FFI aliases or all possible concurrent schedules.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-08-2",
+          "primary_evidence_class": "Experimental result",
+          "statement": "Under one shared guard participating in both observation and close, the two sampled producer schedule categories avoided a SQLITE_BUSY path.",
+          "report_line_start": 32,
+          "report_line_end": 37,
+          "boundary_line_start": 39,
+          "boundary_line_end": 50,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Controlled policy with cooperative producers and explicit retirement check.",
+          "unproven_or_negative": "An alias using another lock can invalidate the guarantee; production lock/alias completeness not established.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "SC130",
+      "report_path": "research/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md",
+      "report_blob": "9fdb7298597965299ab9add721e46650c798492c",
+      "evidence_shape": "file-backed SQLite crash-boundary model/native probe",
+      "reference_path": "research/PROTOTYPES/RT-04-01/sqlite_durable_receipts_probe.py",
+      "reference_blob": "13b7cc7924e190778bcc4f2db8c95acf5e8b0a3c",
+      "claims": [
+        {
+          "id": "Q285-C2-09-1",
+          "primary_evidence_class": "Model result",
+          "statement": "The two-commit setup has windows where effect release is recorded without terminal result, so absent result is not reliable evidence of either live or released backend state.",
+          "report_line_start": 19,
+          "report_line_end": 29,
+          "boundary_line_start": 35,
+          "boundary_line_end": 42,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Ten finite crash/interruption traces with modeled effect row and SQLite journal.",
+          "unproven_or_negative": "External providers, lost invocation key and distributed reconciliation not shown.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-09-2",
+          "primary_evidence_class": "Observation",
+          "statement": "The later SQLite 3.53.1 source ID in CI is explicitly a prospective reproduction baseline, not the original historical SQLite identity.",
+          "report_line_start": 45,
+          "report_line_end": 55,
+          "boundary_line_start": 42,
+          "boundary_line_end": 53,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Prospective native reproduction record with stated runtime/archive hashes.",
+          "unproven_or_negative": "Cannot back-attribute prospective SQLite binary to original experiment.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "SC132",
+      "report_path": "research/RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md",
+      "report_blob": "79b566cf98c91c181c1058c9fb1434d8e813723a",
+      "evidence_shape": "finite differential ownership/recovery model",
+      "reference_path": "research/PROTOTYPES/RT-04-01/test_rt04_shared_owned_handlers.py",
+      "reference_blob": "1570c2ffc29800e191e7f149b986b1823e488bc8",
+      "claims": [
+        {
+          "id": "Q285-C2-10-1",
+          "primary_evidence_class": "Experimental result",
+          "statement": "The fixture compares 20,736 inputs per caller policy and reports 1,380 more admissions with recovery, including 690 following consuming errors.",
+          "report_line_start": 35,
+          "report_line_end": 42,
+          "boundary_line_start": 46,
+          "boundary_line_end": 52,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Single fixed callee and unguarded result match; independent transition oracle used in report.",
+          "unproven_or_negative": "No runtime FFI authority or general source-compiler conformance established.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-10-2",
+          "primary_evidence_class": "Experimental result",
+          "statement": "Caller recovery also adds 552 releases where admission was already possible and 3,726 cleanup diagnostics, showing admission counts alone omit observable effects.",
+          "report_line_start": 42,
+          "report_line_end": 44,
+          "boundary_line_start": 46,
+          "boundary_line_end": 52,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Supplied release-disposition inputs in finite fixture.",
+          "unproven_or_negative": "No accepted caller-recovery policy; unknown release outcomes retain obligations.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "RT24-TREE",
+      "report_path": "research/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md",
+      "report_blob": "847bd2036d36b7a2e58cc22fea62b7e19fe24c84",
+      "evidence_shape": "Git/semantic snapshot integration fixture",
+      "reference_path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_merge_tree_gate.py",
+      "reference_blob": "b78452a9c86d7ae7e078c5fcd3b11b77a37513c3",
+      "claims": [
+        {
+          "id": "Q285-C2-11-1",
+          "primary_evidence_class": "Experimental result",
+          "statement": "In the controlled MERGE-01 fixture, Git clean merge plus warm-store graph audit can conceal a missing declaration; fresh closed-tree import rejects it.",
+          "report_line_start": 43,
+          "report_line_end": 45,
+          "boundary_line_start": 51,
+          "boundary_line_end": 59,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Acyclic program, one direct callable, controlled Git trees.",
+          "unproven_or_negative": "Does not establish repository-wide source-to-SPG completeness for production.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-11-2",
+          "primary_evidence_class": "Experimental result",
+          "statement": "The MERGE-03–07 fixtures detect omitted source occurrences, stale tree-bound witnesses and mismatched selected values despite equal edge hashes.",
+          "report_line_start": 46,
+          "report_line_end": 49,
+          "boundary_line_start": 51,
+          "boundary_line_end": 63,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Closed source inventory with typed payload schema; seven reported tests.",
+          "unproven_or_negative": "Not a full semantic merge engine, synchronized commit recovery or validated dynamic dispatch.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    },
+    {
+      "report_id": "RT00-G",
+      "report_path": "research/RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md",
+      "report_blob": "aec8cf203c60ff1cfb161c7a1dc88f03e0141c29",
+      "evidence_shape": "historical multi-baseline audit status report",
+      "reference_path": "research/RT-00-A-CURRENT-MAIN-INVENTORY-FRESHNESS-RECONCILIATION-2026-11-22.md",
+      "reference_blob": "a4884363772de304d922c4cb1570b5b98abee91d",
+      "claims": [
+        {
+          "id": "Q285-C2-12-1",
+          "primary_evidence_class": "Observation",
+          "statement": "The report contains different historical inventory counts (490, later 578, later 580/581) and explicitly warns that newer tables supersede older main snapshots.",
+          "report_line_start": 13,
+          "report_line_end": 24,
+          "boundary_line_start": 49,
+          "boundary_line_end": 64,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Dated retrospective Git-tree snapshots, not live main metrics.",
+          "unproven_or_negative": "Numbers must not be reused as current corpus counts without new Git-tree enumeration.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        },
+        {
+          "id": "Q285-C2-12-2",
+          "primary_evidence_class": "Observation",
+          "statement": "The report records that bounded claim pilots and prototype-role triage do not establish corpus-wide claim-level completeness; a 137-versus-136 Scenario crosswalk discrepancy remains open in its historical snapshot.",
+          "report_line_start": 242,
+          "report_line_end": 253,
+          "boundary_line_start": 482,
+          "boundary_line_end": 497,
+          "evidence_level": "report-and-referenced-source-inspected; no independent reexecution in this cohort",
+          "scope": "Historical audit bookkeeping and linked bounded pilots.",
+          "unproven_or_negative": "No claim that an old gap still exists in today's latest main without new evidence.",
+          "draft_impact": "No new normative change from this audit",
+          "review_status": "single-review preliminary; independent technical/claim review required"
+        }
+      ]
+    }
+  ]
+}
