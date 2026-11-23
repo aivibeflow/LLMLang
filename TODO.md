@@ -2,6 +2,8 @@
 
 This file is the project-wide register of unresolved design questions and decisions that require discussion.
 
+**Stage 0.2 research-process tracking:** [quality review protocol](research/QUALITY-REVIEW-PROTOCOL.md) and [warning-only pilot results](research/RT-00-QUALITY-RULES-PILOT-2026-11-23.md) are proposals, not accepted governance decisions. Maintainer acceptance, corpus-wide claim audit, pilot reviewer measurements, and foundational experiment reruns remain open under [PLAN.md §0.2](PLAN.md#02-establish-research-quality-and-decision-rules) / [issue #285](https://github.com/aivibeflow/LLMLang/issues/285). No new LL design-question ID is created for this process implementation task.
+
 It is not a specification. Items here may contain hypotheses and recommendations; only decisions explicitly accepted and transferred into the appropriate project documents become part of the design baseline.
 
 ## How to use this register
