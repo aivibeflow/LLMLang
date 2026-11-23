@@ -6,7 +6,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 
 ## AI-oriented syntax and Toolchain research
 
-- [RT-32 — Verified SPG-to-Lean Pipeline](RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md) studies generation of Lean representations and proof obligations from versioned SPG functions and contracts, shallow/deep/hybrid embeddings, source-to-Lean correspondence, kernel-checked proofs, compositional verification, proof provenance, and incremental invalidation. It is a Toolchain/formal-verification research goal; Lean is not selected as the LLMLang runtime or semantic authority.
+- [RT-32 — Verified SPG-to-Lean Pipeline](RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md) studies generation of Lean representations and proof obligations from versioned SPG functions and contracts, shallow/deep/hybrid embeddings, source-to-Lean correspondence, kernel-checked proofs, compositional verification, a typed Proof Dependency Graph (PDG) for proof artifacts and dependency closure, conditional caller proofs with explicit assumption discharge, proof provenance, and incremental invalidation. The PDG is linked to but distinct from SPG. It is a Toolchain/formal-verification research goal; Lean is not selected as the LLMLang runtime or semantic authority.
 
 - [RT-31 — AI-Oriented Syntax, Semantic Separation, and Toolchain Optimization](RT-31-AI-ORIENTED-SYNTAX-AND-TOOLCHAIN-OPTIMIZATION.md) studies the separation of semantics from abstract/concrete syntax, interchangeable syntax profiles, controlled model evaluation, MCP session recording, error attribution, analytics, privacy, and evidence-driven improvement. The brief establishes research scope; it does not select a final grammar, IR/AST decomposition, or unrestricted logging policy.
 

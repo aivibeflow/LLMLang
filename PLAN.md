@@ -394,7 +394,10 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Compare shallow, deep, and hybrid Lean embeddings; identify which claims each can establish and where semantic correspondence is required.
 - [ ] Define the admitted SPG/verification-IR subset and deterministic mapping from versioned LLMLang functions, contracts, invariants, calls, and effects to Lean definitions and theorem statements.
 - [ ] Generate proof obligations from contracts and control flow: preconditions, postconditions, branch conditions, loop invariant initialization/preservation/exit, recursive obligations, and termination measures.
-- [ ] Define compositional caller proofs from version-bound callee contracts, preserving exact function, contract, assumption, and dependency identities.
+- [ ] Define compositional caller proofs from version-bound callee contracts, preserving exact function, contract, assumption, and dependency identities; allow explicitly conditional proofs when callee proof evidence is absent, but never report them as proven.
+- [ ] Define a typed Proof Dependency Graph (PDG), distinct from and linked to SPG, for proof artifacts, contract theorems, assumptions, call-site dependencies, transitive proof closure, and provenance.
+- [ ] Define assumption-discharge and proof-state transitions: conditional/pending dependencies → closed/proven only after compatible checked callee evidence and all other obligations are bound.
+- [ ] Validate incremental reuse/invalidation: callee body change with unchanged contract, contract change, caller change, stale proof artifact, changed assumptions/toolchain, and transitive dependency closure.
 - [ ] Prove or explicitly bound source-to-Lean correspondence for the admitted subset; a theorem about generated Lean code alone is not a proof about LLMLang source.
 - [ ] Evaluate Lean tactics, SMT-assisted discharge, reusable lemmas, and optional LLM-generated proof candidates, while requiring independent Lean-kernel checking.
 - [ ] Define the TCB, axiom/import policy, unsupported/unknown behavior, proof provenance, evidence states, and fail-closed rules.
@@ -403,7 +406,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Research brief:** [RT-32 — Verified SPG-to-Lean Pipeline](research/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md). Coordinate with RT-03/05/07/08/09/11/24. This is a Toolchain/formal-verification research goal, not a new LLMLang surface-language feature or a decision to make Lean the runtime.
 
-**Exit criteria:** a non-trivial function is translated from SPG without a separately authored Lean implementation; generated obligations cover its declared contract and termination; the Lean kernel checks the proof; source-to-Lean correspondence covers the admitted subset; adversarial fixtures reject incorrect or stale evidence; provenance binds proofs to exact semantic and toolchain identities.
+**Exit criteria:** a non-trivial function is translated from SPG without a separately authored Lean implementation; generated obligations cover its declared contract and termination; the Lean kernel checks the proof; source-to-Lean correspondence covers the admitted subset; adversarial fixtures reject incorrect or stale evidence; provenance binds proofs to exact semantic and toolchain identities; conditional caller proofs remain visibly unproven until every dependency is discharged through compatible checked evidence.
 
 ## 2.5 Correctness of optimization and translation
 
