@@ -450,3 +450,24 @@ RT-28 depends on LLMLang's semantic identity, dependency, verification, compiler
 | DEP-135 | RT-27 → RT-28 | Constrains | Large mirror repositories require efficient, deterministic storage and metadata-first access as the number of mirrored objects grows. | Open hypothesis |
 
 These edges are research hypotheses, not accepted architecture. They describe dependencies across different LLMLang ecosystem layers; they do not imply that every dependency requires a language-core change. RT-28 must classify each capability as language semantics, compiler/Toolchain, runtime/library, or external migration service, and justify any proposal to move a capability inward. Source import, indexing, semantic diff, SPG storage, and repository operations are Toolchain/infrastructure concerns unless a concrete language-semantic gap is demonstrated. Migration Project/Unit records, Mirror Binding lifecycle, upstream event processing, contribution workflow, approvals, and cutover orchestration belong to AIVibeFlow or another independent migration service. AIVibeFlow is not a prerequisite for LLMLang's language or Toolchain.
+
+## 17. Rust as a foundation and reference for LLMLang capabilities (RT-29)
+
+RT-29 integrates Rust-focused language scenarios and generated-Rust evidence into a capability-level assessment. It distinguishes Rust as semantic prior art, an implementation language/component ecosystem, and an interoperability target. These are different adoption decisions and must not be conflated.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-136 | RT-03 → RT-29 | Constrains | Rust behavior can inform candidate observable semantics, but LLMLang's own reference semantics must define evaluation, errors, effects, cleanup, and concurrency independently. | Strong hypothesis |
+| DEP-137 | RT-04 → RT-29 | Requires | Ownership, borrowing, lifetimes, types, effects, capabilities, and resource protocols are central to judging which Rust mechanisms fit LLMLang's candidate contracts. | Strong hypothesis |
+| DEP-138 | RT-09 → RT-29 | Influences | Rust compiler architecture, typed representations, diagnostics, LLVM integration, and optimization validation are candidate implementation techniques, not semantic authorities. | Strong hypothesis |
+| DEP-139 | RT-10 → RT-29 | Influences | Rust runtime libraries and async/concurrency mechanisms may supply implementation components, subject to LLMLang runtime semantics and portability requirements. | Strong hypothesis |
+| DEP-140 | RT-13 → RT-29 | Constrains | Rust target support, LLVM lowering, C ABI, unsafe boundaries, and foreign ownership rules constrain reuse and cross-language interoperability. | Strong hypothesis |
+| DEP-141 | RT-18 → RT-29 | Influences | Rust edition/compiler evolution and dependency compatibility provide prior art for versioning and compatibility policy; they do not define LLMLang's policy. | Open hypothesis |
+| DEP-142 | RT-25 → RT-29 | Requires | Allocator compatibility, Rust-owned allocations, FFI ownership boundaries, and deployment behavior are part of assessing Rust as an implementation foundation. | Strong hypothesis |
+| DEP-143 | RT-29 → RT-03 | Influences | The integrated comparison may expose semantic gaps, counterexamples, or candidate vectors that require revisiting the LLMLang semantic profile. | Open hypothesis |
+| DEP-144 | RT-29 → RT-04 | Influences | The capability matrix may refine ownership/type/effect alternatives or identify Rust-specific mechanisms that do not fit LLMLang's requirements. | Open hypothesis |
+| DEP-145 | RT-29 → RT-09 | Influences | Reusable compiler libraries or Rust implementation patterns may alter compiler architecture choices after prototype and maintenance review. | Open hypothesis |
+| DEP-146 | RT-29 → RT-10 | Influences | Reusable runtime components may change runtime implementation options, but only behind LLMLang-defined semantic contracts. | Open hypothesis |
+| DEP-147 | RT-29 → RT-13 | Influences | The study may identify feasible Rust-based backend, ABI, and interoperability adapters or their limitations. | Open hypothesis |
+
+These edges are research hypotheses, not adoption decisions. Rust's ownership model, borrow checker, Drop, traits, async runtime, compiler architecture, and package ecosystem must be assessed independently. Reuse is justified only where semantic fit, portability, security, maintenance, and reproducible evidence support it.
