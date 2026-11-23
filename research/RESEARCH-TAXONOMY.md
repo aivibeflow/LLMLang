@@ -1,7 +1,7 @@
 # LLMLang Research Taxonomy
 
 **Status:** Working research-management document; not a language specification or an architecture decision  
-**Updated:** 2026-11-21
+**Updated:** 2026-11-23
 
 Scenario 94 compares scheduler fairness and liveness: preemption, weak/strong/bounded runnable-task progress, priority starvation, resource fairness, and structured joining are distinct. The cited guarantees are runtime/profile-specific or conditional; no LLMLang policy is selected and no runtime experiment has been run.
 
