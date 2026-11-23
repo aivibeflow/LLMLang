@@ -2,13 +2,13 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "02d0c3d065e160277b498e106646e8a02f2a43fd",
-  "source": "Exact current-main research-tree inventory at 02d0c3d065e160277b498e106646e8a02f2a43fd plus RT-00 B7 content/index recheck report; manifest excluded.",
+  "revision": "fc170126d36e45b1453f4958c47b9f4d92e5e5cf",
+  "source": "Exact research-tree inventory at baseline fc170126d36e45b1453f4958c47b9f4d92e5e5cf plus Scenario 102 current-source reproduction report; manifest excluded.",
   "counts": {
-    "research_files": 608,
-    "markdown_files": 325,
+    "research_files": 609,
+    "markdown_files": 326,
     "python_files": 227,
-    "scenario_named_documents": 139,
+    "scenario_named_documents": 140,
     "prototype_tree_files": 289,
     "preparation_and_reference_files": 24,
     "category_counts": {
@@ -33,7 +33,7 @@
     "taxonomy_research_areas": 28,
     "dependency_edges": 135,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 608
+    "research_artifacts_excluding_manifest": 609
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
@@ -13350,8 +13350,8 @@
     },
     {
       "path": "research/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "186db6d8e41f90e3304c0504699ea1f8d7552337",
-      "size_bytes": 49710,
+      "git_blob_sha": "5139fbae8fa2a92650898f2e9d3ff5d912dd2cef",
+      "size_bytes": 49700,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -15547,6 +15547,20 @@
       "semantic_review": {
         "status": "reviewed",
         "basis": "exact blob grouping and bounded index coverage audit"
+      }
+    },
+    {
+      "path": "research/RT-00-C-SCENARIO-102-RESULT-POLICY-REPRO-2026-11-23.md",
+      "git_blob_sha": "056d07b6ca2d8764a26c10b1b27751d8409945db",
+      "size_bytes": 2096,
+      "category": "audit-or-review-report",
+      "traceability": "RT-00 C bounded reproduction/provenance reconciliation for Scenario 102",
+      "plan_stages": [
+        "0.1"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "exact current source test run and provenance boundary"
       }
     }
   ],
