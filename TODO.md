@@ -19,6 +19,8 @@ The [Stage 0.2 warning adjudication](research/RT-00-QUALITY-RULES-ADJUDICATION-2
 
 **Research quality technical validity follow-up:** [Orthogonal falsification controls](research/RT-00-QUALITY-RULES-ORTHOGONAL-ORACLES-2026-11-23.md) are source-pinned independent-code cross-checks for Scenario 110/112 and the RT-24 Git-tree counterexample. They do not establish an independent second **human** scientific review, a complete serializer, full-language scheduler semantics or original execution provenance. Continue [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) for all remaining acceptance/maintainer authority checks.
 
+**Stage 0.2 independent review handoff (pending):** [Eight diverse claim IDs](research/quality-audit/2026-11-23-independent-review-handoff.md) have a ready-to-use human Q1–Q5 reviewer protocol, but **no independent reviewer has completed it**. Separate [orthogonal model CI #45261537559](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559) passed seven tests on 3,456 JSON and 21,840 fairness inputs plus a Git-negative control; this is experimental corroboration in restricted models, not source-to-compiler correctness or accepted language policy. Keep [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) open for original-run provenance, independent claim review, generalization and maintainer quality-process adoption.
+
 ## How to use this register
 
 Each item has a stable ID. Keep the ID when the wording or status changes.
