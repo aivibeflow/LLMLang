@@ -107,6 +107,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Research output (2026-11-23):** [Quality Rules Rollout Options](research/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) compares corpus-wide retrofit, priority-ordered manual audit, and staged hybrid rollout against three current-main reports. It provisionally recommends a warning-first hybrid, but does not measure reviewer outcomes or migration cost. Maintainer adoption, corpus-wide audit, reproducibility reruns, and any CI pilot remain external dependencies; §0.2 remains open.
 
+**Research output (2026-11-23):** [Quality Rules Evidence-Shape Recheck](research/RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) compares an exact-main rerun of RT-11's synthetic C benchmark, the pinned Lean/Lake Logos proof project, and Scenario 118's bounded model report. It provisionally favors a shared metadata/scope/decision-boundary minimum with evidence-type-specific reproduction pointers; the local benchmark reproduced its 12 cases, while this environment lacks Lean/Lake and the current Required CI build is referenced. No policy is adopted; maintainer approval, corpus audit, pilot, and reviewer-effort measurements remain external dependencies.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
