@@ -303,11 +303,13 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 ## 1.5 Prior-art study for semantic representation and identity
 
-- [ ] Compare Unison's content-addressed code identity and codebase model.
-- [ ] Compare Git's object model and DAG with semantic object identity.
-- [ ] Compare LLVM IR identity and canonicalization limits.
-- [ ] Compare content-addressed artifact stores and package registries.
-- [ ] Identify which ideas can be reused without making a target IR or source syntax the semantic authority.
+- [x] Compare Unison's content-addressed code identity and codebase model.
+- [x] Compare Git's object model and DAG with semantic object identity.
+- [x] Compare LLVM IR identity and canonicalization limits.
+- [x] Compare content-addressed artifact stores and package registries.
+- [x] Identify which ideas can be reused without making a target IR or source syntax the semantic authority.
+
+**Research output (2026-11-23):** [RT-15 prior-art identity and storage comparison](research/RT-15-PRIOR-ART-IDENTITY-AND-STORAGE-COMPARISON-2026-11-23.md) reviews primary sources for Unison, Git, LLVM, Nix, Bazel, OCI, and Maven. Candidate synthesis keeps semantic objects, Git history, ActionKeys, artifact bytes, package references, and authenticated evidence as distinct layers. This closes the comparative survey only; the semantic object model, canonical identity payloads, dependency closure, compatibility rules, and trust policy remain open under §§1.1–1.3, 3.1–3.3, and 7.4.
 
 **Exit criteria:** a reviewed semantic object model; explicit identity table and canonicalization proposal; contract compatibility vocabulary and evidence model; remaining foundational decisions registered in `TODO.md`.
 

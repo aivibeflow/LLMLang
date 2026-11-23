@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "775d5e8d78ed9a47f7f37d09ff13cbc300be7f03",
-  "source": "Exact research-tree inventory at baseline 775d5e8d78ed9a47f7f37d09ff13cbc300be7f03 plus RT-16 policy recheck report; manifest excluded.",
+  "revision": "b10edf42486bb91791af5489c2bf581d6250d8b6",
+  "source": "Exact research-tree inventory at baseline b10edf42486bb91791af5489c2bf581d6250d8b6 plus the RT-15 prior-art comparison report; manifest excluded.",
   "counts": {
-    "research_files": 606,
-    "markdown_files": 323,
+    "research_files": 607,
+    "markdown_files": 324,
     "python_files": 227,
     "scenario_named_documents": 139,
     "prototype_tree_files": 289,
@@ -33,7 +33,7 @@
     "taxonomy_research_areas": 28,
     "dependency_edges": 135,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 606
+    "research_artifacts_excluding_manifest": 607
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
@@ -15519,6 +15519,20 @@
       "semantic_review": {
         "status": "reviewed",
         "basis": "current exact-source test run and scoped policy comparison"
+      }
+    },
+    {
+      "path": "research/RT-15-PRIOR-ART-IDENTITY-AND-STORAGE-COMPARISON-2026-11-23.md",
+      "git_blob_sha": "76fa364567981ffb28879c151b80d698df3d016c",
+      "size_bytes": 7630,
+      "category": "research-background-or-design-analysis",
+      "traceability": "RT-15 prior-art comparison of semantic identity, Git, backend IR, stores and registries",
+      "plan_stages": [
+        "1.5"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "primary-source comparison and scoped synthesis"
       }
     }
   ],
