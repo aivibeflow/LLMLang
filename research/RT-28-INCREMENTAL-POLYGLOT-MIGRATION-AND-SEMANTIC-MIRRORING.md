@@ -263,11 +263,11 @@ AIVibeFlow is one possible orchestrator, not a dependency of the LLMLang languag
 16. Which actions require human approval and how is authority enforced?
 17. How do cutover/rollback work when persistent schemas or external effects differ?
 18. Which capabilities can be prototyped before LLMLang compiler/runtime completion?
+19. What are costs of source indexing, mirror maintenance, differential execution, and provenance?
+20. How do we prevent partial frontends or incomplete tests from creating false confidence?
 21. For every proposed capability, which layer owns it: language core, Toolchain/compiler, runtime/library, or external migration service?
 22. Which concrete requirements, if any, cannot be met without changing LLMLang core semantics?
 23. Can Migration Unit and Mirror Binding records remain entirely outside SPG and LLMLang semantic storage while preserving stable references and provenance?
-19. What are costs of source indexing, mirror maintenance, differential execution, and provenance?
-20. How do we prevent partial frontends or incomplete tests from creating false confidence?
 
 ## 15. Experimental plan and falsifiers
 
