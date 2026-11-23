@@ -1,0 +1,85 @@
+{
+  "kind": "observed-fresh-execution-at-archived-publication-commits-not-original-run-attestation",
+  "date": "2026-11-23",
+  "workflow_run_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45254862037",
+  "workflow_run_id": 45254862037,
+  "workflow_pr_head": "78b2cbab170c5fbfa764fc920f7edf099c74cffe",
+  "runner": "GitHub Actions ubuntu-24.04 (x86_64 Linux)",
+  "python": "CPython 3.12.14 via actions/setup-python@v5",
+  "source_snapshot_manifest": "research/quality-audit/2026-11-23-publication-provenance.json",
+  "status": "all five historical snapshot jobs completed with successful conclusions",
+  "semantic_limit": "New executions on published committed trees; historical original-run environment/source identity remains unverified, no acceptance of full LLMLang semantics",
+  "cases": [
+    {
+      "id": "ast-98",
+      "commit": "d3fe3916db0b42d6cb21d3814b323fb8831fa803",
+      "job_id": 137973891368,
+      "tests_passed": 1,
+      "result": "passed, finite AST-to-path test",
+      "duration_seconds_approx": 0.017,
+      "independent_model_limit": "shared exploratory contract; not full source parser completeness",
+      "artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45254862037/artifacts/14858245858"
+    },
+    {
+      "id": "solver-103",
+      "commit": "08c8490e92b472f99abf3117e82bc7b11643fe0d",
+      "job_id": 137973891351,
+      "tests_passed": 4,
+      "result": "passed; pinned mpmath 1.3.0, SymPy 1.14.0, including timeout case",
+      "duration_seconds_approx": 1.159,
+      "independent_model_limit": "worker timeout timing host dependent; UNSAT not independently certified",
+      "artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45254862037/artifacts/14855289724"
+    },
+    {
+      "id": "atomic-118",
+      "commit": "e956d25bfa34ccc649f0d674e29ea27adecbdb20",
+      "job_id": 137973890825,
+      "tests_passed": 7,
+      "result": "passed; bounded memory-order enumerator and independent interleaving oracle for global order",
+      "duration_seconds_approx": 0.449,
+      "independent_model_limit": "weak-memory comparison lacks external independent oracle",
+      "artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45254862037/artifacts/14856358965"
+    },
+    {
+      "id": "fake-checker-29",
+      "commit": "2c7f3d1035a86fe10d90c038adc71775db5549fa",
+      "job_id": 137973891540,
+      "tests_passed": 15,
+      "result": "passed; fake-executable process adapter tests",
+      "duration_seconds_approx": 0.217,
+      "independent_model_limit": "not a real cvc5/Logos proof and not a checked certificate",
+      "artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45254862037/artifacts/14857905902"
+    },
+    {
+      "id": "binding-rt11",
+      "commit": "b0638a1b69a3f7d233194097032cde9209b672db",
+      "job_id": 137973891258,
+      "action_phases_passed": 12,
+      "result": "passed; clean-build checks and unsafe verification-key witness",
+      "toolchain": "Ubuntu cc 13.3.0 x86_64-linux-gnu",
+      "implementation_edit": {
+        "exact_caller_compilations": 12,
+        "separate_caller_compilations": 4,
+        "both_linked": 12,
+        "both_projected_verifications": 12
+      },
+      "stale_key_witness": {
+        "unchanged_compile_input_digest": "1c78e37327ab8ce202e2784ac49a334148804cbea5cf77b7acba097740eaa38e",
+        "before_outputs": [
+          10,
+          11,
+          10,
+          11
+        ],
+        "after_outputs": [
+          11,
+          12,
+          11,
+          12
+        ]
+      },
+      "independent_model_limit": "synthetic C fixture; original report ran Apple Clang 21.0 arm64, this is new Linux/GCC reproduction of action counts only",
+      "artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45254862037/artifacts/14857366259"
+    }
+  ]
+}
