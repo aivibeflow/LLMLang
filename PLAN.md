@@ -753,6 +753,17 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Status:** partially validated for the scalar instruction fixture. External code generation, canonical IR and general preservation remain open.
 
+### Required bidirectional translation study (RT-30)
+
+- [ ] Research automated LLMLang → C, C++, Go, and Rust translation and C/C++/Go/Rust → LLMLang import as separate directions.
+- [ ] Define a source/target matrix, semantic observation model, preservation contracts, and explicit exact/runtime-supported/restricted/partial/unverified/unsupported outcomes.
+- [ ] Compare canonical semantic IR, direct SPG lowering, and hybrid representations; preserve source provenance without conflating it with semantic identity.
+- [ ] Evaluate whether a dedicated C runtime can implement high-level LLMLang features while keeping LLMLang—not C—as the semantic source of truth; compare runtime requirements and costs for all four targets.
+- [ ] Cover same-language round trips, cross-target migration, mixed-language modules, ABI/FFI, source-language undefined/implementation-defined behavior, and incremental regeneration.
+- [ ] Build differential conformance fixtures for both directions and a bounded bidirectional vertical slice with pinned compilers, runtimes, and platform profiles.
+
+**Research brief:** [RT-30 — Bidirectional Semantic Translation](research/RT-30-BIDIRECTIONAL-SEMANTIC-TRANSLATION.md). Coordinate with RT-13, RT-28, and RT-29. This is a research goal, not a claim that all programs in the four languages are translatable.
+
 ## 6.2 Backend selection and cross-backend validation
 
 **Estimated research complexity:** **9/10** — requires at least two independently validated realizations of a shared semantic subset.
