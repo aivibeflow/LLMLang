@@ -700,61 +700,61 @@ The LLM may repair rejected objects, but the compiler must not treat its own AI-
 
 ---
 
-## 14. Интерпретатор, VM и нативная компиляция
+## 14. Interpreter, VM, and Native Compilation
 
-Предлагается поддерживать несколько способов исполнения с общей семантикой.
+The proposal is to support multiple execution modes with shared semantics.
 
 ### 14.1. Graph Interpreter
 
-Интерпретирует модель или отдельные узлы графа. Основное назначение:
-- разработка;
-- отладка;
-- интерактивное исследование;
-- выполнение отдельных операций;
-- просмотр состояния и зависимостей.
+Interprets the model or individual graph nodes. Primary uses:
+- development;
+- debugging;
+- interactive exploration;
+- execution of individual operations;
+- inspection of state and dependencies.
 
 ### 14.2. Bytecode VM
 
-Основной первоначальный целевой backend:
-- контролируемое исполнение;
-- изоляция;
-- переносимость;
-- контроль ресурсов;
-- удобная отладка;
-- runtime-проверки.
+The primary initial target backend:
+- controlled execution;
+- isolation;
+- portability;
+- resource control;
+- convenient debugging;
+- runtime checks.
 
-VM исполняет проверенный байткод, а не весь исходный SPG.
+The VM executes validated bytecode, not the entire original SPG.
 
 ### 14.3. Native Backend
 
-Генерирует машинный код для целевых архитектур, например x86-64 и ARM64.
+Generates machine code for target architectures such as x86-64 and ARM64.
 
-Основное назначение:
-- производительность;
-- системное программирование;
-- приложения с высокими требованиями к ресурсам.
+Primary uses:
+- performance;
+- systems programming;
+- resource-intensive applications.
 
-### 14.4. Единая семантика
+### 14.4. Unified Semantics
 
-Интерпретатор, VM и native backend должны реализовывать одну семантику языка. Необходимо исключить расхождение поведения между режимами разработки и production.
+The interpreter, VM, and native backend must implement the same language semantics. Behavioral divergence between development and production modes must be prevented.
 
 ---
 
-## 15. Доверенная база и проверка преобразований
+## 15. Trusted Computing Base and Transformation Verification
 
 ### 15.1. Trusted Computing Base
 
-Доверенная база (TCB) должна быть небольшой и включать только необходимые механизмы:
-- проверку типов;
-- проверку доказательств;
-- проверку байткода;
-- минимальную критическую часть runtime.
+The Trusted Computing Base (TCB) should be small and include only necessary mechanisms:
+- type checking;
+- proof checking;
+- bytecode verification;
+- a minimal runtime-critical component.
 
-LLM не должна входить в TCB.
+The LLM must not be part of the TCB.
 
 ### 15.2. Proof-Carrying Compilation
 
-Преобразования между представлениями должны сопровождаться свидетельствами сохранения требуемой семантики там, где это возможно.
+Transformations between representations should be accompanied by evidence that the required semantics are preserved wherever possible.
 
 ```text
 Program Graph
@@ -776,70 +776,70 @@ Bytecode
 Executable
 ```
 
-Не обязательно строить громоздкое формальное доказательство для каждого шага. Альтернативой может быть translation validation — независимая проверка конкретного результата преобразования.
+A large formal proof is not necessarily required for every step. An alternative is translation validation — independently checking a particular transformation result.
 
-Важно не утверждать, что доказана корректность исполнения, если доказана только корректность исходной реализации. Оптимизации, lowering и генерация кода также входят в цепочку доверия.
+It is important not to claim that execution correctness has been proved when only the correctness of the source-level implementation has been established. Optimizations, lowering, and code generation are also part of the trust chain.
 
-### 15.3. Граница гарантий
+### 15.3. Scope of Guarantees
 
-Формальная верификация доказывает соответствие программы формальной спецификации. Она не доказывает, что спецификация верно отражает реальные намерения пользователя. Для этого нужны анализ требований, ревью и приёмка человеком.
-
----
-
-## 16. Предлагаемый цикл разработки
-
-1. Человек формулирует задачу и ограничения.
-2. LLM предлагает Specification Graph.
-3. Проверяются структура, формализуемость и известные противоречия спецификации.
-4. LLM формирует Design Graph.
-5. Проверяются интерфейсы, зависимости и соответствие спецификации.
-6. LLM создаёт Implementation Graph.
-7. Выполняются проверки структуры, типов, эффектов и контрактов.
-8. LLM исправляет отклонённые объекты.
-9. Выполняются тесты, fuzzing и независимый аудит.
-10. Создаётся проверенный байткод или нативный исполняемый файл.
-
-Каждый результат должен быть привязан к точным Content Hash входных объектов и конфигурации инструментов. Изменение hash-relevant объекта должно менять хеши зависимых от него объектов и инвалидировать устаревшие проверки; неизменённые подграфы могут повторно использоваться.
+Formal verification proves that a program conforms to a formal specification. It does not prove that the specification accurately captures the user's real intent. Requirements analysis, review, and human acceptance are needed for that.
 
 ---
 
-## 17. Возможный технологический стек прототипа
+## 16. Proposed Development Cycle
 
-Это предварительные гипотезы, а не окончательные решения.
+1. A human states the task and constraints.
+2. The LLM proposes a Specification Graph.
+3. The specification's structure, formalizability, and known contradictions are checked.
+4. The LLM creates a Design Graph.
+5. Interfaces, dependencies, and conformance to the specification are checked.
+6. The LLM creates an Implementation Graph.
+7. Structural, type, effect, and contract checks are performed.
+8. The LLM fixes rejected objects.
+9. Tests, fuzzing, and independent audits are performed.
+10. Validated bytecode or a native executable is produced.
 
-| Компонент | Возможный выбор |
+Each result must be bound to the exact Content Hashes of its input objects and to the tool configuration. Changing a hash-relevant object must change the hashes of dependent objects and invalidate stale checks; unchanged subgraphs may be reused.
+
+---
+
+## 17. Possible Prototype Technology Stack
+
+These are preliminary hypotheses, not final decisions.
+
+| Component | Possible Choice |
 |---|---|
 | Compiler Core | Rust |
-| Program Graph | Собственная типизированная IR |
-| Serialization | Канонический бинарный формат + JSON для обмена и отладки |
-| Type System | Собственный type checker |
+| Program Graph | Custom typed IR |
+| Serialization | Canonical binary format + JSON for interchange and debugging |
+| Type System | Custom type checker |
 | Formal Verification | SMT solver |
-| Optimization | Собственные преобразования IR |
-| VM | Собственная виртуальная машина |
-| Native Backend | LLVM как первоначальный backend |
+| Optimization | Custom IR transformations |
+| VM | Custom virtual machine |
+| Native Backend | LLVM as the initial backend |
 | Testing | Property testing + fuzzing |
 
-LLVM рассматривается как возможный backend, но не как центральная модель языка.
+LLVM is considered a possible backend, not the central language model.
 
 ---
 
-## 18. Принципы проектирования
+## 18. Design Principles
 
-1. **Проверяемость важнее доверия к генератору.** Любая программа от LLM считается кандидатом до прохождения проверок.
-2. **Детерминированное ядро.** Компиляция и проверки не должны зависеть от вероятностного поведения LLM.
-3. **Локальность изменений.** Изменение одного объекта должно затрагивать только известные зависимости, если это семантически безопасно.
-4. **Явность эффектов.** Внешние действия не должны возникать неявно.
-5. **Семантическая структура важнее текста.** Текст — представление, а не единственный источник истины.
-6. **Никакого ложного успеха.** Непроверенное или недоказанное свойство не обозначается как доказанное.
-7. **Опциональная строгость.** Простые программы не должны быть вынуждены проходить полный архитектурный процесс.
-8. **Трассируемость.** Требования, архитектура, реализация, тесты и доказательства должны быть связаны.
-9. **Независимая проверка.** Проверяющая сторона не должна полагаться на утверждения автора реализации.
-10. **Несколько backend.** Семантика языка не должна зависеть от конкретной машины исполнения.
-11. **Единый источник истины для исполнения и верификации.** Исполняемая программа и формальные модели должны автоматически выводиться из одной семантической модели LLMLang; независимое ручное дублирование алгоритма в модели не должно быть штатным процессом.
-12. **Формальная семантика предшествует backend.** Каждая конструкция ядра языка должна иметь точную семантику, а каждый backend — определённое обязательство по её сохранению.
-13. **Проверяемые трансляции.** Генерация модели и исполняемого кода должна сопровождаться доказательством сохранения семантики либо независимой translation validation. Верификационный статус нельзя выводить только из факта успешной генерации.
-14. **Честная граница доказуемости.** Отсутствие подходящего backend, неудача автоматического поиска доказательства и опровержение свойства — разные результаты и должны различаться.
-15. **Отсутствие скрытого обхода гарантий.** Неподдерживаемые или недоказанные конструкции должны явно маркировать затронутые свойства как непроверенные и распространять этот статус по зависимостям.
+1. **Verifiability over trust in the generator.** Every LLM-generated program is considered a candidate until it passes checks.
+2. **Deterministic core.** Compilation and verification must not depend on probabilistic LLM behavior.
+3. **Locality of changes.** Changing one object should affect only known dependencies when doing so is semantically safe.
+4. **Explicit effects.** External actions must not occur implicitly.
+5. **Semantic structure over text.** Text is a representation, not the sole source of truth.
+6. **No false success.** An unchecked or unproved property must not be labeled as proved.
+7. **Optional rigor.** Simple programs should not be forced through the full architectural process.
+8. **Traceability.** Requirements, architecture, implementation, tests, and proofs must be linked.
+9. **Independent verification.** The checker must not rely on assertions made by the implementation's author.
+10. **Multiple backends.** Language semantics must not depend on a particular execution engine.
+11. **Single source of truth for execution and verification.** The executable program and formal models must be derived automatically from a single LLMLang semantic model; manually duplicating the algorithm independently in a model must not be the standard workflow.
+12. **Formal semantics before backends.** Every core language construct must have precise semantics, and each backend must have a defined obligation to preserve them.
+13. **Verifiable translations.** Model generation and executable code generation must be accompanied by a proof of semantic preservation or independent translation validation. Verification status cannot be inferred merely from successful generation.
+14. **Honest boundaries of provability.** A missing suitable backend, failure of automatic proof search, and disproof of a property are distinct outcomes and must be distinguished.
+15. **No hidden bypass of guarantees.** Unsupported or unproved constructs must explicitly mark affected properties as unchecked and propagate this status along dependencies.
 
 ---
 
