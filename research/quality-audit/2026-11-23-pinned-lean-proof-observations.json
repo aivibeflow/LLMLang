@@ -1,0 +1,40 @@
+{
+  "schema": "stage02-archived-lean-proof-observation-v1",
+  "date": "2026-11-23",
+  "run_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45264153180",
+  "job_id": 138006488633,
+  "artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45264153180/artifacts/14862606439",
+  "conclusion": "success",
+  "source_git_commit": "ff1295c1769bfe8546c4b63590c9f607349215ee",
+  "source_path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ObservableRewrite.lean",
+  "source_git_blob": "98bd38f297e91840c56664ef00fbd5f28c3a81b8",
+  "source_sha256": "039808b6adf5d5baa97f6498a15fd04843a4f4c6b1147c9dade68f4440252765",
+  "toolchain_config_git_blob": "00f848359b1cdaf7c12cd6b7acc5b4364752e154",
+  "lean_version": "Lean 4.36.0",
+  "lean_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+  "lean_target": "x86_64-unknown-linux-gnu",
+  "command": "lean -DwarningAsError=true ObservableRewrite.lean",
+  "kernel_check_status": "exit 0, no warnings treated as errors",
+  "printed_axioms": {
+    "ObservableRewrite.rewrite_preserves": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ObservableRewrite.swapping_addends_changes_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ObservableRewrite.discarding_equal_branch_guard_hides_failure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "assumptions_and_scope": "Bounded typed expression grammar, mathematical Int, Except Nat outcome, ordered List Nat events. No machine overflow, source parser/SPG lowering, compiler backend, mutable state, cleanup, concurrency or full LLMLang source-to-model preservation.",
+  "original_author_environment_attested": false,
+  "independent_human_proof_review": false,
+  "general_llmlang_optimizer_correctness_proven": false,
+  "quality_policy_adopted": false
+}
