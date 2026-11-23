@@ -17,6 +17,8 @@ The [Stage 0.2 warning adjudication](research/RT-00-QUALITY-RULES-ADJUDICATION-2
 
 **Stage 0.2 claim-level follow-up:** [Second 12-report/24-claim review](research/RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md) records eight local *interpretation risks* (not eight newly proven defects): Lean source/back-end correspondence, historical RT-05 unsuccessful tests, SAT sample bias, wire-runtime extrapolation, prospective SQLite provenance, stale RT-00 counts, RT-24 proposal/approval distinction, and finite FFI alias coverage. Machine-verified exact source pointers are insufficient for research correctness. Keep issue #285 open for independent technical review, representative corpus sampling, original-run attestations and maintainer policy adoption; no LL semantic decision is made here.
 
+**Research quality technical validity follow-up:** [Orthogonal falsification controls](research/RT-00-QUALITY-RULES-ORTHOGONAL-ORACLES-2026-11-23.md) are source-pinned independent-code cross-checks for Scenario 110/112 and the RT-24 Git-tree counterexample. They do not establish an independent second **human** scientific review, a complete serializer, full-language scheduler semantics or original execution provenance. Continue [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) for all remaining acceptance/maintainer authority checks.
+
 ## How to use this register
 
 Each item has a stable ID. Keep the ID when the wording or status changes.
