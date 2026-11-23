@@ -131,6 +131,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Verified root census result (2026-11-23):** [Pinned CI #45263179285](https://github.com/aivibeflow/LLMLang/actions/runs/45263179285) inspected all 309 root research Markdown/MDX documents at commit `627c708`; 2,035 **surface-only** warnings occurred across 308 files, and only 7 exact evidence-type metadata fields were found (67 unvalidated executable-status hints). The [24-item SHA-256 selected review queue](research/quality-audit/2026-11-23-root-census-observations.json) remains entirely **NOT REVIEWED** by a second person. This does not fulfill corpus-wide claim validation or justify blocking CI; no method-policy adoption is recorded.
 
+**Stage 0.2 proof-source provenance continuation (2026-11-23):** [Lean 4.36.0 archival proof recheck](research/RT-00-QUALITY-RULES-PINNED-LEAN-PROOF-2026-11-23.md) proposes exact Git/SHA-256 source identity validation, source-pinned kernel checking and saved actual `#print axioms` output. This improves the boundary between *formal bounded proof* and *reported executable test*, but does not prove source-to-SPG/backend semantics, validate all corpus claims, reconstruct eight historical runs, or adopt Stage 0.2 policy.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
