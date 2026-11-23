@@ -449,6 +449,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Status:** researched and prototyped in parts; full compiler integration and empirical validation are not implemented.
 
+**Research output (2026-11-23):** [RT-32 incremental invalidation recheck](research/RT-32-INCREMENTAL-INVALIDATION-RECHECK-2026-11-23.md) compares global invalidation, complete-dependency ActionKeys, timestamp/dirty hints, and fail-closed behavior for unknown closure. A focused suite passed 72 tests on CPython 3.12.14. The result supports content-addressed reuse conditionally on complete dependencies and distinct evidence freshness; it does not establish compiler integration or workload performance. Integration across real stages, metadata projection, source-derived completeness/non-interference, representative benchmarks, and production identity/trust decisions remain open.
+
 ## 3.3 Semantic build and cache graph
 
 **Estimated research complexity:** **6/10** — requires sound action keys, dependency closure, and demonstrated invalidation/reuse.
