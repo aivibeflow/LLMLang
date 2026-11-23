@@ -277,6 +277,9 @@ The registry maps the current research-area taxonomy as follows:
 | RT-26 Hierarchical resource accounting and enforcement | F-RES |
 | RT-27 SPG repository storage format | F-STORE |
 | RT-28 Incremental polyglot migration and semantic mirroring | F-MIG |
+| RT-29 Rust capability and implementation foundation | F-LANG, F-BACK, F-INTEROP, F-RUN |
+| RT-30 Bidirectional semantic translation across LLMLang and C/C++/Go/Rust | F-COMP, F-BACK, F-INTEROP, F-RUN |
+| RT-31 AI-oriented syntax, semantic separation, and Toolchain optimization | F-TOOL, F-COMP |
 | RT-32 Verified SPG-to-Lean pipeline | F-VER |
 
 The mapping is an index, not proof that every research claim or scenario has been validated. RT-28's migration-management records remain explicitly outside the language core.
