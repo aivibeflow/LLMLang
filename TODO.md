@@ -29,6 +29,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-001 — Define the canonical OpHash envelope
 
+- **GitHub issue:** [#344](https://github.com/aivibeflow/LLMLang/issues/344)
+
 - **Status:** Open
 - **Priority:** P0
 - **Question:** What exact canonical semantic data is committed by an Operation Hash (OpHash)?
@@ -42,6 +44,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-002 — Define Operation Stable ID lifecycle
 
+- **GitHub issue:** [#345](https://github.com/aivibeflow/LLMLang/issues/345)
+
 - **Status:** Open
 - **Priority:** P1
 - **Question:** How is an Operation Stable ID created, preserved, split, merged, deprecated, or replaced as an operation evolves?
@@ -51,6 +55,8 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 3.6.
 
 ### LL-003 — Specify contract-based analogue discovery and substitution
+
+- **GitHub issue:** [#346](https://github.com/aivibeflow/LLMLang/issues/346)
 
 - **Status:** Open
 - **Priority:** P1
@@ -66,6 +72,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-004 — Choose canonical encoding and hash algorithm policy
 
+- **GitHub issue:** [#347](https://github.com/aivibeflow/LLMLang/issues/347)
+
 - **Status:** Open
 - **Priority:** P0
 - **Question:** What canonical serialization, domain separation, digest format, and hash-algorithm migration policy should LLMLang use?
@@ -75,6 +83,8 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 4–5.
 
 ### LL-005 — Define hash-relevant dependency edges and cycles
+
+- **GitHub issue:** [#348](https://github.com/aivibeflow/LLMLang/issues/348)
 
 - **Status:** Open
 - **Priority:** P0
@@ -87,6 +97,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-006 — Decide artifact granularity for the initial SPG/store
 
+- **GitHub issue:** [#349](https://github.com/aivibeflow/LLMLang/issues/349)
+
 - **Status:** Open
 - **Priority:** P1
 - **Question:** Which entities must be independently addressable in the first model, and what is the smallest useful reusable unit?
@@ -97,6 +109,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-007 — Separate target-profile semantics from implementation identity
 
+- **GitHub issue:** [#350](https://github.com/aivibeflow/LLMLang/issues/350)
+
 - **Status:** Open
 - **Priority:** P1
 - **Question:** Which target/environment properties belong in an implementation's hash context, and which belong only in a binding or target profile?
@@ -106,6 +120,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-008 — Define compatibility evidence and evidence reuse rules
 
+- **GitHub issue:** [#351](https://github.com/aivibeflow/LLMLang/issues/351)
+
 - **Status:** Open
 - **Priority:** P1
 - **Question:** What evidence is required for a binding to claim compatibility, and when may tests/proofs be reused after surrounding artifacts change?
@@ -114,6 +130,8 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 9.
 
 ### LL-009 — Define registry trust, provenance, licensing, and retention policy
+
+- **GitHub issue:** [#352](https://github.com/aivibeflow/LLMLang/issues/352)
 
 - **Status:** Open
 - **Priority:** P2
@@ -128,6 +146,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-010 — Decide whether Package is part of the SPG
 
+- **GitHub issue:** [#353](https://github.com/aivibeflow/LLMLang/issues/353)
+
 - **Status:** Open
 - **Priority:** P1
 - **Question:** Is Package a first-class semantic graph object or a distribution-level container referencing SPG objects?
@@ -136,6 +156,8 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** [Libraries and Templates](research/LIBRARIES-AND-TEMPLATES.md), sections 3 and 12.
 
 ### LL-011 — Define Library identity and publication requirements
+
+- **GitHub issue:** [#354](https://github.com/aivibeflow/LLMLang/issues/354)
 
 - **Status:** Open
 - **Priority:** P1
@@ -146,6 +168,8 @@ Priority is a planning aid, not a measure of correctness:
 
 
 ### LL-022 — Define the package content, index, and dynamic-provider model
+
+- **GitHub issue:** [#355](https://github.com/aivibeflow/LLMLang/issues/355)
 
 - **Status:** Open
 - **Priority:** P1
@@ -165,6 +189,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-012 — Define template instantiation and migration semantics
 
+- **GitHub issue:** [#356](https://github.com/aivibeflow/LLMLang/issues/356)
+
 - **Status:** Open
 - **Priority:** P2
 - **Question:** How are template instances represented, customized, detached, and migrated when a template changes?
@@ -179,6 +205,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-013 — Select the initial POSIX edition and conformance profile
 
+- **GitHub issue:** [#357](https://github.com/aivibeflow/LLMLang/issues/357)
+
 - **Status:** Open
 - **Priority:** P1
 - **Question:** Which POSIX edition and which mandatory/optional/implementation-defined feature profile should the first LLMLang POSIX library target?
@@ -187,6 +215,8 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** [POSIX Runtime Architecture](research/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
 
 ### LL-014 — Choose the LLMLang-facing POSIX API shape
+
+- **GitHub issue:** [#358](https://github.com/aivibeflow/LLMLang/issues/358)
 
 - **Status:** Open
 - **Priority:** P1
@@ -197,6 +227,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-015 — Define the first portable and native runtime vertical slices
 
+- **GitHub issue:** [#359](https://github.com/aivibeflow/LLMLang/issues/359)
+
 - **Status:** Open
 - **Priority:** P1
 - **Question:** Which minimal functions and runtime mechanisms should be implemented first to validate both the portable runtime and the native Linux syscall runtime?
@@ -205,6 +237,8 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** [POSIX Runtime Architecture](research/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
 
 ### LL-016 — Select initial native architectures and isolate syscall ABI details
+
+- **GitHub issue:** [#360](https://github.com/aivibeflow/LLMLang/issues/360)
 
 - **Status:** Open
 - **Priority:** P2
@@ -215,6 +249,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-017 — Define the trusted low-level runtime boundary
 
+- **GitHub issue:** [#361](https://github.com/aivibeflow/LLMLang/issues/361)
+
 - **Status:** Open
 - **Priority:** P1
 - **Question:** Which runtime components may initially be implemented as trusted assembly, compiler intrinsics, or external code, and how is that trust boundary represented?
@@ -224,6 +260,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-018 — Specify POSIX concurrency and environment-dependent semantics
 
+- **GitHub issue:** [#362](https://github.com/aivibeflow/LLMLang/issues/362)
+
 - **Status:** Open
 - **Priority:** P2
 - **Question:** How should LLMLang's memory/concurrency model relate to POSIX threads, signals, blocking I/O, scheduling, and Linux kernel ordering guarantees?
@@ -232,6 +270,8 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** [POSIX Runtime Architecture](research/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
 
 ### LL-019 — Scope POSIX conformance and formal-verification claims
+
+- **GitHub issue:** [#363](https://github.com/aivibeflow/LLMLang/issues/363)
 
 - **Status:** Open
 - **Priority:** P1
@@ -243,6 +283,8 @@ Priority is a planning aid, not a measure of correctness:
 ---
 
 ### LL-020 — Define LLVM backend role and semantic boundary
+
+- **GitHub issue:** [#364](https://github.com/aivibeflow/LLMLang/issues/364)
 
 - **Status:** Open
 - **Priority:** P1
@@ -261,6 +303,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-021 — Define semantic action caching and incremental compilation
 
+- **GitHub issue:** [#365](https://github.com/aivibeflow/LLMLang/issues/365)
+
 - **Status:** Open
 - **Priority:** P0
 - **Question:** What is the canonical model for cacheable compiler/tooling actions, their Action Keys, dependency closure, environment inputs, and reusable outputs/evidence?
@@ -270,6 +314,8 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** [Semantic Compilation Cache](research/SEMANTIC-COMPILATION-CACHE.md), [Package System: Static and Dynamic Packages](research/PACKAGE-SYSTEM.md), [Global Semantic Artifact Store](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [Formal Verification](research/LLMLang-FORMAL-VERIFICATION.md).
 
 ### LL-024 — Define the Toolchain Server and semantic development API
+
+- **GitHub issue:** [#367](https://github.com/aivibeflow/LLMLang/issues/367)
 
 - **Status:** Discussion
 - **Priority:** P0
@@ -281,6 +327,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-023 — Define complete LLM patch planning and validation-gated commit
 
+- **GitHub issue:** [#366](https://github.com/aivibeflow/LLMLang/issues/366)
+
 - **Status:** Discussion
 - **Priority:** P0
 - **Question:** How must the Toolchain determine, before implementation, every function version and call-site reference that will change when a callee evolves, while allowing different callers to preserve or migrate to different immutable callee versions?
@@ -290,6 +338,8 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-19](research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [Development Engine RFC](research/RFC-DEVELOPMENT-ENGINE.md), [RT-05 identity research](research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [RT-06 dependency research](research/RESEARCH-SCENARIO-25-FORMAL-SEMANTIC-DEPENDENCY-ANALYSIS.md).
 
 ### LL-025 — Define cross-version component and wire compatibility
+
+- **Tracking:** Resolved; no open issue. The accepted decision is recorded below.
 
 - **Status:** Resolved
 - **Priority:** P2
@@ -303,6 +353,8 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-026 — Define the Knowledge Context model
 
+- **GitHub issue:** [#368](https://github.com/aivibeflow/LLMLang/issues/368)
+
 - **Status:** Open
 - **Priority:** P1
 - **Question:** What versioned, provenance-preserving, bounded representation defines the knowledge made available to an LLM agent for a specific development task, and how can the Toolchain assemble it without silently omitting required or exposing unauthorized information?
@@ -312,6 +364,8 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** RT-14 AI-native authoring; RT-05 representation and identity; RT-06 dependency analysis; RT-16 security and trust; RT-19 Toolchain Server; [Development Engine RFC](research/RFC-DEVELOPMENT-ENGINE.md); [Open-question research program](research/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md).
 
 ### LL-027 — Define the Task Context model
+
+- **GitHub issue:** [#369](https://github.com/aivibeflow/LLMLang/issues/369)
 
 - **Status:** Open
 - **Priority:** P1
@@ -325,6 +379,8 @@ Priority is a planning aid, not a measure of correctness:
 ## Deferred engineering tasks
 
 ### DEFERRED-001 — Repair canonical query semantics Lean module
+
+- **GitHub issue:** [#343](https://github.com/aivibeflow/LLMLang/issues/343) (Deferred / someday; excluded from the active execution sequence).
 
 - **Status:** Deferred / someday
 - **Priority:** P3
