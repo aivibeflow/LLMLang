@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "1fd75fe3f9d6973b8a3a1ecab726fe948725de50",
-  "source": "Exact research-tree inventory at baseline 1fd75fe3f9d6973b8a3a1ecab726fe948725de50 plus RT-33 build graph/cache options recheck; manifest excluded.",
+  "revision": "98dfae6debdc8d5f16deb7a144d27ed77111e3f4",
+  "source": "Exact research-tree inventory at baseline 98dfae6debdc8d5f16deb7a144d27ed77111e3f4 plus RT-19 storage backend contract recheck; manifest excluded.",
   "counts": {
-    "research_files": 604,
-    "markdown_files": 321,
+    "research_files": 605,
+    "markdown_files": 322,
     "python_files": 227,
     "scenario_named_documents": 139,
     "prototype_tree_files": 289,
@@ -33,7 +33,7 @@
     "taxonomy_research_areas": 28,
     "dependency_edges": 135,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 604
+    "research_artifacts_excluding_manifest": 605
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
@@ -15491,6 +15491,20 @@
       "semantic_review": {
         "status": "reviewed",
         "basis": "bounded options comparison and focused tests"
+      }
+    },
+    {
+      "path": "research/RT-19-STORAGE-BACKEND-CONTRACT-RECHECK-2026-11-23.md",
+      "git_blob_sha": "9d0dcae5e4f8dc7e6b40519066a23adc7b419192",
+      "size_bytes": 4083,
+      "category": "audit-or-review-report",
+      "traceability": "RT-19 Toolchain Server storage backend boundary recheck",
+      "plan_stages": [
+        "7.6"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "API contract comparison and bounded focused tests"
       }
     }
   ],
