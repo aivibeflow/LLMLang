@@ -43,6 +43,8 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 
 - [RT-31 — AI-Oriented Syntax, Semantic Separation, and Toolchain Optimization](RT-31-AI-ORIENTED-SYNTAX-AND-TOOLCHAIN-OPTIMIZATION.md) studies the separation of semantics from abstract/concrete syntax, interchangeable syntax profiles, controlled model evaluation, MCP session recording, error attribution, analytics, privacy, and evidence-driven improvement. The brief establishes research scope; it does not select a final grammar, IR/AST decomposition, or unrestricted logging policy.
 
+- [RT-35 — Semantic Function Discovery and Retrieval](RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md) studies intent/requirements-based function discovery through canonical semantic descriptions, derived fingerprints, KNN/ANN and hybrid retrieval, mandatory compatibility checks, ambiguity handling, and exact hash binding. It is a Toolchain research proposal; it does not make similarity part of function identity or invocation semantics.
+
 ## Core semantic and type research
 
 - [Core language semantics](CORE-LANGUAGE-SEMANTICS.md) compares pure, imperative, actor, and effectful-functional profiles.
