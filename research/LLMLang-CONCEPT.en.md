@@ -346,11 +346,11 @@ The full model, hash boundaries, C interoperability, and open questions are docu
 
 ---
 
-## 7. Состояния и конечные автоматы
+## 7. States and Finite-State Machines
 
-Конечные автоматы должны быть первоклассными конструкциями языка.
+Finite-state machines should be first-class language constructs.
 
-Пример:
+Example:
 
 ```text
 entity Job:
@@ -371,25 +371,25 @@ entity Job:
         state == done
 ```
 
-Компилятор должен отвергать недопустимые переходы.
+The compiler must reject invalid transitions.
 
-Модель состояний может быть связана с типами, контрактами, правами и жизненным циклом ресурсов. Необходимо определить, какие проверки выполняются статически, а какие требуют runtime-проверки.
+The state model may be linked to types, contracts, permissions, and resource lifecycles. It remains necessary to define which checks are performed statically and which require runtime checks.
 
 ---
 
-## 8. Владение памятью и конкурентность
+## 8. Memory Ownership and Concurrency
 
-Предлагается использовать идеи ownership и borrowing, в том числе опыт Rust, но исследовать более простую для анализа и генерации LLM модель.
+The proposal is to use ownership and borrowing concepts, including lessons from Rust, while investigating a model that is easier for LLMs to analyze and generate.
 
-Требуемые гарантии:
-- отсутствие use-after-free;
-- отсутствие double-free;
-- отсутствие data races;
-- отсутствие несанкционированного совместного изменения;
-- явное управление временем жизни ресурсов;
-- явная обработка отмены и ошибок конкурентных задач.
+Required guarantees:
+- no use-after-free;
+- no double-free;
+- no data races;
+- no unauthorized shared mutation;
+- explicit management of resource lifetimes;
+- explicit handling of cancellation and errors in concurrent tasks.
 
-Пример условного синтаксиса:
+Illustrative syntax:
 
 ```text
 resource Account:
@@ -400,7 +400,7 @@ operation update:
     ...
 ```
 
-Конкурентность должна выражаться явно:
+Concurrency should be expressed explicitly:
 
 ```text
 parallel:
@@ -412,15 +412,15 @@ join:
     calculate_b
 ```
 
-Порядок зависимых операций должен быть определён. Детерминированность исполнения следует обеспечивать там, где она возможна без неприемлемой потери производительности.
+The order of dependent operations must be defined. Deterministic execution should be provided wherever it is possible without unacceptable performance loss.
 
 ---
 
-## 9. Система эффектов и capabilities
+## 9. Effect System and Capabilities
 
-### 9.1. Явные эффекты
+### 9.1. Explicit Effects
 
-Функции по умолчанию должны быть чистыми. Внешнее взаимодействие требует объявления эффектов.
+Functions should be pure by default. External interactions require effect declarations.
 
 ```text
 operation load_user:
@@ -429,33 +429,33 @@ operation load_user:
         network.request
 ```
 
-Неявные:
-- глобальное состояние;
-- сетевые обращения;
-- файловые операции;
-- запись в БД;
-- запуск процессов;
-- изменение внешних ресурсов
+Implicit:
+- global state;
+- network access;
+- filesystem operations;
+- database writes;
+- process launches;
+- modifications to external resources
 
-не допускаются.
+are not permitted.
 
-### 9.2. Транзитивность эффектов
+### 9.2. Transitive Effects
 
-Если операция A вызывает B, а B имеет эффект `network.write`, то A должна явно разрешать этот эффект либо использовать строго определённый механизм делегирования.
+If operation A calls B, and B has the `network.write` effect, then A must explicitly authorize that effect or use a strictly defined delegation mechanism.
 
 ### 9.3. Capabilities
 
-Права на выполнение опасных действий могут представляться capabilities. Наличие capability должно быть явно связано с контекстом выполнения и не должно возникать неявно.
+Permissions to perform dangerous actions may be represented as capabilities. Possession of a capability must be explicitly tied to the execution context and must never arise implicitly.
 
-Эта модель требует отдельной спецификации безопасности и модели угроз.
+This model requires a separate security specification and threat model.
 
 ---
 
-## 10. Встроенные тесты и проверяемые свойства
+## 10. Built-in Tests and Verifiable Properties
 
-Тестирование должно быть частью модели программы и связываться с требованиями и контрактами.
+Testing should be part of the program model and linked to requirements and contracts.
 
-### 10.1. Property-based testing
+### 10.1. Property-Based Testing
 
 ```text
 property balance_never_negative:
@@ -463,7 +463,7 @@ property balance_never_negative:
         account.balance >= 0
 ```
 
-### 10.2. Сценарные тесты
+### 10.2. Scenario Tests
 
 ```text
 scenario transfer:
@@ -479,7 +479,7 @@ scenario transfer:
         destination.balance == 80
 ```
 
-### 10.3. Трассируемость требований
+### 10.3. Requirements Traceability
 
 ```text
 requirement R-001:
@@ -490,23 +490,23 @@ requirement R-001:
         scenario insufficient_funds
 ```
 
-Тесты, свойства и доказательства должны быть самостоятельными объектами SPG.
+Tests, properties, and proofs should be standalone SPG objects.
 
-Изменение требования или контракта должно выявлять тесты, которые нуждаются в пересмотре. Один тест может проверять несколько требований.
+Changing a requirement or contract should identify tests requiring review. One test may verify multiple requirements.
 
-### 10.4. Разделение видов проверки
+### 10.4. Separation of Verification Methods
 
-Следует различать:
-- формальные доказательства;
-- статические проверки;
-- unit-тесты;
-- интеграционные тесты;
-- сценарные тесты;
+The following must be distinguished:
+- formal proofs;
+- static checks;
+- unit tests;
+- integration tests;
+- scenario tests;
 - property-based testing;
 - fuzzing;
-- динамические проверки runtime.
+- dynamic runtime checks.
 
-Наличие теста само по себе не является формальным доказательством свойства для всех входов.
+The existence of a test is not, by itself, a formal proof that a property holds for all inputs.
 
 ---
 
