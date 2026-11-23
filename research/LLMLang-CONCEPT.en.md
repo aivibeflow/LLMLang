@@ -928,130 +928,130 @@ The trust boundary must be documented. At minimum, it includes the proof checker
 A proof of a model does not in itself prove the correctness of native code, the compiler, the runtime, the operating system, or the hardware. Every guarantee must state which links in the chain are proved, independently checked, or still trusted.
 
 
-## 19. Основные открытые вопросы
+## 19. Main Open Questions
 
-Следующие решения пока не приняты и требуют отдельного проектирования.
+The following decisions have not yet been made and require separate design work.
 
-### 19.1. Модель SPG
-- Какие типы узлов существуют?
-- Какие типы связей допустимы?
-- Как разделяются Stable ID и Content Hash, и как обеспечиваются канонизация и стабильность обоих?
-- Как вычисляются и распространяются Content Hash объектов?
-- Как разрешаются конфликтующие изменения?
-- Как устроены транзакции изменений графа?
+### 19.1. SPG Model
+- Which node types exist?
+- Which edge types are allowed?
+- How are Stable ID and Content Hash separated, and how are their canonicalization and stability ensured?
+- How are object Content Hashes computed and propagated?
+- How are conflicting changes resolved?
+- How do graph-change transactions work?
 
-### 19.2. Семантика слоёв
-- Как формально выразить отношение `satisfies` между Design и Specification?
-- Как выразить отношение `implements` между Implementation и Design?
-- Какие связи проверяемы автоматически?
-- Как политика проекта устанавливает обязательные слои?
+### 19.2. Layer Semantics
+- How can the `satisfies` relationship between Design and Specification be expressed formally?
+- How can the `implements` relationship between Implementation and Design be expressed?
+- Which relationships can be checked automatically?
+- How does project policy specify mandatory layers?
 
-### 19.3. Типовая система
-- Как устроены generic types, traits/type classes и inference?
-- Как сочетаются refinement types и SMT?
-- Как моделируются типы состояний при изменении сущностей?
-- Какая модель ownership лучше всего подходит для LLM и runtime?
+### 19.3. Type System
+- How should generic types, traits/type classes, and inference work?
+- How should refinement types and SMT interact?
+- How should state types be modeled when entities change?
+- Which ownership model best suits LLMs and the runtime?
 
-### 19.4. Эффекты и безопасность
-- Как устроены capabilities?
-- Как передаются и ограничиваются эффекты?
-- Как моделируется взаимодействие с недоверенным кодом?
-- Какова модель угроз runtime?
+### 19.4. Effects and Security
+- How should capabilities work?
+- How are effects transferred and constrained?
+- How should interaction with untrusted code be modeled?
+- What is the runtime threat model?
 
-### 19.5. Верификация
-- Какие контракты обязаны быть доказуемыми?
-- Как управлять временем и ресурсами SMT-решателя?
-- Как представлять частичные доказательства?
-- Как проверять корректность оптимизаций и backend?
+### 19.5. Verification
+- Which contracts must be provable?
+- How should SMT solver time and resources be managed?
+- How should partial proofs be represented?
+- How should the correctness of optimizations and backends be checked?
 
 ### 19.6. Runtime
-- Как устроены память, исключения и отмена?
-- Какова модель конкурентности?
-- Какие гарантии обеспечиваются VM, а какие компилятором?
-- Как совместить безопасность и производительность?
+- How should memory, exceptions, and cancellation work?
+- What is the concurrency model?
+- Which guarantees are provided by the VM and which by the compiler?
+- How can safety and performance be reconciled?
 
-### 19.7. Интерфейс LLM
-- Какой протокол предложений и изменений SPG использовать?
-- Как ограничивать размер контекста?
-- Как представлять диагностики и контрпримеры?
-- Как обеспечивать воспроизводимость изменений?
-
----
-
-## 20. Предлагаемые этапы исследования
-
-### Этап 0. Концептуальная спецификация
-Зафиксировать термины, цели, не-цели, модель графа, слои, семантику и границы гарантий.
-
-### Этап 1. Минимальная модель SPG
-Определить небольшой набор объектов: модуль, тип, функция, параметр, выражение, контракт, эффект, тест и зависимость. Реализовать сериализацию и проверку структурной целостности.
-
-### Этап 2. Минимальный язык
-Определить небольшой DSL и однозначное отображение между DSL и SPG.
-
-### Этап 3. Статическая семантика
-Реализовать типизацию, алгебраические типы, исчерпывающие match и базовую модель эффектов.
-
-### Этап 4. Контракты и проверка
-Добавить предусловия, постусловия, инварианты, условия верификации и SMT-интеграцию.
-
-### Этап 4A. Формальная семантика и верификационные backend
-Определить семантику proof-friendly core и минимальный общий семантический IR. Реализовать первый вертикальный срез генерации формальной модели и исполняемого представления из одного источника. Для выбранного класса алгоритмов добавить TLA+ backend и проверку модели TLC/TLAPS; определить translation validation и привязку результатов к Content Hash. Расширять набор backend только вместе с формальными обязательствами сохранения семантики.
-
-### Этап 5. VM
-Определить байткод, runtime и интерпретатор. Сверить семантику исполнения с моделью языка.
-
-### Этап 6. Инструменты LLM
-Добавить API структурированных предложений, локальных изменений, диагностики и инкрементальных проверок.
-
-### Этап 7. Backend и оптимизация
-Добавить lowering, оптимизации и нативный backend с независимой проверкой преобразований.
-
-### Этап 8. Практическая оценка
-Сравнить LLMLang с Rust, Go и другими языками на одинаковых задачах:
-- частота ошибок;
-- количество итераций исправления;
-- полнота контрактов;
-- сложность ревью;
-- производительность;
-- стоимость генерации и проверки;
-- устойчивость к изменениям требований.
+### 19.7. LLM Interface
+- Which protocol should be used for SPG proposals and changes?
+- How should context size be limited?
+- How should diagnostics and counterexamples be represented?
+- How can changes be made reproducible?
 
 ---
 
-## 21. Критерии успеха
+## 20. Proposed Research Stages
 
-Нельзя считать проект успешным только потому, что LLM генерирует меньше строк или быстрее пишет синтаксически корректный код.
+### Stage 0. Conceptual Specification
+Establish terminology, goals, non-goals, the graph model, layers, semantics, and the boundaries of guarantees.
 
-Основные критерии:
-- меньше дефектов на одинаковом наборе задач;
-- более высокая доля ошибок, обнаруживаемых до исполнения;
-- высокая точность диагностики;
-- отсутствие ложного статуса `PROVEN`;
-- воспроизводимость компиляции и проверок;
-- понятные и локальные изменения графа;
-- приемлемая стоимость верификации;
-- отсутствие существенного ухудшения производительности там, где она важна;
-- удобство совместной работы человека и LLM.
+### Stage 1. Minimal SPG Model
+Define a small set of objects: module, type, function, parameter, expression, contract, effect, test, and dependency. Implement serialization and structural-integrity checks.
+
+### Stage 2. Minimal Language
+Define a small DSL and an unambiguous mapping between the DSL and SPG.
+
+### Stage 3. Static Semantics
+Implement type checking, algebraic types, exhaustive matching, and a basic effect model.
+
+### Stage 4. Contracts and Verification
+Add preconditions, postconditions, invariants, verification conditions, and SMT integration.
+
+### Stage 4A. Formal Semantics and Verification Backends
+Define the semantics of a proof-friendly core and a minimal common semantic IR. Implement an initial vertical slice that generates both a formal model and an executable representation from one source. For a selected class of algorithms, add a TLA+ backend and TLC/TLAPS model verification; define translation validation and bind results to Content Hashes. Expand the range of backends only together with formal semantic-preservation obligations.
+
+### Stage 5. VM
+Define bytecode, a runtime, and an interpreter. Check that execution semantics conform to the language model.
+
+### Stage 6. LLM Tools
+Add APIs for structured proposals, local edits, diagnostics, and incremental checks.
+
+### Stage 7. Backends and Optimization
+Add lowering, optimizations, and a native backend with independent verification of transformations.
+
+### Stage 8. Practical Evaluation
+Compare LLMLang with Rust, Go, and other languages on the same tasks:
+- defect frequency;
+- number of correction iterations;
+- contract completeness;
+- review complexity;
+- performance;
+- generation and verification costs;
+- resilience to requirements changes.
 
 ---
 
-## 22. Краткое резюме
+## 21. Success Criteria
 
-LLMLang предполагается как язык, в котором:
+The project cannot be considered successful merely because an LLM generates fewer lines or writes syntactically correct code faster.
 
-- намерения и спецификации могут быть представлены формально;
-- архитектура, реализация и спецификация существуют как связанные слои;
-- программа хранится как типизированный Semantic Program Graph;
-- LLM предлагает изменения графа, но не является доверенной проверяющей стороной;
-- компилятор независимо проверяет структуру, типы, эффекты и контракты;
-- тесты и доказательства связаны с требованиями;
-- исполнение возможно через интерпретатор, VM или native backend;
-- преобразования компилятора входят в цепочку проверки;
-- простые программы могут обходиться без полного набора проектных слоёв.
+Key criteria:
+- fewer defects across an equivalent set of tasks;
+- a higher proportion of errors detected before execution;
+- high diagnostic accuracy;
+- no false `PROVEN` statuses;
+- reproducible compilation and verification;
+- understandable, localized graph changes;
+- acceptable verification costs;
+- no significant performance degradation where performance matters;
+- effective collaboration between humans and LLMs.
 
-Главная гипотеза проекта:
+---
 
-**Если сделать семантическую модель программы, контракты, зависимости и проверку первоклассными элементами языка, то можно существенно снизить вероятность ошибок при разработке программ с помощью LLM — не полагаясь на то, что сама LLM всегда помнит и правильно применяет все правила.**
+## 22. Brief Summary
+
+LLMLang is envisioned as a language in which:
+
+- intent and specifications can be represented formally;
+- architecture, implementation, and specification exist as connected layers;
+- the program is stored as a typed Semantic Program Graph;
+- the LLM proposes graph changes but is not a trusted verifier;
+- the compiler independently checks structure, types, effects, and contracts;
+- tests and proofs are linked to requirements;
+- execution is possible through an interpreter, VM, or native backend;
+- compiler transformations are part of the verification chain;
+- simple programs can omit some of the design layers.
+
+The project's central hypothesis:
+
+**By making the semantic program model, contracts, dependencies, and verification first-class elements of the language, we can significantly reduce errors when developing programs with LLMs — without relying on the LLM itself to always remember and correctly apply every rule.**
 
 **Research status note (2026-11-18):** The type, refinement, effect, ownership, and capability proposals in this concept remain exploratory. See [RT-04 alternatives research](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) for the comparative option space and unresolved compatibility questions. This report does not make the concept's proposals normative.
