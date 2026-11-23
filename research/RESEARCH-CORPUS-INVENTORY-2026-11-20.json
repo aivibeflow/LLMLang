@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "9d3dc0e127f8df162831918ae947c927b9a3eb58",
-  "source": "Exact PR research-tree inventory: current-main baseline 9d3dc0e127f8df162831918ae947c927b9a3eb58, plus this audit report and the refreshed research README; manifest excluded.",
+  "revision": "5662fab189d357cd88037726f05d9ec1dcbb13d8",
+  "source": "Exact inventory of current-main research tree at 5662fab189d357cd88037726f05d9ec1dcbb13d8, plus the refreshed research README; manifest excluded.",
   "counts": {
-    "research_files": 587,
-    "markdown_files": 306,
+    "research_files": 589,
+    "markdown_files": 308,
     "python_files": 226,
     "scenario_named_documents": 137,
     "prototype_tree_files": 289,
@@ -14,7 +14,7 @@
     "category_counts": {
       "research-background-or-design-analysis": 27,
       "example-or-fixture": 1,
-      "research-area-or-experiment-document": 65,
+      "research-area-or-experiment-document": 66,
       "structured-fixture-or-schema": 1,
       "research-preparation-brief-or-index": 9,
       "prototype-or-experiment-implementation": 146,
@@ -24,7 +24,7 @@
       "index-or-research-management": 3,
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13,
-      "audit-or-review-report": 35,
+      "audit-or-review-report": 36,
       "cross-cutting-synthesis-or-status": 4,
       "scenario-research-result": 136,
       "research-rfc-or-protocol-proposal": 2
@@ -34,12 +34,12 @@
     "dependency_edges": 108,
     "mdx_files": 3
   },
-  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of 136 mapped Scenario reports (137 Scenario-named paths remain one apart); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 storage requirements are mapped provisionally to Stage 4 but are not registered in the taxonomy/dependency map. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
+  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of 136 mapped Scenario reports (137 Scenario-named paths remain one apart); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 storage requirements are mapped provisionally to Stage 4 but are not registered in the taxonomy/dependency map. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
     "index": "research/README.md",
-    "unique_relative_targets": 143,
+    "unique_relative_targets": 145,
     "broken_relative_targets": 0,
-    "checked_scope": "All 143 unique local relative targets in research/README.md resolve against the staged PR tree based on 9d3dc0e127f8df162831918ae947c927b9a3eb58; checked with the repository index coverage parser."
+    "checked_scope": "All 145 unique local relative targets in research/README.md resolve against the staged PR tree based on 5662fab189d357cd88037726f05d9ec1dcbb13d8; checked with the repository index coverage parser."
   },
   "duplicate_blob_groups": [
     {
@@ -9027,8 +9027,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "0c0cad45be61222b2a8005e7ca1274fc7f38211e",
-      "size_bytes": 34437,
+      "git_blob_sha": "02ee4176cc159f1762ba2ad90a29c359516e371f",
+      "size_bytes": 34870,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -13349,8 +13349,8 @@
     },
     {
       "path": "research/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "cb25dc48c9995d453a2800931f8c9a87d9520930",
-      "size_bytes": 47894,
+      "git_blob_sha": "dcd5f0e79f9f4dd8c19323abd35a25e938f0736e",
+      "size_bytes": 48031,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -15204,8 +15204,8 @@
     },
     {
       "path": "research/RT-00-A-CURRENT-MAIN-INVENTORY-FRESHNESS-RECONCILIATION-2026-11-23.md",
-      "git_blob_sha": "3c4b3cf835c813c4d9cfcaa180457a31c5bb2a20",
-      "size_bytes": 4575,
+      "git_blob_sha": "9beeeab67deb58e04f51fb4c6735e1b43942fc3e",
+      "size_bytes": 4943,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -15218,6 +15218,44 @@
       "semantic_review": {
         "status": "content-role-triaged",
         "basis": "Records recursive-tree path/blob/size reconciliation and bounded discoverability results; does not validate technical claims or reproduce experiments."
+      }
+    },
+    {
+      "path": "research/GIT-BINARY-SPG-STORAGE-EFFICIENCY.md",
+      "git_blob_sha": "7a9d04d65f7c909941270b99ac7e4925af11dc8d",
+      "size_bytes": 17382,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [],
+        "method": "Explicit Stage 4 Git storage comparison and direct PLAN §4.2 linkage; no RT taxonomy registration is declared by the report.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        4
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Preliminary Git packfile/delta analysis and benchmark plan; synthetic figures are explicitly unverified and no layout is selected."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md",
+      "git_blob_sha": "306ddb940233a15da7f99d79230c451c0074a51d",
+      "size_bytes": 8487,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "Explicit RT-08 taxonomy mapping in the report and PLAN §0.2 link.",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Qualitative comparison of evidence-documentation rollout alternatives; recommendation is not accepted policy."
       }
     }
   ],
@@ -15764,27 +15802,31 @@
   },
   "current_tree_reconciliation": {
     "reviewed_at": "2026-11-23",
-    "source_revision": "9d3dc0e127f8df162831918ae947c927b9a3eb58",
+    "source_revision": "5662fab189d357cd88037726f05d9ec1dcbb13d8",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
-    "previous_records": 585,
-    "baseline_main_artifacts_excluding_manifest": 586,
+    "previous_records": 587,
+    "baseline_main_artifacts_excluding_manifest": 589,
     "baseline_missing_manifest_paths": [
-      "research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md"
+      "research/GIT-BINARY-SPG-STORAGE-EFFICIENCY.md",
+      "research/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md"
     ],
     "baseline_extra_manifest_paths": 0,
-    "baseline_sha_or_size_mismatches": 0,
-    "current_records": 587,
+    "baseline_sha_or_size_mismatches": [
+      "research/RESEARCH-TAXONOMY.md"
+    ],
+    "current_records": 589,
     "added_records": 2,
-    "refreshed_existing_records": 1,
+    "refreshed_existing_records": 2,
     "refreshed_existing_paths": [
-      "research/README.md"
+      "research/README.md",
+      "research/RESEARCH-TAXONOMY.md"
     ],
     "removed_paths": 0,
     "tree_counts": {
-      "research_artifacts_excluding_manifest": 587,
-      "markdown_files": 306,
+      "research_artifacts_excluding_manifest": 589,
+      "markdown_files": 308,
       "mdx_files": 3,
       "python_files": 226,
       "lean_files": 33,
@@ -15817,12 +15859,12 @@
     "scenario_crosswalk_boundary": "137 Scenario-named paths are present and 136 are mapped; this one-path difference remains unresolved.",
     "rt27_traceability_boundary": "RT-27 storage requirements are provisionally linked to Stage 4; taxonomy/dependency-map registration and edge rationale remain open.",
     "index_coverage_result": {
-      "research_markdown_mdx_documents": 309,
+      "research_markdown_mdx_documents": 311,
       "research_documents_without_index_inbound": 57,
       "research_documents_with_zero_inbound": 23,
       "unresolved_local_targets": 38,
       "unresolved_target_scope": "partial OCI and Alive2 snapshots",
-      "non_markdown_targets": 491,
+      "non_markdown_targets": 492,
       "auditor": ".github/scripts/audit_research_index_coverage.py"
     },
     "comparison_scope": "The inventory-freshness workflow validates path, Git blob SHA, and byte size on the final PR head. Semantic orphan/contradiction review and experiment validation remain separate."
