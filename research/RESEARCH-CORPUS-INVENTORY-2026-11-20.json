@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "0a798bfd14806c6aeddf22393b7efa2981e40d54",
-  "source": "Exact inventory of the research tree at main baseline 0a798bfd14806c6aeddf22393b7efa2981e40d54 plus the DEP-009 admission recheck report; manifest excluded.",
+  "revision": "6df9ced732bf41fb800a967ef4273c577bd87250",
+  "source": "Exact inventory of the research tree at main baseline 6df9ced732bf41fb800a967ef4273c577bd87250 plus the DEP-012 cache-identity recheck report; manifest excluded.",
   "counts": {
-    "research_files": 596,
-    "markdown_files": 315,
+    "research_files": 597,
+    "markdown_files": 316,
     "python_files": 226,
     "scenario_named_documents": 137,
     "prototype_tree_files": 289,
@@ -24,7 +24,7 @@
       "index-or-research-management": 3,
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13,
-      "audit-or-review-report": 42,
+      "audit-or-review-report": 43,
       "cross-cutting-synthesis-or-status": 4,
       "scenario-research-result": 136,
       "research-rfc-or-protocol-proposal": 2
@@ -33,14 +33,14 @@
     "taxonomy_research_areas": 28,
     "dependency_edges": 135,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 596
+    "research_artifacts_excluding_manifest": 597
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
     "index": "research/README.md",
-    "unique_relative_targets": 151,
+    "unique_relative_targets": 152,
     "broken_relative_targets": 0,
-    "checked_scope": "All 151 unique local relative targets in research/README.md resolve in the current working tree, checked with the repository index coverage parser."
+    "checked_scope": "All 152 unique local relative targets in research/README.md resolve in the current working tree, checked with the repository index coverage parser."
   },
   "duplicate_blob_groups": [
     {
@@ -9028,8 +9028,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "e7e9d2aff03364a79d16cb1f2526a81ab397233b",
-      "size_bytes": 36927,
+      "git_blob_sha": "46f3a79db157d2ad00262f06c048abf8f112ee55",
+      "size_bytes": 37183,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -9535,8 +9535,8 @@
     },
     {
       "path": "research/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "687c377c07a08491adbd1b50f469dac75b45b63d",
-      "size_bytes": 60238,
+      "git_blob_sha": "81ba2d6ac3058997def6fdd5334f0ec2ba87921f",
+      "size_bytes": 60328,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -15374,6 +15374,23 @@
       "plan_stages": [
         0
       ]
+    },
+    {
+      "path": "research/RT-00-DEP-012-CACHE-IDENTITY-RECHECK-2026-11-23.md",
+      "git_blob_sha": "e06810fc83a9f1ea5186e2f0c40d67360a74e2aa",
+      "size_bytes": 4088,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.3",
+          "DEP-012"
+        ],
+        "method": "Current-main replay of SPG-03 binding-change and exact call-granularity test",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ]
     }
   ],
   "semantic_traceability_review": {
@@ -15922,16 +15939,16 @@
   },
   "current_tree_reconciliation": {
     "reviewed_at": "2026-11-23",
-    "source_revision": "0a798bfd14806c6aeddf22393b7efa2981e40d54",
+    "source_revision": "6df9ced732bf41fb800a967ef4273c577bd87250",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
-    "previous_records": 595,
-    "baseline_main_artifacts_excluding_manifest": 595,
+    "previous_records": 596,
+    "baseline_main_artifacts_excluding_manifest": 596,
     "baseline_missing_manifest_paths": [],
     "baseline_extra_manifest_paths": 0,
     "baseline_sha_or_size_mismatches": [],
-    "current_records": 596,
+    "current_records": 597,
     "added_records": 1,
     "refreshed_existing_records": 2,
     "refreshed_existing_paths": [
@@ -15940,8 +15957,8 @@
     ],
     "removed_paths": 0,
     "tree_counts": {
-      "research_artifacts_excluding_manifest": 596,
-      "markdown_files": 315,
+      "research_artifacts_excluding_manifest": 597,
+      "markdown_files": 316,
       "mdx_files": 3,
       "python_files": 226,
       "lean_files": 33,
@@ -15974,7 +15991,7 @@
     "scenario_crosswalk_boundary": "The scenario_named_documents count uses a broad filename predicate (SCENARIO- followed by digits) and is 137; the strict RESEARCH-SCENARIO-<number> report set is 136 and is fully mapped. The one broad-only path is the RT-00 Scenario 130 claim-traceability pilot, not a Scenario report. The 136 reports represent 135 scenario identifiers because Scenario 95 has a supplemental execution file; Scenario 16 remains absent with intent unresolved. See RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md.",
     "rt27_traceability_boundary": "RT-27 is registered in taxonomy and dependency map by PR #251; its physical storage format and requirements remain provisional.",
     "index_coverage_result": {
-      "research_markdown_mdx_documents": 318,
+      "research_markdown_mdx_documents": 319,
       "research_documents_without_index_inbound": 57,
       "research_documents_with_zero_inbound": 23,
       "unresolved_local_targets": 38,
