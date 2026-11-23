@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "98dfae6debdc8d5f16deb7a144d27ed77111e3f4",
-  "source": "Exact research-tree inventory at baseline 98dfae6debdc8d5f16deb7a144d27ed77111e3f4 plus RT-19 storage backend contract recheck; manifest excluded.",
+  "revision": "775d5e8d78ed9a47f7f37d09ff13cbc300be7f03",
+  "source": "Exact research-tree inventory at baseline 775d5e8d78ed9a47f7f37d09ff13cbc300be7f03 plus RT-16 policy recheck report; manifest excluded.",
   "counts": {
-    "research_files": 605,
-    "markdown_files": 322,
+    "research_files": 606,
+    "markdown_files": 323,
     "python_files": 227,
     "scenario_named_documents": 139,
     "prototype_tree_files": 289,
@@ -33,7 +33,7 @@
     "taxonomy_research_areas": 28,
     "dependency_edges": 135,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 605
+    "research_artifacts_excluding_manifest": 606
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
@@ -15505,6 +15505,20 @@
       "semantic_review": {
         "status": "reviewed",
         "basis": "API contract comparison and bounded focused tests"
+      }
+    },
+    {
+      "path": "research/RT-16-POLICY-RECHECK-2026-11-23.md",
+      "git_blob_sha": "0c33cb19fe9c6d050616c948b0f3d54d2bb02d0f",
+      "size_bytes": 3047,
+      "category": "audit-or-review-report",
+      "traceability": "RT-16 current-main policy evidence recheck",
+      "plan_stages": [
+        "7.4"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "current exact-source test run and scoped policy comparison"
       }
     }
   ],

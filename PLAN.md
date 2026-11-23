@@ -901,6 +901,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Status:** an initial threat model and tested authorization-policy experiment now exist in [RT-16 Threat Model 01](research/RT-16-THREAT-MODEL-01.md). They cover scope binding, human approval, replay, evidence identity, and fail-closed checks at fixture level. A complete security architecture remains open; persistent multi-client authorization, concurrency/crash injection, sandbox testing, signed/authenticated evidence, and operational approval policy are high-priority gaps.
 
+**Research output (2026-11-23):** [RT-16 authorization and evidence-policy recheck](research/RT-16-POLICY-RECHECK-2026-11-23.md) reran the current-main policy suite: 24/24 passed on CPython 3.12.14 with source hashes recorded. This closes the fixture reproducibility gap, not production security. Exact scope binding is supported by the model; digest-only evidence does not authenticate its producer, and persistent nonce handling, signatures/trust roots, sandboxing, maintainers' approval policy, and Toolchain integration remain external dependencies.
+
 ## 7.5 Developer experience and adoption
 
 **Estimated research complexity:** **10/10** — controlled comparative evaluation with real users/agents, correctness, repair effort, cost, and performance.
