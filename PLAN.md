@@ -1076,6 +1076,33 @@ Research a typed, versioned object describing the task an agent is expected to p
 
 **Exit criteria:** at least three syntax profiles cover a common semantic subset; profile transformations pass independent semantic-equivalence checks; controlled model evaluations produce reproducible, uncertainty-aware comparisons; session recording supports privacy controls and reliable error attribution; improvement proposals are checked against held-out regression tasks.
 
+
+## 7.10 Semantic Function Discovery and Retrieval (RT-32)
+
+**Estimated research complexity:** **8/10** — requires a canonical semantic description, retrieval-quality benchmarks, sound compatibility checks, snapshot-consistent indexes, and safe ambiguity handling.
+
+- [ ] Define the distinction among exact function identity/hash, canonical semantic description, derived semantic fingerprint, and rebuildable search index.
+- [ ] Specify a candidate canonical description covering intent, input/output roles, preconditions, postconditions/behavior, effects/capabilities, errors, constraints, and optional cost characteristics.
+- [ ] Compare single-vector, multi-aspect, structured, lexical, and hybrid fingerprints/retrieval channels; keep embedding and ANN choices replaceable.
+- [ ] Define intent-only, structured-requirement, and hybrid query forms, including provenance for explicit hard constraints versus soft preferences.
+- [ ] Prototype KNN/ANN candidate retrieval and structured metadata/contract filters; preserve retrieval-channel and score provenance.
+- [ ] Define and test hard compatibility checks for types, ownership, preconditions, postconditions, effects, capabilities, and failure behavior. Similarity scores must never authorize compatibility.
+- [ ] Specify unknown/incomplete evidence behavior, exclusion reasons, ranking, explanation, and ambiguity handling; do not silently bind an arbitrary top-1 result.
+- [ ] Demonstrate exact hash resolution and call binding against an immutable semantic snapshot; runtime invocation must not repeat semantic search.
+- [ ] Define fingerprint/index versioning, incremental updates, cache keys/invalidation, snapshot consistency, stale-result rejection, and rebuild behavior.
+- [ ] Test access control, package/workspace scope, metadata visibility, tenant isolation, misleading descriptions, index poisoning, and adversarial near-neighbours.
+- [ ] Build a benchmark corpus with differently named equivalent-purpose functions, semantically close but incompatible functions, overlapping signatures, hard-constraint violations, and unknown contracts.
+- [ ] Compare structured-only, single-vector KNN, multi-aspect KNN, and hybrid retrieval using Recall@K, precision/MRR/nDCG, compatible-candidate recall, false-compatible/unsafe-selection rate, ambiguity quality, latency, storage, and update cost.
+- [ ] Report uncertainty, model/index versions, failure cases, and reproducibility; establish evidence-based minimum safety and quality thresholds before automatic resolution.
+
+**Research brief:** [RT-32 — Semantic Function Discovery and Retrieval](research/RT-32-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md).
+
+**Coordination:** RT-03/04 define function meaning and compatibility; RT-05/24 define canonical semantics and immutable identity; RT-06/11 constrain dependency-aware indexing and cache invalidation; RT-07/08 provide soundness and evaluation gates; RT-09/19 define compiler/Toolchain integration; RT-12 defines package/library discovery scope; RT-14/31 inform agent intent and evaluation; RT-16 governs authorization and trust; RT-18 governs versioning; RT-20 constrains exact call binding and caller compatibility.
+
+**Status:** research required. Semantic fingerprints and KNN/ANN are proposed discovery mechanisms, not selected architecture or language semantics. Exact function hashes remain authoritative for calls.
+
+**Exit criteria:** a canonical description/fingerprint proposal and benchmark corpus exist; structured, vector, and hybrid baselines are compared; compatibility and ambiguity handling pass negative controls; a bounded prototype resolves candidates to exact hashes against a pinned snapshot; index lifecycle, security, and stale-result behavior are tested.
+
 ---
 
 # 4. Cross-cutting prior-art research
