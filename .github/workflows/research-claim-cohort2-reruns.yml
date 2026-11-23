@@ -1,0 +1,90 @@
+name: Research Claim Cohort 2 Bounded Source Reruns
+
+# Independent, bounded model checks. This is not a semantic correctness gate
+# and does not replay the original authors' uncommitted execution environments.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/research-claim-cohort2-reruns.yml"
+      - "research/RT-00-QUALITY-RULES-CLAIM-COHORT2-RERUN-2026-11-23.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-recheck:
+    name: historical-${{ matrix.study }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - study: schema-110
+            test_path: research/PROTOTYPES/RT-04-01/test_schema_evolution_model.py
+            source_blob: bb5f5bdf3ea0ed71d6ef7a565263740f6febb944
+            expected_tests: 6
+          - study: fairness-112
+            test_path: research/PROTOTYPES/RT-04-01/test_scheduler_fairness_model.py
+            source_blob: f0770463ee0a13e363394f058a563ff51b9cddca
+            expected_tests: 5
+          - study: source-tree-rt24
+            test_path: research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_merge_tree_gate.py
+            source_blob: b78452a9c86d7ae7e078c5fcd3b11b77a37513c3
+            expected_tests: 7
+    steps:
+      - name: Check out exact frozen second-cohort source baseline
+        uses: actions/checkout@v4
+        with:
+          ref: ff1295c1769bfe8546c4b63590c9f607349215ee
+          path: archival
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Verify source Git blob and record fresh-run environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/claim-cohort2
+          {
+            echo "study=${{ matrix.study }}"
+            echo "archived_commit=$(git -C archival rev-parse HEAD)"
+            echo "test_file=${{ matrix.test_path }}"
+            echo "test_blob=$(git -C archival hash-object '${{ matrix.test_path }}')"
+            echo "python=$(python3 --version)"
+            echo "git=$(git --version)"
+            echo "host=$(uname -srm)"
+          } | tee artifacts/claim-cohort2/environment.txt
+          test "$(git -C archival rev-parse HEAD)" = "ff1295c1769bfe8546c4b63590c9f607349215ee"
+          test "$(git -C archival hash-object '${{ matrix.test_path }}')" = "${{ matrix.source_blob }}"
+      - name: Run bounded tests (no broad specification claim)
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "${{ matrix.study }}" in
+            schema-110)
+              (cd archival && python3 -B -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_schema_evolution_model.py' -v) 2>&1 | tee artifacts/claim-cohort2/result.log
+              ;;
+            fairness-112)
+              (cd archival && python3 -B -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_scheduler_fairness_model.py' -v) 2>&1 | tee artifacts/claim-cohort2/result.log
+              ;;
+            source-tree-rt24)
+              (cd archival/research/PROTOTYPES/DEPENDENCY-GRAPH-01 && python3 -B -m unittest -v tests.test_rt24_merge_tree_gate) 2>&1 | tee artifacts/claim-cohort2/result.log
+              ;;
+            *)
+              echo 'unexpected study' >&2; exit 2
+              ;;
+          esac
+          grep -q "Ran ${{ matrix.expected_tests }} tests" artifacts/claim-cohort2/result.log
+      - name: Preserve source/host/output even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cohort2-${{ matrix.study }}
+          path: artifacts/claim-cohort2/
+          retention-days: 30
+          if-no-files-found: warn
