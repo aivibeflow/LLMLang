@@ -474,6 +474,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Status:** researched; the version-binding design and a first experimental cache-record validator now exist. The initial component registry is `language-components.toml` and is append-only. The candidate validator keeps LanguageVersion, registry digest, and ToolchainIdentity distinct and includes them in Action Key construction. The cache-index wire format, compatibility declarations, complete dependency-closure model, merge/conflict policy, and broader implementation validation remain open.
 
+**Research output (2026-11-23):** [RT-33 build graph/cache options recheck](research/RT-33-BUILD-GRAPH-CACHE-OPTIONS-RECHECK-2026-11-23.md) compares package-embedded cache data, optional package index references with separate CAS payloads, local/workspace cache, and team/remote cache. A 36-test focused suite passed. Current evidence favors local-first experimentation and optional cache metadata outside package semantic identity; remote trust, result-fetch lifecycle, cache-index merge/eviction and production dependency completeness remain external dependencies. No production format or layer is selected.
+
 ## 3.4 Quantify compilation speedup
 
 **Estimated research complexity:** **5/10** — controlled benchmark design and measurement; conclusions depend on representative workloads and hardware.
