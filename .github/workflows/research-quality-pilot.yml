@@ -7,6 +7,8 @@ on:
       - "research/**"
       - ".github/scripts/check_research_quality.py"
       - ".github/scripts/test_check_research_quality.py"
+      - ".github/scripts/validate_research_quality_adjudication.py"
+      - ".github/scripts/test_validate_research_quality_adjudication.py"
       - ".github/workflows/research-quality-pilot.yml"
   workflow_dispatch:
 
@@ -44,6 +46,14 @@ jobs:
             --root . \
             --manifest research/quality-audit/2026-11-23-sample.json \
             --json-out artifacts/research-quality-pilot/real-report-sample.json
+
+      - name: Check adjudication register accounting (not claim truth)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -B -m unittest discover -s .github/scripts -p 'test_validate_research_quality_adjudication.py' -v
+          python3 -B .github/scripts/validate_research_quality_adjudication.py \
+            --root . | tee artifacts/research-quality-pilot/adjudication-accounting.json
 
       - name: Preserve pilot warnings (non-blocking)
         if: always()
