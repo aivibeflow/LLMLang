@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "71ff5c3de8b182eeb69dc3f723062693e21cdf24",
-  "source": "Exact inventory of the research tree at main baseline 71ff5c3de8b182eeb69dc3f723062693e21cdf24 plus the DEP-006 recheck report; manifest excluded.",
+  "revision": "f52b5d0580c589b4aaf8333a237e5bc4ec8df9b3",
+  "source": "Exact inventory of the research tree at main baseline f52b5d0580c589b4aaf8333a237e5bc4ec8df9b3 plus this RT-28 inventory freshness report; manifest excluded.",
   "counts": {
-    "research_files": 592,
-    "markdown_files": 311,
+    "research_files": 594,
+    "markdown_files": 313,
     "python_files": 226,
     "scenario_named_documents": 137,
     "prototype_tree_files": 289,
@@ -14,7 +14,7 @@
     "category_counts": {
       "research-background-or-design-analysis": 27,
       "example-or-fixture": 1,
-      "research-area-or-experiment-document": 66,
+      "research-area-or-experiment-document": 67,
       "structured-fixture-or-schema": 1,
       "research-preparation-brief-or-index": 9,
       "prototype-or-experiment-implementation": 146,
@@ -24,23 +24,23 @@
       "index-or-research-management": 3,
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13,
-      "audit-or-review-report": 39,
+      "audit-or-review-report": 40,
       "cross-cutting-synthesis-or-status": 4,
       "scenario-research-result": 136,
       "research-rfc-or-protocol-proposal": 2
     },
     "lean_source_files": 33,
-    "taxonomy_research_areas": 26,
-    "dependency_edges": 108,
+    "taxonomy_research_areas": 28,
+    "dependency_edges": 135,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 592
+    "research_artifacts_excluding_manifest": 594
   },
-  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 storage requirements are mapped provisionally to Stage 4 but are not registered in the taxonomy/dependency map. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
+  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
     "index": "research/README.md",
-    "unique_relative_targets": 148,
+    "unique_relative_targets": 149,
     "broken_relative_targets": 0,
-    "checked_scope": "All 148 unique local relative targets in research/README.md resolve in the current working tree, checked with the repository index coverage parser."
+    "checked_scope": "All 149 unique local relative targets in research/README.md resolve in the current working tree, checked with the repository index coverage parser."
   },
   "duplicate_blob_groups": [
     {
@@ -9028,8 +9028,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "36ae04660f609f2dbe9a703f1ca8f392c3ac341a",
-      "size_bytes": 35711,
+      "git_blob_sha": "561cbc0307f330b4b4a9b7a7311544bc55b342c7",
+      "size_bytes": 36464,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -9535,8 +9535,8 @@
     },
     {
       "path": "research/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "7d90ad03d5f8164a4a0071c0d5b2cd0a42f53e97",
-      "size_bytes": 53245,
+      "git_blob_sha": "cd49bfecfac3663d3ff2d9768d03db09e783501a",
+      "size_bytes": 60053,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -13350,8 +13350,8 @@
     },
     {
       "path": "research/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "dcd5f0e79f9f4dd8c19323abd35a25e938f0736e",
-      "size_bytes": 48031,
+      "git_blob_sha": "2238d6a513bcae55f1f3b3df88f4ff611704bc47",
+      "size_bytes": 49686,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -15308,6 +15308,38 @@
       "plan_stages": [
         0
       ]
+    },
+    {
+      "path": "research/RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md",
+      "git_blob_sha": "51d099ea7af7744c034ab74f61284f36a5b7233d",
+      "size_bytes": 23428,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-28"
+        ],
+        "method": "Explicit RT-28 declaration in report and taxonomy registration",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        7
+      ]
+    },
+    {
+      "path": "research/RT-00-A-RT28-INVENTORY-FRESHNESS-2026-11-23.md",
+      "git_blob_sha": "029279ebc3f75fcb89b45440d2b268b63831324c",
+      "size_bytes": 3197,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "Exact recursive Git tree and Git blob/byte-size comparison",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ]
     }
   ],
   "semantic_traceability_review": {
@@ -15856,33 +15888,40 @@
   },
   "current_tree_reconciliation": {
     "reviewed_at": "2026-11-23",
-    "source_revision": "71ff5c3de8b182eeb69dc3f723062693e21cdf24",
+    "source_revision": "f52b5d0580c589b4aaf8333a237e5bc4ec8df9b3",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
-    "previous_records": 591,
-    "baseline_main_artifacts_excluding_manifest": 591,
-    "baseline_missing_manifest_paths": [],
+    "previous_records": 592,
+    "baseline_main_artifacts_excluding_manifest": 593,
+    "baseline_missing_manifest_paths": [
+      "research/RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md"
+    ],
     "baseline_extra_manifest_paths": 0,
-    "baseline_sha_or_size_mismatches": [],
-    "current_records": 592,
-    "added_records": 1,
-    "refreshed_existing_records": 2,
+    "baseline_sha_or_size_mismatches": [
+      "research/README.md",
+      "research/RESEARCH-DEPENDENCY-MAP.md",
+      "research/RESEARCH-TAXONOMY.md"
+    ],
+    "current_records": 594,
+    "added_records": 2,
+    "refreshed_existing_records": 3,
     "refreshed_existing_paths": [
       "research/README.md",
-      "research/RESEARCH-DEPENDENCY-MAP.md"
+      "research/RESEARCH-DEPENDENCY-MAP.md",
+      "research/RESEARCH-TAXONOMY.md"
     ],
     "removed_paths": 0,
     "tree_counts": {
-      "research_artifacts_excluding_manifest": 592,
-      "markdown_files": 311,
+      "research_artifacts_excluding_manifest": 594,
+      "markdown_files": 313,
       "mdx_files": 3,
       "python_files": 226,
       "lean_files": 33,
       "prototype_tree_files": 289,
       "scenario_named_documents": 137,
-      "taxonomy_rt_rows": 26,
-      "dependency_rows": 108
+      "taxonomy_rt_rows": 28,
+      "dependency_rows": 135
     },
     "prototype_family_file_counts": {
       "ALLOCATOR-COMPAT-01": 1,
@@ -15906,13 +15945,13 @@
     },
     "semantic_review_boundary": "All 289 current prototype paths have individual content-role triage. This does not validate every claim, reproduce every test, or establish implementation readiness.",
     "scenario_crosswalk_boundary": "The scenario_named_documents count uses a broad filename predicate (SCENARIO- followed by digits) and is 137; the strict RESEARCH-SCENARIO-<number> report set is 136 and is fully mapped. The one broad-only path is the RT-00 Scenario 130 claim-traceability pilot, not a Scenario report. The 136 reports represent 135 scenario identifiers because Scenario 95 has a supplemental execution file; Scenario 16 remains absent with intent unresolved. See RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md.",
-    "rt27_traceability_boundary": "RT-27 storage requirements are provisionally linked to Stage 4; taxonomy/dependency-map registration and edge rationale remain open.",
+    "rt27_traceability_boundary": "RT-27 is registered in taxonomy and dependency map by PR #251; its physical storage format and requirements remain provisional.",
     "index_coverage_result": {
-      "research_markdown_mdx_documents": 311,
+      "research_markdown_mdx_documents": 316,
       "research_documents_without_index_inbound": 57,
       "research_documents_with_zero_inbound": 23,
       "unresolved_local_targets": 38,
-      "unresolved_target_scope": "partial OCI and Alive2 snapshots",
+      "unresolved_target_scope": "partial OCI and Alive2 snapshots; broken LLMLang-authored RT-24 taxonomy link fixed in this PR",
       "non_markdown_targets": 492,
       "auditor": ".github/scripts/audit_research_index_coverage.py"
     },
