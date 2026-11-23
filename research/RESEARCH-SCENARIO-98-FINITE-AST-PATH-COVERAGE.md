@@ -48,3 +48,11 @@ From `research/PROTOTYPES/RT-04-01/`:
 python -m unittest -v test_rt03_path_model.RT03IndependentPathModelTests.test_exhaustive_ast_condition_valuations_cover_every_structural_path
 ```
 
+## 6. Retrospective quality crosswalk (2026-11-23)
+
+This section is a documentation/navigation addition, **not** a new result or a changed original execution record.
+
+- **Hypothesis and adversarial alternative:** For this finite, hand-built AST grammar, every structural path enumerated by the independent path model has a concrete Boolean assignment witness. A broader claim that a future LLMLang parser/CFG extractor preserves every source branch is **not** tested; repeated predicates, symbolic infeasibility and source completeness remain counterexample targets. The two evaluators share one exploratory semantic contract; agreement is not a proof.
+- **Prior research:** [Shared RT-03/RT-04 semantic corpus, COR-06](RT-03-04-SHARED-SEMANTICS-CORPUS.md) is the precise path-forking/branch-coverage context. The [Scenario 102 follow-up](RESEARCH-SCENARIO-102-SOLVER-UNKNOWN-AND-SOUND-PATH-PRUNING.md) separates UNKNOWN/untrusted UNSAT from sound pruning; neither is established by this Scenario 98 fixture.
+- **Claim type and source provenance:** bounded **experimental/model corroboration**, not an accepted language theorem. The first published report and test source are pinned in the [eight-report Git provenance manifest](quality-audit/2026-11-23-publication-provenance.json), commit `d3fe3916db0b42d6cb21d3814b323fb8831fa803`. A **new** archived-source recheck passed the one focused test in [GitHub Actions #45254862037](https://github.com/aivibeflow/LLMLang/actions/runs/45254862037); the exact original author's working-tree and environment were not attested.
+- **Draft impact and decision:** **none**. RT-03/RT-04 path semantics and source-extraction guarantees stay exploratory, and no `draft/` language rule or completeness decision follows from this experiment. See [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) for remaining evidence quality obligations.
