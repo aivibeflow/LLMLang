@@ -1,0 +1,45 @@
+{
+  "schema": "issue-285-cohort2-executed-bounded-tests-v1",
+  "observed_on": "2026-11-23",
+  "source_baseline_commit": "ff1295c1769bfe8546c4b63590c9f607349215ee",
+  "source_register": "research/quality-audit/2026-11-23-claim-cohort2.json",
+  "workflow_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45259153864",
+  "workflow_id": 45259153864,
+  "workflow_conclusion": "success",
+  "runner": "GitHub Actions Ubuntu 24.04; individual job host kernel shown in artifacts",
+  "python": "CPython 3.12.14",
+  "git": "git version 2.56.1",
+  "interpretation": "Three NEW bounded executions from archived committed source; NOT the original experimental host/worktree, NOT scientific correctness of all 24 claims, NOT accepted specification semantics.",
+  "cases": [
+    {
+      "case": "schema-110",
+      "job_id": 137988897112,
+      "conclusion": "success",
+      "passed_tests": 6,
+      "elapsed_test_seconds": 0,
+      "source_test_blob": "bb5f5bdf3ea0ed71d6ef7a565263740f6febb944",
+      "artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45259153864/artifacts/14858974727",
+      "source_scope": "Finite two-version JSON Boolean-field/unknown-policy fixture; no real serializers or LLMLang wire decision"
+    },
+    {
+      "case": "fairness-112",
+      "job_id": 137988896861,
+      "conclusion": "success",
+      "passed_tests": 5,
+      "elapsed_test_seconds": 0,
+      "source_test_blob": "f0770463ee0a13e363394f058a563ff51b9cddca",
+      "artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45259153864/artifacts/14858779039",
+      "source_scope": "Finite cycle and two-task always-runnable round robin; no general scheduling liveness guarantee"
+    },
+    {
+      "case": "source-tree-rt24",
+      "job_id": 137988896405,
+      "conclusion": "success",
+      "passed_tests": 7,
+      "elapsed_test_seconds": 0.341,
+      "source_test_blob": "b78452a9c86d7ae7e078c5fcd3b11b77a37513c3",
+      "artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45259153864/artifacts/14858284758",
+      "source_scope": "Closed schema and controlled Git tree/inventory; no general parser/SPG or production semantic-merge/commit guarantee"
+    }
+  ]
+}
