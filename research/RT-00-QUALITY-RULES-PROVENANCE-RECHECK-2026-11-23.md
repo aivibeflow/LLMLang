@@ -1,7 +1,7 @@
 # RT-00 — Stage 0.2 pinned source provenance and historical-snapshot rechecks
 
 **Issue:** [#285](https://github.com/aivibeflow/LLMLang/issues/285), PLAN §0.2  
-**Status:** Publication/source snapshot discovery completed for eight reports; bounded historical-source CI rechecks proposed, not yet independently observed  
+**Status:** Publication/source snapshot identified for eight reports; five bounded historical-source checks independently executed successfully in GitHub Actions, original-run attestations remain missing  
 **Date:** 2026-11-23  
 **Audit baseline:** `main` `1235911958f1fa3cf6f534e314d3dc59bc443ea2` (after PR #375)  
 **Evidence type:** Git publication-history observation; Git blob/source identity; executable tests only when the new workflow publishes a passing run  
@@ -50,7 +50,17 @@ The workflow `research-historical-rechecks.yml` runs on a PR and on manual dispa
 
 **Commands and exact inputs:** embedded, without interpolated caller arguments, in [the workflow](../.github/workflows/research-historical-rechecks.yml), which is the authoritative executable recipe for this report. Each job exposes its historical Git HEAD and source blob and uploads a per-case artifact with environment and test/benchmark output. The direct local equivalent is to check out each [manifest](quality-audit/2026-11-23-publication-provenance.json) commit in a fresh directory and run the corresponding report's documented command with Python 3.12.14 (plus pinned SymPy for Scenario 103). Expected suite counts are 1, 4, 7, 15, and 12 benchmark phases respectively. Any test mismatch is recorded as a negative result, not silently treated as a pass.
 
-**CI result:** *pending; see the PR's GitHub Actions*. The workflow is non-required and is evidence collection rather than an adopted semantic gate. No passing run is claimed here prior to a completed GitHub Actions result.
+**Observed CI result:** All **five** matrix jobs completed successfully in [GitHub Actions run #45254862037](https://github.com/aivibeflow/LLMLang/actions/runs/45254862037). The pinned sources were checked with `git hash-object`, and artifacts were produced for each case. [Machine-readable observed results, exact job IDs and artifact URLs](quality-audit/2026-11-23-historical-rerun-observations.json) preserve the claims and limitations beyond artifact retention.
+
+| Case | New 2026-11-23 result on archived source | Interpretation and excluded conclusion |
+| --- | --- | --- |
+| `ast-98` | 1 test passed, 0.017 s | The 128-valuation fixed fixture agrees; parser/source coverage remains unknown |
+| `solver-103` | 4 tests passed, 1.159 s; SymPy 1.14.0 / mpmath 1.3.0 | Startup/query deadline tests passed on Ubuntu; exact original timing and certified UNSAT remain unestablished |
+| `atomic-118` | 7 tests passed, 0.449 s | Bounded 4,096-layout global-order oracle checks pass; the separate weak-memory semantics side still lacks independent verification |
+| `fake-checker-29` | 15 adapter tests passed, 0.217 s | Fake-executable fail-closed behavior only, **no actual Logos/cvc5 theorem verified** |
+| `binding-rt11` | 12 benchmark phases completed, Ubuntu `cc` 13.3.0 / x86_64 Linux | Implementation change compiled 12 exact-linkage callers vs 4 separately linked callers; both linked/verified 12. An unchanged compile-input SHA-256 accompanied changed output tuples `(10,11,10,11)` → `(11,12,11,12)`. Original Apple Clang arm64 host was not recreated |
+
+The pinned CPython used in all five jobs was **3.12.14**. The end-to-end workflow ran on `ubuntu-24.04` and uploaded per-case logs/environment snapshots. A successful fresh run proves only the conditions checked above, **not** that the author used the same commit/toolchain when making the original report. No blanket stage-complete or research policy adoption claim follows.
 
 ## Evidence classification, negative results, and decision boundary
 
