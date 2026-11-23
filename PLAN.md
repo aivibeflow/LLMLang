@@ -943,6 +943,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Status:** proposal and Proposed ADR-015 drafted; a narrow in-memory lifecycle prototype and focused CI test workflow are present. No API contract, persistent storage backend, multi-file synchronization algorithm, MCP surface, or ADR has been accepted. The prototype is evidence for workflow mechanics only, not implementation completion.
 
+**Research output (2026-11-23):** [RT-19 storage backend contract recheck](research/RT-19-STORAGE-BACKEND-CONTRACT-RECHECK-2026-11-23.md) compared the in-memory workspace lifecycle with the SQLite Content Store. Their current APIs are not interchangeable: one owns atomic workspace Change Sets, the other exposes opaque immutable-object snapshot reads. The proposed next experiment separates object-store and workspace-transaction contracts; persistent acceptance/recovery and adapter integration remain open.
+
 **Exit criteria:** deterministic round-trip identity; stale/conflicting mutations rejected; accepted snapshots immutable; multiple workspaces isolated; crash/restart and export interruption recover safely; external edits are detected; MCP adapter independently tested; authorization and benchmark results documented.
 
 ---
