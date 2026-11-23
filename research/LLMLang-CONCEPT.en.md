@@ -1,86 +1,86 @@
-# LLMLang — концепция AI-native языка программирования
+# LLMLang — An AI-Native Programming Language Concept
 
-**Статус:** концептуальный документ  
-**Версия:** 0.1  
-**Рабочее имя языка:** `LLMLang`  
-**Рабочее имя внутреннего представления:** Semantic Program Graph (SPG)
+**Status:** Concept document  
+**Version:** 0.1  
+**Working language name:** `LLMLang`  
+**Working name of the internal representation:** Semantic Program Graph (SPG)
 
-> LLMLang — экспериментальная концепция языка программирования и среды разработки, изначально спроектированных для создания программ большими языковыми моделями (LLM), с независимой машинной проверкой корректности результатов.
-
----
-
-## 1. Видение и цели
-
-### 1.1. Основная идея
-
-LLMLang — не обычный язык программирования с AI-помощником. Это AI-native язык: его модель программирования, внутреннее представление, инструменты разработки и компиляционная архитектура изначально рассчитаны на то, что основным автором программ часто будет LLM, а человек будет задавать намерения, требования, ограничения и принимать архитектурные решения.
-
-Главный принцип:
-
-**Не заставлять LLM помнить правила. Заставить язык и инструментарий обеспечивать соблюдение правил.**
-
-Язык должен снижать вероятность ошибок, которые возникают при генерации и изменении больших объёмов кода:
-- забытые или неверно реализованные предусловия;
-- нарушение инвариантов;
-- несогласованность интерфейсов и модулей;
-- пропущенные варианты ошибок и состояний;
-- неявные побочные эффекты;
-- ошибки конкурентного доступа и управления памятью;
-- устаревшие тесты и доказательства после изменения требований;
-- регрессии при рефакторинге.
-
-### 1.2. Основные цели
-
-1. Сделать намерения, требования, контракты, ограничения и состояния первоклассными конструкциями.
-2. Представлять программу как типизированную структуру, а не только как текст.
-3. Обеспечить детерминированную и независимую от LLM проверку.
-4. Сделать изменения локальными и анализировать их влияние по графу зависимостей.
-5. Поддерживать как формальную верификацию, так и тестирование.
-6. Не привязывать язык к одной LLM или модели.
-7. Поддерживать традиционные способы исполнения: VM и нативный машинный код.
-8. Не требовать полного формального проектирования для каждой маленькой утилиты.
-
-### 1.3. Не-цели
-
-- Не пытаться выразить абсолютно любую программу только декларативно.
-- Не использовать естественный язык как единственный формальный синтаксис.
-- Не считать ответ LLM доказательством корректности.
-- Не обещать доказуемую безошибочность произвольных программ.
-- Не делать LLM частью доверенной цепочки исполнения.
-- Не требовать формальных доказательств там, где они практически недостижимы или не оправданы стоимостью.
+> LLMLang is an experimental concept for a programming language and development environment designed from the outset for programs to be created by large language models (LLMs), with independent, machine-based verification of the correctness of their results.
 
 ---
 
-## 2. Два уровня применения
+## 1. Vision and Goals
 
-Концепция объединяет два подхода:
+### 1.1. Core Idea
 
-- **LLM-friendly:** строгий, однозначный язык с хорошей типизацией, контрактами и предсказуемой семантикой.
-- **LLM-native:** программа создаётся и изменяется как структурированная модель, а текстовый код является одним из представлений этой модели.
+LLMLang is not a conventional programming language with an AI assistant. It is an AI-native language: its programming model, internal representation, development tools, and compilation architecture are designed from the outset for an LLM to often be the primary author of programs, while humans specify intent, requirements, constraints, and make architectural decisions.
 
-Предпочтительное направление — LLM-native. При этом язык должен оставаться пригодным для традиционной разработки и ручного чтения.
+The guiding principle:
+
+**Do not make the LLM remember the rules. Make the language and tooling enforce them.**
+
+The language should reduce the likelihood of errors arising when generating and modifying large amounts of code:
+- omitted or incorrectly implemented preconditions;
+- violated invariants;
+- inconsistencies between interfaces and modules;
+- unhandled error cases and states;
+- implicit side effects;
+- concurrency and memory-management errors;
+- outdated tests and proofs following requirements changes;
+- regressions introduced by refactoring.
+
+### 1.2. Primary Goals
+
+1. Make intent, requirements, contracts, constraints, and states first-class constructs.
+2. Represent a program as a typed structure, not merely as text.
+3. Provide deterministic verification independent of the LLM.
+4. Keep changes local and analyze their impact through the dependency graph.
+5. Support both formal verification and testing.
+6. Avoid coupling the language to any single LLM or model.
+7. Support conventional execution targets: VMs and native machine code.
+8. Avoid requiring comprehensive formal design for every small utility.
+
+### 1.3. Non-Goals
+
+- Do not attempt to express every possible program declaratively.
+- Do not use natural language as the sole formal syntax.
+- Do not treat an LLM response as proof of correctness.
+- Do not promise provable freedom from bugs in arbitrary programs.
+- Do not make the LLM part of the trusted execution chain.
+- Do not require formal proofs where they are practically unattainable or unjustifiably expensive.
 
 ---
 
-## 3. Модель программы: Semantic Program Graph
+## 2. Two Levels of Use
 
-### 3.1. Программа как граф объектов
+The concept combines two approaches:
 
-Основным представлением программы должен быть не обычный AST, а типизированный граф — **Semantic Program Graph (SPG)**.
+- **LLM-friendly:** a strict, unambiguous language with a strong type system, contracts, and predictable semantics.
+- **LLM-native:** programs are created and modified as structured models, with textual code serving as one representation of those models.
 
-AST хорошо описывает синтаксическую структуру исходного текста, но недостаточен как центральная модель для:
-- контрактов;
-- эффектов;
-- инвариантов;
-- зависимостей;
-- прав доступа;
-- тестов;
-- доказательств;
-- происхождения и истории изменений.
+The preferred direction is LLM-native. However, the language should remain suitable for conventional development and human reading.
 
-SPG состоит из типизированных объектов с устойчивыми идентификаторами и явными связями.
+---
 
-Пример операции:
+## 3. Program Model: Semantic Program Graph
+
+### 3.1. Programs as Graphs of Objects
+
+The primary program representation should not be a conventional AST but a typed graph — the **Semantic Program Graph (SPG)**.
+
+An AST describes the syntactic structure of source text well, but is insufficient as the central model for:
+- contracts;
+- effects;
+- invariants;
+- dependencies;
+- access permissions;
+- tests;
+- proofs;
+- provenance and change history.
+
+The SPG consists of typed objects with stable identifiers and explicit relationships.
+
+Example operation:
 
 ```text
 Operation#transfer
@@ -96,38 +96,39 @@ Operation#transfer
     └── Proof#balance_conservation
 ```
 
-Каждый объект имеет:
-- уникальный ID;
-- вид и тип;
-- семантическое содержимое;
-- ссылки на связанные объекты;
-- Stable ID и Content Hash текущего неизменяемого состояния;
-- сведения о происхождении;
-- зависимости и обратные зависимости.
+Each object has:
+- a unique ID;
+- a kind and type;
+- semantic content;
+- references to related objects;
+- a Stable ID and the Content Hash of its current immutable state;
+- provenance information;
+- dependencies and reverse dependencies.
 
-### 3.2. Изменения как операции над объектами
+### 3.2. Changes as Operations on Objects
 
-LLM должна преимущественно изменять конкретные объекты, а не заменять большие фрагменты текста.
+The LLM should primarily modify specific objects rather than replace large sections of text.
 
-Пример:
+Example:
 
 ```text
 UPDATE Contract#transfer.preconditions:
     ADD source.status == Active
 ```
 
-Такая операция должна иметь однозначную семантику, проверяться на конфликт и оставлять историю изменения.
+Such an operation must have unambiguous semantics, be checked for conflicts, and leave an auditable change history.
 
-### 3.3. Представления и сериализация
+### 3.3. Representations and Serialization
 
-Предусматриваются два основных представления:
+Two primary representations are envisaged:
 
-1. **Каноническое машинное представление** — структурированный и однозначный формат SPG. Возможна бинарная сериализация.
-2. **Человекочитаемое представление** — DSL для просмотра и редактирования объектов.
+1. **Canonical machine representation** — a structured, unambiguous SPG format. Binary serialization is possible.
+2. **Human-readable representation** — a DSL for viewing and editing objects.
 
-JSON может использоваться как удобное промежуточное или отладочное представление, но не обязательно как наиболее компактный канонический формат.
+JSON may serve as a convenient intermediate or debugging representation, but is not necessarily the most compact canonical format.
 
-Текст не должен быть единственным источником истины: после разбора он превращается в SPG, а текстовые представления могут генерироваться из него.
+Text must not be the sole source of truth: after parsing, it becomes an SPG, from which textual representations can be generated.
+
 
 ### 3.4. Content-addressed identity and immutable states
 
