@@ -520,3 +520,35 @@ RT-31 requires a stable semantic oracle and compiler boundary before syntax prof
 | DEP-177 | RT-31 → RT-19 | Influences | Recording and analytics requirements may refine MCP/Toolchain APIs, event contracts, and observability interfaces. | Strong hypothesis |
 
 These edges are research hypotheses, not implementation commitments. MCP is a transport/interface boundary; session recording, analytics, and model optimization belong to Toolchain/platform services. Neither model-specific prompt instructions nor syntax-profile preferences are authoritative sources of LLMLang semantics.
+
+
+## 20. Semantic Function Discovery and Retrieval (RT-32)
+
+RT-32 studies semantic retrieval as a Toolchain capability. Approximate similarity may find candidates, but only explicit compatibility evidence can authorize a candidate binding; invocation remains bound to an exact immutable function hash.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-178 | RT-03 → RT-32 | Requires | Function intent and behavioral meaning must be grounded in the language semantic model before semantic descriptions can be compared. | Strong hypothesis |
+| DEP-179 | RT-04 → RT-32 | Requires | Types, ownership, effects, capabilities, contracts, and failure behavior define hard applicability and compatibility constraints. | Strong hypothesis |
+| DEP-180 | RT-05 → RT-32 | Constrains | Function identity and canonical semantic representation must remain separate from derived fingerprints and search-index records. | Strong hypothesis |
+| DEP-181 | RT-06 → RT-32 | Influences | Dependency completeness and reverse references inform discovery scope, index freshness, and invalidation. | Strong hypothesis |
+| DEP-182 | RT-07 → RT-32 | Requires | Compatibility and unsafe-selection claims need sound evidence boundaries; similarity scores cannot serve as proofs. | Strong hypothesis |
+| DEP-183 | RT-08 → RT-32 | Requires | Retrieval and selection need reproducible benchmark corpora, negative controls, and independent acceptance oracles. | Strong hypothesis |
+| DEP-184 | RT-09 → RT-32 | Influences | Compiler and semantic-analysis outputs may supply normalized signatures, contracts, and behavior facts for canonical descriptions. | Strong hypothesis |
+| DEP-185 | RT-11 → RT-32 | Constrains | Incremental computation and cache invalidation must track semantic-description, fingerprint, model, and index-version dependencies. | Strong hypothesis |
+| DEP-186 | RT-12 → RT-32 | Influences | Package and library boundaries determine discoverability, metadata publication, and cross-package search scope. | Strong hypothesis |
+| DEP-187 | RT-14 → RT-32 | Influences | Knowledge/Task Context and agent intent provide query inputs and explicit scope/constraint provenance. | Strong hypothesis |
+| DEP-188 | RT-16 → RT-32 | Constrains | Authorization, namespace isolation, metadata visibility, poisoning resistance, and provenance constrain retrieval and explanation. | Strong hypothesis |
+| DEP-189 | RT-18 → RT-32 | Constrains | Semantic descriptions, fingerprint schemas, embedding models, and indexes require independent versioning and evolution rules. | Strong hypothesis |
+| DEP-190 | RT-19 → RT-32 | Requires | SFD must be exposed through transport-neutral Toolchain discovery operations, not embedded in MCP or language semantics. | Strong hypothesis |
+| DEP-191 | RT-20 → RT-32 | Constrains | Candidate resolution must bind the exact selected function hash and preserve per-call-site compatibility and migration decisions. | Strong hypothesis |
+| DEP-192 | RT-24 → RT-32 | Constrains | Canonical semantic representation and immutable snapshots provide the source for descriptions and snapshot-bound candidate identities. | Strong hypothesis |
+| DEP-193 | RT-31 → RT-32 | Influences | Syntax-independent semantic representations and AI evaluation/observability inform query authoring and retrieval evaluation. | Strong hypothesis |
+| DEP-194 | RT-32 → RT-05 | Influences | Experiments may refine which semantic facts belong in canonical function descriptions without making fingerprints part of identity. | Open hypothesis |
+| DEP-195 | RT-32 → RT-09 | Influences | Retrieval prototypes may refine compiler/semantic-index interfaces and normalized function metadata. | Open hypothesis |
+| DEP-196 | RT-32 → RT-11 | Influences | Measured index update and query workloads may refine incremental indexing and cache design. | Open hypothesis |
+| DEP-197 | RT-32 → RT-12 | Influences | Discovery results may refine package/library metadata and publication interfaces. | Open hypothesis |
+| DEP-198 | RT-32 → RT-19 | Influences | SFD API, snapshot consistency, ranking explanations, and ambiguity handling may extend Toolchain Server contracts. | Strong hypothesis |
+| DEP-199 | RT-32 → RT-20 | Influences | Exact hash resolution and compatibility evidence may refine call binding, caller migration, and change-impact planning. | Strong hypothesis |
+
+These edges are research hypotheses, not implementation commitments. KNN/ANN is candidate retrieval, never the authority for compatibility or invocation. The exact function hash remains the call-binding identity; fingerprints and indexes are derived, replaceable Toolchain data.
