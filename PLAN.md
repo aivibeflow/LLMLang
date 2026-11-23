@@ -501,6 +501,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Research output (2026-11-23):** [RT-11 cache speedup model recheck](research/RT-11-CACHE-SPEEDUP-MODEL-RECHECK-2026-11-23.md) reran the synthetic binding experiment on CPython 3.12.14 / Debian GCC 14.2.0. Clean-build outputs matched; action-count reuse patterns were reproduced, including a counterexample showing caller compile identity is not a safe executable-verification key. No durations or representative workloads were measured, so the analytical speedup ratios remain hypotheses and every empirical-performance checkbox above remains open.
 
+**Research output (2026-11-23):** [RT-11 benchmark measurement boundary recheck](research/RT-11-BENCHMARK-MEASUREMENT-BOUNDARY-RECHECK-2026-11-23.md) recorded that one current-main run executes 467 incremental cache actions plus 12 clean oracles and compared instrumentation-only, larger synthetic workload, real Rust/Go/C++ workload, and premature product-prototype options. It recommends instrumentation-only as the lowest-dependency next experiment; a repeated timing attempt was stopped without retaining partial values. No latency or speedup claim is made; all §3.4 empirical-performance checkboxes remain open.
+
 **Exit criteria:** a dependency-completeness policy; sound action-key model; tests showing that relevant changes invalidate all affected results and irrelevant changes preserve valid results; reproducible benchmark data.
 
 ---
