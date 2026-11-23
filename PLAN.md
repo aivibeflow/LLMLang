@@ -100,6 +100,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Research output (2026-11-20):** [Research Quality and Decision Rules](research/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) proposes a claim-level evidence vocabulary, report structure, traceability fields, and five review gates. This is a partial result; conventions are not yet accepted and existing artifacts have not been fully audited.
 
+**Research output (2026-11-23):** [Quality Rules Rollout Options](research/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) compares corpus-wide retrofit, priority-ordered manual audit, and staged hybrid rollout against three current-main reports. It provisionally recommends a warning-first hybrid, but does not measure reviewer outcomes or migration cost. Maintainer adoption, corpus-wide audit, reproducibility reruns, and any CI pilot remain external dependencies; §0.2 remains open.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
