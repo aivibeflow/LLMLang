@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "5662fab189d357cd88037726f05d9ec1dcbb13d8",
-  "source": "Exact inventory of current-main research tree at 5662fab189d357cd88037726f05d9ec1dcbb13d8, plus the refreshed research README; manifest excluded.",
+  "revision": "3fb0a1ac8f652cacf21c486b1b0cc26789b2ad2f",
+  "source": "Exact inventory of the research tree at main baseline 3fb0a1ac8f652cacf21c486b1b0cc26789b2ad2f plus this reconciliation report; manifest excluded.",
   "counts": {
-    "research_files": 589,
-    "markdown_files": 308,
+    "research_files": 590,
+    "markdown_files": 309,
     "python_files": 226,
     "scenario_named_documents": 137,
     "prototype_tree_files": 289,
@@ -24,7 +24,7 @@
       "index-or-research-management": 3,
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13,
-      "audit-or-review-report": 36,
+      "audit-or-review-report": 37,
       "cross-cutting-synthesis-or-status": 4,
       "scenario-research-result": 136,
       "research-rfc-or-protocol-proposal": 2
@@ -32,14 +32,15 @@
     "lean_source_files": 33,
     "taxonomy_research_areas": 26,
     "dependency_edges": 108,
-    "mdx_files": 3
+    "mdx_files": 3,
+    "research_artifacts_excluding_manifest": 590
   },
-  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of 136 mapped Scenario reports (137 Scenario-named paths remain one apart); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 storage requirements are mapped provisionally to Stage 4 but are not registered in the taxonomy/dependency map. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
+  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 storage requirements are mapped provisionally to Stage 4 but are not registered in the taxonomy/dependency map. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
     "index": "research/README.md",
-    "unique_relative_targets": 145,
+    "unique_relative_targets": 146,
     "broken_relative_targets": 0,
-    "checked_scope": "All 145 unique local relative targets in research/README.md resolve against the staged PR tree based on 5662fab189d357cd88037726f05d9ec1dcbb13d8; checked with the repository index coverage parser."
+    "checked_scope": "All 146 unique local relative targets in research/README.md resolve in the current working tree, checked with the repository index coverage parser."
   },
   "duplicate_blob_groups": [
     {
@@ -9027,8 +9028,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "02ee4176cc159f1762ba2ad90a29c359516e371f",
-      "size_bytes": 34870,
+      "git_blob_sha": "a60fe06bf67b2e6bc05be4509a743ddf274b301e",
+      "size_bytes": 35209,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -15257,6 +15258,22 @@
         "status": "content-role-triaged",
         "basis": "Qualitative comparison of evidence-documentation rollout alternatives; recommendation is not accepted policy."
       }
+    },
+    {
+      "path": "research/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md",
+      "git_blob_sha": "b7707c7bf21fa23ba913814723fbdd8419019655",
+      "size_bytes": 2552,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "Exact recursive-tree filename-pattern audit; explicitly linked from PLAN.md and research README",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ]
     }
   ],
   "semantic_traceability_review": {
@@ -15324,8 +15341,11 @@
         16
       ],
       "current_tree_scenario_named_paths": 137,
-      "current_tree_unreconciled_delta": 1,
-      "current_tree_note": "Exact path audit counts 137 Scenario-named paths, while this crosswalk contains 136 mapped scenario files. One filename-level difference remains unresolved pending a path-by-path crosswalk refresh."
+      "current_tree_unreconciled_delta": 0,
+      "current_tree_note": "The scenario_named_documents count uses a broad filename predicate (SCENARIO- followed by digits) and is 137; the strict RESEARCH-SCENARIO-<number> report set is 136 and is fully mapped. The one broad-only path is the RT-00 Scenario 130 claim-traceability pilot, not a Scenario report. The 136 reports represent 135 scenario identifiers because Scenario 95 has a supplemental execution file; Scenario 16 remains absent with intent unresolved. See RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md.",
+      "broad_count_only_path": "research/RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md",
+      "strict_report_path_count": 136,
+      "reconciliation_report": "research/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md"
     },
     "inventory_revision": "f560d0f9893f882a6756f1f0a3b070ea7ba1a09f",
     "prototype_family_review": {
@@ -15802,31 +15822,25 @@
   },
   "current_tree_reconciliation": {
     "reviewed_at": "2026-11-23",
-    "source_revision": "5662fab189d357cd88037726f05d9ec1dcbb13d8",
+    "source_revision": "3fb0a1ac8f652cacf21c486b1b0cc26789b2ad2f",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
-    "previous_records": 587,
+    "previous_records": 589,
     "baseline_main_artifacts_excluding_manifest": 589,
-    "baseline_missing_manifest_paths": [
-      "research/GIT-BINARY-SPG-STORAGE-EFFICIENCY.md",
-      "research/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md"
-    ],
+    "baseline_missing_manifest_paths": [],
     "baseline_extra_manifest_paths": 0,
-    "baseline_sha_or_size_mismatches": [
-      "research/RESEARCH-TAXONOMY.md"
-    ],
-    "current_records": 589,
-    "added_records": 2,
-    "refreshed_existing_records": 2,
+    "baseline_sha_or_size_mismatches": [],
+    "current_records": 590,
+    "added_records": 1,
+    "refreshed_existing_records": 1,
     "refreshed_existing_paths": [
-      "research/README.md",
-      "research/RESEARCH-TAXONOMY.md"
+      "research/README.md"
     ],
     "removed_paths": 0,
     "tree_counts": {
-      "research_artifacts_excluding_manifest": 589,
-      "markdown_files": 308,
+      "research_artifacts_excluding_manifest": 590,
+      "markdown_files": 309,
       "mdx_files": 3,
       "python_files": 226,
       "lean_files": 33,
@@ -15856,7 +15870,7 @@
       "WASM-VIEWS-01": 1
     },
     "semantic_review_boundary": "All 289 current prototype paths have individual content-role triage. This does not validate every claim, reproduce every test, or establish implementation readiness.",
-    "scenario_crosswalk_boundary": "137 Scenario-named paths are present and 136 are mapped; this one-path difference remains unresolved.",
+    "scenario_crosswalk_boundary": "The scenario_named_documents count uses a broad filename predicate (SCENARIO- followed by digits) and is 137; the strict RESEARCH-SCENARIO-<number> report set is 136 and is fully mapped. The one broad-only path is the RT-00 Scenario 130 claim-traceability pilot, not a Scenario report. The 136 reports represent 135 scenario identifiers because Scenario 95 has a supplemental execution file; Scenario 16 remains absent with intent unresolved. See RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md.",
     "rt27_traceability_boundary": "RT-27 storage requirements are provisionally linked to Stage 4; taxonomy/dependency-map registration and edge rationale remain open.",
     "index_coverage_result": {
       "research_markdown_mdx_documents": 311,
