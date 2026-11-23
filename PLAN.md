@@ -387,11 +387,29 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Status** — Partially validated. Pinned CI passed the version-2 CPC parser-state and factor-pair tests in run 44185102839. SCW-06–30 establish correspondence from the checked source AST to a canonical difference formula and prove QF_LIA admissibility and declaration closure in the solver term representation. JSON correspondence and source-derived CPC binding remain open. [Scenario 34 proof boundary](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
 
-## 2.4 Correctness of optimization and translation
+## 2.4 Verified SPG-to-Lean pipeline (RT-32)
+
+**Estimated research complexity:** **9/10** — requires a sound connection between authoritative LLMLang semantics, typed SPG, generated Lean terms, proof obligations, and independently checked evidence.
+
+- [ ] Compare shallow, deep, and hybrid Lean embeddings; identify which claims each can establish and where semantic correspondence is required.
+- [ ] Define the admitted SPG/verification-IR subset and deterministic mapping from versioned LLMLang functions, contracts, invariants, calls, and effects to Lean definitions and theorem statements.
+- [ ] Generate proof obligations from contracts and control flow: preconditions, postconditions, branch conditions, loop invariant initialization/preservation/exit, recursive obligations, and termination measures.
+- [ ] Define compositional caller proofs from version-bound callee contracts, preserving exact function, contract, assumption, and dependency identities.
+- [ ] Prove or explicitly bound source-to-Lean correspondence for the admitted subset; a theorem about generated Lean code alone is not a proof about LLMLang source.
+- [ ] Evaluate Lean tactics, SMT-assisted discharge, reusable lemmas, and optional LLM-generated proof candidates, while requiring independent Lean-kernel checking.
+- [ ] Define the TCB, axiom/import policy, unsupported/unknown behavior, proof provenance, evidence states, and fail-closed rules.
+- [ ] Define incremental proof caching and invalidation for SPG, contracts, dependencies, assumptions, generator/compiler versions, and Lean toolchain changes.
+- [ ] Build positive and adversarial fixtures, including incorrect implementations, weakened contracts, missing invariants, invalid termination measures, mismatched translations, stale callee proofs, and unsupported effects.
+
+**Research brief:** [RT-32 — Verified SPG-to-Lean Pipeline](research/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md). Coordinate with RT-03/05/07/08/09/11/24. This is a Toolchain/formal-verification research goal, not a new LLMLang surface-language feature or a decision to make Lean the runtime.
+
+**Exit criteria:** a non-trivial function is translated from SPG without a separately authored Lean implementation; generated obligations cover its declared contract and termination; the Lean kernel checks the proof; source-to-Lean correspondence covers the admitted subset; adversarial fixtures reject incorrect or stale evidence; provenance binds proofs to exact semantic and toolchain identities.
+
+## 2.5 Correctness of optimization and translation
 
 **Estimated research complexity:** **9/10** — semantic preservation across lowering and optimization needs version-pinned corpora and independent validation.
 
-- [ ] Define proof obligations for semantic graph rewrites.
+- [ ] Define proof obligations for semantic graph rewrites, including correspondence with authoritative LLMLang semantics when Lean or another verifier is used as a target representation.
 - [ ] Define proof obligations for compiler optimizations.
 - [ ] Study translation validation versus proving the optimizer correct.
 - [ ] Evaluate Alive2 and related LLVM validation techniques.

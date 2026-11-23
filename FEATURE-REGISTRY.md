@@ -115,6 +115,7 @@ Every feature has a stable registry ID, name, scope, concise capability statemen
 | F-VER-006 | Formal model checking | Explore finite-state and temporal model checking for concurrency, protocols, and stateful behavior. | Researching | P1 | [RT-07/08](research/RESEARCH-TAXONOMY.md#2-research-area-inventory) |
 | F-VER-007 | Translation and optimization correctness | Require evidence that lowering and optimization preserve the declared source semantics. | Researching | P0 | [RT-07](research/LLMLang-FORMAL-VERIFICATION.md), [Scenario 96](research/RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md) |
 | F-VER-008 | Explicit evidence status and provenance | Bind evidence to exact inputs, assumptions, tool versions, and scope; distinguish proved, tested, partial, unknown, and stale results. | Candidate | P0 | [RT-07/08](research/RESEARCH-TAXONOMY.md#2-research-area-inventory), [RT-28](research/RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md) |
+| F-VER-009 | Verified SPG-to-Lean pipeline | Derive Lean representations and proof obligations from versioned SPG functions and contracts; prove source correspondence for the admitted subset and kernel-check proof artifacts with explicit assumptions and provenance. | Researching | P0 | [RT-32](research/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](research/LLMLang-FORMAL-VERIFICATION.md) |
 | F-TEST-001 | Contract- and property-based testing | Generate and execute tests from contracts and properties. | Researching | P0 | [RT-08](research/RESEARCH-TAXONOMY.md#2-research-area-inventory) |
 | F-TEST-002 | Stateful and scenario testing | Validate operation sequences, state transitions, and multi-step deterministic scenarios. | Researching | P1 | [RT-08](research/RESEARCH-TAXONOMY.md#2-research-area-inventory) |
 | F-TEST-003 | Fuzzing and differential testing | Generate adversarial inputs and compare independent implementations/backends against a shared oracle. | Researching | P1 | [RT-08](research/RESEARCH-TAXONOMY.md#2-research-area-inventory), [RT-13](research/TRANSLATION-AND-TARGET-BACKENDS.md) |
@@ -276,6 +277,10 @@ The registry maps the current research-area taxonomy as follows:
 | RT-26 Hierarchical resource accounting and enforcement | F-RES |
 | RT-27 SPG repository storage format | F-STORE |
 | RT-28 Incremental polyglot migration and semantic mirroring | F-MIG |
+| RT-29 Rust capability and implementation foundation | F-LANG, F-BACK, F-INTEROP, F-RUN |
+| RT-30 Bidirectional semantic translation across LLMLang and C/C++/Go/Rust | F-COMP, F-BACK, F-INTEROP, F-RUN |
+| RT-31 AI-oriented syntax, semantic separation, and Toolchain optimization | F-TOOL, F-COMP |
+| RT-32 Verified SPG-to-Lean pipeline | F-VER |
 
 The mapping is an index, not proof that every research claim or scenario has been validated. RT-28's migration-management records remain explicitly outside the language core.
 
