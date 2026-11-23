@@ -541,6 +541,10 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Preserve ordinary Git clone, fetch, push, branch, tag, and history behavior.
 - [ ] Define readable textual representation, diff strategy, and generated metadata.
 - [ ] Define how large objects and binary artifacts are handled.
+- [ ] Satisfy the mandatory RT-27 repository constraints: reconstruct the complete committed SPG state from Git alone (including required metadata/indexes), and avoid one tracked file per SPG object ([R-STORE-001](research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#r-store-001--complete-reconstruction-from-git), [R-STORE-002](research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#r-store-002--no-one-file-per-object)).
+- [ ] Specify and test cache-first record metadata, including integrity/trust checks and a cache-hit path that skips payload reads/deserialization; require deterministic serialization ([R-STORE-003](research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#r-store-003--cache-lookup-before-payload-deserialization), [R-STORE-004](research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#r-store-004--deterministic-representation)).
+- [ ] Prohibit ordinary text merge as a correctness mechanism for SPG containers; integrate only through complete-state semantic merge and whole-graph validation ([R-STORE-005](research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#r-store-005--no-ordinary-text-merge-of-spg-containers)).
+- [ ] Define explicit add/update/delete semantics, keep physical placement separate from semantic identity, bound active storage/compaction growth, and make indexes recoverable from Git ([R-STORE-009–012](research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#4-semantic-and-operational-constraints)).
 - [ ] Measure Git packfile delta-compression efficiency for immutable SPG object containers under add/remove-only workloads; compare bounded stable shards, immutable segments, and chunking before selecting a layout.
 - [ ] Define repository portability and reproducibility from a clean clone.
 
