@@ -1050,6 +1050,32 @@ Research a typed, versioned object describing the task an agent is expected to p
 
 **Research status:** Required research is now registered as LL-026 and LL-027. No Knowledge Context or Task Context schema, syntax, lifecycle, or architecture has been selected.
 
+
+## 7.9 AI-oriented syntax experimentation and MCP session observability (RT-31)
+
+**Estimated research complexity:** **9/10** — requires a stable semantic oracle, multiple equivalent syntax frontends, controlled model evaluations, reliable error attribution, and privacy-aware session recording.
+
+- [ ] Define the boundary among the authoritative Semantic Model, Abstract Syntax Model, canonical Semantic IR, and independently versioned Concrete Syntax Profiles. Determine which structures are distinct and specify their mappings.
+- [ ] Define frontend/generator contracts, profile versioning, source provenance, diagnostics locations, normalization, elaboration, and semantic validation boundaries.
+- [ ] Compare textual, explicit/verbose, structured, and hybrid syntax profiles while preserving the same declared semantic capabilities.
+- [ ] Build a profile-independent task corpus covering representative language features and multi-step authoring tasks; pin acceptance oracles and negative controls.
+- [ ] Implement parser/generator and cross-profile conversion prototypes; verify semantic equivalence independently of textual round-trip identity.
+- [ ] Define controlled AI experiments with pinned model/provider metadata, model settings, task/context, instruction version, profile, Toolchain build, and execution environment.
+- [ ] Measure parse/syntax errors separately from semantic, type/effect/ownership, contract/invariant, hallucination, MCP/tool-call, and task-completion errors; include first-pass and repair-assisted outcomes.
+- [ ] Define an MCP session event model for sessions, turns, requests/responses, tool calls, validation runs, repair attempts, and final outcomes, with stable correlation and provenance.
+- [ ] Prototype privacy-aware recording with metadata-only and redacted-content modes; define authorization, secret redaction, retention, deletion, export, and audit controls before any unrestricted content capture.
+- [ ] Define error attribution that distinguishes model mistakes, ambiguous/incomplete task context, Toolchain defects, and external environment failures; preserve multi-cause and unknown classifications.
+- [ ] Build analytics and held-out regression evaluation for syntax, instruction, diagnostic, and Toolchain changes; require reviewed promotion rather than automatic unreviewed mutation.
+- [ ] Report sample sizes, uncertainty, reproducibility, token/cost, latency, human review effort, and semantic coverage; do not optimize parse success or token count at the expense of semantics.
+
+**Research brief:** [RT-31 — AI-Oriented Syntax, Semantic Separation, and Toolchain Optimization](research/RT-31-AI-ORIENTED-SYNTAX-AND-TOOLCHAIN-OPTIMIZATION.md).
+
+**Coordination:** RT-03/05/07/08/09 establish semantic meaning, identity, compiler boundaries, and correctness oracles; RT-14/19/22 establish agent context, MCP/Toolchain and repository session provenance; RT-16 governs privacy and trust; RT-18 governs evolution; RT-24 and RT-30 inform canonical representation and cross-language preservation.
+
+**Status:** research required; three-level semantic/abstract/concrete separation is the agreed research direction, but the exact IR/AST boundary, profile design, logging schema, retention policy, and optimization process remain open. No concrete syntax or unrestricted session-content capture is selected.
+
+**Exit criteria:** at least three syntax profiles cover a common semantic subset; profile transformations pass independent semantic-equivalence checks; controlled model evaluations produce reproducible, uncertainty-aware comparisons; session recording supports privacy controls and reliable error attribution; improvement proposals are checked against held-out regression tasks.
+
 ---
 
 # 4. Cross-cutting prior-art research
