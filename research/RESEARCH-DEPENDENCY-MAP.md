@@ -405,3 +405,48 @@ RT-26 studies resource accounting and enforcement as a potential high-level LLML
 | DEP-108 | RT-25 → RT-26 | Influences | Allocator choice changes the observability and cost of memory accounting, retained-memory measurements, and memory-limit enforcement. | Strong hypothesis |
 
 These edges are research dependencies, not accepted architecture. In particular, they do not establish that all metrics can be attributed exactly to a coroutine, that every limit can be enforced synchronously, or that OS-level controls map one-to-one to language task scopes.
+
+## 15. SPG repository storage and Git-efficient persistence (RT-27)
+
+RT-27 studies the physical repository representation for large SPG collections. It must support metadata inspection before payload deserialization, content-hash cache checks, independently addressable records/blocks, parallel reads where practical, deterministic reconstruction, and realistic Git history behavior for workloads dominated by adding/removing immutable objects. The research requirements do not select a format.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-109 | RT-05 → RT-27 | Requires | Object identity, content addressing, lineage, and semantic-object granularity determine which records can be independently stored and reused. | Strong hypothesis |
+| DEP-110 | RT-11 → RT-27 | Influences | Cache keys, object reuse, invalidation, and access patterns determine metadata placement and payload read behavior. | Strong hypothesis |
+| DEP-111 | RT-15 → RT-27 | Constrains | Git object/delta storage, pack/repack, clone/fetch, and reviewable history constrain viable physical layouts. | Strong hypothesis |
+| DEP-112 | RT-19 → RT-27 | Constrains | Toolchain snapshots, repository operations, and concurrent access require durable, recoverable storage semantics. | Strong hypothesis |
+| DEP-113 | RT-22 → RT-27 | Influences | Repository/worktree APIs determine import/export and reconstruction boundaries for the selected storage representation. | Strong hypothesis |
+| DEP-114 | RT-23 → RT-27 | Constrains | Shared semantic state, multiple worktrees, incremental File Views, and concurrent readers constrain storage concurrency and locality. | Strong hypothesis |
+| DEP-115 | RT-24 → RT-27 | Requires | Canonical semantic export, diff, merge, and reconstruction require deterministic serialization and exact snapshot membership. | Strong hypothesis |
+
+These edges are research dependencies, not a storage decision. In particular, they do not imply that Git efficiently delta-compresses every binary/container representation or that one-file-per-object is acceptable.
+
+## 16. Incremental polyglot migration and semantic mirroring (RT-28)
+
+RT-28 depends on LLMLang's semantic identity, dependency, verification, compiler/frontend, runtime, Toolchain, repository, and merge foundations. It also creates a cross-project workflow boundary with AIVibeFlow. The source-language repository and the LLMLang semantic mirror are distinct repositories with distinct providers and authority.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-116 | RT-02 → RT-28 | Requires | Migration contracts and defect oracles need traceable requirements, observable behavior, ambiguity handling, and reviewed semantic intent. | Strong hypothesis |
+| DEP-117 | RT-03 → RT-28 | Constrains | Cross-language equivalence and effect/trace comparison depend on precise source and LLMLang observation semantics. | Strong hypothesis |
+| DEP-118 | RT-04 → RT-28 | Constrains | Ownership, aliasing, effects, errors, concurrency, and capabilities constrain safe Migration Unit boundaries and interop. | Strong hypothesis |
+| DEP-119 | RT-05 → RT-28 | Requires | Mirror representation and source-to-mirror correspondence depend on semantic object identity, occurrence, lineage, and content-addressed values. | Strong hypothesis |
+| DEP-120 | RT-06 → RT-28 | Requires | Incremental reconciliation needs dependency/caller discovery and conservative impact closure. | Strong hypothesis |
+| DEP-121 | RT-07 → RT-28 | Constrains | Any formal refinement claim needs a trusted semantic model and explicit proof boundary; unsupported cases remain unproven. | Strong hypothesis |
+| DEP-122 | RT-08 → RT-28 | Requires | Differential, stateful, fuzz, and regression evidence need reproducible test and evidence contracts. | Strong hypothesis |
+| DEP-123 | RT-09 → RT-28 | Enables | Compiler frontends and IR provide candidate source-language semantic extraction mechanisms and their completeness limits. | Strong hypothesis |
+| DEP-124 | RT-10 → RT-28 | Constrains | Mixed-language execution, side effects, cancellation, cleanup, and runtime state require explicit runtime/ABI boundaries. | Strong hypothesis |
+| DEP-125 | RT-11 → RT-28 | Influences | Incremental computation and caching can bound re-analysis and re-verification, subject to sound invalidation. | Strong hypothesis |
+| DEP-126 | RT-13 → RT-28 | Requires | Cross-language calling conventions, type representation, and FFI/ABI compatibility are prerequisites for in-process interoperation. | Strong hypothesis |
+| DEP-127 | RT-14 → RT-28 | Influences | Agent task context, source provenance, delegated scopes, and approval boundaries shape safe migration workflows. | Strong hypothesis |
+| DEP-128 | RT-16 → RT-28 | Constrains | Untrusted source/build/test inputs, credentials, supply chain, sandboxing, and publication authority constrain the entire process. | Strong hypothesis |
+| DEP-129 | RT-18 → RT-28 | Influences | Language/toolchain evolution and compatibility policy determine how mirrors remain supported over long-lived upstream histories. | Strong hypothesis |
+| DEP-130 | RT-19 → RT-28 | Enables | Workspaces, Change Sets, snapshots, durable operations, and semantic APIs provide the LLMLang editing and evidence substrate. | Strong hypothesis |
+| DEP-131 | RT-20 → RT-28 | Requires | Source changes mapped to mirror changes need impact plans, per-call-site decisions, hash propagation, and validation-gated completion. | Strong hypothesis |
+| DEP-132 | RT-22 → RT-28 | Constrains | Source and mirror repository operations need scoped provider grants, durable operation identity, and recovery without provider confusion. | Strong hypothesis |
+| DEP-133 | RT-23 → RT-28 | Enables | Shared semantic state and incremental File Views can support concurrent MU work and bounded upstream reconciliation. | Strong hypothesis |
+| DEP-134 | RT-24 → RT-28 | Requires | Source-to-mirror reconciliation needs semantic import/export, typed diff, identity continuity, and conflict-aware three-way merge. | Strong hypothesis |
+| DEP-135 | RT-27 → RT-28 | Constrains | Large mirror repositories require efficient, deterministic storage and metadata-first access as the number of mirrored objects grows. | Open hypothesis |
+
+These edges are research hypotheses, not accepted architecture. RT-28 must validate whether the cited foundations are sufficient and identify missing source-language, contract, testing, contribution, or workflow capabilities. AIVibeFlow's durable workflow/orchestration responsibilities are specified in its separate integration proposal; this does not make AIVibeFlow a prerequisite for LLMLang's semantic model.
