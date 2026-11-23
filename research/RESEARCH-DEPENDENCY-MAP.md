@@ -494,3 +494,29 @@ RT-30 studies source-to-target generation and target-to-LLMLang import as separa
 | DEP-161 | RT-30 → RT-13 | Influences | Cross-target preservation and ABI probes may refine backend and interoperability architecture. | Open hypothesis |
 
 These edges are research hypotheses, not implementation commitments. Semantic equivalence, ABI compatibility, source fidelity, and textual round-tripping must remain distinct claims.
+
+
+## 19. AI-oriented syntax, semantic separation, and Toolchain optimization (RT-31)
+
+RT-31 requires a stable semantic oracle and compiler boundary before syntax profiles can be compared. MCP session observability supplies reproducible evidence, but it is a Toolchain/platform concern and must not become language semantics or unrestricted content surveillance.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-162 | RT-03 → RT-31 | Requires | Syntax-profile equivalence is meaningful only against an explicit LLMLang semantic model and observation boundary. | Strong hypothesis |
+| DEP-163 | RT-05 → RT-31 | Constrains | Semantic identity and provenance must remain stable across parsing, elaboration, syntax-profile conversion, and regeneration. | Strong hypothesis |
+| DEP-164 | RT-07 → RT-31 | Requires | Profile-equivalence and AI correctness claims need independent proof/evidence boundaries and explicit falsifiers. | Strong hypothesis |
+| DEP-165 | RT-08 → RT-31 | Requires | Controlled comparisons need reproducible fixtures, independent acceptance oracles, regression suites, and evidence provenance. | Strong hypothesis |
+| DEP-166 | RT-09 → RT-31 | Requires | Multiple syntax profiles depend on frontend, AST/IR, elaboration, generator, diagnostics, and compiler-boundary decisions. | Strong hypothesis |
+| DEP-167 | RT-14 → RT-31 | Influences | Agent context and instruction selection are experimental inputs that affect measured syntax performance and must be versioned independently. | Strong hypothesis |
+| DEP-168 | RT-16 → RT-31 | Constrains | MCP session capture, redaction, retention, access, and export must obey security, privacy, and authorization boundaries. | Strong hypothesis |
+| DEP-169 | RT-18 → RT-31 | Constrains | Syntax profiles, instructions, model metadata, and Toolchain builds need explicit versioning and compatibility/evolution rules for reproducible experiments. | Strong hypothesis |
+| DEP-170 | RT-19 → RT-31 | Requires | Session recording and profile adapters should integrate through the transport-neutral Toolchain domain boundary rather than embedding language semantics in MCP. | Strong hypothesis |
+| DEP-171 | RT-22 → RT-31 | Influences | Repository/worktree identity, durable event history, and concurrent agent sessions inform session correlation and audit provenance. | Strong hypothesis |
+| DEP-172 | RT-24 → RT-31 | Constrains | Canonical semantic representation and typed transformations provide a candidate basis for profile-independent equivalence and change comparison. | Strong hypothesis |
+| DEP-173 | RT-30 → RT-31 | Influences | Cross-language frontend/backend evidence can inform AST/IR separation, provenance preservation, and semantic-equivalence testing across representations. | Open hypothesis |
+| DEP-174 | RT-31 → RT-03 | Influences | Syntax experiments may expose unclear semantic boundaries, but must report such gaps rather than silently redefine semantics to improve model scores. | Strong hypothesis |
+| DEP-175 | RT-31 → RT-09 | Influences | Profile prototypes and AI error patterns may refine frontend/IR/generator architecture and diagnostics. | Strong hypothesis |
+| DEP-176 | RT-31 → RT-14 | Influences | Session analytics may identify instruction/context failures; any revised context policy remains independently versioned and evaluated. | Strong hypothesis |
+| DEP-177 | RT-31 → RT-19 | Influences | Recording and analytics requirements may refine MCP/Toolchain APIs, event contracts, and observability interfaces. | Strong hypothesis |
+
+These edges are research hypotheses, not implementation commitments. MCP is a transport/interface boundary; session recording, analytics, and model optimization belong to Toolchain/platform services. Neither model-specific prompt instructions nor syntax-profile preferences are authoritative sources of LLMLang semantics.
