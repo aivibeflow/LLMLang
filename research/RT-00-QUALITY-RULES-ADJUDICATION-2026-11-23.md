@@ -22,7 +22,7 @@ The review used the original ten Git blob SHAs and 33 previously unclassified st
 
 ## 2. Results, exact scope
 
-<escape>||</escape> Category | Count | What it establishes |
+| Category | Count | What it establishes |
 | --- | ---: | --- |
 | Initial warnings from ten reports | 65 | Textual checker output before punctuation fix |
 | Corrected historical metadata false alarms | 3 | Delimiter variants were already meaningful |
