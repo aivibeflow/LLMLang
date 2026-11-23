@@ -1,0 +1,180 @@
+{
+  "schema": "quality-provenance-publication-snapshot-v1",
+  "date": "2026-11-23",
+  "review_base": "1235911958f1fa3cf6f534e314d3dc59bc443ea2",
+  "scope": "Exact Git file publication and named selected code snapshot, NOT proof original experiment was run on publication commit",
+  "rules": [
+    "introduction is earliest matching repository path history result or original rename; a reported run could predate/otherwise differ",
+    "source Git blobs are mechanically retrievable at selected checkout commit",
+    "no executed result is inferred from Git history; original toolchain/platform and dependencies may be unavailable",
+    "no missing original run revision is retroactively marked recovered without run evidence"
+  ],
+  "reports": [
+    {
+      "id": "scenario-98",
+      "report": "research/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md",
+      "introduction": "d3fe3916db0b42d6cb21d3814b323fb8831fa803",
+      "intro_tree": "e76c3c3240b5ce76cc517c8dcffd87671dafeedc",
+      "intro_report_blob": "5af8305b8838f11570892a818d8ae54de914c67b",
+      "snapshot": "d3fe3916db0b42d6cb21d3814b323fb8831fa803",
+      "sources": [
+        {
+          "path": "research/PROTOTYPES/RT-04-01/rt03_path_model.py",
+          "blob": "def4691e8c4ea181aafe266cd89b4364bec2e0cf"
+        },
+        {
+          "path": "research/PROTOTYPES/RT-04-01/test_rt03_path_model.py",
+          "blob": "c23c771e6e0b7524f1c449f8f81bd606f3cef2c2"
+        }
+      ],
+      "mode": "execute",
+      "reproduction": "historical finite AST condition coverage: one focused unittest",
+      "risk": "fixture-level; no source parser evidence",
+      "source_snapshot_identified": true,
+      "original_execution_snapshot_verified": false
+    },
+    {
+      "id": "scenario-103",
+      "report": "research/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md",
+      "introduction": "08c8490e92b472f99abf3117e82bc7b11643fe0d",
+      "intro_tree": "fd73e8fefa1a9ab42d3f1c0114376c899f1da188",
+      "intro_report_blob": "3ecbeb0d879e61d4f18a9618834399b953fc63ee",
+      "snapshot": "08c8490e92b472f99abf3117e82bc7b11643fe0d",
+      "sources": [
+        {
+          "path": "research/PROTOTYPES/RT-04-01/rt03_bounded_solver_worker.py",
+          "blob": "1c547a301d2c3af41dd327ae78ace27ab39b2039"
+        },
+        {
+          "path": "research/PROTOTYPES/RT-04-01/test_rt03_bounded_solver_worker.py",
+          "blob": "43330bd656d3d0ccabf3b8d29a63fff1cfcc0106"
+        },
+        {
+          "path": "research/PROTOTYPES/RT-04-01/requirements-solver.txt",
+          "blob": "7336df4d0ecf96e14bf5a85c08c47d331d7aa725"
+        }
+      ],
+      "mode": "execute",
+      "reproduction": "historical 4 focused tests, pinned SymPy 1.14.0; timeout results are host-dependent",
+      "risk": "timing and POSIX-specific; UNSAT not a trusted proof",
+      "source_snapshot_identified": true,
+      "original_execution_snapshot_verified": false
+    },
+    {
+      "id": "scenario-118",
+      "report": "research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
+      "introduction": "e956d25bfa34ccc649f0d674e29ea27adecbdb20",
+      "intro_tree": "1d8ae2a2d16b6d6397dae1a43e2ba4278bc4e5f7",
+      "intro_report_blob": "1da764213b3249e48d90d40fdf9864e02accb48c",
+      "snapshot": "e956d25bfa34ccc649f0d674e29ea27adecbdb20",
+      "sources": [
+        {
+          "path": "research/PROTOTYPES/RT-04-01/rt04_atomic_execution.py",
+          "blob": "36e2ac5e5bdd1ebb011a458079ad48a1f7349fce"
+        },
+        {
+          "path": "research/PROTOTYPES/RT-04-01/test_rt04_atomic_execution.py",
+          "blob": "b92efb292a0084266983907b52058105492c7405"
+        }
+      ],
+      "mode": "execute",
+      "reproduction": "historical seven-test bounded model and independent *global-order* oracle",
+      "risk": "not an independently checked C++ memory-model implementation",
+      "source_snapshot_identified": true,
+      "original_execution_snapshot_verified": false
+    },
+    {
+      "id": "scenario-133",
+      "report": "research/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md",
+      "introduction": "cf96386b40604f870f864e8d6bc93dac4d12bbcd",
+      "intro_tree": "874b24dc65728a6b4d0ee55fe968e5a76fb363e2",
+      "intro_report_blob": "34a74e0763bb3b392c26c89da4b2b6b9ae362934",
+      "snapshot": "cf96386b40604f870f864e8d6bc93dac4d12bbcd",
+      "sources": [
+        {
+          "path": "research/PROTOTYPES/RT-04-01/rt04_rust_owned_probe.py",
+          "blob": "7d7c5b8eba2aa62dbc71230cd7499e57fbbe01c2"
+        },
+        {
+          "path": "research/PROTOTYPES/RT-04-01/rt04_owned_probe.rs",
+          "blob": "5fa27dfb10c36203d2278c25564706376cb8ed76"
+        }
+      ],
+      "mode": "not-scheduled",
+      "reproduction": "original claims 125,952 native Rust comparisons; clean pinned Rust 1.85.1 is a separate follow-up",
+      "risk": "historical Linux rustc 1.85.1 plus exact fixture; current workflow does not run Rust corpus",
+      "source_snapshot_identified": true,
+      "original_execution_snapshot_verified": false
+    },
+    {
+      "id": "rt-04",
+      "report": "research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md",
+      "introduction": "d7caab2f4e0adf0528d1e379a55c59d88bb96e84",
+      "intro_tree": "84c61e372abf053ace188c6e986f87316f0d933a",
+      "intro_report_blob": "4006fcb0263177481d59e14beb7cd9c6d0203e5a",
+      "snapshot": "d7caab2f4e0adf0528d1e379a55c59d88bb96e84",
+      "sources": [],
+      "mode": "survey",
+      "reproduction": "initial survey commit contains one report file and no RT-04-01 prototype; separate later prototype results need independent revisions",
+      "risk": "source comparison review, not a single executable claim",
+      "source_snapshot_identified": true,
+      "original_execution_snapshot_verified": false
+    },
+    {
+      "id": "rt-11",
+      "report": "research/RT-11-BINDING-INVALIDATION-BENCHMARK.md",
+      "introduction": "b0638a1b69a3f7d233194097032cde9209b672db",
+      "intro_tree": "973b902f52fd3fe296a136b8d7ecc071609a5ca2",
+      "intro_report_blob": "c00d299ee0f329cc01bbfb42150df3e7cb53ae72",
+      "snapshot": "b0638a1b69a3f7d233194097032cde9209b672db",
+      "sources": [
+        {
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
+          "blob": "cd63e4ec5c5f0d7ae7e215596a5febe74e28f37b"
+        }
+      ],
+      "mode": "execute",
+      "reproduction": "historical synthetic C compiler action-count benchmark; Linux/GCC new validation only, reported original Apple Clang run differs",
+      "risk": "OS/compiler mismatch to original; source commit might be post-run imported working tree",
+      "source_snapshot_identified": true,
+      "original_execution_snapshot_verified": false
+    },
+    {
+      "id": "scenario-29",
+      "report": "research/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md",
+      "introduction": "1a0a5cfa24a5b6c1058addfe5c00e7d5b863b47b",
+      "intro_tree": "99f161dd3559b494e2a2aa571636d0091f77b104",
+      "intro_report_blob": "a5d7c8218109181a32dfc0b66f8847b20b69b8dd",
+      "snapshot": "2c7f3d1035a86fe10d90c038adc71775db5549fa",
+      "sources": [
+        {
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/logos_runner.py",
+          "blob": "c51eedb5c09ccea289ceff26e3d5112a9e2907cd"
+        },
+        {
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_logos_runner.py",
+          "blob": "828add8b53b63bb4bd6d5554a7a70bfadc73813a"
+        }
+      ],
+      "mode": "execute",
+      "reproduction": "historical 15 fake-executable adapter/status tests; NOT a real cvc5/Logos proof-checker result",
+      "risk": "first report appears as rename; adapter tested at later report revision; proof bridge unimplemented",
+      "source_snapshot_identified": true,
+      "original_execution_snapshot_verified": false
+    },
+    {
+      "id": "scenario-134",
+      "report": "research/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+      "introduction": "672cd833c00da4a69dece086e38c995f105c75c4",
+      "intro_tree": "b7ca4ad3a06e698ccbe0fbc03f6e12fa939d30e6",
+      "intro_report_blob": "715cae9e3386129017bb162269532e185380d78b",
+      "snapshot": "672cd833c00da4a69dece086e38c995f105c75c4",
+      "sources": [],
+      "mode": "survey",
+      "reproduction": "official Protobuf/Avro/CBOR documentation comparison, no format runtime exercised or required under current accepted ADR",
+      "risk": "source-edition provenance; separately recorded later ADR must not be conflated with original report",
+      "source_snapshot_identified": true,
+      "original_execution_snapshot_verified": false
+    }
+  ]
+}
