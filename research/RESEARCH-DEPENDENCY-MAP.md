@@ -496,25 +496,6 @@ RT-30 studies source-to-target generation and target-to-LLMLang import as separa
 These edges are research hypotheses, not implementation commitments. Semantic equivalence, ABI compatibility, source fidelity, and textual round-tripping must remain distinct claims.
 
 
-## 20. Verified SPG-to-Lean pipeline (RT-32)
-
-RT-32 depends on authoritative semantics, typed SPG identities, proof architecture, evidence fixtures, compiler IR, and sound incremental invalidation. Lean is a verification representation and kernel checker, not the semantic authority or runtime of LLMLang.
-
-| Edge | From → to | Relation | Rationale / affected choices | Confidence |
-|---|---|---|---|---|
-| DEP-178 | RT-03 → RT-32 | Requires | Generated Lean definitions and correctness claims need a precise LLMLang reference semantics and observable-behavior boundary. | Strong hypothesis |
-| DEP-179 | RT-05 → RT-32 | Requires | Translation inputs, source correspondence, and proof provenance require typed SPG nodes, stable semantic identity, and exact snapshot binding. | Strong hypothesis |
-| DEP-180 | RT-07 → RT-32 | Requires | Embedding choices, proof obligations, TCB, assumptions, and independent proof checking must fit the formal-verification architecture. | Strong hypothesis |
-| DEP-181 | RT-08 → RT-32 | Requires | Positive, negative, adversarial, and regression fixtures are needed to falsify incorrect translations and stale or incomplete proofs. | Strong hypothesis |
-| DEP-182 | RT-09 → RT-32 | Requires | A typed compiler/verification IR and explicit lowering boundary are needed to derive Lean terms while preserving source bindings and control flow. | Strong hypothesis |
-| DEP-183 | RT-11 → RT-32 | Influences | Dependency-aware caching and invalidation determine when previously checked proof artifacts may be safely reused. | Strong hypothesis |
-| DEP-184 | RT-24 → RT-32 | Constrains | Canonical semantic representation and deterministic snapshots constrain stable SPG-to-Lean input identity and reproducible proof provenance. | Strong hypothesis |
-| DEP-185 | RT-32 → RT-07 | Influences | Embedding and source-correspondence results may refine formal semantics, proof architecture, and the trusted computing boundary. | Open hypothesis |
-| DEP-186 | RT-32 → RT-09 | Influences | Proof-obligation extraction and Lean lowering experiments may refine canonical IR and compiler/source-mapping requirements. | Open hypothesis |
-| DEP-187 | RT-32 → RT-11 | Influences | Proof dependency and artifact measurements may refine incremental verification keys, invalidation closure, and evidence reuse. | Open hypothesis |
-
-These edges are research hypotheses, not an accepted embedding or verifier choice. A Lean kernel-checked theorem does not establish LLMLang source correctness unless the generated Lean representation is soundly bound to authoritative LLMLang semantics for the exact SPG snapshot.
-
 ## 19. AI-oriented syntax, semantic separation, and Toolchain optimization (RT-31)
 
 RT-31 requires a stable semantic oracle and compiler boundary before syntax profiles can be compared. MCP session observability supplies reproducible evidence, but it is a Toolchain/platform concern and must not become language semantics or unrestricted content surveillance.
@@ -539,3 +520,23 @@ RT-31 requires a stable semantic oracle and compiler boundary before syntax prof
 | DEP-177 | RT-31 → RT-19 | Influences | Recording and analytics requirements may refine MCP/Toolchain APIs, event contracts, and observability interfaces. | Strong hypothesis |
 
 These edges are research hypotheses, not implementation commitments. MCP is a transport/interface boundary; session recording, analytics, and model optimization belong to Toolchain/platform services. Neither model-specific prompt instructions nor syntax-profile preferences are authoritative sources of LLMLang semantics.
+
+
+## 20. Verified SPG-to-Lean pipeline (RT-32)
+
+RT-32 depends on authoritative semantics, typed SPG identities, proof architecture, evidence fixtures, compiler IR, and sound incremental invalidation. Lean is a verification representation and kernel checker, not the semantic authority or runtime of LLMLang.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-178 | RT-03 → RT-32 | Requires | Generated Lean definitions and correctness claims need a precise LLMLang reference semantics and observable-behavior boundary. | Strong hypothesis |
+| DEP-179 | RT-05 → RT-32 | Requires | Translation inputs, source correspondence, and proof provenance require typed SPG nodes, stable semantic identity, and exact snapshot binding. | Strong hypothesis |
+| DEP-180 | RT-07 → RT-32 | Requires | Embedding choices, proof obligations, TCB, assumptions, and independent proof checking must fit the formal-verification architecture. | Strong hypothesis |
+| DEP-181 | RT-08 → RT-32 | Requires | Positive, negative, adversarial, and regression fixtures are needed to falsify incorrect translations and stale or incomplete proofs. | Strong hypothesis |
+| DEP-182 | RT-09 → RT-32 | Requires | A typed compiler/verification IR and explicit lowering boundary are needed to derive Lean terms while preserving source bindings and control flow. | Strong hypothesis |
+| DEP-183 | RT-11 → RT-32 | Influences | Dependency-aware caching and invalidation determine when previously checked proof artifacts may be safely reused. | Strong hypothesis |
+| DEP-184 | RT-24 → RT-32 | Constrains | Canonical semantic representation and deterministic snapshots constrain stable SPG-to-Lean input identity and reproducible proof provenance. | Strong hypothesis |
+| DEP-185 | RT-32 → RT-07 | Influences | Embedding and source-correspondence results may refine formal semantics, proof architecture, and the trusted computing boundary. | Open hypothesis |
+| DEP-186 | RT-32 → RT-09 | Influences | Proof-obligation extraction and Lean lowering experiments may refine canonical IR and compiler/source-mapping requirements. | Open hypothesis |
+| DEP-187 | RT-32 → RT-11 | Influences | Proof dependency and artifact measurements may refine incremental verification keys, invalidation closure, and evidence reuse. | Open hypothesis |
+
+These edges are research hypotheses, not an accepted embedding or verifier choice. A Lean kernel-checked theorem does not establish LLMLang source correctness unless the generated Lean representation is soundly bound to authoritative LLMLang semantics for the exact SPG snapshot.
