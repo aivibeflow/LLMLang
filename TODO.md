@@ -9,6 +9,8 @@ This file is the project-wide register of unresolved design questions and decisi
 
 It is not a specification. Items here may contain hypotheses and recommendations; only decisions explicitly accepted and transferred into the appropriate project documents become part of the design baseline.
 
+The [Stage 0.2 warning adjudication](research/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md) resolves the *documentation triage classification* of 33 historical warnings (16 layout-only; 17 documentation gaps). It does not decide evidence validity, select any LLMLang semantics or satisfy open LL evidence-identity questions. The eight provenance gaps and nine other process gaps are tracked by [issue #285](https://github.com/aivibeflow/LLMLang/issues/285), rather than creating unrelated LL design-question IDs.
+
 ## How to use this register
 
 Each item has a stable ID. Keep the ID when the wording or status changes.
