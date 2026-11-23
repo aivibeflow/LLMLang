@@ -160,6 +160,43 @@ The session also reported small deltas for the changed container versions (156 b
 
 The only defensible qualitative takeaway is that Git's documented delta mechanism makes this workload promising enough to benchmark. The measurements above are retained for traceability, not treated as validated findings.
 
+
+## 5.1 Executed reference benchmark (2026-11-23)
+
+The committed reference harness was executed five times with identical inputs. Each repetition created five independent repositories, each with a baseline commit and one changed-state commit, then ran `git gc --aggressive --prune=now`.
+
+**Environment and fixture**
+
+- Git: `git version 2.47.3`
+- Python: `3.13.5`
+- Platform: `Linux-6.18.57-x86_64-with-glibc2.41`
+- Initial state: 30,000 fixed-size records × 192 bytes = 5,760,000 payload bytes
+- Change: 300 additions or 300 deletions (1%); seed `20261123`
+- Repository-local config: `core.bigFileThreshold=512m`, `pack.window=10`, `pack.depth=50`, `pack.compression=6`
+- Repetitions: 5; total scenario executions: 25; one packfile per scenario repository
+
+| Scenario | Median pack + index bytes | Pack bytes, min–max | Median delta representation bytes | Delta counts across runs | Median commit seconds | Median aggressive-GC seconds |
+|---|---:|---:|---:|---:|---:|---:|
+| Mutable append | 5,693,362 | 5,692,063–5,692,118 | 241 | 2, 1, 2, 2, 2 | 0.232285 | 0.478324 |
+| Mutable delete, compact | 5,638,292 | 5,636,995–5,637,047 | 1,557 | 2, 1, 2, 2, 2 | 0.233173 | 0.467681 |
+| Mutable delete, tombstones | 5,637,671 | 5,636,375–5,636,428 | 85 | 1, 1, 1, 1, 0 | 0.088241 | 0.295121 |
+| Immutable segments, append | 5,693,602 | 5,692,192–5,692,195 | 85 | 1, 1, 1, 1, 1 | 0.039363 | 0.302137 |
+| Immutable segments, tombstones | 5,637,823 | 5,636,470–5,636,472 | 100 | 2, 2, 2, 2, 2 | 0.035468 | 0.299487 |
+
+The full aggregate, including the five-run ranges, delta-count observations, fixture parameters, and environment, is committed in [the benchmark results JSON](benchmarks/git_binary_spg/results-2026-11-23.json).
+
+**Interpretation**
+
+- The append alternatives differ by 240 bytes in median pack-plus-index size. This is approximately 0.004% of the mutable-append result.
+- The mutable compact-delete result is 621 bytes larger than the mutable tombstone result and 469 bytes larger than the immutable-segment tombstone result. These are approximately 0.011% and 0.008% respectively.
+- All observed differences are negligible relative to the approximately 5.6 MB packed repository. This experiment does not identify a meaningful storage winner.
+- Delta counts vary between repetitions for some scenarios, demonstrating that pack selection is not a stable semantic metric. Delta representation bytes must not be interpreted as the number of changed SPG bytes.
+- The fixture uses fixed-size, high-entropy pseudorandom payloads and one container/segment stream. It does not model realistic variable-size SPG payloads, multi-shard placement, long histories, branches, compaction cycles, clone/fetch traffic, or semantic graph validation.
+
+The retained final execution passed `git fsck --full` for all five scenario repositories. The harness also passed a 100-record CLI smoke run, Python bytecode compilation, and a check that rejects reusing a work directory containing prior scenario repositories.
+
+**Evidence status:** reproducible narrow microbenchmark; not architecture-selection evidence. Keep bounded stable shards and immutable segments open. The broader benchmark in §6 remains necessary before selecting a physical layout.
+
 ## 6. Required reproducible benchmark
 
 ### 6.1 Dataset

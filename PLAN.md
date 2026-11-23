@@ -1,7 +1,7 @@
 # LLMLang Research and Development Plan
 
 **Status:** living plan  
-**Updated:** 2026-11-21
+**Updated:** 2026-11-23
 **Restored baseline:** detailed plan from [`aa39c8f`](https://github.com/aivibeflow/LLMLang/commit/aa39c8fc2a611ae72ff85acff3de3c16fcc4eb39), reconciled with the current project plan and repository evidence  
 **PR #47 consolidation:** §5 maps the research in the merged snapshot at `73d37723e6a759159b354c2cd74327517c4036c4` to the current plan. PR #50 restored the text of `PLAN.md`. PR #51 incorporated the research from PR #47 into the plan. [Restoration commit `2c7f3d1`](https://github.com/aivibeflow/LLMLang/commit/2c7f3d1) · [Consolidation commit `7fd8eac`](https://github.com/aivibeflow/LLMLang/commit/7fd8eace9210dffdbdcd98302e19bf6bc18be756)<br>
 **Repository:** `aivibeflow/LLMLang`  
@@ -532,9 +532,10 @@ Research the complete path from a user's request to an accepted, traceable busin
 **Status:** researched at architectural level; binary-container efficiency is under investigation. The benchmark and physical-layout decision remain open.
 
 
-**Binary storage efficiency research (2026-11-23)** · The SPG storage workload is constrained to adding and removing immutable object payloads; existing object payloads are not modified. Git packfiles can store whole objects or byte-level deltas, so bounded containers with stable record ordering may benefit from delta compression. The default `core.bigFileThreshold` is 512 MiB; objects above it are stored without delta compression. Bounded stable shards and immutable segments remain competing candidates. The exploratory measurements recorded in the report are explicitly unverified and are not acceptance evidence. [Git binary SPG storage efficiency](research/GIT-BINARY-SPG-STORAGE-EFFICIENCY.md)
+**Binary storage efficiency research (2026-11-23)** · The SPG storage workload adds/removes immutable payloads. The five-run reference microbenchmark (30,000 × 192-byte high-entropy records; 1% changes; Git 2.47.3) found only negligible pack-plus-index differences between mutable-container and immutable-segment variants: 240 bytes on append and under 0.012% on deletion. It does not select a layout. The earlier exploratory measurements remain unverified and are not acceptance evidence. [Research report](research/GIT-BINARY-SPG-STORAGE-EFFICIENCY.md) · [Harness and instructions](research/benchmarks/git_binary_spg/README.md) · [Five-run results](research/benchmarks/git_binary_spg/results-2026-11-23.json)
 
-- [ ] Reproduce the binary-container benchmark with committed generators, pinned Git version/configuration, realistic record distributions, add/remove workloads, long histories, branches, compaction, clone/fetch, and KV-independent reconstruction.
+- [x] Execute and preserve a five-run fixed-size baseline for append, compact deletion, and tombstone deletion across mutable-container and immutable-segment layouts; validate retained repositories with `git fsck --full`.
+- [ ] Extend the benchmark to realistic variable-size SPG payloads and references, bounded multi-shard placement, long histories, branch divergence, compaction, clone/fetch, and KV-independent reconstruction.
 - [ ] Compare bounded stable shards, immutable segments, and chunked containers; measure packfile size, delta depth/size, CPU, memory, read/checkout/reconstruction time, and history growth.
 - [ ] Select no physical format or shard key until benchmark results are reviewed against the unresolved SPG identity/lineage model.
 
