@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "7cbdd1b6db4c30c617abe784b3bdf36e9ddeba60",
-  "source": "Exact research-tree inventory at baseline 7cbdd1b6db4c30c617abe784b3bdf36e9ddeba60 plus the RT-32 invalidation recheck report; manifest excluded.",
+  "revision": "338c47aee8fc3c8f6780ef1b15b0d249ab0bf63f",
+  "source": "Exact main-baseline research-tree inventory at 338c47aee8fc3c8f6780ef1b15b0d249ab0bf63f plus the RT-11 cache speedup model recheck report; manifest excluded.",
   "counts": {
-    "research_files": 602,
-    "markdown_files": 319,
+    "research_files": 603,
+    "markdown_files": 320,
     "python_files": 227,
     "scenario_named_documents": 139,
     "prototype_tree_files": 289,
@@ -33,7 +33,7 @@
     "taxonomy_research_areas": 28,
     "dependency_edges": 135,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 602
+    "research_artifacts_excluding_manifest": 603
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
@@ -9535,8 +9535,8 @@
     },
     {
       "path": "research/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "77ccda678100c661583fb66a9f57320cfecb8e4e",
-      "size_bytes": 60530,
+      "git_blob_sha": "f5b401828fbf41734a344bb324f4c68dd3578613",
+      "size_bytes": 60956,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -13350,8 +13350,8 @@
     },
     {
       "path": "research/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "2238d6a513bcae55f1f3b3df88f4ff611704bc47",
-      "size_bytes": 49686,
+      "git_blob_sha": "186db6d8e41f90e3304c0504699ea1f8d7552337",
+      "size_bytes": 49710,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -15311,8 +15311,8 @@
     },
     {
       "path": "research/RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md",
-      "git_blob_sha": "51d099ea7af7744c034ab74f61284f36a5b7233d",
-      "size_bytes": 23428,
+      "git_blob_sha": "5ec63f1440c6e320f8271873d381ff51eb706a50",
+      "size_bytes": 27891,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -15463,6 +15463,20 @@
       "semantic_review": {
         "status": "reviewed",
         "basis": "report scope and focused test evidence"
+      }
+    },
+    {
+      "path": "research/RT-11-CACHE-SPEEDUP-MODEL-RECHECK-2026-11-23.md",
+      "git_blob_sha": "d155be93a387334265e15e8befdd9d2c620de45b",
+      "size_bytes": 4445,
+      "category": "audit-or-review-report",
+      "traceability": "RT-11 cache speedup analytical-model recheck",
+      "plan_stages": [
+        "3.4"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "report scope and reproduction metadata"
       }
     }
   ],

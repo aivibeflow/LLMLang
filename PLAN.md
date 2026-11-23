@@ -488,6 +488,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Status:** analytical estimate researched in `research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`; empirical benchmark results still required.
 
+**Research output (2026-11-23):** [RT-11 cache speedup model recheck](research/RT-11-CACHE-SPEEDUP-MODEL-RECHECK-2026-11-23.md) reran the synthetic binding experiment on CPython 3.12.14 / Debian GCC 14.2.0. Clean-build outputs matched; action-count reuse patterns were reproduced, including a counterexample showing caller compile identity is not a safe executable-verification key. No durations or representative workloads were measured, so the analytical speedup ratios remain hypotheses and every empirical-performance checkbox above remains open.
+
 **Exit criteria:** a dependency-completeness policy; sound action-key model; tests showing that relevant changes invalidate all affected results and irrelevant changes preserve valid results; reproducible benchmark data.
 
 ---
