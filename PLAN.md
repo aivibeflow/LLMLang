@@ -127,6 +127,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Source-pinned second-oracle observations (2026-11-23):** [CI #45261537559](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559) passed seven fresh checks: 3,456 JSON-policy combinations (504 accepted/2,952 rejected), 21,840 fairness-action words (138 valid cycles, 114 weak-but-not-strong), and a clean-Git-merge/absent-declared-file counterexample. [Result register](research/quality-audit/2026-11-23-orthogonal-oracle-results.json) stores exact model/test blobs, CI, host and limits; [independent human-review handoff](research/quality-audit/2026-11-23-independent-review-handoff.md) is **pending (0/8)**, not a completed scientific review. Historical execution attestations, representative corpus validation and maintainer rule adoption remain open.
 
+**Root research structural census (2026-11-23):** [Stage 0.2 corpus census report](research/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md) defines an immutable 309-document root Markdown/MDX scope, a warning-only checker sweep and a 24-document SHA-256-selected review queue across Scenario, RT and other root reports. This is structural *coverage*, not an audited 309-document claim register or a representative statistical validity estimate; individual review, original-run provenance and process adoption are still open.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
