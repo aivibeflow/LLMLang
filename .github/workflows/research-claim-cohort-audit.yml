@@ -1,0 +1,44 @@
+name: Research Claim Evidence Cohort 2
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "research/quality-audit/2026-11-23-claim-cohort2.json"
+      - "research/RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md"
+      - ".github/scripts/validate_research_claim_cohort.py"
+      - ".github/scripts/test_validate_research_claim_cohort.py"
+      - ".github/workflows/research-claim-cohort-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-trace:
+    name: historical-source-trace-only
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Test claim register accounting
+        run: python3 -B -m unittest discover -s .github/scripts -p 'test_validate_research_claim_cohort.py' -v
+      - name: Verify exact historical report and referenced-source objects
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -B .github/scripts/validate_research_claim_cohort.py \
+            --root . \
+            --manifest research/quality-audit/2026-11-23-claim-cohort2.json \
+            --json-out artifacts/research-claim-cohort2/source-verification.json
+          python3 --version | tee artifacts/research-claim-cohort2/python-version.txt
+      - name: Archive machine-checked source links (not research correctness)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-claim-cohort2
+          path: artifacts/research-claim-cohort2/
+          retention-days: 30
+          if-no-files-found: warn
