@@ -82,6 +82,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 ## Integration and foundations
 
 - [RT-27 SPG repository storage format requirements](RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md) records Git recoverability, cache-first metadata, deterministic representation, semantic-merge safety, and benchmark requirements. It selects no format; RT-27 taxonomy/dependency-map registration remains open.
+- [RT-28 — Incremental Polyglot Migration and Semantic Mirroring](RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md) defines the research brief for incremental migration of actively developed upstream projects, source-to-LLMLang Mirror Bindings, upstream reconciliation, differential verification, defect attribution, and upstream contribution. It is a proposal, not an accepted architecture.
 - [Git storage efficiency for immutable SPG objects](GIT-BINARY-SPG-STORAGE-EFFICIENCY.md) documents Git packfile/delta behavior, bounded-shard and immutable-segment options, and the measurements still required; previous synthetic measurements are explicitly unverified.
 
 - [Change Set verification and acceptance gate](CHANGESET-VERIFICATION-AND-ACCEPTANCE-GATE.md) records the user-confirmed rule: validate SPG after every change, optionally run contract/formal checks in the background, notify agents about failures, and block both automatic and explicit acceptance until current required checks pass; candidate Toolchain behavior, not yet a normative API contract.
