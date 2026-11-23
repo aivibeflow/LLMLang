@@ -2,6 +2,8 @@
 
 Research documents are exploratory evidence and do not change the candidate or normative language specification unless a decision is explicitly accepted.
 
+The [eight-report historical Git publication/source provenance audit](RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md) and [exact-blob manifest](quality-audit/2026-11-23-publication-provenance.json) locate archival source snapshots without equating publication with original execution provenance. A separate opt-in CI workflow rechecks five scoped historical experiments; no language policy is selected.
+
 **Stage 0.2 quality pilot (proposed, not adopted):** [Quality Review Protocol](QUALITY-REVIEW-PROTOCOL.md) · [Report Template](templates/REPORT-TEMPLATE.md) · [Claim Register](templates/CLAIM-REGISTER-TEMPLATE.md) · [Structural pilot evidence](RT-00-QUALITY-RULES-PILOT-2026-11-23.md). These provide report and claim traceability, experiment-specific reproduction metadata, negative-result reporting, a candidate-draft change map, and warning-only structural checks. A passing template check is not proof of research validity or acceptance of a specification rule.
 
 The [follow-up adjudication](RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md) and [33-row register](quality-audit/2026-11-23-adjudication.json) classify all remaining structural warnings from the bounded pilot (16 further layout-only, 17 documentation gaps) and include three claim/provenance spot checks. This is still neither a corpus-wide scientific validation nor an adopted quality policy.
