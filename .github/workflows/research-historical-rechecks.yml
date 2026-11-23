@@ -1,0 +1,130 @@
+name: Research Quality Historical Snapshot Rechecks
+
+# This is a separate experimental workflow. It does NOT confer research
+# correctness, and it does not make Stage 0.2 templates a required quality gate.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/research-historical-rechecks.yml"
+      - "research/quality-audit/2026-11-23-publication-provenance.json"
+      - "research/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  historical-snapshot:
+    name: historical-${{ matrix.case_id }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - case_id: ast-98
+            report_commit: d3fe3916db0b42d6cb21d3814b323fb8831fa803
+            source_path: research/PROTOTYPES/RT-04-01/test_rt03_path_model.py
+            source_blob: c23c771e6e0b7524f1c449f8f81bd606f3cef2c2
+          - case_id: solver-103
+            report_commit: 08c8490e92b472f99abf3117e82bc7b11643fe0d
+            source_path: research/PROTOTYPES/RT-04-01/test_rt03_bounded_solver_worker.py
+            source_blob: 43330bd656d3d0ccabf3b8d29a63fff1cfcc0106
+          - case_id: atomic-118
+            report_commit: e956d25bfa34ccc649f0d674e29ea27adecbdb20
+            source_path: research/PROTOTYPES/RT-04-01/test_rt04_atomic_execution.py
+            source_blob: b92efb292a0084266983907b52058105492c7405
+          - case_id: fake-checker-29
+            report_commit: 2c7f3d1035a86fe10d90c038adc71775db5549fa
+            source_path: research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_logos_runner.py
+            source_blob: 828add8b53b63bb4bd6d5554a7a70bfadc73813a
+          - case_id: binding-rt11
+            report_commit: b0638a1b69a3f7d233194097032cde9209b672db
+            source_path: research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py
+            source_blob: cd63e4ec5c5f0d7ae7e215596a5febe74e28f37b
+    steps:
+      - name: Check out exact historical repository snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.report_commit }}
+          path: historical
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Verify frozen source identity and capture environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/historical
+          {
+            echo "case=${{ matrix.case_id }}"
+            echo "snapshot=$(git -C historical rev-parse HEAD)"
+            echo "source=${{ matrix.source_path }}"
+            echo "source_blob=$(git -C historical hash-object '${{ matrix.source_path }}')"
+            echo "python=$(python3 --version)"
+            echo "uname=$(uname -srm)"
+            echo "cc=$(/usr/bin/cc --version | head -n 1)"
+          } | tee artifacts/historical/environment.txt
+          test "$(git -C historical rev-parse HEAD)" = "${{ matrix.report_commit }}"
+          test "$(git -C historical hash-object '${{ matrix.source_path }}')" = "${{ matrix.source_blob }}"
+      - name: Install source-pinned solver dependencies when required
+        if: matrix.case_id == 'solver-103'
+        run: python3 -m pip install -r historical/research/PROTOTYPES/RT-04-01/requirements-solver.txt
+      - name: Run bounded historical experiment at the recorded publication snapshot
+        shell: bash
+        working-directory: historical
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          set -euo pipefail
+          logfile="$GITHUB_WORKSPACE/artifacts/historical/result.log"
+          case "${{ matrix.case_id }}" in
+            ast-98)
+              (cd research/PROTOTYPES/RT-04-01 && python3 -B -m unittest -v test_rt03_path_model.RT03IndependentPathModelTests.test_exhaustive_ast_condition_valuations_cover_every_structural_path) 2>&1 | tee "$logfile"
+              grep -q 'Ran 1 test' "$logfile"
+              ;;
+            solver-103)
+              (cd research/PROTOTYPES/RT-04-01 && python3 -B -m unittest -v test_rt03_bounded_solver_worker) 2>&1 | tee "$logfile"
+              grep -q 'Ran 4 tests' "$logfile"
+              ;;
+            atomic-118)
+              python3 -B -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_rt04_atomic_execution.py' -v 2>&1 | tee "$logfile"
+              grep -q 'Ran 7 tests' "$logfile"
+              ;;
+            fake-checker-29)
+              (cd research/PROTOTYPES/DEPENDENCY-GRAPH-01 && python3 -B -m unittest -v tests.test_logos_runner) 2>&1 | tee "$logfile"
+              grep -q 'Ran 15 tests' "$logfile"
+              ;;
+            binding-rt11)
+              (cd research/PROTOTYPES/DEPENDENCY-GRAPH-01 && python3 -B -m src.binding_build_benchmark --cc /usr/bin/cc) > "$GITHUB_WORKSPACE/artifacts/historical/benchmark.json"
+              python3 - "$GITHUB_WORKSPACE/artifacts/historical/benchmark.json" <<'PY'
+          import json
+          import sys
+          with open(sys.argv[1], encoding="utf-8") as f:
+              obj = json.load(f)
+          rows = obj["action_counts"]
+          assert len(rows) == 12, len(rows)
+          assert {row["linkage"] for row in rows} == {"exact", "separate"}
+          witness = obj["unsafe_verification_key_witness"]
+          assert witness["cold"]["compile_input"] == witness["implementation"]["compile_input"]
+          assert witness["cold"]["outputs"] != witness["implementation"]["outputs"]
+          print("12 phases and separate-linkage stale-verification-key witness confirmed")
+          PY
+              cat "$GITHUB_WORKSPACE/artifacts/historical/benchmark.json" | tee "$logfile"
+              ;;
+            *)
+              echo "Unexpected case" >&2
+              exit 2
+              ;;
+          esac
+      - name: Preserve exact historical environment, output and outcome
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-${{ matrix.case_id }}
+          path: artifacts/historical/
+          if-no-files-found: warn
+          retention-days: 30
