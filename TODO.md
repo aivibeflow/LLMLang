@@ -15,6 +15,8 @@ The [Stage 0.2 warning adjudication](research/RT-00-QUALITY-RULES-ADJUDICATION-2
 
 **Research evidence-navigation progress (2026-11-23):** [Nine supplementary report crosswalks](research/RT-00-QUALITY-RULES-NAVIGATION-REMEDIATION-2026-11-23.md) document the nine non-baseline process gaps classified in the Stage 0.2 pilot. This is a retrospective documentary correction, not a claim of originally-attested experimental runs or a normative specification. Keep eight original-run provenance/host gaps and the remaining research-quality policy adoption / corpus validation work under [issue #285](https://github.com/aivibeflow/LLMLang/issues/285).
 
+**Stage 0.2 claim-level follow-up:** [Second 12-report/24-claim review](research/RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md) records eight local *interpretation risks* (not eight newly proven defects): Lean source/back-end correspondence, historical RT-05 unsuccessful tests, SAT sample bias, wire-runtime extrapolation, prospective SQLite provenance, stale RT-00 counts, RT-24 proposal/approval distinction, and finite FFI alias coverage. Machine-verified exact source pointers are insufficient for research correctness. Keep issue #285 open for independent technical review, representative corpus sampling, original-run attestations and maintainer policy adoption; no LL semantic decision is made here.
+
 ## How to use this register
 
 Each item has a stable ID. Keep the ID when the wording or status changes.
