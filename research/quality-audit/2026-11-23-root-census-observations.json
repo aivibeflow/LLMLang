@@ -1,0 +1,238 @@
+{
+  "schema": "stage02-root-research-census-observed-v1",
+  "date": "2026-11-23",
+  "baseline_commit": "627c70878863b519a358815f8a96ddbae1303136",
+  "ci_run": "https://github.com/aivibeflow/LLMLang/actions/runs/45263179285",
+  "ci_job_id": 138003059676,
+  "full_census_artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45263179285/artifacts/14862435235",
+  "ci_result": "success",
+  "unit_tests_passed": 5,
+  "source_scope": "309 root-level research Markdown/MDX documents (136 Scenario, 127 RT, 46 other root); nested Markdown/MDX and prototype sources excluded",
+  "meaning": "structural warning-only survey; 2035 findings are NOT 2035 scientific defects or accepted process/quality decisions",
+  "summary": {
+    "by_kind": {
+      "other-root": 46,
+      "rt": 127,
+      "scenario": 136
+    },
+    "documents": 309,
+    "documents_with_warnings": 308,
+    "documents_without_warnings": 1,
+    "explicit_evidence_type_field": 7,
+    "review_queue_count": 24,
+    "status_executable_hint": 67,
+    "warning_histogram": {
+      "missing metadata: Baseline": 238,
+      "missing metadata: Status": 48,
+      "missing section for decision boundary": 199,
+      "missing section for draft impact/traceability": 285,
+      "missing section for experiments/method": 140,
+      "missing section for formal model/assumptions": 142,
+      "missing section for hypotheses/alternatives": 259,
+      "missing section for limitations": 212,
+      "missing section for prior art/sources": 172,
+      "missing section for question/problem": 104,
+      "missing section for results": 132,
+      "negative/rejected/UNKNOWN cases or justified N/A not located": 47,
+      "no recognizable evidence class; human claim-level review required": 57
+    },
+    "warning_instances": 2035
+  },
+  "review_queue": [
+    {
+      "blob": "9fdb7298597965299ab9add721e46650c798492c",
+      "human_review": "NOT REVIEWED",
+      "kind": "scenario",
+      "path": "research/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md",
+      "selection_rank": 1,
+      "warning_count": 7
+    },
+    {
+      "blob": "dfa5e9e24bc621936896a1a55f267cc9a8f82659",
+      "human_review": "NOT REVIEWED",
+      "kind": "scenario",
+      "path": "research/RESEARCH-SCENARIO-04-VERIFICATION-REUSE.md",
+      "selection_rank": 2,
+      "warning_count": 6
+    },
+    {
+      "blob": "f22e5cc96df8ba893e93fe9ac1616713e5160c34",
+      "human_review": "NOT REVIEWED",
+      "kind": "scenario",
+      "path": "research/RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md",
+      "selection_rank": 3,
+      "warning_count": 8
+    },
+    {
+      "blob": "6f1326a86509fa154e09405dcbd91ed543f94e9c",
+      "human_review": "NOT REVIEWED",
+      "kind": "scenario",
+      "path": "research/RESEARCH-SCENARIO-45-NUMERIC-SEMANTICS-AND-OVERFLOW.md",
+      "selection_rank": 4,
+      "warning_count": 5
+    },
+    {
+      "blob": "4123a1ca3ec3e60365c5d9f67178e679d35e188b",
+      "human_review": "NOT REVIEWED",
+      "kind": "scenario",
+      "path": "research/RESEARCH-SCENARIO-52-UNICODE-IDENTIFIERS-AND-SOURCE-SAFETY.md",
+      "selection_rank": 5,
+      "warning_count": 6
+    },
+    {
+      "blob": "ff75d89f0ccb2202875270a42a12924753346ccb",
+      "human_review": "NOT REVIEWED",
+      "kind": "scenario",
+      "path": "research/RESEARCH-SCENARIO-56-CLOSURE-CAPTURE-AND-ESCAPE.md",
+      "selection_rank": 6,
+      "warning_count": 5
+    },
+    {
+      "blob": "c1dfa564c5e35a9d7da650c1d0fed2f0e4e71a0e",
+      "human_review": "NOT REVIEWED",
+      "kind": "scenario",
+      "path": "research/RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md",
+      "selection_rank": 7,
+      "warning_count": 6
+    },
+    {
+      "blob": "8e4a3180fbd0ff3ac63cf597ea734292807ec555",
+      "human_review": "NOT REVIEWED",
+      "kind": "scenario",
+      "path": "research/RESEARCH-SCENARIO-40-ASYNC-CANCELLATION-AND-CLEANUP.md",
+      "selection_rank": 8,
+      "warning_count": 6
+    },
+    {
+      "blob": "487a20167267b4c22784b483be8e419a753a55ce",
+      "human_review": "NOT REVIEWED",
+      "kind": "rt",
+      "path": "research/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md",
+      "selection_rank": 1,
+      "warning_count": 6
+    },
+    {
+      "blob": "4da1df2c672cc944fece93847e1bf6ede986e15e",
+      "human_review": "NOT REVIEWED",
+      "kind": "rt",
+      "path": "research/RT-00-DEP-006-TYPE-IDENTITY-EVIDENCE-RECHECK-2026-11-23.md",
+      "selection_rank": 2,
+      "warning_count": 11
+    },
+    {
+      "blob": "2b48e4b9991a032de3530068b9d491e9c487f6d3",
+      "human_review": "NOT REVIEWED",
+      "kind": "rt",
+      "path": "research/RT-04-RT-03-CROSS-PROFILE-TRACES.md",
+      "selection_rank": 3,
+      "warning_count": 5
+    },
+    {
+      "blob": "b7707c7bf21fa23ba913814723fbdd8419019655",
+      "human_review": "NOT REVIEWED",
+      "kind": "rt",
+      "path": "research/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md",
+      "selection_rank": 4,
+      "warning_count": 10
+    },
+    {
+      "blob": "2be7ddb8c530127e3c20a2bd383236afdc70e8df",
+      "human_review": "NOT REVIEWED",
+      "kind": "rt",
+      "path": "research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
+      "selection_rank": 5,
+      "warning_count": 5
+    },
+    {
+      "blob": "7174f961c56599e00a3283322c6a0ef16a22e6b8",
+      "human_review": "NOT REVIEWED",
+      "kind": "rt",
+      "path": "research/RT-00-A-CONTENT-ROLE-TRIAGE-2026-11-22.md",
+      "selection_rank": 6,
+      "warning_count": 8
+    },
+    {
+      "blob": "df899fb22439f42b989f059a6852ad26644d4cd4",
+      "human_review": "NOT REVIEWED",
+      "kind": "rt",
+      "path": "research/RT-09-ORDERED-SPG-LOWERING.md",
+      "selection_rank": 7,
+      "warning_count": 4
+    },
+    {
+      "blob": "72bc95a195b9fc52132ab3323d680034c7324485",
+      "human_review": "NOT REVIEWED",
+      "kind": "rt",
+      "path": "research/RT-01-REFERENCE-WORKLOADS.md",
+      "selection_rank": 8,
+      "warning_count": 9
+    },
+    {
+      "blob": "955e0e1b86d17965f328a07da59f1521bfd3649f",
+      "human_review": "NOT REVIEWED",
+      "kind": "other-root",
+      "path": "research/LLVM-BACKEND-ARCHITECTURE.md",
+      "selection_rank": 1,
+      "warning_count": 6
+    },
+    {
+      "blob": "7bd3d839e28133da8f70601e32cb5698403282f3",
+      "human_review": "NOT REVIEWED",
+      "kind": "other-root",
+      "path": "research/RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md",
+      "selection_rank": 2,
+      "warning_count": 8
+    },
+    {
+      "blob": "2bb8bcbd90430a578d3ceab85846afbbd970c8e6",
+      "human_review": "NOT REVIEWED",
+      "kind": "other-root",
+      "path": "research/TOKEN_EFFICIENCY.md",
+      "selection_rank": 3,
+      "warning_count": 10
+    },
+    {
+      "blob": "880cada71c7db00855fc6799ad14c89669c616f1",
+      "human_review": "NOT REVIEWED",
+      "kind": "other-root",
+      "path": "research/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md",
+      "selection_rank": 4,
+      "warning_count": 4
+    },
+    {
+      "blob": "0b641287474ca59f9ec24f3ac3770824c0c479de",
+      "human_review": "NOT REVIEWED",
+      "kind": "other-root",
+      "path": "research/RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md",
+      "selection_rank": 5,
+      "warning_count": 4
+    },
+    {
+      "blob": "1bbb9342531c9d1391b1fec8b90774fd67aeb125",
+      "human_review": "NOT REVIEWED",
+      "kind": "other-root",
+      "path": "research/REPOSITORY-AUDIT-2026-11-17.md",
+      "selection_rank": 6,
+      "warning_count": 7
+    },
+    {
+      "blob": "c3ea40d331c113a4cba5d077edba1846694f5799",
+      "human_review": "NOT REVIEWED",
+      "kind": "other-root",
+      "path": "research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md",
+      "selection_rank": 7,
+      "warning_count": 7
+    },
+    {
+      "blob": "498ba7102f8b825e37a736bde7bdc6edb4a1df16",
+      "human_review": "NOT REVIEWED",
+      "kind": "other-root",
+      "path": "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+      "selection_rank": 8,
+      "warning_count": 6
+    }
+  ],
+  "human_reviews_completed": 0,
+  "quality_policy_adopted": false,
+  "claims_technically_validated": 0
+}
