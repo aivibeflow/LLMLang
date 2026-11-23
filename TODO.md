@@ -13,6 +13,8 @@ The [Stage 0.2 warning adjudication](research/RT-00-QUALITY-RULES-ADJUDICATION-2
 
 **Stage 0.2 provenance distinction:** [Pinned eight-report publication-history report](research/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md) finds recoverable Git tree snapshots but does not authenticate original uncommitted run sources. The five-workload [historical recheck workflow](.github/workflows/research-historical-rechecks.yml) is a new bounded execution, not proof of historical experiment/toolchain identity. Keep the missing original-run attestations and other nine documentation crosswalk gaps tracked in [issue #285](https://github.com/aivibeflow/LLMLang/issues/285).
 
+**Research evidence-navigation progress (2026-11-23):** [Nine supplementary report crosswalks](research/RT-00-QUALITY-RULES-NAVIGATION-REMEDIATION-2026-11-23.md) document the nine non-baseline process gaps classified in the Stage 0.2 pilot. This is a retrospective documentary correction, not a claim of originally-attested experimental runs or a normative specification. Keep eight original-run provenance/host gaps and the remaining research-quality policy adoption / corpus validation work under [issue #285](https://github.com/aivibeflow/LLMLang/issues/285).
+
 ## How to use this register
 
 Each item has a stable ID. Keep the ID when the wording or status changes.
