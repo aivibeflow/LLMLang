@@ -520,11 +520,19 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Preserve ordinary Git clone, fetch, push, branch, tag, and history behavior.
 - [ ] Define readable textual representation, diff strategy, and generated metadata.
 - [ ] Define how large objects and binary artifacts are handled.
+- [ ] Measure Git packfile delta-compression efficiency for immutable SPG object containers under add/remove-only workloads; compare bounded stable shards, immutable segments, and chunking before selecting a layout.
 - [ ] Define repository portability and reproducibility from a clean clone.
 
 **Existing evidence:** `research/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md`.
 
-**Status:** researched; implementation and interoperability tests remain open.
+**Status:** researched at architectural level; binary-container efficiency is under investigation. The benchmark and physical-layout decision remain open.
+
+
+**Binary storage efficiency research (2026-11-23)** · The SPG storage workload is constrained to adding and removing immutable object payloads; existing object payloads are not modified. Git packfiles can store whole objects or byte-level deltas, so bounded containers with stable record ordering may benefit from delta compression. The default `core.bigFileThreshold` is 512 MiB; objects above it are stored without delta compression. Bounded stable shards and immutable segments remain competing candidates. The exploratory measurements recorded in the report are explicitly unverified and are not acceptance evidence. [Git binary SPG storage efficiency](research/GIT-BINARY-SPG-STORAGE-EFFICIENCY.md)
+
+- [ ] Reproduce the binary-container benchmark with committed generators, pinned Git version/configuration, realistic record distributions, add/remove workloads, long histories, branches, compaction, clone/fetch, and KV-independent reconstruction.
+- [ ] Compare bounded stable shards, immutable segments, and chunked containers; measure packfile size, delta depth/size, CPU, memory, read/checkout/reconstruction time, and history growth.
+- [ ] Select no physical format or shard key until benchmark results are reviewed against the unresolved SPG identity/lineage model.
 
 ## 4.3 Semantic diff, merge, and conflict resolution
 
