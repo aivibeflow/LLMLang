@@ -55,3 +55,12 @@ The second command runs the 10-pigeon/9-hole fixture with a 0.5-second query dea
 - Test worker startup timeout, abrupt crash, malformed response, mismatched ID, and memory/CPU limits; separately test persistent-pool cancellation if that architecture remains a candidate.
 - Bind queries to immutable predicate/CFG versions and verify source-to-route completeness, including writes and aliasing.
 - Compare unknown-path effects on diagnostics, dependency completeness, cache invalidation, and evidence reuse.
+
+## 7. Retrospective alternatives and draft boundary (2026-11-23)
+
+This is a reviewer navigation addition, not a new solver selection or historical timing attestation.
+
+- **Tested hypothesis:** a one-query process boundary can impose a parent-controlled wall-clock limit after the worker is ready, and incomplete results remain UNKNOWN rather than a path-pruning certificate.
+- **Alternatives and negative evidence:** a direct in-process call has no parent-controlled kill/reap boundary for the blocking API; a persistent worker pool may reduce startup overhead but was **not implemented**, and would need cancellation, late-response isolation, backpressure and crash recovery. A proof-producing trusted backend is a separate requirement. The observed SymPy UNSAT status is **not** a checked UNSAT proof. The existing report does not compare throughput/CPU/memory costs across these alternatives.
+- **Source and scope:** [Shared COR-06 research corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md) and [Scenario 102](RESEARCH-SCENARIO-102-SOLVER-UNKNOWN-AND-SOUND-PATH-PRUNING.md) record the soundness boundary. The [publication/source manifest](quality-audit/2026-11-23-publication-provenance.json) pins report, worker, tests and `requirements-solver.txt` to `08c8490e92b472f99abf3117e82bc7b11643fe0d`. Four tests passed in a **new** CPython 3.12.14 / SymPy 1.14.0 archived-source CI recheck, [run #45254862037](https://github.com/aivibeflow/LLMLang/actions/runs/45254862037). This does not prove original machine timings or original uncommitted source state.
+- **Draft impact:** **none**. No solver choice, timeout value, pruning policy or general worker architecture is accepted. Future `draft/` changes require certified proof/solver trust and source-to-CFG evidence; track in [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) and dependent RT-03/RT-07 research.
