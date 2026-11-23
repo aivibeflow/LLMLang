@@ -1,0 +1,175 @@
+{
+  "benchmark": "git-binary-spg-storage-efficiency",
+  "schema_version": 1,
+  "executed_on": "2026-11-23",
+  "repetitions": 5,
+  "command": "python3 research/benchmarks/git_binary_spg/run_benchmark.py --objects 30000 --record-size 192 --change-ratio 0.01 --seed 20261123",
+  "environment": {
+    "python": "3.13.5",
+    "git": "2.47.3",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "git_config": {
+      "core.bigFileThreshold": "512m",
+      "pack.window": 10,
+      "pack.depth": 50,
+      "pack.compression": 6
+    }
+  },
+  "fixture": {
+    "objects": 30000,
+    "record_size_bytes": 192,
+    "initial_payload_bytes": 5760000,
+    "change_ratio": 0.01,
+    "added_objects": 300,
+    "deleted_objects": 300,
+    "seed": 20261123,
+    "payload_generator": "SHAKE-256 of spg-benchmark-record:<id>",
+    "payload_profile": "fixed-size high-entropy pseudorandom; not representative SPG distribution"
+  },
+  "repetitions_detail": [
+    {
+      "run": 1,
+      "mutable_append_pack_bytes": 5692063,
+      "mutable_delete_compact_pack_bytes": 5636995,
+      "mutable_delete_tombstones_pack_bytes": 5636375,
+      "segments_append_pack_bytes": 5692192,
+      "segments_delete_tombstones_pack_bytes": 5636470
+    },
+    {
+      "run": 2,
+      "mutable_append_pack_bytes": 5692066,
+      "mutable_delete_compact_pack_bytes": 5636996,
+      "mutable_delete_tombstones_pack_bytes": 5636375,
+      "segments_append_pack_bytes": 5692194,
+      "segments_delete_tombstones_pack_bytes": 5636471
+    },
+    {
+      "run": 3,
+      "mutable_append_pack_bytes": 5692066,
+      "mutable_delete_compact_pack_bytes": 5636996,
+      "mutable_delete_tombstones_pack_bytes": 5636375,
+      "segments_append_pack_bytes": 5692194,
+      "segments_delete_tombstones_pack_bytes": 5636471
+    },
+    {
+      "run": 4,
+      "mutable_append_pack_bytes": 5692066,
+      "mutable_delete_compact_pack_bytes": 5636996,
+      "mutable_delete_tombstones_pack_bytes": 5636375,
+      "segments_append_pack_bytes": 5692194,
+      "segments_delete_tombstones_pack_bytes": 5636471
+    },
+    {
+      "run": 5,
+      "mutable_append_pack_bytes": 5692118,
+      "mutable_delete_compact_pack_bytes": 5637047,
+      "mutable_delete_tombstones_pack_bytes": 5636428,
+      "segments_append_pack_bytes": 5692195,
+      "segments_delete_tombstones_pack_bytes": 5636472
+    }
+  ],
+  "summary": [
+    {
+      "scenario": "mutable_append",
+      "median_pack_bytes": 5692066,
+      "pack_bytes_min": 5692063,
+      "pack_bytes_max": 5692118,
+      "median_pack_and_index_bytes": 5693362,
+      "delta_counts": [
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "median_delta_representation_bytes": 241,
+      "median_commit_seconds": 0.232285,
+      "median_gc_aggressive_seconds": 0.478324
+    },
+    {
+      "scenario": "mutable_delete_compact",
+      "median_pack_bytes": 5636996,
+      "pack_bytes_min": 5636995,
+      "pack_bytes_max": 5637047,
+      "median_pack_and_index_bytes": 5638292,
+      "delta_counts": [
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "median_delta_representation_bytes": 1557,
+      "median_commit_seconds": 0.233173,
+      "median_gc_aggressive_seconds": 0.467681
+    },
+    {
+      "scenario": "mutable_delete_tombstones",
+      "median_pack_bytes": 5636375,
+      "pack_bytes_min": 5636375,
+      "pack_bytes_max": 5636428,
+      "median_pack_and_index_bytes": 5637671,
+      "delta_counts": [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "median_delta_representation_bytes": 85,
+      "median_commit_seconds": 0.088241,
+      "median_gc_aggressive_seconds": 0.295121
+    },
+    {
+      "scenario": "segments_append",
+      "median_pack_bytes": 5692194,
+      "pack_bytes_min": 5692192,
+      "pack_bytes_max": 5692195,
+      "median_pack_and_index_bytes": 5693602,
+      "delta_counts": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "median_delta_representation_bytes": 85,
+      "median_commit_seconds": 0.039363,
+      "median_gc_aggressive_seconds": 0.302137
+    },
+    {
+      "scenario": "segments_delete_tombstones",
+      "median_pack_bytes": 5636471,
+      "pack_bytes_min": 5636470,
+      "pack_bytes_max": 5636472,
+      "median_pack_and_index_bytes": 5637823,
+      "delta_counts": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "median_delta_representation_bytes": 100,
+      "median_commit_seconds": 0.035468,
+      "median_gc_aggressive_seconds": 0.299487
+    }
+  ],
+  "validation": {
+    "scenario_executions": 25,
+    "packfiles_per_scenario": 1,
+    "retained_final_run_git_fsck_full": "passed for all five scenario repositories",
+    "cli_smoke_test": "passed (100 records, 64-byte records, 10% change)",
+    "python_bytecode_compile": "passed",
+    "workdir_reuse_guard": "passed; existing scenario directory rejected with exit code 2"
+  },
+  "limitations": [
+    "One baseline and one changed-state commit per repository",
+    "One mutable container or one segment stream per scenario; no multi-shard placement",
+    "No realistic variable-size SPG records or typed references",
+    "No semantic graph validation or KV-independent SPG reconstruction",
+    "No long histories, branch divergence, compaction cycles, clone/fetch traffic, or peak-memory measurements",
+    "High-entropy fixed-size fixture only; no payload entropy sweep"
+  ],
+  "conclusion": "Differences are negligible for this fixture and do not select between mutable containers and immutable segments."
+}
