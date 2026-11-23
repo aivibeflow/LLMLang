@@ -1,7 +1,7 @@
 # RT-00 — Orthogonal falsification of three bounded Stage 0.2 claim families
 
 **Date:** 2026-11-23  
-**Status:** New orthogonal Python oracle and Git negative-control checks proposed, pending GitHub Actions result  
+**Status:** Seven new orthogonal-source tests passed on a fresh, source-verified GitHub Actions runner; negative control and limitations recorded  
 **Research item:** [issue #285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../PLAN.md#02-establish-research-quality-and-decision-rules)  
 **Prior claim cohort:** [12 reports and 24 claims](RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md); [three existing-source reruns](RT-00-QUALITY-RULES-CLAIM-COHORT2-RERUN-2026-11-23.md)  
 **Audited model source revision:** `ff1295c1769bfe8546c4b63590c9f607349215ee`  
@@ -12,7 +12,7 @@
 
 The three original test suites in [PR #381](https://github.com/aivibeflow/LLMLang/pull/381) passed on archived source. Re-running the same test code can reproduce its observations without providing evidence that the test's expected values were correctly derived. This study introduces separate code/decision tables, including inputs not covered by the original finite fixtures.
 
-- **H1 (testable):** Scenario 110's parser/policy adapter agrees with a separately written declarative reference decision table for 1,728 combinations of count, enabled, unknown field, version, defaults and null policy, including invalid inputs. All inputs use the tested model's *JSON object* domain.
+- **H1 (testable):** Scenario 110's parser/policy adapter agrees with a separately written declarative reference decision table for 3,456 combinations of count, enabled, unknown field, version, defaults and null policy, including invalid inputs. All inputs use the tested model's *JSON object* domain.
 - **H2 (testable):** Scenario 112's finite cycle helper agrees with a separately written enabledness transition table and weak/strong fairness interpretation on 21,840 short action words, including illegal/non-cyclic candidates.
 - **H3 (negative control):** A real Git merge can exit successfully while the merged tree lacks an explicitly declared source file. Restoring the declared file repairs the closed inventory without selecting a general semantic-merge policy.
 
@@ -26,7 +26,7 @@ The [orthogonal test source](../.github/scripts/test_research_orthogonal_oracles
 
 | Vector | Independent method | Expected observation | What is shared or unproved |
 | --- | --- | --- | --- |
-| JSON schema/defaults | Declarative field-presence/type/unknown-policy decision table, over 8 `count` values × 9 `enabled` values × 3 extra-field states × 2 wire readers × 2 unknown policies × 2 defaults × 2 null policies = **1,728** cases | Agreement for success/reject and exact accepted `(count, enabled)` values | Both sides trust Python's JSON parsing; duplicate JSON member canonicality is *out of scope* |
+| JSON schema/defaults | Declarative field-presence/type/unknown-policy decision table, over 8 `count` values × 9 `enabled` values × 3 extra-field states × 2 wire readers × 2 unknown policies × 2 defaults × 2 null policies = **3,456** cases | Agreement for success/reject and exact accepted `(count, enabled)` values | Both sides trust Python's JSON parsing; duplicate JSON member canonicality is *out of scope* |
 | Finite fairness | Separate enabledness transition table, enumerating **21,840** action words of lengths 1–6 for two enabledness starts and intermittent/continuous modes; independent cyclic validity and periodic weak/strong fairness classifications | Legal cycles and rejection status agree; strong fairness for starvation implies weak fairness; intermittent weak-but-not-strong witness exists | Both sides use the same abstract enabledness assumptions; no real runtime fairness |
 | Git closure control | Create disposable real Git repository, delete a declared semantic source in one branch, edit unrelated file in other branch, merge cleanly, compare `ls-tree` file inventory to manifest; then restore source | Git clean merge is **not sufficient** for declared inventory closure; explicit retained source restores closure | Does not test LLMLang's SPG importer, source parser, hash model, or production semantic merge |
 
@@ -47,9 +47,18 @@ LLMLANG_ORACLE_MODEL_DIR=archival/research/PROTOTYPES/RT-04-01 \
   -s .github/scripts -p 'test_research_orthogonal_oracles.py' -v
 ```
 
-**Expected before independent execution:** seven tests pass and markers `INDEPENDENT_SCHEMA_CASES=1728`, `INDEPENDENT_FAIRNESS_WORDS=21840`, `INDEPENDENT_GIT_WITNESS=clean-merge-with-missing-declared-source` appear. An unexpected mismatch or missing Git object is a **failure to investigate**, not evidence for accepting a design choice.
+**Verified expected/observed markers:** seven tests pass and markers `INDEPENDENT_SCHEMA_CASES=3456`, `INDEPENDENT_FAIRNESS_WORDS=21840`, `INDEPENDENT_GIT_WITNESS=clean-merge-with-missing-declared-source` appear. An unexpected mismatch or missing Git object is a **failure to investigate**, not evidence for accepting a design choice.
 
-**Observed results:** *pending GitHub Actions*. A passing original author's test suite is prior evidence and not a substitute for the new oracle's independent execution.
+**Observed GitHub Actions result:** [run #45261537559](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559) and [job #137997279418](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559/job/137997279418) **passed all seven tests in 0.155 s**. The archived model Git blobs matched the exact declared revision, and the new oracle test itself had Git blob `a07ffc59b0aea379f0113a312368b8ac56343f20`. CPython **3.12.14**, Git **2.56.1**, Linux `7.0.0-1014-aws x86_64`. [Raw CI artifact](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559/artifacts/14860068849) and [permanent machine-readable result record](quality-audit/2026-11-23-orthogonal-oracle-results.json) retain exact numbers and links.
+
+| Oracle / negative control | Actual observed cases | Result |
+| --- | ---: | --- |
+| Independent finite JSON policy decision table | **3,456** payload/reader/policy combinations | 504 accepted, 2,952 rejected; **zero divergences** from subject decoder |
+| Independently enumerated finite scheduler action words | **21,840** candidate sequences | 138 legal cycles, 114 weak-only cases; **zero divergences** from subject transition/fairness model |
+| Real Git clean merge with missing declared source | one negative and one repaired positive fixture | Git reported a clean merge even when the manifest's required source was absent; restoring the source restored closure |
+| Independent tests including malformed inputs and invalid cursors | **7** tests total | Passed; no failed tests or unexplained oracle disagreement |
+
+The numeric denominator in the initial proposal was incorrect: `8 × 9 × 3 × 2 × 2 × 2 × 2 = 3,456`, **not** 1,728. This correction is bookkeeping, not new evidence of LLMLang correctness. The finite cross-products were executed only against their small explicitly stated models. The two decision tables were separately implemented but **not independently peer-reviewed by a different human**.
 
 ## 4. Negative results, trust boundaries and decision safety
 

@@ -1,0 +1,51 @@
+{
+  "schema": "stage0-quality-orthogonal-oracle-observations-v1",
+  "date": "2026-11-23",
+  "meaning": "fresh source-pinned orthogonal finite-domain checks, not independent human review or full LLMLang correctness",
+  "ci_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45261537559",
+  "ci_job_id": 137997279418,
+  "ci_artifact_url": "https://github.com/aivibeflow/LLMLang/actions/runs/45261537559/artifacts/14860068849",
+  "ci_conclusion": "success",
+  "host": "GitHub Actions ubuntu-24.04, Linux 7.0.0-1014-aws x86_64",
+  "python": "3.12.14",
+  "git": "2.56.1",
+  "baseline_commit": "ff1295c1769bfe8546c4b63590c9f607349215ee",
+  "archived_source_blobs": {
+    "research/PROTOTYPES/RT-04-01/schema_evolution_model.py": "59a3a8b2fdd3bd2b2d6167a7f5cedb02551e512e",
+    "research/PROTOTYPES/RT-04-01/scheduler_fairness_model.py": "1309f21c4ce49f8584f03782e742549fc7d817d9"
+  },
+  "oracle_source_blob": "a07ffc59b0aea379f0113a312368b8ac56343f20",
+  "test_count": 7,
+  "test_seconds": 0.155,
+  "observations": [
+    {
+      "claim_family": "Scenario 110 finite JSON policy",
+      "cases": 3456,
+      "accepted_cases": 504,
+      "rejected_cases": 2952,
+      "disagreement_count": 0,
+      "method": "separately authored field-presence/type/policy oracle; uses common Python JSON parser",
+      "nonclaim": "last-wins duplicate keys accepted in Python JSON; canonicality and binary wire out of scope"
+    },
+    {
+      "claim_family": "Scenario 112 finite periodic fairness",
+      "action_words": 21840,
+      "legal_cycles": 138,
+      "weak_but_not_strong_cycles": 114,
+      "disagreement_count": 0,
+      "method": "separate enabledness transition table for legality, traces, periodic weak/strong fairness",
+      "nonclaim": "not a real scheduler liveness guarantee; shares finite-model enabledness assumptions"
+    },
+    {
+      "claim_family": "RT-24 git tree source closure",
+      "negative_fixture": "clean Git merge yields candidate missing declared source",
+      "positive_fixture": "restoring declared source closes inventory",
+      "disagreement_count": 0,
+      "method": "standalone Git CLI fixture with ls-tree manifest comparison",
+      "nonclaim": "does not run general LLMLang SPG/merge implementation"
+    }
+  ],
+  "original_run_attested": false,
+  "scientific_claim_peer_reviewed": false,
+  "normative_decision_accepted": false
+}
