@@ -1,0 +1,46 @@
+name: Research Quality Structural Pilot
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "research/**"
+      - ".github/scripts/check_research_quality.py"
+      - ".github/scripts/test_check_research_quality.py"
+      - ".github/workflows/research-quality-pilot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  warn-only:
+    name: warn-only-research-quality
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run structural checker unit tests
+        run: python3 -B -m unittest discover -s .github/scripts -p 'test_check_research_quality.py' -v
+      - name: Inspect newly added first-party reports (not a quality gate)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/research-quality-pilot
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            base="origin/$GITHUB_BASE_REF"
+            python3 -B .github/scripts/check_research_quality.py --changed-base "$base" --json-out artifacts/research-quality-pilot/warnings.json
+          else
+            echo '{"scope":"manual dispatch: no PR diff to inspect","reports_checked":0,"warnings":0,"reports":[]}' | tee artifacts/research-quality-pilot/warnings.json
+          fi
+          python3 --version | tee artifacts/research-quality-pilot/python-version.txt
+      - name: Preserve pilot warnings (non-blocking)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-quality-pilot
+          path: artifacts/research-quality-pilot/
+          if-no-files-found: warn
+          retention-days: 30
