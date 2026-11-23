@@ -958,6 +958,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Research output (2026-11-23):** [RT-19 storage backend contract recheck](research/RT-19-STORAGE-BACKEND-CONTRACT-RECHECK-2026-11-23.md) compared the in-memory workspace lifecycle with the SQLite Content Store. Their current APIs are not interchangeable: one owns atomic workspace Change Sets, the other exposes opaque immutable-object snapshot reads. The proposed next experiment separates object-store and workspace-transaction contracts; persistent acceptance/recovery and adapter integration remain open.
 
+**Research output (2026-11-23):** [RT-19 workspace persistence transaction boundary recheck](research/RT-19-WORKSPACE-PERSISTENCE-TRANSACTION-BOUNDARY-RECHECK-2026-11-23.md) reran both focused suites (9/9 each), confirmed that the SQLite schema has no workspace-head API, and compared one embedded transaction coordinator, a journal/outbox over a separate immutable object contract, and Git-commit-coupled acceptance. It provisionally recommends testing a journal/outbox coordinator first, with one embedded DB as the physical engine and Git remaining the reconstruction authority. Process crash injection, multi-file/Git reconciliation, and durable recovery remain open.
+
 **Exit criteria:** deterministic round-trip identity; stale/conflicting mutations rejected; accepted snapshots immutable; multiple workspaces isolated; crash/restart and export interruption recover safely; external edits are detected; MCP adapter independently tested; authorization and benchmark results documented.
 
 ---
