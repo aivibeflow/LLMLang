@@ -2,13 +2,13 @@
   "schema_version": 1,
   "generated_at": "2026-11-23",
   "repository": "aivibeflow/LLMLang",
-  "revision": "c3f4d6841759415fb502806e1c3e27db30658433",
-  "source": "Exact inventory of the research tree at main baseline c3f4d6841759415fb502806e1c3e27db30658433 plus the DEP-008 proof-boundary recheck report; manifest excluded.",
+  "revision": "7cbdd1b6db4c30c617abe784b3bdf36e9ddeba60",
+  "source": "Exact research-tree inventory at baseline 7cbdd1b6db4c30c617abe784b3bdf36e9ddeba60 plus the RT-32 invalidation recheck report; manifest excluded.",
   "counts": {
-    "research_files": 598,
-    "markdown_files": 317,
-    "python_files": 226,
-    "scenario_named_documents": 137,
+    "research_files": 602,
+    "markdown_files": 319,
+    "python_files": 227,
+    "scenario_named_documents": 139,
     "prototype_tree_files": 289,
     "preparation_and_reference_files": 24,
     "category_counts": {
@@ -33,7 +33,7 @@
     "taxonomy_research_areas": 28,
     "dependency_edges": 135,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 598
+    "research_artifacts_excluding_manifest": 602
   },
   "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
   "index_check": {
@@ -15223,8 +15223,8 @@
     },
     {
       "path": "research/GIT-BINARY-SPG-STORAGE-EFFICIENCY.md",
-      "git_blob_sha": "7a9d04d65f7c909941270b99ac7e4925af11dc8d",
-      "size_bytes": 17382,
+      "git_blob_sha": "4ffdc8ab0d421206567d84d05cecf52db4ab1d6a",
+      "size_bytes": 20633,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [],
@@ -15408,6 +15408,62 @@
       "plan_stages": [
         0
       ]
+    },
+    {
+      "path": "research/benchmarks/git_binary_spg/README.md",
+      "git_blob_sha": "860d971f443c62b13596dcfe4b294e0229b67eb7",
+      "size_bytes": 7673,
+      "category": "audit-or-review-report",
+      "traceability": "RT-27 Git binary SPG storage benchmark",
+      "plan_stages": [
+        "4"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "exact path and artifact role"
+      }
+    },
+    {
+      "path": "research/benchmarks/git_binary_spg/results-2026-11-23.json",
+      "git_blob_sha": "74abbc4fd7f46948404c80c94db6f42ae548f405",
+      "size_bytes": 5509,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": "RT-27 Git binary SPG storage benchmark",
+      "plan_stages": [
+        "4"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "exact path and artifact role"
+      }
+    },
+    {
+      "path": "research/benchmarks/git_binary_spg/run_benchmark.py",
+      "git_blob_sha": "69d3952229977357f3b016ad1aec1e9c713efc97",
+      "size_bytes": 9884,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": "RT-27 Git binary SPG storage benchmark",
+      "plan_stages": [
+        "4"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "exact path and artifact role"
+      }
+    },
+    {
+      "path": "research/RT-32-INCREMENTAL-INVALIDATION-RECHECK-2026-11-23.md",
+      "git_blob_sha": "64672094236e35ef129b00f263cdaae6ac07616c",
+      "size_bytes": 4525,
+      "category": "audit-or-review-report",
+      "traceability": "RT-32 bounded invalidation recheck",
+      "plan_stages": [
+        "3.2"
+      ],
+      "semantic_review": {
+        "status": "reviewed",
+        "basis": "report scope and focused test evidence"
+      }
     }
   ],
   "semantic_traceability_review": {
