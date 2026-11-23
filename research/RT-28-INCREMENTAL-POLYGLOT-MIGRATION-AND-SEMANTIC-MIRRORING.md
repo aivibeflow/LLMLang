@@ -39,7 +39,9 @@ Upstream change is a normal continuous input, not an exceptional re-import event
 - Treating Git textual equality, AST similarity, or matching unit-test outcomes as proof of equivalence.
 - Silently changing authoritative implementation or production routing.
 
-## 3. Core model
+## 3. Migration-domain model (outside the LLMLang language core)
+
+The concepts in this section describe the migration domain. They are not proposed LLMLang syntax, built-in types, runtime entities, or mandatory language semantics. Their records, lifecycle, persistence, scheduling, and governance may be implemented by AIVibeFlow or another independent migration service. LLMLang participates only through capabilities that are justified by its language and Toolchain responsibilities.
 
 ### 3.1 Migration Project
 
@@ -92,7 +94,9 @@ Research a per-MU state machine. Candidate states (provisional):
 
 Exception states should include STALE, SOURCE_DRIFT, MIRROR_DRIFT, CONFLICTED, BLOCKED, REGRESSION, QUARANTINED, and CONTRIBUTION_PENDING. Transitions must be explicit, versioned, auditable, and evidence-guarded. One MU must not silently advance dependent MUs. Determine whether SHADOW/CANARY are states or deployment modes orthogonal to implementation authority.
 
-## 5. Source-language analysis and import
+## 5. Source-language analysis and import (Toolchain capability)
+
+Source parsing, compiler integration, semantic extraction, indexing, and import are frontend/Toolchain capabilities, not language-core features. RT-28 must identify stable APIs and semantic guarantees required from those tools; it must not assume that the LLMLang language itself needs migration-specific syntax or concepts.
 
 Study compiler-native frontends/semantic APIs, AST/parser import, compiler IR, language-server indexes/symbol databases, build-system integration/generated-code discovery, runtime instrumentation, and test/trace-derived behavioral constraints.
 
@@ -133,7 +137,9 @@ Do not blindly compare nondeterministic outputs. Define controlled environments,
 
 Classify evidence as proven under a stated formal model; verified for a finite corpus; observed in a specified runtime environment; inferred/assumed; or unknown/not checked. Finite tests are evidence, not universal proof. A divergence does not automatically establish an upstream defect.
 
-## 8. Mixed-language execution and state ownership
+## 8. Mixed-language execution and state ownership (runtime/interop boundary)
+
+ABI/FFI, adapters, bindings, process boundaries, and deployment integration are primarily runtime, library, or Toolchain concerns. A language-core change is justified only when a required source-level semantic guarantee cannot be expressed or preserved with existing LLMLang semantics plus runtime/tooling support.
 
 Research ABI/FFI and calling conventions; primitive/aggregate/optional/sum/string/error representation; ownership, borrowing, lifetime, aliasing and cleanup; callbacks/reentrancy; exceptions/panics and error translation; async tasks/cancellation/scheduling/thread affinity; global state and initialization/shutdown; transaction boundaries; generated bindings and version skew.
 
@@ -180,7 +186,9 @@ Shadow execution must not duplicate irreversible side effects. Use captured inpu
 
 Cutover is scoped to an MU and declared interfaces; it does not retire the upstream repository. Continue upstream monitoring. Source retirement requires separate review of callers, data, rollback, releases, and maintenance.
 
-## 11. Determinism, concurrency, and recovery
+## 11. Determinism, concurrency, and recovery across layers
+
+Migration workflow durability, Migration Unit scheduling, event journals, and migration-record recovery belong to the external migration service/AIVibeFlow. LLMLang Toolchain recovery applies only to its own workspaces, semantic state, operations, and repository contracts. SPG object layout and cache-first access are LLMLang infrastructure/storage concerns, not language semantics.
 
 Reproduce from pinned baselines, frontend/toolchain versions, policies, binding revisions, plans, and evidence. Independent MUs may proceed concurrently; conflicting edits to the same binding, shared state, contract, or dependency closure require coordination.
 
@@ -200,15 +208,40 @@ Treat source repositories, build scripts, dependencies, generated code, fixtures
 
 Passing tests or agent assertions cannot grant publication authority.
 
-## 13. AIVibeFlow integration boundary
+## 13. Architectural responsibility boundaries
 
-AIVibeFlow owns long-running Migration Project workflows, repository event ingestion, scheduling, agent orchestration, approvals, policy, budgets, audit, contribution publication, and durable task state.
+RT-28 studies a system assembled from independently deployable layers. It must not turn every useful migration capability into a requirement on the LLMLang language.
 
-LLMLang owns source-language semantic import/analysis contracts, SPG-side mirror representation, Mirror Binding semantics, semantic reconciliation, LLMLang impact integration, and language-level verification interfaces.
+### 13.1 LLMLang language core
 
-AIVibeFlow's native Git provider remains responsible for ordinary non-LLMLang repository mechanics. LLMLang Toolchain repository/worktree provider is used for LLMLang semantic repositories according to RT-22/RT-23. An upstream source repository must not be routed to LLMLang semantic Git merely because it participates in IMM. AIVibeFlow may orchestrate both providers with explicit repository bindings and separate grants.
+The language core owns only source-language semantics: syntax and type rules, evaluation and observable behavior, ownership/lifetime/effect/concurrency guarantees, contracts/invariants, and other guarantees required to express and verify programs.
 
-Cross-project workflow contracts are specified in AIVibeFlow. Neither project duplicates the other's authoritative contract.
+A core change is a candidate only when evidence shows that:
+- a required behavior or contract cannot be expressed with existing LLMLang constructs;
+- a required language-level safety or semantic guarantee is missing;
+- the source-level semantics of an interoperation boundary cannot be specified without a language change.
+
+Even then, first test whether a library, runtime, adapter, or Toolchain API can provide the capability without changing the language.
+
+Migration Project, Migration Unit, Mirror Binding, upstream repository, contribution, defect ticket, workflow state, approval, and cutover are not language constructs and must not be added to the language core merely to support migration.
+
+### 13.2 LLMLang Toolchain and infrastructure
+
+The Toolchain may provide compiler/frontend APIs, source import and semantic extraction, symbol/dependency indexes, semantic repository operations, impact analysis, diff/merge, verification interfaces, runtime/FFI support, SPG storage, and cache/recovery mechanisms.
+
+These are compiler, tooling, runtime, repository, or storage capabilities. They may be implemented as separate services or modules and should expose stable, versioned interfaces. RT-28 may depend on them, but must not describe them as language syntax or core semantics. The Toolchain need not own migration-specific records or lifecycle.
+
+### 13.3 External migration management
+
+AIVibeFlow or another independent service owns Migration Projects, Migration Unit records/indexes, Mirror Binding lifecycle and persistence, upstream Git monitoring, event ingestion, workflow scheduling, defect/contribution records, approvals, budgets, audit, rollout, cutover, and rollback orchestration.
+
+The migration service stores its own domain records and references LLMLang semantic entities/snapshots through stable Toolchain interfaces. It must not require Migration Units or Mirror Bindings to be first-class SPG objects. A different storage model is acceptable if identity, provenance, versioning, and consistency requirements are met.
+
+### 13.4 Decision test for proposed LLMLang changes
+
+For every proposed capability, classify it as language core, Toolchain/compiler, runtime/library, or external migration service. Prefer the outermost layer that satisfies the requirement. Promote a capability inward only when a concrete semantic limitation demonstrates that the outer layer cannot provide the required guarantee. Record the evidence and compatibility impact; do not infer a core-language requirement from the fact that a migration workflow needs the capability.
+
+AIVibeFlow is one possible orchestrator, not a dependency of the LLMLang language or Toolchain. The same LLMLang capabilities must remain usable by other orchestrators and standalone tooling.
 
 ## 14. Required research questions
 
@@ -232,6 +265,9 @@ Cross-project workflow contracts are specified in AIVibeFlow. Neither project du
 18. Which capabilities can be prototyped before LLMLang compiler/runtime completion?
 19. What are costs of source indexing, mirror maintenance, differential execution, and provenance?
 20. How do we prevent partial frontends or incomplete tests from creating false confidence?
+21. For every proposed capability, which layer owns it: language core, Toolchain/compiler, runtime/library, or external migration service?
+22. Which concrete requirements, if any, cannot be met without changing LLMLang core semantics?
+23. Can Migration Unit and Mirror Binding records remain entirely outside SPG and LLMLang semantic storage while preserving stable references and provenance?
 
 ## 15. Experimental plan and falsifiers
 
@@ -255,10 +291,10 @@ Compare incremental results with fresh analysis of the same pinned baseline. Une
 
 ## 16. Required deliverables
 
-Terminology/domain model; alternatives and decision matrices; language/frontend capability matrix; identity and Mirror Binding proposal; MU selection method; lifecycle/state transitions; incremental source-change/reconciliation protocol; contract/equivalence evidence model; ABI/adapter comparison; defect taxonomy and reproducer record; upstream contribution/downstream divergence protocol; AIVibeFlow workflow contract; threat model/authorization matrix; executable prototypes, fixtures, tests, benchmarks, negative controls; traceability from conclusions to sources/experiments/limitations; implementation roadmap with prerequisites and unresolved decisions.
+Layered responsibility map; terminology/domain model; alternatives and decision matrices; source frontend/Toolchain capability matrix; identity and Mirror Binding proposal; MU selection method; lifecycle/state transitions; incremental source-change/reconciliation protocol; contract/equivalence evidence model; ABI/adapter comparison; defect taxonomy and reproducer record; upstream contribution/downstream divergence protocol; external workflow contract; threat model/authorization matrix; executable prototypes, fixtures, tests, benchmarks, negative controls; explicit evidence for any proposed language-core change; traceability from conclusions to sources/experiments/limitations; implementation roadmap with prerequisites and unresolved decisions.
 
 ## 17. Acceptance criteria for the research
 
-Ready for integrated review only when every required question has an evidence-backed answer or explicit unresolved decision; alternatives have been compared; incremental analysis is checked against full-analysis oracles; identity/binding covers rename, move, split, merge, ambiguity; differential tests include stateful effects and negative controls; defect attribution distinguishes seeded source/mirror/adapter/oracle defects or records uncertainty; contribution replay covers accepted/rejected/deferred/modified patches; cutover/rollback and shadow safety are prototyped; security/publication authority are explicit; finite tests are not claimed as universal proof; and cross-links/dependencies are reviewed against RT-19/20/22/23/24/27.
+Ready for integrated review only when every required question has an evidence-backed answer or explicit unresolved decision; alternatives have been compared; incremental analysis is checked against full-analysis oracles; identity/binding covers rename, move, split, merge, ambiguity; differential tests include stateful effects and negative controls; defect attribution distinguishes seeded source/mirror/adapter/oracle defects or records uncertainty; contribution replay covers accepted/rejected/deferred/modified patches; cutover/rollback and shadow safety are prototyped; security/publication authority are explicit; finite tests are not claimed as universal proof; and cross-links/dependencies are reviewed against RT-19/20/22/23/24/27; every capability is assigned to the correct architectural layer; no migration-domain record or workflow is placed in language core without demonstrated semantic necessity.
 
 This is a research brief. It selects no source frontend, identity strategy, SPG schema, migration state machine, equivalence guarantee, interop ABI, rollout policy, or automated contribution authority.
