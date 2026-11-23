@@ -1,0 +1,62 @@
+name: Research Quality Root Corpus Census
+
+# Warning-only, surface-only census. No scientific claim or governance gate.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/scripts/research_quality_corpus_census.py"
+      - ".github/scripts/test_research_quality_corpus_census.py"
+      - ".github/workflows/research-quality-root-census.yml"
+      - "research/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  archive-census:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out prospective census scripts
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Pin pre-census research corpus
+        uses: actions/checkout@v4
+        with:
+          ref: 627c70878863b519a358815f8a96ddbae1303136
+          path: archival
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Test historical-census accounting and neutral sampler
+        run: python3 -B -m unittest discover -s .github/scripts -p 'test_research_quality_corpus_census.py' -v
+      - name: Enumerate all root research Markdown at exact Git commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/research-root-census
+          python3 -B .github/scripts/research_quality_corpus_census.py \
+            --repo archival \
+            --baseline 627c70878863b519a358815f8a96ddbae1303136 \
+            --json-out artifacts/research-root-census/full-census.json \
+            | tee artifacts/research-root-census/summary.log
+          test "$(git -C archival rev-parse HEAD)" = "627c70878863b519a358815f8a96ddbae1303136"
+          {
+            python3 --version
+            git --version
+            uname -srm
+          } | tee artifacts/research-root-census/environment.txt
+      - name: Archive warning-only census and deterministic review queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-root-census-2026-11-23
+          path: artifacts/research-root-census/
+          if-no-files-found: warn
+          retention-days: 30
