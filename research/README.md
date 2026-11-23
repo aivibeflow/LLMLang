@@ -141,7 +141,7 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 ## Corpus inventory and audit
 
 - [RT-00 B5 complete traceability graph audit (2026-11-21)](RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md) — graph model, unresolved corpus-wide edges, and current-main bounded RT-06/09/13/24/26 claim/evidence chains.
-- [RT-00 A current-main inventory freshness reconciliation (2026-11-23)](RT-00-A-CURRENT-MAIN-INVENTORY-FRESHNESS-RECONCILIATION-2026-11-23.md) — exact comparison against main `96431c7`: 588 baseline artifacts, three missing manifest records, and one stale taxonomy blob; the refreshed PR tree is subject to the inventory-freshness workflow.
+- [RT-00 A current-main inventory freshness reconciliation (2026-11-23)](RT-00-A-CURRENT-MAIN-INVENTORY-FRESHNESS-RECONCILIATION-2026-11-23.md) — exact comparison against main `5662fab`: 589 baseline artifacts, two missing manifest records, and one stale taxonomy blob; the refreshed PR tree is subject to the inventory-freshness workflow.
 - [Tracked research corpus inventory snapshot (2026-11-20)](RESEARCH-CORPUS-INVENTORY-2026-11-20.json) — 589 records in the refreshed PR tree, including the manifest-excluded audit report; RT-27's traceability mapping remains provisional pending taxonomy/dependency-map registration.
 - [RT-00 A prototype role review (2026-11-23)](RT-00-A-PROTOTYPE-ROLE-REVIEW-2026-11-23.md) — individual content-role mapping for the 36 previously unreviewed prototype paths and reconciliation to 289/289.
 - [RT-00 A inventory manifest freshness reconciliation (2026-11-21)](RT-00-A-INVENTORY-MANIFEST-FRESHNESS-RECONCILIATION-2026-11-21.md) — exact recursive-tree reconciliation, latest snapshot: 554 records, 66 additions, and 20 refreshed blob records.
