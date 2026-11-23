@@ -224,6 +224,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Status:** researched; decision pending on formal compatibility, refinement/substitution criteria, and the evidence needed for implementation selection.
 
+**Research output (2026-11-23):** [Contract versus implementation identity recheck](research/RT-04-CONTRACT-VS-IMPLEMENTATION-IDENTITY-RECHECK-2026-11-23.md) reran the synthetic binding fixture on current main. It demonstrates two observably different implementations satisfying the same bounded contract, while caller compilation remains reusable only across a stable separately linked boundary. This supports separating OpHash from ImplHash and using explicit BindingHash when exact execution must be pinned; it does not prove general refinement/substitutability or settle the OpHash envelope.
+
 ## 1.4 Core language semantics (RT-03)
 
 **Estimated research complexity:** **7/10** — substantial remaining work on source correspondence, effects, paths, calls, cancellation, resources, and independent review.
