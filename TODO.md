@@ -11,6 +11,8 @@ It is not a specification. Items here may contain hypotheses and recommendations
 
 The [Stage 0.2 warning adjudication](research/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md) resolves the *documentation triage classification* of 33 historical warnings (16 layout-only; 17 documentation gaps). It does not decide evidence validity, select any LLMLang semantics or satisfy open LL evidence-identity questions. The eight provenance gaps and nine other process gaps are tracked by [issue #285](https://github.com/aivibeflow/LLMLang/issues/285), rather than creating unrelated LL design-question IDs.
 
+**Stage 0.2 provenance distinction:** [Pinned eight-report publication-history report](research/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md) finds recoverable Git tree snapshots but does not authenticate original uncommitted run sources. The five-workload [historical recheck workflow](.github/workflows/research-historical-rechecks.yml) is a new bounded execution, not proof of historical experiment/toolchain identity. Keep the missing original-run attestations and other nine documentation crosswalk gaps tracked in [issue #285](https://github.com/aivibeflow/LLMLang/issues/285).
+
 ## How to use this register
 
 Each item has a stable ID. Keep the ID when the wording or status changes.
