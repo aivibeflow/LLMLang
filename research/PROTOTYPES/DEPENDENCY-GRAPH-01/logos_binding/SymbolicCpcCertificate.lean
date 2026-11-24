@@ -8,9 +8,15 @@ open LLMLang.CpcNullaryAliases
 
 private def declarations : List ExpectedDeclaration := [⟨"v0", .int⟩]
 
-private def mentionsSecondInput : Logos.Sexp → Bool
-  | .atom name => name == "v1" || name == "|v1|"
-  | .expr args => args.any mentionsSecondInput
+mutual
+  private def mentionsSecondInput : Logos.Sexp → Bool
+    | .atom name => name == "v1" || name == "|v1|"
+    | .expr args => mentionsSecondInputInList args
+
+  private def mentionsSecondInputInList : List Logos.Sexp → Bool
+    | [] => false
+    | head :: tail => mentionsSecondInput head || mentionsSecondInputInList tail
+end
 
 /-- The two archived SMT queries both declare v1 and leave it unused in the assertion. -/
 def sourceAssumptions (query : String) : Except String (List Eo.Term) := do

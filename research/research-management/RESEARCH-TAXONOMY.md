@@ -27,6 +27,8 @@ The [program assumption proof](../formal-verification/RT-07/RT-07-LOGOS-PROGRAM-
 
 The [upstream model comparison](../formal-verification/RT-07/RT-07-LOGOS-UPSTREAM-SCALAR-MODEL-2026-11-24.md) relates the shared RT-07 evaluator to pinned Logos semantics for all accepted scalar terms under related constant values.
 
+The [single-kernel program theorem](../formal-verification/RT-07/RT-07-LOGOS-SINGLE-KERNEL-PROGRAM-2026-11-24.md) connects RT-07 source dependence and the upstream Logos proof model in one Lean toolchain under related constant valuations.
+
 Scenario 115 records C++ fence synchronization conditions and the scope of the `seq_cst` order. Release/acquire fences need a specified read-from link through atomic operations; `seq_cst` operations and fences participate in a constrained total order, but the current draft does not make that order consistent with all happens-before edges when weaker orders are mixed. One axiom-driven fixture checks the payload outcomes from a stipulated fence link. This is not a full fence or mixed-order model; no LLMLang policy is selected.
 
 Scenario 116 compares source memory-order obligations with LLVM IR and target lowering. It proposes source `Relaxed`→LLVM `monotonic` for validation because LLVM `unordered` is weaker and lacks per-object modification-order/coherence guarantees. LLVM atomics in IR are required lock-free, while unsupported widths may fail code generation. Three width-availability policies are compared: target-gated types, a lock-backed fallback, and native atomics plus an explicit fallback API. Source semantics must not inherit incidental IR behavior; fallback changes progress and async/signal properties. No source-to-IR proof or LLMLang atomic availability policy has been validated.
