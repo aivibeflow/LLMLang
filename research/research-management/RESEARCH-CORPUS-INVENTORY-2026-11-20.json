@@ -2,37 +2,37 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "07cfa1e9ef24e01eb169d454909076cbd1669ee5",
-  "source": "Exact current-main inventory based on 07cfa1e9ef24e01eb169d454909076cbd1669ee5; manifest itself excluded.",
+  "revision": "a396e2709c811ffb1810e2e62d93849c890d8ca6",
+  "source": "Exact current-main reconciliation at a396e2709c811ffb1810e2e62d93849c890d8ca6; PR-tree paths, blobs and sizes are refreshed against the reviewed worktree; manifest itself excluded.",
   "counts": {
-    "research_files": 884,
-    "research_artifacts_excluding_manifest": 884,
-    "markdown_files": 426,
+    "research_files": 904,
+    "research_artifacts_excluding_manifest": 904,
+    "markdown_files": 432,
     "mdx_files": 3,
-    "python_files": 274,
-    "lean_source_files": 44,
+    "python_files": 275,
+    "lean_source_files": 51,
     "scenario_named_documents": 136,
-    "prototype_tree_files": 305,
+    "prototype_tree_files": 320,
     "preparation_and_reference_files": 24,
     "taxonomy_research_areas": 38,
     "dependency_edges": 262,
     "category_counts": {
-      "audit-or-review-report": 85,
-      "cross-cutting-synthesis-or-status": 4,
-      "example-or-fixture": 49,
-      "external-source-snapshot-or-license": 13,
-      "index-or-research-management": 14,
-      "other-research-artifact": 2,
-      "prototype-or-experiment-implementation": 195,
       "prototype-report-or-readme": 30,
-      "prototype-test-evidence": 191,
-      "reference-register-or-manifest": 2,
-      "research-area-or-experiment-document": 99,
+      "prototype-or-experiment-implementation": 203,
+      "prototype-test-evidence": 197,
+      "other-research-artifact": 2,
+      "index-or-research-management": 14,
+      "research-area-or-experiment-document": 105,
       "research-background-or-design-analysis": 30,
-      "research-preparation-brief-or-index": 13,
-      "research-rfc-or-protocol-proposal": 2,
       "scenario-research-result": 136,
-      "structured-fixture-or-schema": 19
+      "research-preparation-brief-or-index": 13,
+      "example-or-fixture": 49,
+      "structured-fixture-or-schema": 19,
+      "audit-or-review-report": 85,
+      "reference-register-or-manifest": 2,
+      "external-source-snapshot-or-license": 13,
+      "cross-cutting-synthesis-or-status": 4,
+      "research-rfc-or-protocol-proposal": 2
     }
   },
   "classification_note": "Against the 870-record manifest on main b7a4c0d, 14 additions have individual role review and 4 existing content changes were inspected. The current manifest reconciles all 884 tracked research paths. Role triage is not claim validation.",
@@ -866,6 +866,39 @@
       "role_recheck": "Current title or module entry point, purpose and family reviewed. Claim reruns are tracked independently."
     },
     {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosProgramBridge.lean",
+      "git_blob_sha": "39dc3bf7c37f25cde14f7a3e7839513e4fd3de7d",
+      "size_bytes": 5677,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned Logos scalar denotation report, Lean module, CI/build artifact and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Lean source proves the admitted program-level assumption meaning bridge."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosQueryAdapter.lean",
       "git_blob_sha": "165d922c864e5e89b9cffb1561c33ef8e9ec02d8",
       "size_bytes": 5638,
@@ -914,8 +947,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosRenderedSorts.lean",
-      "git_blob_sha": "1d6867600a66770c92fa91edb44888a302e7e6a8",
-      "size_bytes": 12268,
+      "git_blob_sha": "b5133ae68d1be9dc942eab31b07edc34e0129c29",
+      "size_bytes": 13538,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -934,8 +967,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosScalarDenotation.lean",
-      "git_blob_sha": "0089f8e7c93331b10191727d321a1890fd59e320",
-      "size_bytes": 12694,
+      "git_blob_sha": "f772115ede53449bcad5336c1b77488849ade6b5",
+      "size_bytes": 10610,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -951,6 +984,105 @@
       "semantic_review": {
         "status": "individual-file-role-triaged",
         "basis": "Lean fixture for finite scalar denotation through pinned Logos translation."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosScalarEvaluation.lean",
+      "git_blob_sha": "ca321788a20f4b2b11d5abe6a9060e6926d3e61e",
+      "size_bytes": 2519,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/replay/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned upstream model report, shared evaluator, Lean module/replay, CI build and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Shared restricted scalar evaluator used for the LLMLang program proof and pinned upstream Logos model comparison."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosScalarPreservation.lean",
+      "git_blob_sha": "a58cd6994917923792b0792e2671631fe5340069",
+      "size_bytes": 12295,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned Logos scalar denotation report, Lean module, CI/build artifact and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Lean source proves typed scalar expression preservation through Logos translation."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosValuationBinding.lean",
+      "git_blob_sha": "7695e01cf67085f0ae3ff6c767f778f062c09dc3",
+      "size_bytes": 6221,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned Logos scalar denotation report, Lean module, CI/build artifact and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Lean source proves exact values for successfully resolved CPC constants and rejects translated identity aliases."
       }
     },
     {
@@ -1608,8 +1740,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean",
-      "git_blob_sha": "b30337f32264a93939ff93e0d93b78fc961028c8",
-      "size_bytes": 9660,
+      "git_blob_sha": "3d67dea8ca8c6f6415f4ed9fc2f3d2aa89a9d167",
+      "size_bytes": 11359,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1848,8 +1980,8 @@
         "basis": "Lean binding for exact source assertions and Logos CPC verdicts."
       },
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCpcCertificate.lean",
-      "git_blob_sha": "a097a146970221556a0ad9c673f42b74676c15aa",
-      "size_bytes": 3956
+      "git_blob_sha": "4d36a3705263286f43ec1ea3aee23728f65e75bc",
+      "size_bytes": 4142
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/TypedQueryEquality.lean",
@@ -1893,8 +2025,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-denotation/observations.txt",
-      "git_blob_sha": "6325914f421163c77777f01b559003b4fd120ba1",
-      "size_bytes": 218,
+      "git_blob_sha": "0a199bdd562b066357f1d66570469b9cf054b15f",
+      "size_bytes": 217,
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
@@ -1910,6 +2042,105 @@
       "semantic_review": {
         "status": "individual-file-role-triaged",
         "basis": "Recorded finite denotation observations."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-model-extension/axioms.txt",
+      "git_blob_sha": "159512e70af2078efc6a6fc32aaac6251b5c2737",
+      "size_bytes": 652,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual model-extension report/proof/axiom output and direct Plan/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned model-extension report, Lean proof, exact axiom output, replay/CI, and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Pinned axiom output distinguishes standard overlay proof axioms from upstream native_decide used for unconditional model existence."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-preservation/axioms.txt",
+      "git_blob_sha": "d379f4d4c03dc41137a0e654c7a7d12a6d7659a8",
+      "size_bytes": 115,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned Logos scalar denotation report, Lean module, CI/build artifact and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Pinned Lean axiom output for LogosScalarPreservation."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-program-bridge/axioms.txt",
+      "git_blob_sha": "2fe6ef1ab89ea043121a05cd51d90ae6777ffb7e",
+      "size_bytes": 124,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned Logos scalar denotation report, Lean module, CI/build artifact and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Pinned Lean axiom output for LogosProgramBridge."
       }
     },
     {
@@ -1930,6 +2161,105 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Recorded axiom inventory for the bounded Logos rendered-sort proof."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-upstream-model/axioms.txt",
+      "git_blob_sha": "d18849fbf18dcb95496310cb483ca677a3f4a65c",
+      "size_bytes": 119,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/replay/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned upstream model report, shared evaluator, Lean module/replay, CI build and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Pinned Lean axiom output for the upstream Cpc.SmtModel evaluation correspondence theorem."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-upstream-program/axioms.txt",
+      "git_blob_sha": "be4be7514c5dfd7fb3504f7d2e6e61a11cbf16a2",
+      "size_bytes": 132,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual composition report/Lean source/axiom output and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned single-kernel composition report, proof module, replay/CI evidence, and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Pinned Lean axiom output for the single-kernel source-program and upstream-model composition theorem."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-valuation/axioms.txt",
+      "git_blob_sha": "9d84a5bce09f44302fee2f108ae946e1efd1e048",
+      "size_bytes": 241,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned Logos scalar denotation report, Lean module, CI/build artifact and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Pinned Lean axiom output for LogosValuationBinding."
       }
     },
     {
@@ -2034,8 +2364,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
-      "git_blob_sha": "ed9a3a13868a729a248d4bd39b9323129f17fd94",
-      "size_bytes": 1168,
+      "git_blob_sha": "d8d92de3da281e60361f62c959b02879dcdc1c8c",
+      "size_bytes": 1291,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -2123,6 +2453,138 @@
       "semantic_review": {
         "status": "file-role-triaged",
         "basis": "Inspected module imports, definitions/proofs, module-boundary/task scope, or pinned Lean toolchain/build configuration."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/LogosModelExtension.lean",
+      "git_blob_sha": "d34774e750fe94ac627048866d29fd4e160ce50c",
+      "size_bytes": 4069,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual model-extension report/proof/axiom output and direct Plan/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned model-extension report, Lean proof, exact axiom output, replay/CI, and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Lean proof extends scalar valuations to well-formed models by exact name/sort overlay and exposes the upstream existence dependency."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/LogosUpstreamProgram.lean",
+      "git_blob_sha": "966bfdfd18cc06da2c2dac776efc5487217c5159",
+      "size_bytes": 3619,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual composition report/Lean source/axiom output and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned single-kernel composition report, proof module, replay/CI evidence, and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Lean 4.34 proof composes the parsed source-program assumption meaning with Cpc.SmtModel evaluation under related models."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/LogosUpstreamScalarModel.lean",
+      "git_blob_sha": "acbfc21545908d76f6b2b4e92ac62a96520e645c",
+      "size_bytes": 10307,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/replay/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned upstream model report, shared evaluator, Lean module/replay, CI build and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Lean theorem compares every successful restricted scalar evaluation with the pinned upstream Logos model."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/replay.py",
+      "git_blob_sha": "e15f00e032ba3092fd5777dccf034700b9902bcf",
+      "size_bytes": 5027,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/replay/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned upstream model report, shared evaluator, Lean module/replay, CI build and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Pinned replay runner builds upstream Cpc.SmtModel and checks recorded axioms."
       }
     },
     {
@@ -11176,8 +11638,8 @@
     },
     {
       "path": "research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-      "git_blob_sha": "49a34e515cb1ce870de78a94382a81c42032655b",
-      "size_bytes": 36384,
+      "git_blob_sha": "6b87af963a9e202511d0d6637b968209a9437d4f",
+      "size_bytes": 37957,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -11268,6 +11730,72 @@
       }
     },
     {
+      "path": "research/formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md",
+      "git_blob_sha": "a4bb56ad9f0aeaad3948630591f36bcc7aa04f01",
+      "size_bytes": 3530,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual model-extension report/proof/axiom output and direct Plan/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned model-extension report, Lean proof, exact axiom output, replay/CI, and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Report compares supplied-model overlay with unconditional model existence and traces the extra native_decide dependency."
+      }
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-LOGOS-PROGRAM-ASSUMPTIONS-2026-11-24.md",
+      "git_blob_sha": "45fc2d054ea75f1c3718444fbf999691b498133b",
+      "size_bytes": 4534,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned Logos scalar denotation report, Lean module, CI/build artifact and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Report compares exact parsed CPC assumptions with dependence in paired concrete source executions."
+      }
+    },
+    {
       "path": "research/formal-verification/RT-07/RT-07-LOGOS-RENDERED-SORTS.md",
       "git_blob_sha": "e6ec28e6046d1b22957125b9267a225c0fd52a1a",
       "size_bytes": 3831,
@@ -11307,6 +11835,138 @@
       "semantic_review": {
         "status": "individual-file-role-triaged",
         "basis": "Finite source-to-Logos scalar denotation comparison."
+      }
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-LOGOS-SCALAR-PRESERVATION-2026-11-24.md",
+      "git_blob_sha": "ed8715c6c08324527c97206b8236ee924a3014bf",
+      "size_bytes": 3662,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned Logos scalar denotation report, Lean module, CI/build artifact and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Report states the typed scalar expression preservation theorem and its evaluator/upstream model boundary."
+      }
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-LOGOS-SINGLE-KERNEL-PROGRAM-2026-11-24.md",
+      "git_blob_sha": "fb86ea0d4e60e5e3b8793877af3c1cf11646252d",
+      "size_bytes": 3032,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual composition report/Lean source/axiom output and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned single-kernel composition report, proof module, replay/CI evidence, and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Report records the Lean 4.34 single-kernel composition, toolchain compatibility workaround, exact scope, and remaining model/lifting/soundness obligations."
+      }
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-LOGOS-UPSTREAM-SCALAR-MODEL-2026-11-24.md",
+      "git_blob_sha": "4eefe13bf645fb2b2d67ed9ba777936add38eb09",
+      "size_bytes": 3486,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/replay/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned upstream model report, shared evaluator, Lean module/replay, CI build and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Report compares LLMLang restricted scalar evaluation with pinned upstream Cpc.SmtModel semantics and names model-existence/composition limits."
+      }
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-LOGOS-VALUATION-BINDING-2026-11-24.md",
+      "git_blob_sha": "58cc8e62805d156a7574f516e28b79c31a322d6e",
+      "size_bytes": 3755,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32",
+          "Scenario 34"
+        ],
+        "method": "individual report/source/axiom artifact and direct PLAN/Scenario 34 cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2
+        ],
+        "basis": "Pinned Logos scalar denotation report, Lean module, CI/build artifact and direct Plan links."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Report states exact constant valuation correspondence, duplicate identity rejection and composition boundary."
       }
     },
     {
@@ -16246,8 +16906,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "cd28ec7d8fa61edc14f53500a00ee80705c4a8ba",
-      "size_bytes": 92005,
+      "git_blob_sha": "96d87096653f6cb0693d551f3d586283b843e50f",
+      "size_bytes": 94070,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -16267,8 +16927,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
-      "git_blob_sha": "19b312248f5d1b93335b92ec5aeac2137269c263",
-      "size_bytes": 95999,
+      "git_blob_sha": "7acc516bc97b5bb5310f7f492b53e21925fe75a5",
+      "size_bytes": 96862,
       "category": "cross-cutting-synthesis-or-status",
       "traceability": {
         "items": [
@@ -16387,8 +17047,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "d5417861c97a97a6fb9290bf2eb9148aa6b8a69b",
-      "size_bytes": 63441,
+      "git_blob_sha": "429889c507031c8bbf4ba468e94a855a9868ff94",
+      "size_bytes": 64944,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -16536,8 +17196,8 @@
     },
     {
       "path": "research/research-management/RT-00/RT-00-A-POST-THEMATIC-INVENTORY-REFRESH-2026-11-24.md",
-      "git_blob_sha": "e113e4a72af343496aca238394be688130ebf01d",
-      "size_bytes": 8072,
+      "git_blob_sha": "e0a6d0014a41be9a596ce2ed50aeb845dfb8e887",
+      "size_bytes": 7749,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -23725,99 +24385,110 @@
   },
   "latest_main_reconciliation": {
     "reviewed_at": "2026-11-24",
-    "source_revision": "07cfa1e9ef24e01eb169d454909076cbd1669ee5",
-    "previous_manifest_revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
-    "previous_records": 870,
-    "main_artifacts_excluding_manifest": 884,
+    "source_revision": "a396e2709c811ffb1810e2e62d93849c890d8ca6",
+    "previous_manifest_revision": "07cfa1e9ef24e01eb169d454909076cbd1669ee5",
+    "previous_records": 884,
+    "main_artifacts_excluding_manifest": 904,
     "missing_manifest_paths": [
-      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosScalarDenotation.lean",
-      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-denotation/observations.txt",
-      "research/formal-verification/RT-07/RT-07-LOGOS-SCALAR-DENOTATION-2026-11-24.md",
-      "research/language-design/RT-04/RT-04-LINUX-OWNED-CLEANUP-2026-11-24.md",
-      "research/language-design/RT-04/linux-owned-cleanup/owned_cleanup.c",
-      "research/language-design/RT-04/linux-owned-cleanup/results.json",
-      "research/language-design/RT-04/linux-owned-cleanup/run.py",
-      "research/semantic-representation/RT-05/PUBLIC-INTERFACE-MODULAR-CALLER-2026-11-24.md",
-      "research/semantic-representation/RT-05/PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md",
-      "research/semantic-representation/RT-05/public-refinement-pilot/ModularCaller.lean",
-      "research/semantic-representation/RT-05/public-refinement-pilot/modular-provider-results.json",
-      "research/semantic-representation/RT-05/public-refinement-pilot/modular_provider.py",
-      "research/semantic-representation/RT-05/public-refinement-pilot/provider_evidence_rebind.py",
-      "research/semantic-representation/RT-05/public-refinement-pilot/rebind-results.json"
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosProgramBridge.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosScalarEvaluation.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosScalarPreservation.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosValuationBinding.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-model-extension/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-preservation/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-program-bridge/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-upstream-model/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-upstream-program/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-valuation/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/LogosModelExtension.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/LogosUpstreamProgram.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/LogosUpstreamScalarModel.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/replay.py",
+      "research/formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md",
+      "research/formal-verification/RT-07/RT-07-LOGOS-PROGRAM-ASSUMPTIONS-2026-11-24.md",
+      "research/formal-verification/RT-07/RT-07-LOGOS-SCALAR-PRESERVATION-2026-11-24.md",
+      "research/formal-verification/RT-07/RT-07-LOGOS-SINGLE-KERNEL-PROGRAM-2026-11-24.md",
+      "research/formal-verification/RT-07/RT-07-LOGOS-UPSTREAM-SCALAR-MODEL-2026-11-24.md",
+      "research/formal-verification/RT-07/RT-07-LOGOS-VALUATION-BINDING-2026-11-24.md"
     ],
     "manifest_only_paths": [],
     "stale_blob_or_size_paths": [
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosRenderedSorts.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosScalarDenotation.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCpcCertificate.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-denotation/observations.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
       "research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
       "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
-      "research/research-management/RESEARCH-TAXONOMY.md",
-      "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md"
+      "research/research-management/RESEARCH-TAXONOMY.md"
     ],
-    "added_role_review": "14 additions individually mapped to RT-04 Linux FFI, RT-05 receipt/modular proof and RT-07 finite denotation artifacts based on report, sources, ledgers and Plan links.",
-    "changed_role_review": "Four existing records inspected: RT-05 proposal, Scenario 34, taxonomy and dependency map.",
-    "current_pr_tree_records": 884,
+    "added_role_review": "Twenty additions individually mapped from #472–#479: six RT-07/32/Scenario 34 reports, seven Lean proof/evaluator sources, six axiom ledgers, and one upstream replay runner; paired reports, sources, CI/build evidence, and Plan links were inspected.",
+    "changed_role_review": "Nine changed main records inspected: Logos sort and denotation modules, SourceQueryEnvelope, SymbolicCpcCertificate, denotation observations, Lake build file, Scenario 34, dependency map, and taxonomy.",
+    "current_pr_tree_records": 904,
     "counts": {
-      "research_files": 884,
-      "research_artifacts_excluding_manifest": 884,
-      "markdown_files": 426,
+      "research_files": 904,
+      "research_artifacts_excluding_manifest": 904,
+      "markdown_files": 432,
       "mdx_files": 3,
-      "python_files": 274,
-      "lean_source_files": 44,
+      "python_files": 275,
+      "lean_source_files": 51,
       "scenario_named_documents": 136,
-      "prototype_tree_files": 305,
+      "prototype_tree_files": 320,
       "preparation_and_reference_files": 24,
       "taxonomy_research_areas": 38,
       "dependency_edges": 262,
       "category_counts": {
-        "audit-or-review-report": 85,
-        "cross-cutting-synthesis-or-status": 4,
-        "example-or-fixture": 49,
-        "external-source-snapshot-or-license": 13,
-        "index-or-research-management": 14,
-        "other-research-artifact": 2,
-        "prototype-or-experiment-implementation": 195,
         "prototype-report-or-readme": 30,
-        "prototype-test-evidence": 191,
-        "reference-register-or-manifest": 2,
-        "research-area-or-experiment-document": 99,
+        "prototype-or-experiment-implementation": 203,
+        "prototype-test-evidence": 197,
+        "other-research-artifact": 2,
+        "index-or-research-management": 14,
+        "research-area-or-experiment-document": 105,
         "research-background-or-design-analysis": 30,
-        "research-preparation-brief-or-index": 13,
-        "research-rfc-or-protocol-proposal": 2,
         "scenario-research-result": 136,
-        "structured-fixture-or-schema": 19
+        "research-preparation-brief-or-index": 13,
+        "example-or-fixture": 49,
+        "structured-fixture-or-schema": 19,
+        "audit-or-review-report": 85,
+        "reference-register-or-manifest": 2,
+        "external-source-snapshot-or-license": 13,
+        "cross-cutting-synthesis-or-status": 4,
+        "research-rfc-or-protocol-proposal": 2
       }
     },
     "local_navigation_audit": {
-      "revision": "07cfa1e9ef24e01eb169d454909076cbd1669ee5",
-      "documents_scanned": 430,
-      "markdown_mdx_research": 429,
+      "revision": "a396e2709c811ffb1810e2e62d93849c890d8ca6",
+      "documents_scanned": 436,
+      "markdown_mdx_research": 435,
       "index_documents": 35,
-      "local_link_occurrences": 3055,
+      "local_link_occurrences": 3113,
       "zero_inbound": 18,
       "without_designated_index_inbound": 52,
       "unresolved_local_targets": 38,
-      "non_markdown_targets": 760,
+      "non_markdown_targets": 772,
       "scenario_documents": 136,
       "scenario_zero_inbound": 4,
       "scenario_without_index": 29,
-      "unique_research_targets_with_inbound_links": 411,
+      "unique_research_targets_with_inbound_links": 417,
       "python": "3.12.14",
       "git": "2.52.0"
     }
   },
   "index_coverage": {
     "index": "research/README.md",
-    "audit_revision": "07cfa1e9ef24e01eb169d454909076cbd1669ee5",
-    "research_markdown_mdx_documents": 429,
-    "documents_scanned": 430,
+    "audit_revision": "a396e2709c811ffb1810e2e62d93849c890d8ca6",
+    "research_markdown_mdx_documents": 435,
+    "documents_scanned": 436,
     "index_documents": 35,
-    "local_link_occurrences": 3055,
-    "unique_research_targets_with_inbound_links": 411,
+    "local_link_occurrences": 3113,
+    "unique_research_targets_with_inbound_links": 417,
     "research_documents_with_zero_inbound_links": 18,
     "research_documents_without_inbound_link_from_designated_index": 52,
     "scenario_documents": 136,
     "scenario_documents_with_zero_inbound_links": 4,
     "scenario_documents_without_inbound_link_from_designated_index": 29,
     "unresolved_local_targets": 38,
-    "non_markdown_targets": 760
+    "non_markdown_targets": 772
   }
 }
