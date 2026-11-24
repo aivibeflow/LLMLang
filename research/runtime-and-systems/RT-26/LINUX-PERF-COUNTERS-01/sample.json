@@ -1,0 +1,9 @@
+{
+  "fallback": {
+    "cpu_ns": 20000277,
+    "involuntary_context_switches": 2,
+    "minor_faults": 65,
+    "voluntary_context_switches": 0
+  },
+  "native_samples": {}
+}
