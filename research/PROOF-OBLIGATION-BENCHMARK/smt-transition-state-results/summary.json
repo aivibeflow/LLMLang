@@ -1,0 +1,38 @@
+{
+  "profile": {
+    "id": "transition-state-smt-v1",
+    "solver_version": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+    "logic": "QF_LIA",
+    "timeout_seconds": 30,
+    "trace_max_actions": 8,
+    "obligation": "state at each action boundary for fixed initial registers and trace",
+    "unsupported": [
+      "effects",
+      "invariants",
+      "noninterference",
+      "symbolic initial states",
+      "unbounded traces",
+      "proof certificates"
+    ]
+  },
+  "solver_version": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+  "batch_status": "ok",
+  "query_sha256": "25ac10266d5f2106d37ea93f5c5d5fa2e4683a3e8f65185d633c9eb6f2acc3ef",
+  "stdout_sha256": "c41a8cacac14641d6744c766e0a45825b42ccbacef8e6dd663371a05dcb4ad7a",
+  "counts": {
+    "bounded-agreement": 712,
+    "replayed-counterexample": 86
+  },
+  "controls": [
+    {
+      "control": "all-boundaries",
+      "solver": "sat",
+      "outcome": "replayed-counterexample"
+    },
+    {
+      "control": "final-only",
+      "solver": "unsat",
+      "outcome": "translation-or-solver-conflict"
+    }
+  ]
+}
