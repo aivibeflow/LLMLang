@@ -1,0 +1,499 @@
+{
+  "format": "rt05-multi-parent-lineage/1",
+  "git": "git version 2.52.0",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "python": "3.12.14",
+  "results": [
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 0,
+      "expected": "eligible",
+      "left_and_right": [
+        "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "9654665798f7e6322e6423f96ca120570a40d91f"
+      ],
+      "lifetimes": [
+        "continued",
+        "continued"
+      ],
+      "merged_commit": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": null,
+      "parent_states": [
+        "eligible",
+        "eligible"
+      ],
+      "policies": {
+        "all-parents": "eligible",
+        "any-parent": "eligible",
+        "exact-choice": "eligible",
+        "first-parent": "eligible"
+      },
+      "receipt": {
+        "issuer": "fixture-resolution-authority",
+        "merge": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+        "parents": [
+          "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+          "9654665798f7e6322e6423f96ca120570a40d91f"
+        ],
+        "slot": "callee",
+        "source": "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "10b3938a9f5aefd7fc77a3cbca0e1d97eac1efb3b519e7228e8d23636a401a3de46fafb7da2515666fef730eb9df83860d76e5f178b7682f27149e23451c9805"
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 0,
+      "expected": "eligible",
+      "left_and_right": [
+        "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "6a7f19c5d9a49f0e76ef534d5c1cd5e798cf6cda"
+      ],
+      "lifetimes": [
+        "continued",
+        "recreated"
+      ],
+      "merged_commit": "be449d71ff8adc150f5f3315581a180a85960c96",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": null,
+      "parent_states": [
+        "eligible",
+        "ineligible"
+      ],
+      "policies": {
+        "all-parents": "ineligible",
+        "any-parent": "eligible",
+        "exact-choice": "eligible",
+        "first-parent": "eligible"
+      },
+      "receipt": {
+        "issuer": "fixture-resolution-authority",
+        "merge": "be449d71ff8adc150f5f3315581a180a85960c96",
+        "parents": [
+          "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+          "6a7f19c5d9a49f0e76ef534d5c1cd5e798cf6cda"
+        ],
+        "slot": "callee",
+        "source": "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "25e6a03d9671356acd99d2788756435135993853e18266ceeeea184dd93276d837a5623ecf8bc04696d5892c7f7e34ddbaf510f32655ad6e73635a22305ea104"
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 1,
+      "expected": "ineligible",
+      "left_and_right": [
+        "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "6a7f19c5d9a49f0e76ef534d5c1cd5e798cf6cda"
+      ],
+      "lifetimes": [
+        "continued",
+        "recreated"
+      ],
+      "merged_commit": "be449d71ff8adc150f5f3315581a180a85960c96",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": null,
+      "parent_states": [
+        "eligible",
+        "ineligible"
+      ],
+      "policies": {
+        "all-parents": "ineligible",
+        "any-parent": "eligible",
+        "exact-choice": "ineligible",
+        "first-parent": "eligible"
+      },
+      "receipt": {
+        "issuer": "fixture-resolution-authority",
+        "merge": "be449d71ff8adc150f5f3315581a180a85960c96",
+        "parents": [
+          "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+          "6a7f19c5d9a49f0e76ef534d5c1cd5e798cf6cda"
+        ],
+        "slot": "callee",
+        "source": "6a7f19c5d9a49f0e76ef534d5c1cd5e798cf6cda",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "bf7737aa041e32e1eba7d315b42266308143f4f9bc69b14bc814bd82a26828d49e958bb83a353b07f60542b8a1f69067304603129a70b2b0aedd65483e863c0d"
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 0,
+      "expected": "ineligible",
+      "left_and_right": [
+        "0de9844eb9fab3fd1ef89d9f089ee45dc02d4407",
+        "9654665798f7e6322e6423f96ca120570a40d91f"
+      ],
+      "lifetimes": [
+        "recreated",
+        "continued"
+      ],
+      "merged_commit": "8f9aad6b28293a81b8318a36ab852d9f391b0094",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": null,
+      "parent_states": [
+        "ineligible",
+        "eligible"
+      ],
+      "policies": {
+        "all-parents": "ineligible",
+        "any-parent": "eligible",
+        "exact-choice": "ineligible",
+        "first-parent": "ineligible"
+      },
+      "receipt": {
+        "issuer": "fixture-resolution-authority",
+        "merge": "8f9aad6b28293a81b8318a36ab852d9f391b0094",
+        "parents": [
+          "0de9844eb9fab3fd1ef89d9f089ee45dc02d4407",
+          "9654665798f7e6322e6423f96ca120570a40d91f"
+        ],
+        "slot": "callee",
+        "source": "0de9844eb9fab3fd1ef89d9f089ee45dc02d4407",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "6ef58a8f9c852399a704388d252969fb768d7f4f96a8c105e5d2bb907f79e13b03f320e37bfbfbc6487a093904fb515ec3dbdbbf5ec19265c66d5c8af07b0504"
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 1,
+      "expected": "eligible",
+      "left_and_right": [
+        "0de9844eb9fab3fd1ef89d9f089ee45dc02d4407",
+        "9654665798f7e6322e6423f96ca120570a40d91f"
+      ],
+      "lifetimes": [
+        "recreated",
+        "continued"
+      ],
+      "merged_commit": "8f9aad6b28293a81b8318a36ab852d9f391b0094",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": null,
+      "parent_states": [
+        "ineligible",
+        "eligible"
+      ],
+      "policies": {
+        "all-parents": "ineligible",
+        "any-parent": "eligible",
+        "exact-choice": "eligible",
+        "first-parent": "ineligible"
+      },
+      "receipt": {
+        "issuer": "fixture-resolution-authority",
+        "merge": "8f9aad6b28293a81b8318a36ab852d9f391b0094",
+        "parents": [
+          "0de9844eb9fab3fd1ef89d9f089ee45dc02d4407",
+          "9654665798f7e6322e6423f96ca120570a40d91f"
+        ],
+        "slot": "callee",
+        "source": "9654665798f7e6322e6423f96ca120570a40d91f",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "2d531d234bf1c140ba78206b89d3444effc4b3735e27b58de4ac53020016197d8a71f369664eb2a0c7ff24e80d559742f999aaace122c32c6f8526c5c4ae5705"
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 1,
+      "expected": "ineligible",
+      "left_and_right": [
+        "0de9844eb9fab3fd1ef89d9f089ee45dc02d4407",
+        "6a7f19c5d9a49f0e76ef534d5c1cd5e798cf6cda"
+      ],
+      "lifetimes": [
+        "recreated",
+        "recreated"
+      ],
+      "merged_commit": "d445d8181452bbec66acee78425f9263969eaf72",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": null,
+      "parent_states": [
+        "ineligible",
+        "ineligible"
+      ],
+      "policies": {
+        "all-parents": "ineligible",
+        "any-parent": "ineligible",
+        "exact-choice": "ineligible",
+        "first-parent": "ineligible"
+      },
+      "receipt": {
+        "issuer": "fixture-resolution-authority",
+        "merge": "d445d8181452bbec66acee78425f9263969eaf72",
+        "parents": [
+          "0de9844eb9fab3fd1ef89d9f089ee45dc02d4407",
+          "6a7f19c5d9a49f0e76ef534d5c1cd5e798cf6cda"
+        ],
+        "slot": "callee",
+        "source": "6a7f19c5d9a49f0e76ef534d5c1cd5e798cf6cda",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "a70aaf37cd3f1f2c92eb46e393470fa1b6332f9429de3fc6bf7a0a24b888f7b757262228fab60f2889c4dcc94d49c16f7e36dd0ba8593b868092bee1a056110d"
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": null,
+      "expected": "unknown",
+      "left_and_right": [
+        "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "9654665798f7e6322e6423f96ca120570a40d91f"
+      ],
+      "lifetimes": [
+        "continued",
+        "continued"
+      ],
+      "merged_commit": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": null,
+      "parent_states": [
+        "eligible",
+        "eligible"
+      ],
+      "policies": {
+        "all-parents": "eligible",
+        "any-parent": "eligible",
+        "exact-choice": "unknown",
+        "first-parent": "eligible"
+      },
+      "receipt": null,
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": null
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 0,
+      "expected": "unknown",
+      "left_and_right": [
+        "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "9654665798f7e6322e6423f96ca120570a40d91f"
+      ],
+      "lifetimes": [
+        "continued",
+        "continued"
+      ],
+      "merged_commit": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": "equal-tree-parent",
+      "parent_states": [
+        "eligible",
+        "eligible"
+      ],
+      "policies": {
+        "all-parents": "eligible",
+        "any-parent": "eligible",
+        "exact-choice": "unknown",
+        "first-parent": "eligible"
+      },
+      "receipt": {
+        "issuer": "fixture-resolution-authority",
+        "merge": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+        "parents": [
+          "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+          "b617a948b73443458ff62ba382c0a35de3d5cd20"
+        ],
+        "slot": "callee",
+        "source": "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "2cd622cf62d8a49e6e4330cbb3862aa8eb476eb2278a7e7aed36b86a19040aae32f87316bfef999123fcaf197041c07bd09b7d10192f6d02602983b5dce0b205"
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 0,
+      "expected": "unknown",
+      "left_and_right": [
+        "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "9654665798f7e6322e6423f96ca120570a40d91f"
+      ],
+      "lifetimes": [
+        "continued",
+        "continued"
+      ],
+      "merged_commit": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": "untrusted-issuer",
+      "parent_states": [
+        "eligible",
+        "eligible"
+      ],
+      "policies": {
+        "all-parents": "eligible",
+        "any-parent": "eligible",
+        "exact-choice": "unknown",
+        "first-parent": "eligible"
+      },
+      "receipt": {
+        "issuer": "fixture-other-issuer",
+        "merge": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+        "parents": [
+          "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+          "9654665798f7e6322e6423f96ca120570a40d91f"
+        ],
+        "slot": "callee",
+        "source": "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "2980da69be2cebd0b4abb560af575d35f608cdc3272eb92a10aa36d7a378d4fdfb9aac86227afc5ba2bc7dedd6a17786027bb51e4e88d587aa2e0e7e7a898507"
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 0,
+      "expected": "unknown",
+      "left_and_right": [
+        "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "9654665798f7e6322e6423f96ca120570a40d91f"
+      ],
+      "lifetimes": [
+        "continued",
+        "continued"
+      ],
+      "merged_commit": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": "wrong-value",
+      "parent_states": [
+        "eligible",
+        "eligible"
+      ],
+      "policies": {
+        "all-parents": "eligible",
+        "any-parent": "eligible",
+        "exact-choice": "unknown",
+        "first-parent": "eligible"
+      },
+      "receipt": {
+        "issuer": "fixture-resolution-authority",
+        "merge": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+        "parents": [
+          "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+          "9654665798f7e6322e6423f96ca120570a40d91f"
+        ],
+        "slot": "callee",
+        "source": "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "5d76890a1c6614cf9e1a6150ac1ae3cbcd4577914f17b5fd98828a3d61a28ddb6e72a9e2e8c72b0c64690f2c93ff8c1b15af590a42bd3eb134348986e6979d03"
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 0,
+      "expected": "unknown",
+      "left_and_right": [
+        "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "9654665798f7e6322e6423f96ca120570a40d91f"
+      ],
+      "lifetimes": [
+        "continued",
+        "continued"
+      ],
+      "merged_commit": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": "changed-choice-after-signing",
+      "parent_states": [
+        "eligible",
+        "eligible"
+      ],
+      "policies": {
+        "all-parents": "eligible",
+        "any-parent": "eligible",
+        "exact-choice": "unknown",
+        "first-parent": "eligible"
+      },
+      "receipt": {
+        "issuer": "fixture-resolution-authority",
+        "merge": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+        "parents": [
+          "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+          "9654665798f7e6322e6423f96ca120570a40d91f"
+        ],
+        "slot": "callee",
+        "source": "9654665798f7e6322e6423f96ca120570a40d91f",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "10b3938a9f5aefd7fc77a3cbca0e1d97eac1efb3b519e7228e8d23636a401a3de46fafb7da2515666fef730eb9df83860d76e5f178b7682f27149e23451c9805"
+    },
+    {
+      "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+      "chosen_parent": 0,
+      "expected": "unknown",
+      "left_and_right": [
+        "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "9654665798f7e6322e6423f96ca120570a40d91f"
+      ],
+      "lifetimes": [
+        "continued",
+        "continued"
+      ],
+      "merged_commit": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+      "merged_tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+      "mutation": "shallow",
+      "parent_states": [
+        "unknown",
+        "unknown"
+      ],
+      "policies": {
+        "all-parents": "unknown",
+        "any-parent": "unknown",
+        "exact-choice": "unknown",
+        "first-parent": "unknown"
+      },
+      "receipt": {
+        "issuer": "fixture-resolution-authority",
+        "merge": "5ae5499f24085a61cbcf07f040ee7b12b0716288",
+        "parents": [
+          "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+          "9654665798f7e6322e6423f96ca120570a40d91f"
+        ],
+        "slot": "callee",
+        "source": "a5042d15f29f82e6b36037b4c0957eba536ad8b9",
+        "tree": "4f3b838759a013378bfb45c4c562abc1a0c2d336",
+        "value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+      },
+      "reviewed_value": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+      "signature": "10b3938a9f5aefd7fc77a3cbca0e1d97eac1efb3b519e7228e8d23636a401a3de46fafb7da2515666fef730eb9df83860d76e5f178b7682f27149e23451c9805"
+    }
+  ],
+  "summaries": {
+    "all-parents": {
+      "excess_grants": 5,
+      "missed_grants": 2,
+      "unknown": 1
+    },
+    "any-parent": {
+      "excess_grants": 7,
+      "missed_grants": 0,
+      "unknown": 1
+    },
+    "exact-choice": {
+      "excess_grants": 0,
+      "missed_grants": 0,
+      "unknown": 6
+    },
+    "first-parent": {
+      "excess_grants": 6,
+      "missed_grants": 1,
+      "unknown": 1
+    }
+  }
+}
