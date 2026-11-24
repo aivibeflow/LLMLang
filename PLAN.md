@@ -883,13 +883,13 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ## 5.4 Freestanding embedded and real-time firmware (RT-37)
 
-**Status:** Startup and runtime closure partially validated on Cortex-M3. **Priority:** P0 shared foundation; P1 pilot. [Research brief](research/runtime-and-systems/RT-37/README.md) · [Issue #440](https://github.com/aivibeflow/LLMLang/issues/440).
+**Status:** Bounded Cortex-M3 startup and timer/GPIO slices validated in QEMU. **Priority:** P0 shared foundation; P1 pilot. [Research brief](research/runtime-and-systems/RT-37/README.md) · [Issue #440](https://github.com/aivibeflow/LLMLang/issues/440).
 
 - [ ] Compare OS-independent target profiles, explicit runtime closure, startup/linking, memory layouts, static-only and explicit allocator policies.
 - [x] Compare Cortex-M3 reset, data/BSS initialization, fixed-width controller execution and ELF runtime closure on direct LLVM and freestanding Rust. Five images reproduce 14 UART steps each. A bootable image with an undefined unwind symbol and two other unresolved-runtime controls distinguish closure from functional replay. [Cortex-M3 closure](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md).
 - [ ] Specify typed MMIO/volatile, peripheral protocols, SVD ingestion, interrupts, DMA, transitive effects and capabilities.
 - [ ] Investigate stack/flash/RAM bounds, target-specific WCET, deadlines, interrupt latency, RTOS integration, and hardware assumptions.
-- [ ] Produce a pinned Cortex-M bootable firmware pilot with independent reference traces, negative controls and separately scoped functional/resource evidence.
+- [x] Produce a pinned Cortex-M bootable timer/GPIO firmware pilot with independent reference traces, negative controls and separately scoped functional/static resource evidence. Four LLVM and Rust images reproduce 14 duty and GPIO steps each. SysTick pending-state and GPIO masking controls distinguish outcomes hidden by the application trace. [Cortex-M3 timer and GPIO](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-SYSTICK-GPIO-2026-11-24.md).
 
 **Dependencies:** RT-03/04/07/08/09/10/13/16/32/33/34/36; Stage 6 native lowering. **Exit:** reproducible profile comparison and firmware execution evidence, explicit unsupported operations and trust boundaries. No language rule selected.
 

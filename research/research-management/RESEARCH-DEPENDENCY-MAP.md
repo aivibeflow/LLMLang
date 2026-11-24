@@ -691,7 +691,7 @@ See also public-interface refinement and RT-03/04/06/09/10/12/18/19/23/24. The R
 | DEP-246 | RT-04 → RT-37 | Requires | Ownership, effects and capabilities constrain registers, interrupts and DMA. | Strong hypothesis |
 | DEP-247 | RT-09 → RT-37 | Requires | Layout, ABI, startup and lowering determine target feasibility. The Cortex-M3 fixture checks ELF load ranges, initialization and reset vectors. [Cortex-M3 closure](../runtime-and-systems/RT-37/RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md) | Scoped emulator evidence |
 | DEP-248 | RT-10 → RT-37 | Constrains | Explicit closure includes compiler-emitted helpers. One Cortex-M3 image links and boots despite an unresolved unwind symbol. [Cortex-M3 closure](../runtime-and-systems/RT-37/RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md) | Scoped counterexample to boot-only admission |
-| DEP-249 | RT-13 → RT-37 | Requires | Target preservation includes MMIO and binary observations. | Strong hypothesis |
+| DEP-249 | RT-13 → RT-37 | Requires | Target preservation includes MMIO and binary observations. Source controller parity holds across timer profiles while interrupt delivery differs, and an unmasked store changes a neighboring GPIO bit. [Cortex-M3 timer and GPIO](../runtime-and-systems/RT-37/RT-37-CORTEX-M3-SYSTICK-GPIO-2026-11-24.md) | Scoped emulator evidence |
 | DEP-250 | RT-34 → RT-37 | Requires | Scoped resource and timing bounds constrain real-time claims. | Strong hypothesis |
 | DEP-251 | RT-36 → RT-37 | Requires | Device, timing and backend premises must be explicit. | Strong hypothesis |
 | DEP-252 | RT-37 → RT-38 | Requires | Reuse validated freestanding profile and firmware evidence before kernel pilot. | Strong hypothesis |

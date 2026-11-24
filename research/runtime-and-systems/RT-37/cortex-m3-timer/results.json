@@ -1,0 +1,214 @@
+{
+  "schema": "llmlang-cortex-m3-timer-gpio-v1",
+  "machine": "lm3s6965evb",
+  "systick_reload": 1999,
+  "tools": {
+    "llc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "source_sha256": {
+    "startup.s": "dea75a65935a992ae6076bc1df2aaa12f54f608a6fde0f31c6754b10cb7bbc72",
+    "step.ll": "9aad2599598df165a42bc1a3a4f3aeffb437082885068a038b8eb6cd45c0dd97",
+    "step.rs": "e86a221dd0860c283f2536f991ba6c3ea71df5d1b898f3db5138a5d1a287ee6b",
+    "inputs.json": "e59e21e596f2103e6ae6a1ea6270f050b922c1439d67db45608bb1c9c29609be",
+    "memory.ld": "5085ad0a4168a699d202d6f9af2caeced5d70ec5c0d44372cb16e5ea335b2ecb",
+    "run.py": "5ec43ef68d29aaf7bc88bcbf7e97e46f59abdfa18dbb567897333d8a23092477",
+    "timer.s": "645e1746f2a9bf01edc49722f372cee500e9280c2d8c3aece7552b2e355b5905",
+    "timer-run.py": "678465d92151d64b0adae27a16f7344015e54a7ed3914a99af97afa131519d05"
+  },
+  "steps_per_image": 14,
+  "images": {
+    "llvm-interrupt": {
+      "flash_extent_bytes": 688,
+      "static_ram_bytes": 12,
+      "reset_vector": "0x41",
+      "initial_stack": "0x20010000",
+      "loads": [
+        {
+          "virtual": 0,
+          "physical": 0,
+          "file_bytes": 64,
+          "memory_bytes": 64,
+          "flags": "R"
+        },
+        {
+          "virtual": 64,
+          "physical": 64,
+          "file_bytes": 604,
+          "memory_bytes": 604,
+          "flags": "RE"
+        },
+        {
+          "virtual": 668,
+          "physical": 668,
+          "file_bytes": 16,
+          "memory_bytes": 16,
+          "flags": "R"
+        },
+        {
+          "virtual": 536870912,
+          "physical": 684,
+          "file_bytes": 4,
+          "memory_bytes": 4,
+          "flags": "RW"
+        },
+        {
+          "virtual": 536870916,
+          "physical": 536870916,
+          "file_bytes": 0,
+          "memory_bytes": 8,
+          "flags": "RW"
+        }
+      ],
+      "image_sha256": "3b4c8fc3c5ff035ea4fbf0b0d47bfd9bad3651bd3e12eb7779a71d42a7f6fba2",
+      "systick_vector": "0x18d",
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e!"
+    },
+    "rust-interrupt": {
+      "flash_extent_bytes": 684,
+      "static_ram_bytes": 12,
+      "reset_vector": "0x41",
+      "initial_stack": "0x20010000",
+      "loads": [
+        {
+          "virtual": 0,
+          "physical": 0,
+          "file_bytes": 64,
+          "memory_bytes": 64,
+          "flags": "R"
+        },
+        {
+          "virtual": 64,
+          "physical": 64,
+          "file_bytes": 600,
+          "memory_bytes": 600,
+          "flags": "RE"
+        },
+        {
+          "virtual": 664,
+          "physical": 664,
+          "file_bytes": 16,
+          "memory_bytes": 16,
+          "flags": "R"
+        },
+        {
+          "virtual": 536870912,
+          "physical": 680,
+          "file_bytes": 4,
+          "memory_bytes": 4,
+          "flags": "RW"
+        },
+        {
+          "virtual": 536870916,
+          "physical": 536870916,
+          "file_bytes": 0,
+          "memory_bytes": 8,
+          "flags": "RW"
+        }
+      ],
+      "image_sha256": "c42b51f6e45acbac60947dd7a79bb3a7d401e08aa56b1cd24466e9fc7b9ffa65",
+      "systick_vector": "0x18d",
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e!"
+    },
+    "llvm-polling": {
+      "flash_extent_bytes": 680,
+      "static_ram_bytes": 12,
+      "reset_vector": "0x41",
+      "initial_stack": "0x20010000",
+      "loads": [
+        {
+          "virtual": 0,
+          "physical": 0,
+          "file_bytes": 64,
+          "memory_bytes": 64,
+          "flags": "R"
+        },
+        {
+          "virtual": 64,
+          "physical": 64,
+          "file_bytes": 596,
+          "memory_bytes": 596,
+          "flags": "RE"
+        },
+        {
+          "virtual": 660,
+          "physical": 660,
+          "file_bytes": 16,
+          "memory_bytes": 16,
+          "flags": "R"
+        },
+        {
+          "virtual": 536870912,
+          "physical": 676,
+          "file_bytes": 4,
+          "memory_bytes": 4,
+          "flags": "RW"
+        },
+        {
+          "virtual": 536870916,
+          "physical": 536870916,
+          "file_bytes": 0,
+          "memory_bytes": 8,
+          "flags": "RW"
+        }
+      ],
+      "image_sha256": "27d6ba684486ecce9bd61e6e3599240d0a98b2739043ba002925871dc1bf8b39",
+      "systick_vector": "0x183",
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#00!"
+    },
+    "rust-polling": {
+      "flash_extent_bytes": 676,
+      "static_ram_bytes": 12,
+      "reset_vector": "0x41",
+      "initial_stack": "0x20010000",
+      "loads": [
+        {
+          "virtual": 0,
+          "physical": 0,
+          "file_bytes": 64,
+          "memory_bytes": 64,
+          "flags": "R"
+        },
+        {
+          "virtual": 64,
+          "physical": 64,
+          "file_bytes": 592,
+          "memory_bytes": 592,
+          "flags": "RE"
+        },
+        {
+          "virtual": 656,
+          "physical": 656,
+          "file_bytes": 16,
+          "memory_bytes": 16,
+          "flags": "R"
+        },
+        {
+          "virtual": 536870912,
+          "physical": 672,
+          "file_bytes": 4,
+          "memory_bytes": 4,
+          "flags": "RW"
+        },
+        {
+          "virtual": 536870916,
+          "physical": 536870916,
+          "file_bytes": 0,
+          "memory_bytes": 8,
+          "flags": "RW"
+        }
+      ],
+      "image_sha256": "a70d63785bf0c0a65f46146a1bf96bb72c95ea7f2c42b11414a5433b0c9cf804",
+      "systick_vector": "0x183",
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#00!"
+    }
+  },
+  "controls": {
+    "wrong_systick_vector": "BVX",
+    "write_unmasked_gpio": "BG02X",
+    "acknowledge_forced_pending": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e!",
+    "leave_forced_pending": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0f!"
+  }
+}
