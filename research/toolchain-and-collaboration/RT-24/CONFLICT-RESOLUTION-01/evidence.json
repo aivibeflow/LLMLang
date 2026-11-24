@@ -1,0 +1,895 @@
+{
+  "cases": {
+    "affected_guard_change": {
+      "admitted": {
+        "exact_ordered_history": false,
+        "exact_ordered_inputs": false,
+        "scoped_exact_incoming": false,
+        "slot_only": true,
+        "whole_semantics": false
+      },
+      "affected_reads": [
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "absent"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "190111515469d41b50891d4336f8835394b59339ddacbb7d5d530ecfcb7c8020"
+          ]
+        ]
+      ],
+      "attempted_rebuild": {
+        "calls": {
+          "caller": [
+            [
+              "invoke",
+              "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+              "wider"
+            ]
+          ]
+        },
+        "export_digest": "22a64356ca5bdf8d31b99b15fd514da213f9ddaa5b6e1ab6ebcff912e780e633",
+        "root": "66699cd10f084445d13538dfffcf571f2dfd199dd86f4522bbc31a0044e72902",
+        "selected": {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "caller": "4f86b1f386b85b3fa80cca2e984266920561f23fdba0202a975bc5fbf13d17ee",
+          "contract": "54e5b371f93313878f3e4437f0a760f324c87215b88e0546d5f788b6e13fb098",
+          "independent": "d5a5422bcdecb3d7405451fa60c414a8ddd67ba66aef50efd09f56715d7c0d53",
+          "version-right": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "status": "closed"
+      },
+      "commits": [
+        "310e23b7343115129d4ee13713253f6b1f187378",
+        "4c601057c809e0a2e490d24422b7cbf6c4b88cb3",
+        "071fe05d752f29976fd823492484c33832a37a49"
+      ],
+      "conflict": {
+        "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+        "kind": "update-update",
+        "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "slot": "callee",
+        "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+      },
+      "exact_inputs": [
+        [
+          "544546d7cd0043b2f428204524a2df311a3ac5b5",
+          "455125eb73713aa083b36a04a258ec6a8e4df23ed2a5203730f1870064595480"
+        ],
+        [
+          "043c3edcad87fd4efbb4e204cc2eb45078df1f77",
+          "55072528a6e9079f76cd257d8515b20415ce2e25da00867d6f7c76115de5c84f"
+        ],
+        [
+          "5f0b81a39fc2acf4691348bf10266e0943a968cf",
+          "49678deca43aac021992d236ccc887ed571fcd3b0756c2fc39f3b1aa88cd4c7f"
+        ]
+      ],
+      "old_decision": {
+        "affected": "2b56e8a59dab76485312a76411b5c702a862aa308b2ed3f791894ac595017fc9",
+        "choice": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "conflict": {
+          "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "kind": "update-update",
+          "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "slot": "callee",
+          "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "history": "9bf5361ae5ef6a5c273d0bc3e571e0b2dfa0b629e5b6d7dd9c8625b913371304",
+        "inputs": "bc25d351efc58b2b22537916fd16f7b03fadad857599939da46dde8786423366",
+        "roots": "f89aff3543f0c618b4b163cc81dbe3cba3c0e2ce30e4bc8301447e0c9a6eaa8e"
+      },
+      "root_inputs": [
+        "ee7547ab0929ab76f5d3c940b6843465cc866f46856b2e2c921b64df2bdb385e",
+        "1b8b34673065d0b8c99020405449bd07355c7722278cc3af78f9d0bc7dde11c8",
+        "08b81bd42b7571e0c4f1791feb61cf63338a76c9a5326b16ba5cbe17c6841b9c"
+      ]
+    },
+    "dependent_and_removed_retention": {
+      "admitted": {
+        "exact_ordered_history": false,
+        "exact_ordered_inputs": false,
+        "scoped_exact_incoming": false,
+        "slot_only": true,
+        "whole_semantics": false
+      },
+      "affected_reads": [
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "absent"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "absent"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "50d2a93a99fed5e0daa758d25587f7cc87e8e775e5f468285df3094d0e01e9d8"
+          ]
+        ]
+      ],
+      "attempted_rebuild": {
+        "finding": "unavailable exact targets: [('caller', '7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb')]",
+        "status": "unclosed"
+      },
+      "commits": [
+        "310e23b7343115129d4ee13713253f6b1f187378",
+        "f84acfd6413b9846f82b3b6a32eff1d050d56f0e",
+        "750b80211bfa5a1ff9e0828c76161f7b228005b5"
+      ],
+      "conflict": {
+        "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+        "kind": "update-update",
+        "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "slot": "callee",
+        "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+      },
+      "exact_inputs": [
+        [
+          "544546d7cd0043b2f428204524a2df311a3ac5b5",
+          "455125eb73713aa083b36a04a258ec6a8e4df23ed2a5203730f1870064595480"
+        ],
+        [
+          "38be2469f6139f4696dc68891401eb8598098ade",
+          "26108ccecacbf2d5b28cad8cf61444af430be739c4971e18a22af5f41be3269e"
+        ],
+        [
+          "2b18186bd28f0ebfee00178a8d094da4c79727b8",
+          "2137edd36af639b94785560e6b4407632b06514af0281f855ed9c0c4a5af4cda"
+        ]
+      ],
+      "old_decision": {
+        "affected": "e519cfb239638fb363f08a102e34281844e43bc22afee17f8b2b4a0e050c164c",
+        "choice": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "conflict": {
+          "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "kind": "update-update",
+          "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "slot": "callee",
+          "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "history": "945de43f9d87108e83d8da2265a2ac56db8050e17b80c33f41d94e1df1dc8e38",
+        "inputs": "1f6a32f34e36b5c26e6d15e42584f1085d9dabbe8be6545654c491c5f51611d1",
+        "roots": "1659d6cbd1f1bbac2d5625b1777bd948e55f3d22fe37935326ef96ccee7de6ad"
+      },
+      "root_inputs": [
+        "ee7547ab0929ab76f5d3c940b6843465cc866f46856b2e2c921b64df2bdb385e",
+        "619b90545b536cb0274bbd0dd5413606e7d1a97f9fc5895824ffa959a27a6afe",
+        "838957778056b303f8ab4b2d04177a44fbabc9d5ac13f590a11062b37849c330"
+      ]
+    },
+    "new_affected_caller": {
+      "admitted": {
+        "exact_ordered_history": false,
+        "exact_ordered_inputs": false,
+        "scoped_exact_incoming": false,
+        "slot_only": true,
+        "whole_semantics": false
+      },
+      "affected_reads": [
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "absent"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "50d2a93a99fed5e0daa758d25587f7cc87e8e775e5f468285df3094d0e01e9d8"
+          ]
+        ]
+      ],
+      "attempted_rebuild": {
+        "calls": {
+          "caller": [
+            [
+              "invoke",
+              "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+              "new-branch"
+            ]
+          ]
+        },
+        "export_digest": "94a2c28a95987c242ba6ceaea89abe2191060a8d30a5cb91e49d9a7429218c8e",
+        "root": "61df30b6e43fe82f549d32098793020c73850601b29f6f907dfd68fab63907ca",
+        "selected": {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "caller": "3174a7426e1eb7dbf15ffe4467745917cd4e1d4dc379300f4109be4f503f2ca8",
+          "contract": "54e5b371f93313878f3e4437f0a760f324c87215b88e0546d5f788b6e13fb098",
+          "independent": "d5a5422bcdecb3d7405451fa60c414a8ddd67ba66aef50efd09f56715d7c0d53",
+          "version-right": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "status": "closed"
+      },
+      "commits": [
+        "310e23b7343115129d4ee13713253f6b1f187378",
+        "4c601057c809e0a2e490d24422b7cbf6c4b88cb3",
+        "750b80211bfa5a1ff9e0828c76161f7b228005b5"
+      ],
+      "conflict": {
+        "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+        "kind": "update-update",
+        "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "slot": "callee",
+        "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+      },
+      "exact_inputs": [
+        [
+          "544546d7cd0043b2f428204524a2df311a3ac5b5",
+          "455125eb73713aa083b36a04a258ec6a8e4df23ed2a5203730f1870064595480"
+        ],
+        [
+          "043c3edcad87fd4efbb4e204cc2eb45078df1f77",
+          "55072528a6e9079f76cd257d8515b20415ce2e25da00867d6f7c76115de5c84f"
+        ],
+        [
+          "2b18186bd28f0ebfee00178a8d094da4c79727b8",
+          "2137edd36af639b94785560e6b4407632b06514af0281f855ed9c0c4a5af4cda"
+        ]
+      ],
+      "old_decision": {
+        "affected": "e519cfb239638fb363f08a102e34281844e43bc22afee17f8b2b4a0e050c164c",
+        "choice": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "conflict": {
+          "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "kind": "update-update",
+          "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "slot": "callee",
+          "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "history": "945de43f9d87108e83d8da2265a2ac56db8050e17b80c33f41d94e1df1dc8e38",
+        "inputs": "1f6a32f34e36b5c26e6d15e42584f1085d9dabbe8be6545654c491c5f51611d1",
+        "roots": "1659d6cbd1f1bbac2d5625b1777bd948e55f3d22fe37935326ef96ccee7de6ad"
+      },
+      "root_inputs": [
+        "ee7547ab0929ab76f5d3c940b6843465cc866f46856b2e2c921b64df2bdb385e",
+        "1b8b34673065d0b8c99020405449bd07355c7722278cc3af78f9d0bc7dde11c8",
+        "838957778056b303f8ab4b2d04177a44fbabc9d5ac13f590a11062b37849c330"
+      ]
+    },
+    "new_unrelated_caller": {
+      "admitted": {
+        "exact_ordered_history": false,
+        "exact_ordered_inputs": false,
+        "scoped_exact_incoming": true,
+        "slot_only": true,
+        "whole_semantics": false
+      },
+      "affected_reads": [
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "absent"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ]
+      ],
+      "attempted_rebuild": {
+        "calls": {
+          "other-caller": [
+            [
+              "invoke",
+              "d5a5422bcdecb3d7405451fa60c414a8ddd67ba66aef50efd09f56715d7c0d53",
+              "unrelated"
+            ]
+          ]
+        },
+        "export_digest": "38aac1f138df726c003b22600f8956d50655ac83db3aeb21fab87996c906b9bc",
+        "root": "a14c7e53b006b022b523042cbca05e0b141c5e90075342d97fef0c9881560bc5",
+        "selected": {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "contract": "54e5b371f93313878f3e4437f0a760f324c87215b88e0546d5f788b6e13fb098",
+          "independent": "d5a5422bcdecb3d7405451fa60c414a8ddd67ba66aef50efd09f56715d7c0d53",
+          "other-caller": "aec7e51e3114d45fb1c166e25d4e3b79f38f0237f43281f2203955422369b344",
+          "version-right": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "status": "closed"
+      },
+      "commits": [
+        "310e23b7343115129d4ee13713253f6b1f187378",
+        "4c601057c809e0a2e490d24422b7cbf6c4b88cb3",
+        "25865b0970d58699bfb4f2ec8fb3e38a7e0e636f"
+      ],
+      "conflict": {
+        "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+        "kind": "update-update",
+        "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "slot": "callee",
+        "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+      },
+      "exact_inputs": [
+        [
+          "544546d7cd0043b2f428204524a2df311a3ac5b5",
+          "455125eb73713aa083b36a04a258ec6a8e4df23ed2a5203730f1870064595480"
+        ],
+        [
+          "043c3edcad87fd4efbb4e204cc2eb45078df1f77",
+          "55072528a6e9079f76cd257d8515b20415ce2e25da00867d6f7c76115de5c84f"
+        ],
+        [
+          "82bdb8d360dcb6a503c44e9ea2267c28ef99a56c",
+          "bb55cd3538b3708c2a143a76c7807536088b71f8c6d081e15aa90aaf963f406f"
+        ]
+      ],
+      "old_decision": {
+        "affected": "e519cfb239638fb363f08a102e34281844e43bc22afee17f8b2b4a0e050c164c",
+        "choice": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "conflict": {
+          "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "kind": "update-update",
+          "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "slot": "callee",
+          "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "history": "945de43f9d87108e83d8da2265a2ac56db8050e17b80c33f41d94e1df1dc8e38",
+        "inputs": "1f6a32f34e36b5c26e6d15e42584f1085d9dabbe8be6545654c491c5f51611d1",
+        "roots": "1659d6cbd1f1bbac2d5625b1777bd948e55f3d22fe37935326ef96ccee7de6ad"
+      },
+      "root_inputs": [
+        "ee7547ab0929ab76f5d3c940b6843465cc866f46856b2e2c921b64df2bdb385e",
+        "1b8b34673065d0b8c99020405449bd07355c7722278cc3af78f9d0bc7dde11c8",
+        "68b8c02eea0bf222e2316f765207ed051ca690ad83d37b6c55f7814fbf8fcb91"
+      ]
+    },
+    "ordinary_edit": {
+      "admitted": {
+        "exact_ordered_history": false,
+        "exact_ordered_inputs": false,
+        "scoped_exact_incoming": true,
+        "slot_only": true,
+        "whole_semantics": true
+      },
+      "affected_reads": [
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "absent"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ]
+      ],
+      "attempted_rebuild": {
+        "calls": {},
+        "export_digest": "3cf6182cbdf7cbf99c2e7996b059622658494ebc48556af2a14d207f63c78bbe",
+        "root": "1b8b34673065d0b8c99020405449bd07355c7722278cc3af78f9d0bc7dde11c8",
+        "selected": {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "contract": "54e5b371f93313878f3e4437f0a760f324c87215b88e0546d5f788b6e13fb098",
+          "independent": "d5a5422bcdecb3d7405451fa60c414a8ddd67ba66aef50efd09f56715d7c0d53",
+          "version-right": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "status": "closed"
+      },
+      "commits": [
+        "310e23b7343115129d4ee13713253f6b1f187378",
+        "4c601057c809e0a2e490d24422b7cbf6c4b88cb3",
+        "cb0e01f2e28b1248d4850ec51eec08ec52aed408"
+      ],
+      "conflict": {
+        "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+        "kind": "update-update",
+        "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "slot": "callee",
+        "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+      },
+      "exact_inputs": [
+        [
+          "544546d7cd0043b2f428204524a2df311a3ac5b5",
+          "455125eb73713aa083b36a04a258ec6a8e4df23ed2a5203730f1870064595480"
+        ],
+        [
+          "043c3edcad87fd4efbb4e204cc2eb45078df1f77",
+          "55072528a6e9079f76cd257d8515b20415ce2e25da00867d6f7c76115de5c84f"
+        ],
+        [
+          "d2e3bb2c10acdec00ff15579075c22fcad68c4e3",
+          "a82bd7507001df4cbb957fb08087f0912e6afcf4be7fef18cada416310fb480f"
+        ]
+      ],
+      "old_decision": {
+        "affected": "e519cfb239638fb363f08a102e34281844e43bc22afee17f8b2b4a0e050c164c",
+        "choice": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "conflict": {
+          "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "kind": "update-update",
+          "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "slot": "callee",
+          "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "history": "945de43f9d87108e83d8da2265a2ac56db8050e17b80c33f41d94e1df1dc8e38",
+        "inputs": "1f6a32f34e36b5c26e6d15e42584f1085d9dabbe8be6545654c491c5f51611d1",
+        "roots": "1659d6cbd1f1bbac2d5625b1777bd948e55f3d22fe37935326ef96ccee7de6ad"
+      },
+      "root_inputs": [
+        "ee7547ab0929ab76f5d3c940b6843465cc866f46856b2e2c921b64df2bdb385e",
+        "1b8b34673065d0b8c99020405449bd07355c7722278cc3af78f9d0bc7dde11c8",
+        "75c4da1d483263e6b0467b7d60860abdfc3087edc69cf20896448d0458449625"
+      ]
+    },
+    "reviewed": {
+      "admitted": {
+        "exact_ordered_history": true,
+        "exact_ordered_inputs": true,
+        "scoped_exact_incoming": true,
+        "slot_only": true,
+        "whole_semantics": true
+      },
+      "affected_reads": [
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "absent"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ]
+      ],
+      "attempted_rebuild": {
+        "calls": {},
+        "export_digest": "3cf6182cbdf7cbf99c2e7996b059622658494ebc48556af2a14d207f63c78bbe",
+        "root": "1b8b34673065d0b8c99020405449bd07355c7722278cc3af78f9d0bc7dde11c8",
+        "selected": {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "contract": "54e5b371f93313878f3e4437f0a760f324c87215b88e0546d5f788b6e13fb098",
+          "independent": "d5a5422bcdecb3d7405451fa60c414a8ddd67ba66aef50efd09f56715d7c0d53",
+          "version-right": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "status": "closed"
+      },
+      "commits": [
+        "310e23b7343115129d4ee13713253f6b1f187378",
+        "4c601057c809e0a2e490d24422b7cbf6c4b88cb3",
+        "e3111c535a1449180ca683c5dfa7c7f099566f9e"
+      ],
+      "conflict": {
+        "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+        "kind": "update-update",
+        "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "slot": "callee",
+        "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+      },
+      "exact_inputs": [
+        [
+          "544546d7cd0043b2f428204524a2df311a3ac5b5",
+          "455125eb73713aa083b36a04a258ec6a8e4df23ed2a5203730f1870064595480"
+        ],
+        [
+          "043c3edcad87fd4efbb4e204cc2eb45078df1f77",
+          "55072528a6e9079f76cd257d8515b20415ce2e25da00867d6f7c76115de5c84f"
+        ],
+        [
+          "ff52b63e7176754eee7082b2d9b626fea25c55b5",
+          "a82bd7507001df4cbb957fb08087f0912e6afcf4be7fef18cada416310fb480f"
+        ]
+      ],
+      "old_decision": {
+        "affected": "e519cfb239638fb363f08a102e34281844e43bc22afee17f8b2b4a0e050c164c",
+        "choice": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "conflict": {
+          "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "kind": "update-update",
+          "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "slot": "callee",
+          "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "history": "945de43f9d87108e83d8da2265a2ac56db8050e17b80c33f41d94e1df1dc8e38",
+        "inputs": "1f6a32f34e36b5c26e6d15e42584f1085d9dabbe8be6545654c491c5f51611d1",
+        "roots": "1659d6cbd1f1bbac2d5625b1777bd948e55f3d22fe37935326ef96ccee7de6ad"
+      },
+      "root_inputs": [
+        "ee7547ab0929ab76f5d3c940b6843465cc866f46856b2e2c921b64df2bdb385e",
+        "1b8b34673065d0b8c99020405449bd07355c7722278cc3af78f9d0bc7dde11c8",
+        "75c4da1d483263e6b0467b7d60860abdfc3087edc69cf20896448d0458449625"
+      ]
+    },
+    "same_tree_new_commit": {
+      "admitted": {
+        "exact_ordered_history": false,
+        "exact_ordered_inputs": true,
+        "scoped_exact_incoming": true,
+        "slot_only": true,
+        "whole_semantics": true
+      },
+      "affected_reads": [
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "absent"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ]
+      ],
+      "attempted_rebuild": {
+        "calls": {},
+        "export_digest": "3cf6182cbdf7cbf99c2e7996b059622658494ebc48556af2a14d207f63c78bbe",
+        "root": "1b8b34673065d0b8c99020405449bd07355c7722278cc3af78f9d0bc7dde11c8",
+        "selected": {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "contract": "54e5b371f93313878f3e4437f0a760f324c87215b88e0546d5f788b6e13fb098",
+          "independent": "d5a5422bcdecb3d7405451fa60c414a8ddd67ba66aef50efd09f56715d7c0d53",
+          "version-right": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "status": "closed"
+      },
+      "commits": [
+        "310e23b7343115129d4ee13713253f6b1f187378",
+        "4c601057c809e0a2e490d24422b7cbf6c4b88cb3",
+        "35c2694efa50d0fc1d2116d8cff88509f809625e"
+      ],
+      "conflict": {
+        "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+        "kind": "update-update",
+        "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "slot": "callee",
+        "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+      },
+      "exact_inputs": [
+        [
+          "544546d7cd0043b2f428204524a2df311a3ac5b5",
+          "455125eb73713aa083b36a04a258ec6a8e4df23ed2a5203730f1870064595480"
+        ],
+        [
+          "043c3edcad87fd4efbb4e204cc2eb45078df1f77",
+          "55072528a6e9079f76cd257d8515b20415ce2e25da00867d6f7c76115de5c84f"
+        ],
+        [
+          "ff52b63e7176754eee7082b2d9b626fea25c55b5",
+          "a82bd7507001df4cbb957fb08087f0912e6afcf4be7fef18cada416310fb480f"
+        ]
+      ],
+      "old_decision": {
+        "affected": "e519cfb239638fb363f08a102e34281844e43bc22afee17f8b2b4a0e050c164c",
+        "choice": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "conflict": {
+          "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "kind": "update-update",
+          "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "slot": "callee",
+          "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "history": "945de43f9d87108e83d8da2265a2ac56db8050e17b80c33f41d94e1df1dc8e38",
+        "inputs": "1f6a32f34e36b5c26e6d15e42584f1085d9dabbe8be6545654c491c5f51611d1",
+        "roots": "1659d6cbd1f1bbac2d5625b1777bd948e55f3d22fe37935326ef96ccee7de6ad"
+      },
+      "root_inputs": [
+        "ee7547ab0929ab76f5d3c940b6843465cc866f46856b2e2c921b64df2bdb385e",
+        "1b8b34673065d0b8c99020405449bd07355c7722278cc3af78f9d0bc7dde11c8",
+        "75c4da1d483263e6b0467b7d60860abdfc3087edc69cf20896448d0458449625"
+      ]
+    },
+    "swapped_roles": {
+      "admitted": {
+        "exact_ordered_history": false,
+        "exact_ordered_inputs": false,
+        "scoped_exact_incoming": false,
+        "slot_only": false,
+        "whole_semantics": false
+      },
+      "affected_reads": [
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "absent"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "absent"
+          ]
+        ],
+        [
+          [
+            "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+            "absent"
+          ],
+          [
+            "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ],
+          [
+            "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+            "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          ]
+        ]
+      ],
+      "attempted_rebuild": null,
+      "commits": [
+        "310e23b7343115129d4ee13713253f6b1f187378",
+        "e3111c535a1449180ca683c5dfa7c7f099566f9e",
+        "4c601057c809e0a2e490d24422b7cbf6c4b88cb3"
+      ],
+      "conflict": {
+        "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+        "kind": "update-update",
+        "ours": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb",
+        "slot": "callee",
+        "theirs": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac"
+      },
+      "exact_inputs": [
+        [
+          "544546d7cd0043b2f428204524a2df311a3ac5b5",
+          "455125eb73713aa083b36a04a258ec6a8e4df23ed2a5203730f1870064595480"
+        ],
+        [
+          "ff52b63e7176754eee7082b2d9b626fea25c55b5",
+          "a82bd7507001df4cbb957fb08087f0912e6afcf4be7fef18cada416310fb480f"
+        ],
+        [
+          "043c3edcad87fd4efbb4e204cc2eb45078df1f77",
+          "55072528a6e9079f76cd257d8515b20415ce2e25da00867d6f7c76115de5c84f"
+        ]
+      ],
+      "old_decision": {
+        "affected": "e519cfb239638fb363f08a102e34281844e43bc22afee17f8b2b4a0e050c164c",
+        "choice": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "conflict": {
+          "base": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "kind": "update-update",
+          "ours": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "slot": "callee",
+          "theirs": "7c78af3f116bdb18430a6ca78282b68f0102703a7188a1b92dbadbe8b1b788bb"
+        },
+        "history": "945de43f9d87108e83d8da2265a2ac56db8050e17b80c33f41d94e1df1dc8e38",
+        "inputs": "1f6a32f34e36b5c26e6d15e42584f1085d9dabbe8be6545654c491c5f51611d1",
+        "roots": "1659d6cbd1f1bbac2d5625b1777bd948e55f3d22fe37935326ef96ccee7de6ad"
+      },
+      "root_inputs": [
+        "ee7547ab0929ab76f5d3c940b6843465cc866f46856b2e2c921b64df2bdb385e",
+        "75c4da1d483263e6b0467b7d60860abdfc3087edc69cf20896448d0458449625",
+        "1b8b34673065d0b8c99020405449bd07355c7722278cc3af78f9d0bc7dde11c8"
+      ]
+    }
+  },
+  "format": "rt24-conflict-resolution-fixture/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14"
+}
