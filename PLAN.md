@@ -440,6 +440,8 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 
 **Status** — Partially validated. Pinned CI passed the version-2 CPC parser-state and factor-pair tests in run 44185102839. SCW-06–30 establish correspondence from the checked source AST to a canonical difference formula and prove QF_LIA admissibility and declaration closure in the solver term representation. JSON correspondence and source-derived CPC binding remain open. [Scenario 34 proof boundary](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
 
+**SCW-34 trust boundary:** [Logos runtime verdicts and soundness](research/RT-07-LOGOS-CHECKER-TRUST-BOUNDARY.md) records the kernel-checked runtime conditions under Lean 4.36 and the separate upstream verification build under Lean 4.34. The full rule-proof build, compatible proof artifact integration, and Logos-to-source interpretation correspondence remain open.
+
 ## 2.4 Verified SPG-to-Lean pipeline (RT-32)
 
 **Estimated research complexity:** **9/10** — requires a sound connection between authoritative LLMLang semantics, typed SPG, generated Lean terms, proof obligations, and independently checked evidence.
