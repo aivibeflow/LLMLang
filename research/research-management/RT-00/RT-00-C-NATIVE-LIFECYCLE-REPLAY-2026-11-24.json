@@ -1,0 +1,137 @@
+{
+  "schema": "rt00-rt04-native-lifecycle-replay-v1",
+  "baseline": "1c468d6f08b27887654313461a81283aeda99d88",
+  "ci_comparison": {
+    "run_id": 44774296240,
+    "job_id": 136419847973,
+    "archive_id": 14650095720,
+    "comparison_source": "GitHub Actions job log stdout blocks with timestamps removed"
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "python_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "commit": "1c468d6f08b27887654313461a81283aeda99d88",
+    "python_sqlite_version": "3.53.1",
+    "python_sqlite_historical_baseline": "3.53.1",
+    "python_sqlite_matches_historical_baseline": true,
+    "durable_python_sqlite_version": "3.53.1",
+    "durable_python_sqlite_source_id": "2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9",
+    "durable_python_sqlite_matches_reproduction_baseline": true,
+    "durable_python_sqlite_library": null,
+    "c_sqlite_library": "/usr/lib/x86_64-linux-gnu/libsqlite3.so.0",
+    "c_sqlite_version": "3.46.1",
+    "c_sqlite_source_id": "2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1",
+    "rustc_version": "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "rustc_verbose": "rustc 1.85.1 (4eb161250 2025-03-15)\nbinary: rustc\ncommit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181\ncommit-date: 2025-03-15\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.1\nLLVM version: 19.1.7"
+  },
+  "git_version": "git version 2.56.1",
+  "native_c_sqlite_package_version": "3.46.1-7+deb13u2",
+  "source_git_blobs": {
+    "research/PROTOTYPES/RT-04-01/rt04_rust_owned_probe.py": "7d7c5b8eba2aa62dbc71230cd7499e57fbbe01c2",
+    "research/PROTOTYPES/RT-04-01/run_native_probes.py": "853b7a12fd7e7b18b7bcfec11e070e5cc399d743",
+    "research/PROTOTYPES/RT-04-01/sqlite_backup_outcomes_probe.py": "d07c252706bb9591221fcf951f541c3555ef9689",
+    "research/PROTOTYPES/RT-04-01/sqlite_backup_roles_probe.py": "2cf065f766a6389fe861fae75e51d625063aa3d0",
+    "research/PROTOTYPES/RT-04-01/sqlite_cleanup_probe.py": "96b04c616bb6ebf47dcbf0018231a33274ecbe85",
+    "research/PROTOTYPES/RT-04-01/sqlite_close_call_probe.py": "2ad5a4c5061d6bd44c7c0a568e0a2a5d91052c3a",
+    "research/PROTOTYPES/RT-04-01/sqlite_close_interleavings_probe.py": "2306c526ced59f0c96f3064454c483e7b3f2431f",
+    "research/PROTOTYPES/RT-04-01/sqlite_close_reentry_probe.py": "aa54df7c85cf614eec7aa43128c0e44ee89ceb96",
+    "research/PROTOTYPES/RT-04-01/sqlite_durable_receipts_probe.py": "13b7cc7924e190778bcc4f2db8c95acf5e8b0a3c",
+    "research/PROTOTYPES/RT-04-01/test_rt04_native_probe_runner.py": "45e8c1d58a70ecfbd982e83af9a0e4a74dd18771",
+    "research/PROTOTYPES/RT-04-01/test_rt04_rust_owned_probe.py": "146f849bbd38be98424097fac16254ee0523ee02"
+  },
+  "python_tests_passed": 364,
+  "native_commands": [
+    {
+      "name": "sqlite-cleanup-contracts",
+      "exit_code": 0,
+      "stdout_sha256": "4c72efca732d00161a200ee7d2a28ef8e20bbe0b9a61bc463fa1ce5fc8ca8895",
+      "stdout_lines": 13,
+      "matches_ci_log_lines": true,
+      "stdout": "SQLite 3.46.1\nsource ID: 2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1\nclose with pending statement = 5\nfinalize statement prepared after busy close = 0\nfinalize original statement = 0\nclose after finalizing statements = 0\nstep with integer overflow = 1\nfinalize after step error = 1\nclose after finalize error = 0\nclose_v2 with pending statement = 0\ndestructor count after close_v2 = 0\nfinalize pending statement after close_v2 = 0\ndestructor count after finalization = 1\n",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "sqlite-recovery-matrix",
+      "exit_code": 0,
+      "stdout_sha256": "f788048c05e76c9a163f8caad72ab4a6ab2bbd64a9c88421b5d69bc181067999",
+      "stdout_lines": 3,
+      "matches_ci_log_lines": true,
+      "stdout": "SQLite 3.46.1\nsource ID: 2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1\nCompared 356 admitted traces with SQLite and skipped 154 rejected plans\n",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "sqlite-snapshot-freshness",
+      "exit_code": 0,
+      "stdout_sha256": "8e2db511ba846d44f0597d0808e526a858b46094ec1517fedb8fba3c67eeb775",
+      "stdout_lines": 10,
+      "matches_ci_log_lines": true,
+      "stdout": "SQLite 3.46.1\nsource ID: 2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1\ninitial statement count = 0\nclose with unchanged empty set = 0\nstatement count when snapshot was captured = 0\nstatement count after an intervening prepare = 1\nclose after relying on a stale snapshot = 5\nfinalize intervening statement = 0\nstatement count after refreshing the snapshot = 0\nclose after refreshing the snapshot = 0\n",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "sqlite-close-call-boundary",
+      "exit_code": 0,
+      "stdout_sha256": "735bc06e6ebfc003cf3e3008409af20f62eed305fbb1cd15bf727ff9385eba18",
+      "stdout_lines": 3,
+      "matches_ci_log_lines": true,
+      "stdout": "SQLite 3.46.1\nsource ID: 2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1\nCompared 114 SQLite call boundaries. Source proof rejected 30 plans before execution.\n",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "sqlite-close-interleavings",
+      "exit_code": 0,
+      "stdout_sha256": "303205ab35900c6f4aeb18891b0b5767a80cb6e69b843a3468940ade34965587",
+      "stdout_lines": 13,
+      "matches_ci_log_lines": true,
+      "stdout": "SQLite 3.46.1\nsource ID: 2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1\nsplit_snapshot, before_snapshot: Observation(snapshot_size=1, version_matched=None, close_code=None, prepared=True)\nsplit_snapshot, after_snapshot: Observation(snapshot_size=0, version_matched=None, close_code=5, prepared=True)\nsplit_snapshot, after_close: Observation(snapshot_size=0, version_matched=None, close_code=0, prepared=False)\nsplit_version, before_snapshot: Observation(snapshot_size=1, version_matched=None, close_code=None, prepared=True)\nsplit_version, after_snapshot: Observation(snapshot_size=0, version_matched=False, close_code=None, prepared=True)\nsplit_version, after_validation: Observation(snapshot_size=0, version_matched=True, close_code=5, prepared=True)\nsplit_version, after_close: Observation(snapshot_size=0, version_matched=True, close_code=0, prepared=False)\nshared_guard, before_snapshot: Observation(snapshot_size=1, version_matched=None, close_code=None, prepared=True)\nshared_guard, after_close: Observation(snapshot_size=0, version_matched=None, close_code=0, prepared=False)\nalias_guard, before_snapshot: Observation(snapshot_size=1, version_matched=None, close_code=None, prepared=True)\nalias_guard, after_snapshot: Observation(snapshot_size=0, version_matched=None, close_code=5, prepared=True)\n",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "sqlite-close-reentry-and-coverage",
+      "exit_code": 0,
+      "stdout_sha256": "419dc02d07174620890153423b8389ac5dac10515a9e6a3285fee98be13a5b3c",
+      "stdout_lines": 22,
+      "matches_ci_log_lines": true,
+      "stdout": "SQLite 3.46.1\nsource ID: 2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1\nCallbackCase(policy='lock_only', initially_live=False, callback_prepares=False): CallbackObservation(initial_count=0, action='preserved', count_after_callback=0, close_code=0)\nCallbackCase(policy='lock_only', initially_live=False, callback_prepares=True): CallbackObservation(initial_count=0, action='retained', count_after_callback=1, close_code=5)\nCallbackCase(policy='lock_only', initially_live=True, callback_prepares=False): CallbackObservation(initial_count=1, action='skipped', count_after_callback=1, close_code=None)\nCallbackCase(policy='lock_only', initially_live=True, callback_prepares=True): CallbackObservation(initial_count=1, action='skipped', count_after_callback=1, close_code=None)\nCallbackCase(policy='reserve_close', initially_live=False, callback_prepares=False): CallbackObservation(initial_count=0, action='preserved', count_after_callback=0, close_code=0)\nCallbackCase(policy='reserve_close', initially_live=False, callback_prepares=True): CallbackObservation(initial_count=0, action='refused', count_after_callback=0, close_code=0)\nCallbackCase(policy='reserve_close', initially_live=True, callback_prepares=False): CallbackObservation(initial_count=1, action='skipped', count_after_callback=1, close_code=None)\nCallbackCase(policy='reserve_close', initially_live=True, callback_prepares=True): CallbackObservation(initial_count=1, action='skipped', count_after_callback=1, close_code=None)\nCallbackCase(policy='inspect_again', initially_live=False, callback_prepares=False): CallbackObservation(initial_count=0, action='preserved', count_after_callback=0, close_code=0)\nCallbackCase(policy='inspect_again', initially_live=False, callback_prepares=True): CallbackObservation(initial_count=0, action='retained', count_after_callback=1, close_code=None)\nCallbackCase(policy='inspect_again', initially_live=True, callback_prepares=False): CallbackObservation(initial_count=1, action='skipped', count_after_callback=1, close_code=None)\nCallbackCase(policy='inspect_again', initially_live=True, callback_prepares=True): CallbackObservation(initial_count=1, action='skipped', count_after_callback=1, close_code=None)\nnone, close: CoverageObservation(statement_count=0, close_code=0, destroyed_at_close=True, destroyed_after_release=True)\nnone, close_v2: CoverageObservation(statement_count=0, close_code=0, destroyed_at_close=True, destroyed_after_release=True)\nstatement, close: CoverageObservation(statement_count=1, close_code=5, destroyed_at_close=False, destroyed_after_release=False)\nstatement, close_v2: CoverageObservation(statement_count=1, close_code=0, destroyed_at_close=False, destroyed_after_release=True)\nblob, close: CoverageObservation(statement_count=1, close_code=5, destroyed_at_close=False, destroyed_after_release=False)\nblob, close_v2: CoverageObservation(statement_count=1, close_code=0, destroyed_at_close=False, destroyed_after_release=True)\nbackup, close: CoverageObservation(statement_count=0, close_code=5, destroyed_at_close=False, destroyed_after_release=False)\nbackup, close_v2: CoverageObservation(statement_count=0, close_code=0, destroyed_at_close=False, destroyed_after_release=True)\n",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "sqlite-backup-roles",
+      "exit_code": 0,
+      "stdout_sha256": "d228db3b7a4f3c44a8b4f33c740821b7e035ab15620cfb8233aaef8be0d518d9",
+      "stdout_lines": 3,
+      "matches_ci_log_lines": true,
+      "stdout": "SQLite 3.46.1\nsource ID: 2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1\n12 shared-source traces, one same-identity rejection, two transaction failures with successful retry\n",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "sqlite-backup-outcomes",
+      "exit_code": 0,
+      "stdout_sha256": "c1536a18a25bc2084020a9cea9d55c9f03e267c02263045416935262527c9112",
+      "stdout_lines": 4,
+      "matches_ci_log_lines": true,
+      "stdout": "SQLite 3.46.1\nsource ID: 2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1\nwritable.sqlite: step=101, finish=0, source destroyed at finish, destination usable after finish\nread-only.sqlite: step=8, finish=8, source destroyed at finish, destination usable after finish\n",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "sqlite-durable-receipts",
+      "exit_code": 0,
+      "stdout_sha256": "b212536c820761f2b887fd8873e13b02246fb6c862dc7b0cbd80e74f80172b14",
+      "stdout_lines": 11,
+      "matches_ci_log_lines": true,
+      "stdout": "Python sqlite3 library 3.53.1\natomic, before_effect: RecoveryView(effect_live=True, terminal_record=False, delivered=False)\natomic, after_effect: RecoveryView(effect_live=True, terminal_record=False, delivered=False)\natomic, after_record: RecoveryView(effect_live=True, terminal_record=False, delivered=False)\natomic, after_commit: RecoveryView(effect_live=False, terminal_record=True, delivered=False)\natomic, complete: RecoveryView(effect_live=False, terminal_record=True, delivered=True)\nseparate, before_effect: RecoveryView(effect_live=True, terminal_record=False, delivered=False)\nseparate, after_effect: RecoveryView(effect_live=False, terminal_record=False, delivered=False)\nseparate, after_record: RecoveryView(effect_live=False, terminal_record=False, delivered=False)\nseparate, after_commit: RecoveryView(effect_live=False, terminal_record=True, delivered=False)\nseparate, complete: RecoveryView(effect_live=False, terminal_record=True, delivered=True)\n",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "generated-rust-owned-results",
+      "exit_code": 0,
+      "stdout_sha256": "51e083f6fa185540a5a9f93535da63ee9bc669c34e8c6eb6c50eb44272520c71",
+      "stdout_lines": 14,
+      "matches_ci_log_lines": true,
+      "stdout": "rustc 1.85.1 (4eb161250 2025-03-15)\nforwarding           before_cleanup  opt 0  10496 traces  1856 starts\nforwarding           before_cleanup  opt 3  10496 traces  1856 starts\nforwarding           after_cleanup   opt 0  10496 traces  2576 starts\nforwarding           after_cleanup   opt 3  10496 traces  2576 starts\nrecovery             before_cleanup  opt 0  10496 traces  2816 starts\nrecovery             before_cleanup  opt 3  10496 traces  2816 starts\nrecovery             after_cleanup   opt 0  10496 traces  2996 starts\nrecovery             after_cleanup   opt 3  10496 traces  2996 starts\nretargeted recovery  before_cleanup  opt 0  10496 traces  2368 starts\nretargeted recovery  before_cleanup  opt 3  10496 traces  2368 starts\nretargeted recovery  after_cleanup   opt 0  10496 traces  2590 starts\nretargeted recovery  after_cleanup   opt 3  10496 traces  2590 starts\n125952 native observations match the reference\n",
+      "stderr_bytes": 0
+    }
+  ]
+}

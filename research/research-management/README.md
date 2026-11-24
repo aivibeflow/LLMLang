@@ -20,6 +20,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Audits and evidence maps
 
+- [SQLite and generated-Rust lifecycle replay](RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.md)
 - [Changed research artifact roles](RT-00/RT-00-B-11-CHANGED-ARTIFACT-ROLES-2026-11-24.md)
 - [Paired Package Provider queue comparison](RT-00/RT-00-C-PROVIDER-QUEUE-REPLAY-2026-11-24.md)
 - [Research navigation reachability](RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.md)
