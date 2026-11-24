@@ -5,9 +5,9 @@
   "revision": "b347719bfcb27813b181e52af52e5474debcf65b",
   "source": "Exact research path, blob and byte inventory for the rebased current main and selected Stage 0.2 report-structure recheck, excluding the inventory manifest itself.",
   "counts": {
-    "research_files": 953,
-    "research_artifacts_excluding_manifest": 953,
-    "markdown_files": 451,
+    "research_files": 954,
+    "research_artifacts_excluding_manifest": 954,
+    "markdown_files": 452,
     "mdx_files": 3,
     "python_files": 283,
     "lean_source_files": 55,
@@ -17,7 +17,7 @@
     "taxonomy_research_areas": 38,
     "dependency_edges": 264,
     "category_counts": {
-      "audit-or-review-report": 102,
+      "audit-or-review-report": 103,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 49,
       "external-source-snapshot-or-license": 13,
@@ -19020,6 +19020,26 @@
       ]
     },
     {
+      "path": "research/research-management/RT-00/RT-00-RESEARCH-DRAFT-BOUNDARY-RECHECK-2026-11-24.md",
+      "git_blob_sha": "7c6882539578b9eb359bf181f5cb01475e3336cf",
+      "size_bytes": 5783,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.2"
+        ],
+        "method": "bounded crosswalk of draft index, accepted decision and selected reports",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "selected-artifact-boundary-review",
+        "basis": "One accepted decision, proposed process protocol, and three recent research outputs; no corpus-wide decision audit."
+      }
+    },
+    {
       "path": "research/research-management/RT-00/package_provider_queue_replay.py",
       "git_blob_sha": "d030465d983952e20fd4b3bbac8b5080cd3b945c",
       "size_bytes": 6889,
@@ -23697,7 +23717,7 @@
     "archived_manifest_git_blob": "991cd1fa44a09528a1b63fdce4aceb80cb006b00",
     "baseline_artifacts_excluding_manifest": 839,
     "previous_records": 786,
-    "current_records": 841,
+    "current_records": 842,
     "mapped_relocations": 501,
     "new_role_records": [
       "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCpcCertificate.lean",
@@ -23748,6 +23768,7 @@
       "research/research-management/RT-00/RT-00-QUALITY-RULES-QUEUE-RELOCATION-2026-11-24.json",
       "research/research-management/RT-00/RT-00-QUALITY-RULES-QUEUE-RELOCATION-2026-11-24.md",
       "research/research-management/RT-00/RT-00-REPORT-STRUCTURE-RECHECK-2026-11-24.md",
+      "research/research-management/RT-00/RT-00-RESEARCH-DRAFT-BOUNDARY-RECHECK-2026-11-24.md",
       "research/runtime-and-systems/README.md",
       "research/runtime-and-systems/RT-37/README.md",
       "research/runtime-and-systems/RT-38/README.md",
