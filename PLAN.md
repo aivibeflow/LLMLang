@@ -874,6 +874,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define runtime representation of values and semantic calls.
 - [ ] Define explicit call binding to immutable operation identity.
 - [ ] Define error propagation, cancellation, and resource cleanup.
+  - [x] Compare a native blocked Linux pipe read with cooperative eventfd cancellation. Closing and reusing a descriptor leaves an existing read pinned to the original pipe. Six cases distinguish EOF, cancellation and delivery, including two-ready outcome priority and terminal byte settlement. Foreign I/O, portability and controlled timing remain open. [Linux read cancellation](research/runtime-and-systems/RT-26/RT-26-LINUX-READ-CANCELLATION-2026-11-24.md).
 - [ ] Research first-class resource accounting and enforcement for task scopes and task hierarchies: memory, CPU, disk I/O, network I/O, coroutine/task switches, and hardware/software performance counters.
   - [x] Compare Linux address-space admission with native residency sampling. Discarding all 768 touched pages leaves an additional mapping denied until unmap, and two locally admitted workers exceed the corresponding shared virtual-length bound. Physical charging, cgroups and portable group accounting remain open. [Linux mapping residency](research/runtime-and-systems/RT-26/RT-26-LINUX-MAPPING-RESIDENCY-2026-11-24.md).
 - [ ] Define real-time resource limits, quotas, budgets, rate limits, and throttlers, including hierarchical aggregation, inheritance, delegation, and contention between parent/child tasks.
