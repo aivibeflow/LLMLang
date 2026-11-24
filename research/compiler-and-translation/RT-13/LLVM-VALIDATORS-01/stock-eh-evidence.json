@@ -1,0 +1,66 @@
+{
+  "schema": "llmlang-rt13-alive2-vellvm-crosscheck-v1",
+  "llvm": "LLVM (http://llvm.org/):",
+  "alive2_revision": "84041960f183aec74d740ff881c95a4ce5234d3d",
+  "vellvm_revision": "7f0610c38d829b79bf6e867edf410c9e6f928f98",
+  "inputs_sha256": {
+    "identity.ll": "5a21ecae923e3f5bc8f9f2d7a36eea1dc6feb30973f6c3fad0c359994395ec73",
+    "wrap.ll": "d322418fb9c4fe8ab8659091067238501e08378426c827fd63839fc7e3ee7edc",
+    "alias.ll": "3d5644507c8bd9b42a2d5ef51b4c394d8cf8b8f4d99e9571dc3b35f701743896",
+    "atomic.ll": "3521becb35bea1b251e3d64416eb4d10387813e27361d78d8cc9766feb2a7d2d",
+    "fence.ll": "8709ebcdf6d7b925baa92133b3a6791c97e379817023640afd935213631e1911",
+    "run.py": "c8a68bd8fe5afa35909aa0bc59a237909638dd591e269413821d8ef5a10a1467"
+  },
+  "cases": {
+    "identity": {
+      "alive2": "valid",
+      "alive2_exit_code": 0,
+      "vellvm": {
+        "passed": 4,
+        "failed": 0,
+        "exit_code": 0
+      }
+    },
+    "wrap": {
+      "alive2": "refuted",
+      "alive2_exit_code": 0,
+      "vellvm": {
+        "passed": 4,
+        "failed": 0,
+        "exit_code": 0
+      }
+    },
+    "alias": {
+      "alive2": "refuted",
+      "alive2_exit_code": 0,
+      "vellvm": {
+        "passed": 4,
+        "failed": 0,
+        "exit_code": 0
+      }
+    },
+    "atomic": {
+      "alive2": "unsupported",
+      "alive2_exit_code": 1,
+      "vellvm": {
+        "passed": 4,
+        "failed": 0,
+        "exit_code": 0
+      }
+    },
+    "fence": {
+      "alive2": "unsupported",
+      "alive2_exit_code": 1,
+      "vellvm": {
+        "passed": 2,
+        "failed": 0,
+        "exit_code": 0
+      }
+    }
+  },
+  "changed_vellvm_assertion": {
+    "passed": 3,
+    "failed": 1,
+    "exit_code": 1
+  }
+}
