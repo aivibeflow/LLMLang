@@ -1,0 +1,359 @@
+{
+  "schema": "rt00-corpus-text-overlap-v1",
+  "baseline": "43060fa2fb8bfa8178ce4f444e6e5a210ec94f2f",
+  "environment": {
+    "python": "3.12.14",
+    "git": "git version 2.56.1"
+  },
+  "thresholds": {
+    "word_window": 8,
+    "min_shared": 24,
+    "min_jaccard_or_min_containment": [
+      0.025,
+      0.07
+    ]
+  },
+  "documents": 420,
+  "pair_population": 87990,
+  "initial_stricter_filter_candidates": 0,
+  "candidate_role_counts": {
+    "Distinct experimental scopes": 4,
+    "Language companions": 1,
+    "Proposed study and bounded implementation": 3,
+    "Shared index language": 10
+  },
+  "candidates": [
+    {
+      "paths": [
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-20-RESULTS.md",
+        "research/semantic-representation/RT-06/RESEARCH-SCENARIO-20-DEPENDENCY-DISCOVERY-AND-SEMANTIC-CLASSIFICATION.md"
+      ],
+      "blobs": [
+        "f2f04713f149416ef6452cb981b42447b0c6adb5",
+        "03eca71367a7e1079ea09bb917621cbca73806e6"
+      ],
+      "shared_windows": 26,
+      "jaccard": 0.014706,
+      "containment": 0.151163,
+      "role": "Proposed study and bounded implementation",
+      "scope_finding": "The result covers normalized observations supplied to the prototype. The scenario describes filters and broader discovery sources."
+    },
+    {
+      "paths": [
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-21-RESULTS.md",
+        "research/semantic-representation/RT-06/RESEARCH-SCENARIO-21-COUNTERFACTUAL-DEPENDENCY-DETECTION.md"
+      ],
+      "blobs": [
+        "333b652bd5c1a47481d8b65390a5d411f4952f5b",
+        "21e4f835ca8be209b51031940c6d884744f824ad"
+      ],
+      "shared_windows": 38,
+      "jaccard": 0.018087,
+      "containment": 0.125413,
+      "role": "Proposed study and bounded implementation",
+      "scope_finding": "The result compares supplied paired runs and leaves automated interventions and dependency completeness open."
+    },
+    {
+      "paths": [
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-28-RESULTS.md",
+        "research/formal-verification/RT-07/RESEARCH-SCENARIO-28-TYPED-IR-AND-PROOF-BOUNDARY.md"
+      ],
+      "blobs": [
+        "e94de0a7d48dbb4259c4bfc07cd0f0471c10285b",
+        "6542a7e76707f6ea63d2ac629a0f913c3296fbf0"
+      ],
+      "shared_windows": 59,
+      "jaccard": 0.04664,
+      "containment": 0.133183,
+      "role": "Proposed study and bounded implementation",
+      "scope_finding": "The result exercises typed-IR and query-evidence records with finite controls. The scenario defines the broader typed-IR and proof-boundary scope."
+    },
+    {
+      "paths": [
+        "research/compiler-and-translation/README.md",
+        "research/language-design/README.md"
+      ],
+      "blobs": [
+        "5d795e42cf09017019eacd0616797d0eaf70d049",
+        "e3254af0bcaef9d5ab49bc5e2e2076a72262a850"
+      ],
+      "shared_windows": 32,
+      "jaccard": 0.246154,
+      "containment": 0.4,
+      "role": "Shared index language",
+      "scope_finding": "The direction indexes share heading, navigation and scope language and link distinct study families."
+    },
+    {
+      "paths": [
+        "research/compiler-and-translation/README.md",
+        "research/runtime-and-systems/README.md"
+      ],
+      "blobs": [
+        "5d795e42cf09017019eacd0616797d0eaf70d049",
+        "bfd00ea31461e07c824e1a5d3fa343271fad35e1"
+      ],
+      "shared_windows": 32,
+      "jaccard": 0.238806,
+      "containment": 0.390244,
+      "role": "Shared index language",
+      "scope_finding": "The direction indexes share heading, navigation and scope language and link distinct study families."
+    },
+    {
+      "paths": [
+        "research/compiler-and-translation/README.md",
+        "research/semantic-representation/README.md"
+      ],
+      "blobs": [
+        "5d795e42cf09017019eacd0616797d0eaf70d049",
+        "8164a0f5c0ff2b635c7733372f2d69233d31bf59"
+      ],
+      "shared_windows": 32,
+      "jaccard": 0.278261,
+      "containment": 0.492308,
+      "role": "Shared index language",
+      "scope_finding": "The direction indexes share heading, navigation and scope language and link distinct study families."
+    },
+    {
+      "paths": [
+        "research/compiler-and-translation/README.md",
+        "research/toolchain-and-collaboration/README.md"
+      ],
+      "blobs": [
+        "5d795e42cf09017019eacd0616797d0eaf70d049",
+        "1da9e0803c7477ecb3def5f749ee6cb49820c8d7"
+      ],
+      "shared_windows": 28,
+      "jaccard": 0.14359,
+      "containment": 0.341463,
+      "role": "Shared index language",
+      "scope_finding": "The direction indexes share heading, navigation and scope language and link distinct study families."
+    },
+    {
+      "paths": [
+        "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md",
+        "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-96B-LLVM-BYTE-VIEW-PRESERVATION.md"
+      ],
+      "blobs": [
+        "585fbdd9411c9e2e7546ebf790a5d8c80d66881f",
+        "219509655481f3a68af07e0716777c44261194af"
+      ],
+      "shared_windows": 56,
+      "jaccard": 0.037086,
+      "containment": 0.093489,
+      "role": "Distinct experimental scopes",
+      "scope_finding": "The shared native pipeline evaluates integer overflow, shifts and effect order in 96A and logical view identity and bounds in 96B."
+    },
+    {
+      "paths": [
+        "research/formal-verification/RT-07/RT-07-CPC-NULLARY-ALIAS-BINDING.md",
+        "research/formal-verification/RT-07/RT-07-SOURCE-WIRE-LOGOS-ACCEPTANCE.md"
+      ],
+      "blobs": [
+        "1dce6e9f5e852f14f9b0348118d1c2c2564a2e26",
+        "081a46cb831e7d73f4b96f3c54523eddf49601d1"
+      ],
+      "shared_windows": 25,
+      "jaccard": 0.029976,
+      "containment": 0.06068,
+      "role": "Distinct experimental scopes",
+      "scope_finding": "The alias result checks parser binding conditions. The wire result binds scoped source assertions and a replayed refutation."
+    },
+    {
+      "paths": [
+        "research/language-design/README.md",
+        "research/runtime-and-systems/README.md"
+      ],
+      "blobs": [
+        "e3254af0bcaef9d5ab49bc5e2e2076a72262a850",
+        "bfd00ea31461e07c824e1a5d3fa343271fad35e1"
+      ],
+      "shared_windows": 32,
+      "jaccard": 0.242424,
+      "containment": 0.4,
+      "role": "Shared index language",
+      "scope_finding": "The direction indexes share heading, navigation and scope language and link distinct study families."
+    },
+    {
+      "paths": [
+        "research/language-design/README.md",
+        "research/semantic-representation/README.md"
+      ],
+      "blobs": [
+        "e3254af0bcaef9d5ab49bc5e2e2076a72262a850",
+        "8164a0f5c0ff2b635c7733372f2d69233d31bf59"
+      ],
+      "shared_windows": 32,
+      "jaccard": 0.283186,
+      "containment": 0.492308,
+      "role": "Shared index language",
+      "scope_finding": "The direction indexes share heading, navigation and scope language and link distinct study families."
+    },
+    {
+      "paths": [
+        "research/language-design/README.md",
+        "research/toolchain-and-collaboration/README.md"
+      ],
+      "blobs": [
+        "e3254af0bcaef9d5ab49bc5e2e2076a72262a850",
+        "1da9e0803c7477ecb3def5f749ee6cb49820c8d7"
+      ],
+      "shared_windows": 28,
+      "jaccard": 0.145078,
+      "containment": 0.35,
+      "role": "Shared index language",
+      "scope_finding": "The direction indexes share heading, navigation and scope language and link distinct study families."
+    },
+    {
+      "paths": [
+        "research/language-design/RT-01/LLMLang-CONCEPT.md",
+        "research/language-design/RT-01/LLMLang-CONCEPT.ru.md"
+      ],
+      "blobs": [
+        "2f592de203f5ae38529b8e539f79bf9279b5f1dd",
+        "afa27041670e0d295bd7e0d9d0a3c96c2c584d62"
+      ],
+      "shared_windows": 741,
+      "jaccard": 0.073643,
+      "containment": 0.149335,
+      "role": "Language companions",
+      "scope_finding": "The authored concepts share structure and some passages. The newer English concept has the RT-36 proposal beyond the Russian companion's recorded coverage."
+    },
+    {
+      "paths": [
+        "research/language-design/RT-04/RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md",
+        "research/language-design/RT-04/RESEARCH-SCENARIO-125-CLOSE-REENTRY-AND-COVERAGE.md"
+      ],
+      "blobs": [
+        "b39031ccff3cc8c910ec9c97b4d1c1d466d94aa0",
+        "7ef0f8aad049e9c4eafe2b5e6be027190ac92be3"
+      ],
+      "shared_windows": 44,
+      "jaccard": 0.030726,
+      "containment": 0.061367,
+      "role": "Distinct experimental scopes",
+      "scope_finding": "The call-boundary comparison tests close policies. The later study varies reentry and dependent coverage, including backup resources."
+    },
+    {
+      "paths": [
+        "research/runtime-and-systems/README.md",
+        "research/semantic-representation/README.md"
+      ],
+      "blobs": [
+        "bfd00ea31461e07c824e1a5d3fa343271fad35e1",
+        "8164a0f5c0ff2b635c7733372f2d69233d31bf59"
+      ],
+      "shared_windows": 32,
+      "jaccard": 0.273504,
+      "containment": 0.492308,
+      "role": "Shared index language",
+      "scope_finding": "The direction indexes share heading, navigation and scope language and link distinct study families."
+    },
+    {
+      "paths": [
+        "research/runtime-and-systems/README.md",
+        "research/toolchain-and-collaboration/README.md"
+      ],
+      "blobs": [
+        "bfd00ea31461e07c824e1a5d3fa343271fad35e1",
+        "1da9e0803c7477ecb3def5f749ee6cb49820c8d7"
+      ],
+      "shared_windows": 28,
+      "jaccard": 0.142132,
+      "containment": 0.333333,
+      "role": "Shared index language",
+      "scope_finding": "The direction indexes share heading, navigation and scope language and link distinct study families."
+    },
+    {
+      "paths": [
+        "research/semantic-representation/README.md",
+        "research/toolchain-and-collaboration/README.md"
+      ],
+      "blobs": [
+        "8164a0f5c0ff2b635c7733372f2d69233d31bf59",
+        "1da9e0803c7477ecb3def5f749ee6cb49820c8d7"
+      ],
+      "shared_windows": 28,
+      "jaccard": 0.157303,
+      "containment": 0.430769,
+      "role": "Shared index language",
+      "scope_finding": "The direction indexes share heading, navigation and scope language and link distinct study families."
+    },
+    {
+      "paths": [
+        "research/semantic-representation/RT-06/RESEARCH-SCENARIO-107-SOURCE-DERIVED-CALL-ALIASES.md",
+        "research/semantic-representation/RT-06/RESEARCH-SCENARIO-108-PATH-SENSITIVE-ALIAS-PRECISION.md"
+      ],
+      "blobs": [
+        "71e6baeac2d801ce3fa86cf871679dbf82c2c849",
+        "b353e1c1a19013212f66f102e3d7bb336dd2c94a"
+      ],
+      "shared_windows": 35,
+      "jaccard": 0.029762,
+      "containment": 0.067961,
+      "role": "Distinct experimental scopes",
+      "scope_finding": "The source adapter extracts aliases and calls for a bounded AST. The later precision study retains alternatives along path valuations."
+    }
+  ],
+  "known_relationship_controls": [
+    {
+      "paths": [
+        "research/formal-verification/RT-07/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md",
+        "research/formal-verification/RT-07/RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md"
+      ],
+      "blobs": [
+        "d9ed864000747071b81390972d4824683184cc63",
+        "b2ddc72dfedb36c2519a0344b0c720b0e3c9feae"
+      ],
+      "shared_windows": 0,
+      "jaccard": 0.0,
+      "containment": 0.0,
+      "candidate_selected": false,
+      "known_relationship": "Prior section-level supersession of the text-oriented query representation"
+    },
+    {
+      "paths": [
+        "research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md",
+        "research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md"
+      ],
+      "blobs": [
+        "a079f82f102da12695d63bae80460885484e6227",
+        "f5961f5e42cee1f927467672071159a767571a83"
+      ],
+      "shared_windows": 2,
+      "jaccard": 0.000295,
+      "containment": 0.000715,
+      "candidate_selected": false,
+      "known_relationship": "Prior section-level supersession of current-architecture guidance and the embedded proposal"
+    },
+    {
+      "paths": [
+        "research/language-design/RT-01/RESEARCH-RELATED-PROJECTS.md",
+        "research/language-design/RT-01/RESEARCH-DEEP-COMPARISON.md"
+      ],
+      "blobs": [
+        "534108da6ad042ce3466be72f2507307f030b1ac",
+        "7194d2435ece2fb8cb3a3891d898dc142f37370e"
+      ],
+      "shared_windows": 0,
+      "jaccard": 0.0,
+      "containment": 0.0,
+      "candidate_selected": false,
+      "known_relationship": "Prior scoped supersession of overlapping project claims"
+    },
+    {
+      "paths": [
+        "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md",
+        "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.ru.md"
+      ],
+      "blobs": [
+        "0deb6541cb0704681747b151d7415ac4cf0b2c0b",
+        "58a8bd7716130a86ddce7f1a91e3eb2c341248ae"
+      ],
+      "shared_windows": 47,
+      "jaccard": 0.013063,
+      "containment": 0.028977,
+      "candidate_selected": false,
+      "known_relationship": "Maintained language companions with reciprocal navigation"
+    }
+  ]
+}
