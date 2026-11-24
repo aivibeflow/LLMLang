@@ -425,3 +425,9 @@ Before this proposal can become normative, investigate and validate:
 - hash stability, versioning, collision handling, and cache invalidation.
 
 No implementation should claim general C compatibility until the supported C language modes, target triples, ABI profiles, compiler versions, and tested feature subset are explicitly listed.
+
+## Public-interface integration (2026-11-24; proposed)
+
+A public interface's stable name and behavioral contract are not structural Identity, TypeHash, LayoutHash or Function ABI Hash. A change may be contract-compatible but ABI-incompatible, or ABI-compatible but behaviorally incompatible. A source-level public operation can select an exact provider with a separately verified foreign adapter and target-specific ABI/export mapping. Preserve layout engine authority; test changed layout, call convention, error representation, and proof claims under a pinned ABI profile.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

@@ -102,3 +102,9 @@ No LLMLang namespace syntax, package boundary, visibility default, initializatio
 ## 7. Sources and temporal limits
 
 Official specifications and language documentation were consulted 2026-11-19. Go and Swift online manuals are rolling documentation; pin language/toolchain versions for experiments. Java references are JLS/Java SE 26 pages. This report does not claim implementation-specific compilation or runtime costs.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Follow-up: resolve scoped exported qualified names and re-exports to exact public operation revisions before selecting an implementation. Pin the catalog and record negative/ambiguous lookup dependencies; no implicit latest resolution at execution. Import/export compatibility, module initialization ordering and provider conformance are independent checks. Compare alias-preserving rename, cyclic re-exports, conflicting namespace entries and providers with different initialization obligations.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

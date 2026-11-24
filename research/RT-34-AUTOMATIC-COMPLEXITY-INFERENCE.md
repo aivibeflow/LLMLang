@@ -150,3 +150,9 @@ Use the [complexity benchmark plan](RT-34-COMPLEXITY-BENCHMARK.md) across CF and
 Record immutable baseline, source/model/profile, benchmark case versions, tool versions, raw results, proof terms and trusted assumptions. Independently adjudicate expected outcomes and separate observed finite data from unbounded proofs. Measure soundness (no known false proven claims in evaluated scope, not a universal soundness guarantee), completeness/abstention, bound tightness, proof size, runtime, memory, incremental reuse and manual effort. Require a formal soundness theorem for the modeled analyzer fragment or independently checked per-claim certificates plus translation evidence. Include negative controls and reproducible commands before any implementation status is advanced.
 
 Current evidence class: analytical research brief and existing bounded prototype references. No new experiment, source correspondence theorem, analyzer, accepted cost model or normative resource contract is claimed. Report alternatives and open gaps to the specification synthesis process.
+
+## Public-interface integration (2026-11-24; proposed)
+
+A public interface may expose a resource guarantee independently of the selected algorithm. Verify the implementation's inferred/proved bound and its refinement of the public bound under the same size/cost/model, quantification and environment. Worst-case, expected and amortized bounds are not interchangeable; O upper bounds do not establish lower bounds, exact costs or optimality. Substitution can change observed cost within the public allowance; performance-sensitive callers must state stronger requirements explicitly. Rebinding invalidates exact implementation resource evidence, not the public requirement itself.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

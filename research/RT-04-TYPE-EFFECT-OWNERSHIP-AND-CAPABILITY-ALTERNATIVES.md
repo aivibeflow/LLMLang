@@ -354,3 +354,9 @@ RT-04 is complete for comparative-survey scope only after alternatives/questions
 ## Cross-profile trace evidence
 
 See [RT-03 A/D × RT-04 A/B shared observable-trace cross-check](RT-04-RT-03-CROSS-PROFILE-TRACES.md), [RT-03 core semantics](CORE-LANGUAGE-SEMANTICS.md), and [executable scenario matrix](RT-04-PROTOTYPE-01-SCENARIOS.md). These documents should be reviewed together; the trace oracle is exploratory and does not select an architecture.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Separate callable shape, type variance, effects, caller authority, ownership transfer and behavioral refinement at public-interface admission. Contravariant input and covariant result reasoning is conditional on the type/aliasing model; mutable generic positions may be invariant. A provider must preserve required observable effects, error alternatives, cleanup/borrow obligations, and declared progress, not merely have a smaller effect set. Test generic and stateful interfaces, joint protocol invariants, adapters, capabilities on exceptional exits, and conflicting provider declarations. Public names do not enter structural type identity merely because they are exported.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

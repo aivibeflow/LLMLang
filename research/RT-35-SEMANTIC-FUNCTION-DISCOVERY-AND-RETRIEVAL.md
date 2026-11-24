@@ -201,3 +201,9 @@ These are research alternatives, not selected implementation choices. The prefer
 RT-35 builds on RT-03/04 for meaning and compatibility; RT-05/24 for immutable identity and canonical semantic representation; RT-06/11 for dependency and index invalidation; RT-07/08 for soundness and benchmark evidence; RT-09/19 for Toolchain APIs and integration; RT-12 for reusable library/package discovery; RT-14/31 for agent intent, context, and controlled AI evaluation; RT-16 for authorization and index trust; RT-18 for version evolution; and RT-20 for exact call-site binding, caller compatibility, and hash propagation.
 
 RT-35 does not decide LLMLang function syntax, function naming conventions, or call semantics. It researches how the Toolchain helps an author or agent discover the correct exact function hash before constructing a deterministic call.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Reconcile discovery with public interfaces: private/unnamed functions can remain discoverable only within authorized scopes; public exports have stable qualified names and exact operation revisions. Index public contracts and implementation-provided contracts as distinct record kinds and return exact OpHash/ImplHash candidates with provenance. Lookup by name, retrieval by intent, hard compatibility checking and deterministic binding are separate stages. Similarity, exact signature or matching ContractHash alone cannot prove conformance; do not emit a call that silently changes semantic revision. Public-operation calls and direct implementation calls retain separate identities.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

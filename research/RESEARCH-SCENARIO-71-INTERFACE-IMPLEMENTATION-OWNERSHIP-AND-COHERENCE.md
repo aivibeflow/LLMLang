@@ -57,3 +57,9 @@ Sources: [GHC User's Guide — Instance declarations and resolution](https://dow
 ## 5. Current result
 
 Implementation ownership, satisfaction style, overlap handling, and lookup scope are distinct choices. Owner-local explicit coherence limits conflicting global claims; implicit structural satisfaction avoids global conformance records; explicit retroactive systems make imported conformance metadata and conflicts visible design concerns; scoped or overlapping instances offer flexibility at a cost in resolution stability. No LLMLang policy is selected. Generic specialization, conformance metadata ABI, and build invalidation require matched experiments before RFC synthesis.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Follow-up: a public operation can have multiple independently verified provider candidates; coherence is a property of selection scope and policy, not necessarily global uniqueness of conformance. Compare explicit provider bindings and structural discovery, orphan/ownership policy, overlapping generic providers, and ambiguous selections. A declared impl or method-shape match is not behavioral evidence. Group interfaces require joint protocol obligations. Existing comparative results are unchanged.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
