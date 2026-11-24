@@ -549,6 +549,7 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 - [ ] Define proof obligations for compiler optimizations.
 - [ ] Study translation validation versus proving the optimizer correct.
 - [ ] Evaluate Alive2 and related LLVM validation techniques.
+- [x] Check whole-domain status, output stores and ordered callbacks for the exact Scenario 96A checked signed-add LLVM IR at O0 and O3. Two solvers reject mismatch formulas and find three verifier-accepted counterexamples, each replayed natively. Unsupported flags stay outside the claim. [Checked-add observation validation](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-OBSERVATIONS-2026-11-24.md).
 - [ ] Define differential and property-based testing against reference semantics.
 - [ ] Define when testing is sufficient evidence and when formal proof is required.
 
@@ -963,6 +964,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define a conservative LLVM IR subset and source-to-LLVM lowering contract.
 - [ ] Research poison, undef, overflow flags, pointer provenance, aliasing, floating-point flags, atomics, and memory ordering.
 - [ ] Define how LLVM optimization passes and target code generation are validated against LLMLang semantics.
+  - The signed-add fixture checks the exact optimized IR under a source observation model, including no store on overflow and ordered callbacks. Native evidence confirms the selected counterexamples. [Checked-add observation validation](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-OBSERVATIONS-2026-11-24.md).
 - [ ] Evaluate Alive2 and Vellvm and their applicability/limitations.
 - [ ] Define supported LLVM versions and reproducible toolchain identity.
   - Debian LLVM/lld 19.1.7 emits working Wasm at O0 and O3 for the read-only view corpus. [LLVM to Wasm byte views](research/compiler-and-translation/RT-13/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md)
