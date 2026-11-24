@@ -1,0 +1,124 @@
+{
+  "schema": "llmlang-rt24-canonical-layouts-v1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "input_sha256": "72ca0bbdcfdddf71e6b985127821bf8a2ec01b64725bec1340ac97adfea5fe4d",
+  "prototype_sha256": {
+    "src/__init__.py": "78d838d4216ed21bf85f5d5610bf5167dba718a1296ee2c5b381fdb308d24356",
+    "src/candidate_graph_audit.py": "639e36a6116edf361a5aa24205cb3496d42ba8f023d0663f9d61e13284e89e4b",
+    "src/impact_planning.py": "d349799ab9579923fd86ef68fa2a93537ae183843b9b59b742f5ff7a63cdaad1",
+    "src/semantic_dependency_index.py": "c0f5e4223b8aa607f9b8031038ae2a46f3be3a5ece96d8ccbb4604aa4c04645e",
+    "src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "tests/test_candidate_graph_audit.py": "16893b9d1265f8ed31ec6d6fb3a4d8a3afb6f3df6b40d60e1fb6a1265a257e6f",
+    "tests/test_rt24_merge_tree_gate.py": "aa6aa6f76cb0632160bcc06bfd42cb2b640171a554e484c0b2ad90c2fc617cba"
+  },
+  "raw_trees": [
+    "0cb2de5ffd52d7fc1a5b1d32cf9e9c2076bc44f5",
+    "0e8c58769712e44bb8b6e4e77f0e4933acb66229",
+    "16c04333bf1b37ad0b4429539f5e06a3c8f21d19",
+    "1b0c3dbb59f1f97e6dc4b1c0ebbddadb12913c1b",
+    "1f479ab7d438c922a31333b502c190eea9186057",
+    "294f8770bdf885659ab1ee618337e736bf3fa44d",
+    "37128e7b5e3a054557ceac86c5f2c1745685cae3",
+    "4a53d34318592e3299d4f9fb55d12d4c6f7dcfc1",
+    "5d72f82ff98f347d803d83a43f7022f4775c26ca",
+    "6ffa45f9029a253e67928d0c4401ec92993293b8",
+    "87d846c672b7319804f20282034e3271760670ce",
+    "91ef29576c958e1f7ca99c47b7bbd062650d92e8",
+    "9284fe13c023293e4d1ae1f7b43466eadcfcf55f",
+    "9a8dbdb397aabfda691dedfb96e6c9e95c3a42eb",
+    "9b2c1cc017eceaa202533bf16bec408d64e93865",
+    "a6dc9b9db393ed0047fd3a7920bf1127a532a0b4",
+    "c4d83b16b4799b924f8ef313731286adf0a5d156",
+    "d505bed8a0bf6514dda8d7af3b03ad8bd4b91cd2",
+    "da0f31039ee2020164e09c4f5db99634435109d8",
+    "e2d94ac742dc61b276db29a2e240139c12a3c6c6",
+    "e43fa52f71d81db0dafe729d4a3ecf044a9f3026",
+    "e6c45fd56361bf736aad65a47bea9b8139f1ab06",
+    "e818790ddf2afad8b366e26298221b7190def563",
+    "f476ed8aff91d47a7d7d4f73ffb7addfcbe64551"
+  ],
+  "semantic_root": "af520724165a9241ed1fab46bcef0dd5775c6ddfbe5c56a40e1bfa971ce96e5d",
+  "layouts": {
+    "packed": {
+      "canonical_tree": "58616a59b412ee6e2f77a280f2c248659fd3e2d5",
+      "files": 2,
+      "bytes": 2717,
+      "blob_sha256": {
+        "program/manifest.json": "665809d55936ccdea734d64a775d1f38365f797794560586f276c1bef44dfe4f",
+        "program/objects.json": "5ac6e2d1fbb9541330f05e1fa5ff9c5fedc23a1bd0bdffbfe40c9e97296a59c9"
+      }
+    },
+    "slot_files": {
+      "canonical_tree": "c9137c222fcfacc6e2cd1f6b9472c0b4cdf1a370",
+      "files": 7,
+      "bytes": 3220,
+      "blob_sha256": {
+        "program/manifest.json": "20794cc68605c2b782aaca681343c30514a8d1327844cbd94cd54f596fc6cc70",
+        "program/slots/0fb095a77e546354aa353a6e3ca1b193930a17b0680ebd265a725f93f684f4ca.json": "fb2d750ef78eae0e969f153eade13567fb3834cf5ef9d5e09b199e11e5e91d44",
+        "program/slots/326e626c16f8edf108741ecdaf848e0d4c4fb209cf051fd330542f81e5859d94.json": "f1c25fb46370b0db82d8c79bb4da3956bfd5240e766c9610dc26774548c27bcf",
+        "program/slots/8fcde5d9ec7c8907722304a3367e5df80f1a4158ebcb9ed108a3b6f4de8a94dd.json": "b62aa68d1146716b5cf79dfe29560435b2d4282e6983f94ae6bddb75cdb3a071",
+        "program/slots/bf2ce573cc3cae1c8d05302f02a3fcdf200fe596aae147d69fd5494367901dd2.json": "5e0a893475b3153a00b31de1b309461c95168c04caf1f95db1c37c5fdd6cc5db",
+        "program/slots/cacf5d2be88c4053afa8230472ca0156c09a167a7e3b372b6952379b48002a36.json": "12bc8f8b6de6c581c1555355bb93ee8538ea448f3aa457b7bedc6cc323a797d1",
+        "program/slots/d1f02691df67f137bc0d631ce73f533f83cb64278fe8a75ceb859e71047eb004.json": "6740716f387f0631a8a18140710a4d0ce3cd8f901ab5c0b522c4a63b66535b35"
+      }
+    }
+  },
+  "changes": {
+    "unrelated_effect_edit": {
+      "packed": {
+        "added_or_changed_blobs": 1,
+        "deleted_blobs": 0,
+        "added_or_changed_bytes": 2665
+      },
+      "slot_files": {
+        "added_or_changed_blobs": 1,
+        "deleted_blobs": 0,
+        "added_or_changed_bytes": 199
+      }
+    },
+    "provider_and_exact_retarget": {
+      "packed": {
+        "added_or_changed_blobs": 1,
+        "deleted_blobs": 0,
+        "added_or_changed_bytes": 2668
+      },
+      "slot_files": {
+        "added_or_changed_blobs": 3,
+        "deleted_blobs": 0,
+        "added_or_changed_bytes": 1915
+      }
+    },
+    "rename_occurrence": {
+      "packed": {
+        "added_or_changed_blobs": 1,
+        "deleted_blobs": 0,
+        "added_or_changed_bytes": 2673
+      },
+      "slot_files": {
+        "added_or_changed_blobs": 2,
+        "deleted_blobs": 1,
+        "added_or_changed_bytes": 1664
+      }
+    },
+    "change_ordered_payload": {
+      "packed": {
+        "added_or_changed_blobs": 1,
+        "deleted_blobs": 0,
+        "added_or_changed_bytes": 2668
+      },
+      "slot_files": {
+        "added_or_changed_blobs": 3,
+        "deleted_blobs": 0,
+        "added_or_changed_bytes": 1915
+      }
+    }
+  },
+  "rejected": {
+    "unknown_manifest_version": "InventoryError",
+    "unknown_declaration_version": "SemanticObjectError",
+    "duplicate_slot": "InventoryError",
+    "missing_file": "InventoryError",
+    "unavailable_callee": "GraphImportError"
+  }
+}

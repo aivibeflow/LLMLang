@@ -267,6 +267,8 @@ A Git merge commit is not a completed LLMLang semantic merge until these conditi
 
 The first prototype uses a deliberately small declared schema: stable IDs, typed references, roots, and a minimal contract/call relation. It must state its supported subset and make no full-SPG claim.
 
+The [canonical-layout experiment](RT-24-CANONICAL-GIT-LAYOUTS-2026-11-24.md) checks physical independence, deterministic export, exact selection reconstruction and rejected inputs for the closed fixture. The two layouts have different update granularity.
+
 **Representation/diff tests**
 1. Import/export round trip preserves roots and version identities.
 2. Repeated export is byte-identical.
