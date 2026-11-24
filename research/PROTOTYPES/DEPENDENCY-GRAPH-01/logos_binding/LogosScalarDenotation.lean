@@ -117,6 +117,8 @@ open LLMLang.SourceCommandSemantics
 open LLMLang.ProgramObservationSemantics
 open LLMLang.PairedObservationSemantics
 open LLMLang.SourceQueryEnvelope
+open LLMLang.CanonicalQuerySymbols (valuationForPair)
+open LLMLang.ProgramRelationalQuery (compileRelationalQuery)
 
 private def xDecl : Declaration := ⟨⟨1⟩, "x", .input, .int⟩
 private def pDecl : Declaration := ⟨⟨2⟩, "p", .input, .bool⟩
@@ -150,6 +152,8 @@ private def stateValues : {fields : List StateField} → StateValues Value field
 private def checkPrograms {sort : QuerySort} (program : Program sort) (factor : Declaration)
     (expectedScope : List (String × QuerySort))
     (valuations : List (Env × Env × Env)) : Except String (Nat × Nat) := do
+  let some query := compileRelationalQuery program contract scope factor.id
+    | throw "fixture did not compile a relational query"
   let wire ← sourceEnvelope program contract scope factor.id
   let decoded ← decodeSourceEnvelope program contract scope factor.id wire
   if decoded.declarations.map (fun declaration => (declaration.name, declaration.sort)) != expectedScope then
@@ -172,7 +176,12 @@ private def checkPrograms {sort : QuerySort} (program : Program sort) (factor : 
       fromSource (right factor.sourceName factor.sort)
     let observableChange := fromSource a.returned != fromSource b.returned ||
       stateValues a.state != stateValues b.state
-    let model ← liftValuation bindings wireEnv
+    let canonicalWire := wireValuation query.lower.bindings (valuationForPair pair)
+    for declaration in decoded.declarations do
+      if fromSource (wireEnv declaration.name declaration.sort) !=
+          fromSource (canonicalWire declaration.name declaration.sort) then
+        throw "lifted wire valuation differs from the fixture's independent assignment"
+    let model ← liftValuation bindings canonicalWire
     if (← evalRendered model inputDiff) != .bool inputChanged ||
         (← evalRendered model observationDiff) != .bool observableChange then
       throw "source pair differs from translated SMT assumptions"

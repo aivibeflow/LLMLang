@@ -64,6 +64,36 @@ private theorem fromBool (value : Value .bool) : fromSource value = .bool (asBoo
   cases value
   rfl
 
+/-- The conjunction of the exact parsed assumptions has the value of the source query. -/
+theorem acceptedAssumptions_formulaValues {sort : QuerySort} {program : Program sort}
+    {contract : ObservationContract} {scope : SourceScope} {factor : VariableId}
+    {wire proof : String} {decoded : DecodedRelationalQuery}
+    (accepted : decodeSourceEnvelope program contract scope factor wire = .ok decoded)
+    (bound : CheckedQueryAssumptions proof decoded) (env : Env)
+    {model : Valuation} (lifted : liftValuation bound.bindings env = .ok model) :
+    ∃ (query : RelationalQuery scope factor) (factorChanged observationChanged : Bool),
+      compileRelationalQuery program contract scope factor = some query ∧
+      bound.parsed.assumptions.mapM (fun term => evalSmt model (__eo_to_smt term)) =
+        .ok [.bool factorChanged, .bool observationChanged] ∧
+      (factorChanged && observationChanged) =
+        asBool (evalQuery query.formula (QuerySymbolRenaming.pullback (wireNames query.lower.bindings) env)) := by
+  obtain ⟨query, factorQuery, observationQuery, compiled, formula, _, factorWire, observationWire⟩ :=
+    sourceTypedEnvelope_parts (decodeSourceEnvelope_typed accepted).1
+  obtain ⟨factorTerm, observationTerm, terms, factorRendered, observationRendered⟩ :=
+    renderRelationalAssumptions_parts _ _ _ _ _ _ bound.assumptions
+  rw [factorWire, wireTerm] at factorRendered
+  rw [observationWire, wireTerm] at observationRendered
+  have factorValue := renamed_query_preservation _ _ env lifted factorQuery factorRendered
+  have observationValue := renamed_query_preservation _ _ env lifted observationQuery observationRendered
+  let original := QuerySymbolRenaming.pullback (wireNames query.lower.bindings) env
+  refine ⟨query, asBool (evalQuery factorQuery original), asBool (evalQuery observationQuery original),
+    compiled, ?_, ?_⟩
+  · rw [terms]
+    simp only [List.mapM_cons, List.mapM_nil, factorValue, observationValue, fromBool]
+    rfl
+  · rw [formula]
+    rfl
+
 /-- The parsed ordered assumptions denote a concrete source dependence test. -/
 theorem acceptedAssumptions_sourcePair {sort : QuerySort} {program : Program sort}
     {contract : ObservationContract} {scope : SourceScope} {factor : VariableId}
@@ -81,22 +111,13 @@ theorem acceptedAssumptions_sourcePair {sort : QuerySort} {program : Program sor
       ((factorChanged && observationChanged) = true ↔
         pair.left query.selected.sourceName query.selected.sort ≠
           pair.right query.selected.sourceName query.selected.sort ∧ a ≠ b) := by
-  obtain ⟨query, factorQuery, observationQuery, compiled, formula, _, factorWire, observationWire⟩ :=
-    sourceTypedEnvelope_parts (decodeSourceEnvelope_typed accepted).1
-  obtain ⟨factorTerm, observationTerm, terms, factorRendered, observationRendered⟩ :=
-    renderRelationalAssumptions_parts _ _ _ _ _ _ bound.assumptions
-  rw [factorWire, wireTerm] at factorRendered
-  rw [observationWire, wireTerm] at observationRendered
-  have factorValue := renamed_query_preservation _ _ env lifted factorQuery factorRendered
-  have observationValue := renamed_query_preservation _ _ env lifted observationQuery observationRendered
+  obtain ⟨query, factorChanged, observationChanged, compiled, ran, value⟩ :=
+    acceptedAssumptions_formulaValues accepted bound env lifted
   let original := QuerySymbolRenaming.pullback (wireNames query.lower.bindings) env
   obtain ⟨a, b, observed, different⟩ := compileRelationalQuery_correct compiled original
-  refine ⟨query, a, b, asBool (evalQuery factorQuery original), asBool (evalQuery observationQuery original),
-    compiled, observed, ?_, ?_⟩
-  · rw [terms]
-    simp only [List.mapM_cons, List.mapM_nil, factorValue, observationValue, fromBool]
-    rfl
-  · simpa only [formula, evalQuery, asBool] using different
+  refine ⟨query, a, b, factorChanged, observationChanged, compiled, observed, ran, ?_⟩
+  rw [value]
+  exact different
 
 #print axioms acceptedAssumptions_sourcePair
 

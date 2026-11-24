@@ -142,6 +142,83 @@ theorem expression_preservation_lifted (bindings : List (String × Eo.Term)) (in
     evalSmt model (__eo_to_smt term) = .ok (fromSource (SourceQuerySemantics.evalExpr expr input)) :=
   expression_preservation bindings input model (liftValuation_corresponds built) expr compiled
 
+private theorem reliftBinding (old new : Env) (entry : String × Eo.Term)
+    {row : SmtEval.native_String × Scalar} (built : liftBinding old entry = .ok row) :
+    ∃ value, liftBinding new entry = .ok (row.1, value) := by
+  rcases entry with ⟨name, term⟩
+  unfold liftBinding at built ⊢
+  dsimp only at built ⊢
+  cases key : keyFor term with
+  | error _ =>
+      rw [key] at built
+      cases built
+  | ok id =>
+      rw [key] at built
+      cases int : hasExpectedSort term .int
+      · cases bool : hasExpectedSort term .bool
+        · simp [int, bool, bind, Except.bind] at built
+        · simp [int, bool, bind, Except.bind, pure, Except.pure] at built ⊢
+          subst row
+          rfl
+      · simp [int, bind, Except.bind, pure, Except.pure] at built ⊢
+        subst row
+        rfl
+
+private theorem reliftBindings (old new : Env) {entries : List (String × Eo.Term)}
+    {rows : Valuation} (built : entries.mapM (liftBinding old) = .ok rows) :
+    ∃ lifted, entries.mapM (liftBinding new) = .ok lifted ∧ lifted.map Prod.fst = rows.map Prod.fst := by
+  induction entries generalizing rows with
+  | nil =>
+      change Except.ok [] = Except.ok rows at built
+      cases built
+      exact ⟨[], rfl, rfl⟩
+  | cons head tail ih =>
+      rw [List.mapM_cons] at built ⊢
+      cases first : liftBinding old head with
+      | error _ =>
+          rw [first] at built
+          cases built
+      | ok row =>
+          rw [first] at built
+          cases rest : tail.mapM (liftBinding old) with
+          | error _ =>
+              rw [rest] at built
+              cases built
+          | ok remainder =>
+              rw [rest] at built
+              change Except.ok (row :: remainder) = Except.ok rows at built
+              cases built
+              obtain ⟨value, headOk⟩ := reliftBinding old new head first
+              obtain ⟨newTail, tailOk, names⟩ := ih rest
+              refine ⟨(row.1, value) :: newTail, ?_, ?_⟩
+              · rw [headOk, tailOk]
+                rfl
+              · simp [names]
+
+/-- Revaluing the same declarations preserves the successful table shape and its exact identities. -/
+theorem liftValuation_revalues {bindings : List (String × Eo.Term)} {old : Env}
+    {model : Valuation} (built : liftValuation bindings old = .ok model) (new : Env) :
+    ∃ lifted, liftValuation bindings new = .ok lifted ∧ lifted.map Prod.fst = model.map Prod.fst := by
+  unfold liftValuation at built ⊢
+  cases initial : bindings.mapM (liftBinding old) with
+  | error _ =>
+      rw [initial] at built
+      cases built
+  | ok rows =>
+      rw [initial] at built
+      change (if (rows.map Prod.fst).Nodup then .ok rows else .error "ambiguous SMT constants") =
+        Except.ok model at built
+      split at built
+      · rename_i unique
+        cases built
+        obtain ⟨updated, calculated, same⟩ := reliftBindings old new initial
+        refine ⟨updated, ?_, same⟩
+        rw [calculated]
+        change (if (updated.map Prod.fst).Nodup then .ok updated else .error "ambiguous SMT constants") =
+          Except.ok updated
+        rw [same, ite_eq_left unique]
+      · contradiction
+
 #print axioms liftValuation_corresponds
 #print axioms expression_preservation_lifted
 
