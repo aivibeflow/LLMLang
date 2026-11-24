@@ -350,6 +350,10 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 # Stage 2 — Formal semantics and verification foundation
 
+**RT-33 — Proof backend selection and verification orchestration (P0; research brief established; research not started).** Investigate a backend-independent Contract IR / proof-obligation pipeline that classifies obligations and selects or combines Lean, SMT, TLA+, or other engines using explicit capability profiles. Define conservative abstention, translation correspondence, trust boundaries, cross-backend evidence composition, result states, provenance, and incremental invalidation. Evaluate using the contract formalization corpus plus state-transition/concurrency cases. This generalizes RT-32; it does not make Lean the universal verifier or select any backend as normative. See [RT-33](research/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md) and [issue #390](https://github.com/aivibeflow/LLMLang/issues/390).
+
+
+
 **Order:** after the semantic objects and contract boundaries from Stage 1 are stable enough to formalize.  
 **Purpose:** make language meaning precise and ensure that verification claims are independently checkable.
 
