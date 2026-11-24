@@ -1,0 +1,632 @@
+{
+  "schema": "llmlang-owned-transfer-discriminator-v1",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)\nbinary: rustc\ncommit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181\ncommit-date: 2025-03-15\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.1\nLLVM version: 19.1.7",
+  "source_sha256": {
+    "run.py": "36d5ff109bdf1adfb216fa8c14aebba94dd449460183e8184cebe0797c000cde",
+    "rt04_owned_probe.rs": "69610f556ae76755338b3643388ee30e91d47a8830844fa4a7b86acb2a2d50d7",
+    "rt04_rust_owned_probe.py": "974e26bbb902cea1116def8c0cbae9c7ffe4eabe00bca751aa9b467950f05c4f",
+    "rt04_shared_owned_handlers.py": "3fad6dad5ddfff1b979c435d8d407e121756104e2fcdf42e1f471896bfb5ff7b",
+    "rt04_shared_owned_workload.py": "391a80c05dc4ec40e5a813821d419e1e5f15b83e0586698cfb0154eab9cc7ae4"
+  },
+  "source_fixture_sha256": "9a65495d3ffe6f4461ce60d5bd95660ed07d52250624d41d7035655682f4bde3",
+  "generated_rust_sha256": {
+    "before_cleanup": "bb5fcfa3eecc532e8a5b029f4baf7d7e2d5b3e13d187a9e2458a1e35c4fef259",
+    "after_cleanup": "0a9e63e2c7a603c319579e46b5b0a4aa0a3a2e85f076276696f8e11ba1fb276f"
+  },
+  "inputs_per_timing": 64,
+  "native_trace_comparisons": 256,
+  "cleanup_failure_pairs": 24,
+  "error_only_indistinguishable_pairs": 24,
+  "overlapping_second_call_outcomes": {
+    "early": {
+      "refused": 12
+    },
+    "staged": {
+      "started": 6,
+      "refused": 6
+    }
+  },
+  "observations": [
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "retained_error",
+      "handle_close": "ok",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,retained_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,retained_error|started|handle,a,b;second,c,d|handle,owned;local,retained",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,retained_error;release,handle,ok;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,retained_error|started|second,c,d|local,retained"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "retained_error",
+      "handle_close": "retained_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,retained_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,retained_error|started|handle,a,b;second,c,d|handle,owned;local,retained",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,retained;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,retained_error;release,handle,retained_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,retained_error;handle,retained_error|started|handle,a,b;second,c,d|handle,retained;local,retained"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "retained_error",
+      "handle_close": "consumed_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,retained_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,retained_error|started|handle,a,b;second,c,d|handle,owned;local,retained",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,retained_error;release,handle,consumed_error;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,retained_error;handle,consumed_error|started|second,c,d|local,retained"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "retained_error",
+      "handle_close": "indeterminate",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,retained_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,retained_error|started|handle,a,b;second,c,d|handle,owned;local,retained",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,reconcile;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,retained_error;release,handle,indeterminate;match,error_reconcile,preserve;check,second,ok;acquire,second,ok|0|local,retained_error;handle,indeterminate|started|handle,a,b;second,c,d|handle,reconcile;local,retained"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "consumed_error",
+      "handle_close": "ok",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,consumed_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,consumed_error|started|handle,a,b;second,c,d|handle,owned",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue||check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,consumed_error;release,handle,ok;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,consumed_error|started|second,c,d|"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "consumed_error",
+      "handle_close": "retained_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,consumed_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,consumed_error|started|handle,a,b;second,c,d|handle,owned",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,consumed_error;release,handle,retained_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,consumed_error;handle,retained_error|started|handle,a,b;second,c,d|handle,retained"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "consumed_error",
+      "handle_close": "consumed_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,consumed_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,consumed_error|started|handle,a,b;second,c,d|handle,owned",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue||check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,consumed_error;release,handle,consumed_error;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,consumed_error;handle,consumed_error|started|second,c,d|"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "consumed_error",
+      "handle_close": "indeterminate",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,consumed_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,consumed_error|started|handle,a,b;second,c,d|handle,owned",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,consumed_error;release,handle,indeterminate;match,error_reconcile,preserve;check,second,ok;acquire,second,ok|0|local,consumed_error;handle,indeterminate|started|handle,a,b;second,c,d|handle,reconcile"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "indeterminate",
+      "handle_close": "ok",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,indeterminate;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,indeterminate|started|handle,a,b;second,c,d|handle,owned;local,reconcile",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,indeterminate;release,handle,ok;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,indeterminate|started|second,c,d|local,reconcile"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "indeterminate",
+      "handle_close": "retained_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,indeterminate;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,indeterminate|started|handle,a,b;second,c,d|handle,owned;local,reconcile",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,retained;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,indeterminate;release,handle,retained_error;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,indeterminate;handle,retained_error|started|handle,a,b;second,c,d|handle,retained;local,reconcile"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "indeterminate",
+      "handle_close": "consumed_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,indeterminate;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,indeterminate|started|handle,a,b;second,c,d|handle,owned;local,reconcile",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,indeterminate;release,handle,consumed_error;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,indeterminate;handle,consumed_error|started|second,c,d|local,reconcile"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "wants_value": true,
+      "local_close": "indeterminate",
+      "handle_close": "indeterminate",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,indeterminate;match,error_with_handle,preserve;check,second,ok;acquire,second,ok|0|local,indeterminate|started|handle,a,b;second,c,d|handle,owned;local,reconcile",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,reconcile;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,indeterminate;release,handle,indeterminate;match,error_reconcile,preserve;check,second,ok;acquire,second,ok|0|local,indeterminate;handle,indeterminate|started|handle,a,b;second,c,d|handle,reconcile;local,reconcile"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "retained_error",
+      "handle_close": "ok",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,retained_error;match,error_with_handle,preserve;check,second,refused|0|local,retained_error|refused|handle,a,b|handle,owned;local,retained",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,retained_error;release,handle,ok;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,retained_error|started|second,a,b|local,retained"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "retained_error",
+      "handle_close": "retained_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,retained_error;match,error_with_handle,preserve;check,second,refused|0|local,retained_error|refused|handle,a,b|handle,owned;local,retained",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,retained;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,retained_error;release,handle,retained_error;match,error_with_handle,preserve;check,second,refused|0|local,retained_error;handle,retained_error|refused|handle,a,b|handle,retained;local,retained"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "retained_error",
+      "handle_close": "consumed_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,retained_error;match,error_with_handle,preserve;check,second,refused|0|local,retained_error|refused|handle,a,b|handle,owned;local,retained",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,retained_error;release,handle,consumed_error;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,retained_error;handle,consumed_error|started|second,a,b|local,retained"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "retained_error",
+      "handle_close": "indeterminate",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,retained_error;match,error_with_handle,preserve;check,second,refused|0|local,retained_error|refused|handle,a,b|handle,owned;local,retained",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,reconcile;local,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,retained_error;release,handle,indeterminate;match,error_reconcile,preserve;check,second,refused|0|local,retained_error;handle,indeterminate|refused|handle,a,b|handle,reconcile;local,retained"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "consumed_error",
+      "handle_close": "ok",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,consumed_error;match,error_with_handle,preserve;check,second,refused|0|local,consumed_error|refused|handle,a,b|handle,owned",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue||check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,consumed_error;release,handle,ok;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,consumed_error|started|second,a,b|"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "consumed_error",
+      "handle_close": "retained_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,consumed_error;match,error_with_handle,preserve;check,second,refused|0|local,consumed_error|refused|handle,a,b|handle,owned",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,consumed_error;release,handle,retained_error;match,error_with_handle,preserve;check,second,refused|0|local,consumed_error;handle,retained_error|refused|handle,a,b|handle,retained"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "consumed_error",
+      "handle_close": "consumed_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,consumed_error;match,error_with_handle,preserve;check,second,refused|0|local,consumed_error|refused|handle,a,b|handle,owned",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue||check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,consumed_error;release,handle,consumed_error;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,consumed_error;handle,consumed_error|started|second,a,b|"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "consumed_error",
+      "handle_close": "indeterminate",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,consumed_error;match,error_with_handle,preserve;check,second,refused|0|local,consumed_error|refused|handle,a,b|handle,owned",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,consumed_error;release,handle,indeterminate;match,error_reconcile,preserve;check,second,refused|0|local,consumed_error;handle,indeterminate|refused|handle,a,b|handle,reconcile"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "indeterminate",
+      "handle_close": "ok",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,indeterminate;match,error_with_handle,preserve;check,second,refused|0|local,indeterminate|refused|handle,a,b|handle,owned;local,reconcile",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,indeterminate;release,handle,ok;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,indeterminate|started|second,a,b|local,reconcile"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "indeterminate",
+      "handle_close": "retained_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,indeterminate;match,error_with_handle,preserve;check,second,refused|0|local,indeterminate|refused|handle,a,b|handle,owned;local,reconcile",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,retained;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,indeterminate;release,handle,retained_error;match,error_with_handle,preserve;check,second,refused|0|local,indeterminate;handle,retained_error|refused|handle,a,b|handle,retained;local,reconcile"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "indeterminate",
+      "handle_close": "consumed_error",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "started",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,indeterminate;match,error_with_handle,preserve;check,second,refused|0|local,indeterminate|refused|handle,a,b|handle,owned;local,reconcile",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,indeterminate;release,handle,consumed_error;match,error_without_handle,preserve;check,second,ok;acquire,second,ok|0|local,indeterminate;handle,consumed_error|started|second,a,b|local,reconcile"
+    },
+    {
+      "identities": [
+        "a",
+        "b",
+        "a",
+        "b"
+      ],
+      "wants_value": true,
+      "local_close": "indeterminate",
+      "handle_close": "indeterminate",
+      "early": {
+        "tag": "CleanupFailedWithValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": true
+      },
+      "staged": {
+        "tag": "StagedCleanupFailedWithoutValue",
+        "cleanup_reported": true,
+        "second": "refused",
+        "owned_handle_forwarded": false
+      },
+      "early_raw_trace": "CleanupFailedWithValue|handle,owned;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,indeterminate;match,error_with_handle,preserve;check,second,refused|0|local,indeterminate|refused|handle,a,b|handle,owned;local,reconcile",
+      "staged_raw_trace": "StagedCleanupFailedWithoutValue|handle,reconcile;local,reconcile|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,indeterminate;release,handle,indeterminate;match,error_reconcile,preserve;check,second,refused|0|local,indeterminate;handle,indeterminate|refused|handle,a,b|handle,reconcile;local,reconcile"
+    }
+  ]
+}
