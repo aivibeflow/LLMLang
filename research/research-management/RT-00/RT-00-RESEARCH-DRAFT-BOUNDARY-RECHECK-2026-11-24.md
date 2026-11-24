@@ -1,10 +1,10 @@
 # RT-00 — Research-to-draft boundary recheck
 
-**Research item:** `PLAN.md` §0.2 — keep `research/` exploratory and `draft/` as the candidate specification  
-**Date:** 2026-11-24  
-**Baseline main:** `738853e571b7e04915441b91075cae9046292cb8`  
-**Compared historical report baselines:** `0aa0527b0df36b94ba3b4ec4a4bd06aca0db2915` (negative-result recheck), `5434727fae861c42887419f63c06b22cc6c33807` (evidence-class recheck)  
-**Evidence type:** bounded document and decision-boundary crosswalk  
+**Research item:** `PLAN.md` §0.2 — keep `research/` exploratory and `draft/` as the candidate specification
+**Date:** 2026-11-24
+**Baseline main:** `738853e571b7e04915441b91075cae9046292cb8`
+**Compared historical report baselines:** `0aa0527b0df36b94ba3b4ec4a4bd06aca0db2915` (negative-result recheck), `5434727fae861c42887419f63c06b22cc6c33807` (evidence-class recheck)
+**Evidence type:** bounded document and decision-boundary crosswalk
 **Status:** selected-artifact audit; no architecture decision or policy adoption
 
 ## Question and method
