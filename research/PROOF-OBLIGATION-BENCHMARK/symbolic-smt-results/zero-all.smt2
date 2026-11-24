@@ -1,0 +1,8 @@
+(set-logic QF_LIA)
+(set-option :produce-models true)
+(declare-const v0 Int)
+(declare-const v1 Int)
+(assert (not (and (and (= (ite (<= v0 0) v0 v0) v0) (and (= (ite (<= v0 0) (- 0 v0) v0) 0) (= 0 0))) (and (and (= (ite (<= v0 0) v0 v0) v0) (and (= 0 0) (= 0 0))) (= 0 0)))))
+(check-sat)
+(get-value (v0 v1))
+(exit)

@@ -33,6 +33,7 @@ jobs:
       - name: Run transition contract generator
         run: |
           python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py
+          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_symbolic_dual_check.py
           python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py --count 1000 --seed 42 > pob-transition-summary.json
       - name: Run structural and system contract generator
         run: |

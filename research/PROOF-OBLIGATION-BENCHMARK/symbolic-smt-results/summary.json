@@ -1,0 +1,46 @@
+{
+  "profile": "lean-owned-register-state-smt-v1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+  "cases": {
+    "absolute": {
+      "query_sha256": "ac59fcb856a5aaff9457c250f2cb9ef24aa193bd7ddd8b600a7c508265481aad",
+      "status": "unsat"
+    },
+    "zero-all": {
+      "query_sha256": "11522bf7036112234806676d2b28064ee22fa7c2509c5ab69355ec40cccd8344",
+      "status": "sat-replayed",
+      "witness": {
+        "input": [
+          -1,
+          0
+        ],
+        "mismatch": true,
+        "observed": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        "specified": [
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            0
+          ]
+        ]
+      }
+    },
+    "zero-final": {
+      "query_sha256": "7fa87d636df3ba15da913ca2028a579dad3794c7fd248c5b50daf9ca232aafc4",
+      "status": "unsat"
+    }
+  }
+}
