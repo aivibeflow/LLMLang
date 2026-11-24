@@ -1,0 +1,1455 @@
+{
+  "schema": "rt00-research-delta-role-triage-v1",
+  "inventory_commit": "6ea8f0891190b9c3029a879fd1f7fa61fb84d7b8",
+  "current_main_checked": "f98df901a0213bd06315dc8878bd5a9f66938f99",
+  "environment": {
+    "python": "3.12.14",
+    "git": "git version 2.56.1",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41"
+  },
+  "deltas": 95,
+  "role_counts": {
+    "Archived citation validation": 1,
+    "Dependency register": 1,
+    "Lean build roots": 1,
+    "Proposed proof assumptions or trust boundary": 31,
+    "Public-interface candidate integration": 48,
+    "Recently added contract-formalization case or link": 8,
+    "Recognized navigation or command paths": 30,
+    "Relocated launcher paths": 1,
+    "Research navigation and status index": 1,
+    "Research taxonomy": 1,
+    "Translated candidate public interface section": 1,
+    "Translation and source companion": 1
+  },
+  "paths_updated_after_inventory": [
+    "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md"
+  ],
+  "results": [
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
+      "prior_path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
+      "prior_blob": "48abb165070030ea89764fbb50fd8bbfa1180e45",
+      "inventory_blob": "ed9a3a13868a729a248d4bd39b9323129f17fd94",
+      "current_main_blob": "ed9a3a13868a729a248d4bd39b9323129f17fd94",
+      "added_line_count": 1,
+      "removed_line_count": 1,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Lean build roots"
+      ]
+    },
+    {
+      "path": "research/README.md",
+      "prior_path": "research/README.md",
+      "prior_blob": "d228a1689b9a364edf398aadc9924d8f5c944ce7",
+      "inventory_blob": "14f3e28985fad046d7a0d942b0e81a96a4a42860",
+      "current_main_blob": "14f3e28985fad046d7a0d942b0e81a96a4a42860",
+      "added_line_count": 197,
+      "removed_line_count": 156,
+      "added_headings": [
+        "## Research directory layout",
+        "## Public interfaces and verified contract refinement",
+        "## Formal verification assumptions and trust boundaries",
+        "## Freestanding, embedded and OS-kernel research"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary",
+        "Recently added contract-formalization case or link",
+        "Research navigation and status index"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py",
+      "prior_path": "research/PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py",
+      "prior_blob": "7c906da668236777cce986d5646b4edb405289ff",
+      "inventory_blob": "6da394af300f65d3d175d6f6bbc77ab8345707c4",
+      "current_main_blob": "6da394af300f65d3d175d6f6bbc77ab8345707c4",
+      "added_line_count": 3,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Relocated launcher paths"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-09/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md",
+      "prior_path": "research/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md",
+      "prior_blob": "42b57bc566b8175671ace0319864e55eec28153a",
+      "inventory_blob": "c5a0963c9ad1bbf34a85679c3888aa124236fc1c",
+      "current_main_blob": "c5a0963c9ad1bbf34a85679c3888aa124236fc1c",
+      "added_line_count": 5,
+      "removed_line_count": 5,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md",
+      "prior_path": "research/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md",
+      "prior_blob": "2d7dbe168314f33fae2dada745f2213a2a3a4668",
+      "inventory_blob": "6dccf8880c663f447815d3b1763fcf6d3c468972",
+      "current_main_blob": "6dccf8880c663f447815d3b1763fcf6d3c468972",
+      "added_line_count": 11,
+      "removed_line_count": 1,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md",
+      "prior_path": "research/LLVM-BACKEND-ARCHITECTURE.md",
+      "prior_blob": "955e0e1b86d17965f328a07da59f1521bfd3649f",
+      "inventory_blob": "c7fd19def01012721859558a2fe141745539d50f",
+      "current_main_blob": "c7fd19def01012721859558a2fe141745539d50f",
+      "added_line_count": 4,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md",
+      "prior_path": "research/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md",
+      "prior_blob": "7d43ee10aada45e520b6c4d6918cb5dd12d7fdd9",
+      "inventory_blob": "585fbdd9411c9e2e7546ebf790a5d8c80d66881f",
+      "current_main_blob": "585fbdd9411c9e2e7546ebf790a5d8c80d66881f",
+      "added_line_count": 4,
+      "removed_line_count": 4,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-96B-LLVM-BYTE-VIEW-PRESERVATION.md",
+      "prior_path": "research/RESEARCH-SCENARIO-96B-LLVM-BYTE-VIEW-PRESERVATION.md",
+      "prior_blob": "75110462df686c392a3f1d14ca905b222d53de5b",
+      "inventory_blob": "219509655481f3a68af07e0716777c44261194af",
+      "current_main_blob": "219509655481f3a68af07e0716777c44261194af",
+      "added_line_count": 3,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md",
+      "prior_path": "research/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md",
+      "prior_blob": "487a20167267b4c22784b483be8e419a753a55ce",
+      "inventory_blob": "95c0b753baee85a6ff57937190771812d9fbe8c3",
+      "current_main_blob": "95c0b753baee85a6ff57937190771812d9fbe8c3",
+      "added_line_count": 3,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/RT-13-WASM-MEMORY32-VIEWS.md",
+      "prior_path": "research/RT-13-WASM-MEMORY32-VIEWS.md",
+      "prior_blob": "ecca1a8f2a2abfa0eeb14449f38d5143d1472d6f",
+      "inventory_blob": "0f1d032616308ff625779bda74a1844adad3e405",
+      "current_main_blob": "0f1d032616308ff625779bda74a1844adad3e405",
+      "added_line_count": 4,
+      "removed_line_count": 4,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md",
+      "prior_path": "research/TRANSLATION-AND-TARGET-BACKENDS.md",
+      "prior_blob": "7c8ef4d0f8f19cd1c71ec36768ada73887c2653e",
+      "inventory_blob": "1c87db26e5dbc3a3ff1520d330edbe8034dd1197",
+      "current_main_blob": "1c87db26e5dbc3a3ff1520d330edbe8034dd1197",
+      "added_line_count": 3,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-28/RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md",
+      "prior_path": "research/RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md",
+      "prior_blob": "5ec63f1440c6e320f8271873d381ff51eb706a50",
+      "inventory_blob": "b3af117c27505fd3e046a13795246a3a130fee4e",
+      "current_main_blob": "b3af117c27505fd3e046a13795246a3a130fee4e",
+      "added_line_count": 4,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Explicit assumptions and conditional verification (RT-36; proposed)"
+      ],
+      "reviewed_roles": [
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-29/RT-29-RUST-FOUNDATION-FOR-LLMLANG-CAPABILITIES.md",
+      "prior_path": "research/RT-29-RUST-FOUNDATION-FOR-LLMLANG-CAPABILITIES.md",
+      "prior_blob": "9478385928465dc62a2f1cdb78c1db6612679e81",
+      "inventory_blob": "a26bc1f5c1cd3625135ba63d9e7a41c77b41ad52",
+      "current_main_blob": "a26bc1f5c1cd3625135ba63d9e7a41c77b41ad52",
+      "added_line_count": 4,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-30/RT-30-BIDIRECTIONAL-SEMANTIC-TRANSLATION.md",
+      "prior_path": "research/RT-30-BIDIRECTIONAL-SEMANTIC-TRANSLATION.md",
+      "prior_blob": "94231ee8f0ef3966dbe8f986f0dbb48762f2000f",
+      "inventory_blob": "fd650b5add42608a40e8f28cd6e82eda691ae1d3",
+      "current_main_blob": "fd650b5add42608a40e8f28cd6e82eda691ae1d3",
+      "added_line_count": 4,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/formal-verification/CONTRACT-FORMALIZATION-CORPUS/README.md",
+      "prior_path": "research/CONTRACT-FORMALIZATION-CORPUS/README.md",
+      "prior_blob": "5e14429e83cf72718f89b71d9c8249454ed2034c",
+      "inventory_blob": "1e08dfeea40984b628db309e46f18bfd8d3b937e",
+      "current_main_blob": "1e08dfeea40984b628db309e46f18bfd8d3b937e",
+      "added_line_count": 6,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recently added contract-formalization case or link"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/COVERAGE-MATRIX.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/COVERAGE-MATRIX.md",
+      "prior_blob": "293e64cfba07625777ab1aba5b8a8511ca9c4d06",
+      "inventory_blob": "fb3afbccf216313324a1e6fda65b1721d2b7b6f1",
+      "current_main_blob": "fb3afbccf216313324a1e6fda65b1721d2b7b6f1",
+      "added_line_count": 2,
+      "removed_line_count": 2,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/COVERAGE-V2.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/COVERAGE-V2.md",
+      "prior_blob": "80a1bf2a40ff399870d90131d106d27b4e0a3c42",
+      "inventory_blob": "14393fd885a33255599034ce70f25782539ec224",
+      "current_main_blob": "14393fd885a33255599034ce70f25782539ec224",
+      "added_line_count": 4,
+      "removed_line_count": 4,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/EXPERIMENT-PROTOCOL.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/EXPERIMENT-PROTOCOL.md",
+      "prior_blob": "4ba81b4b056387680de0daa9921a248a521a61a9",
+      "inventory_blob": "39e8e50b6abe0afbd10898fc7b84a6e409e9d041",
+      "current_main_blob": "39e8e50b6abe0afbd10898fc7b84a6e409e9d041",
+      "added_line_count": 1,
+      "removed_line_count": 1,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/LEAN-TRANSITION-STATE.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/LEAN-TRANSITION-STATE.md",
+      "prior_blob": "6d4efeb83afaef5174a1f4c6f451975ce7d1e38b",
+      "inventory_blob": "3c8358b9b661b2d64a0fcb7f5e3c86dd52f318fd",
+      "current_main_blob": "3c8358b9b661b2d64a0fcb7f5e3c86dd52f318fd",
+      "added_line_count": 1,
+      "removed_line_count": 1,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/README.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/README.md",
+      "prior_blob": "a3a89a73171aed3422085b21970ef601d7723051",
+      "inventory_blob": "aac2493cc5d3856078ddf3cc61cff0598bec3637",
+      "current_main_blob": "aac2493cc5d3856078ddf3cc61cff0598bec3637",
+      "added_line_count": 6,
+      "removed_line_count": 6,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/RECURSIVE-GENERATOR.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/RECURSIVE-GENERATOR.md",
+      "prior_blob": "e5e573fd27f8ea546153569dd80a3c580cc33ace",
+      "inventory_blob": "7ec2a42f6998819fbbc40f5cfb7ea3d5ecca7290",
+      "current_main_blob": "7ec2a42f6998819fbbc40f5cfb7ea3d5ecca7290",
+      "added_line_count": 2,
+      "removed_line_count": 2,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/SMT-TRANSITION-STATE.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/SMT-TRANSITION-STATE.md",
+      "prior_blob": "747c414cfe6edc8de4983374fc236a9ae1bcf75b",
+      "inventory_blob": "336f71afa23f88a617bd3c004128f248703cc9d4",
+      "current_main_blob": "336f71afa23f88a617bd3c004128f248703cc9d4",
+      "added_line_count": 2,
+      "removed_line_count": 2,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/SYMBOLIC-TRANSITION-CORRESPONDENCE.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/SYMBOLIC-TRANSITION-CORRESPONDENCE.md",
+      "prior_blob": "46515b5b98c3906b5667a9ad9fdb10184a9a67f7",
+      "inventory_blob": "3643c3be5e0221be7064fe151d87b8ed88d94f24",
+      "current_main_blob": "3643c3be5e0221be7064fe151d87b8ed88d94f24",
+      "added_line_count": 2,
+      "removed_line_count": 2,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/SYSTEM-GENERATOR.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/SYSTEM-GENERATOR.md",
+      "prior_blob": "436c48302ceed27bda89890b0f830e72f36e868a",
+      "inventory_blob": "f6f2737e4325becdfe57ee1f6d723fdeade98f7e",
+      "current_main_blob": "f6f2737e4325becdfe57ee1f6d723fdeade98f7e",
+      "added_line_count": 3,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/TLC-TRANSITION-STATE.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/TLC-TRANSITION-STATE.md",
+      "prior_blob": "4f90a6561d7482e222fd451178888516290b21f8",
+      "inventory_blob": "52fa216301782df22c4489ed46ff6236c6694605",
+      "current_main_blob": "52fa216301782df22c4489ed46ff6236c6694605",
+      "added_line_count": 1,
+      "removed_line_count": 1,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/TRANSITION-GENERATOR.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK/TRANSITION-GENERATOR.md",
+      "prior_blob": "857fd1b0d3161e91fd1203799f9ddd8c1cf21c38",
+      "inventory_blob": "e73a4058e70fc5532cec8d63895664f928b6706a",
+      "current_main_blob": "e73a4058e70fc5532cec8d63895664f928b6706a",
+      "added_line_count": 2,
+      "removed_line_count": 2,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md",
+      "prior_path": "research/LLMLang-FORMAL-VERIFICATION.md",
+      "prior_blob": "8178c0240e369ad7a8702faa9cc66be4f95f746d",
+      "inventory_blob": "de7bf6ad6f2748a9f03ddde16e36c9ce32c639fb",
+      "current_main_blob": "0deb6541cb0704681747b151d7415ac4cf0b2c0b",
+      "added_line_count": 139,
+      "removed_line_count": 125,
+      "added_headings": [
+        "# LLMLang — Unified Semantics and Formal Verification",
+        "## 1. Goal",
+        "## 2. Single Source of Truth",
+        "## 3. Formal Semantics of LLMLang",
+        "## 4. Generation of Formal Models",
+        "### 4.2. Other Backends",
+        "## 5. Preventing Semantic Divergence",
+        "## 6. Verification Statuses",
+        "## 7. Assumptions and Boundaries of Guarantees",
+        "## 8. Compositional Verification and Proof Boundaries",
+        "### 8.1. Properties, Not a Single Status for a Function",
+        "### 8.2. Assume-Guarantee Composition",
+        "### 8.3. Propagation of Unproved Properties",
+        "### 8.4. Evidence Types and Trust Boundaries",
+        "### 8.5. Traceability and Invalidation",
+        "## 9. Provenance and Invalidation",
+        "## 10. Incremental Implementation",
+        "## 11. Architecture Acceptance Criteria",
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## Explicit Assumptions and Conditional Proofs (RT-36 Research Proposal)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary",
+        "Recently added contract-formalization case or link",
+        "Translation and source companion"
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-07/RESEARCH-SCENARIO-04-VERIFICATION-REUSE.md",
+      "prior_path": "research/RESEARCH-SCENARIO-04-VERIFICATION-REUSE.md",
+      "prior_blob": "dfa5e9e24bc621936896a1a55f267cc9a8f82659",
+      "inventory_blob": "9868a1939c077c085077997555cf94b0b924d616",
+      "current_main_blob": "9868a1939c077c085077997555cf94b0b924d616",
+      "added_line_count": 4,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-32/RT-32-INCREMENTAL-INVALIDATION-RECHECK-2026-11-23.md",
+      "prior_path": "research/RT-32-INCREMENTAL-INVALIDATION-RECHECK-2026-11-23.md",
+      "prior_blob": "64672094236e35ef129b00f263cdaae6ac07616c",
+      "inventory_blob": "a892e51368fa2b58765b2da4af0fd74a28f64252",
+      "current_main_blob": "a892e51368fa2b58765b2da4af0fd74a28f64252",
+      "added_line_count": 4,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md",
+      "prior_path": "research/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md",
+      "prior_blob": "3c0e999fc0098a86e577c61a6d51f355920d3d84",
+      "inventory_blob": "b28ce23ccd5061dd142d564606ff567997bfd122",
+      "current_main_blob": "b28ce23ccd5061dd142d564606ff567997bfd122",
+      "added_line_count": 10,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## Explicit assumptions and conditional verification (RT-36; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-33/PROOF-OBLIGATION-BENCHMARK.md",
+      "prior_path": "research/PROOF-OBLIGATION-BENCHMARK.md",
+      "prior_blob": "5796c5c54b6645555b4f39524e223aeb8927b388",
+      "inventory_blob": "078b440f127dc0c2967512f07ff49e935767cd36",
+      "current_main_blob": "078b440f127dc0c2967512f07ff49e935767cd36",
+      "added_line_count": 22,
+      "removed_line_count": 4,
+      "added_headings": [
+        "### Proposed composition fixture: bank transfer",
+        "### Proposed composition fixture: Linux pipe transfer",
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## Explicit assumptions and conditional verification (RT-36; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary",
+        "Recently added contract-formalization case or link"
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md",
+      "prior_path": "research/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md",
+      "prior_blob": "8ca1c36b4e1a7b6a618ca8de77f07d0ab0f5691b",
+      "inventory_blob": "47ac7d19955ad92473b8468717e51ecc70e7a15d",
+      "current_main_blob": "47ac7d19955ad92473b8468717e51ecc70e7a15d",
+      "added_line_count": 11,
+      "removed_line_count": 1,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## Explicit assumptions and conditional verification (RT-36; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md",
+      "prior_path": "research/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md",
+      "prior_blob": "6fb421f3b1791c2e935734109ddef33b165c7df1",
+      "inventory_blob": "dbe4310876a4ff3d5455114bca192a66cc603dde",
+      "current_main_blob": "dbe4310876a4ff3d5455114bca192a66cc603dde",
+      "added_line_count": 13,
+      "removed_line_count": 3,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## Explicit assumptions and conditional verification (RT-36; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-01/LLMLang-CONCEPT.md",
+      "prior_path": "research/LLMLang-CONCEPT.md",
+      "prior_blob": "869f5dcc4b40d786ceab4c5fdcb33328a7c464d1",
+      "inventory_blob": "2f592de203f5ae38529b8e539f79bf9279b5f1dd",
+      "current_main_blob": "2f592de203f5ae38529b8e539f79bf9279b5f1dd",
+      "added_line_count": 16,
+      "removed_line_count": 2,
+      "added_headings": [
+        "### 5.1. Public interfaces and implementation conformance (candidate)",
+        "### 18A.9. Explicit assumptions and conditional proof management (research proposal)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-01/LLMLang-CONCEPT.ru.md",
+      "prior_path": "research/LLMLang-CONCEPT.ru.md",
+      "prior_blob": "29f77fcc7da492e4aa0dd7e81fb19b32c7cf1d08",
+      "inventory_blob": "afa27041670e0d295bd7e0d9d0a3c96c2c584d62",
+      "current_main_blob": "afa27041670e0d295bd7e0d9d0a3c96c2c584d62",
+      "added_line_count": 14,
+      "removed_line_count": 2,
+      "added_headings": [
+        "### 5.1. Публичные интерфейсы и соответствие реализаций (кандидат)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Translated candidate public interface section"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md",
+      "prior_path": "research/RT-01-REFERENCE-WORKLOADS.md",
+      "prior_blob": "72bc95a195b9fc52132ab3323d680034c7324485",
+      "inventory_blob": "12f7839b986495f51756697a148a3b493168f15c",
+      "current_main_blob": "12f7839b986495f51756697a148a3b493168f15c",
+      "added_line_count": 12,
+      "removed_line_count": 12,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/RESEARCH-SCENARIO-13-MULTI-LEVEL-BUSINESS-RULE-AND-IMPLEMENTATION-BINDING.md",
+      "prior_path": "research/RESEARCH-SCENARIO-13-MULTI-LEVEL-BUSINESS-RULE-AND-IMPLEMENTATION-BINDING.md",
+      "prior_blob": "26270e3999b9ce3552b37441a60d8d98d6c8f46e",
+      "inventory_blob": "40633ed442e9c386c03b9ac5058206028be08d75",
+      "current_main_blob": "40633ed442e9c386c03b9ac5058206028be08d75",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md",
+      "prior_path": "research/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md",
+      "prior_blob": "b5a72b60d243e0de9dddd6d0504a0e4d298bc368",
+      "inventory_blob": "8c035fc05d4ffa1a6c9c523a8ccf1992a123c66f",
+      "current_main_blob": "8c035fc05d4ffa1a6c9c523a8ccf1992a123c66f",
+      "added_line_count": 10,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md",
+      "prior_path": "research/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md",
+      "prior_blob": "2f84fbe9f38b05257b460ba91287ebfccd48be67",
+      "inventory_blob": "22ab8ee41f16d0b996033d0bde140f46910bd3ff",
+      "current_main_blob": "22ab8ee41f16d0b996033d0bde140f46910bd3ff",
+      "added_line_count": 2,
+      "removed_line_count": 0,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recently added contract-formalization case or link"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md",
+      "prior_path": "research/CORE-LANGUAGE-SEMANTICS.md",
+      "prior_blob": "998e53dedbe81b9614ac0bb3dd23daeaec1b6848",
+      "inventory_blob": "1f6abb8b5d97c2d06c135a48aa6ffae6192f839f",
+      "current_main_blob": "1f6abb8b5d97c2d06c135a48aa6ffae6192f839f",
+      "added_line_count": 18,
+      "removed_line_count": 8,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-03/RESEARCH-SCENARIO-43-MODULES-IMPORTS-AND-INITIALIZATION.md",
+      "prior_path": "research/RESEARCH-SCENARIO-43-MODULES-IMPORTS-AND-INITIALIZATION.md",
+      "prior_blob": "1484a235503c9d97cd06b490dbc332aab096286a",
+      "inventory_blob": "b62eaa090b3beb41ce266a0efd4bc04b0cd9cb6a",
+      "current_main_blob": "b62eaa090b3beb41ce266a0efd4bc04b0cd9cb6a",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-04/RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md",
+      "prior_path": "research/RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md",
+      "prior_blob": "c1dfa564c5e35a9d7da650c1d0fed2f0e4e71a0e",
+      "inventory_blob": "119cd4ce3aba38094b0efb9b619985015e7efae9",
+      "current_main_blob": "119cd4ce3aba38094b0efb9b619985015e7efae9",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-04/RESEARCH-SCENARIO-51-ACCESS-CONTROL-AND-API-BOUNDARIES.md",
+      "prior_path": "research/RESEARCH-SCENARIO-51-ACCESS-CONTROL-AND-API-BOUNDARIES.md",
+      "prior_blob": "6375b3553b91575cacb4c1b667c6f66e31673853",
+      "inventory_blob": "adbd8a6fbc624d00c3fd45e4cf21f5d114c5263e",
+      "current_main_blob": "adbd8a6fbc624d00c3fd45e4cf21f5d114c5263e",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-04/RESEARCH-SCENARIO-71-INTERFACE-IMPLEMENTATION-OWNERSHIP-AND-COHERENCE.md",
+      "prior_path": "research/RESEARCH-SCENARIO-71-INTERFACE-IMPLEMENTATION-OWNERSHIP-AND-COHERENCE.md",
+      "prior_blob": "11e38749d9063abe98289e26852ea563bb8507d5",
+      "inventory_blob": "46c8289072d499ab33aeb36ed20b118f866e7976",
+      "current_main_blob": "46c8289072d499ab33aeb36ed20b118f866e7976",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
+      "prior_path": "research/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
+      "prior_blob": "beb0148f488d672fbdf37c593505df44f7e4b6cc",
+      "inventory_blob": "9a0af11e9e908bbd54380f745e42b689233511ed",
+      "current_main_blob": "9a0af11e9e908bbd54380f745e42b689233511ed",
+      "added_line_count": 4,
+      "removed_line_count": 4,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md",
+      "prior_path": "research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md",
+      "prior_blob": "318c31743feb896fdd056baef2a27dfd8173bf50",
+      "inventory_blob": "c3801657ab03eac6050c47ac31f7bc55acb481d6",
+      "current_main_blob": "c3801657ab03eac6050c47ac31f7bc55acb481d6",
+      "added_line_count": 15,
+      "removed_line_count": 5,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-31/RESEARCH-SCENARIO-81-IMPORT-BINDING-SYNTAX-AND-NAMESPACE-POLLUTION.md",
+      "prior_path": "research/RESEARCH-SCENARIO-81-IMPORT-BINDING-SYNTAX-AND-NAMESPACE-POLLUTION.md",
+      "prior_blob": "38b475c5f9342aff72a1d06b9d1a21b8c8adf282",
+      "inventory_blob": "0b39d0f04cbe5f19c12de0eb6a15fc8f27608d5c",
+      "current_main_blob": "0b39d0f04cbe5f19c12de0eb6a15fc8f27608d5c",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/language-design/RT-31/RESEARCH-SCENARIO-84-FUNCTION-SIGNATURE-AND-CALL-SURFACE.md",
+      "prior_path": "research/RESEARCH-SCENARIO-84-FUNCTION-SIGNATURE-AND-CALL-SURFACE.md",
+      "prior_blob": "5c30625daae28bf24ef6dc88969b1326042dded8",
+      "inventory_blob": "2cc4d4537ad6180bfc16ef9f1b64dc586bb71de7",
+      "current_main_blob": "2cc4d4537ad6180bfc16ef9f1b64dc586bb71de7",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md",
+      "prior_path": "research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md",
+      "prior_blob": "ac239b6dc93c890dd0bac1b891f412f6af379801",
+      "inventory_blob": "775ca34af6f44dfceccba251429d77e86d96bb0f",
+      "current_main_blob": "775ca34af6f44dfceccba251429d77e86d96bb0f",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md",
+      "prior_path": "research/LIBRARIES-AND-TEMPLATES.md",
+      "prior_blob": "02582ce6d48dace26656c45e44e72bdc39c6e7ee",
+      "inventory_blob": "72c8d3040c1320082b69e7c39383516101be55b4",
+      "current_main_blob": "72c8d3040c1320082b69e7c39383516101be55b4",
+      "added_line_count": 10,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## Explicit assumptions and conditional verification (RT-36; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/PACKAGE-INDEX-LOGICAL-SCHEMA.md",
+      "prior_path": "research/PACKAGE-INDEX-LOGICAL-SCHEMA.md",
+      "prior_blob": "c71cad4827c6ec7818194e5a9922ccd4dd9d1c8d",
+      "inventory_blob": "38ffe960c528f57199484786272dbb7507836ab5",
+      "current_main_blob": "38ffe960c528f57199484786272dbb7507836ab5",
+      "added_line_count": 8,
+      "removed_line_count": 2,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/PACKAGE-MANIFEST-AND-IDENTITY.md",
+      "prior_path": "research/PACKAGE-MANIFEST-AND-IDENTITY.md",
+      "prior_blob": "ca312b5864f82dc759ac24984756e07b484293e3",
+      "inventory_blob": "68ba6dd32a020462d86f5887b6e4b2716290b29f",
+      "current_main_blob": "68ba6dd32a020462d86f5887b6e4b2716290b29f",
+      "added_line_count": 9,
+      "removed_line_count": 3,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/PACKAGE-SYSTEM.md",
+      "prior_path": "research/PACKAGE-SYSTEM.md",
+      "prior_blob": "f20c37e317c3cf5365ac2c2fb457a1c12b06166f",
+      "inventory_blob": "b133d844fb9185386ef060a29407adc802009a86",
+      "current_main_blob": "b133d844fb9185386ef060a29407adc802009a86",
+      "added_line_count": 16,
+      "removed_line_count": 6,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md",
+      "prior_path": "research/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md",
+      "prior_blob": "316ed4c252fe2d4a39281428e1cb5d9e47e0e3f5",
+      "inventory_blob": "3ad8a7189986873919ad99c65cc23b2ce66c2bb0",
+      "current_main_blob": "3ad8a7189986873919ad99c65cc23b2ce66c2bb0",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md",
+      "prior_path": "research/LANGUAGE-VERSIONING.md",
+      "prior_blob": "617ad2f64eb76ff3984b0ad7ced2bdc6468c18c1",
+      "inventory_blob": "f50cabd810607c2d05cce796c1b85fef5467ceb9",
+      "current_main_blob": "f50cabd810607c2d05cce796c1b85fef5467ceb9",
+      "added_line_count": 7,
+      "removed_line_count": 1,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-88-DEFAULT-ARGUMENT-EVALUATION-AND-API-COMPATIBILITY.md",
+      "prior_path": "research/RESEARCH-SCENARIO-88-DEFAULT-ARGUMENT-EVALUATION-AND-API-COMPATIBILITY.md",
+      "prior_blob": "b0a932f143c3ded15303e592588fdf639b769a89",
+      "inventory_blob": "30f6c9e677d9a3ce7f67d331990e441de9e662af",
+      "current_main_blob": "30f6c9e677d9a3ce7f67d331990e441de9e662af",
+      "added_line_count": 7,
+      "removed_line_count": 1,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+      "prior_path": "research/RESEARCH-DEPENDENCY-MAP.md",
+      "prior_blob": "509f59b78fca2b3cdbf6fc548395cbeaaf6717b4",
+      "inventory_blob": "97a158ed58ef17198bb0486d3185d15615e6dc65",
+      "current_main_blob": "97a158ed58ef17198bb0486d3185d15615e6dc65",
+      "added_line_count": 115,
+      "removed_line_count": 46,
+      "added_headings": [
+        "## Public-interface cross-area dependencies (proposed RT-05/20 vector)",
+        "## 24. Formal verification assumptions and trust boundaries (RT-36)",
+        "## 25. Freestanding firmware and OS kernels (RT-37/38)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary",
+        "Dependency register"
+      ]
+    },
+    {
+      "path": "research/research-management/RESEARCH-TAXONOMY.md",
+      "prior_path": "research/RESEARCH-TAXONOMY.md",
+      "prior_blob": "d28ada21b8b0a7e4deb8f258378de3ab3320155b",
+      "inventory_blob": "adcdfcf42ba0f7cdd801e96f86b23e2e01ff8487",
+      "current_main_blob": "adcdfcf42ba0f7cdd801e96f86b23e2e01ff8487",
+      "added_line_count": 68,
+      "removed_line_count": 63,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Proposed proof assumptions or trust boundary",
+        "Research taxonomy"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md",
+      "prior_path": "research/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md",
+      "prior_blob": "b0651392e09a4ccd0ee12934160056a632553834",
+      "inventory_blob": "cfa3d85816045e67d7e232ebee61c49b8ac2c67d",
+      "current_main_blob": "cfa3d85816045e67d7e232ebee61c49b8ac2c67d",
+      "added_line_count": 23,
+      "removed_line_count": 14,
+      "added_headings": [
+        "### Archival citation check after directory moves (2026-11-24)"
+      ],
+      "reviewed_roles": [
+        "Archived citation validation"
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md",
+      "prior_path": "research/POSIX-RUNTIME-ARCHITECTURE.md",
+      "prior_blob": "7ab397352839d0f2ddf293efa009b9578a06fb1d",
+      "inventory_blob": "8a28c4fbe4d5ac4c5a990682b682a1d328d12b32",
+      "current_main_blob": "8a28c4fbe4d5ac4c5a990682b682a1d328d12b32",
+      "added_line_count": 7,
+      "removed_line_count": 1,
+      "added_headings": [
+        "## Explicit assumptions and conditional verification (RT-36; proposed)"
+      ],
+      "reviewed_roles": [
+        "Proposed proof assumptions or trust boundary",
+        "Recently added contract-formalization case or link"
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/RT-10-POSIX-NONBLOCKING-PIPE-IO.md",
+      "prior_path": "research/RT-10-POSIX-NONBLOCKING-PIPE-IO.md",
+      "prior_blob": "28e83d59a6e3d193da32fc052f1d3f90513d0b9e",
+      "inventory_blob": "1472dc63f7bf0950bf4ef2f3e73a289dc07e6b01",
+      "current_main_blob": "1472dc63f7bf0950bf4ef2f3e73a289dc07e6b01",
+      "added_line_count": 6,
+      "removed_line_count": 4,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recently added contract-formalization case or link"
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/RT-10-POSIX-READ-INTERRUPTION.md",
+      "prior_path": "research/RT-10-POSIX-READ-INTERRUPTION.md",
+      "prior_blob": "0a05e93585bf0681ec7cb8f7191e8c5746027354",
+      "inventory_blob": "02c7546c2148faa53f9dd135bf427d0bd1e00a56",
+      "current_main_blob": "02c7546c2148faa53f9dd135bf427d0bd1e00a56",
+      "added_line_count": 5,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recently added contract-formalization case or link"
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/RT-10-STRUCTURED-SCOPE-JOIN.md",
+      "prior_path": "research/RT-10-STRUCTURED-SCOPE-JOIN.md",
+      "prior_blob": "40ca78251e2d5ba927bde8e57dc8aa4abf4ae131",
+      "inventory_blob": "d9685d03a7bd114171e27d71f9ec88b6e8fe4c99",
+      "current_main_blob": "d9685d03a7bd114171e27d71f9ec88b6e8fe4c99",
+      "added_line_count": 4,
+      "removed_line_count": 4,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-25/RT-25-DEPENDENCY-GRAPH-ALLOCATOR-BENCHMARK.md",
+      "prior_path": "research/RT-25-DEPENDENCY-GRAPH-ALLOCATOR-BENCHMARK.md",
+      "prior_blob": "218977750a6987e2e5f64095c5c165d1877125d3",
+      "inventory_blob": "239fe558443689066a0452dc1003b6e0226ee009",
+      "current_main_blob": "239fe558443689066a0452dc1003b6e0226ee009",
+      "added_line_count": 3,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-25/RT-25-RUST-SYSTEM-ALLOCATOR-COMPATIBILITY.md",
+      "prior_path": "research/RT-25-RUST-SYSTEM-ALLOCATOR-COMPATIBILITY.md",
+      "prior_blob": "8d79d176a93e3eb246311be06d76d9e1064e1d3c",
+      "inventory_blob": "cb6bf8b9f697a454923eeafc2b49e1aab3f931d0",
+      "current_main_blob": "cb6bf8b9f697a454923eeafc2b49e1aab3f931d0",
+      "added_line_count": 3,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-26/RT-26-CANCELLATION-ACCOUNTING.md",
+      "prior_path": "research/RT-26-CANCELLATION-ACCOUNTING.md",
+      "prior_blob": "937d33e06d1275ecfe9b53a052e33266c6dad319",
+      "inventory_blob": "698f8528822f377264442b3c3d6d6e129dbd35ce",
+      "current_main_blob": "698f8528822f377264442b3c3d6d6e129dbd35ce",
+      "added_line_count": 5,
+      "removed_line_count": 5,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-26/RT-26-COOPERATIVE-BUDGET-RESERVATION.md",
+      "prior_path": "research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md",
+      "prior_blob": "2f78a3c5800aace05c8b6b950bde04be3cf9e059",
+      "inventory_blob": "d14e909e45df4c59f41c6d954fca46371253a1e6",
+      "current_main_blob": "d14e909e45df4c59f41c6d954fca46371253a1e6",
+      "added_line_count": 3,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/security/RT-16/RT-16-POLICY-RECHECK-2026-11-23.md",
+      "prior_path": "research/RT-16-POLICY-RECHECK-2026-11-23.md",
+      "prior_blob": "0c33cb19fe9c6d050616c948b0f3d54d2bb02d0f",
+      "inventory_blob": "12b17b042b304d399297cbedb44fca8bfccc376c",
+      "current_main_blob": "12b17b042b304d399297cbedb44fca8bfccc376c",
+      "added_line_count": 1,
+      "removed_line_count": 1,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/security/RT-16/RT-16-THREAT-MODEL-01.md",
+      "prior_path": "research/RT-16-THREAT-MODEL-01.md",
+      "prior_blob": "c7b6036950c301d11fed418f5567bac8879e1d49",
+      "inventory_blob": "716602f68a2178555d381e5561b7747fab375e63",
+      "current_main_blob": "716602f68a2178555d381e5561b7747fab375e63",
+      "added_line_count": 17,
+      "removed_line_count": 7,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## Explicit assumptions and conditional verification (RT-36; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/RESEARCH-SCENARIO-11-ATOMIC-PROJECT-BINDING-PERSISTENCE.md",
+      "prior_path": "research/RESEARCH-SCENARIO-11-ATOMIC-PROJECT-BINDING-PERSISTENCE.md",
+      "prior_blob": "ae0073078140a623347702e4d37a03592d5ce640",
+      "inventory_blob": "3f6b9ed2ab2f739e83f7907591fa7061ae9c792a",
+      "current_main_blob": "3f6b9ed2ab2f739e83f7907591fa7061ae9c792a",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md",
+      "prior_path": "research/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md",
+      "prior_blob": "7ec716519496a1abcbe46126c22259207f81e012",
+      "inventory_blob": "4feeb9019970ab4ef0dd4580e0aabc59d24e38e7",
+      "current_main_blob": "4feeb9019970ab4ef0dd4580e0aabc59d24e38e7",
+      "added_line_count": 10,
+      "removed_line_count": 4,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/RT-05-PORTABLE-IDENTITY-BYTES.md",
+      "prior_path": "research/RT-05-PORTABLE-IDENTITY-BYTES.md",
+      "prior_blob": "75dd4c1587fa82df02e1ff345e685259e0d50129",
+      "inventory_blob": "bd0eb0f58f8d122d90b8e5dc62d873ade5671ae0",
+      "current_main_blob": "bd0eb0f58f8d122d90b8e5dc62d873ade5671ae0",
+      "added_line_count": 6,
+      "removed_line_count": 6,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+      "prior_path": "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+      "prior_blob": "e94c41a2faccd3b80e0535e9ffc7162f2521e4db",
+      "inventory_blob": "cdd2f6a4197af2557a59b665a89b5a59c2e0f826",
+      "current_main_blob": "cdd2f6a4197af2557a59b665a89b5a59c2e0f826",
+      "added_line_count": 26,
+      "removed_line_count": 16,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-06/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md",
+      "prior_path": "research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md",
+      "prior_blob": "09f9ad447aca0844c1e3741d56bf5576f1f513ff",
+      "inventory_blob": "bd500888ae856a4730593a6c4b2a162919f74cdf",
+      "current_main_blob": "bd500888ae856a4730593a6c4b2a162919f74cdf",
+      "added_line_count": 10,
+      "removed_line_count": 4,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-06/SEMANTIC-DEPENDENCY-INDEX.md",
+      "prior_path": "research/SEMANTIC-DEPENDENCY-INDEX.md",
+      "prior_blob": "92d4f80eded798ddebe54c398ab6f1c199d93682",
+      "inventory_blob": "ff7be85e8bc13d248521c73f64d65bd7c8ed3a91",
+      "current_main_blob": "ff7be85e8bc13d248521c73f64d65bd7c8ed3a91",
+      "added_line_count": 10,
+      "removed_line_count": 4,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-35/RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md",
+      "prior_path": "research/RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md",
+      "prior_blob": "769d0c62f408d629a0b7654691a5c3a50f7f6760",
+      "inventory_blob": "bbf405af240d8167ea055629c44fdc042db9d163",
+      "current_main_blob": "bbf405af240d8167ea055629c44fdc042db9d163",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/PROTOTYPES/TOOLCHAIN-SERVER-01/README.md",
+      "prior_path": "research/PROTOTYPES/TOOLCHAIN-SERVER-01/README.md",
+      "prior_blob": "9ae73cc35af3aafc1e17bd760f51d04ae753c225",
+      "inventory_blob": "4a88dd0ecbd0ddfe88c70bd5239f1aae971b514b",
+      "current_main_blob": "4a88dd0ecbd0ddfe88c70bd5239f1aae971b514b",
+      "added_line_count": 3,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/RT-11-BINDING-INVALIDATION-BENCHMARK.md",
+      "prior_path": "research/RT-11-BINDING-INVALIDATION-BENCHMARK.md",
+      "prior_blob": "c00d299ee0f329cc01bbfb42150df3e7cb53ae72",
+      "inventory_blob": "14ee3fb5b7bec23e2fb6eaac2e6cf2bc9658ac05",
+      "current_main_blob": "14ee3fb5b7bec23e2fb6eaac2e6cf2bc9658ac05",
+      "added_line_count": 8,
+      "removed_line_count": 2,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md",
+      "prior_path": "research/SEMANTIC-COMPILATION-CACHE.md",
+      "prior_blob": "2c4a5321abdf96261d628320b3f5cffa5f9f19b0",
+      "inventory_blob": "c5ef5ddf75c5f9cbc0ee1975f46be40b0858e4a2",
+      "current_main_blob": "c5ef5ddf75c5f9cbc0ee1975f46be40b0858e4a2",
+      "added_line_count": 10,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md",
+      "prior_path": "research/RFC-DEVELOPMENT-ENGINE.md",
+      "prior_blob": "76f475c9bd63742e609cf215bbe7b0cf2966aee4",
+      "inventory_blob": "0c1641506090409717485710134836c4ba3c0fed",
+      "current_main_blob": "0c1641506090409717485710134836c4ba3c0fed",
+      "added_line_count": 10,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## Explicit assumptions and conditional verification (RT-36; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-17/RT-17-DIAGNOSTIC-PUBLICATION.md",
+      "prior_path": "research/RT-17-DIAGNOSTIC-PUBLICATION.md",
+      "prior_blob": "1e45e5add164387cc063881d053649c243358a2b",
+      "inventory_blob": "a68594fd7ed36b1c69ff038ea1b1a6b489c1d784",
+      "current_main_blob": "a68594fd7ed36b1c69ff038ea1b1a6b489c1d784",
+      "added_line_count": 2,
+      "removed_line_count": 2,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-17/RT-17-DIAGNOSTIC-REPLAY.md",
+      "prior_path": "research/RT-17-DIAGNOSTIC-REPLAY.md",
+      "prior_blob": "8590f960998dedb05650be5e100e839c763cf20d",
+      "inventory_blob": "ac11f4c5ec2c6c141f55be8675f4b27fd50e4836",
+      "current_main_blob": "ac11f4c5ec2c6c141f55be8675f4b27fd50e4836",
+      "added_line_count": 3,
+      "removed_line_count": 3,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md",
+      "prior_path": "research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md",
+      "prior_blob": "fcc78370362f93261b7117ca86a7afcaaa09cf7b",
+      "inventory_blob": "0480f360190145cfa60d5cd8b5a2a2ed83454e8c",
+      "current_main_blob": "0480f360190145cfa60d5cd8b5a2a2ed83454e8c",
+      "added_line_count": 16,
+      "removed_line_count": 6,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/RT-19-WORKSPACE-PERSISTENCE-TRANSACTION-BOUNDARY-RECHECK-2026-11-23.md",
+      "prior_path": "research/RT-19-WORKSPACE-PERSISTENCE-TRANSACTION-BOUNDARY-RECHECK-2026-11-23.md",
+      "prior_blob": "cd52c8948f378ce1b8661a8cdbfbd4c94fbd3287",
+      "inventory_blob": "3232cb05ec7552d8e3c4cfa1a5b7e4e1e37a1c0e",
+      "current_main_blob": "3232cb05ec7552d8e3c4cfa1a5b7e4e1e37a1c0e",
+      "added_line_count": 2,
+      "removed_line_count": 2,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/RT-20-CANDIDATE-CALL-SITE-VALIDATION.md",
+      "prior_path": "research/RT-20-CANDIDATE-CALL-SITE-VALIDATION.md",
+      "prior_blob": "bb334ca48d69cabe2652d078439173241508f2da",
+      "inventory_blob": "2d53448bd88da51095ad0b8c06f01f5ea678d345",
+      "current_main_blob": "2d53448bd88da51095ad0b8c06f01f5ea678d345",
+      "added_line_count": 6,
+      "removed_line_count": 0,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+      "prior_path": "research/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+      "prior_blob": "3386144ac080831061df3df3bf72eb835e6571f2",
+      "inventory_blob": "d6e6cddb5c6a7f8c50ee45f4a00a4729f0b5302b",
+      "current_main_blob": "d6e6cddb5c6a7f8c50ee45f4a00a4729f0b5302b",
+      "added_line_count": 7,
+      "removed_line_count": 3,
+      "added_headings": [
+        "## 9. Public interface extension (candidate)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md",
+      "prior_path": "research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md",
+      "prior_blob": "cd65bcc6ef55c52a51175c5fe288e3298d913e1c",
+      "inventory_blob": "003aa49898474da2b6fd868cbb51882f271ef91d",
+      "current_main_blob": "003aa49898474da2b6fd868cbb51882f271ef91d",
+      "added_line_count": 18,
+      "removed_line_count": 8,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-23/RT-23-INTERFACE-MAPPING-MERGE.md",
+      "prior_path": "research/RT-23-INTERFACE-MAPPING-MERGE.md",
+      "prior_blob": "7b5435de6bf11f7e93a7dcffb13e401c37b18f7f",
+      "inventory_blob": "e19424428cbbe175759d3069c66516ad5b42bd2b",
+      "current_main_blob": "e19424428cbbe175759d3069c66516ad5b42bd2b",
+      "added_line_count": 13,
+      "removed_line_count": 3,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)",
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration",
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-23/RT-23-MAPPING-TREE-PUBLICATION.md",
+      "prior_path": "research/RT-23-MAPPING-TREE-PUBLICATION.md",
+      "prior_blob": "e706b91d5b12608055c4b3e704927f7317f2b996",
+      "inventory_blob": "d8e4bb3d2abe1a684de26689186a720cd7800fec",
+      "current_main_blob": "d8e4bb3d2abe1a684de26689186a720cd7800fec",
+      "added_line_count": 7,
+      "removed_line_count": 3,
+      "added_headings": [
+        "## RT-36 follow-up: explicit assumptions (proposed)"
+      ],
+      "reviewed_roles": [
+        "Proposed proof assumptions or trust boundary"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md",
+      "prior_path": "research/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md",
+      "prior_blob": "90fcba55d8cbff05141a6e9f53841f1cea1d8101",
+      "inventory_blob": "4122d7a0249be54399fe9995329e3a49caca5cce",
+      "current_main_blob": "4122d7a0249be54399fe9995329e3a49caca5cce",
+      "added_line_count": 12,
+      "removed_line_count": 6,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/RT-24-CALL-TARGET-MERGE.md",
+      "prior_path": "research/RT-24-CALL-TARGET-MERGE.md",
+      "prior_blob": "e37a99c8a609c2640aae8063776a6cdf8135298b",
+      "inventory_blob": "282fae9aa9cdff78d4f78973b5e2e864ca904ac4",
+      "current_main_blob": "282fae9aa9cdff78d4f78973b5e2e864ca904ac4",
+      "added_line_count": 8,
+      "removed_line_count": 2,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
+      "prior_path": "research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
+      "prior_blob": "2be7ddb8c530127e3c20a2bd383236afdc70e8df",
+      "inventory_blob": "111d61f811e8cf4e1fbd0ea306ef84b751cafe61",
+      "current_main_blob": "111d61f811e8cf4e1fbd0ea306ef84b751cafe61",
+      "added_line_count": 20,
+      "removed_line_count": 14,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md",
+      "prior_path": "research/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md",
+      "prior_blob": "3934277e15258dac3a72e6067f9f22949e52cd31",
+      "inventory_blob": "baae9f279ed4c49194b08240ec75a0f2d63df7e1",
+      "current_main_blob": "baae9f279ed4c49194b08240ec75a0f2d63df7e1",
+      "added_line_count": 31,
+      "removed_line_count": 25,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/RT-24-IDENTITY-DECISION-MATRIX.md",
+      "prior_path": "research/RT-24-IDENTITY-DECISION-MATRIX.md",
+      "prior_blob": "b215ecf5e454d519c71fc16e1cd01f84deb44cd3",
+      "inventory_blob": "9f4adb38d01873890b66edb24938dfe79c1bbe74",
+      "current_main_blob": "9f4adb38d01873890b66edb24938dfe79c1bbe74",
+      "added_line_count": 20,
+      "removed_line_count": 14,
+      "added_headings": [
+        "## Public-interface integration (2026-11-24; proposed)"
+      ],
+      "reviewed_roles": [
+        "Public-interface candidate integration"
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/benchmarks/git_binary_spg/README.md",
+      "prior_path": "research/benchmarks/git_binary_spg/README.md",
+      "prior_blob": "860d971f443c62b13596dcfe4b294e0229b67eb7",
+      "inventory_blob": "7a15808f01abb2f258558222f2174d970681b38d",
+      "current_main_blob": "7a15808f01abb2f258558222f2174d970681b38d",
+      "added_line_count": 5,
+      "removed_line_count": 5,
+      "added_headings": [],
+      "reviewed_roles": [
+        "Recognized navigation or command paths"
+      ]
+    }
+  ]
+}
