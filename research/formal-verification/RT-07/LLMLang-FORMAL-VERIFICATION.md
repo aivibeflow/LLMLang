@@ -2,6 +2,7 @@
 
 **Status:** Architectural requirement  
 **Scope:** Language semantics, compilation, formal models, and proofs
+[Русская версия](LLMLang-FORMAL-VERIFICATION.ru.md)
 
 ## 1. Goal
 
