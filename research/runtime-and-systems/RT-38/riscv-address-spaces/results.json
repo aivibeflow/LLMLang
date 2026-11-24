@@ -1,0 +1,174 @@
+{
+  "schema": "llmlang-rt38-rv64-address-spaces-v1",
+  "machine": "virt",
+  "harts": 1,
+  "qemu_scope": {
+    "revision": "98f88efe8f07067667b8d9b1a5ce9551d34036c1",
+    "csr_sha256": "403918abb8cfe6ffe77f79f64ab673060b70f28830219538cfb3693a17deb3a1",
+    "flushes_on_changed_satp": true
+  },
+  "tools": {
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "mc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "objdump": "Debian LLVM version 19.1.7",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "input_sha256": {
+    "scheduler-boot.s": "cc872c1bedf92e86c5ee116dabbff5529a4524fa21bb29d20ac010d2d60bef27",
+    "scheduler-layout.ld": "e192428aee29f2a09cbdbd670b1dc42156277b032d7ca4a4772363839d481f1c",
+    "scheduler-run.py": "e6d1f13de085b31bcff663497005ca3459470fcab4102852ee54524ceb225603",
+    "ipc-adapt.py": "8167a1c09a2affc8f54f59d6f81252d4617573c6a3940fae60bbd0e02c326ad6",
+    "ipc-ipc.c": "91434787eb3e077d680bdbd95685cc860376fe3f2585f8649f23717828a8c733",
+    "ipc-reference.py": "9699a6a91dcd649a0f1dc5d0bd6667c20b59b0dd99210c5b46ef6ee91e288b8e",
+    "ipc-request_vectors.py": "c309455a5d76ec53318d953d4ef5f8675b208268d9983f60d1a0f0bfef3e505e",
+    "ipc-run.py": "4892cd2ab140409533e3213b73bd9d9219fc9d969a33622b6fa8320977d2c72d",
+    "address_space.py": "4279b9a63f89a8008a8bfee83bd87e44b09aaa288085cb9935e928242da0c847",
+    "run.py": "d50cba0762c59be3d41f9c6c83814005557bf5402b96a0c7048833b4c62361bd"
+  },
+  "images": {
+    "shared_asid_full_fence": {
+      "elf_sha256": "95e735cded79c4c1702cb9dd868159904f1ad51f1e54633bd445c3dd25e0d03c",
+      "user_sha256": "97eae5e1eb78985bf8f1f262daa558de26e6cf8dcadef8f88be2b6fdeb379323",
+      "kernel_text_bytes": 1792,
+      "kernel_state_bytes": 36864,
+      "checks_generation": true,
+      "translation_switch_instructions": [
+        "srli t0, t0, 0xc",
+        "or t0, t0, t2",
+        "fence rw, rw",
+        "csrw satp, t0",
+        "sfence.vma",
+        "csrr t1, satp"
+      ],
+      "page_tables": {
+        "root_a": "0x80004000",
+        "directory_a": "0x80005000",
+        "leaves_a": "0x80006000",
+        "root_b": "0x80007000",
+        "directory_b": "0x80008000",
+        "leaves_b": "0x80009000"
+      },
+      "page_table_bytes": 24576,
+      "asids": [
+        0,
+        0
+      ],
+      "uart": "pAEqBNAGBDAEBAAFBFARBNAbBNAGBSAEBAAgBDARBNAGBSAEBAAkba!"
+    },
+    "distinct_asids": {
+      "elf_sha256": "a7e98e4ec32567f6cdccada1f4cd9a86cad45d6ae29be50c581718f1cc5a7bdb",
+      "user_sha256": "97eae5e1eb78985bf8f1f262daa558de26e6cf8dcadef8f88be2b6fdeb379323",
+      "kernel_text_bytes": 1788,
+      "kernel_state_bytes": 36864,
+      "checks_generation": true,
+      "translation_switch_instructions": [
+        "srli t0, t0, 0xc",
+        "or t0, t0, t2",
+        "fence rw, rw",
+        "csrw satp, t0",
+        "csrr t1, satp"
+      ],
+      "page_tables": {
+        "root_a": "0x80004000",
+        "directory_a": "0x80005000",
+        "leaves_a": "0x80006000",
+        "root_b": "0x80007000",
+        "directory_b": "0x80008000",
+        "leaves_b": "0x80009000"
+      },
+      "page_table_bytes": 24576,
+      "asids": [
+        0,
+        1
+      ],
+      "uart": "pAEqBNAGBDAEBAAFBFARBNAbBNAGBSAEBAAgBDARBNAGBSAEBAAkba!"
+    },
+    "aliased_worker_stacks": {
+      "elf_sha256": "97406fe2ca0b13f687559f48f02557e158f75ee2b7e5c9324142ab3c5041bf51",
+      "user_sha256": "97eae5e1eb78985bf8f1f262daa558de26e6cf8dcadef8f88be2b6fdeb379323",
+      "kernel_text_bytes": 1792,
+      "kernel_state_bytes": 36864,
+      "checks_generation": true,
+      "translation_switch_instructions": [
+        "srli t0, t0, 0xc",
+        "or t0, t0, t2",
+        "fence rw, rw",
+        "csrw satp, t0",
+        "sfence.vma",
+        "csrr t1, satp"
+      ],
+      "page_tables": {
+        "root_a": "0x80004000",
+        "directory_a": "0x80005000",
+        "leaves_a": "0x80006000",
+        "root_b": "0x80007000",
+        "directory_b": "0x80008000",
+        "leaves_b": "0x80009000"
+      },
+      "page_table_bytes": 24576,
+      "asids": [
+        0,
+        0
+      ],
+      "uart": "pAEqBNK"
+    },
+    "peer_stack_user_alias": {
+      "elf_sha256": "d985849e558286dec2d628517039eebe3b4cf9c3fbb21dc54404d2092b45db6f",
+      "user_sha256": "97eae5e1eb78985bf8f1f262daa558de26e6cf8dcadef8f88be2b6fdeb379323",
+      "kernel_text_bytes": 1824,
+      "kernel_state_bytes": 36864,
+      "checks_generation": true,
+      "translation_switch_instructions": [
+        "srli t0, t0, 0xc",
+        "or t0, t0, t2",
+        "fence rw, rw",
+        "csrw satp, t0",
+        "sfence.vma",
+        "csrr t1, satp"
+      ],
+      "page_tables": {
+        "root_a": "0x80004000",
+        "directory_a": "0x80005000",
+        "leaves_a": "0x80006000",
+        "root_b": "0x80007000",
+        "directory_b": "0x80008000",
+        "leaves_b": "0x80009000"
+      },
+      "page_table_bytes": 24576,
+      "asids": [
+        0,
+        0
+      ],
+      "uart": "V"
+    },
+    "shared_asid_missing_fence": {
+      "elf_sha256": "79f25b415b01efa7124aa8e76305935fd410182a564b10ba3af9b38d27ead6ff",
+      "user_sha256": "97eae5e1eb78985bf8f1f262daa558de26e6cf8dcadef8f88be2b6fdeb379323",
+      "kernel_text_bytes": 1788,
+      "kernel_state_bytes": 36864,
+      "checks_generation": true,
+      "translation_switch_instructions": [
+        "srli t0, t0, 0xc",
+        "or t0, t0, t2",
+        "fence rw, rw",
+        "csrw satp, t0",
+        "csrr t1, satp"
+      ],
+      "page_tables": {
+        "root_a": "0x80004000",
+        "directory_a": "0x80005000",
+        "leaves_a": "0x80006000",
+        "root_b": "0x80007000",
+        "directory_b": "0x80008000",
+        "leaves_b": "0x80009000"
+      },
+      "page_table_bytes": 24576,
+      "asids": [
+        0,
+        0
+      ],
+      "uart": "pAEqBNAGBDAEBAAFBFARBNAbBNAGBSAEBAAgBDARBNAGBSAEBAAkba!"
+    }
+  }
+}
