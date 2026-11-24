@@ -1,0 +1,254 @@
+{
+  "cases": {
+    "files/branch_rename/kill": {
+      "after": {
+        "branch": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "inspection": "stale",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main c4326f1526c55c2b0909141a14f8c14909667b14"
+        ]
+      },
+      "at_cut": {
+        "branch": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "inspection": "stale",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main c4326f1526c55c2b0909141a14f8c14909667b14"
+        ]
+      },
+      "before": {
+        "branch": "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "inspection": "retryable",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main 6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ]
+      },
+      "branch_before_receipt_after": [
+        "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        null
+      ],
+      "plan": {
+        "candidate": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "operation": "ref visibility",
+        "parents": [
+          "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ],
+        "semantic_root": "a30fbf12e0fe1b32181347653d37a33a440cb25b63e91b4b432d351222b4a41e",
+        "tree": "f9919c2267e44860579598c97f9fadc535f2b1c2"
+      },
+      "returncode": -9
+    },
+    "files/branch_rename/resume": {
+      "after": {
+        "branch": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "inspection": "published",
+        "receipt": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "single_command": [
+          "refs/heads/main c4326f1526c55c2b0909141a14f8c14909667b14",
+          "refs/llmlang/receipts/9bbaab8c66c493f537d71b8d349ca2c98556a09f66067fd6e3c0cec6f16badf5 c4326f1526c55c2b0909141a14f8c14909667b14"
+        ]
+      },
+      "at_cut": {
+        "branch": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "inspection": "stale",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main c4326f1526c55c2b0909141a14f8c14909667b14"
+        ]
+      },
+      "before": {
+        "branch": "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "inspection": "retryable",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main 6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ]
+      },
+      "branch_before_receipt_after": [
+        "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "c4326f1526c55c2b0909141a14f8c14909667b14"
+      ],
+      "plan": {
+        "candidate": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "operation": "ref visibility",
+        "parents": [
+          "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ],
+        "semantic_root": "a30fbf12e0fe1b32181347653d37a33a440cb25b63e91b4b432d351222b4a41e",
+        "tree": "f9919c2267e44860579598c97f9fadc535f2b1c2"
+      },
+      "returncode": 0
+    },
+    "files/receipt_rename/resume": {
+      "after": {
+        "branch": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "inspection": "published",
+        "receipt": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "single_command": [
+          "refs/heads/main c4326f1526c55c2b0909141a14f8c14909667b14",
+          "refs/llmlang/receipts/9bbaab8c66c493f537d71b8d349ca2c98556a09f66067fd6e3c0cec6f16badf5 c4326f1526c55c2b0909141a14f8c14909667b14"
+        ]
+      },
+      "at_cut": {
+        "branch": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "inspection": "published",
+        "receipt": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "single_command": [
+          "refs/heads/main c4326f1526c55c2b0909141a14f8c14909667b14",
+          "refs/llmlang/receipts/9bbaab8c66c493f537d71b8d349ca2c98556a09f66067fd6e3c0cec6f16badf5 c4326f1526c55c2b0909141a14f8c14909667b14"
+        ]
+      },
+      "before": {
+        "branch": "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "inspection": "retryable",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main 6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ]
+      },
+      "branch_before_receipt_after": [
+        "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "c4326f1526c55c2b0909141a14f8c14909667b14"
+      ],
+      "plan": {
+        "candidate": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "operation": "ref visibility",
+        "parents": [
+          "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ],
+        "semantic_root": "a30fbf12e0fe1b32181347653d37a33a440cb25b63e91b4b432d351222b4a41e",
+        "tree": "f9919c2267e44860579598c97f9fadc535f2b1c2"
+      },
+      "returncode": 0
+    },
+    "reftable/new_table_rename/kill": {
+      "after": {
+        "branch": "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "inspection": "retryable",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main 6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ]
+      },
+      "at_cut": {
+        "branch": "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "inspection": "retryable",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main 6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ]
+      },
+      "before": {
+        "branch": "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "inspection": "retryable",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main 6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ]
+      },
+      "branch_before_receipt_after": [
+        "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        null
+      ],
+      "plan": {
+        "candidate": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "operation": "ref visibility",
+        "parents": [
+          "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ],
+        "semantic_root": "a30fbf12e0fe1b32181347653d37a33a440cb25b63e91b4b432d351222b4a41e",
+        "tree": "f9919c2267e44860579598c97f9fadc535f2b1c2"
+      },
+      "returncode": -9
+    },
+    "reftable/new_table_rename/resume": {
+      "after": {
+        "branch": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "inspection": "published",
+        "receipt": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "single_command": [
+          "refs/heads/main c4326f1526c55c2b0909141a14f8c14909667b14",
+          "refs/llmlang/receipts/9bbaab8c66c493f537d71b8d349ca2c98556a09f66067fd6e3c0cec6f16badf5 c4326f1526c55c2b0909141a14f8c14909667b14"
+        ]
+      },
+      "at_cut": {
+        "branch": "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "inspection": "retryable",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main 6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ]
+      },
+      "before": {
+        "branch": "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "inspection": "retryable",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main 6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ]
+      },
+      "branch_before_receipt_after": [
+        "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "c4326f1526c55c2b0909141a14f8c14909667b14"
+      ],
+      "plan": {
+        "candidate": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "operation": "ref visibility",
+        "parents": [
+          "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ],
+        "semantic_root": "a30fbf12e0fe1b32181347653d37a33a440cb25b63e91b4b432d351222b4a41e",
+        "tree": "f9919c2267e44860579598c97f9fadc535f2b1c2"
+      },
+      "returncode": 0
+    },
+    "reftable/table_list_rename/resume": {
+      "after": {
+        "branch": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "inspection": "published",
+        "receipt": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "single_command": [
+          "refs/heads/main c4326f1526c55c2b0909141a14f8c14909667b14",
+          "refs/llmlang/receipts/9bbaab8c66c493f537d71b8d349ca2c98556a09f66067fd6e3c0cec6f16badf5 c4326f1526c55c2b0909141a14f8c14909667b14"
+        ]
+      },
+      "at_cut": {
+        "branch": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "inspection": "published",
+        "receipt": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "single_command": [
+          "refs/heads/main c4326f1526c55c2b0909141a14f8c14909667b14",
+          "refs/llmlang/receipts/9bbaab8c66c493f537d71b8d349ca2c98556a09f66067fd6e3c0cec6f16badf5 c4326f1526c55c2b0909141a14f8c14909667b14"
+        ]
+      },
+      "before": {
+        "branch": "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "inspection": "retryable",
+        "receipt": null,
+        "single_command": [
+          "refs/heads/main 6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ]
+      },
+      "branch_before_receipt_after": [
+        "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61",
+        "c4326f1526c55c2b0909141a14f8c14909667b14"
+      ],
+      "plan": {
+        "candidate": "c4326f1526c55c2b0909141a14f8c14909667b14",
+        "operation": "ref visibility",
+        "parents": [
+          "6d75cf1bb4e4a0abb5fb09b79cea86dc92706f61"
+        ],
+        "semantic_root": "a30fbf12e0fe1b32181347653d37a33a440cb25b63e91b4b432d351222b4a41e",
+        "tree": "f9919c2267e44860579598c97f9fadc535f2b1c2"
+      },
+      "returncode": 0
+    }
+  },
+  "format": "rt23-ref-commit-visibility/1",
+  "gcc": "14.2.0",
+  "git": "git version 2.52.0",
+  "python": "3.12.14"
+}
