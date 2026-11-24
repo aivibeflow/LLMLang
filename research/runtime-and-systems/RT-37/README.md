@@ -1,6 +1,6 @@
 # RT-37 — Freestanding, embedded and real-time firmware
 
-**Status:** Bounded Cortex-M3 startup and runtime closure checked. Broader firmware and timing profile open.
+**Status:** Bounded Cortex-M3 startup, runtime closure and timer/GPIO slices checked in QEMU. Broader firmware and timing profile open.
 
 **Priority:** P0 shared profile feasibility; P1 firmware/real-time pilot and advanced targets.  
 **Date:** 2026-11-24  
@@ -63,4 +63,6 @@ Negative controls: hidden libc/OS imports or allocator calls; invalid register m
 - Pin target, compiler/linker versions, source/SPG revisions, memory map, device model, clock/interrupt model, proof checker, assumptions and commands. Compare independent reference traces and negative controls; preserve link maps, binary imports, traces, measurements and proof/evidence scope.
 - Exit: documented comparative profile and unsupported operations; reproducible bootable firmware pilot with explicit runtime closure and independent tests; checked obligations in a declared fragment and separately scoped timing/resource evidence; unresolved gaps and draft-change proposals recorded. No automatic normative adoption.
 
-The [Cortex-M3 runtime-closure study](RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md) boots five direct LLVM and freestanding Rust images against an independent UART oracle. Explicit startup, arithmetic and unwind choices determine closure. This validates the startup slice while the timer/GPIO workload, independent board tests and real-time claims remain open.
+The [Cortex-M3 runtime-closure study](RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md) boots five direct LLVM and freestanding Rust images against an independent UART oracle. Explicit startup, arithmetic and unwind choices determine closure.
+
+The [Cortex-M3 timer and GPIO study](RT-37-CORTEX-M3-SYSTICK-GPIO-2026-11-24.md) compares interrupt delivery and polling in four images. It checks SysTick vector binding, pending-state handling, masked GPIO readback and static linked extents. Independent board tests, transitive interrupt effects and real-time claims remain open.
