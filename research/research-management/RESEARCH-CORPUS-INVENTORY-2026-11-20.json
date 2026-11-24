@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "46efc9f7a4afb2b29a6bebcd9643edf96cd3ec4d",
-  "source": "Exact research path, blob and byte inventory for the staged tree based on the latest main baseline, excluding the inventory manifest itself.",
+  "revision": "3886c7db47fa635f3ad1d0634fcf011fef4e8151",
+  "source": "Exact research path, blob and byte inventory for the rebased tree on the latest main baseline, excluding the inventory manifest itself.",
   "counts": {
-    "research_files": 926,
-    "research_artifacts_excluding_manifest": 926,
+    "research_files": 929,
+    "research_artifacts_excluding_manifest": 929,
     "markdown_files": 436,
     "mdx_files": 3,
     "python_files": 276,
@@ -35,7 +35,7 @@
       "research-rfc-or-protocol-proposal": 2
     }
   },
-  "classification_note": "Against the latest main baseline origin/main (manifest excluded), this PR adds the RT-25 workload-fit recheck and indexed navigation references; each added artifact received individual role review. All 926 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Latest main includes merged PR #486; RT-25 workload-fit recheck and its navigation references are added in this PR. Each newly introduced artifact received individual role review. All 929 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -2113,6 +2113,22 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-kernel-model-witness/axioms.txt",
+      "git_blob_sha": "8ffbc6b769f849b5dff110ed918df86f7cc41617",
+      "size_bytes": 588,
+      "category": "other-research-artifact",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "Merged PR #486 research role reviewed against changed artifact and plan linkage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ]
+    },
+    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-model-extension/axioms.txt",
       "git_blob_sha": "159512e70af2078efc6a6fc32aaac6251b5c2737",
       "size_bytes": 652,
@@ -2684,8 +2700,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/replay.py",
-      "git_blob_sha": "d9013c5b148442a564d064d3d589df2cf90446ef",
-      "size_bytes": 5727,
+      "git_blob_sha": "b2480b6c8d0fc5ca3651fe7cd9f044743e424d15",
+      "size_bytes": 7718,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -7859,8 +7875,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "12eae9b44060e8f4e88588a40557db2be30b6606",
-      "size_bytes": 59474,
+      "git_blob_sha": "42a03c6c67eefc67b512b75d9f49c461b21ad128",
+      "size_bytes": 59755,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -11890,6 +11906,22 @@
         "status": "file-role-triaged",
         "basis": "Bounded Logos wire valuation proof and recorded standard axiom audit."
       }
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-LOGOS-KERNEL-MODEL-WITNESS-2026-11-24.md",
+      "git_blob_sha": "e1ab4b14da7c20a700dcfaa24a6b6d756e5d7efe",
+      "size_bytes": 2816,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "Merged PR #486 research role reviewed against changed artifact and plan linkage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ]
     },
     {
       "path": "research/formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md",
@@ -17098,8 +17130,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "7b8f38cd3402dfcdf3bac5e3a907195e0d9d3555",
-      "size_bytes": 96648,
+      "git_blob_sha": "43aee7c98dee6786f3095cbacaf3b9172e89c583",
+      "size_bytes": 97638,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -17119,8 +17151,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
-      "git_blob_sha": "f372ecb373b6c19702e25db5877b472333ed9be9",
-      "size_bytes": 98897,
+      "git_blob_sha": "4e0656aa22782286a5371393f4b44aa5ce65787b",
+      "size_bytes": 99267,
       "category": "cross-cutting-synthesis-or-status",
       "traceability": {
         "items": [
@@ -17239,8 +17271,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "070d72225edec367bbde7a4ceaa50e22173a8bed",
-      "size_bytes": 66180,
+      "git_blob_sha": "4477540c3ad638006af2ace54e67a491e479e1aa",
+      "size_bytes": 66860,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -18984,8 +19016,8 @@
         "basis": "Navigation and scope index."
       },
       "path": "research/runtime-and-systems/README.md",
-      "git_blob_sha": "bfd00ea31461e07c824e1a5d3fa343271fad35e1",
-      "size_bytes": 965
+      "git_blob_sha": "239525225c18fc90a7851c7b74e519190acd30f2",
+      "size_bytes": 1379
     },
     {
       "path": "research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md",
@@ -19313,6 +19345,22 @@
         "status": "content-role-triaged",
         "basis": "Explicit RT-25 native allocator compatibility probe; does not select allocator or complete comparative benchmark."
       }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-25/RT-25-WORKLOAD-FIT-RECHECK-2026-11-24.md",
+      "git_blob_sha": "4dbf01151f1cae3b20478c82db9455000af878f4",
+      "size_bytes": 8211,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "Merged PR #486 research role reviewed against changed artifact and plan linkage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ]
     },
     {
       "path": "research/runtime-and-systems/RT-26/RT-26-CANCELLATION-ACCOUNTING.md",
