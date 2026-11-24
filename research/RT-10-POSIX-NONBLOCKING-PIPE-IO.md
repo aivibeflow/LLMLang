@@ -48,3 +48,5 @@ done
 ```
 
 Expect four passing adapter/capacity lines per executable. [Probe source](PROTOTYPES/POSIX-IO-01/nonblocking_pipe.c)
+
+Related proposed application proof: [CF-008 — Linux pipe transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) covers blocking byte-stream pipes and explicitly excludes nonblocking EAGAIN. Extending it to readiness and nonblocking operations requires separate contracts; it is not new experimental evidence for this report.

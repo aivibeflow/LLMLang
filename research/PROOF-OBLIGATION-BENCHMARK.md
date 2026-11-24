@@ -133,6 +133,10 @@ A backend may discharge only part of a case. The benchmark must record which exa
 
 [CF-007 — compositional bank transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md) supplies a proposed downstream fixture for separate call-precondition, path-sensitive postcondition, conservation, frame, rollback, effect, protocol, and assumption-closure obligations. Its refund-without-fee mutant satisfies each callee precondition and conservation but violates rollback. Keep semantic-formalization scoring separate from proof-engine scoring. No executable benchmark coverage or checked proof is claimed yet.
 
+### Proposed composition fixture: Linux pipe transfer
+
+[CF-008](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) supplies sequence-valued loop invariants, path-sensitive call preconditions, short-I/O and retry protocol, ownership of failure suffixes, separate progress obligations, and external assumption closure. Counterexamples must distinguish invalid caller composition from invalid adapter contracts and distinguish abstract traces from feasible Linux traces. No executable coverage or checked proof is claimed.
+
 ## 7. Result model and failure controls
 
 At minimum, retain the RT-33 result distinctions:
