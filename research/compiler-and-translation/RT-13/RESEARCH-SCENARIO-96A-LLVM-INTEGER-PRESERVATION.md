@@ -57,3 +57,5 @@ Evidence applies to the fixed integer fragment, two optimization pipelines, and 
 The `Baseline` above is the pre-experiment source baseline, not the commit containing the probe implementation. The exact experiment/report source commit is [`a80d94e795d8d2b613d01c09687c181df592c7f5`](https://github.com/aivibeflow/LLMLang/commit/a80d94e795d8d2b613d01c09687c181df592c7f5); it introduced this report together with `integer_fixture.py` and `llvm_integer_probe.py`. Keep the recorded baseline `d58df1640caa72c1bed4e58f02ef78f89185bc7c` unchanged as the pre-experiment baseline.
 
 The historical LLVM run is not invoked by required CI. Its recorded tool archive, input IR hash, compiler/tool versions, commands, and limits remain the reproduction evidence; a fresh run on current main is not implied by the CI test results.
+
+The [whole-domain checked-add study](RT-13-LLVM-CHECKED-ADD-OBSERVATIONS-2026-11-24.md) checks the signed-add O0 and O3 IR artifacts against a source observation model over all inputs. It extends the missing-overflow control with reordered callbacks and an output-slot write on error.
