@@ -68,3 +68,5 @@ The [Cortex-M3 runtime-closure study](RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-
 The [Cortex-M3 timer and GPIO study](RT-37-CORTEX-M3-SYSTICK-GPIO-2026-11-24.md) compares interrupt delivery and polling in four images. It checks SysTick vector binding, pending-state handling, masked GPIO readback and static linked extents. Independent board tests, transitive interrupt effects and real-time claims remain open.
 
 The [Cortex-M3 stack study](RT-37-CORTEX-M3-STACK-BOUND-2026-11-24.md) checks direct-control stack depths, paint observations and the hardware frame alignment bit across polling and interrupt profiles. The tighter interrupt bound depends on the armed wait interval. Nested interrupts and timing remain separate.
+
+The [MMIO metadata study](RT-37-MMIO-METADATA-AND-CAPABILITIES-2026-11-24.md) compares exact SVD and header layout with protocol-aware admission. It distinguishes read-to-clear, write-one commands and GPIO masking from access direction and retains the device and capability premises.
