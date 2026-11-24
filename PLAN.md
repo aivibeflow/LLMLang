@@ -498,6 +498,8 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 
 **SCW-32/34 upstream scalar model semantics:** The [upstream model proof](research/formal-verification/RT-07/RT-07-LOGOS-UPSTREAM-SCALAR-MODEL-2026-11-24.md) proves agreement with the pinned `Cpc.SmtModel` for every successfully evaluated restricted term when constant valuations agree. The two verification toolchains compile the same evaluator source. Existence of a well-formed upstream model for each accepted valuation, compatibility of proof artifacts and complete checker soundness composition remain open.
 
+**SCW-34 single-kernel program composition:** The [Lean 4.34 composition](research/formal-verification/RT-07/RT-07-LOGOS-SINGLE-KERNEL-PROGRAM-2026-11-24.md) compiles the LLMLang source theorem and upstream model proof in the same verification kernel, then proves the meaning of the ordered CPC assumptions for related models. The usual Lean 4.36 path still passes. Well-formed model extension, concrete-pair lifting and application of complete checker soundness remain open.
+
 **Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; Lean QF_LIA profile/admissibility modules and focused tests; CI workflow.
 
 **Direct CPC evidence (2026-11-21)** · A source-derived flat CPC refutation passes the assumption and verdict gates. A refutation of a substituted query passes standalone Logos and fails source binding. [Source-bound CPC refutation](research/formal-verification/RT-07/RT-07-SOURCE-BOUND-CPC-REFUTATION.md)

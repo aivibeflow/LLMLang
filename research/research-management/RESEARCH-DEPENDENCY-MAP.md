@@ -272,6 +272,8 @@ The SCW-32–33 program theorem establishes one direction of the valuation relat
 
 The SCW-32/34 upstream model theorem extends DEP-007 to the pinned Logos model evaluator for every supported result under related constants. Agreement is checked under the upstream proof toolchain. Well-formed model extension and complete checker proof composition remain separate. [Logos upstream scalar model](../formal-verification/RT-07/RT-07-LOGOS-UPSTREAM-SCALAR-MODEL-2026-11-24.md)
 
+The SCW-34 program theorem composes this DEP-007 result with the source-wire proof in the same pinned upstream kernel. The exact parsed assumptions have the stated source meaning in an agreeing model. [Logos single-kernel program theorem](../formal-verification/RT-07/RT-07-LOGOS-SINGLE-KERNEL-PROGRAM-2026-11-24.md)
+
 ## 6. Existing research-line placement
 
 The current Scenario 15–34 sequence is a substantial research line primarily spanning RT-02, RT-06, RT-07, and RT-08:
