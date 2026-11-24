@@ -1,0 +1,199 @@
+{
+  "schema": "rt00-public-interface-evidence-audit-v1",
+  "test_baseline": "35078012d728f21b054bc90e4715fd7ffc1104f7",
+  "integration_commit": "789ff65923d55d6ea803f322b0f261010026b477",
+  "integration_changed_paths": [
+    "FEATURE-REGISTRY.md",
+    "PLAN.md",
+    "README.md",
+    "TODO.md",
+    "draft/ARCHITECTURE-DECISIONS.md",
+    "draft/GLOSSARY.md",
+    "draft/README.md",
+    "research/CORE-LANGUAGE-SEMANTICS.md",
+    "research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md",
+    "research/LANGUAGE-VERSIONING.md",
+    "research/LIBRARIES-AND-TEMPLATES.md",
+    "research/LLMLang-CONCEPT.ru.md",
+    "research/LLMLang-FORMAL-VERIFICATION.md",
+    "research/PACKAGE-INDEX-LOGICAL-SCHEMA.md",
+    "research/PACKAGE-MANIFEST-AND-IDENTITY.md",
+    "research/PACKAGE-SYSTEM.md",
+    "research/PROOF-OBLIGATION-BENCHMARK.md",
+    "research/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+    "research/RESEARCH-DEPENDENCY-MAP.md",
+    "research/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md",
+    "research/RESEARCH-SCENARIO-11-ATOMIC-PROJECT-BINDING-PERSISTENCE.md",
+    "research/RESEARCH-SCENARIO-13-MULTI-LEVEL-BUSINESS-RULE-AND-IMPLEMENTATION-BINDING.md",
+    "research/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md",
+    "research/RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md",
+    "research/RESEARCH-SCENARIO-43-MODULES-IMPORTS-AND-INITIALIZATION.md",
+    "research/RESEARCH-SCENARIO-51-ACCESS-CONTROL-AND-API-BOUNDARIES.md",
+    "research/RESEARCH-SCENARIO-71-INTERFACE-IMPLEMENTATION-OWNERSHIP-AND-COHERENCE.md",
+    "research/RESEARCH-SCENARIO-81-IMPORT-BINDING-SYNTAX-AND-NAMESPACE-POLLUTION.md",
+    "research/RESEARCH-SCENARIO-84-FUNCTION-SIGNATURE-AND-CALL-SURFACE.md",
+    "research/RESEARCH-SCENARIO-88-DEFAULT-ARGUMENT-EVALUATION-AND-API-COMPATIBILITY.md",
+    "research/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md",
+    "research/RESEARCH-TAXONOMY.md",
+    "research/RFC-DEVELOPMENT-ENGINE.md",
+    "research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md",
+    "research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+    "research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md",
+    "research/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md",
+    "research/RT-11-BINDING-INVALIDATION-BENCHMARK.md",
+    "research/RT-16-THREAT-MODEL-01.md",
+    "research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md",
+    "research/RT-20-CANDIDATE-CALL-SITE-VALIDATION.md",
+    "research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md",
+    "research/RT-23-INTERFACE-MAPPING-MERGE.md",
+    "research/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md",
+    "research/RT-24-CALL-TARGET-MERGE.md",
+    "research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
+    "research/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md",
+    "research/RT-24-IDENTITY-DECISION-MATRIX.md",
+    "research/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md",
+    "research/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md",
+    "research/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md",
+    "research/RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md",
+    "research/SEMANTIC-COMPILATION-CACHE.md",
+    "research/SEMANTIC-DEPENDENCY-INDEX.md"
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "git": "git version 2.56.1",
+    "kernel": "6.18.57",
+    "arch": "x86_64"
+  },
+  "report_git_blobs": {
+    "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md": "5cc180530f4121e0a8331460f8b633a927a747e9",
+    "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md": "cdd2f6a4197af2557a59b665a89b5a59c2e0f826",
+    "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md": "d6e6cddb5c6a7f8c50ee45f4a00a4729f0b5302b",
+    "research/toolchain-and-collaboration/RT-24/RT-24-CALL-TARGET-MERGE.md": "282fae9aa9cdff78d4f78973b5e2e864ca904ac4"
+  },
+  "main_fixture_blob_ids": {
+    "spg_representation.py": "918dfa431a066b321899fc7f1e5e0593db3104e3",
+    "scoped_binding.py": "7c0161740ae8d023496b1ec4af0f07734c014f9d",
+    "semantic_dependency_index.py": "2c4c83506d3bd57d8ae2c72457a38526999183af",
+    "candidate_validation.py": "a88550873be9b90f1fbb527c8fb3e21c3644ccd2",
+    "semantic_graph.py": "0e86564830d3668ee888ee7f7f5994be953a2598"
+  },
+  "suites": [
+    {
+      "module": "tests.test_candidate_validation",
+      "tests_passed": 11,
+      "test_file": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_validation.py",
+      "git_blob": "11e64478a4e7988e19022f56998924334a39fac0",
+      "passing_tests": [
+        "test_adapt_and_fork_require_materialized_caller_versions",
+        "test_candidate_call_target_must_match_selected_exact_callee",
+        "test_candidate_cannot_silently_change_call_site_requirement",
+        "test_candidate_snapshot_root_is_bound_to_plan",
+        "test_decision_must_match_actual_baseline_call_target",
+        "test_migration_is_validated_against_materialized_candidate",
+        "test_one_caller_can_migrate_one_site_and_preserve_another",
+        "test_preserve_keeps_exact_callee_when_caller_is_revised_for_other_changes",
+        "test_preserve_resolves_provided_contract_through_callee",
+        "test_selected_callee_must_be_selected_by_candidate_snapshot",
+        "test_unresolved_decision_never_validates"
+      ]
+    },
+    {
+      "module": "tests.test_rt06_negative_binding_reads",
+      "tests_passed": 5,
+      "test_file": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt06_negative_binding_reads.py",
+      "git_blob": "71f5362aa7a2cc088a2f035675927ff40f67cf72",
+      "passing_tests": [
+        "test_complete_projection_matches_resolution_on_exhaustive_fixtures",
+        "test_lower_candidate_can_block_a_high_valid_provider",
+        "test_new_higher_priority_binding_and_contract_conflict_are_visible",
+        "test_projection_requires_validated_whole_layers",
+        "test_scope_policy_and_contract_are_independent_inputs"
+      ]
+    },
+    {
+      "module": "tests.test_rt24_call_target_merge",
+      "tests_passed": 5,
+      "test_file": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_call_target_merge.py",
+      "git_blob": "e517cca0355e27576404aa4affc28e640fb78cd0",
+      "passing_tests": [
+        "test_both_tips_valid_but_upstream_pin_to_branch_version_blocks_merge",
+        "test_competing_retarget_fails_at_exact_selector",
+        "test_existing_upstream_caller_requires_explicit_old_version",
+        "test_guard_change_is_outside_retarget_policy",
+        "test_independent_retargets_survive_and_rebuild_the_same_export"
+      ]
+    },
+    {
+      "module": "tests.test_scoped_binding",
+      "tests_passed": 8,
+      "test_file": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_scoped_binding.py",
+      "git_blob": "b2d848bb0497810446bff4489c5b71ef75f1fcca",
+      "passing_tests": [
+        "test_consulted_layer_revision_changes_resolution_identity",
+        "test_contract_mismatch_does_not_fall_back",
+        "test_disallowed_override_is_rejected",
+        "test_duplicate_scope_is_rejected",
+        "test_layer_input_order_does_not_change_resolution",
+        "test_missing_binding_is_an_error",
+        "test_request_overrides_tenant_and_project",
+        "test_tenant_identity_is_part_of_resolution_identity"
+      ]
+    },
+    {
+      "module": "tests.test_semantic_dependency_index",
+      "tests_passed": 23,
+      "test_file": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_semantic_dependency_index.py",
+      "git_blob": "6926b3d897fef36c1881f0892a78ccea6b4c9c11",
+      "passing_tests": [
+        "test_call_site_requirement_is_a_hash_relevant_contract_dependency",
+        "test_call_sites_have_stable_distinct_edge_ids",
+        "test_callee_provided_and_caller_required_contracts_are_independently_indexed",
+        "test_conditional_dispatch_preserves_each_exact_target_and_condition",
+        "test_exact_target_revision_is_part_of_caller_hash",
+        "test_gap_evidence_requires_a_discrepancy",
+        "test_independent_payload_scan_detects_missing_reverse_index_edge",
+        "test_independent_payload_scan_produces_snapshot_bound_evidence",
+        "test_rejects_call_target_without_required_contract",
+        "test_rejects_callee_without_exactly_one_provided_contract",
+        "test_rejects_duplicate_call_site_and_target_ids",
+        "test_rejects_unknown_or_ambiguous_schema_fields",
+        "test_rejects_wrong_target_kind",
+        "test_reverse_index_keeps_call_site_context",
+        "test_reverse_query_accepts_exact_scope_bound_evidence",
+        "test_reverse_query_preserves_gap_status_and_discrepancies",
+        "test_reverse_query_rejects_stale_snapshot_evidence",
+        "test_reverse_query_rejects_wrong_extractor_or_edge_digest",
+        "test_reverse_query_without_evidence_is_not_checked",
+        "test_snapshot_scoped_index_rejects_missing_selected_object",
+        "test_snapshot_scoped_reverse_index_excludes_historical_callers",
+        "test_supported_evidence_cannot_hide_discrepancies",
+        "test_typed_references_validate_target_kind"
+      ]
+    },
+    {
+      "module": "tests.test_spg_representation",
+      "tests_passed": 11,
+      "test_file": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_representation.py",
+      "git_blob": "66a719e6c11f925c9c871d8d5f734b3dee23245c",
+      "passing_tests": [
+        "test_binding_and_exact_call_granularity",
+        "test_contract_set_canonicalization_keeps_trace_order_and_multiplicity",
+        "test_effect_order_is_observable_even_when_result_and_event_set_match",
+        "test_equal_values_require_explicit_split_merge_or_replacement_evidence",
+        "test_exported_name_changes_the_operation_where_local_parameter_name_does_not",
+        "test_invalid_or_unresolved_source_does_not_produce_a_snapshot",
+        "test_ordered_arguments_and_lazy_branches_survive_lowering",
+        "test_selected_values_round_trip_and_source_locations_are_separate",
+        "test_symmetric_recursive_values_keep_separate_managed_selections",
+        "test_two_expression_surfaces_match_structurally_and_against_a_trace_oracle",
+        "test_typed_recursive_calls_in_both_group_encodings"
+      ]
+    }
+  ],
+  "binding_projection_fixture": {
+    "unordered_state_pairs": 3240,
+    "projected_key_reuses": 216,
+    "whole_view_key_reuses": 0,
+    "positive_only_false_reuses": 516
+  }
+}
