@@ -1,0 +1,259 @@
+{
+  "format": "rt24-native-mergetool/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "results": [
+    {
+      "adapter": "coordinator",
+      "after": [],
+      "before": [
+        "program/callee.json"
+      ],
+      "case": "composable",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "a41b7e7817e9de2d7a4e6fd62300910f6a6564d5"
+      },
+      "complete_index_graph_closes": true,
+      "diagnostic": "",
+      "git_operation_status": 1,
+      "mergetool_status": 0,
+      "resolved_index_tree": "69874d8399af178884b155f45429e0e5632acf2a",
+      "selected_slots": [
+        "callee",
+        "contract",
+        "independent"
+      ]
+    },
+    {
+      "adapter": "coordinator",
+      "after": [
+        "notes.txt"
+      ],
+      "before": [
+        "notes.txt",
+        "program/callee.json"
+      ],
+      "case": "ordinary-conflict",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "1059608669597cee9e0efecd445e7337460462dc"
+      },
+      "complete_index_graph_closes": null,
+      "diagnostic": "",
+      "git_operation_status": 1,
+      "mergetool_status": 0,
+      "resolved_index_tree": null,
+      "selected_slots": null
+    },
+    {
+      "adapter": "coordinator",
+      "after": [
+        "program/callee.json"
+      ],
+      "before": [
+        "program/callee.json"
+      ],
+      "case": "same-slot",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "e66aae04b2caeb7cf801a8a923e55f4eafa30212"
+      },
+      "complete_index_graph_closes": null,
+      "diagnostic": "slot-conflict update-update/callee",
+      "git_operation_status": 1,
+      "mergetool_status": 1,
+      "resolved_index_tree": null,
+      "selected_slots": null
+    },
+    {
+      "adapter": "coordinator",
+      "after": [
+        "program/callee.json"
+      ],
+      "before": [
+        "program/callee.json"
+      ],
+      "case": "cross-file-conflict",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "38b4044080964be57b619bb04d85a3c803c67c11"
+      },
+      "complete_index_graph_closes": null,
+      "diagnostic": "graph-conflict",
+      "git_operation_status": 1,
+      "mergetool_status": 1,
+      "resolved_index_tree": null,
+      "selected_slots": null
+    },
+    {
+      "adapter": null,
+      "after": [],
+      "before": [],
+      "case": "clean-text-invalid-graph",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "05cd674a411b18e616cf19a1e76068fb20a10b34"
+      },
+      "complete_index_graph_closes": false,
+      "diagnostic": "",
+      "git_operation_status": 0,
+      "mergetool_status": null,
+      "resolved_index_tree": "deb67c496d754acbd8fabc5385bf71ab2a6601ef",
+      "selected_slots": null
+    },
+    {
+      "adapter": "coordinator",
+      "after": [
+        "program/callee.json"
+      ],
+      "before": [
+        "program/callee.json"
+      ],
+      "case": "cherry-pick",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "a41b7e7817e9de2d7a4e6fd62300910f6a6564d5"
+      },
+      "complete_index_graph_closes": null,
+      "diagnostic": "single-merge-required",
+      "git_operation_status": 1,
+      "mergetool_status": 1,
+      "resolved_index_tree": null,
+      "selected_slots": null
+    },
+    {
+      "adapter": "coordinator",
+      "after": [
+        "program/callee.json"
+      ],
+      "before": [
+        "program/callee.json"
+      ],
+      "case": "rebase",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "a41b7e7817e9de2d7a4e6fd62300910f6a6564d5"
+      },
+      "complete_index_graph_closes": null,
+      "diagnostic": "single-merge-required",
+      "git_operation_status": 1,
+      "mergetool_status": 1,
+      "resolved_index_tree": null,
+      "selected_slots": null
+    },
+    {
+      "adapter": "wrong-base",
+      "after": [
+        "program/callee.json"
+      ],
+      "before": [
+        "program/callee.json"
+      ],
+      "case": "composable",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "a41b7e7817e9de2d7a4e6fd62300910f6a6564d5"
+      },
+      "complete_index_graph_closes": null,
+      "diagnostic": "input-stage-mismatch",
+      "git_operation_status": 1,
+      "mergetool_status": 1,
+      "resolved_index_tree": null,
+      "selected_slots": null
+    },
+    {
+      "adapter": "coordinator",
+      "after": [
+        "program/callee.json"
+      ],
+      "before": [
+        "program/callee.json"
+      ],
+      "case": "composable",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "a41b7e7817e9de2d7a4e6fd62300910f6a6564d5"
+      },
+      "complete_index_graph_closes": null,
+      "diagnostic": "staged-semantic-candidate-differs",
+      "git_operation_status": 1,
+      "mergetool_status": 1,
+      "resolved_index_tree": null,
+      "selected_slots": null
+    },
+    {
+      "adapter": "status-only",
+      "after": [],
+      "before": [
+        "program/callee.json"
+      ],
+      "case": "composable",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "a41b7e7817e9de2d7a4e6fd62300910f6a6564d5"
+      },
+      "complete_index_graph_closes": true,
+      "diagnostic": "",
+      "git_operation_status": 1,
+      "mergetool_status": 0,
+      "resolved_index_tree": "9b10cb08dc5d94bc27204bbb3bdc8f6fa76b1f24",
+      "selected_slots": [
+        "callee",
+        "contract"
+      ]
+    },
+    {
+      "adapter": "missing",
+      "after": [
+        "program/callee.json"
+      ],
+      "before": [
+        "program/callee.json"
+      ],
+      "case": "composable",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "a41b7e7817e9de2d7a4e6fd62300910f6a6564d5"
+      },
+      "complete_index_graph_closes": null,
+      "diagnostic": "absent-tool",
+      "git_operation_status": 1,
+      "mergetool_status": 1,
+      "resolved_index_tree": null,
+      "selected_slots": null
+    },
+    {
+      "adapter": null,
+      "after": [
+        "program/callee.json"
+      ],
+      "before": [
+        "program/callee.json"
+      ],
+      "case": "ordinary-fallback",
+      "commits": {
+        "base": "28944f9e11e8170d80ee8410ffc2143b71a85be3",
+        "ours": "cdd80bb8d011cd105e4f77e4acdf14d64fe3b701",
+        "theirs": "38b4044080964be57b619bb04d85a3c803c67c11"
+      },
+      "complete_index_graph_closes": null,
+      "diagnostic": "",
+      "git_operation_status": 1,
+      "mergetool_status": null,
+      "resolved_index_tree": null,
+      "selected_slots": null
+    }
+  ]
+}
