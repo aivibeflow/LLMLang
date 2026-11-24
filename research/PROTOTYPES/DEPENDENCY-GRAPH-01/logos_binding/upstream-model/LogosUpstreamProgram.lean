@@ -13,7 +13,8 @@ open LLMLang.ProgramRelationalQuery (RelationalQuery compileRelationalQuery)
 open LLMLang.SourceQueryEnvelope (decodeSourceEnvelope wireNames)
 open Smtm
 
-private theorem evaluateList (upstream : SmtModel) {valuation : Valuation}
+/-- Interpret a successfully evaluated list in the agreeing upstream model. -/
+theorem evaluationList_matches_upstream (upstream : SmtModel) {valuation : Valuation}
     (related : modelAgrees upstream valuation) {terms : List Eo.Term} {values : List Scalar}
     (ran : terms.mapM (fun term => evalSmt valuation (__eo_to_smt term)) = .ok values) :
     terms.map (fun term => __smtx_model_eval upstream (__eo_to_smt term)) = values.map Scalar.embed := by
@@ -62,7 +63,7 @@ theorem acceptedAssumptions_upstreamSourcePair {sort : QuerySort} {program : Pro
   obtain ⟨query, a, b, factorChanged, observationChanged, compiled, observed, ran, different⟩ :=
     acceptedAssumptions_sourcePair accepted bound env lifted
   exact ⟨query, a, b, factorChanged, observationChanged, compiled, observed,
-    evaluateList upstream related ran, different⟩
+    evaluationList_matches_upstream upstream related ran, different⟩
 
 #print axioms acceptedAssumptions_upstreamSourcePair
 
