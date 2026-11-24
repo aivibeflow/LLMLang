@@ -1,3 +1,5 @@
+The [current-main inventory reconciliation](RT-00-A-CURRENT-MAIN-INVENTORY-RECONCILIATION-2026-11-24.md) refreshes exact path/blob/size metadata and first-pass roles for all newly inventoried paths at main `aba2fd1`; 16 changed existing roles still need content revalidation, and Stage 0.1 remains open.
+
 # LLMLang Research Index
 
 Research documents are exploratory evidence and do not change the candidate or normative language specification unless a decision is explicitly accepted.
