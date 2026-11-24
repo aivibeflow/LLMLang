@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run finite reference and mutation controls
         run: |
           python3 research/PROOF-OBLIGATION-BENCHMARK/test_runner.py
           python3 research/PROOF-OBLIGATION-BENCHMARK/run.py run > pob-smoke.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: pob-smoke
           path: pob-smoke.json
