@@ -543,3 +543,23 @@ RT-32 depends on authoritative semantics, typed SPG identities, proof architectu
 | DEP-190 | RT-32 → RT-08 | Influences | Conditional/pending/proven/stale evidence states and PDG closure queries may refine unified evidence reporting and independent replay fixtures. | Open hypothesis |
 
 These edges are research hypotheses, not an accepted embedding or verifier choice. A Lean kernel-checked theorem does not establish LLMLang source correctness unless the generated Lean representation is soundly bound to authoritative LLMLang semantics for the exact SPG snapshot.
+
+
+## 21. Proof backend selection and verification orchestration (RT-33)
+
+RT-33 depends on authoritative semantics, stable semantic identities, explicit proof obligations, evidence policy, and backend translation boundaries. It generalizes RT-32 without making Lean the mandatory destination for every proof.
+
+| Edge | From → to | Relation | Rationale / affected choices | Confidence |
+|---|---|---|---|---|
+| DEP-191 | RT-03 → RT-33 | Requires | Backend-independent obligation classification and translation correctness require authoritative LLMLang semantics and a defined observation boundary. | Strong hypothesis |
+| DEP-192 | RT-05 → RT-33 | Requires | Obligation and evidence identities must bind to exact SPG objects, contracts, and snapshots. | Strong hypothesis |
+| DEP-193 | RT-07 → RT-33 | Requires | Backend selection, proof strength, trusted boundaries, and evidence aggregation are part of formal verification architecture. | Strong hypothesis |
+| DEP-194 | RT-08 → RT-33 | Requires | Backend comparisons need independent oracles, adversarial fixtures, explicit evidence classes, and reproducible evaluation. | Strong hypothesis |
+| DEP-195 | RT-09 → RT-33 | Requires | Backend adapters and translations need typed IR/lowering boundaries and source correspondence. | Strong hypothesis |
+| DEP-196 | RT-11 → RT-33 | Influences | Backend/translator/configuration identities and dependency closure determine safe evidence caching and invalidation. | Strong hypothesis |
+| DEP-197 | RT-32 → RT-33 | Influences | SPG-to-Lean correspondence and compositional proof dependencies provide one concrete backend route to compare and generalize. | Strong hypothesis |
+| DEP-198 | RT-33 → RT-07 | Influences | Comparative selection and trust results may refine proof-obligation and verification/evidence architecture. | Open hypothesis |
+| DEP-199 | RT-33 → RT-08 | Influences | Cross-backend result composition and abstention may refine unified evidence states and reporting. | Open hypothesis |
+| DEP-200 | RT-33 → RT-11 | Influences | Orchestration measurements may refine action identities, proof caches, and incremental invalidation. | Open hypothesis |
+
+These edges are research hypotheses, not implementation commitments. No backend is selected as universal, and backend-specific success cannot establish LLMLang correctness without a justified translation/correspondence boundary.
