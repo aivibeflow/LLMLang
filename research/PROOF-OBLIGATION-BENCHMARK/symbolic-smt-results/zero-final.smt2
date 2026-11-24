@@ -1,0 +1,6 @@
+(set-logic QF_LIA)
+(declare-const v0 Int)
+(declare-const v1 Int)
+(assert (not (and (and (= (ite (<= v0 0) v0 v0) v0) (and (= 0 0) (= 0 0))) (= 0 0))))
+(check-sat)
+(exit)
