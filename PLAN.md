@@ -362,6 +362,8 @@ The [RT-33 evidence composition experiment](research/PROOF-OBLIGATION-BENCHMARK/
 
 **RT-33 research output:** the [cvc5 state experiment](research/PROOF-OBLIGATION-BENCHMARK/SMT-TRANSITION-STATE.md) recorded 86 replayed counterexamples across 798 fixed transition cases. The [three-backend comparison](research/PROOF-OBLIGATION-BENCHMARK/TLC-TRANSITION-STATE.md) also checked 2,778 distinct trace-prefix states in TLC and reproduced its counterexample. A final-state-only control missed a transient mismatch. General translation correspondence, symbolic inputs, effects, temporal obligations, and SMT certificates remain open under [#395](https://github.com/aivibeflow/LLMLang/issues/395).
 
+The [symbolic CPC experiment](research/PROOF-OBLIGATION-BENCHMARK/SYMBOLIC-CPC-CERTIFICATES.md) checked two cvc5 certificates against their exact archived source assertions in Logos. The final-boundary certificate was rejected for the all-boundary query. Complete checker soundness verification and general correspondence across the text boundary remain open.
+
 
 
 **Order:** after the semantic objects and contract boundaries from Stage 1 are stable enough to formalize.  

@@ -1,0 +1,23 @@
+{
+  "profile": "source-bound-symbolic-cpc-v1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+  "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+  "cases": {
+    "absolute": {
+      "source_sha256": "ac59fcb856a5aaff9457c250f2cb9ef24aa193bd7ddd8b600a7c508265481aad",
+      "certificate_stdout_sha256": "1c2c3637942e501818f64c3a8250a7569e1ba2e9a619b0885578d3ffe0562ce8",
+      "verdict": "correct"
+    },
+    "zero-final": {
+      "source_sha256": "7fa87d636df3ba15da913ca2028a579dad3794c7fd248c5b50daf9ca232aafc4",
+      "certificate_stdout_sha256": "ec4bae55dc361da96a07039bb151a3c99e8367fb93939b6112ef02ba9396260c",
+      "verdict": "correct"
+    }
+  },
+  "controls": {
+    "wrong-certificate": "CPC assumptions differ from the exact source assertion",
+    "sat-without-certificate": "expected exactly one UNSAT result and one CPC command list",
+    "used-omitted-declaration": "the second declared input occurs in the source assertion"
+  }
+}
