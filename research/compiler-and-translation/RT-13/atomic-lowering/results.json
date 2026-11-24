@@ -1,0 +1,626 @@
+{
+  "schema": "llmlang-rt13-atomic-lowering-v1",
+  "native_machine": "rv64-virt",
+  "native_harts": 2,
+  "tools": {
+    "opt": "Debian LLVM version 19.1.7",
+    "llc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "objdump": "Debian LLVM version 19.1.7",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "inputs_sha256": {
+    "operations.ll": "02380d6e2ae3e6b6922c331db7f95e4f966757d20e3371e6534ba9454bba4e33",
+    "boot.s": "632622c36cba5f733c6eb8b54130a7c9674bef960b7b4493da4e3ad884bb1f32",
+    "layout.ld": "2a10c07ddba0d41e6169534a57898b31608abc0818378eba1cf020d7fb10a507",
+    "run.py": "f2ea8a00e2078c15bfc3f1a44b90b91578784b6facfc8c1aacb443e7a056a59f"
+  },
+  "normalized_ir_sha256": {
+    "O0": "14e8d96dcd9b3f50d3598488153993bc07bd697aebac545cb8858ff74277e397",
+    "O3": "f3277600277bb48512573150b32cd7e53dff5d179ddd73a73c7515560560f85c"
+  },
+  "profiles": {
+    "rv64_O0": {
+      "text_sha256": "e3ec22861e7f758e75b683b3eb2437dc39b64037bd6fb0c601e8dea9d22e7ed4",
+      "function_bytes": {
+        "inc_acqrel": 80,
+        "inc_monotonic": 80,
+        "inc_word": 8,
+        "publish_fence": 20,
+        "read_fence": 28
+      },
+      "instructions": {
+        "inc_monotonic": [
+          "addi sp, sp, -0x10",
+          "sd a1, 0x8(sp)",
+          "mv a1, a0",
+          "ld a0, 0x8(sp)",
+          "andi a3, a1, -0x4",
+          "slliw a1, a1, 0x3",
+          "li a2, 0xff",
+          "sllw a5, a2, a1",
+          "andi a0, a0, 0xff",
+          "sllw a4, a0, a1",
+          "lr.w a0, (a3)",
+          "add a2, a0, a4",
+          "xor a2, a0, a2",
+          "and a2, a2, a5",
+          "xor a2, a0, a2",
+          "sc.w a2, a2, (a3)",
+          "bnez a2, 0x28 <inc_monotonic+0x28>",
+          "srlw a0, a0, a1",
+          "addi sp, sp, 0x10",
+          "ret"
+        ],
+        "inc_acqrel": [
+          "addi sp, sp, -0x10",
+          "sd a1, 0x8(sp)",
+          "mv a1, a0",
+          "ld a0, 0x8(sp)",
+          "andi a3, a1, -0x4",
+          "slliw a1, a1, 0x3",
+          "li a2, 0xff",
+          "sllw a5, a2, a1",
+          "andi a0, a0, 0xff",
+          "sllw a4, a0, a1",
+          "lr.w.aq a0, (a3)",
+          "add a2, a0, a4",
+          "xor a2, a0, a2",
+          "and a2, a2, a5",
+          "xor a2, a0, a2",
+          "sc.w.rl a2, a2, (a3)",
+          "bnez a2, 0x78 <inc_acqrel+0x28>",
+          "srlw a0, a0, a1",
+          "addi sp, sp, 0x10",
+          "ret"
+        ],
+        "inc_word": [
+          "amoadd.w.aqrl a0, a1, (a0)",
+          "ret"
+        ],
+        "publish_fence": [
+          "sb a2, 0x0(a0)",
+          "fence rw, w",
+          "li a0, 0x1",
+          "sb a0, 0x0(a1)",
+          "ret"
+        ],
+        "read_fence": [
+          "lb a0, 0x0(a0)",
+          "fence r, rw",
+          "lb a1, 0x0(a1)",
+          "slli a0, a0, 0x8",
+          "andi a1, a1, 0xff",
+          "or a0, a0, a1",
+          "ret"
+        ]
+      },
+      "elf_sha256": "fe3393b30f79300712a7075194c7e182322748108198ffbb099d8782f38e59d7",
+      "uart": "R!"
+    },
+    "rv64_zabha_O0": {
+      "text_sha256": "777e677b91f80cadae79fd7dc014daaa8ac7ce3820dce200fc8465eca8959951",
+      "function_bytes": {
+        "inc_acqrel": 8,
+        "inc_monotonic": 8,
+        "inc_word": 8,
+        "publish_fence": 20,
+        "read_fence": 28
+      },
+      "instructions": {
+        "inc_monotonic": [
+          "amoadd.b a0, a1, (a0)",
+          "ret"
+        ],
+        "inc_acqrel": [
+          "amoadd.b.aqrl a0, a1, (a0)",
+          "ret"
+        ],
+        "inc_word": [
+          "amoadd.w.aqrl a0, a1, (a0)",
+          "ret"
+        ],
+        "publish_fence": [
+          "sb a2, 0x0(a0)",
+          "fence rw, w",
+          "li a0, 0x1",
+          "sb a0, 0x0(a1)",
+          "ret"
+        ],
+        "read_fence": [
+          "lb a0, 0x0(a0)",
+          "fence r, rw",
+          "lb a1, 0x0(a1)",
+          "slli a0, a0, 0x8",
+          "andi a1, a1, 0xff",
+          "or a0, a0, a1",
+          "ret"
+        ]
+      },
+      "elf_sha256": "bc111ed6a52a72a1c533e98550a2f52696c9bce8205b05ffdb61471a575f4ecf",
+      "uart": "R!"
+    },
+    "aarch64_O0": {
+      "text_sha256": "8872ce40a498db4c4070e3d19e0b4acbb831367fd332cf90ba99ac1c8fc04046",
+      "function_bytes": {
+        "inc_acqrel": 100,
+        "inc_monotonic": 100,
+        "inc_word": 96,
+        "publish_fence": 20,
+        "read_fence": 20
+      },
+      "instructions": {
+        "inc_monotonic": [
+          "sub sp, sp, #0x20",
+          "str x0, [sp, #0x10]",
+          "str w1, [sp, #0x18]",
+          "ldrb w8, [x0]",
+          "str w8, [sp, #0x1c]",
+          "b 0x18 <inc_monotonic+0x18>",
+          "ldr w10, [sp, #0x1c]",
+          "ldr x11, [sp, #0x10]",
+          "ldr w8, [sp, #0x18]",
+          "add w12, w8, w10, uxth",
+          "ldaxrb w9, [x11]",
+          "cmp w9, w10, uxtb",
+          "b.ne 0x3c <inc_monotonic+0x3c>",
+          "stlxrb w8, w12, [x11]",
+          "cbnz w8, 0x28 <inc_monotonic+0x28>",
+          "str w9, [sp, #0xc]",
+          "and w8, w9, #0xff",
+          "subs w8, w8, w10, uxtb",
+          "cset w8, eq",
+          "str w9, [sp, #0x1c]",
+          "tbz w8, #0x0, 0x18 <inc_monotonic+0x18>",
+          "b 0x58 <inc_monotonic+0x58>",
+          "ldr w0, [sp, #0xc]",
+          "add sp, sp, #0x20",
+          "ret"
+        ],
+        "inc_acqrel": [
+          "sub sp, sp, #0x20",
+          "str x0, [sp, #0x10]",
+          "str w1, [sp, #0x18]",
+          "ldrb w8, [x0]",
+          "str w8, [sp, #0x1c]",
+          "b 0x7c <inc_acqrel+0x18>",
+          "ldr w10, [sp, #0x1c]",
+          "ldr x11, [sp, #0x10]",
+          "ldr w8, [sp, #0x18]",
+          "add w12, w8, w10, uxth",
+          "ldaxrb w9, [x11]",
+          "cmp w9, w10, uxtb",
+          "b.ne 0xa0 <inc_acqrel+0x3c>",
+          "stlxrb w8, w12, [x11]",
+          "cbnz w8, 0x8c <inc_acqrel+0x28>",
+          "str w9, [sp, #0xc]",
+          "and w8, w9, #0xff",
+          "subs w8, w8, w10, uxtb",
+          "cset w8, eq",
+          "str w9, [sp, #0x1c]",
+          "tbz w8, #0x0, 0x7c <inc_acqrel+0x18>",
+          "b 0xbc <inc_acqrel+0x58>",
+          "ldr w0, [sp, #0xc]",
+          "add sp, sp, #0x20",
+          "ret"
+        ],
+        "inc_word": [
+          "sub sp, sp, #0x20",
+          "str x0, [sp, #0x10]",
+          "str w1, [sp, #0x18]",
+          "ldr w8, [x0]",
+          "str w8, [sp, #0x1c]",
+          "b 0xe0 <inc_word+0x18>",
+          "ldr w8, [sp, #0x1c]",
+          "ldr x11, [sp, #0x10]",
+          "ldr w9, [sp, #0x18]",
+          "add w12, w8, w9",
+          "ldaxr w9, [x11]",
+          "cmp w9, w8",
+          "b.ne 0x104 <inc_word+0x3c>",
+          "stlxr w10, w12, [x11]",
+          "cbnz w10, 0xf0 <inc_word+0x28>",
+          "subs w8, w9, w8",
+          "cset w8, eq",
+          "str w9, [sp, #0xc]",
+          "str w9, [sp, #0x1c]",
+          "tbz w8, #0x0, 0xe0 <inc_word+0x18>",
+          "b 0x11c <inc_word+0x54>",
+          "ldr w0, [sp, #0xc]",
+          "add sp, sp, #0x20",
+          "ret"
+        ],
+        "publish_fence": [
+          "strb w2, [x0]",
+          "dmb ish",
+          "mov w8, #0x1 // =1",
+          "strb w8, [x1]",
+          "ret"
+        ],
+        "read_fence": [
+          "ldrb w9, [x0]",
+          "dmb ishld",
+          "ldrb w8, [x1]",
+          "orr w0, w8, w9, lsl #8",
+          "ret"
+        ]
+      }
+    },
+    "aarch64_lse_O0": {
+      "text_sha256": "de80245c168748d3a4eb273ca58ef301c47aa2d27b6e4f0af5e6454f0683fd9d",
+      "function_bytes": {
+        "inc_acqrel": 8,
+        "inc_monotonic": 8,
+        "inc_word": 8,
+        "publish_fence": 20,
+        "read_fence": 20
+      },
+      "instructions": {
+        "inc_monotonic": [
+          "ldaddb w1, w0, [x0]",
+          "ret"
+        ],
+        "inc_acqrel": [
+          "ldaddalb w1, w0, [x0]",
+          "ret"
+        ],
+        "inc_word": [
+          "ldaddal w1, w0, [x0]",
+          "ret"
+        ],
+        "publish_fence": [
+          "strb w2, [x0]",
+          "dmb ish",
+          "mov w8, #0x1 // =1",
+          "strb w8, [x1]",
+          "ret"
+        ],
+        "read_fence": [
+          "ldrb w9, [x0]",
+          "dmb ishld",
+          "ldrb w8, [x1]",
+          "orr w0, w8, w9, lsl #8",
+          "ret"
+        ]
+      }
+    },
+    "x86_64_O0": {
+      "text_sha256": "44d1633faa4e0eeef202b84b04eda9d36c2c8bbeb57d756a55b5663e632e2059",
+      "function_bytes": {
+        "inc_acqrel": 8,
+        "inc_monotonic": 8,
+        "inc_word": 7,
+        "publish_fence": 8,
+        "read_fence": 18
+      },
+      "instructions": {
+        "inc_monotonic": [
+          "movb %sil, %al",
+          "lock",
+          "xaddb %al, (%rdi)",
+          "retq",
+          "nopl (%rax,%rax)"
+        ],
+        "inc_acqrel": [
+          "movb %sil, %al",
+          "lock",
+          "xaddb %al, (%rdi)",
+          "retq",
+          "nopl (%rax,%rax)"
+        ],
+        "inc_word": [
+          "movl %esi, %eax",
+          "lock",
+          "xaddl %eax, (%rdi)",
+          "retq",
+          "nopw (%rax,%rax)"
+        ],
+        "publish_fence": [
+          "movb %dl, %al",
+          "movb %al, (%rdi)",
+          "movb $0x1, (%rsi)",
+          "retq",
+          "nopl (%rax,%rax)"
+        ],
+        "read_fence": [
+          "movb (%rdi), %al",
+          "movb (%rsi), %cl",
+          "movzbl %al, %eax",
+          "shlw $0x8, %ax",
+          "movzbl %cl, %ecx",
+          "orw %cx, %ax",
+          "retq"
+        ]
+      }
+    },
+    "rv64_O3": {
+      "text_sha256": "c8941f30641abfe3c7c52e64554f6ffc7767467a95a3e30646a4866e9582d9d4",
+      "function_bytes": {
+        "inc_acqrel": 60,
+        "inc_monotonic": 60,
+        "inc_word": 8,
+        "publish_fence": 20,
+        "read_fence": 28
+      },
+      "instructions": {
+        "inc_monotonic": [
+          "andi a2, a0, -0x4",
+          "slli a0, a0, 0x3",
+          "li a3, 0xff",
+          "sllw a3, a3, a0",
+          "andi a1, a1, 0xff",
+          "sllw a1, a1, a0",
+          "lr.w a4, (a2)",
+          "add a5, a4, a1",
+          "xor a5, a4, a5",
+          "and a5, a5, a3",
+          "xor a5, a4, a5",
+          "sc.w a5, a5, (a2)",
+          "bnez a5, 0x18 <inc_monotonic+0x18>",
+          "srlw a0, a4, a0",
+          "ret"
+        ],
+        "inc_acqrel": [
+          "andi a2, a0, -0x4",
+          "slli a0, a0, 0x3",
+          "li a3, 0xff",
+          "sllw a3, a3, a0",
+          "andi a1, a1, 0xff",
+          "sllw a1, a1, a0",
+          "lr.w.aq a4, (a2)",
+          "add a5, a4, a1",
+          "xor a5, a4, a5",
+          "and a5, a5, a3",
+          "xor a5, a4, a5",
+          "sc.w.rl a5, a5, (a2)",
+          "bnez a5, 0x54 <inc_acqrel+0x18>",
+          "srlw a0, a4, a0",
+          "ret"
+        ],
+        "inc_word": [
+          "amoadd.w.aqrl a0, a1, (a0)",
+          "ret"
+        ],
+        "publish_fence": [
+          "sb a2, 0x0(a0)",
+          "fence rw, w",
+          "li a0, 0x1",
+          "sb a0, 0x0(a1)",
+          "ret"
+        ],
+        "read_fence": [
+          "lb a0, 0x0(a0)",
+          "fence r, rw",
+          "lb a1, 0x0(a1)",
+          "slli a0, a0, 0x8",
+          "andi a1, a1, 0xff",
+          "or a0, a0, a1",
+          "ret"
+        ]
+      },
+      "elf_sha256": "3bf129883fce6d8f8f39143eb187e2a53ff87e50549b7f4a16db4284f5c2bad7",
+      "uart": "R!"
+    },
+    "rv64_zabha_O3": {
+      "text_sha256": "777e677b91f80cadae79fd7dc014daaa8ac7ce3820dce200fc8465eca8959951",
+      "function_bytes": {
+        "inc_acqrel": 8,
+        "inc_monotonic": 8,
+        "inc_word": 8,
+        "publish_fence": 20,
+        "read_fence": 28
+      },
+      "instructions": {
+        "inc_monotonic": [
+          "amoadd.b a0, a1, (a0)",
+          "ret"
+        ],
+        "inc_acqrel": [
+          "amoadd.b.aqrl a0, a1, (a0)",
+          "ret"
+        ],
+        "inc_word": [
+          "amoadd.w.aqrl a0, a1, (a0)",
+          "ret"
+        ],
+        "publish_fence": [
+          "sb a2, 0x0(a0)",
+          "fence rw, w",
+          "li a0, 0x1",
+          "sb a0, 0x0(a1)",
+          "ret"
+        ],
+        "read_fence": [
+          "lb a0, 0x0(a0)",
+          "fence r, rw",
+          "lb a1, 0x0(a1)",
+          "slli a0, a0, 0x8",
+          "andi a1, a1, 0xff",
+          "or a0, a0, a1",
+          "ret"
+        ]
+      },
+      "elf_sha256": "04ca5ec4eeb1af999fb880cb8d6b4662d51179020df63cc7fa918038732862e7",
+      "uart": "R!"
+    },
+    "aarch64_O3": {
+      "text_sha256": "ced8d648ebd1959b6b496ec17a0a1aacfa25e580ad46c8144523092db386595d",
+      "function_bytes": {
+        "inc_acqrel": 24,
+        "inc_monotonic": 24,
+        "inc_word": 24,
+        "publish_fence": 20,
+        "read_fence": 20
+      },
+      "instructions": {
+        "inc_monotonic": [
+          "ldxrb w8, [x0]",
+          "add w9, w8, w1",
+          "stxrb w10, w9, [x0]",
+          "cbnz w10, 0x0 <inc_monotonic>",
+          "mov w0, w8",
+          "ret"
+        ],
+        "inc_acqrel": [
+          "ldaxrb w8, [x0]",
+          "add w9, w8, w1",
+          "stlxrb w10, w9, [x0]",
+          "cbnz w10, 0x18 <inc_acqrel>",
+          "mov w0, w8",
+          "ret"
+        ],
+        "inc_word": [
+          "ldaxr w8, [x0]",
+          "add w9, w8, w1",
+          "stlxr w10, w9, [x0]",
+          "cbnz w10, 0x30 <inc_word>",
+          "mov w0, w8",
+          "ret"
+        ],
+        "publish_fence": [
+          "strb w2, [x0]",
+          "mov w8, #0x1 // =1",
+          "dmb ish",
+          "strb w8, [x1]",
+          "ret"
+        ],
+        "read_fence": [
+          "ldrb w8, [x0]",
+          "dmb ishld",
+          "ldrb w9, [x1]",
+          "orr w0, w9, w8, lsl #8",
+          "ret"
+        ]
+      }
+    },
+    "aarch64_lse_O3": {
+      "text_sha256": "712710743739e38f5e21e51ce2da8d06feb64a088c88c7c48a9d7c939b56be07",
+      "function_bytes": {
+        "inc_acqrel": 8,
+        "inc_monotonic": 8,
+        "inc_word": 8,
+        "publish_fence": 20,
+        "read_fence": 20
+      },
+      "instructions": {
+        "inc_monotonic": [
+          "ldaddb w1, w0, [x0]",
+          "ret"
+        ],
+        "inc_acqrel": [
+          "ldaddalb w1, w0, [x0]",
+          "ret"
+        ],
+        "inc_word": [
+          "ldaddal w1, w0, [x0]",
+          "ret"
+        ],
+        "publish_fence": [
+          "strb w2, [x0]",
+          "mov w8, #0x1 // =1",
+          "dmb ish",
+          "strb w8, [x1]",
+          "ret"
+        ],
+        "read_fence": [
+          "ldrb w8, [x0]",
+          "dmb ishld",
+          "ldrb w9, [x1]",
+          "orr w0, w9, w8, lsl #8",
+          "ret"
+        ]
+      }
+    },
+    "x86_64_O3": {
+      "text_sha256": "f6d5d4579e78f5ff1534fd3da2302af94a49ced02d6de32a5dfb2ff4a7c7cdda",
+      "function_bytes": {
+        "inc_acqrel": 7,
+        "inc_monotonic": 7,
+        "inc_word": 7,
+        "publish_fence": 6,
+        "read_fence": 18
+      },
+      "instructions": {
+        "inc_monotonic": [
+          "movl %esi, %eax",
+          "lock",
+          "xaddb %al, (%rdi)",
+          "retq",
+          "nopw (%rax,%rax)"
+        ],
+        "inc_acqrel": [
+          "movl %esi, %eax",
+          "lock",
+          "xaddb %al, (%rdi)",
+          "retq",
+          "nopw (%rax,%rax)"
+        ],
+        "inc_word": [
+          "movl %esi, %eax",
+          "lock",
+          "xaddl %eax, (%rdi)",
+          "retq",
+          "nopw (%rax,%rax)"
+        ],
+        "publish_fence": [
+          "movb %dl, (%rdi)",
+          "movb $0x1, (%rsi)",
+          "retq",
+          "nopw %cs:(%rax,%rax)"
+        ],
+        "read_fence": [
+          "movzbl (%rdi), %eax",
+          "movzbl (%rsi), %ecx",
+          "movzbl %al, %edx",
+          "shll $0x8, %edx",
+          "movzbl %cl, %eax",
+          "orl %edx, %eax",
+          "retq"
+        ]
+      }
+    }
+  },
+  "rv64_no_a_undefined": [
+    "__atomic_fetch_add_1",
+    "__atomic_fetch_add_4",
+    "__atomic_load_1",
+    "__atomic_store_1"
+  ],
+  "controls": {
+    "release_after_flag": {
+      "normalized_ir_sha256": "1d62f3c04c0482fdd424a07cc6fef85b1b8529dee4d291564826a2df277020d5",
+      "rv64": {
+        "matches_reference_text": false,
+        "text_sha256": "a1f0e4839d15e415f9bc06457b080b443c86350589914a45aa2fdd217b4312b7",
+        "publish_instructions": [
+          "sb a2, 0x0(a0)",
+          "li a0, 0x1",
+          "sb a0, 0x0(a1)",
+          "fence rw, w",
+          "ret"
+        ]
+      },
+      "x86_64": {
+        "matches_reference_text": true,
+        "text_sha256": "f6d5d4579e78f5ff1534fd3da2302af94a49ced02d6de32a5dfb2ff4a7c7cdda",
+        "publish_instructions": [
+          "movb %dl, (%rdi)",
+          "movb $0x1, (%rsi)",
+          "retq",
+          "nopw %cs:(%rax,%rax)"
+        ]
+      }
+    },
+    "wrong_byte": {
+      "normalized_ir_sha256": "237a75e5e34cffc729ef636388581efff0e0a7578e41adbe48e670f15c83e7de",
+      "rv64": {
+        "uart": "X",
+        "elf_sha256": "3def13d305e7c1ea777a09208c91f44976ba6d5af3e0dde40cdedd0c95786c96"
+      },
+      "rv64_zabha": {
+        "uart": "X",
+        "elf_sha256": "ffcf2b6a4ef8a539cd318af66829f0b2fa0b5c7e454a222ea89e024a0e937edf"
+      }
+    }
+  }
+}

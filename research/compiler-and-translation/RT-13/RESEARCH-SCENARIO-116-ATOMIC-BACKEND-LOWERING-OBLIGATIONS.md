@@ -64,3 +64,5 @@ Scenario 113's finite outcome enumerators are not compiler validation: they esta
 - [LLVM Language Reference — Atomic Memory Ordering Constraints](https://llvm.org/docs/LangRef.html#atomic-memory-ordering-constraints)
 - [LLVM Atomic Instructions and Concurrency Guide](https://llvm.org/docs/Atomics.html)
 - [C++ draft — atomic orderings and fences](https://eel.is/c++draft/atomics)
+
+The [byte and word atomic lowering comparison](RT-13-ATOMIC-BYTE-WORD-LOWERING-2026-11-24.md) checks three architecture families, explicit feature gates, the linked RV64 code and two-hart observations. The x86-64 fence-placement control preserves machine text but changes the source contract.

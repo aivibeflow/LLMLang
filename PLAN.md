@@ -983,6 +983,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Preserve the LLMLang-owned semantic source of truth and replaceable backend boundary; do not make LLVM IR the canonical semantic IR.
 - [ ] Define a conservative LLVM IR subset and source-to-LLVM lowering contract.
 - [ ] Research poison, undef, overflow flags, pointer provenance, aliasing, floating-point flags, atomics, and memory ordering.
+- [x] Compare byte and word atomic lowering at O0/O3 for RV64, AArch64 and x86-64. RV64 with and without Zabha passes the two-hart fixture, while RV64 without native atomic support requires runtime helpers. An x86-64 text comparison cannot distinguish the moved-fence control. [Atomic lowering comparison](research/compiler-and-translation/RT-13/RT-13-ATOMIC-BYTE-WORD-LOWERING-2026-11-24.md).
 - [ ] Define how LLVM optimization passes and target code generation are validated against LLMLang semantics.
   - The signed-add fixture checks the exact optimized IR under a source observation model, including no store on overflow and ordered callbacks. Native evidence confirms the selected counterexamples. [Checked-add observation validation](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-OBSERVATIONS-2026-11-24.md).
 - [ ] Evaluate Alive2 and Vellvm and their applicability/limitations.
