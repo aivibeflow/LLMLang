@@ -1,0 +1,1600 @@
+{
+  "schema": "llmlang-bounded-atomic-rmw-fences-v1",
+  "tools": {
+    "z3": "Z3 version 4.13.3 - 64 bit",
+    "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]"
+  },
+  "input_sha256": {
+    "cases.py": "be722b5c7da5a5a4a8dac555d65df1950c57f71c708d1aa8120ae84e156a4498",
+    "enumerate_model.py": "3a8e1eae4aa4865d64e031bac782ec996d392421c0a9f1aa6d0cfa612b235871",
+    "smt_model.py": "42268bcf55f780f525e51e7975973b6dd2bf49a7046165d6c3aced4ea745e6dc",
+    "run.py": "adde495708f7cbe9fd61bed20d7df741167fe16d7523c2da7a287a8f1910d431"
+  },
+  "graphs": {
+    "rmw_same_old_value": {
+      "domains": {
+        "first": [
+          0,
+          1,
+          2
+        ],
+        "second": [
+          0,
+          1,
+          2
+        ]
+      },
+      "queries_per_model": 9,
+      "accepted_outcomes": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "7fd14da7c2fe5dc468e82bb2be70eb7a97a9762713b78bc56f2e4de6b14befcd",
+        "global": "6430b9cf1e38acecb27f1bdaecf478bb7d4b9bc180b24b694ceb233f38c01dcd"
+      }
+    },
+    "broken_rmw_same_old_value": {
+      "domains": {
+        "first": [
+          0,
+          1,
+          2
+        ],
+        "second": [
+          0,
+          1,
+          2
+        ]
+      },
+      "queries_per_model": 9,
+      "accepted_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "6427e90d8c21db2a59f699e47fb70e22f18145bb1c165d6caf5cb44e5cf30518",
+        "global": "3ac6aec6facecace5639d07bc9422093fabc2f849a3e4f13eda98d9e85fa0176"
+      }
+    },
+    "rmw_wrap": {
+      "domains": {
+        "inc": [
+          0,
+          1,
+          255
+        ],
+        "counter_read": [
+          0,
+          1,
+          255
+        ]
+      },
+      "queries_per_model": 9,
+      "accepted_outcomes": [
+        [
+          255,
+          0
+        ],
+        [
+          255,
+          255
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          255,
+          0
+        ],
+        [
+          255,
+          255
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "142b14a233334c90567a2542c49e4278dddc75b9894bd61013ebf2b5260d5a62",
+        "global": "86b501fca15d0aea6dcfb0f9a7ce54a351fdb211587ea4007c1bb81cb9975fd4"
+      }
+    },
+    "release_sequence": {
+      "domains": {
+        "inc": [
+          0,
+          1,
+          2
+        ],
+        "flag_read": [
+          0,
+          1,
+          2
+        ],
+        "data_read": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 18,
+      "accepted_outcomes": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          42
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          42
+        ],
+        [
+          1,
+          1,
+          42
+        ],
+        [
+          1,
+          2,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          42
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          42
+        ],
+        [
+          1,
+          1,
+          42
+        ],
+        [
+          1,
+          2,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "d79e0160b884eace2e9af2d49203f3ffb1be8a78f2340dd821a7ab89fd8b38cd",
+        "global": "c878f44ccb303b0f9fab8ae2a2eae2a0266e81a8411c986d1f2317a5078a7063"
+      }
+    },
+    "plain_write_breaks_sequence": {
+      "domains": {
+        "inc": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "flag_read": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "data_read": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 50,
+      "accepted_outcomes": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          42
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          3,
+          42
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          42
+        ],
+        [
+          1,
+          1,
+          42
+        ],
+        [
+          1,
+          2,
+          42
+        ],
+        [
+          1,
+          3,
+          0
+        ],
+        [
+          1,
+          3,
+          42
+        ],
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          42
+        ],
+        [
+          3,
+          1,
+          42
+        ],
+        [
+          3,
+          3,
+          0
+        ],
+        [
+          3,
+          3,
+          42
+        ],
+        [
+          3,
+          4,
+          0
+        ],
+        [
+          3,
+          4,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          42
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          3,
+          42
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          42
+        ],
+        [
+          1,
+          1,
+          42
+        ],
+        [
+          1,
+          2,
+          42
+        ],
+        [
+          1,
+          3,
+          0
+        ],
+        [
+          1,
+          3,
+          42
+        ],
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          42
+        ],
+        [
+          3,
+          1,
+          42
+        ],
+        [
+          3,
+          3,
+          0
+        ],
+        [
+          3,
+          3,
+          42
+        ],
+        [
+          3,
+          4,
+          0
+        ],
+        [
+          3,
+          4,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "ee6b73ab03fe1a6bd603c6a0f197e40a88d3de9388cbc6119ffbf291a8fb8e7b",
+        "global": "4b398a8c380c020bb018d13d8985b248ea540b212b855abb6ca4f3ebbdb4703a"
+      }
+    },
+    "missing_acquire_on_relay": {
+      "domains": {
+        "inc": [
+          0,
+          1,
+          2
+        ],
+        "flag_read": [
+          0,
+          1,
+          2
+        ],
+        "data_read": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 18,
+      "accepted_outcomes": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          42
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          42
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          42
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          42
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          42
+        ],
+        [
+          1,
+          1,
+          42
+        ],
+        [
+          1,
+          2,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "5fd92eb6b962244d58c06cf135688502801f56c8cb3743dccdea11bca3115767",
+        "global": "0c5f11f0565c9d9b1cd802d4422ba40ef407d0328e51080321e28b4e682aa06e"
+      }
+    },
+    "fence_to_fence": {
+      "domains": {
+        "flag_read": [
+          0,
+          1
+        ],
+        "data_read": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 4,
+      "accepted_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "ee901f81d2b9eb4e15c1f631f5e4ea052e80d8bf0d0d65dab7e4152cc1bd62b6",
+        "global": "366546cb38c83fbd43839367396c2d2d515ea11662ee529ebfb821bf8449fadd"
+      }
+    },
+    "release_fence_to_acquire_load": {
+      "domains": {
+        "flag_read": [
+          0,
+          1
+        ],
+        "data_read": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 4,
+      "accepted_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "43bc4ef0f124939f802e8e214dbb126713702f446611fa5201548f82e34974aa",
+        "global": "eb2b0a6fab79e42eec13a66be5c36718d598de78813bd3d450a0ce574cb7abc6"
+      }
+    },
+    "release_store_to_acquire_fence": {
+      "domains": {
+        "flag_read": [
+          0,
+          1
+        ],
+        "data_read": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 4,
+      "accepted_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "906207dec4e604a86d742732e5283f009496beb09d4336b3a46c43d83cd1579c",
+        "global": "c02a181db5ab586756a27c8818806d4109faaefab928166fd4221cf091c069ae"
+      }
+    },
+    "late_release_fence": {
+      "domains": {
+        "flag_read": [
+          0,
+          1
+        ],
+        "data_read": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 4,
+      "accepted_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "bfd909dc3682c6ce2bc7002a5c41767243719bbf5559f5b21189bdc1003947a7",
+        "global": "57341e712c4475f93d239350e83c7a405d111ee6376265c21711e751a8403c05"
+      }
+    },
+    "early_acquire_fence": {
+      "domains": {
+        "flag_read": [
+          0,
+          1
+        ],
+        "data_read": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 4,
+      "accepted_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "1c22f599d4fccc55335c64c8947631e2422e11330328ccc4bc55b83228cacba4",
+        "global": "a58f8721caed0efef32eb53ce5e3ec6cc8403264941e0c2ed00e3627d6efd8c6"
+      }
+    },
+    "removed_acquire_fence": {
+      "domains": {
+        "flag_read": [
+          0,
+          1
+        ],
+        "data_read": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 4,
+      "accepted_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "250f1ceb6a28543aa9ccbe9081c22d649656ee06890d478ba15ff02c0ebcb99e",
+        "global": "1513c4769b4cc4c92051f036191df3650b5cf71f78c386668a11ba5e0a93af36"
+      }
+    },
+    "fence_through_release_sequence": {
+      "domains": {
+        "inc": [
+          0,
+          1,
+          2
+        ],
+        "flag_read": [
+          0,
+          1,
+          2
+        ],
+        "data_read": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 18,
+      "accepted_outcomes": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          42
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          42
+        ],
+        [
+          1,
+          1,
+          42
+        ],
+        [
+          1,
+          2,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          42
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          42
+        ],
+        [
+          1,
+          1,
+          42
+        ],
+        [
+          1,
+          2,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "33dd2a3a122df1d2b580ed59f19cb6623e96bc1fa01ccc2e4b1c23c1e37d3e6c",
+        "global": "40da00d8475a04e5c1b017180771530690d91e09a8e08aebc2af64347a362cf9"
+      }
+    },
+    "acquire_rmw_reads_release": {
+      "domains": {
+        "relay": [
+          0,
+          1,
+          2
+        ],
+        "relay_data": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 6,
+      "accepted_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "9e94ca3f3b967809fc4d46462a7dc7a0601eb244cd231395233ba2469c70e558",
+        "global": "20285e03e9716589f180352c45cbbb54a2f31e87d2d7c152f45c445de564349a"
+      }
+    },
+    "relaxed_rmw_reads_release": {
+      "domains": {
+        "relay": [
+          0,
+          1,
+          2
+        ],
+        "relay_data": [
+          0,
+          42
+        ]
+      },
+      "queries_per_model": 6,
+      "accepted_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "global_order_outcomes": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "formula_sha256": {
+        "axiomatic": "fec9ebb2bf92e725ea0a148b58336102cc44371741ce6fb9e18e0a8004e1f485",
+        "global": "7ddb562ac38b3dc2713415625b87402de10c9683aae71ee8d3ba19802972011d"
+      }
+    }
+  },
+  "tested": [
+    {
+      "name": "rmw_same_old_value",
+      "graph": "rmw_same_old_value",
+      "outcome": {
+        "first": 0,
+        "second": 0
+      },
+      "allowed": false,
+      "global_order": false,
+      "witnesses": []
+    },
+    {
+      "name": "broken_rmw_same_old_value",
+      "graph": "broken_rmw_same_old_value",
+      "outcome": {
+        "first": 0,
+        "second": 0
+      },
+      "allowed": true,
+      "global_order": false,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_counter",
+              "first",
+              "second"
+            ]
+          ],
+          "rf": {
+            "first": "initial_counter",
+            "second": "initial_counter"
+          },
+          "sw": [],
+          "observed": {
+            "first": 0,
+            "second": 0
+          },
+          "global_order": false
+        },
+        {
+          "mo": [
+            [
+              "initial_counter",
+              "second",
+              "first"
+            ]
+          ],
+          "rf": {
+            "first": "initial_counter",
+            "second": "initial_counter"
+          },
+          "sw": [],
+          "observed": {
+            "first": 0,
+            "second": 0
+          },
+          "global_order": false
+        }
+      ]
+    },
+    {
+      "name": "rmw_serialize",
+      "graph": "rmw_same_old_value",
+      "outcome": {
+        "first": 1,
+        "second": 0
+      },
+      "allowed": true,
+      "global_order": true,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_counter",
+              "second",
+              "first"
+            ]
+          ],
+          "rf": {
+            "first": "second",
+            "second": "initial_counter"
+          },
+          "sw": [],
+          "observed": {
+            "first": 1,
+            "second": 0
+          },
+          "global_order": true
+        }
+      ]
+    },
+    {
+      "name": "rmw_wrap",
+      "graph": "rmw_wrap",
+      "outcome": {
+        "inc": 255,
+        "counter_read": 0
+      },
+      "allowed": true,
+      "global_order": true,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_counter",
+              "seed",
+              "inc"
+            ]
+          ],
+          "rf": {
+            "inc": "seed",
+            "counter_read": "initial_counter"
+          },
+          "sw": [],
+          "observed": {
+            "inc": 255,
+            "counter_read": 0
+          },
+          "global_order": true
+        },
+        {
+          "mo": [
+            [
+              "initial_counter",
+              "seed",
+              "inc"
+            ]
+          ],
+          "rf": {
+            "inc": "seed",
+            "counter_read": "inc"
+          },
+          "sw": [],
+          "observed": {
+            "inc": 255,
+            "counter_read": 0
+          },
+          "global_order": true
+        }
+      ]
+    },
+    {
+      "name": "release_sequence",
+      "graph": "release_sequence",
+      "outcome": {
+        "inc": 1,
+        "flag_read": 2,
+        "data_read": 0
+      },
+      "allowed": false,
+      "global_order": false,
+      "witnesses": []
+    },
+    {
+      "name": "release_sequence_fresh",
+      "graph": "release_sequence",
+      "outcome": {
+        "inc": 1,
+        "flag_read": 2,
+        "data_read": 42
+      },
+      "allowed": true,
+      "global_order": true,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_data",
+              "payload"
+            ],
+            [
+              "initial_flag",
+              "publish",
+              "inc"
+            ]
+          ],
+          "rf": {
+            "inc": "publish",
+            "flag_read": "inc",
+            "data_read": "payload"
+          },
+          "sw": [
+            [
+              "publish",
+              "flag_read"
+            ]
+          ],
+          "observed": {
+            "inc": 1,
+            "flag_read": 2,
+            "data_read": 42
+          },
+          "global_order": true
+        }
+      ]
+    },
+    {
+      "name": "plain_write_breaks_sequence",
+      "graph": "plain_write_breaks_sequence",
+      "outcome": {
+        "inc": 3,
+        "flag_read": 4,
+        "data_read": 0
+      },
+      "allowed": true,
+      "global_order": true,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_data",
+              "payload"
+            ],
+            [
+              "initial_flag",
+              "publish",
+              "plain",
+              "inc"
+            ]
+          ],
+          "rf": {
+            "inc": "plain",
+            "flag_read": "inc",
+            "data_read": "initial_data"
+          },
+          "sw": [],
+          "observed": {
+            "inc": 3,
+            "flag_read": 4,
+            "data_read": 0
+          },
+          "global_order": false
+        },
+        {
+          "mo": [
+            [
+              "initial_data",
+              "payload"
+            ],
+            [
+              "initial_flag",
+              "plain",
+              "inc",
+              "publish"
+            ]
+          ],
+          "rf": {
+            "inc": "plain",
+            "flag_read": "inc",
+            "data_read": "initial_data"
+          },
+          "sw": [],
+          "observed": {
+            "inc": 3,
+            "flag_read": 4,
+            "data_read": 0
+          },
+          "global_order": true
+        }
+      ]
+    },
+    {
+      "name": "missing_acquire_on_relay",
+      "graph": "missing_acquire_on_relay",
+      "outcome": {
+        "inc": 1,
+        "flag_read": 2,
+        "data_read": 0
+      },
+      "allowed": true,
+      "global_order": false,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_data",
+              "payload"
+            ],
+            [
+              "initial_flag",
+              "publish",
+              "inc"
+            ]
+          ],
+          "rf": {
+            "inc": "publish",
+            "flag_read": "inc",
+            "data_read": "initial_data"
+          },
+          "sw": [],
+          "observed": {
+            "inc": 1,
+            "flag_read": 2,
+            "data_read": 0
+          },
+          "global_order": false
+        }
+      ]
+    },
+    {
+      "name": "fence_to_fence",
+      "graph": "fence_to_fence",
+      "outcome": {
+        "flag_read": 1,
+        "data_read": 0
+      },
+      "allowed": false,
+      "global_order": false,
+      "witnesses": []
+    },
+    {
+      "name": "fence_to_fence_fresh",
+      "graph": "fence_to_fence",
+      "outcome": {
+        "flag_read": 1,
+        "data_read": 42
+      },
+      "allowed": true,
+      "global_order": true,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_data",
+              "payload"
+            ],
+            [
+              "initial_flag",
+              "publish"
+            ]
+          ],
+          "rf": {
+            "flag_read": "publish",
+            "data_read": "payload"
+          },
+          "sw": [
+            [
+              "release_fence",
+              "acquire_fence"
+            ]
+          ],
+          "observed": {
+            "flag_read": 1,
+            "data_read": 42
+          },
+          "global_order": true
+        }
+      ]
+    },
+    {
+      "name": "release_fence_to_acquire_load",
+      "graph": "release_fence_to_acquire_load",
+      "outcome": {
+        "flag_read": 1,
+        "data_read": 0
+      },
+      "allowed": false,
+      "global_order": false,
+      "witnesses": []
+    },
+    {
+      "name": "release_store_to_acquire_fence",
+      "graph": "release_store_to_acquire_fence",
+      "outcome": {
+        "flag_read": 1,
+        "data_read": 0
+      },
+      "allowed": false,
+      "global_order": false,
+      "witnesses": []
+    },
+    {
+      "name": "late_release_fence",
+      "graph": "late_release_fence",
+      "outcome": {
+        "flag_read": 1,
+        "data_read": 0
+      },
+      "allowed": true,
+      "global_order": false,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_data",
+              "payload"
+            ],
+            [
+              "initial_flag",
+              "publish"
+            ]
+          ],
+          "rf": {
+            "flag_read": "publish",
+            "data_read": "initial_data"
+          },
+          "sw": [],
+          "observed": {
+            "flag_read": 1,
+            "data_read": 0
+          },
+          "global_order": false
+        }
+      ]
+    },
+    {
+      "name": "early_acquire_fence",
+      "graph": "early_acquire_fence",
+      "outcome": {
+        "flag_read": 1,
+        "data_read": 0
+      },
+      "allowed": true,
+      "global_order": false,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_data",
+              "payload"
+            ],
+            [
+              "initial_flag",
+              "publish"
+            ]
+          ],
+          "rf": {
+            "flag_read": "publish",
+            "data_read": "initial_data"
+          },
+          "sw": [],
+          "observed": {
+            "flag_read": 1,
+            "data_read": 0
+          },
+          "global_order": false
+        }
+      ]
+    },
+    {
+      "name": "removed_acquire_fence",
+      "graph": "removed_acquire_fence",
+      "outcome": {
+        "flag_read": 1,
+        "data_read": 0
+      },
+      "allowed": true,
+      "global_order": false,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_data",
+              "payload"
+            ],
+            [
+              "initial_flag",
+              "publish"
+            ]
+          ],
+          "rf": {
+            "flag_read": "publish",
+            "data_read": "initial_data"
+          },
+          "sw": [],
+          "observed": {
+            "flag_read": 1,
+            "data_read": 0
+          },
+          "global_order": false
+        }
+      ]
+    },
+    {
+      "name": "fence_through_release_sequence",
+      "graph": "fence_through_release_sequence",
+      "outcome": {
+        "inc": 1,
+        "flag_read": 2,
+        "data_read": 0
+      },
+      "allowed": false,
+      "global_order": false,
+      "witnesses": []
+    },
+    {
+      "name": "acquire_rmw_reads_release",
+      "graph": "acquire_rmw_reads_release",
+      "outcome": {
+        "relay": 1,
+        "relay_data": 0
+      },
+      "allowed": false,
+      "global_order": false,
+      "witnesses": []
+    },
+    {
+      "name": "relaxed_rmw_reads_release",
+      "graph": "relaxed_rmw_reads_release",
+      "outcome": {
+        "relay": 1,
+        "relay_data": 0
+      },
+      "allowed": true,
+      "global_order": false,
+      "witnesses": [
+        {
+          "mo": [
+            [
+              "initial_data",
+              "payload"
+            ],
+            [
+              "initial_flag",
+              "publish",
+              "relay"
+            ]
+          ],
+          "rf": {
+            "relay": "publish",
+            "relay_data": "initial_data"
+          },
+          "sw": [],
+          "observed": {
+            "relay": 1,
+            "relay_data": 0
+          },
+          "global_order": false
+        }
+      ]
+    }
+  ]
+}
