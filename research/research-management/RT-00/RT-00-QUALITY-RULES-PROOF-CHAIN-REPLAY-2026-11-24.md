@@ -6,7 +6,7 @@
 
 **Evidence type:** Executable replay, Lean kernel check, source-bound CPC checking and negative controls.
 
-**Tracking:** PLAN §0.2, [RT-33](../../formal-verification/RT-33/README.md) and [issue #285](https://github.com/aivibeflow/LLMLang/issues/285).
+**Tracking:** PLAN §0.2, [RT-33](../../formal-verification/RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md) and [issue #285](https://github.com/aivibeflow/LLMLang/issues/285).
 
 ## Question and alternatives
 
@@ -28,7 +28,7 @@ flowchart LR
 
 The two paths produce different evidence. Model replay is a counterexample check within the executable model. The refutation path compares the certificate assumptions with the exact source query, then checks the CPC commands.
 
-The local run started from a Git archive. It rebuilt the LLMLang Logos binding with pinned Lean and used the already compiled pinned upstream Logos dependency. The [symbolic SMT driver](../../formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/symbolic_dual_check.py) regenerated all three queries. The [CPC driver](../../formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/symbolic_cpc_check.py) then consumed the freshly generated UNSAT inputs. All eight archived SMT outputs and all seven archived CPC outputs matched byte for byte. The focused tests passed 3/3 for symbolic replay and 11/11 for evidence-composition controls.
+The local run started from a Git archive. It rebuilt the LLMLang Logos binding with pinned Lean and used the already compiled pinned upstream Logos dependency. The [symbolic SMT driver](../../formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/symbolic_dual_check.py) regenerated all three queries. The [CPC driver](../../formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/symbolic_cpc_check.py) then consumed the freshly generated UNSAT inputs. All nine archived SMT outputs and all seven archived CPC outputs matched byte for byte. The focused tests passed 3/3 for symbolic replay and 11/11 for evidence-composition controls.
 
 | Claim about the second register | Scope | Reproduced evidence |
 | --- | --- | --- |
