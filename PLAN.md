@@ -550,6 +550,7 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 - [ ] Study translation validation versus proving the optimizer correct.
 - [ ] Evaluate Alive2 and related LLVM validation techniques.
 - [x] Check whole-domain status, output stores and ordered callbacks for the exact Scenario 96A checked signed-add LLVM IR at O0 and O3. Two solvers reject mismatch formulas and find three verifier-accepted counterexamples, each replayed natively. Unsupported flags stay outside the claim. [Checked-add observation validation](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-OBSERVATIONS-2026-11-24.md).
+- [x] Bind two cvc5 CPC refutations to those exact checked-add formulas and replay both in Logos. Check declaration names and sorts before aligning parser IDs, then check the ordered assumptions and actual proof commands. Swapped or renamed certificates fail binding. [Checked-add certificate binding](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-CPC-BINDING-2026-11-24.md).
 - [ ] Define differential and property-based testing against reference semantics.
 - [ ] Define when testing is sufficient evidence and when formal proof is required.
 
