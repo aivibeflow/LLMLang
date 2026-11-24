@@ -1,0 +1,352 @@
+{
+  "baseline": {
+    "commit": "12612cc669e5774f34c347a2591002eb1ef438c1",
+    "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+    "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+    "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+  },
+  "cases": {
+    "changed_endpoint": {
+      "equal_root": false,
+      "equal_tree": false,
+      "equal_value": false,
+      "history": "complete",
+      "history_receipt": "501b41441b1d27db038987994f831dde8de088642c711ba46de859b6552c525d",
+      "lifecycle": "continuous",
+      "path": [
+        {
+          "commit": "12612cc669e5774f34c347a2591002eb1ef438c1",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        },
+        {
+          "commit": "538dd921cff1259330b174eb83fb4d46c4d508d1",
+          "root": "1b19774605d391a74bd183c22ebc4594509bb6e4cd78b03debf7500dfdab68e9",
+          "selection": "d74994813225e65f1b0ca8cef2bd1986bccb7f76f3a4011b7892176dc475c4f5",
+          "tree": "22cc3f434582c53686d4e4c9f8e5e16ee9b0a3ce"
+        }
+      ],
+      "slot_bound_approval_reusable": false,
+      "terminal": {
+        "commit": "538dd921cff1259330b174eb83fb4d46c4d508d1",
+        "root": "1b19774605d391a74bd183c22ebc4594509bb6e4cd78b03debf7500dfdab68e9",
+        "selection": "d74994813225e65f1b0ca8cef2bd1986bccb7f76f3a4011b7892176dc475c4f5",
+        "tree": "22cc3f434582c53686d4e4c9f8e5e16ee9b0a3ce"
+      },
+      "value_bound_proof_reusable": false
+    },
+    "continuous": {
+      "equal_root": true,
+      "equal_tree": true,
+      "equal_value": true,
+      "history": "complete",
+      "history_receipt": "a57fe0dadcc8e33fb33678253ccd7643ea762a7fff7bc24e24f30a2dbd051777",
+      "lifecycle": "continuous",
+      "path": [
+        {
+          "commit": "12612cc669e5774f34c347a2591002eb1ef438c1",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        },
+        {
+          "commit": "16aacb83139636a7af606030bc446ec7b359e53d",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "1c07124bc5a1b311d6e20408a4050c649dd96830"
+        },
+        {
+          "commit": "40f6bc3028371bc2ea6e331257f9fecbad757319",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        }
+      ],
+      "slot_bound_approval_reusable": true,
+      "terminal": {
+        "commit": "40f6bc3028371bc2ea6e331257f9fecbad757319",
+        "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+        "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+        "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+      },
+      "value_bound_proof_reusable": true
+    },
+    "edited_restored": {
+      "equal_root": true,
+      "equal_tree": true,
+      "equal_value": true,
+      "history": "complete",
+      "history_receipt": "543f6e7da2ef4fa778cdbbee9f9c0da5ef90bdc60bbfd1cf48342b99ba5a66b3",
+      "lifecycle": "continuous",
+      "path": [
+        {
+          "commit": "12612cc669e5774f34c347a2591002eb1ef438c1",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        },
+        {
+          "commit": "538dd921cff1259330b174eb83fb4d46c4d508d1",
+          "root": "1b19774605d391a74bd183c22ebc4594509bb6e4cd78b03debf7500dfdab68e9",
+          "selection": "d74994813225e65f1b0ca8cef2bd1986bccb7f76f3a4011b7892176dc475c4f5",
+          "tree": "22cc3f434582c53686d4e4c9f8e5e16ee9b0a3ce"
+        },
+        {
+          "commit": "adbfb6ad4f5eaebeaed5bf41f05bccfc672b3c7c",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        }
+      ],
+      "slot_bound_approval_reusable": true,
+      "terminal": {
+        "commit": "adbfb6ad4f5eaebeaed5bf41f05bccfc672b3c7c",
+        "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+        "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+        "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+      },
+      "value_bound_proof_reusable": true
+    },
+    "invalid_prefix": {
+      "equal_root": true,
+      "equal_tree": true,
+      "equal_value": true,
+      "history": "invalid_source",
+      "history_receipt": null,
+      "lifecycle": "unknown",
+      "path": [],
+      "slot_bound_approval_reusable": false,
+      "terminal": {
+        "commit": "110694b8776983d908ac2a503b8c106958392f01",
+        "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+        "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+        "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+      },
+      "value_bound_proof_reusable": true
+    },
+    "nonlinear": {
+      "equal_root": true,
+      "equal_tree": true,
+      "equal_value": true,
+      "history": "nonlinear_history",
+      "history_receipt": null,
+      "lifecycle": "unknown",
+      "path": [],
+      "slot_bound_approval_reusable": false,
+      "terminal": {
+        "commit": "a151f4555cdfdb01d2a91e8b25b747e5c45bca9b",
+        "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+        "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+        "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+      },
+      "value_bound_proof_reusable": true
+    },
+    "ordinary_edit": {
+      "equal_root": true,
+      "equal_tree": false,
+      "equal_value": true,
+      "history": "complete",
+      "history_receipt": "c671768eb85235c834f24c23bfe746233d443e3a187cb227cbebccfec98c8f99",
+      "lifecycle": "continuous",
+      "path": [
+        {
+          "commit": "12612cc669e5774f34c347a2591002eb1ef438c1",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        },
+        {
+          "commit": "b58c0116941a7e6893e292eea1431e1bcefb60b5",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "49e5d5cfdd27b6b995ce0e8d5f4fa681b91ba4ce"
+        }
+      ],
+      "slot_bound_approval_reusable": true,
+      "terminal": {
+        "commit": "b58c0116941a7e6893e292eea1431e1bcefb60b5",
+        "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+        "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+        "tree": "49e5d5cfdd27b6b995ce0e8d5f4fa681b91ba4ce"
+      },
+      "value_bound_proof_reusable": true
+    },
+    "other_recreated": {
+      "equal_root": true,
+      "equal_tree": true,
+      "equal_value": true,
+      "history": "complete",
+      "history_receipt": "d0c31d626c75a3de10289ea05499dd47c8d19ed9260a5f2f6cd89d86f8974553",
+      "lifecycle": "continuous",
+      "path": [
+        {
+          "commit": "12612cc669e5774f34c347a2591002eb1ef438c1",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        },
+        {
+          "commit": "19c8154bd65d3f93cd8aaff320dae73d6678cbdd",
+          "root": "6cb4d2a1b3688a622fc3ee3b6ad95a4070051f58581d9ac1f849b65ca85f9a80",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2a86e910c18b3dec233cf35cddadcdecabf287f1"
+        },
+        {
+          "commit": "23ce330fb55c0857deaca74cdb4cadb25a36ef0d",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        }
+      ],
+      "slot_bound_approval_reusable": true,
+      "terminal": {
+        "commit": "23ce330fb55c0857deaca74cdb4cadb25a36ef0d",
+        "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+        "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+        "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+      },
+      "value_bound_proof_reusable": true
+    },
+    "recreated": {
+      "equal_root": true,
+      "equal_tree": true,
+      "equal_value": true,
+      "history": "complete",
+      "history_receipt": "7befbe0556aa74fd833876f48c7ae7593927e7a152bbcd24bc03c1d2b15a56aa",
+      "lifecycle": "interrupted",
+      "path": [
+        {
+          "commit": "12612cc669e5774f34c347a2591002eb1ef438c1",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        },
+        {
+          "commit": "d7c6dba71a53016167775159a4418b0fdc0d8b17",
+          "root": "9c0ede97b9be65e604be31972809a3013834ae02da76f9ac54ff8c66904615af",
+          "selection": null,
+          "tree": "c53dbf5c9827d6efba717f421c68fadffc098b50"
+        },
+        {
+          "commit": "585874adde796600fa1da3a0cef642c2a5847298",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        }
+      ],
+      "slot_bound_approval_reusable": false,
+      "terminal": {
+        "commit": "585874adde796600fa1da3a0cef642c2a5847298",
+        "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+        "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+        "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+      },
+      "value_bound_proof_reusable": true
+    },
+    "rewritten_to_zero_diff": {
+      "equal_root": true,
+      "equal_tree": true,
+      "equal_value": true,
+      "history": "complete",
+      "history_receipt": "1c2b918f186235652dbbf7b52a5a436c51f08a623d2e8c667b949735e0342d30",
+      "lifecycle": "continuous",
+      "path": [
+        {
+          "commit": "12612cc669e5774f34c347a2591002eb1ef438c1",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        },
+        {
+          "commit": "17af67c256849b610eed3580946a85396b733ea4",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        }
+      ],
+      "slot_bound_approval_reusable": true,
+      "terminal": {
+        "commit": "17af67c256849b610eed3580946a85396b733ea4",
+        "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+        "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+        "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+      },
+      "value_bound_proof_reusable": true
+    },
+    "shallow": {
+      "equal_root": true,
+      "equal_tree": true,
+      "equal_value": true,
+      "history": "missing_commit",
+      "history_receipt": null,
+      "lifecycle": "unknown",
+      "path": [],
+      "slot_bound_approval_reusable": false,
+      "terminal": {
+        "commit": "585874adde796600fa1da3a0cef642c2a5847298",
+        "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+        "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+        "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+      },
+      "value_bound_proof_reusable": true
+    },
+    "terminated": {
+      "equal_root": false,
+      "equal_tree": false,
+      "equal_value": false,
+      "history": "complete",
+      "history_receipt": "f46c7e2adff719df142cc2ab472dea07f8b798d62a731322a1cbb56a49b1cb73",
+      "lifecycle": "interrupted",
+      "path": [
+        {
+          "commit": "12612cc669e5774f34c347a2591002eb1ef438c1",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+        },
+        {
+          "commit": "1cec6f8ae652b69c8f6edf9bcc9be150e1a32f6e",
+          "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+          "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+          "tree": "4555d6cb25a0c6a56a1c9035fbe8e91079e8e435"
+        },
+        {
+          "commit": "df812fa5d823a5a73267a6d28fd87d34270bfd2d",
+          "root": "9c0ede97b9be65e604be31972809a3013834ae02da76f9ac54ff8c66904615af",
+          "selection": null,
+          "tree": "5480328b0e5ff5095a1eee360096b3562e0d6f78"
+        }
+      ],
+      "slot_bound_approval_reusable": false,
+      "terminal": {
+        "commit": "df812fa5d823a5a73267a6d28fd87d34270bfd2d",
+        "root": "9c0ede97b9be65e604be31972809a3013834ae02da76f9ac54ff8c66904615af",
+        "selection": null,
+        "tree": "5480328b0e5ff5095a1eee360096b3562e0d6f78"
+      },
+      "value_bound_proof_reusable": false
+    },
+    "unrelated_equal_tree": {
+      "equal_root": true,
+      "equal_tree": true,
+      "equal_value": true,
+      "history": "baseline_outside_history",
+      "history_receipt": null,
+      "lifecycle": "unknown",
+      "path": [],
+      "slot_bound_approval_reusable": false,
+      "terminal": {
+        "commit": "88ad85b119290f8e33366eb2d0373b373c15f101",
+        "root": "c775e9908bc94bc3b64480aeeab43b32a12329e995b2fce0a433469b1ea72d12",
+        "selection": "5b0150f94243cb8b875bc2ab2f93016184c5b8923dd5273fed9ae2ddfd785595",
+        "tree": "2fccb8368e33b3e5f71711be298edcc2d0b47463"
+      },
+      "value_bound_proof_reusable": true
+    }
+  },
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "schema": "rt24-retained-slot-history/1",
+  "selected_slot": "reviewed"
+}
