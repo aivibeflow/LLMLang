@@ -580,3 +580,9 @@ The SQLite prototype uses WAL mode and a read transaction pinned by its first me
 Dependency edges are not inferred from opaque bytes. A trusted semantic/indexing layer supplies the complete edge set when publishing an object. This preserves the boundary between storage and language semantics. The current generic Toolchain Entity prototype has no accepted SPG schema or dependency extractor, so the SQLite prototype is not yet a Toolchain Server adapter. It is a persistent contract prototype consumed directly by the package Provider integration tests.
 
 The database is derived/reconstructible and does not become authoritative program state. The prototype has no garbage collector, backup/restore design, cross-process repository lease, crash-injection matrix, migration framework, or final hash/schema policy. SQLite WAL is a local implementation experiment, not a selected production database.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Package publication should distinguish public name/catalog entries pointing to exact operation/interface-group revisions from provider bindings pointing to exact ImplHash. Interface-only packages may be considered for conditional design; executable resolution must close provider and evidence dependencies. Dynamic package delivery is not permission to resolve a mutable latest contract at runtime. Compare manifest pinning, authorized provider selection, reproducible multi-provider composition, and target-specific ABI mappings. Public export visibility does not confer execution authority.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

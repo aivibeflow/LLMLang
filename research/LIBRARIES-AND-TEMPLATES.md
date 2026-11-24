@@ -336,3 +336,9 @@ These are recommendations for discussion, not accepted project decisions.
 Libraries should let LLMLang programs reuse components through explicit, machine-readable contracts. Templates should let programs create new semantic structures through typed, validated instantiation. Packages should make these artifacts content-addressable, distributable, and reproducible.
 
 Together, these mechanisms can provide reuse without sacrificing the properties central to LLMLang: explicit semantics, stable identity, traceability, independent verification, and controlled change.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Extend the existing Public Interface section: the stable qualified export name is resolved to an immutable public operation revision and contract; a library or build binding selects a concrete immutable provider. Providers declare their own contracts; both body correctness and contract refinement are checked under exact target assumptions. Templates generating a new export or adapter must establish the same obligations for each instantiated revision. A library may publish interface-only design material, but an executable closure needs admitted providers. Distinguish package export namespace, semantic operation identity, provider binding and external ABI symbol.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

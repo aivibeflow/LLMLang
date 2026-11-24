@@ -95,3 +95,9 @@ The model constrains authority claims in RT-19 and RT-20. It does not determine 
 - [RT-20 patch planning](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) models planned changes and verified commit workflow.
 - [Global semantic artifact store](GLOBAL-SEMANTIC-ARTIFACT-STORE.md) distinguishes content identity from compatibility and trust.
 - [RT-01 reference workloads](RT-01-REFERENCE-WORKLOADS.md) defines agent change acceptance and human review measurements.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Additional candidate threats: namespace impersonation/reuse, unauthorized publication or provider rebinding, signature-compatible malicious provider, stale/forged refinement evidence, downgrade to a weaker public revision, hidden dynamic resolution and private-contract leakage. Require scoped publisher/binder authority, pinned revisions, independent evidence validation, complete target/dependency closure, explicit migration and audit trails. A public name, registry hit, content hash or successful signature check is not a trust grant. Add adversarial controls; existing authorization measurements do not validate these cases.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
