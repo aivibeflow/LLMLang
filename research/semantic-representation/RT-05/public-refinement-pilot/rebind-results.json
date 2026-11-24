@@ -1,0 +1,146 @@
+{
+  "schema": "llmlang-observed-provider-evidence-rebind-v1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "checked_observation_artifact_sha256": "b60231c6a08ffacc35096e33eb07fc0861f9a1ea84ef2527c65c15f9ca926325",
+  "source_sha256": {
+    "provider_evidence_rebind.py": "bf05a06832a6531d9e91dbbc4d6f17ad4ce5e04287a706324b15fb6a865eb095",
+    "composition.py": "5d45070a18878bf49fe2504483eb8363c11c2cba2990a8a97acaeb63482604bd",
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "stable_caller_subject": "5862696c96a65d6732f8ba1021e2f680cdb3c54d924db5d4dcf049e0737ca7be",
+  "stable_caller_claim": "92d66a16c5d6302c01914f36cb8f003d2fd60a47f6634eb5e7de8b5d3d106713",
+  "provider_bindings": [
+    "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+    "779cff452f5065da70b9f106460dc190fbd3d68aa35edec4f51313816bd73656"
+  ],
+  "verification_keys": [
+    "670affca012c9358aec1d5378fd38d561383127a1bbeee5777eabd8cf004ad13",
+    "bd798ef436084d4cd8d1e6ad3836193c15382d5c47634050a8473e2c6beee7e7"
+  ],
+  "results": {
+    "base": {
+      "claims": {
+        "provider": {
+          "status": "bounded-agreement",
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support"
+          ]
+        },
+        "caller": {
+          "status": "bounded-agreement",
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support"
+          ]
+        }
+      },
+      "aggregate": "bounded-agreement",
+      "rejected_receipts": {}
+    },
+    "rebound-with-only-old-receipts": {
+      "claims": {
+        "provider": {
+          "status": "insufficient",
+          "blocked_premises": [],
+          "observed_verdicts": []
+        },
+        "caller": {
+          "status": "insufficient",
+          "blocked_premises": [
+            "provider"
+          ],
+          "observed_verdicts": []
+        }
+      },
+      "aggregate": "insufficient",
+      "rejected_receipts": {
+        "46f1f24ec3ce3f028b70c0beed99596c887c58201ec0e7528d51f7d276e2963d": "stale-premises",
+        "93d67cfc53ac4cf5db93e151e7ab9b64644522019f3331fe972ccf4bbb8914ee": "different-claim"
+      }
+    },
+    "rebound-with-fresh-provider-but-old-caller": {
+      "claims": {
+        "provider": {
+          "status": "bounded-agreement",
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support"
+          ]
+        },
+        "caller": {
+          "status": "insufficient",
+          "blocked_premises": [],
+          "observed_verdicts": []
+        }
+      },
+      "aggregate": "insufficient",
+      "rejected_receipts": {
+        "46f1f24ec3ce3f028b70c0beed99596c887c58201ec0e7528d51f7d276e2963d": "stale-premises"
+      }
+    },
+    "rebound-with-fresh-caller-but-no-provider": {
+      "claims": {
+        "provider": {
+          "status": "insufficient",
+          "blocked_premises": [],
+          "observed_verdicts": []
+        },
+        "caller": {
+          "status": "conditional",
+          "blocked_premises": [
+            "provider"
+          ],
+          "observed_verdicts": [
+            "support"
+          ]
+        }
+      },
+      "aggregate": "insufficient",
+      "rejected_receipts": {}
+    },
+    "rebound-after-exact-recheck": {
+      "claims": {
+        "provider": {
+          "status": "bounded-agreement",
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support"
+          ]
+        },
+        "caller": {
+          "status": "bounded-agreement",
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support"
+          ]
+        }
+      },
+      "aggregate": "bounded-agreement",
+      "rejected_receipts": {}
+    },
+    "rebound-with-failed-provider-promise": {
+      "claims": {
+        "provider": {
+          "status": "refuted",
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample"
+          ]
+        },
+        "caller": {
+          "status": "conditional",
+          "blocked_premises": [
+            "provider"
+          ],
+          "observed_verdicts": [
+            "support"
+          ]
+        }
+      },
+      "aggregate": "refuted",
+      "rejected_receipts": {}
+    }
+  }
+}

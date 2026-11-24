@@ -297,6 +297,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Observed scalar provider calls (2026-11-24):** The [typed-SPG observation pilot](research/semantic-representation/RT-05/PUBLIC-INTERFACE-SPG-OBSERVATION-PILOT-2026-11-24.md) compares two fixture source surfaces across 42 observations and checks 21 Python/Lean verdicts. Exact rebinds, stale provider promises, reordered effects and budget exhaustion discriminate the admission methods. Full source-to-contract correspondence and owned-runtime integration remain open.
 
+**Exact receipt applicability after rebinding (2026-11-24):** The [rebind pilot](research/semantic-representation/RT-05/PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md) composes the reproduced scalar observations in six evidence submissions. A stable caller claim has a new exact verification key when its provider premise changes. Fresh evidence for only one obligation leaves the aggregate insufficient, and a failed provider promise refutes the aggregate. A reusable modular theorem over the abstract public contract and production authorization remain open.
+
 **Status:** proposed; [public-interface research](research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). **Exit gate:** independent review and positive/negative evidence across relevant semantic profiles; no change to accepted single-toolchain compatibility decision.
 
 ## 1.4 Core language semantics (RT-03)
