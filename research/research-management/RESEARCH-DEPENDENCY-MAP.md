@@ -262,6 +262,8 @@ Use dependency depth and risk of architectural rework to order research. This is
 
 The SCW-31 envelope fixture adds evidence for DEP-007. A valid wire schema can carry a different observation formula. Rebuilding the envelope from the typed source rejects the substitution before interpretation. [Source-owned query envelope](../formal-verification/RT-07/RT-07-SOURCE-OWNED-QUERY-ENVELOPE.md#implementation-and-checks)
 
+The SCW-32 finite comparison adds evidence for the interpretation boundary of DEP-007. Exchanging same-sort bindings can change the denotation of a rendered term. [Logos scalar denotation](../formal-verification/RT-07/RT-07-LOGOS-SCALAR-DENOTATION-2026-11-24.md)
+
 ## 6. Existing research-line placement
 
 The current Scenario 15–34 sequence is a substantial research line primarily spanning RT-02, RT-06, RT-07, and RT-08:

@@ -488,7 +488,7 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 - [ ] Test SAT/UNSAT/UNKNOWN handling and solver protocol failures.
 - [ ] Record what is checked by Lean, what is trusted in Logos, and what remains outside the proof boundary.
 
-**SCW-32 sort evidence:** [Logos sort preservation](research/formal-verification/RT-07/RT-07-LOGOS-RENDERED-SORTS.md) proves the pinned Logos type function agrees with every successfully rendered typed query term. Both positions of any admitted relational assumption pair are Boolean. Interpretation preservation remains open.
+**SCW-32 sort and finite denotation evidence:** [Logos sort preservation](research/formal-verification/RT-07/RT-07-LOGOS-RENDERED-SORTS.md) proves the pinned Logos type function agrees with every successfully rendered typed query term. The [finite denotation comparison](research/formal-verification/RT-07/RT-07-LOGOS-SCALAR-DENOTATION-2026-11-24.md) agrees on 1,536 expression evaluations and both assumptions for each of 96 concrete pairs through the actual Logos SMT translation. Same-sort controls distinguish type checking from interpretation. General interpretation preservation remains open.
 
 **Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; Lean QF_LIA profile/admissibility modules and focused tests; CI workflow.
 
@@ -498,7 +498,7 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 
 **SCW-33 acceptance evidence:** [Exact CPC binding and verdict](research/formal-verification/RT-07/RT-07-BOUND-CPC-VERDICT.md) ties every accepted source-wire query to the ordinary parser's ordered assumptions and exact command stream used by Logos. Interpretation of rendered terms and the wider checker trust boundary remain open.
 
-**Status** — Partially validated. Pinned CI passed the version-2 CPC parser-state and factor-pair tests in run 44185102839. SCW-06–30 establish correspondence from the checked source AST to a canonical difference formula and prove QF_LIA admissibility and declaration closure in the solver term representation. JSON correspondence and source-derived CPC binding remain open. [Scenario 34 proof boundary](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
+**Status** — Partially validated. Pinned CI passed the version-2 CPC parser-state and factor-pair tests in run 44185102839. SCW-06–31 connect the checked Int/Bool AST to the typed JSON query. The source-wire checker binds parsed assumptions and commands to the exact query at runtime. Universal interpretation through Logos and composition with the complete upstream soundness proof remain open. [Scenario 34 proof boundary](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
 
 **SCW-34 trust boundary:** [Logos runtime verdicts and soundness](research/formal-verification/RT-07/RT-07-LOGOS-CHECKER-TRUST-BOUNDARY.md) records the kernel-checked runtime conditions under Lean 4.36 and the separate upstream verification build under Lean 4.34. The full rule-proof build, compatible proof artifact integration, and Logos-to-source interpretation correspondence remain open.
 

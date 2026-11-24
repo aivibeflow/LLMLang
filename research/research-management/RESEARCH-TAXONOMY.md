@@ -17,6 +17,8 @@ Scenario 114 isolates release-sequence relay and a C++ version change: before C+
 
 RT-05 compares independent encoders for exact integers, Unicode values and versioned identity namespaces. [Portable identity bytes](../semantic-representation/RT-05/RT-05-PORTABLE-IDENTITY-BYTES.md)
 
+The SCW-32 comparison connects RT-07 and RT-32 by evaluating the actual Logos SMT translation on bounded Int/Bool expressions and pairs of source executions. [Logos scalar denotation](../formal-verification/RT-07/RT-07-LOGOS-SCALAR-DENOTATION-2026-11-24.md)
+
 Scenario 115 records C++ fence synchronization conditions and the scope of the `seq_cst` order. Release/acquire fences need a specified read-from link through atomic operations; `seq_cst` operations and fences participate in a constrained total order, but the current draft does not make that order consistent with all happens-before edges when weaker orders are mixed. One axiom-driven fixture checks the payload outcomes from a stipulated fence link. This is not a full fence or mixed-order model; no LLMLang policy is selected.
 
 Scenario 116 compares source memory-order obligations with LLVM IR and target lowering. It proposes source `Relaxed`→LLVM `monotonic` for validation because LLVM `unordered` is weaker and lacks per-object modification-order/coherence guarantees. LLVM atomics in IR are required lock-free, while unsupported widths may fail code generation. Three width-availability policies are compared: target-gated types, a lock-backed fallback, and native atomics plus an explicit fallback API. Source semantics must not inherit incidental IR behavior; fallback changes progress and async/signal properties. No source-to-IR proof or LLMLang atomic availability policy has been validated.
