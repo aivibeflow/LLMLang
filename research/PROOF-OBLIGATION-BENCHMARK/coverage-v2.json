@@ -27,7 +27,9 @@
           "POB-015",
           "POB-023"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "recursive/mutual_recursion"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "effects": {
@@ -53,7 +55,8 @@
           "composition",
           "transition/transfer",
           "transition/retry",
-          "system/fulfillment"
+          "system/fulfillment",
+          "recursive/map_fusion"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -150,7 +153,9 @@
           "POB-031"
         ],
         "generated_candidates": [
-          "transition/deadline"
+          "transition/deadline",
+          "recursive/stream_bisimulation",
+          "recursive/lasso_until"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -190,7 +195,8 @@
           "POB-027"
         ],
         "generated_candidates": [
-          "sum"
+          "sum",
+          "recursive/map_fusion"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -204,7 +210,9 @@
           "POB-035"
         ],
         "generated_candidates": [
-          "system/graph_gc"
+          "system/graph_gc",
+          "recursive/list_induction",
+          "recursive/tree_induction"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -356,17 +364,27 @@
         "manual_candidates": [
           "POB-023"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "recursive/list_induction",
+          "recursive/tree_induction",
+          "recursive/mutual_recursion"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "coinduction": {
         "manual_candidates": [],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "recursive/stream_bisimulation",
+          "recursive/greatest_fixed_point"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "higher_order": {
         "manual_candidates": [],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "recursive/map_fusion",
+          "recursive/function_extensionality"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "temporal": {
@@ -375,7 +393,8 @@
           "POB-031"
         ],
         "generated_candidates": [
-          "transition/deadline"
+          "transition/deadline",
+          "recursive/lasso_until"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -404,14 +423,18 @@
         ],
         "generated_candidates": [
           "sum",
-          "transition/security_trace"
+          "transition/security_trace",
+          "recursive/function_extensionality",
+          "recursive/stream_bisimulation"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "fixed_points": {
         "manual_candidates": [],
         "generated_candidates": [
-          "system/graph_gc"
+          "system/graph_gc",
+          "recursive/least_fixed_point",
+          "recursive/greatest_fixed_point"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       }
@@ -452,7 +475,9 @@
         ],
         "generated_candidates": [
           "composition",
-          "transition/lifetime"
+          "transition/lifetime",
+          "recursive/map_fusion",
+          "recursive/mutual_recursion"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -464,7 +489,10 @@
           "POB-035"
         ],
         "generated_candidates": [
-          "system/graph_gc"
+          "system/graph_gc",
+          "recursive/list_induction",
+          "recursive/tree_induction",
+          "recursive/least_fixed_point"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
