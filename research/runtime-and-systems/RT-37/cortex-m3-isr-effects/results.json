@@ -1,0 +1,519 @@
+{
+  "schema": "llmlang-cortex-m3-isr-effects-v1",
+  "isr_allowed_effects": [
+    "mmio.systick.acknowledge"
+  ],
+  "input_sha256": {
+    "handlers.s": "9bcc44a5713752d300a07fc6959b849819e944e455d958559a2a49e89f769920",
+    "run.py": "d0cb73e7acfbf8bdab0338eac21d761f00f3a75206b1f9bda2c962e203fb574c",
+    "memory.ld": "5085ad0a4168a699d202d6f9af2caeced5d70ec5c0d44372cb16e5ea335b2ecb",
+    "closure-run.py": "5ec43ef68d29aaf7bc88bcbf7e97e46f59abdfa18dbb567897333d8a23092477",
+    "stack_model.py": "fe5baa36d31f101343c73cc318727fbaed5bd8c095b6c2cb3e96a416f375780f",
+    "rt04_model.py": "fe3f945b3aef1cd80c9c22664862c6c6b2bb0425ee61aa686521bc56710fae84"
+  },
+  "tools": {
+    "mc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "objdump": "Debian LLVM version 19.1.7",
+    "readelf": "Debian LLVM version 19.1.7"
+  },
+  "images": {
+    "direct_safe": {
+      "elf_sha256": "efa10bab2a59c13f9740f20fb8311d108cf806adde565cb4d2acd1291cc48703",
+      "systick_vector": "0x61",
+      "local_only": "ACCEPTED",
+      "reused_declared_graph": "ACCEPTED",
+      "linked_graph": "ACCEPTED",
+      "inferred_isr_effects": [
+        "mmio.systick.acknowledge"
+      ],
+      "findings": [],
+      "functions": {
+        "reset": {
+          "calls": [],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "90a54a1f68a806a1795bd044856908235426b3c0f67be605fb94d3d5344a747f"
+        },
+        "timer_interrupt": {
+          "calls": [
+            "delegate"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "6532ca56e511d4191d702c17663ed8ec8b8806c748d72cfb1071b4f33fd06479"
+        },
+        "delegate": {
+          "calls": [
+            "ack_pending"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "f660dfb318a1cef934308629a1fe647fd4c9372a154d0873dbe55e590f19d7e8"
+        },
+        "ack_pending": {
+          "calls": [],
+          "effects": [
+            "mmio.systick.acknowledge"
+          ],
+          "unresolved": [],
+          "sha256": "e7705273f2bf295560943a58d4fb8c20b1f80b394279332b2f8cd30709dcfab2"
+        },
+        "tail_adapter": {
+          "calls": [
+            "ack_pending"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "4ecd5ce55c7c9e415115791598a42f944a5d7641e1751ff4ff4d3a3f698394e7"
+        },
+        "wait_leaf": {
+          "calls": [],
+          "effects": [
+            "irq.block"
+          ],
+          "unresolved": [],
+          "sha256": "9c729f7c49f6d8e63766387db9dee4f7803592f2c05672f6bd04712879e9a866"
+        },
+        "reserve_slice": {
+          "calls": [],
+          "effects": [
+            "allocation.bump"
+          ],
+          "unresolved": [],
+          "sha256": "5392b5e5e3cb603c0c412faab449ba280e8563429d2217fc9545ddec4767c30b"
+        }
+      }
+    },
+    "tail_safe": {
+      "elf_sha256": "4cea6640c0a19393b18fddeb4d65cc91c0414ec8e7d7c0e434098f8e5d6c2d46",
+      "systick_vector": "0x61",
+      "local_only": "ACCEPTED",
+      "reused_declared_graph": "ACCEPTED",
+      "linked_graph": "ACCEPTED",
+      "inferred_isr_effects": [
+        "mmio.systick.acknowledge"
+      ],
+      "findings": [],
+      "functions": {
+        "reset": {
+          "calls": [],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "90a54a1f68a806a1795bd044856908235426b3c0f67be605fb94d3d5344a747f"
+        },
+        "timer_interrupt": {
+          "calls": [
+            "delegate"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "6532ca56e511d4191d702c17663ed8ec8b8806c748d72cfb1071b4f33fd06479"
+        },
+        "delegate": {
+          "calls": [
+            "tail_adapter"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "4ecd5ce55c7c9e415115791598a42f944a5d7641e1751ff4ff4d3a3f698394e7"
+        },
+        "tail_adapter": {
+          "calls": [
+            "ack_pending"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "4ecd5ce55c7c9e415115791598a42f944a5d7641e1751ff4ff4d3a3f698394e7"
+        },
+        "ack_pending": {
+          "calls": [],
+          "effects": [
+            "mmio.systick.acknowledge"
+          ],
+          "unresolved": [],
+          "sha256": "e7705273f2bf295560943a58d4fb8c20b1f80b394279332b2f8cd30709dcfab2"
+        },
+        "wait_leaf": {
+          "calls": [],
+          "effects": [
+            "irq.block"
+          ],
+          "unresolved": [],
+          "sha256": "9c729f7c49f6d8e63766387db9dee4f7803592f2c05672f6bd04712879e9a866"
+        },
+        "reserve_slice": {
+          "calls": [],
+          "effects": [
+            "allocation.bump"
+          ],
+          "unresolved": [],
+          "sha256": "5392b5e5e3cb603c0c412faab449ba280e8563429d2217fc9545ddec4767c30b"
+        }
+      }
+    },
+    "transitive_block": {
+      "elf_sha256": "c0674f4b06281e164676071ec3ea88e4cc6bef74a38e85a439b57ccc7a08b0a6",
+      "systick_vector": "0x61",
+      "local_only": "ACCEPTED",
+      "reused_declared_graph": "ACCEPTED",
+      "linked_graph": "REJECTED",
+      "inferred_isr_effects": [
+        "irq.block"
+      ],
+      "findings": [
+        {
+          "code": "EFFECT_BOUND_EXCEEDED",
+          "detail": "irq.block"
+        }
+      ],
+      "functions": {
+        "reset": {
+          "calls": [],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "90a54a1f68a806a1795bd044856908235426b3c0f67be605fb94d3d5344a747f"
+        },
+        "timer_interrupt": {
+          "calls": [
+            "delegate"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "6532ca56e511d4191d702c17663ed8ec8b8806c748d72cfb1071b4f33fd06479"
+        },
+        "delegate": {
+          "calls": [
+            "wait_leaf"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "ba92e87117e9db11137163a1c2089cad90e1b22ba27e6e89505607174d71934b"
+        },
+        "wait_leaf": {
+          "calls": [],
+          "effects": [
+            "irq.block"
+          ],
+          "unresolved": [],
+          "sha256": "9c729f7c49f6d8e63766387db9dee4f7803592f2c05672f6bd04712879e9a866"
+        },
+        "tail_adapter": {
+          "calls": [
+            "ack_pending"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "4ecd5ce55c7c9e415115791598a42f944a5d7641e1751ff4ff4d3a3f698394e7"
+        },
+        "ack_pending": {
+          "calls": [],
+          "effects": [
+            "mmio.systick.acknowledge"
+          ],
+          "unresolved": [],
+          "sha256": "e7705273f2bf295560943a58d4fb8c20b1f80b394279332b2f8cd30709dcfab2"
+        },
+        "reserve_slice": {
+          "calls": [],
+          "effects": [
+            "allocation.bump"
+          ],
+          "unresolved": [],
+          "sha256": "5392b5e5e3cb603c0c412faab449ba280e8563429d2217fc9545ddec4767c30b"
+        }
+      }
+    },
+    "transitive_allocate": {
+      "elf_sha256": "09c9fcb4c8caa613c65b0cbceb5bd8b5a2d2465e42272b62c74f5e3d2ca562cc",
+      "systick_vector": "0x61",
+      "local_only": "ACCEPTED",
+      "reused_declared_graph": "ACCEPTED",
+      "linked_graph": "REJECTED",
+      "inferred_isr_effects": [
+        "allocation.bump"
+      ],
+      "findings": [
+        {
+          "code": "EFFECT_BOUND_EXCEEDED",
+          "detail": "allocation.bump"
+        }
+      ],
+      "functions": {
+        "reset": {
+          "calls": [],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "90a54a1f68a806a1795bd044856908235426b3c0f67be605fb94d3d5344a747f"
+        },
+        "timer_interrupt": {
+          "calls": [
+            "delegate"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "6532ca56e511d4191d702c17663ed8ec8b8806c748d72cfb1071b4f33fd06479"
+        },
+        "delegate": {
+          "calls": [
+            "reserve_slice"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "564943cfa8b451ff310f9048ffbdee984f8137b9e643dbdf02619d015bf0b78c"
+        },
+        "reserve_slice": {
+          "calls": [],
+          "effects": [
+            "allocation.bump"
+          ],
+          "unresolved": [],
+          "sha256": "5392b5e5e3cb603c0c412faab449ba280e8563429d2217fc9545ddec4767c30b"
+        },
+        "tail_adapter": {
+          "calls": [
+            "ack_pending"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "4ecd5ce55c7c9e415115791598a42f944a5d7641e1751ff4ff4d3a3f698394e7"
+        },
+        "ack_pending": {
+          "calls": [],
+          "effects": [
+            "mmio.systick.acknowledge"
+          ],
+          "unresolved": [],
+          "sha256": "e7705273f2bf295560943a58d4fb8c20b1f80b394279332b2f8cd30709dcfab2"
+        },
+        "wait_leaf": {
+          "calls": [],
+          "effects": [
+            "irq.block"
+          ],
+          "unresolved": [],
+          "sha256": "9c729f7c49f6d8e63766387db9dee4f7803592f2c05672f6bd04712879e9a866"
+        }
+      }
+    },
+    "unknown_indirect": {
+      "elf_sha256": "769b49891da811d4c52f6cfe7399c81898f6c212e614986758270886e813858d",
+      "systick_vector": "0x61",
+      "local_only": "ACCEPTED",
+      "reused_declared_graph": "ACCEPTED",
+      "linked_graph": "UNKNOWN",
+      "inferred_isr_effects": [],
+      "findings": [
+        {
+          "code": "EFFECT_SUMMARY_UNKNOWN",
+          "detail": "call graph not certified complete for: delegate"
+        }
+      ],
+      "functions": {
+        "reset": {
+          "calls": [],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "90a54a1f68a806a1795bd044856908235426b3c0f67be605fb94d3d5344a747f"
+        },
+        "timer_interrupt": {
+          "calls": [
+            "delegate"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "6532ca56e511d4191d702c17663ed8ec8b8806c748d72cfb1071b4f33fd06479"
+        },
+        "delegate": {
+          "calls": [],
+          "effects": [],
+          "unresolved": [
+            "unresolved-indirect-target@0x82"
+          ],
+          "sha256": "0aedb8182152f9e82f91b6811155b0db309c3ddb85cd2cdc5e5d76e5448afea3"
+        },
+        "tail_adapter": {
+          "calls": [
+            "ack_pending"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "4ecd5ce55c7c9e415115791598a42f944a5d7641e1751ff4ff4d3a3f698394e7"
+        },
+        "ack_pending": {
+          "calls": [],
+          "effects": [
+            "mmio.systick.acknowledge"
+          ],
+          "unresolved": [],
+          "sha256": "e7705273f2bf295560943a58d4fb8c20b1f80b394279332b2f8cd30709dcfab2"
+        },
+        "wait_leaf": {
+          "calls": [],
+          "effects": [
+            "irq.block"
+          ],
+          "unresolved": [],
+          "sha256": "9c729f7c49f6d8e63766387db9dee4f7803592f2c05672f6bd04712879e9a866"
+        },
+        "reserve_slice": {
+          "calls": [],
+          "effects": [
+            "allocation.bump"
+          ],
+          "unresolved": [],
+          "sha256": "5392b5e5e3cb603c0c412faab449ba280e8563429d2217fc9545ddec4767c30b"
+        }
+      }
+    },
+    "block_and_indirect": {
+      "elf_sha256": "c1cfa7cef71989b2a44081e42238b227c22cf96d45df650a5b330a351e6fba56",
+      "systick_vector": "0x61",
+      "local_only": "ACCEPTED",
+      "reused_declared_graph": "ACCEPTED",
+      "linked_graph": "REJECTED",
+      "inferred_isr_effects": [
+        "irq.block"
+      ],
+      "findings": [
+        {
+          "code": "EFFECT_BOUND_EXCEEDED",
+          "detail": "irq.block"
+        },
+        {
+          "code": "EFFECT_SUMMARY_UNKNOWN",
+          "detail": "call graph not certified complete for: delegate"
+        }
+      ],
+      "functions": {
+        "reset": {
+          "calls": [],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "90a54a1f68a806a1795bd044856908235426b3c0f67be605fb94d3d5344a747f"
+        },
+        "timer_interrupt": {
+          "calls": [
+            "delegate"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "6532ca56e511d4191d702c17663ed8ec8b8806c748d72cfb1071b4f33fd06479"
+        },
+        "delegate": {
+          "calls": [
+            "wait_leaf"
+          ],
+          "effects": [],
+          "unresolved": [
+            "unresolved-indirect-target@0x88"
+          ],
+          "sha256": "a2f8a22114a82138bac8afdd591d4cd68f980f08ff3e34ca1829df87e8e3edcf"
+        },
+        "wait_leaf": {
+          "calls": [],
+          "effects": [
+            "irq.block"
+          ],
+          "unresolved": [],
+          "sha256": "9c729f7c49f6d8e63766387db9dee4f7803592f2c05672f6bd04712879e9a866"
+        },
+        "tail_adapter": {
+          "calls": [
+            "ack_pending"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "4ecd5ce55c7c9e415115791598a42f944a5d7641e1751ff4ff4d3a3f698394e7"
+        },
+        "ack_pending": {
+          "calls": [],
+          "effects": [
+            "mmio.systick.acknowledge"
+          ],
+          "unresolved": [],
+          "sha256": "e7705273f2bf295560943a58d4fb8c20b1f80b394279332b2f8cd30709dcfab2"
+        },
+        "reserve_slice": {
+          "calls": [],
+          "effects": [
+            "allocation.bump"
+          ],
+          "unresolved": [],
+          "sha256": "5392b5e5e3cb603c0c412faab449ba280e8563429d2217fc9545ddec4767c30b"
+        }
+      }
+    },
+    "stale_primitive": {
+      "elf_sha256": "969e923fe55146bc46ec2657556973b0050e9ea21d0b94e7c80281588830cf8d",
+      "systick_vector": "0x61",
+      "local_only": "ACCEPTED",
+      "reused_declared_graph": "ACCEPTED",
+      "linked_graph": "UNKNOWN",
+      "inferred_isr_effects": [],
+      "findings": [
+        {
+          "code": "EFFECT_SUMMARY_UNKNOWN",
+          "detail": "call graph not certified complete for: ack_pending"
+        }
+      ],
+      "functions": {
+        "reset": {
+          "calls": [],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "90a54a1f68a806a1795bd044856908235426b3c0f67be605fb94d3d5344a747f"
+        },
+        "timer_interrupt": {
+          "calls": [
+            "delegate"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "6532ca56e511d4191d702c17663ed8ec8b8806c748d72cfb1071b4f33fd06479"
+        },
+        "delegate": {
+          "calls": [
+            "ack_pending"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "f660dfb318a1cef934308629a1fe647fd4c9372a154d0873dbe55e590f19d7e8"
+        },
+        "ack_pending": {
+          "calls": [],
+          "effects": [],
+          "unresolved": [
+            "primitive-evidence-revision",
+            "unclassified-memory-effect@0xcc"
+          ],
+          "sha256": "a3cd8f218eae6678445814c2b2f49081c738616141a585ce88425c84b6d39aec"
+        },
+        "tail_adapter": {
+          "calls": [
+            "ack_pending"
+          ],
+          "effects": [],
+          "unresolved": [],
+          "sha256": "4ecd5ce55c7c9e415115791598a42f944a5d7641e1751ff4ff4d3a3f698394e7"
+        },
+        "wait_leaf": {
+          "calls": [],
+          "effects": [
+            "irq.block"
+          ],
+          "unresolved": [],
+          "sha256": "9c729f7c49f6d8e63766387db9dee4f7803592f2c05672f6bd04712879e9a866"
+        },
+        "reserve_slice": {
+          "calls": [],
+          "effects": [
+            "allocation.bump"
+          ],
+          "unresolved": [],
+          "sha256": "5392b5e5e3cb603c0c412faab449ba280e8563429d2217fc9545ddec4767c30b"
+        }
+      }
+    }
+  }
+}

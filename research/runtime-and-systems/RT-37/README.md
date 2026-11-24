@@ -72,3 +72,5 @@ The [Cortex-M3 stack study](RT-37-CORTEX-M3-STACK-BOUND-2026-11-24.md) checks di
 The [MMIO metadata study](RT-37-MMIO-METADATA-AND-CAPABILITIES-2026-11-24.md) compares exact SVD and header layout with protocol-aware admission. It distinguishes read-to-clear, write-one commands and GPIO masking from access direction and retains the device and capability premises.
 
 The [volatile SysTick study](RT-37-CORTEX-M3-VOLATILE-COUNTFLAG-2026-11-24.md) checks the actual linked load count and read-to-clear behavior. Ordinary loads can coalesce even when the LLVM O0 IR retains both reads.
+
+The [transitive ISR effects study](RT-37-CORTEX-M3-TRANSITIVE-ISR-EFFECTS-2026-11-24.md) derives the call coverage of a bounded Thumb profile from the exact linked vector and functions. It rejects blocking and allocation below helpers, checks tail branches and retains unknown results where target or leaf evidence is missing.
