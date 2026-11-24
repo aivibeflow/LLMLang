@@ -2,8 +2,8 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "4ca21d881555fd15db03d1328fb80e7779c7a62c",
-  "source": "Exact research path, blob and byte inventory for the rebased current main and selected Stage 0.2 negative-result boundary recheck, excluding the inventory manifest itself.",
+  "revision": "b347719bfcb27813b181e52af52e5474debcf65b",
+  "source": "Exact research path, blob and byte inventory for the rebased current main and selected Stage 0.2 report-structure recheck, excluding the inventory manifest itself.",
   "counts": {
     "research_files": 952,
     "research_artifacts_excluding_manifest": 952,
@@ -35,7 +35,7 @@
       "structured-fixture-or-schema": 19
     }
   },
-  "classification_note": "Against latest main eb26c41 (manifest excluded), this branch adds one bounded Stage 0.2 negative-result review and its index entry. Merged RT-37 and Stage 0.2 reproduction artifacts are individually role-reviewed. All 952 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Against latest main eb26c41 (manifest excluded), this branch adds one bounded Stage 0.2 report-structure review and its index entry. Merged Stage 0.2 reproduction artifacts are role-reviewed. All 952 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -17193,8 +17193,8 @@
         "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       },
       "path": "research/research-management/README.md",
-      "git_blob_sha": "1c21f29a074d57cf109a210746a3301b98364490",
-      "size_bytes": 3373
+      "git_blob_sha": "49a358097a7753f85455a461b92b3111ca5eca96",
+      "size_bytes": 3318
     },
     {
       "path": "research/research-management/REPOSITORY-AUDIT-2026-11-17.md",
@@ -18626,22 +18626,6 @@
       "role_recheck": "Current title or module entry point, purpose and family reviewed. Claim reruns are tracked independently."
     },
     {
-      "path": "research/research-management/RT-00/RT-00-NEGATIVE-RESULT-BOUNDARY-RECHECK-2026-11-24.md",
-      "git_blob_sha": "edf94307c28a366e98450d4289173d9ab08fa46d",
-      "size_bytes": 5141,
-      "category": "audit-or-review-report",
-      "traceability": {
-        "items": [
-          "RT-00"
-        ],
-        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
-        "confidence": "medium"
-      },
-      "plan_stages": [
-        0
-      ]
-    },
-    {
       "path": "research/research-management/RT-00/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md",
       "git_blob_sha": "cfa3d85816045e67d7e232ebee61c49b8ac2c67d",
       "size_bytes": 14312,
@@ -18992,6 +18976,22 @@
           "PLAN §0.2"
         ],
         "method": "Selected-document evidence-class recheck; manually role reviewed against the cited quality rule and four source reports.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-REPORT-STRUCTURE-RECHECK-2026-11-24.md",
+      "git_blob_sha": "b0fc4fd0decfc629f14fd012aef198c21d29f19d",
+      "size_bytes": 5277,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "Five-report structural crosswalk against proposed Stage 0.2 schema; individually role reviewed.",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -19732,7 +19732,7 @@
         "items": [
           "RT-00"
         ],
-        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "method": "Five-report structural crosswalk against proposed Stage 0.2 schema; individually role reviewed.",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -20004,7 +20004,7 @@
         "items": [
           "RT-00"
         ],
-        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "method": "Five-report structural crosswalk against proposed Stage 0.2 schema; individually role reviewed.",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -20020,7 +20020,7 @@
         "items": [
           "RT-00"
         ],
-        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "method": "Five-report structural crosswalk against proposed Stage 0.2 schema; individually role reviewed.",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -20036,7 +20036,7 @@
         "items": [
           "RT-00"
         ],
-        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "method": "Five-report structural crosswalk against proposed Stage 0.2 schema; individually role reviewed.",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -20052,7 +20052,7 @@
         "items": [
           "RT-00"
         ],
-        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "method": "Five-report structural crosswalk against proposed Stage 0.2 schema; individually role reviewed.",
         "confidence": "medium"
       },
       "plan_stages": [
