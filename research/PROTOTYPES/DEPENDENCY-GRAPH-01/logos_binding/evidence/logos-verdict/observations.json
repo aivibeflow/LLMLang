@@ -1,0 +1,22 @@
+{
+  "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+  "runtime_lean_revision": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+  "verification_lean_revision": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+  "mathlib_revision": "5ed2965256430c3649e86755f9576b54eca72435",
+  "runtime_theorems_checked": 4,
+  "checker_import_audit": {
+    "status": "passed",
+    "source_modules": 28
+  },
+  "proof_hygiene": {
+    "status": "passed",
+    "lean_sources": 943
+  },
+  "distinct_rule_dispatch_imports": 614,
+  "isolated_runtime_build": {
+    "status": "passed",
+    "lake_jobs": 76
+  },
+  "upstream_stubbed_proof_check": "in progress at checkpoint",
+  "complete_rule_proof": "not checked"
+}

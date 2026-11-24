@@ -12,7 +12,7 @@ require Cpc from git
 lean_lib LLMLangLogosBinding where
   roots := #[`LLMLangLogosBinding, `SourceQuerySemantics, `SourceSyntax, `RelationalSourceQuerySemantics, `QuerySymbolRenaming,
     `LogosQueryAdapter, `LogosRenderedSorts, `SourceWireRefutation, `CheckedSourceSemantics, `SourceCoreTests, `SourceCommandSemantics,
-    `SourceCommandTests, `SymbolicCommandSemantics, `SymbolicCommandTests,
+    `SourceCommandTests, `LogosVerdictConditions, `SymbolicCommandSemantics, `SymbolicCommandTests,
     `CpcNullaryAliases, `SourceCpcRefutation, `ProgramObservationSemantics, `ProgramObservationTests,
     `PairedObservationSemantics, `PairedObservationTests, `CanonicalQuerySymbols,
     `ProgramRelationalQuery, `QfLiaQuery, `QfLiaAdmissibility, `SolverRelationalQuery,
