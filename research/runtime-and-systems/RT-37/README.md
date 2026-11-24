@@ -70,3 +70,5 @@ The [Cortex-M3 timer and GPIO study](RT-37-CORTEX-M3-SYSTICK-GPIO-2026-11-24.md)
 The [Cortex-M3 stack study](RT-37-CORTEX-M3-STACK-BOUND-2026-11-24.md) checks direct-control stack depths, paint observations and the hardware frame alignment bit across polling and interrupt profiles. The tighter interrupt bound depends on the armed wait interval. Nested interrupts and timing remain separate.
 
 The [MMIO metadata study](RT-37-MMIO-METADATA-AND-CAPABILITIES-2026-11-24.md) compares exact SVD and header layout with protocol-aware admission. It distinguishes read-to-clear, write-one commands and GPIO masking from access direction and retains the device and capability premises.
+
+The [volatile SysTick study](RT-37-CORTEX-M3-VOLATILE-COUNTFLAG-2026-11-24.md) checks the actual linked load count and read-to-clear behavior. Ordinary loads can coalesce even when the LLVM O0 IR retains both reads.

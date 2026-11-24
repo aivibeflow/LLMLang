@@ -1,0 +1,97 @@
+{
+  "schema": "llmlang-cortex-m3-volatile-v1",
+  "machine": "lm3s6965evb",
+  "qemu_icount": "shift=0,align=off,sleep=off",
+  "tools": {
+    "opt": "Debian LLVM version 19.1.7",
+    "objdump": "Debian LLVM version 19.1.7",
+    "llc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "source_sha256": {
+    "startup.s": "c855986cfea9f4cd97c485ef1a9319688d2ef88dd324f7d7d96cd7ec6fa3a69e",
+    "pair.ll": "0ddec76a6555e6bb0e87ca319f97cd7acc194b76e6687aac0571184fd0dcffad",
+    "pair.rs": "900ff8dcbc5628ce72241dfd38a6bd1c10b5b4c402cdcb9d3cab1a11f5531372",
+    "run.py": "11cc1b10c4db61e9e9c7b5bd882fe98a6095a5116e92a641d3b8c2676909e15f",
+    "closure-run.py": "5ec43ef68d29aaf7bc88bcbf7e97e46f59abdfa18dbb567897333d8a23092477",
+    "memory.ld": "5085ad0a4168a699d202d6f9af2caeced5d70ec5c0d44372cb16e5ea335b2ecb"
+  },
+  "images": {
+    "llvm-volatile-O0": {
+      "uart": "B10!",
+      "optimized_llvm_ir_word_loads": 2,
+      "linked_word_loads": [
+        "ldr r2, [r0]",
+        "ldr r1, [r0]"
+      ],
+      "image_sha256": "e05e69aacff0607922df3c9e949a3d86579137e3a3ada660f06fde24ad8b96f7",
+      "flash_extent_bytes": 228,
+      "static_ram_bytes": 4
+    },
+    "llvm-plain-O0": {
+      "uart": "B11!",
+      "optimized_llvm_ir_word_loads": 2,
+      "linked_word_loads": [
+        "ldr r1, [r0]"
+      ],
+      "image_sha256": "d1750d832aa623234b80ae617b8999a563bc5e64723eb4558ecc62ada6ec9ea2",
+      "flash_extent_bytes": 224,
+      "static_ram_bytes": 4
+    },
+    "llvm-volatile-O2": {
+      "uart": "B10!",
+      "optimized_llvm_ir_word_loads": 2,
+      "linked_word_loads": [
+        "ldr r1, [r0]",
+        "ldr r0, [r0]"
+      ],
+      "image_sha256": "e0d021cf9a3c78d3ca7ac6943139780aebc0f771709d2b2b732ea573fa0ad9c2",
+      "flash_extent_bytes": 228,
+      "static_ram_bytes": 4
+    },
+    "llvm-plain-O2": {
+      "uart": "B11!",
+      "optimized_llvm_ir_word_loads": 1,
+      "linked_word_loads": [
+        "ldr r0, [r0]"
+      ],
+      "image_sha256": "9eee3a62ad9a271ca94b28bbd8de70182d5624c7863cfa649f1915d219545b01",
+      "flash_extent_bytes": 224,
+      "static_ram_bytes": 4
+    },
+    "rust-volatile-O2": {
+      "uart": "B10!",
+      "optimized_llvm_ir_word_loads": null,
+      "linked_word_loads": [
+        "ldr r1, [r0]",
+        "ldr r0, [r0]"
+      ],
+      "image_sha256": "273ed0c82d6e4d9938970c64193bcca131e34ccf45c7a84244c7914ffaa34b9b",
+      "flash_extent_bytes": 228,
+      "static_ram_bytes": 4
+    },
+    "rust-plain-O2": {
+      "uart": "B11!",
+      "optimized_llvm_ir_word_loads": null,
+      "linked_word_loads": [
+        "ldr r0, [r0]"
+      ],
+      "image_sha256": "5cc6d841d22cdb085996fc034de69f2c510b89fccc864fc7f379d03abed8be4f",
+      "flash_extent_bytes": 224,
+      "static_ram_bytes": 4
+    },
+    "rust-volatile-reset-O2": {
+      "uart": "B00!",
+      "optimized_llvm_ir_word_loads": null,
+      "linked_word_loads": [
+        "ldr r1, [r0]",
+        "ldr r0, [r0]"
+      ],
+      "image_sha256": "87af139b2260f52ad18c860b765729c5e9855e9256409714d0a4cdf03924c7b8",
+      "flash_extent_bytes": 244,
+      "static_ram_bytes": 4
+    }
+  }
+}
