@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "scope": "Closed finite integer and Boolean expressions; lexical quantifiers over explicit inclusive integer intervals. No normative LLMLang syntax.",
+  "integer": {
+    "const": "['int', integer]",
+    "variable": "['var', name]",
+    "add": "['add', int_expr, int_expr]",
+    "subtract": "['sub', int_expr, int_expr]"
+  },
+  "boolean": {
+    "equal": "['eq', int_expr, int_expr]",
+    "less_equal": "['le', int_expr, int_expr]",
+    "and": "['and', bool_expr, bool_expr]",
+    "or": "['or', bool_expr, bool_expr]",
+    "not": "['not', bool_expr]",
+    "implies": "['implies', bool_expr, bool_expr]",
+    "forall": "['forall', name, lower_integer, upper_integer, bool_expr]",
+    "exists": "['exists', name, lower_integer, upper_integer, bool_expr]"
+  },
+  "limits": {
+    "max_depth": 32,
+    "max_nodes": 256,
+    "max_quantifier_span": 16,
+    "max_absolute_literal": 1000000000,
+    "max_quantifier_nesting": 3
+  },
+  "unsupported": "Reject unknown operators, unbound variables, non-integer literals, empty or oversized domains, invalid types, shadowing and excessive nesting; never return proven."
+}
