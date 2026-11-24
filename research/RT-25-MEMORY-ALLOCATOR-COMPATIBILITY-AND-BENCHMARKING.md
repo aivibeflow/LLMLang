@@ -77,6 +77,8 @@ For each allocator and workload, measure:
 
 Control machine, OS, kernel, libc, CPU affinity where applicable, Rust/toolchain versions, build profile, optimization flags, concurrency, input corpus, and warm-up. Publish commands, fixtures, raw machine-readable results, and analysis scripts. Run candidates in isolated processes with identical workloads; do not let benchmark order or allocator-specific tuning create an unfair comparison.
 
+[The dependency-graph workload](RT-25-DEPENDENCY-GRAPH-ALLOCATOR-BENCHMARK.md) records a first comparative Rust time and RSS run on one Linux host. It distinguishes live, peak and post-drop memory and leaves selection open.
+
 ## 6. Correctness and regression gates
 
 - Run the same functional and stress test suites under every candidate.
