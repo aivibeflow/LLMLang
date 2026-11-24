@@ -1,0 +1,683 @@
+{
+  "approved_public_key": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA9LgVUPBK0aofWMyQuN54LwLp2Oi4FmrbngHqkm3o6fw=\n-----END PUBLIC KEY-----\n",
+  "cases": {
+    "authorized_false_claim": {
+      "authorized_signature": {
+        "coverage_admitted": true,
+        "full_revalidation": false,
+        "recorded_calls": []
+      },
+      "binding_only": {
+        "coverage_admitted": true,
+        "full_revalidation": false,
+        "recorded_calls": []
+      },
+      "independent_discrepancies": [
+        "missing-index-edge:12e5ddc0f40dcf7e1f2124c8fcafbbae694a207858b608e42a1879f69d7d01fe:fallback/direct",
+        "missing-index-edge:12e5ddc0f40dcf7e1f2124c8fcafbbae694a207858b608e42a1879f69d7d01fe:invoke/direct",
+        "source-call-missing:caller/fallback/direct",
+        "source-call-missing:caller/invoke/direct"
+      ],
+      "independent_status": "GAP_FOUND",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": []
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "evidence_id": "fixture:77f3557175a4438fb0fc96aad1dc3331772eaf03f23adc3e6b100b2d1f326f67",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": "e385885a3778e807fad90bb155e13a68fdd0705a98edd57fbd5a2a5d8546b89c832b34cac666a7040e883951f4d6162ab7f2bf3630c221ad84d3ad42fc66ab0b",
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    },
+    "changed_assumptions": {
+      "authorized_signature": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "binding_only": {
+        "coverage_admitted": true,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "independent_discrepancies": [],
+      "independent_status": "SUPPORTED_WITHIN_SCOPE",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "different assumptions"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "b96376b909e317e1f7ea944078408f83851eca41af8c98533e67ba2bf33458b5",
+          "evidence_id": "source-audit:049d0194a57cd2003b4c83cc1cb531125c10c65e73726fbaeec905f69d5b1ed8",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": "64c76571c11325ca31adb65059fcc200b1534f0b9b6c039d38cc616546e82a45c1f0b5e4af23389a0718fdbe176b3c6aa178bcac2f71eb8eae8ed0f52e2c0405",
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    },
+    "grant_withdrawn": {
+      "authorized_signature": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "binding_only": {
+        "coverage_admitted": true,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "independent_discrepancies": [],
+      "independent_status": "SUPPORTED_WITHIN_SCOPE",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "b96376b909e317e1f7ea944078408f83851eca41af8c98533e67ba2bf33458b5",
+          "evidence_id": "source-audit:049d0194a57cd2003b4c83cc1cb531125c10c65e73726fbaeec905f69d5b1ed8",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": "64c76571c11325ca31adb65059fcc200b1534f0b9b6c039d38cc616546e82a45c1f0b5e4af23389a0718fdbe176b3c6aa178bcac2f71eb8eae8ed0f52e2c0405",
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    },
+    "honest": {
+      "authorized_signature": {
+        "coverage_admitted": true,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "binding_only": {
+        "coverage_admitted": true,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "independent_discrepancies": [],
+      "independent_status": "SUPPORTED_WITHIN_SCOPE",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": true,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "b96376b909e317e1f7ea944078408f83851eca41af8c98533e67ba2bf33458b5",
+          "evidence_id": "source-audit:049d0194a57cd2003b4c83cc1cb531125c10c65e73726fbaeec905f69d5b1ed8",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": "64c76571c11325ca31adb65059fcc200b1534f0b9b6c039d38cc616546e82a45c1f0b5e4af23389a0718fdbe176b3c6aa178bcac2f71eb8eae8ed0f52e2c0405",
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    },
+    "outside_role": {
+      "authorized_signature": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "binding_only": {
+        "coverage_admitted": true,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "independent_discrepancies": [],
+      "independent_status": "SUPPORTED_WITHIN_SCOPE",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "signature_body": {
+        "authority": "graph-producer",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "b96376b909e317e1f7ea944078408f83851eca41af8c98533e67ba2bf33458b5",
+          "evidence_id": "source-audit:049d0194a57cd2003b4c83cc1cb531125c10c65e73726fbaeec905f69d5b1ed8",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": "03185440bb9875a8cc849ffa13505f4caee3e03ba5a4d5371439d1ecffbc4e23b410884a4c0df9405e7f9a64cf59e117d2af81ff4ba5035404c4db3659892f0c",
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    },
+    "signed_missing_calls_finding": {
+      "authorized_signature": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": []
+      },
+      "binding_only": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": []
+      },
+      "independent_discrepancies": [
+        "missing-index-edge:12e5ddc0f40dcf7e1f2124c8fcafbbae694a207858b608e42a1879f69d7d01fe:fallback/direct",
+        "missing-index-edge:12e5ddc0f40dcf7e1f2124c8fcafbbae694a207858b608e42a1879f69d7d01fe:invoke/direct",
+        "source-call-missing:caller/fallback/direct",
+        "source-call-missing:caller/invoke/direct"
+      ],
+      "independent_status": "GAP_FOUND",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": []
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [
+            "missing-index-edge:12e5ddc0f40dcf7e1f2124c8fcafbbae694a207858b608e42a1879f69d7d01fe:fallback/direct",
+            "missing-index-edge:12e5ddc0f40dcf7e1f2124c8fcafbbae694a207858b608e42a1879f69d7d01fe:invoke/direct",
+            "source-call-missing:caller/fallback/direct",
+            "source-call-missing:caller/invoke/direct"
+          ],
+          "edge_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "evidence_id": "source-audit:509a385f6106a8b0bb4bd11e656af126575da279accaee265b7565e908796ac8",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "GAP_FOUND",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": "f873f0f087e1edfb7cb827dd5d8d11a395180a1a605dbeaeabc31eeb38c63ae9465f6316a7d21c6e9380d774ac245c2958e8e70d3717656b9cecfe6439242d04",
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    },
+    "stale_edge_set": {
+      "authorized_signature": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": []
+      },
+      "binding_only": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": []
+      },
+      "independent_discrepancies": [
+        "missing-index-edge:12e5ddc0f40dcf7e1f2124c8fcafbbae694a207858b608e42a1879f69d7d01fe:fallback/direct",
+        "missing-index-edge:12e5ddc0f40dcf7e1f2124c8fcafbbae694a207858b608e42a1879f69d7d01fe:invoke/direct",
+        "source-call-missing:caller/fallback/direct",
+        "source-call-missing:caller/invoke/direct"
+      ],
+      "independent_status": "GAP_FOUND",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": []
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "b96376b909e317e1f7ea944078408f83851eca41af8c98533e67ba2bf33458b5",
+          "evidence_id": "source-audit:049d0194a57cd2003b4c83cc1cb531125c10c65e73726fbaeec905f69d5b1ed8",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": "64c76571c11325ca31adb65059fcc200b1534f0b9b6c039d38cc616546e82a45c1f0b5e4af23389a0718fdbe176b3c6aa178bcac2f71eb8eae8ed0f52e2c0405",
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    },
+    "stale_tree_same_root": {
+      "authorized_signature": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "binding_only": {
+        "coverage_admitted": true,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "independent_discrepancies": [],
+      "independent_status": "SUPPORTED_WITHIN_SCOPE",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "b96376b909e317e1f7ea944078408f83851eca41af8c98533e67ba2bf33458b5",
+          "evidence_id": "source-audit:049d0194a57cd2003b4c83cc1cb531125c10c65e73726fbaeec905f69d5b1ed8",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": "64c76571c11325ca31adb65059fcc200b1534f0b9b6c039d38cc616546e82a45c1f0b5e4af23389a0718fdbe176b3c6aa178bcac2f71eb8eae8ed0f52e2c0405",
+      "tree": "641dc76da63d8815be046b0f1ef29ea59626c03b"
+    },
+    "unsigned": {
+      "authorized_signature": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "binding_only": {
+        "coverage_admitted": true,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "independent_discrepancies": [],
+      "independent_status": "SUPPORTED_WITHIN_SCOPE",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "b96376b909e317e1f7ea944078408f83851eca41af8c98533e67ba2bf33458b5",
+          "evidence_id": "source-audit:049d0194a57cd2003b4c83cc1cb531125c10c65e73726fbaeec905f69d5b1ed8",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": null,
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    },
+    "unsigned_false_claim": {
+      "authorized_signature": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": []
+      },
+      "binding_only": {
+        "coverage_admitted": true,
+        "full_revalidation": false,
+        "recorded_calls": []
+      },
+      "independent_discrepancies": [
+        "missing-index-edge:12e5ddc0f40dcf7e1f2124c8fcafbbae694a207858b608e42a1879f69d7d01fe:fallback/direct",
+        "missing-index-edge:12e5ddc0f40dcf7e1f2124c8fcafbbae694a207858b608e42a1879f69d7d01fe:invoke/direct",
+        "source-call-missing:caller/fallback/direct",
+        "source-call-missing:caller/invoke/direct"
+      ],
+      "independent_status": "GAP_FOUND",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": []
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "evidence_id": "fixture:77f3557175a4438fb0fc96aad1dc3331772eaf03f23adc3e6b100b2d1f326f67",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": null,
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    },
+    "wrong_key": {
+      "authorized_signature": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "binding_only": {
+        "coverage_admitted": true,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "independent_discrepancies": [],
+      "independent_status": "SUPPORTED_WITHIN_SCOPE",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "b96376b909e317e1f7ea944078408f83851eca41af8c98533e67ba2bf33458b5",
+          "evidence_id": "source-audit:049d0194a57cd2003b4c83cc1cb531125c10c65e73726fbaeec905f69d5b1ed8",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "rt24-fixture-explicit-calls/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": "c2c70931d48c79f7ded309a1062042817c165c8d84a8e290deffea0dfbacab76c2d58e1be9e4f739d8376f1ed89d58658034edbf8b01b5027e7d3cd9d1325807",
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    },
+    "wrong_model_signed": {
+      "authorized_signature": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "binding_only": {
+        "coverage_admitted": true,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "independent_discrepancies": [],
+      "independent_status": "SUPPORTED_WITHIN_SCOPE",
+      "root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+      "signature_and_source_recheck": {
+        "coverage_admitted": false,
+        "full_revalidation": true,
+        "recorded_calls": [
+          "fallback",
+          "invoke"
+        ]
+      },
+      "signature_body": {
+        "authority": "external-auditor",
+        "claim": {
+          "assumptions": [
+            "all selected Snapshot declarations are readable and conform to the declared envelope"
+          ],
+          "discrepancies": [],
+          "edge_set_digest": "b96376b909e317e1f7ea944078408f83851eca41af8c98533e67ba2bf33458b5",
+          "evidence_id": "source-audit:049d0194a57cd2003b4c83cc1cb531125c10c65e73726fbaeec905f69d5b1ed8",
+          "exclusions": [
+            "runtime reflection",
+            "external dynamic dispatch",
+            "unselected historical objects"
+          ],
+          "extractor_id": "semantic-dependency-extractor/3",
+          "index_schema_version": 3,
+          "observation_model_id": "wrong/1",
+          "scope": "rt24-fixture-explicit-calls/1",
+          "snapshot_root": "e2a987e47f4519b5e908e375c07b363dbf5db4cd1a30414c6c5d97fca213e00c",
+          "status": "SUPPORTED_WITHIN_SCOPE",
+          "target_hash": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a"
+        },
+        "format": "llmlang-rt24-source-audit-fixture/1",
+        "inventory": "dec1a72b9c218fedc6b360f789413b4fed42fff716adda2c6a105b3fc191b9eb",
+        "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+      },
+      "signature_hex": "cb24162edda00781b78b01642e8c13a9426e181e26f57a15162e3e973e0727814f9a61548453eb00015c9d58713375c8f282f03d328afa228af17476eb257407",
+      "tree": "96f2a9bafd581f4a5d8d2a9d0af445d4ab5f52c7"
+    }
+  },
+  "format": "llmlang-rt24-source-audit-fixture/1",
+  "git": "git version 2.52.0",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "other_public_key": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAMaeev1hO/BV8/PNJouDUTvdCaPrltsXEC6I05XbtMSg=\n-----END PUBLIC KEY-----\n",
+  "python": "3.12.14"
+}
