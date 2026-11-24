@@ -45,6 +45,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 | 4 | Semantic storage, versioning, and Git integration | Durable repository representation and semantic merge workflow | Clone, history, diff, merge, conflict handling, and recovery are demonstrated |
 | 5 | Types, execution model, runtime, and POSIX | A small executable language/runtime slice with explicit platform boundaries | A vertical slice preserves its declared semantics on a selected target |
 | 6 | Translation, backends, and optimization | Multiple target realizations and evidence-backed implementation selection | Two backends agree with reference semantics for the selected subset |
+| 5–6 (cross-cutting) | RT-37 embedded firmware and RT-38 OS kernels | Freestanding profile and bootable bounded pilots | Explicit runtime closure, independent target evidence and trust boundaries; firmware precedes kernel |
 | 7 | Scale, ecosystem, collaboration, and adoption | Measured feasibility and operational model for real projects | Performance, storage, collaboration, trust, and usability criteria are measured |
 
 ---
@@ -823,6 +824,17 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Exit criteria:** a small typed executable subset; reference execution; one POSIX vertical slice with explicit contracts and conformance scope; tests for observable behavior and error cases.
 
+## 5.4 Freestanding embedded and real-time firmware (RT-37)
+
+**Status:** Not started (research brief proposed). **Priority:** P0 shared foundation; P1 pilot. [Research brief](research/RT-37-FREESTANDING-EMBEDDED-REAL-TIME/README.md) · [Issue #440](https://github.com/aivibeflow/LLMLang/issues/440).
+
+- [ ] Compare OS-independent target profiles, explicit runtime closure, startup/linking, memory layouts, static-only and explicit allocator policies.
+- [ ] Specify typed MMIO/volatile, peripheral protocols, SVD ingestion, interrupts, DMA, transitive effects and capabilities.
+- [ ] Investigate stack/flash/RAM bounds, target-specific WCET, deadlines, interrupt latency, RTOS integration, and hardware assumptions.
+- [ ] Produce a pinned Cortex-M bootable firmware pilot with independent reference traces, negative controls and separately scoped functional/resource evidence.
+
+**Dependencies:** RT-03/04/07/08/09/10/13/16/32/33/34/36; Stage 6 native lowering. **Exit:** reproducible profile comparison and firmware execution evidence, explicit unsupported operations and trust boundaries. No language rule selected.
+
 ---
 
 # Stage 6 — Translation, backends, implementation selection, and optimization
@@ -924,6 +936,17 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Status:** partially researched; selection semantics and policy remain open.
 
 **Exit criteria:** two backends preserve the same reference semantics for a defined subset; target limitations are explicit; implementation selection never bypasses operation identity or compatibility evidence.
+
+## 6.5 OS kernels and verified microkernel feasibility (RT-38)
+
+**Status:** Not started (research brief proposed). **Priority:** P1. [Research brief](research/RT-38-VERIFIED-OS-KERNELS/README.md) · [Issue #441](https://github.com/aivibeflow/LLMLang/issues/441).
+
+- [ ] Reuse RT-37 freestanding profile; specify privileged target capabilities, physical/virtual memory, MMU/TLB, trap/syscall ABI and context switching.
+- [ ] Investigate allocator, address-space isolation, scheduling, IPC and capability contracts, global invariants and conditional hardware proofs.
+- [ ] Compare minimal HAL/assembly assumptions with checked intrinsics; validate source-to-binary preservation and no hosted imports.
+- [ ] Target a pinned RV64 QEMU single-core microkernel; independently check reference traces, memory and IPC invariants and negative controls before SMP/DMA extensions.
+
+**Dependencies:** RT-37 profile/pilot, RT-03/04/07/08/09/10/13/16/32/33/34/36 and Stage 6 lowering. **Exit:** reproducible feasible or falsified kernel profile and bounded pilot evidence, explicit proof/TCB gaps. No full-kernel verification or production readiness claim.
 
 ---
 
@@ -1382,6 +1405,8 @@ The [Research State 2026-11-19](research/RESEARCH-STATE-2026-11-19.md) consolida
 5. **Extend security and operational-lifecycle evidence.** Build on RT-16's threat model and policy fixtures with persistent multi-client authorization, concurrent reservation, crash recovery around apply/accept/commit/push/publication, hostile build-worker sandbox cases, and authenticated evidence/provenance. Specify which lifecycle actions require human or policy approval.
 6. **Continue package/cache validation without fixing speculative wire formats.** For RT-11/12/19/23, measure controlled cold/warm and scoped-change cases, implement a public immutable snapshot adapter and canonical dependency extraction against the SPG, and extend manifest/cache-index validation. Keep ZIP, binary index, codec, and provider choices provisional until the contracts and resource bounds are validated.
 7. **Refresh the option matrix and synthesis gates from results.** Record evidence class, assumptions, confidence, unknowns, compatibility constraints, and falsifiers for each surviving vector. Compare complete candidate specifications only after major criteria have evidence; publish workload-weight sensitivity and preserve failed or unknown cases.
+   **Freestanding feasibility:** start RT-37 profile constraints alongside the shared semantics and backend gates, then run the embedded firmware pilot before RT-38 microkernel experiments; both contribute evidence to the final compatibility audit. [RT-37](research/RT-37-FREESTANDING-EMBEDDED-REAL-TIME/README.md) · [RT-38](research/RT-38-VERIFIED-OS-KERNELS/README.md).
+
 8. **[Run the final feature compatibility and feasibility audit after all other research is complete](https://github.com/aivibeflow/LLMLang/issues/370).** This is the final cross-cutting research activity, not an early filter for individual research proposals. Start it only after all other registered aspect research, required follow-up experiments, evidence reviews, and candidate-vector synthesis have reached their documented completion gates. Re-read the then-current feature registry and the relevant research, option-matrix, and dependency-map evidence; do not rely on earlier preliminary estimates or assume the registry's current feature count will remain unchanged.
 
    - Assess every registered feature and every materially relevant feature pair or group for compatibility and feasibility. Distinguish direct contradictions from conditional tensions, dependencies, scope limitations, unresolved evidence, and ordinary implementation difficulty.
@@ -1450,6 +1475,8 @@ The issue numbers below are navigation links, not execution priorities. Execute 
 The package work has separate implementation details in Stage 7.2 and the semantic storage work in Stage 4. Do not skip a gate because a document or prototype exists: each artifact is evidence for only the claims and inputs it actually covers, not proof that its design is correct or complete.
 
 ---
+
+**Additional tracked research directions:** [RT-37 / #440](https://github.com/aivibeflow/LLMLang/issues/440) (Stage 5.4) and [RT-38 / #441](https://github.com/aivibeflow/LLMLang/issues/441) (Stage 6.5); order is determined by the dependency gates above.
 
 # 9. Maintenance
 - Update this plan when a research item starts, produces evidence, is superseded, or reaches an accepted decision.
