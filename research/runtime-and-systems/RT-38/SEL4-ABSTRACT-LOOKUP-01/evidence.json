@@ -1,0 +1,35 @@
+{
+  "ainvs_heap_sha256": "1e30a8a7bfe25123deafe4f583343f4393824061328a3b85a78bcd0df5145c45",
+  "format": "rt38-sel4-abstract-lookup/1",
+  "isabelle_source": "e64f55a6b7d0e803f73f13e346e7630f3f021dc8",
+  "isabelle_version": "Isabelle2025-2",
+  "l4v": "12c300e75bb0ca0c82f76496fafacd7e614c0aba",
+  "polyml": "5.9.2_x86_64_32-linux",
+  "profile": "RISCV64, default non-MCS",
+  "proof_options": {
+    "quick_and_dirty": false,
+    "skip_proofs": false,
+    "threads": 1,
+    "timeout_scale": 4
+  },
+  "sel4": "62e345c240a15671484530b4e6e069ce266c28d7",
+  "upstream_log_prefix_sha256": "52ee600d4f4ace77f3182b6379b43266cb4b11f09557656bc11e3d00e4a7140c",
+  "upstream_selected_lines": [
+    "Testing for L4V_ARCH='RISCV64', L4V_FEATURES='', L4V_PLAT='', INPUT_NUM_DOMAINS=''",
+    "  Finished ASpec                     passed    (0:07:19 real, 0:07:18 cpu,  8.04GB)",
+    "AInvs: theory AInvs.Syscall_AI 100% (87.401s cumulated time)",
+    "AInvs: theory AInvs.AInvsToplevel_AI 100% (0.874s cumulated time)",
+    "Skipping theories \"AInvsToplevel_AI\" (undefined SKIP_AINVS_PROOFS)",
+    "Skipping theories \"AInvsToplevel_AI\" (undefined AINVS_QUICK_AND_DIRTY)",
+    "Timing AInvs (1 threads, 3769.144s elapsed time, 3440.354s cpu time, 212.040s GC time, factor 0.91)",
+    "  Finished AInvs                     passed    (1:04:15 real, 1:04:02 cpu, 13.34GB)"
+  ],
+  "wrapper_selected_lines": [
+    "Running LLMLang_AbstractLookup ...",
+    "LLMLang_AbstractLookup: theory LLMLang_AbstractLookup.AbstractLookup",
+    "LLMLang_AbstractLookup: theory LLMLang_AbstractLookup.AbstractLookup 100% (1.361s cumulated time)",
+    "Finished LLMLang_AbstractLookup (0:00:05 elapsed time, 0:00:04 cpu time, factor 0.73)",
+    "Finished at Tue Nov 24 21:38:32 GMT 2026"
+  ],
+  "wrapper_theory_sha256": "2f48fba7bf2912c7696dbcae4043a6b67f09caa60346648425c6db5c46ad6556"
+}
