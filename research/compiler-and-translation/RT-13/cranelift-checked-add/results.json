@@ -1,0 +1,202 @@
+{
+  "schema": "llmlang-rt13-cranelift-checked-add-v1",
+  "target": "x86_64-unknown-linux-gnu",
+  "cranelift": "0.116.1",
+  "cranelift_revision": "58282df898d79a787a726d829b166272dde155b9",
+  "tools": {
+    "opt": "Debian LLVM version 19.1.7",
+    "llc": "Debian LLVM version 19.1.7",
+    "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  },
+  "source_sha256": {
+    "fixture-source": "6817b94cd1df774891b949b9cc7d6b2edd5fd671c744af1f5a0bafbc1a88064e",
+    "integer-fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+    "llvm-integer-probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a",
+    "checked-add-replay.py": "4eca7b3da7c0eeaa3e673a136d9ea5f3b5010701b1ac10974276e62dd2da92d6",
+    "run.py": "1842048aaa533448861792b826fc380721fedd5910989dae15e15c24fb0aa730",
+    "Cargo.toml": "ca734ef44620882a29def1f7791d6d1e956ead29f495ed4bd7811c1a540ee9dd",
+    "Cargo.lock": "a1e15c5bf9db982ca119a5837dd34e77c6377fa7725f1fee41300ecc6f7491b7",
+    "src/main.rs": "01aa9fa2b764fbb31d254ede34df3d6d978aa3e7b218940fbafb853c084609e2"
+  },
+  "vectors": 4596,
+  "observations_sha256": "f941fa6caabd2f87752d50893a203b070ea3249bb277c71c2d0530bfa26703a3",
+  "profiles": {
+    "llvm_O0": {
+      "llvm_ir_sha256": "71a223e1fdb83b8fb00020e0c32818be995ac6dd756e446c17a1b7175240a106",
+      "object_sha256": "8a90dd2490160c1a59fd4196d276db36d687568a6b6a25a6f764f8b24f9d8bec",
+      "function_bytes": 108
+    },
+    "llvm_O3": {
+      "llvm_ir_sha256": "dabb0d620cd70a839589b4ecdb752f4fc4d0bca3685550082df0dae778e73394",
+      "object_sha256": "eea6592e02554c299d925db3c412bd2083317081ef89e2f6834a70a33c089ad7",
+      "function_bytes": 57
+    },
+    "cranelift_none": {
+      "clif_sha256": "4a88f95e1af72bae372310a8d60f11b5d7c84de8298c5309c8db23cd46f34257",
+      "machine_sha256": "73329377537a30815974cb3329ee1e44c9d50637d78d7685f5b58601f18c8d3c",
+      "function_bytes": 174
+    },
+    "cranelift_speed": {
+      "clif_sha256": "4a88f95e1af72bae372310a8d60f11b5d7c84de8298c5309c8db23cd46f34257",
+      "machine_sha256": "73329377537a30815974cb3329ee1e44c9d50637d78d7685f5b58601f18c8d3c",
+      "function_bytes": 174
+    }
+  },
+  "controls": {
+    "none": {
+      "drop_overflow": {
+        "witness": [
+          2147483647,
+          1,
+          1
+        ],
+        "source": {
+          "status": 1,
+          "out_slot": 2880246324,
+          "effects": [
+            2147483647
+          ]
+        },
+        "observed": {
+          "status": 0,
+          "out_slot": 2147483648,
+          "effects": [
+            2147483647,
+            2147483648
+          ]
+        },
+        "clif_sha256": "6e6b5f2a5ff3521f38a7c08e67da2823ebd6484c2fa89a5393cc23a5850f70b0",
+        "machine_sha256": "fe028877991655d5cfd9747f12a3dade24d6f05c6c13eca503286df6d2c3b6a6",
+        "function_bytes": 128
+      },
+      "reverse_effects": {
+        "witness": [
+          2,
+          3,
+          0
+        ],
+        "source": {
+          "status": 0,
+          "out_slot": 3,
+          "effects": [
+            2,
+            3
+          ]
+        },
+        "observed": {
+          "status": 0,
+          "out_slot": 3,
+          "effects": [
+            3,
+            2
+          ]
+        },
+        "clif_sha256": "682b515f75277ca45b49176031f9e6e69636aba985b49a39aca1212ec8834649",
+        "machine_sha256": "e67d5823fc5f7bc3a06113d99294926042c0cdc9b9199445cf2aee7f7bdfce98",
+        "function_bytes": 164
+      },
+      "store_on_error": {
+        "witness": [
+          2147483647,
+          1,
+          1
+        ],
+        "source": {
+          "status": 1,
+          "out_slot": 2880246324,
+          "effects": [
+            2147483647
+          ]
+        },
+        "observed": {
+          "status": 1,
+          "out_slot": 0,
+          "effects": [
+            2147483647
+          ]
+        },
+        "clif_sha256": "187522c093ec9310a0e4fb578e3d168ba60624404697c6e19e460bcaf7644b9c",
+        "machine_sha256": "52bac0c8705e381205a7ddc651ab720ccdd19b91b98f4ca605da701723b13f22",
+        "function_bytes": 184
+      }
+    },
+    "speed": {
+      "drop_overflow": {
+        "witness": [
+          2147483647,
+          1,
+          1
+        ],
+        "source": {
+          "status": 1,
+          "out_slot": 2880246324,
+          "effects": [
+            2147483647
+          ]
+        },
+        "observed": {
+          "status": 0,
+          "out_slot": 2147483648,
+          "effects": [
+            2147483647,
+            2147483648
+          ]
+        },
+        "clif_sha256": "6e6b5f2a5ff3521f38a7c08e67da2823ebd6484c2fa89a5393cc23a5850f70b0",
+        "machine_sha256": "fe028877991655d5cfd9747f12a3dade24d6f05c6c13eca503286df6d2c3b6a6",
+        "function_bytes": 128
+      },
+      "reverse_effects": {
+        "witness": [
+          2,
+          3,
+          0
+        ],
+        "source": {
+          "status": 0,
+          "out_slot": 3,
+          "effects": [
+            2,
+            3
+          ]
+        },
+        "observed": {
+          "status": 0,
+          "out_slot": 3,
+          "effects": [
+            3,
+            2
+          ]
+        },
+        "clif_sha256": "682b515f75277ca45b49176031f9e6e69636aba985b49a39aca1212ec8834649",
+        "machine_sha256": "e67d5823fc5f7bc3a06113d99294926042c0cdc9b9199445cf2aee7f7bdfce98",
+        "function_bytes": 164
+      },
+      "store_on_error": {
+        "witness": [
+          2147483647,
+          1,
+          1
+        ],
+        "source": {
+          "status": 1,
+          "out_slot": 2880246324,
+          "effects": [
+            2147483647
+          ]
+        },
+        "observed": {
+          "status": 1,
+          "out_slot": 0,
+          "effects": [
+            2147483647
+          ]
+        },
+        "clif_sha256": "187522c093ec9310a0e4fb578e3d168ba60624404697c6e19e460bcaf7644b9c",
+        "machine_sha256": "52bac0c8705e381205a7ddc651ab720ccdd19b91b98f4ca605da701723b13f22",
+        "function_bytes": 184
+      }
+    }
+  }
+}
