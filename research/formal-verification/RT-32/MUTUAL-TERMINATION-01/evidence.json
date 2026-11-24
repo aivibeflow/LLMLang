@@ -1,0 +1,145 @@
+{
+  "case_inputs": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "controls": {
+    "changed_base_result": {
+      "diagnostic_marker": "unsolved goals",
+      "group": "ebab4083d06076813642ebc0f5e46d979ac5f5fc52121add2dc11efc9c49bef8",
+      "lean_rejected": true
+    },
+    "no_measure_decrease": {
+      "diagnostic_marker": "omega",
+      "group": "95ab64e0c7b6e1c5ea1f143c3691c1836c6d3d39895e81d5b5f17d28ca9dd2e1",
+      "lean_rejected": true
+    }
+  },
+  "format": "rt32-mutual-termination/1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "python": "3.12.14",
+  "variants": {
+    "keyed": {
+      "domain": "natural inputs represented by nonnegative Int",
+      "lean_audit": [
+        "'evenMember' depends on axioms: [propext, Quot.sound]",
+        "'oddMember' depends on axioms: [propext, Quot.sound]",
+        "'pairAgrees' depends on axioms: [propext, Quot.sound]"
+      ],
+      "lean_source_sha256": "0a0d04d83f0676dd5921d31cfb0ccd2411953671d6ce5d3d63afddabebe6fc57",
+      "native_values": [
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true"
+      ],
+      "negative_source_inputs_exhaust_fuel": [
+        -1,
+        -17
+      ],
+      "subject": {
+        "definitions": {
+          "evenMember": {
+            "base": true,
+            "callee": "oddMember",
+            "contract": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+            "member": "e545cca2e4dbd76311df180284401ea781d946412d0f183a4aa9ceb744b53c84",
+            "position": 0,
+            "stride": 1
+          },
+          "oddMember": {
+            "base": false,
+            "callee": "evenMember",
+            "contract": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+            "member": "106c18917b5a7a43259efb587d0d26b9912679cc199126d10a29ac1ab51c7186",
+            "position": 1,
+            "stride": 1
+          }
+        },
+        "group": "a973b3f076cc33d73b4d8f1f1213a1c2d920906aa6cdf8b08ec07cf0a1ff1f61",
+        "group_payload_sha256": "b6530c0a6ede05b93ebba0a14b7245e5b5488d216a95d3325bd9afad433358ab",
+        "snapshot": "fa387caeb8e7dd9b291253d514ab4e86db3bcb29689349aa671a69754b368648"
+      }
+    },
+    "structural": {
+      "domain": "natural inputs represented by nonnegative Int",
+      "lean_audit": [
+        "'evenMember' depends on axioms: [propext, Quot.sound]",
+        "'oddMember' depends on axioms: [propext, Quot.sound]",
+        "'pairAgrees' depends on axioms: [propext, Quot.sound]"
+      ],
+      "lean_source_sha256": "d7d7d805cefccb848d5ea7c533330644fe87c4f25ac8a56f7fbdd2f605d7e3b1",
+      "native_values": [
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true",
+        "true,false",
+        "false,true"
+      ],
+      "negative_source_inputs_exhaust_fuel": [
+        -1,
+        -17
+      ],
+      "subject": {
+        "definitions": {
+          "evenMember": {
+            "base": true,
+            "callee": "oddMember",
+            "contract": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+            "member": "4a3b185a0b0ae74a7c779303a9423b3b9bb029ac42d8cdbb85da5e567a82ff01",
+            "position": 0,
+            "stride": 1
+          },
+          "oddMember": {
+            "base": false,
+            "callee": "evenMember",
+            "contract": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+            "member": "d29e2e8dc1b44a93020161630b010cfd9fd10b4bba8c927d89ae07b5962881d6",
+            "position": 1,
+            "stride": 1
+          }
+        },
+        "group": "620265a2d526d4b1264c196ab001790ba2a5ff5e0866ca3582a25e616c897d3e",
+        "group_payload_sha256": "ddea858f86ba8414e5f901add8c47526a1dab00b9db43582d4e7c860c08ed7cc",
+        "snapshot": "fdc102366a9f7bd088c11b1ba54b668db5976a7832327de7a108800cb3e73258"
+      }
+    }
+  }
+}
