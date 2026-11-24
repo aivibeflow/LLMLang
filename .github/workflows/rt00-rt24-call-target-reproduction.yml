@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/rt00-rt24-call-target-reproduction.yml"
-      - "research/RT-24-CALL-TARGET-MERGE.md"
+      - "research/RT-24/RT-24-CALL-TARGET-MERGE.md"
       - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/**"
   workflow_dispatch:
 
@@ -39,7 +39,7 @@ jobs:
             python --version
             python -c 'import sys; print(sys.version)'
             git --version
-            sha256sum research/RT-24-CALL-TARGET-MERGE.md
+            sha256sum research/RT-24/RT-24-CALL-TARGET-MERGE.md
             sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_call_target_merge.py
             sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_semantic_merge_core.py
             sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_merge_tree_gate.py

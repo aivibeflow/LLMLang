@@ -3,7 +3,7 @@
 - **Status** — Proposed, pending prototype validation
 - **Date** — 2026-11-20
 - **Decision owners** — LLMLang project
-- **Related research** — [RT-21 — Self-Development, Bootstrap, and Migration Roadmap](../../research/RT-21-LLMLANG-SELF-DEVELOPMENT-AND-BOOTSTRAP-ROADMAP.md)
+- **Related research** — [RT-21 — Self-Development, Bootstrap, and Migration Roadmap](../../research/RT-21/RT-21-LLMLANG-SELF-DEVELOPMENT-AND-BOOTSTRAP-ROADMAP.md)
 
 ## Context
 

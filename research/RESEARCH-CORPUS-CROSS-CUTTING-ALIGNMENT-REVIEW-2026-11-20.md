@@ -39,7 +39,7 @@ The glossary remains a proposal. Its open points and the plan's terminology prer
 
 ## 3. Semantic Dependency Index boundary
 
-[`SEMANTIC-DEPENDENCY-INDEX.md`](SEMANTIC-DEPENDENCY-INDEX.md) is a candidate design for immutable dependency edges, discovery evidence, completeness records, and consumer-specific projections. It is not the cross-aspect RT dependency map and is not a canonical SPG schema.
+[`SEMANTIC-DEPENDENCY-INDEX.md`](RT-06/SEMANTIC-DEPENDENCY-INDEX.md) is a candidate design for immutable dependency edges, discovery evidence, completeness records, and consumer-specific projections. It is not the cross-aspect RT dependency map and is not a canonical SPG schema.
 
 The index's status is consistent with PLAN.md and RT-24: the executable subset and call-site binding experiments are evidence, while canonical identity, wire representation, completeness semantics, and merge policy remain open.
 

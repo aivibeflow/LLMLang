@@ -7,7 +7,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/research-quality-pinned-lean-proof.yml"
-      - "research/RT-00-QUALITY-RULES-PINNED-LEAN-PROOF-2026-11-23.md"
+      - "research/RT-00/RT-00-QUALITY-RULES-PINNED-LEAN-PROOF-2026-11-23.md"
   workflow_dispatch:
 
 permissions:

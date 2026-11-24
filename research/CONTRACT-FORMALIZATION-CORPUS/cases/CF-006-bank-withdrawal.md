@@ -5,7 +5,7 @@
 **Revision:** 1  
 **Status:** Proposed evaluation case  
 **Focus:** Bidirectional success condition, conditional postconditions, state preservation, boundary values, and requirement decomposition  
-**Related research:** [Contract Formalization Debug Corpus](../README.md), [Scenario 17 — Typed Requirement IR](../../RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md), [RT-02 — Requirement Reconstruction](../../RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md)
+**Related research:** [Contract Formalization Debug Corpus](../README.md), [Scenario 17 — Typed Requirement IR](../../RT-02/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md), [RT-02 — Requirement Reconstruction](../../RT-02/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md)
 
 ## 1. Source request
 

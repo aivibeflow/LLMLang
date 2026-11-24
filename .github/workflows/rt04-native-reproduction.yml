@@ -6,10 +6,10 @@ on:
     paths:
       - ".github/workflows/rt04-native-reproduction.yml"
       - "research/PROTOTYPES/RT-04-01/**"
-      - "research/RT-04-NATIVE-REPRODUCTION.md"
+      - "research/RT-04/RT-04-NATIVE-REPRODUCTION.md"
       - "research/PROTOTYPES/LLVM-PRESERVATION-01/**"
       - "research/RESEARCH-SCENARIO-96*.md"
-      - "research/LLVM-PRESERVATION-REPRODUCTION.md"
+      - "research/RT-13/LLVM-PRESERVATION-REPRODUCTION.md"
   workflow_dispatch:
 
 permissions:

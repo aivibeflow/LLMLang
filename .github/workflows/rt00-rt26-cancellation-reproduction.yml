@@ -5,8 +5,8 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/rt00-rt26-cancellation-reproduction.yml"
-      - "research/RT-26-CANCELLATION-ACCOUNTING.md"
-      - "research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md"
+      - "research/RT-26/RT-26-CANCELLATION-ACCOUNTING.md"
+      - "research/RT-26/RT-26-COOPERATIVE-BUDGET-RESERVATION.md"
       - "research/PROTOTYPES/BUDGET-CANCELLATION-01/**"
       - "research/PROTOTYPES/BUDGET-RESERVATION-01/**"
   workflow_dispatch:
@@ -40,8 +40,8 @@ jobs:
             echo "commit=$(git rev-parse HEAD)"
             python --version
             python -c 'import sys; print(sys.version)'
-            sha256sum research/RT-26-CANCELLATION-ACCOUNTING.md
-            sha256sum research/RT-26-COOPERATIVE-BUDGET-RESERVATION.md
+            sha256sum research/RT-26/RT-26-CANCELLATION-ACCOUNTING.md
+            sha256sum research/RT-26/RT-26-COOPERATIVE-BUDGET-RESERVATION.md
             sha256sum research/PROTOTYPES/BUDGET-CANCELLATION-01/test_budget_cancellation.py
             sha256sum research/PROTOTYPES/BUDGET-RESERVATION-01/test_budget_reservation.py
           } | tee artifacts/rt26-reproduction/environment-and-inputs.txt

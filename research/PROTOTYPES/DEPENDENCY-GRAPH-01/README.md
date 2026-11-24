@@ -13,7 +13,7 @@ The prototype includes deterministic JSON persistence for semantic values, conte
 
 ## Typed Semantic Program Graph experiment
 
-Two textual expression syntaxes lower to stored, well-typed values with exact call references. The corpus tests structural equality, ordered observations, binding changes, recursion, and lineage over shared values. [Study and reproduction details](../../RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md)
+Two textual expression syntaxes lower to stored, well-typed values with exact call references. The corpus tests structural equality, ordered observations, binding changes, recursion, and lineage over shared values. [Study and reproduction details](../../RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md)
 
 ```sh
 python -B -m unittest -v tests.test_spg_representation
@@ -21,7 +21,7 @@ python -B -m unittest -v tests.test_spg_representation
 
 ## Merged Git tree and source completeness experiment
 
-A closed source inventory in temporary Git repositories exercises exact callee retention, omitted caller selections and tree-bound evidence replay. [Study and reproduction details](../../RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
+A closed source inventory in temporary Git repositories exercises exact callee retention, omitted caller selections and tree-bound evidence replay. [Study and reproduction details](../../RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
 
 ```sh
 python -B -m unittest -v tests.test_rt24_merge_tree_gate
@@ -29,7 +29,7 @@ python -B -m unittest -v tests.test_rt24_merge_tree_gate
 
 ## Merged Git tree and source completeness experiment
 
-A closed source inventory in temporary Git repositories exercises exact callee retention, omitted caller selections and tree-bound evidence replay. [Study and reproduction details](../../RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
+A closed source inventory in temporary Git repositories exercises exact callee retention, omitted caller selections and tree-bound evidence replay. [Study and reproduction details](../../RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
 
 ```sh
 python -B -m unittest -v tests.test_rt24_merge_tree_gate
@@ -39,25 +39,25 @@ python -B -m unittest -v tests.test_rt24_merge_tree_gate
 
 `src/binding.py` adds immutable BindingSnapshots. Callers may depend on contract hashes while a snapshot selects concrete implementations. The snapshot hash changes when the implementation selection changes; execution-sensitive verification keys include that root. Binding rows validate semantic kinds and an exact hash-relevant `implements` dependency. Serialization is deterministic and checksummed.
 
-Run the full test suite with the command above. Binding snapshots currently persist as a separate document; atomic integration with project snapshot persistence, dynamic dispatch, compatibility checking, runtime loading, and formal conformance remain unimplemented. See [Research Scenario 10](../../RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md).
+Run the full test suite with the command above. Binding snapshots currently persist as a separate document; atomic integration with project snapshot persistence, dynamic dispatch, compatibility checking, runtime loading, and formal conformance remain unimplemented. See [Research Scenario 10](../../RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md).
 
 ## Combined project-state persistence
 
-`src/project_state.py` composes graph and binding-snapshot documents into one deterministic, checksummed envelope. It validates each embedded document on reload. This is not a multi-writer transaction or database. See [Research Scenario 11](../../RESEARCH-SCENARIO-11-ATOMIC-PROJECT-BINDING-PERSISTENCE.md).
+`src/project_state.py` composes graph and binding-snapshot documents into one deterministic, checksummed envelope. It validates each embedded document on reload. This is not a multi-writer transaction or database. See [Research Scenario 11](../../RT-05/RESEARCH-SCENARIO-11-ATOMIC-PROJECT-BINDING-PERSISTENCE.md).
 
 ## Layered build / deployment / execution identities
 
-`src/execution.py` models BuildSnapshot, BuildArtifact, DeploymentSnapshot, ExecutionSnapshot, ReleaseManifest, and compare-and-swap publication of a mutable release-channel head. See [Research Scenario 12](../../RESEARCH-SCENARIO-12-PROJECT-BUILD-DEPLOYMENT-EXECUTION.md).
+`src/execution.py` models BuildSnapshot, BuildArtifact, DeploymentSnapshot, ExecutionSnapshot, ReleaseManifest, and compare-and-swap publication of a mutable release-channel head. See [Research Scenario 12](../../RT-11/RESEARCH-SCENARIO-12-PROJECT-BUILD-DEPLOYMENT-EXECUTION.md).
 
 ## Scoped implementation binding
 
-`src/scoped_binding.py` models project, tenant, and request binding layers with explicit precedence and override permissions. It pins the resolved binding decision. See [Research Scenario 13](../../RESEARCH-SCENARIO-13-MULTI-LEVEL-BUSINESS-RULE-AND-IMPLEMENTATION-BINDING.md).
+`src/scoped_binding.py` models project, tenant, and request binding layers with explicit precedence and override permissions. It pins the resolved binding decision. See [Research Scenario 13](../../RT-02/RESEARCH-SCENARIO-13-MULTI-LEVEL-BUSINESS-RULE-AND-IMPLEMENTATION-BINDING.md).
 
 ## Behavioral contract refinement experiment
 
 `src/contract_model.py` defines a finite observable-trace model and checks whether every modeled implementation trace is allowed by a contract. It distinguishes PROVEN, DISPROVEN, and UNKNOWN. PROVEN applies only when both finite models explicitly declare complete semantics; this is an exhaustive proof of the finite model, not a proof that arbitrary source code conforms to that model.
 
-See [Research Scenario 14](../../RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md).
+See [Research Scenario 14](../../RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md).
 
 ## Business intent to formal contract experiment
 
@@ -69,7 +69,7 @@ Run the focused experiment tests:
 python -m unittest discover -s tests -p 'test_business_intent.py' -v
 ```
 
-See [Prototype 16 Results](PROTOTYPE-16-RESULTS.md) and [Research Scenario 15](../../RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md). This is not a natural-language parser, authorization system, formal logic engine, or source-code proof.
+See [Prototype 16 Results](PROTOTYPE-16-RESULTS.md) and [Research Scenario 15](../../RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md). This is not a natural-language parser, authorization system, formal logic engine, or source-code proof.
 
 ## Typed Requirement IR experiment
 
@@ -81,7 +81,7 @@ Run the focused experiment tests:
 python -m unittest discover -s tests -p 'test_requirement_ir.py' -v
 ```
 
-See [Prototype 17 Results](PROTOTYPE-17-RESULTS.md) and [Research Scenario 17](../../RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md). The analyzer is finite-domain only; temporal fields are metadata, not evaluated temporal logic. It is not a natural-language parser or implementation proof.
+See [Prototype 17 Results](PROTOTYPE-17-RESULTS.md) and [Research Scenario 17](../../RT-02/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md). The analyzer is finite-domain only; temporal fields are metadata, not evaluated temporal logic. It is not a natural-language parser or implementation proof.
 
 ## Requirement evolution and semantic impact experiment
 
@@ -93,7 +93,7 @@ Run the focused experiment tests:
 python -m unittest discover -s tests -p 'test_requirement_evolution.py' -v
 ```
 
-See [Prototype 18 Results](PROTOTYPE-18-RESULTS.md) and [Research Scenario 18](../../RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md). This is not a semantic-diff engine, complete impact planner, authorization system, or distributed transaction.
+See [Prototype 18 Results](PROTOTYPE-18-RESULTS.md) and [Research Scenario 18](../../RT-02/RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md). This is not a semantic-diff engine, complete impact planner, authorization system, or distributed transaction.
 
 ## Semantic impact planning and dependency completeness experiment
 
@@ -105,7 +105,7 @@ Run the focused tests:
 python -m unittest discover -s tests -p 'test_impact_planning.py' -v
 ```
 
-See [Prototype 19 Results](PROTOTYPE-19-RESULTS.md) and [Research Scenario 19](../../RESEARCH-SCENARIO-19-IMPACT-PLANNING-AND-DEPENDENCY-COMPLETENESS.md). This is not a dependency extractor, runtime tracer, proof checker, or action executor.
+See [Prototype 19 Results](PROTOTYPE-19-RESULTS.md) and [Research Scenario 19](../../RT-06/RESEARCH-SCENARIO-19-IMPACT-PLANNING-AND-DEPENDENCY-COMPLETENESS.md). This is not a dependency extractor, runtime tracer, proof checker, or action executor.
 
 ## Dependency discovery and semantic classification experiment
 
@@ -117,7 +117,7 @@ Run the focused tests:
 python -m unittest discover -s tests -p 'test_dependency_discovery.py' -v
 ```
 
-See [Prototype 20 Results](PROTOTYPE-20-RESULTS.md) and [Research Scenario 20](../../RESEARCH-SCENARIO-20-DEPENDENCY-DISCOVERY-AND-SEMANTIC-CLASSIFICATION.md).
+See [Prototype 20 Results](PROTOTYPE-20-RESULTS.md) and [Research Scenario 20](../../RT-06/RESEARCH-SCENARIO-20-DEPENDENCY-DISCOVERY-AND-SEMANTIC-CLASSIFICATION.md).
 
 ## Counterfactual dependency analysis experiment
 
@@ -138,7 +138,7 @@ Run focused tests:
 python -m unittest discover -s tests -p 'test_coverage_guided.py' -v
 ```
 
-See [Prototype 22 Results](PROTOTYPE-22-RESULTS.md) and [Research Scenario 22](../../RESEARCH-SCENARIO-22-COVERAGE-GUIDED-DEPENDENCY-DISCOVERY.md).
+See [Prototype 22 Results](PROTOTYPE-22-RESULTS.md) and [Research Scenario 22](../../RT-06/RESEARCH-SCENARIO-22-COVERAGE-GUIDED-DEPENDENCY-DISCOVERY.md).
 
 
 ## Multi-factor counterfactual analysis experiment
@@ -151,7 +151,7 @@ Run focused tests:
 python -m unittest discover -s tests -p 'test_multifactor_analysis.py' -v
 ```
 
-See [Prototype 23 Results](PROTOTYPE-23-RESULTS.md) and [Research Scenario 23](../../RESEARCH-SCENARIO-23-MULTI-FACTOR-COUNTERFACTUAL-ANALYSIS.md).
+See [Prototype 23 Results](PROTOTYPE-23-RESULTS.md) and [Research Scenario 23](../../RT-06/RESEARCH-SCENARIO-23-MULTI-FACTOR-COUNTERFACTUAL-ANALYSIS.md).
 
 
 ## Adaptive interaction discovery experiment
@@ -164,7 +164,7 @@ Run focused tests:
 python -m unittest discover -s tests -p 'test_adaptive_discovery.py' -v
 ```
 
-See [Prototype 24 Results](PROTOTYPE-24-RESULTS.md) and [Research Scenario 24](../../RESEARCH-SCENARIO-24-ADAPTIVE-INTERACTION-DISCOVERY.md). The planner consumes normalized feedback; it does not execute programs, solve input constraints, or prove dependency completeness.
+See [Prototype 24 Results](PROTOTYPE-24-RESULTS.md) and [Research Scenario 24](../../RT-06/RESEARCH-SCENARIO-24-ADAPTIVE-INTERACTION-DISCOVERY.md). The planner consumes normalized feedback; it does not execute programs, solve input constraints, or prove dependency completeness.
 
 
 ## Minimal formal semantic core (Scenario 26)
@@ -178,7 +178,7 @@ python -m unittest discover -s tests -p 'test_formal_core.py' -v
 python -m unittest discover -s tests -p 'test_finite_relational_consistency.py' -v
 ```
 
-See [Prototype 26 Results](PROTOTYPE-26-RESULTS.md) and [Research Scenario 26](../../RESEARCH-SCENARIO-26-MINIMAL-FORMAL-SEMANTIC-CORE.md). This is not an SMT solver, arbitrary-source verifier, or machine-checked proof of the evaluator.
+See [Prototype 26 Results](PROTOTYPE-26-RESULTS.md) and [Research Scenario 26](../../RT-07/RESEARCH-SCENARIO-26-MINIMAL-FORMAL-SEMANTIC-CORE.md). This is not an SMT solver, arbitrary-source verifier, or machine-checked proof of the evaluator.
 
 
 ## Symbolic relational verification (Scenario 27)
@@ -194,7 +194,7 @@ python -m unittest discover -s tests -p 'test_symbolic_relational.py' -v
 python -m unittest discover -s tests -p 'test_symbolic_finite_differential.py' -v
 ```
 
-The finite-differential and real-solver integration tests are skipped when the Z3 executable is unavailable. See [Prototype 27 Results](PROTOTYPE-27-RESULTS.md) and [Research Scenario 27](../../RESEARCH-SCENARIO-27-SYMBOLIC-RELATIONAL-VERIFICATION.md). This is not yet a full source verifier or independently checked proof system.
+The finite-differential and real-solver integration tests are skipped when the Z3 executable is unavailable. See [Prototype 27 Results](PROTOTYPE-27-RESULTS.md) and [Research Scenario 27](../../RT-07/RESEARCH-SCENARIO-27-SYMBOLIC-RELATIONAL-VERIFICATION.md). This is not yet a full source verifier or independently checked proof system.
 
 
 ## Typed IR and proof boundary (Scenario 28)
@@ -210,20 +210,20 @@ python -m unittest discover -s tests -p 'test_typed_ir.py' -v
 python -m unittest discover -s tests -p 'test_proof_boundary.py' -v
 ```
 
-The proof receipt is currently only a prototype data structure: it is not authenticated and no independent checker is invoked; even a supplied receipt remains labelled UNAUTHENTICATED_CHECKER_RECEIPT_PRESENT. This prototype is not a production proof system. See [Prototype 28 Results](PROTOTYPE-28-RESULTS.md) and [Research Scenario 28](../../RESEARCH-SCENARIO-28-TYPED-IR-AND-PROOF-BOUNDARY.md).
+The proof receipt is currently only a prototype data structure: it is not authenticated and no independent checker is invoked; even a supplied receipt remains labelled UNAUTHENTICATED_CHECKER_RECEIPT_PRESENT. This prototype is not a production proof system. See [Prototype 28 Results](PROTOTYPE-28-RESULTS.md) and [Research Scenario 28](../../RT-07/RESEARCH-SCENARIO-28-TYPED-IR-AND-PROOF-BOUNDARY.md).
 
 
 ## Verified SMT proof-checker process adapter (Scenario 29)
 
 `src/logos_runner.py` invokes pinned cvc5 and Logos executables, preserves CPC proof bytes, applies timeouts, and fails closed on process or pin errors. A Logos `correct` result remains `CHECKER_REPORTED_CORRECT_UNBOUND`; it is not a program-level proof. The 15 tests use fake executables and do not validate real cvc5/Logos integration.
 
-See [Prototype 29 Results](PROTOTYPE-29-RESULTS.md) and [Research Scenario 29](../../RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md).
+See [Prototype 29 Results](PROTOTYPE-29-RESULTS.md) and [Research Scenario 29](../../RT-07/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md).
 
 ## CPC assumption binding audit (Scenario 30)
 
 Scenario 30 audits the pinned Logos parser and soundness API. Logos proves that the conjunction of assumptions parsed from a CPC proof is unsatisfiable; it does not bind those assumptions to LLMLang's original query. The proposed MVP therefore requires exact structural equality between the parsed assumption list and a canonical expected Logos `Term` list. Any mismatch remains UNKNOWN. No Lean wrapper or real proof integration has yet been built.
 
-See [Research Scenario 30](../../RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md).
+See [Research Scenario 30](../../RT-07/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md).
 
 
 ## Strict QF_LIA relational query profile (Scenario 31)
@@ -238,7 +238,7 @@ Run focused tests:
 python -m unittest discover -s tests -p 'test_qf_lia_profile.py' -v
 ```
 
-The output status is `QF_LIA_CANDIDATE_QUERIES`, not `PROVEN`. The version-2 wire envelope explicitly carries factor_left and factor_right; Python validates their unique same-sort _L/_R declaration pair and exact factor-difference AST, while Lean independently constructs and structurally checks not (= left right). The validator and source encoder are still Python code and are not formally verified; source-to-query correspondence and real cvc5/Logos proof checking remain outstanding. See [Research Scenario 32](../../RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md) for the canonical IR design and remaining proof obligations.
+The output status is `QF_LIA_CANDIDATE_QUERIES`, not `PROVEN`. The version-2 wire envelope explicitly carries factor_left and factor_right; Python validates their unique same-sort _L/_R declaration pair and exact factor-difference AST, while Lean independently constructs and structurally checks not (= left right). The validator and source encoder are still Python code and are not formally verified; source-to-query correspondence and real cvc5/Logos proof checking remain outstanding. See [Research Scenario 32](../../RT-07/RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md) for the canonical IR design and remaining proof obligations.
 
 
 ## Lean CPC parser-state binding prototype (Scenario 33)
@@ -253,7 +253,7 @@ lake build
 lake exe testParserBinding
 ```
 
-A GitHub Actions workflow runs these commands for relevant pushes and pull requests. The pinned Lean build is validated by CI, not by a local build. The latest Logos-binding CI run [44766546452](https://github.com/aivibeflow/LLMLang/actions/runs/44766546452) passed the parser-state bridge build and semantic-correspondence tests. Scenario 34 extends the source-to-query proof and records the remaining open obligations; see [Research Scenario 33](../../RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md) and [Research Scenario 34](../../RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md).
+A GitHub Actions workflow runs these commands for relevant pushes and pull requests. The pinned Lean build is validated by CI, not by a local build. The latest Logos-binding CI run [44766546452](https://github.com/aivibeflow/LLMLang/actions/runs/44766546452) passed the parser-state bridge build and semantic-correspondence tests. Scenario 34 extends the source-to-query proof and records the remaining open obligations; see [Research Scenario 33](../../RT-07/RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md) and [Research Scenario 34](../../RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md).
 
 ## Typed semantic dependency extractor (candidate SPG subset)
 
@@ -271,12 +271,12 @@ Run focused tests:
 python -m unittest discover -s tests -p 'test_semantic_dependency_index.py' -v
 ```
 
-This is a deliberately small research schema, **not** the canonical LLMLang SPG schema. It does not parse LLMLang source, infer dependencies, prove completeness, model higher-order/dynamic dispatch beyond explicit finite alternatives, define final hash canonicalization, or integrate with the Toolchain Server / shared production Content Store. Unsupported or missing references fail closed. See [Semantic Dependency Index design](../../SEMANTIC-DEPENDENCY-INDEX.md).
+This is a deliberately small research schema, **not** the canonical LLMLang SPG schema. It does not parse LLMLang source, infer dependencies, prove completeness, model higher-order/dynamic dispatch beyond explicit finite alternatives, define final hash canonicalization, or integrate with the Toolchain Server / shared production Content Store. Unsupported or missing references fail closed. See [Semantic Dependency Index design](../../RT-06/SEMANTIC-DEPENDENCY-INDEX.md).
 
 
 ### Snapshot-scoped reverse lookup and completeness binding
 
-`src/semantic_dependency_index.py` exposes `query_snapshot_incoming` and `ReverseLookupEvidence`. A reverse query returns exact incoming edges from one Semantic Snapshot plus `GAP_FOUND`, `SUPPORTED_WITHIN_SCOPE`, `UNKNOWN`, or `NOT_CHECKED`. Evidence is bound to the snapshot root, target hash, scope, index schema, extractor identity, and digest of the exact returned edge set. Missing evidence is never interpreted as an empty caller set. The adapter validates bindings only; it does not authenticate evidence or prove that the external observation model is complete. `impact_planning.audit_snapshot_incoming` carries the result into CIP completeness audits without dropping the exact Snapshot root, target, scope, evidence ID, index schema version, extractor identity, or edge-set digest. `plan_impact` requires Snapshot-bound evidence by default: absent evidence is `NOT_CHECKED`, and mismatched Snapshot/target bindings are `UNKNOWN`, both forcing human review and full revalidation. All binding fields participate in plan identity. The explicit `require_snapshot_evidence=False` compatibility mode is only for isolated legacy tests and must not be used for RT-20 CIP approval. See the Snapshot-scoped reverse-query section in [Semantic Dependency Index](../../SEMANTIC-DEPENDENCY-INDEX.md).
+`src/semantic_dependency_index.py` exposes `query_snapshot_incoming` and `ReverseLookupEvidence`. A reverse query returns exact incoming edges from one Semantic Snapshot plus `GAP_FOUND`, `SUPPORTED_WITHIN_SCOPE`, `UNKNOWN`, or `NOT_CHECKED`. Evidence is bound to the snapshot root, target hash, scope, index schema, extractor identity, and digest of the exact returned edge set. Missing evidence is never interpreted as an empty caller set. The adapter validates bindings only; it does not authenticate evidence or prove that the external observation model is complete. `impact_planning.audit_snapshot_incoming` carries the result into CIP completeness audits without dropping the exact Snapshot root, target, scope, evidence ID, index schema version, extractor identity, or edge-set digest. `plan_impact` requires Snapshot-bound evidence by default: absent evidence is `NOT_CHECKED`, and mismatched Snapshot/target bindings are `UNKNOWN`, both forcing human review and full revalidation. All binding fields participate in plan identity. The explicit `require_snapshot_evidence=False` compatibility mode is only for isolated legacy tests and must not be used for RT-20 CIP approval. See the Snapshot-scoped reverse-query section in [Semantic Dependency Index](../../RT-06/SEMANTIC-DEPENDENCY-INDEX.md).
 
 
 ## Per-call-site compatibility planning and differential audit
@@ -296,7 +296,7 @@ Run the focused tests:
 python -m unittest -v tests.test_candidate_validation
 ```
 
-This is a narrow materialized-reference consistency check, not a behavioral-compatibility proof, dynamic-call completeness proof, full plan-to-diff audit, or commit authorization. The current plan representation also assumes one resulting caller version per base caller hash; context-specific forks of one shared caller for different upstream consumers remain unmodelled. See [RT-20 Candidate Call-Site Validation](../../RT-20-CANDIDATE-CALL-SITE-VALIDATION.md).
+This is a narrow materialized-reference consistency check, not a behavioral-compatibility proof, dynamic-call completeness proof, full plan-to-diff audit, or commit authorization. The current plan representation also assumes one resulting caller version per base caller hash; context-specific forks of one shared caller for different upstream consumers remain unmodelled. See [RT-20 Candidate Call-Site Validation](../../RT-20/RT-20-CANDIDATE-CALL-SITE-VALIDATION.md).
 
 
 ## Complete candidate Snapshot dependency-closure audit
@@ -318,7 +318,7 @@ Run the focused tests:
 python -m unittest -v tests.test_candidate_graph_audit
 ```
 
-This is a structural and contract-identity audit of the explicit declaration subset. It does not prove behavioral compatibility, authenticate evidence, discover dynamic/runtime edges, validate compatibility decisions, compare the candidate diff to a CIP, or authorize commit. See [RT-20 Candidate Graph Audit](../../RT-20-CANDIDATE-GRAPH-AUDIT.md).
+This is a structural and contract-identity audit of the explicit declaration subset. It does not prove behavioral compatibility, authenticate evidence, discover dynamic/runtime edges, validate compatibility decisions, compare the candidate diff to a CIP, or authorize commit. See [RT-20 Candidate Graph Audit](../../RT-20/RT-20-CANDIDATE-GRAPH-AUDIT.md).
 
 
 ## RT-20 candidate semantic diff gate
@@ -331,7 +331,7 @@ Run focused tests:
 python -m unittest -v tests.test_candidate_semantic_diff
 ```
 
-This is not behavioral equivalence, dynamic dependency completeness, complete action realization, or commit authorization. Hash identities remain distinct as specified in the [LLMLang Glossary](../../../draft/GLOSSARY.md). See [RT-20 Candidate Semantic Diff](../../RT-20-CANDIDATE-SEMANTIC-DIFF.md).
+This is not behavioral equivalence, dynamic dependency completeness, complete action realization, or commit authorization. Hash identities remain distinct as specified in the [LLMLang Glossary](../../../draft/GLOSSARY.md). See [RT-20 Candidate Semantic Diff](../../RT-20/RT-20-CANDIDATE-SEMANTIC-DIFF.md).
 
 
 ## Call-site contract binding (schema v2)
@@ -355,12 +355,12 @@ Run the focused suite:
 python -m unittest -v tests.test_impact_planning tests.test_candidate_validation tests.test_candidate_semantic_diff tests.test_candidate_semantic_diff_cip_v2
 ```
 
-This remains a structural audit over the explicit declaration subset. It is not behavioral equivalence, global dependency completeness, evidence authentication, complete action execution, or commit authorization. See [RT-20 Candidate Semantic Diff](../../RT-20-CANDIDATE-SEMANTIC-DIFF.md).
+This remains a structural audit over the explicit declaration subset. It is not behavioral equivalence, global dependency completeness, evidence authentication, complete action execution, or commit authorization. See [RT-20 Candidate Semantic Diff](../../RT-20/RT-20-CANDIDATE-SEMANTIC-DIFF.md).
 
 
 ## CIP action execution audit — next implementation slice
 
-The next RT-20 work is specified in [CIP Action Execution Audit](../../RT-20-CIP-ACTION-EXECUTION-AUDIT.md). Implement AEA-1 first: deterministic action IDs, explicit prerequisite action IDs, canonical plan identity, and cycle detection. The existing CIP v2 semantic diff remains a separate structural gate; neither gate authorizes a Git commit.
+The next RT-20 work is specified in [CIP Action Execution Audit](../../RT-20/RT-20-CIP-ACTION-EXECUTION-AUDIT.md). Implement AEA-1 first: deterministic action IDs, explicit prerequisite action IDs, canonical plan identity, and cycle detection. The existing CIP v2 semantic diff remains a separate structural gate; neither gate authorizes a Git commit.
 
 
 ## CIP schema v3 — action identity and prerequisite DAG
@@ -384,12 +384,12 @@ Planned actions now carry a canonical `subject_kind`; the versioned closed polic
 
 The CIP planner derives domain-separated SHA-256 identities for each planned edge-change record and each path-specific call-site decision. Both identities commit to all semantic fields and the schema version and are included in the canonical plan identity. They provide stable references for the next action-to-obligation coverage slice; they are not object Content Hashes or dependency edge-set digests.
 
-The identities do not yet bind actions to outputs, edge changes, or call-site decisions. Complete AEA-2 remains open. See [CIP Action-to-Obligation Coverage](../../RT-20-CIP-ACTION-OBLIGATION-COVERAGE.md) and [CIP Action Execution Audit](../../RT-20-CIP-ACTION-EXECUTION-AUDIT.md).
+The identities do not yet bind actions to outputs, edge changes, or call-site decisions. Complete AEA-2 remains open. See [CIP Action-to-Obligation Coverage](../../RT-20/RT-20-CIP-ACTION-OBLIGATION-COVERAGE.md) and [CIP Action Execution Audit](../../RT-20/RT-20-CIP-ACTION-EXECUTION-AUDIT.md).
 
 
 ## Source-to-query semantic correspondence (Scenario 34)
 
-The [Scenario 34 report](../../RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) records the current proof boundary and remaining work. The historical [SCW-04 module-boundary audit](logos_binding/SCW-04-MODULE-BOUNDARY-AUDIT.md) now has a current-source addendum; the [SCW-05 declaration-context breakdown](logos_binding/SCW-05-DECLARATION-CONTEXT-BREAKDOWN.md) records its seven scoped tasks as complete.
+The [Scenario 34 report](../../RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) records the current proof boundary and remaining work. The historical [SCW-04 module-boundary audit](logos_binding/SCW-04-MODULE-BOUNDARY-AUDIT.md) now has a current-source addendum; the [SCW-05 declaration-context breakdown](logos_binding/SCW-05-DECLARATION-CONTEXT-BREAKDOWN.md) records its seven scoped tasks as complete.
 
 The current Lean source-to-query proof core is divided into the following layers:
 

@@ -2,7 +2,7 @@
 
 **Status:** Initial evaluation corpus; non-normative  
 **Purpose:** Debug and compare AI models that turn function descriptions and clarified requirements into formal contracts.  
-**Related research:** [Scenario 15](../RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md), [Scenario 17 — Typed Requirement IR](../RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md), [RT-02](../RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md), [RT-32](../RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md).
+**Related research:** [Scenario 15](../RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md), [Scenario 17 — Typed Requirement IR](../RT-02/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md), [RT-02](../RT-02/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md), [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md).
 
 ## 1. Purpose and scope
 
@@ -70,7 +70,7 @@ For each run, preserve the exact prompt, model/version, settings, raw output, no
 
 ## 5. Relationship to proof-obligation evaluation
 
-This corpus evaluates contract formalization only. Its six initial cases are not intended to cover the full space of proof obligations or backend behavior. The separate [Proof Obligation Benchmark](../PROOF-OBLIGATION-BENCHMARK.md) evaluates downstream obligation generation, backend planning, translation correspondence, verification, and evidence aggregation. Keep the two evaluation layers separate: a downstream proof cannot compensate for a semantically incorrect contract.
+This corpus evaluates contract formalization only. Its six initial cases are not intended to cover the full space of proof obligations or backend behavior. The separate [Proof Obligation Benchmark](../RT-33/PROOF-OBLIGATION-BENCHMARK.md) evaluates downstream obligation generation, backend planning, translation correspondence, verification, and evidence aggregation. Keep the two evaluation layers separate: a downstream proof cannot compensate for a semantically incorrect contract.
 
 ## 6. Versioning and limitations
 
@@ -82,4 +82,4 @@ No surface contract language, Contract DSL, Contract IR schema, proof backend, o
 
 ## 7. Planned RT-34 resource-contract extension
 
-[RT-34](../RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) and its [complexity benchmark plan](../RT-34-COMPLEXITY-BENCHMARK.md) propose new formalization cases with explicit size measures, cost models, worst/expected/amortized scopes and resource guarantees. CF-005 remains unchanged: functional sorting does not imply a complexity requirement. Include underspecified requests where clarification or abstention is correct, and mutations that preserve function behavior while violating a stated bound. Allocate new stable CF IDs when fixtures are independently adjudicated; no new executable coverage is claimed by this plan.
+[RT-34](../RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) and its [complexity benchmark plan](../RT-34/RT-34-COMPLEXITY-BENCHMARK.md) propose new formalization cases with explicit size measures, cost models, worst/expected/amortized scopes and resource guarantees. CF-005 remains unchanged: functional sorting does not imply a complexity requirement. Include underspecified requests where clarification or abstention is correct, and mutations that preserve function behavior while violating a stated bound. Allocate new stable CF IDs when fixtures are independently adjudicated; no new executable coverage is claimed by this plan.

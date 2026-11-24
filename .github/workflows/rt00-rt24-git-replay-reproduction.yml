@@ -6,7 +6,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/rt00-rt24-git-replay-reproduction.yml"
-      - "research/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md"
+      - "research/RT-24/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md"
       - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/**"
   workflow_dispatch:
 
@@ -52,7 +52,7 @@ jobs:
             python --version
             python -c 'import sys; print(sys.version)'
             git --version
-            sha256sum research/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md
+            sha256sum research/RT-24/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md
             sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_git_replay.py
             sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_merge_tree_gate.py
           } | tee artifacts/rt24-git-replay/environment-and-inputs.txt

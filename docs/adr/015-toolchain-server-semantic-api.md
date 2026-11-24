@@ -3,8 +3,8 @@
 - **Status:** Proposed; validation required before acceptance
 - **Date:** 2026-11-18
 - **Decision owners:** LLMLang project
-- **Related research:** [RT-19 — Toolchain Server and Semantic Development API](../../research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
-- **Related architecture:** [RFC — LLMLang Development Engine](../../research/RFC-DEVELOPMENT-ENGINE.md)
+- **Related research:** [RT-19 — Toolchain Server and Semantic Development API](../../research/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
+- **Related architecture:** [RFC — LLMLang Development Engine](../../research/RT-14/RFC-DEVELOPMENT-ENGINE.md)
 - **Related repository decision:** [ADR-014 — Git repository representation and semantic merge](014-git-semantic-merge.md)
 - **Related agent interchange decision:** [ADR-017 — Default object format for agent interaction through MCP](017-mcp-agent-object-format.md)
 

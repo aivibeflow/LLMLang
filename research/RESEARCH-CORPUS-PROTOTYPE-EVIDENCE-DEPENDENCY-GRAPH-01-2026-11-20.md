@@ -41,7 +41,7 @@ That observation is no longer a description of current main:
 - `QfLiaAdmissibility.lean` consumes the relational program and adapter separately.
 - `LLMLangLogosBinding.lean` owns the actual `Cpc.Parser` integration.
 
-The SCW-15 decoupling and adapter work is recorded as complete in [Scenario 34](RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) and was implemented in PR #41, with subsequent build/test coverage in PR #43 and the later PR #94 Logos-binding CI run. The old SCW-04 finding is retained as historical evidence; its current status is clarified by the addendum to that audit.
+The SCW-15 decoupling and adapter work is recorded as complete in [Scenario 34](RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) and was implemented in PR #41, with subsequent build/test coverage in PR #43 and the later PR #94 Logos-binding CI run. The old SCW-04 finding is retained as historical evidence; its current status is clarified by the addendum to that audit.
 
 This does **not** close the later source-derived CPC binding and parser-state identity obligations. Scenario 34 still leaves SCW-32 and related follow-up work open.
 

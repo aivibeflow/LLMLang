@@ -13,10 +13,10 @@ Turn the existing package-manifest, index and disk-backed traversal prototypes i
 Read:
 - [TODO.md](../../TODO.md), especially LL-009–012 and LL-021/022
 - [Draft Glossary](../../draft/GLOSSARY.md)
-- [Scenario 90 — runtime hashing](../RESEARCH-SCENARIO-90-RUNTIME-HASHING-DETERMINISM-AND-PERSISTENT-IDENTITY.md)
-- [Scenario 91 — versioned content addresses](../RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md)
-- [Scenario 92 — operation/implementation identity](../RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md)
-- [Scenario 93 — cache soundness and trust](../RESEARCH-SCENARIO-93-CACHE-SOUNDNESS-RESULT-ENVELOPES-AND-TRUST.md)
+- [Scenario 90 — runtime hashing](../RT-05/RESEARCH-SCENARIO-90-RUNTIME-HASHING-DETERMINISM-AND-PERSISTENT-IDENTITY.md)
+- [Scenario 91 — versioned content addresses](../RT-05/RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md)
+- [Scenario 92 — operation/implementation identity](../RT-05/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md)
+- [Scenario 93 — cache soundness and trust](../RT-11/RESEARCH-SCENARIO-93-CACHE-SOUNDNESS-RESULT-ENVELOPES-AND-TRUST.md)
 - [Research State](../RESEARCH-STATE-2026-11-19.md), Gate C and Wave C
 - Existing package and semantic-store prototype documentation linked from LL-022
 

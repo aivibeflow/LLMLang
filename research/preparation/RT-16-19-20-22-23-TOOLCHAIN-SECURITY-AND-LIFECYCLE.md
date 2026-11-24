@@ -13,12 +13,12 @@ The LLMLang Toolchain owns the transport-neutral semantic/workspace contract. An
 ## 2. Required documents
 
 Read as one cluster:
-- [RT-19 Toolchain Server and semantic development API](../RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
-- [RT-20 LLM patch planning and hash propagation](../RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
-- [RT-22 Git repository/worktree MCP surface](../RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md)
-- [RT-23 single-instance and multi-worktree model](../RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md)
-- [RT-24 semantic merge and identity reconciliation](../RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md)
-- [RT-16 threat model](../RT-16-THREAT-MODEL-01.md)
+- [RT-19 Toolchain Server and semantic development API](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
+- [RT-20 LLM patch planning and hash propagation](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
+- [RT-22 Git repository/worktree MCP surface](../RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md)
+- [RT-23 single-instance and multi-worktree model](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md)
+- [RT-24 semantic merge and identity reconciliation](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md)
+- [RT-16 threat model](../RT-16/RT-16-THREAT-MODEL-01.md)
 - [Draft Glossary](../../draft/GLOSSARY.md) before altering identity-bearing operation or evidence records.
 
 ## 3. Questions
