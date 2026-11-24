@@ -1,0 +1,66 @@
+{
+  "cases": {
+    "tcp_split_read": {
+      "application_bytes": 4,
+      "eventual_eof": true,
+      "first_read": "abcd",
+      "remaining_bytes": 12,
+      "remaining_contents": "efghijklmnop",
+      "sent": 16
+    },
+    "udp_competing_receive": {
+      "actual_receive": {
+        "copied": "abcd",
+        "reported_bytes": 16,
+        "truncated": true
+      },
+      "budget": 4,
+      "competing_receive": {
+        "copied": "abcd",
+        "reported_bytes": 4,
+        "truncated": false
+      },
+      "first_admitted": true,
+      "first_peeked": 4,
+      "original_invocation_dequeued_bytes": 16
+    },
+    "udp_peek_then_refuse": {
+      "admitted": false,
+      "budget": 4,
+      "later_full_receive": {
+        "copied": "abcdefghijklmnop",
+        "reported_bytes": 16,
+        "truncated": false
+      },
+      "peeked": 16,
+      "sent": 16,
+      "uncharged_pending_bytes": 16
+    },
+    "udp_report_full_length": {
+      "application_bytes": 4,
+      "queue_drained": true,
+      "receive": {
+        "copied": "abcd",
+        "reported_bytes": 16,
+        "truncated": true
+      },
+      "removed_datagram_bytes": 16,
+      "sent": 16
+    },
+    "udp_truncated": {
+      "application_bytes": 4,
+      "queue_drained": true,
+      "receive": {
+        "copied": "abcd",
+        "reported_bytes": 4,
+        "truncated": true
+      },
+      "removed_datagram_bytes": 16,
+      "sent": 16
+    }
+  },
+  "format": "rt26-linux-socket-budget/1",
+  "kernel_release": "6.18.57",
+  "machine": "x86_64",
+  "python": "3.12.14"
+}
