@@ -1,0 +1,280 @@
+{
+  "schema": "llmlang-cortex-m3-stack-v1",
+  "machine": "lm3s6965evb",
+  "paint_window_bytes": 128,
+  "steps_per_image": 14,
+  "source_sha256": {
+    "startup.s": "dea75a65935a992ae6076bc1df2aaa12f54f608a6fde0f31c6754b10cb7bbc72",
+    "step.ll": "9aad2599598df165a42bc1a3a4f3aeffb437082885068a038b8eb6cd45c0dd97",
+    "step.rs": "e86a221dd0860c283f2536f991ba6c3ea71df5d1b898f3db5138a5d1a287ee6b",
+    "inputs.json": "e59e21e596f2103e6ae6a1ea6270f050b922c1439d67db45608bb1c9c29609be",
+    "memory.ld": "5085ad0a4168a699d202d6f9af2caeced5d70ec5c0d44372cb16e5ea335b2ecb",
+    "closure-run.py": "5ec43ef68d29aaf7bc88bcbf7e97e46f59abdfa18dbb567897333d8a23092477",
+    "timer-run.py": "678465d92151d64b0adae27a16f7344015e54a7ed3914a99af97afa131519d05",
+    "timer.s": "645e1746f2a9bf01edc49722f372cee500e9280c2d8c3aece7552b2e355b5905",
+    "stack-run.py": "bbb3fb48f6e59cb280bb417738be29d477a8ed4591347ae17165404fc1d050db",
+    "stack_probe.s": "0a2ce13d67355631c9c0a81f1fa58a5a6b28c48f2584c5ed503cd858a68a1830",
+    "stack_model.py": "fe5baa36d31f101343c73cc318727fbaed5bd8c095b6c2cb3e96a416f375780f"
+  },
+  "tools": {
+    "objdump": "Debian LLVM version 19.1.7",
+    "llc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "images": {
+    "llvm-polling-a5a5a5a5": {
+      "image_sha256": "123d04eef7f118b4f869d9c3377dc89332e8236a59915ee2cce37d74929ff889",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 864,
+      "systick_vector": "0x1b3",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 8,
+        "armed_phase_bound": 8,
+        "entry_msp_depth": 0,
+        "padding": 0
+      },
+      "stack_watermark_bytes": 8,
+      "stack_top_to_handler_msp_bytes": 0,
+      "stacked_xpsr_alignment_bit": 0,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#00@08/00/00!"
+    },
+    "llvm-polling-5a5a5a5a": {
+      "image_sha256": "ff5f8bdb0143db812ef16cde2e25c32a3eac785c0e96d6411a7966a4ed28f94b",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 864,
+      "systick_vector": "0x1b3",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 8,
+        "armed_phase_bound": 8,
+        "entry_msp_depth": 0,
+        "padding": 0
+      },
+      "stack_watermark_bytes": 8,
+      "stack_top_to_handler_msp_bytes": 0,
+      "stacked_xpsr_alignment_bit": 0,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#00@08/00/00!"
+    },
+    "rust-polling-a5a5a5a5": {
+      "image_sha256": "38f11e2fc6bf806151c546714374216d76bf9610907e141f735d09de5ec986ed",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 860,
+      "systick_vector": "0x1b3",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 8,
+        "armed_phase_bound": 8,
+        "entry_msp_depth": 0,
+        "padding": 0
+      },
+      "stack_watermark_bytes": 8,
+      "stack_top_to_handler_msp_bytes": 0,
+      "stacked_xpsr_alignment_bit": 0,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#00@08/00/00!"
+    },
+    "rust-polling-5a5a5a5a": {
+      "image_sha256": "1e09a7b771f3053c0e96f2ea8df9764c9a53cba0bbccd121019cf8e479bd66d4",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 860,
+      "systick_vector": "0x1b3",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 8,
+        "armed_phase_bound": 8,
+        "entry_msp_depth": 0,
+        "padding": 0
+      },
+      "stack_watermark_bytes": 8,
+      "stack_top_to_handler_msp_bytes": 0,
+      "stacked_xpsr_alignment_bit": 0,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#00@08/00/00!"
+    },
+    "llvm-interrupt-a5a5a5a5": {
+      "image_sha256": "c0359bf45e1efeb1097e152483578f8cd3f494c63eeff6f0648eae1e4b03e7e6",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 876,
+      "systick_vector": "0x1bd",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 40,
+        "armed_phase_bound": 32,
+        "entry_msp_depth": 32,
+        "padding": 0
+      },
+      "stack_watermark_bytes": 32,
+      "stack_top_to_handler_msp_bytes": 32,
+      "stacked_xpsr_alignment_bit": 0,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e@20/20/00!"
+    },
+    "llvm-interrupt-5a5a5a5a": {
+      "image_sha256": "76f1656c82398c1f47b26acdab27e77bdaf8ef5d887ff2cb072b7402c98a68a1",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 876,
+      "systick_vector": "0x1bd",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 40,
+        "armed_phase_bound": 32,
+        "entry_msp_depth": 32,
+        "padding": 0
+      },
+      "stack_watermark_bytes": 32,
+      "stack_top_to_handler_msp_bytes": 32,
+      "stacked_xpsr_alignment_bit": 0,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e@20/20/00!"
+    },
+    "rust-interrupt-a5a5a5a5": {
+      "image_sha256": "39d20b51b87d5d1d72624b63aad3c62922dfed201d24df69067eadeaf44dd264",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 872,
+      "systick_vector": "0x1bd",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 40,
+        "armed_phase_bound": 32,
+        "entry_msp_depth": 32,
+        "padding": 0
+      },
+      "stack_watermark_bytes": 32,
+      "stack_top_to_handler_msp_bytes": 32,
+      "stacked_xpsr_alignment_bit": 0,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e@20/20/00!"
+    },
+    "rust-interrupt-5a5a5a5a": {
+      "image_sha256": "e39aa7bc8ce811b89459b80149642e3dc265caa81c95eb4865aedc66c8417d3a",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 872,
+      "systick_vector": "0x1bd",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 40,
+        "armed_phase_bound": 32,
+        "entry_msp_depth": 32,
+        "padding": 0
+      },
+      "stack_watermark_bytes": 32,
+      "stack_top_to_handler_msp_bytes": 32,
+      "stacked_xpsr_alignment_bit": 0,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e@20/20/00!"
+    },
+    "llvm-misaligned_interrupt-a5a5a5a5": {
+      "image_sha256": "83939a4d9d857ffaa6dde79ffbc8628daa98f4e75632ffa18f0cb0d64e370da4",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 880,
+      "systick_vector": "0x1c1",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 40,
+        "armed_phase_bound": 40,
+        "entry_msp_depth": 40,
+        "padding": 4
+      },
+      "stack_watermark_bytes": 40,
+      "stack_top_to_handler_msp_bytes": 40,
+      "stacked_xpsr_alignment_bit": 1,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e@28/28/01!"
+    },
+    "llvm-misaligned_interrupt-5a5a5a5a": {
+      "image_sha256": "5baccc7853a113b56d75a004204c999aa13612b5515fcdf5b2ccd49bfbb1335a",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 880,
+      "systick_vector": "0x1c1",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 40,
+        "armed_phase_bound": 40,
+        "entry_msp_depth": 40,
+        "padding": 4
+      },
+      "stack_watermark_bytes": 40,
+      "stack_top_to_handler_msp_bytes": 40,
+      "stacked_xpsr_alignment_bit": 1,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e@28/28/01!"
+    },
+    "rust-misaligned_interrupt-a5a5a5a5": {
+      "image_sha256": "b564b887917a643c253ad67628a9ddd57d3fc3e9801ee46a7cd4ff80b6317557",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 876,
+      "systick_vector": "0x1c1",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 40,
+        "armed_phase_bound": 40,
+        "entry_msp_depth": 40,
+        "padding": 4
+      },
+      "stack_watermark_bytes": 40,
+      "stack_top_to_handler_msp_bytes": 40,
+      "stacked_xpsr_alignment_bit": 1,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e@28/28/01!"
+    },
+    "rust-misaligned_interrupt-5a5a5a5a": {
+      "image_sha256": "480c8dd48e7d730c7525aae65ed380aa1ee2f69c4e806c66d031d385d5d8f37b",
+      "initial_stack": "0x20010000",
+      "reset_vector": "0x41",
+      "static_ram_bytes": 20,
+      "flash_extent_bytes": 876,
+      "systick_vector": "0x1c1",
+      "static_ram_end": "0x20000014",
+      "static_stack_model": {
+        "thread_max": 8,
+        "interrupt_local_max": 0,
+        "any_phase_bound": 40,
+        "armed_phase_bound": 40,
+        "entry_msp_depth": 40,
+        "padding": 4
+      },
+      "stack_watermark_bytes": 40,
+      "stack_top_to_handler_msp_bytes": 40,
+      "stacked_xpsr_alignment_bit": 1,
+      "trace": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e@28/28/01!"
+    }
+  }
+}
