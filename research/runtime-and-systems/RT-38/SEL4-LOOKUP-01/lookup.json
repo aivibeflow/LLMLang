@@ -1,0 +1,9 @@
+{
+  "profile": "rt38-capability-lookup-wrapper-v1",
+  "parameters": [["thread", "ThreadRef"], ["cptr", "CapabilityPointer"]],
+  "body": [
+    {"bind": "slot", "call": "lookup_slot", "args": ["thread", "cptr"], "on_error": "propagate"},
+    {"bind": "capability", "call": "read_slot_capability", "args": ["slot"]},
+    {"return": ["capability", "slot"]}
+  ]
+}

@@ -1,0 +1,39 @@
+false
+Started at Tue Nov 24 19:25:08 GMT 2026 (polyml-5.9.2_x86_64_32-linux on 8c93abd65af8)
+ISABELLE_TOOL_JAVA_OPTIONS="-Djava.awt.headless=true -Xms128m -Xmx1792m -Xss4m"
+ISABELLE_BUILD_OPTIONS="document_variants= threads=1"
+
+ML_PLATFORM="x86_64_32-linux"
+ML_HOME="/home/isabelle/Isabelle/contrib/polyml-5.9.2-2/x86_64_32-linux"
+ML_SYSTEM="polyml-5.9.2"
+ML_OPTIONS="-H 350 --maxheap 5800 --stackspace 64"
+
+Session Pure/Pure
+Session FOL/FOL
+Session Misc/Tools
+Session HOL/HOL (main)
+Session HOL/HOL-Cardinals (timing)
+Session HOL/HOL-Library (main timing)
+Session HOL/HOL-Combinatorics (main timing)
+Session HOL/HOL-Computational_Algebra (main timing)
+Session HOL/HOL-Algebra (main timing)
+Session HOL/HOL-Decision_Procs (timing)
+Session HOL/HOL-Real_Asymp
+Session HOL/HOL-Analysis (main timing)
+Session HOL/HOL-Eisbach
+Session Lib/ML_Utils (lib)
+Session Lib/Eisbach_Tools (lib)
+Session Lib/Monads (lib)
+Session Lib/Word_Lib (lib)
+Session Lib/Basics (lib)
+Session Lib/Lib (lib)
+Session Specifications/ExecSpec
+Session Unsorted/LLMLang_Lookup
+Running LLMLang_Lookup ...
+LLMLang_Lookup: theory LLMLang_Lookup.Lookup
+LLMLang_Lookup: theory LLMLang_Lookup.Lookup 100% (1.552s cumulated time)
+Timing LLMLang_Lookup (1 threads, 2.072s elapsed time, 1.396s cpu time, 0.030s GC time, factor 0.67)
+Finished LLMLang_Lookup (0:00:05 elapsed time, 0:00:03 cpu time, factor 0.66)
+
+Finished at Tue Nov 24 19:25:30 GMT 2026
+0:00:22 elapsed time, 0:00:03 cpu time, factor 0.18
