@@ -1,5 +1,7 @@
 # Research management and audits
 
+- [Post-evidence exact inventory reconciliation](RT-00/RT-00-A-POST-THEMATIC-INVENTORY-REFRESH-2026-11-24.md)
+
 [Research index](../README.md) · [Research taxonomy](RESEARCH-TAXONOMY.md) · [Dependency map](RESEARCH-DEPENDENCY-MAP.md)
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
