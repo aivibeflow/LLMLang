@@ -1,0 +1,105 @@
+{
+  "adapter_sha256": "92d842f0508ff02fe6b0730c887b9ddf79ace5c17b065e171ba82f4ba601ee92",
+  "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "format": "rt13-native-owned-abi/1",
+  "provider_sha256": "8f25687765500cdd6d957baf7b3b22a2f6c36960341e6f70111ead5b5ec577ba",
+  "provider_symbols": [
+    "rt_acquire",
+    "rt_begin",
+    "rt_finish",
+    "rt_release"
+  ],
+  "python": "3.12.14",
+  "runs": {
+    "forwarding/after_cleanup/O0": {
+      "generated_rust_sha256": "a05cc2a7c93ef455156872775c00c2b8289cd40cf470f596260b197be0b85255",
+      "physical_split_pairs": 2860,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 2576,
+      "trace_and_audit_sha256": "02da91805a07b95cb30219d0ab5d44aa6969521d122bd15d36a5303668d0b38f"
+    },
+    "forwarding/after_cleanup/O3": {
+      "generated_rust_sha256": "a05cc2a7c93ef455156872775c00c2b8289cd40cf470f596260b197be0b85255",
+      "physical_split_pairs": 2860,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 2576,
+      "trace_and_audit_sha256": "02da91805a07b95cb30219d0ab5d44aa6969521d122bd15d36a5303668d0b38f"
+    },
+    "forwarding/before_cleanup/O0": {
+      "generated_rust_sha256": "c9fef475504e43049579adb2591c231cd862ba8bda9859b12291c9974b373659",
+      "physical_split_pairs": 2420,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 1856,
+      "trace_and_audit_sha256": "fcade2a8fc65a4ef18fb863d48560960187e40364a208f1c53ded99128f3300b"
+    },
+    "forwarding/before_cleanup/O3": {
+      "generated_rust_sha256": "c9fef475504e43049579adb2591c231cd862ba8bda9859b12291c9974b373659",
+      "physical_split_pairs": 2420,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 1856,
+      "trace_and_audit_sha256": "fcade2a8fc65a4ef18fb863d48560960187e40364a208f1c53ded99128f3300b"
+    },
+    "recovery/after_cleanup/O0": {
+      "generated_rust_sha256": "3395292656693d94a0769e7ad6d2796226234d55f7eb4deb46f4b261a9898c99",
+      "physical_split_pairs": 3135,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 2996,
+      "trace_and_audit_sha256": "66b753c67945627718f185978f4d478c5cb6b3bfd0706d598a958eb41b204c4c"
+    },
+    "recovery/after_cleanup/O3": {
+      "generated_rust_sha256": "3395292656693d94a0769e7ad6d2796226234d55f7eb4deb46f4b261a9898c99",
+      "physical_split_pairs": 3135,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 2996,
+      "trace_and_audit_sha256": "66b753c67945627718f185978f4d478c5cb6b3bfd0706d598a958eb41b204c4c"
+    },
+    "recovery/before_cleanup/O0": {
+      "generated_rust_sha256": "10ffab31b46930c0024abbdefa3c3a92a05dc066668c8857ccdfeecfb072353f",
+      "physical_split_pairs": 3025,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 2816,
+      "trace_and_audit_sha256": "bd133b481965830cb10d21494e9cec4de49785de52fd96c81d641c88b60f3e03"
+    },
+    "recovery/before_cleanup/O3": {
+      "generated_rust_sha256": "10ffab31b46930c0024abbdefa3c3a92a05dc066668c8857ccdfeecfb072353f",
+      "physical_split_pairs": 3025,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 2816,
+      "trace_and_audit_sha256": "bd133b481965830cb10d21494e9cec4de49785de52fd96c81d641c88b60f3e03"
+    },
+    "retargeted/after_cleanup/O0": {
+      "generated_rust_sha256": "5953819339149bbb96c5eb8e72338742b3c28e933da592e2c7d5c101b8e51520",
+      "physical_split_pairs": 3135,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 2590,
+      "trace_and_audit_sha256": "e68ba9cdaf87e626e454a2c9c765d808972a7392ba697510972168f3a8cf8342"
+    },
+    "retargeted/after_cleanup/O3": {
+      "generated_rust_sha256": "5953819339149bbb96c5eb8e72338742b3c28e933da592e2c7d5c101b8e51520",
+      "physical_split_pairs": 3135,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 2590,
+      "trace_and_audit_sha256": "e68ba9cdaf87e626e454a2c9c765d808972a7392ba697510972168f3a8cf8342"
+    },
+    "retargeted/before_cleanup/O0": {
+      "generated_rust_sha256": "ce317e298e6f04672ffe98596959384e94e31ea45ae0b585f5dcad24df153612",
+      "physical_split_pairs": 3025,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 2368,
+      "trace_and_audit_sha256": "0c1c2599ff1fcbe1b9f212b8bdbace7970ad41925c67af7dec4cc71d415330e7"
+    },
+    "retargeted/before_cleanup/O3": {
+      "generated_rust_sha256": "ce317e298e6f04672ffe98596959384e94e31ea45ae0b585f5dcad24df153612",
+      "physical_split_pairs": 3025,
+      "rows": 20992,
+      "second_starts_per_physical_mode": 2368,
+      "trace_and_audit_sha256": "0c1c2599ff1fcbe1b9f212b8bdbace7970ad41925c67af7dec4cc71d415330e7"
+    }
+  },
+  "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)",
+  "status_only_control": {
+    "different_rows": 9680,
+    "rows": 20992,
+    "variant": "retargeted/after_cleanup/O3"
+  }
+}
