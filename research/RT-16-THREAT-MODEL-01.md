@@ -101,3 +101,7 @@ The model constrains authority claims in RT-19 and RT-20. It does not determine 
 Additional candidate threats: namespace impersonation/reuse, unauthorized publication or provider rebinding, signature-compatible malicious provider, stale/forged refinement evidence, downgrade to a weaker public revision, hidden dynamic resolution and private-contract leakage. Require scoped publisher/binder authority, pinned revisions, independent evidence validation, complete target/dependency closure, explicit migration and audit trails. A public name, registry hit, content hash or successful signature check is not a trust grant. Add adversarial controls; existing authorization measurements do not validate these cases.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## Explicit assumptions and conditional verification (RT-36; proposed)
+
+Threats include unauthorized trust grants, hidden axioms, contradictory premises, forged evidence, stale/substituted native artifacts and assumption laundering. Separate claim, authorization, checker evidence and policy gate; audit and revoke at exact scope. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.

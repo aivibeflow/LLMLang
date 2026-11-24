@@ -940,6 +940,10 @@ The trust boundary must be documented. At minimum, it includes the proof checker
 A proof of a model does not in itself prove the correctness of native code, the compiler, the runtime, the operating system, or the hardware. Every guarantee must state which links in the chain are proved, independently checked, or still trusted.
 
 
+### 18A.9. Explicit assumptions and conditional proof management (research proposal)
+
+[RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) investigates first-class typed assumptions and exact foreign-provider bindings, explicit trust authorization, property-specific dependency closure, discharge/revocation and separate proof outcome, closure, freshness and admission. A locally checked proof under a declared foreign contract does not prove that implementation; policy can allow conditional use without granting unconditional proof status. This candidate extension reconciles §18A.6 with RT-32/33 and does not redefine existing statuses before adoption.
+
 ## 19. Main Open Questions
 
 The following decisions have not yet been made and require separate design work.
