@@ -1,0 +1,46 @@
+{
+  "profile": {
+    "id": "transition-state-tlc-v1",
+    "release": "tlaplus/tlaplus v1.8.0",
+    "jar_sha256": "fdffef247f563ef6edbfd44958d2a82db79e7564e07cb673262d896353fa6713",
+    "timeout_seconds": 30,
+    "obligation": "state at each action boundary for fixed initial registers and trace",
+    "unsupported": [
+      "effects",
+      "invariants beyond state equality",
+      "noninterference",
+      "symbolic inputs",
+      "unbounded traces",
+      "liveness",
+      "regular-infinite domains"
+    ]
+  },
+  "status": "bounded-comparison",
+  "error": null,
+  "cases": 798,
+  "expected_distinct_prefix_states": 2778,
+  "observations": {
+    "equal": 712,
+    "different": 86
+  },
+  "source_sha256": {
+    "Cases": "161220e50714e85805d1fe96b8598f14390a0c3482216e192166163e0e9de074",
+    "FinalOnly": "b1ede8cb3580e82782efed7c66e086756a2035ee6dfbf1b7d1f189bb1ea11705",
+    "FalseClaim": "bdd161297a3705e47c176f407535ae71043d2ab66831fce4f0710118caa2bf9b"
+  },
+  "checks": {
+    "complete_prefix_graph": true,
+    "weakened_observation_agrees": true,
+    "incorrect_full_claim_replayed": true
+  },
+  "comparisons": {
+    "smt": {
+      "matches": true,
+      "observations_sha256": "bfbad3ebff85bdda5d832bb04e3efdf21ebcdbe11029ab1c50d7b7bd0f7bd3e4"
+    },
+    "lean": {
+      "matches": true,
+      "observations_sha256": "c7b75d69b8b5751dd41ffa3042838b500188c057b127c6548b2bffa8c94af5cd"
+    }
+  }
+}
