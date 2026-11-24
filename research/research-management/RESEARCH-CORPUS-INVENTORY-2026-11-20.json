@@ -5,9 +5,9 @@
   "revision": "b347719bfcb27813b181e52af52e5474debcf65b",
   "source": "Exact research path, blob and byte inventory for the rebased current main and selected Stage 0.2 report-structure recheck, excluding the inventory manifest itself.",
   "counts": {
-    "research_files": 952,
-    "research_artifacts_excluding_manifest": 952,
-    "markdown_files": 450,
+    "research_files": 953,
+    "research_artifacts_excluding_manifest": 953,
+    "markdown_files": 451,
     "mdx_files": 3,
     "python_files": 283,
     "lean_source_files": 55,
@@ -17,7 +17,7 @@
     "taxonomy_research_areas": 38,
     "dependency_edges": 264,
     "category_counts": {
-      "audit-or-review-report": 101,
+      "audit-or-review-report": 102,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 49,
       "external-source-snapshot-or-license": 13,
@@ -18984,19 +18984,23 @@
     },
     {
       "path": "research/research-management/RT-00/RT-00-REPORT-STRUCTURE-RECHECK-2026-11-24.md",
-      "git_blob_sha": "b0fc4fd0decfc629f14fd012aef198c21d29f19d",
+      "git_blob_sha": "57bd4b62a38c1a4ba8ba67f0bdb0f664b7b4ce11",
       "size_bytes": 5277,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
-          "RT-00"
+          "PLAN.md §0.2"
         ],
-        "method": "Five-report structural crosswalk against proposed Stage 0.2 schema; individually role reviewed.",
-        "confidence": "medium"
+        "method": "bounded crosswalk against the proposed minimum report schema",
+        "confidence": "high"
       },
       "plan_stages": [
         0
-      ]
+      ],
+      "semantic_review": {
+        "status": "selected-report-structural-review",
+        "basis": "Five recent implementation studies; no corpus-wide claim validation."
+      }
     },
     {
       "path": "research/research-management/RT-00/RT-00-REPRODUCTION-BOUNDARY-RECHECK-2026-11-24.md",
@@ -23693,7 +23697,7 @@
     "archived_manifest_git_blob": "991cd1fa44a09528a1b63fdce4aceb80cb006b00",
     "baseline_artifacts_excluding_manifest": 839,
     "previous_records": 786,
-    "current_records": 840,
+    "current_records": 841,
     "mapped_relocations": 501,
     "new_role_records": [
       "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCpcCertificate.lean",
@@ -23743,6 +23747,7 @@
       "research/research-management/RT-00/RT-00-QUALITY-RULES-PROOF-CHAIN-REPLAY-2026-11-24.md",
       "research/research-management/RT-00/RT-00-QUALITY-RULES-QUEUE-RELOCATION-2026-11-24.json",
       "research/research-management/RT-00/RT-00-QUALITY-RULES-QUEUE-RELOCATION-2026-11-24.md",
+      "research/research-management/RT-00/RT-00-REPORT-STRUCTURE-RECHECK-2026-11-24.md",
       "research/runtime-and-systems/README.md",
       "research/runtime-and-systems/RT-37/README.md",
       "research/runtime-and-systems/RT-38/README.md",
