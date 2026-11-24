@@ -280,6 +280,8 @@ RT-19’s storage contract and transaction-boundary rechecks distinguish immutab
 
 The SCW-34 extension proof refines DEP-007 and RT-36's upstream trust boundary. Exact typed overlays preserve well-formedness. The unconditional existence result consumes a pinned theorem with a native computation axiom. [Logos model extension](../formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md)
 
+The isolated model witness rebuild shows that a kernel proof of empty-language canonicity removes the native axiom from unconditional model existence in DEP-007. Adopting the replacement and auditing full verdict soundness remain open for RT-36. [Logos kernel model witness](../formal-verification/RT-07/RT-07-LOGOS-KERNEL-MODEL-WITNESS-2026-11-24.md)
+
 The SCW-32 reverse theorem extends DEP-007 to every admitted concrete pair after parser table validation. Revaluing existing declarations preserves their SMT identities and the canonical query's interpretation. [Logos concrete-pair lifting](../formal-verification/RT-07/RT-07-LOGOS-CONCRETE-PAIR-LIFTING-2026-11-24.md)
 
 The SCW-34 source refutation theorem proves the DEP-007 implication from a sound verdict for the actual parsed assumptions to equality of source observations. The verdict soundness theorem and well-formed base model are explicit premises. [Logos source refutation composition](../formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md)

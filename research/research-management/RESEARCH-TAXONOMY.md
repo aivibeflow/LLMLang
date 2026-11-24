@@ -31,6 +31,8 @@ The [single-kernel program theorem](../formal-verification/RT-07/RT-07-LOGOS-SIN
 
 The [Logos model extension audit](../formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md) connects the RT-07 interpretation theorem to upstream model existence and locates the additional proof trust dependency tracked by RT-36.
 
+The [kernel model witness](../formal-verification/RT-07/RT-07-LOGOS-KERNEL-MODEL-WITNESS-2026-11-24.md) checks an upstream proof replacement that removes that dependency from the SCW-34 model-existence theorem in an isolated build.
+
 The [concrete-pair lifting theorem](../formal-verification/RT-07/RT-07-LOGOS-CONCRETE-PAIR-LIFTING-2026-11-24.md) connects the RT-07 source valuation to the RT-32 exact parsed assumptions in the reverse direction after parser table validation.
 
 The [conditional Logos refutation](../formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md) connects a runtime `correct` verdict to the RT-07 source nondependence claim under explicit upstream proof and model premises tracked by RT-36.
