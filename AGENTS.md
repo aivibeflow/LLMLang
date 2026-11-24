@@ -25,7 +25,7 @@ For every new or materially revised research document:
 
 If an agent presents a substantive research diagram or explanation in a chat or PR summary, it MUST ensure that the corresponding durable research material includes an equivalent representation or a link to it. A summary may be shorter than the repository version. Do not claim that a visualization is committed when it exists only in a conversation.
 
-See [research index](research/README.md), [research quality review protocol](research/QUALITY-REVIEW-PROTOCOL.md), [research report template](research/templates/REPORT-TEMPLATE.md), and [contributing guide](CONTRIBUTING.md) for existing context. These documentation instructions do not themselves adopt any separate proposed quality protocol or change a research decision's status.
+See [research index](research/README.md), [research quality review protocol](research/research-management/QUALITY-REVIEW-PROTOCOL.md), [research report template](research/templates/REPORT-TEMPLATE.md), and [contributing guide](CONTRIBUTING.md) for existing context. These documentation instructions do not themselves adopt any separate proposed quality protocol or change a research decision's status.
 
 ## Research directory organization
 

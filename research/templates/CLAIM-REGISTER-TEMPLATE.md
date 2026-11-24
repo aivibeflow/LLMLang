@@ -1,7 +1,7 @@
 # Claim and proposed-decision traceability template
 
 **Status:** Blank research aid; not an accepted LLMLang decision  
-**Related:** [Research Quality Review Protocol](../QUALITY-REVIEW-PROTOCOL.md), [quality-rule study](../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md)
+**Related:** [Research Quality Review Protocol](../research-management/QUALITY-REVIEW-PROTOCOL.md), [quality-rule study](../research-management/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md)
 
 Use **one primary evidence class** per material claim; a supporting class may be separately noted. **Recommendation**, **proposed decision**, and **accepted decision** are different from empirical proof strength. Small single-claim scenarios may use an inline equivalent instead of a full table.
 

@@ -4,7 +4,7 @@
 **Date:** 2026-11-18  
 **Priority:** P0  
 **Related research:** RT-02, identity Studies 05–08 (formerly grouped under the RT-05 research area), RT-06, RT-08, RT-14, RT-15, RT-19  
-**Related documents:** [Development Engine RFC](../RT-14/RFC-DEVELOPMENT-ENGINE.md), [RT-19 — Toolchain Server and Semantic Development API](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [ADR-015](../../../docs/adr/015-toolchain-server-semantic-api.md), [Research dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
+**Related documents:** [Development Engine RFC](../RT-14/RFC-DEVELOPMENT-ENGINE.md), [RT-19 — Toolchain Server and Semantic Development API](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [ADR-015](../../../docs/adr/015-toolchain-server-semantic-api.md), [Research dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 > This document records workflow requirements and a candidate algorithm derived from the RT-20 design discussion. It is a research proposal. It does not settle the canonical SPG schema, hash envelope, call-graph semantics, or commit policy, and it does not change the Proposed status of ADR-015.
 

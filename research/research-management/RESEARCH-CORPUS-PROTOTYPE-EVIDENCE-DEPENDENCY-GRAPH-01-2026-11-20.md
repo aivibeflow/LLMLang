@@ -31,7 +31,7 @@ This graph is based on the current imports and declarations, not on directory pl
 
 ## 3. SCW-04: historical audit finding and current disposition
 
-The [SCW-04 module-boundary audit](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-04-MODULE-BOUNDARY-AUDIT.md) was written before the SCW-15 decoupling work. Its original observation—that relational proofs directly depended on `LogosBinding.QueryTerm` and the external parser integration—was accurate for the source state it audited.
+The [SCW-04 module-boundary audit](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-04-MODULE-BOUNDARY-AUDIT.md) was written before the SCW-15 decoupling work. Its original observation—that relational proofs directly depended on `LogosBinding.QueryTerm` and the external parser integration—was accurate for the source state it audited.
 
 That observation is no longer a description of current main:
 
@@ -41,13 +41,13 @@ That observation is no longer a description of current main:
 - `QfLiaAdmissibility.lean` consumes the relational program and adapter separately.
 - `LLMLangLogosBinding.lean` owns the actual `Cpc.Parser` integration.
 
-The SCW-15 decoupling and adapter work is recorded as complete in [Scenario 34](formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) and was implemented in PR #41, with subsequent build/test coverage in PR #43 and the later PR #94 Logos-binding CI run. The old SCW-04 finding is retained as historical evidence; its current status is clarified by the addendum to that audit.
+The SCW-15 decoupling and adapter work is recorded as complete in [Scenario 34](../formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) and was implemented in PR #41, with subsequent build/test coverage in PR #43 and the later PR #94 Logos-binding CI run. The old SCW-04 finding is retained as historical evidence; its current status is clarified by the addendum to that audit.
 
 This does **not** close the later source-derived CPC binding and parser-state identity obligations. Scenario 34 still leaves SCW-32 and related follow-up work open.
 
 ## 4. SCW-05 declaration-context breakdown
 
-The [SCW-05 declaration-context breakdown](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-05-DECLARATION-CONTEXT-BREAKDOWN.md) still says `In progress` and leaves all seven tasks unchecked. This conflicts with Scenario 34 §7, which records SCW-05 as complete, and with the current source:
+The [SCW-05 declaration-context breakdown](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SCW-05-DECLARATION-CONTEXT-BREAKDOWN.md) still says `In progress` and leaves all seven tasks unchecked. This conflicts with Scenario 34 §7, which records SCW-05 as complete, and with the current source:
 
 - `SourceSyntax.lean` defines stable `VariableId`, `DeclarationRole`, declaration sort, and `DeclarationContext` lookup.
 - `SourceCoreTests.lean` checks identity-based lookup and declaration properties.

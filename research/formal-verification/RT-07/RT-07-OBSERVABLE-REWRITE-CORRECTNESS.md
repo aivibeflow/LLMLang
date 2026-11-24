@@ -30,7 +30,7 @@ The executable pass folds literal addition, removes a pure integer zero on eithe
 
 A language-level rule needs an observation relation before it can inherit this argument. In particular, the mathematical integer model omits machine overflow and the event list omits state, cleanup, calls, concurrency, and resource consumption. The pass has no proof of binding to source programs, a serialized SPG, or compiled artifacts. Lean 4.36.0 checked all three named theorems with its standard `propext`, `Classical.choice`, and `Quot.sound` assumptions. The checks use no solver results or admitted theorems.
 
-The result provides a proof shape for source and graph rewrites with ordered observations. Per-artifact translation validation and backend differential tests remain useful at their own boundaries. RT-03 supplies the observation relation, RT-04 determines which effects and resource states need to appear in it, and RT-09 needs a separate relation through lowering. [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
+The result provides a proof shape for source and graph rewrites with ordered observations. Per-artifact translation validation and backend differential tests remain useful at their own boundaries. RT-03 supplies the observation relation, RT-04 determines which effects and resource states need to appear in it, and RT-09 needs a separate relation through lowering. [Dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 

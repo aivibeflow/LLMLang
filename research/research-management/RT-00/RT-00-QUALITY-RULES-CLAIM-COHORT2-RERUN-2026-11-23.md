@@ -18,7 +18,7 @@ A 24-claim review establishes that material assertions can be located in immutab
 
 Alternatives: use today's moving main (does not preserve the audited claim source); use the original historical author workstation (unavailable, no original state attested); or run the fixed archived commit, verify the exact tests' Git hashes, record the new toolchain/host and retain explicit scope boundaries. The workflow uses the third option.
 
-Prior research: [Scenario 110](../../packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md), [Scenario 112](../../runtime-and-systems/RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md) and [RT-24 source completeness](../../toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md). The [quality protocol](../../QUALITY-REVIEW-PROTOCOL.md) still requires a human scientific reviewer before treating tests as accepted design evidence.
+Prior research: [Scenario 110](../../packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md), [Scenario 112](../../runtime-and-systems/RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md) and [RT-24 source completeness](../../toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md). The [quality protocol](../QUALITY-REVIEW-PROTOCOL.md) still requires a human scientific reviewer before treating tests as accepted design evidence.
 
 ## 2. Executable method and reproducibility
 

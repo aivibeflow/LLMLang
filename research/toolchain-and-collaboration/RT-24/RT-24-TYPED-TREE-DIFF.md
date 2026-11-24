@@ -26,7 +26,7 @@ The result carries an identity tied to the ordered semantic roots and a separate
 | Replace a declaration ID within one slot | Reports replacement without claiming edge continuity across it. |
 | Candidate tree depends on a former version absent from its source | Import fails before diff. The result cannot be misread as an empty change set. |
 
-The results favor separating semantic diff from physical evidence and pairing edges only under a declared selection policy. The fixture does not infer lineage or classify split/merge, graph roots versus internal references, external dependency locks, mapping changes, or arbitrary source-derived call completeness. RT-20 compatibility and impact dispositions remain separate. [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
+The results favor separating semantic diff from physical evidence and pairing edges only under a declared selection policy. The fixture does not infer lineage or classify split/merge, graph roots versus internal references, external dependency locks, mapping changes, or arbitrary source-derived call completeness. RT-20 compatibility and impact dispositions remain separate. [Dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 

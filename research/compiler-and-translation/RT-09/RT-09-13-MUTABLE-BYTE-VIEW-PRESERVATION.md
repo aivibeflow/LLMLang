@@ -26,7 +26,7 @@ All four LLVM and C++ builds agree with the Python oracle at O0 and O3. Each bui
 
 The negative control adds LLVM `noalias` to the write argument. The test deliberately supplies overlapping physical bytes through different legal source views. LLVM accepts the IR. At O0 the observed pair is `(33, 201)`. At O3 it is `(33, 33)`, while status and final memory still agree with the source contract. The supplied attribute is invalid for this execution. The O3 observation demonstrates why validating only the IR, error code, or final state would miss a broken lowering. It does not predict behavior for other inputs to the invalid IR.
 
-Use the conservative lowering as the comparison baseline in this fixture. A specialized path needs a separate proof or checked predicate for its aliasing precondition. RT-03 defines the observation order, RT-04 constrains permissible overlap, RT-09 must carry those rules through the checked IR, and RT-13 compares target observations. Broader allocator provenance, lifetimes, concurrency, ownership, target coverage, and compiler selection remain open. [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
+Use the conservative lowering as the comparison baseline in this fixture. A specialized path needs a separate proof or checked predicate for its aliasing precondition. RT-03 defines the observation order, RT-04 constrains permissible overlap, RT-09 must carry those rules through the checked IR, and RT-13 compares target observations. Broader allocator provenance, lifetimes, concurrency, ownership, target coverage, and compiler selection remain open. [Dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 

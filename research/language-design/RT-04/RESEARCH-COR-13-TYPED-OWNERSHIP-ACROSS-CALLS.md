@@ -70,7 +70,7 @@ Use finite exhaustive combinations for the two cleanup-failure flags, both retur
 
 If the prototype yields a stable envelope and caller obligation, update COR-13 and the option matrix. If not, preserve the counterexample and extend the semantic decision rather than generalizing from the existing cleanup projection.
 
-This follow-up is a discriminator for Gate A in [Research State 2026-11-19](../../RESEARCH-STATE-2026-11-19.md); it does not select a return policy.
+This follow-up is a discriminator for Gate A in [Research State 2026-11-19](../../research-management/RESEARCH-STATE-2026-11-19.md); it does not select a return policy.
 
 ## 7. Current bounded results
 

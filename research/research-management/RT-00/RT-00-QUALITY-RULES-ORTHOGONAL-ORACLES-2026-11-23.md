@@ -18,7 +18,7 @@ The three original test suites in [PR #381](https://github.com/aivibeflow/LLMLan
 
 **Alternatives:** Re-run original tests only (no distinct oracle); compare source text for equality (does not establish semantics); or implement separate model-level oracles plus falsifying negative controls. We use the last, without claiming that matching two implementations proves all production semantics.
 
-**Prior-art inputs:** [Scenario 110](../../packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md), [Scenario 112](../../runtime-and-systems/RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md), [RT-24 merged-tree gate](../../toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md), [first evidence-shape and decision rules](../../QUALITY-REVIEW-PROTOCOL.md).
+**Prior-art inputs:** [Scenario 110](../../packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md), [Scenario 112](../../runtime-and-systems/RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md), [RT-24 merged-tree gate](../../toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md), [first evidence-shape and decision rules](../QUALITY-REVIEW-PROTOCOL.md).
 
 ## 2. Fixed model and executable methods
 

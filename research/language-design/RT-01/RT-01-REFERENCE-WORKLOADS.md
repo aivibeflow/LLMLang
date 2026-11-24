@@ -4,7 +4,7 @@
 
 ## 1. What the workloads must distinguish
 
-The [LLMLang concept](LLMLang-CONCEPT.md) and [Development Engine RFC](../../toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md) motivate different kinds of work. Someone writing a small utility needs a short path from specification to executable. An author changing a shared library needs to know which consumers and evidence are affected. A maintainer accepting an agent-generated change needs to reproduce the checks and decide whether to authorize it. The [option matrix](../../RESEARCH-OPTION-MATRIX-01.md) evaluates these outcomes alongside the feasibility of interpreter/VM and native targets.
+The [LLMLang concept](LLMLang-CONCEPT.md) and [Development Engine RFC](../../toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md) motivate different kinds of work. Someone writing a small utility needs a short path from specification to executable. An author changing a shared library needs to know which consumers and evidence are affected. A maintainer accepting an agent-generated change needs to reproduce the checks and decide whether to authorize it. The [option matrix](../../research-management/RESEARCH-OPTION-MATRIX-01.md) evaluates these outcomes alongside the feasibility of interpreter/VM and native targets.
 
 | Representative task | Acceptance evidence | Current evidence and next comparison |
 |---|---|---|

@@ -95,4 +95,4 @@ No output format, message style, or repair authority is selected by this study.
 - Denny et al., [Error Message Readability and Novice Debugging Performance](https://doi.org/10.1145/3341525.3387384), ITiCSE 2020.
 - Becker et al., [Compiler Error Messages Considered Unhelpful: The Landscape of Text-Based Programming Error Message Research](https://doi.org/10.1145/3344429.3372508), ITiCSE-WGR 2019.
 - [Not the Silver Bullet: LLM-enhanced Programming Error Messages are Ineffective in Practice](https://arxiv.org/abs/2409.18661), UKICER 2024.
-- LLMLang [Scenario 87](../../language-design/RT-31/RESEARCH-SCENARIO-87-ASYNC-AWAIT-PARSER-DIAGNOSTIC-CORPUS.md), [Scenario 60](../../language-design/RT-04/RESEARCH-SCENARIO-60-TYPE-INFERENCE-SCOPE-AND-ANNOTATIONS.md), and [Research Option Matrix 01](../../RESEARCH-OPTION-MATRIX-01.md).
+- LLMLang [Scenario 87](../../language-design/RT-31/RESEARCH-SCENARIO-87-ASYNC-AWAIT-PARSER-DIAGNOSTIC-CORPUS.md), [Scenario 60](../../language-design/RT-04/RESEARCH-SCENARIO-60-TYPE-INFERENCE-SCOPE-AND-ANNOTATIONS.md), and [Research Option Matrix 01](../../research-management/RESEARCH-OPTION-MATRIX-01.md).

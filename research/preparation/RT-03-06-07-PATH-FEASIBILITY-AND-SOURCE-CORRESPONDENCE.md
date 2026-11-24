@@ -13,8 +13,8 @@ Prepare the next evidence step from finite path experiments to source-bound, fai
 Read:
 - [Scenarios 98–108](../semantic-representation/RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) for finite AST path coverage, repeated predicates, finite feasibility, DPLL2 comparison, UNKNOWN/timeout, mutation identity, call summaries and aliases.
 - [Scenario 34 — source-to-query correspondence](../formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md), including its SCW task ledger.
-- [Research State](../RESEARCH-STATE-2026-11-19.md), especially the RT-06/07 unresolved areas and Gate A.
-- [Research Dependency Map](../RESEARCH-DEPENDENCY-MAP.md), especially solver-negative evidence and dependency completeness.
+- [Research State](../research-management/RESEARCH-STATE-2026-11-19.md), especially the RT-06/07 unresolved areas and Gate A.
+- [Research Dependency Map](../research-management/RESEARCH-DEPENDENCY-MAP.md), especially solver-negative evidence and dependency completeness.
 
 Scenario 34 records the checked Int/Bool expression core, command and observation preservation, and the Lean relational compiler. SCW-26–28 prove that the formula is satisfiable exactly when an admitted pair differs at the selected input and in the final return or selected state. SCW-29 and SCW-30 prove that the lowered formula belongs to the strict QF_LIA profile and that every symbol has a unique declaration of its sort and source role. JSON and proof checker correspondence remain open in SCW-31–34. [Scenario 34](../formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
 

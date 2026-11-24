@@ -1,7 +1,7 @@
 # Research Quality Review Protocol (proposed pilot)
 
 **Status:** Proposed Stage 0.2 research-documentation process; not accepted policy  
-**Research item:** [PLAN.md §0.2](../PLAN.md#02-establish-research-quality-and-decision-rules), [issue #285](https://github.com/aivibeflow/LLMLang/issues/285)  
+**Research item:** [PLAN.md §0.2](../../PLAN.md#02-establish-research-quality-and-decision-rules), [issue #285](https://github.com/aivibeflow/LLMLang/issues/285)  
 **Baseline reviewed:** `main` at `99151528f8bcc51ffccb6eaee8213acb0f9905c9` (2026-11-23)  
 **Scope:** First-party research reports and proposed changes to candidate specifications; no LLMLang semantic rule is selected
 
@@ -13,13 +13,13 @@
 
 **Hypothesis H2 (untested):** Warning-only structural checks can detect missing minimum fields without forcing unrelated historical reports into a new outline.
 
-**Alternatives:** (A) retroactively rewrite all reports; (B) manual review only; (C) warning-first templates for new reports and targeted review of high-impact existing reports. [Rollout comparison](research-management/RT-00/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) recommends C provisionally. [Evidence-shape comparison](research-management/RT-00/RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) favors common minimum metadata with evidence-specific attachments. Neither is an accepted policy.
+**Alternatives:** (A) retroactively rewrite all reports; (B) manual review only; (C) warning-first templates for new reports and targeted review of high-impact existing reports. [Rollout comparison](RT-00/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) recommends C provisionally. [Evidence-shape comparison](RT-00/RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) favors common minimum metadata with evidence-specific attachments. Neither is an accepted policy.
 
-**Prior art within LLMLang:** [Quality-rule proposal](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), [preparation pack](preparation/README.md), [research taxonomy](RESEARCH-TAXONOMY.md), [open questions](../TODO.md), [draft boundary](../draft/README.md).
+**Prior art within LLMLang:** [Quality-rule proposal](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), [preparation pack](../preparation/README.md), [research taxonomy](RESEARCH-TAXONOMY.md), [open questions](../../TODO.md), [draft boundary](../../draft/README.md).
 
 ## 2. Report structure and conditional model
 
-New substantive reports should expose **problem/question, hypotheses, prior art, alternatives, formal model/assumptions, experiments/method, results, limitations, decision boundary, and draft impact**. Combine headings for concise studies, but preserve those fields or give an explicit *not applicable* justification. Start from [report template](templates/REPORT-TEMPLATE.md); add a [claim register](templates/CLAIM-REGISTER-TEMPLATE.md) for material mixed-evidence or draft-impacting claims. The contents of older reports are not retroactively deemed invalid solely because of layout.
+New substantive reports should expose **problem/question, hypotheses, prior art, alternatives, formal model/assumptions, experiments/method, results, limitations, decision boundary, and draft impact**. Combine headings for concise studies, but preserve those fields or give an explicit *not applicable* justification. Start from [report template](../templates/REPORT-TEMPLATE.md); add a [claim register](../templates/CLAIM-REGISTER-TEMPLATE.md) for material mixed-evidence or draft-impacting claims. The contents of older reports are not retroactively deemed invalid solely because of layout.
 
 A material claim is a statement used to support a recommendation, candidate spec change, conformance assertion, or research completion assertion. Record at least: stable claim ID, one-sentence assertion, **one primary evidence class**, exact scope/assumptions/bounds, provenance link, confidence with reason, possible falsifier or missing correspondence, downstream link. Related supporting evidence classes may be included in a separate field.
 
@@ -57,7 +57,7 @@ A proposed change to `draft/` should include a reviewable change map (may be in 
 | Status | Proposed / accepted / rejected / superseded, with timestamp and decision authority/PR when accepted |
 | Conflict | Rejected alternatives, dependencies, unresolved objections and affected claims |
 
-**Workflow:** (1) author research with evidence labels; (2) review assumptions, negative results and reproduction; (3) identify open LL questions and dependencies; (4) propose a separate exact candidate-spec diff with claim links; (5) accept/reject only via explicit maintainer decision recorded in a durable PR/decision document; (6) update `draft/`, `TODO.md`, and `PLAN.md` as applicable. A proposal does not silently modify the candidate spec. `research/` remains exploratory; `draft/` remains the candidate specification, with accepted decisions explicitly identified. Existing [accepted architecture decision](../draft/ARCHITECTURE-DECISIONS.md) is not reopened by this process proposal.
+**Workflow:** (1) author research with evidence labels; (2) review assumptions, negative results and reproduction; (3) identify open LL questions and dependencies; (4) propose a separate exact candidate-spec diff with claim links; (5) accept/reject only via explicit maintainer decision recorded in a durable PR/decision document; (6) update `draft/`, `TODO.md`, and `PLAN.md` as applicable. A proposal does not silently modify the candidate spec. `research/` remains exploratory; `draft/` remains the candidate specification, with accepted decisions explicitly identified. Existing [accepted architecture decision](../../draft/ARCHITECTURE-DECISIONS.md) is not reopened by this process proposal.
 
 ## 5. Quality gates and authority
 
@@ -67,7 +67,7 @@ Review each report against [Q1–Q5](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11
 
 ## 6. Results, limitations, decision, and draft impact
 
-**Observation:** This protocol synthesizes the three linked prior methodological studies; a six-test prototype of the structural checker is reported in [pilot evidence](research-management/RT-00/RT-00-QUALITY-RULES-PILOT-2026-11-23.md). **Hypotheses H1/H2 remain untested** on independent reviewers and representative PRs.
+**Observation:** This protocol synthesizes the three linked prior methodological studies; a six-test prototype of the structural checker is reported in [pilot evidence](RT-00/RT-00-QUALITY-RULES-PILOT-2026-11-23.md). **Hypotheses H1/H2 remain untested** on independent reviewers and representative PRs.
 
 **Negative/rejected alternatives:** Do not require one large fixed prose outline for every evidence shape (risk of misleading boilerplate); do not silently promote warnings to blocking CI (unmeasured false positives); do not equate a structurally compliant report with a proved result. These are process recommendations, not demonstrated empirical superiority.
 

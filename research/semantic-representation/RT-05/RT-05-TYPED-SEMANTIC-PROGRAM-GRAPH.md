@@ -142,7 +142,7 @@ Advance the layered, callable-sized candidate for another comparison. Use typed,
 | RT-05/24 · DEP-087 · LL-001/002/004/006 | Compare the surviving continuity policies, recursive address costs, and source inventory import in the semantic merge research. |
 | Candidate specification | This is evidence for future graph representation and identity sections. A transfer into `draft/` requires choosing a semantic profile, validation of the broader boundary, and an explicit project decision. |
 
-[Research dependency map](../../RESEARCH-DEPENDENCY-MAP.md) · [Open questions](../../../TODO.md) · [Canonical representation and merge](../../toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md)
+[Research dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md) · [Open questions](../../../TODO.md) · [Canonical representation and merge](../../toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md)
 
 ## Public-interface integration (2026-11-24; proposed)
 

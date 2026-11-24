@@ -1,6 +1,6 @@
 # Security and isolation
 
-[Research index](../README.md) · [Research taxonomy](../RESEARCH-TAXONOMY.md) · [Dependency map](../RESEARCH-DEPENDENCY-MAP.md)
+[Research index](../README.md) · [Research taxonomy](../research-management/RESEARCH-TAXONOMY.md) · [Dependency map](../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
