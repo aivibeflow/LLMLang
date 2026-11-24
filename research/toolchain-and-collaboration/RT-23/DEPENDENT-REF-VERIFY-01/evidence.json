@@ -1,0 +1,233 @@
+{
+  "format": "rt23-dependent-ref-verify/1",
+  "git": "git version 2.52.0",
+  "outcomes": [
+    {
+      "after": {
+        "compatible": false,
+        "refs": {
+          "refs/llmlang/catalog": "01ed5f9ea0c38ce393289e9876a11de4782c3650",
+          "refs/llmlang/program": "2f0ac1ebf8a051e633b65484728e431fc83880a6"
+        }
+      },
+      "before": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "5251e4cb101a0ade5c2e87ba54844b33067adf32"
+        }
+      },
+      "files_peer_lock_at_checkpoint": null,
+      "peer": "committed",
+      "prepared_refs": null,
+      "primary": "committed",
+      "ref_backend": "files",
+      "schedule": "before-prepare",
+      "verified_peer_retry": null,
+      "verify_peer_in_transaction": false
+    },
+    {
+      "after": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "01ed5f9ea0c38ce393289e9876a11de4782c3650",
+          "refs/llmlang/program": "5251e4cb101a0ade5c2e87ba54844b33067adf32"
+        }
+      },
+      "before": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "5251e4cb101a0ade5c2e87ba54844b33067adf32"
+        }
+      },
+      "files_peer_lock_at_checkpoint": null,
+      "peer": "committed",
+      "prepared_refs": null,
+      "primary": "stale-verified-ref",
+      "ref_backend": "files",
+      "schedule": "before-prepare",
+      "verified_peer_retry": null,
+      "verify_peer_in_transaction": true
+    },
+    {
+      "after": {
+        "compatible": false,
+        "refs": {
+          "refs/llmlang/catalog": "01ed5f9ea0c38ce393289e9876a11de4782c3650",
+          "refs/llmlang/program": "2f0ac1ebf8a051e633b65484728e431fc83880a6"
+        }
+      },
+      "before": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "5251e4cb101a0ade5c2e87ba54844b33067adf32"
+        }
+      },
+      "files_peer_lock_at_checkpoint": false,
+      "peer": "committed",
+      "prepared_refs": [
+        [
+          "5251e4cb101a0ade5c2e87ba54844b33067adf32",
+          "2f0ac1ebf8a051e633b65484728e431fc83880a6",
+          "refs/llmlang/program"
+        ]
+      ],
+      "primary": "committed",
+      "ref_backend": "files",
+      "schedule": "while-prepared",
+      "verified_peer_retry": null,
+      "verify_peer_in_transaction": false
+    },
+    {
+      "after": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "2f0ac1ebf8a051e633b65484728e431fc83880a6"
+        }
+      },
+      "before": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "5251e4cb101a0ade5c2e87ba54844b33067adf32"
+        }
+      },
+      "files_peer_lock_at_checkpoint": true,
+      "peer": "ref-lock-unavailable",
+      "prepared_refs": [
+        [
+          "5251e4cb101a0ade5c2e87ba54844b33067adf32",
+          "2f0ac1ebf8a051e633b65484728e431fc83880a6",
+          "refs/llmlang/program"
+        ],
+        [
+          "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "0000000000000000000000000000000000000000",
+          "refs/llmlang/catalog"
+        ]
+      ],
+      "primary": "committed",
+      "ref_backend": "files",
+      "schedule": "while-prepared",
+      "verified_peer_retry": "stale-verified-ref",
+      "verify_peer_in_transaction": true
+    },
+    {
+      "after": {
+        "compatible": false,
+        "refs": {
+          "refs/llmlang/catalog": "01ed5f9ea0c38ce393289e9876a11de4782c3650",
+          "refs/llmlang/program": "2f0ac1ebf8a051e633b65484728e431fc83880a6"
+        }
+      },
+      "before": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "5251e4cb101a0ade5c2e87ba54844b33067adf32"
+        }
+      },
+      "files_peer_lock_at_checkpoint": null,
+      "peer": "committed",
+      "prepared_refs": null,
+      "primary": "committed",
+      "ref_backend": "reftable",
+      "schedule": "before-prepare",
+      "verified_peer_retry": null,
+      "verify_peer_in_transaction": false
+    },
+    {
+      "after": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "01ed5f9ea0c38ce393289e9876a11de4782c3650",
+          "refs/llmlang/program": "5251e4cb101a0ade5c2e87ba54844b33067adf32"
+        }
+      },
+      "before": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "5251e4cb101a0ade5c2e87ba54844b33067adf32"
+        }
+      },
+      "files_peer_lock_at_checkpoint": null,
+      "peer": "committed",
+      "prepared_refs": null,
+      "primary": "stale-verified-ref",
+      "ref_backend": "reftable",
+      "schedule": "before-prepare",
+      "verified_peer_retry": null,
+      "verify_peer_in_transaction": true
+    },
+    {
+      "after": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "2f0ac1ebf8a051e633b65484728e431fc83880a6"
+        }
+      },
+      "before": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "5251e4cb101a0ade5c2e87ba54844b33067adf32"
+        }
+      },
+      "files_peer_lock_at_checkpoint": null,
+      "peer": "ref-lock-unavailable",
+      "prepared_refs": [
+        [
+          "5251e4cb101a0ade5c2e87ba54844b33067adf32",
+          "2f0ac1ebf8a051e633b65484728e431fc83880a6",
+          "refs/llmlang/program"
+        ]
+      ],
+      "primary": "committed",
+      "ref_backend": "reftable",
+      "schedule": "while-prepared",
+      "verified_peer_retry": "stale-verified-ref",
+      "verify_peer_in_transaction": false
+    },
+    {
+      "after": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "2f0ac1ebf8a051e633b65484728e431fc83880a6"
+        }
+      },
+      "before": {
+        "compatible": true,
+        "refs": {
+          "refs/llmlang/catalog": "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "refs/llmlang/program": "5251e4cb101a0ade5c2e87ba54844b33067adf32"
+        }
+      },
+      "files_peer_lock_at_checkpoint": null,
+      "peer": "ref-lock-unavailable",
+      "prepared_refs": [
+        [
+          "5251e4cb101a0ade5c2e87ba54844b33067adf32",
+          "2f0ac1ebf8a051e633b65484728e431fc83880a6",
+          "refs/llmlang/program"
+        ],
+        [
+          "7c2f3f877ae1bfc43e16e7afdbcbc6d3f761e3e3",
+          "0000000000000000000000000000000000000000",
+          "refs/llmlang/catalog"
+        ]
+      ],
+      "primary": "committed",
+      "ref_backend": "reftable",
+      "schedule": "while-prepared",
+      "verified_peer_retry": "stale-verified-ref",
+      "verify_peer_in_transaction": true
+    }
+  ],
+  "python": "3.12.14"
+}
