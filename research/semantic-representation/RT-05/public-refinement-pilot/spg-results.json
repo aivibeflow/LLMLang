@@ -1,0 +1,283 @@
+{
+  "schema": "llmlang-spg-observed-provider-refinement-v1",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "input_sha256": {
+    "spg_observations.py": "d5e490dd6acd7104a81a2447071c7046f940ca9a9ecc20f077a958b45c079c7a",
+    "run.py": "59c7a1ccc8c705de848b175ee471edc00d84c243f84fddc7284bbc9ac4a6b7e2",
+    "Refinement.lean": "edcd008362f8da195ec7e030950bc4b0cdf5c3ea5054f302239fb2556ec41fce",
+    "spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "generated_lean_sha256": "2d7d14de82ec3dc1694960fe2ff71864fb502d00fd831cd1a561317413948573",
+  "lean_axioms": "'checkedCases' does not depend on any axioms",
+  "ill_typed_body_rejected": true,
+  "cases": [
+    {
+      "case": "base-operation",
+      "call_mode": "op",
+      "operation_binding_provider": "primary",
+      "called_provider": "primary",
+      "called_implementation": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+      "provided_contract": "both",
+      "fuel": 64,
+      "source_surfaces_matched": true,
+      "snapshot": "905d18e6d3a615ccd9170b9f977b89d0029dd65f4174084fb14cd779c89f51ef",
+      "entry": "5862696c96a65d6732f8ba1021e2f680cdb3c54d924db5d4dcf049e0737ca7be",
+      "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+      "observations": {
+        "0": [
+          1,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "1": [
+          2,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "2": [
+          3,
+          [
+            "first",
+            "last"
+          ]
+        ]
+      },
+      "verdicts": {
+        "signature": "admit",
+        "direct-public-body": "admit",
+        "separate-body-and-refinement": "admit"
+      }
+    },
+    {
+      "case": "rebound-operation",
+      "call_mode": "op",
+      "operation_binding_provider": "alternate",
+      "called_provider": "alternate",
+      "called_implementation": "a08d93e210b538647c12864206c092aa1474bc45807ccb30e55d1f59f147b2a0",
+      "provided_contract": "both",
+      "fuel": 64,
+      "source_surfaces_matched": true,
+      "snapshot": "4b2a873c32c24eb157ca743a694466c4885cc3271f16f18dd3b1eebcee098493",
+      "entry": "5862696c96a65d6732f8ba1021e2f680cdb3c54d924db5d4dcf049e0737ca7be",
+      "binding": "779cff452f5065da70b9f106460dc190fbd3d68aa35edec4f51313816bd73656",
+      "observations": {
+        "0": [
+          2,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "1": [
+          3,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "2": [
+          4,
+          [
+            "first",
+            "last"
+          ]
+        ]
+      },
+      "verdicts": {
+        "signature": "admit",
+        "direct-public-body": "admit",
+        "separate-body-and-refinement": "admit"
+      }
+    },
+    {
+      "case": "rebound-operation-stale-provider-contract",
+      "call_mode": "op",
+      "operation_binding_provider": "alternate",
+      "called_provider": "alternate",
+      "called_implementation": "a08d93e210b538647c12864206c092aa1474bc45807ccb30e55d1f59f147b2a0",
+      "provided_contract": "primary",
+      "fuel": 64,
+      "source_surfaces_matched": true,
+      "snapshot": "4b2a873c32c24eb157ca743a694466c4885cc3271f16f18dd3b1eebcee098493",
+      "entry": "5862696c96a65d6732f8ba1021e2f680cdb3c54d924db5d4dcf049e0737ca7be",
+      "binding": "779cff452f5065da70b9f106460dc190fbd3d68aa35edec4f51313816bd73656",
+      "observations": {
+        "0": [
+          2,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "1": [
+          3,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "2": [
+          4,
+          [
+            "first",
+            "last"
+          ]
+        ]
+      },
+      "verdicts": {
+        "signature": "admit",
+        "direct-public-body": "admit",
+        "separate-body-and-refinement": "reject"
+      }
+    },
+    {
+      "case": "rebound-direct",
+      "call_mode": "pin",
+      "operation_binding_provider": "alternate",
+      "called_provider": "primary",
+      "called_implementation": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+      "provided_contract": "primary",
+      "fuel": 64,
+      "source_surfaces_matched": true,
+      "snapshot": "6140e1e91b661ebe410d914e192d3f3340cc19d3b327a0f9645fe9c56e3e8b05",
+      "entry": "860fa241ae9834e16c4ba03a2c40e0c7ae0b75db73aa11e8ee514aeabd77c398",
+      "binding": "779cff452f5065da70b9f106460dc190fbd3d68aa35edec4f51313816bd73656",
+      "observations": {
+        "0": [
+          1,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "1": [
+          2,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "2": [
+          3,
+          [
+            "first",
+            "last"
+          ]
+        ]
+      },
+      "verdicts": {
+        "signature": "admit",
+        "direct-public-body": "admit",
+        "separate-body-and-refinement": "admit"
+      }
+    },
+    {
+      "case": "reordered-operation",
+      "call_mode": "op",
+      "operation_binding_provider": "reordered",
+      "called_provider": "reordered",
+      "called_implementation": "0b01c9f27bf7ca01a0e445cd2c6fcc1f50e6d1913c4e61c7f122c76613e03c29",
+      "provided_contract": "both",
+      "fuel": 64,
+      "source_surfaces_matched": true,
+      "snapshot": "92b0d577cba790b81e2a249e4e21da235e14a7d0e6acc5cd8f72ec8a4adee76b",
+      "entry": "5862696c96a65d6732f8ba1021e2f680cdb3c54d924db5d4dcf049e0737ca7be",
+      "binding": "0a3bb2ee27afbc026b7fe7acc13a484f7b5f4781804479fea0e9dfe649802806",
+      "observations": {
+        "0": [
+          1,
+          [
+            "last",
+            "first"
+          ]
+        ],
+        "1": [
+          2,
+          [
+            "last",
+            "first"
+          ]
+        ],
+        "2": [
+          3,
+          [
+            "last",
+            "first"
+          ]
+        ]
+      },
+      "verdicts": {
+        "signature": "admit",
+        "direct-public-body": "reject",
+        "separate-body-and-refinement": "reject"
+      }
+    },
+    {
+      "case": "omitted-effect-operation",
+      "call_mode": "op",
+      "operation_binding_provider": "omitted",
+      "called_provider": "omitted",
+      "called_implementation": "5672f7c29955b40f87deefd5da9b3681736148c5dc4b9b0bfaf1f2d324698196",
+      "provided_contract": "both",
+      "fuel": 64,
+      "source_surfaces_matched": true,
+      "snapshot": "a8281aa43562ec6ced056c19953000c3139d14215ce413e18d06b41f4b530b70",
+      "entry": "5862696c96a65d6732f8ba1021e2f680cdb3c54d924db5d4dcf049e0737ca7be",
+      "binding": "64ce39e88b8359f38394d51288dec250ed7e209dc31f3fd41a83d1d115178e0a",
+      "observations": {
+        "0": [
+          1,
+          [
+            "first"
+          ]
+        ],
+        "1": [
+          2,
+          [
+            "first"
+          ]
+        ],
+        "2": [
+          3,
+          [
+            "first"
+          ]
+        ]
+      },
+      "verdicts": {
+        "signature": "admit",
+        "direct-public-body": "reject",
+        "separate-body-and-refinement": "reject"
+      }
+    },
+    {
+      "case": "exhausted-operation",
+      "call_mode": "op",
+      "operation_binding_provider": "primary",
+      "called_provider": "primary",
+      "called_implementation": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+      "provided_contract": "both",
+      "fuel": 1,
+      "source_surfaces_matched": true,
+      "snapshot": "905d18e6d3a615ccd9170b9f977b89d0029dd65f4174084fb14cd779c89f51ef",
+      "entry": "5862696c96a65d6732f8ba1021e2f680cdb3c54d924db5d4dcf049e0737ca7be",
+      "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+      "observations": {
+        "0": null,
+        "1": null,
+        "2": null
+      },
+      "verdicts": {
+        "signature": "admit",
+        "direct-public-body": "unknown",
+        "separate-body-and-refinement": "unknown"
+      }
+    }
+  ]
+}
