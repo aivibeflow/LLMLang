@@ -40,6 +40,18 @@ This favors a staged private generation plus exact Git tree/ref publication as t
 
 These are proposed checks, not tests run by this recheck. The 9/9 current prototype test result does not cover them.
 
+## Reproduction of the bounded prototype check
+
+On the recheck checkout, Python 3.12.14 ran the existing focused suite:
+
+```sh
+python3 -B -m unittest discover \
+  -s research/toolchain-and-collaboration/PROTOTYPES/TOOLCHAIN-SERVER-01 \
+  -p 'test_toolchain.py' -v
+```
+
+Expected result: **9 tests pass**. This command reproduces the existing one-file and in-memory workspace checks. It does not exercise the multi-file publication candidates compared in this report.
+
 ## Remaining dependencies
 
 - Persistent accepted-workspace journal and idempotency key lifecycle.
