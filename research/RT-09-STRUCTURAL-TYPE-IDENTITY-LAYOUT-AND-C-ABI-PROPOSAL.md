@@ -431,3 +431,7 @@ No implementation should claim general C compatibility until the supported C lan
 A public interface's stable name and behavioral contract are not structural Identity, TypeHash, LayoutHash or Function ABI Hash. A change may be contract-compatible but ABI-incompatible, or ABI-compatible but behaviorally incompatible. A source-level public operation can select an exact provider with a separately verified foreign adapter and target-specific ABI/export mapping. Preserve layout engine authority; test changed layout, call convention, error representation, and proof claims under a pinned ABI profile.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Exact ABI and layout compatibility are necessary but not sufficient to establish foreign behavior. Retain explicit provider and correspondence premises for conditional proofs. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

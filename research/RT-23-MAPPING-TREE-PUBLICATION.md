@@ -36,3 +36,7 @@ From `research/PROTOTYPES/DEPENDENCY-GRAPH-01`, use CPython 3.12.14 and Git 2.52
 ```sh
 python -B -m unittest -v tests.test_rt23_mapping_tree_publication tests.test_rt23_interface_mapping_merge tests.test_rt23_commit_recovery
 ```
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Recompute policy admission and closure when exact provider or authorization changes; an atomic mapping publication alone is not proof. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
