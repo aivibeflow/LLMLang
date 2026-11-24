@@ -50,9 +50,11 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 
 ## Contract formalization evaluation corpus
 
+- [CF-007 — Compositional bank transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md) — proposed worked example bridging human requirements, FRETish-style observations, five callee contracts, analytical caller proof, and mutation-based composition evaluation; no machine-checked result claimed.
+
 - [Proof Obligation Benchmark](PROOF-OBLIGATION-BENCHMARK.md) — a proposed multi-label taxonomy and evaluation plan for obligation generation, backend selection, translation correspondence, checking, evidence aggregation, and abstention. Includes a reusable [case template](PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md); complements rather than replaces the CF corpus. See the [executable seed corpus](PROOF-OBLIGATION-BENCHMARK/README.md).
 
-- [Contract Formalization Debug Corpus](CONTRACT-FORMALIZATION-CORPUS/README.md) — a non-normative, language-neutral benchmark for evaluating AI-generated function contracts. The initial cases cover whole-array sums and off-by-one bounds, safe lookup, first-match minimality, range reversal with frame conditions, and sorting with permutation preservation. Each case defines clarifications, a semantic oracle, negative controls, mutation challenges, and boundary scenarios. The corpus does not select a contract language or proof backend.
+- [Contract Formalization Debug Corpus](CONTRACT-FORMALIZATION-CORPUS/README.md) — a non-normative, language-neutral benchmark for evaluating AI-generated function contracts. The cases cover whole-array sums and off-by-one bounds, safe lookup, first-match minimality, range reversal with frame conditions, sorting with permutation preservation, bank withdrawal, and a proposed compositional bank transfer. Each case defines clarifications, a semantic oracle, negative controls, mutation challenges, and boundary scenarios. The corpus does not select a contract language or proof backend.
 
 ## AI-oriented syntax and Toolchain research
 

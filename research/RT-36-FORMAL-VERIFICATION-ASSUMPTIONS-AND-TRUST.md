@@ -181,6 +181,8 @@ Proposed cases (reserve unique POB IDs at fixture design; no results claimed):
 
 Start with independent finite enumeration of provider relations and a small explicit effect model. Compare PDG closure against reference oracle and adversarial mutations. Then use pinned Lean explicit hypotheses and checked discharge; extend to backend-neutral evidence and foreign target correspondence. Measure false closed claims (target zero on fixtures), false denials, dependency precision/recall, reuse/revalidation counts, runtime/memory and audit coverage. Preserve raw inputs, commands, versions, logs and results; independent review before adoption. Finite cases do not establish unbounded soundness.
 
+A concrete proposed assume-guarantee fixture is [CF-007 — compositional bank transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md). It distinguishes the proof of the caller from independent evidence for each of its five callees, and treats the unspecified risk policy separately from financial correctness. A declared but unproved external settlement contract must remain an explicit assumption tied to the binding. The analytical proof and mutation witnesses are illustrative, not checked RT-36 evidence.
+
 ## 8. Open decisions and dependencies
 
 Decide claim canonicalization; actual premise extraction across backends; satisfiability/realizability criteria; recursion/compositional liveness; TCB governance; authorization granularity; guarded claim scope; deployment identity; user-visible reports; public admission; privacy of vendor evidence.
