@@ -1185,7 +1185,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Specify optimistic concurrency, multi-agent workspaces, idempotency, and conflict handling.
   - [x] Recheck current workspace revision CAS against two workspaces on one base and repeated Change Set IDs. Local CAS permits competing same-base acceptance; retries return `StaleRevision`, not a stored result. Shared-head arbitration and durable idempotency remain separate unresolved contracts. [Concurrent workspace CAS recheck (2026-11-24)](research/toolchain-and-collaboration/RT-19/RT-19-CONCURRENT-WORKSPACE-CAS-RECHECK-2026-11-24.md)
   - The shared-head fixture now has a persistent request/outcome and Git receipt record with process crash and race checks. Branch-based acceptance, complete semantic merge/conflict discovery and maintainer choice of acceptance semantics remain open.
-- [ ] Specify MCP Tools/Resources/Prompts schemas and independently test them with an MCP client.
+- [x] Specify candidate MCP Tools, Resources and Prompts schemas for the in-memory lifecycle. The upstream SDK passed 42 assertions over MCP stdio, including scoped resources, rejected stale mutations and atomic Change Sets. Production authorization, payload schema and persistence integration remain open. [Independent MCP client experiment](research/toolchain-and-collaboration/RT-19/RT-19-MCP-STDIO-SCHEMA-INTEROPERABILITY-2026-11-24.md).
 - [ ] Prototype deterministic import/change/validate/accept/export/re-import as one vertical slice.
 - [ ] Add failure-injection, security, authorization, and comparative source-editing tests.
 
@@ -1528,7 +1528,7 @@ The [Research State 2026-11-19](research/research-management/RESEARCH-STATE-2026
 
 ## External evidence and approval dependencies
 
-The [RT-19 process crash experiment](research/toolchain-and-collaboration/RT-19/RT-19-SQLITE-GIT-PROCESS-RECOVERY-2026-11-24.md) checks a persistent journal, eight abrupt process exits, exact Git-tree/root recovery, and idempotent outcomes for one closed source profile. The broader gate still needs source/SPG/dependency/authorization binding, production Git/filesystem recovery and an independently tested MCP client. Maintainer approval of ADR-015 and any production backend selection remains an external decision. These gates do not prevent further contract-level comparisons, but they prevent treating the proposed protocol as implementation-complete.
+The [RT-19 process crash experiment](research/toolchain-and-collaboration/RT-19/RT-19-SQLITE-GIT-PROCESS-RECOVERY-2026-11-24.md) checks a persistent journal, eight abrupt process exits, exact Git-tree/root recovery, and idempotent outcomes for one closed source profile. The broader gate still needs source/SPG/dependency/authorization binding and production Git/filesystem recovery. An [independent MCP client](research/toolchain-and-collaboration/RT-19/RT-19-MCP-STDIO-SCHEMA-INTEROPERABILITY-2026-11-24.md) covers the in-memory lifecycle. Persistent integration and an authenticated multi-client environment remain external to that fixture. Maintainer approval of ADR-015 and any production backend selection remains an external decision. These gates do not prevent further contract-level comparisons, but they prevent treating the proposed protocol as implementation-complete.
 
 The open inputs below affect implementation selection. Record the result in the linked study at its exact scope and revision when the input becomes available. Continue evidence collection for eligible work while each input is pending.
 
