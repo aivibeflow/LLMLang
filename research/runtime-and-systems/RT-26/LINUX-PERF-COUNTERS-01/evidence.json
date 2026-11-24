@@ -1,0 +1,36 @@
+{
+  "architecture": "x86_64",
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "fallback": {
+    "context_switch_counters_observed": true,
+    "minor_faults_at_least_64": true,
+    "thread_cpu_at_least_20ms": true
+  },
+  "format": "rt26-linux-perf-counters/1",
+  "kernel_release": "6.18.57",
+  "observed_perf_event_paranoid": 2,
+  "python": "3.12.14",
+  "self_user_space_events": {
+    "context_switches": {
+      "errno": "EPERM",
+      "status": "unavailable"
+    },
+    "cycles": {
+      "errno": "EPERM",
+      "status": "unavailable"
+    },
+    "instructions": {
+      "errno": "EPERM",
+      "status": "unavailable"
+    },
+    "minor_faults": {
+      "errno": "EPERM",
+      "status": "unavailable"
+    },
+    "task_clock": {
+      "errno": "EPERM",
+      "status": "unavailable"
+    }
+  },
+  "source_sha256": "8c6d54bdabe34434f38341344238263628261368fc314be41bfc573e3f4918ae"
+}
