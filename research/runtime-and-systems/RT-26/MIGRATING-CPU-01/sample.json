@@ -1,0 +1,86 @@
+{
+  "O0": {
+    "migrate-alone": {
+      "cross_worker_subtraction_ns": -55084832,
+      "first_task_ns": 30000837,
+      "origin_span_ns": 30017418,
+      "peer_ns": 0,
+      "process_ns": 55060242,
+      "second_task_ns": 25000665,
+      "worker_0_ns": 30024256,
+      "worker_1_ns": 25007546
+    },
+    "migrate-cancel": {
+      "cross_worker_subtraction_ns": -68009908,
+      "first_task_ns": 30030862,
+      "origin_span_ns": 70084708,
+      "peer_ns": 40000720,
+      "process_ns": 82237804,
+      "second_task_ns": 12005876,
+      "worker_0_ns": 70091488,
+      "worker_1_ns": 12053805
+    },
+    "migrate-with-peer": {
+      "cross_worker_subtraction_ns": -55035187,
+      "first_task_ns": 30001026,
+      "origin_span_ns": 70041349,
+      "peer_ns": 40001018,
+      "process_ns": 95145848,
+      "second_task_ns": 25001589,
+      "worker_0_ns": 70046336,
+      "worker_1_ns": 25048942
+    },
+    "stay-with-peer": {
+      "cross_worker_subtraction_ns": 95010436,
+      "first_task_ns": 30000500,
+      "origin_span_ns": 95013532,
+      "peer_ns": 40000503,
+      "process_ns": 95034874,
+      "second_task_ns": 25000496,
+      "worker_0_ns": 95015985,
+      "worker_1_ns": 0
+    }
+  },
+  "O3": {
+    "migrate-alone": {
+      "cross_worker_subtraction_ns": -55048156,
+      "first_task_ns": 30006451,
+      "origin_span_ns": 30022412,
+      "peer_ns": 0,
+      "process_ns": 55132739,
+      "second_task_ns": 25001358,
+      "worker_0_ns": 30030405,
+      "worker_1_ns": 25030159
+    },
+    "migrate-cancel": {
+      "cross_worker_subtraction_ns": -68036538,
+      "first_task_ns": 30000526,
+      "origin_span_ns": 70024036,
+      "peer_ns": 40000575,
+      "process_ns": 82097127,
+      "second_task_ns": 12000654,
+      "worker_0_ns": 70031576,
+      "worker_1_ns": 12012294
+    },
+    "migrate-with-peer": {
+      "cross_worker_subtraction_ns": -54986699,
+      "first_task_ns": 30029204,
+      "origin_span_ns": 70044961,
+      "peer_ns": 40000520,
+      "process_ns": 95090925,
+      "second_task_ns": 25000675,
+      "worker_0_ns": 70047256,
+      "worker_1_ns": 25008958
+    },
+    "stay-with-peer": {
+      "cross_worker_subtraction_ns": 95022808,
+      "first_task_ns": 30000535,
+      "origin_span_ns": 95031531,
+      "peer_ns": 40000488,
+      "process_ns": 95087491,
+      "second_task_ns": 25000547,
+      "worker_0_ns": 95034103,
+      "worker_1_ns": 0
+    }
+  }
+}
