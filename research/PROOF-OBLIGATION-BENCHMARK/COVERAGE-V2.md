@@ -40,3 +40,7 @@ No absolute contract completeness claim follows from this inventory or generated
 ## Transition profile update
 
 See [finite transition contract generator](TRANSITION-GENERATOR.md) for nine additional parameterized families, typed state/action grammar, trace oracle, per-obligation witnesses and blind export. Registry links use the transition/ prefix and remain unreviewed candidates.
+
+## Structural and system profile update
+
+See [structural and system contract generator](SYSTEM-GENERATOR.md) for seven additional families, reachable-state exploration, replayable obligation witnesses and candidate registry links under system/. These links do not imply independent adjudication or full separation logic/consensus semantics.

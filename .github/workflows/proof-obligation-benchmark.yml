@@ -28,6 +28,10 @@ jobs:
         run: |
           python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py
           python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py --count 1000 --seed 42 > pob-transition-summary.json
+      - name: Run structural and system contract generator
+        run: |
+          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/system/test_system.py
+          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/system/generate.py --count 140 --seed 42 > pob-system-summary.json
       - uses: actions/upload-artifact@v6
         with:
           name: pob-smoke
@@ -36,4 +40,5 @@ jobs:
             pob-coverage-v2.json
             pob-generated-summary.json
             pob-transition-summary.json
+            pob-system-summary.json
           if-no-files-found: error
