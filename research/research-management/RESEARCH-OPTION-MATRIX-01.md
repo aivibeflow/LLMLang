@@ -1,7 +1,7 @@
 # Research Option Matrix 01 — Language and Execution Foundations
 
 **Status:** Initial evidence-linked comparison; no vector selected
-**Updated:** 2026-11-20
+**Updated:** 2026-11-24
 **Scope:** First synthesis slice across core semantics, type/effect/resource model, semantic representation, verification, runtime, backends, and security. This matrix does not choose a language architecture or replace the source studies.
 
 ## 1. Purpose
@@ -144,6 +144,33 @@ Scenario 123 exercises these constraints on one workload with a local dependent,
 Scenario 131 composes call results, cleanup order, and a later foreign role check in one bounded source fixture. Transfer before cleanup can return the original capability with an error and deny the later call. Transfer after cleanup lets a consuming failure release the original roles and admit the later call. Two executions agree on all 5,184 inputs. Scenario 132 adds a typed caller match. Recovery enables 1,380 additional starts and adds release effects even on some already admissible proposals. Whole-profile comparison still needs general source and runtime correspondence. [Shared owned-result workload](../language-design/RT-04/RESEARCH-SCENARIO-131-SHARED-OWNED-RESULT-WORKLOAD.md) · [Typed caller recovery](../language-design/RT-04/RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md)
 
 Scenario 133 demonstrates that the Rust output candidate can carry both transfer policies through an explicit handle state and ordered close operations. The bounded compiled corpus preserves diagnostics, release authority, and aliased admission at two optimization levels. Full backend comparison still needs a general source profile and correspondence with actual foreign resource dispositions. [Generated Rust for owned results](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
+
+### 5.2 Comparisons supported by the November 24 reproductions
+
+The reproduced studies below constrain components of the existing vectors. Their common comparison unit is the exact claim, observation scope and dependency closure. The [dependency map](RESEARCH-DEPENDENCY-MAP.md) records the corresponding cross-area relationships. Use these observations to eliminate a failing shortcut within its tested profile and to state the conditions a surviving implementation must meet.
+
+```mermaid
+flowchart LR
+    S["Source profile and observation boundary"] --> P["Exact operation, contract, and provider binding"]
+    P --> E["Proof claims and retained premises"]
+    P --> L["Reference execution and target lowering"]
+    E --> C["Scoped implementation comparison"]
+    L --> C
+    P --> R["Cache and package identities"]
+    R --> C
+```
+
+The branches compare different obligations for one semantic subject. Agreement on observed outputs, proof discharge and safe reuse each require evidence at their own boundary.
+
+| Choice and affected vectors | Reproduced discriminator and compatible conditions | Remaining selection gate |
+| --- | --- | --- |
+| Direct concrete calls or scoped operation calls, R-A/R-B/R-C and DEP-012 | A changed provider binding changes output at a stable operation caller body. The pinned direct call keeps its selected implementation. The scoped resolver has 516 false positive-only reuses in the 3,240-pair fixture. Either call mode can coexist with immutable semantic objects when the exact selected inputs enter execution identity. [Public-interface recheck](RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.md) | Establish complete source-derived call and scope dependencies. Compare export-name hashing with a scoped catalog and aliases. Check behavior and refinement even for an exact provider binding. |
+| Source-bound proof, solver verdict, or bounded test/model evidence, V-A/V-B/V-C and DEP-007/008 | On the symbolic model, final-only zero and zero at every step differ. A certificate from the final-boundary query fails admission against the separate all-boundary obligation. The three-backend replay also reproduces 712 bounded agreements and 86 refutations for fixed cases. Composable evidence needs exact claims, stated premises and an explicit observation scope. [Symbolic replay](RT-00/RT-00-QUALITY-RULES-PROOF-CHAIN-REPLAY-2026-11-24.md) · [Finite composition](RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.md) | Show correspondence from the selected LLMLang source through typed SPG and the checker. Establish independent evidence and discharge obligations for deployed foreign providers. The shared finite generator leaves shared translation faults possible. |
+| Resource-dependent close and receipt recording, source and RT-04 resource vectors under DEP-004/019 | A stale empty snapshot permits an invalid close attempt in the tested policy. Live backups invalidate the shortcut based on statement count. Separate receipt recording can preserve an effect without its terminal record after interruption. The scoped guarded-close and atomic-receipt candidates meet the observed SQLite boundaries. [Native lifecycle replay](RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.md) | Prove source and runtime dependent-resource completeness, actual guard coverage and correspondence with the selected atomic boundary. Compare FFI controls on a representative runtime and explicit cancellation/commit workloads. |
+| Reference-first, VM or target-lowered execution, B-A/B-B/B-C and DEP-016/024 | Native O0/O3 matches the integer and logical-view references. The corresponding LLVM and Wasm validators accept selected programs that violate source overflow or view observations. The generated Wasm view fixture also matches the recorded module hashes and observations on two Node releases. A target path can preserve these observations with a source-aware lowering contract and separate checking. [Backend replay](RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.md) | Run the same typed-source workload through independent reference and target implementations. Cover checked rejection, ownership transfer, cleanup/error ordering and target boundaries. Compare other engines, toolchain cost and performance on matched workloads. |
+| Package Provider queue index within the disk-backed candidate, DEP-021 | The covering-index and primary-key-only variants produce the same archive bytes in 20 pairs. The covering index has lower median build time at 1,000 synthetic objects. Three of four paired time ranges cross parity. In this fixture the physical queue can vary while the package identity is stable. [Paired Provider comparison](RT-00/RT-00-C-PROVIDER-QUEUE-REPLAY-2026-11-24.md) | Measure representative workload sizes on controlled hardware and compare a persistent public snapshot adapter. Carry exact dependency and integrity checks through the selected archive and cache paths. |
+
+For the next integrated comparison, reuse one typed workload across observation, binding, proof and lowering. It should select a provider through an immutable snapshot, return an owned value, and exercise a cleanup failure or cancellation boundary. Preserve the result, error, ordered effects and terminal resource state. Include controls that vary a provider binding, reorder an observable step and retain an effect without its terminal record. These controls distinguish result identity, closed proof scope and runtime preservation. Workload weights and independent review remain part of the [selection gates](../../PLAN.md#external-evidence-and-approval-dependencies).
 
 ## 6. Shared evaluation criteria
 

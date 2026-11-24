@@ -1382,6 +1382,8 @@ After relevant research coverage is sufficient:
 
 ## 6.5 Synthesis status
 
+The [scoped implementation comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.md#52-comparisons-supported-by-the-november-24-reproductions) record five reproduced discriminators and their remaining gates. They supply constraints and common observations for later whole-candidate comparisons.
+
 | Activity | Status | Exit condition |
 |---|---|---|
 | Define research taxonomy and initial dependency map | **Completed** | 18 research areas and 35 initial dependency edges are documented; ongoing updates remain required |
