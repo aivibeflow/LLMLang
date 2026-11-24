@@ -36,7 +36,10 @@
           "POB-006",
           "POB-028"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/authorized_effect",
+          "transition/cancel_cleanup"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "composition": {
@@ -46,7 +49,9 @@
           "POB-029"
         ],
         "generated_candidates": [
-          "composition"
+          "composition",
+          "transition/transfer",
+          "transition/retry"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -55,7 +60,10 @@
           "POB-020",
           "POB-035"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/interleaving",
+          "transition/reservation"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "distributed": {
@@ -64,7 +72,9 @@
           "POB-030",
           "POB-037"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/retry"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "probability": {
@@ -88,7 +98,9 @@
           "POB-009",
           "POB-031"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/deadline"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "hyperproperties": {
@@ -96,7 +108,9 @@
           "POB-011",
           "POB-022"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/security_trace"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "external_systems": {
@@ -117,14 +131,18 @@
           "POB-007",
           "POB-034"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/transfer"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "reactive_systems": {
         "manual_candidates": [
           "POB-031"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/deadline"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "optimization": {
@@ -185,7 +203,10 @@
           "POB-028",
           "POB-038"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/lifetime",
+          "transition/cancel_cleanup"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "resource_bounds": {
@@ -193,7 +214,10 @@
           "POB-029",
           "POB-040"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/reservation",
+          "transition/cancel_cleanup"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "state_transitions": {
@@ -204,7 +228,11 @@
           "POB-033",
           "POB-037"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/transfer",
+          "transition/retry",
+          "transition/deadline"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "concurrency": {
@@ -213,7 +241,10 @@
           "POB-032",
           "POB-035"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/interleaving",
+          "transition/reservation"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "failure": {
@@ -224,7 +255,10 @@
           "POB-033",
           "POB-037"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/transfer",
+          "transition/cancel_cleanup"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "security": {
@@ -233,7 +267,10 @@
           "POB-022",
           "POB-034"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/authorized_effect",
+          "transition/security_trace"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       }
     },
@@ -317,7 +354,9 @@
           "POB-009",
           "POB-031"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/deadline"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "separation_logic": {
@@ -342,7 +381,8 @@
           "POB-024"
         ],
         "generated_candidates": [
-          "sum"
+          "sum",
+          "transition/security_trace"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -373,7 +413,9 @@
           "POB-004",
           "POB-028"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/authorized_effect"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "function": {
@@ -385,7 +427,8 @@
           "POB-023"
         ],
         "generated_candidates": [
-          "composition"
+          "composition",
+          "transition/lifetime"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -412,7 +455,10 @@
           "POB-033",
           "POB-037"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/retry",
+          "transition/reservation"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "application": {
@@ -444,12 +490,16 @@
           "POB-032",
           "POB-035"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/interleaving"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "concurrency_resources": {
         "manual_candidates": [],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/reservation"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "security_time": {
@@ -463,7 +513,9 @@
         "manual_candidates": [
           "POB-020"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/interleaving"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "distribution_failure": {
@@ -471,7 +523,9 @@
           "POB-017",
           "POB-037"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "transition/retry"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "probability_resources": {

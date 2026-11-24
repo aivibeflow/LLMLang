@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parent
 
 def report(cases, registry, taxonomy, target):
     ids={c["id"]:c for c,_ in cases}
-    families={"interval","sum","forall_exists","exists_forall","unique","composition"}
+    families={"interval","sum","forall_exists","exists_forall","unique","composition"} | {"transition/"+f for f in ("transfer","lifetime","reservation","authorized_effect","cancel_cleanup","retry","deadline","interleaving","security_trace")}
     axes={}
     for axis,entries in registry["axes"].items():
         rows={}

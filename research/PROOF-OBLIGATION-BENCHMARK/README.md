@@ -58,7 +58,7 @@ See [finite coverage matrix](COVERAGE-MATRIX.md) for POB-025–040 and the expli
 
 ## Extended coverage and generation
 
-See [coverage v2 and the deterministic generator](COVERAGE-V2.md): a multi-axis gap inventory, candidate 300-cell interaction matrix, and an executable finite formula generator with separate direct oracle. The original 80-cell gate remains unchanged.
+See [coverage v2 and the deterministic generator](COVERAGE-V2.md): a multi-axis gap inventory, candidate 300-cell interaction matrix, and an executable finite formula generator with separate direct oracle. The original 80-cell gate remains unchanged. See also the [finite transition generator](TRANSITION-GENERATOR.md) for state, memory, resource, effect and trace profiles.
 
 ## Format and contribution
 
