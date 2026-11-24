@@ -1,0 +1,198 @@
+{
+  "schema": "stage02-symbolic-proof-chain-replay-v1",
+  "baseline_commit": "e01fe48de50d22fa374ab614675a8c3f03f0cc59",
+  "replayed_from_git_archive": true,
+  "environment": {
+    "python": "3.12.14",
+    "git": "git version 2.56.1",
+    "kernel": "6.18.57",
+    "arch": "x86_64",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "lake": "Lake version 5.0.0-src+611c117 (Lean version 4.36.0)",
+    "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+    "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+    "logos_package_used_cached_build_artifacts": true,
+    "llmlang_binding_built_from_archive": true
+  },
+  "inputs": {
+    "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/test_composition.py": "9b75203b4658cf246eb611bbf3eddbca4d1f90b6",
+    "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_symbolic_dual_check.py": "3bcf0173150d37a5a37ee6a57a9d2e74df9d5ce9",
+    "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/symbolic_dual_check.py": "5e86d2294d0ca931adb0f931d2c317b74abad6c9",
+    "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/symbolic_cpc_check.py": "7cf70ba8a59b47d9d5879b98b751ae330f6e0eb8",
+    "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/TransitionState.lean": "f52fe314d168194dfccbf203187fc990fd2e9991",
+    "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicState.lean": "2652e5cffbcae79f26437188ffc8e878a44c1683",
+    "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicQuery.lean": "da3d447636845dd9a379cd7afe5234a191c3c5c0",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCpcCertificate.lean": "a097a146970221556a0ad9c673f42b74676c15aa",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean": "ed9a3a13868a729a248d4bd39b9323129f17fd94"
+  },
+  "focused_tests": {
+    "symbolic_dual_check": {
+      "passed": 3
+    },
+    "evidence_composition": {
+      "passed": 11
+    }
+  },
+  "smt": {
+    "results": {
+      "absolute": {
+        "query_sha256": "ac59fcb856a5aaff9457c250f2cb9ef24aa193bd7ddd8b600a7c508265481aad",
+        "status": "unsat"
+      },
+      "zero-all": {
+        "query_sha256": "11522bf7036112234806676d2b28064ee22fa7c2509c5ab69355ec40cccd8344",
+        "status": "sat-replayed",
+        "witness": {
+          "input": [
+            -1,
+            0
+          ],
+          "mismatch": true,
+          "observed": [
+            [
+              -1,
+              1
+            ],
+            [
+              -1,
+              0
+            ]
+          ],
+          "specified": [
+            [
+              -1,
+              0
+            ],
+            [
+              -1,
+              0
+            ]
+          ]
+        }
+      },
+      "zero-final": {
+        "query_sha256": "7fa87d636df3ba15da913ca2028a579dad3794c7fd248c5b50daf9ca232aafc4",
+        "status": "unsat"
+      }
+    },
+    "outputs": [
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/absolute-stdout.txt",
+        "git_blob": "3f65111b0954e679bfb467ad35ba26124ae2b0e3",
+        "fresh_sha256": "5c17dfcc2a8f1f30d9e96df6a9825a5030ade046d560332c19de74d93d591a18",
+        "byte_length": 6
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/absolute.smt2",
+        "git_blob": "d9feae77038ac24967f04d76d92a4673aae1ba21",
+        "fresh_sha256": "ac59fcb856a5aaff9457c250f2cb9ef24aa193bd7ddd8b600a7c508265481aad",
+        "byte_length": 285
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/axioms.txt",
+        "git_blob": "509dd8675dd24cdd8849a9d344c991fa9399fd73",
+        "fresh_sha256": "7a7c499c9cf0ae9554b5d488b80d015b09bb728c89c92a7441b6e41a6d64194f",
+        "byte_length": 109
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/replay.json",
+        "git_blob": "1fad13daa1c6d5ca015af8812ef332eb2f60c4e6",
+        "fresh_sha256": "da6bb2f84c9862af5f6d6415de379234d14b40dc57b485e5c253af034a0ea02c",
+        "byte_length": 88
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/summary.json",
+        "git_blob": "4df403eda030bd15783a4f2734dff1406b031d2c",
+        "fresh_sha256": "85b6ad8c738dc01d4bf24afec8a779de6f0a4105950d434390ab684340f88997",
+        "byte_length": 1061
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-all-stdout.txt",
+        "git_blob": "de6a866bfd41f95b8fc19489e7d156f1a6ca18cb",
+        "fresh_sha256": "f2411d45b45a016140a2bf77745cf7747bdae33cfa37a8ddf9196aa826a0b25a",
+        "byte_length": 24
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-all.smt2",
+        "git_blob": "d58860df2d43f43fecddb4a5ab9ba23da240e2e8",
+        "fresh_sha256": "11522bf7036112234806676d2b28064ee22fa7c2509c5ab69355ec40cccd8344",
+        "byte_length": 313
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-final-stdout.txt",
+        "git_blob": "3f65111b0954e679bfb467ad35ba26124ae2b0e3",
+        "fresh_sha256": "5c17dfcc2a8f1f30d9e96df6a9825a5030ade046d560332c19de74d93d591a18",
+        "byte_length": 6
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-final.smt2",
+        "git_blob": "5cc3b3255a1f8938551d923b84408cb9ce937158",
+        "fresh_sha256": "7fa87d636df3ba15da913ca2028a579dad3794c7fd248c5b50daf9ca232aafc4",
+        "byte_length": 170
+      }
+    ]
+  },
+  "cpc": {
+    "results": {
+      "absolute": {
+        "source_sha256": "ac59fcb856a5aaff9457c250f2cb9ef24aa193bd7ddd8b600a7c508265481aad",
+        "certificate_stdout_sha256": "1c2c3637942e501818f64c3a8250a7569e1ba2e9a619b0885578d3ffe0562ce8",
+        "verdict": "correct"
+      },
+      "zero-final": {
+        "source_sha256": "7fa87d636df3ba15da913ca2028a579dad3794c7fd248c5b50daf9ca232aafc4",
+        "certificate_stdout_sha256": "ec4bae55dc361da96a07039bb151a3c99e8367fb93939b6112ef02ba9396260c",
+        "verdict": "correct"
+      }
+    },
+    "controls": {
+      "wrong-certificate": "CPC assumptions differ from the exact source assertion",
+      "sat-without-certificate": "expected exactly one UNSAT result and one CPC command list",
+      "used-omitted-declaration": "the second declared input occurs in the source assertion"
+    },
+    "outputs": [
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/absolute-cvc5.txt",
+        "git_blob": "3f6ffc79004118e2319ffc42d7b82bb0e0d362cd",
+        "fresh_sha256": "1c2c3637942e501818f64c3a8250a7569e1ba2e9a619b0885578d3ffe0562ce8",
+        "byte_length": 33355
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/axioms.txt",
+        "git_blob": "ec875e53c7dbd35d3ec293b2c778613e76e43072",
+        "fresh_sha256": "8e773b764667e3d5371bcf88e8bb52e81ced89f17377b537800f25df63f0f542",
+        "byte_length": 128
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/sat-without-certificate-diagnostic.txt",
+        "git_blob": "63153db25a5f105885e3311e4a190d6386a0e0cc",
+        "fresh_sha256": "2ab73b57b3bbef5b6b7eef21f36873fe5473f5ae3062a02f7327e5fe530ff45c",
+        "byte_length": 79
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/summary.json",
+        "git_blob": "cd0b76976e43d534f3eec6c2014e1edc6d8e58b1",
+        "fresh_sha256": "d9e4fec04569a8f73fd02da6e17e5d6c87768dde08afaa42d46311594746b00e",
+        "byte_length": 1083
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/used-omitted-declaration-diagnostic.txt",
+        "git_blob": "15f49fefc73d19b1d9ffaa98c83e34757ece49f0",
+        "fresh_sha256": "c6076fd528be7390bc54ce599bb4d7c8cd2cf79558dfc676c2104eb3e204598e",
+        "byte_length": 77
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/wrong-certificate-diagnostic.txt",
+        "git_blob": "0d7d809a3c09ae0f18bd1c53cdfee374a11dc66c",
+        "fresh_sha256": "4259fc0e6c8885c370cbf99ca83218bc3be171a2fc25426a39e923e564501567",
+        "byte_length": 75
+      },
+      {
+        "archived_path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/zero-final-cvc5.txt",
+        "git_blob": "0b44080a8cafd396587d0b8530933caf72a43452",
+        "fresh_sha256": "ec4bae55dc361da96a07039bb151a3c99e8367fb93939b6112ef02ba9396260c",
+        "byte_length": 1564
+      }
+    ]
+  }
+}
