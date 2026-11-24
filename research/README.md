@@ -77,6 +77,7 @@ Start with [Research State 2026-11-19](research-management/RESEARCH-STATE-2026-1
 
 - [RT-37 — Freestanding, embedded and real-time firmware](runtime-and-systems/RT-37/README.md) — shared low-level profile, hardware contracts, timing/resource analysis, and bootable firmware pilot. [Issue #440](https://github.com/aivibeflow/LLMLang/issues/440).
 - [RT-38 — Operating-system kernels and verified microkernel feasibility](runtime-and-systems/RT-38/README.md) — privileged memory and IPC, isolation, scheduler, conditional proofs and a bootable microkernel pilot building on RT-37. [Issue #441](https://github.com/aivibeflow/LLMLang/issues/441). Both are proposed, not validated.
+- [seL4 specification reuse and Isabelle/HOL evaluation](runtime-and-systems/RT-38/README.md#8-research-plan-for-implementing-against-an-existing-specification) — planned RT-38 / RT-07 study of implementing an LLMLang fragment against an existing formal contract and checking it with Isabelle/HOL.
 
 ## Contract formalization evaluation corpus
 

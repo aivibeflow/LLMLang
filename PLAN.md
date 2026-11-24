@@ -971,6 +971,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] Reuse RT-37 freestanding profile; specify privileged target capabilities, physical/virtual memory, MMU/TLB, trap/syscall ABI and context switching.
 - [ ] Investigate allocator, address-space isolation, scheduling, IPC and capability contracts, global invariants and conditional hardware proofs.
+- [ ] Replay selected seL4 proofs and evaluate implementing an LLMLang fragment against the original l4v specification. Assess Isabelle/HOL modeling, proof automation, counterexample search and reproducible replay. [Research plan](research/runtime-and-systems/RT-38/README.md#8-research-plan-for-implementing-against-an-existing-specification)
 - [ ] Compare minimal HAL/assembly assumptions with checked intrinsics; validate source-to-binary preservation and no hosted imports.
 - [ ] Target a pinned RV64 QEMU single-core microkernel; independently check reference traces, memory and IPC invariants and negative controls before SMP/DMA extensions.
 
