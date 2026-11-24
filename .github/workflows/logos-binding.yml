@@ -40,6 +40,11 @@ jobs:
           lake env lean -DwarningAsError=true --run SourceQueryEnvelopeTests.lean --emit > "$wire_output"
           cmp evidence/typed-json/envelopes.jsonl "$wire_output"
           timeout 180s lake env lean -DwarningAsError=true --run SourceWireRefutationTests.lean
+      - name: Compare scalar source and rendered SMT evaluations
+        run: |
+          denotation_output=$(mktemp)
+          timeout 180s lake env lean -DwarningAsError=true --run LogosScalarDenotation.lean > "$denotation_output"
+          cmp evidence/logos-denotation/observations.txt "$denotation_output"
       - name: Run parser-state binding and semantic correspondence tests
         run: |
           timeout 180s lake env lean -DwarningAsError=true --run Main.lean
