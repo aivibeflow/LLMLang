@@ -2,15 +2,15 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "7dd68a30fd720c750f052ab745e4478d42bd76f0",
-  "source": "Exact current-main reconciliation at 7dd68a30fd720c750f052ab745e4478d42bd76f0; PR-tree paths, blobs and sizes refreshed against the reviewed worktree; manifest itself excluded.",
+  "revision": "4b253db6f1a098d0f249ec6481a7f68a5b0b4dd6",
+  "source": "Exact current-main reconciliation at 4b253db6f1a098d0f249ec6481a7f68a5b0b4dd6; PR-tree paths, blobs and sizes refreshed against the reviewed worktree; manifest itself excluded.",
   "counts": {
-    "research_files": 909,
-    "research_artifacts_excluding_manifest": 909,
-    "markdown_files": 434,
+    "research_files": 921,
+    "research_artifacts_excluding_manifest": 921,
+    "markdown_files": 436,
     "mdx_files": 3,
     "python_files": 276,
-    "lean_source_files": 52,
+    "lean_source_files": 53,
     "scenario_named_documents": 136,
     "prototype_tree_files": 320,
     "preparation_and_reference_files": 24,
@@ -19,7 +19,7 @@
     "category_counts": {
       "prototype-report-or-readme": 30,
       "prototype-or-experiment-implementation": 203,
-      "prototype-test-evidence": 202,
+      "prototype-test-evidence": 210,
       "other-research-artifact": 2,
       "index-or-research-management": 14,
       "research-area-or-experiment-document": 105,
@@ -35,7 +35,7 @@
       "research-rfc-or-protocol-proposal": 2
     }
   },
-  "classification_note": "Against the 908-artifact tree on main 7dd68a3 (907 artifacts excluding the manifest), this PR adds the RT-11 direct-child timing report/raw evidence. It also carries forward individual role records for three RT-07/32 concrete-pair lifting artifacts added by main. All 909 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Against the 920-artifact baseline main 4b253db (manifest excluded), this PR adds the RT-19 transaction/recovery report and indexed navigation references; each added artifact received individual role review. All 921 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -2232,6 +2232,36 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-source-refutation/axioms.txt",
+      "git_blob_sha": "b9c3afbe20197173acb1000fbc34cefd93723b7f",
+      "size_bytes": 124,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-upstream-model/axioms.txt",
       "git_blob_sha": "d18849fbf18dcb95496310cb483ca677a3f4a65c",
       "size_bytes": 119,
@@ -2557,9 +2587,39 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/LogosSourceRefutation.lean",
+      "git_blob_sha": "6bd9163b092439034231ae382b67cb3fe84c9d6c",
+      "size_bytes": 4152,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
+    },
+    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/LogosUpstreamProgram.lean",
-      "git_blob_sha": "966bfdfd18cc06da2c2dac776efc5487217c5159",
-      "size_bytes": 3619,
+      "git_blob_sha": "4f6d48883c3ead726254c8d2f5b7d58dc978e33a",
+      "size_bytes": 3728,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -2624,8 +2684,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/replay.py",
-      "git_blob_sha": "e15f00e032ba3092fd5777dccf034700b9902bcf",
-      "size_bytes": 5027,
+      "git_blob_sha": "d9013c5b148442a564d064d3d589df2cf90446ef",
+      "size_bytes": 5727,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -11706,8 +11766,8 @@
     },
     {
       "path": "research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-      "git_blob_sha": "d7fcba2081aa68efb13b41485c4bd2b3c1506a47",
-      "size_bytes": 37751,
+      "git_blob_sha": "66ef0bace5a82589a67174fa2b4c479c4ceb6b83",
+      "size_bytes": 38086,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -12003,6 +12063,36 @@
       "semantic_review": {
         "status": "file-role-triaged",
         "basis": "Report records the Lean 4.34 single-kernel composition, toolchain compatibility workaround, exact scope, and remaining model/lifting/soundness obligations."
+      }
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md",
+      "git_blob_sha": "ae69441e2dd0de9bc35e733e029d0ee808419737",
+      "size_bytes": 3566,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
       }
     },
     {
@@ -17008,8 +17098,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "35300575c3e116893fe3b65f7baa90658e8e778c",
-      "size_bytes": 94390,
+      "git_blob_sha": "b879c0a775e0579a8bdbb1cfcf316ae373c0dfb3",
+      "size_bytes": 96400,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -17029,8 +17119,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
-      "git_blob_sha": "a865ca8637ad2d9a6f0653634e1511792a867efc",
-      "size_bytes": 97580,
+      "git_blob_sha": "f372ecb373b6c19702e25db5877b472333ed9be9",
+      "size_bytes": 98897,
       "category": "cross-cutting-synthesis-or-status",
       "traceability": {
         "items": [
@@ -17149,8 +17239,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "323cb5a0b8e8c87394c177a0136f7ce2268afaaa",
-      "size_bytes": 65189,
+      "git_blob_sha": "521cd1743acb02a74f5e0b79774366920c2314b4",
+      "size_bytes": 66083,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -19294,8 +19384,278 @@
         "basis": "Proposed research brief, pilot and prerequisite gates."
       },
       "path": "research/runtime-and-systems/RT-37/README.md",
-      "git_blob_sha": "4ce056e665af61b939f22e54f381a10bb86f0324",
-      "size_bytes": 7077
+      "git_blob_sha": "2e12c65fa91e361fc6830966a33b3e6f2eceb8e4",
+      "size_bytes": 7338
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md",
+      "git_blob_sha": "b88e419a8df74115c9c909e618504ec8ac4f0176",
+      "size_bytes": 4173,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-closure/inputs.json",
+      "git_blob_sha": "bd486ceafed2500f0037ee454643135e06eae345",
+      "size_bytes": 133,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-closure/memory.ld",
+      "git_blob_sha": "9d1c0e154bb6b36db7ab718364684fd6cdffa1cb",
+      "size_bytes": 596,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-closure/results.json",
+      "git_blob_sha": "29e1e7aab3df6fb2122ccac5e91dcbf3870c2ea5",
+      "size_bytes": 7324,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-closure/run.py",
+      "git_blob_sha": "17ac87b7d96b0c18cef04df208212ea1051c6bc0",
+      "size_bytes": 11759,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-closure/startup.s",
+      "git_blob_sha": "00c0cfdd9f1d6819a995892d063ded94c897099e",
+      "size_bytes": 1890,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-closure/step.ll",
+      "git_blob_sha": "bbe103a3ccf0c45644d9593e2468989ab1d6d93f",
+      "size_bytes": 833,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-closure/step.rs",
+      "git_blob_sha": "ae64bb751b181e50baa7fcbd361e7d04c66da8bd",
+      "size_bytes": 364,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-closure/wide_division.ll",
+      "git_blob_sha": "a7d95097c788b989c0053c6b34e8c1d71f7d2d9c",
+      "size_bytes": 345,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual role review of transaction/recovery protocol comparison and its navigation entries",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        4
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-19"
+        ],
+        "plan_stages": [
+          4
+        ],
+        "basis": "RT-19 transaction/recovery protocol comparison."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded comparison; no backend selected or crash recovery claimed."
+      }
     },
     {
       "category": "research-area-or-experiment-document",
@@ -20938,8 +21298,8 @@
         "basis": "Navigation and scope index."
       },
       "path": "research/toolchain-and-collaboration/README.md",
-      "git_blob_sha": "1da9e0803c7477ecb3def5f749ee6cb49820c8d7",
-      "size_bytes": 1452
+      "git_blob_sha": "0fc19a489c5170dd9c63f8b3d32e417a057e43ae",
+      "size_bytes": 1917
     },
     {
       "path": "research/toolchain-and-collaboration/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md",
