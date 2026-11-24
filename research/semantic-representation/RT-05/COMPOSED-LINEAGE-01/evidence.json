@@ -1,0 +1,964 @@
+{
+  "format": "rt05-composed-lineage/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "results": [
+    {
+      "case": "alias-only",
+      "eligible": [
+        "module/reviewed"
+      ],
+      "policies": {
+        "exact-continuation": [
+          "module/reviewed"
+        ],
+        "reachable": [
+          "module/reviewed"
+        ],
+        "stable-id": [
+          "module/reviewed"
+        ],
+        "value": [
+          "module/independent",
+          "module/reviewed"
+        ]
+      },
+      "receipts": {
+        "ba2b21661d9fc8cdb8df43f423420ee92f1a01a3": {
+          "commit": "ba2b21661d9fc8cdb8df43f423420ee92f1a01a3",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "0c347ed89b8ad1490c1c88d797b71035ce911a563080caa81b6f3c9cb50a3d90",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "ba2b21661d9fc8cdb8df43f423420ee92f1a01a3"
+      ],
+      "same_selection": false,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "03cc36691df0f2fdaa39869173e7d45d6c61fdc2"
+      ],
+      "verified_chain_sha256": "051918bd38ca16da1cc99c802f225e466fcce1da57e69865b0e6febe5c9ee9fa"
+    },
+    {
+      "case": "move",
+      "eligible": [
+        "new-module/moved"
+      ],
+      "policies": {
+        "exact-continuation": [
+          "new-module/moved"
+        ],
+        "reachable": [
+          "new-module/moved"
+        ],
+        "stable-id": [
+          "new-module/moved"
+        ],
+        "value": [
+          "module/independent",
+          "new-module/moved"
+        ]
+      },
+      "receipts": {
+        "7c33c7c84d331358bccb841264b6f77209077438": {
+          "commit": "7c33c7c84d331358bccb841264b6f77209077438",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "8d707d2a78bf687899df324dd9933a4ce6ed70ed9efe176f32bda09e2e930709",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "moved",
+                    "scope": "new-module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "7c33c7c84d331358bccb841264b6f77209077438"
+      ],
+      "same_selection": false,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "b33ba94bd227cb9bb084a4b4fd275b66842d5a1a"
+      ],
+      "verified_chain_sha256": "de04dac9f2de74ecda0c090b8ee6e52f21bbb99a582d331f2253c68255c56901"
+    },
+    {
+      "case": "independent-copy",
+      "eligible": [
+        "module/reviewed"
+      ],
+      "policies": {
+        "exact-continuation": [
+          "module/reviewed"
+        ],
+        "reachable": [
+          "module/reviewed"
+        ],
+        "stable-id": [
+          "module/reviewed"
+        ],
+        "value": [
+          "module/child",
+          "module/independent",
+          "module/reviewed"
+        ]
+      },
+      "receipts": {
+        "af5fa99c162ae7f68f4e6b5b76e29cfcada209a9": {
+          "commit": "af5fa99c162ae7f68f4e6b5b76e29cfcada209a9",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "b559173bf250b4f318677149196ad27f1cf7eb868f6b46d321466817b8abd2c2",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "af5fa99c162ae7f68f4e6b5b76e29cfcada209a9"
+      ],
+      "same_selection": false,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "1c80fc0ec6dd83561f93768c0cb57a2a6f8956e1"
+      ],
+      "verified_chain_sha256": "de3a7d834e118b94635ad1c746362c8cc159b75f734dbe106ff4354ecac96824"
+    },
+    {
+      "case": "single-split",
+      "eligible": [],
+      "policies": {
+        "exact-continuation": [],
+        "reachable": [
+          "module/child",
+          "module/reviewed"
+        ],
+        "stable-id": [
+          "module/reviewed"
+        ],
+        "value": [
+          "module/child",
+          "module/independent",
+          "module/reviewed"
+        ]
+      },
+      "receipts": {
+        "af5fa99c162ae7f68f4e6b5b76e29cfcada209a9": {
+          "commit": "af5fa99c162ae7f68f4e6b5b76e29cfcada209a9",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "b559173bf250b4f318677149196ad27f1cf7eb868f6b46d321466817b8abd2c2",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  },
+                  {
+                    "key": "child",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "split"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "af5fa99c162ae7f68f4e6b5b76e29cfcada209a9"
+      ],
+      "same_selection": false,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "1c80fc0ec6dd83561f93768c0cb57a2a6f8956e1"
+      ],
+      "verified_chain_sha256": "179b9dd80ccf6a57495351caecb8ffb9b7a650b06d8e66e1486a7222276ec28a"
+    },
+    {
+      "case": "merge-reviewed-and-independent",
+      "eligible": [],
+      "policies": {
+        "exact-continuation": [],
+        "reachable": [
+          "module/reviewed"
+        ],
+        "stable-id": [
+          "module/reviewed"
+        ],
+        "value": [
+          "module/reviewed"
+        ]
+      },
+      "receipts": {
+        "5f95be85f7bc8c63b20da32d09271edb03fa39f9": {
+          "commit": "5f95be85f7bc8c63b20da32d09271edb03fa39f9",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "6c9e8ba45a310e733f975e9161a4d9dcb0efd6530e5f98c2b17616a39c048f88",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  },
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "merge"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "5f95be85f7bc8c63b20da32d09271edb03fa39f9"
+      ],
+      "same_selection": false,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "16792e0863f632f6ac9fcc006c743073155386ee"
+      ],
+      "verified_chain_sha256": "215343158e07bea6acf47a667b461cd28710bc6eeeb8bfa9e0afb90e6670aa0e"
+    },
+    {
+      "case": "split-and-rejoin",
+      "eligible": [],
+      "policies": {
+        "exact-continuation": [],
+        "reachable": [
+          "module/reviewed"
+        ],
+        "stable-id": [
+          "module/reviewed"
+        ],
+        "value": [
+          "module/independent",
+          "module/reviewed"
+        ]
+      },
+      "receipts": {
+        "48e64bc6fff2cc1c222a878bd11662f6a238b964": {
+          "commit": "48e64bc6fff2cc1c222a878bd11662f6a238b964",
+          "lineage": {
+            "base_revision": "b559173bf250b4f318677149196ad27f1cf7eb868f6b46d321466817b8abd2c2",
+            "candidate_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  },
+                  {
+                    "key": "child",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "merge"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "af5fa99c162ae7f68f4e6b5b76e29cfcada209a9"
+        },
+        "af5fa99c162ae7f68f4e6b5b76e29cfcada209a9": {
+          "commit": "af5fa99c162ae7f68f4e6b5b76e29cfcada209a9",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "b559173bf250b4f318677149196ad27f1cf7eb868f6b46d321466817b8abd2c2",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  },
+                  {
+                    "key": "child",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "split"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "af5fa99c162ae7f68f4e6b5b76e29cfcada209a9",
+        "48e64bc6fff2cc1c222a878bd11662f6a238b964"
+      ],
+      "same_selection": true,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "1c80fc0ec6dd83561f93768c0cb57a2a6f8956e1",
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3"
+      ],
+      "verified_chain_sha256": "6f4be01c28e05094904ac22929a73ef99af8fe8224b7089f11cb212a4d408e52"
+    },
+    {
+      "case": "delete-and-recreate",
+      "eligible": [],
+      "policies": {
+        "exact-continuation": [],
+        "reachable": [],
+        "stable-id": [
+          "module/reviewed"
+        ],
+        "value": [
+          "module/independent",
+          "module/reviewed"
+        ]
+      },
+      "receipts": {
+        "347b9c748c13a1e7782dabd7b4a35b8bf61014f7": {
+          "commit": "347b9c748c13a1e7782dabd7b4a35b8bf61014f7",
+          "lineage": {
+            "base_revision": "6dbbe6295d58f8dcb303976d7ad0a771cc67aede59533150a553ef9234d0804c",
+            "candidate_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "5c97b73bfd30850d159bada69f8301baceb003c1"
+        },
+        "5c97b73bfd30850d159bada69f8301baceb003c1": {
+          "commit": "5c97b73bfd30850d159bada69f8301baceb003c1",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "6dbbe6295d58f8dcb303976d7ad0a771cc67aede59533150a553ef9234d0804c",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "5c97b73bfd30850d159bada69f8301baceb003c1",
+        "347b9c748c13a1e7782dabd7b4a35b8bf61014f7"
+      ],
+      "same_selection": true,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "660ebc9d51b38ca65900fee07ec6534297980ab0",
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3"
+      ],
+      "verified_chain_sha256": "4e6c380033b02c666df63c78615f8335f7948891bc99eac0d7d8fe9e6ff838d4"
+    },
+    {
+      "case": "context-change-and-restore",
+      "eligible": [],
+      "policies": {
+        "exact-continuation": [],
+        "reachable": [
+          "module/reviewed"
+        ],
+        "stable-id": [
+          "module/reviewed"
+        ],
+        "value": [
+          "module/independent",
+          "module/reviewed"
+        ]
+      },
+      "receipts": {
+        "d0c8d9f0cab24134878c6f0f026e0cf7a5de12be": {
+          "commit": "d0c8d9f0cab24134878c6f0f026e0cf7a5de12be",
+          "lineage": {
+            "base_revision": "a3fd78ad1651d4eda1cad198b5274e71d99e6cd534c34a38488293882f7e60e8",
+            "candidate_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d2cfe8e3f382726865c2cf1da360e742bcbed0bd"
+        },
+        "d2cfe8e3f382726865c2cf1da360e742bcbed0bd": {
+          "commit": "d2cfe8e3f382726865c2cf1da360e742bcbed0bd",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "a3fd78ad1651d4eda1cad198b5274e71d99e6cd534c34a38488293882f7e60e8",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "d2cfe8e3f382726865c2cf1da360e742bcbed0bd",
+        "d0c8d9f0cab24134878c6f0f026e0cf7a5de12be"
+      ],
+      "same_selection": true,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "ff3b2f5322b3c69253e15ea62b50b64008de5077",
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3"
+      ],
+      "verified_chain_sha256": "e2f7c13f481fd6794a6f122e78d30e5b64d8574d6bddd870dbeb14e8e14149c2"
+    },
+    {
+      "case": "value-change",
+      "eligible": [],
+      "policies": {
+        "exact-continuation": [],
+        "reachable": [],
+        "stable-id": [],
+        "value": [
+          "module/independent"
+        ]
+      },
+      "receipts": {
+        "f4f13b087c1287e9f18405b5dbf5db175fd4f6ef": {
+          "commit": "f4f13b087c1287e9f18405b5dbf5db175fd4f6ef",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "688e5ca73fe76b35f091efed479568c642d7f183c3e5a11d7e0689631ee11511",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "f4f13b087c1287e9f18405b5dbf5db175fd4f6ef"
+      ],
+      "same_selection": false,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "cbc8abff13ce06d950c5db2a714f642be4ab9292"
+      ],
+      "verified_chain_sha256": "8cbd7c7e7e1003fcceabe96ff7daf59e40afa08151ed9a1eaedd68f41308a9b6"
+    },
+    {
+      "case": "missing-lineage",
+      "eligible": [],
+      "policies": {
+        "exact-continuation": null,
+        "reachable": null,
+        "stable-id": [
+          "new-module/moved"
+        ],
+        "value": [
+          "module/independent",
+          "new-module/moved"
+        ]
+      },
+      "receipts": {},
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "7c33c7c84d331358bccb841264b6f77209077438"
+      ],
+      "same_selection": false,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "b33ba94bd227cb9bb084a4b4fd275b66842d5a1a"
+      ],
+      "verified_chain_sha256": null
+    },
+    {
+      "case": "wrong-parent-with-equal-selection",
+      "eligible": [],
+      "policies": {
+        "exact-continuation": null,
+        "reachable": [
+          "new-module/moved"
+        ],
+        "stable-id": [
+          "new-module/moved"
+        ],
+        "value": [
+          "module/independent",
+          "new-module/moved"
+        ]
+      },
+      "receipts": {
+        "7e19c20ec5007952b858c74870ebaf74ed80116f": {
+          "commit": "7e19c20ec5007952b858c74870ebaf74ed80116f",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        },
+        "ee26abf3ef38e356fd898f1ff72b39af32a25fe0": {
+          "commit": "ee26abf3ef38e356fd898f1ff72b39af32a25fe0",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "8d707d2a78bf687899df324dd9933a4ce6ed70ed9efe176f32bda09e2e930709",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "moved",
+                    "scope": "new-module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "7e19c20ec5007952b858c74870ebaf74ed80116f",
+        "ee26abf3ef38e356fd898f1ff72b39af32a25fe0"
+      ],
+      "same_selection": false,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "b33ba94bd227cb9bb084a4b4fd275b66842d5a1a"
+      ],
+      "verified_chain_sha256": null
+    },
+    {
+      "case": "continued-equal-selection",
+      "eligible": [
+        "module/reviewed"
+      ],
+      "policies": {
+        "exact-continuation": [
+          "module/reviewed"
+        ],
+        "reachable": [
+          "module/reviewed"
+        ],
+        "stable-id": [
+          "module/reviewed"
+        ],
+        "value": [
+          "module/independent",
+          "module/reviewed"
+        ]
+      },
+      "receipts": {
+        "7e19c20ec5007952b858c74870ebaf74ed80116f": {
+          "commit": "7e19c20ec5007952b858c74870ebaf74ed80116f",
+          "lineage": {
+            "base_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "candidate_revision": "3c70d555b5b4f625e3efddbebfd932b0b6e0f7f3ab814d6c262a2d4ea8c4030d",
+            "relations": [
+              {
+                "after": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "reviewed",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              },
+              {
+                "after": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "before": [
+                  {
+                    "key": "independent",
+                    "scope": "module"
+                  }
+                ],
+                "kind": "continue"
+              }
+            ]
+          },
+          "parent": "d39acee0a532c1b35a417474953a3dd21daca560"
+        }
+      },
+      "revisions": [
+        "d39acee0a532c1b35a417474953a3dd21daca560",
+        "7e19c20ec5007952b858c74870ebaf74ed80116f"
+      ],
+      "same_selection": true,
+      "trees": [
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3",
+        "2b287ba9ec9da0ce51ba5d8262b8bd68ff474fc3"
+      ],
+      "verified_chain_sha256": "a5243c4ada617ab96bea3161407cff252d7b4fc177ac9a17c127ca0d0e4954ec"
+    }
+  ],
+  "summary": {
+    "exact-continuation": {
+      "excess": 0,
+      "omitted": 0,
+      "unknown": 2
+    },
+    "reachable": {
+      "excess": 6,
+      "omitted": 0,
+      "unknown": 1
+    },
+    "stable-id": {
+      "excess": 7,
+      "omitted": 0,
+      "unknown": 0
+    },
+    "value": {
+      "excess": 20,
+      "omitted": 0,
+      "unknown": 0
+    }
+  }
+}
