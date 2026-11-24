@@ -1,0 +1,405 @@
+{
+  "schema": "llmlang-rt37-mmio-metadata-v1",
+  "input_sha256": {
+    "ARMCM3.svd": "cd91b8682b2e9f2ec632ad2f9f7bc403d0b58f8cc695efd524f31f11ee937e8d",
+    "CMSIS-SVD.xsd": "48456961947060a71d75144a74f3a081c32ad2cba7a68dcb7a4603a77d10fb65",
+    "TM4C123GH6PM.svd": "562d122ffd2f99e7c6aec073384fdca261fef0f89424ec9dd70174de46837faa",
+    "core_cm3.h": "c9937781259a8897adf514445441c68570087d6a72a558d8a4afe75cdb62dbd2",
+    "armv7m_nvic.c": "ab05395824767017605b33b9bfdf55ef9bf70b72972cee92e9a414dfe2e7795d",
+    "armv7m_systick.c": "e2baf1ceef50315020157b588fbca0ae6c8c79be040f4edc8a4d156c7aed1834",
+    "pl061.c": "9629fcbb69b77d85c7dd65d156587354921b7559faffaf797c05f908a61b4c59",
+    "stellaris.c": "eba34705bf82331cac36fcd97b4517c9d1f8b12cf0273ae2ec02d6a70ac04acc"
+  },
+  "core_svd": {
+    "schema_version": "1.3",
+    "peripherals": 0
+  },
+  "vendor_svd": {
+    "schema_version": "1.1",
+    "registers": {
+      "GPIOF.DATA": {
+        "address": "0x400253fc",
+        "width": 32,
+        "access": "read-write",
+        "derivedFrom": "GPIOA",
+        "readAction": null,
+        "modifiedWriteValues": null,
+        "fields": []
+      },
+      "GPIOF.DIR": {
+        "address": "0x40025400",
+        "width": 32,
+        "access": "read-write",
+        "derivedFrom": "GPIOA",
+        "readAction": null,
+        "modifiedWriteValues": null,
+        "fields": []
+      },
+      "GPIOF.ICR": {
+        "address": "0x4002541c",
+        "width": 32,
+        "access": "write-only",
+        "derivedFrom": "GPIOA",
+        "readAction": null,
+        "modifiedWriteValues": null,
+        "fields": [
+          {
+            "name": "GPIO_ICR_GPIO",
+            "bits": "[7:0]",
+            "access": "write-only",
+            "readAction": null,
+            "modifiedWriteValues": null
+          }
+        ]
+      },
+      "GPIOF_AHB.DATA": {
+        "address": "0x4005d3fc",
+        "width": 32,
+        "access": "read-write",
+        "derivedFrom": "GPIOA",
+        "readAction": null,
+        "modifiedWriteValues": null,
+        "fields": []
+      }
+    }
+  },
+  "xsd_validation": {
+    "lxml_version": "6.1.1",
+    "ARMCM3": {
+      "valid": false,
+      "reason": "missing peripherals"
+    },
+    "TM4C123GH6PM": {
+      "valid": true
+    }
+  },
+  "core_header": {
+    "registers": {
+      "SysTick.CTRL": {
+        "address": "0xe000e010",
+        "width": 32,
+        "access": "read-write",
+        "readAction": null,
+        "modifiedWriteValues": null
+      },
+      "SysTick.LOAD": {
+        "address": "0xe000e014",
+        "width": 32,
+        "access": "read-write",
+        "readAction": null,
+        "modifiedWriteValues": null
+      },
+      "SysTick.VAL": {
+        "address": "0xe000e018",
+        "width": 32,
+        "access": "read-write",
+        "readAction": null,
+        "modifiedWriteValues": null
+      },
+      "SysTick.CALIB": {
+        "address": "0xe000e01c",
+        "width": 32,
+        "access": "read-only",
+        "readAction": null,
+        "modifiedWriteValues": null
+      },
+      "SCB.ICSR": {
+        "address": "0xe000ed04",
+        "width": 32,
+        "access": "read-write",
+        "readAction": null,
+        "modifiedWriteValues": null
+      }
+    },
+    "masks": {
+      "SysTick_CTRL_COUNTFLAG": 65536,
+      "SCB_ICSR_PENDSTSET": 67108864,
+      "SCB_ICSR_PENDSTCLR": 33554432
+    }
+  },
+  "evidence": {
+    "emulator_behavior_anchors": 14,
+    "prior_timer_ledger_sha256": "b8be6689903b79314312fad3a67045160c2b49d42ad4279790d43aa0da48f48a",
+    "prior_timer_controls": {
+      "wrong_systick_vector": "BVX",
+      "write_unmasked_gpio": "BG02X",
+      "acknowledge_forced_pending": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0e!",
+      "leave_forced_pending": "B ff/03 ff/03 f6/03 00/01 0d/03 1a/03 00/01 00/01 00/01 00/01 0d/03 04/03 00/01 00/01#0f!"
+    },
+    "pin_1_alias_write": "0x40025008"
+  },
+  "case_count": 33,
+  "totals": {
+    "width_only": {
+      "allow": 31,
+      "false_admissions": 17,
+      "deny": 1,
+      "unknown": 1
+    },
+    "direction_only": {
+      "allow": 28,
+      "false_admissions": 14,
+      "deny": 4,
+      "unknown": 1
+    },
+    "protocol": {
+      "allow": 14,
+      "false_admissions": 0,
+      "deny": 15,
+      "unknown": 4
+    }
+  },
+  "observations": {
+    "observe_countflag": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_load": "0xe000e010"
+      }
+    },
+    "pretend_countflag_is_pure": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "systick_control_rw": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "systick_control_store": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_store": [
+          "0xe000e010",
+          7
+        ]
+      }
+    },
+    "systick_control_reserved_bit": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "systick_control_flag_write": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "systick_control_wrong_width": {
+      "width_only": "deny",
+      "direction_only": "deny",
+      "protocol": "deny",
+      "command": null
+    },
+    "systick_control_no_capability": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "systick_reload_end_of_range": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_store": [
+          "0xe000e014",
+          16777215
+        ]
+      }
+    },
+    "systick_reload_out_of_range": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "systick_reload_read": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_load": "0xe000e014"
+      }
+    },
+    "systick_value_read": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_load": "0xe000e018"
+      }
+    },
+    "systick_value_store": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "systick_value_reset": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_store": [
+          "0xe000e018",
+          0
+        ]
+      }
+    },
+    "systick_calibration_read": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_load": "0xe000e01c"
+      }
+    },
+    "systick_calibration_write": {
+      "width_only": "allow",
+      "direction_only": "deny",
+      "protocol": "deny",
+      "command": null
+    },
+    "pending_status_read": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_load": "0xe000ed04",
+        "mask": 67108864
+      }
+    },
+    "pending_set_command": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_store": [
+          "0xe000ed04",
+          67108864
+        ]
+      }
+    },
+    "pending_clear_command": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_store": [
+          "0xe000ed04",
+          33554432
+        ]
+      }
+    },
+    "pending_clear_zero": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "pending_clear_echoes_set": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "pending_clear_rmw": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "gpio_read_full_alias": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_load": "0x400253fc"
+      }
+    },
+    "gpio_pin1_set": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_store": [
+          "0x40025008",
+          2
+        ]
+      }
+    },
+    "gpio_pin1_clear": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_store": [
+          "0x40025008",
+          0
+        ]
+      }
+    },
+    "gpio_preserve_neighbor": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "gpio_unmasked_write": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "deny",
+      "command": null
+    },
+    "gpio_clear_rmw": {
+      "width_only": "allow",
+      "direction_only": "deny",
+      "protocol": "deny",
+      "command": null
+    },
+    "gpio_clear_literal_mask": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "allow",
+      "command": {
+        "volatile_store": [
+          "0x4002541c",
+          2
+        ]
+      }
+    },
+    "unsupported_dma": {
+      "width_only": "unknown",
+      "direction_only": "unknown",
+      "protocol": "unknown",
+      "command": null
+    },
+    "exact_device_missing_write": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "unknown",
+      "command": null
+    },
+    "exact_device_missing_read": {
+      "width_only": "allow",
+      "direction_only": "deny",
+      "protocol": "unknown",
+      "command": null
+    },
+    "exact_device_missing_clear_irq": {
+      "width_only": "allow",
+      "direction_only": "allow",
+      "protocol": "unknown",
+      "command": null
+    }
+  }
+}
