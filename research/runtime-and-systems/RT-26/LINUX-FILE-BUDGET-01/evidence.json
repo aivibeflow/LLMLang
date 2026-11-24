@@ -1,0 +1,109 @@
+{
+  "brokered": {
+    "fully_released": {
+      "live": 0,
+      "pending": 0,
+      "remaining": 4096
+    },
+    "reservation": {
+      "live": 0,
+      "pending": 3072,
+      "remaining": 1024
+    },
+    "retry_after_unlink": {
+      "live": 3072,
+      "pending": 0,
+      "remaining": 1024
+    },
+    "settled": {
+      "live": 3072,
+      "pending": 0,
+      "remaining": 1024
+    }
+  },
+  "failed_processes": {
+    "crash-after": {
+      "child": {
+        "file_sizes": {
+          "crash-after": 1536
+        },
+        "reported": null,
+        "status": 72
+      },
+      "settlement": {
+        "live": 1536,
+        "pending": 0,
+        "remaining": 2560
+      }
+    },
+    "crash-before": {
+      "child": {
+        "file_sizes": {
+          "crash-before": 0
+        },
+        "reported": null,
+        "status": 71
+      },
+      "settlement": {
+        "live": 0,
+        "pending": 0,
+        "remaining": 4096
+      }
+    },
+    "writes-over-reservation": {
+      "child": {
+        "file_sizes": {
+          "writes-over-reservation": 2048
+        },
+        "reported": {
+          "writes-over-reservation": {
+            "error": "EFBIG",
+            "writes": [
+              2048
+            ]
+          }
+        },
+        "status": 0
+      },
+      "settlement": {
+        "live": 2048,
+        "pending": 0,
+        "remaining": 2048
+      }
+    }
+  },
+  "kernel": "6.18.57",
+  "limit_bytes": 4096,
+  "local_caps": {
+    "one_process_two_files_bytes": 6144,
+    "root_overshoot_bytes": 2048,
+    "single_file_error": {
+      "file_sizes": {
+        "limited": 4096
+      },
+      "reported": {
+        "limited": {
+          "error": "EFBIG",
+          "writes": [
+            4096
+          ]
+        }
+      },
+      "status": 0
+    },
+    "single_file_signal": {
+      "file_sizes": {
+        "terminated": 4096
+      },
+      "reported": null,
+      "status": -25
+    },
+    "split_runtime_checks_accepted": [
+      true,
+      true
+    ],
+    "two_workers_two_files_bytes": 6144
+  },
+  "os": "Linux",
+  "python": "3.12.14"
+}
