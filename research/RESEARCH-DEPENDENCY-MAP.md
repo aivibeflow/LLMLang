@@ -656,3 +656,28 @@ The cycle is an iterative research dependency, not a cyclic content-hash require
 | DEP-244 | RT-36 → RT-34 | Influences | Resource guarantees and environmental cost premises must propagate. | Open hypothesis |
 
 See also public-interface refinement and RT-03/04/06/09/10/12/18/19/23/24. The RT-32/33/36 feedback loop is research iteration, not cyclic evidence discharge.
+
+## 25. Freestanding firmware and OS kernels (RT-37/38)
+
+[RT-37](RT-37-FREESTANDING-EMBEDDED-REAL-TIME/README.md) and [RT-38](RT-38-VERIFIED-OS-KERNELS/README.md) are proposed research directions. The following are dependency hypotheses, not validated design choices.
+
+| ID | Edge | Type | Rationale | Confidence |
+|---|---|---|---|---|
+| DEP-245 | RT-03 → RT-37 | Requires | Freestanding evaluation and error semantics must remain explicit. | Strong hypothesis |
+| DEP-246 | RT-04 → RT-37 | Requires | Ownership, effects and capabilities constrain registers, interrupts and DMA. | Strong hypothesis |
+| DEP-247 | RT-09 → RT-37 | Requires | Layout, ABI, startup and lowering determine target feasibility. | Strong hypothesis |
+| DEP-248 | RT-10 → RT-37 | Constrains | Runtime support must not silently depend on hosted services. | Strong hypothesis |
+| DEP-249 | RT-13 → RT-37 | Requires | Target preservation includes MMIO and binary observations. | Strong hypothesis |
+| DEP-250 | RT-34 → RT-37 | Requires | Scoped resource and timing bounds constrain real-time claims. | Strong hypothesis |
+| DEP-251 | RT-36 → RT-37 | Requires | Device, timing and backend premises must be explicit. | Strong hypothesis |
+| DEP-252 | RT-37 → RT-38 | Requires | Reuse validated freestanding profile and firmware evidence before kernel pilot. | Strong hypothesis |
+| DEP-253 | RT-04 → RT-38 | Requires | Ownership and memory-model rules constrain isolation and SMP. | Strong hypothesis |
+| DEP-254 | RT-09 → RT-38 | Requires | Privileged ABI, assembly/intrinsics and lowering require correspondence. | Strong hypothesis |
+| DEP-255 | RT-16 → RT-38 | Requires | Capability security and privilege boundaries constrain kernel invariants. | Strong hypothesis |
+| DEP-256 | RT-36 → RT-38 | Requires | Hardware, boot, HAL and compiler assumptions scope kernel proofs. | Strong hypothesis |
+| DEP-257 | RT-07 → RT-37 | Requires | Functional and resource proof semantics must be checked. | Strong hypothesis |
+| DEP-258 | RT-08 → RT-37 | Requires | Independent reference and negative controls test profile feasibility. | Strong hypothesis |
+| DEP-259 | RT-07 → RT-38 | Requires | Compositional proof and global invariants govern kernel claims. | Strong hypothesis |
+| DEP-260 | RT-08 → RT-38 | Requires | Independent reference and negative controls test kernel claims. | Strong hypothesis |
+| DEP-261 | RT-32 → RT-37 | Influences | Typed evidence graph tracks hardware premise dependencies. | Strong hypothesis |
+| DEP-262 | RT-33 → RT-38 | Influences | Backend-neutral evidence composition scopes source and binary claims. | Strong hypothesis |

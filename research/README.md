@@ -48,6 +48,11 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 
 - [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) — P0 research on typed assumptions, foreign bindings, proof closure and discharge, independent evidence/status dimensions, policy-controlled admission and adversarial benchmark. [Issue #436](https://github.com/aivibeflow/LLMLang/issues/436).
 
+## Freestanding, embedded and OS-kernel research
+
+- [RT-37 — Freestanding, embedded and real-time firmware](RT-37-FREESTANDING-EMBEDDED-REAL-TIME/README.md) — shared low-level profile, hardware contracts, timing/resource analysis, and bootable firmware pilot. [Issue #440](https://github.com/aivibeflow/LLMLang/issues/440).
+- [RT-38 — Operating-system kernels and verified microkernel feasibility](RT-38-VERIFIED-OS-KERNELS/README.md) — privileged memory and IPC, isolation, scheduler, conditional proofs and a bootable microkernel pilot building on RT-37. [Issue #441](https://github.com/aivibeflow/LLMLang/issues/441). Both are proposed, not validated.
+
 ## Contract formalization evaluation corpus
 
 - [CF-007 — Compositional bank transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md) — proposed worked example bridging human requirements, FRETish-style observations, five callee contracts, analytical caller proof, and mutation-based composition evaluation; no machine-checked result claimed.
