@@ -767,6 +767,7 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 ## 4.4 Git integration workflow
 
 - [ ] Prototype a Git merge driver that invokes the LLMLang semantic merge tool.
+  - [x] Compare a native file driver, explicit-context refusal and textual fallback across 12 temporary-repository cases. Merge, cherry-pick and rebase each report success for a pair with identical driver observations and different graph closure. Only the full pinned trees expose all three missing exact callees. [Native merge driver experiment](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-GIT-MERGE-DRIVER-2026-11-24.md).
 - [ ] Prototype a Git mergetool integration for interactive conflicts.
 - [ ] Define clean fallback behavior when the tool is unavailable.
 - [ ] Test merges in normal Git workflows and across operating systems.

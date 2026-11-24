@@ -1,0 +1,495 @@
+{
+  "format": "rt24-native-merge-driver/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "results": [
+    {
+      "assembled_graph": "closed",
+      "calls": [
+        {
+          "blobs": [
+            "629ce00af92800cc2d9ce7c7ecf86e79d4612abb",
+            "1527e3eb0caf9d57df2234a6d8f0eb08f16e61b2",
+            "cc96ee5622c3688b1b6d53e0ba68b2851d4b3766"
+          ],
+          "head": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+          "index_caller": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+          "marker_size": 11,
+          "path": "program/callee.json",
+          "protocol_files": {
+            "CHERRY_PICK_HEAD": false,
+            "MERGE_HEAD": false,
+            "REBASE_HEAD": false,
+            "rebase-apply": false,
+            "rebase-merge": false
+          },
+          "unmerged_entries": 0
+        }
+      ],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "51919d2f94eaa751f4b24cf213eef109d5c5102d"
+      },
+      "context": "independent",
+      "coordinator_status": "structural-candidate",
+      "git_status": 0,
+      "head_after": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+      "new_commit_before_semantic_gate": false,
+      "operation": "merge",
+      "policy": "local-slots",
+      "selections": {
+        "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "contract": "54e5b371f93313878f3e4437f0a760f324c87215b88e0546d5f788b6e13fb098",
+        "independent": "ec4cdd4a499a000f4c919b76ae27141ff68393782ebc3f55fd78b739c97cf4dc"
+      },
+      "transaction_tree": "b83db9a2eb60e4e35d2875ce4d245a001f50294a",
+      "unmerged": [],
+      "unmerged_stages": []
+    },
+    {
+      "assembled_graph": "unclosed",
+      "calls": [
+        {
+          "blobs": [
+            "629ce00af92800cc2d9ce7c7ecf86e79d4612abb",
+            "1527e3eb0caf9d57df2234a6d8f0eb08f16e61b2",
+            "cc96ee5622c3688b1b6d53e0ba68b2851d4b3766"
+          ],
+          "head": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+          "index_caller": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+          "marker_size": 11,
+          "path": "program/callee.json",
+          "protocol_files": {
+            "CHERRY_PICK_HEAD": false,
+            "MERGE_HEAD": false,
+            "REBASE_HEAD": false,
+            "rebase-apply": false,
+            "rebase-merge": false
+          },
+          "unmerged_entries": 0
+        }
+      ],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "5774eb8d9fd52d9dab5ca5cc3bb4a420490141c4"
+      },
+      "context": "external-caller",
+      "coordinator_status": "graph-conflict",
+      "git_status": 0,
+      "head_after": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+      "new_commit_before_semantic_gate": false,
+      "operation": "merge",
+      "policy": "local-slots",
+      "selections": null,
+      "transaction_tree": "4395713fe0df4c5c0ecf5a5220254b651edc5b9a",
+      "unmerged": [],
+      "unmerged_stages": []
+    },
+    {
+      "assembled_graph": "closed",
+      "calls": [
+        {
+          "blobs": [
+            "629ce00af92800cc2d9ce7c7ecf86e79d4612abb",
+            "1527e3eb0caf9d57df2234a6d8f0eb08f16e61b2",
+            "cc96ee5622c3688b1b6d53e0ba68b2851d4b3766"
+          ],
+          "head": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+          "index_caller": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+          "marker_size": 11,
+          "path": "program/callee.json",
+          "protocol_files": {
+            "CHERRY_PICK_HEAD": false,
+            "MERGE_HEAD": false,
+            "REBASE_HEAD": false,
+            "rebase-apply": false,
+            "rebase-merge": false
+          },
+          "unmerged_entries": 0
+        }
+      ],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "51919d2f94eaa751f4b24cf213eef109d5c5102d"
+      },
+      "context": "independent",
+      "coordinator_status": "structural-candidate",
+      "git_status": 0,
+      "head_after": "5a3a718db5de5e312e5182de65ae902711573ffb",
+      "new_commit_before_semantic_gate": true,
+      "operation": "cherry-pick",
+      "policy": "local-slots",
+      "selections": {
+        "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "contract": "54e5b371f93313878f3e4437f0a760f324c87215b88e0546d5f788b6e13fb098",
+        "independent": "ec4cdd4a499a000f4c919b76ae27141ff68393782ebc3f55fd78b739c97cf4dc"
+      },
+      "transaction_tree": "b83db9a2eb60e4e35d2875ce4d245a001f50294a",
+      "unmerged": [],
+      "unmerged_stages": []
+    },
+    {
+      "assembled_graph": "unclosed",
+      "calls": [
+        {
+          "blobs": [
+            "629ce00af92800cc2d9ce7c7ecf86e79d4612abb",
+            "1527e3eb0caf9d57df2234a6d8f0eb08f16e61b2",
+            "cc96ee5622c3688b1b6d53e0ba68b2851d4b3766"
+          ],
+          "head": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+          "index_caller": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+          "marker_size": 11,
+          "path": "program/callee.json",
+          "protocol_files": {
+            "CHERRY_PICK_HEAD": false,
+            "MERGE_HEAD": false,
+            "REBASE_HEAD": false,
+            "rebase-apply": false,
+            "rebase-merge": false
+          },
+          "unmerged_entries": 0
+        }
+      ],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "5774eb8d9fd52d9dab5ca5cc3bb4a420490141c4"
+      },
+      "context": "external-caller",
+      "coordinator_status": "graph-conflict",
+      "git_status": 0,
+      "head_after": "5a5bdcb9b2ceaab942237b649791584466903f9b",
+      "new_commit_before_semantic_gate": true,
+      "operation": "cherry-pick",
+      "policy": "local-slots",
+      "selections": null,
+      "transaction_tree": "4395713fe0df4c5c0ecf5a5220254b651edc5b9a",
+      "unmerged": [],
+      "unmerged_stages": []
+    },
+    {
+      "assembled_graph": "closed",
+      "calls": [
+        {
+          "blobs": [
+            "629ce00af92800cc2d9ce7c7ecf86e79d4612abb",
+            "1527e3eb0caf9d57df2234a6d8f0eb08f16e61b2",
+            "cc96ee5622c3688b1b6d53e0ba68b2851d4b3766"
+          ],
+          "head": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+          "index_caller": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+          "marker_size": 11,
+          "path": "program/callee.json",
+          "protocol_files": {
+            "CHERRY_PICK_HEAD": false,
+            "MERGE_HEAD": false,
+            "REBASE_HEAD": false,
+            "rebase-apply": false,
+            "rebase-merge": true
+          },
+          "unmerged_entries": 0
+        }
+      ],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "51919d2f94eaa751f4b24cf213eef109d5c5102d"
+      },
+      "context": "independent",
+      "coordinator_status": "structural-candidate",
+      "git_status": 0,
+      "head_after": "5a3a718db5de5e312e5182de65ae902711573ffb",
+      "new_commit_before_semantic_gate": true,
+      "operation": "rebase",
+      "policy": "local-slots",
+      "selections": {
+        "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+        "contract": "54e5b371f93313878f3e4437f0a760f324c87215b88e0546d5f788b6e13fb098",
+        "independent": "ec4cdd4a499a000f4c919b76ae27141ff68393782ebc3f55fd78b739c97cf4dc"
+      },
+      "transaction_tree": "b83db9a2eb60e4e35d2875ce4d245a001f50294a",
+      "unmerged": [],
+      "unmerged_stages": []
+    },
+    {
+      "assembled_graph": "unclosed",
+      "calls": [
+        {
+          "blobs": [
+            "629ce00af92800cc2d9ce7c7ecf86e79d4612abb",
+            "1527e3eb0caf9d57df2234a6d8f0eb08f16e61b2",
+            "cc96ee5622c3688b1b6d53e0ba68b2851d4b3766"
+          ],
+          "head": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+          "index_caller": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+          "marker_size": 11,
+          "path": "program/callee.json",
+          "protocol_files": {
+            "CHERRY_PICK_HEAD": false,
+            "MERGE_HEAD": false,
+            "REBASE_HEAD": false,
+            "rebase-apply": false,
+            "rebase-merge": true
+          },
+          "unmerged_entries": 0
+        }
+      ],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "5774eb8d9fd52d9dab5ca5cc3bb4a420490141c4"
+      },
+      "context": "external-caller",
+      "coordinator_status": "graph-conflict",
+      "git_status": 0,
+      "head_after": "5a5bdcb9b2ceaab942237b649791584466903f9b",
+      "new_commit_before_semantic_gate": true,
+      "operation": "rebase",
+      "policy": "local-slots",
+      "selections": null,
+      "transaction_tree": "4395713fe0df4c5c0ecf5a5220254b651edc5b9a",
+      "unmerged": [],
+      "unmerged_stages": []
+    },
+    {
+      "assembled_graph": null,
+      "calls": [
+        {
+          "blobs": [
+            "629ce00af92800cc2d9ce7c7ecf86e79d4612abb",
+            "1527e3eb0caf9d57df2234a6d8f0eb08f16e61b2",
+            "bd6b5b14bf9ab8be62564496f846a8b25f21f369"
+          ],
+          "head": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+          "index_caller": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+          "marker_size": 11,
+          "path": "program/callee.json",
+          "protocol_files": {
+            "CHERRY_PICK_HEAD": false,
+            "MERGE_HEAD": false,
+            "REBASE_HEAD": false,
+            "rebase-apply": false,
+            "rebase-merge": false
+          },
+          "unmerged_entries": 0
+        }
+      ],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "e72663d489ec773aa247027346bc98a4a42d1597"
+      },
+      "context": "same-slot",
+      "coordinator_status": "slot-conflict",
+      "git_status": 1,
+      "head_after": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+      "new_commit_before_semantic_gate": false,
+      "operation": "merge",
+      "policy": "local-slots",
+      "selections": null,
+      "transaction_tree": null,
+      "unmerged": [
+        "program/callee.json"
+      ],
+      "unmerged_stages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "assembled_graph": null,
+      "calls": [],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "51919d2f94eaa751f4b24cf213eef109d5c5102d"
+      },
+      "context": "independent",
+      "coordinator_status": "structural-candidate",
+      "git_status": 1,
+      "head_after": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+      "new_commit_before_semantic_gate": false,
+      "operation": "merge",
+      "policy": "unconfigured",
+      "selections": null,
+      "transaction_tree": null,
+      "unmerged": [
+        "program/callee.json"
+      ],
+      "unmerged_stages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "assembled_graph": null,
+      "calls": [],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "51919d2f94eaa751f4b24cf213eef109d5c5102d"
+      },
+      "context": "independent",
+      "coordinator_status": "structural-candidate",
+      "git_status": 1,
+      "head_after": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+      "new_commit_before_semantic_gate": false,
+      "operation": "merge",
+      "policy": "missing",
+      "selections": null,
+      "transaction_tree": null,
+      "unmerged": [
+        "program/callee.json"
+      ],
+      "unmerged_stages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "assembled_graph": null,
+      "calls": [
+        {
+          "blobs": [
+            "629ce00af92800cc2d9ce7c7ecf86e79d4612abb",
+            "1527e3eb0caf9d57df2234a6d8f0eb08f16e61b2",
+            "cc96ee5622c3688b1b6d53e0ba68b2851d4b3766"
+          ],
+          "head": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+          "index_caller": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+          "marker_size": 11,
+          "path": "program/callee.json",
+          "protocol_files": {
+            "CHERRY_PICK_HEAD": false,
+            "MERGE_HEAD": false,
+            "REBASE_HEAD": false,
+            "rebase-apply": false,
+            "rebase-merge": false
+          },
+          "unmerged_entries": 0
+        }
+      ],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "51919d2f94eaa751f4b24cf213eef109d5c5102d"
+      },
+      "context": "independent",
+      "coordinator_status": "structural-candidate",
+      "git_status": 1,
+      "head_after": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+      "new_commit_before_semantic_gate": false,
+      "operation": "merge",
+      "policy": "require-context",
+      "selections": null,
+      "transaction_tree": null,
+      "unmerged": [
+        "program/callee.json"
+      ],
+      "unmerged_stages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "assembled_graph": null,
+      "calls": [
+        {
+          "blobs": [
+            "629ce00af92800cc2d9ce7c7ecf86e79d4612abb",
+            "1527e3eb0caf9d57df2234a6d8f0eb08f16e61b2",
+            "cc96ee5622c3688b1b6d53e0ba68b2851d4b3766"
+          ],
+          "head": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+          "index_caller": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+          "marker_size": 11,
+          "path": "program/callee.json",
+          "protocol_files": {
+            "CHERRY_PICK_HEAD": false,
+            "MERGE_HEAD": false,
+            "REBASE_HEAD": false,
+            "rebase-apply": false,
+            "rebase-merge": false
+          },
+          "unmerged_entries": 0
+        }
+      ],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "51919d2f94eaa751f4b24cf213eef109d5c5102d"
+      },
+      "context": "independent",
+      "coordinator_status": "structural-candidate",
+      "git_status": 1,
+      "head_after": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+      "new_commit_before_semantic_gate": false,
+      "operation": "cherry-pick",
+      "policy": "require-context",
+      "selections": null,
+      "transaction_tree": null,
+      "unmerged": [
+        "program/callee.json"
+      ],
+      "unmerged_stages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "assembled_graph": null,
+      "calls": [
+        {
+          "blobs": [
+            "629ce00af92800cc2d9ce7c7ecf86e79d4612abb",
+            "1527e3eb0caf9d57df2234a6d8f0eb08f16e61b2",
+            "cc96ee5622c3688b1b6d53e0ba68b2851d4b3766"
+          ],
+          "head": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+          "index_caller": "fe51488c7066f6687ef680d6bfaa4f7768ef205c",
+          "marker_size": 11,
+          "path": "program/callee.json",
+          "protocol_files": {
+            "CHERRY_PICK_HEAD": false,
+            "MERGE_HEAD": false,
+            "REBASE_HEAD": false,
+            "rebase-apply": false,
+            "rebase-merge": true
+          },
+          "unmerged_entries": 0
+        }
+      ],
+      "commits": {
+        "base": "0fcb7084587360e8e72d4da31f3434c9da37ff24",
+        "ours": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+        "theirs": "51919d2f94eaa751f4b24cf213eef109d5c5102d"
+      },
+      "context": "independent",
+      "coordinator_status": "structural-candidate",
+      "git_status": 1,
+      "head_after": "d8a125390ebb403ef4d4ccb3dcd99460662b2963",
+      "new_commit_before_semantic_gate": false,
+      "operation": "rebase",
+      "policy": "require-context",
+      "selections": null,
+      "transaction_tree": null,
+      "unmerged": [
+        "program/callee.json"
+      ],
+      "unmerged_stages": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}
