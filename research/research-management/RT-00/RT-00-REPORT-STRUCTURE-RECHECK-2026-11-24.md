@@ -3,6 +3,7 @@
 **Research item:** `PLAN.md` §0.2 — consistent report structure
 **Date:** 2026-11-24
 **Baseline main:** `0aa0527b0df36b94ba3b4ec4a4bd06aca0db2915`
+**Crosswalk follow-up main:** `5ce6cf011e6ec9e2019d375421b8dac8f6227731`
 **Evidence type:** bounded structural review of five implementation-relevant research reports
 **Status:** selected-report audit; no corpus-wide migration or policy adoption
 **Question:** Do recent studies provide the minimum information in the proposed research schema, even when they use different headings and combine sections?
@@ -27,7 +28,7 @@ I compared the minimum report structure in [Research Quality and Decision Rules]
 
 The five reports preserve the core research information, but not through one fixed heading sequence. The first three have an explicit status/question structure; the two formal-verification reports use evidence/date/baseline headers and put the question or status in their subject, scope, and result prose. Each provides a model or workload boundary, results, limitations, and links to the originating research area. The exact depth of reproduction varies with the evidence type and available tools.
 
-The practical gap is metadata and claim-level traceability consistency, rather than absence of every schema section: two reports omit a dedicated question/status field, and none uses a stable per-claim record throughout. In the selected set, the report headings still let a reviewer locate assumptions, alternatives, results, falsifiers or missing correspondence, and decision limits. A mandatory fixed heading template would add little unless it also normalizes those claim fields.
+The practical gap is metadata and claim-level traceability consistency, rather than absence of every schema section: two reports omit a dedicated question/status field. The five source reports do not embed a uniform stable per-claim record. However, current main also contains separate, source-bound claim registers: the second purposive cohort maps 24 claims across 12 reports to exact report/source blobs, scope, limits and draft-impact boundaries, while the first pilot covers another bounded cohort. These registers demonstrate a workable traceability mechanism for selected claims; they do not supply a stable global claim-ID schema or establish uniform coverage of the five reports or the corpus. In the selected reports, readers can locate assumptions, alternatives, results, falsifiers or missing correspondence, and decision limits. A fixed heading template has limited value unless it supports claim-level records as well.
 
 ## Stage 0.2 implication
 
@@ -36,7 +37,7 @@ This crosswalk supports a bounded statement that recent implementation-oriented 
 ## Remaining dependencies
 
 - Corpus-wide structural audit, including older scenarios, copied reference snapshots, and prototype reports.
-- Stable claim IDs, confidence, falsifier/missing-evidence, and downstream-impact fields for major decision-relevant claims.
+- A globally adopted stable claim-ID schema and claim-level confidence, falsifier/missing-evidence, and downstream-impact fields for major decision-relevant claims. Existing cohort manifests provide bounded examples, not a uniform corpus schema.
 - Independent human review and maintainer approval of the proposed Stage 0.2 schema.
 
-**Conclusion:** selected recent studies preserve the important report information without uniform headings. The remaining consistency work is claim-level and corpus-wide; this sample does not close Stage 0.2.
+**Conclusion:** selected recent studies preserve the important report information without uniform headings. Separate source-bound claim registers already demonstrate selected-cohort traceability. The remaining consistency work is global schema adoption, claim-level integration into material reports, and corpus-wide review; this sample does not close Stage 0.2.
