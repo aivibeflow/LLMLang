@@ -1,5 +1,7 @@
 # LLMLang — An AI-Native Programming Language Concept
 
+The Russian-language companion is [LLMLang-CONCEPT.ru.md](LLMLang-CONCEPT.ru.md). This navigation link does not establish translation parity; the two texts remain separate documents.
+
 **Status:** Concept document  
 **Version:** 0.1  
 **Working language name:** `LLMLang`  

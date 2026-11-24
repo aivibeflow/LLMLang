@@ -2,6 +2,8 @@
 
 Research documents are exploratory evidence and do not change the candidate or normative language specification unless a decision is explicitly accepted.
 
+The [English LLMLang concept](LLMLang-CONCEPT.md) has a [Russian-language companion](LLMLang-CONCEPT.ru.md); reciprocal links support navigation, but translation completeness is not audited.
+
 The [eight-report historical Git publication/source provenance audit](RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md) and [exact-blob manifest](quality-audit/2026-11-23-publication-provenance.json) locate archival source snapshots without equating publication with original execution provenance. A separate opt-in CI workflow rechecks five scoped historical experiments; no language policy is selected.
 
 The [nine research-navigation crosswalk repairs](RT-00-QUALITY-RULES-NAVIGATION-REMEDIATION-2026-11-23.md) add explicit hypotheses, prior-art source, fake-runner reproduction and non-normative draft/decision boundaries to five historical reports without overwriting the earlier measured results. The [sample replayer](../.github/scripts/replay_research_quality_sample.py) now reads immutable original Git blobs for a genuine historical sample comparison.
@@ -172,6 +174,7 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 - [Cross-cutting alignment review](RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) — historical first-pass count reconciliation, candidate/non-normative status, and terminology boundaries; its 24/94 counts are superseded by the current taxonomy and dependency map.
 - [RT-00 A inventory manifest freshness reconciliation (2026-11-21)](RT-00-A-INVENTORY-MANIFEST-FRESHNESS-RECONCILIATION-2026-11-21.md) — exact recursive path/blob/size audit and qualified file-role reconciliation.
 - [RT-00 B4 corpus duplicate and supersession audit (2026-11-21)](RT-00-B-04-CORPUS-DUPLICATE-AND-SUPERSESSION-AUDIT-2026-11-21.md) — exact-content grouping and scoped semantic duplicate/supersession review.
+- [RT-00 B9 current-main corpus relationship delta (2026-11-24)](RT-00-B-09-CURRENT-MAIN-CORPUS-RELATIONSHIP-DELTA-2026-11-24.md) — rechecks exact blobs, the new Russian concept navigation candidate, and inventory staleness at main `41bd03e`; full semantic comparison remains open.
 - [RT-00 B5 complete traceability graph audit (2026-11-21)](RT-00-B-05-COMPLETE-TRACEABILITY-GRAPH-AUDIT-2026-11-21.md) — graph layers, edge semantics, and corpus-wide claim/evidence traceability gaps.
 - [RT-00 B5 Scenario 130 claim-level traceability pilot (2026-11-21)](RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md) — bounded report-local claim-to-source/test/CI/evidence trace.
 - [RT-00 B6 unified contradictions and unresolved register (2026-11-21)](RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.md) — dated register of reconciled conflicts and unresolved design/proof/evidence gaps, refreshed with bounded RT-06 and RT-09 results.
