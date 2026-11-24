@@ -1,0 +1,7 @@
+'LLMLang.LogosScalarDenotation.liftValuation_revalues' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LLMLang.LogosScalarDenotation.wireValuation_preservesFormula' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LLMLang.LogosScalarDenotation.acceptedAssumptions_forConcretePair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

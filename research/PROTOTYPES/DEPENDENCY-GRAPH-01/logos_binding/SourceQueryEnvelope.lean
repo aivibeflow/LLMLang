@@ -25,7 +25,7 @@ private def node (sort : QuerySort) (op : String) (args : List Json := [])
     ("args", toJson args), ("atom", atom)]
 
 /-- The pair names satisfy the /2 suffix convention without using source spellings. -/
-private def wireName (binding : SymbolBinding) : String :=
+def wireName (binding : SymbolBinding) : String :=
   binding.name ++ match binding.role with
     | .shared => ""
     | .left => "_L"
@@ -34,6 +34,14 @@ private def wireName (binding : SymbolBinding) : String :=
 /-- Map each original canonical symbol to its exact wire spelling. -/
 def wireNames (bindings : List SymbolBinding) (name : String) : String :=
   ((bindings.find? (fun binding => binding.name == name)).map wireName).getD name
+
+/-- Lift an internal valuation through the table of exact emitted wire names. -/
+def wireValuation (bindings : List SymbolBinding) (original : SourceQuerySemantics.Env) :
+    SourceQuerySemantics.Env :=
+  fun name sort =>
+    match bindings.find? (fun binding => wireName binding == name) with
+    | some binding => original binding.name sort
+    | none => original name sort
 
 def wireTerm (bindings : List SymbolBinding) {sort : QuerySort} (term : QueryTerm sort) :
     QueryTerm sort :=
