@@ -1,0 +1,99 @@
+inductive Scalar where
+  | integer
+  | boolean
+
+abbrev Denote : Scalar → Type
+  | .integer => Int
+  | .boolean => Bool
+
+inductive Expr : Scalar → Type
+  | literal : Int → Expr .integer
+  | argument : Expr .integer
+  | add : Expr .integer → Expr .integer → Expr .integer
+  | sub : Expr .integer → Expr .integer → Expr .integer
+  | eq : Expr .integer → Expr .integer → Expr .boolean
+  | branch : Expr .boolean → Expr ty → Expr ty → Expr ty
+  | emit : String → Expr ty → Expr ty
+  | call : Phase → Expr .integer → Expr .integer
+
+abbrev Result (ty : Scalar) := Option (Denote ty × List String)
+
+def eval (invoke : Phase → Int → Result .integer) (argument : Int) : Expr ty → Result ty
+  | .literal n => some (n, [])
+  | .argument => some (argument, [])
+  | .add lhs rhs => do
+      let (x, left) ← eval invoke argument lhs
+      let (y, right) ← eval invoke argument rhs
+      return (x + y, left ++ right)
+  | .sub lhs rhs => do
+      let (x, left) ← eval invoke argument lhs
+      let (y, right) ← eval invoke argument rhs
+      return (x - y, left ++ right)
+  | .eq lhs rhs => do
+      let (x, left) ← eval invoke argument lhs
+      let (y, right) ← eval invoke argument rhs
+      return (decide (x = y), left ++ right)
+  | .branch test yes no => do
+      let (flag, before) ← eval invoke argument test
+      let (value, after) ← if flag then eval invoke argument yes else eval invoke argument no
+      return (value, before ++ after)
+  | .emit label tail => do
+      let (value, events) ← eval invoke argument tail
+      return (value, label :: events)
+  | .call phase operand => do
+      let (value, before) ← eval invoke argument operand
+      let (result, after) ← invoke phase value
+      return (result, before ++ after)
+
+-- @TYPED_BODIES@
+
+def deep : Nat → Phase → Int → Result .integer
+  | 0, _, _ => none
+  | fuel + 1, phase, argument => eval (deep fuel) argument (checkedBody phase)
+
+theorem deepModel (fuel n : Nat) (phase : Phase) :
+    deep fuel phase (Int.ofNat n) = if n < fuel then some (model phase n) else none := by
+  induction n generalizing fuel phase with
+  | zero =>
+    cases fuel <;> cases phase <;>
+      simp [deep, checkedBody, eval, model, route, terminal, finish, baseValue]
+  | succ n ih =>
+    cases fuel with
+    | zero => simp [deep]
+    | succ fuel =>
+      simp only [Int.ofNat_eq_natCast] at ih
+      have nonzero : (n : Int) + 1 ≠ 0 := by omega
+      by_cases enough : n < fuel <;> cases phase <;>
+        simp [deep, checkedBody, eval, nonzero, ih, enough, model_step, nextPhase, enter, exit]
+
+theorem deepShallow (fuel n : Nat) :
+    deep fuel .evenPhase (Int.ofNat n) = (if n < fuel then some (evenMember n) else none) ∧
+    deep fuel .oddPhase (Int.ofNat n) = (if n < fuel then some (oddMember n) else none) := by
+  rw [deepModel, deepModel, (orderedPair n).1, (orderedPair n).2]
+  exact ⟨rfl, rfl⟩
+
+theorem negativeExhausts (fuel : Nat) (phase : Phase) (argument : Int) (negative : argument < 0) :
+    deep fuel phase argument = none := by
+  induction fuel generalizing phase argument with
+  | zero => rfl
+  | succ fuel ih =>
+    have nonzero : argument ≠ 0 := by omega
+    have decreasing : argument - 1 < 0 := by omega
+    cases phase <;> simp [deep, checkedBody, eval, nonzero, ih _ _ decreasing]
+
+#print axioms deepShallow
+#print axioms negativeExhausts
+
+def main : IO Unit := do
+  for n in List.range 13 do
+    for fuel in List.range 17 do
+      for phase in [Phase.evenPhase, Phase.oddPhase] do
+        match deep fuel phase (Int.ofNat n) with
+        | none => IO.println "exhausted"
+        | some result => IO.println (observationLine result)
+  for n in [-1, -3, -17] do
+    for fuel in List.range 17 do
+      for phase in [Phase.evenPhase, Phase.oddPhase] do
+        match deep fuel phase n with
+        | none => IO.println "exhausted"
+        | some result => IO.println (observationLine result)

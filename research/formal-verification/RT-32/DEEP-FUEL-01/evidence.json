@@ -1,0 +1,152 @@
+{
+  "format": "rt32-deep-fuel/1",
+  "fuels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "negative": [
+    -1,
+    -3,
+    -17
+  ],
+  "negative_controls": {
+    "non_strict_fuel_test": {
+      "diagnostic": "unsolved goals",
+      "lean_source_sha256": "9e58a43f6fe1e2ebcfe5375015c40427fcbd1e3e97549d7cf7d03614507f6584"
+    },
+    "swapped_trace_operands": {
+      "diagnostic": "unsolved goals",
+      "lean_source_sha256": "20ccd4ef08f6c767380bfa5bc9920f5e89ecd9da05b653c6178075ebb9ad77ea"
+    }
+  },
+  "nonnegative": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "profiles": {
+    "keyed": {
+      "axioms": [
+        "'orderedPair' depends on axioms: [propext, Quot.sound]",
+        "'generated_length' depends on axioms: [propext, Quot.sound]",
+        "'deepShallow' depends on axioms: [propext, Quot.sound]",
+        "'negativeExhausts' depends on axioms: [propext, Quot.sound]"
+      ],
+      "counts": {
+        "in_budget": 260,
+        "negative_exhausted": 102,
+        "nonnegative_exhausted": 182
+      },
+      "lean_source_sha256": "2838b8616ede72e7036d02772156503f73a8c8dc4c692615bc01de397aa12af8",
+      "observation_sha256": "e54ba5ea386b36565c85cd320e977709ffa23afb1cdf436f8cbf4f67bf19739b",
+      "subject": {
+        "contracts": {
+          "evenMember": "7dfa5968081a2837ec16c3f7db966115f35c76b3246c1068da786d036f218687",
+          "oddMember": "5e3826e1bf5e57cae72ee117b7c0dd69ad6329c7b79b14608fd9f912b3c1ab9b"
+        },
+        "group": "bc0e1178245d38bb3e66d1de8c5eb5e1d08c62e034591734be3c49ac3b0970f5",
+        "group_sha256": "9c846c0301e8ffcdc3431f34510a7793a4c8a55a781a9bf4570cb3b41744825d",
+        "members": {
+          "evenMember": {
+            "base_event": "base_even",
+            "base_value": 0,
+            "callee": "oddMember",
+            "enter": "enter_even",
+            "exit": "exit_even",
+            "member": "457810b8ef385544f1117a96e03b526b3848678a1f51167d8ab0dfb792bd15c6",
+            "order": "enter-then-exit",
+            "position": 0,
+            "stride": 1
+          },
+          "oddMember": {
+            "base_event": "base_odd",
+            "base_value": 1,
+            "callee": "evenMember",
+            "enter": "enter_odd",
+            "exit": "exit_odd",
+            "member": "71cc81b7cad57e3a04d4d3fe9e63ad34f6b1298a7c046ea27ac254a3846a9fac",
+            "order": "enter-then-exit",
+            "position": 1,
+            "stride": 1
+          }
+        },
+        "snapshot": "d15646b76ae957bff1e2744431007d3483dba56b8552e506efd3785a06c5ea69"
+      }
+    },
+    "structural": {
+      "axioms": [
+        "'orderedPair' depends on axioms: [propext, Quot.sound]",
+        "'generated_length' depends on axioms: [propext, Quot.sound]",
+        "'deepShallow' depends on axioms: [propext, Quot.sound]",
+        "'negativeExhausts' depends on axioms: [propext, Quot.sound]"
+      ],
+      "counts": {
+        "in_budget": 260,
+        "negative_exhausted": 102,
+        "nonnegative_exhausted": 182
+      },
+      "lean_source_sha256": "b048891010e0bf88279615af3b20a54c039e10c8ea27996e9229277aa00a635e",
+      "observation_sha256": "e54ba5ea386b36565c85cd320e977709ffa23afb1cdf436f8cbf4f67bf19739b",
+      "subject": {
+        "contracts": {
+          "evenMember": "7dfa5968081a2837ec16c3f7db966115f35c76b3246c1068da786d036f218687",
+          "oddMember": "5e3826e1bf5e57cae72ee117b7c0dd69ad6329c7b79b14608fd9f912b3c1ab9b"
+        },
+        "group": "fd71e94a4c1cdd4a5f772e84c76148b3f4546b0a1b5fc62f8382c5d7629822e0",
+        "group_sha256": "f780b3a2189080f737c893e4e88ce7864639dc6a79043fa1377382f7a65ab7f3",
+        "members": {
+          "evenMember": {
+            "base_event": "base_even",
+            "base_value": 0,
+            "callee": "oddMember",
+            "enter": "enter_even",
+            "exit": "exit_even",
+            "member": "8e3b980570da5ca5fa113a2145c283c5754137667a51a328cf575303ae4b1f3c",
+            "order": "enter-then-exit",
+            "position": 0,
+            "stride": 1
+          },
+          "oddMember": {
+            "base_event": "base_odd",
+            "base_value": 1,
+            "callee": "evenMember",
+            "enter": "enter_odd",
+            "exit": "exit_odd",
+            "member": "d7749857df79f686c77bd0ccd0d032f577bb5f7dea024b44a0422497c6a5f2f6",
+            "order": "enter-then-exit",
+            "position": 1,
+            "stride": 1
+          }
+        },
+        "snapshot": "845407af8d2e5b1b61912ca7efa25cd34686e4ac5d388176fb78148794808355"
+      }
+    }
+  },
+  "python": "3.12.14"
+}
