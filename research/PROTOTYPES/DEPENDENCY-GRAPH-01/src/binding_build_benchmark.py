@@ -36,33 +36,20 @@ DIMENSIONS = ("linkage", "phase", "compile_provider", "compile_caller", "link",
               "verify_projected", "verify_whole_snapshot")
 
 
-def _timed_child(command: list[str]) -> tuple[subprocess.CompletedProcess, int, float, float, int]:
-    """Run a child and return its own user/system CPU seconds plus captured output."""
-    started_wrapper = time.perf_counter_ns()
-    prelude = (
-        "import resource, subprocess, sys, time\n"
-        "cmd = sys.argv[1:]\n"
-        "before = resource.getrusage(resource.RUSAGE_CHILDREN)\n"
-        "start = time.perf_counter_ns()\n"
-        "p = subprocess.run(cmd, capture_output=True)\n"
-        "wall = time.perf_counter_ns() - start\n"
-        "after = resource.getrusage(resource.RUSAGE_CHILDREN)\n"
-        "sys.stdout.buffer.write(p.stdout)\n"
-        "sys.stderr.buffer.write(p.stderr)\n"
-        "sys.stderr.write('\\nLLMLANG_TIMING %d %.9f %.9f %d\\n' % "
-        "(wall, after.ru_utime-before.ru_utime, after.ru_stime-before.ru_stime, p.returncode))\n"
-        "sys.exit(p.returncode)\n"
-    )
-    proc = subprocess.run([sys.executable, "-c", prelude, *command], capture_output=True, text=False)
-    stderr = proc.stderr.decode(errors="replace")
-    marker = "LLMLANG_TIMING "
-    line = next((item for item in stderr.splitlines() if item.startswith(marker)), None)
-    if line is None:
-        raise RuntimeError(f"timing wrapper did not return timing metadata: {stderr}")
-    _, wall, user, system, child_status = line.split()
-    clean_stderr = "\n".join(item for item in stderr.splitlines() if not item.startswith(marker))
-    completed = subprocess.CompletedProcess(command, int(child_status), proc.stdout, clean_stderr.encode())
-    return completed, int(wall), float(user), float(system), time.perf_counter_ns() - started_wrapper
+def _timed_process(command: list[str]) -> tuple[subprocess.CompletedProcess, int, float, float]:
+    """Time one subprocess directly; do not start a measurement helper process."""
+    try:
+        import resource
+    except ImportError as error:
+        raise RuntimeError("--timings currently requires Unix resource.getrusage") from error
+    before = resource.getrusage(resource.RUSAGE_CHILDREN)
+    started = time.perf_counter_ns()
+    completed = subprocess.run(command, capture_output=True, text=False)
+    elapsed = time.perf_counter_ns() - started
+    after = resource.getrusage(resource.RUSAGE_CHILDREN)
+    user_cpu = after.ru_utime - before.ru_utime
+    system_cpu = after.ru_stime - before.ru_stime
+    return completed, elapsed, user_cpu, system_cpu
 
 
 def _provider_code(symbol: str, base: int, *, body_visible: bool = False) -> str:
@@ -101,21 +88,20 @@ class Actions:
     def _file(self, key, output, command, action) -> tuple[Path, str]:
         if key not in self.files:
             if self.record_timings:
-                completed, elapsed, user_cpu, system_cpu, wrapper_wall = _timed_child(command)
+                completed, elapsed, user_cpu, system_cpu = _timed_process(command)
                 if completed.returncode:
                     raise subprocess.CalledProcessError(
                         completed.returncode, command, completed.stdout, completed.stderr,
                     )
             else:
                 completed = subprocess.run(command, check=True, capture_output=True, text=True)
-                elapsed, user_cpu, system_cpu, wrapper_wall = 0, 0.0, 0.0, 0
+                elapsed, user_cpu, system_cpu = 0, 0.0, 0.0
             self.files[key] = output, sha256(output.read_bytes()).hexdigest()
             self.executed[action] += 1
             if self.record_timings:
                 self.action_samples.append({
                     "action": action,
                     "wall_ns": elapsed,
-                    "wrapper_wall_ns": wrapper_wall,
                     "user_cpu_s": user_cpu,
                     "system_cpu_s": system_cpu,
                     "output_bytes": output.stat().st_size,
@@ -157,7 +143,7 @@ class Actions:
         started = time.perf_counter_ns() if self.record_timings else 0
         if key not in self.results:
             if self.record_timings:
-                completed, elapsed, user_cpu, system_cpu, wrapper_wall = _timed_child([str(executable)])
+                completed, elapsed, user_cpu, system_cpu = _timed_process([str(executable)])
                 if completed.returncode:
                     raise subprocess.CalledProcessError(
                         completed.returncode, [str(executable)], completed.stdout, completed.stderr,
@@ -165,7 +151,7 @@ class Actions:
                 fields = completed.stdout.decode().split()
             else:
                 fields = subprocess.check_output([str(executable)], text=True).split()
-                elapsed, user_cpu, system_cpu, wrapper_wall = 0, 0.0, 0.0, 0
+                elapsed, user_cpu, system_cpu = 0, 0.0, 0.0
             label_and_outputs = tuple(map(int, fields))
             accepted = {(label, *(base + (x % 2) for x in INPUTS)) for base in allowed_bases}
             if label_and_outputs not in accepted:
@@ -175,7 +161,7 @@ class Actions:
             if self.record_timings:
                 self.action_samples.append({
                     "action": action, "wall_ns": elapsed, "user_cpu_s": user_cpu,
-                    "system_cpu_s": system_cpu, "wrapper_wall_ns": wrapper_wall,
+                    "system_cpu_s": system_cpu,
                     "output_bytes": len(completed.stdout),
                     "command": [str(executable)],
                 })
@@ -302,7 +288,7 @@ def experiment(compiler: str, *, record_timings: bool = False) -> dict:
         "action_counts": measurements,
         "unsafe_verification_key_witness": witness,
         "timing_scope": (
-            "one process execution per cache miss; user/system CPU from child rusage; "
+            "direct subprocess.run timing per cache miss; user/system CPU from parent RUSAGE_CHILDREN; "
             "lookup_total_ns includes action key construction, cache membership, and surrounding "
             "action setup, so it is not a pure hash or lookup measurement"
             if record_timings else None
@@ -323,7 +309,7 @@ def main() -> None:
     if options.repeat < 1:
         parser.error("--repeat must be at least 1")
     runs = [experiment(options.cc, record_timings=options.timings) for _ in range(options.repeat)]
-    report = {"schema": "rt11-action-benchmark-timing-v1", "repeat": options.repeat,
+    report = {"schema": "rt11-action-benchmark-timing-v2-direct-child", "repeat": options.repeat,
               "runs": runs}
     rendered = json.dumps(report, indent=2)
     if options.output:
