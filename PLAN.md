@@ -1023,9 +1023,10 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ## 6.5 OS kernels and verified microkernel feasibility (RT-38)
 
-**Status:** Not started (research brief proposed). **Priority:** P1. [Research brief](research/runtime-and-systems/RT-38/README.md) · [Issue #441](https://github.com/aivibeflow/LLMLang/issues/441).
+**Status:** Bounded RV64 boot, user traps and memory permissions checked in QEMU. **Priority:** P1. [Research brief](research/runtime-and-systems/RT-38/README.md) · [Issue #441](https://github.com/aivibeflow/LLMLang/issues/441).
 
 - [ ] Reuse RT-37 freestanding profile; specify privileged target capabilities, physical/virtual memory, MMU/TLB, trap/syscall ABI and context switching.
+- [x] Compare RV64 bare PMP and Sv39 protections in five exact single-hart QEMU images. The same U-mode code distinguishes a protected read, a store to an RX page and trap recovery. Split PMP and correct Sv39 deny both accesses. An exposed Sv39 leaf restores the protected read. [RV64 PMP and Sv39 isolation](research/runtime-and-systems/RT-38/RT-38-RV64-PMP-SV39-TRAP-ISOLATION-2026-11-24.md).
 - [ ] Investigate allocator, address-space isolation, scheduling, IPC and capability contracts, global invariants and conditional hardware proofs.
 - [ ] Replay selected seL4 proofs and evaluate implementing an LLMLang fragment against the original l4v specification. Assess Isabelle/HOL modeling, proof automation, counterexample search and reproducible replay. [Research plan](research/runtime-and-systems/RT-38/README.md#8-research-plan-for-implementing-against-an-existing-specification)
 - [ ] Compare minimal HAL/assembly assumptions with checked intrinsics; validate source-to-binary preservation and no hosted imports.

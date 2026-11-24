@@ -1,0 +1,261 @@
+{
+  "schema": "llmlang-rt38-rv64-trap-isolation-v1",
+  "machine": "virt",
+  "cpu": "rv64",
+  "harts": 1,
+  "tools": {
+    "mc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "readelf": "Debian LLVM version 19.1.7",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "input_sha256": {
+    "boot.s": "0ed50ccfffcb015f87aa28a13a011b93dd1418561d1b95ff9d4411246b417115",
+    "memory.ld": "e49d28407dab80a8fa229ac985c51444d374dda042a44b80fc69d073dd51d338",
+    "run.py": "82e7a733660f259da0df298a146abf06ff2915aad0ea1a07defdc185d7dc589b"
+  },
+  "images": {
+    "bare_wide_pmp": {
+      "elf_sha256": "94342ef8ebcab4409a361616306b31e98f059530e5c36d8aec88ef96e41b81f4",
+      "loads": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 644,
+          "memory_bytes": 644,
+          "flags": "RE"
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "memory_bytes": 4096,
+          "flags": "RW"
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 120,
+          "memory_bytes": 120,
+          "flags": "RE"
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "memory_bytes": 4096,
+          "flags": "RW"
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 8,
+          "memory_bytes": 8,
+          "flags": "RW"
+        }
+      ],
+      "user_code_sha256": "9824706f26746d26968d7ce7ff1b9e75d53a4193f253dc0eaf2df5b04bae71dc",
+      "kernel_state_bytes": 4096,
+      "symbols": {
+        "machine_stack_top": "0x80002000",
+        "user_stack_top": "0x80202000",
+        "user_rx_marker": "0x80200070",
+        "trap": "0x800000b0",
+        "protected_word": "0x80400000",
+        "user_entry": "0x80200000",
+        "user_probe": "0x8020004c",
+        "user_store": "0x80200040"
+      },
+      "uart": "BEIWV!"
+    },
+    "bare_single_tor": {
+      "elf_sha256": "c8c5b3a40bc5334f78fad8d605447ef17c01e15a06e3745eb2e0208c763bad59",
+      "loads": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 676,
+          "memory_bytes": 676,
+          "flags": "RE"
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "memory_bytes": 4096,
+          "flags": "RW"
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 120,
+          "memory_bytes": 120,
+          "flags": "RE"
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "memory_bytes": 4096,
+          "flags": "RW"
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 8,
+          "memory_bytes": 8,
+          "flags": "RW"
+        }
+      ],
+      "user_code_sha256": "9824706f26746d26968d7ce7ff1b9e75d53a4193f253dc0eaf2df5b04bae71dc",
+      "kernel_state_bytes": 4096,
+      "symbols": {
+        "machine_stack_top": "0x80002000",
+        "user_stack_top": "0x80202000",
+        "user_rx_marker": "0x80200070",
+        "trap": "0x800000d0",
+        "protected_word": "0x80400000",
+        "user_entry": "0x80200000",
+        "user_probe": "0x8020004c",
+        "user_store": "0x80200040"
+      },
+      "uart": "BEIWFZ!"
+    },
+    "sv39_supervisor_page": {
+      "elf_sha256": "e95357dd643bc7ecaa55040d89cc3e766846acb0a3fba8df29f9390592ced99f",
+      "loads": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 904,
+          "memory_bytes": 904,
+          "flags": "RE"
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "memory_bytes": 20480,
+          "flags": "RW"
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 120,
+          "memory_bytes": 120,
+          "flags": "RE"
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "memory_bytes": 4096,
+          "flags": "RW"
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 8,
+          "memory_bytes": 8,
+          "flags": "RW"
+        }
+      ],
+      "user_code_sha256": "9824706f26746d26968d7ce7ff1b9e75d53a4193f253dc0eaf2df5b04bae71dc",
+      "kernel_state_bytes": 20480,
+      "symbols": {
+        "machine_stack_top": "0x80006000",
+        "root_table": "0x80001000",
+        "user_rx_marker": "0x80200070",
+        "user_stack_top": "0x80202000",
+        "trap": "0x800001a0",
+        "protected_word": "0x80400000",
+        "user_entry": "0x80200000",
+        "user_probe": "0x8020004c",
+        "user_store": "0x80200040"
+      },
+      "uart": "BEISRPZ!"
+    },
+    "sv39_user_bit_control": {
+      "elf_sha256": "99d1379d300267d06caa1170f45db755b1d06f93da54489222ec590fd9b2ee66",
+      "loads": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 904,
+          "memory_bytes": 904,
+          "flags": "RE"
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "memory_bytes": 20480,
+          "flags": "RW"
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 120,
+          "memory_bytes": 120,
+          "flags": "RE"
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "memory_bytes": 4096,
+          "flags": "RW"
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 8,
+          "memory_bytes": 8,
+          "flags": "RW"
+        }
+      ],
+      "user_code_sha256": "9824706f26746d26968d7ce7ff1b9e75d53a4193f253dc0eaf2df5b04bae71dc",
+      "kernel_state_bytes": 20480,
+      "symbols": {
+        "machine_stack_top": "0x80006000",
+        "root_table": "0x80001000",
+        "user_rx_marker": "0x80200070",
+        "user_stack_top": "0x80202000",
+        "trap": "0x800001a0",
+        "protected_word": "0x80400000",
+        "user_entry": "0x80200000",
+        "user_probe": "0x8020004c",
+        "user_store": "0x80200040"
+      },
+      "uart": "BEISRV!"
+    },
+    "bare_split_tor": {
+      "elf_sha256": "52ec5c92b11cb0e842ca68dd008c205f1d344539b15f531475ad19506c4b7a9c",
+      "loads": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 692,
+          "memory_bytes": 692,
+          "flags": "RE"
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "memory_bytes": 4096,
+          "flags": "RW"
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 120,
+          "memory_bytes": 120,
+          "flags": "RE"
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "memory_bytes": 4096,
+          "flags": "RW"
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 8,
+          "memory_bytes": 8,
+          "flags": "RW"
+        }
+      ],
+      "user_code_sha256": "9824706f26746d26968d7ce7ff1b9e75d53a4193f253dc0eaf2df5b04bae71dc",
+      "kernel_state_bytes": 4096,
+      "symbols": {
+        "machine_stack_top": "0x80002000",
+        "user_stack_top": "0x80202000",
+        "user_rx_marker": "0x80200070",
+        "trap": "0x800000e0",
+        "protected_word": "0x80400000",
+        "user_entry": "0x80200000",
+        "user_probe": "0x8020004c",
+        "user_store": "0x80200040"
+      },
+      "uart": "BEITRFZ!"
+    }
+  }
+}
