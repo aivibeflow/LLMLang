@@ -1,0 +1,443 @@
+{
+  "cases": {
+    "bypass_lock": {
+      "after": {
+        "branch": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "late edit at ref prepare",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "6b110c4e1e61557a9ac0ab2187eedaac8248fb77",
+        "published_selection": "approved selection",
+        "receipt": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "status": [
+          "M  selected.txt"
+        ],
+        "target_head": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "late edit at ref prepare",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "approved_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+      "before": {
+        "branch": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+        "published_selection": "base selection",
+        "receipt": null,
+        "status": [
+          "M  program/contract.json",
+          "M  selected.txt"
+        ],
+        "target_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "concurrent_edit": "edited",
+      "policy": "coordinated_preflight_then_ref",
+      "preflight_pin_matches": true,
+      "semantic_root": "6763cd9c2a69b1bba41747d05f87cd82aa43b5b181089f4454aed9aad89f66a9",
+      "status": "published",
+      "workspace_index_matches_approved_tree": false,
+      "workspace_selected_file_matches_approved": false,
+      "workspace_selected_index_matches_approved": false
+    },
+    "coordinated_writer": {
+      "after": {
+        "branch": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+        "published_selection": "approved selection",
+        "receipt": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "status": [],
+        "target_head": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "approved_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+      "before": {
+        "branch": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+        "published_selection": "base selection",
+        "receipt": null,
+        "status": [
+          "M  program/contract.json",
+          "M  selected.txt"
+        ],
+        "target_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "concurrent_edit": "deferred",
+      "policy": "coordinated_preflight_then_ref",
+      "preflight_pin_matches": true,
+      "semantic_root": "6763cd9c2a69b1bba41747d05f87cd82aa43b5b181089f4454aed9aad89f66a9",
+      "status": "published",
+      "workspace_index_matches_approved_tree": true,
+      "workspace_selected_file_matches_approved": true,
+      "workspace_selected_index_matches_approved": true
+    },
+    "materialized_and_staged": {
+      "after": {
+        "branch": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+        "published_selection": "approved selection",
+        "receipt": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "status": [],
+        "target_head": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "approved_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+      "before": {
+        "branch": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+        "published_selection": "base selection",
+        "receipt": null,
+        "status": [
+          "M  program/contract.json",
+          "M  selected.txt"
+        ],
+        "target_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "concurrent_edit": null,
+      "policy": "preflight_then_ref",
+      "preflight_pin_matches": true,
+      "semantic_root": "6763cd9c2a69b1bba41747d05f87cd82aa43b5b181089f4454aed9aad89f66a9",
+      "status": "published",
+      "workspace_index_matches_approved_tree": true,
+      "workspace_selected_file_matches_approved": true,
+      "workspace_selected_index_matches_approved": true
+    },
+    "mutation_on_ref_prepare": {
+      "after": {
+        "branch": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[\n  {\n    \"slot\": \"contract\",\n    \"declaration\": {\n      \"format\": \"llmlang.semantic-object\",\n      \"schema_version\": 2,\n      \"kind\": \"contract\",\n      \"declaration_id\": \"contract:item\",\n      \"content\": {\n        \"version\": \"old\"\n      },\n      \"references\": [],\n      \"call_sites\": []\n    }\n  }\n]",
+          "selected.txt": "late edit at ref prepare",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "1b98576850bd8d74642aab067d387e4ade2e2278",
+        "published_selection": "approved selection",
+        "receipt": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "status": [
+          "MM program/contract.json",
+          "M  selected.txt"
+        ],
+        "target_head": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "late edit at ref prepare",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "approved_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+      "before": {
+        "branch": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[\n  {\n    \"slot\": \"contract\",\n    \"declaration\": {\n      \"format\": \"llmlang.semantic-object\",\n      \"schema_version\": 2,\n      \"kind\": \"contract\",\n      \"declaration_id\": \"contract:item\",\n      \"content\": {\n        \"version\": \"old\"\n      },\n      \"references\": [],\n      \"call_sites\": []\n    }\n  }\n]",
+          "selected.txt": "base selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "e654f9a55b8be773e4ef8abeabd1dc750c7f7ed6",
+        "published_selection": "base selection",
+        "receipt": null,
+        "status": [
+          "M program/contract.json",
+          " M selected.txt"
+        ],
+        "target_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "concurrent_edit": "edited",
+      "policy": "preflight_then_ref",
+      "preflight_pin_matches": true,
+      "semantic_root": "6763cd9c2a69b1bba41747d05f87cd82aa43b5b181089f4454aed9aad89f66a9",
+      "status": "published",
+      "workspace_index_matches_approved_tree": false,
+      "workspace_selected_file_matches_approved": false,
+      "workspace_selected_index_matches_approved": false
+    },
+    "ref_only": {
+      "after": {
+        "branch": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[\n  {\n    \"slot\": \"contract\",\n    \"declaration\": {\n      \"format\": \"llmlang.semantic-object\",\n      \"schema_version\": 2,\n      \"kind\": \"contract\",\n      \"declaration_id\": \"contract:item\",\n      \"content\": {\n        \"version\": \"old\"\n      },\n      \"references\": [],\n      \"call_sites\": []\n    }\n  }\n]",
+          "selected.txt": "base selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "e654f9a55b8be773e4ef8abeabd1dc750c7f7ed6",
+        "published_selection": "approved selection",
+        "receipt": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "status": [
+          "MM program/contract.json",
+          "MM selected.txt"
+        ],
+        "target_head": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "approved_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+      "before": {
+        "branch": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[\n  {\n    \"slot\": \"contract\",\n    \"declaration\": {\n      \"format\": \"llmlang.semantic-object\",\n      \"schema_version\": 2,\n      \"kind\": \"contract\",\n      \"declaration_id\": \"contract:item\",\n      \"content\": {\n        \"version\": \"old\"\n      },\n      \"references\": [],\n      \"call_sites\": []\n    }\n  }\n]",
+          "selected.txt": "base selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "e654f9a55b8be773e4ef8abeabd1dc750c7f7ed6",
+        "published_selection": "base selection",
+        "receipt": null,
+        "status": [
+          "M program/contract.json",
+          " M selected.txt"
+        ],
+        "target_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "concurrent_edit": null,
+      "policy": "ref_only",
+      "preflight_pin_matches": true,
+      "semantic_root": "6763cd9c2a69b1bba41747d05f87cd82aa43b5b181089f4454aed9aad89f66a9",
+      "status": "published",
+      "workspace_index_matches_approved_tree": false,
+      "workspace_selected_file_matches_approved": true,
+      "workspace_selected_index_matches_approved": false
+    },
+    "selected_index_edit": {
+      "after": {
+        "branch": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[\n  {\n    \"slot\": \"contract\",\n    \"declaration\": {\n      \"format\": \"llmlang.semantic-object\",\n      \"schema_version\": 2,\n      \"kind\": \"contract\",\n      \"declaration_id\": \"contract:item\",\n      \"content\": {\n        \"version\": \"old\"\n      },\n      \"references\": [],\n      \"call_sites\": []\n    }\n  }\n]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "db81874ac61e0d6aa89307090294f9cccc4a273b",
+        "published_selection": "base selection",
+        "receipt": null,
+        "status": [
+          "M program/contract.json",
+          "M  selected.txt"
+        ],
+        "target_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "approved_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+      "before": {
+        "branch": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[\n  {\n    \"slot\": \"contract\",\n    \"declaration\": {\n      \"format\": \"llmlang.semantic-object\",\n      \"schema_version\": 2,\n      \"kind\": \"contract\",\n      \"declaration_id\": \"contract:item\",\n      \"content\": {\n        \"version\": \"old\"\n      },\n      \"references\": [],\n      \"call_sites\": []\n    }\n  }\n]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "db81874ac61e0d6aa89307090294f9cccc4a273b",
+        "published_selection": "base selection",
+        "receipt": null,
+        "status": [
+          "M program/contract.json",
+          "M  selected.txt"
+        ],
+        "target_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "concurrent_edit": null,
+      "policy": "preflight_then_ref",
+      "preflight_pin_matches": false,
+      "semantic_root": "6763cd9c2a69b1bba41747d05f87cd82aa43b5b181089f4454aed9aad89f66a9",
+      "status": "stale_selection",
+      "workspace_index_matches_approved_tree": false,
+      "workspace_selected_file_matches_approved": true,
+      "workspace_selected_index_matches_approved": false
+    },
+    "selected_working_edit": {
+      "after": {
+        "branch": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[\n  {\n    \"slot\": \"contract\",\n    \"declaration\": {\n      \"format\": \"llmlang.semantic-object\",\n      \"schema_version\": 2,\n      \"kind\": \"contract\",\n      \"declaration_id\": \"contract:item\",\n      \"content\": {\n        \"version\": \"old\"\n      },\n      \"references\": [],\n      \"call_sites\": []\n    }\n  }\n]",
+          "selected.txt": "base selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "e654f9a55b8be773e4ef8abeabd1dc750c7f7ed6",
+        "published_selection": "base selection",
+        "receipt": null,
+        "status": [
+          "M program/contract.json",
+          " M selected.txt"
+        ],
+        "target_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "user unstaged after preparation",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "approved_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+      "before": {
+        "branch": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[\n  {\n    \"slot\": \"contract\",\n    \"declaration\": {\n      \"format\": \"llmlang.semantic-object\",\n      \"schema_version\": 2,\n      \"kind\": \"contract\",\n      \"declaration_id\": \"contract:item\",\n      \"content\": {\n        \"version\": \"old\"\n      },\n      \"references\": [],\n      \"call_sites\": []\n    }\n  }\n]",
+          "selected.txt": "base selection",
+          "unselected.txt": "base unselected"
+        },
+        "index_tree": "e654f9a55b8be773e4ef8abeabd1dc750c7f7ed6",
+        "published_selection": "base selection",
+        "receipt": null,
+        "status": [
+          "M program/contract.json",
+          " M selected.txt"
+        ],
+        "target_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "user unstaged after preparation",
+          "unselected.txt": "base unselected"
+        }
+      },
+      "concurrent_edit": null,
+      "policy": "preflight_then_ref",
+      "preflight_pin_matches": false,
+      "semantic_root": "6763cd9c2a69b1bba41747d05f87cd82aa43b5b181089f4454aed9aad89f66a9",
+      "status": "stale_selection",
+      "workspace_index_matches_approved_tree": false,
+      "workspace_selected_file_matches_approved": false,
+      "workspace_selected_index_matches_approved": false
+    },
+    "unselected_edits": {
+      "after": {
+        "branch": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "user staged"
+        },
+        "index_tree": "0a667b81a3c232038e2d7075a4b0147c40f6d2e2",
+        "published_selection": "approved selection",
+        "receipt": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "status": [
+          "MM unselected.txt",
+          "?? new.txt"
+        ],
+        "target_head": "423091d199042f0cd542ee4871a95d6e24ec2eb4",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "user unstaged"
+        }
+      },
+      "approved_tree": "6fd982ba800fe76c737495112c399e76d9931f25",
+      "before": {
+        "branch": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "coordinator_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "index": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "user staged"
+        },
+        "index_tree": "0a667b81a3c232038e2d7075a4b0147c40f6d2e2",
+        "published_selection": "base selection",
+        "receipt": null,
+        "status": [
+          "M  program/contract.json",
+          "M  selected.txt",
+          "MM unselected.txt",
+          "?? new.txt"
+        ],
+        "target_head": "4b3db4cbe3217ca72a7374b19d385352161085b2",
+        "working": {
+          "program/contract.json": "[{\"slot\": \"contract\", \"declaration\": {\"format\": \"llmlang.semantic-object\", \"schema_version\": 2, \"kind\": \"contract\", \"declaration_id\": \"contract:item\", \"content\": {\"version\": \"approved\"}, \"references\": [], \"call_sites\": []}}]",
+          "selected.txt": "approved selection",
+          "unselected.txt": "user unstaged"
+        }
+      },
+      "concurrent_edit": null,
+      "policy": "preflight_then_ref",
+      "preflight_pin_matches": true,
+      "semantic_root": "6763cd9c2a69b1bba41747d05f87cd82aa43b5b181089f4454aed9aad89f66a9",
+      "status": "published",
+      "workspace_index_matches_approved_tree": false,
+      "workspace_selected_file_matches_approved": true,
+      "workspace_selected_index_matches_approved": true
+    }
+  },
+  "flock": "flock from util-linux 2.41.5",
+  "format": "rt23-linked-worktree-publication/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14"
+}
