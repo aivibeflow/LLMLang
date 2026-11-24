@@ -1487,7 +1487,7 @@ After relevant research coverage is sufficient:
 
 ## 6.5 Synthesis status
 
-The [scoped implementation comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.md#52-comparisons-supported-by-the-november-24-reproductions) record five reproduced discriminators and their remaining gates. They supply constraints and common observations for later whole-candidate comparisons.
+The [scoped comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.md#52-comparisons-supported-by-the-november-24-reproductions) and [bounded toolchain route comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.md#53-bounded-toolchain-route-comparisons) record verified conditions for later whole-candidate comparison. The toolchain ledger checks shared integer source across three emitters and keeps measured JIT, verification, Git publication and runtime limits attached to their exact profiles.
 
 | Activity | Status | Exit condition |
 |---|---|---|

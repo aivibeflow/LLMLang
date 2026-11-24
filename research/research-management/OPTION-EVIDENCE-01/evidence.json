@@ -1,0 +1,139 @@
+{
+  "format": "llmlang-bounded-toolchain-option-evidence/1",
+  "inputs": {
+    "caller": {
+      "path": "formal-verification/RT-32/GENERATED-CALL-01/evidence.json",
+      "sha256": "496fd92cdcf0260856f95284d4faff5e286ba8cb0ff8c30f84572bef5c519b7d"
+    },
+    "cancel": {
+      "path": "runtime-and-systems/RT-26/LINUX-IO-CANCEL-01/evidence.json",
+      "sha256": "b906f0683b2ef61aab6c1a4ba4be8c7cc3cb5be90ce392f23fd86e90227e95fe"
+    },
+    "commit_visibility": {
+      "path": "toolchain-and-collaboration/RT-23/REF-VISIBILITY-01/evidence.json",
+      "sha256": "6bb887c5de8e3c79e0423b0520244c3a6f93ee68f077fe92357e9d6681825e92"
+    },
+    "go": {
+      "path": "compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/evidence.json",
+      "sha256": "4c5659e89456a9b8a29a8797c71735a501f7f8ec03365501f67accbe4045de21"
+    },
+    "jit": {
+      "path": "compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/builds-paused/summary.json",
+      "sha256": "3fc67fb4745a3452af71a4e7cd1cd1c6162ced7529ddaab969699dbba4c97276"
+    },
+    "mcp": {
+      "path": "toolchain-and-collaboration/RT-19/MCP-STDIO-01/evidence.json",
+      "sha256": "73445f3ae2e4a9fdbf91a8e8151224d313deacf1b4aaa185dccca911ee98cc25"
+    },
+    "prepared": {
+      "path": "toolchain-and-collaboration/RT-23/GIT-PREPARED-CRASH-01/evidence.json",
+      "sha256": "aee589839a17230f900ee5c42acec57774c26cbc63497fa360906138df153d39"
+    },
+    "rust_llvm": {
+      "path": "compiler-and-translation/RT-13/GENERATED-RUST-INTEGERS-01/evidence.json",
+      "sha256": "5038bb7fe98238ec4f24c46c681f9083810faec524681baa7beec82c12ef08fb"
+    },
+    "validators": {
+      "path": "compiler-and-translation/RT-13/LLVM-VALIDATORS-01/stock-eh-evidence.json",
+      "sha256": "2954d01491709a61486ccde8bdf9e5b8c2b0c673930a4990a018cf2f9827048a"
+    }
+  },
+  "python": "3.12.14",
+  "results": {
+    "generated_calls": {
+      "cases": 10,
+      "closed": 7,
+      "closed_provider_changes": true,
+      "modular_caller_preserved": true,
+      "stale_provider_rejected": true
+    },
+    "integer_profiles": {
+      "classified": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      },
+      "inputs_per_program": 3085,
+      "object_bytes": {
+        "llvm_O0": 13592,
+        "llvm_O3": 12456,
+        "rust_O0": 26368,
+        "rust_O3": 9824
+      },
+      "packaged_bytes": {
+        "c_shared": 1452096,
+        "standalone": 1568892
+      },
+      "per_profile": 197440,
+      "profiles": [
+        "go_c_shared",
+        "go_standalone",
+        "llvm_O0",
+        "llvm_O3",
+        "rust_O0",
+        "rust_O3"
+      ],
+      "programs": 64,
+      "rust_debug_runtime_imports": [
+        "core::panicking::panic_nounwind::h2f7749cb358aa979"
+      ],
+      "rust_debug_undefined_link_rejected": true,
+      "shared_source_sha256": {
+        "integer_fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+        "llvm_integer_probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a"
+      }
+    },
+    "mcp_checks": 42,
+    "publication": {
+      "files_kill_at_prepare": "blocked_by_lock",
+      "files_partial_visibility": "stale",
+      "files_unrelated_ref": "written",
+      "reftable_kill_at_prepare": "blocked_by_lock",
+      "reftable_list_change_visible": "published",
+      "reftable_table_not_yet_visible": "retryable",
+      "reftable_unrelated_ref": "blocked_by_lock"
+    },
+    "read_byte_settlement": {
+      "cancel_priority": 0,
+      "data_priority": 4
+    },
+    "ready_to_call_jit": {
+      "cranelift-none": {
+        "first": {
+          "n": 48,
+          "p10_us": 264.2,
+          "p50_us": 277.0,
+          "p90_us": 347.5
+        },
+        "subsequent": {
+          "n": 1440,
+          "p10_us": 94.7,
+          "p50_us": 101.5,
+          "p90_us": 143.4
+        }
+      },
+      "llvm-O0": {
+        "first": {
+          "n": 48,
+          "p10_us": 2290.3,
+          "p50_us": 2405.3,
+          "p90_us": 2649.5
+        },
+        "subsequent": {
+          "n": 1440,
+          "p10_us": 786.3,
+          "p50_us": 840.5,
+          "p90_us": 992.9
+        }
+      }
+    },
+    "validator_coverage": {
+      "alias": "refuted",
+      "atomic": "unsupported",
+      "fence": "unsupported",
+      "identity": "valid",
+      "wrap": "refuted"
+    }
+  }
+}
