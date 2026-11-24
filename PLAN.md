@@ -240,6 +240,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 - [ ] Define the Semantic Program Graph (SPG) as a typed semantic representation.
 - [ ] Define the relationship between Specification Graph, Design Graph, and Implementation Graph.
+  - [x] Compare exact cross-layer hashing and scoped checked judgments on a closed approval rule. Scoped evidence preserves two values and one judgment on a compatible requirement edit. Stale or missing evidence blocks release, and a trace-only control admits three incompatible cases. Multi-requirement coverage and production release policy remain open. [Layered refinement evidence](research/semantic-representation/RT-05/RT-05-LAYERED-REFINEMENT-EVIDENCE-2026-11-24.md).
 - [ ] Define semantic nodes, edges, ownership, references, and graph boundaries.
 - [ ] Separate syntax trees, source text, semantic representation, provenance, and generated artifacts.
 - [ ] Determine whether multiple source syntaxes can represent the same semantic graph.

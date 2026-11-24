@@ -1,0 +1,306 @@
+{
+  "analytically_crosschecked_threshold_pairs_per_relation": 256,
+  "derived_contract_changes": [
+    "design",
+    "implementation",
+    "specification"
+  ],
+  "missing_link": "missing-refines-link",
+  "scenarios": {
+    "adapt_design_and_implementation": {
+      "checked-relations": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "unchecked-refines",
+        "changed_values": [
+          "design",
+          "implementation",
+          "specification"
+        ],
+        "independent_oracle": "admitted",
+        "invalidated_checked_judgments": [
+          "provides",
+          "refines"
+        ],
+        "witnesses": {
+          "provides": null,
+          "refines": null
+        }
+      },
+      "hash-all": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "unchecked-refines",
+        "changed_values": [
+          "design",
+          "implementation",
+          "specification"
+        ],
+        "independent_oracle": "admitted",
+        "invalidated_checked_judgments": [
+          "provides",
+          "refines"
+        ],
+        "witnesses": {
+          "provides": null,
+          "refines": null
+        }
+      },
+      "trace-only": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "admitted",
+        "changed_values": [
+          "design",
+          "implementation",
+          "specification"
+        ],
+        "independent_oracle": "admitted",
+        "invalidated_checked_judgments": [
+          "provides",
+          "refines"
+        ],
+        "witnesses": {
+          "provides": null,
+          "refines": null
+        }
+      }
+    },
+    "adapt_design_only": {
+      "checked-relations": {
+        "after_new_evidence": "refuted-provides",
+        "before_new_evidence": "unchecked-refines",
+        "changed_values": [
+          "design",
+          "implementation",
+          "specification"
+        ],
+        "independent_oracle": "refuted-provides",
+        "invalidated_checked_judgments": [
+          "provides",
+          "refines"
+        ],
+        "witnesses": {
+          "provides": 6,
+          "refines": null
+        }
+      },
+      "hash-all": {
+        "after_new_evidence": "refuted-provides",
+        "before_new_evidence": "unchecked-refines",
+        "changed_values": [
+          "design",
+          "implementation",
+          "specification"
+        ],
+        "independent_oracle": "refuted-provides",
+        "invalidated_checked_judgments": [
+          "provides",
+          "refines"
+        ],
+        "witnesses": {
+          "provides": 6,
+          "refines": null
+        }
+      },
+      "trace-only": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "admitted",
+        "changed_values": [
+          "design",
+          "implementation",
+          "specification"
+        ],
+        "independent_oracle": "refuted-provides",
+        "invalidated_checked_judgments": [
+          "provides",
+          "refines"
+        ],
+        "witnesses": {
+          "provides": 6,
+          "refines": null
+        }
+      }
+    },
+    "drift_implementation": {
+      "checked-relations": {
+        "after_new_evidence": "refuted-provides",
+        "before_new_evidence": "unchecked-provides",
+        "changed_values": [
+          "implementation"
+        ],
+        "independent_oracle": "refuted-provides",
+        "invalidated_checked_judgments": [
+          "provides"
+        ],
+        "witnesses": {
+          "provides": 8,
+          "refines": null
+        }
+      },
+      "hash-all": {
+        "after_new_evidence": "refuted-provides",
+        "before_new_evidence": "unchecked-provides",
+        "changed_values": [
+          "implementation"
+        ],
+        "independent_oracle": "refuted-provides",
+        "invalidated_checked_judgments": [
+          "provides"
+        ],
+        "witnesses": {
+          "provides": 8,
+          "refines": null
+        }
+      },
+      "trace-only": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "admitted",
+        "changed_values": [
+          "implementation"
+        ],
+        "independent_oracle": "refuted-provides",
+        "invalidated_checked_judgments": [
+          "provides"
+        ],
+        "witnesses": {
+          "provides": 8,
+          "refines": null
+        }
+      }
+    },
+    "provenance_only": {
+      "checked-relations": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "admitted",
+        "changed_values": [],
+        "independent_oracle": "admitted",
+        "invalidated_checked_judgments": [],
+        "witnesses": {
+          "provides": null,
+          "refines": null
+        }
+      },
+      "hash-all": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "admitted",
+        "changed_values": [],
+        "independent_oracle": "admitted",
+        "invalidated_checked_judgments": [],
+        "witnesses": {
+          "provides": null,
+          "refines": null
+        }
+      },
+      "trace-only": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "admitted",
+        "changed_values": [],
+        "independent_oracle": "admitted",
+        "invalidated_checked_judgments": [],
+        "witnesses": {
+          "provides": null,
+          "refines": null
+        }
+      }
+    },
+    "tighten_requirement": {
+      "checked-relations": {
+        "after_new_evidence": "refuted-refines",
+        "before_new_evidence": "unchecked-refines",
+        "changed_values": [
+          "specification"
+        ],
+        "independent_oracle": "refuted-refines",
+        "invalidated_checked_judgments": [
+          "refines"
+        ],
+        "witnesses": {
+          "provides": null,
+          "refines": 6
+        }
+      },
+      "hash-all": {
+        "after_new_evidence": "refuted-refines",
+        "before_new_evidence": "unchecked-refines",
+        "changed_values": [
+          "design",
+          "implementation",
+          "specification"
+        ],
+        "independent_oracle": "refuted-refines",
+        "invalidated_checked_judgments": [
+          "provides",
+          "refines"
+        ],
+        "witnesses": {
+          "provides": null,
+          "refines": 6
+        }
+      },
+      "trace-only": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "admitted",
+        "changed_values": [
+          "specification"
+        ],
+        "independent_oracle": "refuted-refines",
+        "invalidated_checked_judgments": [
+          "refines"
+        ],
+        "witnesses": {
+          "provides": null,
+          "refines": 6
+        }
+      }
+    },
+    "weaken_requirement": {
+      "checked-relations": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "unchecked-refines",
+        "changed_values": [
+          "specification"
+        ],
+        "independent_oracle": "admitted",
+        "invalidated_checked_judgments": [
+          "refines"
+        ],
+        "witnesses": {
+          "provides": null,
+          "refines": null
+        }
+      },
+      "hash-all": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "unchecked-refines",
+        "changed_values": [
+          "design",
+          "implementation",
+          "specification"
+        ],
+        "independent_oracle": "admitted",
+        "invalidated_checked_judgments": [
+          "provides",
+          "refines"
+        ],
+        "witnesses": {
+          "provides": null,
+          "refines": null
+        }
+      },
+      "trace-only": {
+        "after_new_evidence": "admitted",
+        "before_new_evidence": "admitted",
+        "changed_values": [
+          "specification"
+        ],
+        "independent_oracle": "admitted",
+        "invalidated_checked_judgments": [
+          "refines"
+        ],
+        "witnesses": {
+          "provides": null,
+          "refines": null
+        }
+      }
+    }
+  },
+  "unrecognized_checker_scope": "unchecked-refines"
+}
