@@ -137,7 +137,7 @@ An alternative is to port the required specifications and proofs to Lean. That a
 
 ## 8. Research plan for implementing against an existing specification
 
-- **Status** · Planned investigation for KRN-11 and RT-07, with no adopted language or proof-backend decision.
+- **Status** · Selected RISCV64 ASpec and ExecSpec sessions replayed. A standalone Isabelle session checked equality of a restricted capability lookup wrapper and refactor to the original executable design. The full Refine chain and LLMLang source binding remain open. [Experiment](RT-38-SEL4-CAPABILITY-LOOKUP-ISABELLE-2026-11-24.md)
 - **LLMLang baseline** · `fe229c3215c42d8bded531d77bbef47761ac5770`.
 - **Candidate upstream baseline** · seL4 17.0.0, single-core RISCV64 without MCS, l4v `12c300e75bb0ca0c82f76496fafacd7e614c0aba`, seL4 source `62e345c240a15671484530b4e6e069ce266c28d7` and Isabelle2025-2 from the release manifest. Record the resolved manifest revision, prover commit and exact build configuration at replay. [Release manifest](https://github.com/seL4/verification-manifest/blob/master/17.0.0.xml) · [Verified configurations](https://docs.sel4.systems/projects/sel4/verified-configurations.html)
 

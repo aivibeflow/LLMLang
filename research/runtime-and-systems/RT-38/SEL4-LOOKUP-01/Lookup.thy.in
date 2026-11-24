@@ -1,0 +1,53 @@
+theory Lookup
+  imports "ExecSpec.CSpace_H"
+begin
+
+@LOOKUP_DEFINITION@
+
+lemma lookup_matches_original:
+  "llmlang_lookup t c = lookupCapAndSlot t c"
+  by (simp add: llmlang_lookup_def lookup_wrapper_def lookupCapAndSlot_def)
+
+definition llmlang_lookup_refactored where
+  "llmlang_lookup_refactored thread cptr =
+    bindE (lookupSlotForThread thread cptr)
+      (\<lambda>slot. let result = getSlotCap slot in
+        liftE (result >>= (\<lambda>capability. return (capability, slot))))"
+
+lemma liftE_return_pair:
+  "liftE (action >>= (\<lambda>capability. return (capability, slot))) =
+   (liftE action >>=E (\<lambda>capability. returnOk (capability, slot)))"
+  apply (subst liftE_bindE)
+  by (simp add: liftE_def returnOk_def bind_assoc)
+
+lemma refactor_matches_original:
+  "llmlang_lookup_refactored t c = lookupCapAndSlot t c"
+  by (simp add: llmlang_lookup_refactored_def lookupCapAndSlot_def liftE_return_pair)
+
+
+lemma failure_preserved:
+  "lookup_wrapper (throwError error) read_cap = throwError error"
+  by (simp add: lookup_wrapper_def)
+
+lemma success_preserved:
+  "lookup_wrapper (returnOk slot) (\<lambda>_. return capability) = returnOk (capability, slot)"
+  by (simp add: lookup_wrapper_def liftE_def returnOk_def bindE_def lift_def)
+
+lemma wrong_fault_control:
+  "lookup_wrapper (throwError True) (\<lambda>(_ :: nat). return ()) (0 :: nat)
+     \<noteq> (throwError False (0 :: nat) :: ((bool + (unit * nat)) * nat) set * bool)"
+  by (simp add: lookup_wrapper_def throwError_def return_def bindE_def lift_def bind_def)
+
+lemma wrong_slot_control:
+  "lookup_wrapper (returnOk (1 :: nat)) (\<lambda>_. return ()) (0 :: nat)
+     \<noteq> (returnOk ((), 2 :: nat) (0 :: nat) :: ((unit + (unit * nat)) * nat) set * bool)"
+  by (simp add: lookup_wrapper_def returnOk_def return_def liftE_def bindE_def lift_def bind_def)
+
+lemma extra_write_control:
+  "lookup_wrapper (returnOk (1 :: nat)) (\<lambda>_. return ()) (0 :: nat)
+     \<noteq> ((modify Suc >>= (\<lambda>_. returnOk ((), 1 :: nat))) (0 :: nat)
+       :: ((unit + (unit * nat)) * nat) set * bool)"
+  by (simp add: lookup_wrapper_def returnOk_def return_def liftE_def bindE_def lift_def
+                modify_def bind_def get_def put_def)
+
+end

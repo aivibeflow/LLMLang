@@ -1,0 +1,3 @@
+session LLMLang_Lookup = ExecSpec +
+  options [document = false]
+  theories Lookup
