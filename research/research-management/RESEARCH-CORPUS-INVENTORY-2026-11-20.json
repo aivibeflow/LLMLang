@@ -2,12 +2,12 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "014b52fa1ffed409ec509bdd04b2f1004998965f",
-  "source": "Exact research path, blob and byte inventory for the rebased current main and selected Stage 0.2 evidence/reproduction recheck, excluding the inventory manifest itself.",
+  "revision": "4026fba2c2d112aa52b6d59c7178b256e1619803",
+  "source": "Exact research path, blob and byte inventory for the rebased current main and Stage 0.2 reproduction-boundary recheck, excluding the inventory manifest itself.",
   "counts": {
-    "research_files": 945,
-    "research_artifacts_excluding_manifest": 945,
-    "markdown_files": 447,
+    "research_files": 946,
+    "research_artifacts_excluding_manifest": 946,
+    "markdown_files": 448,
     "mdx_files": 3,
     "python_files": 281,
     "lean_source_files": 55,
@@ -17,7 +17,7 @@
     "taxonomy_research_areas": 38,
     "dependency_edges": 264,
     "category_counts": {
-      "audit-or-review-report": 94,
+      "audit-or-review-report": 95,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 49,
       "external-source-snapshot-or-license": 13,
@@ -35,7 +35,7 @@
       "structured-fixture-or-schema": 19
     }
   },
-  "classification_note": "Against latest main 48003c3 (manifest excluded), this branch adds one bounded Stage 0.2 evidence/reproduction review and its index entry. Merged RT-13 artifacts are individually role-reviewed. All 945 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Against latest main 5434727 (manifest excluded), this branch adds a bounded Stage 0.2 reproduction-boundary report and navigation references. The merged RT-19 publication report includes the exact rerun command. All 946 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -17193,8 +17193,8 @@
         "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       },
       "path": "research/research-management/README.md",
-      "git_blob_sha": "02cb603b15ad8459aacfa1a6590f042ac782ed0a",
-      "size_bytes": 2855
+      "git_blob_sha": "3c2fa0b0bbfc057e2398c8655728ed595a038f93",
+      "size_bytes": 3109
     },
     {
       "path": "research/research-management/REPOSITORY-AUDIT-2026-11-17.md",
@@ -18976,6 +18976,23 @@
           "PLAN §0.2"
         ],
         "method": "Selected-document evidence-class recheck; manually role reviewed against the cited quality rule and four source reports.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-REPRODUCTION-BOUNDARY-RECHECK-2026-11-24.md",
+      "git_blob_sha": "42f98b25aec67ad3f1dce9a7aa033fa1326ae7a3",
+      "size_bytes": 5515,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00",
+          "PLAN §0.2"
+        ],
+        "method": "Stage 0.2 reproduction-boundary audit; individually role reviewed against four current-main reports and the source test run.",
         "confidence": "medium"
       },
       "plan_stages": [

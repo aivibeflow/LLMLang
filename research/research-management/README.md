@@ -29,6 +29,7 @@ This direction groups related research studies without changing their RT identif
 - [Research navigation reachability](RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.md)
 - [Finite cvc5, Lean and TLC evidence replay](RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.md)
 - [Recent evidence-class boundary recheck](RT-00/RT-00-RECENT-EVIDENCE-CLASS-RECHECK-2026-11-24.md) — crosswalks four current-main implementation studies against the proposed Stage 0.2 evidence vocabulary; documents claim-level record gaps and pending human/maintainer review.
+- [Reproduction boundary recheck](RT-00/RT-00-REPRODUCTION-BOUNDARY-RECHECK-2026-11-24.md) — checks commands, tool availability, and expected outputs across RT-19/25/32; reruns RT-19's 9-test suite and keeps design-level reproductions explicitly open.
 - [Native and WebAssembly preservation replay](RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.md)
 - [Public interface evidence reconciliation](RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.md)
 - [Thematic inventory refresh](RT-00/RT-00-A-THEMATIC-INVENTORY-REFRESH-2026-11-24.md) and [exact artifact records](RESEARCH-CORPUS-INVENTORY-2026-11-20.json)
