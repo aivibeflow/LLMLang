@@ -268,6 +268,31 @@ theorem renderRelationalAssumptions_sorts (bindings : List (String × Eo.Term))
     rw [factorType, renderQueryTerm_sort bindings observation observedOk]
     rfl
 
+/-- An accepted ordered pair contains the renderings of the exact two typed assumptions. -/
+theorem renderRelationalAssumptions_parts (bindings : List (String × Eo.Term))
+    (factorSort : QuerySort) (leftName rightName : String)
+    (factor observation : QueryTerm .bool) {output : List Eo.Term}
+    (accepted : renderRelationalAssumptions bindings factorSort leftName rightName
+      factor observation = .ok output) :
+    ∃ f o, output = [f, o] ∧
+      renderQueryTerm bindings factor = .ok f ∧ renderQueryTerm bindings observation = .ok o := by
+  unfold renderRelationalAssumptions at accepted
+  obtain ⟨left, _, remaining⟩ := bindResult accepted
+  obtain ⟨right, _, remaining⟩ := bindResult remaining
+  obtain ⟨observed, observedOk, remaining⟩ := bindResult remaining
+  obtain ⟨expected, expectedOk, final⟩ := bindResult remaining
+  split at final
+  · cases final
+  · rename_i agrees
+    change Except.ok [apply1 .not (apply2 .eq left right), observed] = .ok output at final
+    cases final
+    have same : apply1 .not (apply2 .eq left right) = expected := by
+      apply Classical.byContradiction
+      intro different
+      exact agrees (by simp [different])
+    rw [same]
+    exact ⟨expected, observed, rfl, expectedOk, observedOk⟩
+
 private def exampleSymbols : List (String × Eo.Term) :=
   [("flag", .UConst 0 .Bool), ("input", .UConst 1 (.UOp .Int))]
 

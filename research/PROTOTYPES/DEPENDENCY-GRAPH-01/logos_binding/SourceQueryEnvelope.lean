@@ -13,6 +13,7 @@ open LLMLang.ProgramObservationSemantics
 open LLMLang.CanonicalQuerySymbols
 open LLMLang.ProgramRelationalQuery
 open LLMLang.LogosBinding
+open LLMLang.LogosQueryAdapter (toLogosQueryTerm)
 
 private def sortName : QuerySort → String
   | .int => "Int"
@@ -30,7 +31,8 @@ private def wireName (binding : SymbolBinding) : String :=
     | .left => "_L"
     | .right => "_R"
 
-private def wireNames (bindings : List SymbolBinding) (name : String) : String :=
+/-- Map each original canonical symbol to its exact wire spelling. -/
+def wireNames (bindings : List SymbolBinding) (name : String) : String :=
   ((bindings.find? (fun binding => binding.name == name)).map wireName).getD name
 
 def wireTerm (bindings : List SymbolBinding) {sort : QuerySort} (term : QueryTerm sort) :
@@ -88,23 +90,56 @@ def sourceTypedEnvelope {sort : QuerySort} (program : Program sort) (contract : 
     (scope : SourceScope) (factor : VariableId) : Except String DecodedRelationalQuery := do
   let some query := compileRelationalQuery program contract scope factor
     | throw "source program, contract or factor is not admitted"
-  let lowered := query.lower
-  let .and [factorTerm, observationTerm] := lowered.formula
+  let .and factorTerm observationTerm := query.formula
     | throw "source formula must contain two ordered assumptions"
+  let lowered := query.lower
   requireCoverage lowered.bindings lowered.formula
   let wireSymbols := lowered.bindings.map wireName
-  if wireSymbols.eraseDups.length != wireSymbols.length then
-    throw "wire symbol names are ambiguous"
-  pure {
-    factor := "f_" ++ Nat.repr factor.value
-    factorLeft := wireName (bindingOnSide query.selected factor .left)
-    factorRight := wireName (bindingOnSide query.selected factor .right)
-    declarations := lowered.bindings.map fun binding =>
-      ⟨wireName binding, binding.declaration.sort⟩
-    factorDifference := wireTerm lowered.bindings factorTerm
-    observationsDiffer := wireTerm lowered.bindings observationTerm
-    observationContract := contractName sort contract
-  }
+  if wireSymbols.Nodup then
+    pure {
+      factor := "f_" ++ Nat.repr factor.value
+      factorLeft := wireName (bindingOnSide query.selected factor .left)
+      factorRight := wireName (bindingOnSide query.selected factor .right)
+      declarations := lowered.bindings.map fun binding =>
+        ⟨wireName binding, binding.declaration.sort⟩
+      factorDifference := wireTerm lowered.bindings (toLogosQueryTerm factorTerm)
+      observationsDiffer := wireTerm lowered.bindings (toLogosQueryTerm observationTerm)
+      observationContract := contractName sort contract
+    }
+  else throw "wire symbol names are ambiguous"
+
+/-- The two typed wire assumptions retain the source formula's ordered conjuncts. -/
+theorem sourceTypedEnvelope_parts {sort : QuerySort} {program : Program sort}
+    {contract : ObservationContract} {scope : SourceScope} {factor : VariableId}
+    {decoded : DecodedRelationalQuery}
+    (accepted : sourceTypedEnvelope program contract scope factor = .ok decoded) :
+    ∃ (query : RelationalQuery scope factor) (left right : SourceQuerySemantics.QueryTerm .bool),
+      compileRelationalQuery program contract scope factor = some query ∧
+      query.formula = .and left right ∧
+      (query.lower.bindings.map wireName).Nodup ∧
+      decoded.factorDifference = wireTerm query.lower.bindings (toLogosQueryTerm left) ∧
+      decoded.observationsDiffer = wireTerm query.lower.bindings (toLogosQueryTerm right) := by
+  unfold sourceTypedEnvelope at accepted
+  split at accepted
+  · rename_i query compiled
+    split at accepted
+    · rename_i left right parts
+      dsimp only at accepted
+      cases covered : requireCoverage query.lower.bindings query.lower.formula with
+      | error _ =>
+          rw [covered] at accepted
+          cases accepted
+      | ok _ =>
+          rw [covered] at accepted
+          simp only [bind, Except.bind] at accepted
+          split at accepted
+          · rename_i unique
+            simp only [pure, Except.pure, Except.ok.injEq] at accepted
+            cases accepted
+            exact ⟨query, left, right, compiled, parts, unique, rfl, rfl⟩
+          · contradiction
+    · contradiction
+  · contradiction
 
 private def encodeEnvelope (query : DecodedRelationalQuery) : String :=
   (Json.mkObj [

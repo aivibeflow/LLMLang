@@ -1,0 +1,3 @@
+'LLMLang.LogosScalarDenotation.acceptedAssumptions_sourcePair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
