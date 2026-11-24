@@ -257,6 +257,8 @@ The long-term goal should be to minimize and progressively verify the TCB, not t
 
 A proof of Native Runtime code can establish a conditional guarantee relative to the kernel and ABI assumptions. It does not prove that the kernel itself is correct.
 
+A concrete proposed application-level example is [CF-008 — Linux pipe transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md). It derives exact ordered transfer and failure-suffix guarantees from scoped blocking byte-stream read/write assumptions and explicit ABI, memory and environment correspondence. Safety does not imply termination or delivery to the peer. This is an analytical example, not new runtime conformance evidence.
+
 ### 7.4 Evidence Must Be Distinguished
 
 For each function and property, report evidence precisely. At minimum, distinguish:

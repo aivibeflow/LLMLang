@@ -123,6 +123,8 @@ A proof establishes a property only under these assumptions. A proof about a for
 
 Worked example: [CF-007 — compositional bank transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md) illustrates five abstract callee contracts, three feasible paths, discharge of call preconditions, a caller-only rollback defect that preserves money conservation, and conditional proof closure. The analytical example is not a checked proof or adopted contract syntax.
 
+External-interface example: [CF-008 — Linux pipe transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) derives exact byte-sequence preservation and failure recovery using assumed scoped Linux read/write contracts, adapter correspondence and environment assumptions; termination additionally requires progress. The analytical argument does not verify the kernel or constitute a checked proof.
+
 ### 8.1. Properties, Not a Single Status for a Function
 
 Verification status MUST be assigned to an individual property, not to a function or module as a whole. Different properties of a single function may simultaneously be proved, disproved, unsupported, or unknown.

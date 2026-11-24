@@ -43,3 +43,5 @@ for level in 0 3; do
   timeout 20s "$out/read-O$level" || exit 1
 done
 ```
+
+Related proposed application proof: [CF-008 — Linux pipe transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) uses the scoped pre-progress EINTR contract for retry and distinguishes safety from termination. It is not additional experimental evidence for this report.

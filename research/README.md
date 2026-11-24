@@ -56,6 +56,7 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 ## Contract formalization evaluation corpus
 
 - [CF-007 — Compositional bank transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md) — proposed worked example bridging human requirements, FRETish-style observations, five callee contracts, analytical caller proof, and mutation-based composition evaluation; no machine-checked result claimed.
+- [CF-008 — Linux pipe transfer with assumed syscall contracts](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) — proposed application-level proof of ordered bounded byte transfer, partial I/O and failure recovery with explicit Linux/FFI/environment assumptions; progress is separate.
 
 - [Proof Obligation Benchmark](PROOF-OBLIGATION-BENCHMARK.md) — a proposed multi-label taxonomy and evaluation plan for obligation generation, backend selection, translation correspondence, checking, evidence aggregation, and abstention. Includes a reusable [case template](PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md); complements rather than replaces the CF corpus. See the [executable seed corpus](PROOF-OBLIGATION-BENCHMARK/README.md).
 

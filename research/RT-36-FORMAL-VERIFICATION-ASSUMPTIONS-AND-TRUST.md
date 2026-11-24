@@ -183,6 +183,8 @@ Start with independent finite enumeration of provider relations and a small expl
 
 A concrete proposed assume-guarantee fixture is [CF-007 — compositional bank transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md). It distinguishes the proof of the caller from independent evidence for each of its five callees, and treats the unspecified risk policy separately from financial correctness. A declared but unproved external settlement contract must remain an explicit assumption tied to the binding. The analytical proof and mutation witnesses are illustrative, not checked RT-36 evidence.
 
+[CF-008 — Linux pipe transfer with assumed syscall contracts](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) extends the proposed composition fixtures to real external interfaces: scoped read/write contracts, explicit ABI/adapter and environment assumptions, sequence invariants, and a separate progress assumption for termination. Its short-write counterexample obeys the external contract but refutes caller correctness. The proof and trace are analytical/illustrative, not checked RT-36 evidence.
+
 ## 8. Open decisions and dependencies
 
 Decide claim canonicalization; actual premise extraction across backends; satisfiability/realizability criteria; recursion/compositional liveness; TCB governance; authorization granularity; guarded claim scope; deployment identity; user-visible reports; public admission; privacy of vendor evidence.
