@@ -1,0 +1,63 @@
+import LoopCore
+
+open Loop
+
+def program : Program :=
+  ⟨@INITIAL@, @STOP@, [@ACTIONS@]⟩
+
+def inv (input : Nat) (state : State) : Prop :=
+  state.remaining ≤ input ∧
+  state.accumulator = @STRIDE@ * (input - state.remaining) ∧
+  state.trace = expectedTrace input @STRIDE@ (input - state.remaining)
+
+def done (input : Nat) (state : State) : Prop :=
+  state.remaining = 0 ∧
+  state.accumulator = @STRIDE@ * input ∧
+  state.trace = expectedTrace input @STRIDE@ input
+
+theorem vcInit (input : Nat) : inv input (start program input) := by
+  simp [inv, start, program, expectedTrace]
+
+theorem vcDecrease (state : State) (go : program.stopAt < state.remaining) :
+    (step program state).remaining < state.remaining := by
+  simp only [program] at go
+  simp only [step, program, List.foldl_cons, List.foldl_nil, perform]
+  omega
+
+theorem vcPreserve (input : Nat) (state : State) (known : inv input state)
+    (go : program.stopAt < state.remaining) : inv input (step program state) := by
+  obtain ⟨within, previousValue, previousTrace⟩ := known
+  simp only [program] at go
+  have consumed : input - (state.remaining - @DECREASE_IN_BODY@) =
+      input - state.remaining + 1 := by omega
+  have previousRemaining : input - (input - state.remaining) = state.remaining := by omega
+  simp only [inv, step, program, List.foldl_cons, List.foldl_nil, perform]
+  refine ⟨by omega, by omega, ?_⟩
+  rw [consumed, expectedTrace, previousRemaining, previousTrace, previousValue]
+  simp [Nat.mul_add, List.append_assoc]
+
+theorem vcExit (input : Nat) (state : State) (known : inv input state)
+    (stop : ¬program.stopAt < state.remaining) : done input state := by
+  simp only [program] at stop
+  have empty : state.remaining = 0 := by omega
+  simpa [inv, done, empty] using known
+
+def discharged : Obligations program inv done :=
+  ⟨vcInit, vcPreserve, vcDecrease, vcExit⟩
+
+theorem exactOutcome (input : Nat) :
+    ∃ state, run program input (start program input) = some state ∧ done input state :=
+  total discharged input
+
+#print axioms exactOutcome
+
+def renderEvent : Event → String
+  | .remaining n => "r" ++ toString n
+  | .accumulator n => "a" ++ toString n
+
+def observation (input fuel : Nat) : String :=
+  match run program fuel (start program input) with
+  | none => "exhausted"
+  | some state => String.intercalate "," <| toString state.accumulator :: state.trace.map renderEvent
+
+@EVALUATIONS@
