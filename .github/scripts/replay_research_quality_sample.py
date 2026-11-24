@@ -15,11 +15,31 @@ from pathlib import Path
 from check_research_quality import inspect
 
 
-def _git_blob_hash(root: Path, payload: bytes) -> str:
+def git_blob_hash(root: Path, payload: bytes) -> str:
     return subprocess.run(
         ["git", "-C", str(root), "hash-object", "--stdin"],
         input=payload, check=True, capture_output=True,
     ).stdout.decode("ascii").strip()
+
+
+def read_sample_source(root: Path, path: str, baseline: str | None) -> bytes:
+    relative = Path(path)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise ValueError("unsafe repository-relative path")
+
+    if baseline is not None:
+        result = subprocess.run(
+            ["git", "-C", str(root), "cat-file", "blob", f"{baseline}:{path}"],
+            capture_output=True,
+        )
+        if result.returncode:
+            raise ValueError("baseline Git object/path unavailable")
+        return result.stdout
+
+    target = (root / relative).resolve()
+    if not target.is_relative_to(root) or not target.is_file():
+        raise ValueError("file missing/outside repository")
+    return target.read_bytes()
 
 
 def run(root: Path, manifest: dict, *, from_baseline: bool = False) -> dict:
@@ -28,41 +48,17 @@ def run(root: Path, manifest: dict, *, from_baseline: bool = False) -> dict:
     baseline = manifest["baseline_commit"]
     for item in manifest["files"]:
         rel = item["path"]
-        parts = Path(rel)
-        if parts.is_absolute() or ".." in parts.parts:
+        try:
+            payload = read_sample_source(root, rel, baseline if from_baseline else None)
+        except ValueError as error:
             results.append({
-                "path": rel, "error": "unsafe repository-relative path",
+                "path": rel, "error": str(error),
                 "expected_blob": item["git_blob"], "blob_matched": False,
                 "warnings": [], "expected_warning_match": False,
             })
             continue
 
-        if from_baseline:
-            # The commit:path locator is verified by hash-object below.
-            get = subprocess.run(
-                ["git", "-C", str(root), "show", f"{baseline}:{rel}"],
-                capture_output=True,
-            )
-            if get.returncode:
-                results.append({
-                    "path": rel, "error": "baseline Git object/path unavailable",
-                    "expected_blob": item["git_blob"], "blob_matched": False,
-                    "warnings": [], "expected_warning_match": False,
-                })
-                continue
-            payload = get.stdout
-        else:
-            path = (root / rel).resolve()
-            if not path.is_relative_to(root) or not path.is_file():
-                results.append({
-                    "path": rel, "error": "file missing/outside repository",
-                    "expected_blob": item["git_blob"], "blob_matched": False,
-                    "warnings": [], "expected_warning_match": False,
-                })
-                continue
-            payload = path.read_bytes()
-
-        blob = _git_blob_hash(root, payload)
+        blob = git_blob_hash(root, payload)
         try:
             warnings = inspect(payload.decode("utf-8"))
         except UnicodeDecodeError:

@@ -11,11 +11,16 @@ import json
 import re
 from pathlib import Path
 
+from replay_research_quality_sample import git_blob_hash, read_sample_source
+
 
 ALLOWED = {"layout-only", "documentation-gap"}
 
 
 def validate(sample: dict, adjudication: dict, root: Path) -> list[str]:
+    baseline = sample.get("baseline_commit")
+    if not isinstance(baseline, str) or not re.fullmatch(r"[0-9a-f]{40}", baseline):
+        return ["sample requires an exact Git baseline commit"]
     errors = []
     originals = {r["path"]: r for r in sample["files"]}
     expected = {
@@ -30,12 +35,15 @@ def validate(sample: dict, adjudication: dict, root: Path) -> list[str]:
         if path not in originals:
             errors.append(f"unexpected path: {path}")
             continue
-        rel = Path(path)
-        target = (root / rel).resolve()
-        if not target.is_relative_to(root.resolve()) or not target.is_file():
-            errors.append(f"missing or invalid source: {path}")
+        try:
+            source = read_sample_source(root, path, baseline)
+            line_count = len(source.decode("utf-8").splitlines())
+        except ValueError as error:
+            errors.append(f"invalid archived source: {path}: {error}")
             continue
-        line_count = len(target.read_text(encoding="utf-8").splitlines())
+        if git_blob_hash(root, source) != originals[path]["git_blob"]:
+            errors.append(f"archived source blob mismatch: {path}")
+            continue
         for row in file["judgments"]:
             pair = (path, row["warning"])
             actual.append(pair)
@@ -60,7 +68,7 @@ def validate(sample: dict, adjudication: dict, root: Path) -> list[str]:
         errors.append(f"unadjudicated: {sorted(missing)}")
     if unexpected:
         errors.append(f"unexpected adjudications: {sorted(unexpected)}")
-    if adjudication.get("baseline_commit") != sample.get("baseline_commit"):
+    if adjudication.get("baseline_commit") != baseline:
         errors.append("baseline mismatch")
 
     stated = adjudication.get("summary", {})
@@ -86,7 +94,8 @@ def main() -> int:
     adj = json.loads((root / args.adjudication).read_text(encoding="utf-8"))
     errs = validate(sample, adj, root)
     print(json.dumps({
-        "scope": "manifest consistency and citation-range presence only",
+        "scope": "manifest consistency and archived citation-range presence only",
+        "baseline_commit": sample.get("baseline_commit"),
         "source_reports": len(sample["files"]), "adjudicated": sum(len(x["judgments"]) for x in adj["files"]),
         "layout_only": adj["summary"]["layout-only"],
         "documentation_gaps": adj["summary"]["documentation-gap"], "errors": errs

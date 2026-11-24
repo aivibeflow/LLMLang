@@ -140,6 +140,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Stage 0.2 review after report relocation (2026-11-24):** The [source-bound queue comparison](research/research-management/RT-00/RT-00-QUALITY-RULES-QUEUE-RELOCATION-2026-11-24.md) reproduces the historical census and 24-document review queue and finds 13 exact historical blobs in the pinned post-PR-#444 tree. Current links locate 24 candidates, including 11 with revised bytes. Preserve the archived claim inputs for review. External dependencies are independent human adjudication of the 24-document queue and the separate eight-claim handoff, original-run attestations where recoverable, and maintainer approval of Stage 0.2 rules. Broader claim verification remains open.
 
+**Historical citation replay after both moves (2026-11-24):** The [adjudication follow-up](research/research-management/RT-00/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md#archival-citation-check-after-directory-moves-2026-11-24) reproduces all 33 archived warning adjudications by checking their citation ranges on the original Git blobs. Independent adjudication, technical claim review and maintainer adoption remain open.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
