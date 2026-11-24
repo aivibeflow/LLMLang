@@ -14,6 +14,8 @@ H1: a stable named interface with immutable contract revisions permits sound mod
 H2: exact revision-bound conformance and binding evidence detects incompatible or stale providers even when names and signatures match.
 H3: a separate resolution snapshot preserves deterministic builds when several implementations exist.
 
+The [exact receipt rebind pilot](PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md) isolates the finite case where the public caller claim stays constant and the checked provider premise changes. It records what evidence remains applicable after resolution selects a different provider.
+
 ## 2. Candidate model and alternatives
 
 A Public Interface is an exported, governed semantic entity, independent of its implementation. It has a stable namespace-qualified name, logical lineage/ID (candidate; final ID scheme open), immutable revisions containing typed signature, public contract, visibility, semantic profile and version metadata, and explicit relations to implementation bindings. It can represent an operation or a group of operations with shared state/protocol invariants. An implementation has its own contract and exact body identity. Private functions need not have public names or a distinct interface. Name uniqueness is scoped to a namespace and version policy. Renaming is an explicit migration or alias, never an unnoticed break; name reuse must not impersonate an older interface.
