@@ -1,0 +1,925 @@
+{
+  "schema": "stage02-review-queue-relocation-v1",
+  "baseline": "627c70878863b519a358815f8a96ddbae1303136",
+  "pre_move": "d37245f80ade33b2d4d5d0186381beadb75620df",
+  "main": "fe229c3215c42d8bded531d77bbef47761ac5770",
+  "environment": {
+    "python": "3.12.14",
+    "git": "git version 2.56.1",
+    "linux": "6.18.57",
+    "arch": "x86_64"
+  },
+  "checker_git_blob": "28e2969b99d9c155abda3cfb7fa126f9597e6fb4",
+  "document_scope": {
+    "627c70878863b519a358815f8a96ddbae1303136": {
+      "recursive": 351,
+      "root": 309
+    },
+    "d37245f80ade33b2d4d5d0186381beadb75620df": {
+      "recursive": 398,
+      "root": 329
+    },
+    "fe229c3215c42d8bded531d77bbef47761ac5770": {
+      "recursive": 399,
+      "root": 16
+    }
+  },
+  "queue": [
+    {
+      "archive": {
+        "path": "research/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md",
+        "blob": "9fdb7298597965299ab9add721e46650c798492c",
+        "kind": "scenario",
+        "selection_rank": 1,
+        "warning_count": 7,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "9fdb7298597965299ab9add721e46650c798492c",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-10/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RT-10/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md",
+      "current_navigation_blob": "53e2d91c1189f30ed1a33e8467053d67b005e88e",
+      "archive_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ],
+      "current_navigation_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-SCENARIO-04-VERIFICATION-REUSE.md",
+        "blob": "dfa5e9e24bc621936896a1a55f267cc9a8f82659",
+        "kind": "scenario",
+        "selection_rank": 2,
+        "warning_count": 6,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "5d1600465bfcd313dac180b01ca4c4dd4e5ab7fd",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-07/RESEARCH-SCENARIO-04-VERIFICATION-REUSE.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RT-07/RESEARCH-SCENARIO-04-VERIFICATION-REUSE.md",
+      "current_navigation_blob": "9868a1939c077c085077997555cf94b0b924d616",
+      "archive_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for experiments/method",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md",
+        "blob": "f22e5cc96df8ba893e93fe9ac1616713e5160c34",
+        "kind": "scenario",
+        "selection_rank": 3,
+        "warning_count": 8,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "f22e5cc96df8ba893e93fe9ac1616713e5160c34",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-13/RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RT-13/RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md",
+      "current_navigation_blob": "ea76b2eacbf742749836a80e99d51ccda7a74310",
+      "archive_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline",
+        "no recognizable evidence class; human claim-level review required"
+      ],
+      "current_navigation_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline",
+        "no recognizable evidence class; human claim-level review required"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-SCENARIO-45-NUMERIC-SEMANTICS-AND-OVERFLOW.md",
+        "blob": "6f1326a86509fa154e09405dcbd91ed543f94e9c",
+        "kind": "scenario",
+        "selection_rank": 4,
+        "warning_count": 5,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "6f1326a86509fa154e09405dcbd91ed543f94e9c",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-03/RESEARCH-SCENARIO-45-NUMERIC-SEMANTICS-AND-OVERFLOW.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RT-03/RESEARCH-SCENARIO-45-NUMERIC-SEMANTICS-AND-OVERFLOW.md"
+      ],
+      "current_navigation_path": "research/RT-03/RESEARCH-SCENARIO-45-NUMERIC-SEMANTICS-AND-OVERFLOW.md",
+      "current_navigation_blob": "6f1326a86509fa154e09405dcbd91ed543f94e9c",
+      "archive_warnings": [
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-SCENARIO-52-UNICODE-IDENTIFIERS-AND-SOURCE-SAFETY.md",
+        "blob": "4123a1ca3ec3e60365c5d9f67178e679d35e188b",
+        "kind": "scenario",
+        "selection_rank": 5,
+        "warning_count": 6,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "4123a1ca3ec3e60365c5d9f67178e679d35e188b",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-03/RESEARCH-SCENARIO-52-UNICODE-IDENTIFIERS-AND-SOURCE-SAFETY.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RT-03/RESEARCH-SCENARIO-52-UNICODE-IDENTIFIERS-AND-SOURCE-SAFETY.md"
+      ],
+      "current_navigation_path": "research/RT-03/RESEARCH-SCENARIO-52-UNICODE-IDENTIFIERS-AND-SOURCE-SAFETY.md",
+      "current_navigation_blob": "4123a1ca3ec3e60365c5d9f67178e679d35e188b",
+      "archive_warnings": [
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline",
+        "no recognizable evidence class; human claim-level review required"
+      ],
+      "current_navigation_warnings": [
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline",
+        "no recognizable evidence class; human claim-level review required"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-SCENARIO-56-CLOSURE-CAPTURE-AND-ESCAPE.md",
+        "blob": "ff75d89f0ccb2202875270a42a12924753346ccb",
+        "kind": "scenario",
+        "selection_rank": 6,
+        "warning_count": 5,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "ff75d89f0ccb2202875270a42a12924753346ccb",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-04/RESEARCH-SCENARIO-56-CLOSURE-CAPTURE-AND-ESCAPE.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RT-04/RESEARCH-SCENARIO-56-CLOSURE-CAPTURE-AND-ESCAPE.md"
+      ],
+      "current_navigation_path": "research/RT-04/RESEARCH-SCENARIO-56-CLOSURE-CAPTURE-AND-ESCAPE.md",
+      "current_navigation_blob": "ff75d89f0ccb2202875270a42a12924753346ccb",
+      "archive_warnings": [
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md",
+        "blob": "c1dfa564c5e35a9d7da650c1d0fed2f0e4e71a0e",
+        "kind": "scenario",
+        "selection_rank": 7,
+        "warning_count": 6,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "f19bc3687d7f50a4930b1f7fef2d6f06d75da205",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-04/RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RT-04/RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md",
+      "current_navigation_blob": "853656d64aa662eb9e3cda405a942ce03ed91cea",
+      "archive_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-SCENARIO-40-ASYNC-CANCELLATION-AND-CLEANUP.md",
+        "blob": "8e4a3180fbd0ff3ac63cf597ea734292807ec555",
+        "kind": "scenario",
+        "selection_rank": 8,
+        "warning_count": 6,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "8e4a3180fbd0ff3ac63cf597ea734292807ec555",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-04/RESEARCH-SCENARIO-40-ASYNC-CANCELLATION-AND-CLEANUP.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RT-04/RESEARCH-SCENARIO-40-ASYNC-CANCELLATION-AND-CLEANUP.md"
+      ],
+      "current_navigation_path": "research/RT-04/RESEARCH-SCENARIO-40-ASYNC-CANCELLATION-AND-CLEANUP.md",
+      "current_navigation_blob": "8e4a3180fbd0ff3ac63cf597ea734292807ec555",
+      "archive_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md",
+        "blob": "487a20167267b4c22784b483be8e419a753a55ce",
+        "kind": "rt",
+        "selection_rank": 1,
+        "warning_count": 6,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "487a20167267b4c22784b483be8e419a753a55ce",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-13/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RT-13/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md",
+      "current_navigation_blob": "db17ee9cf436de998ecdd676e9b517fea435b130",
+      "archive_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability"
+      ],
+      "current_navigation_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RT-00-DEP-006-TYPE-IDENTITY-EVIDENCE-RECHECK-2026-11-23.md",
+        "blob": "4da1df2c672cc944fece93847e1bf6ede986e15e",
+        "kind": "rt",
+        "selection_rank": 2,
+        "warning_count": 11,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "4da1df2c672cc944fece93847e1bf6ede986e15e",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-00/RT-00-DEP-006-TYPE-IDENTITY-EVIDENCE-RECHECK-2026-11-23.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RT-00/RT-00-DEP-006-TYPE-IDENTITY-EVIDENCE-RECHECK-2026-11-23.md"
+      ],
+      "current_navigation_path": "research/RT-00/RT-00-DEP-006-TYPE-IDENTITY-EVIDENCE-RECHECK-2026-11-23.md",
+      "current_navigation_blob": "4da1df2c672cc944fece93847e1bf6ede986e15e",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RT-04-RT-03-CROSS-PROFILE-TRACES.md",
+        "blob": "2b48e4b9991a032de3530068b9d491e9c487f6d3",
+        "kind": "rt",
+        "selection_rank": 3,
+        "warning_count": 5,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "2b48e4b9991a032de3530068b9d491e9c487f6d3",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-04/RT-04-RT-03-CROSS-PROFILE-TRACES.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RT-04/RT-04-RT-03-CROSS-PROFILE-TRACES.md",
+      "current_navigation_blob": "8168083d552bb4552d7f5c6c5120440777ffd040",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md",
+        "blob": "b7707c7bf21fa23ba913814723fbdd8419019655",
+        "kind": "rt",
+        "selection_rank": 4,
+        "warning_count": 10,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "b7707c7bf21fa23ba913814723fbdd8419019655",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-00/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RT-00/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md"
+      ],
+      "current_navigation_path": "research/RT-00/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md",
+      "current_navigation_blob": "b7707c7bf21fa23ba913814723fbdd8419019655",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "no recognizable evidence class; human claim-level review required",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "no recognizable evidence class; human claim-level review required",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
+        "blob": "2be7ddb8c530127e3c20a2bd383236afdc70e8df",
+        "kind": "rt",
+        "selection_rank": 5,
+        "warning_count": 5,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "40e584aa04a3d3024cd2ba766fe0ea76bb25ec3c",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
+      "current_navigation_blob": "326b2b609658df280ebe98277c72fc9c116553ae",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RT-00-A-CONTENT-ROLE-TRIAGE-2026-11-22.md",
+        "blob": "7174f961c56599e00a3283322c6a0ef16a22e6b8",
+        "kind": "rt",
+        "selection_rank": 6,
+        "warning_count": 8,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "7174f961c56599e00a3283322c6a0ef16a22e6b8",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-00/RT-00-A-CONTENT-ROLE-TRIAGE-2026-11-22.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RT-00/RT-00-A-CONTENT-ROLE-TRIAGE-2026-11-22.md"
+      ],
+      "current_navigation_path": "research/RT-00/RT-00-A-CONTENT-ROLE-TRIAGE-2026-11-22.md",
+      "current_navigation_blob": "7174f961c56599e00a3283322c6a0ef16a22e6b8",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RT-09-ORDERED-SPG-LOWERING.md",
+        "blob": "df899fb22439f42b989f059a6852ad26644d4cd4",
+        "kind": "rt",
+        "selection_rank": 7,
+        "warning_count": 4,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "df899fb22439f42b989f059a6852ad26644d4cd4",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-09/RT-09-ORDERED-SPG-LOWERING.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RT-09/RT-09-ORDERED-SPG-LOWERING.md",
+      "current_navigation_blob": "1b830d3359a311f3c104c264346ec4eaa5c2e67a",
+      "archive_warnings": [
+        "missing section for prior art/sources",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability"
+      ],
+      "current_navigation_warnings": [
+        "missing section for prior art/sources",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RT-01-REFERENCE-WORKLOADS.md",
+        "blob": "72bc95a195b9fc52132ab3323d680034c7324485",
+        "kind": "rt",
+        "selection_rank": 8,
+        "warning_count": 9,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "72bc95a195b9fc52132ab3323d680034c7324485",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-01/RT-01-REFERENCE-WORKLOADS.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RT-01/RT-01-REFERENCE-WORKLOADS.md",
+      "current_navigation_blob": "97c81efed26830232dc337423efa3ded94baa15d",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/LLVM-BACKEND-ARCHITECTURE.md",
+        "blob": "955e0e1b86d17965f328a07da59f1521bfd3649f",
+        "kind": "other-root",
+        "selection_rank": 1,
+        "warning_count": 6,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "d0a3bf83a5a2a71b66ee426afa8942c9ab23a010",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-13/LLVM-BACKEND-ARCHITECTURE.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RT-13/LLVM-BACKEND-ARCHITECTURE.md",
+      "current_navigation_blob": "fbaf483860ef631ab84442384fdb8d533fd6d3a9",
+      "archive_warnings": [
+        "missing section for prior art/sources",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for prior art/sources",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md",
+        "blob": "7bd3d839e28133da8f70601e32cb5698403282f3",
+        "kind": "other-root",
+        "selection_rank": 2,
+        "warning_count": 8,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "7bd3d839e28133da8f70601e32cb5698403282f3",
+      "current_old_path_blob": "7bd3d839e28133da8f70601e32cb5698403282f3",
+      "current_basename_matches": [
+        "research/RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md"
+      ],
+      "current_navigation_path": "research/RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md",
+      "current_navigation_blob": "7bd3d839e28133da8f70601e32cb5698403282f3",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/TOKEN_EFFICIENCY.md",
+        "blob": "2bb8bcbd90430a578d3ceab85846afbbd970c8e6",
+        "kind": "other-root",
+        "selection_rank": 3,
+        "warning_count": 10,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "2bb8bcbd90430a578d3ceab85846afbbd970c8e6",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-31/TOKEN_EFFICIENCY.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RT-31/TOKEN_EFFICIENCY.md"
+      ],
+      "current_navigation_path": "research/RT-31/TOKEN_EFFICIENCY.md",
+      "current_navigation_blob": "2bb8bcbd90430a578d3ceab85846afbbd970c8e6",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline",
+        "no recognizable evidence class; human claim-level review required"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline",
+        "no recognizable evidence class; human claim-level review required"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md",
+        "blob": "880cada71c7db00855fc6799ad14c89669c616f1",
+        "kind": "other-root",
+        "selection_rank": 4,
+        "warning_count": 4,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "880cada71c7db00855fc6799ad14c89669c616f1",
+      "current_old_path_blob": "880cada71c7db00855fc6799ad14c89669c616f1",
+      "current_basename_matches": [
+        "research/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md"
+      ],
+      "current_navigation_path": "research/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md",
+      "current_navigation_blob": "880cada71c7db00855fc6799ad14c89669c616f1",
+      "archive_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for formal model/assumptions",
+        "missing section for limitations",
+        "missing section for draft impact/traceability"
+      ],
+      "current_navigation_warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for formal model/assumptions",
+        "missing section for limitations",
+        "missing section for draft impact/traceability"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md",
+        "blob": "0b641287474ca59f9ec24f3ac3770824c0c479de",
+        "kind": "other-root",
+        "selection_rank": 5,
+        "warning_count": 4,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "0b641287474ca59f9ec24f3ac3770824c0c479de",
+      "current_old_path_blob": "86f1144627c58ed67fd1b66bbb2e46e8fdb65bd3",
+      "current_basename_matches": [
+        "research/RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md"
+      ],
+      "current_exact_blob_matches": [],
+      "current_navigation_path": "research/RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md",
+      "current_navigation_blob": "86f1144627c58ed67fd1b66bbb2e46e8fdb65bd3",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/REPOSITORY-AUDIT-2026-11-17.md",
+        "blob": "1bbb9342531c9d1391b1fec8b90774fd67aeb125",
+        "kind": "other-root",
+        "selection_rank": 6,
+        "warning_count": 7,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "1bbb9342531c9d1391b1fec8b90774fd67aeb125",
+      "current_old_path_blob": "1bbb9342531c9d1391b1fec8b90774fd67aeb125",
+      "current_basename_matches": [
+        "research/REPOSITORY-AUDIT-2026-11-17.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/REPOSITORY-AUDIT-2026-11-17.md"
+      ],
+      "current_navigation_path": "research/REPOSITORY-AUDIT-2026-11-17.md",
+      "current_navigation_blob": "1bbb9342531c9d1391b1fec8b90774fd67aeb125",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for limitations",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md",
+        "blob": "c3ea40d331c113a4cba5d077edba1846694f5799",
+        "kind": "other-root",
+        "selection_rank": 7,
+        "warning_count": 7,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "c3ea40d331c113a4cba5d077edba1846694f5799",
+      "current_old_path_blob": null,
+      "current_basename_matches": [
+        "research/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md"
+      ],
+      "current_navigation_path": "research/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md",
+      "current_navigation_blob": "c3ea40d331c113a4cba5d077edba1846694f5799",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for experiments/method",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for experiments/method",
+        "missing section for draft impact/traceability",
+        "missing metadata: Baseline",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "archive": {
+        "path": "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+        "blob": "498ba7102f8b825e37a736bde7bdc6edb4a1df16",
+        "kind": "other-root",
+        "selection_rank": 8,
+        "warning_count": 6,
+        "human_review": "NOT REVIEWED"
+      },
+      "pre_move_path_blob": "498ba7102f8b825e37a736bde7bdc6edb4a1df16",
+      "current_old_path_blob": "498ba7102f8b825e37a736bde7bdc6edb4a1df16",
+      "current_basename_matches": [
+        "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md"
+      ],
+      "current_exact_blob_matches": [
+        "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md"
+      ],
+      "current_navigation_path": "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+      "current_navigation_blob": "498ba7102f8b825e37a736bde7bdc6edb4a1df16",
+      "archive_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for limitations",
+        "missing metadata: Baseline"
+      ],
+      "current_navigation_warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for limitations",
+        "missing metadata: Baseline"
+      ]
+    }
+  ],
+  "summary": {
+    "archival_replay_matches": 24,
+    "current_exact_path_matches": 5,
+    "current_exact_path_and_blob_matches": 4,
+    "current_unique_exact_blob_matches": 13,
+    "current_navigation_candidates": 24,
+    "current_navigation_warning_lists_changed": 1,
+    "current_navigation_blobs_changed_vs_pre_move": 11,
+    "archive_warning_counts": {
+      "missing metadata: Baseline": 16,
+      "missing metadata: Status": 5,
+      "missing section for decision boundary": 16,
+      "missing section for draft impact/traceability": 23,
+      "missing section for experiments/method": 10,
+      "missing section for formal model/assumptions": 11,
+      "missing section for hypotheses/alternatives": 19,
+      "missing section for limitations": 15,
+      "missing section for prior art/sources": 12,
+      "missing section for question/problem": 12,
+      "missing section for results": 12,
+      "negative/rejected/UNKNOWN cases or justified N/A not located": 4,
+      "no recognizable evidence class; human claim-level review required": 4
+    },
+    "human_reviews_completed": 0
+  }
+}

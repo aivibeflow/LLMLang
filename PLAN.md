@@ -138,6 +138,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 **Pinned formal proof recheck observed (2026-11-23):** [Lean CI #45264153180](https://github.com/aivibeflow/LLMLang/actions/runs/45264153180) checked the exact archived `ObservableRewrite.lean` SHA-256 with Lean 4.36.0 and preserved the actual axioms `propext`, `Classical.choice`, `Quot.sound`. See [proof source/host outcome ledger](research/quality-audit/2026-11-23-pinned-lean-proof-observations.json). This establishes a *bounded model theorem check*, not production optimizer correctness, comprehensive research claim review, or maintainer acceptance of §0.2 rules.
 
+**Stage 0.2 review after report relocation (2026-11-24):** The [source-bound queue comparison](research/research-management/RT-00/RT-00-QUALITY-RULES-QUEUE-RELOCATION-2026-11-24.md) reproduces the historical census and 24-document review queue and finds 13 exact historical blobs in the pinned post-PR-#444 tree. Current links locate 24 candidates, including 11 with revised bytes. Preserve the archived claim inputs for review. External dependencies are independent human adjudication of the 24-document queue and the separate eight-claim handoff, original-run attestations where recoverable, and maintainer approval of Stage 0.2 rules. Broader claim verification remains open.
+
 **Estimated research complexity:** **3/10** — mostly methodological analysis and consistency checks.
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
