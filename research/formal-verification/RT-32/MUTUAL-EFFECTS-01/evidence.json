@@ -1,0 +1,111 @@
+{
+  "controls": {
+    "changed_contract": {
+      "rejected_by": "finite trace contract differs from the declared domain"
+    },
+    "swap_effect_order": {
+      "kernel_diagnostic": "unsolved goals",
+      "same_value_and_event_multiset": true,
+      "subject": "badd2987be5e5421a69043eaa552868d1fb6041a64e24477c123ec55d06064d9"
+    },
+    "zero_stride": {
+      "kernel_diagnostic": "omega",
+      "subject": "7f4d8c0425c358d46008e66643a48ca20d542a16a8092e58e3ab5043d20ef3b5"
+    }
+  },
+  "encodings": {
+    "keyed": {
+      "acyclic_admission": "unsupported implementation value",
+      "axioms": [
+        "'orderedPair' depends on axioms: [propext, Quot.sound]",
+        "'generated_length' depends on axioms: [propext, Quot.sound]"
+      ],
+      "generated_sha256": "345d9e14d0d910234f317c6b66a85c99559f551b0d675defb66f4513ddd233fc",
+      "observations": 40,
+      "out_of_finite_contract": 8,
+      "subject": {
+        "contracts": {
+          "evenMember": "7dfa5968081a2837ec16c3f7db966115f35c76b3246c1068da786d036f218687",
+          "oddMember": "5e3826e1bf5e57cae72ee117b7c0dd69ad6329c7b79b14608fd9f912b3c1ab9b"
+        },
+        "group": "bc0e1178245d38bb3e66d1de8c5eb5e1d08c62e034591734be3c49ac3b0970f5",
+        "group_sha256": "9c846c0301e8ffcdc3431f34510a7793a4c8a55a781a9bf4570cb3b41744825d",
+        "members": {
+          "evenMember": {
+            "base_event": "base_even",
+            "base_value": 0,
+            "callee": "oddMember",
+            "enter": "enter_even",
+            "exit": "exit_even",
+            "member": "457810b8ef385544f1117a96e03b526b3848678a1f51167d8ab0dfb792bd15c6",
+            "order": "enter-then-exit",
+            "position": 0,
+            "stride": 1
+          },
+          "oddMember": {
+            "base_event": "base_odd",
+            "base_value": 1,
+            "callee": "evenMember",
+            "enter": "enter_odd",
+            "exit": "exit_odd",
+            "member": "71cc81b7cad57e3a04d4d3fe9e63ad34f6b1298a7c046ea27ac254a3846a9fac",
+            "order": "enter-then-exit",
+            "position": 1,
+            "stride": 1
+          }
+        },
+        "snapshot": "d15646b76ae957bff1e2744431007d3483dba56b8552e506efd3785a06c5ea69"
+      },
+      "trace_sha256": "9c52c9cb0ae67871bd872e82bcd578b9de6035724d8eb283bb8f19dbb3d8b155"
+    },
+    "structural": {
+      "acyclic_admission": "unsupported implementation value",
+      "axioms": [
+        "'orderedPair' depends on axioms: [propext, Quot.sound]",
+        "'generated_length' depends on axioms: [propext, Quot.sound]"
+      ],
+      "generated_sha256": "64b3d9a0c4d78b4fff90ca35ab88bbf37e8c3c73afcfa5f4b2c565668385cac9",
+      "observations": 40,
+      "out_of_finite_contract": 8,
+      "subject": {
+        "contracts": {
+          "evenMember": "7dfa5968081a2837ec16c3f7db966115f35c76b3246c1068da786d036f218687",
+          "oddMember": "5e3826e1bf5e57cae72ee117b7c0dd69ad6329c7b79b14608fd9f912b3c1ab9b"
+        },
+        "group": "fd71e94a4c1cdd4a5f772e84c76148b3f4546b0a1b5fc62f8382c5d7629822e0",
+        "group_sha256": "f780b3a2189080f737c893e4e88ce7864639dc6a79043fa1377382f7a65ab7f3",
+        "members": {
+          "evenMember": {
+            "base_event": "base_even",
+            "base_value": 0,
+            "callee": "oddMember",
+            "enter": "enter_even",
+            "exit": "exit_even",
+            "member": "8e3b980570da5ca5fa113a2145c283c5754137667a51a328cf575303ae4b1f3c",
+            "order": "enter-then-exit",
+            "position": 0,
+            "stride": 1
+          },
+          "oddMember": {
+            "base_event": "base_odd",
+            "base_value": 1,
+            "callee": "evenMember",
+            "enter": "enter_odd",
+            "exit": "exit_odd",
+            "member": "d7749857df79f686c77bd0ccd0d032f577bb5f7dea024b44a0422497c6a5f2f6",
+            "order": "enter-then-exit",
+            "position": 1,
+            "stride": 1
+          }
+        },
+        "snapshot": "845407af8d2e5b1b61912ca7efa25cd34686e4ac5d388176fb78148794808355"
+      },
+      "trace_sha256": "9c52c9cb0ae67871bd872e82bcd578b9de6035724d8eb283bb8f19dbb3d8b155"
+    }
+  },
+  "format": "rt32-mutual-effects/1",
+  "highest_contract_input": 15,
+  "highest_observed_input": 19,
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "python": "3.12.14"
+}
