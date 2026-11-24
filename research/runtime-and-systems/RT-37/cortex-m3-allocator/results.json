@@ -1,0 +1,165 @@
+{
+  "schema": "llmlang-cortex-m3-bounded-allocator-v1",
+  "machine": "lm3s6965evb",
+  "case_count": 644,
+  "requests_per_image": 676,
+  "source_sha256": {
+    "reserve.rs": "8ad742a543abff0e698964bee18b1d701d63873220b35dbb52cc5b70a7aa7f43",
+    "reserve.ll": "022acaebb75c3f8fc85077b5291c6fa9d22d985c4b7fe0a206339499eedcec1f",
+    "startup.s": "c67e76b5128b19b8da37d876ff46ff4d40779ec5c3b1507fea77851bc9216d8d",
+    "run.py": "b0f53439848e8a7db8c56d0a13d52b56b34c9a44582eb7197e365c73c85c70ba",
+    "closure-run.py": "5ec43ef68d29aaf7bc88bcbf7e97e46f59abdfa18dbb567897333d8a23092477",
+    "memory.ld": "5085ad0a4168a699d202d6f9af2caeced5d70ec5c0d44372cb16e5ea335b2ecb"
+  },
+  "tools": {
+    "opt": "Debian LLVM version 19.1.7",
+    "llc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "images": {
+    "llvm-fixed": {
+      "image_sha256": "a4e07256e993677b16b9ba6b5160e67a9308bac0dcc0aae57e23b12db54c16c2",
+      "flash_extent_bytes": 16156,
+      "static_ram_bytes": 68,
+      "arena": {
+        "arena": "0x20000000",
+        "arena_end": "0x20000040",
+        "cursor": "0x20000040"
+      },
+      "linked_reservation_routine": "reserve_fixed",
+      "reservation_routine_bytes": 50,
+      "trace_sha256": "e48b672e5e6e2de179b2fbe26bf7b16b6792d5d42622eb5cf2e4439569bee78d",
+      "accepted": 57,
+      "named": {
+        "small_packing": {
+          "accepted": 4,
+          "last_cursor": 64
+        },
+        "large_requests": {
+          "accepted": 2,
+          "last_cursor": 32
+        },
+        "alignment_gaps": {
+          "accepted": 4,
+          "last_cursor": 64
+        },
+        "invalid_requests": {
+          "accepted": 2,
+          "last_cursor": 32
+        }
+      }
+    },
+    "rust-fixed": {
+      "image_sha256": "73b3882bad2addca63bcf9a98786f37ac932350b283579150552b01c811f155a",
+      "flash_extent_bytes": 16196,
+      "static_ram_bytes": 68,
+      "arena": {
+        "arena": "0x20000000",
+        "arena_end": "0x20000040",
+        "cursor": "0x20000040"
+      },
+      "linked_reservation_routine": "reserve_fixed",
+      "reservation_routine_bytes": 92,
+      "trace_sha256": "e48b672e5e6e2de179b2fbe26bf7b16b6792d5d42622eb5cf2e4439569bee78d",
+      "accepted": 57,
+      "named": {
+        "small_packing": {
+          "accepted": 4,
+          "last_cursor": 64
+        },
+        "large_requests": {
+          "accepted": 2,
+          "last_cursor": 32
+        },
+        "alignment_gaps": {
+          "accepted": 4,
+          "last_cursor": 64
+        },
+        "invalid_requests": {
+          "accepted": 2,
+          "last_cursor": 32
+        }
+      }
+    },
+    "llvm-bump": {
+      "image_sha256": "bf9aca2994d0a82b226636e3e33fc8ded53ef62cf23ef5947c79207458acd27b",
+      "flash_extent_bytes": 16208,
+      "static_ram_bytes": 68,
+      "arena": {
+        "arena": "0x20000000",
+        "arena_end": "0x20000040",
+        "cursor": "0x20000040"
+      },
+      "linked_reservation_routine": "reserve_bump",
+      "reservation_routine_bytes": 104,
+      "trace_sha256": "ecb8219e3a32675c425c2dad56cf3fdffbb5f23352f32d9e981382f1fff79c68",
+      "accepted": 148,
+      "named": {
+        "small_packing": {
+          "accepted": 16,
+          "last_cursor": 64
+        },
+        "large_requests": {
+          "accepted": 3,
+          "last_cursor": 50
+        },
+        "alignment_gaps": {
+          "accepted": 6,
+          "last_cursor": 64
+        },
+        "invalid_requests": {
+          "accepted": 2,
+          "last_cursor": 64
+        }
+      }
+    },
+    "rust-bump": {
+      "image_sha256": "fcea23c3bed9be2a5751ff55dea980e512a7657511f4ac5f5a0c46b49256b501",
+      "flash_extent_bytes": 16224,
+      "static_ram_bytes": 68,
+      "arena": {
+        "arena": "0x20000000",
+        "arena_end": "0x20000040",
+        "cursor": "0x20000040"
+      },
+      "linked_reservation_routine": "reserve_bump",
+      "reservation_routine_bytes": 120,
+      "trace_sha256": "ecb8219e3a32675c425c2dad56cf3fdffbb5f23352f32d9e981382f1fff79c68",
+      "accepted": 148,
+      "named": {
+        "small_packing": {
+          "accepted": 16,
+          "last_cursor": 64
+        },
+        "large_requests": {
+          "accepted": 3,
+          "last_cursor": 50
+        },
+        "alignment_gaps": {
+          "accepted": 6,
+          "last_cursor": 64
+        },
+        "invalid_requests": {
+          "accepted": 2,
+          "last_cursor": 64
+        }
+      }
+    }
+  },
+  "control": {
+    "image_sha256": "e37b2e8f8af484be03dc10d730c4fc9acb1a9cfeb2ce7ce4eecd7284f7dc87b1",
+    "flash_extent_bytes": 388,
+    "static_ram_bytes": 68,
+    "arena": {
+      "arena": "0x20000000",
+      "arena_end": "0x20000040",
+      "cursor": "0x20000040"
+    },
+    "linked_reservation_routine": "reserve_bump",
+    "reservation_routine_bytes": 100,
+    "expected": "B|ffffffff00000010!",
+    "observed": "B|000000100000000f!"
+  }
+}
