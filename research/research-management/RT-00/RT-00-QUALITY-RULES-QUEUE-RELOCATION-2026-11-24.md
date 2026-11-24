@@ -1,8 +1,11 @@
 # RT-00 — Preserve source-bound quality review after moving research reports
 
-**Status:** Bounded reproduction complete. Independent review and policy adoption pending.  
-**Baseline:** Historical census `627c70878863b519a358815f8a96ddbae1303136`, pre-migration `d37245f80ade33b2d4d5d0186381beadb75620df`, post-#444 main `fe229c3215c42d8bded531d77bbef47761ac5770`.  
-**Evidence type:** Exact Git-object comparison and executable structural heuristic.  
+**Status:** Bounded reproduction complete. Independent review and policy adoption pending.
+
+**Baseline:** Historical census `627c70878863b519a358815f8a96ddbae1303136`, pre-migration `d37245f80ade33b2d4d5d0186381beadb75620df`, post-#444 main `fe229c3215c42d8bded531d77bbef47761ac5770`.
+
+**Evidence type:** Exact Git-object comparison and executable structural heuristic.
+
 **Tracking:** PLAN §0.2 and [issue #285](https://github.com/aivibeflow/LLMLang/issues/285).
 
 ## Problem and hypotheses
