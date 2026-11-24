@@ -381,6 +381,16 @@ Priority is a planning aid, not a measure of correctness:
 - **Recommendation:** Keep Contract IR backend-independent. Select one or more backends per proof obligation from explicit capability profiles, and abstain when required semantics or evidence strength is unsupported. Preserve each translation/correspondence obligation and all assumptions. Never aggregate partial, unknown, unsupported, or untrusted results into proven.
 - **Related:** [RT-33](research/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-32](research/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](research/LLMLang-FORMAL-VERIFICATION.md), [contract formalization corpus](research/CONTRACT-FORMALIZATION-CORPUS/README.md).
 
+### LL-029 — Build a representative proof-obligation benchmark
+
+- **Status:** Open
+- **Priority:** P0 (supports RT-33)
+- **Question:** Can the Toolchain reliably generate a complete and sound obligation set, classify heterogeneous obligations, select eligible verification backends, validate translations, and aggregate evidence without hiding uncertainty?
+- **Context:** The CF corpus (CF-001–CF-005) tests semantic fidelity of natural-language-to-contract formalization, not the downstream proof pipeline. RT-33 requires representative obligations beyond simple array algorithms and explicit tests for unsupported or incomplete evidence.
+- **Scope:** Instantiate the multi-label taxonomy in [the Proof Obligation Benchmark](research/PROOF-OBLIGATION-BENCHMARK.md): six obligation forms and ten semantic domains. Cover boundary, negative, conditional, and composed cases; include multi-backend scenarios and explicit abstention tests. Evaluate contract formalization, obligation generation, and backend verification as separate layers.
+- **Recommendation:** Start with a small seed set spanning structurally different domains and at least one multi-backend case. Expand toward the proposed 80-case coverage matrix only where cases add distinct semantic or planner coverage; do not treat 80 as a quota.
+- **Related:** [RT-33](research/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [Proof Obligation Benchmark](research/PROOF-OBLIGATION-BENCHMARK.md), [CF corpus](research/CONTRACT-FORMALIZATION-CORPUS/README.md), [Issue #390](https://github.com/aivibeflow/LLMLang/issues/390).
+
 ## AI authoring contexts
 
 ### LL-026 — Define the Knowledge Context model
