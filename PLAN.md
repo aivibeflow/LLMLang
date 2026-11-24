@@ -978,6 +978,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Consider Java as an alternative compiled target.
 - [ ] Implement two backends for the same subset.
 - [ ] Compare each backend against the same reference semantics and scenario corpus.
+  - [x] Compare generated Rust and direct LLVM over all 64 integer fixture programs at O0 and O3. Each profile matches 197,440 status, output and callback observations. Rust O0 with debug assertions needs a panic symbol absent from the four successful objects. Both routes use an LLVM compiler family, and broader backend evidence remains open. [Generated Rust integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-RUST-INTEGER-LOWERING-2026-11-24.md).
 - [ ] Compare return values, errors, state changes, and declared observable effects.
 - [ ] Reject silent semantic weakening; report restrictions explicitly.
 

@@ -1,0 +1,228 @@
+{
+  "controls": {
+    "masked_shift_count": {
+      "actual": [
+        "ok",
+        7,
+        [
+          7,
+          7
+        ]
+      ],
+      "changed": [
+        "events",
+        "slot",
+        "status"
+      ],
+      "expected": [
+        "shift_count",
+        2880246324,
+        [
+          7
+        ]
+      ],
+      "input": [
+        7,
+        32,
+        1
+      ]
+    },
+    "reverse_effects": {
+      "actual": [
+        "ok",
+        9,
+        [
+          9,
+          7
+        ]
+      ],
+      "changed": [
+        "events"
+      ],
+      "expected": [
+        "ok",
+        9,
+        [
+          7,
+          9
+        ]
+      ],
+      "input": [
+        7,
+        2,
+        1
+      ]
+    },
+    "wrapped_signed_overflow": {
+      "actual": [
+        "ok",
+        2147483648,
+        [
+          2147483647,
+          2147483648
+        ]
+      ],
+      "changed": [
+        "events",
+        "slot",
+        "status"
+      ],
+      "expected": [
+        "overflow",
+        2880246324,
+        [
+          2147483647
+        ]
+      ],
+      "input": [
+        2147483647,
+        1,
+        1
+      ]
+    },
+    "write_after_overflow": {
+      "actual": [
+        "overflow",
+        0,
+        [
+          2147483647
+        ]
+      ],
+      "changed": [
+        "slot"
+      ],
+      "expected": [
+        "overflow",
+        2880246324,
+        [
+          2147483647
+        ]
+      ],
+      "input": [
+        2147483647,
+        1,
+        1
+      ]
+    },
+    "wrong_zero_divisor_status": {
+      "actual": [
+        "overflow",
+        2880246324,
+        [
+          7
+        ]
+      ],
+      "changed": [
+        "status"
+      ],
+      "expected": [
+        "zero_divisor",
+        2880246324,
+        [
+          7
+        ]
+      ],
+      "input": [
+        7,
+        0,
+        1
+      ]
+    }
+  },
+  "cpu": "x86-64",
+  "input_sources_sha256": {
+    "integer_fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+    "llvm_integer_probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a",
+    "lower_rust.py": "37bf696956ea2899bebf8cdd66ab488ac95d7bc16db4465d2e1766f3acdd2074",
+    "run.py": "2d818461d81a4596e2849386e9df41ba142efc584efd12d1a63b9d174da563b1"
+  },
+  "lowered_sha256": {
+    "llvm": "f2587f3e7633344afc0d8aa41ee45a9f5af37c4042add0f186ca77f1dac7570e",
+    "rust": "e7207a5474a3f445140de5113f55cc1b8ebed62f34292f05198fac9a29cbfe38"
+  },
+  "profiles": {
+    "llvm_O0": {
+      "distinct_exported_extents": 64,
+      "exported_extent_sum_bytes": 6920,
+      "exports": 64,
+      "object_bytes": 13592,
+      "object_sha256": "c6f969e15441bf61484e086afa83ce6c70ea4e3b86b41b96d3f4664369c7ae1b",
+      "observations": 197440,
+      "statuses": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      },
+      "undefined_obj_symbols": []
+    },
+    "llvm_O3": {
+      "distinct_exported_extents": 64,
+      "exported_extent_sum_bytes": 3871,
+      "exports": 64,
+      "object_bytes": 12456,
+      "object_sha256": "e61026940b5eeeb69e7ceb24e1c06d12b488fbd52e273a000e15537f370ab2c6",
+      "observations": 197440,
+      "statuses": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      },
+      "undefined_obj_symbols": []
+    },
+    "rust_O0": {
+      "distinct_exported_extents": 64,
+      "exported_extent_sum_bytes": 8604,
+      "exports": 64,
+      "object_bytes": 26368,
+      "object_sha256": "8b189369efd327f3d2ca7b835d6c6e66f17f0d7f53ecf84972f78234a9c20b39",
+      "observations": 197440,
+      "statuses": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      },
+      "undefined_obj_symbols": []
+    },
+    "rust_O3": {
+      "distinct_exported_extents": 51,
+      "exported_extent_sum_bytes": 3187,
+      "exports": 64,
+      "object_bytes": 9824,
+      "object_sha256": "daa7e45ac910d3cfaa0a2d9c1a764e4704a5e334da4926d3ba43180dabe3078d",
+      "observations": 197440,
+      "statuses": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      },
+      "undefined_obj_symbols": []
+    }
+  },
+  "programs": 64,
+  "rust_O0_debug_assertions_imports": [
+    "core::panicking::panic_nounwind::h2f7749cb358aa979"
+  ],
+  "rust_O0_debug_link_without_runtime_rejected": true,
+  "rust_build": [
+    "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "binary: rustc",
+    "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+    "commit-date: 2025-03-15",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.85.1",
+    "LLVM version: 19.1.7"
+  ],
+  "target": "x86_64-unknown-linux-gnu",
+  "tools": {
+    "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "llc": "Debian LLVM version 19.1.7",
+    "nm": "llvm-nm, compatible with GNU nm",
+    "opt": "Debian LLVM version 19.1.7",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  },
+  "vectors": 3085
+}
