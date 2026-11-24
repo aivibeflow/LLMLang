@@ -1,0 +1,902 @@
+{
+  "schema": "llmlang-rt37-dma-lease-v1",
+  "bounded_max_generation": 3,
+  "capacity": 8,
+  "source_sha256": {
+    "DmaLease.lean": "09f6ee75845898177b12e662979315b5c554aeb692cfab23d7ed7844fdef7936",
+    "run.py": "7cf0a6e24a98bca00478f64f97def572644ad13dd8d0e4fc700660f83171e739"
+  },
+  "kernel_replay": {
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "phases": 21,
+    "events": 134,
+    "observations": 5628,
+    "observation_sha256": "dc72b3f7dc51b8c290aa1ed01138d91bf09f167ec61e28e33390e7db1ac0508e",
+    "axioms": [
+      "'DmaLease.unrelatedCompletion' depends on axioms: [propext]",
+      "'DmaLease.unrelatedQuiescence' depends on axioms: [propext]",
+      "'DmaLease.earlierGenerationCannotComplete' depends on axioms: [propext]",
+      "'DmaLease.cancelNeedsQuiescence' depends on axioms: [propext]",
+      "'DmaLease.cpuUseRequiresOwnership' depends on axioms: [propext]",
+      "'DmaLease.deviceWriteRequiresLeaseAndRange' depends on axioms: [propext]",
+      "'DmaLease.ownershipExcludesConcurrentWrite' depends on axioms: [propext]",
+      "'DmaLease.acquireChecksCompletionAndSynchronization' depends on axioms: [propext, Quot.sound]",
+      "'DmaLease.handbackRequiresAcquire' depends on axioms: [propext, Quot.sound]",
+      "'DmaLease.acquireAdvancesOrRetires' depends on axioms: [propext]",
+      "'DmaLease.finalGenerationRetires' depends on axioms: [propext, Quot.sound]",
+      "'DmaLease.retiredCannotSubmit' depends on axioms: [propext]"
+    ]
+  },
+  "controls": {
+    "cancel_before_acquire": {
+      "endpoint-only": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "cancel",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "deviceWrite",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "deviceWrite",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "quiesced",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": true,
+          "after": "cpu:1"
+        }
+      ],
+      "exact-wrap": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "cancel",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "deviceWrite",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "deviceWrite",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "quiesced",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": true,
+          "after": "cpu:1"
+        }
+      ],
+      "exact-retire": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "cancel",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "deviceWrite",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "deviceWrite",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "quiesced",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": true,
+          "after": "cpu:1"
+        }
+      ],
+      "exact-unbounded": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "cancel",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "deviceWrite",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "deviceWrite",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "quiesced",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": true,
+          "after": "cpu:1"
+        }
+      ]
+    },
+    "completion_after_reuse": {
+      "endpoint-only": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "cancel",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "quiesced",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": true,
+          "after": "completed:7:11:1"
+        },
+        {
+          "action": "acquire",
+          "reported": 1,
+          "admitted": true,
+          "after": "cpu:2"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": true,
+          "after": "cpu:2"
+        }
+      ],
+      "exact-wrap": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "cancel",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "quiesced",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": false,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "acquire",
+          "reported": 1,
+          "admitted": false,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "running:7:11:1"
+        }
+      ],
+      "exact-retire": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "cancel",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "quiesced",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": false,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "acquire",
+          "reported": 1,
+          "admitted": false,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "running:7:11:1"
+        }
+      ],
+      "exact-unbounded": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "cancel",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelling:7:11:0"
+        },
+        {
+          "action": "quiesced",
+          "reported": 0,
+          "admitted": true,
+          "after": "cancelled:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": false,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "acquire",
+          "reported": 1,
+          "admitted": false,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "cpuUse",
+          "reported": null,
+          "admitted": false,
+          "after": "running:7:11:1"
+        }
+      ]
+    },
+    "completion_after_wrap": {
+      "endpoint-only": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": true,
+          "after": "completed:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "complete",
+          "reported": 1,
+          "admitted": true,
+          "after": "completed:7:11:1"
+        },
+        {
+          "action": "acquire",
+          "reported": 1,
+          "admitted": true,
+          "after": "cpu:2"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:2"
+        },
+        {
+          "action": "complete",
+          "reported": 2,
+          "admitted": true,
+          "after": "completed:7:11:2"
+        },
+        {
+          "action": "acquire",
+          "reported": 2,
+          "admitted": true,
+          "after": "cpu:3"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:3"
+        },
+        {
+          "action": "complete",
+          "reported": 3,
+          "admitted": true,
+          "after": "completed:7:11:3"
+        },
+        {
+          "action": "acquire",
+          "reported": 3,
+          "admitted": true,
+          "after": "retired"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": false,
+          "after": "retired"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": false,
+          "after": "retired"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "retired"
+        }
+      ],
+      "exact-wrap": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": true,
+          "after": "completed:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "complete",
+          "reported": 1,
+          "admitted": true,
+          "after": "completed:7:11:1"
+        },
+        {
+          "action": "acquire",
+          "reported": 1,
+          "admitted": true,
+          "after": "cpu:2"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:2"
+        },
+        {
+          "action": "complete",
+          "reported": 2,
+          "admitted": true,
+          "after": "completed:7:11:2"
+        },
+        {
+          "action": "acquire",
+          "reported": 2,
+          "admitted": true,
+          "after": "cpu:3"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:3"
+        },
+        {
+          "action": "complete",
+          "reported": 3,
+          "admitted": true,
+          "after": "completed:7:11:3"
+        },
+        {
+          "action": "acquire",
+          "reported": 3,
+          "admitted": true,
+          "after": "cpu:0"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": true,
+          "after": "completed:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        }
+      ],
+      "exact-retire": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": true,
+          "after": "completed:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "complete",
+          "reported": 1,
+          "admitted": true,
+          "after": "completed:7:11:1"
+        },
+        {
+          "action": "acquire",
+          "reported": 1,
+          "admitted": true,
+          "after": "cpu:2"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:2"
+        },
+        {
+          "action": "complete",
+          "reported": 2,
+          "admitted": true,
+          "after": "completed:7:11:2"
+        },
+        {
+          "action": "acquire",
+          "reported": 2,
+          "admitted": true,
+          "after": "cpu:3"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:3"
+        },
+        {
+          "action": "complete",
+          "reported": 3,
+          "admitted": true,
+          "after": "completed:7:11:3"
+        },
+        {
+          "action": "acquire",
+          "reported": 3,
+          "admitted": true,
+          "after": "retired"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": false,
+          "after": "retired"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": false,
+          "after": "retired"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "retired"
+        }
+      ],
+      "exact-unbounded": [
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:0"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": true,
+          "after": "completed:7:11:0"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": true,
+          "after": "cpu:1"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:1"
+        },
+        {
+          "action": "complete",
+          "reported": 1,
+          "admitted": true,
+          "after": "completed:7:11:1"
+        },
+        {
+          "action": "acquire",
+          "reported": 1,
+          "admitted": true,
+          "after": "cpu:2"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:2"
+        },
+        {
+          "action": "complete",
+          "reported": 2,
+          "admitted": true,
+          "after": "completed:7:11:2"
+        },
+        {
+          "action": "acquire",
+          "reported": 2,
+          "admitted": true,
+          "after": "cpu:3"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:3"
+        },
+        {
+          "action": "complete",
+          "reported": 3,
+          "admitted": true,
+          "after": "completed:7:11:3"
+        },
+        {
+          "action": "acquire",
+          "reported": 3,
+          "admitted": true,
+          "after": "cpu:4"
+        },
+        {
+          "action": "submit",
+          "reported": null,
+          "admitted": true,
+          "after": "running:7:11:4"
+        },
+        {
+          "action": "complete",
+          "reported": 0,
+          "admitted": false,
+          "after": "running:7:11:4"
+        },
+        {
+          "action": "acquire",
+          "reported": 0,
+          "admitted": false,
+          "after": "running:7:11:4"
+        }
+      ]
+    }
+  }
+}
