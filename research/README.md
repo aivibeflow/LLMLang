@@ -198,3 +198,6 @@ Keep conclusions scoped to the fixtures and assumptions actually checked. A pass
 - [RT-00 B-02b.5 Dependency Graph evidence consolidation](RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md) — consolidated family graph, CI/test evidence, and inventory reconciliation.
 - [RT-02 Requirement Reconstruction and Human Semantic Validation](RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md) — non-normative proposal with a worked end-to-end requirement example.
 - [RT-04 Native Reproduction Protocol](RT-04-NATIVE-REPRODUCTION.md) and [LLVM Preservation Reproduction Protocol](LLVM-PRESERVATION-REPRODUCTION.md) — separate native reproduction workflows and their evidence boundaries.
+
+
+- [RT-33 — Proof Backend Selection and Verification Orchestration](RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md) — backend-independent proof-obligation classification, capability-driven selection across Lean/SMT/TLA+, conservative abstention, and evidence composition.
