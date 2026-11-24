@@ -3,7 +3,7 @@
 **Status:** Research proposal and worked example; not a normative LLMLang decision  
 **Updated:** 2026-11-20  
 **Research area:** RT-02 Intent, requirements, and specification model  
-**Related work:** [Scenario 15 — Business Intent to Formal Contracts](RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md), [Scenario 17 — Typed Requirement IR](RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md), [Scenario 18 — Requirement Evolution and Semantic Impact](RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md), [NASA FRET](https://software.nasa.gov/software/ARC-18066-1)
+**Related work:** [Scenario 15 — Business Intent to Formal Contracts](RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md), [Scenario 17 — Typed Requirement IR](RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md), [Scenario 18 — Requirement Evolution and Semantic Impact](RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md), [NASA FRET](https://software.nasa.gov/software/ARC-18066-1), [FRET source repository](https://github.com/NASA-SW-VnV/fret)
 
 ## 1. Research question
 
