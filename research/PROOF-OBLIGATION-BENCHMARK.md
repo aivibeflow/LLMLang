@@ -170,3 +170,7 @@ This document establishes an evaluation plan, not an accepted LLMLang architectu
 - treat testing, bounded model checking, solver output, or target compilation as proof beyond its stated scope.
 
 The [executable seed corpus and infrastructure](PROOF-OBLIGATION-BENCHMARK/README.md) provides twelve proposed finite reference/mutation cases, an offline runner, and experiment protocol. The next steps are independent adjudication, backend integration and controlled evaluation; see the linked issues. Finite smoke results do not establish unbounded proofs.
+
+## 10. Planned RT-34 resource-complexity expansion
+
+[RT-34](RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) and its [32-case proposed benchmark matrix](RT-34-COMPLEXITY-BENCHMARK.md) extend DOMAIN-05 to model-scoped asymptotic upper/lower/tight bounds, task optimality, symbolic size/cost summaries, recursion, memory, amortized/probabilistic costs, target correspondence and stale evidence. Keep FORM/DOMAIN tags multi-label; do not reuse case IDs. Preserve finite-vs-unbounded scope: a finite oracle does not establish asymptotic growth. Score correct abstention and bound precision separately from soundness. The matrix is a planning artifact, not a claim that the executable POB corpus already covers these cases.
