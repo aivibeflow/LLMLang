@@ -266,7 +266,7 @@ This follows naturally from the dependency-graph experiments and will test wheth
 ## 11. References
 
 - Mavin et al., *Easy Approach to Requirements Syntax (EARS)*, IEEE Requirements Engineering Conference, 2009. [Paper copy](https://ccy05327.github.io/SDD/08-PDF/Easy%20Approach%20to%20Requirements%20Syntax%20%28EARS%29.pdf).
-- NASA, [Formal Requirements Elicitation Tool (FRET)](https://software.nasa.gov/software/ARC-18066-1).
+- NASA, [Formal Requirements Elicitation Tool (FRET)](https://software.nasa.gov/software/ARC-18066-1) and [FRET source repository](https://github.com/NASA-SW-VnV/fret).
 - Giannakopoulou et al., [Formal Requirements Elicitation with FRET](https://ntrs.nasa.gov/api/citations/20200001989/downloads/20200001989.pdf).
 - NASA, [FRET Tutorial: Requirements Elicitation, Formalization, and Analysis](https://ntrs.nasa.gov/api/citations/20260003596).
 - Alloy Tools, [Alloy 6](https://alloytools.org/alloy6.html) and [About Alloy](https://alloytools.org/about.html).
