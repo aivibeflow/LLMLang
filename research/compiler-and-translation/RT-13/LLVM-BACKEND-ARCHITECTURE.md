@@ -195,7 +195,7 @@ The replaceable-backend boundary is an architectural constraint, not a decision 
 | Candidate | Hypothesized role | Evidence required before selection |
 |---|---|---|
 | LLVM | Leading candidate for optimized native code and broad target coverage | Source-to-IR preservation, optimization validation, target/ABI coverage, reproducible performance and maintenance measurements |
-| Cranelift | Candidate for low-latency Debug compilation and JIT | Same-semantics workload comparison, target and ABI coverage, debug information, runtime integration, and quality of generated code |
+| Cranelift | Candidate for low-latency Debug compilation and JIT | Same-semantics workload comparison, target and ABI coverage, debug information, runtime integration, and quality of generated code. [Checked-add comparison](RT-13-CRANELIFT-CHECKED-ADD-2026-11-24.md) |
 | Direct native backend | Possible specialized path only when a concrete requirement is unmet by existing backends | Demonstrated gap, bounded target scope, implementation/maintenance estimate, independent conformance corpus, and lifecycle plan |
 | WebAssembly toolchain | Candidate for portable sandboxed deployment | WASM feature/profile compatibility, host/runtime interface, resource and security model, and end-to-end conformance |
 
