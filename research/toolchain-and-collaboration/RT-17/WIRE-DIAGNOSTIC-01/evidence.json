@@ -1,0 +1,455 @@
+{
+  "format": "rt17-wire-diagnostic/1",
+  "sdk": "3.17.5",
+  "node": "v22.23.5",
+  "python": "Python 3.12.14",
+  "totals": {
+    "document": {
+      "wrongPush": 4,
+      "wrongPull": 4,
+      "unnecessaryInvalidation": 0
+    },
+    "workspace": {
+      "wrongPush": 0,
+      "wrongPull": 0,
+      "unnecessaryInvalidation": 1
+    },
+    "projection": {
+      "wrongPush": 0,
+      "wrongPull": 0,
+      "unnecessaryInvalidation": 0
+    }
+  },
+  "results": [
+    {
+      "case": "unopened-provider",
+      "policy": "document",
+      "documentVersion": 1,
+      "expected": [
+        "TYPE"
+      ],
+      "stalePush": {
+        "version": 1,
+        "codes": []
+      },
+      "conditionalPull": "unchanged",
+      "resultIdReused": true,
+      "displayed": [],
+      "refreshCount": 0,
+      "freshPush": {
+        "version": 1,
+        "codes": [
+          "TYPE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": true,
+      "wrongPush": true,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "new-override",
+      "policy": "document",
+      "documentVersion": 1,
+      "expected": [
+        "TYPE"
+      ],
+      "stalePush": {
+        "version": 1,
+        "codes": []
+      },
+      "conditionalPull": "unchanged",
+      "resultIdReused": true,
+      "displayed": [],
+      "refreshCount": 0,
+      "freshPush": {
+        "version": 1,
+        "codes": [
+          "TYPE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": true,
+      "wrongPush": true,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "removed-override",
+      "policy": "document",
+      "documentVersion": 1,
+      "expected": [],
+      "stalePush": {
+        "version": 1,
+        "codes": [
+          "TYPE"
+        ]
+      },
+      "conditionalPull": "unchanged",
+      "resultIdReused": true,
+      "displayed": [
+        "TYPE"
+      ],
+      "refreshCount": 0,
+      "freshPush": {
+        "version": 1,
+        "codes": []
+      },
+      "partialPublished": false,
+      "wrongPull": true,
+      "wrongPush": true,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "configuration",
+      "policy": "document",
+      "documentVersion": 1,
+      "expected": [
+        "TYPE"
+      ],
+      "stalePush": {
+        "version": 1,
+        "codes": []
+      },
+      "conditionalPull": "unchanged",
+      "resultIdReused": true,
+      "displayed": [],
+      "refreshCount": 0,
+      "freshPush": {
+        "version": 1,
+        "codes": [
+          "TYPE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": true,
+      "wrongPush": true,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "unrelated",
+      "policy": "document",
+      "documentVersion": 1,
+      "expected": [],
+      "stalePush": {
+        "version": 1,
+        "codes": []
+      },
+      "conditionalPull": "unchanged",
+      "resultIdReused": true,
+      "displayed": [],
+      "refreshCount": 0,
+      "freshPush": {
+        "version": 1,
+        "codes": []
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "entry-version",
+      "policy": "document",
+      "documentVersion": 2,
+      "expected": [
+        "PARSE"
+      ],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [
+        "PARSE"
+      ],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 2,
+        "codes": [
+          "PARSE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "unopened-provider",
+      "policy": "workspace",
+      "documentVersion": 1,
+      "expected": [
+        "TYPE"
+      ],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [
+        "TYPE"
+      ],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 1,
+        "codes": [
+          "TYPE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "new-override",
+      "policy": "workspace",
+      "documentVersion": 1,
+      "expected": [
+        "TYPE"
+      ],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [
+        "TYPE"
+      ],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 1,
+        "codes": [
+          "TYPE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "removed-override",
+      "policy": "workspace",
+      "documentVersion": 1,
+      "expected": [],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 1,
+        "codes": []
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "configuration",
+      "policy": "workspace",
+      "documentVersion": 1,
+      "expected": [
+        "TYPE"
+      ],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [
+        "TYPE"
+      ],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 1,
+        "codes": [
+          "TYPE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "unrelated",
+      "policy": "workspace",
+      "documentVersion": 1,
+      "expected": [],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 1,
+        "codes": []
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": true
+    },
+    {
+      "case": "entry-version",
+      "policy": "workspace",
+      "documentVersion": 2,
+      "expected": [
+        "PARSE"
+      ],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [
+        "PARSE"
+      ],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 2,
+        "codes": [
+          "PARSE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "unopened-provider",
+      "policy": "projection",
+      "documentVersion": 1,
+      "expected": [
+        "TYPE"
+      ],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [
+        "TYPE"
+      ],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 1,
+        "codes": [
+          "TYPE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "new-override",
+      "policy": "projection",
+      "documentVersion": 1,
+      "expected": [
+        "TYPE"
+      ],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [
+        "TYPE"
+      ],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 1,
+        "codes": [
+          "TYPE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "removed-override",
+      "policy": "projection",
+      "documentVersion": 1,
+      "expected": [],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 1,
+        "codes": []
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "configuration",
+      "policy": "projection",
+      "documentVersion": 1,
+      "expected": [
+        "TYPE"
+      ],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [
+        "TYPE"
+      ],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 1,
+        "codes": [
+          "TYPE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "unrelated",
+      "policy": "projection",
+      "documentVersion": 1,
+      "expected": [],
+      "stalePush": {
+        "version": 1,
+        "codes": []
+      },
+      "conditionalPull": "unchanged",
+      "resultIdReused": true,
+      "displayed": [],
+      "refreshCount": 0,
+      "freshPush": {
+        "version": 1,
+        "codes": []
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    },
+    {
+      "case": "entry-version",
+      "policy": "projection",
+      "documentVersion": 2,
+      "expected": [
+        "PARSE"
+      ],
+      "stalePush": null,
+      "conditionalPull": "full",
+      "resultIdReused": false,
+      "displayed": [
+        "PARSE"
+      ],
+      "refreshCount": 1,
+      "freshPush": {
+        "version": 2,
+        "codes": [
+          "PARSE"
+        ]
+      },
+      "partialPublished": false,
+      "wrongPull": false,
+      "wrongPush": false,
+      "unnecessaryInvalidation": false
+    }
+  ]
+}
