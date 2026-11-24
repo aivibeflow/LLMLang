@@ -1,0 +1,209 @@
+{
+  "controls": {
+    "arbitrary_root_fails": true,
+    "malformed_inputs_rejected": 3,
+    "preserved_call_order": true,
+    "preserved_external_pin": true,
+    "typed_literal_distinct": true
+  },
+  "lexical_control": {
+    "members": 11,
+    "smaller_permutation_first_row": {
+      "body": [
+        {
+          "literal": "marked"
+        },
+        {
+          "local_call": 10
+        },
+        {
+          "local_call": 2
+        }
+      ]
+    },
+    "smaller_permutation_sha256": "14b39a48b22d0940f0ac7905ee73e2ccd22ba520f18176d9c7ee778c7303a611",
+    "traversal_first_row": {
+      "body": [
+        {
+          "literal": "marked"
+        },
+        {
+          "local_call": 1
+        },
+        {
+          "local_call": 2
+        }
+      ]
+    },
+    "traversal_sha256": "ec7603e2fe82eb57f14dd848dc07f5af9315fbd2220440bef2115dc712218a45"
+  },
+  "scale": [
+    {
+      "body_tokens_visited": 27,
+      "keyed_member_addresses": 3,
+      "marked": false,
+      "member_classes": 1,
+      "members": 3,
+      "reference": "pass",
+      "reference_permutations_examined": 6,
+      "root_candidates": 3,
+      "traversal_payload_sha256": "b19c06b0abece1eecf6e70d09565ebb6e1e0a6a8b2b3e364c9ffb757a7946686"
+    },
+    {
+      "body_tokens_visited": 27,
+      "keyed_member_addresses": 3,
+      "marked": true,
+      "member_classes": 3,
+      "members": 3,
+      "reference": "pass",
+      "reference_permutations_examined": 6,
+      "root_candidates": 3,
+      "traversal_payload_sha256": "42584c4d775d6f487c95323abc1b48cbede16c2ea876a58121419b81d9509d6c"
+    },
+    {
+      "body_tokens_visited": 108,
+      "keyed_member_addresses": 6,
+      "marked": false,
+      "member_classes": 1,
+      "members": 6,
+      "reference": "pass",
+      "reference_permutations_examined": 720,
+      "root_candidates": 6,
+      "traversal_payload_sha256": "c1c9e652c5509d150a8bc59b8ef61aab094ab32ece8909930af71eb73b6baca3"
+    },
+    {
+      "body_tokens_visited": 108,
+      "keyed_member_addresses": 6,
+      "marked": true,
+      "member_classes": 6,
+      "members": 6,
+      "reference": "pass",
+      "reference_permutations_examined": 720,
+      "root_candidates": 6,
+      "traversal_payload_sha256": "a274893bf1a0bba5f2c41b4ff59579f101d96a1cfc1494a7d124f273e8654097"
+    },
+    {
+      "body_tokens_visited": 192,
+      "keyed_member_addresses": 8,
+      "marked": false,
+      "member_classes": 1,
+      "members": 8,
+      "reference": "search-bound",
+      "reference_permutations_examined": 0,
+      "root_candidates": 8,
+      "traversal_payload_sha256": "13d8ef225a18017ca9542d6886a4d5e36c10c373b40bf243fb787a94fa1e2313"
+    },
+    {
+      "body_tokens_visited": 192,
+      "keyed_member_addresses": 8,
+      "marked": true,
+      "member_classes": 8,
+      "members": 8,
+      "reference": "search-bound",
+      "reference_permutations_examined": 0,
+      "root_candidates": 8,
+      "traversal_payload_sha256": "b1efebe008f51528387f1600dd43761f711423b5cd819894121ac97c1ded8952"
+    },
+    {
+      "body_tokens_visited": 768,
+      "keyed_member_addresses": 16,
+      "marked": false,
+      "member_classes": 1,
+      "members": 16,
+      "reference": "search-bound",
+      "reference_permutations_examined": 0,
+      "root_candidates": 16,
+      "traversal_payload_sha256": "1f8ebf6d0751ccf56cfd64d118fce2973182baea366fa9061f48088fda46da53"
+    },
+    {
+      "body_tokens_visited": 768,
+      "keyed_member_addresses": 16,
+      "marked": true,
+      "member_classes": 16,
+      "members": 16,
+      "reference": "search-bound",
+      "reference_permutations_examined": 0,
+      "root_candidates": 16,
+      "traversal_payload_sha256": "2d21d5c1cc0b0cb3d485d51153bd118f0fddb4ff5af22d68d339fddbb8c33e09"
+    },
+    {
+      "body_tokens_visited": 3072,
+      "keyed_member_addresses": 32,
+      "marked": false,
+      "member_classes": 1,
+      "members": 32,
+      "reference": "search-bound",
+      "reference_permutations_examined": 0,
+      "root_candidates": 32,
+      "traversal_payload_sha256": "257c2523fbf0b88c628c7ef03838ac2de12660620b0c968cb3415f536018ad49"
+    },
+    {
+      "body_tokens_visited": 3072,
+      "keyed_member_addresses": 32,
+      "marked": true,
+      "member_classes": 32,
+      "members": 32,
+      "reference": "search-bound",
+      "reference_permutations_examined": 0,
+      "root_candidates": 32,
+      "traversal_payload_sha256": "2f108ac8f36fe211a319845c62eb343e8af897a761ae8af55ac5bf35e2369fc2"
+    },
+    {
+      "body_tokens_visited": 12288,
+      "keyed_member_addresses": 64,
+      "marked": false,
+      "member_classes": 1,
+      "members": 64,
+      "reference": "search-bound",
+      "reference_permutations_examined": 0,
+      "root_candidates": 64,
+      "traversal_payload_sha256": "4eb951cfbb604459492a326e47822ef83a2de1d2ef43c12f797f047827aae654"
+    },
+    {
+      "body_tokens_visited": 12288,
+      "keyed_member_addresses": 64,
+      "marked": true,
+      "member_classes": 64,
+      "members": 64,
+      "reference": "search-bound",
+      "reference_permutations_examined": 0,
+      "root_candidates": 64,
+      "traversal_payload_sha256": "6d73caa3022a22c640e814822a04999947aff4f776a31b3e8c4b207d0769e54f"
+    },
+    {
+      "body_tokens_visited": 49152,
+      "keyed_member_addresses": 128,
+      "marked": false,
+      "member_classes": 1,
+      "members": 128,
+      "reference": "search-bound",
+      "reference_permutations_examined": 0,
+      "root_candidates": 128,
+      "traversal_payload_sha256": "aff5d6e7dd95aa0a9f0d6e28ed53fd3ec7853d35aa16dc2a8d884f586f5eeb4a"
+    },
+    {
+      "body_tokens_visited": 49152,
+      "keyed_member_addresses": 128,
+      "marked": true,
+      "member_classes": 128,
+      "members": 128,
+      "reference": "search-bound",
+      "reference_permutations_examined": 0,
+      "root_candidates": 128,
+      "traversal_payload_sha256": "7cb12c20a0825fd259845fad5a1dd312fefbb36fbc072bc0c874886d4dbe7b91"
+    }
+  ],
+  "three_member_corpus": {
+    "accepted": 296,
+    "class_bijection": true,
+    "enumerated": 729,
+    "isomorphism_classes": 52,
+    "legacy_rows_differ": 0,
+    "member_class_counts": [
+      1,
+      3
+    ],
+    "rejected_non_scc": 433,
+    "renamed_cases": 1776
+  }
+}

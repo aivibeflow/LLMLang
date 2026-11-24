@@ -247,6 +247,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define semantic graph evolution, node replacement, splitting, merging, and lineage.
 - [ ] Decide artifact granularity: operations, interfaces, contracts, types, implementation components, tests, models, and proofs.
 - [ ] Define how recursive and mutually dependent structures are represented.
+  - [x] Compare root traversal, exhaustive permutation and explicit keys on ordered recursive definitions. The traversal matches 52 small isomorphism classes and scales to the tested 128 members. An 11-member witness rules out assuming byte compatibility with exhaustive ordering. Recursive types, unordered edges and the canonical format remain open. [Ordered SCC canonical traversal](research/semantic-representation/RT-05/RT-05-ORDERED-SCC-CANONICAL-TRAVERSAL-2026-11-24.md).
 
 **Existing evidence:** `research/LLMLang-CONCEPT.md` describes the SPG and the three logical graph layers; dependency-graph scenarios 18–28 explore requirement evolution, dependency discovery, and formal dependency analysis.
 
