@@ -65,7 +65,11 @@ Do not collapse these dimensions into one pass/fail score. Record unsupported co
 
 For each run, preserve the exact prompt, model/version, settings, raw output, normalized typed representation (if available), reviewer verdict, and reproducible checker/proof results. Never overwrite earlier runs when prompts, models, or corpus versions change.
 
-## 5. Versioning and limitations
+## 5. Relationship to proof-obligation evaluation
+
+This corpus evaluates contract formalization only. Its five initial cases are not intended to cover the full space of proof obligations or backend behavior. The separate [Proof Obligation Benchmark](../PROOF-OBLIGATION-BENCHMARK.md) evaluates downstream obligation generation, backend planning, translation correspondence, verification, and evidence aggregation. Keep the two evaluation layers separate: a downstream proof cannot compensate for a semantically incorrect contract.
+
+## 6. Versioning and limitations
 
 Case IDs are stable and must never be reused. Changes to accepted meaning require an explicit case revision and a note explaining the semantic change. Wording-only corrections should also be recorded.
 
