@@ -5,10 +5,10 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/research-reproducibility-smoke.yml"
-      - "research/PROTOTYPES/RT-16-AUTHORIZATION-01/**"
-      - "research/PROTOTYPES/CLI-WORKLOADS-01/**"
-      - "research/RT-16/RT-16-THREAT-MODEL-01.md"
-      - "research/RT-01/RT-01-REFERENCE-WORKLOADS.md"
+      - "research/security/PROTOTYPES/RT-16-AUTHORIZATION-01/**"
+      - "research/language-design/PROTOTYPES/CLI-WORKLOADS-01/**"
+      - "research/security/RT-16/RT-16-THREAT-MODEL-01.md"
+      - "research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md"
   workflow_dispatch:
 
 permissions:
@@ -42,11 +42,11 @@ jobs:
             echo "kernel=$(uname -srmo)"
             echo
             sha256sum \
-              research/PROTOTYPES/RT-16-AUTHORIZATION-01/policy.py \
-              research/PROTOTYPES/RT-16-AUTHORIZATION-01/test_policy.py \
-              research/PROTOTYPES/CLI-WORKLOADS-01/run.py \
-              research/PROTOTYPES/CLI-WORKLOADS-01/reference.py \
-              research/PROTOTYPES/CLI-WORKLOADS-01/reference.c
+              research/security/PROTOTYPES/RT-16-AUTHORIZATION-01/policy.py \
+              research/security/PROTOTYPES/RT-16-AUTHORIZATION-01/test_policy.py \
+              research/language-design/PROTOTYPES/CLI-WORKLOADS-01/run.py \
+              research/language-design/PROTOTYPES/CLI-WORKLOADS-01/reference.py \
+              research/language-design/PROTOTYPES/CLI-WORKLOADS-01/reference.c
           } | tee artifacts/research-reproducibility/environment-and-inputs.txt
 
       - name: Run RT-16 authorization decision tests
@@ -54,7 +54,7 @@ jobs:
         run: |
           set -euo pipefail
           python -B -m unittest discover \
-            -s research/PROTOTYPES/RT-16-AUTHORIZATION-01 \
+            -s research/security/PROTOTYPES/RT-16-AUTHORIZATION-01 \
             -p 'test_*.py' -v \
             2>&1 | tee artifacts/research-reproducibility/rt16-tests.log
 
@@ -62,7 +62,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -B research/PROTOTYPES/CLI-WORKLOADS-01/run.py \
+          python -B research/language-design/PROTOTYPES/CLI-WORKLOADS-01/run.py \
             --reference python \
             2>&1 | tee artifacts/research-reproducibility/cli-python-reference.log
 
@@ -70,7 +70,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -B research/PROTOTYPES/CLI-WORKLOADS-01/run.py \
+          python -B research/language-design/PROTOTYPES/CLI-WORKLOADS-01/run.py \
             --reference c \
             2>&1 | tee artifacts/research-reproducibility/cli-c-reference.log
 

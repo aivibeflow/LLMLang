@@ -7,13 +7,13 @@
 ## 1. Mandatory terminology prerequisite
 
 Before changing any identity-bearing field or comparing hash envelopes, read the [Draft Glossary](../../draft/GLOSSARY.md) together with:
-- [RT-20 Contract Identity and Compatibility](../RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md)
-- [RT-05 lifecycle experiment](../RT-05/RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md)
-- [RT-05 recursive identity experiment](../RT-05/RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md)
-- [RT-24 identity and SPG reconciliation](../RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md)
-- [RT-24 identity decision matrix](../RT-24/RT-24-IDENTITY-DECISION-MATRIX.md)
-- [Scenario 91 — versioned addresses and digest migration](../RT-05/RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md)
-- [Scenario 92 — operation identity and implementation binding](../RT-05/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md)
+- [RT-20 Contract Identity and Compatibility](../toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md)
+- [RT-05 lifecycle experiment](../semantic-representation/RT-05/RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md)
+- [RT-05 recursive identity experiment](../semantic-representation/RT-05/RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md)
+- [RT-24 identity and SPG reconciliation](../toolchain-and-collaboration/RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md)
+- [RT-24 identity decision matrix](../toolchain-and-collaboration/RT-24/RT-24-IDENTITY-DECISION-MATRIX.md)
+- [Scenario 91 — versioned addresses and digest migration](../semantic-representation/RT-05/RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md)
+- [Scenario 92 — operation identity and implementation binding](../semantic-representation/RT-05/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md)
 
 The glossary is a terminology proposal, not an accepted encoding or normative schema.
 

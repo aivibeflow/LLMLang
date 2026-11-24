@@ -76,7 +76,7 @@ jobs:
 
           paths = sorted(actual)
           family_counts = collections.Counter(
-              path.split("/")[2] for path in paths if path.startswith("research/PROTOTYPES/")
+              path.split("/")[path.split("/").index("PROTOTYPES") + 1] for path in paths if "/PROTOTYPES/" in path
           )
           taxonomy = Path("research/RESEARCH-TAXONOMY.md").read_text(encoding="utf-8")
           dependencies = Path("research/RESEARCH-DEPENDENCY-MAP.md").read_text(encoding="utf-8")
@@ -86,7 +86,7 @@ jobs:
               "mdx_files": sum(path.endswith(".mdx") for path in paths),
               "python_files": sum(path.endswith(".py") for path in paths),
               "lean_files": sum(path.endswith(".lean") for path in paths),
-              "prototype_tree_files": sum(path.startswith("research/PROTOTYPES/") for path in paths),
+              "prototype_tree_files": sum("/PROTOTYPES/" in path for path in paths),
               "scenario_named_documents": sum(bool(re.search(r"SCENARIO-\d+", path)) for path in paths),
               "taxonomy_rt_rows": len(re.findall(r"^\|\s*RT-\d{2}\s*\|", taxonomy, re.M)),
               "dependency_rows": len(re.findall(r"^\|\s*DEP-\d{3}\s*\|", dependencies, re.M)),

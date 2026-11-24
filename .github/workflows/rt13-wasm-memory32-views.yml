@@ -5,8 +5,8 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/rt13-wasm-memory32-views.yml"
-      - "research/PROTOTYPES/WASM-VIEWS-01/**"
-      - "research/RT-13/RT-13-WASM-MEMORY32-VIEWS.md"
+      - "research/compiler-and-translation/PROTOTYPES/WASM-VIEWS-01/**"
+      - "research/compiler-and-translation/RT-13/RT-13-WASM-MEMORY32-VIEWS.md"
   workflow_dispatch:
 
 permissions:
@@ -26,4 +26,4 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y wabt
       - name: Run memory32 logical-view comparison
-        run: node research/PROTOTYPES/WASM-VIEWS-01/compare.mjs
+        run: node research/compiler-and-translation/PROTOTYPES/WASM-VIEWS-01/compare.mjs

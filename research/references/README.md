@@ -88,4 +88,4 @@ These completeness limits do not affect the verified 13/13 upstream/local blob i
 
 ### 6.2 Curated external-reference reachability check
 
-The external URLs in §2 were checked individually on 2026-11-21. Sixteen returned page/PDF content; the POSIX Issue 8 endpoint returned HTTP 403 to the checker and remains indeterminate rather than classified as broken. This is a one-time availability observation, not a version/content validation. See [RT-00 E-02 — Curated External Reference Reachability Check](../RT-00/RT-00-E-02-CURATED-EXTERNAL-REFERENCE-REACHABILITY-2026-11-21.md).
+The external URLs in §2 were checked individually on 2026-11-21. Sixteen returned page/PDF content; the POSIX Issue 8 endpoint returned HTTP 403 to the checker and remains indeterminate rather than classified as broken. This is a one-time availability observation, not a version/content validation. See [RT-00 E-02 — Curated External Reference Reachability Check](../research-management/RT-00/RT-00-E-02-CURATED-EXTERNAL-REFERENCE-REACHABILITY-2026-11-21.md).

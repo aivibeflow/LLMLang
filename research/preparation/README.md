@@ -46,7 +46,7 @@ Do not infer completeness from a bounded prototype, passing tests, a second impl
 
 ## Source correspondence milestone
 
-Scenario 34 records scope validation, typed environments, and expression-level correspondence in SCW-06–09. Use its task ledger for the command and program proof layers. [Scenario 34](../RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#72-source-syntax-typing-and-environments)
+Scenario 34 records scope validation, typed environments, and expression-level correspondence in SCW-06–09. Use its task ledger for the command and program proof layers. [Scenario 34](../formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#72-source-syntax-typing-and-environments)
 
 ## Completion condition for this preparation pack
 

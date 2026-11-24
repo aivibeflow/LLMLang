@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - 'research/PROOF-OBLIGATION-BENCHMARK/**'
+      - 'research/formal-verification/PROOF-OBLIGATION-BENCHMARK/**'
       - '.github/workflows/proof-obligation-benchmark.yml'
   workflow_dispatch:
 permissions:
@@ -16,29 +16,29 @@ jobs:
       - uses: actions/checkout@v5
       - name: Run recursive and higher-order contract generator
         run: |
-          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/test_recursive.py
-          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/generate.py --count 90 --seed 42 > pob-recursive-summary.json
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/test_recursive.py
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/generate.py --count 90 --seed 42 > pob-recursive-summary.json
       - name: Run finite reference and mutation controls
         run: |
-          python3 research/PROOF-OBLIGATION-BENCHMARK/test_runner.py
-          python3 research/PROOF-OBLIGATION-BENCHMARK/run.py run > pob-smoke.json
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_runner.py
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/run.py run > pob-smoke.json
       - name: Run evidence composition controls
-        run: python3 research/PROOF-OBLIGATION-BENCHMARK/evidence/test_composition.py
+        run: python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/test_composition.py
       - name: Run coverage inventory and deterministic generator
         run: |
-          python3 research/PROOF-OBLIGATION-BENCHMARK/test_coverage_v2.py
-          python3 research/PROOF-OBLIGATION-BENCHMARK/coverage_v2.py > pob-coverage-v2.json
-          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/test_generator.py
-          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/generate.py --count 10000 --seed 42 > pob-generated-summary.json
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_coverage_v2.py
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/coverage_v2.py > pob-coverage-v2.json
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/test_generator.py
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/generate.py --count 10000 --seed 42 > pob-generated-summary.json
       - name: Run transition contract generator
         run: |
-          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py
-          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_symbolic_dual_check.py
-          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py --count 1000 --seed 42 > pob-transition-summary.json
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_symbolic_dual_check.py
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py --count 1000 --seed 42 > pob-transition-summary.json
       - name: Run structural and system contract generator
         run: |
-          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/system/test_system.py
-          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/system/generate.py --count 140 --seed 42 > pob-system-summary.json
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/test_system.py
+          python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/generate.py --count 140 --seed 42 > pob-system-summary.json
       - uses: actions/upload-artifact@v6
         with:
           name: pob-smoke

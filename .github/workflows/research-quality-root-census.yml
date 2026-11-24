@@ -8,7 +8,7 @@ on:
       - ".github/scripts/research_quality_corpus_census.py"
       - ".github/scripts/test_research_quality_corpus_census.py"
       - ".github/workflows/research-quality-root-census.yml"
-      - "research/RT-00/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md"
+      - "research/research-management/RT-00/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md"
   workflow_dispatch:
 
 permissions:

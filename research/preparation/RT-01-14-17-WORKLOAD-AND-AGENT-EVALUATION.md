@@ -11,10 +11,10 @@ Prepare a reproducible evaluation that separates language/toolchain correctness,
 ## 2. Existing material
 
 Read:
-- [RT-01 reference workloads](../RT-01/RT-01-REFERENCE-WORKLOADS.md)
+- [RT-01 reference workloads](../language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md)
 - [Research State](../RESEARCH-STATE-2026-11-19.md), Gates D and the candidate-vector section
 - [Research Option Matrix 01](../RESEARCH-OPTION-MATRIX-01.md)
-- [Scenario 95 — diagnostics for humans and coding agents](../RT-17/RESEARCH-SCENARIO-95-DIAGNOSTICS-FOR-HUMANS-AND-AGENTS.md)
+- [Scenario 95 — diagnostics for humans and coding agents](../toolchain-and-collaboration/RT-17/RESEARCH-SCENARIO-95-DIAGNOSTICS-FOR-HUMANS-AND-AGENTS.md)
 - [Research Taxonomy](../RESEARCH-TAXONOMY.md) and [Research Dependency Map](../RESEARCH-DEPENDENCY-MAP.md) (use these to locate the current RT-14/RT-17 source material before execution)
 
 ## 3. Questions

@@ -7,4 +7,4 @@ This directory contains the current candidate specification and its supporting t
 
 Research proposals and alternative designs belong in [`research/`](../research/) and do not become normative merely by being referenced here.
 
-Related non-normative research: [Public interfaces and contract refinement](../research/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) extends operation/implementation terminology; no accepted draft semantics are changed.
+Related non-normative research: [Public interfaces and contract refinement](../research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) extends operation/implementation terminology; no accepted draft semantics are changed.

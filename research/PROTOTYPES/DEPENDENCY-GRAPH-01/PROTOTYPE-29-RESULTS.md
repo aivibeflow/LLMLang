@@ -2,7 +2,7 @@
 
 **Status:** Process-runner prototype implemented; actual cvc5/Logos integration not executed.  
 **Date:** 2026-11-17  
-**Related research:** [RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md](../../RT-07/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md)
+**Related research:** [RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md](../../formal-verification/RT-07/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md)
 
 ## Implemented
 

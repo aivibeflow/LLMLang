@@ -3,7 +3,7 @@
 **Status:** Accepted project architecture decision  
 **Date:** 2026-11-20  
 **Scope:** Component immutability and caller/callee compatibility at build time  
-**Related:** [RT-20 contract identity and compatibility](../research/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md), [Scenarios 109–111](../research/README.md#core-semantic-and-type-research), [Scenario 134](../research/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md)
+**Related:** [RT-20 contract identity and compatibility](../research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md), [Scenarios 109–111](../research/README.md#core-semantic-and-type-research), [Scenario 134](../research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md)
 
 ## Decision
 
@@ -33,4 +33,4 @@ Reopen this decision only if LLMLang adopts independently built component exchan
 
 ## Related research (not an amendment to the decision)
 
-The [public interfaces proposal](../research/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) investigates stable names resolving to immutable operation revisions and separate verified provider bindings. It is consistent with immutable published components and does not adopt cross-toolchain ABI/wire compatibility or runtime negotiation. Behavioral refinement remains a separate open question; the accepted decision above is unchanged.
+The [public interfaces proposal](../research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) investigates stable names resolving to immutable operation revisions and separate verified provider bindings. It is consistent with immutable published components and does not adopt cross-toolchain ABI/wire compatibility or runtime negotiation. Behavioral refinement remains a separate open question; the accepted decision above is unchanged.

@@ -1,7 +1,7 @@
 # Prototype 17: Typed Requirement IR — Results
 
 **Status:** Research prototype; implementation and focused tests committed.  
-**Related research:** [Research Scenario 17](../../RT-02/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md)
+**Related research:** [Research Scenario 17](../../language-design/RT-02/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md)
 
 ## Objective
 

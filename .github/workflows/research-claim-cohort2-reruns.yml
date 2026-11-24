@@ -7,7 +7,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/research-claim-cohort2-reruns.yml"
-      - "research/RT-00/RT-00-QUALITY-RULES-CLAIM-COHORT2-RERUN-2026-11-23.md"
+      - "research/research-management/RT-00/RT-00-QUALITY-RULES-CLAIM-COHORT2-RERUN-2026-11-23.md"
   workflow_dispatch:
 
 permissions:

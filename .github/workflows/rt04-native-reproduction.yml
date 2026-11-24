@@ -6,10 +6,10 @@ on:
     paths:
       - ".github/workflows/rt04-native-reproduction.yml"
       - "research/PROTOTYPES/RT-04-01/**"
-      - "research/RT-04/RT-04-NATIVE-REPRODUCTION.md"
-      - "research/PROTOTYPES/LLVM-PRESERVATION-01/**"
-      - "research/RESEARCH-SCENARIO-96*.md"
-      - "research/RT-13/LLVM-PRESERVATION-REPRODUCTION.md"
+      - "research/language-design/RT-04/RT-04-NATIVE-REPRODUCTION.md"
+      - "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/**"
+      - "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-96*.md"
+      - "research/compiler-and-translation/RT-13/LLVM-PRESERVATION-REPRODUCTION.md"
   workflow_dispatch:
 
 permissions:
@@ -173,7 +173,7 @@ jobs:
 
       - name: Run integer and byte-view preservation experiments
         run: |
-          python -B research/PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py \
+          python -B research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py \
             --opt /usr/bin/opt-19 \
             --llc /usr/bin/llc-19 \
             --cc /usr/bin/gcc-14 \
