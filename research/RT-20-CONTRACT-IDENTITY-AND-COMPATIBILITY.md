@@ -147,3 +147,7 @@ Consequently, a decision's current `PROVEN` field is recorded input, not a verif
 6. Revisit the mapping to `OpHash`/`CCHash` only after the operation-call and implementation-binding semantics are specified.
 
 Until these steps are complete, RT-20 must fail closed for any action whose safety depends on unverified behavioral compatibility.
+
+## 9. Public interface extension (candidate)
+
+The [public interfaces proposal](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) applies this boundary to stable named public entities, immutable interface revisions, and exact provider bindings. It preserves the distinction between implementation correctness and contract refinement, and adds evolution, reproducible selection, and proof-invalidation questions. No new compatibility semantics or identity scheme has been accepted.

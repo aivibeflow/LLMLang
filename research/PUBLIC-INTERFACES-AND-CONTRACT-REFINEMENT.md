@@ -1,0 +1,149 @@
+# Public interfaces — stable names and verified contract refinement
+
+**Status:** Candidate architectural proposal; not adopted language semantics  
+**Date:** 2026-11-24  
+**Research:** RT-05, RT-20; related RT-06/07/11/12/18/23/24/32/33/34/35  
+**Evidence:** Model proposal only; no new executed experiment or checked proof  
+**Prior baseline:** Existing RT-05/20 candidate models; branch base and exact changes recorded by Git history.
+
+## 1. Problem and hypotheses
+
+A caller needs a stable public name and behavioral guarantees without depending on a particular implementation. Existing [typed SPG](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) already distinguishes design operations and concrete providers, [RT-20](RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md) distinguishes required/provided contracts, and [Scenario 10](RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md) explores binding snapshots. This proposal unifies those mechanisms at an explicit public interface boundary, not a replacement for hash-based calls or structural type identity.
+
+H1: a stable named interface with immutable contract revisions permits sound modular verification and provider replacement without rewriting interface-level caller proofs when their exact assumptions are unchanged.
+H2: exact revision-bound conformance and binding evidence detects incompatible or stale providers even when names and signatures match.
+H3: a separate resolution snapshot preserves deterministic builds when several implementations exist.
+
+## 2. Candidate model and alternatives
+
+A Public Interface is an exported, governed semantic entity, independent of its implementation. It has a stable namespace-qualified name, logical lineage/ID (candidate; final ID scheme open), immutable revisions containing typed signature, public contract, visibility, semantic profile and version metadata, and explicit relations to implementation bindings. It can represent an operation or a group of operations with shared state/protocol invariants. An implementation has its own contract and exact body identity. Private functions need not have public names or a distinct interface. Name uniqueness is scoped to a namespace and version policy. Renaming is an explicit migration or alias, never an unnoticed break; name reuse must not impersonate an older interface.
+
+| Identity | Meaning |
+| --- | --- |
+| Public name / logical ID | Discovery and continuity; not an execution hash |
+| Interface revision | Immutable public semantic payload; investigate mapping to existing OpHash rather than introduce a redundant hash |
+| ContractHash | Exact contract value |
+| ImplHash | Exact implementation and hash-relevant dependencies |
+| CCHash | Optional existing conformance-class definition with constraints, not proof or discovered membership list |
+| Binding revision | Exact selected provider(s), scope, target/profile and resolution policy |
+| Evidence ID | Checked claim and all exact inputs, assumptions and checker identity |
+
+Candidate aliases may evolve without changing the semantic contract if the approved identity policy separates name metadata. Public visibility, access/authority, ABI and semantic compatibility are distinct; a stable name is not an ABI guarantee.
+
+```mermaid
+flowchart TD
+  A[Consumers] -->|uses exact interface revision| B[Public interface: stable name, signature, contract]
+  I1[Implementation A + contract] -->|provides / claims conformance| B
+  I2[Implementation B + contract] -->|provides / claims conformance| B
+  I3[Implementation C + contract] -->|provides / claims conformance| B
+  S[Versioned binding snapshot] --> B
+  S --> I1
+```
+
+Consumers can reason against the public contract. The mapping chooses an exact provider for a given build or execution context; a provides edge alone is not evidence.
+
+Compare: (A) concrete hash calls only (simple, but provider changes propagate); (B) named signatures without behavior checks (weak guarantee); (C) named, contract-bearing immutable operation with verified binding (proposed); (D) runtime dynamic dispatch under a verified admission policy (flexible but introduces trust and reproducibility obligations). Do not assume C and D are interchangeable. RT-35 discovery may locate public interfaces by intent but must resolve to exact identities; similarity is not proof.
+
+## 3. Formal model and assumptions
+
+Let P denote public and I implementation contracts in a common typed observation model, or with an explicitly checked abstraction relation. For public-admitted initial states and inputs:
+
+- Pre_P implies Pre_I, including input domain, ownership, capabilities and environment assumptions. No stronger caller obligations.
+- Pre_P and Post_I imply Post_P for corresponding outcomes; output guarantees can be stronger.
+- Every observable implementation trace/outcome allowed on the public domain is permitted by P, respecting error alternatives, frame conditions, ordering, multiplicity, atomicity and history constraints.
+- Public invariants hold under the abstraction relation. Private effects are hidden only when proven unobservable under the declared model.
+- Termination, liveness, fairness, cancellation, resource ownership and security promises need dedicated obligations, not merely finite trace inclusion. A diverging implementation must not pass a total-correctness contract by having no terminating traces.
+- Resource upper bounds must be no worse under the same size, cost, environmental and asymptotic models (RT-34). Exact, lower or optimality promises require their own relation.
+- Check type and calling-convention compatibility independently (input contravariance/output covariance when sound; mutable/invariant positions, generics, ABI and adapters need specific rules). No new caller-visible error or required capability outside the public allowance. A required observable effect cannot be omitted merely because the effect set is smaller.
+
+Write I refines P for the complete judgment, not just signature equality or literal equality of contracts. Check consistency, satisfiability and realizability as applicable; impossible contracts and unsupported fragments must not yield vacuous success.
+
+Two independent obligations: Body satisfies I; I refines P. Under aligned semantics, abstraction, assumptions, totality/progress obligations and trusted evidence composition, conclude Body satisfies P. A direct Body satisfies P proof is an alternative, and should not be mislabeled as proof of an independently claimed I.
+
+```mermaid
+flowchart LR
+  B[Exact body] --> V1[Check body against implementation contract]
+  I[Exact implementation contract] --> V1
+  I --> V2[Check refinement]
+  P[Exact public contract] --> V2
+  V1 --> G{All obligations checked and assumptions discharged?}
+  V2 --> G
+  G -->|Yes| C[Admit exact binding under policy]
+  G -->|No or unknown| X[Reject or keep explicitly unverified]
+```
+
+The second diagram identifies the two proof inputs and fail-closed admission. An interface declaration without any provider is useful for conditional design/proofs but cannot silently become executable. Multiple providers may be admitted; ambiguous selection requires explicit policy, not arbitrary lookup. Adapters are implementations with their own proof obligations. Protocol/interface groups need joint invariants, not just independent per-method checks.
+
+### Illustrative syntax (not grammar)
+
+```text
+public interface collections.sort @1:
+    input: xs: List<Int>
+    output: ys: List<Int>
+    requires: true
+    ensures: sorted(ys) and permutation(xs, ys)
+    effects: pure
+    time: O(n log n) under comparison_cost_model
+    terminates: true
+
+implementation merge_sort implements collections.sort @1:
+    contract:
+        requires: true
+        ensures: sorted(result) and permutation(xs, result)
+        effects: pure
+        time: O(n log n) under comparison_cost_model
+        terminates: true
+    body: ...
+
+binding production:
+    collections.sort @1 -> exact ImplHash of merge_sort
+```
+
+This example assumes a well-defined cost model and input size, including list representation, and is a declaration sketch, not evidence about any actual implementation. The public contract does not promise stability of equal-element ordering unless specified; use records with keys and identities for a stable-sort guarantee.
+
+## 4. Evolution and evidence
+
+A change to a provider body invalidates its exact body proof and binding/build evidence. An unchanged interface and assumptions may preserve modular caller proofs; closed executable/system evidence and caches dependent on the provider must be revalidated. Changing public semantics creates a new immutable revision even when a compatible evolution keeps the same name. A new revision is backward compatible only when it refines the old public contract for its existing callers, plus separately checked signature/protocol/source/ABI requirements as applicable. Old binaries or reproducible builds keep old pinned bindings. Incompatible changes need a new supported major version or explicit migration, with no silent weakening of guarantees.
+
+Evidence binds exact interface revision, both contract hashes, body/ImplHash, binding scope, checker/version, translation/profile, obligation digest, abstraction/environment/assumption identities and proof artifact. Keep PROVEN, DISPROVEN, UNKNOWN, NOT_CHECKED and bounded evidence distinct; policy cannot promote tests to universal proofs. Caller-only evidence is conditional until provider obligations are discharged. Treat a stale, forged or mismatched certificate as inadmissible. RT-32 PDG should track conditional assumptions, RT-33 should select/check backend capabilities; RT-23/24 mapping changes need atomic, conflict-aware publication.
+
+## 5. Planned experiments and method
+
+Start with a finite typed oracle independent of a refinement checker; enumerate complete bounded domains and traces, compare with generated SMT/Lean obligations for a supported subset, then add SPG-to-model correspondence. Record exact source, fixtures, versions, assumptions, raw outputs and counterexamples. No experiment has been run in this proposal.
+
+| Fixture | Expected result under the proposed profile |
+| --- | --- |
+| Same public and implementation contract, valid body | Admit after proof |
+| Weaker precondition / stronger postcondition | Admit |
+| Stronger precondition or weaker postcondition | Counterexample |
+| Missing promised effect, additional observable write, reordered required trace | Reject |
+| New unhandled failure or stronger capability requirement | Reject |
+| Added caller cleanup duty / borrowed instead of promised owned return | Reject |
+| Divergence despite totality, starvation despite fairness promise | Reject or UNKNOWN if unsupported |
+| O(n²) provider for O(n log n) upper bound | Reject if proven violation in same cost model |
+| Same contract but incorrect body | Reject |
+| Inconsistent/unrealizable contract, unsupported theory | Diagnose; do not admit vacuously |
+| Same public name, wrong revision or stale proof | Reject |
+| Compatible provider replacement | Reuse eligible interface proofs; invalidate dependent exact evidence |
+| New interface revision, weaker public guarantee | Breaking; migrate or retain prior version |
+| Multiple admissible providers / no provider | Deterministic explicit selection / unresolved execution |
+| Concurrent edits to bindings, target/profile mismatch | Conflict or reject |
+| State protocol with per-method proofs but broken joint invariant | Reject |
+| Two conforming but observationally different providers | Do not claim equivalence or refactoring correctness |
+
+## 6. Findings, limitations and decision boundary
+
+The existing RT-20 compatibility boundary is the natural starting point; RT-05 already distinguishes operation and implementation, so avoid parallel incompatible identity models. The proposal does not prove any theorem or establish language-wide soundness, canonical hashing, dispatch semantics, ABI, or complete contract taxonomy coverage. Rich refinement is undecidable in general; supported fragments, proof assistance, explicit UNKNOWN and policy-controlled evidence are necessary. Security hyperproperties, probabilistic contracts, concurrent history and resource models require separate semantics and proof rules. Independent review and compiler/runtime correspondence remain open.
+
+Recommendation: register public interfaces in the concept as a candidate architectural entity; explore the above refinements under RT-05/20 and cross-link RT-32/33/34/35. Do not change normative or candidate draft rules without evidence and a decision. Q1–Q5: not independently reviewed; no measured result, no executable reproduction, diagrams authored but rendering not checked.
+
+## 7. Related material
+
+- [RT-20 contract identity and compatibility](RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md)
+- [Scenario 14 behavioral contracts and refinement](RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md)
+- [RT-05 typed SPG](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md)
+- [RT-23 interface mapping merge](RT-23-INTERFACE-MAPPING-MERGE.md)
+- [RT-32 verified SPG-to-Lean pipeline](RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md)
+- [RT-33 backend selection](RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md)
+- [RT-34 complexity inference](RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md)
+- [RT-35 semantic function discovery](RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md)

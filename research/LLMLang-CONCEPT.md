@@ -278,6 +278,16 @@ operation transfer:
 
 The compiler and verification tools must check implementations against their contracts. If proof is impossible, the outcome must be explicitly marked as unknown or unverified rather than successful.
 
+### 5.1. Public interfaces and implementation conformance (candidate)
+
+A public interface is a stable, namespace-qualified named semantic entity with immutable revisions, a typed signature, and public contracts. It is separate from any concrete implementation. A consumer can depend on the exact public revision; an explicit versioned binding selects an exact implementation for a build or execution context.
+
+An implementation has its own contract. Verification must establish both that the implementation body satisfies its own contract and that its contract refines the public contract, under aligned semantics and checked assumptions. A provider may accept a wider input domain and supply stronger guarantees, but must not impose stronger caller obligations or violate publicly promised effects, errors, ownership, progress or resource bounds. A declared binding or matching signature is not proof. Missing or unsupported evidence remains explicitly unverified.
+
+A compatible provider replacement may preserve modular caller proofs while invalidating provider-dependent execution evidence. Changes to public semantics create immutable new revisions; compatibility and migration are explicit. This proposal extends the existing operation/implementation and contract refinement research; it does not replace exact hash-based invocation or settle the identity scheme.
+
+See [Public interfaces and contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) for the candidate architecture, diagrams, proof obligations, alternatives and planned benchmarks. No normative language decision is implied.
+
 ---
 
 ## 6. Type System
