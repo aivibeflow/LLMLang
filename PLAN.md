@@ -1023,7 +1023,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ## 6.5 OS kernels and verified microkernel feasibility (RT-38)
 
-**Status:** Bounded RV64 boot, user traps, memory permissions and local Sv39 update visibility checked in QEMU. **Priority:** P1. [Research brief](research/runtime-and-systems/RT-38/README.md) · [Issue #441](https://github.com/aivibeflow/LLMLang/issues/441).
+**Status:** Bounded RV64 boot, scheduling, local Sv39 visibility and isolated IPC checked in QEMU. **Priority:** P1. [Research brief](research/runtime-and-systems/RT-38/README.md) · [Issue #441](https://github.com/aivibeflow/LLMLang/issues/441).
 
 - [ ] Reuse RT-37 freestanding profile; specify privileged target capabilities, physical/virtual memory, MMU/TLB, trap/syscall ABI and context switching.
 - [x] Compare RV64 bare PMP and Sv39 protections in five exact single-hart QEMU images. The same U-mode code distinguishes a protected read, a store to an RX page and trap recovery. Split PMP and correct Sv39 deny both accesses. An exposed Sv39 leaf restores the protected read. [RV64 PMP and Sv39 isolation](research/runtime-and-systems/RT-38/RT-38-RV64-PMP-SV39-TRAP-ISOLATION-2026-11-24.md).
@@ -1034,7 +1034,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Extend allocator and address-space contracts to live mappings, blocking and preemptive scheduling, and concurrent IPC and capability lifecycle, with global invariants and conditional hardware proofs.
 - [ ] Replay selected seL4 proofs and evaluate implementing an LLMLang fragment against the original l4v specification. Assess Isabelle/HOL modeling, proof automation, counterexample search and reproducible replay. [Research plan](research/runtime-and-systems/RT-38/README.md#8-research-plan-for-implementing-against-an-existing-specification)
 - [ ] Compare minimal HAL/assembly assumptions with checked intrinsics; validate source-to-binary preservation and no hosted imports.
-- [ ] Target a pinned RV64 QEMU single-core microkernel; independently check reference traces, memory and IPC invariants and negative controls before SMP/DMA extensions.
+- [x] Run the bounded RV64 QEMU single-core pilot with two Sv39 address spaces and a generation-checked endpoint. Independent IPC traces and stack/page-fault controls detect two incorrect mappings. The missing shared-ASID fence passes in QEMU and is identified by exact linked inspection. [RV64 isolated IPC pilot](research/runtime-and-systems/RT-38/RT-38-RV64-ISOLATED-IPC-PILOT-2026-11-24.md).
+- [ ] Compose live allocation, mapping, scheduling and IPC invariants and extend the hardware premises before enabling SMP/DMA.
 
 **Dependencies:** RT-37 profile/pilot, RT-03/04/07/08/09/10/13/16/32/33/34/36 and Stage 6 lowering. **Exit:** reproducible feasible or falsified kernel profile and bounded pilot evidence, explicit proof/TCB gaps. No full-kernel verification or production readiness claim.
 
