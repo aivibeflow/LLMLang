@@ -1,0 +1,260 @@
+{
+  "cases": {
+    "files/complete": {
+      "after": {
+        "branch": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "inspection": "published",
+        "locks": [],
+        "receipt": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1"
+      },
+      "final": {
+        "branch": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "inspection": "published",
+        "locks": [],
+        "receipt": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1"
+      },
+      "isolated_removed_locks": [],
+      "isolated_retry": null,
+      "ordinary_retry": "published",
+      "plan": {
+        "candidate": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "operation": "prepared crash",
+        "parents": [
+          "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a"
+        ],
+        "semantic_root": "144e76c37dc1789be883959c47de7dadc529fbe43b73d391d71ac62744b9e28f",
+        "tree": "a5a9c01168326ea98da700475054a1e8534cc0b5"
+      },
+      "prepared_view": {
+        "branch": "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a",
+        "inspection": "retryable",
+        "locks": [
+          "refs/heads/main.lock",
+          "refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069.lock"
+        ],
+        "receipt": null
+      },
+      "return_code": 0,
+      "unrelated_write_after_crash": null,
+      "updates": [
+        "0000000000000000000000000000000000000000 bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069",
+        "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/heads/main"
+      ]
+    },
+    "files/kill": {
+      "after": {
+        "branch": "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a",
+        "inspection": "retryable",
+        "locks": [
+          "refs/heads/main.lock",
+          "refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069.lock"
+        ],
+        "receipt": null
+      },
+      "final": {
+        "branch": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "inspection": "published",
+        "locks": [],
+        "receipt": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1"
+      },
+      "isolated_removed_locks": [
+        "refs/heads/main.lock",
+        "refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069.lock"
+      ],
+      "isolated_retry": "published",
+      "ordinary_retry": "blocked_by_lock",
+      "plan": {
+        "candidate": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "operation": "prepared crash",
+        "parents": [
+          "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a"
+        ],
+        "semantic_root": "144e76c37dc1789be883959c47de7dadc529fbe43b73d391d71ac62744b9e28f",
+        "tree": "a5a9c01168326ea98da700475054a1e8534cc0b5"
+      },
+      "prepared_view": {
+        "branch": "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a",
+        "inspection": "retryable",
+        "locks": [
+          "refs/heads/main.lock",
+          "refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069.lock"
+        ],
+        "receipt": null
+      },
+      "return_code": -9,
+      "unrelated_write_after_crash": "written",
+      "updates": [
+        "0000000000000000000000000000000000000000 bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069",
+        "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/heads/main"
+      ]
+    },
+    "files/veto": {
+      "after": {
+        "branch": "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a",
+        "inspection": "retryable",
+        "locks": [],
+        "receipt": null
+      },
+      "final": {
+        "branch": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "inspection": "published",
+        "locks": [],
+        "receipt": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1"
+      },
+      "isolated_removed_locks": [],
+      "isolated_retry": null,
+      "ordinary_retry": "published",
+      "plan": {
+        "candidate": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "operation": "prepared crash",
+        "parents": [
+          "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a"
+        ],
+        "semantic_root": "144e76c37dc1789be883959c47de7dadc529fbe43b73d391d71ac62744b9e28f",
+        "tree": "a5a9c01168326ea98da700475054a1e8534cc0b5"
+      },
+      "prepared_view": {
+        "branch": "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a",
+        "inspection": "retryable",
+        "locks": [
+          "refs/heads/main.lock",
+          "refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069.lock"
+        ],
+        "receipt": null
+      },
+      "return_code": 128,
+      "unrelated_write_after_crash": null,
+      "updates": [
+        "0000000000000000000000000000000000000000 bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069",
+        "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/heads/main"
+      ]
+    },
+    "reftable/complete": {
+      "after": {
+        "branch": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "inspection": "published",
+        "locks": [],
+        "receipt": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1"
+      },
+      "final": {
+        "branch": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "inspection": "published",
+        "locks": [],
+        "receipt": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1"
+      },
+      "isolated_removed_locks": [],
+      "isolated_retry": null,
+      "ordinary_retry": "published",
+      "plan": {
+        "candidate": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "operation": "prepared crash",
+        "parents": [
+          "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a"
+        ],
+        "semantic_root": "144e76c37dc1789be883959c47de7dadc529fbe43b73d391d71ac62744b9e28f",
+        "tree": "a5a9c01168326ea98da700475054a1e8534cc0b5"
+      },
+      "prepared_view": {
+        "branch": "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a",
+        "inspection": "retryable",
+        "locks": [
+          "reftable/tables.list.lock"
+        ],
+        "receipt": null
+      },
+      "return_code": 0,
+      "unrelated_write_after_crash": null,
+      "updates": [
+        "0000000000000000000000000000000000000000 bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069",
+        "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/heads/main"
+      ]
+    },
+    "reftable/kill": {
+      "after": {
+        "branch": "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a",
+        "inspection": "retryable",
+        "locks": [
+          "reftable/tables.list.lock"
+        ],
+        "receipt": null
+      },
+      "final": {
+        "branch": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "inspection": "published",
+        "locks": [],
+        "receipt": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1"
+      },
+      "isolated_removed_locks": [
+        "reftable/tables.list.lock"
+      ],
+      "isolated_retry": "published",
+      "ordinary_retry": "blocked_by_lock",
+      "plan": {
+        "candidate": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "operation": "prepared crash",
+        "parents": [
+          "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a"
+        ],
+        "semantic_root": "144e76c37dc1789be883959c47de7dadc529fbe43b73d391d71ac62744b9e28f",
+        "tree": "a5a9c01168326ea98da700475054a1e8534cc0b5"
+      },
+      "prepared_view": {
+        "branch": "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a",
+        "inspection": "retryable",
+        "locks": [
+          "reftable/tables.list.lock"
+        ],
+        "receipt": null
+      },
+      "return_code": -9,
+      "unrelated_write_after_crash": "blocked_by_lock",
+      "updates": [
+        "0000000000000000000000000000000000000000 bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069",
+        "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/heads/main"
+      ]
+    },
+    "reftable/veto": {
+      "after": {
+        "branch": "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a",
+        "inspection": "retryable",
+        "locks": [],
+        "receipt": null
+      },
+      "final": {
+        "branch": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "inspection": "published",
+        "locks": [],
+        "receipt": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1"
+      },
+      "isolated_removed_locks": [],
+      "isolated_retry": null,
+      "ordinary_retry": "published",
+      "plan": {
+        "candidate": "bcd2c791c9c985ed24fea54f58d2328dbe88a7e1",
+        "operation": "prepared crash",
+        "parents": [
+          "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a"
+        ],
+        "semantic_root": "144e76c37dc1789be883959c47de7dadc529fbe43b73d391d71ac62744b9e28f",
+        "tree": "a5a9c01168326ea98da700475054a1e8534cc0b5"
+      },
+      "prepared_view": {
+        "branch": "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a",
+        "inspection": "retryable",
+        "locks": [
+          "reftable/tables.list.lock"
+        ],
+        "receipt": null
+      },
+      "return_code": 128,
+      "unrelated_write_after_crash": null,
+      "updates": [
+        "0000000000000000000000000000000000000000 bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/llmlang/receipts/1948853ba7f3e739952c74ef52d8e24d2b254a8bc2620a0270c34bea5482e069",
+        "a6eba82aa95ee19389cd8fe3d28c65befc0e8a5a bcd2c791c9c985ed24fea54f58d2328dbe88a7e1 refs/heads/main"
+      ]
+    }
+  },
+  "format": "rt23-git-prepared-crash/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14"
+}
