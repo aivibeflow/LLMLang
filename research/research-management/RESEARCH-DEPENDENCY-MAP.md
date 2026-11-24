@@ -413,6 +413,8 @@ RT-25 evaluates allocator choices for the Rust-based LLMLang runtime and toolcha
 
 These edges schedule the study; they do not imply that any allocator is compatible with every target or that allocator choice should become part of LLMLang language semantics. Revisit them when the runtime target profile or FFI ownership model changes.
 
+The 2026-11-24 workload-fit recheck finds that DEP-095 is only partially satisfied: the existing graph benchmark is synthetic, while package/archive, cache, and persistent concurrent Toolchain workloads are not yet executable allocator fixtures. The current result supports a bounded glibc/jemalloc comparison only and does not select either provider. Rust/toolchain and candidate-library availability, executable workloads, the RT-10/RT-13 target and FFI matrix, and controlled pressure/tail measurements remain explicit dependencies. [RT-25 workload-fit recheck](../runtime-and-systems/RT-25/RT-25-WORKLOAD-FIT-RECHECK-2026-11-24.md)
+
 
 ## 14. Hierarchical resource accounting and real-time enforcement (RT-26)
 
