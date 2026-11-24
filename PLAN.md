@@ -428,6 +428,8 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 - [ ] Test SAT/UNSAT/UNKNOWN handling and solver protocol failures.
 - [ ] Record what is checked by Lean, what is trusted in Logos, and what remains outside the proof boundary.
 
+**SCW-32 sort evidence:** [Logos sort preservation](research/RT-07-LOGOS-RENDERED-SORTS.md) proves the pinned Logos type function agrees with every successfully rendered typed query term. Both positions of any admitted relational assumption pair are Boolean. Interpretation preservation remains open.
+
 **Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; Lean QF_LIA profile/admissibility modules and focused tests; CI workflow.
 
 **Direct CPC evidence (2026-11-21)** · A source-derived flat CPC refutation passes the assumption and verdict gates. A refutation of a substituted query passes standalone Logos and fails source binding. [Source-bound CPC refutation](research/RT-07-SOURCE-BOUND-CPC-REFUTATION.md)

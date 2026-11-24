@@ -1,0 +1,2 @@
+'LLMLang.LogosBinding.renderQueryTerm_sort' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LLMLang.LogosBinding.renderRelationalAssumptions_sorts' depends on axioms: [propext, Classical.choice, Quot.sound]
