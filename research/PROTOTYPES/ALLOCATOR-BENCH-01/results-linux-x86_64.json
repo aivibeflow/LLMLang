@@ -1,0 +1,174 @@
+{
+  "host": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "affinity": 0,
+  "cpu_quota_period": "200000 100000",
+  "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)",
+  "providers": [
+    "libc6:amd64\t2.41-12+deb13u4",
+    "libjemalloc2:amd64\t5.3.0-3"
+  ],
+  "source_sha256": "a23123a51683160c9b35f179c3a778da07bf8326144ee84ed67544584f3e6c51",
+  "samples": [
+    {
+      "provider": "glibc",
+      "build_ns": 121550116,
+      "impact_ns": 110880525,
+      "baseline_kib": 1460,
+      "live_kib": 45424,
+      "peak_kib": 49568,
+      "after_drop_kib": 36432,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "jemalloc",
+      "build_ns": 62560838,
+      "impact_ns": 115078902,
+      "baseline_kib": 2960,
+      "live_kib": 44364,
+      "peak_kib": 54680,
+      "after_drop_kib": 36244,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "jemalloc",
+      "build_ns": 64381369,
+      "impact_ns": 107514599,
+      "baseline_kib": 2960,
+      "live_kib": 44368,
+      "peak_kib": 54676,
+      "after_drop_kib": 44440,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "glibc",
+      "build_ns": 60106026,
+      "impact_ns": 112447443,
+      "baseline_kib": 1348,
+      "live_kib": 45312,
+      "peak_kib": 49456,
+      "after_drop_kib": 36320,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "glibc",
+      "build_ns": 58749467,
+      "impact_ns": 108715647,
+      "baseline_kib": 1436,
+      "live_kib": 45400,
+      "peak_kib": 49544,
+      "after_drop_kib": 36408,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "jemalloc",
+      "build_ns": 58264279,
+      "impact_ns": 101335508,
+      "baseline_kib": 3068,
+      "live_kib": 44472,
+      "peak_kib": 54680,
+      "after_drop_kib": 36356,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "jemalloc",
+      "build_ns": 58934983,
+      "impact_ns": 97167576,
+      "baseline_kib": 3064,
+      "live_kib": 44468,
+      "peak_kib": 54680,
+      "after_drop_kib": 36352,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "glibc",
+      "build_ns": 58139034,
+      "impact_ns": 105661986,
+      "baseline_kib": 1432,
+      "live_kib": 45396,
+      "peak_kib": 49540,
+      "after_drop_kib": 36404,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "glibc",
+      "build_ns": 64111009,
+      "impact_ns": 118387582,
+      "baseline_kib": 1472,
+      "live_kib": 45436,
+      "peak_kib": 49580,
+      "after_drop_kib": 36444,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "jemalloc",
+      "build_ns": 66254373,
+      "impact_ns": 115626994,
+      "baseline_kib": 2952,
+      "live_kib": 44360,
+      "peak_kib": 54676,
+      "after_drop_kib": 36236,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "jemalloc",
+      "build_ns": 60108065,
+      "impact_ns": 114284156,
+      "baseline_kib": 3064,
+      "live_kib": 44468,
+      "peak_kib": 54684,
+      "after_drop_kib": 36344,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "glibc",
+      "build_ns": 68900422,
+      "impact_ns": 103136034,
+      "baseline_kib": 1452,
+      "live_kib": 45416,
+      "peak_kib": 49560,
+      "after_drop_kib": 36424,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "glibc",
+      "build_ns": 59774441,
+      "impact_ns": 106504974,
+      "baseline_kib": 1440,
+      "live_kib": 45404,
+      "peak_kib": 49548,
+      "after_drop_kib": 36412,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "jemalloc",
+      "build_ns": 72391794,
+      "impact_ns": 97914774,
+      "baseline_kib": 2948,
+      "live_kib": 44356,
+      "peak_kib": 54676,
+      "after_drop_kib": 44432,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "jemalloc",
+      "build_ns": 59619493,
+      "impact_ns": 105255458,
+      "baseline_kib": 2944,
+      "live_kib": 44348,
+      "peak_kib": 54680,
+      "after_drop_kib": 36232,
+      "checksum": "4c66d60dbdbdf118"
+    },
+    {
+      "provider": "glibc",
+      "build_ns": 53506318,
+      "impact_ns": 107487808,
+      "baseline_kib": 1460,
+      "live_kib": 45424,
+      "peak_kib": 49568,
+      "after_drop_kib": 36432,
+      "checksum": "4c66d60dbdbdf118"
+    }
+  ]
+}
