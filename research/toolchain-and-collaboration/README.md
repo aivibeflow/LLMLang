@@ -20,6 +20,10 @@ This direction groups related research studies without changing their RT identif
 | [RT-24](RT-24/) | Canonical semantic representation, semantic diff, and three-way merge |
 | [RT-27](RT-27/) | SPG repository storage format and Git-efficient persistence |
 
+## Recent bounded rechecks
+
+- [RT-19 transaction/recovery protocol comparison](RT-19/RT-19-TRANSACTION-RECOVERY-PROTOCOL-COMPARISON-2026-11-24.md) compares a single embedded DB coordinator, separate immutable object plus workspace journal/outbox contracts, and Git commit as acceptance. It favors testing the separated logical contracts in one DB transaction, with Git as reconstructible authority; it does not claim crash recovery or select a production backend.
+
 ## Dedicated research artifacts
 
 - [PROTOTYPES](PROTOTYPES/)

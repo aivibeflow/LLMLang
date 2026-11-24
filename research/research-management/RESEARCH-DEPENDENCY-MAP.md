@@ -1,7 +1,7 @@
 # LLMLang Cross-Aspect Research Dependency Map
 
 **Status:** Initial dependency hypothesis; relationships require validation  
-**Updated:** 2026-11-21
+**Updated:** 2026-11-24
 **Companion:** [Research Taxonomy](RESEARCH-TAXONOMY.md)
 
 ## 1. Purpose and interpretation
@@ -165,6 +165,8 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-058 | RT-19 → RT-20 | Enables | Workspaces, Change Sets, immutable snapshots, and repository coordination provide the operational substrate for CIP planning and verified commit. | Strong hypothesis |
 | DEP-059 | RT-20 → RT-19 | Influences | Caller migration decisions, hash propagation, mandatory plan execution, and validation-gated commit add workflow and API requirements to the Toolchain Server. | Strong hypothesis |
 | DEP-060 | RT-07 → RT-06 | Constrains | Solver-backed path pruning in dependency analysis requires sound negative evidence; replayed witnesses establish possible routes, while timeout/UNKNOWN and unverified UNSAT must preserve a conservative may-dependency result. | Emerging; bounded result-policy evidence and one real worker-timeout experiment in Scenarios 102–108 |
+| DEP-263 | RT-19 → RT-15 | Constrains | A durable workspace acceptance journal may record accepted-but-not-yet-exported state, but Git-visible canonical inputs remain the reconstructible authority; export/commit receipts must bind the exact accepted root and be idempotently reconciled after interruption. | Strong hypothesis; three bounded transaction-boundary candidates compared in RT-19, crash recovery remains untested |
+| DEP-264 | RT-15 → RT-19 | Constrains | Git is the portability/reconstruction boundary, while its commit/ref update is not atomic with local database state; Toolchain recovery must represent pending export and detect an already-published exact tree without duplicate acceptance/commit. | Strong hypothesis; candidate state-machine comparison only, cross-boundary failure injection remains open |
 
 ## 4. Important feedback loops and conditional relationships
 
@@ -273,6 +275,8 @@ The SCW-32–33 program theorem establishes one direction of the valuation relat
 The SCW-32/34 upstream model theorem extends DEP-007 to the pinned Logos model evaluator for every supported result under related constants. Agreement is checked under the upstream proof toolchain. Well-formed model extension and complete checker proof composition remain separate. [Logos upstream scalar model](../formal-verification/RT-07/RT-07-LOGOS-UPSTREAM-SCALAR-MODEL-2026-11-24.md)
 
 The SCW-34 program theorem composes this DEP-007 result with the source-wire proof in the same pinned upstream kernel. The exact parsed assumptions have the stated source meaning in an agreeing model. [Logos single-kernel program theorem](../formal-verification/RT-07/RT-07-LOGOS-SINGLE-KERNEL-PROGRAM-2026-11-24.md)
+
+RT-19’s storage contract and transaction-boundary rechecks distinguish immutable object insertion from mutable workspace acceptance. The new protocol comparison supports DEP-263/264 as strong planning hypotheses: preserve Git reconstructibility and make accepted-but-pending export durable and idempotent. The proposed coordinator has not been implemented; the edges require validation through crash injection and exact-tree recovery.
 
 The SCW-34 extension proof refines DEP-007 and RT-36's upstream trust boundary. Exact typed overlays preserve well-formedness. The unconditional existence result consumes a pinned theorem with a native computation axiom. [Logos model extension](../formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md)
 
