@@ -14,6 +14,10 @@ This direction groups related research studies without changing their RT identif
 | [RT-37](RT-37/) | Freestanding, embedded and real-time firmware |
 | [RT-38](RT-38/) | Operating-system kernels and verified microkernel feasibility |
 
+## Recent bounded rechecks
+
+- [RT-25 workload-fit recheck](RT-25/RT-25-WORKLOAD-FIT-RECHECK-2026-11-24.md) maps current allocator evidence to the RT-01 workload catalog and RT-25 gates. Existing evidence covers one compatible Linux glibc/jemalloc probe and one synthetic graph workload; actual cache/package/concurrent service workloads, other mandatory candidates, and supported-target FFI coverage remain open.
+
 ## Dedicated research artifacts
 
 - [PROTOTYPES](PROTOTYPES/)
