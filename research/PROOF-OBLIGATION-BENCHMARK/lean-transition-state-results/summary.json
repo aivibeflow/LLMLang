@@ -1,0 +1,27 @@
+{
+  "profile": {
+    "id": "transition-state-lean-v1",
+    "lean_version": "4.36.0",
+    "lean_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "obligation": "state at each action boundary for fixed initial registers and trace",
+    "timeout_seconds": 30,
+    "unsupported": [
+      "effects",
+      "invariants",
+      "noninterference",
+      "symbolic inputs",
+      "unbounded traces"
+    ]
+  },
+  "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "status": "kernel-checked",
+  "false_claim_rejected": true,
+  "smt_comparison": "match",
+  "smt_observations_sha256": "bfbad3ebff85bdda5d832bb04e3efdf21ebcdbe11029ab1c50d7b7bd0f7bd3e4",
+  "source_sha256": "e4a5201758117c20c89bd755e09a9e9c3cc687ef327b8a979150ec2dbec426d0",
+  "stdout_sha256": "3dcba2981c45ab496fa5a0948dcccb9664c9a35a84462c7292e5badb7af10bef",
+  "checked": {
+    "equal": 712,
+    "different": 86
+  }
+}
