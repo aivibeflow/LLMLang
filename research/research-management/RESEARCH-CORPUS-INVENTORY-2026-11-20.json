@@ -2,15 +2,15 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "264c97bec028c888e02305982e7dd8aab1d18e97",
-  "source": "Exact current-main reconciliation at 264c97bec028c888e02305982e7dd8aab1d18e97; PR-tree paths, blobs and sizes refreshed against the reviewed worktree; manifest itself excluded.",
+  "revision": "7dd68a30fd720c750f052ab745e4478d42bd76f0",
+  "source": "Exact current-main reconciliation at 7dd68a30fd720c750f052ab745e4478d42bd76f0; PR-tree paths, blobs and sizes refreshed against the reviewed worktree; manifest itself excluded.",
   "counts": {
-    "research_files": 906,
-    "research_artifacts_excluding_manifest": 906,
-    "markdown_files": 433,
+    "research_files": 909,
+    "research_artifacts_excluding_manifest": 909,
+    "markdown_files": 434,
     "mdx_files": 3,
     "python_files": 276,
-    "lean_source_files": 51,
+    "lean_source_files": 52,
     "scenario_named_documents": 136,
     "prototype_tree_files": 320,
     "preparation_and_reference_files": 24,
@@ -19,7 +19,7 @@
     "category_counts": {
       "prototype-report-or-readme": 30,
       "prototype-or-experiment-implementation": 203,
-      "prototype-test-evidence": 200,
+      "prototype-test-evidence": 202,
       "other-research-artifact": 2,
       "index-or-research-management": 14,
       "research-area-or-experiment-document": 105,
@@ -28,14 +28,14 @@
       "research-preparation-brief-or-index": 13,
       "example-or-fixture": 49,
       "structured-fixture-or-schema": 19,
-      "audit-or-review-report": 88,
+      "audit-or-review-report": 89,
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13,
       "cross-cutting-synthesis-or-status": 4,
       "research-rfc-or-protocol-proposal": 2
     }
   },
-  "classification_note": "Against the 904-artifact manifest on main 264c97b, this PR adds the RT-11 direct-child timing report and raw evidence, each individually role reviewed. All 906 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Against the 908-artifact tree on main 7dd68a3 (907 artifacts excluding the manifest), this PR adds the RT-11 direct-child timing report/raw evidence. It also carries forward individual role records for three RT-07/32 concrete-pair lifting artifacts added by main. All 909 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -867,8 +867,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosProgramBridge.lean",
-      "git_blob_sha": "39dc3bf7c37f25cde14f7a3e7839513e4fd3de7d",
-      "size_bytes": 5677,
+      "git_blob_sha": "a7fa8c9da7c32cfb1c7c256fa778fa7d3a8ee7c1",
+      "size_bytes": 7005,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -967,8 +967,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosScalarDenotation.lean",
-      "git_blob_sha": "f772115ede53449bcad5336c1b77488849ade6b5",
-      "size_bytes": 10610,
+      "git_blob_sha": "09eeccad19dc0cae792f8d2ccf98e2cae4ed148e",
+      "size_bytes": 11226,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1054,8 +1054,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosValuationBinding.lean",
-      "git_blob_sha": "7695e01cf67085f0ae3ff6c767f778f062c09dc3",
-      "size_bytes": 6221,
+      "git_blob_sha": "4f185ff57ac7ec857a0108c3b22f32d92cac23c2",
+      "size_bytes": 9385,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1103,6 +1103,40 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Lean model bounding runtime verdict conditions in the RT-07 checker trust-boundary study."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosWireValuation.lean",
+      "git_blob_sha": "67213d49cdae16b8d249fb2c2058b73208a14010",
+      "size_bytes": 5978,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32"
+        ],
+        "method": "individual role reviewed from RT-07/32 concrete-pair valuation lifting report; pinned Lean source and axiom output",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2,
+        3
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2,
+          3
+        ],
+        "basis": "RT-07 concrete-pair valuation lifting report and its proof/axiom output."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded Logos wire valuation proof and recorded standard axiom audit."
       }
     },
     {
@@ -1740,8 +1774,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean",
-      "git_blob_sha": "3d67dea8ca8c6f6415f4ed9fc2f3d2aa89a9d167",
-      "size_bytes": 11359,
+      "git_blob_sha": "c28ea87b53e7edcef9d096da425e6b89e1d9df87",
+      "size_bytes": 11728,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -2021,6 +2055,40 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Recorded axiom inventory for the bounded bound-CPC verdict evidence."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-concrete-pair/axioms.txt",
+      "git_blob_sha": "9d4ac2f96fdab071503446a2b091d56e1d6d2ca1",
+      "size_bytes": 367,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32"
+        ],
+        "method": "individual role reviewed from RT-07/32 concrete-pair valuation lifting report; pinned Lean source and axiom output",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2,
+        3
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2,
+          3
+        ],
+        "basis": "RT-07 concrete-pair valuation lifting report and its proof/axiom output."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded Logos wire valuation proof and recorded standard axiom audit."
       }
     },
     {
@@ -2364,8 +2432,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
-      "git_blob_sha": "d8d92de3da281e60361f62c959b02879dcdc1c8c",
-      "size_bytes": 1291,
+      "git_blob_sha": "f71bf73899b081750125fb4ca6076ecf5b68c023",
+      "size_bytes": 1312,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -11638,8 +11706,8 @@
     },
     {
       "path": "research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-      "git_blob_sha": "6b87af963a9e202511d0d6637b968209a9437d4f",
-      "size_bytes": 37957,
+      "git_blob_sha": "d7fcba2081aa68efb13b41485c4bd2b3c1506a47",
+      "size_bytes": 37751,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -11727,6 +11795,40 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Bounded audit of Logos runtime verdict and checker trust boundary; not a general proof-system soundness claim."
+      }
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-LOGOS-CONCRETE-PAIR-LIFTING-2026-11-24.md",
+      "git_blob_sha": "27641b31514425563aff1a253f30dde2d1308220",
+      "size_bytes": 3435,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "RT-32"
+        ],
+        "method": "individual role reviewed from RT-07/32 concrete-pair valuation lifting report; pinned Lean source and axiom output",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        2,
+        3
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-07",
+          "RT-32"
+        ],
+        "plan_stages": [
+          2,
+          3
+        ],
+        "basis": "RT-07 concrete-pair valuation lifting report and its proof/axiom output."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded Logos wire valuation proof and recorded standard axiom audit."
       }
     },
     {
@@ -16906,8 +17008,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "96d87096653f6cb0693d551f3d586283b843e50f",
-      "size_bytes": 94070,
+      "git_blob_sha": "35300575c3e116893fe3b65f7baa90658e8e778c",
+      "size_bytes": 94390,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -17047,8 +17149,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "429889c507031c8bbf4ba468e94a855a9868ff94",
-      "size_bytes": 64944,
+      "git_blob_sha": "323cb5a0b8e8c87394c177a0136f7ce2268afaaa",
+      "size_bytes": 65189,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
