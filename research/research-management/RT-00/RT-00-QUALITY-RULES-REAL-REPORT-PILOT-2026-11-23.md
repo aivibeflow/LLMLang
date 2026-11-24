@@ -21,7 +21,7 @@
 
 ## 2. Prior evidence, alternatives, and method
 
-Prior studies: [Quality rules proposal](../../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), [rollout comparison](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md), [evidence-shape recheck](RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md), [initial structural pilot](RT-00-QUALITY-RULES-PILOT-2026-11-23.md) and [proposed protocol](../../QUALITY-REVIEW-PROTOCOL.md).
+Prior studies: [Quality rules proposal](../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), [rollout comparison](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md), [evidence-shape recheck](RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md), [initial structural pilot](RT-00-QUALITY-RULES-PILOT-2026-11-23.md) and [proposed protocol](../QUALITY-REVIEW-PROTOCOL.md).
 
 **Compared alternatives:** A: leave the initial exact-header matcher unchanged; B: accept genuine alternate metadata punctuation and retain warning-only heading heuristics; C: block all older reports on every missing header. The pilot implements **B as a proposed low-risk correction**, not C or an adopted quality policy.
 

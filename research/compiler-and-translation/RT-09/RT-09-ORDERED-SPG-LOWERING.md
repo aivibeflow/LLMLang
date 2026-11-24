@@ -29,7 +29,7 @@ Lowering starts with one selected implementation and follows its reachable calls
 
 The key decision boundary is where operation binding becomes fixed. Early binding makes the required inputs visible in an artifact generated for one context. Runtime dispatch can preserve broader reuse if all executable contexts bind an explicit provider set and arrange appropriate validation. A global snapshot digest is conservative but can invalidate a byte-identical reachable artifact on an unrelated edit.
 
-This experiment executes two Python realizations. It supplies evidence for an IR boundary and reachability-sensitive identity. It leaves external target code generation, IR admission for independently produced instructions, recursive group encoding, heterogeneous effects, machine arithmetic and general preservation open. RT-03 supplies the observations, RT-05 and RT-06 constrain graph identity and closure, and RT-13 must compare actual target artifacts. [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
+This experiment executes two Python realizations. It supplies evidence for an IR boundary and reachability-sensitive identity. It leaves external target code generation, IR admission for independently produced instructions, recursive group encoding, heterogeneous effects, machine arithmetic and general preservation open. RT-03 supplies the observations, RT-05 and RT-06 constrain graph identity and closure, and RT-13 must compare actual target artifacts. [Dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 

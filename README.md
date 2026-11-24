@@ -39,17 +39,17 @@ These are architectural comparisons. The repository documents prototype results 
 
 - **Read a program sketch.** Start with the Hello World example, which declares its output effect and handles success and failure explicitly. [Task](examples/0001-hello-world.md) · [LLMLang sketch](draft/examples/0001-hello-world/main.llmlang) · [Task catalog](examples/README.md)
 - **Run the dependency graph prototype.** The Python prototype covers content-addressed graph storage, requirement evolution, and verification experiments. [Prototype setup and tests](research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md)
-- **Follow the language design.** Start with the [current research state](research/RESEARCH-STATE-2026-11-19.md) for open design choices. The `draft/` directory holds candidate specification material. The `research/` directory holds exploratory RFCs, alternatives, prototypes, and results, including work on [CPC assumption binding](research/formal-verification/RT-07/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md) and the [strict QF_LIA profile](research/formal-verification/RT-07/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md). [Candidate specification](draft/README.md) · [Research overview](research/README.md) · [Open design questions](TODO.md)
+- **Follow the language design.** Start with the [current research state](research/research-management/RESEARCH-STATE-2026-11-19.md) for open design choices. The `draft/` directory holds candidate specification material. The `research/` directory holds exploratory RFCs, alternatives, prototypes, and results, including work on [CPC assumption binding](research/formal-verification/RT-07/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md) and the [strict QF_LIA profile](research/formal-verification/RT-07/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md). [Candidate specification](draft/README.md) · [Research overview](research/README.md) · [Open design questions](TODO.md)
 
 If you're building an LLM-native programming language, a semantic IR for coding agents, or a formal verification workflow for AI-generated code, we welcome comparisons and concrete examples from your project. [Open an issue](https://github.com/aivibeflow/LLMLang/issues/new)
 
 <details>
 <summary>Detailed research catalog</summary>
 
-- [Research State 2026-11-19](research/RESEARCH-STATE-2026-11-19.md) — current evidence map, open candidate vectors, synthesis gates, and next steps; no language design selected.
+- [Research State 2026-11-19](research/research-management/RESEARCH-STATE-2026-11-19.md) — current evidence map, open candidate vectors, synthesis gates, and next steps; no language design selected.
 - [COR-13 Typed Ownership Across Calls](research/language-design/RT-04/RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md) — proposed discriminator for owned-resource results, cleanup failure, and caller obligations.
 
-- [Research Option Matrix 01 — Language and Execution Foundations](research/RESEARCH-OPTION-MATRIX-01.md) — initial evidence-linked comparison of integrated semantics, type/resource, identity, verification, runtime/backend, and security vectors; no candidate is selected.
+- [Research Option Matrix 01 — Language and Execution Foundations](research/research-management/RESEARCH-OPTION-MATRIX-01.md) — initial evidence-linked comparison of integrated semantics, type/resource, identity, verification, runtime/backend, and security vectors; no candidate is selected.
 - [RT-01 Reference Workloads](research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md) — common workload acceptance criteria and an executable CLI corpus calibrated with C and Python host references.
 - [RT-16 Threat Model 01](research/security/RT-16/RT-16-THREAT-MODEL-01.md) — initial threat actors, boundaries, abuse cases, and a tested authorization-policy model.
 - [RT-03/04 Shared Semantics Corpus v1](research/language-design/RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md) — inventory of executable scenario families, profile coverage, limits, and gap-ordered comparisons for RT-03/04.
@@ -76,18 +76,18 @@ If you're building an LLM-native programming language, a semantic IR for coding 
 - [RT-37 — Freestanding, embedded and real-time firmware](research/runtime-and-systems/RT-37/README.md) — proposed shared OS-independent execution profile, peripheral contracts, real-time/resource bounds and firmware pilot.
 - [RT-38 — Operating-system kernels and verified microkernel feasibility](research/runtime-and-systems/RT-38/README.md) — proposed privileged runtime, memory isolation, IPC, capabilities and microkernel pilot after RT-37.
 
-- [Research taxonomy](research/RESEARCH-TAXONOMY.md) — research areas, current coverage, and required outputs for each research.
+- [Research taxonomy](research/research-management/RESEARCH-TAXONOMY.md) — research areas, current coverage, and required outputs for each research.
 - [RT-03 — Core Language Semantics](research/language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md) — candidate semantic vectors and four profiles (pure functional, imperative/linear, actor/concurrent, effectful functional), compatibility tensions, downstream dependencies, and experiments. No profile is selected.
 - [RT-04 — Type, Effect, Ownership, and Capability-System Alternatives](research/language-design/RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) — comparative alternatives for static/refinement types, effects/handlers, ownership/borrowing/lifetimes, capabilities, concurrency/memory models, error-state composition, and candidate hash boundaries. No architecture is selected; a first limited checker prototype exists, while broader scenarios remain open.
 - [RT-04 Prototype 01](research/PROTOTYPES/RT-04-01/README.md) — executable comparison of two candidate checker vectors, with focused unit tests.
 - [RT-04 Prototype 01 Results](research/language-design/RT-04/RT-04-PROTOTYPE-01-RESULTS.md) — findings, limits, and next experiments.
 - [RT-04 Prototype 01 Scenarios](research/language-design/RT-04/RT-04-PROTOTYPE-01-SCENARIOS.md) — executable scenario-to-profile outcome matrix.
-- [Cross-aspect dependency map](research/RESEARCH-DEPENDENCY-MAP.md) — dependency relationships, research waves, and parallelism guidance.
+- [Cross-aspect dependency map](research/research-management/RESEARCH-DEPENDENCY-MAP.md) — dependency relationships, research waves, and parallelism guidance.
 
 ## Documents
 
 - [LLMLang-CONCEPT.md](research/language-design/RT-01/LLMLang-CONCEPT.md) — full concept, architecture, design principles, proposed toolchain, development stages, and open questions.
-- [REPOSITORY-AUDIT-2026-11-17.md](research/REPOSITORY-AUDIT-2026-11-17.md) — repository-wide documentation consistency audit, fixes, and validation scope.
+- [REPOSITORY-AUDIT-2026-11-17.md](research/research-management/REPOSITORY-AUDIT-2026-11-17.md) — repository-wide documentation consistency audit, fixes, and validation scope.
 - [LLMLang-FORMAL-VERIFICATION.md](research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md) — architectural requirement for one canonical semantics and generated formal/executable representations.
 - [POSIX-RUNTIME-ARCHITECTURE.md](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md) — proposed standard POSIX library with portable and native Linux runtimes, one shared contract, conformance/differential testing, and progressive formal verification.
 - [TRANSLATION-AND-TARGET-BACKENDS.md](research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md) — translation pipeline, backend architecture, semantic portability, and target-language research.
@@ -203,6 +203,6 @@ Formal verification can establish that an implementation satisfies a formal spec
 - [Research Scenario 91](research/semantic-representation/RT-05/RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md) compares Git transition mappings, OCI algorithm-tagged descriptors, and versioned typed CIDs; no LLMLang encoding or migration policy is selected.
 - [Research Scenario 92](research/semantic-representation/RT-05/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md) compares operation contracts, implementation bindings, action-cache keys and content artifacts; no OpHash envelope is selected.
 - [Research Scenario 93](research/toolchain-and-collaboration/RT-11/RESEARCH-SCENARIO-93-CACHE-SOUNDNESS-RESULT-ENVELOPES-AND-TRUST.md) studies cache soundness, result envelopes, approximate dependency-cache restores, and trust boundaries; no cache policy is selected.
-- [Open Questions Research Program](research/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md) inventories LL design TODOs and taxonomy-wide gates, records the LL-022 ID collision correction, and sequences the remaining research; no design is selected.
+- [Open Questions Research Program](research/research-management/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md) inventories LL design TODOs and taxonomy-wide gates, records the LL-022 ID collision correction, and sequences the remaining research; no design is selected.
 
 </details>

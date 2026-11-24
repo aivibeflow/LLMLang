@@ -32,7 +32,7 @@ Both adapters matched all 14 expected calls at both observed capacities (4,096 a
 
 Three isolated classifier mutations failed on the predicted witnesses. Removing the positive-size guard misclassified the zero-length read. Mapping would-block to EOF failed with a writer still open. Returning the requested size in place of the actual result failed on the oversized write.
 
-Retain the one-call typed facade as a candidate for the POSIX vertical slice. Above it, an exact-length action needs distinct semantics for advancing a cursor, readiness, interruption, cancellation, and partial progress. This study exercised no actual `EINTR`, concurrent writers, close races, descriptor reuse, blocking I/O, or process startup. Linux x86-64, one process, valid buffers, and a controlled `SIGPIPE` handler are explicit fixture assumptions. The result informs RT-03/10 error and effect observation and RT-13 ABI portability. [POSIX architecture](POSIX-RUNTIME-ARCHITECTURE.md) · [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
+Retain the one-call typed facade as a candidate for the POSIX vertical slice. Above it, an exact-length action needs distinct semantics for advancing a cursor, readiness, interruption, cancellation, and partial progress. This study exercised no actual `EINTR`, concurrent writers, close races, descriptor reuse, blocking I/O, or process startup. Linux x86-64, one process, valid buffers, and a controlled `SIGPIPE` handler are explicit fixture assumptions. The result informs RT-03/10 error and effect observation and RT-13 ABI portability. [POSIX architecture](POSIX-RUNTIME-ARCHITECTURE.md) · [Dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 

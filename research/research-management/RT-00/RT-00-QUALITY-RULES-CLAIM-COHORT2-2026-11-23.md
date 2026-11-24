@@ -20,7 +20,7 @@ Previous [Stage 0.2 initial ten-report pilot](RT-00-QUALITY-RULES-REAL-REPORT-PI
 
 **Alternatives:** (A) blanket structural keyword checks would miss evidence-class overreach; (B) promote each reported passing test to proof or a normative decision—rejected as unsafe; (C) trace sampled material claims to immutable text/source and record negative scope, while requiring separate human/technical validation before decisions. This report applies **C**, provisionally. No opinion is expressed about whether every selected experiment is correct.
 
-**Prior work:** [Proposed quality protocol](../../QUALITY-REVIEW-PROTOCOL.md), [claim register template](../../templates/CLAIM-REGISTER-TEMPLATE.md), [first cohort audit](RT-00-QUALITY-RULES-REAL-REPORT-PILOT-2026-11-23.md), [first warning adjudication](RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md), and the [RT-00 B5 Scenario 130 claim trace](RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md). The latter traces a different cohort of Scenario 130 claims; it is **not** treated as an independent adjudication of the two claims here.
+**Prior work:** [Proposed quality protocol](../QUALITY-REVIEW-PROTOCOL.md), [claim register template](../../templates/CLAIM-REGISTER-TEMPLATE.md), [first cohort audit](RT-00-QUALITY-RULES-REAL-REPORT-PILOT-2026-11-23.md), [first warning adjudication](RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md), and the [RT-00 B5 Scenario 130 claim trace](RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md). The latter traces a different cohort of Scenario 130 claims; it is **not** treated as an independent adjudication of the two claims here.
 
 ## 2. Method, model, and exact provenance
 

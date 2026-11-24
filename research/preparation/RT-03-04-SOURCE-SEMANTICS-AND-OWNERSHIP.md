@@ -21,7 +21,7 @@ Read these together:
 - [COR-13 typed ownership follow-up](../language-design/RT-04/RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md)
 - [Scenarios 97–108](../language-design/RT-04/RESEARCH-SCENARIO-97-CLEANUP-ERROR-COMPOSITION-AND-OWNERSHIP.md) — cleanup, paths, solver policy, mutation and aliases
 - [Scenarios 119–133](../language-design/RT-04/RESEARCH-SCENARIO-119-OWNED-RESULT-MATCHING.md) through [Scenario 133](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md) — call result ownership, SQLite observations, guard/resource roles, durable invocation evidence, common workload and generated Rust
-- [Research State](../RESEARCH-STATE-2026-11-19.md), Gate A and suggested next sequence
+- [Research State](../research-management/RESEARCH-STATE-2026-11-19.md), Gate A and suggested next sequence
 - [Plan](../../PLAN.md), Sections 1.4 and 1.4.1
 
 The latest merged evidence includes a common COR-13 workload checked by two execution models, typed caller recovery, and a generated Rust result. Treat those as bounded evidence for their stated fixtures, not proof of general source-to-runtime correspondence.

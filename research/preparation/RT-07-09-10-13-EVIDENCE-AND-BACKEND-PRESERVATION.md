@@ -17,7 +17,7 @@ Read:
 - [Scenario 96 — LLVM UB, poison and semantic preservation](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md)
 - [Scenario 133 — generated Rust for owned results](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
 - [RT-03/04 shared corpus](../language-design/RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md)
-- [Research State](../RESEARCH-STATE-2026-11-19.md), Gates C and A
+- [Research State](../research-management/RESEARCH-STATE-2026-11-19.md), Gates C and A
 
 Scenario 133 is a bounded generated-Rust result for COR-13 and its tested transfer rules. It does not by itself establish a general translation pipeline, a second production backend, native foreign-effect correspondence or whole-language preservation.
 

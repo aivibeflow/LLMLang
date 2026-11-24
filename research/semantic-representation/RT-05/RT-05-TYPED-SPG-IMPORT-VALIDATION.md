@@ -45,4 +45,4 @@ Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` using CPython 3.12.14. The re
 python -B -m unittest -v tests.test_spg_representation tests.test_spg_admission
 ```
 
-[Checker](../../PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py) · [Fixtures](../../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_admission.py) · [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
+[Checker](../../PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py) · [Fixtures](../../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_admission.py) · [Dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)

@@ -3,7 +3,7 @@
 **Status:** Preliminary feasibility analysis; no implementation architecture is accepted  
 **Date:** 2026-11-18  
 **Research area:** RT-21 — Self-development and self-hosting toolchain  
-**Related:** [RT-03 Core Language Semantics](../../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md), [RT-09 Compiler and IR](../../RESEARCH-TAXONOMY.md), [RT-10 Runtime](../../runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [RT-11 Build and cache](../RT-11/SEMANTIC-COMPILATION-CACHE.md), [RT-19 Toolchain Server](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [RT-20 Patch planning](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md).
+**Related:** [RT-03 Core Language Semantics](../../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md), [RT-09 Compiler and IR](../../research-management/RESEARCH-TAXONOMY.md), [RT-10 Runtime](../../runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [RT-11 Build and cache](../RT-11/SEMANTIC-COMPILATION-CACHE.md), [RT-19 Toolchain Server](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [RT-20 Patch planning](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md).
 
 ## 1. Research question
 

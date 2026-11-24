@@ -4,7 +4,7 @@
 **Status:** comparative alternatives report; no architecture selected  
 **Updated:** 2026-11-18  
 **Depends on:** [RT-03 Core Language Semantics](../RT-03/CORE-LANGUAGE-SEMANTICS.md)  
-**Related:** [LLMLang Concept](../RT-01/LLMLang-CONCEPT.md), [POSIX Runtime Architecture](../../runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [RT-24 identity work](../../toolchain-and-collaboration/RT-24/RT-24-IDENTITY-DECISION-MATRIX.md), [Research Dependency Map](../../RESEARCH-DEPENDENCY-MAP.md), [RT-09 structural type identity and C ABI proposal](../../compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md)
+**Related:** [LLMLang Concept](../RT-01/LLMLang-CONCEPT.md), [POSIX Runtime Architecture](../../runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [RT-24 identity work](../../toolchain-and-collaboration/RT-24/RT-24-IDENTITY-DECISION-MATRIX.md), [Research Dependency Map](../../research-management/RESEARCH-DEPENDENCY-MAP.md), [RT-09 structural type identity and C ABI proposal](../../compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md)
 
 ## 1. Purpose and boundaries
 

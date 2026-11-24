@@ -3,7 +3,7 @@
 **Status:** Scope inventory and sequencing plan; not a design decision
 **Updated:** 2026-11-20
 **Scope rule:** “Open” means every unresolved design item in `TODO.md` plus the unresolved research gates recorded by the RT taxonomy and evidence state. Existing reports count as evidence, not as closure, unless a question's decision gates are met and the project records a decision.  
-**Preparation:** [Research Preparation Pack](preparation/README.md) turns the next research waves into execution briefs; none of those studies has been run by this preparation change.
+**Preparation:** [Research Preparation Pack](../preparation/README.md) turns the next research waves into execution briefs; none of those studies has been run by this preparation change.
 
 ## 1. Snapshot and completeness boundary
 
@@ -34,7 +34,7 @@ This inventory is the control sheet for the requested exhaustive research. It ma
 | LL-017 | P1 | Trusted runtime | Trusted assembly/intrinsics/external code boundary, primitive contracts, proof limits, auditing and alternative implementation strategy. |
 | LL-018 | P2 | POSIX concurrency | Language memory model, POSIX thread/signal/blocking behavior, Linux ordering, scheduling, interruption and environment-dependent semantics. |
 | LL-019 | P1 | Conformance / proofs | Feature-scoped POSIX conformance claims, optional and implementation-defined behavior, assumptions, unsupported cases and proof scope. |
-| LL-020 | P1 | LLVM backend | Initial/optional/replaceable role; supported IR subset and preservation contract for poison/UB, overflow, pointers, floats, atomics, ABI and optimization. [Scenario 96](compiler-and-translation/RT-13/RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md) scopes the immediate/deferred UB and poison boundary and proposes a source-to-IR discriminator corpus; no candidate is validated. |
+| LL-020 | P1 | LLVM backend | Initial/optional/replaceable role; supported IR subset and preservation contract for poison/UB, overflow, pointers, floats, atomics, ABI and optimization. [Scenario 96](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md) scopes the immediate/deferred UB and poison boundary and proposes a source-to-IR discriminator corpus; no candidate is validated. |
 | LL-021 | P0 | Build/cache | Action DAG, exact Action Key inputs and closure, nondeterminism, cache layers, output/evidence identity, language/toolchain versions, remote trust and conservative UNKNOWN handling. Scenarios 92–93 refine the identity and reuse/trust boundaries; schema, prototype and falsification remain open. |
 | LL-022 | P1 | Package distribution | Manifest/index schemas, binary blocks/compression/sparse lookup, static versus provider-built archives, dependency closure and measured resource bounds. Prototype exists; format and adapter validation remain. |
 | LL-023 | P0 | Change planning | Complete caller/reference discovery, edge-specific migrate/preserve/adapt/fork, contract/hash propagation, shared-caller split, plan approval/revision and exact-tree commit gates. |
@@ -49,7 +49,7 @@ This inventory is the control sheet for the requested exhaustive research. It ma
 | Area | Open research gates at this snapshot |
 |---|---|
 | RT-01 Product goals/workloads | Workload weighting, user/agent usability, complexity and performance criteria; the host CLI pilot does not measure LLMLang. |
-| RT-02 Intent/requirements | Ambiguity handling, clause-level traceability, requirement evolution and source acceptance at scale; faithful reconstruction of typed/formal requirements, semantic-difference detection, and evidence that human review catches interpretation defects. See [Requirement Reconstruction and Human Semantic Validation](language-design/RT-02/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md). |
+| RT-02 Intent/requirements | Ambiguity handling, clause-level traceability, requirement evolution and source acceptance at scale; faithful reconstruction of typed/formal requirements, semantic-difference detection, and evidence that human review catches interpretation defects. See [Requirement Reconstruction and Human Semantic Validation](../language-design/RT-02/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md). |
 | RT-03 Core semantics | One coherent operational/observational semantics for state, errors, effects, recursion, concurrency and modules; no semantic profile chosen. |
 | RT-04 Type/effects/ownership | Complete type/resource/capability model and cross-feature soundness beyond the limited checker. |
 | RT-05 Representation/identity | Canonical SPG and identity envelope, lifecycle, cyclic groups, import/merge completeness. |
@@ -99,9 +99,9 @@ Before writing the language RFC, each candidate vector needs: a precise claim; p
 
 ## 5. Progress recorded
 
-- [Scenario 92](semantic-representation/RT-05/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md) compares interface contracts, operation identity, implementation bindings, execution action keys and output artifact hashes for LL-001/002/003/007/008/021. It leaves the OpHash meaning open.
-- [Scenario 93](toolchain-and-collaboration/RT-11/RESEARCH-SCENARIO-93-CACHE-SOUNDNESS-RESULT-ENVELOPES-AND-TRUST.md) compares exact Action Result reuse with material-cache restoration and trust-domain controls for LL-021/RT-11/12/16. It leaves the result schema, validation policy, and trust model open.
-- [Scenario 91](semantic-representation/RT-05/RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md) compares digest migration prior art for LL-004/005; it leaves the canonical envelope and migration mechanism open.
-- [Scenario 107](semantic-representation/RT-06/RESEARCH-SCENARIO-107-SOURCE-DERIVED-CALL-ALIASES.md) derives a toggle summary and branch-joined alias set from a bounded AST subset; its joined targets preserve concrete routes but add infeasible ones when aliases correlate with state. It narrows one fixture gap but does not resolve RT-03, RT-04, RT-06, or RT-07 source-completeness gates.
-- [Scenario 108](semantic-representation/RT-06/RESEARCH-SCENARIO-108-PATH-SENSITIVE-ALIAS-PRECISION.md) shows finite path enumeration can recover value/alias correlation lost by a joined may-alias set, while retaining all routes for independent choices. It does not establish scalable symbolic analysis or close source completeness gates.
+- [Scenario 92](../semantic-representation/RT-05/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md) compares interface contracts, operation identity, implementation bindings, execution action keys and output artifact hashes for LL-001/002/003/007/008/021. It leaves the OpHash meaning open.
+- [Scenario 93](../toolchain-and-collaboration/RT-11/RESEARCH-SCENARIO-93-CACHE-SOUNDNESS-RESULT-ENVELOPES-AND-TRUST.md) compares exact Action Result reuse with material-cache restoration and trust-domain controls for LL-021/RT-11/12/16. It leaves the result schema, validation policy, and trust model open.
+- [Scenario 91](../semantic-representation/RT-05/RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md) compares digest migration prior art for LL-004/005; it leaves the canonical envelope and migration mechanism open.
+- [Scenario 107](../semantic-representation/RT-06/RESEARCH-SCENARIO-107-SOURCE-DERIVED-CALL-ALIASES.md) derives a toggle summary and branch-joined alias set from a bounded AST subset; its joined targets preserve concrete routes but add infeasible ones when aliases correlate with state. It narrows one fixture gap but does not resolve RT-03, RT-04, RT-06, or RT-07 source-completeness gates.
+- [Scenario 108](../semantic-representation/RT-06/RESEARCH-SCENARIO-108-PATH-SENSITIVE-ALIAS-PRECISION.md) shows finite path enumeration can recover value/alias correlation lost by a joined may-alias set, while retaining all routes for independent choices. It does not establish scalable symbolic analysis or close source completeness gates.
 - Existing bounded prototypes and reports remain evidence at their documented scope. The open register still controls decisions; this work does not mark open questions resolved.

@@ -25,7 +25,7 @@ The taxonomy, dependency map, and option matrix have distinct roles. The taxonom
 
 ## 2. Glossary and hash terminology
 
-The [draft glossary](../draft/GLOSSARY.md) defines the proposed terms:
+The [draft glossary](../../draft/GLOSSARY.md) defines the proposed terms:
 
 - generic `ContractHash`;
 - `OpHash` for an operation;
@@ -39,7 +39,7 @@ The glossary remains a proposal. Its open points and the plan's terminology prer
 
 ## 3. Semantic Dependency Index boundary
 
-[`SEMANTIC-DEPENDENCY-INDEX.md`](semantic-representation/RT-06/SEMANTIC-DEPENDENCY-INDEX.md) is a candidate design for immutable dependency edges, discovery evidence, completeness records, and consumer-specific projections. It is not the cross-aspect RT dependency map and is not a canonical SPG schema.
+[`SEMANTIC-DEPENDENCY-INDEX.md`](../semantic-representation/RT-06/SEMANTIC-DEPENDENCY-INDEX.md) is a candidate design for immutable dependency edges, discovery evidence, completeness records, and consumer-specific projections. It is not the cross-aspect RT dependency map and is not a canonical SPG schema.
 
 The index's status is consistent with PLAN.md and RT-24: the executable subset and call-site binding experiments are evidence, while canonical identity, wire representation, completeness semantics, and merge policy remain open.
 
@@ -82,8 +82,8 @@ This review does not validate the technical soundness of every DEP rationale, pr
 
 The reviewed main tree also contains two package-index diagnostics added after the prior 471-record inventory snapshot:
 
-- [`run_tests_with_timings.py`](packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/run_tests_with_timings.py), added by PR #105. It is invoked on every `package-index` workflow run. It discovers the package-index unittest suite, records per-test wall-clock durations, and emits the 20 slowest tests plus total suite duration.
-- [`profile_package_provider.py`](packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/profile_package_provider.py), added by PR #109. It is compiled by the workflow and invoked only when `run_benchmark=true`; it uses `cProfile` around a bounded disk-backed Provider build.
+- [`run_tests_with_timings.py`](../packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/run_tests_with_timings.py), added by PR #105. It is invoked on every `package-index` workflow run. It discovers the package-index unittest suite, records per-test wall-clock durations, and emits the 20 slowest tests plus total suite duration.
+- [`profile_package_provider.py`](../packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/profile_package_provider.py), added by PR #109. It is compiled by the workflow and invoked only when `run_benchmark=true`; it uses `cProfile` around a bounded disk-backed Provider build.
 
 Both files are prototype diagnostics, not normative package-index semantics. Both are referenced by the workflow; the timing runner is also used by the package-index README's Run instructions. They are not orphan files. Their roles are recorded individually in the refreshed inventory, and the README file index now links both.
 

@@ -60,4 +60,4 @@ Link RT/scenario, PLAN section, LL ID in TODO (or explain why none), affected `d
 
 State exact outputs, environment, and Q1–Q5: pass / fail / N/A with rationale / not reviewed. Structural checks are not evidence review.
 
-See [quality review protocol](../QUALITY-REVIEW-PROTOCOL.md).
+See [quality review protocol](../research-management/QUALITY-REVIEW-PROTOCOL.md).

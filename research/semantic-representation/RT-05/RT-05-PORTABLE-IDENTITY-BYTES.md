@@ -29,7 +29,7 @@ The independently authored Python and Node encoders agreed in all 127 comparison
 - All six permutations of a three-key map agree. U+FFFF precedes U+10000 under the fixture's UTF-8 order. The result distinguishes that order from a JavaScript UTF-16 code-unit sort.
 - Reversing a list changes its bytes. A duplicate key, lone surrogate, invalid tag and noncanonical integer spelling each fail admission.
 
-The tested vector favors an exact typed preimage where the language permits integers beyond binary64 and keeps Unicode scalar strings. Choosing a canonical encoding still requires an explicit schema, limits on input size and depth, digest algorithm migration, and integration with the graph identity policies. This corpus covers no links, floats, unions, cyclic graphs or production hashing. [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
+The tested vector favors an exact typed preimage where the language permits integers beyond binary64 and keeps Unicode scalar strings. Choosing a canonical encoding still requires an explicit schema, limits on input size and depth, digest algorithm migration, and integration with the graph identity policies. This corpus covers no links, floats, unions, cyclic graphs or production hashing. [Dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 

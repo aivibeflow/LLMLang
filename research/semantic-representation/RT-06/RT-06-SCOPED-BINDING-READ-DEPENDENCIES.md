@@ -30,7 +30,7 @@ With a valid request provider already selected, adding a lower project row with 
 
 The projection depends on valid complete input layers. A separate control adds a duplicate unrelated key. It leaves the per-key projection equal, but the resolver rejects the entire layer. A real cache must validate immutable layers before keyed reuse and must establish that its presence and absence answers describe the exact validated revision. Partial layers, unknown scope, or provenance-sensitive consumers require their own keys or a full revalidation. The model assumes trusted construction of scope policies and an immutable complete store. It provides no proof of completeness for dynamic or external resolution.
 
-A per-key dependency is a candidate for reuse of selected outcomes under stated admission rules. The same projection cannot stand in for a new revision-bound consultation record or for general RT-20 completeness. [Semantic compilation cache](../../toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md) · [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
+A per-key dependency is a candidate for reuse of selected outcomes under stated admission rules. The same projection cannot stand in for a new revision-bound consultation record or for general RT-20 completeness. [Semantic compilation cache](../../toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md) · [Dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 

@@ -70,8 +70,8 @@ def is_index_document(path: str) -> bool:
         name == "README.MD"
         or "INDEX" in name
         or path == "PLAN.md"
-        or path == "research/RESEARCH-TAXONOMY.md"
-        or path == "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md"
+        or path == "research/research-management/RESEARCH-TAXONOMY.md"
+        or path == "research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md"
     )
 
 

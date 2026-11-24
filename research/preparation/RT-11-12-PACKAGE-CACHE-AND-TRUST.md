@@ -17,7 +17,7 @@ Read:
 - [Scenario 91 — versioned content addresses](../semantic-representation/RT-05/RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md)
 - [Scenario 92 — operation/implementation identity](../semantic-representation/RT-05/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md)
 - [Scenario 93 — cache soundness and trust](../toolchain-and-collaboration/RT-11/RESEARCH-SCENARIO-93-CACHE-SOUNDNESS-RESULT-ENVELOPES-AND-TRUST.md)
-- [Research State](../RESEARCH-STATE-2026-11-19.md), Gate C and Wave C
+- [Research State](../research-management/RESEARCH-STATE-2026-11-19.md), Gate C and Wave C
 - Existing package and semantic-store prototype documentation linked from LL-022
 
 ## 3. Questions

@@ -41,7 +41,8 @@ jobs:
           import subprocess
           from pathlib import Path
 
-          manifest_path = "research/RESEARCH-CORPUS-INVENTORY-2026-11-20.json"
+          management = Path("research/research-management")
+          manifest_path = (management / "RESEARCH-CORPUS-INVENTORY-2026-11-20.json").as_posix()
           manifest = json.loads(Path(manifest_path).read_text(encoding="utf-8"))
           records = manifest["artifacts"]
           expected = {item["path"]: item for item in records}
@@ -78,8 +79,8 @@ jobs:
           family_counts = collections.Counter(
               path.split("/")[path.split("/").index("PROTOTYPES") + 1] for path in paths if "/PROTOTYPES/" in path
           )
-          taxonomy = Path("research/RESEARCH-TAXONOMY.md").read_text(encoding="utf-8")
-          dependencies = Path("research/RESEARCH-DEPENDENCY-MAP.md").read_text(encoding="utf-8")
+          taxonomy = (management / "RESEARCH-TAXONOMY.md").read_text(encoding="utf-8")
+          dependencies = (management / "RESEARCH-DEPENDENCY-MAP.md").read_text(encoding="utf-8")
           count = {
               "research_artifacts_excluding_manifest": len(paths),
               "markdown_files": sum(path.endswith(".md") for path in paths),

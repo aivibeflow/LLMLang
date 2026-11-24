@@ -46,4 +46,4 @@ From `research/PROTOTYPES/DEPENDENCY-GRAPH-01`, run the following. The recorded 
 python -B -m unittest -v tests.test_rt24_semantic_merge_core tests.test_rt24_merge_tree_gate
 ```
 
-[Experiment and fixtures](../../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_semantic_merge_core.py) · [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
+[Experiment and fixtures](../../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_semantic_merge_core.py) · [Dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)

@@ -3,7 +3,7 @@
 **Status:** Architecture proposal derived from design discussion; not an accepted language specification or validated ABI implementation  
 **Research areas:** RT-03 data representation and semantics, RT-04 type system, RT-05 semantic identity, RT-09 compiler/ABI/interoperability  
 **Date:** 2026-11-22  
-**Related:** [LLMLang Concept](../../language-design/RT-01/LLMLang-CONCEPT.md), [RT-04 type/effect/ownership alternatives](../../language-design/RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md), [Scenario 70 — type identity and representation](../../language-design/RT-04/RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md), [Scenario 72 — layout and ABI](../RT-13/RESEARCH-SCENARIO-72-SUM-TYPE-LAYOUT-ABI-AND-INTEROPERABILITY.md), [Research Dependency Map](../../RESEARCH-DEPENDENCY-MAP.md)
+**Related:** [LLMLang Concept](../../language-design/RT-01/LLMLang-CONCEPT.md), [RT-04 type/effect/ownership alternatives](../../language-design/RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md), [Scenario 70 — type identity and representation](../../language-design/RT-04/RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md), [Scenario 72 — layout and ABI](../RT-13/RESEARCH-SCENARIO-72-SUM-TYPE-LAYOUT-ABI-AND-INTEROPERABILITY.md), [Research Dependency Map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 ## 1. Purpose
 

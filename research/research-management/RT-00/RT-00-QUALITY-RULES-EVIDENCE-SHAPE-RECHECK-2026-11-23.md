@@ -8,7 +8,7 @@
 
 ## Question and alternatives
 
-The existing [Research Quality and Decision Rules](../../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) proposes a common report structure, per-claim evidence classification, and gates Q1–Q5. This recheck asks whether one required template can serve the three evidence shapes inspected here.
+The existing [Research Quality and Decision Rules](../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) proposes a common report structure, per-claim evidence classification, and gates Q1–Q5. This recheck asks whether one required template can serve the three evidence shapes inspected here.
 
 - **A — One fixed template:** require every report to fill each common section and claim-table field.
 - **B — Shared minimum with evidence-specific attachments:** require traceability, scope, method/provenance, result class, limits, and decision boundary, while making reproduction and evidence pointers specific to the claim type.

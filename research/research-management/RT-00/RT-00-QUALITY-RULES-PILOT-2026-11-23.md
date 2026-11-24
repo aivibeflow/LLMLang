@@ -19,7 +19,7 @@ Can an isolated warning-only check identify missing research metadata while allo
 
 ## Prior art and alternatives
 
-[Original quality-rules proposal](../../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) defines evidence vocabulary, Q1–Q5, and traceability. [Rollout study](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) compares (A) corpus retrofit, (B) manual audit, and (C) hybrid warning-first. [Evidence-shape recheck](RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) compares fixed prose, type-specific attachments, and freeform indexing. This pilot implements a narrow part of hybrid C, not an accepted selection.
+[Original quality-rules proposal](../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) defines evidence vocabulary, Q1–Q5, and traceability. [Rollout study](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) compares (A) corpus retrofit, (B) manual audit, and (C) hybrid warning-first. [Evidence-shape recheck](RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) compares fixed prose, type-specific attachments, and freeform indexing. This pilot implements a narrow part of hybrid C, not an accepted selection.
 
 ## Formal model and assumptions
 
@@ -61,7 +61,7 @@ Regular expressions can miss valid differently worded reports or accept misleadi
 - **Draft impact:** None; `draft/` unchanged by this study.
 - **Research area:** RT-08 (verification/evidence process); Stage 0.2.
 - **Relevant open design questions:** [TODO LL-008](../../../TODO.md#ll-008--specify-evidence-identity-compatibility-and-reuse) and LL-019/020 on evidence scope (not resolved here).
-- **Process proposal:** [Quality Review Protocol](../../QUALITY-REVIEW-PROTOCOL.md) and [templates](../../templates/REPORT-TEMPLATE.md).
+- **Process proposal:** [Quality Review Protocol](../QUALITY-REVIEW-PROTOCOL.md) and [templates](../../templates/REPORT-TEMPLATE.md).
 - **Unresolved dependencies:** maintainer acceptance, representative human-review pilot, full claim-by-claim corpus audit, foundational experiment reproduction, and validated spec-change crosswalk.
 
 ## Reproduction and quality gates

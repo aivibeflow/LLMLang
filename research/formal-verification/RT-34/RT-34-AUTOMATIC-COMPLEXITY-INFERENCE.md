@@ -4,7 +4,7 @@
 **Priority:** P0 for foundations and pilot evaluation; P1 for advanced domains  
 **Updated:** 2026-11-24  
 **Tracking:** [Issue #412](https://github.com/aivibeflow/LLMLang/issues/412)  
-**Related:** [Scenario 14](../../language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md), [Scenario 36](../../language-design/RT-03/RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md), [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-33](../RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-26](../../RESEARCH-DEPENDENCY-MAP.md#14-hierarchical-resource-accounting-and-real-time-enforcement-rt-26).
+**Related:** [Scenario 14](../../language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md), [Scenario 36](../../language-design/RT-03/RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md), [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-33](../RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-26](../../research-management/RESEARCH-DEPENDENCY-MAP.md#14-hierarchical-resource-accounting-and-real-time-enforcement-rt-26).
 
 ## 1. Research goal and hypotheses
 
