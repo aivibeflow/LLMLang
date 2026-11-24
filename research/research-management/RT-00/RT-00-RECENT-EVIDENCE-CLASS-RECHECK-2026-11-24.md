@@ -37,9 +37,20 @@ The proposed quality rules require one primary evidence class per material claim
 
 The top-level `Evidence type` field is therefore a helpful scope hint, but it cannot substitute for a claim-level record when a document combines runs, assumptions, proofs and recommendations. The current evidence supports retaining the proposed distinction between **evidence class** and **recommendation/decision status**.
 
+## Reproduction-boundary crosswalk
+
+| Study | Recorded reproduction route | Exactness and practical limit |
+|---|---|---|
+| RT-19 transaction/recovery | Two explicit `unittest discover` commands; expected 9/9 each; CPython 3.12.14 recorded. | Repeats adjacent prototype suites, not the comparative state-machine reasoning, crash recovery, or a shared coordinator. |
+| RT-19 multi-file publication | The first report version recorded 9/9 without the command. This recheck reran the suite on Python 3.12.14 and the report now contains the exact command and expected 9/9. | Reproduces one-file/in-memory tests only; none of the multi-file candidates or failure points are implemented. |
+| RT-25 workload fit | A Python snippet computes median/min/max from the linked archived raw JSON; the environment check records Debian 13 x86-64, Linux 6.18.57, missing `rustc`, TCMalloc, and mimalloc. | Reproduces the summary statistics, not a fresh allocator run. The benchmark runner still needs a pinned Rust/allocator environment. |
+| RT-32 Lean observations | Exact replay command compares regenerated JSON with the pinned ledger; Lean 4.36.0, Python 3.12.14, and source hashes are recorded. | Repeats bounded proof/model artifacts; the report explicitly leaves Python-to-source semantics and broad profiles outside the Lean proof. |
+
+The recheck found and corrected one documentation gap in the RT-19 publication report. For this sample, commands and tools suffice to reproduce listed component checks or transform archived raw measurements, but they do not turn those checks into evidence for the unimplemented design alternatives.
+
 ## Reproduction and limits
 
-This recheck reads the four linked reports and their declared boundaries; it is not a rerun. The report-specific executable commands, pinned sources and raw evidence remain the reproduction route for those results. A reviewer should rerun each experiment before relying on its empirical claim for a final architecture decision. This audit did not inspect every root, RT, scenario, prototype, or external-source snapshot in the repository.
+This recheck reads the four linked reports and their declared boundaries. It reran the RT-19 Toolchain focused suite (9/9, Python 3.12.14) to verify the newly documented command; it did not rerun the other studies. A reviewer should rerun each experiment before relying on its empirical claim for a final architecture decision. This audit did not inspect every root, RT, scenario, prototype, or external-source snapshot in the repository.
 
 ## Remaining external dependencies
 

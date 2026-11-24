@@ -2,8 +2,8 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "bc519aff31024b581495f66f90da10f6f17b357b",
-  "source": "Exact research path, blob and byte inventory for the rebased current main and selected Stage 0.2 evidence-class recheck, excluding the inventory manifest itself.",
+  "revision": "596fa84235fda59f739a754bad4bec8212591f50",
+  "source": "Exact research path, blob and byte inventory for the current branch and selected Stage 0.2 evidence/reproduction recheck, excluding the inventory manifest itself.",
   "counts": {
     "research_files": 941,
     "research_artifacts_excluding_manifest": 941,
@@ -35,7 +35,7 @@
       "structured-fixture-or-schema": 19
     }
   },
-  "classification_note": "Against latest main 39f8c80 (manifest excluded), this branch adds one bounded Stage 0.2 evidence-class review and its index entry; the report received individual role review. All 941 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Against latest main 39f8c80 (manifest excluded), this branch adds one bounded Stage 0.2 evidence-class/reproduction review and its index entry; the report received individual role review. All 941 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
