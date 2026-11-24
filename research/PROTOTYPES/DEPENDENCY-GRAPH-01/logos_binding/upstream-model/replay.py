@@ -52,7 +52,7 @@ def build_program_workspace(checkout, destination):
     return destination / ".lake" / "build" / "lib" / "lean"
 
 
-def replay(checkout, program=False):
+def replay(checkout, mode="scalar"):
     revision = capture(["git", "rev-parse", "HEAD"], checkout).strip()
     if revision != LOGOS_REVISION or capture(
         ["git", "status", "--porcelain", "--untracked-files=no"], checkout,
@@ -64,33 +64,40 @@ def replay(checkout, program=False):
     if LEAN_REVISION not in version:
         raise ValueError(f"Expected the pinned Logos verification Lean 4.34.0, got {version}")
 
-    subprocess.run(["bash", "scripts/build.sh", "Cpc.SmtModel"], cwd=checkout,
+    target = "Cpc.Proofs.TypePreservation.Nonvacuity" if mode == "extension" else "Cpc.SmtModel"
+    subprocess.run(["bash", "scripts/build.sh", target], cwd=checkout,
                    check=True, stdout=subprocess.DEVNULL)
     lake_path = capture(["lake", "env", "printenv", "LEAN_PATH"], verification).strip()
     with TemporaryDirectory(prefix="llmlang-logos-upstream-") as tmp:
         directory = Path(tmp)
         paths = [str(directory)]
-        if program:
+        if mode == "program":
             paths.append(str(build_program_workspace(checkout, directory / "llmlang")))
         library = directory / "compiled"
         combine_libraries(checkout, library)
         paths.extend((str(library), lake_path))
         environment = {**os.environ, "LEAN_PATH": os.pathsep.join(paths)}
         lean = ["lean", "-DwarningAsError=true"]
-        if program:
-            capture([*lean, f"--root={HERE}", "-o", str(directory / "LogosUpstreamScalarModel.olean"),
-                     str(HERE / "LogosUpstreamScalarModel.lean")], verification, environment=environment)
-            theorem = "LogosUpstreamProgram.lean"
-        else:
+        if mode != "program":
             capture([*lean, f"--root={HERE.parent}", "-o", str(directory / "LogosScalarEvaluation.olean"),
                      str(HERE.parent / "LogosScalarEvaluation.lean")], verification, environment=environment)
-            theorem = "LogosUpstreamScalarModel.lean"
+        if mode != "scalar":
+            capture([*lean, f"--root={HERE}", "-o", str(directory / "LogosUpstreamScalarModel.olean"),
+                     str(HERE / "LogosUpstreamScalarModel.lean")], verification, environment=environment)
+        theorem = {"scalar": "LogosUpstreamScalarModel.lean", "program": "LogosUpstreamProgram.lean",
+                   "extension": "LogosModelExtension.lean"}[mode]
         return capture([*lean, str(HERE / theorem)], verification, environment=environment)
+
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkout", required=True, type=Path)
-    parser.add_argument("--program", action="store_true", help="check both sides with the upstream kernel")
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--program", dest="mode", action="store_const", const="program",
+                       help="check both sides with the upstream kernel")
+    modes.add_argument("--model-extension", dest="mode", action="store_const", const="extension",
+                       help="check the total well-formed upstream model construction")
+    parser.set_defaults(mode="scalar")
     args = parser.parse_args()
-    print(replay(args.checkout.resolve(), args.program), end="")
+    print(replay(args.checkout.resolve(), args.mode), end="")
