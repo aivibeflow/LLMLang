@@ -246,6 +246,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define canonicalization and normalization rules.
 - [ ] Define semantic graph evolution, node replacement, splitting, merging, and lineage.
 - [ ] Decide artifact granularity: operations, interfaces, contracts, types, implementation components, tests, models, and proofs.
+  - [x] Compare snapshot, value and expression storage layouts on the same acyclic SPG. All 54 archives restore exact graph bytes and agree with 5,832 result and trace observations. At 64 entries a local edit writes 27,076 per-value bytes, 27,153 expression-layout bytes or 139,101 whole-snapshot bytes. Context-free expression reuse is refuted, and workload and other artifact choices remain open. [SPG object granularity](research/semantic-representation/RT-05/RT-05-SPG-OBJECT-GRANULARITY-2026-11-24.md).
 - [ ] Define how recursive and mutually dependent structures are represented.
   - [x] Compare root traversal, exhaustive permutation and explicit keys on ordered recursive definitions. The traversal matches 52 small isomorphism classes and scales to the tested 128 members. An 11-member witness rules out assuming byte compatibility with exhaustive ordering. Recursive types, unordered edges and the canonical format remain open. [Ordered SCC canonical traversal](research/semantic-representation/RT-05/RT-05-ORDERED-SCC-CANONICAL-TRAVERSAL-2026-11-24.md).
 
