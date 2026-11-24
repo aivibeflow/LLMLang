@@ -4,7 +4,7 @@
 **Date:** 2026-11-24  
 **Research:** RT-05, RT-20; related RT-06/07/11/12/18/23/24/32/33/34/35  
 **Evidence:** Model proposal only; no new executed experiment or checked proof  
-**Prior baseline:** Existing RT-05/20 candidate models; branch base and exact changes recorded by Git history.
+**Integration baseline:** `c0340243ff1a9789278c14e79076b541b3eaa34f` (main after PR #433; same tree as original proposal head `61f434b5e9f3a1cc58876db4b180cedc0ad90780`). Exact source and resulting blobs are retained in Git history.
 
 ## 1. Problem and hypotheses
 
@@ -147,3 +147,53 @@ Recommendation: register public interfaces in the concept as a candidate archite
 - [RT-33 backend selection](RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md)
 - [RT-34 complexity inference](RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md)
 - [RT-35 semantic function discovery](RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md)
+
+## 8. Repository integration and resolution model
+
+The review identifies an existing interface concept in the global artifact store and libraries, exact operation identity in the glossary, typed SPG provides relations, Scenario 10 binding snapshots, Scenario 14 refinement, RT-23 external mappings and RT-32 conditional proofs. The public-interface proposal integrates these rather than introducing a competing identity system. The accepted [architecture decision](../draft/ARCHITECTURE-DECISIONS.md) preserves immutable published components and single-toolchain build compatibility; neither a cross-toolchain ABI promise nor runtime negotiation follows.
+
+```mermaid
+flowchart LR
+  N[Qualified public name] -->|pinned catalog| O[Exact operation revision / OpHash]
+  O --> P[Public ContractHash]
+  O -->|pinned provider selection| I[Exact ImplHash]
+  I --> C[Provider-owned ContractHash]
+  I -->|target-specific export mapping| X[ABI symbol]
+  C -->|refinement evidence| P
+  I -->|body evidence| C
+```
+
+This is a logical separation, not a requirement for three databases. Exact catalog/binding/mapping revisions are immutable; authorized heads may advance atomically. Names used in observable external protocols are semantic where the chosen observation model says so; metadata aliases may be separate. An interface group has member operations and possibly joint invariants and needs a separate group model, not a fabricated new hash acronym. Do not duplicate the authoritative provider-owned Contract reference in callers or bindings. Resolve each exact reference and include it in evidence inputs.
+
+### Proof composition and revision impact
+
+For public domain D, abstraction A and aligned semantics S, the proof chain is Body models C_impl under S and C_impl refines C_pub under A/S/D; only then conclude Body models C_pub, after discharging all assumptions. An abstract caller theorem may be valid conditional on C_pub while a closed execution claim remains unresolved. A direct proof against C_pub is useful but cannot certify an unproved provider contract. A client that relies on stronger facts than C_pub needs a separately modeled requirement. A provider satisfying C_pub need not be observationally equivalent to another provider satisfying it. Inlining or transparent rewrites may require equivalence, not only refinement.
+
+| Change | Name resolution | Modular caller proof | Provider/refinement proof | Exact build or closed proof |
+| --- | --- | --- | --- | --- |
+| Alias/catalog edit | Recheck affected and negative reads | Reuse only if exact resolved inputs unchanged | Reuse if inputs unchanged | Recheck affected resolution closure |
+| Body-only change | Unchanged | May reuse | Body proof invalidated; rebind evidence, refinement may be reused if inputs unchanged | Invalidate dependent link/execution evidence |
+| Provided contract change | Unchanged | May reuse | Recheck body and refinement | Recheck admission and dependent closure |
+| Public contract change | New operation revision | Keep old pins; prove or migrate new ones | Recheck against new revision | New exact closure where migrated |
+| Provider selection change | Unchanged | May reuse | Verify exact selected provider evidence | Recheck selected closure |
+| ABI mapping change | May be unchanged | Recheck if model observes ABI | Recheck applicable ABI obligations | Recheck target/link closure |
+
+This table is a candidate invalidation model; reuse is conditional on complete dependency tracking and stable applicable assumptions, not a promise of zero rebuilds.
+
+### Integration inventory
+
+The accompanying changes update concept (EN/RU), glossary, architecture decision navigation, PLAN/TODO/feature registry/taxonomy, SPG and identity, binding/refinement scenarios, dependency and cache, package/library and index, semantic verification and proof orchestration, complexity/discovery, Toolchain and publication, security, ABI, access/coherence, error/module evolution and benchmark design. Historical measured reports and executable schemas are not rewritten; where a follow-up is appended it is explicitly outside the original result. The original proposal is [PR #433](https://github.com/aivibeflow/LLMLang/pull/433); the exact integration changed-path list is in [PR #434](https://github.com/aivibeflow/LLMLang/pull/434). No executable result, human review, complete repository semantic audit, or Mermaid rendering is claimed by this integration pass.
+
+### Candidate admission procedure and falsification boundaries
+
+The user's proposed public-provider model requires a declared implementation contract and both proof obligations. A direct proof against the public contract alone does not satisfy this two-stage admission rule; it is an alternative research vector only if the project explicitly adopts a different model. An implementation can use the public contract as its own exact contract where the semantics allow identity refinement, but must still prove the body and validate the exact relation/profile.
+
+1. Resolve the scoped public name against a pinned catalog. Reject unresolved/ambiguous/unauthorized selections; retain the exact operation revision, public contract and negative lookup dependencies.
+2. Resolve the candidate provider and its single owned contract at exact identities. Check signature/type/ownership/ABI/profile compatibility before generating behavioral obligations.
+3. Independently generate and check body-to-provider and provider-to-public obligations. Require applicable abstraction and observation models, environmental assumptions, consistent/realizable contract domain, and any explicit termination/liveness/resource guarantees. Do not silently discard a clause when translation is unsupported.
+4. Verify certificate provenance, exact claim and input identities, evidence kind, checker policy and dependency closure. A finite test is not a universal proof. Treat a refuted, unsupported, stale or incomplete proof as non-admissible under proof-required policy; preserve its distinct diagnostic.
+5. Publish an immutable binding revision only against the expected semantic/catalog/binding baseline under authorized policy. Pin the selected provider in the build/execution context. Closed-system claims discharge the selected provider assumptions; modular caller proofs are separately tracked.
+
+A candidate proof obligation is not automatically a theorem. The basic pre/post rules hold only for a compatible typed state/outcome model with corresponding initial states and terminal outcomes; more general trace, relational, probabilistic and concurrent guarantees require their respective semantics. Interface-only design remains possible, but it is not a claim that a provider exists. Neither name stability nor contract refinement implies identical traces, runtime determinism across providers, universal ABI compatibility, or arbitrary transparent rewrites.
+
+**Validation boundary:** documentation integration only. The next executable milestone is a complete finite fragment with an independent oracle, negative and UNKNOWN controls, followed by backend/source correspondence and exact admission/cache tests. Existing archived measurements remain unchanged.

@@ -261,3 +261,9 @@ The evidence is deliberately bounded:
 - The prototype's SHA-256 choice, typed encoding, and table shapes are experimental and are not accepted as normative.
 
 This is a research proposal, not a normative LLMLang package specification.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Candidate package identity must commit to identity-bearing public export resolution and exact binding rows if included in distributed logical content. Keep provider-owned contract reference canonical; public Contract is resolved from operation, not copied into independent manifest fields. Distinguish release/name metadata, operation revision, package content root, selected provider, and proof envelope. A different provider binding can change the package root without changing OpHash. No package schema version change is made by this note.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

@@ -52,3 +52,9 @@ python -B -m src.binding_build_benchmark --cc /usr/bin/cc
 ```
 
 The benchmark prints per-stage counts and a witness showing why the caller's compile inputs cannot serve as its executable verification key. The recorded run used repository base `72822973f7cc9fd33ede66aad05e844bf25d5bd3` plus this working tree experiment. [Executable benchmark](PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py)
+
+## Public-interface integration (2026-11-24; proposed)
+
+Follow-up test plan: retain the separate-linkage workload and add independent public contract, provider contract, catalog and binding revisions. Compare modular caller proof reuse, compile action reuse, conformance-proof revalidation and link/whole-execution verification under body-only changes, incompatible contracts and public alias changes. The existing C benchmark demonstrates limited compile/link behavior, not a theorem of LLMLang interface substitution or proof reuse.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

@@ -174,3 +174,9 @@ The [executable seed corpus and infrastructure](PROOF-OBLIGATION-BENCHMARK/READM
 ## 10. Planned RT-34 resource-complexity expansion
 
 [RT-34](RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) and its [32-case proposed benchmark matrix](RT-34-COMPLEXITY-BENCHMARK.md) extend DOMAIN-05 to model-scoped asymptotic upper/lower/tight bounds, task optimality, symbolic size/cost summaries, recursion, memory, amortized/probabilistic costs, target correspondence and stale evidence. Keep FORM/DOMAIN tags multi-label; do not reuse case IDs. Preserve finite-vs-unbounded scope: a finite oracle does not establish asymptotic growth. Score correct abstention and bound precision separately from soundness. The matrix is a planning artifact, not a claim that the executable POB corpus already covers these cases.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Planned public-interface extension (not an executed benchmark): pair the same body with valid and invalid implementation contracts; pair the same valid provider contract with compatible and incompatible public contracts; include signature-only false positives, vacuity, missing termination, joint protocol invariants, wrong profile, stale/forged evidence, ambiguous/missing providers, and compatible rebinding with modular versus closed proof invalidation. Score body obligations, refinement obligations and admission/assumption closure separately; report UNKNOWN and unsupported models without coercing to pass. Cross-reference the existing taxonomy and avoid counting duplicate cases as new coverage.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

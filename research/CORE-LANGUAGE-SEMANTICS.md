@@ -352,3 +352,9 @@ Path-feasibility evidence now includes exhaustive finite assignments, repeated-m
 A second evaluator, [`rt03_smallstep.py`](PROTOTYPES/RT-04-01/rt03_smallstep.py), independently implements the same bounded fragment using explicit continuation/value stacks rather than recursive evaluation. [Differential tests](PROTOTYPES/RT-04-01/test_rt03_differential.py) compare ordered traces, results, and final state/file fixtures across pure, state, file, and network cases, including a generated corpus of short state-write sequences.
 
 The recursive and small-step implementations agree on their tested finite corpus, including explicit Result propagation, synchronous cancellation, and bounded resource cleanup. This is implementation-level cross-checking, not an independently authored specification, proof, or external audit: both models were developed against the same exploratory contract. Independent review remains a separate gate. The broader observation model still omits exceptions, asynchronous/concurrent semantics, general ownership and borrowing, divergence, and source-to-model completeness.
+
+## Public-interface integration (2026-11-24; proposed)
+
+For each semantic profile, specify the observable boundary of a public operation, its abstract and direct call semantics, name-resolution phase, explicit provider selection and error behavior for unresolved/ambiguous bindings. Compare sequential values, ordered effects, actor histories and divergence; one refinement rule over terminating values is not sufficient for all profiles. A public interface does not impose an OO object model, dynamic dispatch or a mandatory design layer. Private functions may still use exact implementation calls.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

@@ -226,3 +226,9 @@ The logical schema prototype is useful if it demonstrates:
 - digest change when identity-bearing records change.
 
 Passing these tests does not establish production readiness or a final binary index specification.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Future schema discriminator: existing Exports.object_hash can name a declaration or implementation; explicitly typed public operation/group targets and separately typed provider bindings need validation rather than overloading this field. Check namespace uniqueness, target-kind resolution, provider closure, exact proof applicability, and cross-package collisions. Test two providers for one operation and two operations sharing a contract. Any schema change needs versioned fixtures, canonical logical digest and merge tests; the existing executable logical model remains unchanged.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

@@ -679,3 +679,9 @@ The proposed LDE turns development into a controlled loop:
 **Request → Context → Structured Change → Semantic Diff → Impact Analysis → Independent Verification → Policy Review → Accepted Snapshot.**
 
 The LLM contributes semantic reasoning and candidate changes. LDE manages identity, context, dependencies, validation, verification, authorization, and history. The result is a development workflow that can be more token-efficient, auditable, and resistant to model-generation errors without claiming that any toolchain can guarantee the absence of all defects.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Context planning should supply an agent modifying a consumer with exact public interface contracts and necessary assumptions, not unrelated private provider bodies; supply provider-specific contracts and evidence when implementing or changing a provider. Structured changes distinguish public contract revision, implementation revision, catalog alias and binding changes. Independent validation checks both proof layers and exact admission, computes separate consumer/provider impact and rejects stale publication. Do not conflate a modular proof with whole-program correctness or claim guaranteed token savings without measurement.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

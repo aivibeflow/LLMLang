@@ -112,3 +112,9 @@ Do not score a backend as successful merely because it proves an incorrectly wea
 ## 10. Explicit non-decisions
 
 This brief does not select Lean, SMT, TLA+, or any other engine as universal verifier; require all proofs to be translated into Lean; make backend choice part of Contract IR semantics or LLMLang source syntax; assert that all backends provide independently checkable proof certificates; treat backend agreement as proof of translation correctness; or make a recommendation normative before comparative research and explicit review.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Public-interface admission is a heterogeneous obligation family: callable/type/ABI compatibility, body correctness, contract refinement, state abstraction, effects/ownership, resource bounds, and progress or history guarantees when promised. Backend selection occurs per obligation and must account for common semantic model and evidence strength. A proof of the body alone, signature match, or bounded trace agreement does not discharge the complete obligation set. Preserve independently checked exact endpoints and assumptions in the composition envelope. Add missing-obligation, stale-evidence, contradictory-contract and unsupported-liveness controls to the benchmark.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

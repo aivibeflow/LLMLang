@@ -104,3 +104,9 @@ Static error shape and compatibility policy are related but distinct. A language
 The table separates source compatibility, binary compatibility, and error-classification compatibility. “Binary compatible” does not mean old callers handle a newly thrown condition correctly; “open” does not mean callers have a reliable classification contract; and a wildcard fallback does not make a newly added condition semantically equivalent to prior cases.
 
 Sources: [Rust `non_exhaustive`](https://doc.rust-lang.org/std/attribute.non_exhaustive.html) and [Cargo SemVer guidance](https://doc.rust-lang.org/cargo/reference/semver.html); [Swift library evolution](https://www.swift.org/blog/library-evolution/) and [`@frozen`](https://docs.swift.org/latest/documentation/the-swift-programming-language/attributes/); [Java Language Specification §13.4.21](https://docs.oracle.com/en/java/javase/26/docs/specs/jls/jls-13.html); [Zig error sets](https://ziglang.org/documentation/master/#Error-Set-Type); [Go error wrapping](https://go.dev/blog/go1.13-errors).
+
+## Public-interface integration (2026-11-24; proposed)
+
+Follow-up: refine the public error contract on its admitted domain, not just the declared error-set type. Added failure modes, changed failure-state/cleanup semantics, or removed required notifications can break the public contract; narrowing allowed errors may be behaviorally compatible but still require callable/type/source compatibility checks. Treat changes as exact immutable revisions with explicit compatibility/migration evidence, not implicit cross-toolchain wire evolution.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

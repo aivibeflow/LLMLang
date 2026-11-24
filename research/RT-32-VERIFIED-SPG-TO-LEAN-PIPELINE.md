@@ -145,3 +145,9 @@ The PDG must support deterministic closure computation, incremental invalidation
 RT-03 supplies reference semantics and observable behavior; RT-05 supplies typed SPG identity and provenance; RT-07 supplies formal semantics, proof architecture, and TCB; RT-08 supplies fixtures and independent evidence; RT-09 supplies IR/lowering and source correspondence; RT-11 supplies incremental computation and invalidation; RT-24 supplies canonical semantic representation.
 
 This study does not select Lean as the only verifier, require all LLMLang constructs to be formalized at once, define new surface syntax, make proof generation part of the language core, or claim that all program properties are decidable.
+
+## Public-interface integration (2026-11-24; proposed)
+
+For a public operation, generate separately identified obligations for implementation body satisfies its provided contract, and provided contract refines the exact public contract. A caller proof consumes only the public contract facts actually needed; represent an unresolved provider as a traceable conditional assumption. A closed program claim needs an admitted binding and discharged assumptions, including semantic correspondence. PDG must distinguish body proof, refinement proof, binding admission, and public-contract use; recompose exact evidence after provider changes rather than rerun unaffected modular proofs or report an unresolved caller as unconditionally proven. Add negative fixtures for wrong revision, stronger provider precondition, divergence, stale proof, and incompatible observation models.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

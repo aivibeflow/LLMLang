@@ -282,3 +282,9 @@ RT-24 should be interpreted with these constraints, and its next revision should
 ## RT-04 semantic dependency
 
 The [RT-04 alternatives report](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) identifies type/refinement, effect/handler, resource/ownership, capability, and concurrency distinctions that may affect canonical SPG values and identity boundaries. Those fields remain candidates only; the identity decision is gated on RT-03/RT-04 executable scenarios and the RT-05/RT-07 reconciliation described here.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Distinguish immutable operation contract revision, stable public-name selector, logical continuity, provider binding revision, and external symbol mapping. A name can be a semantic field when externally observable, or an alias in a separately hashed catalog; compare these alternatives without imposing mandatory nominal identity on structural type values. A matching OpHash or ImplHash does not prove conformance. SPG admission and merge must resolve exact endpoints and verify the proof obligation closure; do not accept a dangling or unverified binding simply because its objects hash correctly.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

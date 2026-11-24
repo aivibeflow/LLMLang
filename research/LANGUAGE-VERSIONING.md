@@ -94,3 +94,9 @@ Package cache indexes remain optional derived data. These version fields and cac
 ## 7. Current decision boundary
 
 The append-only ordered registry and composite-version direction are accepted design decisions. The initial component identifiers above are the starting registry. This document is research/design material, not yet a normative language specification; implementation must wait until the open serialization and compatibility rules are resolved.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Separate the language/toolchain composite version from public interface lineage/revision, provider binding and package release. A compatible public contract evolution is a relation to the prior immutable revision, not a numerical version comparison or guarantee of cross-toolchain ABI/wire compatibility. Preserve the accepted single-toolchain build boundary; interface labels/major-version policy remain candidate. Exact pinned old operations stay resolvable where retained by policy.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

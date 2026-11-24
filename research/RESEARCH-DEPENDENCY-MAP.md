@@ -612,3 +612,27 @@ RT-35 studies semantic retrieval as a Toolchain capability. Approximate similari
 | DEP-233 | RT-35 → RT-20 | Influences | Exact hash resolution and compatibility evidence may refine call binding, caller migration, and change-impact planning. | Strong hypothesis |
 
 These edges are research hypotheses, not implementation commitments. KNN/ANN is candidate retrieval, never the authority for compatibility or invocation. The exact function hash remains the call-binding identity; fingerprints and indexes are derived, replaceable Toolchain data.
+
+## Public-interface cross-area dependencies (proposed RT-05/20 vector)
+
+See [public interfaces](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). These proposed conditional dependencies do not change numbered historical edges.
+
+```mermaid
+flowchart TD
+  S[RT-03/04 semantics and types] --> I[RT-05 public operation and name identity]
+  I --> D[RT-06 resolution and dependency closure]
+  S --> V[RT-07/32/33 body and refinement evidence]
+  R[RT-34 resource semantics] --> V
+  I --> V
+  D --> B[RT-11/12 build and package binding]
+  V --> B
+  T[RT-16 authority and trust] --> P[RT-19/20/23/24 publication and merge]
+  B --> P
+  V --> P
+  I --> F[RT-35 semantic discovery]
+  F --> B
+  P --> E[RT-18 interface evolution]
+  E --> I
+```
+
+The cycle is an iterative research dependency, not a cyclic content-hash requirement. Name resolution, provider proof, exact binding and publication are distinct gates. RT-09/13 ABI/backend correspondence and RT-08 independent benchmark evidence constrain verification/build gates. No normative profile is selected.

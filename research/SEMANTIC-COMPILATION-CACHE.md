@@ -392,3 +392,9 @@ Every record states LanguageVersion, LanguageComponentRegistryDigest, and Toolch
 A package may carry cache-index metadata only, with result payloads fetched from another cache/store, or both metadata and selected payloads. Missing or evicted payloads are ordinary cache misses. Cache indexes are optional and evictable; they do not change semantic object hashes or logical package identity. A cache hit is not itself proof of correctness: artifact integrity, evidence applicability, and producer trust remain separate checks.
 
 Cache indexes reuse compact-index techniques (canonical sort, binary search, streaming merge, optional block compression and sparse lookup) but remain logically separate from package Object/Symbol/Dependency indexes. This extends `research/PACKAGE-SYSTEM.md` and does not introduce a second Action Key scheme.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Use different dependency closures for name resolution, modular caller proof, caller compilation, provider proof, conformance proof, link and executable verification. A compatible provider replacement can reuse an interface-only proof if all proof inputs and assumptions are unchanged; caller machine code is reusable only across a stable non-inlined boundary with unchanged ABI and compile inputs. Exact selected provider and runtime context affect executable/link and closed-system evidence; do not key them by public name or OpHash alone. Changes to a provider contract invalidate its refinement evidence even if body bytes remain equal. Cache misses, unsupported proof fragments and incomplete resolution remain distinct from verified results.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

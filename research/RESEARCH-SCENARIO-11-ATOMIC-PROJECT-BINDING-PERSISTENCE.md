@@ -49,3 +49,9 @@ A project snapshot and a binding snapshot are still distinct immutable objects w
 ## Preliminary conclusion
 
 Persisting graph and bindings in one integrity-checked envelope is a useful minimum for reproducible reload. It does not by itself solve atomic concurrent updates or establish that a selected implementation conforms to its contract. A future project-root model should explicitly decide whether binding roots are direct members of the project snapshot or separately selected deployment/execution state.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Extend the project-state candidate envelope to pin the semantic graph, public export catalog, exact provider binding selections, applicable external mappings and required evidence closure as one consistent snapshot. Each logical revision remains immutable and independently identified. Reject mixed revision combinations even when each checksum validates; verify authorization and refinement separately from structural integrity. The original serialization experiment is not evidence of this stronger transaction/admission contract.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

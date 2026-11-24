@@ -96,3 +96,9 @@ No function signature, argument-label, default, return, variadic, or method decl
 ## 7. Sources and temporal limits
 
 Primary references were consulted on 2026-11-19. Swift docs describe version 6.4; Rust Reference and Go spec are rolling; Java references are Java SE/JLS 26. Pin versions before conformance studies. This document compares stated language rules and does not make performance claims.
+
+## Public-interface integration (2026-11-24; proposed)
+
+A bodyless public operation declaration is distinct from a concrete implementation declaration or foreign symbol. Model public parameter labels, defaults, result types, effects and ownership at the exact callable revision; body-level parameter mappings/adapters need explicit verification. Shape compatibility is necessary but does not establish public-contract refinement. Test named-argument changes, parameter permutation, default/variadic semantics and bodyless unresolved interfaces.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

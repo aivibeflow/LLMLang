@@ -43,3 +43,9 @@ python -B -m unittest -v tests.test_rt24_call_target_merge tests.test_rt24_seman
 ## Exact retained reproduction (2026-11-21)
 
 The declared command passed **18/18 tests** on exact checkout `fa98a20c8ab5d3f28980b609c04aaec135dddde5` under CPython 3.12.14 and Git 2.56.1. See [workflow run #44950912463](https://github.com/aivibeflow/LLMLang/actions/runs/44950912463) and retained artifact [14725820800](https://github.com/aivibeflow/LLMLang/actions/runs/44950912463/artifacts/14725820800). The artifact records the report/test/implementation SHA-256 values and log digest `e8896e6e060b87235e1c9ef7f74dae922d302c2823216c6f4ec2f3000f834b80`. The declared Git 2.52.0 environment is not reproduced by this run; the observed version is 2.56.1.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Follow-up: retargeting two direct concrete calls is distinct from replacing a scoped public provider binding. Add controls where independent changes to public contract and provider selection merge structurally but invalidate refinement evidence; validate the complete candidate before publication. Existing exact-retarget results remain bounded to the original fixture.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

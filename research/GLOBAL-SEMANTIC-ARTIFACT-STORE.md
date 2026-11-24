@@ -335,3 +335,9 @@ Libraries become versioned manifests of external interfaces and bindings. Contra
 This can make POSIX and OS ABI support evolve per wrapper rather than by copying entire library versions, while preserving traceability, reproducibility, and LLMLang's independent-verification boundary.
 
 The proposal is a research direction pending resolution of the open questions above.
+
+## Public-interface integration (2026-11-24; proposed)
+
+An exported public name resolves in an immutable scoped namespace/catalog revision to an exact OpHash (or an explicitly modeled interface group revision); provider selection is a second relation from that exact operation to an exact ImplHash. The provider owns its declared implementation Contract reference; the public Contract is resolved through the operation, not duplicated independently in the binding. The binding may commit to both exact identities as proof inputs. Separate external symbol/ABI mapping from both relations. Admit providers only after body-to-provider-contract and provider-to-public-contract checks, plus target and authority constraints. A stable name is not a mutable semantic object, and a public operation need not have a provider at design time. Distinguish behavioral refinement (sufficient for contract-based clients) from observational equivalence (needed for transparent behavior-preserving rewrites).
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

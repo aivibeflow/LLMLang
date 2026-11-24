@@ -139,3 +139,9 @@ No option is accepted, no TODO is resolved, and no behavior or conformance tests
 - [Global Semantic Artifact Store §3.6](GLOBAL-SEMANTIC-ARTIFACT-STORE.md#36-operation-identity-and-call-address)
 - [Scenario 91 — versioned content addresses](RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md)
 - [RT-05 / RT-20 call-site refactoring experiment](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md)
+
+## Public-interface integration (2026-11-24; proposed)
+
+Add the public-name/catalog revision as a separate resolution layer to the identity vectors. Distinguish an exact operation revision from a stable external selector and exact provider binding. A public contract may admit different traces, so OpHash pinning alone does not imply deterministic exact execution across providers. Pin the chosen provider and execution context for reproducibility; compare static resolution, explicit separately linked provider selection, and runtime admission as distinct research alternatives. Preserve the existing WIT/type-shape comparison without treating signature matching as contract refinement.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
