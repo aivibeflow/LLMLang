@@ -86,3 +86,5 @@ Result: 9/9 and 9/9 passed on CPython 3.12.14. The only new result here is the p
 - Maintainer approval of ADR-015 and the final backend/workflow remains an external decision.
 
 **Conclusion:** use separate immutable-object and workspace-transaction contracts, coordinated in one local DB transaction for the next experiment, with an explicit durable outbox and Git commit receipt. This is the most discriminating bounded path supported by the existing prototypes; production selection remains open.
+
+The [process crash recovery follow-up](RT-19-SQLITE-GIT-PROCESS-RECOVERY-2026-11-24.md) runs eight abrupt exits around real SQLite and Git operations and checks the reopened state, exact reconstruction and durable outcome.
