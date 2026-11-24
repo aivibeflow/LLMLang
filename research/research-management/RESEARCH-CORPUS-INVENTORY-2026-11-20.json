@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "f5172e63048774ed890aef5743607e2274ac8434",
+  "revision": "4ecac018c46aa1285e67b14bee83c9c0f0ae6389",
   "source": "Exact research path, blob and byte inventory for the rebased current-main tree and RT-19 concurrent workspace CAS recheck, excluding the inventory manifest itself.",
   "counts": {
-    "research_files": 936,
-    "research_artifacts_excluding_manifest": 936,
+    "research_files": 940,
+    "research_artifacts_excluding_manifest": 940,
     "markdown_files": 436,
     "mdx_files": 3,
     "python_files": 276,
@@ -35,7 +35,7 @@
       "research-rfc-or-protocol-proposal": 2
     }
   },
-  "classification_note": "Against latest main e8730cf (manifest excluded), this branch adds the RT-19 concurrent workspace CAS recheck and navigation references. Merged RT-02/RT-32 artifacts and RT-19 publication recheck #490 are individually role-reviewed. All 936 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Against latest main 690ccbb (manifest excluded), this branch adds the RT-19 concurrent workspace CAS recheck and navigation references. Merged RT-02/RT-13/RT-32 and RT-19 multi-file publication artifacts are role-reviewed. All 940 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -7943,6 +7943,54 @@
       "role_recheck": "Current title or module entry point, purpose and family reviewed. Claim reruns are tracked independently."
     },
     {
+      "path": "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/checked-add-results.json",
+      "git_blob_sha": "8a813c7ebc8cc144ab1f2347b8b567ff4c4d0f04",
+      "size_bytes": 12720,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-13"
+        ],
+        "method": "Results from whole-domain LLVM checked-add observation analysis and exact optimized-IR validation; merged PR #491.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        5
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/checked_add_formula.py",
+      "git_blob_sha": "c1e53d8a40ad14b8ca4a0d2db8dd2eb7bc43caa8",
+      "size_bytes": 9736,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-13"
+        ],
+        "method": "Formula generator for bounded LLVM signed checked-add observations; merged PR #491.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        5
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/checked_add_replay.py",
+      "git_blob_sha": "39ecd7a1ddae06df9c44263c277cf2723448d4bf",
+      "size_bytes": 7149,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-13"
+        ],
+        "method": "Exact optimized-IR replay validator for bounded signed checked-add observations; merged PR #491.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        5
+      ]
+    },
+    {
       "path": "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py",
       "git_blob_sha": "aa0d691782368e3722fd7afecb03dd0c6ee2b797",
       "size_bytes": 3705,
@@ -8449,8 +8497,8 @@
     },
     {
       "path": "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md",
-      "git_blob_sha": "585fbdd9411c9e2e7546ebf790a5d8c80d66881f",
-      "size_bytes": 7219,
+      "git_blob_sha": "ba8e6b9bb873ce103bec543df5eb6b3c545d7569",
+      "size_bytes": 7505,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -8496,6 +8544,22 @@
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
       }
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-OBSERVATIONS-2026-11-24.md",
+      "git_blob_sha": "269bf2372cf9a9c98a6a1fbc883c3d7bca7c2af7",
+      "size_bytes": 3945,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-13"
+        ],
+        "method": "RT-13 whole-domain observations for signed checked addition; merged PR #491.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        5
+      ]
     },
     {
       "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md",
@@ -17210,8 +17274,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "0f0a70ae28319282448f08cbb3b24342b925bd93",
-      "size_bytes": 98471,
+      "git_blob_sha": "ab364ac3f999e3a62bfbf55af5530af5b6a5fcc9",
+      "size_bytes": 98613,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -17351,8 +17415,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "04fb0e4485f20cb09a93bd75d17af3dc3abdbca2",
-      "size_bytes": 67535,
+      "git_blob_sha": "8059c4ca3e3614f4e7c8f50c274c8b301dc990da",
+      "size_bytes": 67722,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
