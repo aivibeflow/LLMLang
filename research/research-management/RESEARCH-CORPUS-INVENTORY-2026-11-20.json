@@ -2,14 +2,14 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "a396e2709c811ffb1810e2e62d93849c890d8ca6",
-  "source": "Exact current-main reconciliation at a396e2709c811ffb1810e2e62d93849c890d8ca6; PR-tree paths, blobs and sizes are refreshed against the reviewed worktree; manifest itself excluded.",
+  "revision": "264c97bec028c888e02305982e7dd8aab1d18e97",
+  "source": "Exact current-main reconciliation at 264c97bec028c888e02305982e7dd8aab1d18e97; PR-tree paths, blobs and sizes refreshed against the reviewed worktree; manifest itself excluded.",
   "counts": {
-    "research_files": 904,
-    "research_artifacts_excluding_manifest": 904,
-    "markdown_files": 432,
+    "research_files": 906,
+    "research_artifacts_excluding_manifest": 906,
+    "markdown_files": 433,
     "mdx_files": 3,
-    "python_files": 275,
+    "python_files": 276,
     "lean_source_files": 51,
     "scenario_named_documents": 136,
     "prototype_tree_files": 320,
@@ -19,7 +19,7 @@
     "category_counts": {
       "prototype-report-or-readme": 30,
       "prototype-or-experiment-implementation": 203,
-      "prototype-test-evidence": 197,
+      "prototype-test-evidence": 199,
       "other-research-artifact": 2,
       "index-or-research-management": 14,
       "research-area-or-experiment-document": 105,
@@ -28,14 +28,14 @@
       "research-preparation-brief-or-index": 13,
       "example-or-fixture": 49,
       "structured-fixture-or-schema": 19,
-      "audit-or-review-report": 85,
+      "audit-or-review-report": 87,
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13,
       "cross-cutting-synthesis-or-status": 4,
       "research-rfc-or-protocol-proposal": 2
     }
   },
-  "classification_note": "Against the 870-record manifest on main b7a4c0d, 14 additions have individual role review and 4 existing content changes were inspected. The current manifest reconciles all 884 tracked research paths. Role triage is not claim validation.",
+  "classification_note": "Against the 904-artifact manifest on main 264c97b, this PR adds the RT-11 direct-child timing report and raw evidence, each individually role reviewed. All 906 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -2727,8 +2727,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
-      "git_blob_sha": "ef00765e37c31b8fa5449bb475cce3f8ff56304d",
-      "size_bytes": 16084,
+      "git_blob_sha": "9190f78165777e8624662577eb1f08e1fab2cf8d",
+      "size_bytes": 15078,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -16927,8 +16927,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
-      "git_blob_sha": "7acc516bc97b5bb5310f7f492b53e21925fe75a5",
-      "size_bytes": 96862,
+      "git_blob_sha": "a865ca8637ad2d9a6f0653634e1511792a867efc",
+      "size_bytes": 97580,
       "category": "cross-cutting-synthesis-or-status",
       "traceability": {
         "items": [
@@ -20982,6 +20982,36 @@
       }
     },
     {
+      "path": "research/toolchain-and-collaboration/RT-11/RT-11-DIRECT-CHILD-TIMING-RECHECK-2026-11-24.md",
+      "git_blob_sha": "41939451e8a268c46842ff2881d03971920cefcb",
+      "size_bytes": 6539,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-11"
+        ],
+        "method": "individually reviewed as direct-child benchmark report/raw experimental timing evidence and cross-checked with PLAN.md §3.4",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        3
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-11"
+        ],
+        "plan_stages": [
+          3
+        ],
+        "basis": "Direct-child timing recheck and paired raw JSON; synthetic benchmark evidence only."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded timing-method comparison; no production performance or cache-policy claim."
+      }
+    },
+    {
       "path": "research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md",
       "git_blob_sha": "c5ef5ddf75c5f9cbc0ee1975f46be40b0858e4a2",
       "size_bytes": 23791,
@@ -21861,6 +21891,36 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Bounded RT-11 measurement report/raw JSON; two synthetic paired runs, not product performance evidence."
+      }
+    },
+    {
+      "path": "research/toolchain-and-collaboration/benchmarks/rt11-direct-child-timing-linux-2026-11-24.json",
+      "git_blob_sha": "27a700f92ee87013bb8d96e3d336a3eccdb12e77",
+      "size_bytes": 1433305,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-11"
+        ],
+        "method": "individually reviewed as direct-child benchmark report/raw experimental timing evidence and cross-checked with PLAN.md §3.4",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        3
+      ],
+      "family_scope_review": {
+        "status": "individual-file-role-triaged",
+        "areas": [
+          "RT-11"
+        ],
+        "plan_stages": [
+          3
+        ],
+        "basis": "Direct-child timing recheck and paired raw JSON; synthetic benchmark evidence only."
+      },
+      "semantic_review": {
+        "status": "file-role-triaged",
+        "basis": "Bounded timing-method comparison; no production performance or cache-policy claim."
       }
     }
   ],

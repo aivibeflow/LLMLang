@@ -12,7 +12,7 @@ The preceding [instrumented binding-action study](RT-11-ACTION-TIMING-INSTRUMENT
 
 The parent-side `wall_ns` includes process launch, execution, output capture and wait. It does not isolate compiler front-end time, full descendant process-tree CPU, cache lookup, or hashing. The existing `lookup_total_ns` still covers action/key/cache setup and is not a pure lookup measurement. The experimental JSON schema is `rt11-action-benchmark-timing-v2-direct-child`.
 
-Two complete exact/separate paired runs with timing enabled were recorded in [the raw JSON](../benchmarks/rt11-direct-child-timing-linux-2026-11-24.json). A separate two-run invocation with timing disabled was used as an end-to-end harness comparison. Both commands exited successfully; the driver checks each incremental result against a clean build and against the other linkage model for all six phases.
+Two complete exact/separate paired runs with timing enabled were recorded in [the raw JSON](../benchmarks/rt11-direct-child-timing-linux-2026-11-24.json). A separate two-run invocation with timing disabled was used as an end-to-end harness comparison. Both commands exited successfully; the driver checks each incremental result against a clean build and against the other linkage model for all six phases. A current-source rerun after rebasing to main `264c97b` repeated the clean-oracle assertions, 53/45 implementation-miss discriminator, and no-timing path. The new direct child-wall sums were 297.08 and 290.52 ms exact, and 189.82 and 182.66 ms separate; these rechecks reinforce the observed action-count direction but are a distinct run and do not retroactively replace the pinned raw artifact or support a performance claim.
 
 ## Results
 
