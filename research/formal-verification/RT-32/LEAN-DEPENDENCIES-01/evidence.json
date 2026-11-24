@@ -1,0 +1,824 @@
+{
+  "baseline": {
+    "build": {
+      "Caller": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.conditionalProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": false,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        }
+      },
+      "Inspect": {},
+      "Provider": {
+        "ReceiptFixture.checkedProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedProvider",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerBridge"
+          ]
+        },
+        "_private.Provider.0.ReceiptFixture.providerBridge": {
+          "has_value": true,
+          "subject": "_private.Provider.0.ReceiptFixture.providerBridge",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.environmentPremise"
+          ]
+        }
+      }
+    },
+    "compiled_sha256": {
+      "Caller.olean": "5ce8327f5c94df7cd2eb6470f5d50f6b3ce3d0a0f8b3d1f924f05a01825b462a",
+      "Caller.olean.private": "b3a6cb7491e5f900501425f05ee25b72021997d54a6c84c6445e3f65b824af21",
+      "Caller.olean.server": "a5d37597461f0adebeced0566f0efee2a9b3ad39971db3d16bebf88aa464e8c7",
+      "Provider.olean": "d9a689f251450de542255214f5a0ad32975ea5b700f6d1afc8496d188fa8b397",
+      "Provider.olean.private": "790796d2dc73636154b585deb521b00bbfc89fc68c0aecbdaed03ec737375e89",
+      "Provider.olean.server": "3286376fc252f3111337c83816162d7e48ba49b8b8a0a82de25bedc1223a6387"
+    },
+    "views": {
+      "ImportedAll": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.conditionalProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerBridge"
+          ]
+        },
+        "ReceiptFixture.environmentPremise": {
+          "has_value": false,
+          "subject": "ReceiptFixture.environmentPremise",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "_private.Provider.0.ReceiptFixture.providerBridge": {
+          "has_value": true,
+          "subject": "_private.Provider.0.ReceiptFixture.providerBridge",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.environmentPremise"
+          ]
+        }
+      },
+      "ImportedLegacy": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.conditionalProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerBridge"
+          ]
+        },
+        "ReceiptFixture.environmentPremise": {
+          "has_value": false,
+          "subject": "ReceiptFixture.environmentPremise",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        }
+      },
+      "ImportedPublic": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": false,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": false,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": false,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.environmentPremise": {
+          "has_value": false,
+          "subject": "ReceiptFixture.environmentPremise",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        }
+      }
+    }
+  },
+  "controls": {
+    "cli_views_rejected_with_private_files_removed": [
+      "OnlyPublic",
+      "ImportedPublic",
+      "ImportedAll"
+    ],
+    "discharged_public_composition_axioms": [
+      "propext"
+    ],
+    "extra_hop_all_caller_compiled_files_same": true,
+    "extra_hop_private_provider_olean_same": false,
+    "extra_hop_public_provider_olean_same": true,
+    "extra_private_edge": [
+      "_private.Provider.0.ReceiptFixture.providerRelay"
+    ],
+    "proof_statement_constants_unchanged": true
+  },
+  "discharged": {
+    "build": {
+      "Caller": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.conditionalProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": false,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        }
+      },
+      "Inspect": {},
+      "Provider": {
+        "ReceiptFixture.checkedProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedProvider",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerBridge"
+          ]
+        },
+        "_private.Provider.0.ReceiptFixture.providerBridge": {
+          "has_value": true,
+          "subject": "_private.Provider.0.ReceiptFixture.providerBridge",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        }
+      }
+    },
+    "compiled_sha256": {
+      "Caller.olean": "504ae55660c863b9be22bdc5358276b66296184365dc1ac418e3fa9d996347b1",
+      "Caller.olean.private": "0c1fd95ab63592cf71ae98244d04eb45fa5c9b9223a742dd1bd40c70ccab73e9",
+      "Caller.olean.server": "6d45266ad90777b71fcff3f65a9e26c55e82b35cfa60c46aabe50be438125973",
+      "Provider.olean": "67fe333f5d6c1997d9173552823d892424499df52afc91ec9ccc226ee986959b",
+      "Provider.olean.private": "3411c0f621c50e780358faa8f89497672c95810726ea2e1afe74793806470ce9",
+      "Provider.olean.server": "771320924cdb4c22ffc395b7f2505f5b186935cb84e2a0d53b8cadb43365067f"
+    },
+    "views": {
+      "ImportedAll": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.conditionalProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerBridge"
+          ]
+        },
+        "ReceiptFixture.environmentPremise": {
+          "has_value": false,
+          "subject": "ReceiptFixture.environmentPremise",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "_private.Provider.0.ReceiptFixture.providerBridge": {
+          "has_value": true,
+          "subject": "_private.Provider.0.ReceiptFixture.providerBridge",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        }
+      },
+      "ImportedLegacy": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.conditionalProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerBridge"
+          ]
+        },
+        "ReceiptFixture.environmentPremise": {
+          "has_value": false,
+          "subject": "ReceiptFixture.environmentPremise",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        }
+      },
+      "ImportedPublic": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": false,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": false,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": false,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.environmentPremise": {
+          "has_value": false,
+          "subject": "ReceiptFixture.environmentPremise",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        }
+      }
+    }
+  },
+  "extra_private_hop": {
+    "build": {
+      "Caller": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.conditionalProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": false,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        }
+      },
+      "Inspect": {},
+      "Provider": {
+        "ReceiptFixture.checkedProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedProvider",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerBridge"
+          ]
+        },
+        "_private.Provider.0.ReceiptFixture.providerBridge": {
+          "has_value": true,
+          "subject": "_private.Provider.0.ReceiptFixture.providerBridge",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerRelay"
+          ]
+        },
+        "_private.Provider.0.ReceiptFixture.providerRelay": {
+          "has_value": true,
+          "subject": "_private.Provider.0.ReceiptFixture.providerRelay",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.environmentPremise"
+          ]
+        }
+      }
+    },
+    "compiled_sha256": {
+      "Caller.olean": "5ce8327f5c94df7cd2eb6470f5d50f6b3ce3d0a0f8b3d1f924f05a01825b462a",
+      "Caller.olean.private": "b3a6cb7491e5f900501425f05ee25b72021997d54a6c84c6445e3f65b824af21",
+      "Caller.olean.server": "a5d37597461f0adebeced0566f0efee2a9b3ad39971db3d16bebf88aa464e8c7",
+      "Provider.olean": "d9a689f251450de542255214f5a0ad32975ea5b700f6d1afc8496d188fa8b397",
+      "Provider.olean.private": "a05af4fdd7ce64363f3af690fab60a15d72041196ba7a8a8072e3759fa62f7b3",
+      "Provider.olean.server": "9c473b39c9c9944ff5a69cd82e75b2a60e07210376a45a07ac2eb9e7a3f45dc0"
+    },
+    "views": {
+      "ImportedAll": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.conditionalProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerBridge"
+          ]
+        },
+        "ReceiptFixture.environmentPremise": {
+          "has_value": false,
+          "subject": "ReceiptFixture.environmentPremise",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "_private.Provider.0.ReceiptFixture.providerBridge": {
+          "has_value": true,
+          "subject": "_private.Provider.0.ReceiptFixture.providerBridge",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerRelay"
+          ]
+        },
+        "_private.Provider.0.ReceiptFixture.providerRelay": {
+          "has_value": true,
+          "subject": "_private.Provider.0.ReceiptFixture.providerRelay",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.environmentPremise"
+          ]
+        }
+      },
+      "ImportedLegacy": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.checkedProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "ReceiptFixture.conditionalProvider"
+          ]
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": true,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": [
+            "_private.Provider.0.ReceiptFixture.providerBridge"
+          ]
+        },
+        "ReceiptFixture.environmentPremise": {
+          "has_value": false,
+          "subject": "ReceiptFixture.environmentPremise",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        }
+      },
+      "ImportedPublic": {
+        "ReceiptFixture.checkedComposition": {
+          "has_value": false,
+          "subject": "ReceiptFixture.checkedComposition",
+          "transitive_axioms": [
+            "propext"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.conditionalComposition": {
+          "has_value": false,
+          "subject": "ReceiptFixture.conditionalComposition",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.conditionalProvider": {
+          "has_value": false,
+          "subject": "ReceiptFixture.conditionalProvider",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        },
+        "ReceiptFixture.environmentPremise": {
+          "has_value": false,
+          "subject": "ReceiptFixture.environmentPremise",
+          "transitive_axioms": [
+            "ReceiptFixture.environmentPremise"
+          ],
+          "type_constants": [
+            "ReceiptFixture.ReturnsInput"
+          ],
+          "value_constants": []
+        }
+      }
+    }
+  },
+  "inputs_sha256": {
+    "Caller.lean": "cc04aa178a66277b5e86ddbc3c2b35a42d0b313dae509191dd83e7caeb25898e",
+    "ImportedAll.lean": "095ada32b33bd25ab548b761110ea3b93274b019f80760b1c5d92006894c9736",
+    "ImportedLegacy.lean": "d29c414dfc55e47b0aededc74531b8d0a5ac2d344d08b5011248ddb9e256b935",
+    "ImportedPublic.lean": "2d589a1d4994c8ad97df65e5762c84f7b888da39a97e6ba54fb4c7b136f210f5",
+    "Inspect.lean": "365c8a968687070aeede245b9d392eff80c02e52aa72baeff5469438aeb6caf1",
+    "OnlyPublic.lean": "eda18d80825ba6e10640f3a03daf04f732864ac9bd2953dd1859228daa51a74d",
+    "Provider.lean": "453be504c1e70324dbbe7c1b4eaf48494587ff5e07c468e69b129ac7fd695648",
+    "replay.py": "be1abeffb82c646b51b6d75762e92d433e20939704bbf203444e50593825a3b5"
+  },
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+}
