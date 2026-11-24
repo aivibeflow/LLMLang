@@ -254,6 +254,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Research output (2026-11-21)** · Independent graph admission distinguishes persistence integrity from typed executable structure. Nine rehashed invalid graphs pass persistence and fail the new checker. [Typed SPG import validation](research/semantic-representation/RT-05/RT-05-TYPED-SPG-IMPORT-VALIDATION.md)
 
+**Repository representation evidence (2026-11-24)** · The closed declaration fixture preserves semantic roots and exact selections under 24 physical layouts. Packed and per-slot canonical export give different blob and byte costs for scoped updates. [Canonical Git layouts](research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-GIT-LAYOUTS-2026-11-24.md).
+
 **Status** · Partially validated for the closed scalar and ordered-event fixture. The canonical schema, wider language and repository correspondence, and identity rules remain open.
 
 ## 1.2 Semantic identity, hashes, and canonical encoding
@@ -782,7 +784,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Reconcile the selected identity model with RT-03 language semantics and RT-04 type/effect research before freezing hash-relevant fields and canonical SPG object/edge schemas.
 - [ ] Integrate the existing ReverseLookupEvidence/query_snapshot_incoming completeness gate with RT-20 CIP and the semantic merge coordinator; define the independent audit producer, observation coverage, evidence trust policy, and end-to-end fail-closed tests. The prototype already binds evidence to snapshot, target, scope, extractor/schema, and exact edge-set digest, but does not authenticate the producer or prove its observation model complete.
 - [ ] Select the smallest supported SPG subset and specify its textual source inventory/manifest fixture. Keep the repository source textual; treat local stores, caches, and indexes as reconstructible derived state.
-- [ ] Implement deterministic importer/exporter for that subset and test semantic round-trip, byte-identical canonical export, physical independence (format/order/file moves), explicit schema versioning, and fail-closed errors.
+- [x] Compare two canonical Git exports for the existing closed-inventory fixture. Twenty-four physical input trees reach one semantic root and one exact artifact per layout. Verify round-trip identity, ordered payload changes and five rejected inputs. [Canonical Git layouts](research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-GIT-LAYOUTS-2026-11-24.md).
+- [ ] Extend the importer/exporter experiment to the selected SPG and repository schema, including its broader syntax, dependencies and portability contracts.
 - [ ] Implement typed SemanticDiff with exact snapshot binding, per-call-site reference changes, root/dependency changes, lineage records, and deterministic output.
   - Closed-inventory evidence covers exact retargets, conditions, physical moves and missing input. [Typed tree diff](research/toolchain-and-collaboration/RT-24/RT-24-TYPED-TREE-DIFF.md)
 - [ ] Implement a pure three-way merge core over pinned base/ours/theirs snapshots. Apply only unambiguous rules; emit structured conflicts for update/update, delete/update, identity/lineage, retarget, dependency, root, and unsupported-context cases.
