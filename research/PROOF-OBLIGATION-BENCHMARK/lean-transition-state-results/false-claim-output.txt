@@ -1,0 +1,5 @@
+'controlAll' depends on axioms: [propext, Classical.choice, Quot.sound]
+'controlFinal' depends on axioms: [propext, Classical.choice, Quot.sound]
+FalseClaim.lean:58:56: error: Tactic `decide` proved that the proposition
+  observe [0] controlActions = [[0], [0]]
+is false
