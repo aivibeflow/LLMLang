@@ -1,0 +1,3 @@
+session LLMLang_AbstractLookup = AInvs +
+  options [document = false, skip_proofs = false, quick_and_dirty = false]
+  theories AbstractLookup
