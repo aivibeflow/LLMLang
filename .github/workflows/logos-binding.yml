@@ -45,6 +45,11 @@ jobs:
           denotation_output=$(mktemp)
           timeout 180s lake env lean -DwarningAsError=true --run LogosScalarDenotation.lean > "$denotation_output"
           cmp evidence/logos-denotation/observations.txt "$denotation_output"
+      - name: Check scalar expression preservation and its axiom dependencies
+        run: |
+          preservation_output=$(mktemp)
+          lake env lean -DwarningAsError=true LogosScalarPreservation.lean > "$preservation_output"
+          cmp evidence/logos-preservation/axioms.txt "$preservation_output"
       - name: Run parser-state binding and semantic correspondence tests
         run: |
           timeout 180s lake env lean -DwarningAsError=true --run Main.lean
