@@ -60,6 +60,10 @@ See [finite coverage matrix](COVERAGE-MATRIX.md) for POB-025–040 and the expli
 
 See [coverage v2 and the deterministic generator](COVERAGE-V2.md): a multi-axis gap inventory, candidate 300-cell interaction matrix, and an executable finite formula generator with separate direct oracle. The original 80-cell gate remains unchanged. See also the [finite transition generator](TRANSITION-GENERATOR.md) for state, memory, resource, effect and trace profiles, and the [structural and system generator](SYSTEM-GENERATOR.md) for bounded heap graphs, protocol failures, multi-component guarantees and foreign-buffer models.
 
+## Recursive and higher-order profile
+
+See [recursive and higher-order contract generator](RECURSIVE-GENERATOR.md) for inductive data, finite function tables, fixed points and regular infinite traces.
+
 ## Format and contribution
 
 [Case schema](case.schema.json), [taxonomy](taxonomy.json), [experiment protocol](EXPERIMENT-PROTOCOL.md), and [human case template](../PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md). Each case has a stable ID/revision, contract, assumptions, scope, obligation IDs/dependencies, variants and independent expected outcomes. Preserve old revisions and change logs before replacing an accepted oracle. The current Python runner checks the v1 finite-seed subset and dependency closure; the JSON schema documents the interchange shape, not a normative Contract IR. New oracle implementations require independent review of contract and mutant, at least one distinguishing counterexample, alternative valid implementations where meaningful, and explicit bound/assumption reporting. Do not silently expand a model's claimed scope.

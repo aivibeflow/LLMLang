@@ -27,6 +27,10 @@ python research/PROOF-OBLIGATION-BENCHMARK/generative/generate.py --count 10000 
 
 Use optional `--output corpus.jsonl` to create a new file containing complete formulas and gold outcomes. Do not feed that file to evaluated models. The summary records exact corpus digest, code digests, seed, distinct formula triples, family distribution and mutation count. Re-run with identical code and seed to reproduce. A different seed may overlap the public family space; never call it independent held-out data. Ten thousand syntactically distinct parameterizations of six families are not ten thousand distinct semantic classes. All runs are bounded finite checks, not proofs.
 
+## Recursive and regular-infinite profile
+
+See [recursive and higher-order contract generator](RECURSIVE-GENERATOR.md) for nine new candidate families under recursive/. These do not establish universal induction or arbitrary coinductive correctness.
+
 ## Remaining work
 
 - #402: real strings/Unicode, geometric predicates, external APIs, clocks, inductive and coinductive properties, higher-order and effectful contracts, whole-system workloads, reviewed applicability and interaction witnesses.

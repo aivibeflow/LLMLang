@@ -14,6 +14,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v5
+      - name: Run recursive and higher-order contract generator
+        run: |
+          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/test_recursive.py
+          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/generate.py --count 90 --seed 42 > pob-recursive-summary.json
       - name: Run finite reference and mutation controls
         run: |
           python3 research/PROOF-OBLIGATION-BENCHMARK/test_runner.py
@@ -36,6 +40,7 @@ jobs:
         with:
           name: pob-smoke
           path: |
+            pob-recursive-summary.json
             pob-smoke.json
             pob-coverage-v2.json
             pob-generated-summary.json

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "scope": "Exploratory finite inductive structures, finite function tables, finite monotone relation operators, regular infinite streams and lasso traces. Not normative LLMLang semantics.",
+  "families": [
+    "list_induction",
+    "tree_induction",
+    "map_fusion",
+    "function_extensionality",
+    "mutual_recursion",
+    "least_fixed_point",
+    "greatest_fixed_point",
+    "stream_bisimulation",
+    "lasso_until"
+  ],
+  "limits": {
+    "list_length": 5,
+    "tree_depth": 3,
+    "function_domain": 3,
+    "graph_nodes": 4,
+    "stream_period": 4,
+    "lasso_prefix": 3,
+    "lasso_period": 4
+  },
+  "verdicts": [
+    "bounded_pass",
+    "disproven"
+  ],
+  "note": "Complete traversal of a finite representation can decide a property of that regular infinite model, but does not establish universal correctness for arbitrary programs."
+}

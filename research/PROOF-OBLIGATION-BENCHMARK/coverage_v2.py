@@ -8,6 +8,7 @@ ROOT=Path(__file__).resolve().parent
 def report(cases, registry, taxonomy, target):
     ids={c["id"]:c for c,_ in cases}
     families={"interval","sum","forall_exists","exists_forall","unique","composition"} | {"transition/"+f for f in ("transfer","lifetime","reservation","authorized_effect","cancel_cleanup","retry","deadline","interleaving","security_trace")} | {"system/"+f for f in ("heap_separation","graph_gc","partition_retry","quorum","fulfillment","rolling_upgrade","ffi_buffer")}
+    families |= {"recursive/"+f for f in ("list_induction","tree_induction","map_fusion","function_extensionality","mutual_recursion","least_fixed_point","greatest_fixed_point","stream_bisimulation","lasso_until")}
     axes={}
     for axis,entries in registry["axes"].items():
         rows={}
