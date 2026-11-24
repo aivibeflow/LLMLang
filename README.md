@@ -72,6 +72,7 @@ If you're building an LLM-native programming language, a semantic IR for coding 
 ## Research planning
 
 - [RT-34 — Automatic Complexity Inference and Resource Verification](research/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) — proposed research on model-scoped resource contracts, automatic inference and proof of SPG implementation complexity, problem lower bounds and optimality; [benchmark plan](research/RT-34-COMPLEXITY-BENCHMARK.md). No analyzer or normative design selected.
+- [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](research/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) — explicit external-contract premises, conditional proof closure, trust policy and revocation (P0 research).
 
 - [Research taxonomy](research/RESEARCH-TAXONOMY.md) — research areas, current coverage, and required outputs for each research.
 - [RT-03 — Core Language Semantics](research/CORE-LANGUAGE-SEMANTICS.md) — candidate semantic vectors and four profiles (pure functional, imperative/linear, actor/concurrent, effectful functional), compatibility tensions, downstream dependencies, and experiments. No profile is selected.

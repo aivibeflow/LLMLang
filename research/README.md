@@ -44,6 +44,10 @@ Start with [Research State 2026-11-19](RESEARCH-STATE-2026-11-19.md) for the cur
 - [RT-34 — Automatic Complexity Inference, Resource Contracts, and Algorithm Optimality Verification](RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) — research goal, computational models, typed resource contracts, compositional inference, problem lower bounds, independent proof checking, cost-preserving lowering and 20 work packages.
 - [RT-34 complexity benchmark plan](RT-34-COMPLEXITY-BENCHMARK.md) — 32 proposed cases across contract formalization, proof obligations, problem lower bounds and finite measurement; not an executed corpus. [Issue #412](https://github.com/aivibeflow/LLMLang/issues/412).
 
+## Formal verification assumptions and trust boundaries
+
+- [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) — P0 research on typed assumptions, foreign bindings, proof closure and discharge, independent evidence/status dimensions, policy-controlled admission and adversarial benchmark. [Issue #436](https://github.com/aivibeflow/LLMLang/issues/436).
+
 ## Contract formalization evaluation corpus
 
 - [Proof Obligation Benchmark](PROOF-OBLIGATION-BENCHMARK.md) — a proposed multi-label taxonomy and evaluation plan for obligation generation, backend selection, translation correspondence, checking, evidence aggregation, and abstention. Includes a reusable [case template](PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md); complements rather than replaces the CF corpus. See the [executable seed corpus](PROOF-OBLIGATION-BENCHMARK/README.md).
