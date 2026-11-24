@@ -1,0 +1,41 @@
+{
+  "id": "POB-023",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Termination measure",
+  "labels": [
+    "FORM-03",
+    "FORM-05",
+    "DOMAIN-01"
+  ],
+  "contract": "Countdown over nonnegative integers reaches zero in exactly n steps; each loop step strictly decreases a natural measure.",
+  "scope": "Starting n=0..5; examine up to six transitions; no unbounded theorem.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Trace begins at n, ends at zero, has n transitions, every transition decreases by one.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "countdown",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Stutter at state 1.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Construct descending sequence using range.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

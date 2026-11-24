@@ -1,0 +1,41 @@
+{
+  "id": "POB-022",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Trace non-interference",
+  "labels": [
+    "FORM-04",
+    "FORM-06",
+    "DOMAIN-10"
+  ],
+  "contract": "For equal public input, executions differing only in secret must expose identical public output AND public step count.",
+  "scope": "Public and secret bits, explicit abstract observation (value, steps); no wall-clock claim.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "For every pair of secrets, observations equal (public,2).",
+      "dependencies": []
+    }
+  ],
+  "oracle": "trace_isolation",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Perform one additional observable step for secret=1.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Pad both branches to two steps.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

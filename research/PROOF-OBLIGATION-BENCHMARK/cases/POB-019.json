@@ -1,0 +1,41 @@
+{
+  "id": "POB-019",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Finite probabilistic guarantee",
+  "labels": [
+    "FORM-02",
+    "DOMAIN-01",
+    "DOMAIN-02"
+  ],
+  "contract": "Given a uniform four-element sample space, a coin mapping must return 0 and 1 with equal probability.",
+  "scope": "Exactly four equally likely outcomes, all enumerated; no PRNG independence claim.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Each output has exactly half of total probability mass.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "probability",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Map three outcomes to zero and one to one.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use high bit rather than low bit.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

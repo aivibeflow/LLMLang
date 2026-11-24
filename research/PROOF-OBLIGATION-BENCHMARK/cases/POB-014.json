@@ -1,0 +1,41 @@
+{
+  "id": "POB-014",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Typed option elimination",
+  "labels": [
+    "FORM-01",
+    "FORM-02",
+    "DOMAIN-09"
+  ],
+  "contract": "An option contains either None or an integer; elimination returns the integer or an explicit absent result, never conflating zero with absence.",
+  "scope": "None and integers -1,0,1; tagged abstract values only.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Presence tag and value preserved; zero is present.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "option",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Use truthiness to decide presence.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Pattern match on an explicit tagged pair.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

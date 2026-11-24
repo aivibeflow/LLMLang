@@ -1,0 +1,40 @@
+{
+  "id": "POB-018",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Binary rounding boundary",
+  "labels": [
+    "FORM-02",
+    "DOMAIN-01"
+  ],
+  "contract": "Round half-way rational values to the nearest integer, ties to even; no claim about floating-point runtime.",
+  "scope": "Exact halves n/2 for n=-7..7.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Minimize exact rational distance and choose even integer on ties.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "rounding",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Round ties away from zero.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use exact Fraction and built-in round.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "POB-024",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Dropped translation constraint",
+  "labels": [
+    "FORM-01",
+    "FORM-06",
+    "DOMAIN-01"
+  ],
+  "contract": "A translated admissibility predicate for source 0<=x<=2 must preserve and reflect admission.",
+  "scope": "Integers -2..4; predicate-level correspondence only.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Source and target have identical truth tables; rejected inputs remain rejected.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "translation",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Drop upper bound.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Represent admitted values as a finite disjunction.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

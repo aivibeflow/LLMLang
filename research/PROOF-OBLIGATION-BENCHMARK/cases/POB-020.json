@@ -1,0 +1,42 @@
+{
+  "id": "POB-020",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Concurrent lost update",
+  "labels": [
+    "FORM-03",
+    "FORM-06",
+    "DOMAIN-06",
+    "DOMAIN-08"
+  ],
+  "contract": "Two increment operations each complete once; final counter is 2, as required by any sequential ordering of two increments.",
+  "scope": "All six interleavings of two threads, each with read then write; initial zero; atomic reference linearizes at write; sequential consistency only.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Final counter equals count of completed increment operations, two.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "lost_update",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Write previously read value plus one.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use atomic increment at read, with write a no-op.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

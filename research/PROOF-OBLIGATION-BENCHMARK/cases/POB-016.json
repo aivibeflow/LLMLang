@@ -1,0 +1,42 @@
+{
+  "id": "POB-016",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Caller/callee precondition",
+  "labels": [
+    "FORM-01",
+    "FORM-02",
+    "FORM-06",
+    "DOMAIN-01"
+  ],
+  "contract": "Caller accepts integers -2..2. Callee is defined only for x>=0 and returns x*x. Caller must establish callee precondition and return input square.",
+  "scope": "Finite integers -2..2, one call and no side effects.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Call argument nonnegative and returned result equals original input squared.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "compose",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Call with raw negative input.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use conditional negation rather than absolute value.",
+      "expected": "bounded_pass"
+    }
+  ]
+}
