@@ -1,0 +1,129 @@
+{
+  "configuration": {
+    "isabelle": "Isabelle2025-2",
+    "isabelle_source": "e64f55a6b7d0e803f73f13e346e7630f3f021dc8",
+    "l4v": "12c300e75bb0ca0c82f76496fafacd7e614c0aba",
+    "polyml": "5.9.2",
+    "profile": "RISCV64 default non-MCS",
+    "quick_and_dirty": false,
+    "release": "seL4 17.0.0",
+    "seL4": "62e345c240a15671484530b4e6e069ce266c28d7",
+    "skip_proofs": false,
+    "threads": 1,
+    "timeout_scale": 4
+  },
+  "format": "rt38-sel4-refined-lookup/1",
+  "upstream": {
+    "command": "./run_tests -j1 -f -v --junit-report /proof/refine.xml Refine",
+    "full_log_sha256": "1a5547e04ed8a6a1b89e952a2146c091dfead3fdbb9247c674274a56a8ce0de0",
+    "heap_sha256": {
+      "BaseRefine": "07ab7a088124d1d94f4948cb9e65938dad29cf3e8cdaa4132b8ebfe80def118e",
+      "Refine": "9c0a9b65b13c5d5bc365a11c41203564619c82e58d2e2d434b09c0e1a5d1e7f1"
+    },
+    "input_sha256": {
+      "proof/ROOT": "01160bd4b7648166982256fe01605d6347a551b5e35568ed7f0bbf7194dc55d6",
+      "proof/invariant-abstract/Syscall_AI.thy": "1aad618124c55e0b304f10229b8c3686d4cd1536b64661e4565b594bb1818cc6",
+      "proof/refine/Ipc_R.thy": "a4155cda63d033f8f6846ab73b0569c4718c779a4715d1311dad4b3177106b27",
+      "spec/design/CSpace_H.thy": "c7546bb714c8b814fff14270354c9c370906c7b0e14526ec20f4e6218ec56962"
+    },
+    "junit_sha256": "1782ecd09d85a30667fa470e1a8ce72946b38e642043bb81cf147c10a625e7b3",
+    "selected_lines": [
+      "  Finished BaseRefine                passed    (0:05:37 real, 0:05:57 cpu,  5.97GB)",
+      "Refine: theory Refine.Ipc_R 100% (775.449s cumulated time)",
+      "Refine: theory Refine.RefineToplevel_R 100% (2.908s cumulated time)",
+      "  Finished Refine                    passed    (2:08:55 real, 2:13:10 cpu, 13.52GB)",
+      "9/9 tests succeeded.",
+      "All tests passed."
+    ],
+    "targets": [
+      {
+        "classname": "",
+        "name": "isabelle",
+        "outcome": "pass",
+        "time": "23.138100"
+      },
+      {
+        "classname": "",
+        "name": "Lib",
+        "outcome": "pass",
+        "time": "505.633262"
+      },
+      {
+        "classname": "",
+        "name": "kernel-config",
+        "outcome": "pass",
+        "time": "1.013761"
+      },
+      {
+        "classname": "",
+        "name": "haskell-translator",
+        "outcome": "pass",
+        "time": "2.074223"
+      },
+      {
+        "classname": "",
+        "name": "ASpec-files",
+        "outcome": "pass",
+        "time": "0.502160"
+      },
+      {
+        "classname": "",
+        "name": "ASpec",
+        "outcome": "pass",
+        "time": "439.231176"
+      },
+      {
+        "classname": "",
+        "name": "AInvs",
+        "outcome": "pass",
+        "time": "3855.197266"
+      },
+      {
+        "classname": "",
+        "name": "BaseRefine",
+        "outcome": "pass",
+        "time": "337.254558"
+      },
+      {
+        "classname": "",
+        "name": "Refine",
+        "outcome": "pass",
+        "time": "7735.519421"
+      }
+    ]
+  },
+  "wrapper": {
+    "builds": [
+      {
+        "selected_lines": [
+          "LLMLang_RefinedLookup: theory LLMLang_RefinedLookup.RefinedLookup 100% (1.871s cumulated time)",
+          "Finished LLMLang_RefinedLookup (0:00:08 elapsed time, 0:00:08 cpu time, factor 0.94)",
+          "Finished at Tue Nov 24 23:52:06 GMT 2026"
+        ],
+        "sha256": "a52db062689d23e78dc0e18a9073c6289075a1c9818ae0c61573c4ae010a72bd"
+      },
+      {
+        "selected_lines": [
+          "LLMLang_RefinedLookup: theory LLMLang_RefinedLookup.RefinedLookup 100% (2.736s cumulated time)",
+          "Finished LLMLang_RefinedLookup (0:00:11 elapsed time, 0:00:10 cpu time, factor 0.94)",
+          "Finished at Tue Nov 24 23:52:51 GMT 2026"
+        ],
+        "sha256": "d259b5b32f43742d7b28c01c51755914ecb3c906292c7767c384da4b37bed1a3"
+      }
+    ],
+    "generated_lookup_sha256": "9e9d981f3420929756f6af2c74cd9b9a640e947ccaa74f871752c882ca42d48f",
+    "input_sha256": {
+      "SEL4-ABSTRACT-LOOKUP-01/AbstractLookup.thy": "2f48fba7bf2912c7696dbcae4043a6b67f09caa60346648425c6db5c46ad6556",
+      "SEL4-LOOKUP-01/Lookup.thy.in": "325294cde808298bcd4bb065817e795144c20584ca2937cdc7613ddab824f255",
+      "SEL4-LOOKUP-01/export_lookup.py": "38514f9fff48467b766a2de9c78c186383722ea77c9de40c37e80715ea1ffc62",
+      "SEL4-LOOKUP-01/lookup.json": "0f346da1a4f5caaa34325acb991269b0e7808595b705b227ead378805a789722",
+      "SEL4-REFINED-LOOKUP-01/ROOT": "f4a91e48f30f7af4126b83d24edd8dbb85106c8565d918cc4ab83cc6654c5da0",
+      "SEL4-REFINED-LOOKUP-01/RefinedLookup.thy": "f7e1b1f0c913427345a52a511366361735a7511d2e683c1d0eb2128168a9c2bd",
+      "SEL4-REFINED-LOOKUP-01/replay.sh": "1868d766ba0e0e42cd291ceca44dcbfa806ff74887b1210905578b6349987700"
+    },
+    "theorems": [
+      "exported_lookup_corresponds",
+      "refactored_lookup_corresponds"
+    ]
+  }
+}
