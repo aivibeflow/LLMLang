@@ -1,0 +1,469 @@
+{
+  "schema": "llmlang-modular-typed-spg-provider-v1",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "input_sha256": {
+    "ModularCaller.lean": "eda0afea2fbaf40f3066e1125756c1a2f6d414bb78cbd15b2e1befa8ef8a6788",
+    "modular_provider.py": "c4c66a7db3492a26f6c5250cfbe8c8420a795ca7e70dae6fe1337a0375417f27",
+    "spg_observations.py": "d5e490dd6acd7104a81a2447071c7046f940ca9a9ecc20f077a958b45c079c7a",
+    "spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517"
+  },
+  "generated_lean_sha256": "aeba775d15cba02aba2581cafa94674bf5eab75288b0b4ab9b460bf590b54d39",
+  "axiom_free_theorems": [
+    "reusableCaller",
+    "primaryCaller",
+    "reboundCaller",
+    "rejectsReordered",
+    "rejectsOutOfRange",
+    "rejectsMissing"
+  ],
+  "finite_observations": 100,
+  "kernel_checked_observation_equalities": 50,
+  "cases": {
+    "primary": {
+      "selected_provider": "primary",
+      "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+      "caller": "fed7f9154aba1168564e53917a704ae06156ae4d7f7d7bebcf95c6934845e1e5",
+      "caller_budget": 64,
+      "observations": [
+        {
+          "input": -5,
+          "provider": [
+            -4,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            6,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 0,
+          "provider": [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            11,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 1,
+          "provider": [
+            2,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            12,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 2,
+          "provider": [
+            3,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            13,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 17,
+          "provider": [
+            18,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            28,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        }
+      ]
+    },
+    "alternate": {
+      "selected_provider": "alternate",
+      "binding": "779cff452f5065da70b9f106460dc190fbd3d68aa35edec4f51313816bd73656",
+      "caller": "fed7f9154aba1168564e53917a704ae06156ae4d7f7d7bebcf95c6934845e1e5",
+      "caller_budget": 64,
+      "observations": [
+        {
+          "input": -5,
+          "provider": [
+            -3,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            7,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 0,
+          "provider": [
+            2,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            12,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 1,
+          "provider": [
+            3,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            13,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 2,
+          "provider": [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            14,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 17,
+          "provider": [
+            19,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            29,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        }
+      ]
+    },
+    "reordered": {
+      "selected_provider": "reordered",
+      "binding": "0a3bb2ee27afbc026b7fe7acc13a484f7b5f4781804479fea0e9dfe649802806",
+      "caller": "fed7f9154aba1168564e53917a704ae06156ae4d7f7d7bebcf95c6934845e1e5",
+      "caller_budget": 64,
+      "observations": [
+        {
+          "input": -5,
+          "provider": [
+            -4,
+            [
+              "last",
+              "first"
+            ]
+          ],
+          "caller": [
+            6,
+            [
+              "before",
+              "last",
+              "first",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 0,
+          "provider": [
+            1,
+            [
+              "last",
+              "first"
+            ]
+          ],
+          "caller": [
+            11,
+            [
+              "before",
+              "last",
+              "first",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 1,
+          "provider": [
+            2,
+            [
+              "last",
+              "first"
+            ]
+          ],
+          "caller": [
+            12,
+            [
+              "before",
+              "last",
+              "first",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 2,
+          "provider": [
+            3,
+            [
+              "last",
+              "first"
+            ]
+          ],
+          "caller": [
+            13,
+            [
+              "before",
+              "last",
+              "first",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 17,
+          "provider": [
+            18,
+            [
+              "last",
+              "first"
+            ]
+          ],
+          "caller": [
+            28,
+            [
+              "before",
+              "last",
+              "first",
+              "after"
+            ]
+          ]
+        }
+      ]
+    },
+    "outOfRange": {
+      "selected_provider": "outOfRange",
+      "binding": "b0e941ab8917209f7b1dd67859ff784dd724e3626a7b88d107db5413ede7b56f",
+      "caller": "fed7f9154aba1168564e53917a704ae06156ae4d7f7d7bebcf95c6934845e1e5",
+      "caller_budget": 64,
+      "observations": [
+        {
+          "input": -5,
+          "provider": [
+            -2,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            8,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 0,
+          "provider": [
+            3,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            13,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 1,
+          "provider": [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            14,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 2,
+          "provider": [
+            5,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            15,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        },
+        {
+          "input": 17,
+          "provider": [
+            20,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          "caller": [
+            30,
+            [
+              "before",
+              "first",
+              "last",
+              "after"
+            ]
+          ]
+        }
+      ]
+    },
+    "missing": {
+      "selected_provider": "primary",
+      "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+      "caller": "fed7f9154aba1168564e53917a704ae06156ae4d7f7d7bebcf95c6934845e1e5",
+      "caller_budget": 1,
+      "observations": [
+        {
+          "input": -5,
+          "provider": null,
+          "caller": null
+        },
+        {
+          "input": 0,
+          "provider": null,
+          "caller": null
+        },
+        {
+          "input": 1,
+          "provider": null,
+          "caller": null
+        },
+        {
+          "input": 2,
+          "provider": null,
+          "caller": null
+        },
+        {
+          "input": 17,
+          "provider": null,
+          "caller": null
+        }
+      ]
+    }
+  }
+}
