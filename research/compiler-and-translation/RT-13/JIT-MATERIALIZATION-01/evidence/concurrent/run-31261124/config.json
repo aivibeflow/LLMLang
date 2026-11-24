@@ -1,0 +1,36 @@
+{
+  "batches": 24,
+  "cgroup_counter_delta": {
+    "burst_usec": 0,
+    "nice_usec": 0,
+    "nr_bursts": 0,
+    "nr_periods": 50,
+    "nr_throttled": 50,
+    "system_usec": 1397090,
+    "throttled_usec": 4734578,
+    "usage_usec": 19763965,
+    "user_usec": 18366874
+  },
+  "cpu": 4,
+  "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "kernel": "6.18.57",
+  "machine": "x86_64",
+  "oracle_checks_per_sample": 4,
+  "probe_sha256": {
+    "cranelift": "a499e36d6f185867a4fa2d736830e82fc8ca70655767d7f3a7972b30bcada6a5",
+    "orc": "ecf3350c9a639195100a9918427379f993187c87804c70759c68925dcedc390f"
+  },
+  "quota": "400000 100000",
+  "samples": 31,
+  "seed": 31261124,
+  "source_inputs_sha256": {
+    "JIT-MATERIALIZATION-01/Cargo.lock": "a1e15c5bf9db982ca119a5837dd34e77c6377fa7725f1fee41300ecc6f7491b7",
+    "JIT-MATERIALIZATION-01/Cargo.toml": "e4413432cc592d6dca2c072f7b7122490feb82be14c4297bfc48b8afd6f50e76",
+    "JIT-MATERIALIZATION-01/orc.cpp": "daafdd2597d2a23e7f3816b59b0f2a7bc7ed6c4bbc365ce7f83d0fb0afee0c23",
+    "JIT-MATERIALIZATION-01/run.py": "2809b03be696eade7080c268d73be42894d2de02faf40e13bebc9b90625f4414",
+    "JIT-MATERIALIZATION-01/src/main.rs": "a4000b59be7fb34ad913b4cdbefd5c54492ab4153cf64e746a78edd01fa4eaef",
+    "checked_add.ll": "dc36aa363d263d610c16f655278279e236ec4c935027e63cedd17d50a42182ec",
+    "cranelift-checked-add/src/main.rs": "01aa9fa2b764fbb31d254ede34df3d6d978aa3e7b218940fbafb853c084609e2"
+  },
+  "untimed_orc_checks_per_profile": 4596
+}
