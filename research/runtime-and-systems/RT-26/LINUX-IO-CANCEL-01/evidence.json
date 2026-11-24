@@ -1,0 +1,81 @@
+{
+  "architecture": "x86_64",
+  "cases": {
+    "both_ready_cancel_first": {
+      "bytes_read": "",
+      "confirmed_blocking_poll": false,
+      "outcome": "cancelled",
+      "pending": [
+        "data"
+      ],
+      "ready": [
+        "cancel",
+        "data"
+      ],
+      "released": 4,
+      "reserved_before_terminal": 4,
+      "spent": 0
+    },
+    "both_ready_data_first": {
+      "bytes_read": "data",
+      "confirmed_blocking_poll": false,
+      "outcome": "data",
+      "pending": [
+        "cancel"
+      ],
+      "ready": [
+        "cancel",
+        "data"
+      ],
+      "released": 0,
+      "reserved_before_terminal": 4,
+      "spent": 4
+    },
+    "cancel_only": {
+      "bytes_read": "",
+      "confirmed_blocking_poll": true,
+      "outcome": "cancelled",
+      "pending": [],
+      "ready": [
+        "cancel"
+      ],
+      "released": 4,
+      "reserved_before_terminal": 4,
+      "spent": 0
+    },
+    "close_last_writer": {
+      "bytes_read": "",
+      "confirmed_initial_read": true,
+      "outcome": "eof",
+      "released": 4,
+      "reserved_before_terminal": 4,
+      "spent": 0
+    },
+    "close_reuse_reader": {
+      "bytes_read": "old!",
+      "confirmed_initial_read": true,
+      "descriptor_closed": true,
+      "outcome": "data",
+      "released": 0,
+      "replacement_bytes_untouched": true,
+      "reserved_before_terminal": 4,
+      "spent": 4,
+      "still_blocked_after_close_and_reuse": true
+    },
+    "data_only": {
+      "bytes_read": "data",
+      "confirmed_blocking_poll": true,
+      "outcome": "data",
+      "pending": [],
+      "ready": [
+        "data"
+      ],
+      "released": 0,
+      "reserved_before_terminal": 4,
+      "spent": 4
+    }
+  },
+  "format": "rt26-linux-io-cancel/1",
+  "kernel_release": "6.18.57",
+  "python": "3.12.14"
+}
