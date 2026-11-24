@@ -1,4 +1,4 @@
 Expression evaluations compared: 1536
 Int-factor source pairs: 64, observable differences: 48
 Bool-factor source pairs: 32, observable differences: 16
-Two same-sort mutations and three invalid interpretations detected
+Two same-sort mutations and four invalid interpretations detected

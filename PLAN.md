@@ -492,6 +492,8 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 
 **SCW-32 scalar preservation:** The [kernel theorem](research/formal-verification/RT-07/RT-07-LOGOS-SCALAR-PRESERVATION-2026-11-24.md) proves preservation for arbitrary typed source expressions under related constant valuations through the actual Logos SMT translation into the restricted evaluator. Establishing the relation for arbitrary wire/parser program bindings and connecting the evaluator to upstream model semantics remain open.
 
+**SCW-32 exact constant valuations:** The [valuation proof](research/formal-verification/RT-07/RT-07-LOGOS-VALUATION-BINDING-2026-11-24.md) proves that successful table construction realizes the typed values of every resolved parser constant. The same check rejects identity aliases before evaluation. Relating arbitrary paired program inputs to the wire valuation and connecting the restricted evaluator to upstream semantics remain open.
+
 **Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; Lean QF_LIA profile/admissibility modules and focused tests; CI workflow.
 
 **Direct CPC evidence (2026-11-21)** · A source-derived flat CPC refutation passes the assumption and verdict gates. A refutation of a substituted query passes standalone Logos and fails source binding. [Source-bound CPC refutation](research/formal-verification/RT-07/RT-07-SOURCE-BOUND-CPC-REFUTATION.md)

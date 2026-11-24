@@ -1,0 +1,4 @@
+'LLMLang.LogosScalarDenotation.liftValuation_corresponds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LLMLang.LogosScalarDenotation.expression_preservation_lifted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
