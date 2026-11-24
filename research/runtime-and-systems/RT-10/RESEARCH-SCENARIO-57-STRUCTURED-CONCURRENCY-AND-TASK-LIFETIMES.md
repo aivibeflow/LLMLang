@@ -35,7 +35,7 @@ The Go `go` statement starts a function call independently and does not wait for
 
 This makes concurrent launch concise and leaves lifecycle policy to program structure and libraries. It places the burden on developers to arrange joins and cancellation, and the compiler does not generally enforce that a parent waits for its children.
 
-Sources: [Go specification — Go statements](https://go.dev/ref/spec#Go_statements), [Go Concurrency Patterns: Context](https://go.dev/blog/context), [Go code review comments — Goroutine leaks](https://go.dev/wiki/CodeReviewComments#goroutine-leaks).
+Sources: [Go specification — Go statements](https://go.dev/ref/spec#Go_statements), [Go Concurrency Patterns: Context](https://go.dev/blog/context), [Go code review comments — Goroutine lifetimes](https://go.dev/wiki/CodeReviewComments#goroutine-lifetimes).
 
 ### Rust: structured OS-thread scopes exist; async task supervision is runtime/ecosystem dependent
 

@@ -26,7 +26,7 @@ Go specifies floating-point comparison according to IEEE 754 and states that flo
 
 The specification's constants are exact at compile time subject to documented implementation minimums, but there are no constants denoting negative zero, infinity, or NaN; runtime/library construction is required for those values. Thus literal semantics and runtime IEEE values are separate.
 
-Source: [Go specification — Floating-point operators](https://go.dev/ref/spec#Floating-point_operators), [Go specification — Constants](https://go.dev/ref/spec#Constants).
+Source: [Go specification — Floating-point operators](https://go.dev/ref/spec#Floating_point_operators), [Go specification — Constants](https://go.dev/ref/spec#Constants).
 
 ### Swift: IEEE-oriented protocol surface; target behavior needs a pinned conformance study
 

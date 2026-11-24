@@ -4,7 +4,7 @@
 - **Date:** 2026-11-17
 - **Decision owners:** LLMLang project
 - **Related research:** [Git integration and Semantic Diff/Merge](../../research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md)
-- **Related architecture note:** [Git Representation and Semantic Merge of LLMLang Programs](../../GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
+- **Related architecture note:** [Git Representation and Semantic Merge of LLMLang Programs](../../research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
 
 ## Context
 

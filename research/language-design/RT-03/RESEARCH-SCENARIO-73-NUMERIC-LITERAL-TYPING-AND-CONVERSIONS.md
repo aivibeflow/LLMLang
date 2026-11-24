@@ -20,7 +20,7 @@ Sources: [Rust Reference — Literal expressions](https://doc.rust-lang.org/refe
 
 Go numeric constants are exact values of arbitrary precision within implementation minimums and do not overflow during constant evaluation. Untyped constants keep that status through constant expressions, and can be used in a typed context when representable; without context they receive default types such as `int` or `float64`. By contrast, distinct typed numeric values cannot be mixed without explicit conversion. The split gives literal expressions more flexibility than runtime variables while preserving explicit type movement between values.
 
-Sources: [Go Specification — Constants](https://go.dev/ref/spec#Constants), [Go Specification — Representability](https://go.dev/ref/spec#Representability), [Go Specification — Conversions](https://go.dev/ref/spec#Conversions), [Go FAQ — Why no implicit numeric conversions?](https://go.dev/doc/faq#convert).
+Sources: [Go Specification — Constants](https://go.dev/ref/spec#Constants), [Go Specification — Representability](https://go.dev/ref/spec#Representability), [Go Specification — Conversions](https://go.dev/ref/spec#Conversions), [Go FAQ — Why no implicit numeric conversions?](https://go.dev/doc/faq#conversions).
 
 ### Swift: contextual literal protocols; explicit value conversion
 

@@ -35,7 +35,7 @@ Go specifies unsigned addition, subtraction, multiplication, and left shift modu
 
 Go also has int/uint types whose width is implementation-dependent, so fixed-width types are required when the number of bits is part of an external format or proof. Floating-point and complex behavior follows IEEE 754 in relevant respects, while division by zero panic behavior for floating/complex values is implementation-specific according to the specification.
 
-Sources: [Go specification — Integer overflow and operators](https://go.dev/ref/spec#Integer_overflow), [Go specification — Integer operators](https://go.dev/ref/spec#Integer_operators), [Go specification — Floating-point operators](https://go.dev/ref/spec#Floating-point_operators).
+Sources: [Go specification — Integer overflow and operators](https://go.dev/ref/spec#Integer_overflow), [Go specification — Integer operators](https://go.dev/ref/spec#Integer_operators), [Go specification — Floating-point operators](https://go.dev/ref/spec#Floating_point_operators).
 
 ### Swift: trapping default with explicit wrapping operators
 

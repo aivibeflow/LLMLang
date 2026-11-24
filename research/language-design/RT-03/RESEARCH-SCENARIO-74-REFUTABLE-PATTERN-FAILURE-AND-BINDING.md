@@ -26,7 +26,7 @@ Sources: [Swift Language Guide — Optional Binding](https://docs.swift.org/swif
 
 Go does not have general destructuring patterns, but several operations that may fail to find a value have a language-defined comma-ok form: map lookup, type assertion, and channel receive. The second result is a Boolean indicating success; on failure the primary value is the zero value of its type. A one-result assertion may panic on failure, while the two-result form reports it normally. This makes partiality explicit at the operation, but the convention is not a general pattern-matching construct and zero values can be confused with successful payloads unless the `ok` result is checked.
 
-Source: [Go Specification — Assignments and comma-ok forms](https://go.dev/ref/spec#Assignments).
+Source: [Go Specification — Assignments and comma-ok forms](https://go.dev/ref/spec#Assignment_statements).
 
 ### C#: Boolean pattern test with conditional definite assignment
 
