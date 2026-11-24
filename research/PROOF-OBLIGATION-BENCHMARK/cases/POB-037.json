@@ -1,0 +1,48 @@
+{
+  "id": "POB-037",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Crash recovery of a committed write",
+  "labels": [
+    "FORM-03",
+    "DOMAIN-06",
+    "DOMAIN-09"
+  ],
+  "contract": "With atomic durable commit marker and value persistence, recovery exposes old state before commit and new state after commit.",
+  "scope": "Crash cut 0 before prepare, 1 after prepare, 2 after commit; durable protocol flag; old values 0..2; admission durable flag.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Commit marker reflects whether commit occurred.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Recovered value equals old before commit and old+1 after commit.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "durable_recovery",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Expose prepared value even without commit marker.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Recover by selecting from committed log records.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

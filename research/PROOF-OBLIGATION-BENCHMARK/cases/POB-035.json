@@ -1,0 +1,48 @@
+{
+  "id": "POB-035",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Overlapping queue histories",
+  "labels": [
+    "FORM-06",
+    "DOMAIN-08",
+    "DOMAIN-03"
+  ],
+  "contract": "Completed enqueue(1) and dequeue operations must admit a FIFO linearization respecting response-before-invocation order; under atomic execution at chosen linearization points.",
+  "scope": "Four valid event permutations for one enqueue and one dequeue plus two additional schedules (six total); atomic profile admitted; empty queue initially.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "A proposed linearization respects real-time precedence.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Observed dequeue result is permitted by some legal FIFO linearization.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "linear_history",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Always return empty even after enqueue completed.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Linearize at invocation rather than response.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

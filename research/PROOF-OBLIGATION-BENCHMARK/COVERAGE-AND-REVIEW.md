@@ -53,3 +53,7 @@ Still required: actual concurrency history linearizability, weak-memory litmus t
 ## Independent review gate
 
 A reviewer not authoring the candidate/oracle must record exact case revision and content hash, reviewer identity, review date, separately derived oracle or proof, positive/negative witness replay, scope/assumptions review, equivalent allowed solutions, discrepancies and adjudication. Use a second reviewer to resolve conflicts. A status may become reviewed only after that evidence is committed; preserve older revisions. Hold-out cases must be privately curated and frozen before experiments, with family separation from public examples. Do not call the public seed held-out or claim training contamination is absent.
+
+## Third-cohort update
+
+See [finite coverage matrix](COVERAGE-MATRIX.md) for added bounded profiles and the executable coverage target. The historical gaps above describe the second cohort; the new fixtures address some of them at explicit finite scope, not as general proofs. Independent adjudication remains required.

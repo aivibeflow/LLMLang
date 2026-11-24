@@ -1,0 +1,48 @@
+{
+  "id": "POB-034",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Verified capability and isolation",
+  "labels": [
+    "FORM-01",
+    "FORM-04",
+    "DOMAIN-10"
+  ],
+  "contract": "With trusted authorization checking, only authorized callers can change the protected value.",
+  "scope": "Validation flag, caller authorization and protected values 0..2; admission trusted check enabled.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "A granted write implies caller has authority.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Authorized caller increments; unauthorized caller leaves protected value unchanged.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "capability",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Grant all writes.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use explicit allowed-caller membership.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

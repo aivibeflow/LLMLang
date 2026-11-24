@@ -1,0 +1,344 @@
+{
+  "version": 1,
+  "scope": "Finite development coverage of declared 16 taxonomy entries; each cell refers to one witnessed scenario, not universal completeness.",
+  "dimensions": [
+    "positive",
+    "negative",
+    "boundary",
+    "conditional",
+    "composed"
+  ],
+  "mapping": {
+    "FORM-01": "POB-025",
+    "FORM-02": "POB-026",
+    "FORM-03": "POB-030",
+    "FORM-04": "POB-028",
+    "FORM-05": "POB-031",
+    "FORM-06": "POB-027",
+    "DOMAIN-01": "POB-026",
+    "DOMAIN-02": "POB-027",
+    "DOMAIN-03": "POB-025",
+    "DOMAIN-04": "POB-038",
+    "DOMAIN-05": "POB-029",
+    "DOMAIN-06": "POB-030",
+    "DOMAIN-07": "POB-031",
+    "DOMAIN-08": "POB-035",
+    "DOMAIN-09": "POB-033",
+    "DOMAIN-10": "POB-034"
+  },
+  "probes": {
+    "POB-025": {
+      "normal": [
+        3,
+        1
+      ],
+      "boundary": [
+        1,
+        0
+      ],
+      "negative": [
+        1,
+        0
+      ],
+      "outside": [
+        0,
+        0
+      ]
+    },
+    "POB-026": {
+      "normal": [
+        1,
+        1
+      ],
+      "boundary": [
+        3,
+        0
+      ],
+      "negative": [
+        1,
+        1
+      ],
+      "outside": [
+        3,
+        1
+      ]
+    },
+    "POB-027": {
+      "normal": [
+        "add",
+        1,
+        1,
+        1
+      ],
+      "boundary": [
+        "add",
+        0,
+        0,
+        0
+      ],
+      "negative": [
+        "add",
+        1,
+        1,
+        1
+      ],
+      "outside": [
+        "sub",
+        0,
+        0,
+        1
+      ]
+    },
+    "POB-028": {
+      "normal": [
+        false,
+        1
+      ],
+      "boundary": [
+        false,
+        0
+      ],
+      "negative": [
+        false,
+        0
+      ],
+      "outside": [
+        true,
+        0
+      ]
+    },
+    "POB-029": {
+      "normal": [
+        2,
+        3
+      ],
+      "boundary": [
+        0,
+        0
+      ],
+      "negative": [
+        1,
+        1
+      ],
+      "outside": [
+        2,
+        1
+      ]
+    },
+    "POB-030": {
+      "normal": [
+        false,
+        3,
+        4
+      ],
+      "boundary": [
+        false,
+        0,
+        0
+      ],
+      "negative": [
+        false,
+        1,
+        2
+      ],
+      "outside": [
+        true,
+        3,
+        6
+      ]
+    },
+    "POB-031": {
+      "normal": [
+        0,
+        1
+      ],
+      "boundary": [
+        1
+      ],
+      "negative": [
+        1
+      ],
+      "outside": [
+        0
+      ]
+    },
+    "POB-032": {
+      "normal": [
+        true,
+        false
+      ],
+      "boundary": [
+        true,
+        true
+      ],
+      "negative": [
+        true,
+        true
+      ],
+      "outside": [
+        false,
+        true
+      ]
+    },
+    "POB-033": {
+      "normal": [
+        true,
+        1,
+        false
+      ],
+      "boundary": [
+        true,
+        0,
+        true
+      ],
+      "negative": [
+        true,
+        0,
+        true
+      ],
+      "outside": [
+        false,
+        0,
+        true
+      ]
+    },
+    "POB-034": {
+      "normal": [
+        true,
+        true,
+        1
+      ],
+      "boundary": [
+        true,
+        false,
+        0
+      ],
+      "negative": [
+        true,
+        false,
+        0
+      ],
+      "outside": [
+        false,
+        false,
+        0
+      ]
+    },
+    "POB-035": {
+      "normal": [
+        true,
+        "EDed"
+      ],
+      "boundary": [
+        true,
+        "EeDd"
+      ],
+      "negative": [
+        true,
+        "EeDd"
+      ],
+      "outside": [
+        false,
+        "EeDd"
+      ]
+    },
+    "POB-036": {
+      "normal": [
+        true,
+        "+1"
+      ],
+      "boundary": [
+        true,
+        "-0"
+      ],
+      "negative": [
+        true,
+        "-0"
+      ],
+      "outside": [
+        false,
+        "-0"
+      ]
+    },
+    "POB-037": {
+      "normal": [
+        true,
+        1,
+        2
+      ],
+      "boundary": [
+        true,
+        0,
+        0
+      ],
+      "negative": [
+        true,
+        0,
+        1
+      ],
+      "outside": [
+        false,
+        0,
+        2
+      ]
+    },
+    "POB-038": {
+      "normal": [
+        true,
+        1,
+        1,
+        true
+      ],
+      "boundary": [
+        true,
+        0,
+        0,
+        false
+      ],
+      "negative": [
+        true,
+        0,
+        1,
+        true
+      ],
+      "outside": [
+        false,
+        0,
+        1,
+        true
+      ]
+    },
+    "POB-039": {
+      "normal": [
+        true
+      ],
+      "boundary": [
+        true
+      ],
+      "negative": [
+        true
+      ],
+      "outside": [
+        false
+      ]
+    },
+    "POB-040": {
+      "normal": [
+        3,
+        2
+      ],
+      "boundary": [
+        0,
+        0
+      ],
+      "negative": [
+        3,
+        2
+      ],
+      "outside": [
+        1,
+        3
+      ]
+    }
+  }
+}

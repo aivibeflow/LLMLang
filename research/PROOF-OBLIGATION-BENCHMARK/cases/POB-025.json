@@ -1,0 +1,48 @@
+{
+  "id": "POB-025",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Guarded dependent index",
+  "labels": [
+    "FORM-01",
+    "FORM-02",
+    "DOMAIN-03"
+  ],
+  "contract": "When the index is within the length-indexed array, access exactly that element; generated access must stay within bounds.",
+  "scope": "Lengths 0..3, indices -1..3; arrays contain their indices; admission 0<=i<n.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Generated index is within array bounds.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Returned value equals requested element under the admission condition.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "guarded_lookup",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Use i+1.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Compute same index by decrementing n-(n-i).",
+      "expected": "bounded_pass"
+    }
+  ]
+}

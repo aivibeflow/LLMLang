@@ -1,0 +1,47 @@
+{
+  "id": "POB-027",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Conditional reassociation",
+  "labels": [
+    "FORM-06",
+    "DOMAIN-02"
+  ],
+  "contract": "Under integer addition, left and right reassociation agree; subtraction is a negative assumption control.",
+  "scope": "Triples over 0..2; operation add/sub; admission add.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "The two groupings agree for the specified operation.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Candidate regrouped result equals original left grouping.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "algebra_profile",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Add one to regrouped result.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use left grouping on admitted inputs; evaluate right grouping outside profile.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

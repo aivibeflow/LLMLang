@@ -1,0 +1,47 @@
+{
+  "id": "POB-031",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Conditional liveness on lassos",
+  "labels": [
+    "FORM-05",
+    "DOMAIN-07"
+  ],
+  "contract": "On a periodically repeated schedule with a continuously enabled request and at least one service action in the period, request eventually completes.",
+  "scope": "Nonempty periods of length 1..3 over {0,1}; admission at least one service action; fixed repeating period.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "An enabled service action in the period is handled.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Request eventually completes on the lasso.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "fair_lasso",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Ignore all service actions.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Process the first service action by locating its index.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

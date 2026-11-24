@@ -1,12 +1,13 @@
 import unittest
-from run import aggregate, load, run, score
+from run import aggregate, load, run, score, read, ROOT
+from coverage_matrix import check_coverage
 from extended_oracles import EXTENDED
 
 
 class BenchmarkTests(unittest.TestCase):
     def test_corpus(self):
         records = run(load())
-        self.assertGreaterEqual(len(records), 60)
+        self.assertGreaterEqual(len(records), 108)
         self.assertTrue(all(r["evaluated_inputs"] > 0 for r in records))
         self.assertTrue(all(r["counterexample"] is not None for r in records if r["status"] == "disproven"))
         self.assertEqual(score(records, records)["accuracy"], 1)
@@ -31,6 +32,24 @@ class BenchmarkTests(unittest.TestCase):
                     self.assertEqual(matches,[variant != "mutation"])
         # The three interleaving positions for thread 0 select all six schedules.
         self.assertEqual(len(list(EXTENDED["lost_update"]("reference"))),6)
+
+    def test_coverage_matrix(self):
+        cases = load()
+        taxonomy = read(ROOT/"taxonomy.json")
+        target = read(ROOT/"coverage-target.json")
+        report = check_coverage(cases,taxonomy,target)
+        self.assertEqual(report["covered_cells"],80)
+        self.assertEqual(report["target_cells"],80)
+        missing = {**target,"mapping":{k:v for k,v in target["mapping"].items() if k!="FORM-01"}}
+        with self.assertRaises(ValueError):
+            check_coverage(cases,taxonomy,missing)
+        wrong = {**target,"probes":{**target["probes"],"POB-025":{**target["probes"]["POB-025"],"outside":[1,0]}}}
+        with self.assertRaises(ValueError):
+            check_coverage(cases,taxonomy,wrong)
+        for record in run(cases):
+            if record["obligation_records"] is not None:
+                self.assertEqual([x["id"] for x in record["obligation_records"]],["O1","O2"])
+                self.assertGreater(record["outside_assumption_inputs"],0)
 
     def test_aggregation(self):
         good = dict(id="a",status="proven",identity_checked=True,correspondence_checked=True,evidence_checked=True,assumptions_discharged=True,dependencies_closed=True,scope_sufficient=True)

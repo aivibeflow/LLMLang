@@ -1,0 +1,47 @@
+{
+  "id": "POB-029",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Budget and cleanup",
+  "labels": [
+    "FORM-03",
+    "DOMAIN-05"
+  ],
+  "contract": "If budget covers requested units, acquire all units without exceeding budget and release every acquired unit.",
+  "scope": "Requested units and budget 0..3; admission n<=budget; no allocation failure other than budget.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Peak resource count does not exceed budget.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "All requested units are acquired and final live count is zero.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "budget",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Leak the last acquired unit.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use one bulk reservation and release.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "POB-033",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Journal-based failure atomicity",
+  "labels": [
+    "FORM-02",
+    "DOMAIN-09"
+  ],
+  "contract": "With a durable undo journal, failed updates restore old value and successful updates commit exactly one increment.",
+  "scope": "Journal flag, old values 0..2, failure flag; admission journal exists; crash modeled as failure before commit.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Undo record stores exact prior value before tentative update.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Success increments; failure restores original state.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "rollback",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Ignore undo record on failure.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "On failure return old journal value directly.",
+      "expected": "bounded_pass"
+    }
+  ]
+}
