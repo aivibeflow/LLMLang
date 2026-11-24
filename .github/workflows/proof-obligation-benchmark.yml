@@ -18,8 +18,17 @@ jobs:
         run: |
           python3 research/PROOF-OBLIGATION-BENCHMARK/test_runner.py
           python3 research/PROOF-OBLIGATION-BENCHMARK/run.py run > pob-smoke.json
+      - name: Run coverage inventory and deterministic generator
+        run: |
+          python3 research/PROOF-OBLIGATION-BENCHMARK/test_coverage_v2.py
+          python3 research/PROOF-OBLIGATION-BENCHMARK/coverage_v2.py > pob-coverage-v2.json
+          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/test_generator.py
+          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/generate.py --count 10000 --seed 42 > pob-generated-summary.json
       - uses: actions/upload-artifact@v6
         with:
           name: pob-smoke
-          path: pob-smoke.json
+          path: |
+            pob-smoke.json
+            pob-coverage-v2.json
+            pob-generated-summary.json
           if-no-files-found: error

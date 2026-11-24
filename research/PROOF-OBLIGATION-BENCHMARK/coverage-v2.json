@@ -1,0 +1,502 @@
+{
+  "version": 2,
+  "scope": "Exploratory candidate inventory, not a normative taxonomy or verified semantic coverage.",
+  "axes": {
+    "features": {
+      "logic_satisfiability": {
+        "manual_candidates": [
+          "POB-013",
+          "POB-024"
+        ],
+        "generated_candidates": [
+          "interval",
+          "composition"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "type_system": {
+        "manual_candidates": [
+          "POB-014",
+          "POB-025"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "evaluation_definedness": {
+        "manual_candidates": [
+          "POB-015",
+          "POB-023"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "effects": {
+        "manual_candidates": [
+          "POB-004",
+          "POB-006",
+          "POB-028"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "composition": {
+        "manual_candidates": [
+          "POB-016",
+          "POB-025",
+          "POB-029"
+        ],
+        "generated_candidates": [
+          "composition"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "nondeterminism": {
+        "manual_candidates": [
+          "POB-020",
+          "POB-035"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "distributed": {
+        "manual_candidates": [
+          "POB-017",
+          "POB-030",
+          "POB-037"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "probability": {
+        "manual_candidates": [
+          "POB-019",
+          "POB-039"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "numerical_methods": {
+        "manual_candidates": [
+          "POB-018",
+          "POB-036"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "time_deadlines": {
+        "manual_candidates": [
+          "POB-009",
+          "POB-031"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "hyperproperties": {
+        "manual_candidates": [
+          "POB-011",
+          "POB-022"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "external_systems": {
+        "manual_candidates": [],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "evolution": {
+        "manual_candidates": [
+          "POB-021",
+          "POB-038"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "business_rules": {
+        "manual_candidates": [
+          "POB-007",
+          "POB-034"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "reactive_systems": {
+        "manual_candidates": [
+          "POB-031"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "optimization": {
+        "manual_candidates": [
+          "POB-010",
+          "POB-024"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "spatial": {
+        "manual_candidates": [],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "strings_languages": {
+        "manual_candidates": [],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "arithmetic": {
+        "manual_candidates": [
+          "POB-001",
+          "POB-012",
+          "POB-026"
+        ],
+        "generated_candidates": [
+          "sum",
+          "interval"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "algebra": {
+        "manual_candidates": [
+          "POB-010",
+          "POB-027"
+        ],
+        "generated_candidates": [
+          "sum"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "data_structures": {
+        "manual_candidates": [
+          "POB-002",
+          "POB-003",
+          "POB-005",
+          "POB-008",
+          "POB-025",
+          "POB-035"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "ownership": {
+        "manual_candidates": [
+          "POB-006",
+          "POB-028",
+          "POB-038"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "resource_bounds": {
+        "manual_candidates": [
+          "POB-029",
+          "POB-040"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "state_transitions": {
+        "manual_candidates": [
+          "POB-007",
+          "POB-017",
+          "POB-030",
+          "POB-033",
+          "POB-037"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "concurrency": {
+        "manual_candidates": [
+          "POB-020",
+          "POB-032",
+          "POB-035"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "failure": {
+        "manual_candidates": [
+          "POB-006",
+          "POB-007",
+          "POB-015",
+          "POB-033",
+          "POB-037"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "security": {
+        "manual_candidates": [
+          "POB-011",
+          "POB-022",
+          "POB-034"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      }
+    },
+    "logic": {
+      "propositional": {
+        "manual_candidates": [
+          "POB-013",
+          "POB-024"
+        ],
+        "generated_candidates": [
+          "interval",
+          "composition"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "forall": {
+        "manual_candidates": [
+          "POB-001",
+          "POB-003",
+          "POB-025"
+        ],
+        "generated_candidates": [
+          "interval",
+          "sum",
+          "unique",
+          "forall_exists",
+          "exists_forall",
+          "composition"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "exists": {
+        "manual_candidates": [
+          "POB-013",
+          "POB-035"
+        ],
+        "generated_candidates": [
+          "unique",
+          "forall_exists",
+          "exists_forall"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "alternating_quantifiers": {
+        "manual_candidates": [],
+        "generated_candidates": [
+          "forall_exists",
+          "exists_forall",
+          "unique"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "unique_existence": {
+        "manual_candidates": [
+          "POB-002"
+        ],
+        "generated_candidates": [
+          "unique"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "induction": {
+        "manual_candidates": [
+          "POB-023"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "coinduction": {
+        "manual_candidates": [],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "higher_order": {
+        "manual_candidates": [],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "temporal": {
+        "manual_candidates": [
+          "POB-009",
+          "POB-031"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "separation_logic": {
+        "manual_candidates": [
+          "POB-028"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "probabilistic": {
+        "manual_candidates": [
+          "POB-019",
+          "POB-039"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "relational": {
+        "manual_candidates": [
+          "POB-011",
+          "POB-022",
+          "POB-024"
+        ],
+        "generated_candidates": [
+          "sum"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "fixed_points": {
+        "manual_candidates": [],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      }
+    },
+    "levels": {
+      "expression": {
+        "manual_candidates": [
+          "POB-012",
+          "POB-015",
+          "POB-018",
+          "POB-026",
+          "POB-027",
+          "POB-036"
+        ],
+        "generated_candidates": [
+          "sum",
+          "interval"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "statement": {
+        "manual_candidates": [
+          "POB-004",
+          "POB-028"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "function": {
+        "manual_candidates": [
+          "POB-001",
+          "POB-002",
+          "POB-003",
+          "POB-016",
+          "POB-023"
+        ],
+        "generated_candidates": [
+          "composition"
+        ],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "data_structure": {
+        "manual_candidates": [
+          "POB-005",
+          "POB-008",
+          "POB-025",
+          "POB-035"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "module": {
+        "manual_candidates": [
+          "POB-021"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "component": {
+        "manual_candidates": [
+          "POB-017",
+          "POB-033",
+          "POB-037"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "application": {
+        "manual_candidates": [
+          "POB-007",
+          "POB-034"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "distributed_system": {
+        "manual_candidates": [
+          "POB-030"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "system_evolution": {
+        "manual_candidates": [
+          "POB-021"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      }
+    },
+    "interactions": {
+      "concurrency_memory": {
+        "manual_candidates": [
+          "POB-032",
+          "POB-035"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "concurrency_resources": {
+        "manual_candidates": [],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "security_time": {
+        "manual_candidates": [
+          "POB-022"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "arithmetic_concurrency": {
+        "manual_candidates": [
+          "POB-020"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "distribution_failure": {
+        "manual_candidates": [
+          "POB-017",
+          "POB-037"
+        ],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "probability_resources": {
+        "manual_candidates": [],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "types_effects_memory": {
+        "manual_candidates": [],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      },
+      "evolution_concurrency": {
+        "manual_candidates": [],
+        "generated_candidates": [],
+        "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
+      }
+    }
+  },
+  "scenario_dimensions": [
+    "positive",
+    "negative",
+    "boundary",
+    "conditional",
+    "composed"
+  ],
+  "legacy_pair_matrix": "All 6 forms × 10 domains × 5 scenarios tracked. Labels only establish candidate co-occurrence; applicability and isolated witness review are pending."
+}
