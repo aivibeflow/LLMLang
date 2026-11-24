@@ -502,6 +502,8 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 
 **SCW-34 well-formed model extension:** The [model extension proof](research/formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md) extends each scalar valuation by overriding exact constant names and sorts. The overlay preserves a provided well-formed model with standard Lean axioms. Unconditional existence uses one additional upstream `native_decide` axiom. The trust disposition and complete checker composition remain open.
 
+**SCW-34 conditional source refutation:** The [composition theorem](research/formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md) proves equal observations for any admitted source pair with distinct selected inputs from the exact runtime certificate, a validated binding table, a well-formed base model and the typed Logos verdict soundness premise. The full upstream proof and trust audit remain the evidence required to discharge those semantic premises.
+
 **Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; Lean QF_LIA profile/admissibility modules and focused tests; CI workflow.
 
 **Direct CPC evidence (2026-11-21)** · A source-derived flat CPC refutation passes the assumption and verdict gates. A refutation of a substituted query passes standalone Logos and fails source binding. [Source-bound CPC refutation](research/formal-verification/RT-07/RT-07-SOURCE-BOUND-CPC-REFUTATION.md)

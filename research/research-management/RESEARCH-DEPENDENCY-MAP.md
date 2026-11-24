@@ -278,6 +278,8 @@ The SCW-34 extension proof refines DEP-007 and RT-36's upstream trust boundary. 
 
 The SCW-32 reverse theorem extends DEP-007 to every admitted concrete pair after parser table validation. Revaluing existing declarations preserves their SMT identities and the canonical query's interpretation. [Logos concrete-pair lifting](../formal-verification/RT-07/RT-07-LOGOS-CONCRETE-PAIR-LIFTING-2026-11-24.md)
 
+The SCW-34 source refutation theorem proves the DEP-007 implication from a sound verdict for the actual parsed assumptions to equality of source observations. The verdict soundness theorem and well-formed base model are explicit premises. [Logos source refutation composition](../formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md)
+
 ## 6. Existing research-line placement
 
 The current Scenario 15–34 sequence is a substantial research line primarily spanning RT-02, RT-06, RT-07, and RT-08:

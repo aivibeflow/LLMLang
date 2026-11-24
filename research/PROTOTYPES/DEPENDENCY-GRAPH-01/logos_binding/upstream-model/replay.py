@@ -64,28 +64,37 @@ def replay(checkout, mode="scalar"):
     if LEAN_REVISION not in version:
         raise ValueError(f"Expected the pinned Logos verification Lean 4.34.0, got {version}")
 
-    target = "Cpc.Proofs.TypePreservation.Nonvacuity" if mode == "extension" else "Cpc.SmtModel"
-    subprocess.run(["bash", "scripts/build.sh", target], cwd=checkout,
+    targets = ["Cpc.SmtModel"]
+    if mode in {"extension", "refutation"}:
+        targets.append("Cpc.Proofs.TypePreservation.Nonvacuity")
+    if mode == "refutation":
+        targets.append("Cpc.Spec")
+    subprocess.run(["bash", "scripts/build.sh", *targets], cwd=checkout,
                    check=True, stdout=subprocess.DEVNULL)
     lake_path = capture(["lake", "env", "printenv", "LEAN_PATH"], verification).strip()
     with TemporaryDirectory(prefix="llmlang-logos-upstream-") as tmp:
         directory = Path(tmp)
         paths = [str(directory)]
-        if mode == "program":
+        builds_program = mode in {"program", "refutation"}
+        if builds_program:
             paths.append(str(build_program_workspace(checkout, directory / "llmlang")))
         library = directory / "compiled"
         combine_libraries(checkout, library)
         paths.extend((str(library), lake_path))
         environment = {**os.environ, "LEAN_PATH": os.pathsep.join(paths)}
         lean = ["lean", "-DwarningAsError=true"]
-        if mode != "program":
+        if not builds_program:
             capture([*lean, f"--root={HERE.parent}", "-o", str(directory / "LogosScalarEvaluation.olean"),
                      str(HERE.parent / "LogosScalarEvaluation.lean")], verification, environment=environment)
         if mode != "scalar":
             capture([*lean, f"--root={HERE}", "-o", str(directory / "LogosUpstreamScalarModel.olean"),
                      str(HERE / "LogosUpstreamScalarModel.lean")], verification, environment=environment)
+        if mode == "refutation":
+            for name in ("LogosUpstreamProgram", "LogosModelExtension"):
+                capture([*lean, f"--root={HERE}", "-o", str(directory / f"{name}.olean"),
+                         str(HERE / f"{name}.lean")], verification, environment=environment)
         theorem = {"scalar": "LogosUpstreamScalarModel.lean", "program": "LogosUpstreamProgram.lean",
-                   "extension": "LogosModelExtension.lean"}[mode]
+                   "extension": "LogosModelExtension.lean", "refutation": "LogosSourceRefutation.lean"}[mode]
         return capture([*lean, str(HERE / theorem)], verification, environment=environment)
 
 
@@ -98,6 +107,8 @@ if __name__ == "__main__":
                        help="check both sides with the upstream kernel")
     modes.add_argument("--model-extension", dest="mode", action="store_const", const="extension",
                        help="check the total well-formed upstream model construction")
+    modes.add_argument("--source-refutation", dest="mode", action="store_const", const="refutation",
+                       help="check the source refutation theorem under explicit verdict soundness")
     parser.set_defaults(mode="scalar")
     args = parser.parse_args()
     print(replay(args.checkout.resolve(), args.mode), end="")
