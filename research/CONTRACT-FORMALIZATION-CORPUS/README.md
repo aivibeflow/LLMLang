@@ -28,6 +28,7 @@ A successful proof of a candidate contract is **not** a successful corpus result
 - [CF-003 — First matching element](cases/CF-003-first-match.md)
 - [CF-004 — Reverse a selected range](cases/CF-004-reverse-range.md)
 - [CF-005 — Sort an array](cases/CF-005-sort-array.md)
+- [CF-006 — Bank-account withdrawal](cases/CF-006-bank-withdrawal.md) — biconditional success condition, success/failure postconditions, and failure-state preservation.
 
 Each case separates:
 1. **Source request** — exact wording presented to the model.
@@ -67,7 +68,7 @@ For each run, preserve the exact prompt, model/version, settings, raw output, no
 
 ## 5. Relationship to proof-obligation evaluation
 
-This corpus evaluates contract formalization only. Its five initial cases are not intended to cover the full space of proof obligations or backend behavior. The separate [Proof Obligation Benchmark](../PROOF-OBLIGATION-BENCHMARK.md) evaluates downstream obligation generation, backend planning, translation correspondence, verification, and evidence aggregation. Keep the two evaluation layers separate: a downstream proof cannot compensate for a semantically incorrect contract.
+This corpus evaluates contract formalization only. Its six initial cases are not intended to cover the full space of proof obligations or backend behavior. The separate [Proof Obligation Benchmark](../PROOF-OBLIGATION-BENCHMARK.md) evaluates downstream obligation generation, backend planning, translation correspondence, verification, and evidence aggregation. Keep the two evaluation layers separate: a downstream proof cannot compensate for a semantically incorrect contract.
 
 ## 6. Versioning and limitations
 
