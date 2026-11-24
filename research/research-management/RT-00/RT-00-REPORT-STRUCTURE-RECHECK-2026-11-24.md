@@ -1,10 +1,10 @@
 # RT-00 — Research report structure recheck
 
-**Research item:** `PLAN.md` §0.2 — consistent report structure  
-**Date:** 2026-11-24  
-**Baseline main:** `0aa0527b0df36b94ba3b4ec4a4bd06aca0db2915`  
-**Evidence type:** bounded structural review of five implementation-relevant research reports  
-**Status:** selected-report audit; no corpus-wide migration or policy adoption  
+**Research item:** `PLAN.md` §0.2 — consistent report structure
+**Date:** 2026-11-24
+**Baseline main:** `0aa0527b0df36b94ba3b4ec4a4bd06aca0db2915`
+**Evidence type:** bounded structural review of five implementation-relevant research reports
+**Status:** selected-report audit; no corpus-wide migration or policy adoption
 **Question:** Do recent studies provide the minimum information in the proposed research schema, even when they use different headings and combine sections?
 
 ## Method
