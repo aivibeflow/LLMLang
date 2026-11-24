@@ -196,6 +196,8 @@ These are not simple one-way dependencies. They must be tested explicitly:
 
    DEP-019 also covers the lifetime boundary between RT-04 and RT-10. The nested scope fixture observes a task body finish with a borrow and pending cleanup still live in its descendant. [Structured scope join](../runtime-and-systems/RT-10/RT-10-STRUCTURED-SCOPE-JOIN.md#results)
 
+   The Linux foreign-cleanup fixture adds a native witness to DEP-019. Closing the provider's original descriptor need not release a file lock when a foreign duplicate shares the open file description. Predicting subsequent admission requires alias information. [Linux owned cleanup](../language-design/RT-04/RT-04-LINUX-OWNED-CLEANUP-2026-11-24.md#results)
+
    Scenario 120 adds SQLite evidence for DEP-019. A live prepared statement prevents ordinary close and delays destruction under `close_v2`. A wrapper's ownership contract needs to track this dependency separately from the close result and the connection capability. [Cleanup dependencies in SQLite](../language-design/RT-04/RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md)
 
    Scenario 121 finds different return obligations for the same complete dependency graph. The busy path returns a live connection when local cleanup leaves an outside dependent. The deferred path consumes the connection while outside owners still determine when destruction completes. Static admission depends on proof of the complete live set, including dependents outside the caller's ownership. [Local close recovery](../language-design/RT-04/RESEARCH-SCENARIO-121-SQLITE-LOCAL-CLOSE-RECOVERY.md)

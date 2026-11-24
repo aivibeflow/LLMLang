@@ -387,6 +387,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Owned-return contract discriminator (2026-11-24):** The [RT-04 native comparison](research/language-design/RT-04/RT-04-OWNED-PROVIDER-CONTRACT-REPLAY-2026-11-24.md) reproduces 256 traces and separates early and staged transfer in 24 failed-cleanup pairs. An error flag alone loses the ownership and subsequent-admission distinctions. General source, foreign-resource and public-binding integration remain open.
 
+**Foreign cleanup and descriptor aliases (2026-11-24):** The [Linux FFI probe](research/language-design/RT-04/RT-04-LINUX-OWNED-CLEANUP-2026-11-24.md) checks 64 native traces with a real `fclose` error and an independently opened lock contender. A surviving duplicate can preserve the underlying lock after staged cleanup closes the original descriptor. General source correspondence, cross-platform behavior and concurrent alias reconciliation remain open.
+
 ## 1.5 Prior-art study for semantic representation and identity
 
 - [x] Compare Unison's content-addressed code identity and codebase model.

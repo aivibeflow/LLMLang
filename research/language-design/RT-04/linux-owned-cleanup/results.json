@@ -1,0 +1,539 @@
+{
+  "schema": "llmlang-linux-foreign-owned-cleanup-v1",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+  "libc": "glibc 2.41",
+  "kernel": "6.18.57",
+  "architecture": "x86_64",
+  "filesystem": "overlayfs",
+  "source_sha256": {
+    "owned_cleanup.c": "b00ce3bc99579c9a88a5834f8a5d8e15e17d9d30d3df99a1d8b9b06a43959cb8",
+    "run.py": "ebdf9d01e22b7b6b26d478b8fca3860522886adc01541798b00f0da45b504ba3"
+  },
+  "optimization_levels": [
+    "0",
+    "3"
+  ],
+  "native_trace_comparisons": 64,
+  "observations": [
+    {
+      "early": false,
+      "wants_value": false,
+      "broken_pipe": false,
+      "foreign_duplicate": false,
+      "same_inode": false,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "provider_close",
+        "owner_fd_closed",
+        "second_started"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": false,
+      "broken_pipe": false,
+      "foreign_duplicate": false,
+      "same_inode": true,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "provider_close",
+        "owner_fd_closed",
+        "second_started"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": false,
+      "broken_pipe": false,
+      "foreign_duplicate": true,
+      "same_inode": false,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "provider_close",
+        "owner_fd_closed",
+        "duplicate_fd_open",
+        "second_started",
+        "duplicate_close"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": false,
+      "broken_pipe": false,
+      "foreign_duplicate": true,
+      "same_inode": true,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "provider_close",
+        "owner_fd_closed",
+        "duplicate_fd_open",
+        "second_refused",
+        "duplicate_close",
+        "second_retry_started"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": false,
+      "broken_pipe": true,
+      "foreign_duplicate": false,
+      "same_inode": false,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "second_started"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": false,
+      "broken_pipe": true,
+      "foreign_duplicate": false,
+      "same_inode": true,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "second_started"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": false,
+      "broken_pipe": true,
+      "foreign_duplicate": true,
+      "same_inode": false,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "duplicate_fd_open",
+        "second_started",
+        "duplicate_close"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": false,
+      "broken_pipe": true,
+      "foreign_duplicate": true,
+      "same_inode": true,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "duplicate_fd_open",
+        "second_refused",
+        "duplicate_close",
+        "second_retry_started"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": true,
+      "broken_pipe": false,
+      "foreign_duplicate": false,
+      "same_inode": false,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "transfer",
+        "owner_fd_open",
+        "second_started",
+        "caller_close"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": true,
+      "broken_pipe": false,
+      "foreign_duplicate": false,
+      "same_inode": true,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "transfer",
+        "owner_fd_open",
+        "second_refused",
+        "caller_close",
+        "second_retry_started"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": true,
+      "broken_pipe": false,
+      "foreign_duplicate": true,
+      "same_inode": false,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "transfer",
+        "owner_fd_open",
+        "duplicate_fd_open",
+        "second_started",
+        "caller_close",
+        "duplicate_close"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": true,
+      "broken_pipe": false,
+      "foreign_duplicate": true,
+      "same_inode": true,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "transfer",
+        "owner_fd_open",
+        "duplicate_fd_open",
+        "second_refused",
+        "caller_close",
+        "duplicate_close",
+        "second_retry_started"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": true,
+      "broken_pipe": true,
+      "foreign_duplicate": false,
+      "same_inode": false,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "second_started"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": true,
+      "broken_pipe": true,
+      "foreign_duplicate": false,
+      "same_inode": true,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "second_started"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": true,
+      "broken_pipe": true,
+      "foreign_duplicate": true,
+      "same_inode": false,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "duplicate_fd_open",
+        "second_started",
+        "duplicate_close"
+      ]
+    },
+    {
+      "early": false,
+      "wants_value": true,
+      "broken_pipe": true,
+      "foreign_duplicate": true,
+      "same_inode": true,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "duplicate_fd_open",
+        "second_refused",
+        "duplicate_close",
+        "second_retry_started"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": false,
+      "broken_pipe": false,
+      "foreign_duplicate": false,
+      "same_inode": false,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "provider_close",
+        "owner_fd_closed",
+        "second_started"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": false,
+      "broken_pipe": false,
+      "foreign_duplicate": false,
+      "same_inode": true,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "provider_close",
+        "owner_fd_closed",
+        "second_started"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": false,
+      "broken_pipe": false,
+      "foreign_duplicate": true,
+      "same_inode": false,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "provider_close",
+        "owner_fd_closed",
+        "duplicate_fd_open",
+        "second_started",
+        "duplicate_close"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": false,
+      "broken_pipe": false,
+      "foreign_duplicate": true,
+      "same_inode": true,
+      "events": [
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "provider_close",
+        "owner_fd_closed",
+        "duplicate_fd_open",
+        "second_refused",
+        "duplicate_close",
+        "second_retry_started"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": false,
+      "broken_pipe": true,
+      "foreign_duplicate": false,
+      "same_inode": false,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "second_started"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": false,
+      "broken_pipe": true,
+      "foreign_duplicate": false,
+      "same_inode": true,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "second_started"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": false,
+      "broken_pipe": true,
+      "foreign_duplicate": true,
+      "same_inode": false,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "duplicate_fd_open",
+        "second_started",
+        "duplicate_close"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": false,
+      "broken_pipe": true,
+      "foreign_duplicate": true,
+      "same_inode": true,
+      "events": [
+        "fclose_epipe",
+        "stream_fd_closed",
+        "provider_close",
+        "owner_fd_closed",
+        "duplicate_fd_open",
+        "second_refused",
+        "duplicate_close",
+        "second_retry_started"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": true,
+      "broken_pipe": false,
+      "foreign_duplicate": false,
+      "same_inode": false,
+      "events": [
+        "transfer",
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "owner_fd_open",
+        "second_started",
+        "caller_close"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": true,
+      "broken_pipe": false,
+      "foreign_duplicate": false,
+      "same_inode": true,
+      "events": [
+        "transfer",
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "owner_fd_open",
+        "second_refused",
+        "caller_close",
+        "second_retry_started"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": true,
+      "broken_pipe": false,
+      "foreign_duplicate": true,
+      "same_inode": false,
+      "events": [
+        "transfer",
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "owner_fd_open",
+        "duplicate_fd_open",
+        "second_started",
+        "caller_close",
+        "duplicate_close"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": true,
+      "broken_pipe": false,
+      "foreign_duplicate": true,
+      "same_inode": true,
+      "events": [
+        "transfer",
+        "fclose_ok",
+        "stream_fd_closed",
+        "flushed_byte",
+        "owner_fd_open",
+        "duplicate_fd_open",
+        "second_refused",
+        "caller_close",
+        "duplicate_close",
+        "second_retry_started"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": true,
+      "broken_pipe": true,
+      "foreign_duplicate": false,
+      "same_inode": false,
+      "events": [
+        "transfer",
+        "fclose_epipe",
+        "stream_fd_closed",
+        "owner_fd_open",
+        "second_started",
+        "caller_close"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": true,
+      "broken_pipe": true,
+      "foreign_duplicate": false,
+      "same_inode": true,
+      "events": [
+        "transfer",
+        "fclose_epipe",
+        "stream_fd_closed",
+        "owner_fd_open",
+        "second_refused",
+        "caller_close",
+        "second_retry_started"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": true,
+      "broken_pipe": true,
+      "foreign_duplicate": true,
+      "same_inode": false,
+      "events": [
+        "transfer",
+        "fclose_epipe",
+        "stream_fd_closed",
+        "owner_fd_open",
+        "duplicate_fd_open",
+        "second_started",
+        "caller_close",
+        "duplicate_close"
+      ]
+    },
+    {
+      "early": true,
+      "wants_value": true,
+      "broken_pipe": true,
+      "foreign_duplicate": true,
+      "same_inode": true,
+      "events": [
+        "transfer",
+        "fclose_epipe",
+        "stream_fd_closed",
+        "owner_fd_open",
+        "duplicate_fd_open",
+        "second_refused",
+        "caller_close",
+        "duplicate_close",
+        "second_retry_started"
+      ]
+    }
+  ]
+}

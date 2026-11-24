@@ -31,6 +31,8 @@ RT-04 compares ordered summaries under shared call contexts with independent cal
 
 Scenario 119 infers obligations in a matched call result from lexical scopes and close contracts. In 4,096 concrete inputs, the result shapes agree with the disposition model. Covering every tag can still miss a new obligation when a close contract changes. This connects RT-03 transfer semantics to RT-04 resource checks and RT-05 interface compatibility. [Ownership in matched call results](../language-design/RT-04/RESEARCH-SCENARIO-119-OWNED-RESULT-MATCHING.md)
 
+The Linux foreign-cleanup fixture connects RT-04 transfer policies to the RT-10 runtime boundary. A live duplicate can retain a real file lock through a staged cleanup that closes the original descriptor. [Linux owned cleanup](../language-design/RT-04/RT-04-LINUX-OWNED-CLEANUP-2026-11-24.md)
+
 Scenario 120 measures cleanup return codes and destruction timing for a SQLite connection with prepared statements. The probe distinguishes API error reporting from capability availability and remaining cleanup work. This adds implementation evidence for the RT-04 to RT-10 dependency. [Cleanup dependencies in SQLite](../language-design/RT-04/RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md)
 
 Scenario 121 compares static close preconditions, explicit busy recovery, and deferred release with 510 bounded plans. SQLite agrees on the call observations for all 356 admitted plans. A statement owned outside the caller makes local release incomplete, even after the caller finalizes all of its own statements. [Local close recovery](../language-design/RT-04/RESEARCH-SCENARIO-121-SQLITE-LOCAL-CLOSE-RECOVERY.md)
