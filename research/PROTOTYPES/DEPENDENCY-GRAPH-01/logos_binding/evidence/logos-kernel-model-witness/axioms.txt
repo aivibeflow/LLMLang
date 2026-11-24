@@ -1,0 +1,7 @@
+'LLMLang.LogosScalarDenotation.extendModel_wellFormed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LLMLang.LogosScalarDenotation.extendModel_agrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LLMLang.LogosScalarDenotation.exists_wellFormed_agreeing_model' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LLMLang.LogosScalarDenotation.nameOnly_breaks_model_typing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LLMLang.LogosScalarDenotation.emptyRegexCanonical_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]

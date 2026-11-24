@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+import tomllib
 from tempfile import TemporaryDirectory
 
 HERE = Path(__file__).resolve().parent
@@ -32,6 +33,32 @@ def combine_libraries(checkout, destination):
                 link.parent.mkdir(parents=True, exist_ok=True)
                 if not link.exists():
                     link.symlink_to(module)
+
+
+def rebuild_kernel_witness(checkout, library, environment):
+    verification = checkout / "verification"
+    config = tomllib.loads((verification / "lakefile.toml").read_text(encoding="utf-8"))
+    package = next(item for item in config["lean_lib"] if item["name"] == "CpcVerification")
+    lean = ["lean", f"--root={library}", *config["weakLeanArgs"], *package["moreLeanArgs"]]
+    namespace = Path("Cpc/Proofs/TypePreservation")
+    old = ("@[simp] theorem native_re_canonical_none :\n"
+           "    __smtx_re_canonical native_re_none = true := by\n  native_decide\n")
+    new = ("@[simp] theorem native_re_canonical_none :\n"
+           "    __smtx_re_canonical native_re_none = true := rfl\n")
+    for name in ("Common", "Support", "Model", "Nonvacuity"):
+        source = (checkout / namespace / f"{name}.lean").read_text(encoding="utf-8")
+        if name == "Common":
+            if source.count(old) != 1:
+                raise ValueError("Expected exactly one pinned empty-regex canonicity proof")
+            source = source.replace(old, new)
+        target = library / namespace / f"{name}.lean"
+        # The shared library entries are symlinks. Unlink every artifact for
+        # this module before Lean writes its alternate build products.
+        for artifact in target.parent.glob(f"{name}.*"):
+            artifact.unlink()
+        target.write_text(source, encoding="utf-8")
+        subprocess.run([*lean, "-o", str(target.with_suffix(".olean")), str(target)],
+                       cwd=verification, env=environment, check=True, timeout=600)
 
 
 def build_program_workspace(checkout, destination):
@@ -65,7 +92,7 @@ def replay(checkout, mode="scalar"):
         raise ValueError(f"Expected the pinned Logos verification Lean 4.34.0, got {version}")
 
     targets = ["Cpc.SmtModel"]
-    if mode in {"extension", "refutation"}:
+    if mode in {"extension", "kernel-extension", "refutation"}:
         targets.append("Cpc.Proofs.TypePreservation.Nonvacuity")
     if mode == "refutation":
         targets.append("Cpc.Spec")
@@ -82,6 +109,8 @@ def replay(checkout, mode="scalar"):
         combine_libraries(checkout, library)
         paths.extend((str(library), lake_path))
         environment = {**os.environ, "LEAN_PATH": os.pathsep.join(paths)}
+        if mode == "kernel-extension":
+            rebuild_kernel_witness(checkout, library, environment)
         lean = ["lean", "-DwarningAsError=true"]
         if not builds_program:
             capture([*lean, f"--root={HERE.parent}", "-o", str(directory / "LogosScalarEvaluation.olean"),
@@ -94,7 +123,8 @@ def replay(checkout, mode="scalar"):
                 capture([*lean, f"--root={HERE}", "-o", str(directory / f"{name}.olean"),
                          str(HERE / f"{name}.lean")], verification, environment=environment)
         theorem = {"scalar": "LogosUpstreamScalarModel.lean", "program": "LogosUpstreamProgram.lean",
-                   "extension": "LogosModelExtension.lean", "refutation": "LogosSourceRefutation.lean"}[mode]
+                   "extension": "LogosModelExtension.lean", "kernel-extension": "LogosModelExtension.lean",
+                   "refutation": "LogosSourceRefutation.lean"}[mode]
         return capture([*lean, str(HERE / theorem)], verification, environment=environment)
 
 
@@ -107,6 +137,8 @@ if __name__ == "__main__":
                        help="check both sides with the upstream kernel")
     modes.add_argument("--model-extension", dest="mode", action="store_const", const="extension",
                        help="check the total well-formed upstream model construction")
+    modes.add_argument("--kernel-model-extension", dest="mode", action="store_const", const="kernel-extension",
+                       help="rebuild the model witness with a kernel reduction in a temporary library")
     modes.add_argument("--source-refutation", dest="mode", action="store_const", const="refutation",
                        help="check the source refutation theorem under explicit verdict soundness")
     parser.set_defaults(mode="scalar")
