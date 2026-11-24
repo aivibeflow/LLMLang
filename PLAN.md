@@ -376,6 +376,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Research output (2026-11-21)** · Valuation-indexed ordered effect summaries match 128 executions. Combining independent callee summaries introduces 28 impossible traces across 16 programs. [Ordered call effects](research/language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md)
 
+**Owned-return contract discriminator (2026-11-24):** The [RT-04 native comparison](research/language-design/RT-04/RT-04-OWNED-PROVIDER-CONTRACT-REPLAY-2026-11-24.md) reproduces 256 traces and separates early and staged transfer in 24 failed-cleanup pairs. An error flag alone loses the ownership and subsequent-admission distinctions. General source, foreign-resource and public-binding integration remain open.
+
 ## 1.5 Prior-art study for semantic representation and identity
 
 - [x] Compare Unison's content-addressed code identity and codebase model.
@@ -1457,7 +1459,7 @@ The open inputs below affect implementation selection. Record the result in the 
 
 | External input | Current evidence and release condition |
 | --- | --- |
-| Independent review of research claims and evidence quality | Stage 0.2 and [#285](https://github.com/aivibeflow/LLMLang/issues/285) have two pending review artifacts. A reviewer records adjudication against the archive-pinned [24-document queue](research/quality-audit/2026-11-23-root-census-observations.json) and the separate [eight-claim handoff](research/quality-audit/2026-11-23-independent-review-handoff.md). The published records contain no completed independent reviews. |
+| Independent review of research claims and evidence quality | Stage 0.2 and [#285](https://github.com/aivibeflow/LLMLang/issues/285) have two pending review artifacts. A reviewer records adjudication against the archive-pinned [24-document queue](research/quality-audit/2026-11-23-root-census-observations.json) and the separate [eight-claim handoff](research/quality-audit/2026-11-23-independent-review-handoff.md). Independent reviews are unavailable. Keep the review gate pending until the two artifacts have independent dispositions. |
 | Maintainer approval of the review method and candidate decisions | The [quality review protocol](research/research-management/QUALITY-REVIEW-PROTOCOL.md) and case-specific evidence gates remain proposed. Record explicit approval for §0.2 conventions and use the applicable [decision records](TODO.md) for architecture adoption. Baseline RFC selection follows [#370](https://github.com/aivibeflow/LLMLang/issues/370) and [#371](https://github.com/aivibeflow/LLMLang/issues/371). |
 | Original author or archival execution records | The [eight original-run provenance gaps](research/research-management/RT-00/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md) need attested original source state and execution data where recoverable. If recovery fails, record the missing information and retain independent reruns under their own identities. Historical provenance affects §0.1 and §0.2 evidence claims. |
 | Scenario 16 archival or author record | The [scenario crosswalk](research/research-management/RT-00/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md) and [history recheck](research/research-management/RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.md#scenario-16-boundary) preserve the numbering gap. An author or archive record can establish the intended scope or location. |

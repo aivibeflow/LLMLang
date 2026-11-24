@@ -242,3 +242,7 @@ Scenario 119 derives the expected match arms from a bounded callee AST with a na
 Scenario 120 checks the same distinction on SQLite 3.46.1. `sqlite3_close` retains a connection on `SQLITE_BUSY` until dependents are finalized. `sqlite3_finalize` can consume a statement and report its last execution error. `sqlite3_close_v2` can invalidate the connection before its destruction callback runs, with the last dependent controlling when it runs. The next model needs to represent this dependency as well as the local capability. [Scenario 120](RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md)
 
 Scenario 123 uses the same forwarding checker on results from four policies over one close workload. A guard refusal or busy return carries the connection on its error arm. Deferred close can return with pending destruction and no usable connection. The local finalization error can appear in either state, so it carries no implication about connection ownership or destruction. [Scenario 123](RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md)
+
+## Caller guarantee for transfer on cleanup failure
+
+The [owned-return contract replay](RT-04-OWNED-PROVIDER-CONTRACT-REPLAY-2026-11-24.md) compares the two timing policies using the same typed forwarding source and generated Rust. The cleanup-error flag agrees in the 24 discriminating pairs, while forwarded ownership and the next operation can differ.
