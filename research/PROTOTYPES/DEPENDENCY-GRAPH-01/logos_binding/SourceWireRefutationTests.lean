@@ -15,9 +15,11 @@ private def constant : Program .int := ⟨.skip, .intLit 7⟩
 private def dependent : Program .int := ⟨.skip, .intVar "input"⟩
 
 private def observations := "(or (not (= (ite true 7 0) (ite true 7 0))) false)"
-private def header := "(declare-const i_4_L Int)\n(declare-const i_5_R Int)\n" ++
-  "(assume @p1 (not (= i_4_L i_5_R)))\n"
-private def assumptions := header ++ s!"(assume @p2 {observations})\n"
+private def declarations := "(declare-const i_4_L Int)\n(declare-const i_5_R Int)\n"
+private def factorAssumption := "(assume @p1 (not (= i_4_L i_5_R)))\n"
+private def observationAssumption := s!"(assume @p2 {observations})\n"
+private def header := declarations ++ factorAssumption
+private def assumptions := header ++ observationAssumption
 private def proof := assumptions ++ s!"(step @p3 :rule evaluate :args ({observations}))\n" ++
   "(step @p4 false :rule eq_resolve :premises (@p2 @p3))\n"
 private def wrongProof := header ++ "(assume @p2 false)\n" ++
@@ -35,6 +37,14 @@ private def run : Except String Unit := do
   let wire ← sourceEnvelope constant contract scope inputVar.id
   let checkGate := check constant contract scope inputVar.id
   (checkGate wire proof).mapError (fun error => reprStr error)
+  let checked ← (checkWithEvidence constant contract scope inputVar.id wire proof).mapError reprStr
+  if checked.bound.parsed.assumptions.length != 2 then
+    throw "the checked command stream did not bind both input and observation assumptions"
+  for modified in [declarations ++ observationAssumption ++ factorAssumption,
+      header, assumptions ++ "(assume @p5 true)\n"] do
+    match checkGate wire modified with
+    | .error (.assumptions _) => pure ()
+    | other => throw s!"expected exact ordered assumption rejection, got {reprStr other}"
   match checkGate wire assumptions with
   | .error .incorrect => pure ()
   | other => throw s!"expected incorrect derivation, got {reprStr other}"
