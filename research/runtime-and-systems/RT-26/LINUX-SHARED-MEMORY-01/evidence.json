@@ -1,0 +1,148 @@
+{
+  "cases": {
+    "private": {
+      "after_child_exit": {
+        "child": null,
+        "parent": {
+          "Anonymous": 2048,
+          "Private_Dirty": 2048,
+          "Pss": 2048,
+          "Rss": 2048,
+          "Shared_Dirty": 0,
+          "Size": 2048
+        },
+        "pss_kib": 2048,
+        "rss_kib": 2048
+      },
+      "after_half_written": {
+        "child": {
+          "Anonymous": 2048,
+          "Private_Dirty": 1024,
+          "Pss": 1536,
+          "Rss": 2048,
+          "Shared_Dirty": 1024,
+          "Size": 2048
+        },
+        "parent": {
+          "Anonymous": 2048,
+          "Private_Dirty": 1024,
+          "Pss": 1536,
+          "Rss": 2048,
+          "Shared_Dirty": 1024,
+          "Size": 2048
+        },
+        "pss_kib": 3072,
+        "rss_kib": 4096
+      },
+      "modified_pages_visible_to_parent": 0,
+      "prefault": {
+        "child": null,
+        "parent": {
+          "Anonymous": 2048,
+          "Private_Dirty": 2048,
+          "Pss": 2048,
+          "Rss": 2048,
+          "Shared_Dirty": 0,
+          "Size": 2048
+        },
+        "pss_kib": 2048,
+        "rss_kib": 2048
+      },
+      "two_readers": {
+        "child": {
+          "Anonymous": 2048,
+          "Private_Dirty": 0,
+          "Pss": 1024,
+          "Rss": 2048,
+          "Shared_Dirty": 2048,
+          "Size": 2048
+        },
+        "parent": {
+          "Anonymous": 2048,
+          "Private_Dirty": 0,
+          "Pss": 1024,
+          "Rss": 2048,
+          "Shared_Dirty": 2048,
+          "Size": 2048
+        },
+        "pss_kib": 2048,
+        "rss_kib": 4096
+      }
+    },
+    "shared": {
+      "after_child_exit": {
+        "child": null,
+        "parent": {
+          "Anonymous": 0,
+          "Private_Dirty": 2048,
+          "Pss": 2048,
+          "Rss": 2048,
+          "Shared_Dirty": 0,
+          "Size": 2048
+        },
+        "pss_kib": 2048,
+        "rss_kib": 2048
+      },
+      "after_half_written": {
+        "child": {
+          "Anonymous": 0,
+          "Private_Dirty": 0,
+          "Pss": 1024,
+          "Rss": 2048,
+          "Shared_Dirty": 2048,
+          "Size": 2048
+        },
+        "parent": {
+          "Anonymous": 0,
+          "Private_Dirty": 0,
+          "Pss": 1024,
+          "Rss": 2048,
+          "Shared_Dirty": 2048,
+          "Size": 2048
+        },
+        "pss_kib": 2048,
+        "rss_kib": 4096
+      },
+      "modified_pages_visible_to_parent": 256,
+      "prefault": {
+        "child": null,
+        "parent": {
+          "Anonymous": 0,
+          "Private_Dirty": 2048,
+          "Pss": 2048,
+          "Rss": 2048,
+          "Shared_Dirty": 0,
+          "Size": 2048
+        },
+        "pss_kib": 2048,
+        "rss_kib": 2048
+      },
+      "two_readers": {
+        "child": {
+          "Anonymous": 0,
+          "Private_Dirty": 0,
+          "Pss": 1024,
+          "Rss": 2048,
+          "Shared_Dirty": 2048,
+          "Size": 2048
+        },
+        "parent": {
+          "Anonymous": 0,
+          "Private_Dirty": 0,
+          "Pss": 1024,
+          "Rss": 2048,
+          "Shared_Dirty": 2048,
+          "Size": 2048
+        },
+        "pss_kib": 2048,
+        "rss_kib": 4096
+      }
+    }
+  },
+  "format": "rt26-linux-shared-memory/1",
+  "kernel_release": "6.18.57",
+  "machine": "x86_64",
+  "page_bytes": 4096,
+  "pages_per_mapping": 512,
+  "python": "3.12.14"
+}
