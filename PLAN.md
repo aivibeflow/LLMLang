@@ -179,7 +179,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define reconstruction outputs: human-readable contract, business-rule table, temporal/scenario explanations, counterexamples, semantic differences, unresolved questions, and provenance links.
 - [ ] Define how to detect omitted, added, weakened, strengthened, polarity-flipped, temporally shifted, or scope-shifted semantics, including exceptions and negative obligations.
 - [ ] Define fail-closed handling for unsupported constructs, unresolved assumptions, missing provenance, incomplete source coverage, analyzer UNKNOWN, and reconstruction failure.
-- [ ] Compare FRET/FRETISH and other formal backends for supported requirement classes; do not make FRET mandatory or assume that a FRET explanation proves intent correctness.
+- [ ] Compare [FRET/FRETISH](https://github.com/NASA-SW-VnV/fret) and other formal backends for supported requirement classes; do not make FRET mandatory or assume that a FRET explanation proves intent correctness.
 - [ ] Define the human review protocol and exact approval binding: ACCEPT, REVISE, CLARIFY, or REJECT against a specific immutable semantic revision and evidence package.
 - [ ] Define revision/impact behavior: semantic changes regenerate affected reconstructions and invalidate affected approvals; provenance-only changes must remain distinguishable from semantic changes.
 - [ ] Build clause-level round-trip and seeded-mutation experiments; measure semantic fidelity, provenance coverage, false acceptance, and unknown handling.
