@@ -1212,6 +1212,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] Define human-readable source and semantic review workflows.
 - [ ] Define diagnostics that explain semantic impact and failed contracts.
+  - [x] Exercise versioned two-document repairs over LSP in 35 sessions. A stale version rejects the entire batch, but an unopened provider can change after server preflight and alter repair behavior. Scoped checking at application avoids the stale outcome and preserves unrelated edits in the fixture. General editor and Toolchain transaction integration remain open. [LSP repair application](research/toolchain-and-collaboration/RT-17/RT-17-LSP-REPAIR-APPLICATION-2026-11-24.md).
 - [ ] Define editor, language-server, and debugging requirements.
   - [x] Exercise LSP push, pull, refresh and watched-file messages in 18 client/server sessions. A document version and document-bound result ID preserve four wrong results in each delivery style. A complete read projection rejects all four and avoids one whole-workspace refresh after an unrelated edit. Editor behavior and participant evaluation remain open. [LSP diagnostic freshness](research/toolchain-and-collaboration/RT-17/RT-17-LSP-DIAGNOSTIC-FRESHNESS-2026-11-24.md).
 - [ ] Define migration and interoperability with existing languages and build systems.
