@@ -1,0 +1,226 @@
+{
+  "schema": "llmlang-rt38-rv64-frame-allocator-v1",
+  "machine": "virt",
+  "cpu": "rv64",
+  "harts": 1,
+  "tools": {
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "mc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "input_sha256": {
+    "base-boot.s": "0ed50ccfffcb015f87aa28a13a011b93dd1418561d1b95ff9d4411246b417115",
+    "base-memory.ld": "e49d28407dab80a8fa229ac985c51444d374dda042a44b80fc69d073dd51d338",
+    "base-run.py": "82e7a733660f259da0df298a146abf06ff2915aad0ea1a07defdc185d7dc589b",
+    "allocator.c": "0316f649d5f6c6701c1d4dc33f5cf71a9f5b2d30ca2d5111c84755e77e39511b",
+    "Frame.lean": "72bab505e4546be8bc2dee6b165168bbad088e40be1c22ca8d56fce29ced86c0",
+    "make_fixture.py": "acadd2adae74202cb3d49383d1527b385dc6763e17700b0f7a067aa9d9fa2730",
+    "reference.py": "b7f7ad42d4520ce829dc871b972f91c82a9256206634177f4d2e1b4304e2e25a",
+    "run.py": "27d780e780a5a8574a8f555dc6af12cff3c33e00025d1fdeb00150f16db47847"
+  },
+  "lean_axioms": [
+    "'FrameAllocator.conservation' depends on axioms: [propext, Quot.sound]",
+    "'FrameAllocator.publication_requires_zero' does not depend on any axioms",
+    "'FrameAllocator.no_double_allocation' does not depend on any axioms",
+    "'FrameAllocator.both_abort_points_restore_free' does not depend on any axioms",
+    "'FrameAllocator.unique_owner' does not depend on any axioms"
+  ],
+  "images": {
+    "zero_on_allocation": {
+      "elf_sha256": "f6df84e6faf9a0bee05b7597ea786dfc9f13dc5027e4ba80e33361361d982427",
+      "kernel_text_bytes": 2732,
+      "user_code_sha256": "e0edd8d11814182c98932c73150806fde2304a5a2905f2083db8b25186d139ed",
+      "uart_sha256": "89ee31f855f8cbc95208035418a51e2ddd26cbaa2cc65dddf4906acb4be4f05c",
+      "user_uart": "EISRZZPZ!",
+      "initial_scrubbed_words": 0,
+      "operations": 14746,
+      "operation_scrubbed_words_by_status": {
+        "A": 1677312,
+        "B": 0,
+        "E": 0,
+        "F": 0,
+        "I": 0,
+        "L": 1675776,
+        "N": 0,
+        "R": 0
+      },
+      "different_reference_records": 0,
+      "violations": {},
+      "first_violation": null,
+      "targeted_records": [
+        "A100020010",
+        "A120022010",
+        "A123022210",
+        "F123022200",
+        "R023002200",
+        "L023002210",
+        "A023122210"
+      ]
+    },
+    "zero_on_release": {
+      "elf_sha256": "8d8d1c808ebfe4c784866fac6808637064773a07e71006e3babf50b57004fd78",
+      "kernel_text_bytes": 3032,
+      "user_code_sha256": "e0edd8d11814182c98932c73150806fde2304a5a2905f2083db8b25186d139ed",
+      "uart_sha256": "f4c31955e48362bb631932cb8cf307c5b6ceca18cdf17acbbb3643d73f0bf939",
+      "user_uart": "EISRZZPZ!",
+      "initial_scrubbed_words": 1536,
+      "operations": 14746,
+      "operation_scrubbed_words_by_status": {
+        "A": 0,
+        "B": 0,
+        "E": 0,
+        "F": 0,
+        "I": 0,
+        "L": 0,
+        "N": 0,
+        "R": 100864
+      },
+      "different_reference_records": 0,
+      "violations": {},
+      "first_violation": null,
+      "targeted_records": [
+        "A100020000",
+        "A120022000",
+        "A123022200",
+        "F123022200",
+        "R023002210",
+        "L023002200",
+        "A023122200"
+      ]
+    },
+    "dirty_publication": {
+      "elf_sha256": "d8ebcfd26ed0a7693577e05e01d2e0e8c80463c896110626e441c04b795147ce",
+      "kernel_text_bytes": 2672,
+      "user_code_sha256": "e0edd8d11814182c98932c73150806fde2304a5a2905f2083db8b25186d139ed",
+      "uart_sha256": "bbe70357cd8b754061868e3cdd5f851ab930a4cb58758b9b13da5a18fc03485d",
+      "user_uart": "EISRVVPZ!",
+      "initial_scrubbed_words": 0,
+      "operations": 14746,
+      "operation_scrubbed_words_by_status": {
+        "A": 0,
+        "B": 0,
+        "E": 0,
+        "F": 0,
+        "I": 0,
+        "L": 0,
+        "N": 0,
+        "R": 0
+      },
+      "different_reference_records": 6549,
+      "violations": {
+        "dirty_at_publication": 3276
+      },
+      "first_violation": {
+        "sequence": [
+          0,
+          0,
+          0
+        ],
+        "step_index": 0,
+        "command": 0,
+        "observed": "A100020001",
+        "reference": "A100020010",
+        "violation": "dirty_at_publication"
+      },
+      "targeted_records": [
+        "A100020001",
+        "A120022001",
+        "A123022201",
+        "F123022200",
+        "R023002200",
+        "L023002200",
+        "A023122201"
+      ]
+    },
+    "lost_reservation": {
+      "elf_sha256": "30eec7b6735314196130eec528aa4c64cee6841d163fbe4665544774d7143642",
+      "kernel_text_bytes": 2732,
+      "user_code_sha256": "e0edd8d11814182c98932c73150806fde2304a5a2905f2083db8b25186d139ed",
+      "uart_sha256": "001c4b69547ae83a204a1e81b3268fe8fccfe2be326052c2cebe6bf5c65fd206",
+      "user_uart": "EISRZZPZ!",
+      "initial_scrubbed_words": 0,
+      "operations": 14746,
+      "operation_scrubbed_words_by_status": {
+        "A": 1676800,
+        "B": 0,
+        "E": 0,
+        "F": 0,
+        "I": 0,
+        "L": 1675776,
+        "N": 0,
+        "R": 0
+      },
+      "different_reference_records": 5694,
+      "violations": {
+        "reservation_after_return": 5694
+      },
+      "first_violation": {
+        "sequence": [
+          0,
+          0,
+          9
+        ],
+        "step_index": 2,
+        "command": 9,
+        "observed": "L100021010",
+        "reference": "L100020010",
+        "violation": "reservation_after_return"
+      },
+      "targeted_records": [
+        "A100020010",
+        "A120022010",
+        "A123022210",
+        "F123022200",
+        "R023002200",
+        "L023012210",
+        "F023012200"
+      ]
+    },
+    "double_publication": {
+      "elf_sha256": "e12c5f4ffb53202bb03146c64c0a8732aa1d201e19dd9e2f23d6990c7e5af6f1",
+      "kernel_text_bytes": 2688,
+      "user_code_sha256": "e0edd8d11814182c98932c73150806fde2304a5a2905f2083db8b25186d139ed",
+      "uart_sha256": "27b61cc5ed0a9a02275f2abb1c0734044b785e3497d64825129d52434f916b1b",
+      "user_uart": "EISRZZPZ!",
+      "initial_scrubbed_words": 0,
+      "operations": 14746,
+      "operation_scrubbed_words_by_status": {
+        "A": 1677312,
+        "B": 0,
+        "E": 0,
+        "I": 0,
+        "L": 1675264,
+        "N": 0,
+        "R": 0
+      },
+      "different_reference_records": 1926,
+      "violations": {
+        "aliased_frame": 702,
+        "mapping_ownership_disagreement": 1275
+      },
+      "first_violation": {
+        "sequence": [
+          0,
+          0,
+          1
+        ],
+        "step_index": 2,
+        "command": 1,
+        "observed": "A110020010",
+        "reference": "A120022010",
+        "violation": "aliased_frame"
+      },
+      "targeted_records": [
+        "A100020010",
+        "A110020010",
+        "A111020010",
+        "A111120010",
+        "R011100000",
+        "E011100000",
+        "E011100000"
+      ]
+    }
+  }
+}
