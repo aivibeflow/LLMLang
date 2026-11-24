@@ -145,6 +145,8 @@ RT-07 includes an exact-byte gate for source-derived query envelopes. Structural
 
 **Cross-cutting public-interface research (RT-05/20; proposed):** [stable names and verified contract refinement](../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) connects RT-03/04 call/type semantics, RT-05/06 identity/dependencies, RT-07/08/32/33 verification, RT-09/11 build boundaries, RT-12 package exports, RT-16 trust, RT-18 evolution, RT-19/20/23/24 publication/merge and RT-34/35 resources and discovery. This is a vector within existing areas, not a new RT identifier or accepted language rule.
 
+The [modular caller pilot](../semantic-representation/RT-05/PUBLIC-INTERFACE-MODULAR-CALLER-2026-11-24.md) connects the RT-05 and RT-20 public binding model to the RT-32 proof boundary. The abstract caller theorem is checked in Lean, with finite source comparisons and separate witnesses for the two concrete provider models.
+
 ## 3. Required research artifact
 
 Every research report should identify:
