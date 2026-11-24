@@ -34,3 +34,5 @@ cmp "$fixture/checked-add-results.json" "$results"
 ```
 
 The bit-vector claim assumes defined scalar inputs, an aligned and writable output slot, and a returning callback that records its payload without accessing that slot. The reader and both formulas remain part of the trust boundary. Independent solver agreement checks the formulas, and native controls test concrete observations. General LLVM semantics, proof-certificate checking, source-to-SPG binding for this program, and whole-domain correspondence at the native ABI are separate obligations.
+
+The [certificate follow-up](RT-13-LLVM-CHECKED-ADD-CPC-BINDING-2026-11-24.md) generates and checks CPC refutations bound to the complete O0 and O3 mismatch formulas in the Logos runtime.

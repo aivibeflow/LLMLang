@@ -1,0 +1,46 @@
+{
+  "schema": "llmlang-rt13-checked-add-cpc-v1",
+  "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+  "lean": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+  "certificates": {
+    "O0": {
+      "ir_sha256": "71a223e1fdb83b8fb00020e0c32818be995ac6dd756e446c17a1b7175240a106",
+      "smt_sha256": "3798f9f863649b398ada425aec37633163f170d2fe54dc487fcee268f4ec7f52",
+      "cvc5_stdout_sha256": "b2b83835d468274327fd85445a27e49514b4472647e4a70a047ee96bac6c8c9c",
+      "cpc_sha256": "20528a185127b6deeae719acd300ef0d9e26f5c1206d4727a048c9d586464c15",
+      "proof_steps": 1286,
+      "compiled_verdict": "correct",
+      "bound_verdict": "correct"
+    },
+    "O3": {
+      "ir_sha256": "dabb0d620cd70a839589b4ecdb752f4fc4d0bca3685550082df0dae778e73394",
+      "smt_sha256": "090d0918f1418b16ed132c56bddf4d2758fe882c05fcda946a54af16d0042a86",
+      "cvc5_stdout_sha256": "fd0e39654f3d7df64be1c71bb747b6fbf7b718eab68b3fa70b477425c9a3a740",
+      "cpc_sha256": "2bc3d6a6b77af8c08c961c235513fe15409272efa3dc22d043054473a7d1dd66",
+      "proof_steps": 1269,
+      "compiled_verdict": "correct",
+      "bound_verdict": "correct"
+    }
+  },
+  "controls": {
+    "renamed_input": {
+      "cpc_sha256": "6fe97adb10f4a36d63f00179f4b9d2f4dfc74e6d336d1e3f907cc1ad404c833c",
+      "compiled_verdict": "correct",
+      "bound_verdict": "declarations-mismatch"
+    },
+    "corrupted_conclusion": {
+      "cpc_sha256": "49b482e230ef3520760b36d7be7a1fa7109317227618b967219ca7db1dc6262b",
+      "compiled_verdict": "incorrect",
+      "bound_verdict": "incorrect"
+    },
+    "O3_certificate_for_O0": {
+      "compiled_verdict": "correct",
+      "bound_verdict": "assumptions-mismatch"
+    },
+    "O0_certificate_for_O3": {
+      "compiled_verdict": "correct",
+      "bound_verdict": "assumptions-mismatch"
+    }
+  }
+}
