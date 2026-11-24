@@ -264,6 +264,8 @@ The SCW-31 envelope fixture adds evidence for DEP-007. A valid wire schema can c
 
 The SCW-32 finite comparison adds evidence for the interpretation boundary of DEP-007. Exchanging same-sort bindings can change the denotation of a rendered term. [Logos scalar denotation](../formal-verification/RT-07/RT-07-LOGOS-SCALAR-DENOTATION-2026-11-24.md)
 
+The SCW-32 expression theorem proves preservation at DEP-007 for arbitrary typed expressions and related constant valuations in the restricted evaluator. Models for upstream proof acceptance and arbitrary program-level binding remain separate dependencies. [Logos scalar preservation](../formal-verification/RT-07/RT-07-LOGOS-SCALAR-PRESERVATION-2026-11-24.md)
+
 ## 6. Existing research-line placement
 
 The current Scenario 15–34 sequence is a substantial research line primarily spanning RT-02, RT-06, RT-07, and RT-08:
