@@ -1,0 +1,19 @@
+{
+  "schema": "llmlang-typed-countdown-v1",
+  "input_type": "Nat",
+  "result_type": "Nat",
+  "initial_accumulator": 0,
+  "stop_at": 0,
+  "body": [
+    {"op": "emit_remaining"},
+    {"op": "add", "amount": 2},
+    {"op": "emit_accumulator"},
+    {"op": "subtract", "amount": 1}
+  ],
+  "contract": {
+    "invariant": "remaining-and-accumulator-and-trace",
+    "measure": "remaining",
+    "trace": "remaining-then-accumulator",
+    "stride": 2
+  }
+}

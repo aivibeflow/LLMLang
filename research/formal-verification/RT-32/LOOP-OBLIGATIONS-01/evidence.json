@@ -1,0 +1,143 @@
+{
+  "controls": {
+    "EarlyExit": {
+      "expected_failure": "vcExit",
+      "failed_obligations": [
+        "vcExit"
+      ],
+      "witness": {
+        "baseline": "2,r1,a2",
+        "fuel": 2,
+        "input": 1,
+        "mutant": "0"
+      }
+    },
+    "MissingInvariant": "rejected-before-generation",
+    "TraceOrder": {
+      "expected_failure": "vcPreserve",
+      "failed_obligations": [
+        "vcPreserve"
+      ],
+      "witness": {
+        "baseline": "2,r1,a2",
+        "fuel": 2,
+        "input": 1,
+        "mutant": "2,a2,r1"
+      }
+    },
+    "WrongInit": {
+      "expected_failure": "vcInit",
+      "failed_obligations": [
+        "vcInit"
+      ],
+      "witness": {
+        "baseline": "2,r1,a2",
+        "fuel": 2,
+        "input": 1,
+        "mutant": "3,r1,a3"
+      }
+    },
+    "WrongStep": {
+      "expected_failure": "vcPreserve",
+      "failed_obligations": [
+        "vcPreserve"
+      ],
+      "witness": {
+        "baseline": "2,r1,a2",
+        "fuel": 2,
+        "input": 1,
+        "mutant": "3,r1,a3"
+      }
+    },
+    "ZeroDecrease": {
+      "expected_failure": "vcDecrease",
+      "failed_obligations": [
+        "vcDecrease",
+        "vcPreserve"
+      ],
+      "witness": {
+        "baseline": "2,r1,a2",
+        "fuel": 2,
+        "input": 1,
+        "mutant": "exhausted"
+      }
+    }
+  },
+  "inputs_sha256": {
+    "LoopCore.lean": "4fa10e54654f8ca5dd4c5ee2e1ce69b819a985a5f0df8d954346139b124a1335",
+    "Program.lean.in": "90400c13be82e4e53cf14a787cc9d7ab12caf20444e6d458ee1f72d2a2fdeaab",
+    "fixtures.json": "1137b0f79f17448011ebb4591ed491da744150f1cc971d5dbac5ad1214f4c4a5",
+    "replay.py": "02c80c37cb3907d3426f613d5aca04c9023edd4ab56a128465f576756de687ce"
+  },
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "programs": [
+    {
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "evaluations": [
+        "0",
+        "2,r1,a2",
+        "4,r2,a2,r1,a4",
+        "10,r5,a2,r4,a4,r3,a6,r2,a8,r1,a10",
+        "18,r9,a2,r8,a4,r7,a6,r6,a8,r5,a10,r4,a12,r3,a14,r2,a16,r1,a18",
+        "64,r32,a2,r31,a4,r30,a6,r29,a8,r28,a10,r27,a12,r26,a14,r25,a16,r24,a18,r23,a20,r22,a22,r21,a24,r20,a26,r19,a28,r18,a30,r17,a32,r16,a34,r15,a36,r14,a38,r13,a40,r12,a42,r11,a44,r10,a46,r9,a48,r8,a50,r7,a52,r6,a54,r5,a56,r4,a58,r3,a60,r2,a62,r1,a64",
+        "exhausted",
+        "exhausted"
+      ],
+      "generated_sha256": "31f461f3b073b59e9a27181a44d7b31e072d78825da034c74052cae2d07fb42b"
+    },
+    {
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "evaluations": [
+        "0",
+        "5,r1,a5",
+        "10,r2,a5,r1,a10",
+        "25,r5,a5,r4,a10,r3,a15,r2,a20,r1,a25",
+        "45,r9,a5,r8,a10,r7,a15,r6,a20,r5,a25,r4,a30,r3,a35,r2,a40,r1,a45",
+        "160,r32,a5,r31,a10,r30,a15,r29,a20,r28,a25,r27,a30,r26,a35,r25,a40,r24,a45,r23,a50,r22,a55,r21,a60,r20,a65,r19,a70,r18,a75,r17,a80,r16,a85,r15,a90,r14,a95,r13,a100,r12,a105,r11,a110,r10,a115,r9,a120,r8,a125,r7,a130,r6,a135,r5,a140,r4,a145,r3,a150,r2,a155,r1,a160",
+        "exhausted",
+        "exhausted"
+      ],
+      "generated_sha256": "76cdf95f112442280b580d5c24d1f2084d79dd4650fa8c26024e1d5de163c03c"
+    }
+  ],
+  "test_points": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      5,
+      5
+    ],
+    [
+      9,
+      9
+    ],
+    [
+      32,
+      32
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      3,
+      2
+    ]
+  ]
+}
