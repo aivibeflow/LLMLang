@@ -1,0 +1,40 @@
+{
+  "id": "POB-013",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Non-vacuous precondition",
+  "labels": [
+    "FORM-01",
+    "DOMAIN-01"
+  ],
+  "contract": "A proposed precondition for an operation accepting exactly integers 0..2 must admit precisely those values; in particular a witness must exist.",
+  "scope": "Integers -2..4.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Candidate admission equals explicit accepted set {0,1,2}; at least one required witness exists.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "vacuity",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Reject every input using x>2 and x<0.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Membership in explicit set.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

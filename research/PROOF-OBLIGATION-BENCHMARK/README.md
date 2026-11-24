@@ -31,7 +31,26 @@ The smoke runner enumerates explicit finite input domains, verifies positive ref
 | [POB-011](cases/POB-011.json) | Capability isolation | Public input and secret in 0..2; no read capability; pairwise comparison of secret choices. |
 | [POB-012](cases/POB-012.json) | Checked addition | All pairs in -8..7. |
 
-All twelve cases have a reference and incorrect mutation. Label counts are not a measure of semantic adequacy: sequential FIFO is only a prerequisite for concurrency evaluation, not linearizability; bounded progress is not general fairness; cleanup is not an ownership type system. The initial oracle code is trusted test infrastructure and requires independent review.
+The first twelve cases have a reference and incorrect mutation; the [second cohort](COVERAGE-AND-REVIEW.md) adds twelve cases with a reference, incorrect mutation and alternative valid candidate. Label counts are not a measure of semantic adequacy: sequential FIFO is only a prerequisite for concurrency evaluation, not linearizability; bounded progress is not general fairness; cleanup is not an ownership type system. The initial oracle code is trusted test infrastructure and requires independent review.
+
+## Second cohort
+
+| Case | Subject | Scope |
+|---|---|---|
+| [POB-013](cases/POB-013.json) | Non-vacuous precondition | Integers -2..4. |
+| [POB-014](cases/POB-014.json) | Typed option elimination | None and integers -1,0,1; tagged abstract values only. |
+| [POB-015](cases/POB-015.json) | Defined division | Numerator and denominator -2..2; exact rational arithmetic. |
+| [POB-016](cases/POB-016.json) | Caller/callee precondition | Finite integers -2..2, one call and no side effects. |
+| [POB-017](cases/POB-017.json) | Idempotent retry | All delivery sequences length 0..4 over IDs 0,1; lost acknowledgements modeled only by repeated delivery; single durable atomic receiver. |
+| [POB-018](cases/POB-018.json) | Binary rounding boundary | Exact halves n/2 for n=-7..7. |
+| [POB-019](cases/POB-019.json) | Finite probabilistic guarantee | Exactly four equally likely outcomes, all enumerated; no PRNG independence claim. |
+| [POB-020](cases/POB-020.json) | Concurrent lost update | All six interleavings of two threads, each with read then write; initial zero; atomic reference linearizes at write; sequential consistency only. |
+| [POB-021](cases/POB-021.json) | Wire migration default | IDs 0,1; enabled absent,true,false; no unknown fields in model. |
+| [POB-022](cases/POB-022.json) | Trace non-interference | Public and secret bits, explicit abstract observation (value, steps); no wall-clock claim. |
+| [POB-023](cases/POB-023.json) | Termination measure | Starting n=0..5; examine up to six transitions; no unbounded theorem. |
+| [POB-024](cases/POB-024.json) | Dropped translation constraint | Integers -2..4; predicate-level correspondence only. |
+
+See [coverage and review](COVERAGE-AND-REVIEW.md) for hand-derived witnesses, exact source crosswalk, remaining gaps and independent review gate.
 
 ## Format and contribution
 

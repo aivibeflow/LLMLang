@@ -1,0 +1,42 @@
+{
+  "id": "POB-021",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Wire migration default",
+  "labels": [
+    "FORM-02",
+    "FORM-06",
+    "DOMAIN-03",
+    "DOMAIN-09"
+  ],
+  "contract": "Decode old records {id} using default enabled=true; preserve explicit enabled=false in new records.",
+  "scope": "IDs 0,1; enabled absent,true,false; no unknown fields in model.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "ID preserved; absence alone defaults true, explicit false stays false.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "migration",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Use truthiness instead of presence to select default.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use explicit key-membership branch.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

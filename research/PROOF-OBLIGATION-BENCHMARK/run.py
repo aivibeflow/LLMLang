@@ -9,6 +9,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 from oracles import ORACLES
+from extended_oracles import EXTENDED
 
 ROOT = Path(__file__).resolve().parent
 STATUSES = {"bounded_pass", "proven", "disproven", "unknown", "unsupported", "error"}
@@ -59,9 +60,10 @@ def load():
         for node in graph:
             visit(node)
         variants = {v["id"]:v for v in c["variants"]}
-        require(len(variants) == len(c["variants"]) and set(variants) == {"reference","mutation"}, f"{cid}: variants")
+        require(len(variants) == len(c["variants"]) and set(variants) == ({"reference","mutation","alternative"} if c["oracle"] in EXTENDED else {"reference","mutation"}), f"{cid}: variants")
         require(variants["reference"]["expected"] == "bounded_pass" and variants["mutation"]["expected"] == "disproven", f"{cid}: finite oracle expectations")
-        require(c["oracle"] in ORACLES and all(v["description"].strip() for v in variants.values()), f"{cid}: oracle/description")
+        require("alternative" not in variants or variants["alternative"]["expected"] == "bounded_pass", f"{cid}: alternative expectation")
+        require(c["oracle"] in (ORACLES.keys() | EXTENDED.keys()) and all(v["description"].strip() for v in variants.values()), f"{cid}: oracle/description")
         if c["status"] != "retired":
             cases.append((c, digest(path)))
     require(cases, "empty corpus")
@@ -72,7 +74,7 @@ def run(cases):
     records = []
     for c, sha in cases:
         for v in c["variants"]:
-            rows = list(ORACLES[c["oracle"]](v["id"] == "mutation"))
+            rows = list(EXTENDED[c["oracle"]](v["id"]) if c["oracle"] in EXTENDED else ORACLES[c["oracle"]](v["id"] == "mutation"))
             require(rows and all(type(ok) is bool for _,ok in rows), f"{c['id']}: empty/invalid oracle")
             failures = [x for x,ok in rows if not ok]
             verdict = "disproven" if failures else "bounded_pass"
@@ -134,7 +136,7 @@ def main():
             require(args.predictions is not None, "--predictions required")
             result = score(records, read(args.predictions))
         else:
-            result = {"format_version":1,"python":sys.version,"runner_sha256":digest(ROOT/"run.py"),"oracle_sha256":digest(ROOT/"oracles.py"),"taxonomy_sha256":digest(ROOT/"taxonomy.json"),"coverage":dict(sorted(Counter(label for c,_ in cases for label in c["labels"]).items())),"records":records,"limits":"finite abstract oracle smoke; no proof or backend result"}
+            result = {"format_version":1,"python":sys.version,"runner_sha256":digest(ROOT/"run.py"),"oracle_sha256":digest(ROOT/"oracles.py"),"extended_oracle_sha256":digest(ROOT/"extended_oracles.py"),"taxonomy_sha256":digest(ROOT/"taxonomy.json"),"coverage":dict(sorted(Counter(label for c,_ in cases for label in c["labels"]).items())),"records":records,"limits":"finite abstract oracle smoke; no proof or backend result"}
     print(json.dumps(result,indent=2,sort_keys=True))
 
 

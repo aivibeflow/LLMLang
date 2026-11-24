@@ -1,0 +1,42 @@
+{
+  "id": "POB-015",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Defined division",
+  "labels": [
+    "FORM-01",
+    "FORM-02",
+    "DOMAIN-01",
+    "DOMAIN-09"
+  ],
+  "contract": "Division by zero returns a distinct error; other inputs return exact rational quotient.",
+  "scope": "Numerator and denominator -2..2; exact rational arithmetic.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Zero denominator returns error; nonzero denominator returns rational q with q*d=n.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "division",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Return zero for zero denominator.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use reduced numerator/denominator with sign normalization.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

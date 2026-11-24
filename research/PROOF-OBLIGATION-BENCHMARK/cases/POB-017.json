@@ -1,0 +1,42 @@
+{
+  "id": "POB-017",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Idempotent retry",
+  "labels": [
+    "FORM-02",
+    "FORM-03",
+    "DOMAIN-06",
+    "DOMAIN-09"
+  ],
+  "contract": "A request ID credits one unit at most once despite duplicate delivery or lost acknowledgement; distinct delivered IDs each credit once.",
+  "scope": "All delivery sequences length 0..4 over IDs 0,1; lost acknowledgements modeled only by repeated delivery; single durable atomic receiver.",
+  "assumptions": [
+    "Exact finite abstract model in scope; no inference to unbounded behavior, LLMLang correspondence or other semantic profiles."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Final credit equals cardinality of distinct delivered IDs.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "retry",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in extended_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Increment credit on every delivery.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use a set of IDs and compute credit from set size.",
+      "expected": "bounded_pass"
+    }
+  ]
+}
