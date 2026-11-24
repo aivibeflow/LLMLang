@@ -1,0 +1,467 @@
+{
+  "format": "rt24-native-receive-gate/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "results": [
+    {
+      "atomic": false,
+      "hook_calls": [],
+      "mode": "none",
+      "preexisting_unclosed": false,
+      "push_status": 0,
+      "pushed_commits": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "repaired": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "request": "mixed",
+      "selected_graphs": {
+        "bad": "unclosed",
+        "good": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8"
+      },
+      "selected_refs": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0"
+      },
+      "unclosed_commit_reachable": true,
+      "unclosed_object_available": true
+    },
+    {
+      "atomic": false,
+      "hook_calls": [
+        {
+          "checked": [
+            {
+              "commit": "4d413dafaf847506b5adee67a3e547895519fb20",
+              "status": "rejected",
+              "tree": "36d8998dc2e56a72827a7ff186439ab71bc806c5"
+            }
+          ],
+          "mode": "update",
+          "quarantine": false,
+          "updates": [
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "4d413dafaf847506b5adee67a3e547895519fb20",
+              "refs/heads/bad"
+            ]
+          ]
+        },
+        {
+          "checked": [
+            {
+              "commit": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+              "graph": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+              "status": "closed",
+              "tree": "775c089a106217169e1b06d9e7d9f3b1f9dfa472"
+            }
+          ],
+          "mode": "update",
+          "quarantine": false,
+          "updates": [
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+              "refs/heads/good"
+            ]
+          ]
+        }
+      ],
+      "mode": "update",
+      "preexisting_unclosed": false,
+      "push_status": 1,
+      "pushed_commits": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "repaired": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "request": "mixed",
+      "selected_graphs": {
+        "bad": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+        "good": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8"
+      },
+      "selected_refs": {
+        "bad": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0"
+      },
+      "unclosed_commit_reachable": false,
+      "unclosed_object_available": true
+    },
+    {
+      "atomic": true,
+      "hook_calls": [
+        {
+          "checked": [
+            {
+              "commit": "4d413dafaf847506b5adee67a3e547895519fb20",
+              "status": "rejected",
+              "tree": "36d8998dc2e56a72827a7ff186439ab71bc806c5"
+            }
+          ],
+          "mode": "update",
+          "quarantine": false,
+          "updates": [
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "4d413dafaf847506b5adee67a3e547895519fb20",
+              "refs/heads/bad"
+            ]
+          ]
+        }
+      ],
+      "mode": "update",
+      "preexisting_unclosed": false,
+      "push_status": 1,
+      "pushed_commits": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "repaired": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "request": "mixed",
+      "selected_graphs": {
+        "bad": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+        "good": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8"
+      },
+      "selected_refs": {
+        "bad": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6"
+      },
+      "unclosed_commit_reachable": false,
+      "unclosed_object_available": true
+    },
+    {
+      "atomic": false,
+      "hook_calls": [
+        {
+          "checked": [
+            {
+              "commit": "4d413dafaf847506b5adee67a3e547895519fb20",
+              "status": "rejected",
+              "tree": "36d8998dc2e56a72827a7ff186439ab71bc806c5"
+            },
+            {
+              "commit": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+              "graph": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+              "status": "closed",
+              "tree": "775c089a106217169e1b06d9e7d9f3b1f9dfa472"
+            }
+          ],
+          "mode": "tips",
+          "quarantine": true,
+          "updates": [
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "4d413dafaf847506b5adee67a3e547895519fb20",
+              "refs/heads/bad"
+            ],
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+              "refs/heads/good"
+            ]
+          ]
+        }
+      ],
+      "mode": "tips",
+      "preexisting_unclosed": false,
+      "push_status": 1,
+      "pushed_commits": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "repaired": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "request": "mixed",
+      "selected_graphs": {
+        "bad": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+        "good": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8"
+      },
+      "selected_refs": {
+        "bad": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6"
+      },
+      "unclosed_commit_reachable": false,
+      "unclosed_object_available": false
+    },
+    {
+      "atomic": false,
+      "hook_calls": [
+        {
+          "checked": [
+            {
+              "commit": "4d413dafaf847506b5adee67a3e547895519fb20",
+              "status": "rejected",
+              "tree": "36d8998dc2e56a72827a7ff186439ab71bc806c5"
+            },
+            {
+              "commit": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+              "graph": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+              "status": "closed",
+              "tree": "775c089a106217169e1b06d9e7d9f3b1f9dfa472"
+            }
+          ],
+          "mode": "history",
+          "quarantine": true,
+          "updates": [
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "4d413dafaf847506b5adee67a3e547895519fb20",
+              "refs/heads/bad"
+            ],
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+              "refs/heads/good"
+            ]
+          ]
+        }
+      ],
+      "mode": "history",
+      "preexisting_unclosed": false,
+      "push_status": 1,
+      "pushed_commits": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "repaired": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "request": "mixed",
+      "selected_graphs": {
+        "bad": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+        "good": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8"
+      },
+      "selected_refs": {
+        "bad": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6"
+      },
+      "unclosed_commit_reachable": false,
+      "unclosed_object_available": false
+    },
+    {
+      "atomic": false,
+      "hook_calls": [
+        {
+          "checked": [
+            {
+              "commit": "8b154c1cea18746553865ecb9a9ac45c38f5a99e",
+              "graph": "d563b9c949ddbe1a8ddaec8480f1a84fcd18ecd84cd97a466e38f1a5eb7a8142",
+              "status": "closed",
+              "tree": "24bab3cd2caddcb0d1430fac01dd61c35e919d2b"
+            }
+          ],
+          "mode": "tips",
+          "quarantine": true,
+          "updates": [
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "8b154c1cea18746553865ecb9a9ac45c38f5a99e",
+              "refs/heads/good"
+            ]
+          ]
+        }
+      ],
+      "mode": "tips",
+      "preexisting_unclosed": false,
+      "push_status": 0,
+      "pushed_commits": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "repaired": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "request": "repaired",
+      "selected_graphs": {
+        "bad": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+        "good": "d563b9c949ddbe1a8ddaec8480f1a84fcd18ecd84cd97a466e38f1a5eb7a8142"
+      },
+      "selected_refs": {
+        "bad": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "unclosed_commit_reachable": true,
+      "unclosed_object_available": true
+    },
+    {
+      "atomic": false,
+      "hook_calls": [
+        {
+          "checked": [
+            {
+              "commit": "4d413dafaf847506b5adee67a3e547895519fb20",
+              "status": "rejected",
+              "tree": "36d8998dc2e56a72827a7ff186439ab71bc806c5"
+            },
+            {
+              "commit": "8b154c1cea18746553865ecb9a9ac45c38f5a99e",
+              "graph": "d563b9c949ddbe1a8ddaec8480f1a84fcd18ecd84cd97a466e38f1a5eb7a8142",
+              "status": "closed",
+              "tree": "24bab3cd2caddcb0d1430fac01dd61c35e919d2b"
+            }
+          ],
+          "mode": "history",
+          "quarantine": true,
+          "updates": [
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "8b154c1cea18746553865ecb9a9ac45c38f5a99e",
+              "refs/heads/good"
+            ]
+          ]
+        }
+      ],
+      "mode": "history",
+      "preexisting_unclosed": false,
+      "push_status": 1,
+      "pushed_commits": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "repaired": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "request": "repaired",
+      "selected_graphs": {
+        "bad": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+        "good": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8"
+      },
+      "selected_refs": {
+        "bad": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6"
+      },
+      "unclosed_commit_reachable": false,
+      "unclosed_object_available": false
+    },
+    {
+      "atomic": false,
+      "hook_calls": [
+        {
+          "checked": [
+            {
+              "commit": "8b154c1cea18746553865ecb9a9ac45c38f5a99e",
+              "graph": "d563b9c949ddbe1a8ddaec8480f1a84fcd18ecd84cd97a466e38f1a5eb7a8142",
+              "status": "closed",
+              "tree": "24bab3cd2caddcb0d1430fac01dd61c35e919d2b"
+            }
+          ],
+          "mode": "history",
+          "quarantine": true,
+          "updates": [
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "8b154c1cea18746553865ecb9a9ac45c38f5a99e",
+              "refs/heads/good"
+            ]
+          ]
+        }
+      ],
+      "mode": "history",
+      "preexisting_unclosed": true,
+      "push_status": 0,
+      "pushed_commits": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "repaired": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "request": "repaired",
+      "selected_graphs": {
+        "bad": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+        "good": "d563b9c949ddbe1a8ddaec8480f1a84fcd18ecd84cd97a466e38f1a5eb7a8142"
+      },
+      "selected_refs": {
+        "bad": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "unclosed_commit_reachable": true,
+      "unclosed_object_available": true
+    },
+    {
+      "atomic": false,
+      "hook_calls": [
+        {
+          "checked": [
+            {
+              "commit": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+              "graph": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+              "status": "closed",
+              "tree": "775c089a106217169e1b06d9e7d9f3b1f9dfa472"
+            }
+          ],
+          "mode": "history",
+          "quarantine": true,
+          "updates": [
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+              "refs/heads/bad"
+            ],
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+              "refs/heads/good"
+            ]
+          ]
+        }
+      ],
+      "mode": "history",
+      "preexisting_unclosed": false,
+      "push_status": 0,
+      "pushed_commits": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "repaired": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "request": "duplicate-tip",
+      "selected_graphs": {
+        "bad": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8",
+        "good": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8"
+      },
+      "selected_refs": {
+        "bad": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0"
+      },
+      "unclosed_commit_reachable": false,
+      "unclosed_object_available": false
+    },
+    {
+      "atomic": false,
+      "hook_calls": [
+        {
+          "checked": [],
+          "mode": "history",
+          "quarantine": false,
+          "updates": [
+            [
+              "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+              "0000000000000000000000000000000000000000",
+              "refs/heads/bad"
+            ]
+          ]
+        }
+      ],
+      "mode": "history",
+      "preexisting_unclosed": false,
+      "push_status": 0,
+      "pushed_commits": {
+        "bad": "4d413dafaf847506b5adee67a3e547895519fb20",
+        "base": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6",
+        "good": "d6f96dbad0aaef247bbfdd82cc29e717341470e0",
+        "repaired": "8b154c1cea18746553865ecb9a9ac45c38f5a99e"
+      },
+      "request": "delete",
+      "selected_graphs": {
+        "bad": null,
+        "good": "706e49b8a75a7554477b11446558c2a5555041447e34957c382a80235d1435a8"
+      },
+      "selected_refs": {
+        "bad": null,
+        "good": "f28ea86e97ca6277a8ae53e2a487953f382cd1f6"
+      },
+      "unclosed_commit_reachable": false,
+      "unclosed_object_available": false
+    }
+  ]
+}
