@@ -295,6 +295,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Bounded refinement pilot (2026-11-24):** The [finite Python/Lean comparison](research/semantic-representation/RT-05/PUBLIC-INTERFACE-FINITE-REFINEMENT-PILOT-2026-11-24.md) checks 15 fixtures and distinguishes a direct public-body judgment from separate body and refinement obligations. The finite case theorem is kernel checked. Source-to-observation correspondence, independent review and the broader profiles remain open.
 
+**Observed scalar provider calls (2026-11-24):** The [typed-SPG observation pilot](research/semantic-representation/RT-05/PUBLIC-INTERFACE-SPG-OBSERVATION-PILOT-2026-11-24.md) compares two fixture source surfaces across 42 observations and checks 21 Python/Lean verdicts. Exact rebinds, stale provider promises, reordered effects and budget exhaustion discriminate the admission methods. Full source-to-contract correspondence and owned-runtime integration remain open.
+
 **Status:** proposed; [public-interface research](research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). **Exit gate:** independent review and positive/negative evidence across relevant semantic profiles; no change to accepted single-toolchain compatibility decision.
 
 ## 1.4 Core language semantics (RT-03)
