@@ -29,6 +29,7 @@ A successful proof of a candidate contract is **not** a successful corpus result
 - [CF-004 — Reverse a selected range](cases/CF-004-reverse-range.md)
 - [CF-005 — Sort an array](cases/CF-005-sort-array.md)
 - [CF-006 — Bank-account withdrawal](cases/CF-006-bank-withdrawal.md) — biconditional success condition, success/failure postconditions, and failure-state preservation.
+- [CF-007 — Compositional bank transfer](cases/CF-007-compositional-bank-transfer.md) — proposed multi-call fee, reservation, risk decision, settlement and rollback case with an analytical proof and caller-only mutation; downstream proof evaluation remains separate.
 
 Each case separates:
 1. **Source request** — exact wording presented to the model.

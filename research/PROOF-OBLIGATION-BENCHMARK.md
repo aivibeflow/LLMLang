@@ -129,6 +129,10 @@ Include cases that require more than one kind of reasoning. Backend roles below 
 
 A backend may discharge only part of a case. The benchmark must record which exact obligations it covers and what remains open.
 
+### Proposed composition fixture: bank transfer
+
+[CF-007 — compositional bank transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md) supplies a proposed downstream fixture for separate call-precondition, path-sensitive postcondition, conservation, frame, rollback, effect, protocol, and assumption-closure obligations. Its refund-without-fee mutant satisfies each callee precondition and conservation but violates rollback. Keep semantic-formalization scoring separate from proof-engine scoring. No executable benchmark coverage or checked proof is claimed yet.
+
 ## 7. Result model and failure controls
 
 At minimum, retain the RT-33 result distinctions:
