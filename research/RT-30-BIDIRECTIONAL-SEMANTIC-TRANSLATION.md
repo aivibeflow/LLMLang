@@ -135,3 +135,7 @@ Reuse existing scenarios and generated-code evidence where they cover the exact 
 ## 9. Completion criteria
 
 RT-30 is complete for its declared scope only when all ordered translation directions have an explicit capability/limitation assessment, the semantic observation model and translation outcomes are defined, the C runtime hypothesis has reproducible evidence, and at least one bounded bidirectional vertical slice is checked by differential tests against independent reference executions. Broad language support must not be inferred from a narrow passing fixture.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Translation may preserve a conditional theorem only with exact source and target correspondence, retained premises and compatible observation profiles; do not treat generated foreign bindings as implementation proof. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

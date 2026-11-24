@@ -543,3 +543,7 @@ RT-19 owns the transport-neutral semantic API and Snapshot/Change Set lifecycle.
 Candidate semantic API operations should inspect/resolve public interfaces at a pinned catalog, propose new immutable revisions, inspect provider candidates and exact conformance diagnostics, propose binding changes and verify/admit an exact provider under policy. Separate search/read, publish and rebind authorization; all mutations bind baseline, expected catalog and binding revisions, semantic root and required evidence. Return explicit ambiguous/unresolved/unknown/stale states and dependency/assumption details; no implicit latest lookup or LLM assertion of success. Names in this note are conceptual operations, not an adopted MCP schema.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Expose typed premise, evidence, closure and authorization queries separately; enforce exact snapshot binding and authorization on trust mutations, with optimistic concurrency and audit history. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
