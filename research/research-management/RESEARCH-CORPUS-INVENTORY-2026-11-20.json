@@ -2,14 +2,14 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "4026fba2c2d112aa52b6d59c7178b256e1619803",
-  "source": "Exact research path, blob and byte inventory for the rebased current main and Stage 0.2 reproduction-boundary recheck, excluding the inventory manifest itself.",
+  "revision": "4ca21d881555fd15db03d1328fb80e7779c7a62c",
+  "source": "Exact research path, blob and byte inventory for the rebased current main and selected Stage 0.2 negative-result boundary recheck, excluding the inventory manifest itself.",
   "counts": {
-    "research_files": 946,
-    "research_artifacts_excluding_manifest": 946,
-    "markdown_files": 448,
+    "research_files": 952,
+    "research_artifacts_excluding_manifest": 952,
+    "markdown_files": 450,
     "mdx_files": 3,
-    "python_files": 281,
+    "python_files": 283,
     "lean_source_files": 55,
     "scenario_named_documents": 138,
     "prototype_tree_files": 334,
@@ -17,7 +17,7 @@
     "taxonomy_research_areas": 38,
     "dependency_edges": 264,
     "category_counts": {
-      "audit-or-review-report": 95,
+      "audit-or-review-report": 101,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 49,
       "external-source-snapshot-or-license": 13,
@@ -35,7 +35,7 @@
       "structured-fixture-or-schema": 19
     }
   },
-  "classification_note": "Against latest main 5434727 (manifest excluded), this branch adds a bounded Stage 0.2 reproduction-boundary report and navigation references. The merged RT-19 publication report includes the exact rerun command. All 946 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Against latest main eb26c41 (manifest excluded), this branch adds one bounded Stage 0.2 negative-result review and its index entry. Merged RT-37 and Stage 0.2 reproduction artifacts are individually role-reviewed. All 952 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -17193,8 +17193,8 @@
         "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       },
       "path": "research/research-management/README.md",
-      "git_blob_sha": "3c2fa0b0bbfc057e2398c8655728ed595a038f93",
-      "size_bytes": 3109
+      "git_blob_sha": "1c21f29a074d57cf109a210746a3301b98364490",
+      "size_bytes": 3373
     },
     {
       "path": "research/research-management/REPOSITORY-AUDIT-2026-11-17.md",
@@ -17338,8 +17338,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "ab364ac3f999e3a62bfbf55af5530af5b6a5fcc9",
-      "size_bytes": 98613,
+      "git_blob_sha": "69172a25d409b4dad7b0b82b20200fa7f880a5ed",
+      "size_bytes": 98872,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -17479,8 +17479,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "dfc852d3d6ed770336bcd1dd2c390fb9fd2bfeee",
-      "size_bytes": 67833,
+      "git_blob_sha": "4d090b6efec96179f211db78fd45d2b43feca6b8",
+      "size_bytes": 67928,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -18626,6 +18626,22 @@
       "role_recheck": "Current title or module entry point, purpose and family reviewed. Claim reruns are tracked independently."
     },
     {
+      "path": "research/research-management/RT-00/RT-00-NEGATIVE-RESULT-BOUNDARY-RECHECK-2026-11-24.md",
+      "git_blob_sha": "edf94307c28a366e98450d4289173d9ab08fa46d",
+      "size_bytes": 5141,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ]
+    },
+    {
       "path": "research/research-management/RT-00/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md",
       "git_blob_sha": "cfa3d85816045e67d7e232ebee61c49b8ac2c67d",
       "size_bytes": 14312,
@@ -19674,8 +19690,8 @@
         "basis": "Proposed research brief, pilot and prerequisite gates."
       },
       "path": "research/runtime-and-systems/RT-37/README.md",
-      "git_blob_sha": "b72f5a6373d5807c41c67f1aab951c041fc257f4",
-      "size_bytes": 7575
+      "git_blob_sha": "6465f5d5dddd8847ae98642b7609d54ff90ce44c",
+      "size_bytes": 7895
     },
     {
       "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md",
@@ -19706,6 +19722,22 @@
         "status": "file-role-triaged",
         "basis": "Bounded comparison; no backend selected or crash recovery claimed."
       }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-STACK-BOUND-2026-11-24.md",
+      "git_blob_sha": "451346aa6a173e330bf76c9c58a2db90fb89b3e4",
+      "size_bytes": 4273,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ]
     },
     {
       "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-SYSTICK-GPIO-2026-11-24.md",
@@ -19962,6 +19994,70 @@
         "status": "file-role-triaged",
         "basis": "Bounded comparison; no backend selected or crash recovery claimed."
       }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-stack/results.json",
+      "git_blob_sha": "4db90b5cd52ebffa6ce0b051baab48e93b5208ce",
+      "size_bytes": 10779,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-stack/run.py",
+      "git_blob_sha": "706f8a25c0ff7cc3563c5f4b4f5093bdf8c53f03",
+      "size_bytes": 8682,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-stack/stack_model.py",
+      "git_blob_sha": "b9fac6ae740a9d621da086549b619c49d86cb7ef",
+      "size_bytes": 6171,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-stack/stack_probe.s",
+      "git_blob_sha": "cc12e30ab19490beaebd7b9e4aa7ad65cdc9f489",
+      "size_bytes": 1221,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-00"
+        ],
+        "method": "Selected-report negative-result review against explicit evidence/limits; individually role reviewed.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ]
     },
     {
       "path": "research/runtime-and-systems/RT-37/cortex-m3-timer/results.json",
