@@ -6,6 +6,18 @@ This experiment for [RT-33 / #395](https://github.com/aivibeflow/LLMLang/issues/
 
 Each solver query fixes the exact initial register values and action trace. The translator uses SMT-LIB integer arithmetic for registers, SSA definitions for sequential assignments, and `ite` to join register states under conditional guards. `emit` is projected away because it leaves registers unchanged. Each query asks whether any register differs from the independent oracle at any action boundary. An empty trace has no action-boundary observation. Each query has its own assertions and definitions within one incremental solver process.
 
+```mermaid
+flowchart LR
+    Model["Validated model and fixed trace"] --> SMT["QF_LIA mismatch query"]
+    Model --> Replay["Interpreter replay"]
+    Oracle["Expected state after each action"] --> SMT
+    Oracle --> Replay
+    SMT --> Classify["Classify with solver status and replay"]
+    Replay --> Classify
+```
+
+The register mismatch query and the interpreter use the same trace and expected states through separate execution paths. Classification requires agreement between the two paths.
+
 Replay evaluates the same validated model with the existing interpreter and compares its state observations to the oracle. A solver `sat` is a counterexample only if replay shows a state difference. An `unsat` with agreeing replay records bounded agreement. A disagreement between either answer and replay records a translation or solver conflict. Unknown, version mismatch, timeout, or malformed solver responses abstain. The process limit applies to the complete batch. Partial output from a failed batch is retained for diagnosis and grants no accepted result.
 
 ## Results
@@ -23,13 +35,13 @@ Replay evaluates the same validated model with the existing interpreter and comp
 | Security trace | 90 | 0 |
 | **Total** | **712** | **86** |
 
-All 798 case queries agreed with interpreter replay. The lifetime and security-trace results cover only state equality. Events, invariants and paired-trace noninterference each require their own observations. There is no certificate check in this experiment. Even agreement on all fixture inputs remains evidence about the finite corpus and trusted translation, solver and replay path.
+All 798 case queries agreed with interpreter replay. The table shows exact counts by family, so a chart would duplicate the tabulated comparison. The lifetime and security-trace results cover only state equality. Events, invariants and paired-trace noninterference each require their own observations. There is no certificate check in this experiment. Even agreement on all fixture inputs remains evidence about the finite corpus and trusted translation, solver and replay path.
 
 The weakened-translation control writes `x := -1` and later restores `x := 0`, against an oracle that specifies `x = 0` at both boundaries. Observing both boundaries gives `sat` and replay shows the first mismatch. Observing only the last gives `unsat` and replay flags a conflict. This control motivates binding the observed boundaries to evidence identity. Exact agreement on this corpus still cannot establish correspondence for other input domains.
 
 ## Reproduce
 
-From the repository root, with CPython 3.9+ and cvc5 1.4.2 (commit `282d5e0`):
+From the repository root, with CPython 3.9+ and cvc5 1.4.2 (commit `282d5e0`). The selected fixture code was introduced in commit `991c053`. Mermaid rendering was not checked locally.
 
 ```sh
 python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_smt_adapter.py
@@ -39,7 +51,7 @@ cd /tmp/llmlang-rt33-smt
 sha256sum queries.smt2 stdout.txt stderr.txt observations.jsonl summary.json
 ```
 
-The runner writes the SMT-LIB batch, verbatim solver output, per-query observations and a summary. The observed [solver transcript](smt-transition-state-results/stdout.txt) can be compared byte for byte. The corresponding artifacts have these SHA-256 digests:
+The runner writes the SMT-LIB batch, verbatim solver output, per-query observations and a summary. The observed [solver transcript](smt-transition-state-results/stdout.txt) and [machine-readable summary](smt-transition-state-results/summary.json) can be compared byte for byte. The corresponding artifacts have these SHA-256 digests:
 
 | Artifact | SHA-256 |
 | --- | --- |
