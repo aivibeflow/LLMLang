@@ -1,0 +1,450 @@
+{
+  "format": "rt23-concurrent-receive/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "results": [
+    {
+      "after": {
+        "compatible": false,
+        "offered": [
+          "A"
+        ],
+        "refs": {
+          "catalog": "258ff52d9a45250ba57734cd78972107bc095a9a",
+          "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+        },
+        "required": "B"
+      },
+      "atomic_requested": false,
+      "before": {
+        "compatible": true,
+        "offered": [
+          "A",
+          "B"
+        ],
+        "refs": {
+          "catalog": "1e18d9c7f9e0f1186bfd59362e0e07aadb659c6c",
+          "program": "62d61137f36a041ea28b6b87ca5642c8738358fd"
+        },
+        "required": "A"
+      },
+      "events": [
+        {
+          "actor": "program",
+          "compatible": true,
+          "offered": [
+            "A",
+            "B"
+          ],
+          "phase": "pre-receive",
+          "ref_names": [
+            "refs/heads/program"
+          ],
+          "refs": {
+            "catalog": "1e18d9c7f9e0f1186bfd59362e0e07aadb659c6c",
+            "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+          },
+          "required": "B"
+        },
+        {
+          "actor": "catalog",
+          "compatible": true,
+          "offered": [
+            "A"
+          ],
+          "phase": "pre-receive",
+          "ref_names": [
+            "refs/heads/catalog"
+          ],
+          "refs": {
+            "catalog": "258ff52d9a45250ba57734cd78972107bc095a9a",
+            "program": "62d61137f36a041ea28b6b87ca5642c8738358fd"
+          },
+          "required": "A"
+        },
+        {
+          "actor": "catalog",
+          "phase": "prepared",
+          "ref_names": [
+            "refs/heads/catalog"
+          ]
+        },
+        {
+          "actor": "catalog",
+          "phase": "committed",
+          "ref_names": [
+            "refs/heads/catalog"
+          ]
+        },
+        {
+          "actor": "program",
+          "phase": "prepared",
+          "ref_names": [
+            "refs/heads/program"
+          ]
+        },
+        {
+          "actor": "program",
+          "phase": "committed",
+          "ref_names": [
+            "refs/heads/program"
+          ]
+        }
+      ],
+      "paired_update": false,
+      "peer_uses_wrapper": false,
+      "policy": "none",
+      "push_exit": {
+        "catalog": 0,
+        "program": 0
+      }
+    },
+    {
+      "after": {
+        "compatible": false,
+        "offered": [
+          "A"
+        ],
+        "refs": {
+          "catalog": "258ff52d9a45250ba57734cd78972107bc095a9a",
+          "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+        },
+        "required": "B"
+      },
+      "atomic_requested": true,
+      "before": {
+        "compatible": true,
+        "offered": [
+          "A",
+          "B"
+        ],
+        "refs": {
+          "catalog": "1e18d9c7f9e0f1186bfd59362e0e07aadb659c6c",
+          "program": "62d61137f36a041ea28b6b87ca5642c8738358fd"
+        },
+        "required": "A"
+      },
+      "events": [
+        {
+          "actor": "program",
+          "compatible": true,
+          "offered": [
+            "A",
+            "B"
+          ],
+          "phase": "pre-receive",
+          "ref_names": [
+            "refs/heads/program"
+          ],
+          "refs": {
+            "catalog": "1e18d9c7f9e0f1186bfd59362e0e07aadb659c6c",
+            "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+          },
+          "required": "B"
+        },
+        {
+          "actor": "program",
+          "phase": "prepared",
+          "ref_names": [
+            "refs/heads/program"
+          ]
+        },
+        {
+          "actor": "catalog",
+          "compatible": true,
+          "offered": [
+            "A"
+          ],
+          "phase": "pre-receive",
+          "ref_names": [
+            "refs/heads/catalog"
+          ],
+          "refs": {
+            "catalog": "258ff52d9a45250ba57734cd78972107bc095a9a",
+            "program": "62d61137f36a041ea28b6b87ca5642c8738358fd"
+          },
+          "required": "A"
+        },
+        {
+          "actor": "catalog",
+          "phase": "prepared",
+          "ref_names": [
+            "refs/heads/catalog"
+          ]
+        },
+        {
+          "actor": "catalog",
+          "phase": "committed",
+          "ref_names": [
+            "refs/heads/catalog"
+          ]
+        },
+        {
+          "actor": "program",
+          "phase": "committed",
+          "ref_names": [
+            "refs/heads/program"
+          ]
+        }
+      ],
+      "paired_update": false,
+      "peer_uses_wrapper": false,
+      "policy": "hook-only",
+      "push_exit": {
+        "catalog": 0,
+        "program": 0
+      }
+    },
+    {
+      "after": {
+        "compatible": true,
+        "offered": [
+          "A",
+          "B"
+        ],
+        "refs": {
+          "catalog": "1e18d9c7f9e0f1186bfd59362e0e07aadb659c6c",
+          "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+        },
+        "required": "B"
+      },
+      "atomic_requested": false,
+      "before": {
+        "compatible": true,
+        "offered": [
+          "A",
+          "B"
+        ],
+        "refs": {
+          "catalog": "1e18d9c7f9e0f1186bfd59362e0e07aadb659c6c",
+          "program": "62d61137f36a041ea28b6b87ca5642c8738358fd"
+        },
+        "required": "A"
+      },
+      "events": [
+        {
+          "actor": "program",
+          "compatible": true,
+          "offered": [
+            "A",
+            "B"
+          ],
+          "phase": "pre-receive",
+          "ref_names": [
+            "refs/heads/program"
+          ],
+          "refs": {
+            "catalog": "1e18d9c7f9e0f1186bfd59362e0e07aadb659c6c",
+            "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+          },
+          "required": "B"
+        },
+        {
+          "actor": "program",
+          "phase": "prepared",
+          "ref_names": [
+            "refs/heads/program"
+          ]
+        },
+        {
+          "actor": "catalog",
+          "phase": "receive-lock-busy"
+        },
+        {
+          "actor": "program",
+          "phase": "committed",
+          "ref_names": [
+            "refs/heads/program"
+          ]
+        },
+        {
+          "actor": "catalog-retry",
+          "compatible": false,
+          "offered": [
+            "A"
+          ],
+          "phase": "pre-receive",
+          "ref_names": [
+            "refs/heads/catalog"
+          ],
+          "refs": {
+            "catalog": "258ff52d9a45250ba57734cd78972107bc095a9a",
+            "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+          },
+          "required": "B"
+        }
+      ],
+      "paired_update": false,
+      "peer_uses_wrapper": true,
+      "policy": "whole-receive",
+      "push_exit": {
+        "catalog": 128,
+        "catalog-retry": 1,
+        "program": 0
+      }
+    },
+    {
+      "after": {
+        "compatible": false,
+        "offered": [
+          "A"
+        ],
+        "refs": {
+          "catalog": "258ff52d9a45250ba57734cd78972107bc095a9a",
+          "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+        },
+        "required": "B"
+      },
+      "atomic_requested": false,
+      "before": {
+        "compatible": true,
+        "offered": [
+          "A",
+          "B"
+        ],
+        "refs": {
+          "catalog": "1e18d9c7f9e0f1186bfd59362e0e07aadb659c6c",
+          "program": "62d61137f36a041ea28b6b87ca5642c8738358fd"
+        },
+        "required": "A"
+      },
+      "events": [
+        {
+          "actor": "program",
+          "compatible": true,
+          "offered": [
+            "A",
+            "B"
+          ],
+          "phase": "pre-receive",
+          "ref_names": [
+            "refs/heads/program"
+          ],
+          "refs": {
+            "catalog": "1e18d9c7f9e0f1186bfd59362e0e07aadb659c6c",
+            "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+          },
+          "required": "B"
+        },
+        {
+          "actor": "program",
+          "phase": "prepared",
+          "ref_names": [
+            "refs/heads/program"
+          ]
+        },
+        {
+          "actor": "catalog",
+          "compatible": true,
+          "offered": [
+            "A"
+          ],
+          "phase": "pre-receive",
+          "ref_names": [
+            "refs/heads/catalog"
+          ],
+          "refs": {
+            "catalog": "258ff52d9a45250ba57734cd78972107bc095a9a",
+            "program": "62d61137f36a041ea28b6b87ca5642c8738358fd"
+          },
+          "required": "A"
+        },
+        {
+          "actor": "catalog",
+          "phase": "prepared",
+          "ref_names": [
+            "refs/heads/catalog"
+          ]
+        },
+        {
+          "actor": "catalog",
+          "phase": "committed",
+          "ref_names": [
+            "refs/heads/catalog"
+          ]
+        },
+        {
+          "actor": "program",
+          "phase": "committed",
+          "ref_names": [
+            "refs/heads/program"
+          ]
+        }
+      ],
+      "paired_update": false,
+      "peer_uses_wrapper": false,
+      "policy": "whole-receive",
+      "push_exit": {
+        "catalog": 0,
+        "program": 0
+      }
+    },
+    {
+      "after": {
+        "compatible": true,
+        "offered": [
+          "B"
+        ],
+        "refs": {
+          "catalog": "ed2abe9e44177ad522a33a527d3e43993c7211c5",
+          "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+        },
+        "required": "B"
+      },
+      "atomic_requested": true,
+      "before": {
+        "compatible": true,
+        "offered": [
+          "A",
+          "B"
+        ],
+        "refs": {
+          "catalog": "1e18d9c7f9e0f1186bfd59362e0e07aadb659c6c",
+          "program": "62d61137f36a041ea28b6b87ca5642c8738358fd"
+        },
+        "required": "A"
+      },
+      "events": [
+        {
+          "actor": "joined",
+          "compatible": true,
+          "offered": [
+            "B"
+          ],
+          "phase": "pre-receive",
+          "ref_names": [
+            "refs/heads/catalog",
+            "refs/heads/program"
+          ],
+          "refs": {
+            "catalog": "ed2abe9e44177ad522a33a527d3e43993c7211c5",
+            "program": "8dba36cc66e03744b85ffc7f9b8daa99bf20a1be"
+          },
+          "required": "B"
+        },
+        {
+          "actor": "joined",
+          "phase": "prepared",
+          "ref_names": [
+            "refs/heads/catalog",
+            "refs/heads/program"
+          ]
+        },
+        {
+          "actor": "joined",
+          "phase": "committed",
+          "ref_names": [
+            "refs/heads/catalog",
+            "refs/heads/program"
+          ]
+        }
+      ],
+      "paired_update": true,
+      "peer_uses_wrapper": true,
+      "policy": "whole-receive",
+      "push_exit": {
+        "joined": 0
+      }
+    }
+  ]
+}
