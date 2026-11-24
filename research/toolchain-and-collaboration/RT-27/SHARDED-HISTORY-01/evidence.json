@@ -1,0 +1,499 @@
+{
+  "cases": [
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "0a1a85b3ee652cd422c4479b2fe79e90ff41629a"
+      ],
+      "compaction": null,
+      "delta_entries": 2,
+      "layout": "monolith",
+      "manifest_bytes": 156,
+      "new_payload_blob_bytes": 3483232,
+      "pack_plus_index_bytes": 876743,
+      "payload_blobs_changed": 1,
+      "placement": "spread",
+      "replacement_count": 1,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "cc0bfa84f0c7b1d1bac7f8e5d04209f384b3152233d6faa5bd254fc8471310f4"
+      ],
+      "worktree_payload_bytes": 3483232
+    },
+    {
+      "commits": [
+        "8bc088ac038882513e5110fe9ce2f3fa038ab79d",
+        "5e3c2eae3ed6f50f4b60dfd4b459846022da481c"
+      ],
+      "compaction": null,
+      "delta_entries": 35,
+      "layout": "module-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 108050,
+      "pack_plus_index_bytes": 870398,
+      "payload_blobs_changed": 1,
+      "placement": "spread",
+      "replacement_count": 1,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "cc0bfa84f0c7b1d1bac7f8e5d04209f384b3152233d6faa5bd254fc8471310f4"
+      ],
+      "worktree_payload_bytes": 3483232
+    },
+    {
+      "commits": [
+        "91a53fc1cec8d91551cad3e744cc0a376d850468",
+        "a7c420c74c2c55eaed598d4e66e143f68040a2a4"
+      ],
+      "compaction": null,
+      "delta_entries": 36,
+      "layout": "hash-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 233843,
+      "pack_plus_index_bytes": 886780,
+      "payload_blobs_changed": 2,
+      "placement": "spread",
+      "replacement_count": 1,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "cc0bfa84f0c7b1d1bac7f8e5d04209f384b3152233d6faa5bd254fc8471310f4"
+      ],
+      "worktree_payload_bytes": 3483232
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "59cfff43edf56362cbcb5952e568af6353151a8d"
+      ],
+      "compaction": null,
+      "delta_entries": 1,
+      "layout": "segments",
+      "manifest_bytes": 241,
+      "new_payload_blob_bytes": 322,
+      "pack_plus_index_bytes": 876740,
+      "payload_blobs_changed": 1,
+      "placement": "spread",
+      "replacement_count": 1,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "cc0bfa84f0c7b1d1bac7f8e5d04209f384b3152233d6faa5bd254fc8471310f4"
+      ],
+      "worktree_payload_bytes": 3483662
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "1c855123790532272bbc2836c9f0e7650afff871"
+      ],
+      "compaction": null,
+      "delta_entries": 2,
+      "layout": "monolith",
+      "manifest_bytes": 156,
+      "new_payload_blob_bytes": 3483970,
+      "pack_plus_index_bytes": 886284,
+      "payload_blobs_changed": 1,
+      "placement": "spread",
+      "replacement_count": 100,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "32923541000ad049574dbdf328102ce14e38f38dd31d42168a2f91d755c1ad97"
+      ],
+      "worktree_payload_bytes": 3483970
+    },
+    {
+      "commits": [
+        "8bc088ac038882513e5110fe9ce2f3fa038ab79d",
+        "35db99b24fd8ab32ef40e227f8ca7ae1f1d0c312"
+      ],
+      "compaction": null,
+      "delta_entries": 65,
+      "layout": "module-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 3483970,
+      "pack_plus_index_bytes": 883447,
+      "payload_blobs_changed": 32,
+      "placement": "spread",
+      "replacement_count": 100,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "32923541000ad049574dbdf328102ce14e38f38dd31d42168a2f91d755c1ad97"
+      ],
+      "worktree_payload_bytes": 3483970
+    },
+    {
+      "commits": [
+        "91a53fc1cec8d91551cad3e744cc0a376d850468",
+        "7cbd3634c40f7bd90db6849d53f039378492dfee"
+      ],
+      "compaction": null,
+      "delta_entries": 65,
+      "layout": "hash-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 3483970,
+      "pack_plus_index_bytes": 900337,
+      "payload_blobs_changed": 32,
+      "placement": "spread",
+      "replacement_count": 100,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "32923541000ad049574dbdf328102ce14e38f38dd31d42168a2f91d755c1ad97"
+      ],
+      "worktree_payload_bytes": 3483970
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "ecbd71a1287bbec8d0219e1978e22698756bde30"
+      ],
+      "compaction": null,
+      "delta_entries": 1,
+      "layout": "segments",
+      "manifest_bytes": 6874,
+      "new_payload_blob_bytes": 34779,
+      "pack_plus_index_bytes": 889374,
+      "payload_blobs_changed": 1,
+      "placement": "spread",
+      "replacement_count": 100,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "32923541000ad049574dbdf328102ce14e38f38dd31d42168a2f91d755c1ad97"
+      ],
+      "worktree_payload_bytes": 3518119
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "1ece6e8c97dff7792c6971a457e1024d7218dbd9"
+      ],
+      "compaction": null,
+      "delta_entries": 2,
+      "layout": "monolith",
+      "manifest_bytes": 156,
+      "new_payload_blob_bytes": 3484798,
+      "pack_plus_index_bytes": 970259,
+      "payload_blobs_changed": 1,
+      "placement": "spread",
+      "replacement_count": 1000,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "bbcb902fa6bcf0a497475ebd1030beb8ba2c8a3959398109c62e61bcd7a2612d"
+      ],
+      "worktree_payload_bytes": 3484798
+    },
+    {
+      "commits": [
+        "8bc088ac038882513e5110fe9ce2f3fa038ab79d",
+        "5c17c6bc7b14085595242a5ee76ae8dcdc3d8186"
+      ],
+      "compaction": null,
+      "delta_entries": 65,
+      "layout": "module-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 3484798,
+      "pack_plus_index_bytes": 962364,
+      "payload_blobs_changed": 32,
+      "placement": "spread",
+      "replacement_count": 1000,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "bbcb902fa6bcf0a497475ebd1030beb8ba2c8a3959398109c62e61bcd7a2612d"
+      ],
+      "worktree_payload_bytes": 3484798
+    },
+    {
+      "commits": [
+        "91a53fc1cec8d91551cad3e744cc0a376d850468",
+        "02e5fdea24e1e14e553d646b17973c42c183d1ef"
+      ],
+      "compaction": null,
+      "delta_entries": 65,
+      "layout": "hash-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 3484798,
+      "pack_plus_index_bytes": 992636,
+      "payload_blobs_changed": 32,
+      "placement": "spread",
+      "replacement_count": 1000,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "bbcb902fa6bcf0a497475ebd1030beb8ba2c8a3959398109c62e61bcd7a2612d"
+      ],
+      "worktree_payload_bytes": 3484798
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "12bd1183305e432bc7757153d1276c43e0fab121"
+      ],
+      "compaction": null,
+      "delta_entries": 1,
+      "layout": "segments",
+      "manifest_bytes": 67174,
+      "new_payload_blob_bytes": 346387,
+      "pack_plus_index_bytes": 1003165,
+      "payload_blobs_changed": 1,
+      "placement": "spread",
+      "replacement_count": 1000,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "bbcb902fa6bcf0a497475ebd1030beb8ba2c8a3959398109c62e61bcd7a2612d"
+      ],
+      "worktree_payload_bytes": 3829727
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "6a7c9ab1c8c443f18286dae7ea28cd40154de6b1"
+      ],
+      "compaction": null,
+      "delta_entries": 2,
+      "layout": "monolith",
+      "manifest_bytes": 156,
+      "new_payload_blob_bytes": 3483340,
+      "pack_plus_index_bytes": 876735,
+      "payload_blobs_changed": 1,
+      "placement": "concentrated",
+      "replacement_count": 1,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "cdd6df9e39e0aa00aa719b201ae22978d94a28758342b9331fd9915e3df35add"
+      ],
+      "worktree_payload_bytes": 3483340
+    },
+    {
+      "commits": [
+        "8bc088ac038882513e5110fe9ce2f3fa038ab79d",
+        "cff18ca1e920c7d40a9cf3787bb9f794147b7082"
+      ],
+      "compaction": null,
+      "delta_entries": 35,
+      "layout": "module-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 107229,
+      "pack_plus_index_bytes": 870382,
+      "payload_blobs_changed": 1,
+      "placement": "concentrated",
+      "replacement_count": 1,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "cdd6df9e39e0aa00aa719b201ae22978d94a28758342b9331fd9915e3df35add"
+      ],
+      "worktree_payload_bytes": 3483340
+    },
+    {
+      "commits": [
+        "91a53fc1cec8d91551cad3e744cc0a376d850468",
+        "d6dadf9b4600d3ed90228f7290195f6754abd2fd"
+      ],
+      "compaction": null,
+      "delta_entries": 36,
+      "layout": "hash-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 218419,
+      "pack_plus_index_bytes": 886763,
+      "payload_blobs_changed": 2,
+      "placement": "concentrated",
+      "replacement_count": 1,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "cdd6df9e39e0aa00aa719b201ae22978d94a28758342b9331fd9915e3df35add"
+      ],
+      "worktree_payload_bytes": 3483340
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "7ef7514a3293b0176896054f1fbf1da6660d714d"
+      ],
+      "compaction": null,
+      "delta_entries": 1,
+      "layout": "segments",
+      "manifest_bytes": 241,
+      "new_payload_blob_bytes": 250,
+      "pack_plus_index_bytes": 876740,
+      "payload_blobs_changed": 1,
+      "placement": "concentrated",
+      "replacement_count": 1,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "cdd6df9e39e0aa00aa719b201ae22978d94a28758342b9331fd9915e3df35add"
+      ],
+      "worktree_payload_bytes": 3483590
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "9e2d9a95311a637b899868db230f480892770293"
+      ],
+      "compaction": null,
+      "delta_entries": 2,
+      "layout": "monolith",
+      "manifest_bytes": 156,
+      "new_payload_blob_bytes": 3484888,
+      "pack_plus_index_bytes": 886150,
+      "payload_blobs_changed": 1,
+      "placement": "concentrated",
+      "replacement_count": 100,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "e07efdb35d01cc89ac7a5e4dddd4870177ea0e47efb3868b1f8afc24d8766691"
+      ],
+      "worktree_payload_bytes": 3484888
+    },
+    {
+      "commits": [
+        "8bc088ac038882513e5110fe9ce2f3fa038ab79d",
+        "c649527b48e51b292ce803bc930ff8e2fef9566a"
+      ],
+      "compaction": null,
+      "delta_entries": 38,
+      "layout": "module-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 434010,
+      "pack_plus_index_bytes": 879970,
+      "payload_blobs_changed": 4,
+      "placement": "concentrated",
+      "replacement_count": 100,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "e07efdb35d01cc89ac7a5e4dddd4870177ea0e47efb3868b1f8afc24d8766691"
+      ],
+      "worktree_payload_bytes": 3484888
+    },
+    {
+      "commits": [
+        "91a53fc1cec8d91551cad3e744cc0a376d850468",
+        "a380dce67278e3abf7ed684d6cdf0144e2b7a6bf"
+      ],
+      "compaction": null,
+      "delta_entries": 65,
+      "layout": "hash-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 3484888,
+      "pack_plus_index_bytes": 900468,
+      "payload_blobs_changed": 32,
+      "placement": "concentrated",
+      "replacement_count": 100,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "e07efdb35d01cc89ac7a5e4dddd4870177ea0e47efb3868b1f8afc24d8766691"
+      ],
+      "worktree_payload_bytes": 3484888
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "6fc69f0058b567f531953a312d7dbf74ddc60fea"
+      ],
+      "compaction": null,
+      "delta_entries": 1,
+      "layout": "segments",
+      "manifest_bytes": 6874,
+      "new_payload_blob_bytes": 35123,
+      "pack_plus_index_bytes": 889248,
+      "payload_blobs_changed": 1,
+      "placement": "concentrated",
+      "replacement_count": 100,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "e07efdb35d01cc89ac7a5e4dddd4870177ea0e47efb3868b1f8afc24d8766691"
+      ],
+      "worktree_payload_bytes": 3518463
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "dd25fd920dd8c6642b75526dbadb7e95c61e56f4"
+      ],
+      "compaction": null,
+      "delta_entries": 2,
+      "layout": "monolith",
+      "manifest_bytes": 156,
+      "new_payload_blob_bytes": 3486364,
+      "pack_plus_index_bytes": 966199,
+      "payload_blobs_changed": 1,
+      "placement": "concentrated",
+      "replacement_count": 1000,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "9123034cfd48b540bf695655be2bc58bd0b30f24fa1b4fa3a2167117fcde3c57"
+      ],
+      "worktree_payload_bytes": 3486364
+    },
+    {
+      "commits": [
+        "8bc088ac038882513e5110fe9ce2f3fa038ab79d",
+        "1520e3f16078fc4581639358be29e1aa717d2885"
+      ],
+      "compaction": null,
+      "delta_entries": 38,
+      "layout": "module-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 435486,
+      "pack_plus_index_bytes": 958907,
+      "payload_blobs_changed": 4,
+      "placement": "concentrated",
+      "replacement_count": 1000,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "9123034cfd48b540bf695655be2bc58bd0b30f24fa1b4fa3a2167117fcde3c57"
+      ],
+      "worktree_payload_bytes": 3486364
+    },
+    {
+      "commits": [
+        "91a53fc1cec8d91551cad3e744cc0a376d850468",
+        "0960cd9b89e90b7cc279d38dbf912ca05ba2dbf8"
+      ],
+      "compaction": null,
+      "delta_entries": 65,
+      "layout": "hash-shards",
+      "manifest_bytes": 745,
+      "new_payload_blob_bytes": 3486364,
+      "pack_plus_index_bytes": 990137,
+      "payload_blobs_changed": 32,
+      "placement": "concentrated",
+      "replacement_count": 1000,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "9123034cfd48b540bf695655be2bc58bd0b30f24fa1b4fa3a2167117fcde3c57"
+      ],
+      "worktree_payload_bytes": 3486364
+    },
+    {
+      "commits": [
+        "915dca5bfc03752dbaf245522230622ce9108c94",
+        "0d52b6e3a679c3fa4393192ff417c21844eeaf71"
+      ],
+      "compaction": {
+        "active_payload_bytes": 3486364,
+        "commit": "dfe29f965917767f8e1f25b2cab67a084bcb9802",
+        "pack_plus_index_bytes": 1092241
+      },
+      "delta_entries": 1,
+      "layout": "segments",
+      "manifest_bytes": 67174,
+      "new_payload_blob_bytes": 346894,
+      "pack_plus_index_bytes": 1001958,
+      "payload_blobs_changed": 1,
+      "placement": "concentrated",
+      "replacement_count": 1000,
+      "roots": [
+        "636ebbb2cc19a0bf8a03340ae77addaa5f6e6cf7afee046f6331dc7db1663a24",
+        "9123034cfd48b540bf695655be2bc58bd0b30f24fa1b4fa3a2167117fcde3c57"
+      ],
+      "worktree_payload_bytes": 3830234
+    }
+  ],
+  "counts": [
+    1,
+    100,
+    1000
+  ],
+  "format": "rt27-sharded-history/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "records": 10000,
+  "seed": 2717,
+  "shards": 32
+}
