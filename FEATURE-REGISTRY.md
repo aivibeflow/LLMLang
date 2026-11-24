@@ -7,7 +7,7 @@
 
 ## 1. Purpose and authority
 
-This registry is the project-wide index of capabilities that LLMLang is intended to support or that must be considered in its architecture. It consolidates the current research taxonomy (RT-01–RT-34), the development plan, open design questions, candidate architecture documents, and explicit requirements.
+This registry is the project-wide index of capabilities that LLMLang is intended to support or that must be considered in its architecture. It consolidates the current research taxonomy (RT-01–RT-36), the development plan, open design questions, candidate architecture documents, and explicit requirements.
 
 It is an inventory, **not** a commitment to implement every item, a release roadmap, or a normative specification. A feature's presence here does not make it accepted. Research documents and recommendations do not change the design baseline unless a decision is explicitly accepted in a durable decision/specification document.
 
@@ -120,6 +120,7 @@ Every feature has a stable registry ID, name, scope, concise capability statemen
 | F-VER-009 | Verified SPG-to-Lean pipeline and compositional proof graph | Derive Lean representations and proof obligations from versioned SPG functions/contracts; verify callers compositionally through explicit callee-contract assumptions; track checked proof dependencies, assumption discharge, transitive proof closure, and incremental invalidation in a typed PDG linked to SPG. | Researching | P0 | [RT-32](research/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](research/LLMLang-FORMAL-VERIFICATION.md) |
 | F-VER-010 | Backend-independent proof planning and orchestration | Classify proof obligations independently of backend syntax; select or combine eligible Lean, SMT, TLA+, and future backends using versioned capability profiles; preserve translation correspondence, trust, partial/unknown outcomes, and evidence provenance. | Researching | P0 | [RT-33](research/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-32](research/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](research/LLMLang-FORMAL-VERIFICATION.md) |
 | F-VER-011 | Automatic resource complexity inference and verification | Infer and independently verify model-scoped resource bounds from SPG, compose typed cost summaries, distinguish functional task lower bounds from implementation upper bounds, prove optimality when justified and detect resource regressions with conservative abstention. | Researching | P0 | [RT-34](research/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md), [benchmark plan](research/RT-34-COMPLEXITY-BENCHMARK.md) |
+| F-VER-012 | Explicit assumptions and conditional proof management | Typed premise identity, scoped authorization, foreign-provider conformance assumptions, PDG discharge and transitive closure, consistency controls, freshness and separate policy admission. | Researching | P0 | [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](research/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) |
 | F-TEST-001 | Contract- and property-based testing | Generate and execute tests from contracts and properties. | Researching | P0 | [RT-08](research/RESEARCH-TAXONOMY.md#2-research-area-inventory) |
 | F-TEST-002 | Stateful and scenario testing | Validate operation sequences, state transitions, and multi-step deterministic scenarios. | Researching | P1 | [RT-08](research/RESEARCH-TAXONOMY.md#2-research-area-inventory) |
 | F-TEST-003 | Fuzzing and differential testing | Generate adversarial inputs and compare independent implementations/backends against a shared oracle. | Researching | P1 | [RT-08](research/RESEARCH-TAXONOMY.md#2-research-area-inventory), [RT-13](research/TRANSLATION-AND-TARGET-BACKENDS.md) |
@@ -288,6 +289,7 @@ The registry maps the current research-area taxonomy as follows:
 | RT-32 Verified SPG-to-Lean pipeline | F-VER |
 | RT-33 Proof backend selection and verification orchestration | F-VER, F-TEST, F-BUILD |
 | RT-34 Automatic complexity inference, resource contracts and algorithm optimality verification | F-VER, F-TEST, F-COMP, F-RUN, F-BUILD |
+| RT-36 Formal verification assumptions and trust boundaries | F-VER, F-INTEROP, F-SEC, F-BUILD, F-TOOL |
 
 The mapping is an index, not proof that every research claim or scenario has been validated. RT-28's migration-management records remain explicitly outside the language core.
 

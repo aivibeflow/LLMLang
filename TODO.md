@@ -449,6 +449,14 @@ Priority is a planning aid, not a measure of correctness:
 - **Acceptance criteria:** The module builds under the pinned Lean 4.34.0 and Logos revision; the semantic-preservation theorem is accepted by Lean's kernel without `sorry` or untrusted shortcuts; positive and adversarial tests pass; the active Lean CI workflow remains green. The result must still be described as query-level correspondence only, not source-program-to-query or whole-program correctness.
 - **Related:** `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean`, `SourceQuerySemantics.lean`, and Scenarios 29–33.
 
+### LL-030 — Define assumption identity, conditional proof closure and trust policy
+
+- **Status:** Open
+- **Priority:** P0
+- **Question:** How should explicit foreign/environment/TCB premises, authorization, evidence, closure, consistency and invalidation be represented and exposed without equating assumptions with proofs?
+- **Recommendation:** Compare typed versioned claims and scoped authorization, PDG property-specific dependency closure, independent status dimensions, and strict versus conditional admission. Preserve exact provider/contract/ABI identities and distinguish proof from trust approval. Coordinate with LL-008, LL-009, LL-017, LL-019 and LL-028.
+- **Related:** [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](research/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md), [Issue #436](https://github.com/aivibeflow/LLMLang/issues/436).
+
 ## Maintenance rules
 
 - Add a new item when a discussion exposes a durable unresolved design question, not for every implementation task or transient note.

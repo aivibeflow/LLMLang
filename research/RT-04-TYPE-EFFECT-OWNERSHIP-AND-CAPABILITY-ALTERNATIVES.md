@@ -360,3 +360,7 @@ See [RT-03 A/D × RT-04 A/B shared observable-trace cross-check](RT-04-RT-03-CRO
 Separate callable shape, type variance, effects, caller authority, ownership transfer and behavioral refinement at public-interface admission. Contravariant input and covariant result reasoning is conditional on the type/aliasing model; mutable generic positions may be invariant. A provider must preserve required observable effects, error alternatives, cleanup/borrow obligations, and declared progress, not merely have a smaller effect set. Test generic and stateful interfaces, joint protocol invariants, adapters, capabilities on exceptional exits, and conflicting provider declarations. Public names do not enter structural type identity merely because they are exported.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Foreign conformance assumptions must cover effects, aliases, ownership and capabilities relevant to the property, including incomplete summaries. Treat unknown external effects conservatively; never infer independence from missing edges. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

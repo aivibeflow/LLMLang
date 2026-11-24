@@ -118,3 +118,7 @@ This brief does not select Lean, SMT, TLA+, or any other engine as universal ver
 Public-interface admission is a heterogeneous obligation family: callable/type/ABI compatibility, body correctness, contract refinement, state abstraction, effects/ownership, resource bounds, and progress or history guarantees when promised. Backend selection occurs per obligation and must account for common semantic model and evidence strength. A proof of the body alone, signature match, or bounded trace agreement does not discharge the complete obligation set. Preserve independently checked exact endpoints and assumptions in the composition envelope. Add missing-obligation, stale-evidence, contradictory-contract and unsupported-liveness controls to the benchmark.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## Explicit assumptions and conditional verification (RT-36; proposed)
+
+Preserve exact assumption sets, backend axioms and source correspondence in evidence envelopes and aggregation. Separate local check result from closure and policy admission; never close via backend agreement, runtime tests or trust approval. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.

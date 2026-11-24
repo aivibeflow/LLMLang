@@ -636,3 +636,23 @@ flowchart TD
 ```
 
 The cycle is an iterative research dependency, not a cyclic content-hash requirement. Name resolution, provider proof, exact binding and publication are distinct gates. RT-09/13 ABI/backend correspondence and RT-08 independent benchmark evidence constrain verification/build gates. No normative profile is selected.
+
+## 24. Formal verification assumptions and trust boundaries (RT-36)
+
+[RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). Candidate research dependencies (not implementation commitments):
+
+| ID | Direction | Relation | Rationale | Confidence |
+|---|---|---|---|---|
+| DEP-234 | RT-07 → RT-36 | Requires | Formal semantics and proof context determine valid premise and guarantee judgments. | Strong hypothesis |
+| DEP-235 | RT-05 → RT-36 | Requires | Exact semantic, contract, provider and binding identities scope assumptions. | Strong hypothesis |
+| DEP-236 | RT-32 → RT-36 | Requires | PDG supplies conditional theorem dependencies and discharge. | Strong hypothesis |
+| DEP-237 | RT-33 → RT-36 | Requires | Backend-neutral obligation/evidence composition and correspondence. | Strong hypothesis |
+| DEP-238 | RT-13 → RT-36 | Influences | Foreign ABI, effects, ownership and runtime correspondence constrain trust. | Strong hypothesis |
+| DEP-239 | RT-16 → RT-36 | Requires | Authorization, TCB, provenance and revocation threat model. | Strong hypothesis |
+| DEP-240 | RT-08 → RT-36 | Requires | Independent oracle and negative controls for proof, closure and admission. | Strong hypothesis |
+| DEP-241 | RT-36 → RT-11 | Influences | Separate proof, closure and policy invalidation keys. | Open hypothesis |
+| DEP-242 | RT-36 → RT-20 | Influences | Provider changes and assumption revocation affect verified publication and change plans. | Open hypothesis |
+| DEP-243 | RT-36 → RT-28 | Influences | Conditional verification supports incremental migration across opaque boundaries. | Open hypothesis |
+| DEP-244 | RT-36 → RT-34 | Influences | Resource guarantees and environmental cost premises must propagate. | Open hypothesis |
+
+See also public-interface refinement and RT-03/04/06/09/10/12/18/19/23/24. The RT-32/33/36 feedback loop is research iteration, not cyclic evidence discharge.

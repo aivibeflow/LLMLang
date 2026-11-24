@@ -165,3 +165,7 @@ The following details remain for the specification to define:
 - how target constraints and environmental assumptions are represented;
 - whether class membership may be established by formal proof only, or also by explicitly scoped testing/refinement evidence;
 - when dynamic implementation selection is permitted and how its result is recorded for reproducibility.
+
+## Assumption and conditional-proof terminology (proposed; not adopted)
+
+**Assumption Claim:** immutable typed proposition with exact subject, context and scope. **Assumption Authorization:** separate versioned policy permission to rely on an unresolved claim. **Conditional Proof:** checked theorem under explicit open premises; not a closed executable guarantee. **Assumption Discharge:** checked evidence of the exact premise (or checked implication), retaining remaining premises. **Proof Closure:** transitive mandatory proof/correspondence dependencies relative to the declared TCB. See [RT-36](../research/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md).

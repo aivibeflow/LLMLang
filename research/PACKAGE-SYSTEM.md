@@ -586,3 +586,7 @@ The database is derived/reconstructible and does not become authoritative progra
 Package publication should distinguish public name/catalog entries pointing to exact operation/interface-group revisions from provider bindings pointing to exact ImplHash. Interface-only packages may be considered for conditional design; executable resolution must close provider and evidence dependencies. Dynamic package delivery is not permission to resolve a mutable latest contract at runtime. Compare manifest pinning, authorized provider selection, reproducible multi-provider composition, and target-specific ABI mappings. Public export visibility does not confer execution authority.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Bind trust claims to exact provider artifacts and dependency snapshots; package signatures and content identity are distinct from conformance. Preserve open assumptions and conditional admission in evidence metadata without changing package identity semantics. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

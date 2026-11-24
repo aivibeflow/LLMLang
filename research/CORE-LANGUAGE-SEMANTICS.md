@@ -358,3 +358,7 @@ The recursive and small-step implementations agree on their tested finite corpus
 For each semantic profile, specify the observable boundary of a public operation, its abstract and direct call semantics, name-resolution phase, explicit provider selection and error behavior for unresolved/ambiguous bindings. Compare sequential values, ordered effects, actor histories and divergence; one refinement rule over terminating values is not sufficient for all profiles. A public interface does not impose an OO object model, dynamic dispatch or a mandatory design layer. Private functions may still use exact implementation calls.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Formal assumption judgments must use authoritative semantics and explicitly scoped effects, state, termination, error and observation models. Opaque behavior cannot be treated as absent. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

@@ -382,3 +382,6 @@ Before treating this sequence as an implementation commitment, the project shoul
 
 This recommendation refines open question 10 in Section 12; it does not close that question.
 
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Foreign and target translation correspondence assumptions must be explicit and scoped to exact target/ABI/artifact; a successful build or proof of a model alone does not discharge them. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

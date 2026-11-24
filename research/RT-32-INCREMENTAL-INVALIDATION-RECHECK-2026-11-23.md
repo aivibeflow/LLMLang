@@ -40,3 +40,7 @@ The tests exercise scoped completeness evidence, stale/missing evidence, conserv
 - Select canonical identity formats, cache compatibility/trust rules, and production fallback behavior.
 
 Thus §3.2 remains partially researched/prototyped; this report narrows the candidate rule but does not close its checkboxes or choose a production implementation.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Future experiments should distinguish mathematical proof identity from binding closure and trust-policy authorization, including expiry and revocation. This does not modify the historical measurements. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

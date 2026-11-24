@@ -45,3 +45,7 @@ python -B -m unittest -v tests.test_rt23_interface_mapping_merge tests.test_rt23
 Follow-up discriminator, not a change to reported results: the tested symbol/signature mapping is only one of public-name catalog, operation-to-provider binding and external export mapping. Test cross-map consistency and exact revision-bound conformance evidence, including disjoint edits that combine into a missing or stale provider proof. Existing CAS and collision controls are useful but do not establish contract refinement.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+External mappings must bind exact assumption and provider revisions; conditional admission, authorization and proof closure remain distinct. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

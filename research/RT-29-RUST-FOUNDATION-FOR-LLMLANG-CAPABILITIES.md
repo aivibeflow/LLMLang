@@ -84,3 +84,7 @@ Ground the study in RT-03 (semantics), RT-04 (types/ownership/effects/capabiliti
 ## 6. Completion criteria
 
 RT-29 is complete only when the capability matrix covers all major LLMLang capability areas, every recommendation is traceable to evidence and assumptions, incompatible transfers are explicit, and the proposed adoption sequence is checked against the cross-aspect dependency map. A survey or a successful generated-Rust fixture alone is not sufficient.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Rust libraries and unsafe/FFI components require exact provider identity, explicit contract assumptions and scoped proof/authorization status; Rust type checking alone is not behavioral conformance evidence. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

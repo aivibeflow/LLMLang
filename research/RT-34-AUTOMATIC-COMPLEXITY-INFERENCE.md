@@ -156,3 +156,7 @@ Current evidence class: analytical research brief and existing bounded prototype
 A public interface may expose a resource guarantee independently of the selected algorithm. Verify the implementation's inferred/proved bound and its refinement of the public bound under the same size/cost/model, quantification and environment. Worst-case, expected and amortized bounds are not interchangeable; O upper bounds do not establish lower bounds, exact costs or optimality. Substitution can change observed cost within the public allowance; performance-sensitive callers must state stronger requirements explicitly. Rebinding invalidates exact implementation resource evidence, not the public requirement itself.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## Explicit assumptions and conditional verification (RT-36; proposed)
+
+External cost summaries and environmental cost/fairness premises are typed, model-scoped assumptions. A checked complexity theorem conditional on an unproved foreign cost summary is not an unconditional executable resource bound. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.

@@ -685,3 +685,7 @@ The LLM contributes semantic reasoning and candidate changes. LDE manages identi
 Context planning should supply an agent modifying a consumer with exact public interface contracts and necessary assumptions, not unrelated private provider bodies; supply provider-specific contracts and evidence when implementing or changing a provider. Structured changes distinguish public contract revision, implementation revision, catalog alias and binding changes. Independent validation checks both proof layers and exact admission, computes separate consumer/provider impact and rejects stale publication. Do not conflate a modular proof with whole-program correctness or claim guaranteed token savings without measurement.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## Explicit assumptions and conditional verification (RT-36; proposed)
+
+Expose property-level local outcome, dependency closure, evidence kind, freshness, assumptions and admission in diagnostics and change validation. Trust-grant changes must be authorized, audited and invalidate affected admission/closure without rewriting immutable proofs. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.

@@ -256,3 +256,7 @@ The following issues remain unresolved and are tracked in the project TODO regis
 LLVM appears to be a practical candidate for native code generation and optimization. The recommended architectural constraint is to keep LLVM behind a replaceable backend boundary and preserve LLMLang's own canonical semantics.
 
 This is a research recommendation only. It does not yet select LLVM as a mandatory backend or settle the compiler IR architecture.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Distinguish source-level checked theorem from executable claim under lowering, ABI, runtime and target correspondence premises. Preserve actual TCB and assumptions in evidence. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

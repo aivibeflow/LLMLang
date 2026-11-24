@@ -318,3 +318,7 @@ Research direction, not normative:
 Follow-up: split the conformance obligation into body satisfies provided contract and provided contract refines required public contract, or separately prove the body directly against the public contract without claiming an unproved intermediate contract. Public-admitted inputs imply provider-admitted inputs; corresponding provider outcomes imply public outcomes on that domain. In trace-based semantics include divergence, required events and environment assumptions; state abstraction, progress, security hyperproperties and probabilistic behavior require appropriate relations. Check satisfiability/realizability to expose vacuous contracts. Composition requires aligned models and discharged assumptions; these are new proposed fixtures, not retrospective experiment results.
 
 Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+
+## RT-36 follow-up: explicit assumptions (proposed)
+
+Distinguish refinement of contract statements from conformance of actual implementation. Conditional composition retains unresolved provider and correspondence premises, and trust policy cannot turn refinement into body proof. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
