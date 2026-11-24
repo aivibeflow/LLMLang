@@ -170,6 +170,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
 
 - [ ] Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
 - [ ] Distinguish observations, assumptions, conjectures, experimental results, proofs, and accepted decisions.
+  - [x] Recheck this distinction across four recent implementation-relevant reports (RT-19 transaction and publication boundaries, RT-25 workload fit, RT-32 Lean observation binding). All preserve scope and decision boundaries; stable claim IDs and per-claim confidence/falsifier/impact fields are not yet uniform. [Recent evidence-class recheck (2026-11-24)](research/research-management/RT-00/RT-00-RECENT-EVIDENCE-CLASS-RECHECK-2026-11-24.md)
+  - Remaining external dependencies: independent human adjudication of the quality-review queue, maintainer approval of the proposed evidence vocabulary/gates, and corpus-wide claim provenance/reproduction/source-correspondence review.
 - [ ] Require reproducible commands, fixtures, tool versions, and expected outputs for executable experiments.
 - [ ] Record negative results and rejected alternatives.
 - [ ] Link every proposed specification change to its supporting research and evidence.
