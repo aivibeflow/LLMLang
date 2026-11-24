@@ -4,7 +4,7 @@
 
 **Baseline** · `ce1a4e5`
 
-**Status** · Bounded native experiment for [Plan §5.3](../PLAN.md#53-posix-architecture-and-conformance)
+**Status** · Bounded native experiment for [Plan §5.3](../../PLAN.md#53-posix-architecture-and-conformance)
 
 ## Question
 
@@ -33,7 +33,7 @@ The finding supports retaining an explicit interruption outcome for one-call I/O
 
 ## Reproduction
 
-From the repository root on Linux x86-64 with readable child syscall information. The recorded runs used Linux 6.18.57, GCC 14.2.0, and glibc 2.41. [Native probe](PROTOTYPES/POSIX-INTERRUPT-01/read_interrupt.c)
+From the repository root on Linux x86-64 with readable child syscall information. The recorded runs used Linux 6.18.57, GCC 14.2.0, and glibc 2.41. [Native probe](../PROTOTYPES/POSIX-INTERRUPT-01/read_interrupt.c)
 
 ```sh
 out=$(mktemp -d)
@@ -44,4 +44,4 @@ for level in 0 3; do
 done
 ```
 
-Related proposed application proof: [CF-008 — Linux pipe transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) uses the scoped pre-progress EINTR contract for retry and distinguishes safety from termination. It is not additional experimental evidence for this report.
+Related proposed application proof: [CF-008 — Linux pipe transfer](../CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) uses the scoped pre-progress EINTR contract for retry and distinguishes safety from termination. It is not additional experimental evidence for this report.

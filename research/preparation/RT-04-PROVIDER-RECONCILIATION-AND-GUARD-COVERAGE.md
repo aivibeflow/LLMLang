@@ -13,10 +13,10 @@ Current SQLite probes establish specific local facts. They do not establish a ge
 ## 2. Required baseline
 
 Read:
-- [Scenarios 120–130](../RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md) for native cleanup, guards, reentry, multi-resource reservations, cancellation and durable invocation evidence.
-- [Scenarios 131–133](../RESEARCH-SCENARIO-131-SHARED-OWNED-RESULT-WORKLOAD.md) for the composed workload, typed caller recovery and generated Rust.
-- [RT-04 alternatives](../RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md).
-- [Shared semantics corpus](../RT-03-04-SHARED-SEMANTICS-CORPUS.md), COR-13.
+- [Scenarios 120–130](../RT-04/RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md) for native cleanup, guards, reentry, multi-resource reservations, cancellation and durable invocation evidence.
+- [Scenarios 131–133](../RT-04/RESEARCH-SCENARIO-131-SHARED-OWNED-RESULT-WORKLOAD.md) for the composed workload, typed caller recovery and generated Rust.
+- [RT-04 alternatives](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md).
+- [Shared semantics corpus](../RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md), COR-13.
 - [Draft Glossary](../../draft/GLOSSARY.md) before changing any identity-bearing evidence field.
 
 ## 3. Research questions

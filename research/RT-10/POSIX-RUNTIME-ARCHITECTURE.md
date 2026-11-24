@@ -257,7 +257,7 @@ The long-term goal should be to minimize and progressively verify the TCB, not t
 
 A proof of Native Runtime code can establish a conditional guarantee relative to the kernel and ABI assumptions. It does not prove that the kernel itself is correct.
 
-A concrete proposed application-level example is [CF-008 — Linux pipe transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md). It derives exact ordered transfer and failure-suffix guarantees from scoped blocking byte-stream read/write assumptions and explicit ABI, memory and environment correspondence. Safety does not imply termination or delivery to the peer. This is an analytical example, not new runtime conformance evidence.
+A concrete proposed application-level example is [CF-008 — Linux pipe transfer](../CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md). It derives exact ordered transfer and failure-suffix guarantees from scoped blocking byte-stream read/write assumptions and explicit ABI, memory and environment correspondence. Safety does not imply termination or delivery to the peer. This is an analytical example, not new runtime conformance evidence.
 
 ### 7.4 Evidence Must Be Distinguished
 
@@ -453,8 +453,8 @@ The portable implementation should not be postponed until that work is complete.
 
 ## RT-04 type/effect/ownership dependency
 
-The API contract requirements above are inputs to the comparative [RT-04 type/effect/ownership/capability research](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md). In particular, POSIX resource lifetimes, partial completion, interruption, error outcomes, capabilities, and concurrency/memory ordering are scenario sources for that study. Neither this runtime proposal nor RT-04 selects the final LLMLang type or ownership model.
+The API contract requirements above are inputs to the comparative [RT-04 type/effect/ownership/capability research](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md). In particular, POSIX resource lifetimes, partial completion, interruption, error outcomes, capabilities, and concurrency/memory ordering are scenario sources for that study. Neither this runtime proposal nor RT-04 selects the final LLMLang type or ownership model.
 
 ## Explicit assumptions and conditional verification (RT-36; proposed)
 
-Model OS/kernel/runtime and syscall guarantees as explicitly scoped premises when unproved, separate foundational TCB from contingent environment assumptions, pin target and profile, and propagate only justified property dependencies. Runtime conformance observations cannot discharge universal premises. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.
+Model OS/kernel/runtime and syscall guarantees as explicitly scoped premises when unproved, separate foundational TCB from contingent environment assumptions, pin target and profile, and propagate only justified property dependencies. Runtime conformance observations cannot discharge universal premises. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.

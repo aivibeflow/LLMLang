@@ -101,4 +101,4 @@ Primary references were consulted on 2026-11-19. Swift docs describe version 6.4
 
 A bodyless public operation declaration is distinct from a concrete implementation declaration or foreign symbol. Model public parameter labels, defaults, result types, effects and ownership at the exact callable revision; body-level parameter mappings/adapters need explicit verification. Shape compatibility is necessary but does not establish public-contract refinement. Test named-argument changes, parameter permutation, default/variadic semantics and bodyless unresolved interfaces.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

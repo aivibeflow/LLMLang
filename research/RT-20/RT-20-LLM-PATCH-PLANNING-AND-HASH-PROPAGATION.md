@@ -4,11 +4,11 @@
 **Date:** 2026-11-18  
 **Priority:** P0  
 **Related research:** RT-02, identity Studies 05–08 (formerly grouped under the RT-05 research area), RT-06, RT-08, RT-14, RT-15, RT-19  
-**Related documents:** [Development Engine RFC](RFC-DEVELOPMENT-ENGINE.md), [RT-19 — Toolchain Server and Semantic Development API](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [ADR-015](../docs/adr/015-toolchain-server-semantic-api.md), [Research dependency map](RESEARCH-DEPENDENCY-MAP.md)
+**Related documents:** [Development Engine RFC](../RT-14/RFC-DEVELOPMENT-ENGINE.md), [RT-19 — Toolchain Server and Semantic Development API](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [ADR-015](../../docs/adr/015-toolchain-server-semantic-api.md), [Research dependency map](../RESEARCH-DEPENDENCY-MAP.md)
 
 > This document records workflow requirements and a candidate algorithm derived from the RT-20 design discussion. It is a research proposal. It does not settle the canonical SPG schema, hash envelope, call-graph semantics, or commit policy, and it does not change the Proposed status of ADR-015.
 
-**Terminology dependency:** Consult the [Draft Glossary](../draft/GLOSSARY.md) and [RT-20 Contract Identity and Compatibility](RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md) whenever changing `hashId`, Contract/callee identity, operation identity, implementation selection, or conformance-based substitution. Keep generic Contract-object hashes distinct from `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and evidence identity. RT-20's current function `hashId` remains a workflow-level assumption; it must not silently redefine any glossary term. Neither document selects a canonical hash schema.
+**Terminology dependency:** Consult the [Draft Glossary](../../draft/GLOSSARY.md) and [RT-20 Contract Identity and Compatibility](RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md) whenever changing `hashId`, Contract/callee identity, operation identity, implementation selection, or conformance-based substitution. Keep generic Contract-object hashes distinct from `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and evidence identity. RT-20's current function `hashId` remains a workflow-level assumption; it must not silently redefine any glossary term. Neither document selects a canonical hash schema.
 
 ## 1. Summary
 
@@ -450,11 +450,11 @@ Passing these criteria supports a scoped RT-20/RT-19 design decision. It does no
 
 Study RT-20 together with:
 
-- [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — defines semantic three-way merge, conflict handling, repository-wide graph validation, and Git integration. RT-20's caller-impact and hash-propagation rules remain mandatory inside merge/reconciliation.
-- [ADR-014](../docs/adr/014-git-semantic-merge.md) — proposed repository representation and semantic merge direction.
-- [RT-22](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — repository/worktree operations, commit preparation, merge reconciliation, and recovery.
-- [RT-23](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — shared semantic snapshots, mapping revisions, and synchronized commit protocol.
-- [RT-19](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — semantic API and Change Set/Snapshot lifecycle.
+- [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — defines semantic three-way merge, conflict handling, repository-wide graph validation, and Git integration. RT-20's caller-impact and hash-propagation rules remain mandatory inside merge/reconciliation.
+- [ADR-014](../../docs/adr/014-git-semantic-merge.md) — proposed repository representation and semantic merge direction.
+- [RT-22](../RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — repository/worktree operations, commit preparation, merge reconciliation, and recovery.
+- [RT-23](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — shared semantic snapshots, mapping revisions, and synchronized commit protocol.
+- [RT-19](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — semantic API and Change Set/Snapshot lifecycle.
 
 Boundary: RT-20 does not define Git's repository-level merge algorithm or worktree runtime. Conversely, a successful semantic merge must not bypass RT-20's complete caller impact plan, per-call-site decisions, hash propagation, validation evidence, and commit gates.
 
@@ -482,14 +482,14 @@ A `CallSiteDecision` binds the exact base callee, caller-required Contract, base
 
 For a shared caller used by incompatible consumer paths, the CIP may contain multiple output slots derived from the same source caller hash, each with a distinct logical selection key and `consumer_path_id`. Each path receives its own call-site decisions. The tested branching/converging fixture keeps one consumer on the old caller version and migrates another to a new caller version. This is an explicit graph-projection test, not proof of arbitrary runtime path discovery.
 
-The payload digest is a planning constraint, not an object identity. It must not be confused with `OpHash`, `ImplHash`, or `CCHash` as defined in the [LLMLang Glossary](../draft/GLOSSARY.md). The schema is a research prototype, not a normative CIP/SPG wire format. Implementation and focused tests are in [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md).
+The payload digest is a planning constraint, not an object identity. It must not be confused with `OpHash`, `ImplHash`, or `CCHash` as defined in the [LLMLang Glossary](../../draft/GLOSSARY.md). The schema is a research prototype, not a normative CIP/SPG wire format. Implementation and focused tests are in [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md).
 
 ## Public-interface integration (2026-11-24; proposed)
 
 Extend the candidate Change Impact Plan for public interfaces with separate edit kinds: catalog/name or alias edit; public operation/contract revision; provider-contract revision; implementation body revision; provider binding; external symbol mapping. Each affected call records its required contract and exact target mode; do not duplicate callee-owned provided Contract references. Recheck body correctness and contract refinement independently, plus caller-specific stronger requirements where present. Public guarantee weakening needs explicit migration; compatible rebinding preserves only proofs and compile actions whose exact dependency sets remain unchanged. Candidate snapshot publication must fail closed on stale, unknown or missing evidence when policy requires proof. An equivalent rewrite requires a stronger judgment than mere conformance.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Change plans must include affected assumption claims, exact provider bindings, proof closure and trust authorization dependencies. An authorized conditional deployment is not proof-complete; do not commit a change as verified if mandatory evidence or admission is missing. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Change plans must include affected assumption claims, exact provider bindings, proof closure and trust authorization dependencies. An authorized conditional deployment is not proof-complete; do not commit a change as verified if mandatory evidence or admission is missing. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

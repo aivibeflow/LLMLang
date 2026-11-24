@@ -13,7 +13,7 @@
 
 **Hypothesis H2 (untested):** Warning-only structural checks can detect missing minimum fields without forcing unrelated historical reports into a new outline.
 
-**Alternatives:** (A) retroactively rewrite all reports; (B) manual review only; (C) warning-first templates for new reports and targeted review of high-impact existing reports. [Rollout comparison](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) recommends C provisionally. [Evidence-shape comparison](RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) favors common minimum metadata with evidence-specific attachments. Neither is an accepted policy.
+**Alternatives:** (A) retroactively rewrite all reports; (B) manual review only; (C) warning-first templates for new reports and targeted review of high-impact existing reports. [Rollout comparison](RT-00/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) recommends C provisionally. [Evidence-shape comparison](RT-00/RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) favors common minimum metadata with evidence-specific attachments. Neither is an accepted policy.
 
 **Prior art within LLMLang:** [Quality-rule proposal](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), [preparation pack](preparation/README.md), [research taxonomy](RESEARCH-TAXONOMY.md), [open questions](../TODO.md), [draft boundary](../draft/README.md).
 
@@ -67,7 +67,7 @@ Review each report against [Q1–Q5](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11
 
 ## 6. Results, limitations, decision, and draft impact
 
-**Observation:** This protocol synthesizes the three linked prior methodological studies; a six-test prototype of the structural checker is reported in [pilot evidence](RT-00-QUALITY-RULES-PILOT-2026-11-23.md). **Hypotheses H1/H2 remain untested** on independent reviewers and representative PRs.
+**Observation:** This protocol synthesizes the three linked prior methodological studies; a six-test prototype of the structural checker is reported in [pilot evidence](RT-00/RT-00-QUALITY-RULES-PILOT-2026-11-23.md). **Hypotheses H1/H2 remain untested** on independent reviewers and representative PRs.
 
 **Negative/rejected alternatives:** Do not require one large fixed prose outline for every evidence shape (risk of misleading boilerplate); do not silently promote warnings to blocking CI (unmeasured false positives); do not equate a structurally compliant report with a proved result. These are process recommendations, not demonstrated empirical superiority.
 

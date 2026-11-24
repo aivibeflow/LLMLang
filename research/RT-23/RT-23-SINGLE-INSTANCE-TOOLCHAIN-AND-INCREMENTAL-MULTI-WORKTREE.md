@@ -205,7 +205,7 @@ A successful LLMLang commit is not merely a Git commit of whatever happens to be
 
 This makes Git history the portable collaboration and merge substrate. The content-addressed semantic store remains a shared acceleration/indexing layer and may contain deduplicated objects, but it MUST NOT be the only durable location of accepted branch state. A clone or recovery from Git history must be able to reconstruct the semantic state required by the repository's committed roots and manifests.
 
-The exact textual representation and semantic merge rules are owned by [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md). RT-23 owns the runtime synchronization, generation, and commit coordination requirements.
+The exact textual representation and semantic merge rules are owned by [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md). RT-23 owns the runtime synchronization, generation, and commit coordination requirements.
 
 ### 9.2 Commit preparation and synchronization protocol
 
@@ -452,11 +452,11 @@ RT-23 is a research proposal, not an accepted architecture decision. It does not
 
 Study RT-23 together with:
 
-- [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — owns canonical Git-visible representation direction, semantic three-way merge, conflict model, and repository-level graph validation.
-- [ADR-014](../docs/adr/014-git-semantic-merge.md) — records the proposed architecture direction; it remains Proposed until explicitly accepted.
-- [RT-20](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — owns complete semantic impact planning, caller migration/preservation, hash propagation, and verified candidate gates.
-- [RT-22](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — owns the external repository/worktree MCP contract and operation recovery.
-- [RT-19](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — owns the transport-neutral semantic API and Change Set/Snapshot lifecycle.
+- [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — owns canonical Git-visible representation direction, semantic three-way merge, conflict model, and repository-level graph validation.
+- [ADR-014](../../docs/adr/014-git-semantic-merge.md) — records the proposed architecture direction; it remains Proposed until explicitly accepted.
+- [RT-20](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — owns complete semantic impact planning, caller migration/preservation, hash propagation, and verified candidate gates.
+- [RT-22](../RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — owns the external repository/worktree MCP contract and operation recovery.
+- [RT-19](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — owns the transport-neutral semantic API and Change Set/Snapshot lifecycle.
 
 Boundary: RT-23 specifies runtime coordination, shared semantic state, incremental worktree file views, and synchronized commit. It does not define semantic merge rules. After Git has produced a candidate merged tree, the merge engine must import/reconcile the complete repository state, apply RT-20 impact/hash/caller checks, validate it, and only then allow RT-23's synchronized commit/finalization protocol. Git's merge commit alone is not proof that the LLMLang semantic merge is complete.
 
@@ -469,4 +469,4 @@ RT-23 owns shared immutable semantic state, versioned Interface Mapping Revision
 
 Clarify that a public interface revision is immutable semantic content. Its name catalog, provider binding and external-symbol mapping are three logically distinct selections (which may share a transaction/storage implementation). Every mapping revision is immutable; mutable heads advance by authorized compare-and-set. A candidate commit pins all relevant catalog, operation, provider and evidence revisions and rechecks freshness/authorization together. Two disjoint map edits can still violate a combined public-name, provider-coherence or ABI-symbol invariant; reject or explicitly resolve, never last-writer-wins. Do not treat a private function becoming exported as only a filesystem edit.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

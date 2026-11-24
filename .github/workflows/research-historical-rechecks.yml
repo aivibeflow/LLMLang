@@ -8,7 +8,7 @@ on:
     paths:
       - ".github/workflows/research-historical-rechecks.yml"
       - "research/quality-audit/2026-11-23-publication-provenance.json"
-      - "research/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md"
+      - "research/RT-00/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md"
   workflow_dispatch:
 
 permissions:

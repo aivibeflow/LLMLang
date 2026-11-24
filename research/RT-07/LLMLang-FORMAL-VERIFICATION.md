@@ -121,9 +121,9 @@ A proof establishes a property only under these assumptions. A proof about a for
 
 ## 8. Compositional Verification and Proof Boundaries
 
-Worked example: [CF-007 — compositional bank transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md) illustrates five abstract callee contracts, three feasible paths, discharge of call preconditions, a caller-only rollback defect that preserves money conservation, and conditional proof closure. The analytical example is not a checked proof or adopted contract syntax.
+Worked example: [CF-007 — compositional bank transfer](../CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md) illustrates five abstract callee contracts, three feasible paths, discharge of call preconditions, a caller-only rollback defect that preserves money conservation, and conditional proof closure. The analytical example is not a checked proof or adopted contract syntax.
 
-External-interface example: [CF-008 — Linux pipe transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) derives exact byte-sequence preservation and failure recovery using assumed scoped Linux read/write contracts, adapter correspondence and environment assumptions; termination additionally requires progress. The analytical argument does not verify the kernel or constitute a checked proof.
+External-interface example: [CF-008 — Linux pipe transfer](../CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) derives exact byte-sequence preservation and failure recovery using assumed scoped Linux read/write contracts, adapter correspondence and environment assumptions; termination additionally requires progress. The analytical argument does not verify the kernel or constitute a checked proof.
 
 ### 8.1. Properties, Not a Single Status for a Function
 
@@ -215,8 +215,8 @@ The architecture meets this requirement when, for a supported subset of LLMLang:
 
 Addition to compositional verification (a candidate, not a newly approved rule): for a public interface, the proof that Body satisfies C_impl and the proof that C_impl refines C_pub are distinct. A proof of the calling code may use the exact revision of C_pub as an explicitly registered assumption; closing the program proof requires a valid binding and independent verification of both obligations under consistent semantics, observation models, and assumptions. UNKNOWN, absence of an implementation, or absence of evidence do not constitute proved conformance. When an implementation is replaced, only proofs whose exact dependencies remain unchanged are retained.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## Explicit Assumptions and Conditional Proofs (RT-36 Research Proposal)
 
-[RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md): separate typed assumptions about external implementations' conformance to contracts, exact library and ABI identifiers, trust-policy permissions, transitive PDG closure, and discharge and revocation of assumptions. A checked proof under open assumptions does not establish that the assumptions themselves have been proved. The research explores separating the verification result, closure, evidence kind, freshness, and admissibility; existing statuses are not changed without an accepted decision.
+[RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md): separate typed assumptions about external implementations' conformance to contracts, exact library and ABI identifiers, trust-policy permissions, transitive PDG closure, and discharge and revocation of assumptions. A checked proof under open assumptions does not establish that the assumptions themselves have been proved. The research explores separating the verification result, closure, evidence kind, freshness, and admissibility; existing statuses are not changed without an accepted decision.

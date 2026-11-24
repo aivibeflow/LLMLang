@@ -4,7 +4,7 @@
 
 **Baseline** · `26ab2be`
 
-**Status** · Bounded executable experiment for [Plan §4.5](../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
+**Status** · Bounded executable experiment for [Plan §4.5](../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
 
 ## Question and boundary
 
@@ -16,7 +16,7 @@ Can an exact caller-migration plan authorize publication of more than one physic
 | Exact Git tree alone | Fixes the published files. It still needs evidence of source coverage and the exact migration required by the plan. |
 | Source-bound CIP and exact prepared Git state | Checks both boundaries. Approval must bind physical and semantic evidence, and publication must compare the Git ref and record the receipt. |
 
-[RT-20 materialized semantic diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md) · [RT-24 source-completeness fixture](RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md) · [RT-23 exact-tree recovery](RT-23-EXACT-TREE-COMMIT-RECOVERY.md)
+[RT-20 materialized semantic diff](../RT-20/RT-20-CANDIDATE-SEMANTIC-DIFF.md) · [RT-24 source-completeness fixture](RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md) · [RT-23 exact-tree recovery](../RT-23/RT-23-EXACT-TREE-COMMIT-RECOVERY.md)
 
 ## Method and results
 
@@ -33,7 +33,7 @@ The result shows why a semantic approval and an exact Git tree approval must mee
 
 ## Reproduction
 
-Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` on CPython 3.12.14 and Git 2.52.0. All 27 tests passed. [Experiment](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_tree_bound_cip.py)
+Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` on CPython 3.12.14 and Git 2.52.0. All 27 tests passed. [Experiment](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_tree_bound_cip.py)
 
 ```sh
 python -B -m unittest -v tests.test_rt24_tree_bound_cip tests.test_rt24_merge_tree_gate tests.test_rt23_commit_recovery tests.test_candidate_semantic_diff_cip_v2

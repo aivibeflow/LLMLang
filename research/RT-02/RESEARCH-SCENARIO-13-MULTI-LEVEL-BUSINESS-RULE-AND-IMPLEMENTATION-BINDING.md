@@ -327,4 +327,4 @@ Research direction, not normative:
 
 Resolve the public name to an exact operation before applying scoped provider selection. A tenant/request override cannot silently change the public operation revision or business-policy contract. If the public contract explicitly leaves a policy parameter variable, pin the selected value as a semantic input; otherwise use an explicit new operation revision or migration. Require exact provider-contract refinement, body correctness and scope authorization for each winning provider. A conforming implementation need not produce identical traces to another unless the public contract guarantees that.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

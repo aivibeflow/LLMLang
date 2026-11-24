@@ -4,7 +4,7 @@
 
 ## 1. Question
 
-The recursive identity experiment makes a group of implementations and all exact callers depend on one group version. This benchmark asks which compile, link, and verification work can survive a change when the caller instead uses a stable ABI and the build binds the implementation separately. [Recursive identity experiment](RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md) · [Binding Snapshot study](RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md)
+The recursive identity experiment makes a group of implementations and all exact callers depend on one group version. This benchmark asks which compile, link, and verification work can survive a change when the caller instead uses a stable ABI and the build binds the implementation separately. [Recursive identity experiment](../RT-05/RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md) · [Binding Snapshot study](../RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md)
 
 The distinction is consistent with prior work on the inputs consumed by an action. GHC uses interface fingerprints for recompilation checks. The build systems literature distinguishes evaluating dependencies from deciding whether the consuming action needs to run. [GHC recompilation checker](https://ghc.gitlab.haskell.org/ghc/doc/users_guide/separate_compilation.html#the-recompilation-checker) · [Build Systems à la Carte](https://eprints.ncl.ac.uk/249855)
 
@@ -51,10 +51,10 @@ From `research/PROTOTYPES/DEPENDENCY-GRAPH-01` with Python 3.10 or later and a l
 python -B -m src.binding_build_benchmark --cc /usr/bin/cc
 ```
 
-The benchmark prints per-stage counts and a witness showing why the caller's compile inputs cannot serve as its executable verification key. The recorded run used repository base `72822973f7cc9fd33ede66aad05e844bf25d5bd3` plus this working tree experiment. [Executable benchmark](PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py)
+The benchmark prints per-stage counts and a witness showing why the caller's compile inputs cannot serve as its executable verification key. The recorded run used repository base `72822973f7cc9fd33ede66aad05e844bf25d5bd3` plus this working tree experiment. [Executable benchmark](../PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py)
 
 ## Public-interface integration (2026-11-24; proposed)
 
 Follow-up test plan: retain the separate-linkage workload and add independent public contract, provider contract, catalog and binding revisions. Compare modular caller proof reuse, compile action reuse, conformance-proof revalidation and link/whole-execution verification under body-only changes, incompatible contracts and public alias changes. The existing C benchmark demonstrates limited compile/link behavior, not a theorem of LLMLang interface substitution or proof reuse.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

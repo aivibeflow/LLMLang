@@ -2,8 +2,8 @@
 
 **Status:** Proposed research/evaluation corpus; non-normative  
 **Purpose:** Evaluate proof-obligation generation, backend planning, verification, and evidence aggregation independently and end-to-end.  
-**Related research:** [RT-33 — Proof Backend Selection and Verification Orchestration](RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-32 — Verified SPG-to-Lean Pipeline](RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](RESEARCH-TAXONOMY.md#2-research-area-inventory).  
-**Related corpus:** [Contract Formalization Debug Corpus](CONTRACT-FORMALIZATION-CORPUS/README.md).
+**Related research:** [RT-33 — Proof Backend Selection and Verification Orchestration](RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-32 — Verified SPG-to-Lean Pipeline](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](../RESEARCH-TAXONOMY.md#2-research-area-inventory).  
+**Related corpus:** [Contract Formalization Debug Corpus](../CONTRACT-FORMALIZATION-CORPUS/README.md).
 
 ## 1. Why a separate benchmark
 
@@ -131,11 +131,11 @@ A backend may discharge only part of a case. The benchmark must record which exa
 
 ### Proposed composition fixture: bank transfer
 
-[CF-007 — compositional bank transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md) supplies a proposed downstream fixture for separate call-precondition, path-sensitive postcondition, conservation, frame, rollback, effect, protocol, and assumption-closure obligations. Its refund-without-fee mutant satisfies each callee precondition and conservation but violates rollback. Keep semantic-formalization scoring separate from proof-engine scoring. No executable benchmark coverage or checked proof is claimed yet.
+[CF-007 — compositional bank transfer](../CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md) supplies a proposed downstream fixture for separate call-precondition, path-sensitive postcondition, conservation, frame, rollback, effect, protocol, and assumption-closure obligations. Its refund-without-fee mutant satisfies each callee precondition and conservation but violates rollback. Keep semantic-formalization scoring separate from proof-engine scoring. No executable benchmark coverage or checked proof is claimed yet.
 
 ### Proposed composition fixture: Linux pipe transfer
 
-[CF-008](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) supplies sequence-valued loop invariants, path-sensitive call preconditions, short-I/O and retry protocol, ownership of failure suffixes, separate progress obligations, and external assumption closure. Counterexamples must distinguish invalid caller composition from invalid adapter contracts and distinguish abstract traces from feasible Linux traces. No executable coverage or checked proof is claimed.
+[CF-008](../CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) supplies sequence-valued loop invariants, path-sensitive call preconditions, short-I/O and retry protocol, ownership of failure suffixes, separate progress obligations, and external assumption closure. Counterexamples must distinguish invalid caller composition from invalid adapter contracts and distinguish abstract traces from feasible Linux traces. No executable coverage or checked proof is claimed.
 
 ## 7. Result model and failure controls
 
@@ -177,18 +177,18 @@ This document establishes an evaluation plan, not an accepted LLMLang architectu
 - prescribe one backend per taxonomy label;
 - treat testing, bounded model checking, solver output, or target compilation as proof beyond its stated scope.
 
-The [executable seed corpus and infrastructure](PROOF-OBLIGATION-BENCHMARK/README.md) provides twelve proposed finite reference/mutation cases, an offline runner, and experiment protocol. The next steps are independent adjudication, backend integration and controlled evaluation; see the linked issues. Finite smoke results do not establish unbounded proofs.
+The [executable seed corpus and infrastructure](../PROOF-OBLIGATION-BENCHMARK/README.md) provides twelve proposed finite reference/mutation cases, an offline runner, and experiment protocol. The next steps are independent adjudication, backend integration and controlled evaluation; see the linked issues. Finite smoke results do not establish unbounded proofs.
 
 ## 10. Planned RT-34 resource-complexity expansion
 
-[RT-34](RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) and its [32-case proposed benchmark matrix](RT-34-COMPLEXITY-BENCHMARK.md) extend DOMAIN-05 to model-scoped asymptotic upper/lower/tight bounds, task optimality, symbolic size/cost summaries, recursion, memory, amortized/probabilistic costs, target correspondence and stale evidence. Keep FORM/DOMAIN tags multi-label; do not reuse case IDs. Preserve finite-vs-unbounded scope: a finite oracle does not establish asymptotic growth. Score correct abstention and bound precision separately from soundness. The matrix is a planning artifact, not a claim that the executable POB corpus already covers these cases.
+[RT-34](../RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) and its [32-case proposed benchmark matrix](../RT-34/RT-34-COMPLEXITY-BENCHMARK.md) extend DOMAIN-05 to model-scoped asymptotic upper/lower/tight bounds, task optimality, symbolic size/cost summaries, recursion, memory, amortized/probabilistic costs, target correspondence and stale evidence. Keep FORM/DOMAIN tags multi-label; do not reuse case IDs. Preserve finite-vs-unbounded scope: a finite oracle does not establish asymptotic growth. Score correct abstention and bound precision separately from soundness. The matrix is a planning artifact, not a claim that the executable POB corpus already covers these cases.
 
 ## Public-interface integration (2026-11-24; proposed)
 
 Planned public-interface extension (not an executed benchmark): pair the same body with valid and invalid implementation contracts; pair the same valid provider contract with compatible and incompatible public contracts; include signature-only false positives, vacuity, missing termination, joint protocol invariants, wrong profile, stale/forged evidence, ambiguous/missing providers, and compatible rebinding with modular versus closed proof invalidation. Score body obligations, refinement obligations and admission/assumption closure separately; report UNKNOWN and unsupported models without coercing to pass. Cross-reference the existing taxonomy and avoid counting duplicate cases as new coverage.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## Explicit assumptions and conditional verification (RT-36; proposed)
 
-Add proposed multi-label assumption/closure/policy cases with independent oracles: explicit foreign premises, checked discharge, residual assumptions, contradictory/vacuous hypotheses, hidden axioms, wrong artifact/ABI, unsupported effects, revocation, circular evidence and selective reuse. Reserve unique IDs at fixture implementation; distinguish proof outcome from policy decision. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.
+Add proposed multi-label assumption/closure/policy cases with independent oracles: explicit foreign premises, checked discharge, residual assumptions, contradictory/vacuous hypotheses, hidden axioms, wrong artifact/ABI, unsupported effects, revocation, circular evidence and selective reuse. Reserve unique IDs at fixture implementation; distinguish proof outcome from policy decision. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.

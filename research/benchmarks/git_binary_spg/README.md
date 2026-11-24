@@ -1,6 +1,6 @@
 # Git binary SPG storage benchmark
 
-This directory contains a reproducible reference harness for the add/remove-only immutable-object workload described in the [research report](../../GIT-BINARY-SPG-STORAGE-EFFICIENCY.md).
+This directory contains a reproducible reference harness for the add/remove-only immutable-object workload described in the [research report](../../RT-27/GIT-BINARY-SPG-STORAGE-EFFICIENCY.md).
 
 ## Provenance note
 

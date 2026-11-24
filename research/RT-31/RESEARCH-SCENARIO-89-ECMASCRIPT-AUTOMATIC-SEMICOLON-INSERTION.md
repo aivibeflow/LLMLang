@@ -8,7 +8,7 @@
 
 What does ECMAScript's Automatic Semicolon Insertion (ASI) actually depend on, and how does it differ from Go's fixed line-ending token set, explicit semicolon rules, and newline-separator grammars?
 
-[Scenario 53](RESEARCH-SCENARIO-53-STATEMENT-TERMINATION-AND-NEWLINES.md) compares Go, Rust, and Swift. This scenario adds ECMAScript 2026 as a materially different prior-art point: the spec's insertion rules are parser/grammar driven and include restricted productions. It does not repeat the full block-result comparison or select an LLMLang policy.
+[Scenario 53](../RT-03/RESEARCH-SCENARIO-53-STATEMENT-TERMINATION-AND-NEWLINES.md) compares Go, Rust, and Swift. This scenario adds ECMAScript 2026 as a materially different prior-art point: the spec's insertion rules are parser/grammar driven and include restricted productions. It does not repeat the full block-result comparison or select an LLMLang policy.
 
 ## 2. ECMAScript 2026 rules
 

@@ -21,7 +21,7 @@ One thread observes a fresh connection's statement set and requests ordinary `cl
 | Shared guard across observation and close | Before the closer acquires the lock or after it releases it. The worker checks retirement before calling SQLite. |
 | Guard on the closer, another lock on an alias | Before observation or between observation and close. The experiment schedules the alias only while the connection is live. |
 
-The four policies give 11 schedules for the sole producer in this fixture. The native harness orders the threads with rendezvous and checks statement count, version match where used, the close return code, and whether the producer actually called `prepare`. It checks destruction with a registered callback. In the shared-guard contention case the producer confirms that it cannot acquire the lock while the closer holds it, then waits and observes retirement. [Model](PROTOTYPES/RT-04-01/rt04_close_interleavings.py) · [Native harness](PROTOTYPES/RT-04-01/sqlite_close_interleavings_probe.py)
+The four policies give 11 schedules for the sole producer in this fixture. The native harness orders the threads with rendezvous and checks statement count, version match where used, the close return code, and whether the producer actually called `prepare`. It checks destruction with a registered callback. In the shared-guard contention case the producer confirms that it cannot acquire the lock while the closer holds it, then waits and observes retirement. [Model](../PROTOTYPES/RT-04-01/rt04_close_interleavings.py) · [Native harness](../PROTOTYPES/RT-04-01/sqlite_close_interleavings_probe.py)
 
 ## Results
 
@@ -32,7 +32,7 @@ The four policies give 11 schedules for the sole producer in this fixture. The n
 | Shared guard across observation and close | 1 | 0 | 0 | 1 |
 | Guard on the closer, another lock on an alias | 1 | 0 | 1 | 0 |
 
-All 11 schedules on SQLite 3.46.1 match the model. When `prepare` runs before version validation, the version mismatch prevents the call to `close`. When it runs after validation, that check has already returned a match and `close` returns `SQLITE_BUSY`. A producer that uses a different wrapper lock can also prepare while the closer holds its own lock. The busy path leaves the connection and the statement available for cleanup. [Schedule checks](PROTOTYPES/RT-04-01/test_rt04_close_interleavings.py) · [SQLite close](https://www.sqlite.org/c3ref/close.html)
+All 11 schedules on SQLite 3.46.1 match the model. When `prepare` runs before version validation, the version mismatch prevents the call to `close`. When it runs after validation, that check has already returned a match and `close` returns `SQLITE_BUSY`. A producer that uses a different wrapper lock can also prepare while the closer holds its own lock. The busy path leaves the connection and the statement available for cleanup. [Schedule checks](../PROTOTYPES/RT-04-01/test_rt04_close_interleavings.py) · [SQLite close](https://www.sqlite.org/c3ref/close.html)
 
 With the shared guard, an early producer makes the set visibly nonempty. The contending producer sees a retired connection after successful close and returns without issuing a native call. These two orders account for every schedule in the shared-guard row. Internal SQLite serialization orders individual API calls. The extension across observation, the close decision, and retirement comes from the shared wrapper guard.
 

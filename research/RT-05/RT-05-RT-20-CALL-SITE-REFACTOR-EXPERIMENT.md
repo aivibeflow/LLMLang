@@ -4,7 +4,7 @@
 
 ## 1. Question
 
-When a refactor moves, duplicates, or removes a call, what lets the toolchain find the relevant occurrence and establish that the caller's obligations still hold? The experiment places real RT-20 call edges behind the three RT-05 matching policies. It also checks a finite inline substitution independently of the continuity match. [Identity lifecycle experiment](RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) · [Contract identity and compatibility](RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md)
+When a refactor moves, duplicates, or removes a call, what lets the toolchain find the relevant occurrence and establish that the caller's obligations still hold? The experiment places real RT-20 call edges behind the three RT-05 matching policies. It also checks a finite inline substitution independently of the continuity match. [Identity lifecycle experiment](RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) · [Contract identity and compatibility](../RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md)
 
 ## 2. Evidence and scope
 
@@ -12,7 +12,7 @@ The structural audit derives exact edges from the baseline and candidate Snapsho
 
 An exact transfer preserves the concrete callee, target kind, guard, and required Contract hash. These checks account for call bindings. The compiler or verifier would still have to establish that arguments, execution conditions, and reachability are preserved through the refactor. In particular, the new bridge from the caller to an extracted helper needs its own validation.
 
-The inline check supports a whole-body unary Int call in the baseline and a whole-body inline expression in the same candidate selection. It derives the outputs of the old callee and the replacement from their stored bodies. Both must satisfy the old required Contract on its explicit finite input domain, and both must return the same output for every input in that domain. This fixture treats a return value as the only observation. A language-level transformation proof would need the actual translation and its observation model. CompCert's inlining pass provides a prior example of a separate machine-checked preservation argument. [CompCert compiler documentation](https://compcert.org/doc/) · [Experiment implementation](PROTOTYPES/DEPENDENCY-GRAPH-01/src/call_site_refactor.py)
+The inline check supports a whole-body unary Int call in the baseline and a whole-body inline expression in the same candidate selection. It derives the outputs of the old callee and the replacement from their stored bodies. Both must satisfy the old required Contract on its explicit finite input domain, and both must return the same output for every input in that domain. This fixture treats a return value as the only observation. A language-level transformation proof would need the actual translation and its observation model. CompCert's inlining pass provides a prior example of a separate machine-checked preservation argument. [CompCert compiler documentation](https://compcert.org/doc/) · [Experiment implementation](../PROTOTYPES/DEPENDENCY-GRAPH-01/src/call_site_refactor.py)
 
 ## 3. Observations
 
@@ -35,4 +35,4 @@ From `research/PROTOTYPES/DEPENDENCY-GRAPH-01`:
 python -B -m unittest -v tests.test_call_site_refactor tests.test_identity_lifecycle tests.test_contract_model
 ```
 
-All seven refactor tests and the expanded 138-test workflow selection passed locally on Python 3.12.14 with these working tree changes over base `72822973f7cc9fd33ede66aad05e844bf25d5bd3`. [Fixtures](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_call_site_refactor.py) · [Workflow](../.github/workflows/semantic-dependency-index.yml)
+All seven refactor tests and the expanded 138-test workflow selection passed locally on Python 3.12.14 with these working tree changes over base `72822973f7cc9fd33ede66aad05e844bf25d5bd3`. [Fixtures](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_call_site_refactor.py) · [Workflow](../../.github/workflows/semantic-dependency-index.yml)

@@ -8,7 +8,7 @@
 
 What exactly does an `OpHash` promise to a caller: a versioned interface/contract, a particular implementation behavior, or a resolved call binding that joins a semantic operation to a concrete implementation and target?
 
-[LL-001](../TODO.md#ll-001--define-the-canonical-ophash-envelope) asks which canonical semantic data belongs in an OpHash. [Global Semantic Artifact Store §3.6](GLOBAL-SEMANTIC-ARTIFACT-STORE.md#36-operation-identity-and-call-address) already proposes distinct Operation Stable ID, OpHash, and Implementation Hash, and says implementations may serve an OpHash only with compatibility evidence. It also explicitly leaves the envelope and its relationship to Interface, Contract, and Target Profile unspecified. [Scenario 91](RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md) separates digest suite, representation, domain, lineage, and trust; this report focuses on which semantic artifacts should be referenced by the operation identity.
+[LL-001](../../TODO.md#ll-001--define-the-canonical-ophash-envelope) asks which canonical semantic data belongs in an OpHash. [Global Semantic Artifact Store §3.6](../RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md#36-operation-identity-and-call-address) already proposes distinct Operation Stable ID, OpHash, and Implementation Hash, and says implementations may serve an OpHash only with compatibility evidence. It also explicitly leaves the envelope and its relationship to Interface, Contract, and Target Profile unspecified. [Scenario 91](RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md) separates digest suite, representation, domain, lineage, and trust; this report focuses on which semantic artifacts should be referenced by the operation identity.
 
 The important ambiguity is the word “exact.” A contract normally constrains allowed behavior; it need not select one unique implementation trace or result. If a call records only an OpHash for such a contract, its precise behavior can still depend on which compatible implementation is bound. Conversely, including the implementation body makes the operation address precise but couples call identity to implementation changes and makes transparent replacement impossible even when behavior is preserved. The project must state which guarantee is intended before fixing fields in the envelope.
 
@@ -112,7 +112,7 @@ No LLMLang compiler/runtime experiment was run. Future cross-vector fixtures sho
 | Change declared semantic version (overflow, memory, concurrency, error profile) | New OpHash if interpretation of the contract changes. | New OpHash. |
 | Use an implementation with incomplete/unknown dependency extraction | No compatibility claim or transparent binding; mark unknown/fail closed. | No trustworthy identity closure without complete canonical body/dependencies. |
 
-These cases discriminate the meaning of “exact”; they do not decide it. A useful follow-up is an inline counterexample where two bodies satisfy the same contract but return different results, then compare a call bound only by OpHash with a call that also pins Binding Hash. Existing finite witnesses in [the call-site refactoring experiment](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md) and [COR-09](RT-03-04-SHARED-SEMANTICS-CORPUS.md#7-cor-09--typed-calls-and-private-local-state) provide starting points, not complete OpHash validation.
+These cases discriminate the meaning of “exact”; they do not decide it. A useful follow-up is an inline counterexample where two bodies satisfy the same contract but return different results, then compare a call bound only by OpHash with a call that also pins Binding Hash. Existing finite witnesses in [the call-site refactoring experiment](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md) and [COR-09](../RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md#7-cor-09--typed-calls-and-private-local-state) provide starting points, not complete OpHash validation.
 
 ## 7. Provisional synthesis and unresolved gates
 
@@ -135,8 +135,8 @@ No option is accepted, no TODO is resolved, and no behavior or conformance tests
 - [Bazel Remote Execution API — remote_execution.proto](https://github.com/bazelbuild/remote-apis/blob/main/build/bazel/remote/execution/v2/remote_execution.proto)
 - [Nix Reference Manual — Input-addressing derivation outputs](https://nix.dev/manual/nix/2.35/store/derivation/outputs/input-address)
 - [OCI Image Specification — Content Descriptors and Digests](https://github.com/opencontainers/image-spec/blob/main/descriptor.md)
-- [LL-001 — canonical OpHash envelope](../TODO.md#ll-001--define-the-canonical-ophash-envelope)
-- [Global Semantic Artifact Store §3.6](GLOBAL-SEMANTIC-ARTIFACT-STORE.md#36-operation-identity-and-call-address)
+- [LL-001 — canonical OpHash envelope](../../TODO.md#ll-001--define-the-canonical-ophash-envelope)
+- [Global Semantic Artifact Store §3.6](../RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md#36-operation-identity-and-call-address)
 - [Scenario 91 — versioned content addresses](RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md)
 - [RT-05 / RT-20 call-site refactoring experiment](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md)
 

@@ -4,7 +4,7 @@
 
 **Baseline** · `55f9c27`
 
-**Status** · Bounded native compatibility experiment for [Plan §7.1](../PLAN.md#71-performance-and-scalability)
+**Status** · Bounded native compatibility experiment for [Plan §7.1](../../PLAN.md#71-performance-and-scalability)
 
 ## Question and integration variants
 
@@ -31,7 +31,7 @@ Every direct C symbol in the probe resolved to the expected provider. This is ev
 
 ## Reproduction
 
-On Linux x86-64 use Rust 1.85.1 and optimization level 3. The observed packages were glibc `2.41-12+deb13u4` and jemalloc `5.3.0-3`. [Native probe](PROTOTYPES/ALLOCATOR-COMPAT-01/probe.rs)
+On Linux x86-64 use Rust 1.85.1 and optimization level 3. The observed packages were glibc `2.41-12+deb13u4` and jemalloc `5.3.0-3`. [Native probe](../PROTOTYPES/ALLOCATOR-COMPAT-01/probe.rs)
 
 ```sh
 out=$(mktemp -d)

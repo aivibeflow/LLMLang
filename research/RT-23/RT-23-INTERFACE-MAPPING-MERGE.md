@@ -2,7 +2,7 @@
 
 **Date** · 2026-11-21  
 **Baseline** · `b52ba2fb32e2c315997c74d8924c2c9aaeb177dc`  
-**Status** · Bounded experiment for [Plan §4.5](../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
+**Status** · Bounded experiment for [Plan §4.5](../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
 
 ## Question and approaches
 
@@ -14,7 +14,7 @@ Can independently edited interface mappings be combined without accepting an amb
 | Compare explicitly recorded edits and causal revisions | Conservatively rejects even equal edits to the same key, including explicit writes of the former value. Needs retained edit intent and revision ancestry. |
 | Validate combined mappings and guard publication by revision plus catalog | Finds collisions between disjoint keys and binds review to a semantic root. Requires a catalog generated from the correct semantic candidate and a publication mechanism that checks all guarded inputs together. |
 
-[RT-24 mapping domain](RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md#9-interface-mapping-revision-merge) · [RT-23 consistency rules](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md#8-consistency-generations-and-concurrency) · [RT-23 exact-tree recovery](RT-23-EXACT-TREE-COMMIT-RECOVERY.md)
+[RT-24 mapping domain](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md#9-interface-mapping-revision-merge) · [RT-23 consistency rules](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md#8-consistency-generations-and-concurrency) · [RT-23 exact-tree recovery](RT-23-EXACT-TREE-COMMIT-RECOVERY.md)
 
 ## Experiment and results
 
@@ -34,7 +34,7 @@ A serialized in-memory compare-and-set step checks the head tuple and catalog be
 
 ## Reproduction
 
-From `research/PROTOTYPES/DEPENDENCY-GRAPH-01` run the following on CPython 3.12.14. Six mapping test methods and eight recovery test methods passed. [Experiment](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_interface_mapping_merge.py)
+From `research/PROTOTYPES/DEPENDENCY-GRAPH-01` run the following on CPython 3.12.14. Six mapping test methods and eight recovery test methods passed. [Experiment](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_interface_mapping_merge.py)
 
 ```sh
 python -B -m unittest -v tests.test_rt23_interface_mapping_merge tests.test_rt23_commit_recovery
@@ -44,8 +44,8 @@ python -B -m unittest -v tests.test_rt23_interface_mapping_merge tests.test_rt23
 
 Follow-up discriminator, not a change to reported results: the tested symbol/signature mapping is only one of public-name catalog, operation-to-provider binding and external export mapping. Test cross-map consistency and exact revision-bound conformance evidence, including disjoint edits that combine into a missing or stale provider proof. Existing CAS and collision controls are useful but do not establish contract refinement.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-External mappings must bind exact assumption and provider revisions; conditional admission, authorization and proof closure remain distinct. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+External mappings must bind exact assumption and provider revisions; conditional admission, authorization and proof closure remain distinct. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

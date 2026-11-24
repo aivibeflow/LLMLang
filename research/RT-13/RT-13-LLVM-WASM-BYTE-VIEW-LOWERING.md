@@ -4,7 +4,7 @@
 
 **Baseline** · `78b0627`
 
-**Status** · Bounded compiler and engine comparison for [Plan §6.3](../PLAN.md#63-llvm-backend)
+**Status** · Bounded compiler and engine comparison for [Plan §6.3](../../PLAN.md#63-llvm-backend)
 
 ## Question and approach
 
@@ -39,4 +39,4 @@ python -B research/PROTOTYPES/LLVM-PRESERVATION-01/llvm_wasm_view_probe.py \
   --opt /path/to/opt --llc /path/to/llc --wasm-ld /path/to/wasm-ld
 ```
 
-[Compiler probe](PROTOTYPES/LLVM-PRESERVATION-01/llvm_wasm_view_probe.py) · [Engine harness](PROTOTYPES/LLVM-PRESERVATION-01/wasm_view_host.mjs)
+[Compiler probe](../PROTOTYPES/LLVM-PRESERVATION-01/llvm_wasm_view_probe.py) · [Engine harness](../PROTOTYPES/LLVM-PRESERVATION-01/wasm_view_host.mjs)

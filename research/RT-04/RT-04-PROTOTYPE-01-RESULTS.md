@@ -2,7 +2,7 @@
 
 **Status:** exploratory executable comparison; no architecture selected  
 **Updated:** 2026-11-19
-**Implementation:** [RT-04 Prototype 01](PROTOTYPES/RT-04-01/README.md)
+**Implementation:** [RT-04 Prototype 01](../PROTOTYPES/RT-04-01/README.md)
 
 ## 1. Question
 
@@ -69,7 +69,7 @@ The cross-check is a small hand-authored observation oracle, not a second indepe
 
 ## 8. Executable RT-03 A/D reference semantics slice
 
-A bounded interpreter was added in [`rt03_reference.py`](PROTOTYPES/RT-04-01/rt03_reference.py), with 13 tests in [`test_rt03_reference.py`](PROTOTYPES/RT-04-01/test_rt03_reference.py). It evaluates literals, strict left-to-right integer addition, ordered sequences, explicit result-shaped values, and declared effect requests. Profile A rejects effects. Profile D uses deterministic in-memory fixture handlers for file read/write, state read/write, and network send, recording ordered events with operation, payload, and outcome.
+A bounded interpreter was added in [`rt03_reference.py`](../PROTOTYPES/RT-04-01/rt03_reference.py), with 13 tests in [`test_rt03_reference.py`](../PROTOTYPES/RT-04-01/test_rt03_reference.py). It evaluates literals, strict left-to-right integer addition, ordered sequences, explicit result-shaped values, and declared effect requests. Profile A rejects effects. Profile D uses deterministic in-memory fixture handlers for file read/write, state read/write, and network send, recording ordered events with operation, payload, and outcome.
 
 The first CI run exposed one test fixture that declared experimental `state.read`/`state.write` labels to RT-04 Profile B without its open-row annotation; the test input was corrected rather than expanding RT-04's closed effect vocabulary. The corrected full suite ran **69 tests** and passed, together with repository-structure checks, in GitHub Actions run [44341691042](https://github.com/aivibeflow/LLMLang/actions/runs/44341691042). The implementation and documentation were merged in [PR #21](https://github.com/aivibeflow/LLMLang/pull/21).
 
@@ -78,6 +78,6 @@ This is a bounded reference slice, not a complete semantics or profile decision.
 
 ## 9. Differential RT-03 evaluator cross-check
 
-A second bounded evaluator was added in [`rt03_smallstep.py`](PROTOTYPES/RT-04-01/rt03_smallstep.py), using explicit control/value stacks and no dependency on the recursive `rt03_reference.py`. Nine differential test methods compare the two implementations over pure expressions, explicit result values, state/file/network effects, reordered writes, malformed inputs, and a generated corpus of nine two-write sequences.
+A second bounded evaluator was added in [`rt03_smallstep.py`](../PROTOTYPES/RT-04-01/rt03_smallstep.py), using explicit control/value stacks and no dependency on the recursive `rt03_reference.py`. Nine differential test methods compare the two implementations over pure expressions, explicit result values, state/file/network effects, reordered writes, malformed inputs, and a generated corpus of nine two-write sequences.
 
 The combined suite now contains 78 tests (69 previous tests plus 9 differential test methods). GitHub Actions run [44342292723](https://github.com/aivibeflow/LLMLang/actions/runs/44342292723) passed all 78 tests and repository-structure checks; the implementation was merged in [PR #22](https://github.com/aivibeflow/LLMLang/pull/22). This is algorithmically independent implementation cross-checking only; both evaluators share the same exploratory contract, so independent review and a separately derived formal semantics remain open.

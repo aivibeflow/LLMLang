@@ -2,7 +2,7 @@
 
 **Status:** Research design for the next RT-20 prototype slice; not an accepted Toolchain architecture decision  
 **Date:** 2026-11-18  
-**Depends on:** [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md), [RT-20 Candidate Graph Audit](RT-20-CANDIDATE-GRAPH-AUDIT.md), [Draft Glossary](../draft/GLOSSARY.md)
+**Depends on:** [RT-20 Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md), [RT-20 Candidate Graph Audit](RT-20-CANDIDATE-GRAPH-AUDIT.md), [Draft Glossary](../../draft/GLOSSARY.md)
 
 > This document decomposes the next implementation step. It does not claim that the current prototype executes or verifies planned actions. The existing CIP v2 diff audit proves exact structural output/edge reconciliation for its supported declaration subset; it does not establish that all required work was executed or that its evidence is authentic.
 

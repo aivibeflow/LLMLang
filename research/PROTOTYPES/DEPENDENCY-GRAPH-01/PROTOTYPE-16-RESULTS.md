@@ -1,7 +1,7 @@
 # Prototype 16: Business Intent to Formal Contract — Results
 
 **Status:** Research prototype; successful local unit-test run  
-**Related research:** [Research Scenario 15](../../RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md)
+**Related research:** [Research Scenario 15](../../RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md)
 
 ## Objective
 

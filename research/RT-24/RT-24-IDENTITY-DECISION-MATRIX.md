@@ -10,7 +10,7 @@ This record compares the identity alternatives against concrete lifecycle, merge
 
 It does **not** adopt a normative LLMLang identity model, canonical SPG schema, hash envelope, or language semantic profile.
 
-Read this document together with the [Draft Glossary](../draft/GLOSSARY.md), [Study 05](RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md), [Study 06](RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md), [Study 07](RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md), [Study 08](RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md), [RT-03 Core Language Semantics](CORE-LANGUAGE-SEMANTICS.md), [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md), [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md), and [Package Manifest and Identity](PACKAGE-MANIFEST-AND-IDENTITY.md).
+Read this document together with the [Draft Glossary](../../draft/GLOSSARY.md), [Study 05](../RT-05/RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md), [Study 06](../RT-05/RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md), [Study 07](../RT-05/RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md), [Study 08](../RT-05/RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md), [RT-03 Core Language Semantics](../RT-03/CORE-LANGUAGE-SEMANTICS.md), [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md), [Semantic Dependency Index](../RT-06/SEMANTIC-DEPENDENCY-INDEX.md), and [Package Manifest and Identity](../RT-12/PACKAGE-MANIFEST-AND-IDENTITY.md).
 
 ## 2. Identity dimensions that must not be conflated
 
@@ -94,7 +94,7 @@ These alternatives are not entirely mutually exclusive. Architecture C is a more
 
 ## 5. Findings from the studies
 
-The recursive identity fixture compares two group encodings. Both make recursive members and their exact callers depend on one group version. Keyed members retain distinct addresses under symmetry. Structural addressing can deduplicate symmetric members, so separately managed uses still need their own selectors. [RT-05 recursive identity](RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md)
+The recursive identity fixture compares two group encodings. Both make recursive members and their exact callers depend on one group version. Keyed members retain distinct addresses under symmetry. Structural addressing can deduplicate symmetric members, so separately managed uses still need their own selectors. [RT-05 recursive identity](../RT-05/RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md)
 
 ### 5.1 Rename and move are not the same operation
 
@@ -126,7 +126,7 @@ RT-03 has not selected a language semantic profile or complete observable-behavi
 
 ## 6. Typed hash vocabulary from the Draft Glossary
 
-The [Draft Glossary](../draft/GLOSSARY.md) proposes distinct typed identities:
+The [Draft Glossary](../../draft/GLOSSARY.md) proposes distinct typed identities:
 
 - `OpHash`: exact operation semantics and contract-visible call target.
 - `ImplHash`: exact concrete implementation and its hash-relevant dependencies.
@@ -167,7 +167,7 @@ This recommendation is an experimental boundary, not a final choice between Stud
 
 ## 9. Decision gates before a normative choice
 
-The RT-05 fixture comparison covers alias and exported-name edits, independently selected equal values, cross-scope moves, context changes, split/merge, slot reuse, and call-site reorder. The follow-on experiment checks exact binding transfer during extraction, finite unary inlining, and stale evidence across changed Snapshot parents. Selection merge coverage remains limited to explicit keys. Authentic endpoint evidence, source correspondence, and import/merge round trips remain open. [Identity lifecycle experiment](RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) · [Call site refactoring experiment](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md)
+The RT-05 fixture comparison covers alias and exported-name edits, independently selected equal values, cross-scope moves, context changes, split/merge, slot reuse, and call-site reorder. The follow-on experiment checks exact binding transfer during extraction, finite unary inlining, and stale evidence across changed Snapshot parents. Selection merge coverage remains limited to explicit keys. Authentic endpoint evidence, source correspondence, and import/merge round trips remain open. [Identity lifecycle experiment](../RT-05/RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) · [Call site refactoring experiment](../RT-05/RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md)
 
 The identity architecture must remain open until the following are completed:
 
@@ -185,21 +185,21 @@ If any scenario requires a selector that survives arbitrary edits, the decision 
 
 ## 10. References
 
-- [Draft Glossary](../draft/GLOSSARY.md)
-- [Study 05 — Name-Free Semantic Entities](RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md)
-- [Study 06 — Content-Addressed Entity Identity](RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md)
-- [Study 07 — Content-Only Identity Stress Tests](RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md)
-- [Study 08 — Context-Derived Occurrence Addressing](RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md)
-- [RT-03 — Core Language Semantics](CORE-LANGUAGE-SEMANTICS.md)
+- [Draft Glossary](../../draft/GLOSSARY.md)
+- [Study 05 — Name-Free Semantic Entities](../RT-05/RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md)
+- [Study 06 — Content-Addressed Entity Identity](../RT-05/RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md)
+- [Study 07 — Content-Only Identity Stress Tests](../RT-05/RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md)
+- [Study 08 — Context-Derived Occurrence Addressing](../RT-05/RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md)
+- [RT-03 — Core Language Semantics](../RT-03/CORE-LANGUAGE-SEMANTICS.md)
 - [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md)
-- [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md)
-- [RT-20 — Patch Planning and Hash Propagation](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
-- [Package Manifest and Content Identity](PACKAGE-MANIFEST-AND-IDENTITY.md)
+- [Semantic Dependency Index](../RT-06/SEMANTIC-DEPENDENCY-INDEX.md)
+- [RT-20 — Patch Planning and Hash Propagation](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
+- [Package Manifest and Content Identity](../RT-12/PACKAGE-MANIFEST-AND-IDENTITY.md)
 
 
 ## RT-04 dependency — identity decision remains gated
 
-The comparative [RT-04 type/effect/ownership/capability report](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) identifies additional semantic distinctions that may affect operation-contract, implementation, conformance-class, and evidence identities: public type/refinement contracts, effect declarations and handlers, error/cancellation outcomes, resource protocols, capability requirements, and concurrency guarantees. These are candidate hash inputs or typed dependencies, not selected fields.
+The comparative [RT-04 type/effect/ownership/capability report](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) identifies additional semantic distinctions that may affect operation-contract, implementation, conformance-class, and evidence identities: public type/refinement contracts, effect declarations and handlers, error/cancellation outcomes, resource protocols, capability requirements, and concurrency guarantees. These are candidate hash inputs or typed dependencies, not selected fields.
 
 Do not finalize the identity model or hash-bearing payloads until RT-04 scenarios validate which distinctions are externally observable, which are contract-level versus implementation-level, and how transitive effects/ownership/protocol dependencies are discovered. RT-04 does not resolve Stable Entity ID versus content-addressed values with explicit lineage/selection.
 
@@ -207,4 +207,4 @@ Do not finalize the identity model or hash-bearing payloads until RT-04 scenario
 
 Add public-interface discriminator cases: public rename versus private presentation rename, rename retaining an explicit alias, name reuse with different lineage, same public name with changed contract, same OpHash with different compatible provider, group split/merge with preserved member operations, and two branches publishing conflicting names or providers. Test alternatives A/B/C without presuming that stable ID and name are the same, or that a new independent interface hash is necessary. A behaviorally breaking new revision cannot silently replace an old pin.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

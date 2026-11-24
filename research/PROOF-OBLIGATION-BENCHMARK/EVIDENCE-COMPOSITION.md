@@ -57,4 +57,4 @@ Two runs with the pinned artifacts produced the same output bytes. Mermaid rende
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Extend future composition fixtures with explicit scoped premises, residual premises after discharge, authorization/closure separation, hidden axioms, inconsistent premises and stale provider bindings. Preserve historical results. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Extend future composition fixtures with explicit scoped premises, residual premises after discharge, authorization/closure separation, hidden axioms, inconsistent premises and stale provider bindings. Preserve historical results. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

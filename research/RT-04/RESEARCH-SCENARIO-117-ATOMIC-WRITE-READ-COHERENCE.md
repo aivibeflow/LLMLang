@@ -26,7 +26,7 @@ Each write has an ID so two writes of equal values can be distinguished. Both re
 | Read-write | A load happens-before `w1` | Load source must precede `w1`, so only `init` | Reading `w1` or `w2` |
 | Write-read | `w1` happens-before a load | Load source must be `w1` or later, so `w1` or `w2` | Reading `init` |
 
-Four new tests check the allowed sets, an inconsistent write order, and malformed input. All 12 atomic litmus tests passed on Python 3.12.14 using base `08c8490` plus the Scenario 117 changes. [Prototype](PROTOTYPES/RT-04-01/rt04_store_buffering.py) · [Tests](PROTOTYPES/RT-04-01/test_rt04_store_buffering.py)
+Four new tests check the allowed sets, an inconsistent write order, and malformed input. All 12 atomic litmus tests passed on Python 3.12.14 using base `08c8490` plus the Scenario 117 changes. [Prototype](../PROTOTYPES/RT-04-01/rt04_store_buffering.py) · [Tests](../PROTOTYPES/RT-04-01/test_rt04_store_buffering.py)
 
 ```sh
 python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_rt04_store_buffering.py' -v
@@ -49,4 +49,4 @@ Both mixed cases use the same candidate writes. Reversing the happens-before edg
 - [C++ draft — atomic order and coherence ordering (`atomics.order`)](https://eel.is/c++draft/atomics.order)
 - [Rust atomic `Ordering`](https://doc.rust-lang.org/stable/core/sync/atomic/enum.Ordering.html)
 - [Scenario 113 — Store Buffering and Atomic Memory Orders](RESEARCH-SCENARIO-113-STORE-BUFFERING-MEMORY-ORDERS.md)
-- [Scenario 116 — Atomic Backend Lowering Obligations](RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md)
+- [Scenario 116 — Atomic Backend Lowering Obligations](../RT-13/RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md)

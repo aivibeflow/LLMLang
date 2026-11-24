@@ -4,7 +4,7 @@
 - **Date** — 2026-11-23
 - **Decision owners** — LLMLang project
 - **Related architecture** — [ADR-015 — Toolchain Server and semantic development API](015-toolchain-server-semantic-api.md)
-- **Related research** — [RT-19 — Toolchain Server and Semantic Development API](../../research/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
+- **Related research** — [RT-19 — Toolchain Server and Semantic Development API](../../research/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
 
 ## Context
 

@@ -15,7 +15,7 @@ flowchart LR
     Unsat --> Source["Source meaning requires interpretation correspondence"]
 ```
 
-The [Lean runtime proof](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosVerdictConditions.lean) checks the following conditions for any assumptions and commands accepted by the pinned Logos API.
+The [Lean runtime proof](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosVerdictConditions.lean) checks the following conditions for any assumptions and commands accepted by the pinned Logos API.
 
 | Verdict | Exact runtime condition |
 | --- | --- |
@@ -23,13 +23,13 @@ The [Lean runtime proof](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosVerdi
 | `incorrect` | The refutation check failed. |
 | `incomplete` | The refutation passed and at least one translation check failed. |
 
-The file-level theorem retains the exact ordinary parser result for a `correct` verdict. The runtime theorem and the normal LLMLang package built with Lean 4.36. The [axiom audit](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/runtime-axioms.txt) lists only the standard Lean axioms. A result at this level describes the executed checks. It does not turn those checks into a semantics proof.
+The file-level theorem retains the exact ordinary parser result for a `correct` verdict. The runtime theorem and the normal LLMLang package built with Lean 4.36. The [axiom audit](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/runtime-axioms.txt) lists only the standard Lean axioms. A result at this level describes the executed checks. It does not turn those checks into a semantics proof.
 
 ## Upstream verification project
 
 The pinned upstream source states `correct___logos_verdict` and `correct___logos_check_proof` in its verification project. Their conclusion is unsatisfiability of the parsed Logos assumptions under the upstream semantics. The verification project pins Lean 4.34.0 and Mathlib commit `5ed2965256430c3649e86755f9576b54eca72435`. The library's runtime package omits those dependencies. The proof dispatcher names 614 distinct rule modules at this revision. [Logos verification configuration](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/verification/lakefile.toml) · [Declared theorem](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/Cpc/ApiCorrect.lean)
 
-The upstream import audit passed with 28 runtime source modules and no semantic or external imports. Its proof-hygiene scanner passed on 943 Lean sources. The isolated runtime build completed all 76 Lake jobs under Lean 4.36, including both checker executables with model semantics and verification sources removed. The upstream proof harness had started and its dependency cache downloaded and unpacked. The complete rule proof had not been checked at this checkpoint. [Recorded observations](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/observations.json)
+The upstream import audit passed with 28 runtime source modules and no semantic or external imports. Its proof-hygiene scanner passed on 943 Lean sources. The isolated runtime build completed all 76 Lake jobs under Lean 4.36, including both checker executables with model semantics and verification sources removed. The upstream proof harness had started and its dependency cache downloaded and unpacked. The complete rule proof had not been checked at this checkpoint. [Recorded observations](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/observations.json)
 
 Upstream's routine CI check substitutes two rule-dispatch proof obligations, elaborates the remaining proof, and verifies that a deliberately invalid declaration fails. The upstream full rule build and `Cpc.ApiCorrect` target are separate. The Lean 4.34 proof artifacts also cannot simply be imported into the repository's Lean 4.36 build. [Upstream build and verification instructions](https://github.com/cvc5/logos/blob/cf18742973861b3718d04c5f25775448098ff474/README.md#checking-the-correctness-proof)
 

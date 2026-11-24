@@ -4,7 +4,7 @@
 
 **Baseline** · `991c053`
 
-**Status** · Comparative measurement for [Plan §7.1](../PLAN.md#71-performance-and-scalability)
+**Status** · Comparative measurement for [Plan §7.1](../../PLAN.md#71-performance-and-scalability)
 
 ## Question and method
 
@@ -35,4 +35,4 @@ python -B research/PROTOTYPES/ALLOCATOR-BENCH-01/run.py \
   --jemalloc /path/to/libjemalloc.so.2 --samples 8 --output /tmp/allocator-samples.json
 ```
 
-[Raw observations](PROTOTYPES/ALLOCATOR-BENCH-01/results-linux-x86_64.json) · [Runner](PROTOTYPES/ALLOCATOR-BENCH-01/run.py) · [Workload](PROTOTYPES/ALLOCATOR-BENCH-01/graph.rs)
+[Raw observations](../PROTOTYPES/ALLOCATOR-BENCH-01/results-linux-x86_64.json) · [Runner](../PROTOTYPES/ALLOCATOR-BENCH-01/run.py) · [Workload](../PROTOTYPES/ALLOCATOR-BENCH-01/graph.rs)

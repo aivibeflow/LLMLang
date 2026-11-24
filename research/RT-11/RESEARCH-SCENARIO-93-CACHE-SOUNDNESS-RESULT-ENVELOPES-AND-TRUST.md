@@ -136,6 +136,6 @@ No candidate policy is chosen, no LL-021 TODO item is closed, and no LLMLang cac
 - [Nix 2.31 content-addressed derivation outputs](https://nix.dev/manual/nix/2.31/store/derivation/outputs/content-address.html)
 - [GitHub Actions dependency caching reference](https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching)
 - [GitHub Actions dependency caching security concepts](https://docs.github.com/en/actions/concepts/workflows-and-actions/dependency-caching)
-- [Scenario 92 — Operation Identity and Implementation Binding](RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md)
+- [Scenario 92 — Operation Identity and Implementation Binding](../RT-05/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md)
 - [Semantic Compilation Cache proposal](SEMANTIC-COMPILATION-CACHE.md)
-- [LL-021](../TODO.md#ll-021--define-semantic-action-caching-and-incremental-compilation)
+- [LL-021](../../TODO.md#ll-021--define-semantic-action-caching-and-incremental-compilation)

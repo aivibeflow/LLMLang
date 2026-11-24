@@ -1,6 +1,6 @@
 # Proof Obligation Benchmark — seed corpus and infrastructure
 
-**Status:** proposed, non-normative experimental corpus; not independently adjudicated. Tracks [LL-029 / #393](https://github.com/aivibeflow/LLMLang/issues/393) and [RT-33 / #390](https://github.com/aivibeflow/LLMLang/issues/390). Design: [taxonomy and evaluation plan](../PROOF-OBLIGATION-BENCHMARK.md).
+**Status:** proposed, non-normative experimental corpus; not independently adjudicated. Tracks [LL-029 / #393](https://github.com/aivibeflow/LLMLang/issues/393) and [RT-33 / #390](https://github.com/aivibeflow/LLMLang/issues/390). Design: [taxonomy and evaluation plan](../RT-33/PROOF-OBLIGATION-BENCHMARK.md).
 
 ## Reproduce
 
@@ -66,7 +66,7 @@ See [recursive and higher-order contract generator](RECURSIVE-GENERATOR.md) for 
 
 ## Format and contribution
 
-[Case schema](case.schema.json), [taxonomy](taxonomy.json), [experiment protocol](EXPERIMENT-PROTOCOL.md), and [human case template](../PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md). Each case has a stable ID/revision, contract, assumptions, scope, obligation IDs/dependencies, variants and independent expected outcomes. Preserve old revisions and change logs before replacing an accepted oracle. The current Python runner checks the v1 finite-seed subset and dependency closure; the JSON schema documents the interchange shape, not a normative Contract IR. New oracle implementations require independent review of contract and mutant, at least one distinguishing counterexample, alternative valid implementations where meaningful, and explicit bound/assumption reporting. Do not silently expand a model's claimed scope.
+[Case schema](case.schema.json), [taxonomy](taxonomy.json), [experiment protocol](EXPERIMENT-PROTOCOL.md), and [human case template](../RT-33/PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md). Each case has a stable ID/revision, contract, assumptions, scope, obligation IDs/dependencies, variants and independent expected outcomes. Preserve old revisions and change logs before replacing an accepted oracle. The current Python runner checks the v1 finite-seed subset and dependency closure; the JSON schema documents the interchange shape, not a normative Contract IR. New oracle implementations require independent review of contract and mutant, at least one distinguishing counterexample, alternative valid implementations where meaningful, and explicit bound/assumption reporting. Do not silently expand a model's claimed scope.
 
 ## Remaining work
 

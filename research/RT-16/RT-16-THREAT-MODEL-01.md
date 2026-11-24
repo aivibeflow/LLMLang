@@ -52,7 +52,7 @@ The prototype assumes the policy evaluator, trusted clock, and request construct
 
 ## 4. Authorization prototype
 
-The experiment is in [authorization policy model](PROTOTYPES/RT-16-AUTHORIZATION-01/policy.py). A grant names the principal, repository, allowed operations, and optionally an exact base revision. Approval-sensitive actions require a human principal's approval bound to action, repository, base revision, and target digest, with expiry and nonce. A ledger models one-time nonce reservation and consumption across retries.
+The experiment is in [authorization policy model](../PROTOTYPES/RT-16-AUTHORIZATION-01/policy.py). A grant names the principal, repository, allowed operations, and optionally an exact base revision. Approval-sensitive actions require a human principal's approval bound to action, repository, base revision, and target digest, with expiry and nonce. A ledger models one-time nonce reservation and consumption across retries.
 
 The same prototype checks required verification records against candidate, toolchain, target, and assumption identities, the verifier identity, and an exact passed result. Its deterministic SHA-256 digest commits to those record fields so that mutations change the digest. A digest alone cannot establish who produced a record. Verifier authentication, signatures, and the trusted source of the expected digest remain outside this experiment.
 
@@ -61,7 +61,7 @@ Run the finite decision fixtures with:
 ```sh
 python3 -m unittest discover -s research/PROTOTYPES/RT-16-AUTHORIZATION-01 -p 'test_*.py' -v
 
-The executable test file is [test_policy.py](PROTOTYPES/RT-16-AUTHORIZATION-01/test_policy.py). It contains 24 unit-test cases for principal/repository/action/base-revision binding, human approval, expiry, replay protection, nonce reservation/consumption, evidence context, verifier trust, duplicate/missing evidence, and fail-closed decisions. The tests use only the Python standard library. A dedicated non-required GitHub Actions workflow now runs this suite and preserves its output. Run [44937172020](https://github.com/aivibeflow/LLMLang/actions/runs/44937172020) executed all 24 tests successfully on Ubuntu 24.04.5 with Python 3.12.16. This is a reproducible bounded model-test result, not evidence of production authorization security, authenticated approvals, concurrent durable nonce storage, or distributed crash safety. The workflow is separate from Required CI. Git history shows `policy.py`, `test_policy.py`, and this threat-model document were introduced together at `b0638a1b69a3f7d233194097032cde9209b672db`, with no later content commits to the two code files in the inspected history. That pins the current source content, but it does not prove that the 24 tests were executed at that revision. The Python minor/patch version and runner image for any historical test run are not recorded, so a fresh run with captured environment/output is still required for a reproducible execution record.
+The executable test file is [test_policy.py](../PROTOTYPES/RT-16-AUTHORIZATION-01/test_policy.py). It contains 24 unit-test cases for principal/repository/action/base-revision binding, human approval, expiry, replay protection, nonce reservation/consumption, evidence context, verifier trust, duplicate/missing evidence, and fail-closed decisions. The tests use only the Python standard library. A dedicated non-required GitHub Actions workflow now runs this suite and preserves its output. Run [44937172020](https://github.com/aivibeflow/LLMLang/actions/runs/44937172020) executed all 24 tests successfully on Ubuntu 24.04.5 with Python 3.12.16. This is a reproducible bounded model-test result, not evidence of production authorization security, authenticated approvals, concurrent durable nonce storage, or distributed crash safety. The workflow is separate from Required CI. Git history shows `policy.py`, `test_policy.py`, and this threat-model document were introduced together at `b0638a1b69a3f7d233194097032cde9209b672db`, with no later content commits to the two code files in the inspected history. That pins the current source content, but it does not prove that the 24 tests were executed at that revision. The Python minor/patch version and runner image for any historical test run are not recorded, so a fresh run with captured environment/output is still required for a reproducible execution record.
 ```
 
 The 24 fixtures cover exact authorization, cross-principal and cross-repository use, stale base, action separation, target substitution, agent self-approval, expiry, replay, non-privileged validation, nonce reservation, and releasing a reservation after failure. Evidence fixtures cover missing, duplicate, failed, unknown, stale, and untrusted records, plus evidence digest sensitivity to producer and result. They do not establish production security, concurrent storage correctness, or cryptographic approval/evidence authenticity.
@@ -91,17 +91,17 @@ The model constrains authority claims in RT-19 and RT-20. It does not determine 
 
 ## 7. References
 
-- [RT-19 Toolchain Server](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) separates acceptance, commit, push, and publication boundaries.
-- [RT-20 patch planning](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) models planned changes and verified commit workflow.
-- [Global semantic artifact store](GLOBAL-SEMANTIC-ARTIFACT-STORE.md) distinguishes content identity from compatibility and trust.
-- [RT-01 reference workloads](RT-01-REFERENCE-WORKLOADS.md) defines agent change acceptance and human review measurements.
+- [RT-19 Toolchain Server](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) separates acceptance, commit, push, and publication boundaries.
+- [RT-20 patch planning](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) models planned changes and verified commit workflow.
+- [Global semantic artifact store](../RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md) distinguishes content identity from compatibility and trust.
+- [RT-01 reference workloads](../RT-01/RT-01-REFERENCE-WORKLOADS.md) defines agent change acceptance and human review measurements.
 
 ## Public-interface integration (2026-11-24; proposed)
 
 Additional candidate threats: namespace impersonation/reuse, unauthorized publication or provider rebinding, signature-compatible malicious provider, stale/forged refinement evidence, downgrade to a weaker public revision, hidden dynamic resolution and private-contract leakage. Require scoped publisher/binder authority, pinned revisions, independent evidence validation, complete target/dependency closure, explicit migration and audit trails. A public name, registry hit, content hash or successful signature check is not a trust grant. Add adversarial controls; existing authorization measurements do not validate these cases.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## Explicit assumptions and conditional verification (RT-36; proposed)
 
-Threats include unauthorized trust grants, hidden axioms, contradictory premises, forged evidence, stale/substituted native artifacts and assumption laundering. Separate claim, authorization, checker evidence and policy gate; audit and revoke at exact scope. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.
+Threats include unauthorized trust grants, hidden axioms, contradictory premises, forged evidence, stale/substituted native artifacts and assumption laundering. Separate claim, authorization, checker evidence and policy gate; audit and revoke at exact scope. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.

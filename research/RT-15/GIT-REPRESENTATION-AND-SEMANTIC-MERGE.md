@@ -326,13 +326,13 @@ Keep the semantic merge engine independent of Git. Design toward repository-leve
 
 This document is the primary research source for repository representation and semantic diff/merge. It must be studied together with the following documents whenever Git merge, branch integration, semantic synchronization, or commit behavior is designed or changed:
 
-- [ADR-014 — Git repository representation and semantic merge](../docs/adr/014-git-semantic-merge.md): records the current proposed architectural direction and rejected alternatives. Its status is **Proposed**, not Accepted.
-- [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md): specifies candidate import/export laws, semantic diff classes, deterministic base/ours/theirs merge, conflict results, mapping revision separation, RT-20 CIP integration, and prototype gates.
-- [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md): reconciles the candidate merge contract with identity Studies 05–08, RT-03, the semantic dependency index, package identity, and the current executable subset. It explicitly leaves Stable Entity ID versus content-addressed identity unresolved.
-- [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md): owns impact planning, per-call-site migrate/preserve/adapt decisions, caller versioning, hash propagation, validation/audit gates, and verified completion.
-- [RT-22 — LLMLang Git Repository and Worktree MCP Surface](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md): owns the external repository/worktree operation contract, Git coordination, commit preparation, and recovery guarantees.
-- [RT-23 — Single-Instance Toolchain with Shared Semantic State and Incremental Multi-Worktree File Views](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md): owns the single-server runtime, shared immutable semantic state, versioned interface mappings, per-worktree file views, and synchronized semantic/filesystem commit protocol.
-- [RT-19 — Toolchain Server and Semantic Development API](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md): owns the broader transport-neutral semantic API and Change Set/Snapshot lifecycle.
+- [ADR-014 — Git repository representation and semantic merge](../../docs/adr/014-git-semantic-merge.md): records the current proposed architectural direction and rejected alternatives. Its status is **Proposed**, not Accepted.
+- [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md): specifies candidate import/export laws, semantic diff classes, deterministic base/ours/theirs merge, conflict results, mapping revision separation, RT-20 CIP integration, and prototype gates.
+- [RT-24 Identity and SPG Reconciliation](../RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md): reconciles the candidate merge contract with identity Studies 05–08, RT-03, the semantic dependency index, package identity, and the current executable subset. It explicitly leaves Stable Entity ID versus content-addressed identity unresolved.
+- [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md): owns impact planning, per-call-site migrate/preserve/adapt decisions, caller versioning, hash propagation, validation/audit gates, and verified completion.
+- [RT-22 — LLMLang Git Repository and Worktree MCP Surface](../RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md): owns the external repository/worktree operation contract, Git coordination, commit preparation, and recovery guarantees.
+- [RT-23 — Single-Instance Toolchain with Shared Semantic State and Incremental Multi-Worktree File Views](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md): owns the single-server runtime, shared immutable semantic state, versioned interface mappings, per-worktree file views, and synchronized semantic/filesystem commit protocol.
+- [RT-19 — Toolchain Server and Semantic Development API](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md): owns the broader transport-neutral semantic API and Change Set/Snapshot lifecycle.
 - [AIVibeFlow LLMLang MCP integration](https://github.com/aivibeflow/aivibeflow/blob/main/specs/integrations/LLMLANG-MCP-GIT-WORKSPACE.md): owns AIVibeFlow provider selection, orchestration, platform policy, and the cross-repository integration boundary.
 
 ### Ownership and consistency rules
@@ -353,5 +353,5 @@ This document is the primary research source for repository representation and s
 - Git attributes documentation: https://git-scm.com/docs/gitattributes
 - Git configuration documentation: https://git-scm.com/docs/git-config
 - Git mergetool documentation: https://git-scm.com/docs/git-mergetool
-- LLMLang [Semantic Compilation Cache](SEMANTIC-COMPILATION-CACHE.md)
-- LLMLang [Global Semantic Artifact Store](GLOBAL-SEMANTIC-ARTIFACT-STORE.md)
+- LLMLang [Semantic Compilation Cache](../RT-11/SEMANTIC-COMPILATION-CACHE.md)
+- LLMLang [Global Semantic Artifact Store](../RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md)

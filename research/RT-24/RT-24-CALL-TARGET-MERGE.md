@@ -4,7 +4,7 @@
 
 **Baseline** · `6aaac55`
 
-**Status** · Bounded three-way merge experiment for [Plan §4.5](../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
+**Status** · Bounded three-way merge experiment for [Plan §4.5](../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
 
 ## Question and merge laws
 
@@ -34,7 +34,7 @@ The evidence supports narrower structural merge rules where both scope and corre
 
 ## Reproduction
 
-From `research/PROTOTYPES/DEPENDENCY-GRAPH-01` run on CPython 3.12.14 and Git 2.52.0. All 18 focused and baseline tests passed. [Fixture](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_call_target_merge.py)
+From `research/PROTOTYPES/DEPENDENCY-GRAPH-01` run on CPython 3.12.14 and Git 2.52.0. All 18 focused and baseline tests passed. [Fixture](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_call_target_merge.py)
 
 ```sh
 python -B -m unittest -v tests.test_rt24_call_target_merge tests.test_rt24_semantic_merge_core tests.test_rt24_merge_tree_gate
@@ -48,4 +48,4 @@ The declared command passed **18/18 tests** on exact checkout `fa98a20c8ab5d3f28
 
 Follow-up: retargeting two direct concrete calls is distinct from replacing a scoped public provider binding. Add controls where independent changes to public contract and provider selection merge structurally but invalidate refinement evidence; validate the complete candidate before publication. Existing exact-retarget results remain bounded to the original fixture.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

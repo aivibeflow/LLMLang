@@ -4,7 +4,7 @@
 
 **Baseline** · `11c7f19`
 
-**Status** · Native Git experiment for [Plan §4.5](../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
+**Status** · Native Git experiment for [Plan §4.5](../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
 
 ## Question
 
@@ -47,7 +47,7 @@ The run recorded the tested report hash `7ea388ec5a26e63cb28af76bc5632fd567b135a
 
 ## Reproduction
 
-Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` on CPython 3.12.14 and Git 2.52.0. Eleven tests passed. [Fixture and controls](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_git_replay.py)
+Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` on CPython 3.12.14 and Git 2.52.0. Eleven tests passed. [Fixture and controls](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_git_replay.py)
 
 ```sh
 python -B -m unittest -v tests.test_rt24_git_replay tests.test_rt24_merge_tree_gate

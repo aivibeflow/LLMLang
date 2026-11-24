@@ -4,11 +4,11 @@
 
 **Baseline** · `3a3f90b`
 
-**Status** · Bounded model for [Plan §5.2](../PLAN.md#52-execution-semantics-and-runtime-architecture)
+**Status** · Bounded model for [Plan §5.2](../../PLAN.md#52-execution-semantics-and-runtime-architecture)
 
 ## Question
 
-How do cancellation, acknowledgment, and actual completion affect a cumulative budget shared by nested tasks? The baseline reservation model checks every ancestor before issuing capacity. This experiment adds a task-group lifetime boundary while keeping serialized ledger transitions. [Cooperative budget reservation](RT-26-COOPERATIVE-BUDGET-RESERVATION.md) · [Invocation cancellation evidence](RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md)
+How do cancellation, acknowledgment, and actual completion affect a cumulative budget shared by nested tasks? The baseline reservation model checks every ancestor before issuing capacity. This experiment adds a task-group lifetime boundary while keeping serialized ledger transitions. [Cooperative budget reservation](RT-26-COOPERATIVE-BUDGET-RESERVATION.md) · [Invocation cancellation evidence](../RT-10/RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md)
 
 The root has five units. A nested worker and an outside sibling each request three. Cancellation closes the nested group. Work may already hold a reservation when cancellation arrives. It may spend as admitted before reaching a terminal stop. An acknowledgment reports receipt of cancellation. Terminal settlement establishes that no more work can spend the reservation and records already spent units.
 
@@ -34,7 +34,7 @@ This model assumes one serialized ledger and cooperative enforcement. It does no
 
 ## Reproduction
 
-From the repository root use CPython 3.12.14. Three cancellation tests and the four baseline reservation tests passed. [Cancellation fixture](PROTOTYPES/BUDGET-CANCELLATION-01/test_budget_cancellation.py)
+From the repository root use CPython 3.12.14. Three cancellation tests and the four baseline reservation tests passed. [Cancellation fixture](../PROTOTYPES/BUDGET-CANCELLATION-01/test_budget_cancellation.py)
 
 ```sh
 python -B -m unittest discover -s research/PROTOTYPES/BUDGET-CANCELLATION-01 -v

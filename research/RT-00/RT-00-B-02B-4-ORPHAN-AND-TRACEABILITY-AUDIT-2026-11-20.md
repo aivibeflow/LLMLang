@@ -36,11 +36,11 @@ The family README is an overview, not a complete manifest. Several source module
 
 | File | Additional traceability evidence |
 |---|---|
-| `src/identity_lifecycle.py`, `tests/test_identity_lifecycle.py` | [RT-05 Identity Lifecycle Experiment](RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) and Required CI |
-| `src/recursive_identity.py`, `tests/test_recursive_identity.py` | [RT-05 Recursive Identity Experiment](RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md) and Required CI |
-| `src/call_site_refactor.py`, `tests/test_call_site_refactor.py` | [RT-05/RT-20 Call Site Refactoring Experiment](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md) and Required CI |
-| `src/semantic_graph.py`, `tests/test_semantic_graph.py` | [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md) and Required CI |
-| `src/binding_build_benchmark.py` | [RT-11 Binding Invalidation Benchmark](RT-11-BINDING-INVALIDATION-BENCHMARK.md) and PLAN.md; benchmark driver, not a missing unit-test implementation |
+| `src/identity_lifecycle.py`, `tests/test_identity_lifecycle.py` | [RT-05 Identity Lifecycle Experiment](../RT-05/RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) and Required CI |
+| `src/recursive_identity.py`, `tests/test_recursive_identity.py` | [RT-05 Recursive Identity Experiment](../RT-05/RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md) and Required CI |
+| `src/call_site_refactor.py`, `tests/test_call_site_refactor.py` | [RT-05/RT-20 Call Site Refactoring Experiment](../RT-05/RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md) and Required CI |
+| `src/semantic_graph.py`, `tests/test_semantic_graph.py` | [RT-24 Identity and SPG Reconciliation](../RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md) and Required CI |
+| `src/binding_build_benchmark.py` | [RT-11 Binding Invalidation Benchmark](../RT-11/RT-11-BINDING-INVALIDATION-BENCHMARK.md) and PLAN.md; benchmark driver, not a missing unit-test implementation |
 
 `src/__init__.py` is a package marker, not a standalone research result. The benchmark module is intentionally exercised as a benchmark with a local C compiler rather than as an ordinary unit-test module.
 

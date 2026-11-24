@@ -1,9 +1,9 @@
 # RT-19 — Toolchain Server and Semantic Development API
 
-**Status:** Research proposal; the general implementation architecture and wire contract remain unaccepted. The scoped MCP-facing object format is decided by [ADR-017](../docs/adr/017-mcp-agent-object-format.md).  
+**Status:** Research proposal; the general implementation architecture and wire contract remain unaccepted. The scoped MCP-facing object format is decided by [ADR-017](../../docs/adr/017-mcp-agent-object-format.md).  
 **Date:** 2026-11-18  
 **Research area:** Development tooling, semantic editing, storage, collaboration, and AI integration  
-**Related:** [RFC — LLMLang Development Engine](RFC-DEVELOPMENT-ENGINE.md), [Git Semantic Repository](GIT-SEMANTIC-REPOSITORY.md), [ADR-014](../docs/adr/014-git-semantic-merge.md), [Semantic Compilation Cache](SEMANTIC-COMPILATION-CACHE.md), [Package System](PACKAGE-SYSTEM.md), [ADR-015](../docs/adr/015-toolchain-server-semantic-api.md), [ADR-017 — MCP agent object format](../docs/adr/017-mcp-agent-object-format.md), [Prototype 01](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md)
+**Related:** [RFC — LLMLang Development Engine](../RT-14/RFC-DEVELOPMENT-ENGINE.md), [Git Semantic Repository](../RT-15/GIT-SEMANTIC-REPOSITORY.md), [ADR-014](../../docs/adr/014-git-semantic-merge.md), [Semantic Compilation Cache](../RT-11/SEMANTIC-COMPILATION-CACHE.md), [Package System](../RT-12/PACKAGE-SYSTEM.md), [ADR-015](../../docs/adr/015-toolchain-server-semantic-api.md), [ADR-017 — MCP agent object format](../../docs/adr/017-mcp-agent-object-format.md), [Prototype 01](../PROTOTYPES/TOOLCHAIN-SERVER-01/README.md)
 
 > This research investigates making structured Toolchain API operations—not direct source-file editing—the primary way for agents and automation to inspect and change LLMLang programs. It does not amend the candidate language specification or silently turn the proposed architecture into an accepted decision.
 
@@ -120,7 +120,7 @@ The adapter must not treat MCP connection identity as durable workspace identity
 
 ### 3.2.1 Default format for SPG objects exchanged through MCP
 
-[ADR-017](../docs/adr/017-mcp-agent-object-format.md) records the accepted scoped decision: **JSON is the default representation for SPG objects exchanged with agents through MCP**. Each independently addressable graph object is one JSON value; its nested structures remain inside that value, and references to other graph objects use their SPG IDs.
+[ADR-017](../../docs/adr/017-mcp-agent-object-format.md) records the accepted scoped decision: **JSON is the default representation for SPG objects exchanged with agents through MCP**. Each independently addressable graph object is one JSON value; its nested structures remain inside that value, and references to other graph objects use their SPG IDs.
 
 Other textual formats are permitted when a concrete need justifies them, but their support is not a priority and must not fragment the default agent workflow. This is a decision about MCP-facing object payloads, not MCP's JSON-RPC framing. It does not select the canonical Git repository representation, internal storage format, canonicalization profile, or Content Hash algorithm.
 
@@ -261,7 +261,7 @@ The storage layer persists opaque payloads and typed dependency-index rows suppl
 
 A reader opened before a concurrent writer commits must continue to observe its original view; a new reader observes the committed generation. The backend may implement this with MVCC, a database read transaction, or an equivalent immutable-generation mechanism. The API does not require SQLite or expose backend-specific transaction objects.
 
-The initial SQLite WAL prototype is in [Package Index Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md). It validates the read contract and Provider integration only. It is not yet wired to the Toolchain's semantic object model because the generic Entity prototype has no canonical SPG dependency extractor. The storage remains derived/reconstructible under ADR-014's proposed Git-authoritative direction. Interface mappings are a separate versioned concurrency domain and are not stored as mutable semantic objects; see RT-23.
+The initial SQLite WAL prototype is in [Package Index Prototype 01](../PROTOTYPES/PACKAGE-INDEX-01/README.md). It validates the read contract and Provider integration only. It is not yet wired to the Toolchain's semantic object model because the generic Entity prototype has no canonical SPG dependency extractor. The storage remains derived/reconstructible under ADR-014's proposed Git-authoritative direction. Interface mappings are a separate versioned concurrency domain and are not stored as mutable semantic objects; see RT-23.
 
 ### 6.3 Transaction and recovery requirements
 
@@ -463,7 +463,7 @@ Build a small vertical slice before implementing the complete API.
 
 ## 14. Initial prototype evidence
 
-An initial in-memory lifecycle prototype is available at [Toolchain Server Prototype 01](PROTOTYPES/TOOLCHAIN-SERVER-01/README.md). It implements a generic immutable Entity envelope, content-addressed snapshots, isolated workspaces, typed add/update/remove Change operations, expected-hash and workspace-revision checks, acceptance, and single-file canonical JSON import/export with external-edit detection.
+An initial in-memory lifecycle prototype is available at [Toolchain Server Prototype 01](../PROTOTYPES/TOOLCHAIN-SERVER-01/README.md). It implements a generic immutable Entity envelope, content-addressed snapshots, isolated workspaces, typed add/update/remove Change operations, expected-hash and workspace-revision checks, acceptance, and single-file canonical JSON import/export with external-edit detection.
 
 This prototype deliberately does not define the canonical SPG schema or public wire format. It does not yet implement persistence, crash recovery, multi-file export, Git coordination, MCP, authentication, or a production authorization model. Its tests and CI workflow are intended to validate only the narrow lifecycle model.
 
@@ -531,7 +531,7 @@ Passing these criteria supports a scoped ADR. It does not by itself establish th
 
 ## 19. Related Git and semantic merge documents
 
-Study RT-19 together with [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [ADR-014](../docs/adr/014-git-semantic-merge.md), [RT-20](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-22](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md), and [RT-23](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) whenever changing semantic Change Set/Snapshot lifecycle, import/export, Git commit coordination, or merge behavior. The focused merge document owns merge semantics; RT-20 owns semantic impact/hash/caller correctness; RT-22 owns the external repository/worktree contract; RT-23 owns shared-state runtime and synchronized commit. RT-19 owns the transport-neutral domain API and must not redefine those specialized contracts.
+Study RT-19 together with [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [ADR-014](../../docs/adr/014-git-semantic-merge.md), [RT-20](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-22](../RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md), and [RT-23](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) whenever changing semantic Change Set/Snapshot lifecycle, import/export, Git commit coordination, or merge behavior. The focused merge document owns merge semantics; RT-20 owns semantic impact/hash/caller correctness; RT-22 owns the external repository/worktree contract; RT-23 owns shared-state runtime and synchronized commit. RT-19 owns the transport-neutral domain API and must not redefine those specialized contracts.
 
 
 ## RT-24 relationship
@@ -542,8 +542,8 @@ RT-19 owns the transport-neutral semantic API and Snapshot/Change Set lifecycle.
 
 Candidate semantic API operations should inspect/resolve public interfaces at a pinned catalog, propose new immutable revisions, inspect provider candidates and exact conformance diagnostics, propose binding changes and verify/admit an exact provider under policy. Separate search/read, publish and rebind authorization; all mutations bind baseline, expected catalog and binding revisions, semantic root and required evidence. Return explicit ambiguous/unresolved/unknown/stale states and dependency/assumption details; no implicit latest lookup or LLM assertion of success. Names in this note are conceptual operations, not an adopted MCP schema.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Expose typed premise, evidence, closure and authorization queries separately; enforce exact snapshot binding and authorization on trust mutations, with optimistic concurrency and audit history. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Expose typed premise, evidence, closure and authorization queries separately; enforce exact snapshot binding and authorization on trust mutations, with optimistic concurrency and audit history. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

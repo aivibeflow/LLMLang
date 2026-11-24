@@ -35,7 +35,7 @@ Scenarios 127, 129, 131, and 132 are finite model/source-fixture studies whose t
 
 ## Captured evidence
 
-The [native runner](PROTOTYPES/RT-04-01/run_native_probes.py) and its [command-inventory/version-gate tests](PROTOTYPES/RT-04-01/test_rt04_native_probe_runner.py) are the checked-in entrypoints. The tests verify suite composition and toolchain pins; the workflow run supplies the native observations.
+The [native runner](../PROTOTYPES/RT-04-01/run_native_probes.py) and its [command-inventory/version-gate tests](../PROTOTYPES/RT-04-01/test_rt04_native_probe_runner.py) are the checked-in entrypoints. The tests verify suite composition and toolchain pins; the workflow run supplies the native observations.
 
 
 The runner's command inventory is checked by `test_rt04_native_probe_runner.py`, which is part of the normal RT-04-01 Python test-discovery step. The runner prints the pinned runtime identity and each probe's stdout to the workflow log, and writes `summary.json` plus separate stdout/stderr files for every command. Scenario 130 is run in a child process with the separately built SQLite 3.53.1 shared library selected through `LD_LIBRARY_PATH`; the runner verifies both `sqlite3.sqlite_version` and records `sqlite_source_id()` before invoking the durable-receipt probe. The summary records:

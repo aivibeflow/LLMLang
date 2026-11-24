@@ -4,7 +4,7 @@
 
 **Baseline** · `95f95a7`
 
-**Status** · Bounded native Git experiment for [Plan §4.5](../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
+**Status** · Bounded native Git experiment for [Plan §4.5](../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
 
 ## Question
 
@@ -31,7 +31,7 @@ The result separates exact content identity from a coordinated mutation generati
 
 ## Reproduction
 
-From `research/PROTOTYPES/DEPENDENCY-GRAPH-01`, run on CPython 3.12.14 and Git 2.52.0. Twelve tests passed. [Experiment](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_ref_generation.py)
+From `research/PROTOTYPES/DEPENDENCY-GRAPH-01`, run on CPython 3.12.14 and Git 2.52.0. Twelve tests passed. [Experiment](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_ref_generation.py)
 
 ```sh
 python -B -m unittest -v tests.test_rt23_ref_generation tests.test_rt23_commit_recovery

@@ -45,7 +45,7 @@ This contract is conditional on the route constraints accurately representing th
 
 ## 5. Bounded experiment
 
-The result mapper is implemented in [the feasibility outcome adapter](PROTOTYPES/RT-04-01/rt03_feasibility_outcomes.py), with focused cases in [its test file](PROTOTYPES/RT-04-01/test_rt03_feasibility_outcomes.py). Eight cases exercise replayed SAT, a replayable candidate model on UNKNOWN, incomplete/invalid/non-replaying models, timeout, unsupported/error statuses, stale/contradictory models, untrusted UNSAT, and three explicit UNSAT evidence bases. Only the three explicit bases permit pruning; every inconclusive or invalid case remains in the possible-path set.
+The result mapper is implemented in [the feasibility outcome adapter](../PROTOTYPES/RT-04-01/rt03_feasibility_outcomes.py), with focused cases in [its test file](../PROTOTYPES/RT-04-01/test_rt03_feasibility_outcomes.py). Eight cases exercise replayed SAT, a replayable candidate model on UNKNOWN, incomplete/invalid/non-replaying models, timeout, unsupported/error statuses, stale/contradictory models, untrusted UNSAT, and three explicit UNSAT evidence bases. Only the three explicit bases permit pruning; every inconclusive or invalid case remains in the possible-path set.
 
 The existing SymPy adapter was also compared against Scenario 100's exhaustive analyzer on 300 deterministically seeded, depth-at-most-four Boolean formula trees over six immutable variables. All feasible-route sets agreed, and every returned DPLL model replayed to the selected branch. The reproducible CI fixture uses seed 102 for 128 such formulas in `test_rt03_sympy_predicate_paths.py`. The focused result-policy test run passed seven tests; the 300-case experiment ran on Python 3.12 with SymPy 1.14.0.
 

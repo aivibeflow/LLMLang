@@ -286,7 +286,7 @@ An implementation has its own contract. Verification must establish both that th
 
 A compatible provider replacement may preserve modular caller proofs while invalidating provider-dependent execution evidence. Changes to public semantics create immutable new revisions; compatibility and migration are explicit. This proposal extends the existing operation/implementation and contract refinement research; it does not replace exact hash-based invocation or settle the identity scheme.
 
-See [Public interfaces and contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) for the candidate architecture, diagrams, proof obligations, alternatives and planned benchmarks. No normative language decision is implied.
+See [Public interfaces and contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) for the candidate architecture, diagrams, proof obligations, alternatives and planned benchmarks. No normative language decision is implied.
 
 ---
 
@@ -354,7 +354,7 @@ In source code, developers work with Types and function declarations. Layout and
 
 The ABI of an external function is specified at the function declaration boundary (for example, the illustrative `extern "C"`), not globally on every type. A type may nevertheless carry C-compatible representation, alignment, and packing requirements. The concrete layout and aggregate-passing convention are resolved according to the target ABI profile.
 
-The full model, hash boundaries, C interoperability, and open questions are documented in the [RT-09 proposal on structural type identity, layout, and C ABI](RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md). This proposal is not approved normative semantics.
+The full model, hash boundaries, C interoperability, and open questions are documented in the [RT-09 proposal on structural type identity, layout, and C ABI](../RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md). This proposal is not approved normative semantics.
 
 ---
 
@@ -942,7 +942,7 @@ A proof of a model does not in itself prove the correctness of native code, the 
 
 ### 18A.9. Explicit assumptions and conditional proof management (research proposal)
 
-[RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) investigates first-class typed assumptions and exact foreign-provider bindings, explicit trust authorization, property-specific dependency closure, discharge/revocation and separate proof outcome, closure, freshness and admission. A locally checked proof under a declared foreign contract does not prove that implementation; policy can allow conditional use without granting unconditional proof status. This candidate extension reconciles §18A.6 with RT-32/33 and does not redefine existing statuses before adoption.
+[RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) investigates first-class typed assumptions and exact foreign-provider bindings, explicit trust authorization, property-specific dependency closure, discharge/revocation and separate proof outcome, closure, freshness and admission. A locally checked proof under a declared foreign contract does not prove that implementation; policy can allow conditional use without granting unconditional proof status. This candidate extension reconciles §18A.6 with RT-32/33 and does not redefine existing statuses before adoption.
 
 ## 19. Main Open Questions
 
@@ -1070,4 +1070,4 @@ The project's central hypothesis:
 
 **By making the semantic program model, contracts, dependencies, and verification first-class elements of the language, we can significantly reduce errors when developing programs with LLMs — without relying on the LLM itself to always remember and correctly apply every rule.**
 
-**Research status note (2026-11-18):** The type, refinement, effect, ownership, and capability proposals in this concept remain exploratory. See [RT-04 alternatives research](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) for the comparative option space and unresolved compatibility questions. This report does not make the concept's proposals normative.
+**Research status note (2026-11-18):** The type, refinement, effect, ownership, and capability proposals in this concept remain exploratory. See [RT-04 alternatives research](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) for the comparative option space and unresolved compatibility questions. This report does not make the concept's proposals normative.

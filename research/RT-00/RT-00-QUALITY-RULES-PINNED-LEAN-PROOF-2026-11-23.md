@@ -1,6 +1,6 @@
 # RT-00 — Pinned Lean proof source and checker verification for Stage 0.2
 
-**Research item:** [issue #285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../PLAN.md#02-establish-research-quality-and-decision-rules)  
+**Research item:** [issue #285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../../PLAN.md#02-establish-research-quality-and-decision-rules)  
 **Date:** 2026-11-23  
 **Status:** Fresh source-pinned Lean 4.36.0 proof check completed successfully, with the actual theorem axioms archived  
 **Provenance baseline:** `ff1295c1769bfe8546c4b63590c9f607349215ee`  
@@ -12,7 +12,7 @@
 
 ## Research question and alternatives
 
-[RT-07](RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md) and the [DEP-007 evidence recheck](RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md) report a Lean-checked theorem that selected expression rewrites preserve the model's outcome and ordered event trace. The [Stage 0.2 claim register](quality-audit/2026-11-23-claim-cohort2.json) identifies the assertion as a **Proof** *within the declared grammar*, not as an end-to-end LLMLang optimizer proof.
+[RT-07](../RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md) and the [DEP-007 evidence recheck](RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md) report a Lean-checked theorem that selected expression rewrites preserve the model's outcome and ordered event trace. The [Stage 0.2 claim register](../quality-audit/2026-11-23-claim-cohort2.json) identifies the assertion as a **Proof** *within the declared grammar*, not as an end-to-end LLMLang optimizer proof.
 
 Can a fresh runner **independently execute** Lean 4.36.0 on that **exact archived file**, verify that it typechecks with warnings-as-errors, and preserve the kernel's printed axioms, without silently switching to today's source or claiming to verify the missing source/IR/backend bridge?
 
@@ -20,11 +20,11 @@ Can a fresh runner **independently execute** Lean 4.36.0 on that **exact archive
 - **H2 (unsupported by this check):** the theorem automatically proves preservation for all LLMLang source expressions, lowering and native target behavior. No source-to-typed-grammar correspondence or target compiler simulation relation is supplied.
 - **Alternative rejected:** rely only on a prior report's `lean` success or recent Required CI running the current repository revision. Those are useful prior evidence, but cannot by themselves identify a fresh run of the exact audited file at the exact historical source baseline.
 
-**Prior art:** [RT-07](RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md), [DEP-007 proof identity review](RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md), [source and query semantics boundary](RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md), [observable rewrite source](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ObservableRewrite.lean), and [the Required CI Lean job](../.github/workflows/logos-binding.yml).
+**Prior art:** [RT-07](../RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md), [DEP-007 proof identity review](RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md), [source and query semantics boundary](../RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md), [observable rewrite source](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ObservableRewrite.lean), and [the Required CI Lean job](../../.github/workflows/logos-binding.yml).
 
 ## Reproduction method, fixtures, and expected output
 
-The new [archival proof workflow](../.github/workflows/research-quality-pinned-lean-proof.yml) checks out exact commit `ff1295c`, verifies source/tree blob and SHA-256, asserts the `lean-toolchain` config, installs Lean `4.36.0` and runs:
+The new [archival proof workflow](../../.github/workflows/research-quality-pinned-lean-proof.yml) checks out exact commit `ff1295c`, verifies source/tree blob and SHA-256, asserts the `lean-toolchain` config, installs Lean `4.36.0` and runs:
 
 ```sh
 cd research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding
@@ -46,13 +46,13 @@ The Lean checker printed these **actual trusted axioms**, not "no axioms":
 | `ObservableRewrite.swapping_addends_changes_trace` | `propext`, `Classical.choice`, `Quot.sound` |
 | `ObservableRewrite.discarding_equal_branch_guard_hides_failure` | `propext`, `Classical.choice`, `Quot.sound` |
 
-**Evidence retained:** [complete raw proof/axioms log and environment](https://github.com/aivibeflow/LLMLang/actions/runs/45264153180/artifacts/14862606439) and a [versioned machine-readable proof record](quality-audit/2026-11-23-pinned-lean-proof-observations.json). The checked file contains six named theorem declarations, and this new result corroborates their type-checking in the bounded model. It is not an independent human proof audit, original workstation attestation or a source-to-LLMLang compiler correctness proof.
+**Evidence retained:** [complete raw proof/axioms log and environment](https://github.com/aivibeflow/LLMLang/actions/runs/45264153180/artifacts/14862606439) and a [versioned machine-readable proof record](../quality-audit/2026-11-23-pinned-lean-proof-observations.json). The checked file contains six named theorem declarations, and this new result corroborates their type-checking in the bounded model. It is not an independent human proof audit, original workstation attestation or a source-to-LLMLang compiler correctness proof.
 
 ## Scope, falsifiers and evidence interpretation
 
 - The mathematical integer semantics has **no machine integer overflow**; event lists omit state, aliasing, cleanup, foreign calls, concurrency and resource consumption. Failure is modeled as an `Except Nat` and the selected expression grammar is not the complete source/SPG language.
 - A checked `rewrite_preserves` theorem would validate the rewrite *inside the Lean model*, not the interpretation of real source into that model or its preservation through a compiler backend.
-- The earlier [RT-07](RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md) already states that `Classical.choice`, `propext` and `Quot.sound` are standard Lean assumptions. This recheck must quote the **actual printed axioms**; do not infer `no axioms` from absence of `sorry`.
+- The earlier [RT-07](../RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md) already states that `Classical.choice`, `propext` and `Quot.sound` are standard Lean assumptions. This recheck must quote the **actual printed axioms**; do not infer `no axioms` from absence of `sorry`.
 - The associated source correspondence and parser/CFG/optimizer integration obligations remain open. This check will not settle ADRs, approve a `draft/` optimization rule or justify closing issue #285.
 
 **Review recommendation only:** require a separate source/semantic observation mapping and checker-authority review for any downstream optimizer acceptance; treat the archival Lean result as bounded proof evidence. The original eight experiment worktree/host attestations, independent human scientific review, corpus-level claim validation and Stage 0.2 maintainer adoption are unrelated outstanding gates.

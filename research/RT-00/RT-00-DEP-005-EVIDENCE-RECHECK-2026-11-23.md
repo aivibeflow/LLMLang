@@ -20,7 +20,7 @@ This evidence rules out the set-based rule for the tested observable operations.
 
 ## Current-main recheck
 
-The existing experiment source is [`RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md`](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md), especially SPG-02, and the focused tests are `tests.test_spg_ordered_lowering` and `tests.test_spg_representation` in the Dependency Graph prototype.
+The existing experiment source is [`RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md`](../RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md), especially SPG-02, and the focused tests are `tests.test_spg_ordered_lowering` and `tests.test_spg_representation` in the Dependency Graph prototype.
 
 Command, run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01`:
 

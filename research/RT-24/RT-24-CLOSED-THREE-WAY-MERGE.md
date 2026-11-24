@@ -2,7 +2,7 @@
 
 **Date** · 2026-11-21  
 **Baseline** · `017e64b87c87371309197a392165258b8b088dd1`  
-**Status** · Structural experiment for [Plan §4.5](../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
+**Status** · Structural experiment for [Plan §4.5](../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
 
 ## Question and alternatives
 
@@ -36,7 +36,7 @@ Rebuild the selected rows in a fresh store and run the existing whole-graph audi
 
 The first two cross-slot cases distinguish three concepts that the coordinator needs to report independently: textual merge, local semantic composition, and graph reconstruction. The successful exact-pin case is a structural witness for RT-20's preserve action. It carries no compatibility or review judgment. Automatic merging of unchanged-base updates in the scoped slot model still relies on the slot correspondence assumption. In production, RT-24 must validate that correspondence against the selected identity policy.
 
-The evidence supports a pure composition stage followed by fresh reconstruction. Wider acceptance requires the RT-20 call-site impact plan, independent reverse-reference evidence for the applicable scope, separate mapping reconciliation, and RT-23 publication of the exact validated tree. The study deliberately emits `structural-candidate`, a result before those gates. [RT-20 candidate gate](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md#candidate-snapshot-materialization-gate-prototype) · [RT-23 commit boundary](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md#91-commit-is-a-synchronized-semantic-and-filesystem-operation)
+The evidence supports a pure composition stage followed by fresh reconstruction. Wider acceptance requires the RT-20 call-site impact plan, independent reverse-reference evidence for the applicable scope, separate mapping reconciliation, and RT-23 publication of the exact validated tree. The study deliberately emits `structural-candidate`, a result before those gates. [RT-20 candidate gate](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md#candidate-snapshot-materialization-gate-prototype) · [RT-23 commit boundary](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md#91-commit-is-a-synchronized-semantic-and-filesystem-operation)
 
 ## Reproduction
 
@@ -46,4 +46,4 @@ From `research/PROTOTYPES/DEPENDENCY-GRAPH-01`, run the following. The recorded 
 python -B -m unittest -v tests.test_rt24_semantic_merge_core tests.test_rt24_merge_tree_gate
 ```
 
-[Experiment and fixtures](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_semantic_merge_core.py) · [Dependency map](RESEARCH-DEPENDENCY-MAP.md)
+[Experiment and fixtures](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_semantic_merge_core.py) · [Dependency map](../RESEARCH-DEPENDENCY-MAP.md)

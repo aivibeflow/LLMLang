@@ -32,7 +32,7 @@ The next comparison can use the same API to test static prevention of close with
 
 ## Reproduction and scope
 
-Run the probe with Python and a system SQLite shared library. It opens only in-memory databases. The observed run used Python 3.12.14 and SQLite 3.46.1, source ID `2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1`, at base `3f44045` with this probe. The probe checks return codes and callback counts. The experiment covers prepared statements in one thread. Backup objects, BLOB handles, transaction rollback, competing users, and allocator behavior remain outside this evidence. [Probe](PROTOTYPES/RT-04-01/sqlite_cleanup_probe.py)
+Run the probe with Python and a system SQLite shared library. It opens only in-memory databases. The observed run used Python 3.12.14 and SQLite 3.46.1, source ID `2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1`, at base `3f44045` with this probe. The probe checks return codes and callback counts. The experiment covers prepared statements in one thread. Backup objects, BLOB handles, transaction rollback, competing users, and allocator behavior remain outside this evidence. [Probe](../PROTOTYPES/RT-04-01/sqlite_cleanup_probe.py)
 
 ```sh
 python -B research/PROTOTYPES/RT-04-01/sqlite_cleanup_probe.py

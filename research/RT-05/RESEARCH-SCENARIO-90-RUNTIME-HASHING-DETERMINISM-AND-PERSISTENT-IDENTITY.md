@@ -8,7 +8,7 @@
 
 Which guarantees belong to a hash function used inside a runtime collection, which belong to iteration order, and which belong to a stable digest persisted in a cache or semantic repository?
 
-[Scenario 63](RESEARCH-SCENARIO-63-EQUALITY-IDENTITY-AND-HASHING.md) compares equality, identity, and hash-key laws, and explicitly leaves persistence across runs open. This scenario isolates stability, randomization, iteration, and persistent identity. A map's hash function is not automatically an artifact-address algorithm, and a stable digest does not specify collection iteration order.
+[Scenario 63](../RT-03/RESEARCH-SCENARIO-63-EQUALITY-IDENTITY-AND-HASHING.md) compares equality, identity, and hash-key laws, and explicitly leaves persistence across runs open. This scenario isolates stability, randomization, iteration, and persistent identity. A map's hash function is not automatically an artifact-address algorithm, and a stable digest does not specify collection iteration order.
 
 ## 2. Prior-art comparison
 

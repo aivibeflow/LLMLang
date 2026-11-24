@@ -247,4 +247,4 @@ This is a research conclusion, not an accepted change to LLMLang's concept or RF
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Reuse a checked abstract caller theorem only under identical/compatible premise context; rebind exact provider evidence and recompute closure and admission after relevant assumption or authorization changes. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Reuse a checked abstract caller theorem only under identical/compatible premise context; rebind exact provider evidence and recompute closure and admission after relevant assumption or authorization changes. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

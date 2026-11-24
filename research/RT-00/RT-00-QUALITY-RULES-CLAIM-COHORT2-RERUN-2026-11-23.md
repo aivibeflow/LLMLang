@@ -2,8 +2,8 @@
 
 **Date:** 2026-11-23  
 **Status:** Three independently executed archived-source CI cases passed; full CI run, exact source identities, host and output artifacts recorded below  
-**Issue:** [#285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../PLAN.md#02-establish-research-quality-and-decision-rules)  
-**Related claim audit:** [12 reports and 24 material claims](RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md), [frozen claim manifest](quality-audit/2026-11-23-claim-cohort2.json)  
+**Issue:** [#285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../../PLAN.md#02-establish-research-quality-and-decision-rules)  
+**Related claim audit:** [12 reports and 24 material claims](RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md), [frozen claim manifest](../quality-audit/2026-11-23-claim-cohort2.json)  
 **Pinned source baseline:** `ff1295c1769bfe8546c4b63590c9f607349215ee`  
 **Evidence type:** New bounded executable reruns against archived source, not original-run attestation or a formal correctness proof  
 **Draft impact:** **None**; no accepted syntax/semantics/memory or merge policy is changed.
@@ -18,11 +18,11 @@ A 24-claim review establishes that material assertions can be located in immutab
 
 Alternatives: use today's moving main (does not preserve the audited claim source); use the original historical author workstation (unavailable, no original state attested); or run the fixed archived commit, verify the exact tests' Git hashes, record the new toolchain/host and retain explicit scope boundaries. The workflow uses the third option.
 
-Prior research: [Scenario 110](RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md), [Scenario 112](RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md) and [RT-24 source completeness](RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md). The [quality protocol](QUALITY-REVIEW-PROTOCOL.md) still requires a human scientific reviewer before treating tests as accepted design evidence.
+Prior research: [Scenario 110](../RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md), [Scenario 112](../RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md) and [RT-24 source completeness](../RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md). The [quality protocol](../QUALITY-REVIEW-PROTOCOL.md) still requires a human scientific reviewer before treating tests as accepted design evidence.
 
 ## 2. Executable method and reproducibility
 
-The new [dedicated workflow](../.github/workflows/research-claim-cohort2-reruns.yml) independently checks out exactly `ff1295c17…`, asserts the test-file blob below, pins CPython 3.12.14 on Ubuntu 24.04, saves Git version/host/commit, runs the suite and preserves its full output as a separate artifact.
+The new [dedicated workflow](../../.github/workflows/research-claim-cohort2-reruns.yml) independently checks out exactly `ff1295c17…`, asserts the test-file blob below, pins CPython 3.12.14 on Ubuntu 24.04, saves Git version/host/commit, runs the suite and preserves its full output as a separate artifact.
 
 | Case | Git test blob | Exact test entry | Expected test count |
 | --- | --- | --- | ---: |
@@ -42,7 +42,7 @@ The workflow stores original stdout/stderr as `result.log` and exact checkout in
 
 ## 3. Observed result and scope limitations
 
-**Observed 2026-11-23 results:** [GitHub Actions run #45259153864](https://github.com/aivibeflow/LLMLang/actions/runs/45259153864) reports **all 3 / 3 jobs successful** with expected Git test blobs and CPython **3.12.14**, Git **2.56.1** on Ubuntu 24.04. Exact job IDs, source blobs, outcomes, per-job logs and artifact links are frozen in the [machine-readable outcome register](quality-audit/2026-11-23-claim-cohort2-rerun-results.json).
+**Observed 2026-11-23 results:** [GitHub Actions run #45259153864](https://github.com/aivibeflow/LLMLang/actions/runs/45259153864) reports **all 3 / 3 jobs successful** with expected Git test blobs and CPython **3.12.14**, Git **2.56.1** on Ubuntu 24.04. Exact job IDs, source blobs, outcomes, per-job logs and artifact links are frozen in the [machine-readable outcome register](../quality-audit/2026-11-23-claim-cohort2-rerun-results.json).
 
 | Study | Observed new result | Job / result artifact |
 | --- | --- | --- |

@@ -287,7 +287,7 @@ operation transfer:
 
 Совместимая замена поставщика может сохранить модульные доказательства потребителей, но требует повторной проверки зависимых от реализации свидетельств. Изменение публичной семантики создаёт новую неизменяемую ревизию. Совместимость и миграция явные; точная адресация вызовов по хешам сохраняется.
 
-См. [исследование публичных интерфейсов](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). Это предложение, а не утверждённая семантика языка.
+См. [исследование публичных интерфейсов](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). Это предложение, а не утверждённая семантика языка.
 
 ---
 
@@ -355,7 +355,7 @@ Account<Closed>
 
 ABI внешней функции указывается на границе объявления функции (например, иллюстративное `extern "C"`), а не глобально на каждом типе. Тип при этом может нести требования к C-совместимому представлению, alignment и packing. Конкретная раскладка и способ передачи агрегата разрешаются с учётом target ABI profile.
 
-Полная модель, границы хешей, C interoperability и открытые вопросы описаны в [предложении RT-09 о структурной идентичности типов, Layout и C ABI](RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md). Это предложение не является утверждённой нормативной семантикой.
+Полная модель, границы хешей, C interoperability и открытые вопросы описаны в [предложении RT-09 о структурной идентичности типов, Layout и C ABI](../RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md). Это предложение не является утверждённой нормативной семантикой.
 
 ---
 
@@ -1068,4 +1068,4 @@ LLMLang предполагается как язык, в котором:
 
 **Если сделать семантическую модель программы, контракты, зависимости и проверку первоклассными элементами языка, то можно существенно снизить вероятность ошибок при разработке программ с помощью LLM — не полагаясь на то, что сама LLM всегда помнит и правильно применяет все правила.**
 
-**Research status note (2026-11-18):** The type, refinement, effect, ownership, and capability proposals in this concept remain exploratory. See [RT-04 alternatives research](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) for the comparative option space and unresolved compatibility questions. This report does not make the concept's proposals normative.
+**Research status note (2026-11-18):** The type, refinement, effect, ownership, and capability proposals in this concept remain exploratory. See [RT-04 alternatives research](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) for the comparative option space and unresolved compatibility questions. This report does not make the concept's proposals normative.

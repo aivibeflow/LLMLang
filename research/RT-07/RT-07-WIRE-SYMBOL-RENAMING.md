@@ -33,4 +33,4 @@ lake build --fail-fast LLMLangLogosBinding
 lake env lean -DwarningAsError=true --run SourceQueryEnvelopeTests.lean
 ```
 
-[Typed renaming and proof](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/QuerySymbolRenaming.lean) · [Envelope integration](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean)
+[Typed renaming and proof](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/QuerySymbolRenaming.lean) · [Envelope integration](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean)

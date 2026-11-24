@@ -44,7 +44,7 @@ x.store(1, order);              y.store(1, order);
 r1 = y.load(order);             r2 = x.load(order);
 ```
 
-The outcome `(r2, r1) = (0, 0)` is impossible under sequential consistency: a single global order would have to place each task's write before its own read, while both reads observe the initial values, creating a cycle. A deliberately weaker abstract profile that orders each location independently admits all four pairs, including `(0, 0)`. The executable enumerator is at [rt04_store_buffering.py](PROTOTYPES/RT-04-01/rt04_store_buffering.py); two assertions pin these outcome sets.
+The outcome `(r2, r1) = (0, 0)` is impossible under sequential consistency: a single global order would have to place each task's write before its own read, while both reads observe the initial values, creating a cycle. A deliberately weaker abstract profile that orders each location independently admits all four pairs, including `(0, 0)`. The executable enumerator is at [rt04_store_buffering.py](../PROTOTYPES/RT-04-01/rt04_store_buffering.py); two assertions pin these outcome sets.
 
 | Profile | Possible `(r2, r1)` outcomes | Both reads see initial values? |
 |---|---|---|

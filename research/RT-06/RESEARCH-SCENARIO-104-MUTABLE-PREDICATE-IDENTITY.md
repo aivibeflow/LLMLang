@@ -18,7 +18,7 @@ x := not x
 if x then record T else record F
 ```
 
-The exact finite input domain has two initial states. The executable comparison is in [`rt03_mutable_predicate_identity.py`](PROTOTYPES/RT-04-01/rt03_mutable_predicate_identity.py), with exhaustive checks in [`test_rt03_mutable_predicate_identity.py`](PROTOTYPES/RT-04-01/test_rt03_mutable_predicate_identity.py).
+The exact finite input domain has two initial states. The executable comparison is in [`rt03_mutable_predicate_identity.py`](../PROTOTYPES/RT-04-01/rt03_mutable_predicate_identity.py), with exhaustive checks in [`test_rt03_mutable_predicate_identity.py`](../PROTOTYPES/RT-04-01/test_rt03_mutable_predicate_identity.py).
 
 | Model | Symbolic treatment | Route set | Result |
 |---|---|---|---|

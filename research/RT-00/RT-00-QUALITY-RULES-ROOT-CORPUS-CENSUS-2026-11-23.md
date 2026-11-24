@@ -5,7 +5,7 @@
 **Status:** Source-pinned root-document structural census executed successfully; complete report artifact, permanent summary and unreviewed queue recorded  
 **Baseline:** `627c70878863b519a358815f8a96ddbae1303136` (post-orthogonal source-oracle PR #384)  
 **Evidence class:** Repository/Git object inventory and warning-only heading/metadata heuristic, **not a technical result or corpus-wide claim validation**  
-**Relevant earlier work:** [Ten-document warning pilot](RT-00-QUALITY-RULES-REAL-REPORT-PILOT-2026-11-23.md), [12-report/24-claim second-cohort study](RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md), [orthogonal oracle observations](quality-audit/2026-11-23-orthogonal-oracle-results.json)  
+**Relevant earlier work:** [Ten-document warning pilot](RT-00-QUALITY-RULES-REAL-REPORT-PILOT-2026-11-23.md), [12-report/24-claim second-cohort study](RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md), [orthogonal oracle observations](../quality-audit/2026-11-23-orthogonal-oracle-results.json)  
 **Draft impact:** None; no new accepted rule, implementation or model is implied.
 
 ## Question, assumptions and alternatives
@@ -22,7 +22,7 @@ Until now the Stage 0.2 quality pilot closely examined two purposive cohorts (10
 
 An independent read of the pinned Git tree before this PR showed **309** root `research/` Markdown/MDX documents: **136** named `RESEARCH-SCENARIO-...`, **127** named `RT-...`, and **46** other root research documents. A further **42** nested Markdown/MDX files are **out of this deliberately bounded scope**. The census workflow will verify those totals from exact source objects before this report calls them an independently reproduced output. No inference is made about prototype source files, external URLs, or the correctness of the report contents.
 
-The [census script](../.github/scripts/research_quality_corpus_census.py) reads each selected `commit:path` through Git (rather than trusting a possibly modified working tree), computes a Git blob hash, calls the existing `inspect()` scanner, and records warning strings and two clearly named *textual indicators*: an explicit `Evidence type` field and a status-line executable hint. Neither indicator checks the executed experiment or its tool versions.
+The [census script](../../.github/scripts/research_quality_corpus_census.py) reads each selected `commit:path` through Git (rather than trusting a possibly modified working tree), computes a Git blob hash, calls the existing `inspect()` scanner, and records warning strings and two clearly named *textual indicators*: an explicit `Evidence type` field and a status-line executable hint. Neither indicator checks the executed experiment or its tool versions.
 
 The reproducible review queue selects **8 Scenario + 8 RT + 8 other root documents** using SHA-256 of `stage-0.2-reviewed-after:<baseline>:<path>`, ascending within each filename stratum. This is *warning-independent within the three strata* but **not an unbiased, statistically representative sample of the entire corpus**: the strata are filename categories, the counts are equal despite different populations, and non-root evidence remains excluded. All 24 human-review statuses start as `NOT REVIEWED`. No individual is credited with reviewing them.
 
@@ -40,9 +40,9 @@ python3 -B .github/scripts/research_quality_corpus_census.py \
   --json-out /tmp/llmlang-root-research-census.json
 ```
 
-The example assumes `./archival` is a clean checkout of the specified baseline (the [dedicated workflow](../.github/workflows/research-quality-root-census.yml) prepares it automatically). The census returns `CORPUS_CENSUS_SUMMARY` and `CORPUS_CENSUS_SAMPLE` log lines and a full machine-readable `reports` array with 309 exact source blobs and their heuristic warnings.
+The example assumes `./archival` is a clean checkout of the specified baseline (the [dedicated workflow](../../.github/workflows/research-quality-root-census.yml) prepares it automatically). The census returns `CORPUS_CENSUS_SUMMARY` and `CORPUS_CENSUS_SAMPLE` log lines and a full machine-readable `reports` array with 309 exact source blobs and their heuristic warnings.
 
-**Observed fixed-baseline results:** [GitHub Actions run #45263179285](https://github.com/aivibeflow/LLMLang/actions/runs/45263179285) completed successfully: **five** census/sampling unit tests passed, all **309** exact root report blobs were inspected, and **24** queue items retained the `NOT REVIEWED` status. Environment was CPython **3.12.14**, Git **2.56.1**, Linux `7.0.0-1017-azure x86_64` (Ubuntu 24.04). The full per-file [warning corpus artifact](https://github.com/aivibeflow/LLMLang/actions/runs/45263179285/artifacts/14862435235) is retained by GitHub Actions; the [permanent machine-readable summary and 24 source-pinned reviewer candidates](quality-audit/2026-11-23-root-census-observations.json) are tracked in this repository.
+**Observed fixed-baseline results:** [GitHub Actions run #45263179285](https://github.com/aivibeflow/LLMLang/actions/runs/45263179285) completed successfully: **five** census/sampling unit tests passed, all **309** exact root report blobs were inspected, and **24** queue items retained the `NOT REVIEWED` status. Environment was CPython **3.12.14**, Git **2.56.1**, Linux `7.0.0-1017-azure x86_64` (Ubuntu 24.04). The full per-file [warning corpus artifact](https://github.com/aivibeflow/LLMLang/actions/runs/45263179285/artifacts/14862435235) is retained by GitHub Actions; the [permanent machine-readable summary and 24 source-pinned reviewer candidates](../quality-audit/2026-11-23-root-census-observations.json) are tracked in this repository.
 
 | Observed baseline metric | Count | Meaning |
 | --- | ---: | --- |

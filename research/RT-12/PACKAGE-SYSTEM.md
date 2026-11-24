@@ -295,7 +295,7 @@ The protocol must distinguish metadata-only resolution from object transfer. Thi
 
 ### 7.1 Git repository discovery by `ImplHash`
 
-A publisher could generate `llmlang-exports.jsonl` from the public exports and implementation bindings of released packages. Each line maps a full `ImplHash` to a specific package release. The hash scheme identifies the canonicalization and digest algorithm. The file is derived discovery metadata outside the Package Content Root Hash. [Draft `ImplHash` definition](../draft/GLOSSARY.md#implementation-hash-implhash)
+A publisher could generate `llmlang-exports.jsonl` from the public exports and implementation bindings of released packages. Each line maps a full `ImplHash` to a specific package release. The hash scheme identifies the canonicalization and digest algorithm. The file is derived discovery metadata outside the Package Content Root Hash. [Draft `ImplHash` definition](../../draft/GLOSSARY.md#implementation-hash-implhash)
 
 An illustrative JSONL row follows.
 
@@ -464,7 +464,7 @@ The manifest must not duplicate the full index. It should identify the index for
 
 The parsed manifest should map to a typed logical manifest model. The logical package content root must be computed from a specified canonical projection/encoding of that model and the included semantic object identities—not from raw TOML bytes, whitespace, key order, comments, or line endings. This prevents harmless formatting changes from changing logical package identity.
 
-A first reviewable candidate for the TOML schema, canonical projection, hash boundaries, and validation invariants is recorded in [Package Manifest and Content Identity](PACKAGE-MANIFEST-AND-IDENTITY.md), with an illustrative [manifest.toml fixture](examples/package/manifest.toml). Those proposals remain non-normative: the exact canonical encoding, digest algorithm, table schemas, and schema-evolution policy require review and executable validation. Delivery-only fields (for example, provider timestamps, source snapshot identifiers, transport locations, signatures, and archive compression choices) remain outside the logical content root.
+A first reviewable candidate for the TOML schema, canonical projection, hash boundaries, and validation invariants is recorded in [Package Manifest and Content Identity](PACKAGE-MANIFEST-AND-IDENTITY.md), with an illustrative [manifest.toml fixture](../examples/package/manifest.toml). Those proposals remain non-normative: the exact canonical encoding, digest algorithm, table schemas, and schema-evolution policy require review and executable validation. Delivery-only fields (for example, provider timestamps, source snapshot identifiers, transport locations, signatures, and archive compression choices) remain outside the logical content root.
 
 A parser must reject unsupported required schema versions and malformed or ambiguous values. Unknown optional metadata may be preserved or ignored only under an explicit forward-compatibility rule; it must not silently alter the logical content projection.
 
@@ -481,7 +481,7 @@ This is a format-boundary recommendation, not a final wire-format decision. TOML
 
 ## 12. Logical index schema and merge prototype
 
-A first executable logical-table proposal now exists in [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md), with tests in [Package Index Logical Model Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
+A first executable logical-table proposal now exists in [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md), with tests in [Package Index Logical Model Prototype 01](../PROTOTYPES/PACKAGE-INDEX-01/README.md).
 
 The current candidate tables and primary keys are:
 
@@ -503,7 +503,7 @@ This is a proposed logical schema, not a frozen format. Dependency taxonomy, Sta
 
 ## 13. Streaming index merge prototype
 
-The logical index prototype now provides a lazy k-way merge for one already-sorted table at a time. It keeps one current record per input stream, deduplicates identical records across streams, and rejects conflicting or out-of-order records. The merge itself uses O(k) state for k input streams. Bounded-memory cross-table reference validation is implemented as a separate external-memory pass. A ZIP-based streaming archive writer/verifier is also available as an exploratory prototype; neither binary index encoding nor a normative archive format has been selected. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Package Index Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
+The logical index prototype now provides a lazy k-way merge for one already-sorted table at a time. It keeps one current record per input stream, deduplicates identical records across streams, and rejects conflicting or out-of-order records. The merge itself uses O(k) state for k input streams. Bounded-memory cross-table reference validation is implemented as a separate external-memory pass. A ZIP-based streaming archive writer/verifier is also available as an exploratory prototype; neither binary index encoding nor a normative archive format has been selected. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Package Index Prototype 01](../PROTOTYPES/PACKAGE-INDEX-01/README.md).
 
 
 ## 14. External-memory cross-table validation prototype
@@ -512,7 +512,7 @@ The Package Index Prototype 01 now provides `validate_streamed_index`. It valida
 
 The validator checks that dependency sources are included objects; included dependency targets, module members, and export objects exist; and export module IDs exist. External dependency targets (`included=false`) are intentionally not required to be package members. It rejects unsorted or duplicate table keys. In-memory sorting is bounded by `max_records_in_memory`; temporary disk use is proportional to the input index and generated sort runs.
 
-This is an exploratory local-filesystem implementation, not a finalized binary index or provider protocol. It assumes sorted input streams and uses JSONL temporary files. Disk-space policy, interruption recovery, and portable temporary-storage abstraction remain open. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
+This is an exploratory local-filesystem implementation, not a finalized binary index or provider protocol. It assumes sorted input streams and uses JSONL temporary files. Disk-space policy, interruption recovery, and portable temporary-storage abstraction remain open. See [Package Index Logical Schema](PACKAGE-INDEX-LOGICAL-SCHEMA.md) and [Prototype 01](../PROTOTYPES/PACKAGE-INDEX-01/README.md).
 
 
 ## 15. Dependency policy and exact closure prototype
@@ -529,7 +529,7 @@ Prototype 01 now includes `package_archive.py`, a streaming writer and verifier 
 
 ZIP entry timestamps and permissions are fixed, compression is disabled, and entry ordering is deterministic. Tests verify byte-for-byte repeatability, object and size mismatch rejection, missing/out-of-order payload rejection, archive corruption detection, and failure atomicity. The verifier rechecks manifest syntax and schema version, index-table presence and logical hash, root membership, Package Content Root Hash, cross-table references, object membership, hashes, sizes, and unexpected/duplicate entries.
 
-ZIP, JSONL, entry naming, and manifest placement are strictly prototype decisions, not a normative LLMLang archive or binary index format. Python's ZIP implementation retains central-directory metadata in memory, so the prototype streams object bytes but does not promise constant total memory for arbitrarily many archive entries. The manifest index path is interpreted as a directory prefix in this prototype, while the illustrative future manifest still uses `index.bin`; this is an explicit prototype-layout mismatch, not a normative format decision. The prototype does not yet validate cache-index payloads, provenance/signatures, or provider dependency closure. See [Package Index Prototype 01](PROTOTYPES/PACKAGE-INDEX-01/README.md).
+ZIP, JSONL, entry naming, and manifest placement are strictly prototype decisions, not a normative LLMLang archive or binary index format. Python's ZIP implementation retains central-directory metadata in memory, so the prototype streams object bytes but does not promise constant total memory for arbitrarily many archive entries. The manifest index path is interpreted as a directory prefix in this prototype, while the illustrative future manifest still uses `index.bin`; this is an explicit prototype-layout mismatch, not a normative format decision. The prototype does not yet validate cache-index payloads, provenance/signatures, or provider dependency closure. See [Package Index Prototype 01](../PROTOTYPES/PACKAGE-INDEX-01/README.md).
 
 
 ## 17. Provider resource measurements and snapshot-adapter boundary
@@ -585,8 +585,8 @@ The database is derived/reconstructible and does not become authoritative progra
 
 Package publication should distinguish public name/catalog entries pointing to exact operation/interface-group revisions from provider bindings pointing to exact ImplHash. Interface-only packages may be considered for conditional design; executable resolution must close provider and evidence dependencies. Dynamic package delivery is not permission to resolve a mutable latest contract at runtime. Compare manifest pinning, authorized provider selection, reproducible multi-provider composition, and target-specific ABI mappings. Public export visibility does not confer execution authority.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Bind trust claims to exact provider artifacts and dependency snapshots; package signatures and content identity are distinct from conformance. Preserve open assumptions and conditional admission in evidence metadata without changing package identity semantics. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Bind trust claims to exact provider artifacts and dependency snapshots; package signatures and content identity are distinct from conformance. Preserve open assumptions and conditional admission in evidence metadata without changing package identity semantics. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

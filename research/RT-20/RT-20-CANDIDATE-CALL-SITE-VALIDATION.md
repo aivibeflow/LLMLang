@@ -53,4 +53,4 @@ This prototype is not a canonical SPG schema, production Toolchain implementatio
 
 A future public-operation mode must resolve an exact operation and provider binding, preserve the existing direct-call mode, check the single callee-owned provided Contract and validate exact body/refinement evidence plus target/profile constraints. Add negative cases for missing, stale or wrong-kind catalog/provider/evidence references, signature-only matching and an invalid stronger precondition. The current structural validator does not implement these obligations.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

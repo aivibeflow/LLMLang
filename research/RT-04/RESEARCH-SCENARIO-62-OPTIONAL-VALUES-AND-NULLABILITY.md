@@ -4,7 +4,7 @@
 **Research area:** RT-03 value/error semantics, RT-04 algebraic types and references, RT-13 FFI  
 **Updated:** 2026-11-19
 
-**Follow-up:** [Scenario 109](RESEARCH-SCENARIO-109-OPTIONAL-PRESENCE-ROUND-TRIP.md) adds a bounded JSON round-trip fixture showing the information loss/preservation choices for omitted, null, and present fields. It does not change this comparison's open status or select an LLMLang policy.
+**Follow-up:** [Scenario 109](../RT-18/RESEARCH-SCENARIO-109-OPTIONAL-PRESENCE-ROUND-TRIP.md) adds a bounded JSON round-trip fixture showing the information loss/preservation choices for omitted, null, and present fields. It does not change this comparison's open status or select an LLMLang policy.
 
 ## 1. Question and scope
 

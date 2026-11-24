@@ -2,11 +2,11 @@
 
 **Date** · 2026-11-21  
 **Baseline** · `b52ba2fb32e2c315997c74d8924c2c9aaeb177dc`  
-**Status** · Bounded executable experiment for [Plan §6.1](../PLAN.md#61-translation-architecture)
+**Status** · Bounded executable experiment for [Plan §6.1](../../PLAN.md#61-translation-architecture)
 
 ## Question and alternatives
 
-What must survive an intermediate lowering stage between a semantic graph and its execution target? This study uses the existing typed SPG fixture's Int/Bool operations, ordered events, lazy conditionals, and exact or operation-bound calls. The comparison evaluates the same compiled graph directly and through a normalized instruction representation. [Typed SPG](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) · [Translation architecture](TRANSLATION-AND-TARGET-BACKENDS.md#4-intermediate-representation-and-backend-architecture)
+What must survive an intermediate lowering stage between a semantic graph and its execution target? This study uses the existing typed SPG fixture's Int/Bool operations, ordered events, lazy conditionals, and exact or operation-bound calls. The comparison evaluates the same compiled graph directly and through a normalized instruction representation. [Typed SPG](../RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) · [Translation architecture](../RT-13/TRANSLATION-AND-TARGET-BACKENDS.md#4-intermediate-representation-and-backend-architecture)
 
 | Approach | Trade-off |
 |---|---|
@@ -29,11 +29,11 @@ Lowering starts with one selected implementation and follows its reachable calls
 
 The key decision boundary is where operation binding becomes fixed. Early binding makes the required inputs visible in an artifact generated for one context. Runtime dispatch can preserve broader reuse if all executable contexts bind an explicit provider set and arrange appropriate validation. A global snapshot digest is conservative but can invalidate a byte-identical reachable artifact on an unrelated edit.
 
-This experiment executes two Python realizations. It supplies evidence for an IR boundary and reachability-sensitive identity. It leaves external target code generation, IR admission for independently produced instructions, recursive group encoding, heterogeneous effects, machine arithmetic and general preservation open. RT-03 supplies the observations, RT-05 and RT-06 constrain graph identity and closure, and RT-13 must compare actual target artifacts. [Dependency map](RESEARCH-DEPENDENCY-MAP.md)
+This experiment executes two Python realizations. It supplies evidence for an IR boundary and reachability-sensitive identity. It leaves external target code generation, IR admission for independently produced instructions, recursive group encoding, heterogeneous effects, machine arithmetic and general preservation open. RT-03 supplies the observations, RT-05 and RT-06 constrain graph identity and closure, and RT-13 must compare actual target artifacts. [Dependency map](../RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 
-Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` with CPython 3.12.14. All 16 tests passed. [Lowering and executor](PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_ordered_lowering.py) · [Fixtures](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_ordered_lowering.py)
+Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` with CPython 3.12.14. All 16 tests passed. [Lowering and executor](../PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_ordered_lowering.py) · [Fixtures](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_ordered_lowering.py)
 
 ```sh
 python -B -m unittest -v tests.test_spg_ordered_lowering tests.test_spg_representation

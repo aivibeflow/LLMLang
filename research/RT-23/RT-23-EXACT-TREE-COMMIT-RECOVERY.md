@@ -7,7 +7,7 @@
 
 ## Question
 
-Can a retry identify the exact outcome of a validated Git publication when the caller loses the reply? The study advances the publication phase of RT-23 using the closed source importer from RT-24. Full worktree synchronization also needs a stable worktree generation, the mapping revision, and the complete validation context. [RT-23 synchronization protocol](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md#92-commit-preparation-and-synchronization-protocol) · [RT-24 source completeness](RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
+Can a retry identify the exact outcome of a validated Git publication when the caller loses the reply? The study advances the publication phase of RT-23 using the closed source importer from RT-24. Full worktree synchronization also needs a stable worktree generation, the mapping revision, and the complete validation context. [RT-23 synchronization protocol](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md#92-commit-preparation-and-synchronization-protocol) · [RT-24 source completeness](../RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
 
 ## Alternatives and fixture
 
@@ -18,13 +18,13 @@ Can a retry identify the exact outcome of a validated Git publication when the c
 | Write an operation receipt in a separate ref update | The write order leaves a gap between branch publication and recording the receipt, or between recording the receipt and branch publication. |
 | Prepare one commit object and use one Git ref transaction | The tested precondition failures must leave both refs intact. After both ref updates succeed, the operation receipt should identify the same commit on every retry. |
 
-The harness constructs a tree with an alternate index seeded from the first parent. It stages a changed semantic declaration and one selected ordinary file there. It reconstructs the semantic snapshot from the frozen tree, then creates a commit object with two ordered parents and an operation-specific message. A JSON preparation record pins the operation, tree, semantic root, parents, and exact commit OID. Tests reload that record across the interruption boundary. The fixture trusts its local preparation record and models loss of an operation reply. [Executable fixture](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_commit_recovery.py)
+The harness constructs a tree with an alternate index seeded from the first parent. It stages a changed semantic declaration and one selected ordinary file there. It reconstructs the semantic snapshot from the frozen tree, then creates a commit object with two ordered parents and an operation-specific message. A JSON preparation record pins the operation, tree, semantic root, parents, and exact commit OID. Tests reload that record across the interruption boundary. The fixture trusts its local preparation record and models loss of an operation reply. [Executable fixture](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_commit_recovery.py)
 
 Publication verifies the prepared metadata and re-imports the exact candidate. An `update-ref --stdin` transaction compares the branch with the first parent and creates a private receipt ref for the operation. The receipt names the exact candidate OID. Recovery checks the receipt, ordered parents, tree and semantic root. With no receipt, the old branch OID makes an attempt eligible for another compare-and-swap. A different branch tip gives a stale result. A valid receipt after a later branch move records historical publication with a distinct result for branch movement. [Git commit-tree](https://git-scm.com/docs/git-commit-tree) · [Git update-ref](https://git-scm.com/docs/git-update-ref)
 
 ## Results
 
-The claims below are experimental observations for the local Git files backend and the closed scalar declaration fixture. The tests make concrete predictions about refs, commit identity, semantic reconstruction and worktree bytes. [Reproduction corpus](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_commit_recovery.py)
+The claims below are experimental observations for the local Git files backend and the closed scalar declaration fixture. The tests make concrete predictions about refs, commit identity, semantic reconstruction and worktree bytes. [Reproduction corpus](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_commit_recovery.py)
 
 | Claim | Observation |
 |---|---|
@@ -37,7 +37,7 @@ The claims below are experimental observations for the local Git files backend a
 
 ## Scope and decision boundary
 
-The results support a prepared commit OID plus an operation receipt for retry within the tested boundary. RT-23 still needs a generation check at publication to enforce its policy on concurrent edits and ref movement. A production implementation also needs to protect receipt refs, retain prepared objects across garbage collection, and bind the mapping revision, exact validation evidence, and operation authority. The fixture publishes an already validated tree and deliberately preserves the live index, so success establishes an exact Git commit rather than a synchronized worktree generation. [Plan §4.5](../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
+The results support a prepared commit OID plus an operation receipt for retry within the tested boundary. RT-23 still needs a generation check at publication to enforce its policy on concurrent edits and ref movement. A production implementation also needs to protect receipt refs, retain prepared objects across garbage collection, and bind the mapping revision, exact validation evidence, and operation authority. The fixture publishes an already validated tree and deliberately preserves the live index, so success establishes an exact Git commit rather than a synchronized worktree generation. [Plan §4.5](../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
 
 The tests inject interruption before and after the Git ref transaction. They cover precondition failures during normal command operation. The evidence leaves process loss inside the ref transaction, machine power loss, fsync durability, arbitrary concurrent ref readers, remote pushes, and later receipt collection open. In particular, the Git ref transaction and the preparation record are distinct durability domains. A recovery implementation needs an explicit policy for unknown or inconsistent observations. [Git update-ref](https://git-scm.com/docs/git-update-ref) · [RT-23 crash recovery](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md#93-failure-crash-recovery-and-atomicity-boundary)
 

@@ -6,7 +6,7 @@ on:
     paths:
       - ".github/workflows/rt13-wasm-memory32-views.yml"
       - "research/PROTOTYPES/WASM-VIEWS-01/**"
-      - "research/RT-13-WASM-MEMORY32-VIEWS.md"
+      - "research/RT-13/RT-13-WASM-MEMORY32-VIEWS.md"
   workflow_dispatch:
 
 permissions:

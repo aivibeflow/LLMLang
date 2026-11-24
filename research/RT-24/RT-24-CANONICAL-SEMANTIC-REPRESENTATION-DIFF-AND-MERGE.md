@@ -4,7 +4,7 @@
 **Date:** 2026-11-18  
 **Priority:** P0  
 **Depends on:** RT-03 (language semantics), Research Studies 05–08 (identity and occurrence alternatives), Semantic Dependency Index research, RT-19 (semantic API and snapshots), RT-20 (caller impact/hash propagation), RT-22 (repository/worktree contract), RT-23 (shared semantic state and synchronized commit). No standalone RT-05 specification currently exists in the repository.  
-**Related:** [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [ADR-014](../docs/adr/014-git-semantic-merge.md)
+**Related:** [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [ADR-014](../../docs/adr/014-git-semantic-merge.md)
 
 > This document narrows the next research and implementation boundary. It defines a candidate contract and deterministic algorithm shape, while leaving the final SPG schema, canonical byte encoding, hash envelope, and complete language semantics to their owning research and decisions. It does not accept ADR-014.
 
@@ -43,7 +43,7 @@ The unit of correctness is the complete repository semantic state, not an indivi
 | Merge candidate | Proposed result of merging base, ours, and theirs; not yet accepted or committed |
 | Merge evidence | Inputs, policy/tool versions, decisions, validation, and provenance needed to audit/replay |
 
-**Terminology dependency:** Before changing hash-bearing fields, identity boundaries, or merge matching rules, read the [Draft Glossary](../draft/GLOSSARY.md). In particular, preserve the distinctions among `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and conformance-evidence identity. These are typed identities for different objects, not interchangeable aliases for the generic Value/Content Hash. The glossary is a terminology proposal, not an accepted normative schema; unresolved canonical encodings and identity decisions remain open here.
+**Terminology dependency:** Before changing hash-bearing fields, identity boundaries, or merge matching rules, read the [Draft Glossary](../../draft/GLOSSARY.md). In particular, preserve the distinctions among `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and conformance-evidence identity. These are typed identities for different objects, not interchangeable aliases for the generic Value/Content Hash. The glossary is a terminology proposal, not an accepted normative schema; unresolved canonical encodings and identity decisions remain open here.
 
 A repository tree is not itself a Semantic Snapshot. Import must resolve the declared source inventory and dependencies, parse and normalize the representation, resolve references, and validate the complete graph. A tree that cannot be imported unambiguously is not a valid LLMLang merge input.
 
@@ -361,22 +361,22 @@ Passing this gate permits a scoped prototype; it does not accept ADR-014 or prov
 
 ## References
 
-- [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
-- [ADR-014 — Git repository representation and semantic merge](../docs/adr/014-git-semantic-merge.md)
+- [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
+- [ADR-014 — Git repository representation and semantic merge](../../docs/adr/014-git-semantic-merge.md)
 - [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md)
-- [Study 05 — Name-Free Semantic Entities](RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md)
-- [Study 06 — Content-Addressed Entity Identity](RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md)
-- [Study 07 — Content-Only Identity Stress Tests](RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md)
-- [Study 08 — Context-Derived Occurrence Addressing](RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md)
-- [Semantic Dependency Index](SEMANTIC-DEPENDENCY-INDEX.md)
-- [Core Language Semantics / RT-03](CORE-LANGUAGE-SEMANTICS.md)
-- [RT-19 — Toolchain Server and Semantic Development API](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
-- [RT-20 — LLM Patch Planning and Hash Propagation](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
-- [RT-22 — Git Repository and Worktree MCP Surface](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md)
-- [RT-23 — Single-Instance Toolchain and Multi-Worktree File Views](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md)
+- [Study 05 — Name-Free Semantic Entities](../RT-05/RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md)
+- [Study 06 — Content-Addressed Entity Identity](../RT-05/RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md)
+- [Study 07 — Content-Only Identity Stress Tests](../RT-05/RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md)
+- [Study 08 — Context-Derived Occurrence Addressing](../RT-05/RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md)
+- [Semantic Dependency Index](../RT-06/SEMANTIC-DEPENDENCY-INDEX.md)
+- [Core Language Semantics / RT-03](../RT-03/CORE-LANGUAGE-SEMANTICS.md)
+- [RT-19 — Toolchain Server and Semantic Development API](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
+- [RT-20 — LLM Patch Planning and Hash Propagation](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
+- [RT-22 — Git Repository and Worktree MCP Surface](../RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md)
+- [RT-23 — Single-Instance Toolchain and Multi-Worktree File Views](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md)
 
 ## Public-interface integration (2026-11-24; proposed)
 
 Add distinct diff/conflict classes for public name/alias, operation revision and contract, provider binding, and external symbol mapping. Identical final signatures do not resolve concurrent incompatible contract edits. Disjoint edits may combine into a stale certificate, ambiguous selection or duplicate public export; validate whole merged catalog/binding consistency, exact endpoints, and required evidence before atomic publication. Preserve pinned old revisions and explicit migration decisions. The existing interface mapping experiment is a scoped symbol/signature model, not proof of this richer semantic admission.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

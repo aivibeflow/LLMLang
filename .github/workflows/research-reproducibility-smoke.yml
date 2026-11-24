@@ -7,8 +7,8 @@ on:
       - ".github/workflows/research-reproducibility-smoke.yml"
       - "research/PROTOTYPES/RT-16-AUTHORIZATION-01/**"
       - "research/PROTOTYPES/CLI-WORKLOADS-01/**"
-      - "research/RT-16-THREAT-MODEL-01.md"
-      - "research/RT-01-REFERENCE-WORKLOADS.md"
+      - "research/RT-16/RT-16-THREAT-MODEL-01.md"
+      - "research/RT-01/RT-01-REFERENCE-WORKLOADS.md"
   workflow_dispatch:
 
 permissions:

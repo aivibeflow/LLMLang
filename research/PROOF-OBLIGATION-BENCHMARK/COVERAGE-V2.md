@@ -13,7 +13,7 @@ The [registry](coverage-v2.json) separates semantic features, logical structure,
 | levels | 9 |
 | interactions | 8 |
 
-Next: adjudicate applicability per cell (required or not applicable with semantic rationale), attach an exact obligation and isolated executable witness for each required cell, and preserve reviews and revisions. Extend to pairwise interactions and selected higher-order combinations. Candidate RT-03 profiles remain distinct: pure, imperative/linear, actor/concurrent and effectful functional. See [RT-03](../CORE-LANGUAGE-SEMANTICS.md). Do not invent normative semantics for unresolved profiles.
+Next: adjudicate applicability per cell (required or not applicable with semantic rationale), attach an exact obligation and isolated executable witness for each required cell, and preserve reviews and revisions. Extend to pairwise interactions and selected higher-order combinations. Candidate RT-03 profiles remain distinct: pure, imperative/linear, actor/concurrent and effectful functional. See [RT-03](../RT-03/CORE-LANGUAGE-SEMANTICS.md). Do not invent normative semantics for unresolved profiles.
 
 ## Executable generator
 

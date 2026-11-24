@@ -42,7 +42,7 @@ Scenario 113's global-order enumerator models one all-operations sequentially co
 
 ## Evidence and limits
 
-[`fence_publication_payload_outcomes`](PROTOTYPES/RT-04-01/rt04_store_buffering.py) takes an explicit fence synchronization premise and returns `{1}` or `{0, 1}` for a relaxed atomic payload. One test checks both branches. The fixture does not derive the atomic relation, model fence placement errors, or validate compiler/hardware behavior. The source comparison is normative reference evidence; it is not a LLMLang design choice.
+[`fence_publication_payload_outcomes`](../PROTOTYPES/RT-04-01/rt04_store_buffering.py) takes an explicit fence synchronization premise and returns `{1}` or `{0, 1}` for a relaxed atomic payload. One test checks both branches. The fixture does not derive the atomic relation, model fence placement errors, or validate compiler/hardware behavior. The source comparison is normative reference evidence; it is not a LLMLang design choice.
 
 The open language questions remain whether fences are exposed at all, how source-level atomic operations bind to them, which mixed-order combinations are allowed, how the global order is specified, and how each candidate backend preserves those observations across targets.
 

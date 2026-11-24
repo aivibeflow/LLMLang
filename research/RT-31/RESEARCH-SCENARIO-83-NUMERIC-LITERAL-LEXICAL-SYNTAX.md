@@ -8,7 +8,7 @@
 
 Which source spellings form integer and floating-point literal tokens, and how should a lexer distinguish them from operators, identifiers, and adjacent punctuation? This study concerns lexical grammar and token boundaries: radix prefixes, digit separators, decimal/hex exponents, decimal points, suffixes, signs, imaginary forms, and malformed-number recovery.
 
-It is separate from [Scenario 73](RESEARCH-SCENARIO-73-NUMERIC-LITERAL-TYPING-AND-CONVERSIONS.md), which studies contextual typing, exact compile-time values, defaulting, and conversions; and [Scenario 78](RESEARCH-SCENARIO-78-FLOATING-POINT-REPRODUCIBILITY-AND-IEEE-EDGES.md), which studies runtime float semantics, special values, fusion, and reproducibility. This report does not decide numeric value representation or type inference.
+It is separate from [Scenario 73](../RT-03/RESEARCH-SCENARIO-73-NUMERIC-LITERAL-TYPING-AND-CONVERSIONS.md), which studies contextual typing, exact compile-time values, defaulting, and conversions; and [Scenario 78](../RT-03/RESEARCH-SCENARIO-78-FLOATING-POINT-REPRODUCIBILITY-AND-IEEE-EDGES.md), which studies runtime float semantics, special values, fusion, and reproducibility. This report does not decide numeric value representation or type inference.
 
 ## 2. Prior-art comparison
 

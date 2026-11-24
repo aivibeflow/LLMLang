@@ -4,7 +4,7 @@
 
 **Baseline** · `f33a311`
 
-**Status** · Bounded executable experiment for [Plan §2.3](../PLAN.md#23-lean-logos-smt-and-solver-integration)
+**Status** · Bounded executable experiment for [Plan §2.3](../../PLAN.md#23-lean-logos-smt-and-solver-integration)
 
 ## Question and alternatives
 
@@ -35,4 +35,4 @@ lake build --fail-fast LLMLangLogosBinding
 lake env lean -DwarningAsError=true --run CpcNullaryAliasesTests.lean
 ```
 
-[Binding experiment](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CpcNullaryAliases.lean) · [Controls](PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CpcNullaryAliasesTests.lean)
+[Binding experiment](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CpcNullaryAliases.lean) · [Controls](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CpcNullaryAliasesTests.lean)

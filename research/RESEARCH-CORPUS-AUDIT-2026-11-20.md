@@ -593,7 +593,7 @@ The inventory reconciliation found two prototype files present in main but absen
 
 ## 13. Current-corpus local link and anchor audit — 2026-11-21
 
-The previous RCA-03 finding that a full current-corpus scan remained open is now superseded by the bounded [RT-00 E audit](RT-00-E-GLOBAL-LINK-AND-ANCHOR-AUDIT-2026-11-21.md). The refreshed scan with Lychee 0.24.2 scanned 253 Markdown and 3 MDX files (256 total) in offline mode with anchor-fragment checks. The run processed 2,891 link occurrences (1,318 unique): 1,641 accepted, 82 errors, and 1,168 excluded.
+The previous RCA-03 finding that a full current-corpus scan remained open is now superseded by the bounded [RT-00 E audit](RT-00/RT-00-E-GLOBAL-LINK-AND-ANCHOR-AUDIT-2026-11-21.md). The refreshed scan with Lychee 0.24.2 scanned 253 Markdown and 3 MDX files (256 total) in offline mode with anchor-fragment checks. The run processed 2,891 link occurrences (1,318 unique): 1,641 accepted, 82 errors, and 1,168 excluded.
 
 All 82 unresolved occurrences are confined to copied upstream snapshots: 44 MCP root-absolute upstream-site paths, 32 OCI links to seven omitted documents, and six Alive2 references to omitted assets/README material. No unresolved LLMLang-authored local link or available-target anchor was reported. The 38 OCI/Alive2 occurrences match the previously recorded partial-snapshot limitations; MCP's 44 root-absolute paths are not repository-relative links and were explicitly excluded from the earlier local-path scan.
 

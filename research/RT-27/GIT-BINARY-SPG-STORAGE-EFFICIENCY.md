@@ -183,7 +183,7 @@ The committed reference harness was executed five times with identical inputs. E
 | Immutable segments, append | 5,693,602 | 5,692,192–5,692,195 | 85 | 1, 1, 1, 1, 1 | 0.039363 | 0.302137 |
 | Immutable segments, tombstones | 5,637,823 | 5,636,470–5,636,472 | 100 | 2, 2, 2, 2, 2 | 0.035468 | 0.299487 |
 
-The full aggregate, including the five-run ranges, delta-count observations, fixture parameters, and environment, is committed in [the benchmark results JSON](benchmarks/git_binary_spg/results-2026-11-23.json).
+The full aggregate, including the five-run ranges, delta-count observations, fixture parameters, and environment, is committed in [the benchmark results JSON](../benchmarks/git_binary_spg/results-2026-11-23.json).
 
 **Interpretation**
 
@@ -305,6 +305,6 @@ Do not yet:
 - [Git pack format](https://git-scm.com/docs/pack-format.html)
 - [Git configuration](https://git-scm.com/docs/git-config.html)
 - [Git repack](https://git-scm.com/docs/git-repack)
-- [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md)
-- [Git Representation and Semantic Merge](GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
-- [ADR-014](../docs/adr/014-git-semantic-merge.md) — proposed; not accepted
+- [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md)
+- [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
+- [ADR-014](../../docs/adr/014-git-semantic-merge.md) — proposed; not accepted

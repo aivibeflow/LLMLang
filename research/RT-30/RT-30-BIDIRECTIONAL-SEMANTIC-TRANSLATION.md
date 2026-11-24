@@ -138,4 +138,4 @@ RT-30 is complete for its declared scope only when all ordered translation direc
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Translation may preserve a conditional theorem only with exact source and target correspondence, retained premises and compatible observation profiles; do not treat generated foreign bindings as implementation proof. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Translation may preserve a conditional theorem only with exact source and target correspondence, retained premises and compatible observation profiles; do not treat generated foreign bindings as implementation proof. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

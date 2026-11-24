@@ -4,7 +4,7 @@
 
 **Baseline** · `1d0a407`
 
-**Status** · Bounded executable experiment for [Plan §7.5](../PLAN.md#75-developer-experience-and-adoption) and Scenario 95 cases DIAG-006, DIAG-007 and DIAG-011
+**Status** · Bounded executable experiment for [Plan §7.5](../../PLAN.md#75-developer-experience-and-adoption) and Scenario 95 cases DIAG-006, DIAG-007 and DIAG-011
 
 ## Question and model
 
@@ -36,7 +36,7 @@ The projection is a candidate for a bounded diagnostic family with admitted, com
 
 ## Reproduction
 
-Run from `research/PROTOTYPES/DIAGNOSTIC-REPLAY-01` on CPython 3.12.14. Six tests passed, including the four baseline replay tests. [Publication experiment](PROTOTYPES/DIAGNOSTIC-REPLAY-01/test_diagnostic_publication.py)
+Run from `research/PROTOTYPES/DIAGNOSTIC-REPLAY-01` on CPython 3.12.14. Six tests passed, including the four baseline replay tests. [Publication experiment](../PROTOTYPES/DIAGNOSTIC-REPLAY-01/test_diagnostic_publication.py)
 
 ```sh
 python -B -m unittest -v

@@ -10,11 +10,11 @@
 
 ## Question
 
-Can an LLVM backend preserve wrapping arithmetic, recoverable errors, and ordered effects for a fixed-width source fragment at both low and high optimization? Scenario 96 specifies the hazards. This study runs the integer portion of its proposed corpus. [Scenario 96](RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md) · [Backend preservation brief](preparation/RT-07-09-10-13-EVIDENCE-AND-BACKEND-PRESERVATION.md)
+Can an LLVM backend preserve wrapping arithmetic, recoverable errors, and ordered effects for a fixed-width source fragment at both low and high optimization? Scenario 96 specifies the hazards. This study runs the integer portion of its proposed corpus. [Scenario 96](RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md) · [Backend preservation brief](../preparation/RT-07-09-10-13-EVIDENCE-AND-BACKEND-PRESERVATION.md)
 
 ## Source contract and lowering
 
-Each program emits argument `a` before a conditional operation. The skipped branch returns `b`. Success emits and returns the value. A recoverable error exits after the first effect, with an error kind and no result value. The adapter checks the fixed source shape and lowers the chosen operation and its argument order. The reference evaluates the source rules with arbitrary-precision Python integers. The native target uses a C ABI callback to capture ordered effect payloads and a separate output slot for the value. [Source and reference](PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py) · [LLVM generator and runner](PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py)
+Each program emits argument `a` before a conditional operation. The skipped branch returns `b`. Success emits and returns the value. A recoverable error exits after the first effect, with an error kind and no result value. The adapter checks the fixed source shape and lowers the chosen operation and its argument order. The reference evaluates the source rules with arbitrary-precision Python integers. The native target uses a C ABI callback to capture ordered effect payloads and a separate output slot for the value. [Source and reference](../PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py) · [LLVM generator and runner](../PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py)
 
 | Candidate source operation | Source outcome | Emitted LLVM rule |
 |---|---|---|
@@ -49,7 +49,7 @@ python -B research/PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py --opt /
 
 The run used Debian LLVM `1:19.1.7-3+b1` and Python 3.12.14. The target is `x86_64-unknown-linux-gnu` with CPU `x86-64`, position-independent objects and GNU ld 2.44 via GCC 14.2.0. Python used libffi 3.4.8 and glibc 2.41. The runner gives every tool invocation at most 60 seconds. It prints result counts and the negative-control traces. The input IR SHA-256 is `c46111f6b77eb621a5c154b17645044e1d76c7cb2808fe80189a63f447dc173d`. The Debian tool archive SHA-256 is `0b1b7263f4f45e261099240fdbf00fc14b42b88410fd829e041bf83ea45866cb`, verified against the signed trixie package metadata.
 
-Evidence applies to the fixed integer fragment, two optimization pipelines, and the declared target. The corpus exercises runtime values and skipped branches. Constant folding of source expressions, general provenance and memory access, floating point, traps and unwinding, ABI portability, and formal translation validation remain open. The numeric and backend choices remain candidates. [LL-020](../TODO.md#ll-020--define-llvm-backend-role-and-semantic-boundary) · [LL-008](../TODO.md#ll-008--define-compatibility-evidence-and-evidence-reuse-rules)
+Evidence applies to the fixed integer fragment, two optimization pipelines, and the declared target. The corpus exercises runtime values and skipped branches. Constant folding of source expressions, general provenance and memory access, floating point, traps and unwinding, ABI portability, and formal translation validation remain open. The numeric and backend choices remain candidates. [LL-020](../../TODO.md#ll-020--define-llvm-backend-role-and-semantic-boundary) · [LL-008](../../TODO.md#ll-008--define-compatibility-evidence-and-evidence-reuse-rules)
 
 
 ## RT-00 reproducibility audit: experiment source revision

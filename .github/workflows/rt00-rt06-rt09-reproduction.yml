@@ -5,8 +5,8 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/rt00-rt06-rt09-reproduction.yml"
-      - "research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md"
-      - "research/RT-09-ORDERED-SPG-LOWERING.md"
+      - "research/RT-06/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md"
+      - "research/RT-09/RT-09-ORDERED-SPG-LOWERING.md"
       - "research/PROTOTYPES/DEPENDENCY-GRAPH-01/**"
   workflow_dispatch:
 
@@ -39,8 +39,8 @@ jobs:
             echo "commit=$(git rev-parse HEAD)"
             python --version
             python -c 'import sys; print(sys.version)'
-            sha256sum research/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md
-            sha256sum research/RT-09-ORDERED-SPG-LOWERING.md
+            sha256sum research/RT-06/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md
+            sha256sum research/RT-09/RT-09-ORDERED-SPG-LOWERING.md
             sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/scoped_binding.py
             sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_ordered_lowering.py
             sha256sum research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt06_negative_binding_reads.py

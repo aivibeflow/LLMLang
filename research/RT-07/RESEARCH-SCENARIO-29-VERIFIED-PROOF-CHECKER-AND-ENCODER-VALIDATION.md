@@ -396,18 +396,18 @@ No normative LLMLang document is changed by this research proposal.
 
 ## 13. Implemented process-runner prototype
 
-The initial host-side adapter is implemented in [`logos_runner.py`](PROTOTYPES/DEPENDENCY-GRAPH-01/src/logos_runner.py), with tests in [`test_logos_runner.py`](PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_logos_runner.py). It pins executable SHA-256 values, invokes cvc5 in CPC proof mode, preserves proof bytes, applies timeouts, and fails closed on unexpected solver/checker outcomes.
+The initial host-side adapter is implemented in [`logos_runner.py`](../PROTOTYPES/DEPENDENCY-GRAPH-01/src/logos_runner.py), with tests in [`test_logos_runner.py`](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_logos_runner.py). It pins executable SHA-256 values, invokes cvc5 in CPC proof mode, preserves proof bytes, applies timeouts, and fails closed on unexpected solver/checker outcomes.
 
 It intentionally reports `CHECKER_REPORTED_CORRECT_UNBOUND` when Logos returns `correct`. It does not compare parsed assumptions with the expected LLMLang query AST and cannot issue `PROVEN_INDEPENDENCE`.
 
-The 15 tests use fake executables. They validate only the process boundary and status mapping; no actual cvc5 or Logos binary was available. See [Prototype 29 results](PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-29-RESULTS.md).
+The 15 tests use fake executables. They validate only the process boundary and status mapping; no actual cvc5 or Logos binary was available. See [Prototype 29 results](../PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-29-RESULTS.md).
 
 ## 14. Bounded adapter-test reproduction (retrospective, 2026-11-23)
 
 This section fills the test-method navigation gap for the **existing fake-executable adapter corpus**. It does **not** implement or reproduce a real cvc5/Logos proof.
 
 - **Fixture and evidence class:** `research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_logos_runner.py` creates fake solver/checker executables and tests exact tool-file digest pinning, subprocess failures, response statuses, timeout and fail-closed mapping; the corresponding implementation is `src/logos_runner.py`. This is **bounded experimental testing of process/status plumbing**, not a Lean theorem or checked certificate.
-- **Fixed source identity:** the runner and its tests were retrieved from committed snapshot `2c7f3d1035a86fe10d90c038adc71775db5549fa`, recorded with exact source Git blobs in the [provenance manifest](quality-audit/2026-11-23-publication-provenance.json). This differs from the first research-directory rename commit and is a publication snapshot, not attested original execution state.
+- **Fixed source identity:** the runner and its tests were retrieved from committed snapshot `2c7f3d1035a86fe10d90c038adc71775db5549fa`, recorded with exact source Git blobs in the [provenance manifest](../quality-audit/2026-11-23-publication-provenance.json). This differs from the first research-directory rename commit and is a publication snapshot, not attested original execution state.
 - **Command**, from the repository root on the above checkout:
 
 ```sh
@@ -415,5 +415,5 @@ cd research/PROTOTYPES/DEPENDENCY-GRAPH-01
 python3 -B -m unittest -v tests.test_logos_runner
 ```
 
-- **Observed new result:** [GitHub Actions #45254862037](https://github.com/aivibeflow/LLMLang/actions/runs/45254862037) passed all **15** fake-executable tests with CPython **3.12.14** on Ubuntu 24.04. Exact job and archived output links are in the [observed-run record](quality-audit/2026-11-23-historical-rerun-observations.json). The original reported test host, any real cvc5/Logos build, binding proof and program-to-query correspondence remain unverified.
+- **Observed new result:** [GitHub Actions #45254862037](https://github.com/aivibeflow/LLMLang/actions/runs/45254862037) passed all **15** fake-executable tests with CPython **3.12.14** on Ubuntu 24.04. Exact job and archived output links are in the [observed-run record](../quality-audit/2026-11-23-historical-rerun-observations.json). The original reported test host, any real cvc5/Logos build, binding proof and program-to-query correspondence remain unverified.
 - **Negative result / decision:** no result from this test corpus can produce `PROVEN_INDEPENDENCE`; the adapter still reports `CHECKER_REPORTED_CORRECT_UNBOUND` when appropriate. No proposed `draft/` change is authorized by these tests.

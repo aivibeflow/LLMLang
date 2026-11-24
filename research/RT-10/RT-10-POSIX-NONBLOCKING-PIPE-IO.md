@@ -2,7 +2,7 @@
 
 **Date** · 2026-11-21  
 **Baseline** · `017e64b87c87371309197a392165258b8b088dd1`  
-**Status** · Bounded native experiment for [Plan §5.3](../PLAN.md#53-posix-architecture-and-conformance)
+**Status** · Bounded native experiment for [Plan §5.3](../../PLAN.md#53-posix-architecture-and-conformance)
 
 ## Question and contract
 
@@ -32,7 +32,7 @@ Both adapters matched all 14 expected calls at both observed capacities (4,096 a
 
 Three isolated classifier mutations failed on the predicted witnesses. Removing the positive-size guard misclassified the zero-length read. Mapping would-block to EOF failed with a writer still open. Returning the requested size in place of the actual result failed on the oversized write.
 
-Retain the one-call typed facade as a candidate for the POSIX vertical slice. Above it, an exact-length action needs distinct semantics for advancing a cursor, readiness, interruption, cancellation, and partial progress. This study exercised no actual `EINTR`, concurrent writers, close races, descriptor reuse, blocking I/O, or process startup. Linux x86-64, one process, valid buffers, and a controlled `SIGPIPE` handler are explicit fixture assumptions. The result informs RT-03/10 error and effect observation and RT-13 ABI portability. [POSIX architecture](POSIX-RUNTIME-ARCHITECTURE.md) · [Dependency map](RESEARCH-DEPENDENCY-MAP.md)
+Retain the one-call typed facade as a candidate for the POSIX vertical slice. Above it, an exact-length action needs distinct semantics for advancing a cursor, readiness, interruption, cancellation, and partial progress. This study exercised no actual `EINTR`, concurrent writers, close races, descriptor reuse, blocking I/O, or process startup. Linux x86-64, one process, valid buffers, and a controlled `SIGPIPE` handler are explicit fixture assumptions. The result informs RT-03/10 error and effect observation and RT-13 ABI portability. [POSIX architecture](POSIX-RUNTIME-ARCHITECTURE.md) · [Dependency map](../RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 
@@ -47,6 +47,6 @@ for level in 0 3; do
 done
 ```
 
-Expect four passing adapter/capacity lines per executable. [Probe source](PROTOTYPES/POSIX-IO-01/nonblocking_pipe.c)
+Expect four passing adapter/capacity lines per executable. [Probe source](../PROTOTYPES/POSIX-IO-01/nonblocking_pipe.c)
 
-Related proposed application proof: [CF-008 — Linux pipe transfer](CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) covers blocking byte-stream pipes and explicitly excludes nonblocking EAGAIN. Extending it to readiness and nonblocking operations requires separate contracts; it is not new experimental evidence for this report.
+Related proposed application proof: [CF-008 — Linux pipe transfer](../CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) covers blocking byte-stream pipes and explicitly excludes nonblocking EAGAIN. Extending it to readiness and nonblocking operations requires separate contracts; it is not new experimental evidence for this report.

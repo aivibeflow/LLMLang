@@ -8,7 +8,7 @@
 
 What must a shared parser and diagnostic suite distinguish before LLMLang chooses async declaration syntax, await position, context boundaries, or module entry behavior?
 
-[Scenario 86](RESEARCH-SCENARIO-86-ASYNC-AWAIT-SYNTAX-AND-CONTEXTS.md) compares prior-art syntax. [Scenario 58](RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md) compares function types and task start/scheduling. This scenario turns Scenario 86's open parser/diagnostic fixture gap into a bounded corpus design. It does not choose LLMLang syntax, specify runtime scheduling, or claim that these cases have been implemented.
+[Scenario 86](RESEARCH-SCENARIO-86-ASYNC-AWAIT-SYNTAX-AND-CONTEXTS.md) compares prior-art syntax. [Scenario 58](../RT-10/RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md) compares function types and task start/scheduling. This scenario turns Scenario 86's open parser/diagnostic fixture gap into a bounded corpus design. It does not choose LLMLang syntax, specify runtime scheduling, or claim that these cases have been implemented.
 
 ## 2. Evidence that motivates the corpus
 

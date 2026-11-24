@@ -228,7 +228,7 @@ No source code, tests, workflows, or benchmark settings were changed by this aud
 
 ## 12. Follow-up reproduction closure — RT-16 and CLI host references (2026-11-21)
 
-A bounded, non-required workflow was added in PR [#136](https://github.com/aivibeflow/LLMLang/pull/136): [Research Reproducibility Smoke](../.github/workflows/research-reproducibility-smoke.yml). It runs on relevant pull requests and supports manual dispatch. It does not enter Required CI.
+A bounded, non-required workflow was added in PR [#136](https://github.com/aivibeflow/LLMLang/pull/136): [Research Reproducibility Smoke](../../.github/workflows/research-reproducibility-smoke.yml). It runs on relevant pull requests and supports manual dispatch. It does not enter Required CI.
 
 Run [#44937172020](https://github.com/aivibeflow/LLMLang/actions/runs/44937172020) completed successfully. The workflow checked out merge commit `784f3ad263ec2d0b244ee1f2c938901c5245aa3e`, which combines PR #136 head `ef928af8f72fc77142cb50986c4101962d945df6` with baseline main `017e64b87c87371309197a392165258b8b088dd1`. This exact distinction matters: the workflow's `GITHUB_SHA` and recorded input hashes refer to the merge checkout, not to a later main commit.
 

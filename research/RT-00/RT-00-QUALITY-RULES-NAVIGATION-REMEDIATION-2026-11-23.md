@@ -3,9 +3,9 @@
 **Work item:** [issue #285](https://github.com/aivibeflow/LLMLang/issues/285), PLAN §0.2  
 **Date:** 2026-11-23  
 **Status:** Nine retrospectively documented alternatives, prior-art, method, question and draft-impact links; **not** an approved quality policy or a recreated original experiment  
-**Method:** Claim-boundary/document-navigation check, scoped to the original 33-entry [adjudication register](quality-audit/2026-11-23-adjudication.json).  
-**Evidence type:** Document observation, source correspondence to the five passing [archived-source CI runs](quality-audit/2026-11-23-historical-rerun-observations.json) where applicable; no fresh experiment executed by this document.  
-**Audit baseline:** [Ten-report fixed sample](quality-audit/2026-11-23-sample.json) at Git commit `419ae2c02b27eb52c63eef3a255a83004444222e`. The later report modifications are *not* retroactive changes to that immutable sample.  
+**Method:** Claim-boundary/document-navigation check, scoped to the original 33-entry [adjudication register](../quality-audit/2026-11-23-adjudication.json).  
+**Evidence type:** Document observation, source correspondence to the five passing [archived-source CI runs](../quality-audit/2026-11-23-historical-rerun-observations.json) where applicable; no fresh experiment executed by this document.  
+**Audit baseline:** [Ten-report fixed sample](../quality-audit/2026-11-23-sample.json) at Git commit `419ae2c02b27eb52c63eef3a255a83004444222e`. The later report modifications are *not* retroactive changes to that immutable sample.  
 **Normative boundary:** `draft/` untouched. Reviewer approval of these classifications and repository-wide adoption are still open.
 
 ## Question and alternatives
@@ -22,13 +22,13 @@ Option B is implemented as a **proposed documentation correction**, not a langua
 
 | Original report | Gap from the previous adjudication | Now recorded | Still not established |
 | --- | --- | --- | --- |
-| [Scenario 98](RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) | Hypotheses/alternatives | Explicit bounded AST witness hypothesis and independently untested parser/CFG alternative | Source-language path completeness or proof |
-| [Scenario 98](RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) | Prior art and sources | Link to RT-03/04 [COR-06 corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md) and Scenario 102 | Automatic source extraction and solver soundness |
-| [Scenario 98](RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) | Draft/decision impact | Explicit `draft/` **none**, bounded observation only | Accepted parser or language semantics |
-| [Scenario 103](RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md) | Alternatives | Process isolation contrasted with in-process blocking and unimplemented persistent pools | Certified UNSAT, stable resource limits or throughput |
-| [Scenario 103](RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md) | Draft impact | Explicit `draft/` **none**, pin of worker/test/requirements source and fresh CI | Solver/backend selection or pruning policy |
-| [Scenario 118](RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md) | Draft impact | Candidate-order contrast, exact global-order oracle scope, no selected memory policy | Independent validation of weaker memory model |
-| [Scenario 29](RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md) | Experiments/method | Exact Python unittest command, fake-executable fixtures, pinned source revision and observed 15-pass rerun | Real cvc5/Logos checked certificate or program-to-query proof |
+| [Scenario 98](../RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) | Hypotheses/alternatives | Explicit bounded AST witness hypothesis and independently untested parser/CFG alternative | Source-language path completeness or proof |
+| [Scenario 98](../RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) | Prior art and sources | Link to RT-03/04 [COR-06 corpus](../RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md) and Scenario 102 | Automatic source extraction and solver soundness |
+| [Scenario 98](../RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) | Draft/decision impact | Explicit `draft/` **none**, bounded observation only | Accepted parser or language semantics |
+| [Scenario 103](../RT-06/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md) | Alternatives | Process isolation contrasted with in-process blocking and unimplemented persistent pools | Certified UNSAT, stable resource limits or throughput |
+| [Scenario 103](../RT-06/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md) | Draft impact | Explicit `draft/` **none**, pin of worker/test/requirements source and fresh CI | Solver/backend selection or pruning policy |
+| [Scenario 118](../RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md) | Draft impact | Candidate-order contrast, exact global-order oracle scope, no selected memory policy | Independent validation of weaker memory model |
+| [Scenario 29](../RT-07/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md) | Experiments/method | Exact Python unittest command, fake-executable fixtures, pinned source revision and observed 15-pass rerun | Real cvc5/Logos checked certificate or program-to-query proof |
 | [DEP-007 recheck](RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md) | Explicit research question | Scalar-only vs outcome-and-ordered-trace equality for finite rewrite grammar | Full LLMLang optimizer correctness |
 | [DEP-007 recheck](RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md) | Draft impact | Retain bounded DEP-007 research confidence, no normative change | Parser/SPG/backend correspondence |
 
@@ -38,7 +38,7 @@ The nine findings are closed **only as document-navigation gaps addressed by app
 
 The original structural-audit manifest contains the **Git blob identity and expected warning strings of each file at its historical baseline commit**. Editing those reports necessarily changes their current blobs and often their header warnings. A correct historical replay must not compare current working-tree bytes with a supposedly immutable old sample.
 
-The [sample replayer](../.github/scripts/replay_research_quality_sample.py) now supports `--from-baseline`, retrieving each report from `baseline_commit:path` using Git and confirming its exact blob SHA and recorded warning set. Its existing working-tree mode remains available for intentional drift observation. The [regression tests](../.github/scripts/test_replay_research_quality_sample.py) cover later document edits, incorrect blob IDs, unavailable history and unsafe paths; CI checks the frozen historical sample **without** treating that warning count as evidence of research correctness.
+The [sample replayer](../../.github/scripts/replay_research_quality_sample.py) now supports `--from-baseline`, retrieving each report from `baseline_commit:path` using Git and confirming its exact blob SHA and recorded warning set. Its existing working-tree mode remains available for intentional drift observation. The [regression tests](../../.github/scripts/test_replay_research_quality_sample.py) cover later document edits, incorrect blob IDs, unavailable history and unsafe paths; CI checks the frozen historical sample **without** treating that warning count as evidence of research correctness.
 
 From a full-history repository checkout:
 
@@ -53,7 +53,7 @@ python3 -B .github/scripts/replay_research_quality_sample.py \
 
 ## Remaining negative evidence and next decisions
 
-- **Eight original-execution provenance gaps remain open**. The [eight-report publication history](quality-audit/2026-11-23-publication-provenance.json) and [five new historical-source reruns](quality-audit/2026-11-23-historical-rerun-observations.json) establish recoverable committed code and new execution results, but not the complete historical uncommitted source/host environment in which the earlier results were made.
+- **Eight original-execution provenance gaps remain open**. The [eight-report publication history](../quality-audit/2026-11-23-publication-provenance.json) and [five new historical-source reruns](../quality-audit/2026-11-23-historical-rerun-observations.json) establish recoverable committed code and new execution results, but not the complete historical uncommitted source/host environment in which the earlier results were made.
 - Source-only comparative research such as RT-04 and Scenario 134 must not be forced into a single executable evidence schema.
 - Formal checker adapter tests with fake binaries never constitute a cvc5/Logos certificate. The bounded DEP-007 Lean proof still needs a source/lowering correspondence chain for full-language implications.
 - No sampling-based false-negative study, independent human reviewer-effort study or corpus-wide claim-by-claim check is completed.

@@ -16,7 +16,7 @@ The original C follow-up refers to PR #136 as the source of the RT-16/CLI smoke 
 
 Their replacements are integrated:
 - PR #165 merged the non-required `research-reproducibility-smoke.yml` workflow as `088664b51ea285025133338fd1ce3a0e8be5d0a6`. The workflow file's current-main Git blob is identical to the version on the earlier PR #136 checkout.
-- PR #166 merged the RT-04 reproduction-status correction as `47520bae555640d8282efd0ccb2f70804c415689`. The current [RT-04 native reproduction protocol](RT-04-NATIVE-REPRODUCTION.md) has the corrected bounded status and current toolchain/source-identity instructions.
+- PR #166 merged the RT-04 reproduction-status correction as `47520bae555640d8282efd0ccb2f70804c415689`. The current [RT-04 native reproduction protocol](../RT-04/RT-04-NATIVE-REPRODUCTION.md) has the corrected bounded status and current toolchain/source-identity instructions.
 
 Therefore the old C report's PR #136/#137 attribution is historical. Current main contains the RT-16/CLI non-required workflow and the corrected RT-04 protocol. The RT-16/CLI workflow remains outside Required CI.
 

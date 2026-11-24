@@ -3,7 +3,7 @@
 **Status:** Research proposal; logical model is executable, wire format is not normative  
 **Research area:** RT-12 — Libraries, packages, templates, and artifact reuse  
 **Updated:** 2026-11-18  
-**Related:** [Package System](PACKAGE-SYSTEM.md), [Package Manifest and Content Identity](PACKAGE-MANIFEST-AND-IDENTITY.md), [Package Identity Prototype 01](PROTOTYPES/PACKAGE-IDENTITY-01/README.md)
+**Related:** [Package System](PACKAGE-SYSTEM.md), [Package Manifest and Content Identity](PACKAGE-MANIFEST-AND-IDENTITY.md), [Package Identity Prototype 01](../PROTOTYPES/PACKAGE-IDENTITY-01/README.md)
 
 ## 1. Scope
 
@@ -179,7 +179,7 @@ The current candidate cache record is keyed by an exact Action Key and records s
 
 Language version, registry digest, and toolchain identity are independent Action Key inputs whenever they can affect the result. A matching language version does not authorize reuse across a behavior-changing toolchain identity. Cross-version reuse requires explicit validated compatibility evidence.
 
-An experimental validator is in [Package Identity Prototype 01](PROTOTYPES/PACKAGE-IDENTITY-01/README.md), with the candidate language-version rules in [Language Versioning](LANGUAGE-VERSIONING.md). This cache record shape and Action Key encoding remain exploratory; they do not define the binary cache-index wire format.
+An experimental validator is in [Package Identity Prototype 01](../PROTOTYPES/PACKAGE-IDENTITY-01/README.md), with the candidate language-version rules in [Language Versioning](../RT-18/LANGUAGE-VERSIONING.md). This cache record shape and Action Key encoding remain exploratory; they do not define the binary cache-index wire format.
 
 ## 8. Dependency policy and closure prototype
 
@@ -231,4 +231,4 @@ Passing these tests does not establish production readiness or a final binary in
 
 Future schema discriminator: existing Exports.object_hash can name a declaration or implementation; explicitly typed public operation/group targets and separately typed provider bindings need validation rather than overloading this field. Check namespace uniqueness, target-kind resolution, provider closure, exact proof applicability, and cross-package collisions. Test two providers for one operation and two operations sharing a contract. Any schema change needs versioned fixtures, canonical logical digest and merge tests; the existing executable logical model remains unchanged.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

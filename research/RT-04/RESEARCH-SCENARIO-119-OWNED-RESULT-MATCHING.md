@@ -27,7 +27,7 @@ The second design can use a tagged `E` inside `Result<T, E>`. Rust's `Result` is
 
 ## Evidence
 
-For each resource, the experiment checks all 15 nonempty subsets of the four declared close outcomes. The two transfer policies give 450 combinations of callee contracts. Enumerating both branches and every permitted pair of close results gives 4,096 concrete fixture inputs, including inputs whose handle close is unneeded on the selected branch. For every contract, the sets of result tags and obligation kinds inferred from the AST matched the sets observed when running the separate COR-13 disposition model. [Checker and execution adapter](PROTOTYPES/RT-04-01/rt04_owned_call_match.py) · [Disposition model](PROTOTYPES/RT-04-01/rt04_return_disposition.py) · [Fixtures](PROTOTYPES/RT-04-01/test_rt04_owned_call_match.py)
+For each resource, the experiment checks all 15 nonempty subsets of the four declared close outcomes. The two transfer policies give 450 combinations of callee contracts. Enumerating both branches and every permitted pair of close results gives 4,096 concrete fixture inputs, including inputs whose handle close is unneeded on the selected branch. For every contract, the sets of result tags and obligation kinds inferred from the AST matched the sets observed when running the separate COR-13 disposition model. [Checker and execution adapter](../PROTOTYPES/RT-04-01/rt04_owned_call_match.py) · [Disposition model](../PROTOTYPES/RT-04-01/rt04_return_disposition.py) · [Fixtures](../PROTOTYPES/RT-04-01/test_rt04_owned_call_match.py)
 
 | Transfer policy | Diagnostic-only `Err` accepted | Tagged forwarding accepted | Exact arms when both close contracts allow all four results |
 |---|---:|---:|---:|

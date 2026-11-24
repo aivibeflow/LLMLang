@@ -10,7 +10,7 @@
 
 Can LLVM preserve a source rule that distinguishes forming an end pointer from reading through it, even when the address also names a readable byte in another view? The test uses five logical views of one initialized six-byte allocation. The views include adjacent ranges, overlapping ranges, and an empty range at the end. Each view has an identity, base and length supplied together by the test harness.
 
-Formation accepts a signed offset-plus-delta in the inclusive range `[0, length]`. Reading first checks the originating view against the expected view, then requires the sum to fit in `i64` and the index to be strictly less than the length. Both operations reject negative indices. The Python reference uses arbitrary-precision arithmetic. The generator emits LLVM signed-overflow checking followed by a bounds branch that dominates `getelementptr inbounds`. Only the read path emits a load. On rejection the caller's result slot keeps its sentinel. Pointer-to-integer conversion exposes the formed address for measurement on x86-64. The runner never reconstructs a pointer from that integer. [Executable probe](PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py) · [LLVM 19.1.7 GEP documentation](https://github.com/llvm/llvm-project/blob/llvmorg-19.1.7/llvm/docs/GetElementPtr.rst)
+Formation accepts a signed offset-plus-delta in the inclusive range `[0, length]`. Reading first checks the originating view against the expected view, then requires the sum to fit in `i64` and the index to be strictly less than the length. Both operations reject negative indices. The Python reference uses arbitrary-precision arithmetic. The generator emits LLVM signed-overflow checking followed by a bounds branch that dominates `getelementptr inbounds`. Only the read path emits a load. On rejection the caller's result slot keeps its sentinel. Pointer-to-integer conversion exposes the formed address for measurement on x86-64. The runner never reconstructs a pointer from that integer. [Executable probe](../PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py) · [LLVM 19.1.7 GEP documentation](https://github.com/llvm/llvm-project/blob/llvmorg-19.1.7/llvm/docs/GetElementPtr.rst)
 
 ## Results
 
@@ -31,7 +31,7 @@ python -B research/PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py --opt /pat
 
 The runner uses Debian LLVM 19.1.7, Python 3.12.14 and GCC 14.2.0 with GNU ld 2.44 on `x86_64-unknown-linux-gnu`. It reuses the verified O0/O3 pipelines and PIC configuration from Scenario 96A. The input IR SHA-256 is `ddb41ceb866c77e957df865cd2102f7a02d3a468150fc82f79c7a7fb2bf782d0`. [Integer baseline](RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md)
 
-This experiment covers logical view identity within a single live allocation. General allocation provenance, stale pointers, forged descriptors, alignment beyond byte loads, and validation of a complete source-to-LLVM pipeline remain open. The result informs LL-020 without selecting a memory model or backend. [LL-020](../TODO.md#ll-020--define-llvm-backend-role-and-semantic-boundary)
+This experiment covers logical view identity within a single live allocation. General allocation provenance, stale pointers, forged descriptors, alignment beyond byte loads, and validation of a complete source-to-LLVM pipeline remain open. The result informs LL-020 without selecting a memory model or backend. [LL-020](../../TODO.md#ll-020--define-llvm-backend-role-and-semantic-boundary)
 
 
 ## RT-00 reproducibility audit: experiment source revision

@@ -4,11 +4,11 @@
 - **Date** · 2026-11-21
 - **Baseline** · `f09047a65bc77e8756d9d36def836c193a500dfa`
 
-Can an editor or agent consumer decide where a diagnostic belongs, whether an edit batch still applies, and whether a candidate preserves a declared behavior? This experiment implements part of Scenario 95's discriminator corpus. It uses deterministic inputs and a fixture policy evaluator. Human review and agent repair effectiveness require separate participant runs. [Plan §7.5](../PLAN.md#75-developer-experience-and-adoption) · [Scenario 95 discriminator corpus](RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md#6-discriminating-test-corpus)
+Can an editor or agent consumer decide where a diagnostic belongs, whether an edit batch still applies, and whether a candidate preserves a declared behavior? This experiment implements part of Scenario 95's discriminator corpus. It uses deterministic inputs and a fixture policy evaluator. Human review and agent repair effectiveness require separate participant runs. [Plan §7.5](../../PLAN.md#75-developer-experience-and-adoption) · [Scenario 95 discriminator corpus](RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md#6-discriminating-test-corpus)
 
 ## Method and results
 
-The fixture compares numeric offsets and result states with an explicit conversion and applicability policy. The inputs and expected outcomes are declared in the tests. Document bytes are valid UTF-8, locations are half-open, and the workspace is a finite map of immutable document contents. The negotiated position encoding defaults to UTF-16. Tests stage repairs in a new map, with no disk or toolchain write. [Fixture and oracles](PROTOTYPES/DIAGNOSTIC-REPLAY-01/test_diagnostic_replay.py)
+The fixture compares numeric offsets and result states with an explicit conversion and applicability policy. The inputs and expected outcomes are declared in the tests. Document bytes are valid UTF-8, locations are half-open, and the workspace is a finite map of immutable document contents. The negotiated position encoding defaults to UTF-16. Tests stage repairs in a new map, with no disk or toolchain write. [Fixture and oracles](../PROTOTYPES/DIAGNOSTIC-REPLAY-01/test_diagnostic_replay.py)
 
 | Scenario 95 cases | Alternative falsified in the fixture | Experimental observation |
 |---|---|---|

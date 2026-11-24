@@ -38,4 +38,4 @@ From the repository root:
 python -m unittest discover -s research/PROTOTYPES/RT-04-01 -p 'test_rt03_source_alias_extraction.py' -v
 ```
 
-Prototype: [`rt03_source_alias_extraction.py`](PROTOTYPES/RT-04-01/rt03_source_alias_extraction.py). Tests: [`test_rt03_source_alias_extraction.py`](PROTOTYPES/RT-04-01/test_rt03_source_alias_extraction.py).
+Prototype: [`rt03_source_alias_extraction.py`](../PROTOTYPES/RT-04-01/rt03_source_alias_extraction.py). Tests: [`test_rt03_source_alias_extraction.py`](../PROTOTYPES/RT-04-01/test_rt03_source_alias_extraction.py).

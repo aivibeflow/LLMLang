@@ -3,7 +3,7 @@
 **Status:** first finite cross-profile fixture set; exploratory only  
 **Date:** 2026-11-18  
 **Profiles:** RT-03 semantic profiles A (Pure Functional Core) and D (Effectful Functional Core); RT-04 checker vectors A (closed effects/ambient capabilities) and B (effect-row annotation/scoped capabilities)  
-**Executable fixtures:** [test_rt03_rt04_cross_profile.py](PROTOTYPES/RT-04-01/test_rt03_rt04_cross_profile.py)
+**Executable fixtures:** [test_rt03_rt04_cross_profile.py](../PROTOTYPES/RT-04-01/test_rt03_rt04_cross_profile.py)
 
 ## 1. Purpose
 
@@ -52,7 +52,7 @@ The initial fixtures cover pure return, filesystem read, ordered repeated writes
 - Later executable reference and differential suites cover fixture state transitions, bounded resource lifecycle, and synchronous cancellation. COR-09 adds a common typed tree input for static checking and execution. Source extraction, asynchronous scheduling, actor/message traces, and divergence remain open.
 - The current checker does not preserve event order/payload, so it cannot serve as an oracle for RT-03 observational equivalence.
 
-The [shared semantics corpus](RT-03-04-SHARED-SEMANTICS-CORPUS.md) records the completed branch, resource, Result and cancellation fixtures. It also describes the typed call experiment and where its static projection loses execution information.
+The [shared semantics corpus](../RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md) records the completed branch, resource, Result and cancellation fixtures. It also describes the typed call experiment and where its static projection loses execution information.
 
 No RT-03 profile or RT-04 type/effect/ownership/capability architecture is selected by this experiment.
 
@@ -116,9 +116,9 @@ This command runs the RT-04 checker tests, the original cross-profile fixtures, 
 
 ## 7. Differential check with an independent small-step evaluator
 
-A second implementation, [`rt03_smallstep.py`](PROTOTYPES/RT-04-01/rt03_smallstep.py), now evaluates the same bounded fragment using an explicit control stack and value stack. It does not import or call the recursive evaluator in `rt03_reference.py`. The two implementations therefore use different evaluation algorithms, while intentionally sharing the written fragment and handler contract.
+A second implementation, [`rt03_smallstep.py`](../PROTOTYPES/RT-04-01/rt03_smallstep.py), now evaluates the same bounded fragment using an explicit control stack and value stack. It does not import or call the recursive evaluator in `rt03_reference.py`. The two implementations therefore use different evaluation algorithms, while intentionally sharing the written fragment and handler contract.
 
-The differential suite [`test_rt03_differential.py`](PROTOTYPES/RT-04-01/test_rt03_differential.py) compares:
+The differential suite [`test_rt03_differential.py`](../PROTOTYPES/RT-04-01/test_rt03_differential.py) compares:
 - profile, ordered events, result, final state, and final file map;
 - pure expression corpus, including nested addition and explicit Result-shaped values;
 - state read/write and file/network effect traces;
@@ -130,7 +130,7 @@ This provides algorithmically independent implementation cross-checking for the 
 
 ## 8. Independent path-model cross-check
 
-A third model, [`rt03_path_model.py`](PROTOTYPES/RT-04-01/rt03_path_model.py), independently enumerates the bounded structural control paths and tracks only resource obligations, release order, cancellation, and Result-sequence short-circuit markers. It imports neither evaluator and does not execute effects or values. An explicit `unknown_bool` analysis marker is treated as an unknown boolean and forks into both branches; literal booleans select one branch, while literal non-booleans are rejected. The path model traverses nested addition and Result wrappers in evaluation order and preserves cancellation encountered in nested operands. Cancellation while evaluating a condition produces no branch choice.
+A third model, [`rt03_path_model.py`](../PROTOTYPES/RT-04-01/rt03_path_model.py), independently enumerates the bounded structural control paths and tracks only resource obligations, release order, cancellation, and Result-sequence short-circuit markers. It imports neither evaluator and does not execute effects or values. An explicit `unknown_bool` analysis marker is treated as an unknown boolean and forks into both branches; literal booleans select one branch, while literal non-booleans are rejected. The path model traverses nested addition and Result wrappers in evaluation order and preserves cancellation encountered in nested operands. Cancellation while evaluating a condition produces no branch choice.
 
 `test_rt03_path_model.py` compares its predicted resource event sequence and final active-resource set against both the recursive and small-step evaluators for concrete success, Result error, cancellation, nested scopes, release failures, and selected conditional branches. Separate model-only tests cover unknown/nested conditions and cancellation during condition evaluation.
 
@@ -138,7 +138,7 @@ This is an independently structured control-path cross-check, not a proof of sou
 
 ## 9. Independent resource outcome algebra
 
-A fourth model, [`rt03_resource_rules.py`](PROTOTYPES/RT-04-01/rt03_resource_rules.py), derives the exact resource lifecycle outcome from an outer-to-inner sequence of acquired scope frames and one body outcome. It imports neither evaluator nor the structural path enumerator. Unlike the path model, it computes complete resource acquire/release events, result envelopes, cancellation cleanup aggregation, and the final resource map.
+A fourth model, [`rt03_resource_rules.py`](../PROTOTYPES/RT-04-01/rt03_resource_rules.py), derives the exact resource lifecycle outcome from an outer-to-inner sequence of acquired scope frames and one body outcome. It imports neither evaluator nor the structural path enumerator. Unlike the path model, it computes complete resource acquire/release events, result envelopes, cancellation cleanup aggregation, and the final resource map.
 
 The rules make the current fixture behavior explicit:
 - A successful release removes the resource and preserves the body outcome.

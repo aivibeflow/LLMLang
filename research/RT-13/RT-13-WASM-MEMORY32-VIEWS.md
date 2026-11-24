@@ -4,7 +4,7 @@
 
 **Baseline** · `8cfb0b7`
 
-**Status** · Bounded native-engine comparison for [Plan §6.3](../PLAN.md#63-llvm-backend)
+**Status** · Bounded native-engine comparison for [Plan §6.3](../../PLAN.md#63-llvm-backend)
 
 ## Question and candidate profiles
 
@@ -16,7 +16,7 @@ How should a memory32 target preserve a logical byte view with signed 64-bit off
 | Check the logical view before narrowing | Retains identity, overflow, and strict logical bounds. Requires a valid descriptor whose physical interval is inside memory and fits the addressing model. |
 | Use a checked descriptor or runtime call | Can move descriptor validation and policy into a reusable boundary. Adds runtime and ABI obligations. The fixture supplies descriptors from the host rather than implementing this option. |
 
-[WebAssembly Core 2.0 memory instructions](https://www.w3.org/TR/wasm-core-2/#memory-instructions) · [LLVM and C++ mutable views](RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md)
+[WebAssembly Core 2.0 memory instructions](https://www.w3.org/TR/wasm-core-2/#memory-instructions) · [LLVM and C++ mutable views](../RT-09/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md)
 
 ## Method and results
 
@@ -39,4 +39,4 @@ Run from the repository root with Node v24.22.1 and WABT 1.0.36. The Debian amd6
 node research/PROTOTYPES/WASM-VIEWS-01/compare.mjs /path/to/wat2wasm
 ```
 
-[Executable comparison and controls](PROTOTYPES/WASM-VIEWS-01/compare.mjs)
+[Executable comparison and controls](../PROTOTYPES/WASM-VIEWS-01/compare.mjs)

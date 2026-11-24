@@ -8,7 +8,7 @@
 
 ## 1. Objective and hypotheses
 
-Investigate whether LLMLang can express and compile an OS kernel, and whether a small capability-oriented microkernel can be verified compositionally down to an explicit hardware/translation trust boundary. Reuse [RT-37](../RT-37-FREESTANDING-EMBEDDED-REAL-TIME/README.md) for freestanding startup, layouts, pointers, MMIO, interrupts and runtime closure. Unlike [hosted POSIX](../POSIX-RUNTIME-ARCHITECTURE.md), the kernel supplies OS services rather than consuming them.
+Investigate whether LLMLang can express and compile an OS kernel, and whether a small capability-oriented microkernel can be verified compositionally down to an explicit hardware/translation trust boundary. Reuse [RT-37](../RT-37/README.md) for freestanding startup, layouts, pointers, MMIO, interrupts and runtime closure. Unlike [hosted POSIX](../RT-10/POSIX-RUNTIME-ARCHITECTURE.md), the kernel supplies OS services rather than consuming them.
 
 H1: shared freestanding semantics plus privileged target capabilities suffice for a small kernel. H2: ownership, frame/effect contracts and typed capabilities can express memory isolation and IPC invariants. H3: separate source, translation and device premises permit honest modular proofs. Counterexamples include accepted double allocation, unauthorized mapping/IPC, interrupt reentrancy violating invariants or a hidden hosted dependency.
 
@@ -58,8 +58,8 @@ Negative controls: double allocation, premature publication, stale TLB, wrong pe
 
 ## 4. Dependencies, evidence and gates
 
-- RT-37 profile and pilot gate; [core](../CORE-LANGUAGE-SEMANTICS.md), [RT-04](../RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md), [memory model](../RESEARCH-SCENARIO-61-CONCURRENT-MUTABLE-STATE-AND-MEMORY-MODEL.md), [atomic lowering](../RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md), [layout/ABI](../RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md), [LLVM](../LLVM-BACKEND-ARCHITECTURE.md), [LLVM preservation](../RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md).
-- [Public interfaces](../PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md), [RT-34 resources](../RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md), [RT-36 assumptions](../RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md), RT-07/08/13/16/32/33: compositional proof, explicit authority and target evidence. Keep proof closure separate from policy admission.
+- RT-37 profile and pilot gate; [core](../RT-03/CORE-LANGUAGE-SEMANTICS.md), [RT-04](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md), [memory model](../RT-04/RESEARCH-SCENARIO-61-CONCURRENT-MUTABLE-STATE-AND-MEMORY-MODEL.md), [atomic lowering](../RT-13/RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md), [layout/ABI](../RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md), [LLVM](../RT-13/LLVM-BACKEND-ARCHITECTURE.md), [LLVM preservation](../RT-13/RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md).
+- [Public interfaces](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md), [RT-34 resources](../RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md), [RT-36 assumptions](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md), RT-07/08/13/16/32/33: compositional proof, explicit authority and target evidence. Keep proof closure separate from policy admission.
 - Pin exact target/emulator/firmware/ABI, linker/compiler, source/SPG, hardware models, checker, assumptions and commands. Archive binary/import/link-map and trace evidence, proof obligations, negative controls and failed/UNKNOWN cases.
 - Exit: documented feasible or falsified profile with explicit gaps; reproducible bootable minimal kernel (or documented blocking discriminator), independently checked frame-allocation/isolation/IPC properties for the declared model, trust and translation boundaries explicit; no claim of complete kernel verification without corresponding evidence.
 

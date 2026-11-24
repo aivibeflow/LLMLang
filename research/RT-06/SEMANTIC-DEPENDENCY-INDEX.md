@@ -3,11 +3,11 @@
 **Status:** Research proposal; not a canonical SPG schema or accepted language rule  
 **Date:** 2026-11-18  
 **Research area:** Semantic foundation, dependency analysis, incremental computation, Toolchain storage  
-**Related:** [LLMLang Concept](LLMLang-CONCEPT.md), [Scenario 19 — Dependency Completeness](RESEARCH-SCENARIO-19-IMPACT-PLANNING-AND-DEPENDENCY-COMPLETENESS.md), [Scenario 20 — Dependency Discovery and Classification](RESEARCH-SCENARIO-20-DEPENDENCY-DISCOVERY-AND-SEMANTIC-CLASSIFICATION.md), [Scenario 25 — Formal Semantic Dependency Analysis](RESEARCH-SCENARIO-25-FORMAL-SEMANTIC-DEPENDENCY-ANALYSIS.md), [RT-19 — Toolchain Server](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [RT-20 — Patch Planning and Hash Propagation](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-23 — Shared Semantic State and Multi-Worktree](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md), [RT-24 — Semantic Merge](RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md), [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md), [Package System](PACKAGE-SYSTEM.md), [Draft Glossary](../draft/GLOSSARY.md)
+**Related:** [LLMLang Concept](../RT-01/LLMLang-CONCEPT.md), [Scenario 19 — Dependency Completeness](RESEARCH-SCENARIO-19-IMPACT-PLANNING-AND-DEPENDENCY-COMPLETENESS.md), [Scenario 20 — Dependency Discovery and Classification](RESEARCH-SCENARIO-20-DEPENDENCY-DISCOVERY-AND-SEMANTIC-CLASSIFICATION.md), [Scenario 25 — Formal Semantic Dependency Analysis](RESEARCH-SCENARIO-25-FORMAL-SEMANTIC-DEPENDENCY-ANALYSIS.md), [RT-19 — Toolchain Server](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [RT-20 — Patch Planning and Hash Propagation](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-23 — Shared Semantic State and Multi-Worktree](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md), [RT-24 — Semantic Merge](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md), [RT-24 Identity and SPG Reconciliation](../RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md), [Package System](../RT-12/PACKAGE-SYSTEM.md), [Draft Glossary](../../draft/GLOSSARY.md)
 
 > This document synthesizes existing research into a candidate dependency-index contract. It does not settle the canonical SPG object schema, hash envelope, call-graph semantics, or final Toolchain storage format. Proposed field names and relation families are illustrative until reviewed against the accepted semantic model.
 
-**Terminology dependency:** Consult the [Draft Glossary](../draft/GLOSSARY.md) before changing hash roles or typed reference semantics. `OpHash`, `ImplHash`, and `CCHash` name different semantic object identities; `CandidateSetHash` (if used) identifies a finite discovery result, not a conformance class. Do not treat these as interchangeable with generic Content Hashes or with derived dependency-index/evidence digests. The glossary remains a terminology proposal.
+**Terminology dependency:** Consult the [Draft Glossary](../../draft/GLOSSARY.md) before changing hash roles or typed reference semantics. `OpHash`, `ImplHash`, and `CCHash` name different semantic object identities; `CandidateSetHash` (if used) identifies a finite discovery result, not a conformance class. Do not treat these as interchangeable with generic Content Hashes or with derived dependency-index/evidence digests. The glossary remains a terminology proposal.
 
 ## 1. Problem and design objective
 
@@ -147,7 +147,7 @@ Do not implement a global “replace every reference to latest callee” operati
 
 ## 6. Hashing, storage, and query invariants
 
-Hash terminology in this candidate design remains provisional; see the [draft glossary](../draft/GLOSSARY.md). PLAN.md explicitly leaves the `ImpHash`/`ImplHash` spelling discrepancy unresolved until terminology is reconciled.
+Hash terminology in this candidate design remains provisional; see the [draft glossary](../../draft/GLOSSARY.md). PLAN.md explicitly leaves the `ImpHash`/`ImplHash` spelling discrepancy unresolved until terminology is reconciled.
 
 1. **Exact source identity.** Every outgoing dependency set is keyed by the exact source Content Hash, never by a mutable Stable ID alone.
 2. **Immutable publication.** Once published, an object's canonical dependency set cannot be silently edited. A changed semantic reference creates a new source object version when that reference is hash-relevant.
@@ -299,10 +299,10 @@ This adapter validates evidence bindings only. It does not authenticate the prod
 
 ## 14. RT-24 relationship
 
-RT-24 consumes typed semantic and hash-relevant relations from this research but does not treat the index as the source of semantic truth. In particular, a snapshot-scoped incoming-edge query is not a complete reverse-reference proof unless matching scoped dependency-completeness evidence exists. See [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md) for the current prototype limitations and the required fail-closed boundary.
+RT-24 consumes typed semantic and hash-relevant relations from this research but does not treat the index as the source of semantic truth. In particular, a snapshot-scoped incoming-edge query is not a complete reverse-reference proof unless matching scoped dependency-completeness evidence exists. See [RT-24 Identity and SPG Reconciliation](../RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md) for the current prototype limitations and the required fail-closed boundary.
 
 ## Public-interface integration (2026-11-24; proposed)
 
 Candidate edges/projections: scoped name lookup (including absent/ambiguous candidates and aliases), exact operation/public-contract use, implementation-owned provided contract, provider binding selection, external symbol mapping, and claim-specific evidence dependencies. Separate hash-relevant edges from resolution, provenance and proof relations. A caller's abstract proof may read only the public revision while execution, link and whole-system evidence read exact selected providers. Include negative scoped lookups and completeness state so a newly inserted shadowing export cannot escape invalidation. Keep the single provided Contract reference on the provider; do not add a duplicate authoritative edge from each caller.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

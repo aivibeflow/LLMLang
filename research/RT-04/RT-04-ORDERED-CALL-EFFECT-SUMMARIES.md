@@ -4,7 +4,7 @@
 
 **Baseline** · `b0142c27f5632a859c379b78a10cb22f500ebfd8`
 
-**Status** · Bounded experiment for [Plan §1.4.1](../PLAN.md#141-type-effect-ownership-and-capability-alternatives-rt-04)
+**Status** · Bounded experiment for [Plan §1.4.1](../../PLAN.md#141-type-effect-ownership-and-capability-alternatives-rt-04)
 
 ## Question and alternatives
 
@@ -24,11 +24,11 @@ Across 32 program variants and four Boolean valuations, all 128 summaries match 
 
 A reached unresolved or recursive call produces unknown, while the other path remains exact. An unresolved occurrence after a terminal error does not erase the already observed prefix. Swapping two events retains the same unordered labels and changes the trace.
 
-The result supports maintaining two different summaries when their consumers need different guarantees. A capability upper bound can use a set. An exact verification witness needs ordered outcomes and enough call context to preserve correlation. This fixture assumes complete fixed procedure bodies and immutable flags. Dynamic dispatch, state mutation, permissions and foreign effects, resource cleanup with multiple failures, and general recursive summaries remain open. [Dependency map](RESEARCH-DEPENDENCY-MAP.md)
+The result supports maintaining two different summaries when their consumers need different guarantees. A capability upper bound can use a set. An exact verification witness needs ordered outcomes and enough call context to preserve correlation. This fixture assumes complete fixed procedure bodies and immutable flags. Dynamic dispatch, state mutation, permissions and foreign effects, resource cleanup with multiple failures, and general recursive summaries remain open. [Dependency map](../RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 
-From the repository root use CPython 3.12.14. [Executable model and controls](PROTOTYPES/ORDERED-EFFECTS-01/compare.py)
+From the repository root use CPython 3.12.14. [Executable model and controls](../PROTOTYPES/ORDERED-EFFECTS-01/compare.py)
 
 ```sh
 python -B research/PROTOTYPES/ORDERED-EFFECTS-01/compare.py

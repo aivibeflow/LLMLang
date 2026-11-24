@@ -62,4 +62,4 @@ Implementation ownership, satisfaction style, overlap handling, and lookup scope
 
 Follow-up: a public operation can have multiple independently verified provider candidates; coherence is a property of selection scope and policy, not necessarily global uniqueness of conformance. Compare explicit provider bindings and structural discovery, orphan/ownership policy, overlapping generic providers, and ambiguous selections. A declared impl or method-shape match is not behavioral evidence. Group interfaces require joint protocol obligations. Existing comparative results are unchanged.
 
-Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

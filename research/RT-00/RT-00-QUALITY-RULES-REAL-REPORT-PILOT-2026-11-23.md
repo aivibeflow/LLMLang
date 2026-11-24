@@ -1,11 +1,11 @@
 # RT-00 — Stage 0.2 real-report quality pilot: ten evidence shapes
 
-**Research item:** [PLAN.md §0.2](../PLAN.md#02-establish-research-quality-and-decision-rules), [issue #285](https://github.com/aivibeflow/LLMLang/issues/285)  
+**Research item:** [PLAN.md §0.2](../../PLAN.md#02-establish-research-quality-and-decision-rules), [issue #285](https://github.com/aivibeflow/LLMLang/issues/285)  
 **Status:** Bounded documentary/structural audit; not a policy decision or technical-proof validation  
 **Date:** 2026-11-23  
 **Baseline:** `main` at `419ae2c02b27eb52c63eef3a255a83004444222e` (merge of [PR #373](https://github.com/aivibeflow/LLMLang/pull/373))  
 **Evidence type:** Mixed: repository-document observation, executable structural-checker experiment, human review of selected warnings  
-**Source and exact fixtures:** [Frozen manifest](quality-audit/2026-11-23-sample.json) records all ten paths, individual Git blob SHAs, expected checker warnings, and section/line evidence for adjudicated layout-only warnings.  
+**Source and exact fixtures:** [Frozen manifest](../quality-audit/2026-11-23-sample.json) records all ten paths, individual Git blob SHAs, expected checker warnings, and section/line evidence for adjudicated layout-only warnings.  
 **Expected output:** 10 reports; 62 structural warnings after the three metadata-format corrections; zero blob mismatches; zero warning-snapshot mismatches. Before those corrections, the original matcher yields 65 warnings.  
 **Normative boundary:** This is not a review of the correctness of the ten studies, a clean rerun of their experiments, or acceptance of the proposed quality protocol.
 
@@ -21,7 +21,7 @@
 
 ## 2. Prior evidence, alternatives, and method
 
-Prior studies: [Quality rules proposal](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), [rollout comparison](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md), [evidence-shape recheck](RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md), [initial structural pilot](RT-00-QUALITY-RULES-PILOT-2026-11-23.md) and [proposed protocol](QUALITY-REVIEW-PROTOCOL.md).
+Prior studies: [Quality rules proposal](../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), [rollout comparison](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md), [evidence-shape recheck](RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md), [initial structural pilot](RT-00-QUALITY-RULES-PILOT-2026-11-23.md) and [proposed protocol](../QUALITY-REVIEW-PROTOCOL.md).
 
 **Compared alternatives:** A: leave the initial exact-header matcher unchanged; B: accept genuine alternate metadata punctuation and retain warning-only heading heuristics; C: block all older reports on every missing header. The pilot implements **B as a proposed low-risk correction**, not C or an adopted quality policy.
 
@@ -33,15 +33,15 @@ Prior studies: [Quality rules proposal](RESEARCH-QUALITY-AND-DECISION-RULES-2026
 
 | Report / evidence shape | Warnings before | After correction | Confirmed layout-only warnings after | Still unadjudicated |
 | --- | ---: | ---: | ---: | ---: |
-| [Scenario 98](RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) · finite AST executable | 6 | 6 | 2 | 4 |
-| [Scenario 103](RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md) · solver worker | 6 | 6 | 3 | 3 |
-| [Scenario 118](RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md) · bounded model | 7 | 7 | 4 | 3 |
-| [Scenario 133](RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md) · generated Rust | 7 | 6 | 3 | 3 |
-| [RT-05 SPG](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) · mixed model/experiment | 3 | 1 | 1 | 0 |
-| [RT-04 alternatives](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) · survey | 6 | 6 | 3 | 3 |
-| [RT-11 benchmark](RT-11-BINDING-INVALIDATION-BENCHMARK.md) · compiled C | 8 | 8 | 3 | 5 |
-| [Scenario 29](RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md) · proposal/fake runner | 8 | 8 | 4 | 4 |
-| [Scenario 134](RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md) · standards survey | 5 | 5 | 3 | 2 |
+| [Scenario 98](../RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) · finite AST executable | 6 | 6 | 2 | 4 |
+| [Scenario 103](../RT-06/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md) · solver worker | 6 | 6 | 3 | 3 |
+| [Scenario 118](../RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md) · bounded model | 7 | 7 | 4 | 3 |
+| [Scenario 133](../RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md) · generated Rust | 7 | 6 | 3 | 3 |
+| [RT-05 SPG](../RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) · mixed model/experiment | 3 | 1 | 1 | 0 |
+| [RT-04 alternatives](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) · survey | 6 | 6 | 3 | 3 |
+| [RT-11 benchmark](../RT-11/RT-11-BINDING-INVALIDATION-BENCHMARK.md) · compiled C | 8 | 8 | 3 | 5 |
+| [Scenario 29](../RT-07/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md) · proposal/fake runner | 8 | 8 | 4 | 4 |
+| [Scenario 134](../RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md) · standards survey | 5 | 5 | 3 | 2 |
 | [DEP-007 recheck](RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md) · checked proof evidence | 9 | 9 | 3 | 6 |
 | **Total** | **65** | **62** | **29** | **33** |
 
@@ -63,7 +63,7 @@ The 29 classification decisions are *manual document readings*, not independent 
 
 ## 4. Reproduction and environment
 
-This report's pinned machine-readable [sample](quality-audit/2026-11-23-sample.json) includes exact Git blob IDs for all inputs. Python 3.10+ and Git are required; the scripts use only Python standard library modules. The locally reproduced synthetic checker unit tests passed on **CPython 3.13.5** (seven tests after the additional metadata regression). The ten-report replay runs in the independent GitHub Actions environment using the repository checkout; its artifact records actual Python version, blob matches, warnings and snapshot matches. Do not confuse the separately observed local unit test with an independent GitHub Actions result.
+This report's pinned machine-readable [sample](../quality-audit/2026-11-23-sample.json) includes exact Git blob IDs for all inputs. Python 3.10+ and Git are required; the scripts use only Python standard library modules. The locally reproduced synthetic checker unit tests passed on **CPython 3.13.5** (seven tests after the additional metadata regression). The ten-report replay runs in the independent GitHub Actions environment using the repository checkout; its artifact records actual Python version, blob matches, warnings and snapshot matches. Do not confuse the separately observed local unit test with an independent GitHub Actions result.
 
 From a clean checkout of the PR head containing the manifest and checker changes:
 

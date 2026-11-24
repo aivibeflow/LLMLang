@@ -10,7 +10,7 @@ How must a path analyzer update a symbolic value across a call when the callee m
 
 ## 2. Fixture
 
-The finite fixture evaluates `if x`, invokes a call that may affect `x`, and then evaluates `if x` again. The domain is one Boolean value before and after the call, with four possible state pairs. Executable alternatives are in [`rt03_call_mutation_summaries.py`](PROTOTYPES/RT-04-01/rt03_call_mutation_summaries.py) and its focused tests.
+The finite fixture evaluates `if x`, invokes a call that may affect `x`, and then evaluates `if x` again. The domain is one Boolean value before and after the call, with four possible state pairs. Executable alternatives are in [`rt03_call_mutation_summaries.py`](../PROTOTYPES/RT-04-01/rt03_call_mutation_summaries.py) and its focused tests.
 
 | Summary | Allowed state transition | Feasible routes | Consequence |
 |---|---|---|---|

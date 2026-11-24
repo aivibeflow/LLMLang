@@ -8,7 +8,7 @@
 
 ## 1. Objective and scope
 
-Investigate whether LLMLang can produce firmware that executes without a host OS, and whether functional, temporal, memory and hardware protocol guarantees can be checked compositionally. A freestanding executable may have explicit startup and support routines but must not silently depend on POSIX, libc, a scheduler, garbage collection or a heap. This is a shared foundation for [RT-38 kernels](../RT-38-VERIFIED-OS-KERNELS/README.md). A real-time profile is an orthogonal constraint, not a synonym for bare metal.
+Investigate whether LLMLang can produce firmware that executes without a host OS, and whether functional, temporal, memory and hardware protocol guarantees can be checked compositionally. A freestanding executable may have explicit startup and support routines but must not silently depend on POSIX, libc, a scheduler, garbage collection or a heap. This is a shared foundation for [RT-38 kernels](../RT-38/README.md). A real-time profile is an orthogonal constraint, not a synonym for bare metal.
 
 Hypotheses: H1 a target-gated subset can preserve core semantics without hidden hosted dependencies; H2 typed peripheral protocols and effect/capability contracts can expose illegal operations; H3 target-specific cost/stack models can establish useful resource bounds for restricted programs. Falsify these by exhibiting a required semantic operation that cannot be lowered in the profile, an accepted invalid hardware trace, or an unsound resource bound.
 
@@ -57,8 +57,8 @@ Negative controls: hidden libc/OS imports or allocator calls; invalid register m
 
 ## 4. Dependencies, evidence and exit criteria
 
-- [Core semantics](../CORE-LANGUAGE-SEMANTICS.md), [RT-04](../RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md), [layout/ABI](../RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md), [atomic lowering](../RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md), [LLVM](../LLVM-BACKEND-ARCHITECTURE.md) and [POSIX boundary](../POSIX-RUNTIME-ARCHITECTURE.md) provide candidate foundations; POSIX is not a required execution dependency.
-- [Public interfaces](../PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md), [RT-34 resources](../RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md), [RT-36 assumptions](../RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) and RT-07/08/13/16/32/33 constrain proof/evidence, target preservation and authority. Asymptotic complexity alone is not a concrete timing bound.
+- [Core semantics](../RT-03/CORE-LANGUAGE-SEMANTICS.md), [RT-04](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md), [layout/ABI](../RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md), [atomic lowering](../RT-13/RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md), [LLVM](../RT-13/LLVM-BACKEND-ARCHITECTURE.md) and [POSIX boundary](../RT-10/POSIX-RUNTIME-ARCHITECTURE.md) provide candidate foundations; POSIX is not a required execution dependency.
+- [Public interfaces](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md), [RT-34 resources](../RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md), [RT-36 assumptions](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) and RT-07/08/13/16/32/33 constrain proof/evidence, target preservation and authority. Asymptotic complexity alone is not a concrete timing bound.
 - Pin target, compiler/linker versions, source/SPG revisions, memory map, device model, clock/interrupt model, proof checker, assumptions and commands. Compare independent reference traces and negative controls; preserve link maps, binary imports, traces, measurements and proof/evidence scope.
 - Exit: documented comparative profile and unsupported operations; reproducible bootable firmware pilot with explicit runtime closure and independent tests; checked obligations in a declared fragment and separately scoped timing/resource evidence; unresolved gaps and draft-change proposals recorded. No automatic normative adoption.
 

@@ -62,4 +62,4 @@ The `llvm-preservation` job in [Research Native Reproduction run 44774296240](ht
 
 The manifest confirms Debian Trixie LLVM package `1:19.1.7-3+b1` with SHA-256 `0b1b7263f4f45e261099240fdbf00fc14b42b88410fd829e041bf83ea45866cb`, Python 3.12.14, GCC 14.2.0, GNU ld 2.44, and x86-64. Integer preservation passed 20,978 comparisons at each of O0/O3; byte-view preservation passed 9,800 comparisons at each level. There were zero mismatches; the expected negative controls disagreed with the source reference.
 
-The workflow invokes [`run_llvm_preservation_probes.py`](PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py). These probes remain separate from Required CI and are bounded to the recorded fixtures, package, target, and optimization levels.
+The workflow invokes [`run_llvm_preservation_probes.py`](../PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py). These probes remain separate from Required CI and are bounded to the recorded fixtures, package, target, and optimization levels.
