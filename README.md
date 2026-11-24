@@ -16,6 +16,8 @@ The design explores a **Semantic Program Graph (SPG)** as the canonical represen
 
 Agents propose changes to named graph objects against an exact baseline. One candidate uses stable IDs across revisions and renames, content hashes for immutable semantic revisions, and a Merkle DAG of hash-relevant dependencies to trace affected objects and checks. The project is evaluating identity alternatives. [Language concept](research/LLMLang-CONCEPT.md) · [Development Engine RFC](research/RFC-DEVELOPMENT-ENGINE.md)
 
+A proposed public-interface model separates stable qualified names, exact immutable operation contracts, implementation contracts and provider bindings. Independent checks establish body correctness and public-contract refinement; name resolution and provider selection remain separate from exact call identity. [Public interfaces research](research/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) (candidate, not adopted).
+
 ## What this enables
 
 - **Trace a requirement change through the program.** If a caller's tax policy changes, the graph can identify the affected bindings and checks while preserving the shared contract and other callers' policies. The dependency graph prototype exercises this case and models how requirement revisions affect verification keys. [Business intent prototype](research/PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-16-RESULTS.md) · [Requirement evolution prototype](research/PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-18-RESULTS.md)

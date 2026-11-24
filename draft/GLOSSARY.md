@@ -149,6 +149,14 @@ Tests, proofs, refinement arguments, or other accepted evidence establishing tha
 
 RT-20 stores the caller-required Contract hash at each call site and resolves the callee-provided Contract through the exact callee declaration. Those are generic Contract-object identities, not `CCHash` values. Exact Contract identity does not establish behavioral compatibility between distinct Contract versions. The proposed compatibility direction and evidence requirements are documented in [RT-20 Contract Identity and Compatibility](../research/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md).
 
+## Public interface terminology (proposed extension; not adopted)
+
+**Public Interface:** governed, exported named semantic operation or group of operations with public contracts, independent of a concrete provider. A stable qualified name resolves in a pinned namespace/catalog to an immutable operation revision (candidate mapping to OpHash) or an explicit group revision. Stable name, logical lineage, ContractHash, OpHash, ImplHash, CCHash, provider binding revision and external ABI mapping have distinct roles. No new hash kind or mandatory nominal ID is selected.
+
+**Provided Contract:** exact contract owned/referenced by an implementation. **Public Contract:** exact contract resolved through the public operation revision. **Contract refinement:** provided contract preserves every public guarantee for every admitted public input/state/environment, including promised progress and effects. Equality of hashes, signatures or declared links is not behavioral proof. **Public conformance evidence:** independent evidence of body correctness and refinement (or a separately scoped direct proof), plus applicable binding/profile obligations. Caller proof may remain conditional until its provider assumptions are discharged.
+
+See [candidate model](../research/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). Accepted architecture and existing identity rules remain unchanged.
+
 ## Open points
 
 The following details remain for the specification to define:

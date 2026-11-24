@@ -30,3 +30,7 @@
 ## Reconsideration trigger
 
 Reopen this decision only if LLMLang adopts independently built component exchange, cross-toolchain-version linking, dynamic component loading, external RPC, persisted serialized messages that outlive a build, or a separately versioned binary/plugin ABI.
+
+## Related research (not an amendment to the decision)
+
+The [public interfaces proposal](../research/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) investigates stable names resolving to immutable operation revisions and separate verified provider bindings. It is consistent with immutable published components and does not adopt cross-toolchain ABI/wire compatibility or runtime negotiation. Behavioral refinement remains a separate open question; the accepted decision above is unchanged.

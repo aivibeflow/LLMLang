@@ -89,6 +89,17 @@ Priority is a planning aid, not a measure of correctness:
 
 ---
 
+### Public interfaces — cross-cutting extension of LL-001, LL-002, LL-003 and LL-008
+
+- **Status:** Open; candidate research, not a decision.
+- **Priority:** P0 for identity and verification foundations.
+- **Question:** How do stable qualified names resolve to exact public operation revisions, how are providers selected, and how do independent body and refinement obligations establish conformance?
+- **Open:** namespace/alias/lineage rules, operation groups, exact catalog and binding identities, variance, state abstraction, progress/resources, unknown evidence, publication authority, caller-specific stronger contracts, compatible revision migration, separate ABI/source compatibility.
+- **Recommendation:** retain exact OpHash/ImplHash invocation modes and single provider-owned Contract references. Do not introduce a redundant identity or mandatory dynamic lookup.
+- **Related:** [public interface proposal](research/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md), [Plan §1.3.1](PLAN.md#131-public-interfaces-and-verified-provider-binding-rt-0520-proposed).
+
+---
+
 ## Semantic identity and artifact store
 
 ### LL-004 — Choose canonical encoding and hash algorithm policy

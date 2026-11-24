@@ -57,6 +57,7 @@ Every feature has a stable registry ID, name, scope, concise capability statemen
 | F-REQ-005 | Invariant composition and compatibility | Require all declared invariants to hold together; check compatibility conservatively and reject proven contradictions. | Candidate | P0 | [structure contracts, §§3–4](research/STRUCTURE-CONTRACTS-AND-ATOMIC-COMMIT-VERIFICATION.md) |
 | F-REQ-006 | Deferred invariant checks and commit boundary | Permit only contract-authorized temporary invalid states; verify the affected consistency scope before atomic publication. | Candidate | P0 | [structure contracts, §4](research/STRUCTURE-CONTRACTS-AND-ATOMIC-COMMIT-VERIFICATION.md) |
 | F-REQ-007 | Requirement-to-evidence traceability | Link requirements and contracts to implementations, tests, proofs, and exact verification evidence. | Researching | P0 | [RT-02](research/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md), [RT-08](research/RESEARCH-TAXONOMY.md#2-research-area-inventory) |
+| F-REQ-008 | Public interface contracts and provider refinement | Stable public names and exact immutable operation contracts; independent body correctness and contract refinement with explicit evidence and unknown states. | Proposed | P0 | [Public interfaces](research/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md), [RT-20](research/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md) |
 
 ### 2.2 Core language: values, types, structures, ownership, and execution
 
@@ -102,6 +103,7 @@ Every feature has a stable registry ID, name, scope, concise capability statemen
 | F-DEP-004 | Change impact analysis and planning | Compute the affected closure and a versioned Change Impact Plan before implementation. | Proposed | P0 | [RT-20](research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) |
 | F-DEP-005 | Per-call-site compatibility and version splitting | Independently preserve, migrate, adapt, or fork caller/callee bindings; do not blindly migrate every caller to the newest version. | Proposed | P0 | [RT-20](research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [LL-003](TODO.md#ll-003--specify-contract-based-analogue-discovery-and-substitution) |
 | F-DEP-006 | Hash propagation to entry points | Propagate identity changes only through hash-relevant references selected for migration or semantic modification. | Proposed | P0 | [RT-20](research/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [LL-005](TODO.md#ll-005--define-hash-relevant-dependency-edges-and-cycles) |
+| F-SPG-013 | Public name resolution and exact provider binding | Separate scoped export catalog, exact operation revision, provider selection and external symbol mapping; explicit compatible evolution and deterministic resolution. | Proposed | P0 | [Public interfaces](research/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md), [RT-05](research/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) |
 
 ### 2.4 Formal semantics, verification, tests, and evidence
 

@@ -257,6 +257,17 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Research output (2026-11-23):** [Contract versus implementation identity recheck](research/RT-04-CONTRACT-VS-IMPLEMENTATION-IDENTITY-RECHECK-2026-11-23.md) reran the synthetic binding fixture on current main. It demonstrates two observably different implementations satisfying the same bounded contract, while caller compilation remains reusable only across a stable separately linked boundary. This supports separating OpHash from ImplHash and using explicit BindingHash when exact execution must be pinned; it does not prove general refinement/substitutability or settle the OpHash envelope.
 
+### 1.3.1 Public interfaces and verified provider binding (RT-05/20; proposed)
+
+- [ ] Specify stable qualified public names, scoped export catalogs, aliases/lineage and exact immutable interface revisions; reconcile OpHash rather than assume a new hash.
+- [ ] Define operation/group signatures, public contracts, provider-owned contracts and explicit bindings; distinguish direct and operation calls, external symbol/ABI mappings and runtime dispatch.
+- [ ] Generate separate body-correctness and contract-refinement obligations, including state/protocol, effect, authority, ownership, progress and resource guarantees; reject vacuity and unsupported proof claims.
+- [ ] Specify reproducible resolution, authorized publication, absence/ambiguity handling, exact evidence, conditional caller proofs and independent verification.
+- [ ] Test compatible evolution, breaking revisions, explicit migration, scoped invalidation, package export/index consistency, merge and cache soundness.
+- [ ] Implement finite oracle and independent backend/source correspondence benchmarks before selecting normative semantics.
+
+**Status:** proposed; [public-interface research](research/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). **Exit gate:** independent review and positive/negative evidence across relevant semantic profiles; no change to accepted single-toolchain compatibility decision.
+
 ## 1.4 Core language semantics (RT-03)
 
 **Estimated research complexity:** **7/10** — substantial remaining work on source correspondence, effects, paths, calls, cancellation, resources, and independent review.

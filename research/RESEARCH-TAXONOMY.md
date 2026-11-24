@@ -140,6 +140,8 @@ Priority is provisional and indicates dependency leverage, not importance to use
 
 RT-07 includes an exact-byte gate for source-derived query envelopes. Structural preservation through the decoder and CPC verification remain open. [Source-owned query envelope](RT-07-SOURCE-OWNED-QUERY-ENVELOPE.md)
 
+**Cross-cutting public-interface research (RT-05/20; proposed):** [stable names and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) connects RT-03/04 call/type semantics, RT-05/06 identity/dependencies, RT-07/08/32/33 verification, RT-09/11 build boundaries, RT-12 package exports, RT-16 trust, RT-18 evolution, RT-19/20/23/24 publication/merge and RT-34/35 resources and discovery. This is a vector within existing areas, not a new RT identifier or accepted language rule.
+
 ## 3. Required research artifact
 
 Every research report should identify:
