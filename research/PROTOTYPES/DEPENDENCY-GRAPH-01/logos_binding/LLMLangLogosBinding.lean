@@ -18,15 +18,19 @@ structure ExpectedDeclaration where
 
 abbrev ParserState := Logos.Parser.State Eo.Term
 
+/-- Retain the parser state and the exact assumption/command pair of the ordinary parser. -/
+structure ParsedProofEvidence (proof : String) where
+  assumptions : List Eo.Term
+  commands : Eo.CCmdList
+  stateCommands : Eo.CCmdList
+  state : ParserState
+  ordinary : Eo.parseProof proof = .ok (assumptions, commands)
+
 /--
-Run the pinned Logos CPC parser while retaining its final declaration state.
-Datatype elaboration is disabled here because this bridge accepts only the
-Bool/Int QF_LIA fragment. The ordinary Eo.parseProof result is checked against
-the state-preserving path before returning.
+Run state-preserving parsing over the Bool/Int profile. Require agreement
+with the ordinary parser on assumptions and keep its exact commands for the checker.
 -/
-def parseProofWithState
-    (proof : String) :
-    Except String (List Eo.Term × Eo.CCmdList × ParserState) := do
+def parseProofEvidence (proof : String) : Except String (ParsedProofEvidence proof) := do
   let sexps ← Logos.Sexp.Parser.manySexps!.run proof
   let cfg : Logos.Parser.Config Eo.Term Eo.CRule Eo.CCmd Eo.CCmdList :=
     { Eo.parserConfig with datatypeTerms := none }
@@ -34,11 +38,18 @@ def parseProofWithState
     { Logos.Parser.State.ofOps cfg.ops with macros := .ofList cfg.macros }
   let ((assumptions, commands), finalState) ←
     (Logos.Parser.parseCommands cfg sexps).run initial
-  let ordinary ← Eo.parseProof proof
-  if assumptions = ordinary.1 then
-    pure (assumptions, commands, finalState)
-  else
-    throw "state-preserving CPC parser disagrees with Eo.parseProof assumptions"
+  match parsed : Eo.parseProof proof with
+  | .error reason => .error reason
+  | .ok (ordinaryAssumptions, ordinaryCommands) =>
+      if same : assumptions = ordinaryAssumptions then
+        pure ⟨assumptions, ordinaryCommands, commands, finalState, by simpa only [same] using parsed⟩
+      else
+        throw "state-preserving CPC parser disagrees with Eo.parseProof assumptions"
+
+/-- Preserve the state-parser result for callers that consume that command stream. -/
+def parseProofWithState (proof : String) :
+    Except String (List Eo.Term × Eo.CCmdList × ParserState) :=
+  (parseProofEvidence proof).map fun parsed => (parsed.assumptions, parsed.stateCommands, parsed.state)
 
 /-- Check that a parsed declared constant has exactly the expected QF_LIA sort. -/
 def hasExpectedSort : Eo.Term → ExpectedSort → Bool
@@ -396,14 +407,7 @@ def bindDecodedQueryDeclarations
     { name := declaration.name, sort := declaration.sort.expected : ExpectedDeclaration }
   bindExpectedDeclarations state expected
 
-/-- Decode, bind, render, and structurally compare the complete CPC assumptions. -/
-def checkCanonicalQueryAssumptions
-    (proof : String)
-    (queryJson : String) :
-    Except String Unit := do
-  let query ← decodeCanonicalRelationalQuery queryJson
-  let (assumptions, _commands, state) ← parseProofWithState proof
-  let bindings ← bindDecodedQueryDeclarations state query
+private def queryFactorSort (query : DecodedRelationalQuery) : Except String QuerySort := do
   let some leftDeclaration := query.declarations.find? (fun d => d.name == query.factorLeft)
     | throw "factor_left does not reference a declared symbol"
   let some rightDeclaration := query.declarations.find? (fun d => d.name == query.factorRight)
@@ -416,16 +420,42 @@ def checkCanonicalQueryAssumptions
     (fun d => d.name.endsWith "_L" || d.name.endsWith "_R")
   if pairedDeclarations.length != 2 then
     throw "query must contain exactly one selected factor declaration pair"
-  let left ← resolveQuerySymbol bindings query.factorLeft leftDeclaration.sort
-  let right ← resolveQuerySymbol bindings query.factorRight rightDeclaration.sort
-  let expectedFactor := apply1 .not (apply2 .eq left right)
-  let decodedFactor ← renderQueryTerm bindings query.factorDifference
-  if decodedFactor != expectedFactor then
-    throw "factor_difference is not exactly not (= factor_left factor_right)"
-  let expectedObservations ← renderQueryTerm bindings query.observationsDiffer
-  let expected := [expectedFactor, expectedObservations]
-  if assumptions != expected then
-    throw "complete CPC assumption list differs from canonical query terms"
+  pure leftDeclaration.sort
+
+/-- Evidence about the exact assumptions supplied to the ordinary Logos checker. -/
+structure CheckedQueryAssumptions (proof : String) (query : DecodedRelationalQuery) where
+  parsed : ParsedProofEvidence proof
+  bindings : List (String × Eo.Term)
+  factorSort : QuerySort
+  acceptedSort : queryFactorSort query = .ok factorSort
+  acceptedBindings : bindDecodedQueryDeclarations parsed.state query = .ok bindings
+  assumptions : renderRelationalAssumptions bindings factorSort query.factorLeft query.factorRight
+    query.factorDifference query.observationsDiffer = .ok parsed.assumptions
+
+/-- Bind and compare the complete ordered assumptions for an already decoded query. -/
+def checkQueryAssumptions (proof : String) (query : DecodedRelationalQuery) :
+    Except String (CheckedQueryAssumptions proof query) := do
+  let parsed ← parseProofEvidence proof
+  match bound : bindDecodedQueryDeclarations parsed.state query with
+  | .error reason => .error reason
+  | .ok bindings =>
+    match sorted : queryFactorSort query with
+    | .error reason => .error reason
+    | .ok factorSort =>
+      match rendered : renderRelationalAssumptions bindings factorSort query.factorLeft
+          query.factorRight query.factorDifference query.observationsDiffer with
+      | .error reason => .error reason
+      | .ok expected =>
+        if same : parsed.assumptions = expected then
+          pure ⟨parsed, bindings, factorSort, sorted, bound,
+            by simpa only [same] using rendered⟩
+        else
+          throw "complete CPC assumption list differs from canonical query terms"
+
+/-- Decode, bind, render, and structurally compare the complete CPC assumptions. -/
+def checkCanonicalQueryAssumptions (proof queryJson : String) : Except String Unit := do
+  let query ← decodeCanonicalRelationalQuery queryJson
+  let _ ← checkQueryAssumptions proof query
   pure ()
 
 end LLMLang.LogosBinding

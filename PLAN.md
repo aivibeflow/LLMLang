@@ -436,6 +436,8 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 
 **CPC alias evidence (2026-11-21)** · A closed proof profile can admit disjoint nullary abbreviations while checking actual top-level constant declarations separately. [CPC alias binding](research/RT-07-CPC-NULLARY-ALIAS-BINDING.md)
 
+**SCW-33 acceptance evidence:** [Exact CPC binding and verdict](research/RT-07-BOUND-CPC-VERDICT.md) ties every accepted source-wire query to the ordinary parser's ordered assumptions and exact command stream used by Logos. Interpretation of rendered terms and the wider checker trust boundary remain open.
+
 **Status** — Partially validated. Pinned CI passed the version-2 CPC parser-state and factor-pair tests in run 44185102839. SCW-06–30 establish correspondence from the checked source AST to a canonical difference formula and prove QF_LIA admissibility and declaration closure in the solver term representation. JSON correspondence and source-derived CPC binding remain open. [Scenario 34 proof boundary](research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
 
 ## 2.4 Verified SPG-to-Lean pipeline (RT-32)
