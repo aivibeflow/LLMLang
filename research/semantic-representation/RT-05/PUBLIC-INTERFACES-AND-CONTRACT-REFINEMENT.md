@@ -131,6 +131,8 @@ Start with a finite typed oracle independent of a refinement checker; enumerate 
 | State protocol with per-method proofs but broken joint invariant | Reject |
 | Two conforming but observationally different providers | Do not claim equivalence or refactoring correctness |
 
+The [finite refinement pilot](PUBLIC-INTERFACE-FINITE-REFINEMENT-PILOT-2026-11-24.md) checks these first admission distinctions with Python and Lean. It uses declared finite observation tables. General correspondence and the planned protocol, liveness and resource controls remain open.
+
 ## 6. Findings, limitations and decision boundary
 
 The existing RT-20 compatibility boundary is the natural starting point; RT-05 already distinguishes operation and implementation, so avoid parallel incompatible identity models. The proposal does not prove any theorem or establish language-wide soundness, canonical hashing, dispatch semantics, ABI, or complete contract taxonomy coverage. Rich refinement is undecidable in general; supported fragments, proof assistance, explicit UNKNOWN and policy-controlled evidence are necessary. Security hyperproperties, probabilistic contracts, concurrent history and resource models require separate semantics and proof rules. Independent review and compiler/runtime correspondence remain open.

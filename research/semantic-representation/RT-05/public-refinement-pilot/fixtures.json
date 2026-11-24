@@ -1,0 +1,45 @@
+{
+  "observations": {
+    "left": {"status": "ok", "value": 0, "trace": ["acquire", "handoff"], "ownership": "owned"},
+    "right": {"status": "ok", "value": 1, "trace": ["acquire", "handoff"], "ownership": "owned"},
+    "reordered": {"status": "ok", "value": 0, "trace": ["handoff", "acquire"], "ownership": "owned"},
+    "omitted": {"status": "ok", "value": 0, "trace": ["acquire"], "ownership": "owned"},
+    "failure": {"status": "unexpected-error", "value": null, "trace": ["acquire"], "ownership": "none"},
+    "borrowed": {"status": "ok", "value": 0, "trace": ["acquire", "handoff"], "ownership": "borrowed"}
+  },
+  "contracts": {
+    "public": {"0": ["left", "right"], "1": ["left", "right"]},
+    "extended-and-tightened": {"0": ["left"], "1": ["left"], "2": ["left"]},
+    "narrow-domain": {"0": ["left"]},
+    "extra-outcome": {"0": ["left"], "1": ["left", "reordered"]},
+    "promises-left": {"0": ["left"], "1": ["left"]},
+    "impossible": {"0": ["left"], "1": []}
+  },
+  "bodies": {
+    "left": {"0": "left", "1": "left", "2": "left"},
+    "right": {"0": "right", "1": "right"},
+    "reordered": {"0": "left", "1": "reordered"},
+    "omitted": {"0": "left", "1": "omitted"},
+    "failure": {"0": "left", "1": "failure"},
+    "borrowed": {"0": "left", "1": "borrowed"},
+    "unsupported": {"0": "left", "1": null},
+    "fails-extra-provider-domain": {"0": "left", "1": "left", "2": "failure"}
+  },
+  "cases": [
+    {"name": "same-contract", "public": "public", "provided": "public", "body": "left", "signature": true, "expected": ["admit", "admit", "admit"]},
+    {"name": "wider-precondition-and-tighter-result", "public": "public", "provided": "extended-and-tightened", "body": "left", "signature": true, "expected": ["admit", "admit", "admit"]},
+    {"name": "provider-precondition-too-strong", "public": "public", "provided": "narrow-domain", "body": "left", "signature": true, "expected": ["admit", "admit", "reject"]},
+    {"name": "provider-guarantee-too-weak", "public": "public", "provided": "extra-outcome", "body": "left", "signature": true, "expected": ["admit", "admit", "reject"]},
+    {"name": "body-breaks-promised-provider-contract", "public": "public", "provided": "promises-left", "body": "right", "signature": true, "expected": ["admit", "admit", "reject"]},
+    {"name": "body-fails-extra-provider-domain", "public": "public", "provided": "extended-and-tightened", "body": "fails-extra-provider-domain", "signature": true, "expected": ["admit", "admit", "reject"]},
+    {"name": "reordered-effects", "public": "public", "provided": "public", "body": "reordered", "signature": true, "expected": ["admit", "reject", "reject"]},
+    {"name": "omitted-effect", "public": "public", "provided": "public", "body": "omitted", "signature": true, "expected": ["admit", "reject", "reject"]},
+    {"name": "unexpected-error", "public": "public", "provided": "public", "body": "failure", "signature": true, "expected": ["admit", "reject", "reject"]},
+    {"name": "borrowed-instead-of-owned", "public": "public", "provided": "public", "body": "borrowed", "signature": true, "expected": ["admit", "reject", "reject"]},
+    {"name": "unsupported-observation", "public": "public", "provided": "public", "body": "unsupported", "signature": true, "expected": ["admit", "unknown", "unknown"]},
+    {"name": "vacuous-provided-contract", "public": "public", "provided": "impossible", "body": "left", "signature": true, "expected": ["admit", "admit", "reject"]},
+    {"name": "vacuous-public-contract", "public": "impossible", "provided": "public", "body": "left", "signature": true, "expected": ["admit", "reject", "reject"]},
+    {"name": "signature-mismatch", "public": "public", "provided": "public", "body": "left", "signature": false, "expected": ["reject", "reject", "reject"]},
+    {"name": "distinct-conforming-body", "public": "public", "provided": "public", "body": "right", "signature": true, "expected": ["admit", "admit", "admit"]}
+  ]
+}

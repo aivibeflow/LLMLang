@@ -291,6 +291,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Test compatible evolution, breaking revisions, explicit migration, scoped invalidation, package export/index consistency, merge and cache soundness.
 - [ ] Implement finite oracle and independent backend/source correspondence benchmarks before selecting normative semantics.
 
+**Bounded refinement pilot (2026-11-24):** The [finite Python/Lean comparison](research/semantic-representation/RT-05/PUBLIC-INTERFACE-FINITE-REFINEMENT-PILOT-2026-11-24.md) checks 15 fixtures and distinguishes a direct public-body judgment from separate body and refinement obligations. The finite case theorem is kernel checked. Source-to-observation correspondence, independent review and the broader profiles remain open.
+
 **Status:** proposed; [public-interface research](research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). **Exit gate:** independent review and positive/negative evidence across relevant semantic profiles; no change to accepted single-toolchain compatibility decision.
 
 ## 1.4 Core language semantics (RT-03)
