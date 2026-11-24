@@ -769,6 +769,7 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 - [ ] Prototype a Git merge driver that invokes the LLMLang semantic merge tool.
   - [x] Compare a native file driver, explicit-context refusal and textual fallback across 12 temporary-repository cases. Merge, cherry-pick and rebase each report success for a pair with identical driver observations and different graph closure. Only the full pinned trees expose all three missing exact callees. [Native merge driver experiment](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-GIT-MERGE-DRIVER-2026-11-24.md).
 - [ ] Prototype a Git mergetool integration for interactive conflicts.
+  - [x] Compare native Git mergetool exit status with a repository-context adapter in 12 cases. Exact inputs and staged semantic reconstruction preserve an ordinary conflict and reject a stale index, a wrong input blob and two semantic conflicts. Native Git can leave no conflict stages despite a broken call. Missing tools and unsupported replay operations preserve the stages. General interactive resolution and publication still require their own gates. [Native mergetool experiment](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-GIT-MERGETOOL-2026-11-24.md).
 - [ ] Define clean fallback behavior when the tool is unavailable.
 - [ ] Test merges in normal Git workflows and across operating systems.
 - [ ] Verify that merge drivers do not silently discard unresolved semantic conflicts.
