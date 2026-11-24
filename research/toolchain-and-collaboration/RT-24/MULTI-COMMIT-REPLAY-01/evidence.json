@@ -1,0 +1,329 @@
+{
+  "approved_prefix_roots": [
+    "731bf29089fc42727a23b27183f64777c6dc6514a1ecaa17be2276d49f107d51",
+    "1ce430cca1535e4aff8cf1e4094bf590a380d8a86784a9499cd43017b45bde13",
+    "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1"
+  ],
+  "experiments": {
+    "approved_prefixes/cherry-pick": {
+      "all_replayed_commits_closed": true,
+      "evidence": "1dfa624d58ff786a24e23a3ff4a891ac05d33303dc3063b44bea8b195470de14",
+      "onto": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+      "preserves_approved_semantic_prefixes": true,
+      "replayed": [
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "a34c8a4058aa484034024ee043bb2478fbf06cc3",
+          "parent": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+          "retained": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "root": "731bf29089fc42727a23b27183f64777c6dc6514a1ecaa17be2276d49f107d51",
+          "status": "closed",
+          "target": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "tree": "e09c549a1577280f9d88b04632714f1daf7af36f"
+        },
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "e182fc5e8e88f7807c37deea9cc7456742c22d22",
+          "parent": "a34c8a4058aa484034024ee043bb2478fbf06cc3",
+          "retained": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "root": "1ce430cca1535e4aff8cf1e4094bf590a380d8a86784a9499cd43017b45bde13",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "02ee0c9b4ac7811d957444a4836d52b28d616769"
+        },
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "dc3a86b25e1327ba3f8a6a39adfcebd47ce0bd90",
+          "parent": "e182fc5e8e88f7807c37deea9cc7456742c22d22",
+          "retained": null,
+          "root": "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "2fc40c8bc03f2e990b14bb6bcced90afa1485869"
+        }
+      ],
+      "source_commits": [
+        "65f9df710b3b8b15a2c016a03e5c3e2b401c964f",
+        "faf904b20700843d11fb1f904072f4d87f0e78a5",
+        "2467e5e352ad294de397d31122c604dcce64f84d"
+      ],
+      "source_parent": "219c12a6aa71c86ef8e465fcb846b96153d01e0f",
+      "terminal_semantic_gate": true
+    },
+    "approved_prefixes/rebase": {
+      "all_replayed_commits_closed": true,
+      "evidence": "8d691a1a30429378da12d6cefa2044435322a54cdf62cc75dcf866527bf01489",
+      "onto": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+      "preserves_approved_semantic_prefixes": true,
+      "replayed": [
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "a34c8a4058aa484034024ee043bb2478fbf06cc3",
+          "parent": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+          "retained": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "root": "731bf29089fc42727a23b27183f64777c6dc6514a1ecaa17be2276d49f107d51",
+          "status": "closed",
+          "target": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "tree": "e09c549a1577280f9d88b04632714f1daf7af36f"
+        },
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "e182fc5e8e88f7807c37deea9cc7456742c22d22",
+          "parent": "a34c8a4058aa484034024ee043bb2478fbf06cc3",
+          "retained": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "root": "1ce430cca1535e4aff8cf1e4094bf590a380d8a86784a9499cd43017b45bde13",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "02ee0c9b4ac7811d957444a4836d52b28d616769"
+        },
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "dc3a86b25e1327ba3f8a6a39adfcebd47ce0bd90",
+          "parent": "e182fc5e8e88f7807c37deea9cc7456742c22d22",
+          "retained": null,
+          "root": "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "2fc40c8bc03f2e990b14bb6bcced90afa1485869"
+        }
+      ],
+      "source_commits": [
+        "65f9df710b3b8b15a2c016a03e5c3e2b401c964f",
+        "faf904b20700843d11fb1f904072f4d87f0e78a5",
+        "2467e5e352ad294de397d31122c604dcce64f84d"
+      ],
+      "source_parent": "219c12a6aa71c86ef8e465fcb846b96153d01e0f",
+      "terminal_semantic_gate": true
+    },
+    "approved_prefixes/squash": {
+      "all_replayed_commits_closed": true,
+      "evidence": "dbbb88a220b67921fe4a6d9132c71d31c260edb7e79aac3f55616a07e6b4f987",
+      "onto": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+      "preserves_approved_semantic_prefixes": false,
+      "replayed": [
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "ad0bff6af7bb8f4a97156ec66a9ea676c94c2b78",
+          "parent": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+          "retained": null,
+          "root": "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "2fc40c8bc03f2e990b14bb6bcced90afa1485869"
+        }
+      ],
+      "source_commits": [
+        "65f9df710b3b8b15a2c016a03e5c3e2b401c964f",
+        "faf904b20700843d11fb1f904072f4d87f0e78a5",
+        "2467e5e352ad294de397d31122c604dcce64f84d"
+      ],
+      "source_parent": "219c12a6aa71c86ef8e465fcb846b96153d01e0f",
+      "terminal_semantic_gate": true
+    },
+    "different_valid_prefix/cherry-pick": {
+      "all_replayed_commits_closed": true,
+      "evidence": "16fb063cb76566d640c8bf6c59b07e00cbcff29bf093c481d1d61a3f54a2df91",
+      "onto": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+      "preserves_approved_semantic_prefixes": false,
+      "replayed": [
+        {
+          "callee": "c8f75526110d755b07c9397265714347837dd7a3305ad13fc8bcf48ce1ef1db1",
+          "commit": "e7a11ae83060296463799e0ffca2e6a84ed91fd1",
+          "parent": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+          "retained": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "root": "ad16041abbcccd9fef917ad4ffd40a9d93ba4b41ff0aa7f47e71ac29c03199b2",
+          "status": "closed",
+          "target": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "tree": "23c4a88f923efc3cd7684ebe8afe815d799ecc83"
+        },
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "8b683380a7a3f73334274c1a36f236b52fcda4c1",
+          "parent": "e7a11ae83060296463799e0ffca2e6a84ed91fd1",
+          "retained": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "root": "1ce430cca1535e4aff8cf1e4094bf590a380d8a86784a9499cd43017b45bde13",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "02ee0c9b4ac7811d957444a4836d52b28d616769"
+        },
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "7cc664d0d6f3c9c1e5a1fc8a3d5e00256231fd2c",
+          "parent": "8b683380a7a3f73334274c1a36f236b52fcda4c1",
+          "retained": null,
+          "root": "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "2fc40c8bc03f2e990b14bb6bcced90afa1485869"
+        }
+      ],
+      "source_commits": [
+        "fe3cae2f1b1a01dbdb30bcc958789e6193db88ff",
+        "5bb3fe253728ef13ab705340903af6b397716c5f",
+        "20b08dc594fe08cd3de8316289b2ecbdfdd4656c"
+      ],
+      "source_parent": "219c12a6aa71c86ef8e465fcb846b96153d01e0f",
+      "terminal_semantic_gate": true
+    },
+    "different_valid_prefix/rebase": {
+      "all_replayed_commits_closed": true,
+      "evidence": "11cf3b4e9223992507ef8120d6d946df5d9f9c279fc44f04144de82769f7fc36",
+      "onto": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+      "preserves_approved_semantic_prefixes": false,
+      "replayed": [
+        {
+          "callee": "c8f75526110d755b07c9397265714347837dd7a3305ad13fc8bcf48ce1ef1db1",
+          "commit": "e7a11ae83060296463799e0ffca2e6a84ed91fd1",
+          "parent": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+          "retained": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "root": "ad16041abbcccd9fef917ad4ffd40a9d93ba4b41ff0aa7f47e71ac29c03199b2",
+          "status": "closed",
+          "target": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "tree": "23c4a88f923efc3cd7684ebe8afe815d799ecc83"
+        },
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "8b683380a7a3f73334274c1a36f236b52fcda4c1",
+          "parent": "e7a11ae83060296463799e0ffca2e6a84ed91fd1",
+          "retained": "ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a",
+          "root": "1ce430cca1535e4aff8cf1e4094bf590a380d8a86784a9499cd43017b45bde13",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "02ee0c9b4ac7811d957444a4836d52b28d616769"
+        },
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "7cc664d0d6f3c9c1e5a1fc8a3d5e00256231fd2c",
+          "parent": "8b683380a7a3f73334274c1a36f236b52fcda4c1",
+          "retained": null,
+          "root": "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "2fc40c8bc03f2e990b14bb6bcced90afa1485869"
+        }
+      ],
+      "source_commits": [
+        "fe3cae2f1b1a01dbdb30bcc958789e6193db88ff",
+        "5bb3fe253728ef13ab705340903af6b397716c5f",
+        "20b08dc594fe08cd3de8316289b2ecbdfdd4656c"
+      ],
+      "source_parent": "219c12a6aa71c86ef8e465fcb846b96153d01e0f",
+      "terminal_semantic_gate": true
+    },
+    "different_valid_prefix/squash": {
+      "all_replayed_commits_closed": true,
+      "evidence": "43ea1b72eada3154b13939002cb76d979671da790bd6392cf156bf1cd611dacf",
+      "onto": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+      "preserves_approved_semantic_prefixes": false,
+      "replayed": [
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "ad0bff6af7bb8f4a97156ec66a9ea676c94c2b78",
+          "parent": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+          "retained": null,
+          "root": "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "2fc40c8bc03f2e990b14bb6bcced90afa1485869"
+        }
+      ],
+      "source_commits": [
+        "fe3cae2f1b1a01dbdb30bcc958789e6193db88ff",
+        "5bb3fe253728ef13ab705340903af6b397716c5f",
+        "20b08dc594fe08cd3de8316289b2ecbdfdd4656c"
+      ],
+      "source_parent": "219c12a6aa71c86ef8e465fcb846b96153d01e0f",
+      "terminal_semantic_gate": true
+    },
+    "invalid_prefix/cherry-pick": {
+      "all_replayed_commits_closed": false,
+      "evidence": "8db526370e2ee57343b98f616913e06acaf552a0761162e267a3483aebe0303f",
+      "onto": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+      "preserves_approved_semantic_prefixes": false,
+      "replayed": [
+        {
+          "commit": "ecc470e01f99e34471dfc82ab161bcf016b7b2d1",
+          "diagnostic": "unavailable exact targets: [('caller', 'ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a')]",
+          "parent": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+          "status": "unclosed",
+          "tree": "f8e3aeb06118fc951370cd249606443058b08d76"
+        },
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "0b8d30ed5f99132af3349658512768d63112dfae",
+          "parent": "ecc470e01f99e34471dfc82ab161bcf016b7b2d1",
+          "retained": null,
+          "root": "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "2fc40c8bc03f2e990b14bb6bcced90afa1485869"
+        }
+      ],
+      "source_commits": [
+        "19ac60744a1e06efb7c624c00abc53c97ac4e0c3",
+        "a2da53d40c2519e6f20f71665555f9468ec33a4f"
+      ],
+      "source_parent": "219c12a6aa71c86ef8e465fcb846b96153d01e0f",
+      "terminal_semantic_gate": true
+    },
+    "invalid_prefix/rebase": {
+      "all_replayed_commits_closed": false,
+      "evidence": "71b29f49ae00afed5f846c1a55c42035fe530283ed01781f75b9f7fe6d543190",
+      "onto": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+      "preserves_approved_semantic_prefixes": false,
+      "replayed": [
+        {
+          "commit": "ecc470e01f99e34471dfc82ab161bcf016b7b2d1",
+          "diagnostic": "unavailable exact targets: [('caller', 'ff6e2c5857db829fd7377236038f51a8448bc7231ad4a0d265d97a334f561e9a')]",
+          "parent": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+          "status": "unclosed",
+          "tree": "f8e3aeb06118fc951370cd249606443058b08d76"
+        },
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "0b8d30ed5f99132af3349658512768d63112dfae",
+          "parent": "ecc470e01f99e34471dfc82ab161bcf016b7b2d1",
+          "retained": null,
+          "root": "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "2fc40c8bc03f2e990b14bb6bcced90afa1485869"
+        }
+      ],
+      "source_commits": [
+        "19ac60744a1e06efb7c624c00abc53c97ac4e0c3",
+        "a2da53d40c2519e6f20f71665555f9468ec33a4f"
+      ],
+      "source_parent": "219c12a6aa71c86ef8e465fcb846b96153d01e0f",
+      "terminal_semantic_gate": true
+    },
+    "invalid_prefix/squash": {
+      "all_replayed_commits_closed": true,
+      "evidence": "00024046c16074d44931c0364aeadc68bdf0c18a0e068d4e17f341394a1d95e8",
+      "onto": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+      "preserves_approved_semantic_prefixes": false,
+      "replayed": [
+        {
+          "callee": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "commit": "ad0bff6af7bb8f4a97156ec66a9ea676c94c2b78",
+          "parent": "1cd3631aaf61912686ca15f952162992fc55a4f1",
+          "retained": null,
+          "root": "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1",
+          "status": "closed",
+          "target": "4cc27527169f432dcb0a73d932a35906f01a80291337272c34ae72e05d5388ac",
+          "tree": "2fc40c8bc03f2e990b14bb6bcced90afa1485869"
+        }
+      ],
+      "source_commits": [
+        "19ac60744a1e06efb7c624c00abc53c97ac4e0c3",
+        "a2da53d40c2519e6f20f71665555f9468ec33a4f"
+      ],
+      "source_parent": "219c12a6aa71c86ef8e465fcb846b96153d01e0f",
+      "terminal_semantic_gate": true
+    }
+  },
+  "git": "git version 2.52.0",
+  "terminal_root": "b7d8fde90ede432d073ffcdfb2fa5dfdf4562b1115efa02d6f997c2442e530b1",
+  "terminal_tree": "2fc40c8bc03f2e990b14bb6bcced90afa1485869",
+  "warm_store_masks_unclosed_prefix": true
+}
