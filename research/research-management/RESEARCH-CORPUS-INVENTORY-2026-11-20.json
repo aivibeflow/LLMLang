@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "af1f0cfe121a8ee8ff0a42fe15aa9f4bf3c967f4",
+  "revision": "be9cc7643fddc061b85a77d83535581a7596dca1",
   "source": "Exact research path, blob and byte inventory for the rebased current-main tree, excluding the inventory manifest itself.",
   "counts": {
-    "research_files": 929,
-    "research_artifacts_excluding_manifest": 929,
+    "research_files": 930,
+    "research_artifacts_excluding_manifest": 930,
     "markdown_files": 436,
     "mdx_files": 3,
     "python_files": 276,
@@ -35,7 +35,7 @@
       "research-rfc-or-protocol-proposal": 2
     }
   },
-  "classification_note": "Against latest main af1f0cf (manifest excluded), this branch adds the RT-19 multi-file publication-boundary recheck and navigation references; each added artifact received individual role review. All 929 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Against latest main af1f0cf (manifest excluded), this branch adds the RT-19 multi-file publication-boundary recheck and navigation references; each added artifact received individual role review. All 930 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -7875,8 +7875,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "42a03c6c67eefc67b512b75d9f49c461b21ad128",
-      "size_bytes": 59755,
+      "git_blob_sha": "94120e5bdc0f6703f650198bf4140aa0cacf66f3",
+      "size_bytes": 60078,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -17130,8 +17130,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "43aee7c98dee6786f3095cbacaf3b9172e89c583",
-      "size_bytes": 97638,
+      "git_blob_sha": "987c6e0cbcaa3a9fbefb33b5da1eb7c70b4cb780",
+      "size_bytes": 97919,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -17151,8 +17151,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
-      "git_blob_sha": "4e0656aa22782286a5371393f4b44aa5ce65787b",
-      "size_bytes": 99267,
+      "git_blob_sha": "ef7ccdc418819df0c0c490b69b860c3e2979bb34",
+      "size_bytes": 100146,
       "category": "cross-cutting-synthesis-or-status",
       "traceability": {
         "items": [
@@ -17271,8 +17271,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "4477540c3ad638006af2ace54e67a491e479e1aa",
-      "size_bytes": 66860,
+      "git_blob_sha": "59e023c7d7e4d13fff955d709a3913af05d938a4",
+      "size_bytes": 67082,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -21410,8 +21410,8 @@
         "basis": "Navigation and scope index."
       },
       "path": "research/toolchain-and-collaboration/README.md",
-      "git_blob_sha": "0fc19a489c5170dd9c63f8b3d32e417a057e43ae",
-      "size_bytes": 1917
+      "git_blob_sha": "de2fc1b425d74a0c4f1232d7972e8bda6ad52b0a",
+      "size_bytes": 2282
     },
     {
       "path": "research/toolchain-and-collaboration/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md",
@@ -21837,6 +21837,22 @@
         "status": "not-reviewed",
         "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/RT-19-MULTIFILE-PUBLICATION-BOUNDARY-RECHECK-2026-11-24.md",
+      "git_blob_sha": "f76d295c433403bad0d53288b1a0eb48672af312",
+      "size_bytes": 7078,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "RT-19 multi-file publication boundary recheck; individually role reviewed",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ]
     },
     {
       "path": "research/toolchain-and-collaboration/RT-19/RT-19-STORAGE-BACKEND-CONTRACT-RECHECK-2026-11-23.md",
