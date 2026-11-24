@@ -1151,6 +1151,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Specify semantic import/export, external-edit detection, and atomic multi-file publication.
   - [x] Compare per-file replacement with generation-manifest, generation-pointer, and exact Git-tree/ref publication boundaries; the bounded result favors validating a private complete tree before publishing its Git ref, while keeping durable accepted-pending state distinct. [Multi-file publication boundary recheck (2026-11-24)](research/toolchain-and-collaboration/RT-19/RT-19-MULTIFILE-PUBLICATION-BOUNDARY-RECHECK-2026-11-24.md)
 - [ ] Specify optimistic concurrency, multi-agent workspaces, idempotency, and conflict handling.
+  - [x] Recheck current workspace revision CAS against two workspaces on one base and repeated Change Set IDs. Local CAS permits competing same-base acceptance; retries return `StaleRevision`, not a stored result. Shared-head arbitration and durable idempotency remain separate unresolved contracts. [Concurrent workspace CAS recheck (2026-11-24)](research/toolchain-and-collaboration/RT-19/RT-19-CONCURRENT-WORKSPACE-CAS-RECHECK-2026-11-24.md)
+  - Remaining external dependencies: persistent shared-head/branch receipt, durable request-outcome binding, multi-process crash/race tests, complete semantic merge/conflict discovery, and maintainer choice of acceptance semantics.
 - [ ] Specify MCP Tools/Resources/Prompts schemas and independently test them with an MCP client.
 - [ ] Prototype deterministic import/change/validate/accept/export/re-import as one vertical slice.
 - [ ] Add failure-injection, security, authorization, and comparative source-editing tests.
