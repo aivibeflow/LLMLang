@@ -1,0 +1,96 @@
+{
+  "controls": {
+    "equirecursive_payload_sha256": "46c7eb0dceb90a9e3ed7127f08cbc1f489aaf568cb08af9c9d4d43120ff29d22",
+    "graph_only_isomorphism_distinguishes_unfolding": true,
+    "nominal_value_revision_distinct": true,
+    "nominal_wrappers_distinct": true,
+    "preserved_field_constructor_and_scalar_distinctions": 3,
+    "rejections": {
+      "arity": "Malformed type constructor",
+      "dangling": "Dangling type reference",
+      "duplicate_field": "Malformed type constructor",
+      "mixed_guard": "Unguarded by-value recursion",
+      "unguarded": "Unguarded by-value recursion"
+    },
+    "unfolded_after_quotient": 3,
+    "unfolded_before_quotient": 4
+  },
+  "exhaustive": {
+    "distinct_structural_values": 26,
+    "equal_pairs": 1712,
+    "pair_checks": 8256,
+    "rooted_types": 128
+  },
+  "scale": [
+    {
+      "marked": false,
+      "payload_sha256": "e669dad96d35d8956660cbee410ef8fa9b20ff276406ddaa688e95f987c3b3dd",
+      "quotient_nodes": 2,
+      "reachable_nodes": 12,
+      "refinement_rounds": 1
+    },
+    {
+      "marked": true,
+      "payload_sha256": "261c90cf18964ff08f4864e7f3fc22d5a9324bc7f93d325d8db8d47b399586e8",
+      "quotient_nodes": 12,
+      "reachable_nodes": 12,
+      "refinement_rounds": 10
+    },
+    {
+      "marked": false,
+      "payload_sha256": "e669dad96d35d8956660cbee410ef8fa9b20ff276406ddaa688e95f987c3b3dd",
+      "quotient_nodes": 2,
+      "reachable_nodes": 32,
+      "refinement_rounds": 1
+    },
+    {
+      "marked": true,
+      "payload_sha256": "bd224888f990a0bd103c3078e7901d288de0fdb9d865a7432086da1a856b18dd",
+      "quotient_nodes": 32,
+      "reachable_nodes": 32,
+      "refinement_rounds": 30
+    },
+    {
+      "marked": false,
+      "payload_sha256": "e669dad96d35d8956660cbee410ef8fa9b20ff276406ddaa688e95f987c3b3dd",
+      "quotient_nodes": 2,
+      "reachable_nodes": 64,
+      "refinement_rounds": 1
+    },
+    {
+      "marked": true,
+      "payload_sha256": "c92c6e83216f1397aed32edeaa1dacc20d2c14b9b8766a178796b26f6bf93f2d",
+      "quotient_nodes": 64,
+      "reachable_nodes": 64,
+      "refinement_rounds": 62
+    },
+    {
+      "marked": false,
+      "payload_sha256": "e669dad96d35d8956660cbee410ef8fa9b20ff276406ddaa688e95f987c3b3dd",
+      "quotient_nodes": 2,
+      "reachable_nodes": 128,
+      "refinement_rounds": 1
+    },
+    {
+      "marked": true,
+      "payload_sha256": "ac622601cebbcc41d65c2648fdd81458cfffa3d07c33f6c032a3c622a287c134",
+      "quotient_nodes": 128,
+      "reachable_nodes": 128,
+      "refinement_rounds": 126
+    },
+    {
+      "marked": false,
+      "payload_sha256": "e669dad96d35d8956660cbee410ef8fa9b20ff276406ddaa688e95f987c3b3dd",
+      "quotient_nodes": 2,
+      "reachable_nodes": 256,
+      "refinement_rounds": 1
+    },
+    {
+      "marked": true,
+      "payload_sha256": "23cd52f9f076a764f7d5c562ac63e8fb2894dfd8606894fcbfd8df2ee225b043",
+      "quotient_nodes": 256,
+      "reachable_nodes": 256,
+      "refinement_rounds": 254
+    }
+  ]
+}
