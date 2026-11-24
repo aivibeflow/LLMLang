@@ -2,17 +2,17 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
-  "source": "Exact PR-tree inventory based on main b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5 plus reconciliation report; inventory itself excluded from Git tree comparison.",
+  "revision": "07cfa1e9ef24e01eb169d454909076cbd1669ee5",
+  "source": "Exact current-main inventory based on 07cfa1e9ef24e01eb169d454909076cbd1669ee5; manifest itself excluded.",
   "counts": {
-    "research_files": 870,
-    "research_artifacts_excluding_manifest": 870,
-    "markdown_files": 422,
+    "research_files": 884,
+    "research_artifacts_excluding_manifest": 884,
+    "markdown_files": 426,
     "mdx_files": 3,
-    "python_files": 271,
-    "lean_source_files": 42,
+    "python_files": 274,
+    "lean_source_files": 44,
     "scenario_named_documents": 136,
-    "prototype_tree_files": 303,
+    "prototype_tree_files": 305,
     "preparation_and_reference_files": 24,
     "taxonomy_research_areas": 38,
     "dependency_edges": 262,
@@ -23,11 +23,11 @@
       "external-source-snapshot-or-license": 13,
       "index-or-research-management": 14,
       "other-research-artifact": 2,
-      "prototype-or-experiment-implementation": 189,
+      "prototype-or-experiment-implementation": 195,
       "prototype-report-or-readme": 30,
-      "prototype-test-evidence": 187,
+      "prototype-test-evidence": 191,
       "reference-register-or-manifest": 2,
-      "research-area-or-experiment-document": 95,
+      "research-area-or-experiment-document": 99,
       "research-background-or-design-analysis": 30,
       "research-preparation-brief-or-index": 13,
       "research-rfc-or-protocol-proposal": 2,
@@ -35,7 +35,7 @@
       "structured-fixture-or-schema": 19
     }
   },
-  "classification_note": "Against current main b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5, 29 new tracked artifacts were individually role triaged and 23 existing blob changes were content reviewed. The PR tree includes this report. Role triage is not claim validation.",
+  "classification_note": "Against the 870-record manifest on main b7a4c0d, 14 additions have individual role review and 4 existing content changes were inspected. The current manifest reconciles all 884 tracked research paths. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -930,6 +930,27 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Lean test/prototype source for preserving Int/Bool sorts through Logos rendering."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosScalarDenotation.lean",
+      "git_blob_sha": "0089f8e7c93331b10191727d321a1890fd59e320",
+      "size_bytes": 12694,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Lean fixture for finite scalar denotation through pinned Logos translation."
       }
     },
     {
@@ -1868,6 +1889,27 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Recorded axiom inventory for the bounded bound-CPC verdict evidence."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-denotation/observations.txt",
+      "git_blob_sha": "6325914f421163c77777f01b559003b4fd120ba1",
+      "size_bytes": 218,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Recorded finite denotation observations."
       }
     },
     {
@@ -11134,8 +11176,8 @@
     },
     {
       "path": "research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-      "git_blob_sha": "d3bd01184131adc85c2888553af8bd839eb06a8e",
-      "size_bytes": 36129,
+      "git_blob_sha": "49a34e515cb1ce870de78a94382a81c42032655b",
+      "size_bytes": 36384,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -11144,7 +11186,7 @@
           "RT-07",
           "RT-08"
         ],
-        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md",
+        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md; current-main change rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -11159,7 +11201,11 @@
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
       },
-      "role_recheck": "Current title or module entry point, purpose and family reviewed. Claim reruns are tracked independently."
+      "role_recheck": "Current title or module entry point, purpose and family reviewed. Claim reruns are tracked independently.",
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Adds finite scalar-denotation evidence link and keeps general JSON correspondence/source-derived binding open."
+      }
     },
     {
       "path": "research/formal-verification/RT-07/RT-07-BOUND-CPC-VERDICT.md",
@@ -11239,6 +11285,28 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Bounded RT-07 report comparing typed rendering and preserving Int/Bool sorts; not a general source-to-proof correspondence result."
+      }
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-LOGOS-SCALAR-DENOTATION-2026-11-24.md",
+      "git_blob_sha": "df1008ed9fb4ad4438881cfcd63283bfac760669",
+      "size_bytes": 4178,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "PLAN.md §2.4",
+          "RT-07",
+          "Scenario 34"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite source-to-Logos scalar denotation comparison."
       }
     },
     {
@@ -13534,6 +13602,29 @@
       }
     },
     {
+      "path": "research/language-design/RT-04/RT-04-LINUX-OWNED-CLEANUP-2026-11-24.md",
+      "git_blob_sha": "b274e3979186be658cc62e36fc4197f84bec9a10",
+      "size_bytes": 5279,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.4.1",
+          "RT-03",
+          "RT-04",
+          "RT-10"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Linux FFI alias/cleanup report."
+      }
+    },
+    {
       "path": "research/language-design/RT-04/RT-04-NATIVE-REPRODUCTION.md",
       "git_blob_sha": "a9394a6a6a386ff70fbad0a90647cb1093832435",
       "size_bytes": 8343,
@@ -13660,6 +13751,72 @@
       "plan_stages": [
         5
       ]
+    },
+    {
+      "path": "research/language-design/RT-04/linux-owned-cleanup/owned_cleanup.c",
+      "git_blob_sha": "54c4127f429295ba0ed17d0bba1876cbdf4f2ca0",
+      "size_bytes": 4221,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-04",
+          "RT-10"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Linux owned-return FFI harness or runner."
+      }
+    },
+    {
+      "path": "research/language-design/RT-04/linux-owned-cleanup/results.json",
+      "git_blob_sha": "cc3570fc8c082c7266d3d16ef55c21085232c96e",
+      "size_bytes": 12133,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-04",
+          "RT-10"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Native Linux owned-return result ledger."
+      }
+    },
+    {
+      "path": "research/language-design/RT-04/linux-owned-cleanup/run.py",
+      "git_blob_sha": "a80e338b97a2706f93f567e715fe65efcd6eea65",
+      "size_bytes": 4472,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-03",
+          "RT-04",
+          "RT-10"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Linux owned-return FFI harness or runner."
+      }
     },
     {
       "path": "research/language-design/RT-04/owned-contract-replay/results.json",
@@ -16089,19 +16246,19 @@
     },
     {
       "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "97a158ed58ef17198bb0486d3185d15615e6dc65",
-      "size_bytes": 91023,
+      "git_blob_sha": "cd28ec7d8fa61edc14f53500a00ee80705c4a8ba",
+      "size_bytes": 92005,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
           "PLAN.md §0.1 — research corpus inventory"
         ],
-        "method": "first-pass content/heading/related-document review; see semantic traceability report",
+        "method": "first-pass content/heading/related-document review; see semantic traceability report; current-main change rechecked",
         "confidence": "medium"
       },
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Research planning register mapping cross-aspect dependencies; management artifact, not a single RT research result."
+        "status": "content-role-triaged",
+        "basis": "RT-05, RT-07 and related evidence dependency links refreshed; dependency relation remains conditional."
       },
       "plan_stages": [
         0
@@ -16110,8 +16267,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
-      "git_blob_sha": "d58fbcd72faa46d1f9d48435dd553fd24768f421",
-      "size_bytes": 93745,
+      "git_blob_sha": "19b312248f5d1b93335b92ec5aeac2137269c263",
+      "size_bytes": 95999,
       "category": "cross-cutting-synthesis-or-status",
       "traceability": {
         "items": [
@@ -16230,19 +16387,19 @@
     },
     {
       "path": "research/research-management/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "adcdfcf42ba0f7cdd801e96f86b23e2e01ff8487",
-      "size_bytes": 62561,
+      "git_blob_sha": "d5417861c97a97a6fb9290bf2eb9148aa6b8a69b",
+      "size_bytes": 63441,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
           "PLAN.md §0.1 — research corpus inventory"
         ],
-        "method": "first-pass content/heading/related-document review; see semantic traceability report",
+        "method": "first-pass content/heading/related-document review; see semantic traceability report; current-main change rechecked",
         "confidence": "medium"
       },
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Research-area taxonomy and coverage-gap register; Stage 0 management artifact."
+        "status": "content-role-triaged",
+        "basis": "Research area and study registrations refreshed; taxonomy membership is not an architecture decision."
       },
       "plan_stages": [
         0
@@ -16379,8 +16536,8 @@
     },
     {
       "path": "research/research-management/RT-00/RT-00-A-POST-THEMATIC-INVENTORY-REFRESH-2026-11-24.md",
-      "git_blob_sha": "726bc42d7c5f6a3b6bf96c7dd2418cec88b3246e",
-      "size_bytes": 7884,
+      "git_blob_sha": "e113e4a72af343496aca238394be688130ebf01d",
+      "size_bytes": 8072,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -16394,7 +16551,7 @@
       ],
       "semantic_review": {
         "status": "current-main-inventory-reconciliation",
-        "basis": "Exact inventory, 29 new roles, 23 changed roles and navigation audit."
+        "basis": "Reconciles all current main research paths, role triage for 14 additions and content review of four stale entries."
       }
     },
     {
@@ -18587,6 +18744,29 @@
       }
     },
     {
+      "path": "research/semantic-representation/RT-05/PUBLIC-INTERFACE-MODULAR-CALLER-2026-11-24.md",
+      "git_blob_sha": "cbed219de269cbbf396bdd174efb2ddc429d97a4",
+      "size_bytes": 4441,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.3.1",
+          "RT-05",
+          "RT-20",
+          "RT-32"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite interface proof or exact-receipt rebind report."
+      }
+    },
+    {
       "path": "research/semantic-representation/RT-05/PUBLIC-INTERFACE-SPG-OBSERVATION-PILOT-2026-11-24.md",
       "git_blob_sha": "c04767989b3a4cffc2b9eda93fc25c2367b4ac4a",
       "size_bytes": 5304,
@@ -18609,13 +18789,36 @@
       }
     },
     {
+      "path": "research/semantic-representation/RT-05/PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md",
+      "git_blob_sha": "054382b3aed61c53362ef583ed2e59d38bbb800f",
+      "size_bytes": 4401,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.3.1",
+          "RT-05",
+          "RT-20",
+          "RT-32"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite interface proof or exact-receipt rebind report."
+      }
+    },
+    {
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
           "RT-05",
           "RT-20"
         ],
-        "method": "current file and research-family scope; changed lines rechecked",
+        "method": "current file and research-family scope; changed lines rechecked; current-main change rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -18623,11 +18826,11 @@
       ],
       "semantic_review": {
         "status": "content-role-triaged",
-        "basis": "Adds finite pilot links and scope notes; no general correspondence claim."
+        "basis": "Links current finite interface, exact-receipt, modular-caller and typed-SPG evidence; general source correspondence remains open."
       },
       "path": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
-      "git_blob_sha": "e22f6d6a2deb814470f573b733e17a470170f74d",
-      "size_bytes": 22283
+      "git_blob_sha": "3cfedfb455ec3c60409d177c90decb00661b417e",
+      "size_bytes": 22572
     },
     {
       "path": "research/semantic-representation/RT-05/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md",
@@ -18986,6 +19189,28 @@
       }
     },
     {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/ModularCaller.lean",
+      "git_blob_sha": "0a78f3dd830499a99850013ab1f5419afb4d5d58",
+      "size_bytes": 3312,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "RT-20",
+          "RT-32"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite modular provider or receipt-rebind checker/runner."
+      }
+    },
+    {
       "path": "research/semantic-representation/RT-05/public-refinement-pilot/Refinement.lean",
       "git_blob_sha": "7a45ccef12fa8e6099d8fbc3d2de864defb2279c",
       "size_bytes": 1611,
@@ -19027,6 +19252,94 @@
       "semantic_review": {
         "status": "individual-file-role-triaged",
         "basis": "Finite public-interface or typed-SPG observation pilot; paired sources and ledger."
+      }
+    },
+    {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/modular-provider-results.json",
+      "git_blob_sha": "8396b23eb4819a47ea94b64b09e448255e8cc288",
+      "size_bytes": 9676,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "RT-20",
+          "RT-32"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite provider or receipt rebind result ledger."
+      }
+    },
+    {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/modular_provider.py",
+      "git_blob_sha": "727c3be6f6ef22a73503544bcf83c4b2745386fc",
+      "size_bytes": 5785,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "RT-20",
+          "RT-32"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite modular provider or receipt-rebind checker/runner."
+      }
+    },
+    {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/provider_evidence_rebind.py",
+      "git_blob_sha": "119174a4cec5444230ff551c24c9b3dbf7878673",
+      "size_bytes": 6419,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "RT-20",
+          "RT-32"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite modular provider or receipt-rebind checker/runner."
+      }
+    },
+    {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/rebind-results.json",
+      "git_blob_sha": "b7c2f2fd5c3d4ab47f56a005195985d16bd6e6e2",
+      "size_bytes": 4375,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "RT-20",
+          "RT-32"
+        ],
+        "method": "paired report, source, result ledger and direct Plan links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite provider or receipt rebind result ledger."
       }
     },
     {
@@ -23412,79 +23725,45 @@
   },
   "latest_main_reconciliation": {
     "reviewed_at": "2026-11-24",
-    "source_revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
+    "source_revision": "07cfa1e9ef24e01eb169d454909076cbd1669ee5",
     "previous_manifest_revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
-    "previous_records": 840,
-    "main_artifacts_excluding_manifest": 869,
+    "previous_records": 870,
+    "main_artifacts_excluding_manifest": 884,
     "missing_manifest_paths": [
-      "research/language-design/RT-04/RT-04-OWNED-PROVIDER-CONTRACT-REPLAY-2026-11-24.md",
-      "research/language-design/RT-04/owned-contract-replay/results.json",
-      "research/language-design/RT-04/owned-contract-replay/run.py",
-      "research/research-management/RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.json",
-      "research/research-management/RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.md",
-      "research/research-management/RT-00/RT-00-B-11-CHANGED-ARTIFACT-ROLES-2026-11-24.json",
-      "research/research-management/RT-00/RT-00-B-11-CHANGED-ARTIFACT-ROLES-2026-11-24.md",
-      "research/research-management/RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.json",
-      "research/research-management/RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.md",
-      "research/research-management/RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.json",
-      "research/research-management/RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.md",
-      "research/research-management/RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.json",
-      "research/research-management/RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.md",
-      "research/research-management/RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.json",
-      "research/research-management/RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.md",
-      "research/research-management/RT-00/RT-00-C-PROVIDER-QUEUE-REPLAY-2026-11-24.md",
-      "research/research-management/RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.json",
-      "research/research-management/RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.md",
-      "research/research-management/RT-00/package_provider_queue_replay.py",
-      "research/research-management/RT-00/provider-queue-replay-2026-11-24.json",
-      "research/research-management/RT-00/provider-queue-replay-2026-11-24.png",
-      "research/semantic-representation/RT-05/PUBLIC-INTERFACE-FINITE-REFINEMENT-PILOT-2026-11-24.md",
-      "research/semantic-representation/RT-05/PUBLIC-INTERFACE-SPG-OBSERVATION-PILOT-2026-11-24.md",
-      "research/semantic-representation/RT-05/public-refinement-pilot/Refinement.lean",
-      "research/semantic-representation/RT-05/public-refinement-pilot/fixtures.json",
-      "research/semantic-representation/RT-05/public-refinement-pilot/results.json",
-      "research/semantic-representation/RT-05/public-refinement-pilot/run.py",
-      "research/semantic-representation/RT-05/public-refinement-pilot/spg-results.json",
-      "research/semantic-representation/RT-05/public-refinement-pilot/spg_observations.py"
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosScalarDenotation.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-denotation/observations.txt",
+      "research/formal-verification/RT-07/RT-07-LOGOS-SCALAR-DENOTATION-2026-11-24.md",
+      "research/language-design/RT-04/RT-04-LINUX-OWNED-CLEANUP-2026-11-24.md",
+      "research/language-design/RT-04/linux-owned-cleanup/owned_cleanup.c",
+      "research/language-design/RT-04/linux-owned-cleanup/results.json",
+      "research/language-design/RT-04/linux-owned-cleanup/run.py",
+      "research/semantic-representation/RT-05/PUBLIC-INTERFACE-MODULAR-CALLER-2026-11-24.md",
+      "research/semantic-representation/RT-05/PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md",
+      "research/semantic-representation/RT-05/public-refinement-pilot/ModularCaller.lean",
+      "research/semantic-representation/RT-05/public-refinement-pilot/modular-provider-results.json",
+      "research/semantic-representation/RT-05/public-refinement-pilot/modular_provider.py",
+      "research/semantic-representation/RT-05/public-refinement-pilot/provider_evidence_rebind.py",
+      "research/semantic-representation/RT-05/public-refinement-pilot/rebind-results.json"
     ],
     "manifest_only_paths": [],
     "stale_blob_or_size_paths": [
-      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md",
-      "research/PROTOTYPES/README.md",
-      "research/README.md",
-      "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md",
-      "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.ru.md",
-      "research/formal-verification/RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md",
-      "research/language-design/RT-03/RESEARCH-SCENARIO-45-NUMERIC-SEMANTICS-AND-OVERFLOW.md",
-      "research/language-design/RT-03/RESEARCH-SCENARIO-55-LOOP-RESULTS-LABELS-AND-CONTROL-TRANSFER.md",
-      "research/language-design/RT-03/RESEARCH-SCENARIO-63-EQUALITY-IDENTITY-AND-HASHING.md",
-      "research/language-design/RT-03/RESEARCH-SCENARIO-73-NUMERIC-LITERAL-TYPING-AND-CONVERSIONS.md",
-      "research/language-design/RT-03/RESEARCH-SCENARIO-74-REFUTABLE-PATTERN-FAILURE-AND-BINDING.md",
-      "research/language-design/RT-03/RESEARCH-SCENARIO-78-FLOATING-POINT-REPRODUCIBILITY-AND-IEEE-EDGES.md",
-      "research/language-design/RT-04/RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md",
-      "research/language-design/RT-04/RESEARCH-SCENARIO-42-GENERICS-CONSTRAINTS-AND-DISPATCH.md",
-      "research/references/README.md",
-      "research/research-management/README.md",
-      "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
-      "research/research-management/RT-00/RT-00-QUALITY-RULES-PILOT-2026-11-23.md",
-      "research/runtime-and-systems/RT-10/RESEARCH-SCENARIO-57-STRUCTURED-CONCURRENCY-AND-TASK-LIFETIMES.md",
-      "research/runtime-and-systems/RT-38/README.md",
-      "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
-      "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
-      "research/semantic-representation/RT-06/RESEARCH-SCENARIO-09-DEPENDENCY-DRIVEN-EVOLUTION.md"
+      "research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
+      "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+      "research/research-management/RESEARCH-TAXONOMY.md",
+      "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md"
     ],
-    "added_role_review": "29 new artifacts individually categorized from report/source/family scope and direct Plan links",
-    "changed_role_review": "23 changed artifacts inspected; see current-main report for change groups",
-    "current_pr_tree_records": 870,
+    "added_role_review": "14 additions individually mapped to RT-04 Linux FFI, RT-05 receipt/modular proof and RT-07 finite denotation artifacts based on report, sources, ledgers and Plan links.",
+    "changed_role_review": "Four existing records inspected: RT-05 proposal, Scenario 34, taxonomy and dependency map.",
+    "current_pr_tree_records": 884,
     "counts": {
-      "research_files": 870,
-      "research_artifacts_excluding_manifest": 870,
-      "markdown_files": 422,
+      "research_files": 884,
+      "research_artifacts_excluding_manifest": 884,
+      "markdown_files": 426,
       "mdx_files": 3,
-      "python_files": 271,
-      "lean_source_files": 42,
+      "python_files": 274,
+      "lean_source_files": 44,
       "scenario_named_documents": 136,
-      "prototype_tree_files": 303,
+      "prototype_tree_files": 305,
       "preparation_and_reference_files": 24,
       "taxonomy_research_areas": 38,
       "dependency_edges": 262,
@@ -23495,11 +23774,11 @@
         "external-source-snapshot-or-license": 13,
         "index-or-research-management": 14,
         "other-research-artifact": 2,
-        "prototype-or-experiment-implementation": 189,
+        "prototype-or-experiment-implementation": 195,
         "prototype-report-or-readme": 30,
-        "prototype-test-evidence": 187,
+        "prototype-test-evidence": 191,
         "reference-register-or-manifest": 2,
-        "research-area-or-experiment-document": 95,
+        "research-area-or-experiment-document": 99,
         "research-background-or-design-analysis": 30,
         "research-preparation-brief-or-index": 13,
         "research-rfc-or-protocol-proposal": 2,
@@ -23508,37 +23787,37 @@
       }
     },
     "local_navigation_audit": {
-      "revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
-      "documents_scanned": 426,
-      "markdown_mdx_research": 425,
+      "revision": "07cfa1e9ef24e01eb169d454909076cbd1669ee5",
+      "documents_scanned": 430,
+      "markdown_mdx_research": 429,
       "index_documents": 35,
-      "local_link_occurrences": 3022,
+      "local_link_occurrences": 3055,
       "zero_inbound": 18,
       "without_designated_index_inbound": 52,
       "unresolved_local_targets": 38,
-      "non_markdown_targets": 754,
+      "non_markdown_targets": 760,
       "scenario_documents": 136,
       "scenario_zero_inbound": 4,
       "scenario_without_index": 29,
-      "unique_research_targets_with_inbound_links": 407,
+      "unique_research_targets_with_inbound_links": 411,
       "python": "3.12.14",
       "git": "2.52.0"
     }
   },
   "index_coverage": {
     "index": "research/README.md",
-    "audit_revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
-    "research_markdown_mdx_documents": 425,
-    "documents_scanned": 426,
+    "audit_revision": "07cfa1e9ef24e01eb169d454909076cbd1669ee5",
+    "research_markdown_mdx_documents": 429,
+    "documents_scanned": 430,
     "index_documents": 35,
-    "local_link_occurrences": 3022,
-    "unique_research_targets_with_inbound_links": 407,
+    "local_link_occurrences": 3055,
+    "unique_research_targets_with_inbound_links": 411,
     "research_documents_with_zero_inbound_links": 18,
     "research_documents_without_inbound_link_from_designated_index": 52,
     "scenario_documents": 136,
     "scenario_documents_with_zero_inbound_links": 4,
     "scenario_documents_without_inbound_link_from_designated_index": 29,
     "unresolved_local_targets": 38,
-    "non_markdown_targets": 754
+    "non_markdown_targets": 760
   }
 }
