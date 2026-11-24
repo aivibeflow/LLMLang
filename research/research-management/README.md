@@ -20,6 +20,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Audits and evidence maps
 
+- [Paired Package Provider queue comparison](RT-00/RT-00-C-PROVIDER-QUEUE-REPLAY-2026-11-24.md)
 - [Research navigation reachability](RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.md)
 - [Finite cvc5, Lean and TLC evidence replay](RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.md)
 - [Native and WebAssembly preservation replay](RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.md)
