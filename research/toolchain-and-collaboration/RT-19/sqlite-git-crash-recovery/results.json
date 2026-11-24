@@ -1,0 +1,162 @@
+{
+  "schema": "llmlang-rt19-real-crash-boundaries-v1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "inputs": {
+    "coordinator.py": "ab7746fa6101e9032773830ce39ae4a42e0f1d880424a16f1f364d4e8f3f0137",
+    "run.py": "62cef330900aada8e7ece18d2fd7f7c38f87987332d703ac438019c0c85940c5"
+  },
+  "prototype_input_sha256": {
+    "src/__init__.py": "78d838d4216ed21bf85f5d5610bf5167dba718a1296ee2c5b381fdb308d24356",
+    "src/candidate_graph_audit.py": "639e36a6116edf361a5aa24205cb3496d42ba8f023d0663f9d61e13284e89e4b",
+    "src/impact_planning.py": "d349799ab9579923fd86ef68fa2a93537ae183843b9b59b742f5ff7a63cdaad1",
+    "src/semantic_dependency_index.py": "c0f5e4223b8aa607f9b8031038ae2a46f3be3a5ece96d8ccbb4604aa4c04645e",
+    "src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "tests/test_candidate_graph_audit.py": "16893b9d1265f8ed31ec6d6fb3a4d8a3afb6f3df6b40d60e1fb6a1265a257e6f",
+    "tests/test_rt23_commit_recovery.py": "100cc263dc500abe7f2dcbeb5e16e0645c1300248bd132110e8f8e2d47a006e3",
+    "tests/test_rt24_merge_tree_gate.py": "aa6aa6f76cb0632160bcc06bfd42cb2b640171a554e484c0b2ad90c2fc617cba"
+  },
+  "cases": {
+    "begin_accept": {
+      "state_after_exit": [
+        "base",
+        "none",
+        "base",
+        false
+      ],
+      "recovered": {
+        "status": "published",
+        "commit": "6c9bdbceedbdc8f0a9f9f0397980120e44c94d29",
+        "root": "4dda293eb7f1cbf35d1fbe60d0a6432f2139e58fd493d622ba6a61f8cf0d301f",
+        "tree": "1c6a507d77d4b1b9cdbf607d7719549a825e4315",
+        "generation": 1
+      },
+      "retry_matched": true
+    },
+    "immutable_written": {
+      "state_after_exit": [
+        "base",
+        "none",
+        "base",
+        false
+      ],
+      "recovered": {
+        "status": "published",
+        "commit": "6c9bdbceedbdc8f0a9f9f0397980120e44c94d29",
+        "root": "4dda293eb7f1cbf35d1fbe60d0a6432f2139e58fd493d622ba6a61f8cf0d301f",
+        "tree": "1c6a507d77d4b1b9cdbf607d7719549a825e4315",
+        "generation": 1
+      },
+      "retry_matched": true
+    },
+    "accepted_outbox": {
+      "state_after_exit": [
+        "next",
+        "accepted",
+        "base",
+        false
+      ],
+      "recovered": {
+        "status": "published",
+        "commit": "6c9bdbceedbdc8f0a9f9f0397980120e44c94d29",
+        "root": "4dda293eb7f1cbf35d1fbe60d0a6432f2139e58fd493d622ba6a61f8cf0d301f",
+        "tree": "1c6a507d77d4b1b9cdbf607d7719549a825e4315",
+        "generation": 1
+      },
+      "retry_matched": true
+    },
+    "partial_private_index": {
+      "state_after_exit": [
+        "next",
+        "accepted",
+        "base",
+        false
+      ],
+      "recovered": {
+        "status": "published",
+        "commit": "6c9bdbceedbdc8f0a9f9f0397980120e44c94d29",
+        "root": "4dda293eb7f1cbf35d1fbe60d0a6432f2139e58fd493d622ba6a61f8cf0d301f",
+        "tree": "1c6a507d77d4b1b9cdbf607d7719549a825e4315",
+        "generation": 1
+      },
+      "retry_matched": true
+    },
+    "validated_candidate": {
+      "state_after_exit": [
+        "next",
+        "accepted",
+        "base",
+        false
+      ],
+      "recovered": {
+        "status": "published",
+        "commit": "6c9bdbceedbdc8f0a9f9f0397980120e44c94d29",
+        "root": "4dda293eb7f1cbf35d1fbe60d0a6432f2139e58fd493d622ba6a61f8cf0d301f",
+        "tree": "1c6a507d77d4b1b9cdbf607d7719549a825e4315",
+        "generation": 1
+      },
+      "retry_matched": true
+    },
+    "prepared_outbox": {
+      "state_after_exit": [
+        "next",
+        "prepared",
+        "base",
+        false
+      ],
+      "recovered": {
+        "status": "published",
+        "commit": "6c9bdbceedbdc8f0a9f9f0397980120e44c94d29",
+        "root": "4dda293eb7f1cbf35d1fbe60d0a6432f2139e58fd493d622ba6a61f8cf0d301f",
+        "tree": "1c6a507d77d4b1b9cdbf607d7719549a825e4315",
+        "generation": 1
+      },
+      "retry_matched": true
+    },
+    "git_published": {
+      "state_after_exit": [
+        "next",
+        "prepared",
+        "published",
+        true
+      ],
+      "recovered": {
+        "status": "published",
+        "commit": "6c9bdbceedbdc8f0a9f9f0397980120e44c94d29",
+        "root": "4dda293eb7f1cbf35d1fbe60d0a6432f2139e58fd493d622ba6a61f8cf0d301f",
+        "tree": "1c6a507d77d4b1b9cdbf607d7719549a825e4315",
+        "generation": 1
+      },
+      "retry_matched": true
+    },
+    "sql_outcome": {
+      "state_after_exit": [
+        "next",
+        "recorded",
+        "published",
+        true
+      ],
+      "recovered": {
+        "commit": "6c9bdbceedbdc8f0a9f9f0397980120e44c94d29",
+        "generation": 1,
+        "root": "4dda293eb7f1cbf35d1fbe60d0a6432f2139e58fd493d622ba6a61f8cf0d301f",
+        "status": "published",
+        "tree": "1c6a507d77d4b1b9cdbf607d7719549a825e4315"
+      },
+      "retry_matched": true
+    }
+  },
+  "controls": {
+    "historical_receipt_after_divergence": true,
+    "different_payload_rejected": true,
+    "stale_git_keeps_outbox_pending": true,
+    "competing_writers": [
+      "published",
+      "stale-acceptance"
+    ],
+    "concurrent_identical_outcome": true,
+    "incomplete_inventory_rejected": true,
+    "fresh_clone_exact": true
+  }
+}
