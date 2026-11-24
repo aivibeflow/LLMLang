@@ -19,7 +19,7 @@
     "category_counts": {
       "prototype-report-or-readme": 30,
       "prototype-or-experiment-implementation": 203,
-      "prototype-test-evidence": 199,
+      "prototype-test-evidence": 200,
       "other-research-artifact": 2,
       "index-or-research-management": 14,
       "research-area-or-experiment-document": 105,
@@ -28,7 +28,7 @@
       "research-preparation-brief-or-index": 13,
       "example-or-fixture": 49,
       "structured-fixture-or-schema": 19,
-      "audit-or-review-report": 87,
+      "audit-or-review-report": 88,
       "reference-register-or-manifest": 2,
       "external-source-snapshot-or-license": 13,
       "cross-cutting-synthesis-or-status": 4,
