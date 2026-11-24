@@ -10,6 +10,8 @@ from collections import Counter
 from pathlib import Path
 from oracles import ORACLES
 from extended_oracles import EXTENDED
+from composed_oracles import COMPOSED
+from coverage_matrix import check_coverage
 
 ROOT = Path(__file__).resolve().parent
 STATUSES = {"bounded_pass", "proven", "disproven", "unknown", "unsupported", "error"}
@@ -60,10 +62,10 @@ def load():
         for node in graph:
             visit(node)
         variants = {v["id"]:v for v in c["variants"]}
-        require(len(variants) == len(c["variants"]) and set(variants) == ({"reference","mutation","alternative"} if c["oracle"] in EXTENDED else {"reference","mutation"}), f"{cid}: variants")
+        require(len(variants) == len(c["variants"]) and set(variants) == ({"reference","mutation","alternative"} if c["oracle"] in (EXTENDED.keys() | COMPOSED.keys()) else {"reference","mutation"}), f"{cid}: variants")
         require(variants["reference"]["expected"] == "bounded_pass" and variants["mutation"]["expected"] == "disproven", f"{cid}: finite oracle expectations")
         require("alternative" not in variants or variants["alternative"]["expected"] == "bounded_pass", f"{cid}: alternative expectation")
-        require(c["oracle"] in (ORACLES.keys() | EXTENDED.keys()) and all(v["description"].strip() for v in variants.values()), f"{cid}: oracle/description")
+        require(c["oracle"] in (ORACLES.keys() | EXTENDED.keys() | COMPOSED.keys()) and all(v["description"].strip() for v in variants.values()), f"{cid}: oracle/description")
         if c["status"] != "retired":
             cases.append((c, digest(path)))
     require(cases, "empty corpus")
@@ -74,12 +76,26 @@ def run(cases):
     records = []
     for c, sha in cases:
         for v in c["variants"]:
-            rows = list(EXTENDED[c["oracle"]](v["id"]) if c["oracle"] in EXTENDED else ORACLES[c["oracle"]](v["id"] == "mutation"))
+            if c["oracle"] in COMPOSED:
+                raw = list(COMPOSED[c["oracle"]](v["id"]))
+                require(raw and all(type(z) is bool for _,admitted,a,b in raw for z in (admitted,a,b)), f"{c['id']}: invalid composed oracle")
+                admitted_rows = [(x,a,b) for x,admitted,a,b in raw if admitted]
+                require(admitted_rows, f"{c['id']}: vacuous assumptions")
+                rows = [(x,a and b) for x,a,b in admitted_rows]
+                obligation_records = []
+                for i,oid in enumerate(("O1","O2"),1):
+                    failing = [row[0] for row in admitted_rows if not row[i]]
+                    obligation_records.append({"id":oid,"status":"disproven" if failing else "bounded_pass","counterexample":failing[0] if failing else None,"dependencies":[] if i==1 else ["O1"]})
+                outside = sum(not admitted for _,admitted,_,_ in raw)
+            else:
+                obligation_records = None
+                outside = 0
+                rows = list(EXTENDED[c["oracle"]](v["id"]) if c["oracle"] in EXTENDED else ORACLES[c["oracle"]](v["id"] == "mutation"))
             require(rows and all(type(ok) is bool for _,ok in rows), f"{c['id']}: empty/invalid oracle")
             failures = [x for x,ok in rows if not ok]
             verdict = "disproven" if failures else "bounded_pass"
             require(verdict == v["expected"], f"{c['id']}/{v['id']}: expected {v['expected']}, got {verdict}")
-            records.append({"case_id":c["id"],"revision":c["revision"],"case_sha256":sha,"variant":v["id"],"status":verdict,"evaluated_inputs":len(rows),"counterexample":failures[0] if failures else None})
+            records.append({"case_id":c["id"],"revision":c["revision"],"case_sha256":sha,"variant":v["id"],"status":verdict,"evaluated_inputs":len(rows),"counterexample":failures[0] if failures else None,"obligation_records":obligation_records,"outside_assumption_inputs":outside})
     return records
 
 
@@ -123,11 +139,14 @@ def score(expected, predictions):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("mode",choices=("run","blind","score"))
+    p.add_argument("mode",choices=("run","blind","score","coverage"))
     p.add_argument("--predictions",type=Path)
     args = p.parse_args()
     cases = load()
-    if args.mode == "blind":
+    if args.mode == "coverage":
+        run(cases)
+        result = check_coverage(cases, read(ROOT/"taxonomy.json"), read(ROOT/"coverage-target.json"))
+    elif args.mode == "blind":
         # Stage B only: no oracle, expected obligations, variant labels or expected outcomes.
         result = [{"case_id":c["id"],"revision":c["revision"],"case_sha256":sha,"contract":c["contract"],"scope":c["scope"],"assumptions":c["assumptions"]} for c,sha in cases]
     else:
@@ -136,7 +155,7 @@ def main():
             require(args.predictions is not None, "--predictions required")
             result = score(records, read(args.predictions))
         else:
-            result = {"format_version":1,"python":sys.version,"runner_sha256":digest(ROOT/"run.py"),"oracle_sha256":digest(ROOT/"oracles.py"),"extended_oracle_sha256":digest(ROOT/"extended_oracles.py"),"taxonomy_sha256":digest(ROOT/"taxonomy.json"),"coverage":dict(sorted(Counter(label for c,_ in cases for label in c["labels"]).items())),"records":records,"limits":"finite abstract oracle smoke; no proof or backend result"}
+            result = {"format_version":1,"python":sys.version,"runner_sha256":digest(ROOT/"run.py"),"oracle_sha256":digest(ROOT/"oracles.py"),"extended_oracle_sha256":digest(ROOT/"extended_oracles.py"),"composed_oracle_sha256":digest(ROOT/"composed_oracles.py"),"coverage_target_sha256":digest(ROOT/"coverage-target.json"),"coverage_checker_sha256":digest(ROOT/"coverage_matrix.py"),"coverage_matrix":check_coverage(cases,read(ROOT/"taxonomy.json"),read(ROOT/"coverage-target.json")),"taxonomy_sha256":digest(ROOT/"taxonomy.json"),"coverage":dict(sorted(Counter(label for c,_ in cases for label in c["labels"]).items())),"records":records,"limits":"finite abstract oracle smoke; no proof or backend result"}
     print(json.dumps(result,indent=2,sort_keys=True))
 
 

@@ -1,0 +1,47 @@
+{
+  "id": "POB-032",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Release/acquire visibility abstraction",
+  "labels": [
+    "FORM-06",
+    "DOMAIN-08"
+  ],
+  "contract": "When a read observes the stipulated release/acquire synchronization edge, it must observe the initialized payload.",
+  "scope": "Boolean synchronization edge and stale-read choice; admitted edge present; axiomatic toy model, not full hardware memory semantics.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Observed payload respects stipulated visibility constraint.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Returned payload is initialized value one.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "publication",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Permit stale read even with synchronization.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Select the published value by explicit edge case analysis.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

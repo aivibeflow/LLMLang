@@ -1,0 +1,47 @@
+{
+  "id": "POB-040",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Linear resource growth",
+  "labels": [
+    "FORM-05",
+    "DOMAIN-05"
+  ],
+  "contract": "Under bounded per-item cost of at most two units, a scan processes n items with work at most 2n and terminates.",
+  "scope": "n 0..5, per-item cost 0..3; admission cost<=2; finite count model.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Scan completes exactly n iterations.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Total work <=2n.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "resource_growth",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Rescan all n items for each item.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use a single fold over item costs.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

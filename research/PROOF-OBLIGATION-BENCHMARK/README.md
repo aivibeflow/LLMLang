@@ -52,6 +52,10 @@ The first twelve cases have a reference and incorrect mutation; the [second coho
 
 See [coverage and review](COVERAGE-AND-REVIEW.md) for hand-derived witnesses, exact source crosswalk, remaining gaps and independent review gate.
 
+## Third cohort: executable coverage target
+
+See [finite coverage matrix](COVERAGE-MATRIX.md) for POB-025–040 and the explicit 80-cell target. Run `python research/PROOF-OBLIGATION-BENCHMARK/run.py coverage` to check the witnesses. All cases remain public development fixtures; coverage is bounded and proposed.
+
 ## Format and contribution
 
 [Case schema](case.schema.json), [taxonomy](taxonomy.json), [experiment protocol](EXPERIMENT-PROTOCOL.md), and [human case template](../PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md). Each case has a stable ID/revision, contract, assumptions, scope, obligation IDs/dependencies, variants and independent expected outcomes. Preserve old revisions and change logs before replacing an accepted oracle. The current Python runner checks the v1 finite-seed subset and dependency closure; the JSON schema documents the interchange shape, not a normative Contract IR. New oracle implementations require independent review of contract and mutant, at least one distinguishing counterexample, alternative valid implementations where meaningful, and explicit bound/assumption reporting. Do not silently expand a model's claimed scope.

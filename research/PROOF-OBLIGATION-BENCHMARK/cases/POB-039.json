@@ -1,0 +1,48 @@
+{
+  "id": "POB-039",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Randomized success guarantee",
+  "labels": [
+    "FORM-02",
+    "DOMAIN-01",
+    "DOMAIN-02"
+  ],
+  "contract": "Two independent uniform bits give probability 3/4 of at least one success; exact probability under stated sample distribution.",
+  "scope": "Four equiprobable pairs if independent; correlated distribution repeats (0,0),(1,1); admission independence.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Each bit marginal is uniform.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Success mass equals 3 of 4 equally weighted outcomes.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "random_search",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Ignore second trial.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Compute success by testing that pair is not (0,0).",
+      "expected": "bounded_pass"
+    }
+  ]
+}

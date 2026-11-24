@@ -1,0 +1,47 @@
+{
+  "id": "POB-028",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Exclusive mutation and frame",
+  "labels": [
+    "FORM-04",
+    "DOMAIN-04"
+  ],
+  "contract": "Under a disjoint mutable borrow, increment the target and preserve the independent other cell.",
+  "scope": "Alias flag and values 0..2; admission no alias; abstract two-cell memory.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Borrow has exclusive access to target.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Target increments by one and other cell is unchanged.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "exclusive_borrow",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Write the other cell too.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Use copy-on-write for the target, preserving declared observations.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

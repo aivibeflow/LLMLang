@@ -1,0 +1,47 @@
+{
+  "id": "POB-038",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Generation-tagged handle lifetime",
+  "labels": [
+    "FORM-01",
+    "DOMAIN-04"
+  ],
+  "contract": "Under generation-tagged handles, a stale handle cannot read a reallocated slot; a live matching handle returns current value.",
+  "scope": "Handle/current generations 0..2, live flag; admission generation check enabled; no wraparound within model.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Admission iff live and generation matches.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Rejected handles return absent, admitted handles return value.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "lifetime",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Check liveness only.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Compare explicit pair (live,generation).",
+      "expected": "bounded_pass"
+    }
+  ]
+}

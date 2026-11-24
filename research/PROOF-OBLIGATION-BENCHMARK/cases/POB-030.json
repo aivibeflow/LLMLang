@@ -1,0 +1,47 @@
+{
+  "id": "POB-030",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Quorum agreement",
+  "labels": [
+    "FORM-03",
+    "DOMAIN-06"
+  ],
+  "contract": "Two different values cannot both commit if each commit requires a majority and the three voters do not equivocate.",
+  "scope": "Three voter bitmasks for values A and B; disjoint votes admitted under non-equivocation; no leader election or liveness claim.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Each accepted commit has at least two distinct voters.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "A and B cannot both commit.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "quorum",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Use threshold one.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Compute majority using explicit pair enumeration.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

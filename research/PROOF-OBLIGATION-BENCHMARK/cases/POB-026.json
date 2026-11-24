@@ -1,0 +1,47 @@
+{
+  "id": "POB-026",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Conditional machine arithmetic",
+  "labels": [
+    "FORM-02",
+    "DOMAIN-01"
+  ],
+  "contract": "If the mathematical sum fits unsigned two-bit representation, addition must return the exact mathematical sum.",
+  "scope": "Operands 0..3; admission x+y<=3; modulo-4 machine result outside admission.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Result is representable in unsigned two-bit range.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Result equals exact sum.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "numeric_range",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Drop second operand.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Repeated unit increments modulo four.",
+      "expected": "bounded_pass"
+    }
+  ]
+}

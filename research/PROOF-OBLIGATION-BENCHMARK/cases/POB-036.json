@@ -1,0 +1,47 @@
+{
+  "id": "POB-036",
+  "revision": 1,
+  "status": "proposed",
+  "title": "IEEE binary64 special-value preservation",
+  "labels": [
+    "FORM-06",
+    "DOMAIN-01"
+  ],
+  "contract": "An identity transformation must preserve NaN classification and the sign of zero under the stated observation profile.",
+  "scope": "Named binary64 values +0,-0,+1,-1,+inf,-inf,nan; strict profile admitted; compare NaN class, not payload.",
+  "assumptions": [
+    "Only admitted inputs within the finite model; outside-assumption probes are recorded separately and are not contract failures."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "NaN classification and infinity signs are preserved.",
+      "dependencies": []
+    },
+    {
+      "id": "O2",
+      "claim": "Non-NaN observations preserve exact value and sign including negative zero.",
+      "dependencies": [
+        "O1"
+      ]
+    }
+  ],
+  "oracle": "ieee_edges",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference candidate in composed_oracles.py.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Implement identity as x+0.0.",
+      "expected": "disproven"
+    },
+    {
+      "id": "alternative",
+      "description": "Reconstruct from packed binary64 bytes.",
+      "expected": "bounded_pass"
+    }
+  ]
+}
