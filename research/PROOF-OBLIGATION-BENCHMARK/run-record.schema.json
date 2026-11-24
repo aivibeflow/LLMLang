@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Experimental run record v1",
+  "type": "object",
+  "required": [
+    "run_id",
+    "case_id",
+    "revision",
+    "case_sha256",
+    "stage",
+    "split",
+    "source_snapshot",
+    "prompt_sha256",
+    "raw_output_sha256",
+    "model",
+    "settings",
+    "evaluator_version",
+    "status",
+    "assumptions",
+    "bounds",
+    "artifacts"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^POB-[0-9]{3,}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "case_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "stage": {
+      "enum": [
+        "A",
+        "B",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "end_to_end"
+      ]
+    },
+    "split": {
+      "enum": [
+        "development",
+        "held_out"
+      ]
+    },
+    "source_snapshot": {
+      "type": "string"
+    },
+    "prompt_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "raw_output_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "settings": {
+      "type": "object"
+    },
+    "evaluator_version": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "proven",
+        "disproven",
+        "bounded_pass",
+        "unknown",
+        "unsupported",
+        "error",
+        "missing"
+      ]
+    },
+    "assumptions": {
+      "type": "array"
+    },
+    "bounds": {
+      "type": "object"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "backend": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "elapsed_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "cost": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    }
+  }
+}

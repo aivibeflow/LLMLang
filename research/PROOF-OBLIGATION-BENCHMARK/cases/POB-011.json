@@ -1,0 +1,36 @@
+{
+  "id": "POB-011",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Capability isolation",
+  "labels": [
+    "FORM-01",
+    "FORM-04",
+    "DOMAIN-10"
+  ],
+  "contract": "Caller without read capability observes the same public output for either secret.",
+  "scope": "Public input and secret in 0..2; no read capability; pairwise comparison of secret choices.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Output is identical across paired executions differing only in secret, and equals public input.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "isolation",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Include secret in public output.",
+      "expected": "disproven"
+    }
+  ]
+}

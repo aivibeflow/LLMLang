@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Experimental POB case v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "revision",
+    "status",
+    "title",
+    "labels",
+    "contract",
+    "scope",
+    "assumptions",
+    "obligations",
+    "oracle",
+    "variants"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^POB-[0-9]{3,}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "reviewed",
+        "retired"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "labels": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "FORM-01",
+          "FORM-02",
+          "FORM-03",
+          "FORM-04",
+          "FORM-05",
+          "FORM-06",
+          "DOMAIN-01",
+          "DOMAIN-02",
+          "DOMAIN-03",
+          "DOMAIN-04",
+          "DOMAIN-05",
+          "DOMAIN-06",
+          "DOMAIN-07",
+          "DOMAIN-08",
+          "DOMAIN-09",
+          "DOMAIN-10"
+        ]
+      }
+    },
+    "contract": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "obligations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "claim",
+          "dependencies"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dependencies": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "oracle": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variants": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "description",
+          "expected"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected": {
+            "enum": [
+              "bounded_pass",
+              "disproven",
+              "unknown",
+              "unsupported",
+              "error"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

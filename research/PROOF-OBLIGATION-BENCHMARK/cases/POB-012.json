@@ -1,0 +1,37 @@
+{
+  "id": "POB-012",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Checked addition",
+  "labels": [
+    "FORM-01",
+    "FORM-02",
+    "DOMAIN-01",
+    "DOMAIN-09"
+  ],
+  "contract": "Signed 4-bit checked addition returns exact sum if representable, otherwise overflow.",
+  "scope": "All pairs in -8..7.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Result is exact integer for -8..7 sum or overflow marker otherwise.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "checked",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Wrap on overflow.",
+      "expected": "disproven"
+    }
+  ]
+}

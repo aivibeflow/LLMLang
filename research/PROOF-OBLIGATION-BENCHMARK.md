@@ -169,4 +169,4 @@ This document establishes an evaluation plan, not an accepted LLMLang architectu
 - prescribe one backend per taxonomy label;
 - treat testing, bounded model checking, solver output, or target compilation as proof beyond its stated scope.
 
-The next step is to instantiate a small, representative seed set, validate the taxonomy against real contracts, and expand only where it exposes distinct proof-planning or evidence failures.
+The [executable seed corpus and infrastructure](PROOF-OBLIGATION-BENCHMARK/README.md) provides twelve proposed finite reference/mutation cases, an offline runner, and experiment protocol. The next steps are independent adjudication, backend integration and controlled evaluation; see the linked issues. Finite smoke results do not establish unbounded proofs.

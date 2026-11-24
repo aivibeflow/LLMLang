@@ -1,0 +1,38 @@
+{
+  "id": "POB-008",
+  "revision": 1,
+  "status": "proposed",
+  "title": "FIFO queue",
+  "labels": [
+    "FORM-02",
+    "FORM-06",
+    "DOMAIN-03",
+    "DOMAIN-06",
+    "DOMAIN-08"
+  ],
+  "contract": "A sequential reference history for an abstract FIFO queue returns values in insertion order.",
+  "scope": "All operation sequences length 0..4 of enqueue 0, enqueue 1, dequeue; sequential histories only, not linearizability.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Each dequeue equals earliest unmatched enqueue or empty sentinel; final queue matches remaining items.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "queue",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Pop newest element.",
+      "expected": "disproven"
+    }
+  ]
+}

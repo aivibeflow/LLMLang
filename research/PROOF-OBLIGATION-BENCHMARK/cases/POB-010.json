@@ -1,0 +1,37 @@
+{
+  "id": "POB-010",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Algebraic reduction",
+  "labels": [
+    "FORM-02",
+    "FORM-06",
+    "DOMAIN-02",
+    "DOMAIN-01"
+  ],
+  "contract": "Reassociation of integer addition preserves sum.",
+  "scope": "All triples over -2..2; mathematical integers.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Left and right associated addition give the same integer result.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "algebra",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Replace inner addition with subtraction.",
+      "expected": "disproven"
+    }
+  ]
+}
