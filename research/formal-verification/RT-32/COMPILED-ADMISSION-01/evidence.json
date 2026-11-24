@@ -1,0 +1,486 @@
+{
+  "cases": {
+    "base": {
+      "axioms": [
+        "propext"
+      ],
+      "conditions": {
+        "axiom-policy": true,
+        "bundle-mismatch": true,
+        "claim-mismatch": true,
+        "compiled-context": true,
+        "issuer-or-signature": true,
+        "receipt-subject": true,
+        "toolchain-mismatch": true
+      },
+      "full_admission": "closed",
+      "receipt": {
+        "compiled": {
+          "CallCore.olean": "60fd3dfa0aafb1b7d55723c6dd5bb70c8224cf8ea1945c50b29e818a4cdd728a",
+          "Caller.olean": "96740652a409528d5b7267541103cc8c49915b8f472961a891e7e660cbf31541",
+          "Closed.olean": "0340fbcaf3da23b04b277f0830de5a2537669b7083f44b0441747673e89f7c11",
+          "Provider.olean": "4b89669e4dc5a06b560751d3ce74b1fdbcc1cf2b09770906e2dd68218d145f35"
+        },
+        "format": "rt32-compiled-claim/1",
+        "publisher": "fixture-lean-proof-publisher",
+        "subject": {
+          "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+          "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+          "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+          "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+          "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+          "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+          "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+        },
+        "theorem": "closedClaim",
+        "toolchain": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "request": {
+        "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+      },
+      "signature": "6b3a1c62ef9974ffcfa3727e09a617eddb5947ef62364dc28704c38c0febe3f232c89566f951c1fdca1ea14ce021d1f1d6773d5caf335a32e2641816a551d90e",
+      "signature_bundle_admission": true,
+      "type_axiom_admission": true
+    },
+    "changed-toolchain": {
+      "axioms": [
+        "propext"
+      ],
+      "conditions": {
+        "axiom-policy": true,
+        "bundle-mismatch": true,
+        "claim-mismatch": true,
+        "compiled-context": true,
+        "issuer-or-signature": true,
+        "receipt-subject": true,
+        "toolchain-mismatch": false
+      },
+      "full_admission": "toolchain-mismatch",
+      "receipt": {
+        "compiled": {
+          "CallCore.olean": "60fd3dfa0aafb1b7d55723c6dd5bb70c8224cf8ea1945c50b29e818a4cdd728a",
+          "Caller.olean": "96740652a409528d5b7267541103cc8c49915b8f472961a891e7e660cbf31541",
+          "Closed.olean": "0340fbcaf3da23b04b277f0830de5a2537669b7083f44b0441747673e89f7c11",
+          "Provider.olean": "4b89669e4dc5a06b560751d3ce74b1fdbcc1cf2b09770906e2dd68218d145f35"
+        },
+        "format": "rt32-compiled-claim/1",
+        "publisher": "fixture-lean-proof-publisher",
+        "subject": {
+          "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+          "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+          "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+          "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+          "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+          "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+          "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+        },
+        "theorem": "closedClaim",
+        "toolchain": "fixture-previous-toolchain"
+      },
+      "request": {
+        "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+      },
+      "signature": "0d7c05148e222db832e2d1e2540e9307de4dd98e32170a0421a7a2c84fecae75a0322ca93290b26c2bbfbb7f0651398966be692e22a3fa9cfe903d1bab4c5503",
+      "signature_bundle_admission": false,
+      "type_axiom_admission": true
+    },
+    "different-bundle": {
+      "axioms": [
+        "propext"
+      ],
+      "conditions": {
+        "axiom-policy": true,
+        "bundle-mismatch": false,
+        "claim-mismatch": true,
+        "compiled-context": true,
+        "issuer-or-signature": true,
+        "receipt-subject": true,
+        "toolchain-mismatch": true
+      },
+      "full_admission": "bundle-mismatch",
+      "receipt": {
+        "compiled": {
+          "CallCore.olean": "60fd3dfa0aafb1b7d55723c6dd5bb70c8224cf8ea1945c50b29e818a4cdd728a",
+          "Caller.olean": "96740652a409528d5b7267541103cc8c49915b8f472961a891e7e660cbf31541",
+          "Closed.olean": "0340fbcaf3da23b04b277f0830de5a2537669b7083f44b0441747673e89f7c11",
+          "Provider.olean": "4b89669e4dc5a06b560751d3ce74b1fdbcc1cf2b09770906e2dd68218d145f35"
+        },
+        "format": "rt32-compiled-claim/1",
+        "publisher": "fixture-lean-proof-publisher",
+        "subject": {
+          "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+          "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+          "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+          "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+          "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+          "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+          "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+        },
+        "theorem": "closedClaim",
+        "toolchain": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "request": {
+        "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+      },
+      "signature": "6b3a1c62ef9974ffcfa3727e09a617eddb5947ef62364dc28704c38c0febe3f232c89566f951c1fdca1ea14ce021d1f1d6773d5caf335a32e2641816a551d90e",
+      "signature_bundle_admission": false,
+      "type_axiom_admission": true
+    },
+    "foreign-axiom": {
+      "axioms": [
+        "foreignAssertion"
+      ],
+      "conditions": {
+        "axiom-policy": false,
+        "bundle-mismatch": true,
+        "claim-mismatch": true,
+        "compiled-context": true,
+        "issuer-or-signature": true,
+        "receipt-subject": true,
+        "toolchain-mismatch": true
+      },
+      "full_admission": "axiom-policy",
+      "receipt": {
+        "compiled": {
+          "CallCore.olean": "60fd3dfa0aafb1b7d55723c6dd5bb70c8224cf8ea1945c50b29e818a4cdd728a",
+          "Caller.olean": "96740652a409528d5b7267541103cc8c49915b8f472961a891e7e660cbf31541",
+          "Closed.olean": "662b36803b7d5db93fe532a77001f62fd48d074b77fa13a4052f28c2857d75f9",
+          "Provider.olean": "4b89669e4dc5a06b560751d3ce74b1fdbcc1cf2b09770906e2dd68218d145f35"
+        },
+        "format": "rt32-compiled-claim/1",
+        "publisher": "fixture-lean-proof-publisher",
+        "subject": {
+          "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+          "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+          "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+          "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+          "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+          "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+          "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+        },
+        "theorem": "closedClaim",
+        "toolchain": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "request": {
+        "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+      },
+      "signature": "2613ddda74ec1886fd3bcede11734aa0f12ea3bb3728c067b6d806281401366daf81e1d5e9f472a0f49d536d1b2d0989cb836e5166b9d6ef98a6ca6e01e13503",
+      "signature_bundle_admission": true,
+      "type_axiom_admission": false
+    },
+    "missing-signature": {
+      "axioms": [
+        "propext"
+      ],
+      "conditions": {
+        "axiom-policy": true,
+        "bundle-mismatch": true,
+        "claim-mismatch": true,
+        "compiled-context": true,
+        "issuer-or-signature": false,
+        "receipt-subject": true,
+        "toolchain-mismatch": true
+      },
+      "full_admission": "issuer-or-signature",
+      "receipt": {
+        "compiled": {
+          "CallCore.olean": "60fd3dfa0aafb1b7d55723c6dd5bb70c8224cf8ea1945c50b29e818a4cdd728a",
+          "Caller.olean": "96740652a409528d5b7267541103cc8c49915b8f472961a891e7e660cbf31541",
+          "Closed.olean": "0340fbcaf3da23b04b277f0830de5a2537669b7083f44b0441747673e89f7c11",
+          "Provider.olean": "4b89669e4dc5a06b560751d3ce74b1fdbcc1cf2b09770906e2dd68218d145f35"
+        },
+        "format": "rt32-compiled-claim/1",
+        "publisher": "fixture-lean-proof-publisher",
+        "subject": {
+          "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+          "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+          "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+          "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+          "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+          "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+          "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+        },
+        "theorem": "closedClaim",
+        "toolchain": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "request": {
+        "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+      },
+      "signature": null,
+      "signature_bundle_admission": false,
+      "type_axiom_admission": true
+    },
+    "old-proof-for-rebound": {
+      "axioms": [
+        "propext"
+      ],
+      "conditions": {
+        "axiom-policy": true,
+        "bundle-mismatch": true,
+        "claim-mismatch": true,
+        "compiled-context": false,
+        "issuer-or-signature": true,
+        "receipt-subject": false,
+        "toolchain-mismatch": true
+      },
+      "full_admission": "receipt-subject",
+      "receipt": {
+        "compiled": {
+          "CallCore.olean": "60fd3dfa0aafb1b7d55723c6dd5bb70c8224cf8ea1945c50b29e818a4cdd728a",
+          "Caller.olean": "96740652a409528d5b7267541103cc8c49915b8f472961a891e7e660cbf31541",
+          "Closed.olean": "0340fbcaf3da23b04b277f0830de5a2537669b7083f44b0441747673e89f7c11",
+          "Provider.olean": "4b89669e4dc5a06b560751d3ce74b1fdbcc1cf2b09770906e2dd68218d145f35"
+        },
+        "format": "rt32-compiled-claim/1",
+        "publisher": "fixture-lean-proof-publisher",
+        "subject": {
+          "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+          "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+          "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+          "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+          "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+          "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+          "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+        },
+        "theorem": "closedClaim",
+        "toolchain": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "request": {
+        "binding": "779cff452f5065da70b9f106460dc190fbd3d68aa35edec4f51313816bd73656",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "provider": "a08d93e210b538647c12864206c092aa1474bc45807ccb30e55d1f59f147b2a0",
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "772dcee2cb3eb8bae341f252b880f814168a814f83adcc5ccb999810f672acc8"
+      },
+      "signature": "6b3a1c62ef9974ffcfa3727e09a617eddb5947ef62364dc28704c38c0febe3f232c89566f951c1fdca1ea14ce021d1f1d6773d5caf335a32e2641816a551d90e",
+      "signature_bundle_admission": false,
+      "type_axiom_admission": true
+    },
+    "rebound": {
+      "axioms": [
+        "propext"
+      ],
+      "conditions": {
+        "axiom-policy": true,
+        "bundle-mismatch": true,
+        "claim-mismatch": true,
+        "compiled-context": true,
+        "issuer-or-signature": true,
+        "receipt-subject": true,
+        "toolchain-mismatch": true
+      },
+      "full_admission": "closed",
+      "receipt": {
+        "compiled": {
+          "CallCore.olean": "60fd3dfa0aafb1b7d55723c6dd5bb70c8224cf8ea1945c50b29e818a4cdd728a",
+          "Caller.olean": "96740652a409528d5b7267541103cc8c49915b8f472961a891e7e660cbf31541",
+          "Closed.olean": "a3a1d42bc71a1e7e014dda16c1ebbf644d2de0038c8a943d04fc523bc8ceb813",
+          "Provider.olean": "2e19bad71cac22c25824062abb522136ad361003eae62dfd531f4d20f2d48cc1"
+        },
+        "format": "rt32-compiled-claim/1",
+        "publisher": "fixture-lean-proof-publisher",
+        "subject": {
+          "binding": "779cff452f5065da70b9f106460dc190fbd3d68aa35edec4f51313816bd73656",
+          "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+          "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+          "provider": "a08d93e210b538647c12864206c092aa1474bc45807ccb30e55d1f59f147b2a0",
+          "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+          "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+          "root": "772dcee2cb3eb8bae341f252b880f814168a814f83adcc5ccb999810f672acc8"
+        },
+        "theorem": "closedClaim",
+        "toolchain": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "request": {
+        "binding": "779cff452f5065da70b9f106460dc190fbd3d68aa35edec4f51313816bd73656",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "provider": "a08d93e210b538647c12864206c092aa1474bc45807ccb30e55d1f59f147b2a0",
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "772dcee2cb3eb8bae341f252b880f814168a814f83adcc5ccb999810f672acc8"
+      },
+      "signature": "63b08279cef79d242d17011b2781f7d8d24c45ef0be9d4b167db15e8484f723d2cbf6b4f3af273474ad2d5054d349a8416ee67e0c4f0fee3beffa22f9b16b702",
+      "signature_bundle_admission": true,
+      "type_axiom_admission": true
+    },
+    "signed-wrong-compiled-context": {
+      "axioms": [
+        "propext"
+      ],
+      "conditions": {
+        "axiom-policy": true,
+        "bundle-mismatch": true,
+        "claim-mismatch": true,
+        "compiled-context": false,
+        "issuer-or-signature": true,
+        "receipt-subject": true,
+        "toolchain-mismatch": true
+      },
+      "full_admission": "compiled-context",
+      "receipt": {
+        "compiled": {
+          "CallCore.olean": "60fd3dfa0aafb1b7d55723c6dd5bb70c8224cf8ea1945c50b29e818a4cdd728a",
+          "Caller.olean": "96740652a409528d5b7267541103cc8c49915b8f472961a891e7e660cbf31541",
+          "Closed.olean": "a3a1d42bc71a1e7e014dda16c1ebbf644d2de0038c8a943d04fc523bc8ceb813",
+          "Provider.olean": "2e19bad71cac22c25824062abb522136ad361003eae62dfd531f4d20f2d48cc1"
+        },
+        "format": "rt32-compiled-claim/1",
+        "publisher": "fixture-lean-proof-publisher",
+        "subject": {
+          "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+          "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+          "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+          "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+          "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+          "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+          "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+        },
+        "theorem": "closedClaim",
+        "toolchain": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "request": {
+        "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+      },
+      "signature": "93cc9ecc9b6a4294e1ed42d1d4438af84c10c58d8f47020caa6622f16d0279761a317dfa96270b8d8aa15cc96a86f988b9932acf4d9ad8ba8022377fc8cd6d06",
+      "signature_bundle_admission": true,
+      "type_axiom_admission": true
+    },
+    "untrusted-issuer": {
+      "axioms": [
+        "propext"
+      ],
+      "conditions": {
+        "axiom-policy": true,
+        "bundle-mismatch": true,
+        "claim-mismatch": true,
+        "compiled-context": true,
+        "issuer-or-signature": false,
+        "receipt-subject": true,
+        "toolchain-mismatch": true
+      },
+      "full_admission": "issuer-or-signature",
+      "receipt": {
+        "compiled": {
+          "CallCore.olean": "60fd3dfa0aafb1b7d55723c6dd5bb70c8224cf8ea1945c50b29e818a4cdd728a",
+          "Caller.olean": "96740652a409528d5b7267541103cc8c49915b8f472961a891e7e660cbf31541",
+          "Closed.olean": "0340fbcaf3da23b04b277f0830de5a2537669b7083f44b0441747673e89f7c11",
+          "Provider.olean": "4b89669e4dc5a06b560751d3ce74b1fdbcc1cf2b09770906e2dd68218d145f35"
+        },
+        "format": "rt32-compiled-claim/1",
+        "publisher": "fixture-untrusted-proof-publisher",
+        "subject": {
+          "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+          "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+          "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+          "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+          "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+          "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+          "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+        },
+        "theorem": "closedClaim",
+        "toolchain": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "request": {
+        "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+      },
+      "signature": "2cc669b91fbbe8134d5a5a5931dc044ec0e185cc1b139cf5ed3de656ed31b113ea299662cb4678a469b918d0b2ed7f0c725a3c986459aa017c2816e45693820a",
+      "signature_bundle_admission": false,
+      "type_axiom_admission": true
+    },
+    "wrong-theorem": {
+      "axioms": [],
+      "conditions": {
+        "axiom-policy": true,
+        "bundle-mismatch": true,
+        "claim-mismatch": false,
+        "compiled-context": true,
+        "issuer-or-signature": true,
+        "receipt-subject": true,
+        "toolchain-mismatch": true
+      },
+      "full_admission": "claim-mismatch",
+      "receipt": {
+        "compiled": {
+          "CallCore.olean": "60fd3dfa0aafb1b7d55723c6dd5bb70c8224cf8ea1945c50b29e818a4cdd728a",
+          "Caller.olean": "96740652a409528d5b7267541103cc8c49915b8f472961a891e7e660cbf31541",
+          "Closed.olean": "78757d79d98456af9e25393ca5de4d29c67dc86afb595a853913262a58e3ae32",
+          "Provider.olean": "4b89669e4dc5a06b560751d3ce74b1fdbcc1cf2b09770906e2dd68218d145f35"
+        },
+        "format": "rt32-compiled-claim/1",
+        "publisher": "fixture-lean-proof-publisher",
+        "subject": {
+          "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+          "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+          "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+          "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+          "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+          "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+          "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+        },
+        "theorem": "closedClaim",
+        "toolchain": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "request": {
+        "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "37d76b554c0d1ababc25a874851e5012c96b436e1dad77a10ee2977d087754a1"
+      },
+      "signature": "20b42ed7e46ba90d23341511782170e59bc86148c6e8d47ef118f00a7980500832bdff4ffe04208fd5f2f1af53575bbe8f951a17af3981e7ce177b48f242ba0b",
+      "signature_bundle_admission": true,
+      "type_axiom_admission": false
+    }
+  },
+  "format": "rt32-compiled-proof-admission/1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "python": "3.12.14"
+}
