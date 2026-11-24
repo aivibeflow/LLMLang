@@ -1,0 +1,109 @@
+{
+  "observations": {
+    "accept_rejects_stale_revision": "StaleRevision",
+    "accepted_state": true,
+    "accepted_workspace_cannot_mutate": "SemanticConflict",
+    "added_resource": {
+      "value": 30
+    },
+    "advertised_add_remove_pair": true,
+    "advertised_late_stale_hash_is_well_formed": true,
+    "advertised_remove_has_no_payload": false,
+    "advertised_revision_is_required": false,
+    "advertised_valid_change": true,
+    "apply_changes": {
+      "revision": 1,
+      "state": "open",
+      "working_snapshot": "sha256:16511ac103187f3696d9a7c1a66c30d77982e4eb484e9e76d996d827d025ab75"
+    },
+    "atomic_add_remove_root": "sha256:91875d9083755bdb705f34a0c0847e12bdcc168323627b2c27487acc182e194f",
+    "base_resource": {
+      "content_hash": "sha256:a4adebf7c308ce59ddc6ddb5cfdef2e571a19f5c557122faf78ea76a942c6ad8",
+      "kind": "module",
+      "payload": {
+        "refs": [
+          "module/config"
+        ],
+        "value": 1
+      },
+      "stable_id": "module/math+basis"
+    },
+    "capabilities": [
+      "prompts",
+      "resources",
+      "tools"
+    ],
+    "contradictory_remove": "InvalidArguments",
+    "discovered_fixture": [
+      "llmlang://snapshot/sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f/entity/module%2Fconfig",
+      "llmlang://snapshot/sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f/entity/module%2Fmath%2Bbasis"
+    ],
+    "discovered_prompt": {
+      "plan_change": [
+        "workspace_id",
+        "snapshot_id"
+      ]
+    },
+    "discovered_template": [
+      "llmlang://snapshot/{snapshot_id}/entity/{stable_id}"
+    ],
+    "discovered_tools": [
+      "accept_workspace",
+      "apply_change_set",
+      "inspect_workspace",
+      "open_workspace"
+    ],
+    "distinct_workspace_handles": true,
+    "exact_accepted_snapshot": {
+      "content_hash": "sha256:0bb137e2a860afa76654cbf5faff05f34d361e4fd3d364ad608d933b733ac813",
+      "kind": "module",
+      "payload": {
+        "refs": [
+          "module/config"
+        ],
+        "value": 2
+      },
+      "stable_id": "module/math+basis"
+    },
+    "exact_old_snapshot": {
+      "refs": [
+        "module/config"
+      ],
+      "value": 1
+    },
+    "late_stale_hash": "StaleObject",
+    "malformed_resource": -32602,
+    "missing_revision": "InvalidArguments",
+    "negotiated_protocol": "2025-11-25",
+    "no_partial_publication": true,
+    "no_partial_snapshot": -32002,
+    "open_a": {
+      "base_snapshot": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+      "revision": 0,
+      "state": "open",
+      "working_snapshot": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f"
+    },
+    "open_b": {
+      "base_snapshot": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+      "revision": 0,
+      "state": "open",
+      "working_snapshot": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f"
+    },
+    "prompt_binds_explicit_revision": true,
+    "prompt_does_not_mutate": true,
+    "prompt_rejects_missing_workspace": -32602,
+    "prompt_rejects_wrong_snapshot": -32602,
+    "removed_resource": -32002,
+    "scoped_user_prompt": "user",
+    "separate_referenced_object": {
+      "value": 10
+    },
+    "snapshot_can_be_reopened": "sha256:16511ac103187f3696d9a7c1a66c30d77982e4eb484e9e76d996d827d025ab75",
+    "stale_revision": "StaleRevision",
+    "unchanged_referenced_object": "sha256:81645bf2f56690a19f7132ce6164a2bfc773241cc74a46fd54b096299a08dcca",
+    "unknown_resource": -32002,
+    "workspace_a_remains_accepted": true,
+    "workspace_b_isolated": true
+  },
+  "passed": 42
+}
