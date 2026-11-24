@@ -564,6 +564,24 @@ RT-33 depends on authoritative semantics, stable semantic identities, explicit p
 
 These edges are research hypotheses, not implementation commitments. No backend is selected as universal, and backend-specific success cannot establish LLMLang correctness without a justified translation/correspondence boundary.
 
+## 22. Automatic complexity inference and resource verification (RT-34)
+
+[RT-34](RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) distinguishes problem lower bounds, achievable bounds and concrete implementation guarantees. These edges are hypotheses; cost semantics and evidence must be evaluated before selecting an architecture.
+
+| ID | Edge | Relationship | Rationale | Confidence |
+|---|---|---|---|---|
+| DEP-201 | RT-03 → RT-34 | Requires | Authoritative evaluation and termination semantics for source costs. | Strong hypothesis |
+| DEP-202 | RT-04 → RT-34 | Requires | Types, size/representation relations, effects, ownership and lifetimes. | Strong hypothesis |
+| DEP-203 | RT-05 → RT-34 | Requires | Exact semantic identity and complete call-binding dependency closure. | Strong hypothesis |
+| DEP-204 | RT-07 → RT-34 | Requires | Sound proof/evidence scope and independent checking. | Strong hypothesis |
+| DEP-205 | RT-08 → RT-34 | Requires | Independently reviewed benchmark oracles and adversarial controls. | Strong hypothesis |
+| DEP-206 | RT-11 → RT-34 | Influences | Exact proof keys and incremental invalidation. | Strong hypothesis |
+| DEP-207 | RT-26 → RT-34 | Influences | Runtime budget enforcement is distinct from static complexity. | Strong hypothesis |
+| DEP-208 | RT-32 → RT-34 | Influences | Source-derived cost obligations and compositional PDG. | Strong hypothesis |
+| DEP-209 | RT-33 → RT-34 | Influences | Specialized analyzer/backend selection and conservative abstention. | Strong hypothesis |
+| DEP-210 | RT-34 → RT-09 | Influences | Resource-preserving lowering or separate target cost evidence. | Open hypothesis |
+| DEP-211 | RT-34 → RT-33 | Influences | New resource obligation forms and certificate capabilities. | Open hypothesis |
+
 ## 23. Semantic Function Discovery and Retrieval (RT-35)
 
 RT-35 studies semantic retrieval as a Toolchain capability. Approximate similarity may find candidates, but only explicit compatibility evidence can authorize a candidate binding; invocation remains bound to an exact immutable function hash.

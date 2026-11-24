@@ -69,6 +69,8 @@ If you're building an LLM-native programming language, a semantic IR for coding 
 
 ## Research planning
 
+- [RT-34 — Automatic Complexity Inference and Resource Verification](research/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) — proposed research on model-scoped resource contracts, automatic inference and proof of SPG implementation complexity, problem lower bounds and optimality; [benchmark plan](research/RT-34-COMPLEXITY-BENCHMARK.md). No analyzer or normative design selected.
+
 - [Research taxonomy](research/RESEARCH-TAXONOMY.md) — research areas, current coverage, and required outputs for each research.
 - [RT-03 — Core Language Semantics](research/CORE-LANGUAGE-SEMANTICS.md) — candidate semantic vectors and four profiles (pure functional, imperative/linear, actor/concurrent, effectful functional), compatibility tensions, downstream dependencies, and experiments. No profile is selected.
 - [RT-04 — Type, Effect, Ownership, and Capability-System Alternatives](research/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) — comparative alternatives for static/refinement types, effects/handlers, ownership/borrowing/lifetimes, capabilities, concurrency/memory models, error-state composition, and candidate hash boundaries. No architecture is selected; a first limited checker prototype exists, while broader scenarios remain open.

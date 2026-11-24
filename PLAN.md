@@ -364,6 +364,18 @@ The [RT-33 bounded Lean comparison](research/PROOF-OBLIGATION-BENCHMARK/LEAN-TRA
 **Order:** after the semantic objects and contract boundaries from Stage 1 are stable enough to formalize.  
 **Purpose:** make language meaning precise and ensure that verification claims are independently checkable.
 
+## 2.0 Automatic complexity inference and resource verification (RT-34)
+
+**Priority:** P0 foundations/pilot, P1 advanced domains. **Status:** Research brief and benchmark plan established; implementation and experiments not started. [RT-34](research/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) · [Benchmark plan](research/RT-34-COMPLEXITY-BENCHMARK.md) · [Issue #412](https://github.com/aivibeflow/LLMLang/issues/412).
+
+- [ ] Define cost profiles, size domains, resource Contract IR and proof/evidence identity (CX-01–03).
+- [ ] Pilot loop, recursion and call analysis, source correspondence and independent checking (CX-04–07).
+- [ ] Independently adjudicate benchmark cases and compare inference vectors (CX-19).
+- [ ] Study problem lower bounds, optimality, amortization, memory, parallel/probabilistic and multivariate complexity (CX-08–14).
+- [ ] Investigate resource-preserving lowering, synthesis, incremental invalidation, regression gates and external calls (CX-15–18, CX-20).
+
+Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/cache, RT-26 resource enforcement, RT-32/33 proof generation and orchestration. Exit: reproducible scoped experiment, checked cost proofs and source correspondence, explicit assumptions and abstention, comparative evidence and no normative selection without review.
+
 ## 2.1 Formal semantics of the language
 
 **Estimated research complexity:** **8/10** — requires a precise executable semantics and correspondence with source programs.
