@@ -1,0 +1,31 @@
+{
+  "allowance_above_process_baseline_bytes": 8388608,
+  "kernel": "6.18.57",
+  "page_bytes": 4096,
+  "pair": {
+    "combined_virtual_bytes": 12582912,
+    "over_hypothetical_group_allowance_bytes": 4194304,
+    "simultaneous_holders": [
+      {
+        "mapped_bytes": 6291456,
+        "resident_pages": 0
+      },
+      {
+        "mapped_bytes": 6291456,
+        "resident_pages": 0
+      }
+    ]
+  },
+  "python": "3.12.14",
+  "single": {
+    "discarded_content_read_zero": true,
+    "discarded_resident_pages": 0,
+    "first_mapping_bytes": 6291456,
+    "initial_resident_pages": 0,
+    "second_after_discard": "ENOMEM",
+    "second_after_first_unmap_bytes": 4194304,
+    "second_initial_resident_pages": 0,
+    "second_with_partial_residency": "ENOMEM",
+    "touched_resident_pages": 768
+  }
+}

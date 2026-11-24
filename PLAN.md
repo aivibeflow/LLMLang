@@ -870,6 +870,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define explicit call binding to immutable operation identity.
 - [ ] Define error propagation, cancellation, and resource cleanup.
 - [ ] Research first-class resource accounting and enforcement for task scopes and task hierarchies: memory, CPU, disk I/O, network I/O, coroutine/task switches, and hardware/software performance counters.
+  - [x] Compare Linux address-space admission with native residency sampling. Discarding all 768 touched pages leaves an additional mapping denied until unmap, and two locally admitted workers exceed the corresponding shared virtual-length bound. Physical charging, cgroups and portable group accounting remain open. [Linux mapping residency](research/runtime-and-systems/RT-26/RT-26-LINUX-MAPPING-RESIDENCY-2026-11-24.md).
 - [ ] Define real-time resource limits, quotas, budgets, rate limits, and throttlers, including hierarchical aggregation, inheritance, delegation, and contention between parent/child tasks.
 - [ ] Define limit-exceeded events and typed handlers/policies that can decide whether to continue, throttle, pause, cancel, retry, degrade, shed work, escalate, or terminate; specify overshoot, race, and handler-failure behavior.
   - In a closed task tree, cancellation can stop new admissions immediately. Releasing existing capacity requires terminal settlement. [Cancellation accounting](research/runtime-and-systems/RT-26/RT-26-CANCELLATION-ACCOUNTING.md)
