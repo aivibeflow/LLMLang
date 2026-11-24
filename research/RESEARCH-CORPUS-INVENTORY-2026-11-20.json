@@ -1,41 +1,41 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-23",
+  "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "aba2fd1e1989f668c31eab3b6f4ce90e961ce22f",
-  "source": "Exact recursive research-tree inventory at current-main revision aba2fd1e1989f668c31eab3b6f4ce90e961ce22f; prior per-path semantic metadata preserved where present, newly added paths marked pending review.",
+  "revision": "a010679ce3d023dcc20d3a0b4b39c8b06f1e1995",
+  "source": "Exact inventory for the PR research tree based on main a010679ce3d023dcc20d3a0b4b39c8b06f1e1995 plus this reconciliation report; inventory manifest excluded.",
   "counts": {
-    "research_files": 760,
+    "research_files": 770,
     "markdown_files": 380,
-    "python_files": 259,
+    "python_files": 261,
     "scenario_named_documents": 136,
-    "prototype_tree_files": 292,
+    "prototype_tree_files": 294,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "audit-or-review-report": 71,
+      "audit-or-review-report": 72,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 46,
       "external-source-snapshot-or-license": 13,
       "index-or-research-management": 3,
       "other-research-artifact": 2,
-      "prototype-or-experiment-implementation": 174,
-      "prototype-report-or-readme": 29,
-      "prototype-test-evidence": 140,
+      "prototype-or-experiment-implementation": 176,
+      "prototype-report-or-readme": 30,
+      "prototype-test-evidence": 145,
       "reference-register-or-manifest": 2,
-      "research-area-or-experiment-document": 80,
+      "research-area-or-experiment-document": 81,
       "research-background-or-design-analysis": 29,
       "research-preparation-brief-or-index": 13,
       "research-rfc-or-protocol-proposal": 2,
       "scenario-research-result": 136,
       "structured-fixture-or-schema": 16
     },
-    "lean_source_files": 34,
+    "lean_source_files": 35,
     "taxonomy_research_areas": 29,
     "dependency_edges": 136,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 760
+    "research_artifacts_excluding_manifest": 770
   },
-  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 paths in the recorded 2026-11-23 prototype review; first-pass relationship review for the recorded 136 strict Scenario reports; and bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos. At current main revision aba2fd1e1989f668c31eab3b6f4ce90e961ce22f, all 150 added paths received first-pass individual file-role and RT/stage triage; 16 changed existing paths have exact Git metadata refreshed but retain prior role mappings pending content revalidation. Do not interpret these counts as current per-path semantic coverage. RT-27's physical storage format and RT-28's candidate dependencies remain provisional. Claim validation, test execution, generated-output review, and reproduction remain separate.",
+  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. Existing role metadata was preserved where paths were unchanged. The 150 paths added since prior manifest have first-pass category/RT/stage triage; nine research paths added on main since a010679 baseline and this reconciliation report receive first-pass role mappings. Twelve existing paths have refreshed Git metadata; their prior semantic roles are not all content-revalidated. Claim validation, generated-output review, and experiment reproduction remain separate.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -907,8 +907,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
-      "git_blob_sha": "0ae5c89d9dde4582603c75db37c5d32e3d56a89c",
-      "size_bytes": 1076,
+      "git_blob_sha": "5e1d2e0aded9a33ee9bc772aec5e392580076cbc",
+      "size_bytes": 1097,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -9028,8 +9028,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "b6949b2b8c332268547fe87e54dc4d932d1dc69a",
-      "size_bytes": 49121,
+      "git_blob_sha": "66a7db59252b44a374e69c35195120a9f7620466",
+      "size_bytes": 49426,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -18558,6 +18558,204 @@
         "status": "first-pass-content-triage",
         "basis": "Reusable template for evidence/claim reporting; process aid, not a research result."
       }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/TLC-TRANSITION-STATE.md",
+      "git_blob_sha": "4f90a6561d7482e222fd451178888516290b21f8",
+      "size_bytes": 5684,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 bounded TLC transition-prefix adapter report; results are finite and do not establish unbounded temporal correctness."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_tlc_adapter.py",
+      "git_blob_sha": "c16c260c6e781e6b24461c56259d656a64a02c53",
+      "size_bytes": 2817,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Test module for the bounded TLC transition adapter; test file presence is not execution evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/tlc_adapter.py",
+      "git_blob_sha": "45a87cf6b0652835eee7df60232c719f1408d093",
+      "size_bytes": 13348,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded TLC adapter implementation for POB transition fixtures."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/tlc-transition-state-results/counterexample.json",
+      "git_blob_sha": "94dbe87302d84f82fbf8b04540668b614265459a",
+      "size_bytes": 457,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored bounded TLC result/counterexample outputs; does not constitute unbounded proof."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/tlc-transition-state-results/outcomes.csv",
+      "git_blob_sha": "3f471105463542f344efc178a8cb9be97f76013f",
+      "size_bytes": 27295,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored bounded TLC result/counterexample outputs; does not constitute unbounded proof."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/tlc-transition-state-results/summary.json",
+      "git_blob_sha": "1f3aff8ceb6fde8a1df71c84fdab6f1d1daa4caf",
+      "size_bytes": 1405,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored bounded TLC result/counterexample outputs; does not constitute unbounded proof."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosRenderedSorts.lean",
+      "git_blob_sha": "1d6867600a66770c92fa91edb44888a302e7e6a8",
+      "size_bytes": 12268,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean test/prototype source for preserving Int/Bool sorts through Logos rendering."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-sorts/axioms.txt",
+      "git_blob_sha": "44f1989f1058c80b40f7312328e9fc28928d1bff",
+      "size_bytes": 219,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded axiom inventory for the bounded Logos rendered-sort proof."
+      }
+    },
+    {
+      "path": "research/RT-00-A-CURRENT-MAIN-INVENTORY-RECONCILIATION-2026-11-24.md",
+      "git_blob_sha": "614c4690e991ad1127b3e84addf24f4d893874c4",
+      "size_bytes": 5392,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "This PR current-main inventory reconciliation report; exact metadata and first-pass role triage only."
+      }
+    },
+    {
+      "path": "research/RT-07-LOGOS-RENDERED-SORTS.md",
+      "git_blob_sha": "2295dad89a1c349af373bf4956a90b2bd296b7e8",
+      "size_bytes": 3819,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded RT-07 report comparing typed rendering and preserving Int/Bool sorts; not a general source-to-proof correspondence result."
+      }
     }
   ],
   "semantic_traceability_review": {
@@ -19105,21 +19303,22 @@
     "b3_refreshed_existing_records": 1
   },
   "current_tree_reconciliation": {
-    "reviewed_at": "2026-11-23",
-    "source_revision": "c3f4d6841759415fb502806e1c3e27db30658433",
+    "reviewed_at": "2026-11-24",
+    "source_revision": "a010679ce3d023dcc20d3a0b4b39c8b06f1e1995",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
-    "previous_records": 597,
-    "baseline_main_artifacts_excluding_manifest": 760,
-    "baseline_missing_manifest_paths": 150,
+    "previous_records": 610,
+    "baseline_main_artifacts_excluding_manifest": 769,
+    "baseline_missing_manifest_paths": 159,
     "baseline_extra_manifest_paths": 0,
-    "baseline_sha_or_size_mismatches": 16,
-    "current_records": 760,
-    "added_records": 150,
-    "refreshed_existing_records": 16,
+    "baseline_sha_or_size_mismatches": 17,
+    "current_records": 770,
+    "added_records": 160,
+    "refreshed_existing_records": 17,
     "refreshed_existing_paths": [
       "research/LLMLang-CONCEPT.md",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
       "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
       "research/README.md",
       "research/RESEARCH-DEPENDENCY-MAP.md",
@@ -19138,27 +19337,27 @@
     ],
     "removed_paths": 0,
     "tree_counts": {
-      "research_artifacts_excluding_manifest": 598,
-      "markdown_files": 317,
+      "research_artifacts_excluding_manifest": 770,
+      "markdown_files": 380,
       "mdx_files": 3,
-      "python_files": 226,
-      "lean_files": 33,
-      "prototype_tree_files": 292,
+      "python_files": 261,
+      "lean_files": 35,
+      "prototype_tree_files": 294,
       "scenario_named_documents": 136,
-      "taxonomy_rt_rows": 28,
-      "dependency_rows": 135,
+      "taxonomy_rt_rows": 29,
+      "dependency_rows": 136,
       "category_counts": {
-        "audit-or-review-report": 71,
+        "audit-or-review-report": 72,
         "cross-cutting-synthesis-or-status": 4,
         "example-or-fixture": 46,
         "external-source-snapshot-or-license": 13,
         "index-or-research-management": 3,
         "other-research-artifact": 2,
-        "prototype-or-experiment-implementation": 174,
-        "prototype-report-or-readme": 29,
-        "prototype-test-evidence": 140,
+        "prototype-or-experiment-implementation": 176,
+        "prototype-report-or-readme": 30,
+        "prototype-test-evidence": 145,
         "reference-register-or-manifest": 2,
-        "research-area-or-experiment-document": 80,
+        "research-area-or-experiment-document": 81,
         "research-background-or-design-analysis": 29,
         "research-preparation-brief-or-index": 13,
         "research-rfc-or-protocol-proposal": 2,
@@ -19166,22 +19365,17 @@
         "structured-fixture-or-schema": 16
       },
       "markdown_mdx_files": 380,
-      "research_json_files": 68,
+      "research_json_files": 70,
       "other_tracked_file_types": {
-        "lean": 34,
-        "txt": 6,
+        "lean": 35,
+        "txt": 7,
         "rs": 3,
         "c": 3,
         "mjs": 3,
-        "csv": 1,
+        "csv": 2,
         "lean_toolchain": 1,
         "toml": 1,
         "proto": 1
-      },
-      "family_scope_counts": {
-        "research/PROTOTYPES": 292,
-        "research/PROOF-OBLIGATION-BENCHMARK": 92,
-        "research/CONTRACT-FORMALIZATION-CORPUS": 7
       }
     },
     "prototype_family_file_counts": {
@@ -19208,136 +19402,50 @@
     "scenario_crosswalk_boundary": "The scenario_named_documents count uses a broad filename predicate (SCENARIO- followed by digits) and is 137; the strict RESEARCH-SCENARIO-<number> report set is 136 and is fully mapped. The one broad-only path is the RT-00 Scenario 130 claim-traceability pilot, not a Scenario report. The 136 reports represent 135 scenario identifiers because Scenario 95 has a supplemental execution file; Scenario 16 remains absent with intent unresolved. See RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md.",
     "rt27_traceability_boundary": "RT-27 is registered in taxonomy and dependency map by PR #251; its physical storage format and requirements remain provisional.",
     "index_coverage_result": {
-      "research_markdown_mdx_documents": 320,
+      "research_markdown_mdx_documents": 383,
       "research_documents_without_index_inbound": 57,
       "research_documents_with_zero_inbound": 23,
       "unresolved_local_targets": 38,
-      "unresolved_target_scope": "partial OCI and Alive2 snapshots; broken LLMLang-authored RT-24 taxonomy link fixed in this PR",
-      "non_markdown_targets": 647,
-      "auditor": ".github/scripts/audit_research_index_coverage.py"
+      "non_markdown_targets": 652,
+      "auditor": ".github/scripts/audit_research_index_coverage.py",
+      "audit_revision": "a010679ce3d023dcc20d3a0b4b39c8b06f1e1995",
+      "documents_scanned": 384,
+      "index_documents": 21,
+      "local_link_occurrences": 2543,
+      "research_documents_with_zero_inbound_links": 23,
+      "unique_research_targets_with_inbound_links": 360,
+      "scenario_documents": 136,
+      "scenario_documents_with_zero_inbound_links": 6,
+      "scenario_documents_without_inbound_link_from_designated_index": 31,
+      "audit_command": "python3 .github/scripts/audit_research_index_coverage.py --revision a010679ce3d023dcc20d3a0b4b39c8b06f1e1995"
     },
     "comparison_scope": "The inventory-freshness workflow validates path, Git blob SHA, and byte size on the final PR head. Semantic orphan/contradiction review and experiment validation remain separate.",
     "added_path_review": {
-      "status": "all added paths have first-pass file-role and RT/stage triage",
-      "count": 0,
+      "status": "all newly added paths have first-pass individual role and traceability triage",
+      "count": 160,
       "paths": []
     },
     "stale_record_review": {
-      "status": "refreshed exact Git metadata; prior semantic fields retained pending content review",
-      "count": 16,
-      "records": [
-        {
-          "path": "research/LLMLang-CONCEPT.md",
-          "manifest_blob_sha": "8b78b3ccbc0912c9e91b40618a7573f4b2c9f957",
-          "current_blob_sha": "869f5dcc4b40d786ceab4c5fdcb33328a7c464d1",
-          "manifest_size_bytes": 66128,
-          "current_size_bytes": 41633
-        },
-        {
-          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
-          "manifest_blob_sha": "cd63e4ec5c5f0d7ae7e215596a5febe74e28f37b",
-          "current_blob_sha": "ef00765e37c31b8fa5449bb475cce3f8ff56304d",
-          "manifest_size_bytes": 9524,
-          "current_size_bytes": 16084
-        },
-        {
-          "path": "research/README.md",
-          "manifest_blob_sha": "b90276c558030a14ae2217369bef82322629d07e",
-          "current_blob_sha": "b6949b2b8c332268547fe87e54dc4d932d1dc69a",
-          "manifest_size_bytes": 37391,
-          "current_size_bytes": 49121
-        },
-        {
-          "path": "research/RESEARCH-DEPENDENCY-MAP.md",
-          "manifest_blob_sha": "f5b401828fbf41734a344bb324f4c68dd3578613",
-          "current_blob_sha": "509f59b78fca2b3cdbf6fc548395cbeaaf6717b4",
-          "manifest_size_bytes": 60956,
-          "current_size_bytes": 83773
-        },
-        {
-          "path": "research/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md",
-          "manifest_blob_sha": "3ecbeb0d879e61d4f18a9618834399b953fc63ee",
-          "current_blob_sha": "c9900a4d0ee631dbd8447a28900ad024dd7a9c38",
-          "manifest_size_bytes": 5162,
-          "current_size_bytes": 7034
-        },
-        {
-          "path": "research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
-          "manifest_blob_sha": "1da764213b3249e48d90d40fdf9864e02accb48c",
-          "current_blob_sha": "af8655677e7310f88d2089b3022225faee6bde7e",
-          "manifest_size_bytes": 6061,
-          "current_size_bytes": 7576
-        },
-        {
-          "path": "research/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md",
-          "manifest_blob_sha": "b1d3b461cdc5ebd0e255e9a8df098ded30eb4652",
-          "current_blob_sha": "7fb516c0d52647fc4671257600f1d503480da3cd",
-          "manifest_size_bytes": 16946,
-          "current_size_bytes": 17012
-        },
-        {
-          "path": "research/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md",
-          "manifest_blob_sha": "b6553717a0a7b48b39fc913041ac0941b9435d29",
-          "current_blob_sha": "3dcefe21919f993362d9224da4bbe8e7a93d9b7a",
-          "manifest_size_bytes": 23598,
-          "current_size_bytes": 25524
-        },
-        {
-          "path": "research/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md",
-          "manifest_blob_sha": "5af8305b8838f11570892a818d8ae54de914c67b",
-          "current_blob_sha": "f631add52bb93c4f5ded69b700bb3219ab6fe38c",
-          "manifest_size_bytes": 3917,
-          "current_size_bytes": 5805
-        },
-        {
-          "path": "research/RESEARCH-TAXONOMY.md",
-          "manifest_blob_sha": "5139fbae8fa2a92650898f2e9d3ff5d912dd2cef",
-          "current_blob_sha": "d28ada21b8b0a7e4deb8f258378de3ab3320155b",
-          "manifest_size_bytes": 49700,
-          "current_size_bytes": 54904
-        },
-        {
-          "path": "research/RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md",
-          "manifest_blob_sha": "17fab1f6bcdba1519752e2b9eb93adbee724f1ed",
-          "current_blob_sha": "13f4359b8ad1e9c8ef702f3b88750cf7c99fe76f",
-          "manifest_size_bytes": 4447,
-          "current_size_bytes": 5783
-        },
-        {
-          "path": "research/RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md",
-          "manifest_blob_sha": "aec8cf203c60ff1cfb161c7a1dc88f03e0141c29",
-          "current_blob_sha": "064ef55c0acbcc68bedb048ea4c95ebe8dca4ff8",
-          "manifest_size_bytes": 48115,
-          "current_size_bytes": 48380
-        },
-        {
-          "path": "research/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md",
-          "manifest_blob_sha": "e7cbeba67a10923df04355871472ea8b6d003ab2",
-          "current_blob_sha": "d84e6d2e9f3715bf974b13e478a92f96d2774839",
-          "manifest_size_bytes": 20928,
-          "current_size_bytes": 20991
-        },
-        {
-          "path": "research/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md",
-          "manifest_blob_sha": "0d7dc8dac836b95e4f4f282bfc642eb86588bab4",
-          "current_blob_sha": "5e44df74cba37fdfc80e9a3fbcf97c46853640cf",
-          "manifest_size_bytes": 2770,
-          "current_size_bytes": 4518
-        },
-        {
-          "path": "research/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md",
-          "manifest_blob_sha": "f29041a11f1be8340b43cee4b58dbe96b83de565",
-          "current_blob_sha": "5b7f568f6c2e11563ab7b2cee4b4b6759833722d",
-          "manifest_size_bytes": 8202,
-          "current_size_bytes": 8427
-        },
-        {
-          "path": "research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md",
-          "manifest_blob_sha": "5993eadc1638ce16003b2aabdfd42e4b36be083b",
-          "current_blob_sha": "75c5062df58fd444995043e6afa71954e7f3e57b",
-          "manifest_size_bytes": 14687,
-          "current_size_bytes": 18190
-        }
+      "status": "exact Git metadata refreshed; inherited semantic fields preserved, with changed-path revalidation still open",
+      "count": 17,
+      "paths": [
+        "research/LLMLang-CONCEPT.md",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
+        "research/README.md",
+        "research/RESEARCH-DEPENDENCY-MAP.md",
+        "research/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md",
+        "research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
+        "research/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md",
+        "research/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md",
+        "research/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md",
+        "research/RESEARCH-TAXONOMY.md",
+        "research/RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md",
+        "research/RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md",
+        "research/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md",
+        "research/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md",
+        "research/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md",
+        "research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md"
       ]
     },
     "removed_path_list": [],
@@ -19360,7 +19468,33 @@
       "structured-fixture-or-schema": 1,
       "unclassified-pending-review": 150
     },
-    "pending_traceability_review": "All 150 paths added since prior inventory have first-pass category and RT/stage metadata. Sixteen existing paths changed; their Git metadata is refreshed while prior semantic fields await content revalidation."
+    "pending_traceability_review": "17 existing paths changed since prior manifest; their exact Git metadata is current, while role metadata remains based on prior review. The 160 new path records have first-pass individual role and RT/stage mappings.",
+    "previous_manifest_revision": "9135dfbe7724e12f2bbd664b53d860ec2f428d8b",
+    "refresh_status": "exact path/blob/size inventory for the PR tree; role triage boundaries documented",
+    "enumeration_method": "git ls-tree -r --full-tree HEAD research; exclude inventory manifest; git cat-file -s for blob sizes",
+    "open_research_prs_not_in_snapshot": [
+      {
+        "number": 428,
+        "title": "RT-07: bind exact source CPC assumptions to the ordinary Logos verdict",
+        "research_paths_added": 3
+      },
+      {
+        "number": 423,
+        "title": "RT-33: validate exact evidence composition across bounded backends",
+        "research_paths_added": 5
+      },
+      {
+        "number": 424,
+        "title": "RT-33: prove symbolic transition correspondence in Lean",
+        "research_paths_added": 5
+      },
+      {
+        "number": 426,
+        "title": "RT-07: check typed correspondence of source-owned JSON",
+        "research_paths_added": 3
+      }
+    ],
+    "recheck_after_merge": "Refresh this inventory after any listed PR merges."
   },
   "previous_tree_reconciliation": {
     "reviewed_at": "2026-11-21",
