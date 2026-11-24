@@ -184,6 +184,8 @@ Prototype role-review counts are not reconciled: the inventory aggregate says 24
   - Remaining external dependencies: uniform claim-level result labels and independent review/reproduction across the corpus; maintainer adoption of the Stage 0.2 quality vocabulary.
 - [ ] Link every proposed specification change to its supporting research and evidence.
 - [ ] Ensure that `research/` remains exploratory and `draft/` remains the candidate specification.
+  - [x] Cross-check the draft index, accepted compatibility decision, proposed review protocol, and three recent evidence reports. The selected files keep scoped research recommendations separate from accepted rules; no empirical report silently amends the accepted decision. [Research-to-draft boundary recheck (2026-11-24)](research/research-management/RT-00/RT-00-RESEARCH-DRAFT-BOUNDARY-RECHECK-2026-11-24.md)
+  - Remaining external dependencies: corpus-wide application of the boundary check; independent review of the claim cohort and proposed quality protocol; maintainer adoption; and exact source-bound claim links for any future draft change.
 
 **Exit criteria:** every existing research artifact is discoverable from an index; every major claim has an explicit evidence level; unresolved questions are linked to `TODO.md` or a clearly identified research item. See the [external evidence and approval dependencies](#external-evidence-and-approval-dependencies).
 
