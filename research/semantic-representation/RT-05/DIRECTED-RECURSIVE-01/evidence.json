@@ -1,0 +1,68 @@
+{
+  "census": {
+    "admitted_components": 2496,
+    "candidate_inputs": 4374,
+    "different_canonical_bytes": 1156,
+    "exact_classes": 1956,
+    "max_search_partitions": 4,
+    "pruned_transpositions": 48,
+    "relabeled_checks": 14976
+  },
+  "format": "rt05-directed-recursive/1",
+  "projections": {
+    "direction": {
+      "collision_classes": 611,
+      "largest_collapsed_family": 8
+    },
+    "multiplicity": {
+      "collision_classes": 832,
+      "largest_collapsed_family": 2
+    },
+    "roles": {
+      "collision_classes": 71,
+      "largest_collapsed_family": 64
+    }
+  },
+  "python": "3.12.14",
+  "witnesses": {
+    "direction": {
+      "exact_keys": [
+        "d6262f364bfc7e4b644ccd54081e56501db6c6a31f74707485375cec3e577ec6",
+        "2e8b91675d47ca59b4c1a024a17619c3b04657a58b5fda04eb86d4ea612851aa"
+      ],
+      "projected_key": "602dd0fd0046e6d78d9cded9e37492f2f0713df51d504013a270de3238c4e36d"
+    },
+    "multiplicity": {
+      "exact_keys": [
+        "d6262f364bfc7e4b644ccd54081e56501db6c6a31f74707485375cec3e577ec6",
+        "8c09c8dcfe6d07ef5c273c5247e6a8b47826371a40efa3c062fc2447f19ef5b7"
+      ],
+      "projected_key": "d6262f364bfc7e4b644ccd54081e56501db6c6a31f74707485375cec3e577ec6"
+    },
+    "roles": {
+      "exact_keys": [
+        "d6262f364bfc7e4b644ccd54081e56501db6c6a31f74707485375cec3e577ec6",
+        "389d670e663e3a32615b5f6143982110d7a0e9732f6cc26b612ac1f80f381aa8"
+      ],
+      "projected_key": "7733909c6ea5bea67f44178f83aeb1ad169997d8622045392282f0aad1a8ecbb"
+    },
+    "typed_refinement": {
+      "budget_unknown": true,
+      "exact": [
+        {
+          "key": "da793094789eefb9818a6eb54e7ca99037bb1e4dfb8e75a11c25b8f38f3e498c",
+          "pruned": 0,
+          "relabeled": 12,
+          "visited": 19
+        },
+        {
+          "key": "a352dc4e179fa35ec3ece8cc7675333381386b44d3f854a5becc51d40a25c5bf",
+          "pruned": 12,
+          "relabeled": 12,
+          "visited": 9
+        }
+      ],
+      "weak_key": "6f37fbc447fa90606d7e6b8f91442390abe21803fc189908444c2985076e2918"
+    }
+  }
+}
