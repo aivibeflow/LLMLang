@@ -33,14 +33,37 @@ private def replaceField (text key : String) (value : Json) : Except String Stri
   pure (Json.mkObj (entries.toList.map fun (name, old) =>
     (name, if name == key then value else old))).compress
 
-private def check : Except String Unit := do
+private def check : Except String (String × String) := do
   let intEnvelope ← sourceEnvelope intProgram contract scope x.id
   let intQuery ← decodeSourceEnvelope intProgram contract scope x.id intEnvelope
   if intQuery.factorLeft != "i_4_L" || intQuery.factorRight != "i_5_R" ||
       intQuery.declarations.map (·.name) != ["i_4_L", "i_5_R", "i_6", "i_9", "i_12"] then
     throw "selected pair or shared declarations not preserved"
+  let expectedInt ← sourceTypedEnvelope intProgram contract scope x.id
+  unless (compareTypedEnvelopes intQuery expectedInt).isSome do
+    throw "Int wire decoder changed typed source content"
+  for changed in [
+      { intQuery with observationsDiffer := .boolLit false },
+      { intQuery with factorDifference := intQuery.observationsDiffer },
+      { intQuery with declarations := intQuery.declarations.reverse },
+      { intQuery with declarations := intQuery.declarations.map fun declaration =>
+          { declaration with sort := .bool } },
+      { intQuery with observationContract := "wrong observation contract" }] do
+    if (compareTypedEnvelopes changed expectedInt).isSome then
+      throw "altered typed content unexpectedly passed"
+  let nested := LLMLang.LogosBinding.QueryTerm.and [
+    .eqInt (.add (.intLit (-2)) (.intSymbol "i_4_L")) (.intLit 1),
+    .iteBool (.boolSymbol "i_9") (.not (.boolLit false)) (.boolLit false)]
+  unless (nested.exactEq nested).isSome do
+    throw "typed comparison rejected a nested exact formula"
+  let ordered := LLMLang.LogosBinding.QueryTerm.or [.boolLit true, .boolLit false]
+  if (ordered.exactEq (.or [.boolLit false, .boolLit true])).isSome then
+    throw "ordered term comparison accepted swapped operands"
   let boolEnvelope ← sourceEnvelope boolProgram contract scope flag.id
   let boolQuery ← decodeSourceEnvelope boolProgram contract scope flag.id boolEnvelope
+  let expectedBool ← sourceTypedEnvelope boolProgram contract scope flag.id
+  unless (compareTypedEnvelopes boolQuery expectedBool).isSome do
+    throw "Bool wire decoder changed typed source content"
   if boolQuery.factorLeft != "i_10_L" || boolQuery.factorRight != "i_11_R" then
     throw "selected Bool pair not preserved"
   for (field, replacement) in [
@@ -60,9 +83,15 @@ private def check : Except String Unit := do
     throw "envelope replayed for a different factor"
   if (sourceEnvelope intProgram contract scope counter.id).isOk then
     throw "a state slot selected as a factor unexpectedly passed"
-  pure ()
+  pure (intEnvelope, boolEnvelope)
 
-def main : IO Unit :=
+def main (args : List String) : IO Unit :=
   match check with
-  | .ok () => IO.println "Source query envelope controls passed"
+  | .ok (integer, boolean) =>
+      match args with
+      | [] => IO.println "Source query envelope controls passed"
+      | ["--emit"] => do
+          IO.println integer
+          IO.println boolean
+      | _ => throw (IO.userError "expected no arguments or --emit")
   | .error reason => throw (IO.userError reason)

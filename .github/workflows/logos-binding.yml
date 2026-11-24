@@ -33,8 +33,13 @@ jobs:
             lean-${{ runner.os }}-${{ hashFiles('research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lean-toolchain', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean', 'research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lake-manifest.json') }}-
       - name: Build parser-state bridge (fail fast)
         run: lake build --fail-fast LLMLangLogosBinding
-      - name: Check source-owned query envelope
-        run: lake env lean -DwarningAsError=true --run SourceQueryEnvelopeTests.lean
+      - name: Check source-owned query envelope and recorded bytes
+        run: |
+          lake env lean -DwarningAsError=true --run SourceQueryEnvelopeTests.lean
+          wire_output=$(mktemp)
+          lake env lean -DwarningAsError=true --run SourceQueryEnvelopeTests.lean --emit > "$wire_output"
+          cmp evidence/typed-json/envelopes.jsonl "$wire_output"
+          timeout 180s lake env lean -DwarningAsError=true --run SourceWireRefutationTests.lean
       - name: Run parser-state binding and semantic correspondence tests
         run: |
           timeout 180s lake env lean -DwarningAsError=true --run Main.lean
