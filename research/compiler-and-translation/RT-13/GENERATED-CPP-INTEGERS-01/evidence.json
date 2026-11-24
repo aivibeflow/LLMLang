@@ -1,0 +1,187 @@
+{
+  "controls": {
+    "masked_shift": {
+      "actual": [
+        "ok",
+        7,
+        [
+          7,
+          7
+        ]
+      ],
+      "changed": [
+        "events",
+        "slot",
+        "status"
+      ],
+      "expected": [
+        "shift_count",
+        2880246324,
+        [
+          7
+        ]
+      ],
+      "input": [
+        7,
+        32,
+        1
+      ]
+    },
+    "reverse_callbacks": {
+      "actual": [
+        "ok",
+        9,
+        [
+          9,
+          7
+        ]
+      ],
+      "changed": [
+        "events"
+      ],
+      "expected": [
+        "ok",
+        9,
+        [
+          7,
+          9
+        ]
+      ],
+      "input": [
+        7,
+        2,
+        1
+      ]
+    },
+    "wrapped_overflow": {
+      "actual": [
+        "ok",
+        2147483648,
+        [
+          2147483647,
+          2147483648
+        ]
+      ],
+      "changed": [
+        "events",
+        "slot",
+        "status"
+      ],
+      "expected": [
+        "overflow",
+        2880246324,
+        [
+          2147483647
+        ]
+      ],
+      "input": [
+        2147483647,
+        1,
+        1
+      ]
+    },
+    "writes_on_error": {
+      "actual": [
+        "overflow",
+        0,
+        [
+          2147483647
+        ]
+      ],
+      "changed": [
+        "slot"
+      ],
+      "expected": [
+        "overflow",
+        2880246324,
+        [
+          2147483647
+        ]
+      ],
+      "input": [
+        2147483647,
+        1,
+        1
+      ]
+    }
+  },
+  "format": "rt13-cpp-checked-integers/1",
+  "generated_cpp_sha256": "3518ab489016fd97dccb5de39db74f220303b7c31eb8d8fd0ad4982889766aec",
+  "input_sha256": {
+    "integer_fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+    "llvm_integer_probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a",
+    "lower_cpp.py": "378ae7badddb5a79991abc3589cb4b6b67ec61bb46f09fba65a0d8be522534e2",
+    "run.py": "6a8ebfeca80f7862578977faa7a2e12519f6bca76ead4b7ec7bbca7512b01f1f"
+  },
+  "profiles": {
+    "clangxx_O0": {
+      "distinct_exported_extents": 64,
+      "exported_extent_sum_bytes": 7402,
+      "exports": 64,
+      "object_bytes": 14728,
+      "object_sha256": "3d23ba2f1976f5b066bdda7ec2d899385ff6ea71b37c87e5c2c02ccb09750508",
+      "observations": 197440,
+      "statuses": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      },
+      "undefined_obj_symbols": []
+    },
+    "clangxx_O3": {
+      "distinct_exported_extents": 64,
+      "exported_extent_sum_bytes": 4565,
+      "exports": 64,
+      "object_bytes": 13464,
+      "object_sha256": "78608ae5b2b419ccfbc45d7b991ebf7036098e93941a0a92b94d0afd15b5954b",
+      "observations": 197440,
+      "statuses": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      },
+      "undefined_obj_symbols": []
+    },
+    "gxx_O0": {
+      "distinct_exported_extents": 64,
+      "exported_extent_sum_bytes": 7308,
+      "exports": 64,
+      "object_bytes": 14216,
+      "object_sha256": "870511b825946cdbd2e4c3b4f854f185d7185873ee1b42c2a08d59c537c0367e",
+      "observations": 197440,
+      "statuses": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      },
+      "undefined_obj_symbols": []
+    },
+    "gxx_O3": {
+      "distinct_exported_extents": 64,
+      "exported_extent_sum_bytes": 4963,
+      "exports": 64,
+      "object_bytes": 13992,
+      "object_sha256": "0c947ccd54f18b3b7067c9e0f660b5430bf50e5d421120983ab307dfba1dca0c",
+      "observations": 197440,
+      "statuses": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      },
+      "undefined_obj_symbols": []
+    }
+  },
+  "programs": 64,
+  "python": "3.12.14",
+  "tools": {
+    "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "clangxx": "Debian clang version 19.1.7 (3+b1)",
+    "gxx": "g++ (Debian 14.2.0-19) 14.2.0",
+    "nm": "llvm-nm, compatible with GNU nm"
+  },
+  "vectors": 3085
+}
