@@ -1,6 +1,7 @@
 # RT-38 — Operating-system kernels and verified microkernel feasibility
 
-**Status:** Proposed research brief; no normative semantics, bootable LLMLang kernel or proof result.  
+**Status:** Bounded RV64 boot and trap isolation checked in QEMU. Broader kernel evidence remains open.
+
 **Priority:** P1 feasibility; P0 prerequisite compatibility questions through RT-37.  
 **Date:** 2026-11-24  
 **Tracking:** [Issue #441](https://github.com/aivibeflow/LLMLang/issues/441)  
@@ -63,7 +64,7 @@ Negative controls: double allocation, premature publication, stale TLB, wrong pe
 - Pin exact target/emulator/firmware/ABI, linker/compiler, source/SPG, hardware models, checker, assumptions and commands. Archive binary/import/link-map and trace evidence, proof obligations, negative controls and failed/UNKNOWN cases.
 - Exit: documented feasible or falsified profile with explicit gaps; reproducible bootable minimal kernel (or documented blocking discriminator), independently checked frame-allocation/isolation/IPC properties for the declared model, trust and translation boundaries explicit; no claim of complete kernel verification without corresponding evidence.
 
-No experiments have been executed for this brief. Single-core target and architecture are hypotheses, not selected normative decisions.
+The [RV64 trap and isolation study](RT-38-RV64-PMP-SV39-TRAP-ISOLATION-2026-11-24.md) boots five freestanding images with identical user code and compares bare/PMP and Sv39 permissions. It checks U-mode syscall and fault recovery before scheduler and IPC research.
 
 ## 5. seL4 precedent and a first translation check
 
