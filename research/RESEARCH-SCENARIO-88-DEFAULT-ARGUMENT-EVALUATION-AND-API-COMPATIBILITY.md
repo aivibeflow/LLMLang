@@ -87,3 +87,9 @@ No LLMLang default evaluation policy, call-site lowering, effect rule, or compat
 - [Python Language Reference — Function definitions](https://docs.python.org/3/reference/compound_stmts.html#function-definitions)
 - [C++ working draft — Default arguments](https://eel.is/c%2B%2Bdraft/dcl.fct.default)
 - [C++ working draft — Declarations](https://eel.is/c%2B%2Bdraft/dcl.decl)
+
+## Public-interface integration (2026-11-24; proposed)
+
+If defaults are adopted, specify whether their evaluation semantics belong to the public operation revision or a separately pinned adapter. A provider cannot silently replace public default expressions or their effects merely by matching a signature. Distinguish a changed default value, changed evaluation order, changed captured context and provider-only body change; test omitted and explicit arguments separately. This does not select default-argument syntax.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

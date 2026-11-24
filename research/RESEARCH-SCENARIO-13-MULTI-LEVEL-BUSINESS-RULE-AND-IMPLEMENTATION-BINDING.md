@@ -322,3 +322,9 @@ Research direction, not normative:
 - What is the smallest lookup-proof record that permits safe cache reuse without hashing every consulted layer root?
 - How should authorization revocation affect replay of historical executions versus permission to start new executions?
 - What is the consistency boundary for request-level resolution: request, transaction, individual call, or explicit user-defined scope?
+
+## Public-interface integration (2026-11-24; proposed)
+
+Resolve the public name to an exact operation before applying scoped provider selection. A tenant/request override cannot silently change the public operation revision or business-policy contract. If the public contract explicitly leaves a policy parameter variable, pin the selected value as a semantic input; otherwise use an explicit new operation revision or migration. Require exact provider-contract refinement, body correctness and scope authorization for each winning provider. A conforming implementation need not produce identical traces to another unless the public contract guarantees that.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.

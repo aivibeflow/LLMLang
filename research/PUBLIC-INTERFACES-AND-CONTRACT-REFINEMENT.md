@@ -4,7 +4,7 @@
 **Date:** 2026-11-24  
 **Research:** RT-05, RT-20; related RT-06/07/11/12/18/23/24/32/33/34/35  
 **Evidence:** Model proposal only; no new executed experiment or checked proof  
-**Prior baseline:** Existing RT-05/20 candidate models; branch base and exact changes recorded by Git history.
+**Integration baseline:** `c0340243ff1a9789278c14e79076b541b3eaa34f` (main after PR #433; same tree as original proposal head `61f434b5e9f3a1cc58876db4b180cedc0ad90780`). Exact source and resulting blobs are retained in Git history.
 
 ## 1. Problem and hypotheses
 
@@ -182,4 +182,18 @@ This table is a candidate invalidation model; reuse is conditional on complete d
 
 ### Integration inventory
 
-The accompanying changes update concept (EN/RU), glossary, architecture decision navigation, PLAN/TODO/feature registry/taxonomy, SPG and identity, binding/refinement scenarios, dependency and cache, package/library and index, semantic verification and proof orchestration, complexity/discovery, Toolchain and publication, security, ABI, access/coherence, error/module evolution and benchmark design. Historical measured reports and executable schemas are not rewritten; where a follow-up is appended it is explicitly outside the original result. The exact changed-path list is in [PR #433](https://github.com/aivibeflow/LLMLang/pull/433). No executable result, human review, complete repository semantic audit, or Mermaid rendering is claimed by this integration pass.
+The accompanying changes update concept (EN/RU), glossary, architecture decision navigation, PLAN/TODO/feature registry/taxonomy, SPG and identity, binding/refinement scenarios, dependency and cache, package/library and index, semantic verification and proof orchestration, complexity/discovery, Toolchain and publication, security, ABI, access/coherence, error/module evolution and benchmark design. Historical measured reports and executable schemas are not rewritten; where a follow-up is appended it is explicitly outside the original result. The original proposal is [PR #433](https://github.com/aivibeflow/LLMLang/pull/433); the exact integration changed-path list is in [PR #434](https://github.com/aivibeflow/LLMLang/pull/434). No executable result, human review, complete repository semantic audit, or Mermaid rendering is claimed by this integration pass.
+
+### Candidate admission procedure and falsification boundaries
+
+The user's proposed public-provider model requires a declared implementation contract and both proof obligations. A direct proof against the public contract alone does not satisfy this two-stage admission rule; it is an alternative research vector only if the project explicitly adopts a different model. An implementation can use the public contract as its own exact contract where the semantics allow identity refinement, but must still prove the body and validate the exact relation/profile.
+
+1. Resolve the scoped public name against a pinned catalog. Reject unresolved/ambiguous/unauthorized selections; retain the exact operation revision, public contract and negative lookup dependencies.
+2. Resolve the candidate provider and its single owned contract at exact identities. Check signature/type/ownership/ABI/profile compatibility before generating behavioral obligations.
+3. Independently generate and check body-to-provider and provider-to-public obligations. Require applicable abstraction and observation models, environmental assumptions, consistent/realizable contract domain, and any explicit termination/liveness/resource guarantees. Do not silently discard a clause when translation is unsupported.
+4. Verify certificate provenance, exact claim and input identities, evidence kind, checker policy and dependency closure. A finite test is not a universal proof. Treat a refuted, unsupported, stale or incomplete proof as non-admissible under proof-required policy; preserve its distinct diagnostic.
+5. Publish an immutable binding revision only against the expected semantic/catalog/binding baseline under authorized policy. Pin the selected provider in the build/execution context. Closed-system claims discharge the selected provider assumptions; modular caller proofs are separately tracked.
+
+A candidate proof obligation is not automatically a theorem. The basic pre/post rules hold only for a compatible typed state/outcome model with corresponding initial states and terminal outcomes; more general trace, relational, probabilistic and concurrent guarantees require their respective semantics. Interface-only design remains possible, but it is not a claim that a provider exists. Neither name stability nor contract refinement implies identical traces, runtime determinism across providers, universal ABI compatibility, or arbitrary transparent rewrites.
+
+**Validation boundary:** documentation integration only. The next executable milestone is a complete finite fragment with an independent oracle, negative and UNKNOWN controls, followed by backend/source correspondence and exact admission/cache tests. Existing archived measurements remain unchanged.

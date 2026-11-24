@@ -98,3 +98,9 @@ No import syntax, path form, wildcard policy, or re-export model is selected.
 ## 7. Sources and temporal limits
 
 Official references were consulted 2026-11-19. Go, Rust, Swift, Python, and Java pages are living references; pin exact language/tool versions and editions for any conformance work. Findings describe specifications, not observed compiler behavior or performance.
+
+## Public-interface integration (2026-11-24; proposed)
+
+For public-interface imports, distinguish a local alias from a public re-export and from a provider-binding edit. Record the exact operation revision resolved in the scoped catalog, including negative/ambiguous lookup dependencies. Changes to a private alias may be presentation-only; re-exporting a different operation can change the public surface. Test shadowing, rename aliases, cycles and unauthorized re-exports; import syntax remains open.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.
