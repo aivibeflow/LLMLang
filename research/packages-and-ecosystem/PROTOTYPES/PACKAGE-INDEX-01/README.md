@@ -6,7 +6,7 @@
 
 Requires Python 3.11+.
 
-The [package-index workflow](../../../.github/workflows/package-index.yml) is called by Required CI with its default `run_benchmark=false`: the timing test runner and compile step run, while the benchmark and profiler steps are skipped. Set `run_benchmark=true` on a manual workflow dispatch to run the exploratory benchmark and cProfile harness.
+The [package-index workflow](../../../../.github/workflows/package-index.yml) is called by Required CI with its default `run_benchmark=false`: the timing test runner and compile step run, while the benchmark and profiler steps are skipped. Set `run_benchmark=true` on a manual workflow dispatch to run the exploratory benchmark and cProfile harness.
 
 ```sh
 PYTHONPATH=../PACKAGE-IDENTITY-01 python run_tests_with_timings.py

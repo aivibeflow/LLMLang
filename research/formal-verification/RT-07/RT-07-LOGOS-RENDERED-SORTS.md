@@ -39,4 +39,4 @@ cmp evidence/logos-sorts/axioms.txt /tmp/rt07-logos-sorts.txt
 lake env lean -DwarningAsError=true --run Main.lean
 ```
 
-The proof module is part of the existing required Lake build. The audit of both theorem entry points lists only the standard Lean axioms `propext`, `Classical.choice` and `Quot.sound`. Mermaid rendering was not checked locally. [Proof and controls](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosRenderedSorts.lean) · [Axiom audit](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-sorts/axioms.txt)
+The proof module is part of the existing required Lake build. The audit of both theorem entry points lists only the standard Lean axioms `propext`, `Classical.choice` and `Quot.sound`. Mermaid rendering was not checked locally. [Proof and controls](../../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosRenderedSorts.lean) · [Axiom audit](../../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-sorts/axioms.txt)

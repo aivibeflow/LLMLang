@@ -3,7 +3,7 @@
 **Status:** Architecture proposal derived from design discussion; not an accepted language specification or validated ABI implementation  
 **Research areas:** RT-03 data representation and semantics, RT-04 type system, RT-05 semantic identity, RT-09 compiler/ABI/interoperability  
 **Date:** 2026-11-22  
-**Related:** [LLMLang Concept](../RT-01/LLMLang-CONCEPT.md), [RT-04 type/effect/ownership alternatives](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md), [Scenario 70 — type identity and representation](../RT-04/RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md), [Scenario 72 — layout and ABI](../RT-13/RESEARCH-SCENARIO-72-SUM-TYPE-LAYOUT-ABI-AND-INTEROPERABILITY.md), [Research Dependency Map](../RESEARCH-DEPENDENCY-MAP.md)
+**Related:** [LLMLang Concept](../../language-design/RT-01/LLMLang-CONCEPT.md), [RT-04 type/effect/ownership alternatives](../../language-design/RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md), [Scenario 70 — type identity and representation](../../language-design/RT-04/RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md), [Scenario 72 — layout and ABI](../RT-13/RESEARCH-SCENARIO-72-SUM-TYPE-LAYOUT-ABI-AND-INTEROPERABILITY.md), [Research Dependency Map](../../RESEARCH-DEPENDENCY-MAP.md)
 
 ## 1. Purpose
 
@@ -430,8 +430,8 @@ No implementation should claim general C compatibility until the supported C lan
 
 A public interface's stable name and behavioral contract are not structural Identity, TypeHash, LayoutHash or Function ABI Hash. A change may be contract-compatible but ABI-incompatible, or ABI-compatible but behaviorally incompatible. A source-level public operation can select an exact provider with a separately verified foreign adapter and target-specific ABI/export mapping. Preserve layout engine authority; test changed layout, call convention, error representation, and proof claims under a pinned ABI profile.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Exact ABI and layout compatibility are necessary but not sufficient to establish foreign behavior. Retain explicit provider and correspondence premises for conditional proofs. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Exact ABI and layout compatibility are necessary but not sufficient to establish foreign behavior. Retain explicit provider and correspondence premises for conditional proofs. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

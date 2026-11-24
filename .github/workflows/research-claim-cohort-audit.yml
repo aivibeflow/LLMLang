@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "research/quality-audit/2026-11-23-claim-cohort2.json"
-      - "research/RT-00/RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md"
+      - "research/research-management/RT-00/RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md"
       - ".github/scripts/validate_research_claim_cohort.py"
       - ".github/scripts/test_validate_research_claim_cohort.py"
       - ".github/workflows/research-claim-cohort-audit.yml"

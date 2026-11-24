@@ -41,7 +41,7 @@ TLC can validate a common state-transition invariant over a reachable graph and 
 Use CPython 3.9+, OpenJDK 21 (run with 21.0.13) and the [TLC v1.8.0 release JAR](https://github.com/tlaplus/tlaplus/releases/tag/v1.8.0) with SHA-256 `fdffef247f563ef6edbfd44958d2a82db79e7564e07cb673262d896353fa6713`. The upstream fixture code was introduced at `991c053`. Obtain the SMT and Lean observations using their pinned commands for a three-way comparison.
 
 ```sh
-bench=research/PROOF-OBLIGATION-BENCHMARK/generative/transition
+bench=research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition
 python3 "$bench/test_tlc_adapter.py"
 scratch=$(mktemp -d)
 python3 "$bench/tlc_adapter.py" --jar /path/to/tla2tools.jar --output "$scratch/tlc" \

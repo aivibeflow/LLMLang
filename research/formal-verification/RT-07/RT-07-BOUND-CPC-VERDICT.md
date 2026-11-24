@@ -50,4 +50,4 @@ for fixture in Main.lean SourceQueryEnvelopeTests.lean SourceWireRefutationTests
 done
 ```
 
-The [axiom audit](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/bound-cpc/axioms.txt) lists only the standard Lean axioms for the acceptance and ordinary-verdict theorems. To reproduce it, import `SourceWireRefutation` and print the axioms of `LLMLang.SourceWireRefutation.check_exact` and `LLMLang.SourceWireRefutation.CheckedRefutation.ordinaryVerdict`. Mermaid rendering was not checked locally.
+The [axiom audit](../../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/bound-cpc/axioms.txt) lists only the standard Lean axioms for the acceptance and ordinary-verdict theorems. To reproduce it, import `SourceWireRefutation` and print the axioms of `LLMLang.SourceWireRefutation.check_exact` and `LLMLang.SourceWireRefutation.CheckedRefutation.ordinaryVerdict`. Mermaid rendering was not checked locally.

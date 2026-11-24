@@ -107,4 +107,4 @@ Official specifications and language documentation were consulted 2026-11-19. Go
 
 Follow-up: resolve scoped exported qualified names and re-exports to exact public operation revisions before selecting an implementation. Pin the catalog and record negative/ambiguous lookup dependencies; no implicit latest resolution at execution. Import/export compatibility, module initialization ordering and provider conformance are independent checks. Compare alias-preserving rename, cyclic re-exports, conflicting namespace entries and providers with different initialization obligations.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

@@ -12,16 +12,16 @@ Define what each evidence class proves and prepare a narrow executable preservat
 ## 2. Existing material
 
 Read:
-- [Formal verification architecture](../RT-07/LLMLang-FORMAL-VERIFICATION.md)
-- [Scenario 34 — source-to-query correspondence](../RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md)
-- [Scenario 96 — LLVM UB, poison and semantic preservation](../RT-13/RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md)
-- [Scenario 133 — generated Rust for owned results](../RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
-- [RT-03/04 shared corpus](../RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md)
+- [Formal verification architecture](../formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md)
+- [Scenario 34 — source-to-query correspondence](../formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md)
+- [Scenario 96 — LLVM UB, poison and semantic preservation](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md)
+- [Scenario 133 — generated Rust for owned results](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
+- [RT-03/04 shared corpus](../language-design/RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md)
 - [Research State](../RESEARCH-STATE-2026-11-19.md), Gates C and A
 
 Scenario 133 is a bounded generated-Rust result for COR-13 and its tested transfer rules. It does not by itself establish a general translation pipeline, a second production backend, native foreign-effect correspondence or whole-language preservation.
 
-Scenario 96A executes the integer portion of the LLVM discriminators at O0 and O3. The two profiles preserve the tested observations, and the differential corpus detects a lost overflow error in structurally valid IR. [LLVM integer preservation](../RT-13/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md)
+Scenario 96A executes the integer portion of the LLVM discriminators at O0 and O3. The two profiles preserve the tested observations, and the differential corpus detects a lost overflow error in structurally valid IR. [LLVM integer preservation](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md)
 
 ## 3. Evidence schema to prepare
 

@@ -2,7 +2,7 @@
 
 **Date** · 2026-11-21  
 **Baseline** · `b52ba2fb32e2c315997c74d8924c2c9aaeb177dc`  
-**Status** · Bounded experiment for [Plan §4.5](../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
+**Status** · Bounded experiment for [Plan §4.5](../../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
 
 ## Question and approaches
 
@@ -34,7 +34,7 @@ A serialized in-memory compare-and-set step checks the head tuple and catalog be
 
 ## Reproduction
 
-From `research/PROTOTYPES/DEPENDENCY-GRAPH-01` run the following on CPython 3.12.14. Six mapping test methods and eight recovery test methods passed. [Experiment](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_interface_mapping_merge.py)
+From `research/PROTOTYPES/DEPENDENCY-GRAPH-01` run the following on CPython 3.12.14. Six mapping test methods and eight recovery test methods passed. [Experiment](../../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_interface_mapping_merge.py)
 
 ```sh
 python -B -m unittest -v tests.test_rt23_interface_mapping_merge tests.test_rt23_commit_recovery
@@ -44,8 +44,8 @@ python -B -m unittest -v tests.test_rt23_interface_mapping_merge tests.test_rt23
 
 Follow-up discriminator, not a change to reported results: the tested symbol/signature mapping is only one of public-name catalog, operation-to-provider binding and external export mapping. Test cross-map consistency and exact revision-bound conformance evidence, including disjoint edits that combine into a missing or stale provider proof. Existing CAS and collision controls are useful but do not establish contract refinement.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-External mappings must bind exact assumption and provider revisions; conditional admission, authorization and proof closure remain distinct. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+External mappings must bind exact assumption and provider revisions; conditional admission, authorization and proof closure remain distinct. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

@@ -4,7 +4,7 @@
 
 **Baseline** · `11c7f19`
 
-**Status** · Direct-path SCW-33 experiment for [Plan §2.3](../../PLAN.md#23-lean-logos-smt-and-solver-integration)
+**Status** · Direct-path SCW-33 experiment for [Plan §2.3](../../../PLAN.md#23-lean-logos-smt-and-solver-integration)
 
 ## Question and comparison
 
@@ -37,4 +37,4 @@ lake env lean -DwarningAsError=true --run SourceCpcRefutationTests.lean
 lake env lean -DwarningAsError=true --run Main.lean
 ```
 
-[Direct source gate](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCpcRefutation.lean) · [Derivations and controls](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCpcRefutationTests.lean)
+[Direct source gate](../../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCpcRefutation.lean) · [Derivations and controls](../../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceCpcRefutationTests.lean)

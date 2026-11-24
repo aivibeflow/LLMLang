@@ -2,7 +2,7 @@
 
 **Status:** Design contract; stable obligation IDs implemented in CIP v5, action coverage still open  
 **Date:** 2026-11-18  
-**Depends on:** [CIP Action Execution Audit](RT-20-CIP-ACTION-EXECUTION-AUDIT.md), [Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md), [Draft Glossary](../../draft/GLOSSARY.md)
+**Depends on:** [CIP Action Execution Audit](RT-20-CIP-ACTION-EXECUTION-AUDIT.md), [Candidate Semantic Diff](RT-20-CANDIDATE-SEMANTIC-DIFF.md), [Draft Glossary](../../../draft/GLOSSARY.md)
 
 ## 1. Problem
 

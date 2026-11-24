@@ -4,7 +4,7 @@
 
 **Baseline** · `55f9c27`
 
-**Status** · Bounded native compatibility experiment for [Plan §7.1](../../PLAN.md#71-performance-and-scalability)
+**Status** · Bounded native compatibility experiment for [Plan §7.1](../../../PLAN.md#71-performance-and-scalability)
 
 ## Question and integration variants
 
@@ -36,7 +36,7 @@ On Linux x86-64 use Rust 1.85.1 and optimization level 3. The observed packages 
 ```sh
 out=$(mktemp -d)
 rustc --edition=2024 -C opt-level=3 -D warnings \
-  research/PROTOTYPES/ALLOCATOR-COMPAT-01/probe.rs -o "$out/allocator-probe"
+  research/runtime-and-systems/PROTOTYPES/ALLOCATOR-COMPAT-01/probe.rs -o "$out/allocator-probe"
 env -u LD_PRELOAD "$out/allocator-probe" libc.so.6
 env LD_PRELOAD=/path/to/libjemalloc.so.2 "$out/allocator-probe" libjemalloc.so.2
 ```

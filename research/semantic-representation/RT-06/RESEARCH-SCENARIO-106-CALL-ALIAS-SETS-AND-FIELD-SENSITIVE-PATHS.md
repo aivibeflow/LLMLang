@@ -10,7 +10,7 @@ When a callee writes through a reference, how much state must the caller's path 
 
 ## 2. Fixture
 
-The caller has two mutable Boolean fields, `flag` and `other`, branches on `flag`, calls `toggle(&arg)`, and branches on `flag` again. `toggle` changes the Boolean field designated by its reference argument. The pre/post route set is exhaustively computed across both initial field values and possible alias targets. The executable model is [`rt03_alias_sensitive_call_paths.py`](../PROTOTYPES/RT-04-01/rt03_alias_sensitive_call_paths.py); tests are in [`test_rt03_alias_sensitive_call_paths.py`](../PROTOTYPES/RT-04-01/test_rt03_alias_sensitive_call_paths.py).
+The caller has two mutable Boolean fields, `flag` and `other`, branches on `flag`, calls `toggle(&arg)`, and branches on `flag` again. `toggle` changes the Boolean field designated by its reference argument. The pre/post route set is exhaustively computed across both initial field values and possible alias targets. The executable model is [`rt03_alias_sensitive_call_paths.py`](../../PROTOTYPES/RT-04-01/rt03_alias_sensitive_call_paths.py); tests are in [`test_rt03_alias_sensitive_call_paths.py`](../../PROTOTYPES/RT-04-01/test_rt03_alias_sensitive_call_paths.py).
 
 | Call-site alias evidence | Possible target(s) | Post-call routes for `flag` | Precision/soundness |
 |---|---|---|---|

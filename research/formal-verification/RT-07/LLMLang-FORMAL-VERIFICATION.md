@@ -215,7 +215,7 @@ The architecture meets this requirement when, for a supported subset of LLMLang:
 
 Addition to compositional verification (a candidate, not a newly approved rule): for a public interface, the proof that Body satisfies C_impl and the proof that C_impl refines C_pub are distinct. A proof of the calling code may use the exact revision of C_pub as an explicitly registered assumption; closing the program proof requires a valid binding and independent verification of both obligations under consistent semantics, observation models, and assumptions. UNKNOWN, absence of an implementation, or absence of evidence do not constitute proved conformance. When an implementation is replaced, only proofs whose exact dependencies remain unchanged are retained.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## Explicit Assumptions and Conditional Proofs (RT-36 Research Proposal)
 

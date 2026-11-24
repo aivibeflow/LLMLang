@@ -3,8 +3,8 @@
 **Status:** Research reconciliation; proposed terminology and compatibility obligations, not a normative LLMLang decision  
 **Date:** 2026-11-18  
 **Parent:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)  
-**Terminology:** [Draft Glossary](../../draft/GLOSSARY.md)  
-**Related research:** [Scenario 10 — Contract Identity and Implementation Binding Snapshots](../RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md), [Scenario 14 — Formal Behavioral Contracts and Refinement](../RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md), [RT-24 Identity and SPG Reconciliation](../RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md)
+**Terminology:** [Draft Glossary](../../../draft/GLOSSARY.md)  
+**Related research:** [Scenario 10 — Contract Identity and Implementation Binding Snapshots](../../packages-and-ecosystem/RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md), [Scenario 14 — Formal Behavioral Contracts and Refinement](../../language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md), [RT-24 Identity and SPG Reconciliation](../RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md)
 
 ## 1. Purpose
 
@@ -82,7 +82,7 @@ This is only a starting point, not a complete LLMLang rule. A sound relation mus
 
 A stronger provider guarantee may refine a weaker requirement. The reverse direction is not generally safe. Equality of types or signatures alone is insufficient.
 
-Refactoring can require a stronger claim than refinement. A bounded RT-05/RT-20 fixture inlines a body that returns a different value permitted by the same required Contract. It fails the equivalence check even though both bodies conform. [Call site refactoring experiment](../RT-05/RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md)
+Refactoring can require a stronger claim than refinement. A bounded RT-05/RT-20 fixture inlines a body that returns a different value permitted by the same required Contract. It fails the equivalence check even though both bodies conform. [Call site refactoring experiment](../../semantic-representation/RT-05/RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md)
 
 ## 5. Relation to the Glossary Conformance Class
 
@@ -150,4 +150,4 @@ Until these steps are complete, RT-20 must fail closed for any action whose safe
 
 ## 9. Public interface extension (candidate)
 
-The [public interfaces proposal](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) applies this boundary to stable named public entities, immutable interface revisions, and exact provider bindings. It preserves the distinction between implementation correctness and contract refinement, and adds evolution, reproducible selection, and proof-invalidation questions. No new compatibility semantics or identity scheme has been accepted.
+The [public interfaces proposal](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) applies this boundary to stable named public entities, immutable interface revisions, and exact provider bindings. It preserves the distinction between implementation correctness and contract refinement, and adds evolution, reproducible selection, and proof-invalidation questions. No new compatibility semantics or identity scheme has been accepted.

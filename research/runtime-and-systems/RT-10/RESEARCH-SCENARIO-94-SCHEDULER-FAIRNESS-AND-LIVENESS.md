@@ -88,4 +88,4 @@ Falsify any proposed fairness profile with (a) a starvation cycle satisfying its
 - Erlang/OTP Reference Manual, Processes and scheduling: https://www.erlang.org/doc/system/ref_man_processes.html
 - The Rust Programming Language, “Concurrency with async”: https://doc.rust-lang.org/book/ch17-02-concurrency-with-async.html
 - Swift documentation, TaskGroup: https://docs.swift.org/latest/documentation/swift/taskgroup/
-- LLMLang [Scenario 57](RESEARCH-SCENARIO-57-STRUCTURED-CONCURRENCY-AND-TASK-LIFETIMES.md), [Scenario 58](RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md), [Scenario 40](../RT-04/RESEARCH-SCENARIO-40-ASYNC-CANCELLATION-AND-CLEANUP.md), and [shared semantics corpus](../RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md).
+- LLMLang [Scenario 57](RESEARCH-SCENARIO-57-STRUCTURED-CONCURRENCY-AND-TASK-LIFETIMES.md), [Scenario 58](RESEARCH-SCENARIO-58-ASYNC-FUNCTION-TYPES-AND-SCHEDULING.md), [Scenario 40](../../language-design/RT-04/RESEARCH-SCENARIO-40-ASYNC-CANCELLATION-AND-CLEANUP.md), and [shared semantics corpus](../../language-design/RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md).

@@ -326,7 +326,7 @@ Keep the semantic merge engine independent of Git. Design toward repository-leve
 
 This document is the primary research source for repository representation and semantic diff/merge. It must be studied together with the following documents whenever Git merge, branch integration, semantic synchronization, or commit behavior is designed or changed:
 
-- [ADR-014 — Git repository representation and semantic merge](../../docs/adr/014-git-semantic-merge.md): records the current proposed architectural direction and rejected alternatives. Its status is **Proposed**, not Accepted.
+- [ADR-014 — Git repository representation and semantic merge](../../../docs/adr/014-git-semantic-merge.md): records the current proposed architectural direction and rejected alternatives. Its status is **Proposed**, not Accepted.
 - [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md): specifies candidate import/export laws, semantic diff classes, deterministic base/ours/theirs merge, conflict results, mapping revision separation, RT-20 CIP integration, and prototype gates.
 - [RT-24 Identity and SPG Reconciliation](../RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md): reconciles the candidate merge contract with identity Studies 05–08, RT-03, the semantic dependency index, package identity, and the current executable subset. It explicitly leaves Stable Entity ID versus content-addressed identity unresolved.
 - [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md): owns impact planning, per-call-site migrate/preserve/adapt decisions, caller versioning, hash propagation, validation/audit gates, and verified completion.
@@ -354,4 +354,4 @@ This document is the primary research source for repository representation and s
 - Git configuration documentation: https://git-scm.com/docs/git-config
 - Git mergetool documentation: https://git-scm.com/docs/git-mergetool
 - LLMLang [Semantic Compilation Cache](../RT-11/SEMANTIC-COMPILATION-CACHE.md)
-- LLMLang [Global Semantic Artifact Store](../RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md)
+- LLMLang [Global Semantic Artifact Store](../../packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md)

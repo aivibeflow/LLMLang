@@ -453,7 +453,7 @@ RT-23 is a research proposal, not an accepted architecture decision. It does not
 Study RT-23 together with:
 
 - [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — owns canonical Git-visible representation direction, semantic three-way merge, conflict model, and repository-level graph validation.
-- [ADR-014](../../docs/adr/014-git-semantic-merge.md) — records the proposed architecture direction; it remains Proposed until explicitly accepted.
+- [ADR-014](../../../docs/adr/014-git-semantic-merge.md) — records the proposed architecture direction; it remains Proposed until explicitly accepted.
 - [RT-20](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — owns complete semantic impact planning, caller migration/preservation, hash propagation, and verified candidate gates.
 - [RT-22](../RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — owns the external repository/worktree MCP contract and operation recovery.
 - [RT-19](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — owns the transport-neutral semantic API and Change Set/Snapshot lifecycle.
@@ -469,4 +469,4 @@ RT-23 owns shared immutable semantic state, versioned Interface Mapping Revision
 
 Clarify that a public interface revision is immutable semantic content. Its name catalog, provider binding and external-symbol mapping are three logically distinct selections (which may share a transaction/storage implementation). Every mapping revision is immutable; mutable heads advance by authorized compare-and-set. A candidate commit pins all relevant catalog, operation, provider and evidence revisions and rechecks freshness/authorization together. Two disjoint map edits can still violate a combined public-name, provider-coherence or ABI-symbol invariant; reject or explicitly resolve, never last-writer-wins. Do not treat a private function becoming exported as only a filesystem edit.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

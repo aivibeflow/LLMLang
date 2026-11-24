@@ -23,8 +23,8 @@ Each family has a reference, faulty mutation and valid alternative (some alterna
 ## Reproduce
 
 ```sh
-python research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py
-python research/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py --count 1000 --seed 42
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py --count 1000 --seed 42
 ```
 
 Optional `--output gold.jsonl` contains ASTs, variants and expected results; `--blind-output stage-b.jsonl` contains contracts, declared initial state and scenario domain only. The blind output omits gold labels and model code, but public synthetic families are not private held-out tests. Distinct model triples mean syntax and parameter diversity, not independent semantic classes. The summary hashes exact corpus records and source artifacts, reports per-family and per-obligation mutation counts, and never emits proven. CI preserves both original formula and transition summaries.

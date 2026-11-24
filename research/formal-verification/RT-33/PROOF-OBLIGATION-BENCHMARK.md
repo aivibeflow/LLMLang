@@ -2,7 +2,7 @@
 
 **Status:** Proposed research/evaluation corpus; non-normative  
 **Purpose:** Evaluate proof-obligation generation, backend planning, verification, and evidence aggregation independently and end-to-end.  
-**Related research:** [RT-33 — Proof Backend Selection and Verification Orchestration](RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-32 — Verified SPG-to-Lean Pipeline](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](../RESEARCH-TAXONOMY.md#2-research-area-inventory).  
+**Related research:** [RT-33 — Proof Backend Selection and Verification Orchestration](RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-32 — Verified SPG-to-Lean Pipeline](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](../../RESEARCH-TAXONOMY.md#2-research-area-inventory).  
 **Related corpus:** [Contract Formalization Debug Corpus](../CONTRACT-FORMALIZATION-CORPUS/README.md).
 
 ## 1. Why a separate benchmark
@@ -187,7 +187,7 @@ The [executable seed corpus and infrastructure](../PROOF-OBLIGATION-BENCHMARK/RE
 
 Planned public-interface extension (not an executed benchmark): pair the same body with valid and invalid implementation contracts; pair the same valid provider contract with compatible and incompatible public contracts; include signature-only false positives, vacuity, missing termination, joint protocol invariants, wrong profile, stale/forged evidence, ambiguous/missing providers, and compatible rebinding with modular versus closed proof invalidation. Score body obligations, refinement obligations and admission/assumption closure separately; report UNKNOWN and unsupported models without coercing to pass. Cross-reference the existing taxonomy and avoid counting duplicate cases as new coverage.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## Explicit assumptions and conditional verification (RT-36; proposed)
 

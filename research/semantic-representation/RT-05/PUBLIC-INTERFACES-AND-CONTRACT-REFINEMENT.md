@@ -8,7 +8,7 @@
 
 ## 1. Problem and hypotheses
 
-A caller needs a stable public name and behavioral guarantees without depending on a particular implementation. Existing [typed SPG](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) already distinguishes design operations and concrete providers, [RT-20](../RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md) distinguishes required/provided contracts, and [Scenario 10](../RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md) explores binding snapshots. This proposal unifies those mechanisms at an explicit public interface boundary, not a replacement for hash-based calls or structural type identity.
+A caller needs a stable public name and behavioral guarantees without depending on a particular implementation. Existing [typed SPG](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) already distinguishes design operations and concrete providers, [RT-20](../../toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md) distinguishes required/provided contracts, and [Scenario 10](../../packages-and-ecosystem/RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md) explores binding snapshots. This proposal unifies those mechanisms at an explicit public interface boundary, not a replacement for hash-based calls or structural type identity.
 
 H1: a stable named interface with immutable contract revisions permits sound modular verification and provider replacement without rewriting interface-level caller proofs when their exact assumptions are unchanged.
 H2: exact revision-bound conformance and binding evidence detects incompatible or stale providers even when names and signatures match.
@@ -139,18 +139,18 @@ Recommendation: register public interfaces in the concept as a candidate archite
 
 ## 7. Related material
 
-- [RT-20 contract identity and compatibility](../RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md)
-- [Scenario 14 behavioral contracts and refinement](../RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md)
+- [RT-20 contract identity and compatibility](../../toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md)
+- [Scenario 14 behavioral contracts and refinement](../../language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md)
 - [RT-05 typed SPG](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md)
-- [RT-23 interface mapping merge](../RT-23/RT-23-INTERFACE-MAPPING-MERGE.md)
-- [RT-32 verified SPG-to-Lean pipeline](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md)
-- [RT-33 backend selection](../RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md)
-- [RT-34 complexity inference](../RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md)
+- [RT-23 interface mapping merge](../../toolchain-and-collaboration/RT-23/RT-23-INTERFACE-MAPPING-MERGE.md)
+- [RT-32 verified SPG-to-Lean pipeline](../../formal-verification/RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md)
+- [RT-33 backend selection](../../formal-verification/RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md)
+- [RT-34 complexity inference](../../formal-verification/RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md)
 - [RT-35 semantic function discovery](../RT-35/RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md)
 
 ## 8. Repository integration and resolution model
 
-The review identifies an existing interface concept in the global artifact store and libraries, exact operation identity in the glossary, typed SPG provides relations, Scenario 10 binding snapshots, Scenario 14 refinement, RT-23 external mappings and RT-32 conditional proofs. The public-interface proposal integrates these rather than introducing a competing identity system. The accepted [architecture decision](../../draft/ARCHITECTURE-DECISIONS.md) preserves immutable published components and single-toolchain build compatibility; neither a cross-toolchain ABI promise nor runtime negotiation follows.
+The review identifies an existing interface concept in the global artifact store and libraries, exact operation identity in the glossary, typed SPG provides relations, Scenario 10 binding snapshots, Scenario 14 refinement, RT-23 external mappings and RT-32 conditional proofs. The public-interface proposal integrates these rather than introducing a competing identity system. The accepted [architecture decision](../../../draft/ARCHITECTURE-DECISIONS.md) preserves immutable published components and single-toolchain build compatibility; neither a cross-toolchain ABI promise nor runtime negotiation follows.
 
 ```mermaid
 flowchart LR
@@ -200,4 +200,4 @@ A candidate proof obligation is not automatically a theorem. The basic pre/post 
 
 ## Explicit assumptions and conditional verification (RT-36; proposed)
 
-An opaque foreign provider may be modeled by an explicit assumed body-to-provider conformance claim while provider-to-public refinement is checked. Keep strict verified admission fail-closed; investigate separately labeled conditional admission under authorized trust policy, with exact artifact/ABI and adapter correspondence, residual assumptions and revocation. This does not relax the proposed proof-required rule. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.
+An opaque foreign provider may be modeled by an explicit assumed body-to-provider conformance claim while provider-to-public refinement is checked. Keep strict verified admission fail-closed; investigate separately labeled conditional admission under authorized trust policy, with exact artifact/ABI and adapter correspondence, residual assumptions and revocation. This does not relax the proposed proof-required rule. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.

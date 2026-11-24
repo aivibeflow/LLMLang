@@ -23,7 +23,7 @@ Python bytecode compilation (py_compile) passed for the implementation and tests
 
 Restricted deterministic AST fragment only: Int/Bool/String, arithmetic/Boolean operations, pure non-recursive functions, conditional assignments, explicit state writes, and one final top-level return. No loops, errors, events, concurrency, aliasing, dynamic dispatch, source parsing, full type checking, proof certificates, or compiler/runtime correspondence proof. Solver results are trusted; this prototype does not independently check proofs.
 
-See [Research Scenario 27](../../RT-07/RESEARCH-SCENARIO-27-SYMBOLIC-RELATIONAL-VERIFICATION.md).
+See [Research Scenario 27](../../formal-verification/RT-07/RESEARCH-SCENARIO-27-SYMBOLIC-RELATIONAL-VERIFICATION.md).
 
 
 ## Post-audit protocol-test correction

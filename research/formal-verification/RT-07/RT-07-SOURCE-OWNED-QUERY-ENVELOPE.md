@@ -2,7 +2,7 @@
 
 **Date** · 2026-11-21  
 **Baseline** · `b52ba2fb32e2c315997c74d8924c2c9aaeb177dc`  
-**Status** · Scoped Lean implementation and evidence for [Plan §2.3](../../PLAN.md#23-lean-logos-smt-and-solver-integration)
+**Status** · Scoped Lean implementation and evidence for [Plan §2.3](../../../PLAN.md#23-lean-logos-smt-and-solver-integration)
 
 ## Question
 
@@ -40,4 +40,4 @@ lake env lean -DwarningAsError=true --run SourceQueryEnvelopeTests.lean
 lake env lean -DwarningAsError=true --run Main.lean
 ```
 
-[Envelope and theorem](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean) · [Controls](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelopeTests.lean)
+[Envelope and theorem](../../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean) · [Controls](../../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelopeTests.lean)

@@ -41,7 +41,7 @@ SMT supplies a small executable constraint query and a result that needs interpr
 Use CPython 3.9+, Lean 4.36.0 (commit `611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9`) and cvc5 1.4.2 (commit `282d5e0`). The fixture code was introduced at `991c053`. The cvc5 adapter and comparison inputs are from [#415](https://github.com/aivibeflow/LLMLang/pull/415). Run from a checkout containing both adapters for the cross-backend comparison.
 
 ```sh
-bench=research/PROOF-OBLIGATION-BENCHMARK/generative/transition
+bench=research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition
 python3 "$bench/test_lean_adapter.py"
 python3 "$bench/smt_adapter.py" --cvc5 /path/to/cvc5 --output /tmp/llmlang-rt33-smt
 python3 "$bench/lean_adapter.py" --lean /path/to/lean --output /tmp/llmlang-rt33-lean \

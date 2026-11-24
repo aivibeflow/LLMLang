@@ -24,12 +24,12 @@ The harness sets the listed repository-local Git configuration explicitly. When 
 
 Run from the repository root:
 
-    python3 research/benchmarks/git_binary_spg/run_benchmark.py \
+    python3 research/toolchain-and-collaboration/benchmarks/git_binary_spg/run_benchmark.py \
       --objects 30000 \
       --record-size 192 \
       --change-ratio 0.01 \
       --seed 20261123 \
-      --output research/benchmarks/git_binary_spg/results.json
+      --output research/toolchain-and-collaboration/benchmarks/git_binary_spg/results.json
 
 The command creates five independent temporary Git repositories:
 
@@ -46,7 +46,7 @@ Each repository contains a baseline commit and one changed-state commit. The har
 Run each ratio separately so every output is independently attributable:
 
     for ratio in 0.0001 0.01 0.10; do
-      python3 research/benchmarks/git_binary_spg/run_benchmark.py \
+      python3 research/toolchain-and-collaboration/benchmarks/git_binary_spg/run_benchmark.py \
         --objects 1000000 \
         --record-size 192 \
         --change-ratio "$ratio" \
@@ -60,7 +60,7 @@ Vary object count and record size to explore different container sizes. This ini
 
 Temporary repositories are removed by default. To retain them:
 
-    python3 research/benchmarks/git_binary_spg/run_benchmark.py \
+    python3 research/toolchain-and-collaboration/benchmarks/git_binary_spg/run_benchmark.py \
       --objects 30000 --record-size 192 --change-ratio 0.01 \
       --output results.json --keep-workdirs --workdir ./benchmark-work
 

@@ -3,7 +3,7 @@
 **Status:** Research proposal; not normative  
 **Research area:** RT-12 — Libraries, packages, templates, and artifact reuse  
 **Updated:** 2026-11-18  
-**Related:** [Package System](PACKAGE-SYSTEM.md), [Semantic Compilation Cache](../RT-11/SEMANTIC-COMPILATION-CACHE.md), [Draft Glossary](../../draft/GLOSSARY.md)
+**Related:** [Package System](PACKAGE-SYSTEM.md), [Semantic Compilation Cache](../../toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), [Draft Glossary](../../../draft/GLOSSARY.md)
 
 ## 1. Purpose and scope
 
@@ -14,7 +14,7 @@ This document turns the package-format direction into a first reviewable proposa
 3. logical package-content identity independent of TOML formatting and physical archive representation;
 4. validation rules and test cases for the proposal.
 
-It deliberately does not freeze the final hash algorithm, binary index wire format, package release/version policy, or registry protocol. Read the [Draft Glossary](../../draft/GLOSSARY.md) alongside this document when reasoning about semantic object hashes; `OpHash`, `ImplHash`, and `CCHash` identify typed semantic concepts, whereas Package Content Root Hash, logical index hash, and archive hash identify package-level projections/artifacts. They must not be substituted for one another. The glossary is proposed terminology, not a normative package-hash specification.
+It deliberately does not freeze the final hash algorithm, binary index wire format, package release/version policy, or registry protocol. Read the [Draft Glossary](../../../draft/GLOSSARY.md) alongside this document when reasoning about semantic object hashes; `OpHash`, `ImplHash`, and `CCHash` identify typed semantic concepts, whereas Package Content Root Hash, logical index hash, and archive hash identify package-level projections/artifacts. They must not be substituted for one another. The glossary is proposed terminology, not a normative package-hash specification.
 
 ## 2. Representation boundary
 
@@ -266,4 +266,4 @@ This is a research proposal, not a normative LLMLang package specification.
 
 Candidate package identity must commit to identity-bearing public export resolution and exact binding rows if included in distributed logical content. Keep provider-owned contract reference canonical; public Contract is resolved from operation, not copied into independent manifest fields. Distinguish release/name metadata, operation revision, package content root, selected provider, and proof envelope. A different provider binding can change the package root without changing OpHash. No package schema version change is made by this note.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

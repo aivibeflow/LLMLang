@@ -4,7 +4,7 @@
 
 **Baseline** · `3a3f90b`
 
-**Status** · Bounded model for [Plan §5.2](../../PLAN.md#52-execution-semantics-and-runtime-architecture)
+**Status** · Bounded model for [Plan §5.2](../../../PLAN.md#52-execution-semantics-and-runtime-architecture)
 
 ## Question
 
@@ -37,8 +37,8 @@ This model assumes one serialized ledger and cooperative enforcement. It does no
 From the repository root use CPython 3.12.14. Three cancellation tests and the four baseline reservation tests passed. [Cancellation fixture](../PROTOTYPES/BUDGET-CANCELLATION-01/test_budget_cancellation.py)
 
 ```sh
-python -B -m unittest discover -s research/PROTOTYPES/BUDGET-CANCELLATION-01 -v
-python -B -m unittest discover -s research/PROTOTYPES/BUDGET-RESERVATION-01 -v
+python -B -m unittest discover -s research/runtime-and-systems/PROTOTYPES/BUDGET-CANCELLATION-01 -v
+python -B -m unittest discover -s research/runtime-and-systems/PROTOTYPES/BUDGET-RESERVATION-01 -v
 ```
 
 ## Exact retained reproduction (2026-11-21)

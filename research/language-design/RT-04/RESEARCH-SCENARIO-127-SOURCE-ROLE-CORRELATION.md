@@ -8,11 +8,11 @@
 
 ## Question
 
-How much information about aliases must a checker retain to prove compatibility across two FFI calls? Scenario 126 checks shared and exclusive roles on known identities. Scenario 108 shows that joining aliases independently can invent infeasible routes. This experiment applies that comparison at a call boundary where the first call can leave a reservation live. [Multi-resource FFI roles](../RT-13/RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md) · [Path-sensitive alias precision](../RT-06/RESEARCH-SCENARIO-108-PATH-SENSITIVE-ALIAS-PRECISION.md)
+How much information about aliases must a checker retain to prove compatibility across two FFI calls? Scenario 126 checks shared and exclusive roles on known identities. Scenario 108 shows that joining aliases independently can invent infeasible routes. This experiment applies that comparison at a call boundary where the first call can leave a reservation live. [Multi-resource FFI roles](../../compiler-and-translation/RT-13/RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md) · [Path-sensitive alias precision](../../semantic-representation/RT-06/RESEARCH-SCENARIO-108-PATH-SENSITIVE-ALIAS-PRECISION.md)
 
 ## Source fragment and proof rule
 
-The adapter lowers a Python-shaped fixture using declarations of three distinct connection identities `a`, `b`, and `c`, two immutable Boolean inputs `p` and `q`, and an external reference that can denote any of the three connections. The grammar admits local aliases, conditional selection of a reference, two backup starts, and at most one unconditional or conditional finish between them. The existing backup contract requires a shared source and exclusive destination on distinct identities. An accepted start grants the roles, and finish consumes the first reservation before the second check. In this fragment those transitions succeed once the role precondition passes. [Source adapter](../PROTOTYPES/RT-04-01/rt04_backup_source_roles.py) · [Role contract](../PROTOTYPES/RT-04-01/rt04_backup_roles.py)
+The adapter lowers a Python-shaped fixture using declarations of three distinct connection identities `a`, `b`, and `c`, two immutable Boolean inputs `p` and `q`, and an external reference that can denote any of the three connections. The grammar admits local aliases, conditional selection of a reference, two backup starts, and at most one unconditional or conditional finish between them. The existing backup contract requires a shared source and exclusive destination on distinct identities. An accepted start grants the roles, and finish consumes the first reservation before the second check. In this fragment those transitions succeed once the role precondition passes. [Source adapter](../../PROTOTYPES/RT-04-01/rt04_backup_source_roles.py) · [Role contract](../../PROTOTYPES/RT-04-01/rt04_backup_roles.py)
 
 ```python
 backup(a if p else b, b if p else a)
@@ -31,7 +31,7 @@ The checker certifies a program only when each route in its representation admit
 
 ## Results
 
-Eight expressions at each argument position and three finish variants give 12,288 programs. Four Boolean assignments and three external identities give 147,456 concrete inputs. Tests compare the parsed role pairs, finish state, and resulting live reservations with an oracle defined directly from those inputs. Each wider representation contains every route of the more precise representation. [Generated corpus and oracle](../PROTOTYPES/RT-04-01/test_rt04_backup_source_roles.py)
+Eight expressions at each argument position and three finish variants give 12,288 programs. Four Boolean assignments and three external identities give 147,456 concrete inputs. Tests compare the parsed role pairs, finish state, and resulting live reservations with an oracle defined directly from those inputs. Each wider representation contains every route of the more precise representation. [Generated corpus and oracle](../../PROTOTYPES/RT-04-01/test_rt04_backup_source_roles.py)
 
 | Representation | Programs certified for every input |
 |---|---:|
@@ -45,7 +45,7 @@ A guard using the actual identities admits both calls on 33,464 concrete inputs.
 
 ## Implications for candidate comparison
 
-The contract needs distinctness and compatibility facts over identities, with live reservations captured at the producing call. Independent alias sets can still supply a conservative proof. Retaining only relationships used by a role contract can recover more static admissions. Where the static facts allow both outcomes, a checked call can validate the actual roles and return the earlier live obligations on refusal. Its runtime still needs an acquisition discipline through the point of authorization. [Reservation scheduling](../RT-13/RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md)
+The contract needs distinctness and compatibility facts over identities, with live reservations captured at the producing call. Independent alias sets can still supply a conservative proof. Retaining only relationships used by a role contract can recover more static admissions. Where the static facts allow both outcomes, a checked call can validate the actual roles and return the earlier live obligations on refusal. Its runtime still needs an acquisition discipline through the point of authorization. [Reservation scheduling](../../compiler-and-translation/RT-13/RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md)
 
 ## Reproduction and scope
 

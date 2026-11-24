@@ -2,7 +2,7 @@
 
 **Date** · 2026-11-21  
 **Baseline** · `017e64b87c87371309197a392165258b8b088dd1`  
-**Status** · Structural experiment for [Plan §4.5](../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
+**Status** · Structural experiment for [Plan §4.5](../../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
 
 ## Question and alternatives
 
@@ -46,4 +46,4 @@ From `research/PROTOTYPES/DEPENDENCY-GRAPH-01`, run the following. The recorded 
 python -B -m unittest -v tests.test_rt24_semantic_merge_core tests.test_rt24_merge_tree_gate
 ```
 
-[Experiment and fixtures](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_semantic_merge_core.py) · [Dependency map](../RESEARCH-DEPENDENCY-MAP.md)
+[Experiment and fixtures](../../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_semantic_merge_core.py) · [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)

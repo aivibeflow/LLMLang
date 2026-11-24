@@ -4,7 +4,7 @@
 **Status:** comparative alternatives report; no architecture selected  
 **Updated:** 2026-11-18  
 **Depends on:** [RT-03 Core Language Semantics](../RT-03/CORE-LANGUAGE-SEMANTICS.md)  
-**Related:** [LLMLang Concept](../RT-01/LLMLang-CONCEPT.md), [POSIX Runtime Architecture](../RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [RT-24 identity work](../RT-24/RT-24-IDENTITY-DECISION-MATRIX.md), [Research Dependency Map](../RESEARCH-DEPENDENCY-MAP.md), [RT-09 structural type identity and C ABI proposal](../RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md)
+**Related:** [LLMLang Concept](../RT-01/LLMLang-CONCEPT.md), [POSIX Runtime Architecture](../../runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [RT-24 identity work](../../toolchain-and-collaboration/RT-24/RT-24-IDENTITY-DECISION-MATRIX.md), [Research Dependency Map](../../RESEARCH-DEPENDENCY-MAP.md), [RT-09 structural type identity and C ABI proposal](../../compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md)
 
 ## 1. Purpose and boundaries
 
@@ -91,7 +91,7 @@ Type-compatible replacement is not automatically behaviorally compatible. Refine
 
 A separate cross-area proposal explores a name-independent Structural Identity Hash, a Type Hash that extends that identity with canonical representation requirements, and compiler-derived Layout and Function ABI descriptors. It also separates consumer-specific semantic contracts from the data shape and preserves foreign C declaration identity independently from LLMLang structural identity.
 
-This is a candidate architecture, not a conclusion of the RT-04 comparison and not an accepted type-system or ABI policy. See [RT-09 structural type identity, representation requirements, layout, and C ABI proposal](../RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md). The open questions include recursive canonicalization, type/nominal compatibility, requirement composition, target ABI profiles, and cross-target FFI validation.
+This is a candidate architecture, not a conclusion of the RT-04 comparison and not an accepted type-system or ABI policy. See [RT-09 structural type identity, representation requirements, layout, and C ABI proposal](../../compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md). The open questions include recursive canonicalization, type/nominal compatibility, requirement composition, target ABI profiles, and cross-target FFI validation.
 
 ## 3. Effect-system alternatives
 
@@ -335,7 +335,7 @@ Confidence:
 
 ## 14. First executable evidence and remaining exit criteria
 
-[RT-04 Prototype 01](../PROTOTYPES/RT-04-01/README.md) now compares two deliberately limited declaration-level checker vectors. Its [results](RT-04-PROTOTYPE-01-RESULTS.md) and [scenario matrix](RT-04-PROTOTYPE-01-SCENARIOS.md) record 27 focused unit tests: primitive/closed effects, open effect rows, positive/negative/unknown refinement, transitive effect summaries, direct and transitive effect-bound checks, incomplete call-graph UNKNOWN cases, definite violations despite incomplete graphs, ambient versus propagated capabilities, affine duplicate consumption, branch-consistent and inconsistent joins, loop re-consumption, malformed CFG references, unknown resources/callees/effects, and malformed input. The prototype is not a compiler, source semantics, complete dependency analysis, runtime authorization mechanism, or architecture decision. Its `call_graph_complete` fixture metadata is an explicit assertion, not authenticated evidence that a source extractor discovered all calls; dynamic dispatch, FFI, generated calls, handlers, and reflection remain outside the model.
+[RT-04 Prototype 01](../../PROTOTYPES/RT-04-01/README.md) now compares two deliberately limited declaration-level checker vectors. Its [results](RT-04-PROTOTYPE-01-RESULTS.md) and [scenario matrix](RT-04-PROTOTYPE-01-SCENARIOS.md) record 27 focused unit tests: primitive/closed effects, open effect rows, positive/negative/unknown refinement, transitive effect summaries, direct and transitive effect-bound checks, incomplete call-graph UNKNOWN cases, definite violations despite incomplete graphs, ambient versus propagated capabilities, affine duplicate consumption, branch-consistent and inconsistent joins, loop re-consumption, malformed CFG references, unknown resources/callees/effects, and malformed input. The prototype is not a compiler, source semantics, complete dependency analysis, runtime authorization mechanism, or architecture decision. Its `call_graph_complete` fixture metadata is an explicit assertion, not authenticated evidence that a source extractor discovered all calls; dynamic dispatch, FFI, generated calls, handlers, and reflection remain outside the model.
 
 Remaining exit criteria:
 
@@ -359,8 +359,8 @@ See [RT-03 A/D × RT-04 A/B shared observable-trace cross-check](RT-04-RT-03-CRO
 
 Separate callable shape, type variance, effects, caller authority, ownership transfer and behavioral refinement at public-interface admission. Contravariant input and covariant result reasoning is conditional on the type/aliasing model; mutable generic positions may be invariant. A provider must preserve required observable effects, error alternatives, cleanup/borrow obligations, and declared progress, not merely have a smaller effect set. Test generic and stateful interfaces, joint protocol invariants, adapters, capabilities on exceptional exits, and conflicting provider declarations. Public names do not enter structural type identity merely because they are exported.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Foreign conformance assumptions must cover effects, aliases, ownership and capabilities relevant to the property, including incomplete summaries. Treat unknown external effects conservatively; never infer independence from missing edges. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Foreign conformance assumptions must cover effects, aliases, ownership and capabilities relevant to the property, including incomplete summaries. Treat unknown external effects conservatively; never infer independence from missing edges. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

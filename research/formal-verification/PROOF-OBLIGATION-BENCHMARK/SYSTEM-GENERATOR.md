@@ -19,14 +19,14 @@ The [profile](generative/system/profile.json) uses integer-valued explicit state
 ## Reproduce
 
 ```sh
-python research/PROOF-OBLIGATION-BENCHMARK/generative/system/test_system.py
-python research/PROOF-OBLIGATION-BENCHMARK/generative/system/generate.py --count 140 --seed 42
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/test_system.py
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/generate.py --count 140 --seed 42
 ```
 
 Optional --output gold.jsonl includes results; --blind-output stage-b.jsonl contains initial state, action alphabet, scope/depth and contract only, without verdicts or candidate code. Public development templates are not a private holdout. The summary includes code/profile hashes, corpus hash, checked reachable-state and edge counts (sums over variants; not distinct across variants), family and mutation-obligation counts. Parameters are mostly integer origins/quantities, not independent semantic classes.
 
 ## Relationship to LLMLang and limits
 
-These fixtures motivate rather than settle RT-03/RT-04 semantics. See [RT-03](../RT-03/CORE-LANGUAGE-SEMANTICS.md), [effect/ownership alternatives](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md), [durable invocation results](../RT-10/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md), [wire schema evolution](../RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md), and [business rule binding](../RT-02/RESEARCH-SCENARIO-13-MULTI-LEVEL-BUSINESS-RULE-AND-IMPLEMENTATION-BINDING.md) at baseline 991c053ffbc9e3ed0885763e3034f0d3c9354c2a. No source correspondence or proof is inherited.
+These fixtures motivate rather than settle RT-03/RT-04 semantics. See [RT-03](../../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md), [effect/ownership alternatives](../../language-design/RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md), [durable invocation results](../../runtime-and-systems/RT-10/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md), [wire schema evolution](../../packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md), and [business rule binding](../../language-design/RT-02/RESEARCH-SCENARIO-13-MULTI-LEVEL-BUSINESS-RULE-AND-IMPLEMENTATION-BINDING.md) at baseline 991c053ffbc9e3ed0885763e3034f0d3c9354c2a. No source correspondence or proof is inherited.
 
 Remaining: arbitrary heap topology, aliasing/permissions and formal separation logic; consensus leader election, partitions with multiple replicas and eventual delivery; real foreign memory/ABI; history-dependent and unbounded temporal properties; weak memory, higher-order/inductive/coinductive semantics; reviewed form/domain applicability and independently derived formal oracles. Registry entries remain candidates, not adjudicated coverage. See #404, #395 and #397.

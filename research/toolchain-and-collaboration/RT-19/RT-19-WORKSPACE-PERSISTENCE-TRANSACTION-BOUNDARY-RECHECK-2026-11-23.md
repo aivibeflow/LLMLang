@@ -73,7 +73,7 @@ Run the in-memory lifecycle tests:
 
 ```sh
 python3 -B -m unittest discover \
-  -s research/PROTOTYPES/TOOLCHAIN-SERVER-01 \
+  -s research/toolchain-and-collaboration/PROTOTYPES/TOOLCHAIN-SERVER-01 \
   -p 'test_toolchain.py' -v
 ```
 
@@ -82,7 +82,7 @@ Result: 9/9 passed on CPython 3.12.14.
 Run the SQLite Content Store tests from the package-index directory, because sibling package identity modules are imported explicitly:
 
 ```sh
-cd research/PROTOTYPES/PACKAGE-INDEX-01
+cd research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01
 PYTHONPATH=../PACKAGE-IDENTITY-01:. python3 -B -m unittest discover \
   -s . -p 'test_content_store.py' -v
 ```

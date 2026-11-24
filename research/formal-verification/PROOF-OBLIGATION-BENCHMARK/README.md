@@ -7,9 +7,9 @@
 From the repository root, Python 3.11+ (standard library only):
 
 ```sh
-python research/PROOF-OBLIGATION-BENCHMARK/run.py run > /tmp/pob-smoke.json
-python research/PROOF-OBLIGATION-BENCHMARK/test_runner.py
-python research/PROOF-OBLIGATION-BENCHMARK/run.py blind > /tmp/pob-stage-b.json
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/run.py run > /tmp/pob-smoke.json
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_runner.py
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/run.py blind > /tmp/pob-stage-b.json
 ```
 
 The smoke runner enumerates explicit finite input domains, verifies positive reference models and rejects mutations using separate predicate/oracle logic, reports first counterexamples, content hashes, and taxonomy label counts. A successful finite test is **bounded_pass**, never an unbounded proof. A counterexample refutes only the specified abstract claim within its declared scope; the smoke does not establish correspondence to LLMLang. Cases are development examples, not secret evaluation data; public answers and oracles must not be included in model prompts.
@@ -54,7 +54,7 @@ See [coverage and review](COVERAGE-AND-REVIEW.md) for hand-derived witnesses, ex
 
 ## Third cohort: executable coverage target
 
-See [finite coverage matrix](COVERAGE-MATRIX.md) for POB-025–040 and the explicit 80-cell target. Run `python research/PROOF-OBLIGATION-BENCHMARK/run.py coverage` to check the witnesses. All cases remain public development fixtures; coverage is bounded and proposed.
+See [finite coverage matrix](COVERAGE-MATRIX.md) for POB-025–040 and the explicit 80-cell target. Run `python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/run.py coverage` to check the witnesses. All cases remain public development fixtures; coverage is bounded and proposed.
 
 ## Extended coverage and generation
 

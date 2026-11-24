@@ -150,7 +150,7 @@ This study does not select Lean as the only verifier, require all LLMLang constr
 
 For a public operation, generate separately identified obligations for implementation body satisfies its provided contract, and provided contract refines the exact public contract. A caller proof consumes only the public contract facts actually needed; represent an unresolved provider as a traceable conditional assumption. A closed program claim needs an admitted binding and discharged assumptions, including semantic correspondence. PDG must distinguish body proof, refinement proof, binding admission, and public-contract use; recompose exact evidence after provider changes rather than rerun unaffected modular proofs or report an unresolved caller as unconditionally proven. Add negative fixtures for wrong revision, stronger provider precondition, divergence, stale proof, and incompatible observation models.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## Explicit assumptions and conditional verification (RT-36; proposed)
 

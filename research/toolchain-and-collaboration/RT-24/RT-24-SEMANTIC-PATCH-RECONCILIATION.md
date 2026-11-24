@@ -4,7 +4,7 @@
 
 **Baseline** · `4396691`
 
-**Status** · Bounded experiment for [Plan §4.5](../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
+**Status** · Bounded experiment for [Plan §4.5](../../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle)
 
 ## Question
 
@@ -26,7 +26,7 @@ The experiment uses a restricted exact declaration inventory and the whole-slot 
 
 ## Reproduction
 
-Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` on CPython 3.12.14 and Git 2.52.0. Ten tests passed. [Experiment](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_replay_patch_correspondence.py)
+Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` on CPython 3.12.14 and Git 2.52.0. Ten tests passed. [Experiment](../../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_replay_patch_correspondence.py)
 
 ```sh
 python -B -m unittest -v tests.test_rt24_replay_patch_correspondence tests.test_rt24_semantic_merge_core

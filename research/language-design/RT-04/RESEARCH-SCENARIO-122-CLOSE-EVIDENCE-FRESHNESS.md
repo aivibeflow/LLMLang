@@ -12,7 +12,7 @@ When can a compiler prove that a connection has no live dependents at `close`? S
 
 ## Source fragment and assumptions
 
-The adapter parses a small Python-shaped fixture with one fresh connection and one terminal `close`. It recognizes statement creation, explicit finalization, inspection, and `if` branches over immutable Boolean inputs. Each use of the same input follows the same branch value. `readonly` means the call preserves the dependency graph. This promise is distinct from data access being read-only. `foreign` preserves the connection and existing statements but may leave a new statement unknown to the wrapper. The concrete model enumerates zero or one new dependent per such call. An arbitrary foreign call that could invalidate a capability needs a separate contract. [Source adapter](../PROTOTYPES/RT-04-01/rt04_close_evidence.py)
+The adapter parses a small Python-shaped fixture with one fresh connection and one terminal `close`. It recognizes statement creation, explicit finalization, inspection, and `if` branches over immutable Boolean inputs. Each use of the same input follows the same branch value. `readonly` means the call preserves the dependency graph. This promise is distinct from data access being read-only. `foreign` preserves the connection and existing statements but may leave a new statement unknown to the wrapper. The concrete model enumerates zero or one new dependent per such call. An arbitrary foreign call that could invalidate a capability needs a separate contract. [Source adapter](../../PROTOTYPES/RT-04-01/rt04_close_evidence.py)
 
 ```python
 db = connect()
@@ -28,7 +28,7 @@ The runtime comparison treats inspection as a complete enumeration of the fixtur
 
 ## Results
 
-The corpus varies four positions among no operation, preserving call, foreign call, prepare, prepare then finalize, and inspect. Two positions are the arms of a conditional. A common inspect follows the first position. This yields 1,296 programs, 2,592 Boolean paths, and 4,116 concrete executions after enumerating foreign outcomes. Close would report busy in 2,616 executions in the model. The table counts admissions per execution. A close by static proof is allowed for every path in 256 whole programs. [Generated cases](../PROTOTYPES/RT-04-01/test_rt04_close_evidence.py)
+The corpus varies four positions among no operation, preserving call, foreign call, prepare, prepare then finalize, and inspect. Two positions are the arms of a conditional. A common inspect follows the first position. This yields 1,296 programs, 2,592 Boolean paths, and 4,116 concrete executions after enumerating foreign outcomes. Close would report busy in 2,616 executions in the model. The table counts admissions per execution. A close by static proof is allowed for every path in 256 whole programs. [Generated cases](../../PROTOTYPES/RT-04-01/test_rt04_close_evidence.py)
 
 | Rule | Admitted executions | Admissions that would encounter busy |
 |---|---:|---:|
@@ -44,7 +44,7 @@ The final row is the reference for these execution states. It uses the model's a
 
 ## Native probe and implications
 
-On SQLite 3.46.1, `sqlite3_next_stmt` reports an empty set on a new connection. Closing immediately returns `SQLITE_OK`. In a second run, preparing a single statement after the same observation makes ordinary close return `SQLITE_BUSY`. Finalizing the statement and enumerating again permits a successful close. This tests the effect of an intervening operation. The version and guarded boundary are modeled above. SQLite's serialized mode orders individual calls. A two-call observation and close sequence needs a separate rule to exclude intervening dependency changes. [SQLite harness](../PROTOTYPES/RT-04-01/sqlite_cleanup_probe.py) · [SQLite statement enumeration](https://www.sqlite.org/c3ref/next_stmt.html) · [SQLite close](https://www.sqlite.org/c3ref/close.html) · [SQLite serialized mode](https://www.sqlite.org/threadsafe.html)
+On SQLite 3.46.1, `sqlite3_next_stmt` reports an empty set on a new connection. Closing immediately returns `SQLITE_OK`. In a second run, preparing a single statement after the same observation makes ordinary close return `SQLITE_BUSY`. Finalizing the statement and enumerating again permits a successful close. This tests the effect of an intervening operation. The version and guarded boundary are modeled above. SQLite's serialized mode orders individual calls. A two-call observation and close sequence needs a separate rule to exclude intervening dependency changes. [SQLite harness](../../PROTOTYPES/RT-04-01/sqlite_cleanup_probe.py) · [SQLite statement enumeration](https://www.sqlite.org/c3ref/next_stmt.html) · [SQLite close](https://www.sqlite.org/c3ref/close.html) · [SQLite serialized mode](https://www.sqlite.org/threadsafe.html)
 
 For a candidate type system, known local ownership and proof of a complete live set carry different information. A snapshot used as a negative fact needs the resource identity, covered kinds of dependents, and evidence that the observation is still current when consumed. The same distinction matters for negative dependency facts used for cache reuse and impact analysis.
 

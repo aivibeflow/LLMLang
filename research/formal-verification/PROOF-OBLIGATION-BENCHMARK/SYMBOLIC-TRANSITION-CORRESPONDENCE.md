@@ -35,8 +35,8 @@ The concrete Lean evaluator entered `main` at `53f7823`. Use Lean 4.36.0 commit 
 
 ```sh
 set -euo pipefail
-transition=research/PROOF-OBLIGATION-BENCHMARK/generative/transition
-proof=research/PROOF-OBLIGATION-BENCHMARK/symbolic-transition-results
+transition=research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition
+proof=research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-transition-results
 build=$(mktemp -d)
 lean --version
 lean -DwarningAsError=true -o "$build/TransitionState.olean" "$transition/TransitionState.lean"

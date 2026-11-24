@@ -26,12 +26,12 @@ Two verifier-accepted controls depart from the reference at both optimization le
 ## Reproduction and limits
 
 ```sh
-python -B research/PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py --opt /path/to/opt --llc /path/to/llc
+python -B research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py --opt /path/to/opt --llc /path/to/llc
 ```
 
 The runner uses Debian LLVM 19.1.7, Python 3.12.14 and GCC 14.2.0 with GNU ld 2.44 on `x86_64-unknown-linux-gnu`. It reuses the verified O0/O3 pipelines and PIC configuration from Scenario 96A. The input IR SHA-256 is `ddb41ceb866c77e957df865cd2102f7a02d3a468150fc82f79c7a7fb2bf782d0`. [Integer baseline](RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md)
 
-This experiment covers logical view identity within a single live allocation. General allocation provenance, stale pointers, forged descriptors, alignment beyond byte loads, and validation of a complete source-to-LLVM pipeline remain open. The result informs LL-020 without selecting a memory model or backend. [LL-020](../../TODO.md#ll-020--define-llvm-backend-role-and-semantic-boundary)
+This experiment covers logical view identity within a single live allocation. General allocation provenance, stale pointers, forged descriptors, alignment beyond byte loads, and validation of a complete source-to-LLVM pipeline remain open. The result informs LL-020 without selecting a memory model or backend. [LL-020](../../../TODO.md#ll-020--define-llvm-backend-role-and-semantic-boundary)
 
 
 ## RT-00 reproducibility audit: experiment source revision

@@ -2,7 +2,7 @@
 
 **Status:** Executable in-memory lifecycle prototype; not production code  
 **Research:** [RT-19 — Toolchain Server and Semantic Development API](../../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)  
-**Related proposal:** [ADR-015](../../../docs/adr/015-toolchain-server-semantic-api.md)
+**Related proposal:** [ADR-015](../../../../docs/adr/015-toolchain-server-semantic-api.md)
 
 ## Purpose
 
@@ -15,7 +15,7 @@ It deliberately uses a tiny generic Entity envelope because the canonical LLMLan
 Requires Python 3.11+ and the standard library only.
 
 ```bash
-python -m unittest discover -s research/PROTOTYPES/TOOLCHAIN-SERVER-01 -v
+python -m unittest discover -s research/toolchain-and-collaboration/PROTOTYPES/TOOLCHAIN-SERVER-01 -v
 ```
 
 ## File index

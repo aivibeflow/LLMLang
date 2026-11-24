@@ -24,14 +24,14 @@ RT-24 must therefore remain identity-neutral at its merge-core boundary. It can 
 
 | Source | Current finding | Consequence for RT-24 |
 |---|---|---|
-| [LLMLang Concept](../RT-01/LLMLang-CONCEPT.md), §3 | SPG is a typed graph; concept describes Stable ID plus Content Hash, immutable states, provenance, dependencies, and generated human-readable views | Conceptual baseline, not a complete wire schema; its identity model must be reconciled with Studies 06–08 before becoming normative |
-| [Research Study 05](../RT-05/RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md) | Recommends name-free core, Stable Entity ID for logical continuity, Content Hash for immutable state, names as aliases | Strong candidate; not accepted |
-| [Research Study 06](../RT-05/RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md) | Explores immutable content-addressed values with explicit lineage and specification provenance; recommends testing content-only identity rather than assuming every entity needs permanent Stable ID | Competing candidate; provenance/lineage must not enter semantic value hash unless semantically relevant |
-| [Research Study 07](../RT-05/RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md) | Stress-tests content-only identity and its edge cases | Must be reviewed together with Studies 05, 06, and 08 before identity selection |
-| [Research Study 08](../RT-05/RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md) | Occurrence-state hash identifies one immutable contextual state, not a timeless occurrence; continuity requires a scoped selector, snapshot mapping, or explicit lineage | Occurrence identity and entity/value identity must remain separate |
-| [Core Language Semantics / RT-03](../RT-03/CORE-LANGUAGE-SEMANTICS.md) | No semantic profile selected; full execution/observation semantics remain open | “Semantic equivalence” in RT-24 means canonical structural SPG equivalence for the supported profile, not full behavioral equivalence |
-| [Semantic Dependency Index](../RT-06/SEMANTIC-DEPENDENCY-INDEX.md) | Separates may-depend, hash-relevant, call/reference, type/contract/effect, build, test/proof, and provenance relations; completeness is scoped evidence | RT-24 must not collapse all relations into one dependency edge or treat an index query as complete without evidence |
-| [Package Manifest and Identity](../RT-12/PACKAGE-MANIFEST-AND-IDENTITY.md) | Separates object hashes, logical index hash, package content root, package archive hash, descriptive package identity, provenance, and optional cache indexes | Package/archive identity is a separate layer; package roots and resolution inputs are not automatically the SPG project snapshot schema |
+| [LLMLang Concept](../../language-design/RT-01/LLMLang-CONCEPT.md), §3 | SPG is a typed graph; concept describes Stable ID plus Content Hash, immutable states, provenance, dependencies, and generated human-readable views | Conceptual baseline, not a complete wire schema; its identity model must be reconciled with Studies 06–08 before becoming normative |
+| [Research Study 05](../../semantic-representation/RT-05/RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md) | Recommends name-free core, Stable Entity ID for logical continuity, Content Hash for immutable state, names as aliases | Strong candidate; not accepted |
+| [Research Study 06](../../semantic-representation/RT-05/RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md) | Explores immutable content-addressed values with explicit lineage and specification provenance; recommends testing content-only identity rather than assuming every entity needs permanent Stable ID | Competing candidate; provenance/lineage must not enter semantic value hash unless semantically relevant |
+| [Research Study 07](../../semantic-representation/RT-05/RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md) | Stress-tests content-only identity and its edge cases | Must be reviewed together with Studies 05, 06, and 08 before identity selection |
+| [Research Study 08](../../semantic-representation/RT-05/RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md) | Occurrence-state hash identifies one immutable contextual state, not a timeless occurrence; continuity requires a scoped selector, snapshot mapping, or explicit lineage | Occurrence identity and entity/value identity must remain separate |
+| [Core Language Semantics / RT-03](../../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md) | No semantic profile selected; full execution/observation semantics remain open | “Semantic equivalence” in RT-24 means canonical structural SPG equivalence for the supported profile, not full behavioral equivalence |
+| [Semantic Dependency Index](../../semantic-representation/RT-06/SEMANTIC-DEPENDENCY-INDEX.md) | Separates may-depend, hash-relevant, call/reference, type/contract/effect, build, test/proof, and provenance relations; completeness is scoped evidence | RT-24 must not collapse all relations into one dependency edge or treat an index query as complete without evidence |
+| [Package Manifest and Identity](../../packages-and-ecosystem/RT-12/PACKAGE-MANIFEST-AND-IDENTITY.md) | Separates object hashes, logical index hash, package content root, package archive hash, descriptive package identity, provenance, and optional cache indexes | Package/archive identity is a separate layer; package roots and resolution inputs are not automatically the SPG project snapshot schema |
 | [RT-20](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) | Function versions are immutable; hash-relevant references bind exact callee versions; call-site-specific migrate/preserve/adapt/fork/unresolved decisions; hash envelope remains open | Merge must delegate caller-impact decisions to RT-20 and preserve exact call-site identities |
 | [RT-23](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) | Shared immutable semantic objects/snapshots; versioned mutable interface mappings; exact snapshot/mapping revision pinned into commit | Mapping revisions are a separate versioned domain and commit must bind exact semantic and mapping roots |
 
@@ -86,7 +86,7 @@ Whether slot keys are snapshot-local, scope-stable, or persistent scoped identit
 
 ## 4. Hash and canonicalization reconciliation
 
-**Required terminology input:** Read the [Draft Glossary](../../draft/GLOSSARY.md) together with this report before revising hash or identity assumptions. It distinguishes `OpHash` (operation semantics), `ImplHash` (one concrete implementation), `CCHash` (a conformance-class definition), optional `CandidateSetHash` (a finite discovery result), and conformance-evidence identity. Do not collapse these typed identities into one generic semantic hash. The glossary remains a proposal; this report does not promote its terms or unresolved encodings to normative status. Package-level hashes and action/evidence identities remain separate layers described below and in the package identity research.
+**Required terminology input:** Read the [Draft Glossary](../../../draft/GLOSSARY.md) together with this report before revising hash or identity assumptions. It distinguishes `OpHash` (operation semantics), `ImplHash` (one concrete implementation), `CCHash` (a conformance-class definition), optional `CandidateSetHash` (a finite discovery result), and conformance-evidence identity. Do not collapse these typed identities into one generic semantic hash. The glossary remains a proposal; this report does not promote its terms or unresolved encodings to normative status. Package-level hashes and action/evidence identities remain separate layers described below and in the package identity research.
 
 ### 4.1 Current candidates
 
@@ -94,7 +94,7 @@ The repository contains multiple experimental approaches:
 
 - LLMLang-CONCEPT.md describes a domain-separated semantic hash over entity kind, canonical semantic content, and sorted hash-relevant target hashes; SHA-256 is suggested as an initial algorithm with algorithm agility.
 - research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py uses deterministic compact JSON (sort_keys, UTF-8, no NaN), SHA-256, a llmlang.semantic-value.v1 domain field, object kind, payload, and sorted hash-relevant dependency records.
-- research/PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py uses explicit typed encoding, domain-separated SHA-256, and algorithm-tagged sha256:<hex> values for package/index identity.
+- research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py uses explicit typed encoding, domain-separated SHA-256, and algorithm-tagged sha256:<hex> values for package/index identity.
 - PACKAGE-MANIFEST-AND-IDENTITY.md keeps the final digest algorithm, typed encoding, index schema, and package-root construction open.
 
 These are separate experimental encodings. They are not interchangeable and none is the accepted SPG hash envelope.
@@ -138,7 +138,7 @@ The prototype's JSON canonicalization and package prototype's typed encoding are
 
 ### 5.1 What the current prototype actually implements
 
-[semantic_dependency_index.py](../PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_dependency_index.py) currently accepts a narrow llmlang.semantic-object envelope, schema version 1:
+[semantic_dependency_index.py](../../PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_dependency_index.py) currently accepts a narrow llmlang.semantic-object envelope, schema version 1:
 
 - object kinds: function, operation, type, contract, implementation, effect;
 - typed declaration references: uses_type, uses_contract, extends_type, implements_contract, uses_effect, with restricted target kinds;
@@ -148,7 +148,7 @@ The prototype's JSON canonicalization and package prototype's typed encoding are
 - publication resolves exact target hashes and validates target kinds;
 - the index derives typed outgoing/incoming edges and has a snapshot-scoped builder that excludes historical values not selected by the snapshot.
 
-The [focused tests](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_semantic_dependency_index.py) cover the narrow envelope, typed references, call-site edge identities, exact target-version hashing, snapshot filtering, and scoped reverse-query evidence. The current source is an extractor over a supplied versioned declaration envelope. It does not parse LLMLang source or arbitrary SPG payloads. It is not a canonical repository import/export implementation.
+The [focused tests](../../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_semantic_dependency_index.py) cover the narrow envelope, typed references, call-site edge identities, exact target-version hashing, snapshot filtering, and scoped reverse-query evidence. The current source is an extractor over a supplied versioned declaration envelope. It does not parse LLMLang source or arbitrary SPG payloads. It is not a canonical repository import/export implementation.
 
 ### 5.2 Hash behavior in the prototype
 
@@ -267,24 +267,24 @@ RT-24 should be interpreted with these constraints, and its next revision should
 
 - [RT-24 Identity Architecture Decision Matrix](RT-24-IDENTITY-DECISION-MATRIX.md)
 
-- [LLMLang Concept](../RT-01/LLMLang-CONCEPT.md)
-- [RT-03 — Core Language Semantics](../RT-03/CORE-LANGUAGE-SEMANTICS.md)
-- [Study 05 — Name-Free Semantic Entities](../RT-05/RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md)
-- [Study 06 — Content-Addressed Entity Identity](../RT-05/RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md)
-- [Study 07 — Content-Only Identity Stress Tests](../RT-05/RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md)
-- [Study 08 — Context-Derived Occurrence Addressing](../RT-05/RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md)
-- [Semantic Dependency Index](../RT-06/SEMANTIC-DEPENDENCY-INDEX.md)
-- [Package Manifest and Content Identity](../RT-12/PACKAGE-MANIFEST-AND-IDENTITY.md)
+- [LLMLang Concept](../../language-design/RT-01/LLMLang-CONCEPT.md)
+- [RT-03 — Core Language Semantics](../../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md)
+- [Study 05 — Name-Free Semantic Entities](../../semantic-representation/RT-05/RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md)
+- [Study 06 — Content-Addressed Entity Identity](../../semantic-representation/RT-05/RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md)
+- [Study 07 — Content-Only Identity Stress Tests](../../semantic-representation/RT-05/RESEARCH-SCENARIO-07-CONTENT-ONLY-IDENTITY-STRESS-TESTS.md)
+- [Study 08 — Context-Derived Occurrence Addressing](../../semantic-representation/RT-05/RESEARCH-SCENARIO-08-OCCURRENCE-ADDRESSING.md)
+- [Semantic Dependency Index](../../semantic-representation/RT-06/SEMANTIC-DEPENDENCY-INDEX.md)
+- [Package Manifest and Content Identity](../../packages-and-ecosystem/RT-12/PACKAGE-MANIFEST-AND-IDENTITY.md)
 - [RT-20 — LLM Patch Planning and Hash Propagation](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
 - [RT-23 — Single-Instance Toolchain and Multi-Worktree](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md)
 
 
 ## RT-04 semantic dependency
 
-The [RT-04 alternatives report](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) identifies type/refinement, effect/handler, resource/ownership, capability, and concurrency distinctions that may affect canonical SPG values and identity boundaries. Those fields remain candidates only; the identity decision is gated on RT-03/RT-04 executable scenarios and the RT-05/RT-07 reconciliation described here.
+The [RT-04 alternatives report](../../language-design/RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) identifies type/refinement, effect/handler, resource/ownership, capability, and concurrency distinctions that may affect canonical SPG values and identity boundaries. Those fields remain candidates only; the identity decision is gated on RT-03/RT-04 executable scenarios and the RT-05/RT-07 reconciliation described here.
 
 ## Public-interface integration (2026-11-24; proposed)
 
 Distinguish immutable operation contract revision, stable public-name selector, logical continuity, provider binding revision, and external symbol mapping. A name can be a semantic field when externally observable, or an alias in a separately hashed catalog; compare these alternatives without imposing mandatory nominal identity on structural type values. A matching OpHash or ImplHash does not prove conformance. SPG admission and merge must resolve exact endpoints and verify the proof obligation closure; do not accept a dangling or unverified binding simply because its objects hash correctly.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

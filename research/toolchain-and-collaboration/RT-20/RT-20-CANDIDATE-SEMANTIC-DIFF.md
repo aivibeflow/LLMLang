@@ -77,7 +77,7 @@ The planning model distinguishes the approved plan from exact Content Hashes tha
 - `consumer_path_id` distinguishes separate versions of one shared caller. Multiple output slots can derive from the same source caller hash while selecting different callee versions for different upstream consumers.
 - All these records are included in CIP schema v2's canonical plan identity. The semantic-diff receipt resolves output IDs against the candidate Snapshot and binds the actual Content Hashes to the candidate root.
 
-The payload digest is a planning constraint, not an object Content Hash, OpHash, ImplHash, or glossary `CCHash`. The actual candidate object hash is computed by the semantic object store and appears in the materialization binding only after the candidate exists. Its interpretation remains object-kind-specific; this document does not rename or conflate `OpHash`, `ImplHash`, or `CCHash`. See the [LLMLang Glossary](../../draft/GLOSSARY.md).
+The payload digest is a planning constraint, not an object Content Hash, OpHash, ImplHash, or glossary `CCHash`. The actual candidate object hash is computed by the semantic object store and appears in the materialization binding only after the candidate exists. Its interpretation remains object-kind-specific; this document does not rename or conflate `OpHash`, `ImplHash`, or `CCHash`. See the [LLMLang Glossary](../../../draft/GLOSSARY.md).
 
 Focused tests cover declaration add/remove/replace, typed-reference additions and rewrites, call-target additions/removals/rewrites/condition changes, required-Contract migration with compatibility evidence, unknown hash resolution, deleted callers, and a shared-caller fork across two consumer paths.
 

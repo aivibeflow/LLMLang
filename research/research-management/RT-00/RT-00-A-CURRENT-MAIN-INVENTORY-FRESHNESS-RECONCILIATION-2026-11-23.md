@@ -9,7 +9,7 @@
 
 Enumerate the recursive Git tree at the baseline, exclude only the inventory manifest itself, and compare every remaining path's blob SHA and byte size with the inventory. Review the one missing file's content and nearby plan context to add a bounded traceability classification. Recompute the final PR-tree counts and repeat the path/blob/size comparison after adding this report and refreshing the manifest.
 
-The inventory workflow uses the same Git-tree, blob-size, and path comparison model: [.github/workflows/research-inventory-freshness-audit.yml](../../.github/workflows/research-inventory-freshness-audit.yml). The current-main comparison is performed locally here; the PR workflow must validate the final head independently.
+The inventory workflow uses the same Git-tree, blob-size, and path comparison model: [.github/workflows/research-inventory-freshness-audit.yml](../../../.github/workflows/research-inventory-freshness-audit.yml). The current-main comparison is performed locally here; the PR workflow must validate the final head independently.
 
 ## 2. Baseline result
 
@@ -28,7 +28,7 @@ The refreshed manifest contains 589 records for the exact PR tree. It adds the t
 
 The local exact-tree check compares all 587 record paths, Git blob SHAs, and byte sizes against the staged PR tree. The GitHub inventory-freshness workflow is the independent PR-head check; its result is pending until the pull request runs.
 
-The existing [research index coverage auditor](../../.github/scripts/audit_research_index_coverage.py) was run after adding RT-27, the Git storage-efficiency report, the quality-rules rollout report, and this report to `research/README.md`. It scanned 311 research Markdown/MDX documents; all four new index targets have designated-index inbound links. Across the full corpus, 57 documents lacked a link from a designated index and 23 had no inbound link at all. It found 38 unresolved local targets, all in the partial OCI and Alive2 snapshots, and 492 links to existing non-Markdown resources. These are candidate discoverability findings from a conservative parser, not automatic proof of orphaning or corpus completeness.
+The existing [research index coverage auditor](../../../.github/scripts/audit_research_index_coverage.py) was run after adding RT-27, the Git storage-efficiency report, the quality-rules rollout report, and this report to `research/README.md`. It scanned 311 research Markdown/MDX documents; all four new index targets have designated-index inbound links. Across the full corpus, 57 documents lacked a link from a designated index and 23 had no inbound link at all. It found 38 unresolved local targets, all in the partial OCI and Alive2 snapshots, and 492 links to existing non-Markdown resources. These are candidate discoverability findings from a conservative parser, not automatic proof of orphaning or corpus completeness.
 
 ## 4. Limits and remaining dependencies
 

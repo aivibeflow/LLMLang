@@ -8,7 +8,7 @@
 
 ## 1. Question and scope
 
-Given the proposed evidence vocabulary and review gates in [Research Quality and Decision Rules](../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), how should the project apply them to existing and future research without implying that document structure proves a claim?
+Given the proposed evidence vocabulary and review gates in [Research Quality and Decision Rules](../../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), how should the project apply them to existing and future research without implying that document structure proves a claim?
 
 The comparison covers three rollout strategies: retrospective migration of the corpus, incremental review of high-impact reports, and a hybrid with lightweight checks for new reports plus prioritized retrospective review. It does not audit every report, independently reproduce experiments, or decide which project authority may adopt the rules.
 
@@ -18,9 +18,9 @@ This is a qualitative comparison against the current `main` tree, not a statisti
 
 | Artifact | Observed strengths | Observed rollout-relevant gap |
 |---|---|---|
-| [Scenario 98](../RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) | Names a bounded AST fixture, method, result, limitations, and reproduction command. | Its compact format does not expose a uniform claim register or all downstream traceability fields in the report itself. |
-| [Scenario 133](../RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md) | Records exact measured counts, host/toolchain versions, command, comparison boundary, and unsupported cases. | There is no standardized claim-ID/evidence-class table or explicit Q1–Q5 gate record. |
-| [RT-05 Typed SPG](../RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) | Compares candidate models, gives falsifiers, scoped results, and reproduction limitations. | It combines literature observations, design hypotheses, and bounded executable results across sections without a compact per-claim evidence register. |
+| [Scenario 98](../../semantic-representation/RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md) | Names a bounded AST fixture, method, result, limitations, and reproduction command. | Its compact format does not expose a uniform claim register or all downstream traceability fields in the report itself. |
+| [Scenario 133](../../compiler-and-translation/RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md) | Records exact measured counts, host/toolchain versions, command, comparison boundary, and unsupported cases. | There is no standardized claim-ID/evidence-class table or explicit Q1–Q5 gate record. |
+| [RT-05 Typed SPG](../../semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) | Compares candidate models, gives falsifiers, scoped results, and reproduction limitations. | It combines literature observations, design hypotheses, and bounded executable results across sections without a compact per-claim evidence register. |
 
 These observations are direct document observations. They do not show that any underlying technical result is wrong or unreproducible. The previous proposal reviewed other representative artifacts and the preparation pack already specifies exact source revisions, tools, fixtures, commands, outcomes, and limits. This follow-up checks the rollout choice against current-main examples; it does not re-run that prior review or reproduce their experiments.
 
@@ -55,8 +55,8 @@ No language or architecture dependency edge is added: this is a cross-cutting ev
 - **Plan:** `PLAN.md` §0.2.
 - **Taxonomy:** RT-08, Testing, validation, and evidence model.
 - **Related LL questions:** LL-008 (evidence compatibility/reuse); LL-019 and LL-020 (scoped conformance/backend evidence).
-- **Prior study:** [Research Quality and Decision Rules](../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md).
-- **Preparation guidance:** [Research Preparation Pack](../preparation/README.md).
+- **Prior study:** [Research Quality and Decision Rules](../../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md).
+- **Preparation guidance:** [Research Preparation Pack](../../preparation/README.md).
 - **Dependency map:** no new edge proposed; this study concerns evidence recording across the map.
 
 ## 7. Reproduction and limits

@@ -26,8 +26,8 @@ The target is 16 taxonomy entries × 5 scenario dimensions = 80 cells. A label a
 Machine-readable [coverage target](coverage-target.json) and [checker](coverage_matrix.py). Reproduce:
 
 ```sh
-python research/PROOF-OBLIGATION-BENCHMARK/run.py coverage
-python research/PROOF-OBLIGATION-BENCHMARK/test_runner.py
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/run.py coverage
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_runner.py
 ```
 
 ## Distinct third-cohort semantic profiles

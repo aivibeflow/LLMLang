@@ -4,7 +4,7 @@
 
 **Baseline** · `991c053`
 
-**Status** · Comparative measurement for [Plan §7.1](../../PLAN.md#71-performance-and-scalability)
+**Status** · Comparative measurement for [Plan §7.1](../../../PLAN.md#71-performance-and-scalability)
 
 ## Question and method
 
@@ -31,7 +31,7 @@ The observed time ranges overlap. Jemalloc had lower RSS with the graph live and
 The raw artifact includes order, durations, sampled memory, provider package versions, CPU/quota, compiler version and the workload source hash. The observed settings were CPython 3.12.14, Rust 1.85.1 at O3, glibc 2.41, jemalloc 5.3.0 and Linux x86-64.
 
 ```sh
-python -B research/PROTOTYPES/ALLOCATOR-BENCH-01/run.py \
+python -B research/runtime-and-systems/PROTOTYPES/ALLOCATOR-BENCH-01/run.py \
   --jemalloc /path/to/libjemalloc.so.2 --samples 8 --output /tmp/allocator-samples.json
 ```
 

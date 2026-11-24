@@ -9,7 +9,7 @@
 On CPython 3.12.14, the current-main RT-16 suite passed **24/24** tests:
 
 ```sh
-python3 -B -m unittest discover -s research/PROTOTYPES/RT-16-AUTHORIZATION-01 -p 'test_*.py' -v
+python3 -B -m unittest discover -s research/security/PROTOTYPES/RT-16-AUTHORIZATION-01 -p 'test_*.py' -v
 ```
 
 The fixtures demonstrate exact principal/repository/action/base binding, human approval binding to action/repository/base/target, one-time nonce behavior in a single-process ledger, and fail-closed handling of missing, duplicate, failed, unknown, stale-context, or untrusted-verifier evidence. SHA-256 inputs: `policy.py` `9bde40efd58f19ff9fbd79d3bef49bfba4d13e887aff04a283e9ca03cad12b86`; `test_policy.py` `5a4850fe8b867deff1d2c2e7ca38df77a2f359129367720a9c8ee1b53c0770e2`.

@@ -35,7 +35,7 @@ CPython 3.12.14 result: **11 tests passed**. Test and implementation source SHA-
 - `tests/test_spg_representation.py`: `385a6fe2ffd5267a45760a1f9b460ec4a97bb1434faeff27a7cbe60283c58ea1`
 - `src/spg_representation.py`: `44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517`
 
-The original [RT-05 report, SPG-03](../RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md#7-results-and-falsifiers) records the same bounded result. This recheck confirms the reproduction on the current main code.
+The original [RT-05 report, SPG-03](../../semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md#7-results-and-falsifiers) records the same bounded result. This recheck confirms the reproduction on the current main code.
 
 ## Limits and remaining dependencies
 

@@ -2,13 +2,13 @@
 
 **Date** · 2026-11-21  
 **Baseline** · `b52ba2fb32e2c315997c74d8924c2c9aaeb177dc`  
-**Status** · Bounded result for [Plan §3.1](../../PLAN.md#31-semantic-dependency-model)
+**Status** · Bounded result for [Plan §3.1](../../../PLAN.md#31-semantic-dependency-model)
 
 ## Question
 
 Can a resolver reuse the outcome of a scoped lookup when an unrelated row changes? A matching row can override an earlier provider. An invalid match or disallowed override can reject a lookup even when a valid, higher-priority provider is present. This matters for dependency recording and for cache reuse.
 
-The experiment uses the existing scoped resolver, its exact contract and implementation checks, and project, tenant and request precedence. The observation is selected scope identity and implementation, or the exact rejection message. The resolution record's revision-bound root is outside this observation because it also commits to the consulted snapshots. [Scoped resolver](../PROTOTYPES/DEPENDENCY-GRAPH-01/src/scoped_binding.py) · [Semantic dependency index](SEMANTIC-DEPENDENCY-INDEX.md)
+The experiment uses the existing scoped resolver, its exact contract and implementation checks, and project, tenant and request precedence. The observation is selected scope identity and implementation, or the exact rejection message. The resolution record's revision-bound root is outside this observation because it also commits to the consulted snapshots. [Scoped resolver](../../PROTOTYPES/DEPENDENCY-GRAPH-01/src/scoped_binding.py) · [Semantic dependency index](SEMANTIC-DEPENDENCY-INDEX.md)
 
 | Key strategy | Consequence |
 |---|---|
@@ -30,11 +30,11 @@ With a valid request provider already selected, adding a lower project row with 
 
 The projection depends on valid complete input layers. A separate control adds a duplicate unrelated key. It leaves the per-key projection equal, but the resolver rejects the entire layer. A real cache must validate immutable layers before keyed reuse and must establish that its presence and absence answers describe the exact validated revision. Partial layers, unknown scope, or provenance-sensitive consumers require their own keys or a full revalidation. The model assumes trusted construction of scope policies and an immutable complete store. It provides no proof of completeness for dynamic or external resolution.
 
-A per-key dependency is a candidate for reuse of selected outcomes under stated admission rules. The same projection cannot stand in for a new revision-bound consultation record or for general RT-20 completeness. [Semantic compilation cache](../RT-11/SEMANTIC-COMPILATION-CACHE.md) · [Dependency map](../RESEARCH-DEPENDENCY-MAP.md)
+A per-key dependency is a candidate for reuse of selected outcomes under stated admission rules. The same projection cannot stand in for a new revision-bound consultation record or for general RT-20 completeness. [Semantic compilation cache](../../toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md) · [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)
 
 ## Reproduction
 
-From `research/PROTOTYPES/DEPENDENCY-GRAPH-01`, run on CPython 3.12.14. The recorded run passed 13 tests. [Experiment](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt06_negative_binding_reads.py)
+From `research/PROTOTYPES/DEPENDENCY-GRAPH-01`, run on CPython 3.12.14. The recorded run passed 13 tests. [Experiment](../../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt06_negative_binding_reads.py)
 
 ```sh
 python -B -m unittest -v tests.test_rt06_negative_binding_reads tests.test_scoped_binding

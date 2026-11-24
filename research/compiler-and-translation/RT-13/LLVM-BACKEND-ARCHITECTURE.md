@@ -259,4 +259,4 @@ This is a research recommendation only. It does not yet select LLVM as a mandato
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Distinguish source-level checked theorem from executable claim under lowering, ABI, runtime and target correspondence premises. Preserve actual TCB and assumptions in evidence. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Distinguish source-level checked theorem from executable claim under lowering, ABI, runtime and target correspondence premises. Preserve actual TCB and assumptions in evidence. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

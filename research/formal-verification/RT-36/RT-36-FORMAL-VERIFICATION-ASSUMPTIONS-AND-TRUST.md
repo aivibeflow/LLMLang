@@ -13,7 +13,7 @@ A foreign library (C, C++, Rust, Python, binary or service), OS, device, compile
 
 H1: formal theorem parameters tied to exact contract claims and provider bindings support sound modular proof reuse. H2: orthogonal evidence, closure, freshness and admission dimensions avoid misleading success. H3: property-specific dependency closure is more precise than call-graph contagion while remaining sound if alias, effect, control and termination coverage are complete. H4: explicit policy-governed assumptions allow incremental migration without calling an executable closure fully proved.
 
-Existing [concept §18A](../RT-01/LLMLang-CONCEPT.md) and [formal verification §§6–8](../RT-07/LLMLang-FORMAL-VERIFICATION.md) require explicit premises, property-scoped propagation and proof context. [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md) proposes PDG and conditional evidence; [RT-33](../RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md) proposes backend-neutral obligations and fail-closed aggregation. RT-36 refines these rather than creating a second evidence or semantic authority. No accepted rule is silently changed.
+Existing [concept §18A](../../language-design/RT-01/LLMLang-CONCEPT.md) and [formal verification §§6–8](../RT-07/LLMLang-FORMAL-VERIFICATION.md) require explicit premises, property-scoped propagation and proof context. [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md) proposes PDG and conditional evidence; [RT-33](../RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md) proposes backend-neutral obligations and fail-closed aggregation. RT-36 refines these rather than creating a second evidence or semantic authority. No accepted rule is silently changed.
 
 ## 2. Logical model and foreign boundary
 
@@ -39,7 +39,7 @@ flowchart TD
   U --> G[Separate policy admission decision]
 ```
 
-*Illustrative proof structure:* refinement and caller proof can be checked even when provider conformance is assumed. Binding correspondence may itself be conditional. Policy admission does not discharge a premise. See [public interfaces](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md).
+*Illustrative proof structure:* refinement and caller proof can be checked even when provider conformance is assumed. Binding correspondence may itself be conditional. Policy admission does not discharge a premise. See [public interfaces](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md).
 
 ### Example (illustrative, not a checked proof)
 
@@ -189,6 +189,6 @@ A concrete proposed assume-guarantee fixture is [CF-007 — compositional bank t
 
 Decide claim canonicalization; actual premise extraction across backends; satisfiability/realizability criteria; recursion/compositional liveness; TCB governance; authorization granularity; guarded claim scope; deployment identity; user-visible reports; public admission; privacy of vendor evidence.
 
-Related: [behavioral refinement](../RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md), [proof reuse](../RT-07/RESEARCH-SCENARIO-04-VERIFICATION-REUSE.md), [SPG](../RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md), [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-33](../RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [POB](../RT-33/PROOF-OBLIGATION-BENCHMARK.md), [libraries](../RT-12/LIBRARIES-AND-TEMPLATES.md), [POSIX](../RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [security](../RT-16/RT-16-THREAT-MODEL-01.md), [migration](../RT-28/RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md), [complexity](../RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md), [development engine](../RT-14/RFC-DEVELOPMENT-ENGINE.md), [semantic cache](../RT-11/SEMANTIC-COMPILATION-CACHE.md).
+Related: [behavioral refinement](../../language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md), [proof reuse](../RT-07/RESEARCH-SCENARIO-04-VERIFICATION-REUSE.md), [SPG](../../semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md), [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-33](../RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [POB](../RT-33/PROOF-OBLIGATION-BENCHMARK.md), [libraries](../../packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md), [POSIX](../../runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [security](../../security/RT-16/RT-16-THREAT-MODEL-01.md), [migration](../../compiler-and-translation/RT-28/RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md), [complexity](../RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md), [development engine](../../toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md), [semantic cache](../../toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md).
 
 **Validation boundary:** Documentation and candidate hypotheses only. No executable experiment, measurement, kernel proof, independent review, rendering check or normative decision is claimed. Diagrams depict proposed architecture. Research remains open in #436.

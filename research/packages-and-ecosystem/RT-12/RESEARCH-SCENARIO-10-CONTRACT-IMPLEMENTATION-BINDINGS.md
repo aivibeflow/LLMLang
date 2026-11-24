@@ -178,4 +178,4 @@ Research direction, not a normative decision:
 
 Follow-up (not part of the original experiment): public name resolution should be separately revision-pinned before resolving an operation/provider. A stable name is a discovery/continuity handle, not the call target. Compare the earlier contract-keyed snapshot with an OpHash-keyed provider binding; different operations can share ContractHash but differ in signature or context. Validate the implementation's own contract and its refinement of the public contract, including exact profile and assumptions. Preserve conditional caller proofs independently of closed executable evidence.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

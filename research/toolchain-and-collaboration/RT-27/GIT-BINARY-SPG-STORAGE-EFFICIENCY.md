@@ -307,4 +307,4 @@ Do not yet:
 - [Git repack](https://git-scm.com/docs/git-repack)
 - [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md)
 - [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
-- [ADR-014](../../docs/adr/014-git-semantic-merge.md) — proposed; not accepted
+- [ADR-014](../../../docs/adr/014-git-semantic-merge.md) — proposed; not accepted

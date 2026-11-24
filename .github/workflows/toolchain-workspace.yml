@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 5
     defaults:
       run:
-        working-directory: research/PROTOTYPES/TOOLCHAIN-SERVER-01
+        working-directory: research/toolchain-and-collaboration/PROTOTYPES/TOOLCHAIN-SERVER-01
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

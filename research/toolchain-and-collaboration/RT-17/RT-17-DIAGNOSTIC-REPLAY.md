@@ -4,7 +4,7 @@
 - **Date** · 2026-11-21
 - **Baseline** · `f09047a65bc77e8756d9d36def836c193a500dfa`
 
-Can an editor or agent consumer decide where a diagnostic belongs, whether an edit batch still applies, and whether a candidate preserves a declared behavior? This experiment implements part of Scenario 95's discriminator corpus. It uses deterministic inputs and a fixture policy evaluator. Human review and agent repair effectiveness require separate participant runs. [Plan §7.5](../../PLAN.md#75-developer-experience-and-adoption) · [Scenario 95 discriminator corpus](RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md#6-discriminating-test-corpus)
+Can an editor or agent consumer decide where a diagnostic belongs, whether an edit batch still applies, and whether a candidate preserves a declared behavior? This experiment implements part of Scenario 95's discriminator corpus. It uses deterministic inputs and a fixture policy evaluator. Human review and agent repair effectiveness require separate participant runs. [Plan §7.5](../../../PLAN.md#75-developer-experience-and-adoption) · [Scenario 95 discriminator corpus](RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md#6-discriminating-test-corpus)
 
 ## Method and results
 
@@ -28,5 +28,5 @@ Preserve snapshot-bound byte ranges internally and convert to negotiated units a
 From the repository root, run with CPython 3.12.14 using only the standard library. Expect four passing tests.
 
 ```sh
-python -B -m unittest discover -s research/PROTOTYPES/DIAGNOSTIC-REPLAY-01 -v
+python -B -m unittest discover -s research/toolchain-and-collaboration/PROTOTYPES/DIAGNOSTIC-REPLAY-01 -v
 ```

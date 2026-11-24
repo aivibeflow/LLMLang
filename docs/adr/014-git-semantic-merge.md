@@ -3,7 +3,7 @@
 - **Status:** Proposed
 - **Date:** 2026-11-17
 - **Decision owners:** LLMLang project
-- **Related research:** [Git integration and Semantic Diff/Merge](../../research/RT-15/GIT-SEMANTIC-REPOSITORY.md)
+- **Related research:** [Git integration and Semantic Diff/Merge](../../research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md)
 - **Related architecture note:** [Git Representation and Semantic Merge of LLMLang Programs](../../GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
 
 ## Context
@@ -83,15 +83,15 @@ This ADR captures the current project direction and supersedes the earlier embed
 
 Study this ADR together with the detailed documents below; this ADR records a proposed direction and does not replace their detailed contracts:
 
-- [Git Representation and Semantic Merge](../../research/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — semantic diff/merge rules, conflict model, Git driver/mergetool, and repository-level merge requirements.
-- [RT-20](../../research/RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — complete impact planning, caller migration/preservation, hash propagation, and verified commit gates.
-- [RT-22](../../research/RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — external Repository/Worktree MCP contract, Git operations, commit preparation, and recovery.
-- [RT-23](../../research/RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — shared semantic state, mapping revisions, incremental worktree views, and synchronized commit runtime.
-- [RT-19](../../research/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — transport-neutral Toolchain API and semantic Change Set/Snapshot lifecycle.
+- [Git Representation and Semantic Merge](../../research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — semantic diff/merge rules, conflict model, Git driver/mergetool, and repository-level merge requirements.
+- [RT-20](../../research/toolchain-and-collaboration/RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — complete impact planning, caller migration/preservation, hash propagation, and verified commit gates.
+- [RT-22](../../research/toolchain-and-collaboration/RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — external Repository/Worktree MCP contract, Git operations, commit preparation, and recovery.
+- [RT-23](../../research/toolchain-and-collaboration/RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — shared semantic state, mapping revisions, incremental worktree views, and synchronized commit runtime.
+- [RT-19](../../research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — transport-neutral Toolchain API and semantic Change Set/Snapshot lifecycle.
 
 Ownership: the focused Git Representation and Semantic Merge research owns merge semantics; RT-20 owns semantic impact/hash/caller correctness; RT-22 owns the external Git/worktree operation contract; RT-23 owns runtime synchronization and commit coordination. A successful LLMLang merge must satisfy all applicable contracts, not merely Git's textual merge result.
 
 
 ## RT-24 relationship
 
-[RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../../research/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) refines the candidate import/export, semantic diff, merge/conflict, mapping-revision, and prototype contract. RT-24 remains research; ADR-014 remains Proposed pending evidence.
+[RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../../research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) refines the candidate import/export, semantic diff, merge/conflict, mapping-revision, and prototype contract. RT-24 remains research; ADR-014 remains Proposed pending evidence.

@@ -2,7 +2,7 @@
 
 **Status:** Initial evaluation corpus; non-normative  
 **Purpose:** Debug and compare AI models that turn function descriptions and clarified requirements into formal contracts.  
-**Related research:** [Scenario 15](../RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md), [Scenario 17 — Typed Requirement IR](../RT-02/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md), [RT-02](../RT-02/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md), [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md).
+**Related research:** [Scenario 15](../../language-design/RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md), [Scenario 17 — Typed Requirement IR](../../language-design/RT-02/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md), [RT-02](../../language-design/RT-02/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md), [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md).
 
 ## 1. Purpose and scope
 

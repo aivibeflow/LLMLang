@@ -4,7 +4,7 @@
 
 **Baseline** · `ce1a4e5`
 
-**Status** · Bounded native experiment for [Plan §5.3](../../PLAN.md#53-posix-architecture-and-conformance)
+**Status** · Bounded native experiment for [Plan §5.3](../../../PLAN.md#53-posix-architecture-and-conformance)
 
 ## Question
 
@@ -39,9 +39,9 @@ From the repository root on Linux x86-64 with readable child syscall information
 out=$(mktemp -d)
 for level in 0 3; do
   cc -std=c17 -O"$level" -Wall -Wextra -Werror \
-    research/PROTOTYPES/POSIX-INTERRUPT-01/read_interrupt.c -o "$out/read-O$level" &&
+    research/runtime-and-systems/PROTOTYPES/POSIX-INTERRUPT-01/read_interrupt.c -o "$out/read-O$level" &&
   timeout 20s "$out/read-O$level" || exit 1
 done
 ```
 
-Related proposed application proof: [CF-008 — Linux pipe transfer](../CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) uses the scoped pre-progress EINTR contract for retry and distinguishes safety from termination. It is not additional experimental evidence for this report.
+Related proposed application proof: [CF-008 — Linux pipe transfer](../../formal-verification/CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) uses the scoped pre-progress EINTR contract for retry and distinguishes safety from termination. It is not additional experimental evidence for this report.

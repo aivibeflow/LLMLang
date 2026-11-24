@@ -2,7 +2,7 @@
 
 **Status:** accepted design direction; detailed compatibility and serialization rules remain open.  
 **Scope:** composite language versions and the append-only component registry.  
-**Related:** [Package System](../RT-12/PACKAGE-SYSTEM.md), [Semantic Compilation Cache](../RT-11/SEMANTIC-COMPILATION-CACHE.md), [LL-021](../../TODO.md).
+**Related:** [Package System](../RT-12/PACKAGE-SYSTEM.md), [Semantic Compilation Cache](../../toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), [LL-021](../../../TODO.md).
 
 ## 1. Purpose
 
@@ -99,4 +99,4 @@ The append-only ordered registry and composite-version direction are accepted de
 
 Separate the language/toolchain composite version from public interface lineage/revision, provider binding and package release. A compatible public contract evolution is a relation to the prior immutable revision, not a numerical version comparison or guarantee of cross-toolchain ABI/wire compatibility. Preserve the accepted single-toolchain build boundary; interface labels/major-version policy remain candidate. Exact pinned old operations stay resolvable where retained by policy.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

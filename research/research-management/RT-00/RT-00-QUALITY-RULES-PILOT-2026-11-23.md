@@ -1,11 +1,11 @@
 # RT-00 — Stage 0.2 research quality structural pilot
 
-**Research item:** [PLAN §0.2](../../PLAN.md#02-establish-research-quality-and-decision-rules), [issue #285](https://github.com/aivibeflow/LLMLang/issues/285)  
+**Research item:** [PLAN §0.2](../../../PLAN.md#02-establish-research-quality-and-decision-rules), [issue #285](https://github.com/aivibeflow/LLMLang/issues/285)  
 **Status:** Bounded implementation/test result; proposed protocol, not accepted policy  
 **Baseline:** `main` at `99151528f8bcc51ffccb6eaee8213acb0f9905c9`  
 **Updated:** 2026-11-23  
 **Evidence type:** Executable  
-**Fixture:** Synthetic inline fixtures in [checker unit tests](../../.github/scripts/test_check_research_quality.py); no LLMLang compiler input  
+**Fixture:** Synthetic inline fixtures in [checker unit tests](../../../.github/scripts/test_check_research_quality.py); no LLMLang compiler input  
 **Tool versions:** CPython 3.13.5, local Linux environment; Python standard library only  
 **Expected output:** `Ran 6 tests` and `OK`, process exit 0 (ordering of test names is not normative)  
 **Normative boundary:** This study measures a formatting checker against its own fixtures; no claim correctness, reviewer impact, or design acceptance is established.
@@ -19,7 +19,7 @@ Can an isolated warning-only check identify missing research metadata while allo
 
 ## Prior art and alternatives
 
-[Original quality-rules proposal](../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) defines evidence vocabulary, Q1–Q5, and traceability. [Rollout study](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) compares (A) corpus retrofit, (B) manual audit, and (C) hybrid warning-first. [Evidence-shape recheck](RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) compares fixed prose, type-specific attachments, and freeform indexing. This pilot implements a narrow part of hybrid C, not an accepted selection.
+[Original quality-rules proposal](../../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) defines evidence vocabulary, Q1–Q5, and traceability. [Rollout study](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) compares (A) corpus retrofit, (B) manual audit, and (C) hybrid warning-first. [Evidence-shape recheck](RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) compares fixed prose, type-specific attachments, and freeform indexing. This pilot implements a narrow part of hybrid C, not an accepted selection.
 
 ## Formal model and assumptions
 
@@ -40,7 +40,7 @@ The second command reports heuristic warnings in JSON, and exits 0 in warning mo
 
 **Experimental result C-01 (local synthetic fixtures):** On CPython 3.13.5 the six unit tests passed (`Ran 6 tests ... OK`). The fixtures cover a complete synthetic executable report, missing executable fields, N/A executable fields for prior art, missing metadata/sections, report-path selection, and explicit missing paths. This is only test-suite behavior, not corpus-quality validation.
 
-**Observation C-02 (repository):** Existing [Scenario 98](../RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md), [Scenario 133](../RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md) and [RT-05](../RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) have heterogeneous evidence shapes, as recorded in the prior [rollout comparison](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md). This study did not rerun their experiments.
+**Observation C-02 (repository):** Existing [Scenario 98](../../semantic-representation/RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md), [Scenario 133](../../compiler-and-translation/RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md) and [RT-05](../../semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) have heterogeneous evidence shapes, as recorded in the prior [rollout comparison](RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md). This study did not rerun their experiments.
 
 **Hypothesis C-03 (open):** Automated warnings improve reviewers' ability to locate missing evidence. No participant study was performed.
 
@@ -60,8 +60,8 @@ Regular expressions can miss valid differently worded reports or accept misleadi
 
 - **Draft impact:** None; `draft/` unchanged by this study.
 - **Research area:** RT-08 (verification/evidence process); Stage 0.2.
-- **Relevant open design questions:** [TODO LL-008](../../TODO.md#ll-008--specify-evidence-identity-compatibility-and-reuse) and LL-019/020 on evidence scope (not resolved here).
-- **Process proposal:** [Quality Review Protocol](../QUALITY-REVIEW-PROTOCOL.md) and [templates](../templates/REPORT-TEMPLATE.md).
+- **Relevant open design questions:** [TODO LL-008](../../../TODO.md#ll-008--specify-evidence-identity-compatibility-and-reuse) and LL-019/020 on evidence scope (not resolved here).
+- **Process proposal:** [Quality Review Protocol](../../QUALITY-REVIEW-PROTOCOL.md) and [templates](../../templates/REPORT-TEMPLATE.md).
 - **Unresolved dependencies:** maintainer acceptance, representative human-review pilot, full claim-by-claim corpus audit, foundational experiment reproduction, and validated spec-change crosswalk.
 
 ## Reproduction and quality gates

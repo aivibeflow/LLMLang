@@ -8,7 +8,7 @@
 
 ## Question and alternatives
 
-The existing [Research Quality and Decision Rules](../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) proposes a common report structure, per-claim evidence classification, and gates Q1–Q5. This recheck asks whether one required template can serve the three evidence shapes inspected here.
+The existing [Research Quality and Decision Rules](../../RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) proposes a common report structure, per-claim evidence classification, and gates Q1–Q5. This recheck asks whether one required template can serve the three evidence shapes inspected here.
 
 - **A — One fixed template:** require every report to fill each common section and claim-table field.
 - **B — Shared minimum with evidence-specific attachments:** require traceability, scope, method/provenance, result class, limits, and decision boundary, while making reproduction and evidence pointers specific to the claim type.
@@ -20,9 +20,9 @@ The comparison evaluates discoverability and ability to reproduce/check the spec
 
 Inspected the current-main versions of:
 
-1. [RT-11 Binding Invalidation Benchmark](../RT-11/RT-11-BINDING-INVALIDATION-BENCHMARK.md), an executed synthetic C build/link/verification action-count benchmark.
+1. [RT-11 Binding Invalidation Benchmark](../../toolchain-and-collaboration/RT-11/RT-11-BINDING-INVALIDATION-BENCHMARK.md), an executed synthetic C build/link/verification action-count benchmark.
 2. `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`, a Lean/Lake development with source, theorems, tests, exact Lean toolchain, and pinned Logos dependency.
-3. [Scenario 118](../RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md), a bounded model and independent sequential-interleaving comparison.
+3. [Scenario 118](../../language-design/RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md), a bounded model and independent sequential-interleaving comparison.
 
 The RT-11 benchmark was freshly run from the exact current-main source with CPython 3.12.14, Debian GCC-compatible `cc` 14.2.0, and x86_64 Linux. Command, run output, and comparison are below. The Lean source/toolchain/dependency metadata and `logos-binding.yml` workflow were inspected; neither `lean` nor `lake` is installed in this local environment, so no local proof/build rerun is claimed. The latest Required CI build on current main `345f8b9` is the relevant independent build evidence; this recheck did not rerun that workflow. Scenario 118's report-level method, seven-test note, baseline commit, and stated limits were inspected; its historical tests were not rerun here.
 

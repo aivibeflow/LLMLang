@@ -87,4 +87,4 @@ RT-29 is complete only when the capability matrix covers all major LLMLang capab
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Rust libraries and unsafe/FFI components require exact provider identity, explicit contract assumptions and scoped proof/authorization status; Rust type checking alone is not behavioral conformance evidence. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Rust libraries and unsafe/FFI components require exact provider identity, explicit contract assumptions and scoped proof/authorization status; Rust type checking alone is not behavioral conformance evidence. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

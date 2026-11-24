@@ -4,7 +4,7 @@
 
 **Baseline** · `78b0627`
 
-**Status** · Bounded compiler and engine comparison for [Plan §6.3](../../PLAN.md#63-llvm-backend)
+**Status** · Bounded compiler and engine comparison for [Plan §6.3](../../../PLAN.md#63-llvm-backend)
 
 ## Question and approach
 
@@ -35,7 +35,7 @@ The result supports LLVM as one candidate generation route for this view fragmen
 From the repository root use CPython 3.12.14, Node v24.22.1 and Debian LLVM/lld 19.1.7. The recorded lld amd64 package SHA-256 is `756a805e8811d527dd2b5417f016c9342b8631fa9c1ddcd56265c13ae33bf3a4`.
 
 ```sh
-python -B research/PROTOTYPES/LLVM-PRESERVATION-01/llvm_wasm_view_probe.py \
+python -B research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_wasm_view_probe.py \
   --opt /path/to/opt --llc /path/to/llc --wasm-ld /path/to/wasm-ld
 ```
 

@@ -41,8 +41,8 @@ Use CPython 3.9+, cvc5 1.4.2 commit `282d5e0`, Lean 4.36.0 commit `611c117bfaf7b
   lake update --keep-toolchain
   lake build --fail-fast LLMLangLogosBinding
 )
-transition=research/PROOF-OBLIGATION-BENCHMARK/generative/transition
-expected=research/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results
+transition=research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition
+expected=research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results
 scratch=$(mktemp -d)
 python3 "$transition/symbolic_cpc_check.py" --lake /path/to/lake --cvc5 /path/to/cvc5 \
   --queries /path/to/symbolic-smt-results --output "$scratch/cpc"

@@ -21,8 +21,8 @@ Every family has a reference, mutation and alternative; alternatives can be algo
 ## Reproduce
 
 ```sh
-python research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/test_recursive.py
-python research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/generate.py --count 90 --seed 42
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/test_recursive.py
+python research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/generate.py --count 90 --seed 42
 ```
 
 Optional --output and --blind-output create new JSONL files; blind records omit variants and gold results but are not secret held-out data. CI stores code/profile hashes, corpus hash, counts and per-obligation failures. No verdict is promoted to proven.

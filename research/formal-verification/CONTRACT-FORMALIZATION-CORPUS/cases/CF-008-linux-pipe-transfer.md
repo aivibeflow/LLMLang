@@ -5,7 +5,7 @@
 **Revision:** 1  
 **Status:** Proposed evaluation case; analytical conditional argument, not a machine-checked proof  
 **Focus:** Byte-sequence preservation, loop invariants, partial results, interruption, error recovery, FFI correspondence, and safety versus termination  
-**Related research:** [CF-007](CF-007-compositional-bank-transfer.md), [RT-36](../../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md), [POSIX runtime architecture](../../RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [RT-10 read interruption](../../RT-10/RT-10-POSIX-READ-INTERRUPTION.md), [RT-10 nonblocking pipe I/O](../../RT-10/RT-10-POSIX-NONBLOCKING-PIPE-IO.md), [formal verification](../../RT-07/LLMLang-FORMAL-VERIFICATION.md), [proof-obligation benchmark](../../RT-33/PROOF-OBLIGATION-BENCHMARK.md).
+**Related research:** [CF-007](CF-007-compositional-bank-transfer.md), [RT-36](../../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md), [POSIX runtime architecture](../../../runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [RT-10 read interruption](../../../runtime-and-systems/RT-10/RT-10-POSIX-READ-INTERRUPTION.md), [RT-10 nonblocking pipe I/O](../../../runtime-and-systems/RT-10/RT-10-POSIX-NONBLOCKING-PIPE-IO.md), [formal verification](../../RT-07/LLMLang-FORMAL-VERIFICATION.md), [proof-obligation benchmark](../../RT-33/PROOF-OBLIGATION-BENCHMARK.md).
 
 ## 1. Source request
 

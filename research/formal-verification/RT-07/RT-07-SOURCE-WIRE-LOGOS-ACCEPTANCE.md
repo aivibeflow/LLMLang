@@ -4,7 +4,7 @@
 
 **Baseline** · `7aaf83a`
 
-**Status** · Executable end-to-end fixture for SCW-31–34 in [Plan §2.3](../../PLAN.md#23-lean-logos-smt-and-solver-integration)
+**Status** · Executable end-to-end fixture for SCW-31–34 in [Plan §2.3](../../../PLAN.md#23-lean-logos-smt-and-solver-integration)
 
 ## Question
 
@@ -40,4 +40,4 @@ lake env lean -DwarningAsError=true --run SourceWireRefutationTests.lean
 lake env lean -DwarningAsError=true --run SourceQueryEnvelopeTests.lean
 ```
 
-Both sets of controls passed. [Acceptance check](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutation.lean) · [Executable proofs and controls](../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutationTests.lean)
+Both sets of controls passed. [Acceptance check](../../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutation.lean) · [Executable proofs and controls](../../PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutationTests.lean)

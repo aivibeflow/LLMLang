@@ -2,7 +2,7 @@
 
 **Date** · 2026-11-21  
 **Baseline** · `017e64b87c87371309197a392165258b8b088dd1`  
-**Status** · Bounded executable experiment for [Plan §1.1](../../PLAN.md#11-semantic-program-graph-and-program-representation)
+**Status** · Bounded executable experiment for [Plan §1.1](../../../PLAN.md#11-semantic-program-graph-and-program-representation)
 
 ## Question and alternatives
 
@@ -14,7 +14,7 @@ Can a store expose an imported graph to the evaluator or dependency reader after
 | Verify persistence and check the typed graph independently | Read the typed instruction tree, reconstruct call uses, and check declarations and edges before handing off to consumers. This requires a version-matched checker and does not establish source correspondence. |
 | Rebuild from the pinned source inventory and compare | Reconcile compiler output and source selection, including declared references that never appear in a graph supplied by a producer. Requires the exact source, profile, resolver, and independently established inventory closure. |
 
-The independent check borrows the shape of validation over typed instructions and declarations from [WebAssembly Core validation](https://www.w3.org/TR/wasm-core-2/#validation). The SPG fixture additionally checks agreement between executable references and the store's typed edges. [RT-24 merged-tree source completeness](../RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md) gives evidence for the separate source inventory requirement.
+The independent check borrows the shape of validation over typed instructions and declarations from [WebAssembly Core validation](https://www.w3.org/TR/wasm-core-2/#validation). The SPG fixture additionally checks agreement between executable references and the store's typed edges. [RT-24 merged-tree source completeness](../../toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md) gives evidence for the separate source inventory requirement.
 
 ## Model and experiment
 
@@ -45,4 +45,4 @@ Run from `research/PROTOTYPES/DEPENDENCY-GRAPH-01` using CPython 3.12.14. The re
 python -B -m unittest -v tests.test_spg_representation tests.test_spg_admission
 ```
 
-[Checker](../PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py) · [Fixtures](../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_admission.py) · [Dependency map](../RESEARCH-DEPENDENCY-MAP.md)
+[Checker](../../PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py) · [Fixtures](../../PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_admission.py) · [Dependency map](../../RESEARCH-DEPENDENCY-MAP.md)

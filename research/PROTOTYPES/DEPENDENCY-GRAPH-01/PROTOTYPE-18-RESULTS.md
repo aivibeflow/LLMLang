@@ -1,7 +1,7 @@
 # Prototype 18: Requirement Evolution and Semantic Impact — Results
 
 **Status:** Research prototype; source and focused tests committed.  
-**Related research:** [Research Scenario 18](../../RT-02/RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md)
+**Related research:** [Research Scenario 18](../../language-design/RT-02/RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md)
 
 ## Objective
 

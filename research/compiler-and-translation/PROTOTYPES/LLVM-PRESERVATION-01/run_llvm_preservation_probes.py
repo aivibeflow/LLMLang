@@ -11,7 +11,7 @@ import subprocess
 import sys
 
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[4]
 EXPECTED_PYTHON = (3, 12, 14)
 EXPECTED_LLVM_VERSION = "19.1.7"
 EXPECTED_LLVM_PACKAGE = "1:19.1.7-3+b1"
@@ -106,12 +106,12 @@ def main():
         commands = [
             ("llvm-integer-preservation", [
                 sys.executable, "-B",
-                "research/PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py",
+                "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py",
                 "--opt", args.opt, "--llc", args.llc, "--cc", args.cc,
             ]),
             ("llvm-byte-view-preservation", [
                 sys.executable, "-B",
-                "research/PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py",
+                "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py",
                 "--opt", args.opt, "--llc", args.llc, "--cc", args.cc,
             ]),
         ]

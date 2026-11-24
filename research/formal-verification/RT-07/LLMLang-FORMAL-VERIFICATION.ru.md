@@ -215,7 +215,7 @@ Formal model             Executable artifact
 
 Дополнение к композиционной верификации (кандидат, не новое утверждённое правило): для публичного интерфейса разделяются доказательство Body satisfies C_impl и доказательство C_impl refines C_pub. Доказательство вызывающего кода может использовать точную ревизию C_pub как явно зарегистрированное предположение; замыкание доказательства программы требует допустимой привязки и независимой проверки обоих обязательств с согласованной семантикой, моделями наблюдения и допущениями. UNKNOWN, отсутствие реализации или свидетельства не являются доказанным соответствием. При замене реализации сохраняются только доказательства с неизменными точными зависимостями.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## Явные допущения и условные доказательства (исследовательское предложение RT-36)
 

@@ -147,7 +147,7 @@ Tests, proofs, refinement arguments, or other accepted evidence establishing tha
 
 ## RT-20 terminology boundary
 
-RT-20 stores the caller-required Contract hash at each call site and resolves the callee-provided Contract through the exact callee declaration. Those are generic Contract-object identities, not `CCHash` values. Exact Contract identity does not establish behavioral compatibility between distinct Contract versions. The proposed compatibility direction and evidence requirements are documented in [RT-20 Contract Identity and Compatibility](../research/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md).
+RT-20 stores the caller-required Contract hash at each call site and resolves the callee-provided Contract through the exact callee declaration. Those are generic Contract-object identities, not `CCHash` values. Exact Contract identity does not establish behavioral compatibility between distinct Contract versions. The proposed compatibility direction and evidence requirements are documented in [RT-20 Contract Identity and Compatibility](../research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md).
 
 ## Public interface terminology (proposed extension; not adopted)
 
@@ -155,7 +155,7 @@ RT-20 stores the caller-required Contract hash at each call site and resolves th
 
 **Provided Contract:** exact contract owned/referenced by an implementation. **Public Contract:** exact contract resolved through the public operation revision. **Contract refinement:** provided contract preserves every public guarantee for every admitted public input/state/environment, including promised progress and effects. Equality of hashes, signatures or declared links is not behavioral proof. **Public conformance evidence:** independent evidence of body correctness and refinement (or a separately scoped direct proof), plus applicable binding/profile obligations. Caller proof may remain conditional until its provider assumptions are discharged.
 
-See [candidate model](../research/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). Accepted architecture and existing identity rules remain unchanged.
+See [candidate model](../research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). Accepted architecture and existing identity rules remain unchanged.
 
 ## Open points
 
@@ -168,4 +168,4 @@ The following details remain for the specification to define:
 
 ## Assumption and conditional-proof terminology (proposed; not adopted)
 
-**Assumption Claim:** immutable typed proposition with exact subject, context and scope. **Assumption Authorization:** separate versioned policy permission to rely on an unresolved claim. **Conditional Proof:** checked theorem under explicit open premises; not a closed executable guarantee. **Assumption Discharge:** checked evidence of the exact premise (or checked implication), retaining remaining premises. **Proof Closure:** transitive mandatory proof/correspondence dependencies relative to the declared TCB. See [RT-36](../research/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md).
+**Assumption Claim:** immutable typed proposition with exact subject, context and scope. **Assumption Authorization:** separate versioned policy permission to rely on an unresolved claim. **Conditional Proof:** checked theorem under explicit open premises; not a closed executable guarantee. **Assumption Discharge:** checked evidence of the exact premise (or checked implication), retaining remaining premises. **Proof Closure:** transitive mandatory proof/correspondence dependencies relative to the declared TCB. See [RT-36](../research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md).

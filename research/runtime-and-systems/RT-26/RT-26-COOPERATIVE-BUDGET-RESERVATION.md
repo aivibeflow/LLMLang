@@ -4,7 +4,7 @@
 - **Date** · 2026-11-21
 - **Baseline** · `f09047a65bc77e8756d9d36def836c193a500dfa`
 
-Can sibling tasks share one cumulative budget without overshoot when reservation, settlement, and retry interleave? The fixture compares a split check and charge with a single transition that checks and reserves across the complete ancestor path. [Execution and runtime plan](../../PLAN.md#52-execution-semantics-and-runtime-architecture) · [RT-26 research requirements](RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md)
+Can sibling tasks share one cumulative budget without overshoot when reservation, settlement, and retry interleave? The fixture compares a split check and charge with a single transition that checks and reserves across the complete ancestor path. [Execution and runtime plan](../../../PLAN.md#52-execution-semantics-and-runtime-architecture) · [RT-26 research requirements](RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md)
 
 ## Model
 
@@ -27,5 +27,5 @@ The split schedule gives a counterexample to separate unsynchronized checks. An 
 From the repository root, run with CPython 3.12.14 and the standard library. Expect four passing tests.
 
 ```sh
-python -B -m unittest discover -s research/PROTOTYPES/BUDGET-RESERVATION-01 -v
+python -B -m unittest discover -s research/runtime-and-systems/PROTOTYPES/BUDGET-RESERVATION-01 -v
 ```

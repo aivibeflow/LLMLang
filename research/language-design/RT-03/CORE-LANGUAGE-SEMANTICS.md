@@ -326,15 +326,15 @@ This repository document is an English research synthesis of the deep-research r
 **Cross-aspect research:** RT-04's [type/effect/ownership/capability alternatives](../RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) compares candidate mechanisms against profiles A–D. It does not select a profile; shared observations and executable cross-profile scenarios remain open.
 
 
-**Executable cross-profile evidence:** [RT-03 A/D × RT-04 A/B shared observable-trace cross-check](../RT-04/RT-04-RT-03-CROSS-PROFILE-TRACES.md) and its [scenario fixtures](../PROTOTYPES/RT-04-01/test_rt03_rt04_cross_profile.py). This is a finite compatibility oracle, not a selected semantic profile or complete reference interpreter.
+**Executable cross-profile evidence:** [RT-03 A/D × RT-04 A/B shared observable-trace cross-check](../RT-04/RT-04-RT-03-CROSS-PROFILE-TRACES.md) and its [scenario fixtures](../../PROTOTYPES/RT-04-01/test_rt03_rt04_cross_profile.py). This is a finite compatibility oracle, not a selected semantic profile or complete reference interpreter.
 
 
 ## 12. Executable reference-semantics slice (2026-11-18)
 
 A first bounded interpreter now exists for the two leading compositional candidates A and D:
 
-- [Reference interpreter](../PROTOTYPES/RT-04-01/rt03_reference.py)
-- [Executable tests](../PROTOTYPES/RT-04-01/test_rt03_reference.py)
+- [Reference interpreter](../../PROTOTYPES/RT-04-01/rt03_reference.py)
+- [Executable tests](../../PROTOTYPES/RT-04-01/test_rt03_reference.py)
 - [Shared cross-profile trace report](../RT-04/RT-04-RT-03-CROSS-PROFILE-TRACES.md)
 - [Scenario matrix](../RT-04/RT-04-PROTOTYPE-01-SCENARIOS.md)
 
@@ -344,12 +344,12 @@ This is meaningful executable evidence beyond hand-authored trace fixtures, but 
 
 The original proposed validation gate—explicit Result propagation, cancellation, and resource acquire/use/release—has since been implemented in the bounded A/D evaluators and independently structured resource/path models. See the current coverage inventory in [RT-03/04 Shared Semantics Corpus v1](RT-03-04-SHARED-SEMANTICS-CORPUS.md). Those models cover only their declared finite fixture protocol and do not establish source-level completeness or select an ownership model.
 
-Path-feasibility evidence now includes exhaustive finite assignments, repeated-marker correlation, a bounded DPLL comparison, generated Boolean formula cross-checks, a conservative result contract, one real process-enforced solver deadline, a finite mutation-identity counterexample, and call-summary and field-sensitive alias transitions in [Scenarios 98–108](../RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md). A replayable assignment can establish one possible path, but unresolved solver results and unverified negative claims cannot justify pruning a may-path. Broader timeout/failure distributions, hard formula families, general source-derived alias-/call-aware summaries, scalable path-sensitive analysis, larger memory regions, and independent source parser/CFG correspondence remain open.
+Path-feasibility evidence now includes exhaustive finite assignments, repeated-marker correlation, a bounded DPLL comparison, generated Boolean formula cross-checks, a conservative result contract, one real process-enforced solver deadline, a finite mutation-identity counterexample, and call-summary and field-sensitive alias transitions in [Scenarios 98–108](../../semantic-representation/RT-06/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md). A replayable assignment can establish one possible path, but unresolved solver results and unverified negative claims cannot justify pruning a may-path. Broader timeout/failure distributions, hard formula families, general source-derived alias-/call-aware summaries, scalable path-sensitive analysis, larger memory regions, and independent source parser/CFG correspondence remain open.
 
 
 ## 13. Differential evaluator cross-check
 
-A second evaluator, [`rt03_smallstep.py`](../PROTOTYPES/RT-04-01/rt03_smallstep.py), independently implements the same bounded fragment using explicit continuation/value stacks rather than recursive evaluation. [Differential tests](../PROTOTYPES/RT-04-01/test_rt03_differential.py) compare ordered traces, results, and final state/file fixtures across pure, state, file, and network cases, including a generated corpus of short state-write sequences.
+A second evaluator, [`rt03_smallstep.py`](../../PROTOTYPES/RT-04-01/rt03_smallstep.py), independently implements the same bounded fragment using explicit continuation/value stacks rather than recursive evaluation. [Differential tests](../../PROTOTYPES/RT-04-01/test_rt03_differential.py) compare ordered traces, results, and final state/file fixtures across pure, state, file, and network cases, including a generated corpus of short state-write sequences.
 
 The recursive and small-step implementations agree on their tested finite corpus, including explicit Result propagation, synchronous cancellation, and bounded resource cleanup. This is implementation-level cross-checking, not an independently authored specification, proof, or external audit: both models were developed against the same exploratory contract. Independent review remains a separate gate. The broader observation model still omits exceptions, asynchronous/concurrent semantics, general ownership and borrowing, divergence, and source-to-model completeness.
 
@@ -357,8 +357,8 @@ The recursive and small-step implementations agree on their tested finite corpus
 
 For each semantic profile, specify the observable boundary of a public operation, its abstract and direct call semantics, name-resolution phase, explicit provider selection and error behavior for unresolved/ambiguous bindings. Compare sequential values, ordered effects, actor histories and divergence; one refinement rule over terminating values is not sufficient for all profiles. A public interface does not impose an OO object model, dynamic dispatch or a mandatory design layer. Private functions may still use exact implementation calls.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## RT-36 follow-up: explicit assumptions (proposed)
 
-Formal assumption judgments must use authoritative semantics and explicitly scoped effects, state, termination, error and observation models. Opaque behavior cannot be treated as absent. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+Formal assumption judgments must use authoritative semantics and explicitly scoped effects, state, termination, error and observation models. Opaque behavior cannot be treated as absent. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.

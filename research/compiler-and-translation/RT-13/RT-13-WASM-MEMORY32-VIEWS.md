@@ -4,7 +4,7 @@
 
 **Baseline** · `8cfb0b7`
 
-**Status** · Bounded native-engine comparison for [Plan §6.3](../../PLAN.md#63-llvm-backend)
+**Status** · Bounded native-engine comparison for [Plan §6.3](../../../PLAN.md#63-llvm-backend)
 
 ## Question and candidate profiles
 
@@ -36,7 +36,7 @@ Both modified modules validate and execute. The successful engine access in each
 Run from the repository root with Node v24.22.1 and WABT 1.0.36. The Debian amd64 WABT archive used here has SHA-256 `55e41a019c5cdade5792a8a6179d4ca1139c4f42ba235c259c476918ac314de6`. The checked WAT input hashes to `f3bc341a41fabd8bab1490dfd9aa8dd23c0fb88cd8b0b61daeaca179cbd6c24e`.
 
 ```sh
-node research/PROTOTYPES/WASM-VIEWS-01/compare.mjs /path/to/wat2wasm
+node research/compiler-and-translation/PROTOTYPES/WASM-VIEWS-01/compare.mjs /path/to/wat2wasm
 ```
 
 [Executable comparison and controls](../PROTOTYPES/WASM-VIEWS-01/compare.mjs)

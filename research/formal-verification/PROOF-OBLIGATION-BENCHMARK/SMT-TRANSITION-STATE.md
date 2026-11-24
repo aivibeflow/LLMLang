@@ -44,8 +44,8 @@ The weakened-translation control writes `x := -1` and later restores `x := 0`, a
 From the repository root, with CPython 3.9+ and cvc5 1.4.2 (commit `282d5e0`). The selected fixture code was introduced in commit `991c053`. Mermaid rendering was not checked locally.
 
 ```sh
-python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_smt_adapter.py
-python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/smt_adapter.py \
+python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_smt_adapter.py
+python3 research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/smt_adapter.py \
   --cvc5 /path/to/cvc5 --output /tmp/llmlang-rt33-smt
 cd /tmp/llmlang-rt33-smt
 sha256sum queries.smt2 stdout.txt stderr.txt observations.jsonl summary.json

@@ -5,7 +5,7 @@
 **Revision:** 1  
 **Status:** Proposed evaluation case; illustrative analytical proof, not machine-checked evidence  
 **Focus:** Multi-call assume-guarantee composition, call preconditions, conservation, rollback, frame conditions, policy separation, and conditional proof closure  
-**Related research:** [CF-006](CF-006-bank-withdrawal.md), [Scenario 15](../../RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md), [Formal verification](../../RT-07/LLMLang-FORMAL-VERIFICATION.md), [Proof Obligation Benchmark](../../RT-33/PROOF-OBLIGATION-BENCHMARK.md), [RT-36](../../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md), [Public interfaces](../../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md).
+**Related research:** [CF-006](CF-006-bank-withdrawal.md), [Scenario 15](../../../language-design/RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md), [Formal verification](../../RT-07/LLMLang-FORMAL-VERIFICATION.md), [Proof Obligation Benchmark](../../RT-33/PROOF-OBLIGATION-BENCHMARK.md), [RT-36](../../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md), [Public interfaces](../../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md).
 
 ## 1. Source request
 

@@ -4,7 +4,7 @@
 **Priority:** P0 for foundations and pilot evaluation; P1 for advanced domains  
 **Updated:** 2026-11-24  
 **Tracking:** [Issue #412](https://github.com/aivibeflow/LLMLang/issues/412)  
-**Related:** [Scenario 14](../RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md), [Scenario 36](../RT-03/RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md), [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-33](../RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-26](../RESEARCH-DEPENDENCY-MAP.md#14-hierarchical-resource-accounting-and-real-time-enforcement-rt-26).
+**Related:** [Scenario 14](../../language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md), [Scenario 36](../../language-design/RT-03/RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md), [RT-32](../RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-33](../RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-26](../../RESEARCH-DEPENDENCY-MAP.md#14-hierarchical-resource-accounting-and-real-time-enforcement-rt-26).
 
 ## 1. Research goal and hypotheses
 
@@ -21,7 +21,7 @@ Non-goals: a complete exact analyzer for arbitrary programs (undecidable in gene
 
 ## 2. Existing foundation and limitation
 
-The glossary permits termination, liveness and resource bounds as observable contract properties, but a declaration is not evidence of conformance. Scenario 14 treats resource/time guarantees as explicit observations. Scenario 36 distinguishes source fuel, VM gas, external interruption, and divergence. Its [countdown prototype](../PROTOTYPES/RT-04-01/rt03_recursion_fuel.py) counts abstract transitions for a limited model, not general asymptotics. RT-32 proposes source-derived obligations and a checked proof dependency graph (PDG); RT-33 provides backend capability profiles and abstention. [DOMAIN-05](../RT-33/PROOF-OBLIGATION-BENCHMARK.md) already includes asymptotic operation counts.
+The glossary permits termination, liveness and resource bounds as observable contract properties, but a declaration is not evidence of conformance. Scenario 14 treats resource/time guarantees as explicit observations. Scenario 36 distinguishes source fuel, VM gas, external interruption, and divergence. Its [countdown prototype](../../PROTOTYPES/RT-04-01/rt03_recursion_fuel.py) counts abstract transitions for a limited model, not general asymptotics. RT-32 proposes source-derived obligations and a checked proof dependency graph (PDG); RT-33 provides backend capability profiles and abstention. [DOMAIN-05](../RT-33/PROOF-OBLIGATION-BENCHMARK.md) already includes asymptotic operation counts.
 
 [CF-005](../CONTRACT-FORMALIZATION-CORPUS/cases/CF-005-sort-array.md) specifies sortedness, multiplicity and unchanged input, explicitly without a complexity requirement. A copying insertion sort and a copying merge sort can both conform while having different worst-case work. Arbitrary terminating extra work can preserve those functional observations. Thus a functional contract alone cannot imply a uniform upper bound for every conforming implementation.
 
@@ -155,7 +155,7 @@ Current evidence class: analytical research brief and existing bounded prototype
 
 A public interface may expose a resource guarantee independently of the selected algorithm. Verify the implementation's inferred/proved bound and its refinement of the public bound under the same size/cost/model, quantification and environment. Worst-case, expected and amortized bounds are not interchangeable; O upper bounds do not establish lower bounds, exact costs or optimality. Substitution can change observed cost within the public allowance; performance-sensitive callers must state stronger requirements explicitly. Rebinding invalidates exact implementation resource evidence, not the public requirement itself.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
 
 ## Explicit assumptions and conditional verification (RT-36; proposed)
 

@@ -2,9 +2,9 @@
 
 **Date:** 2026-11-23  
 **Status:** Second **purposive**, bounded claim-level source trace; quality protocol remains proposed, not adopted  
-**Issue:** [#285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../../PLAN.md#02-establish-research-quality-and-decision-rules)  
+**Issue:** [#285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../../../PLAN.md#02-establish-research-quality-and-decision-rules)  
 **Immutable source baseline:** `ff1295c1769bfe8546c4b63590c9f607349215ee` (main when selected)  
-**Exact input and structured output:** [12 reports / 24 source-bound claim entries](../quality-audit/2026-11-23-claim-cohort2.json)  
+**Exact input and structured output:** [12 reports / 24 source-bound claim entries](../../quality-audit/2026-11-23-claim-cohort2.json)  
 **Evidence class of this audit:** Documentation/source observation and preliminary claim-level interpretation; **no scientific result reexecuted or independently proof-checked here**.  
 **Specification impact:** **None.** This is a research-quality audit; no proposed language guarantee is accepted into `draft/`.
 
@@ -20,35 +20,35 @@ Previous [Stage 0.2 initial ten-report pilot](RT-00-QUALITY-RULES-REAL-REPORT-PI
 
 **Alternatives:** (A) blanket structural keyword checks would miss evidence-class overreach; (B) promote each reported passing test to proof or a normative decision—rejected as unsafe; (C) trace sampled material claims to immutable text/source and record negative scope, while requiring separate human/technical validation before decisions. This report applies **C**, provisionally. No opinion is expressed about whether every selected experiment is correct.
 
-**Prior work:** [Proposed quality protocol](../QUALITY-REVIEW-PROTOCOL.md), [claim register template](../templates/CLAIM-REGISTER-TEMPLATE.md), [first cohort audit](RT-00-QUALITY-RULES-REAL-REPORT-PILOT-2026-11-23.md), [first warning adjudication](RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md), and the [RT-00 B5 Scenario 130 claim trace](RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md). The latter traces a different cohort of Scenario 130 claims; it is **not** treated as an independent adjudication of the two claims here.
+**Prior work:** [Proposed quality protocol](../../QUALITY-REVIEW-PROTOCOL.md), [claim register template](../../templates/CLAIM-REGISTER-TEMPLATE.md), [first cohort audit](RT-00-QUALITY-RULES-REAL-REPORT-PILOT-2026-11-23.md), [first warning adjudication](RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md), and the [RT-00 B5 Scenario 130 claim trace](RT-00-B-05-01-SCENARIO-130-CLAIM-TRACEABILITY-PILOT-2026-11-21.md). The latter traces a different cohort of Scenario 130 claims; it is **not** treated as an independent adjudication of the two claims here.
 
 ## 2. Method, model, and exact provenance
 
 The selection is **purposive**, not random or statistically representative: 12 first-party reports outside the initial ten, chosen to include one bounded Lean proof, a proposed RT-24 merge contract, finite identity/solver/serialization/scheduler fixtures, SQLite/ownership/durable receipt probes, a Git source-completeness experiment and a multi-baseline RT-00 status report. No claim is made about the frequency of defects across hundreds of other files.
 
-For each of the 12 reports the [manifest](../quality-audit/2026-11-23-claim-cohort2.json) records:
+For each of the 12 reports the [manifest](../../quality-audit/2026-11-23-claim-cohort2.json) records:
 - exact historical report Git blob at the common baseline and one linked artifact's Git blob (source, test, ADR or inventory reconciliation);
 - two material claim IDs, text, **one primary evidence class**, exact report lines, related scope/limit lines and what remains unknown;
 - explicit distinction between **published result** and a new independent rerun or checked proof (neither performed as part of this second-cohort audit);
 - a decision boundary: no `draft/` changes or new accepted language policy.
 
-Each Git source reference was located in the same pinned repository revision. The [reproducibility validator](../../.github/scripts/validate_research_claim_cohort.py) retrieves `baseline:path` bytes rather than today's worktree, verifies the report/reference Git hashes, rejects duplicated IDs, checks valid line ranges and known evidence classes, and requires nonempty scope, falsifier/negative, draft-impact and review-status fields. The validator does **not** parse the referenced Python/Lean code into behavioral semantics, rerun it, prove a theorem or establish soundness of a claimed source-to-spec correspondence.
+Each Git source reference was located in the same pinned repository revision. The [reproducibility validator](../../../.github/scripts/validate_research_claim_cohort.py) retrieves `baseline:path` bytes rather than today's worktree, verifies the report/reference Git hashes, rejects duplicated IDs, checks valid line ranges and known evidence classes, and requires nonempty scope, falsifier/negative, draft-impact and review-status fields. The validator does **not** parse the referenced Python/Lean code into behavioral semantics, rerun it, prove a theorem or establish soundness of a claimed source-to-spec correspondence.
 
 ## 3. Cohort findings, by evidence shape
 
 | Report | Two sampled primary claim types | Scope that must not be lost |
 | --- | --- | --- |
-| [RT-07 rewrite correctness](../RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md) | 2 × **Proof** | The reported Lean theorems apply to a finite typed expression grammar with ordered traces; no source/SPG/backend correspondence |
-| [RT-24 candidate merge contract](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) | 2 × **Hypothesis / conjecture** | A proposed protocol and exit gates are not an implemented repository-wide proof or approval |
-| [RT-05 identity lifecycle](../RT-05/RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) | **Experimental result** + **Observation** | Equal content can hide occurrence continuity; full discovery also had two historically documented failures |
-| [Scenario 101 solver vs truth table](../RT-06/RESEARCH-SCENARIO-101-SOLVER-VS-TRUTH-TABLE-PATHS.md) | 2 × **Experimental result** | Truth-table agreement and three-run median timings concern a tiny, favorable Boolean formula family |
-| [Scenario 110 wire defaults](../RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md) | 2 × **Model result** | Two-version, tiny JSON record fixture is not real schema/runtime interoperability |
-| [Scenario 112 fairness](../RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md) | 2 × **Model result** | Periodic enablement vs continuous enablement is distinct; fixed two-task schedule not a general liveness proof |
-| [Scenario 120 SQLite cleanup](../RT-04/RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md) | 2 × **Experimental result** | `sqlite3_close` and `close_v2` observations use selected SQLite API paths and in-memory resources |
-| [Scenario 124 SQLite synchronization](../RT-04/RESEARCH-SCENARIO-124-CLOSE-SYNCHRONIZATION.md) | 2 × **Experimental result** | 11 controlled schedules cannot guarantee safety across arbitrary foreign aliases |
-| [Scenario 130 durable invocation](../RT-10/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md) | **Model result** + **Observation** | A later SQLite source-ID is a **prospective baseline**, not identity proof for original runs |
-| [Scenario 132 typed caller recovery](../RT-04/RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md) | 2 × **Experimental result** | 20,736 finite inputs per fixture and admission counts do not establish general native FFI soundness |
-| [RT-24 merged-tree source completeness](../RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md) | 2 × **Experimental result** | Seven bounded Git source/tree fixtures demonstrate failure cases, not a full production semantic merge |
+| [RT-07 rewrite correctness](../../formal-verification/RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md) | 2 × **Proof** | The reported Lean theorems apply to a finite typed expression grammar with ordered traces; no source/SPG/backend correspondence |
+| [RT-24 candidate merge contract](../../toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) | 2 × **Hypothesis / conjecture** | A proposed protocol and exit gates are not an implemented repository-wide proof or approval |
+| [RT-05 identity lifecycle](../../semantic-representation/RT-05/RT-05-IDENTITY-LIFECYCLE-EXPERIMENT.md) | **Experimental result** + **Observation** | Equal content can hide occurrence continuity; full discovery also had two historically documented failures |
+| [Scenario 101 solver vs truth table](../../semantic-representation/RT-06/RESEARCH-SCENARIO-101-SOLVER-VS-TRUTH-TABLE-PATHS.md) | 2 × **Experimental result** | Truth-table agreement and three-run median timings concern a tiny, favorable Boolean formula family |
+| [Scenario 110 wire defaults](../../packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md) | 2 × **Model result** | Two-version, tiny JSON record fixture is not real schema/runtime interoperability |
+| [Scenario 112 fairness](../../runtime-and-systems/RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md) | 2 × **Model result** | Periodic enablement vs continuous enablement is distinct; fixed two-task schedule not a general liveness proof |
+| [Scenario 120 SQLite cleanup](../../language-design/RT-04/RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md) | 2 × **Experimental result** | `sqlite3_close` and `close_v2` observations use selected SQLite API paths and in-memory resources |
+| [Scenario 124 SQLite synchronization](../../language-design/RT-04/RESEARCH-SCENARIO-124-CLOSE-SYNCHRONIZATION.md) | 2 × **Experimental result** | 11 controlled schedules cannot guarantee safety across arbitrary foreign aliases |
+| [Scenario 130 durable invocation](../../runtime-and-systems/RT-10/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md) | **Model result** + **Observation** | A later SQLite source-ID is a **prospective baseline**, not identity proof for original runs |
+| [Scenario 132 typed caller recovery](../../language-design/RT-04/RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md) | 2 × **Experimental result** | 20,736 finite inputs per fixture and admission counts do not establish general native FFI soundness |
+| [RT-24 merged-tree source completeness](../../toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md) | 2 × **Experimental result** | Seven bounded Git source/tree fixtures demonstrate failure cases, not a full production semantic merge |
 | [RT-00 G stage exit audit](RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md) | 2 × **Observation** | Several “current” inventory counts refer to **different, dated Git baselines**; do not cite them as current main |
 
 **Count:** 24 claims = **2 Proof**, **2 Hypothesis / conjecture**, **11 Experimental result**, **5 Model result**, **4 Observation**. These are author/report evidence classes assigned for research-review navigation, not an independent certification of those claims.
@@ -80,7 +80,7 @@ python3 -B .github/scripts/validate_research_claim_cohort.py \
   --json-out /tmp/llmlang-claim-cohort2-check.json
 ```
 
-**Expected accounting:** 6 unit tests pass; `reports: 12`, `claims: 24`, `errors: []`; every report and referenced source blob matches the frozen baseline. A separate [GitHub Actions workflow](../../.github/workflows/research-claim-cohort-audit.yml) archives the machine-verified source-link JSON. These figures are *structural reproduction expectations*; passing them confirms neither science nor the exact historic experiment environment.
+**Expected accounting:** 6 unit tests pass; `reports: 12`, `claims: 24`, `errors: []`; every report and referenced source blob matches the frozen baseline. A separate [GitHub Actions workflow](../../../.github/workflows/research-claim-cohort-audit.yml) archives the machine-verified source-link JSON. These figures are *structural reproduction expectations*; passing them confirms neither science nor the exact historic experiment environment.
 
 **Explicitly not executed here:** the selected 12 studies' Python/SQLite/native experiment suites, Lean compilation, alternative compiler backends, external URL source validation or full corpus research replication. A previously cited CI build is *prior evidence*, not an independently reexecuted action in this audit.
 

@@ -95,4 +95,4 @@ Official references were consulted 2026-11-19. Rust and Swift documentation are 
 
 Follow-up: distinguish a name exported by a catalog from access rights to use it, authority to publish or rebind it, and visibility of private implementation bodies. Public interface metadata can be readable without granting runtime capabilities. Compare alias/re-export, namespace collision, provider hijack, and leaked private dependencies. Name resolution and authorization must not silently select a different operation. No visibility syntax or access policy is selected.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

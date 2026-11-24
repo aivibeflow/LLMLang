@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-23  
 **Status:** Seven new orthogonal-source tests passed on a fresh, source-verified GitHub Actions runner; negative control and limitations recorded  
-**Research item:** [issue #285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../../PLAN.md#02-establish-research-quality-and-decision-rules)  
+**Research item:** [issue #285](https://github.com/aivibeflow/LLMLang/issues/285), [PLAN §0.2](../../../PLAN.md#02-establish-research-quality-and-decision-rules)  
 **Prior claim cohort:** [12 reports and 24 claims](RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md); [three existing-source reruns](RT-00-QUALITY-RULES-CLAIM-COHORT2-RERUN-2026-11-23.md)  
 **Audited model source revision:** `ff1295c1769bfe8546c4b63590c9f607349215ee`  
 **Evidence type:** New independent-*implementation* reference decision tables and negative fixture, *not* independently peer-reviewed science  
@@ -18,11 +18,11 @@ The three original test suites in [PR #381](https://github.com/aivibeflow/LLMLan
 
 **Alternatives:** Re-run original tests only (no distinct oracle); compare source text for equality (does not establish semantics); or implement separate model-level oracles plus falsifying negative controls. We use the last, without claiming that matching two implementations proves all production semantics.
 
-**Prior-art inputs:** [Scenario 110](../RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md), [Scenario 112](../RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md), [RT-24 merged-tree gate](../RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md), [first evidence-shape and decision rules](../QUALITY-REVIEW-PROTOCOL.md).
+**Prior-art inputs:** [Scenario 110](../../packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-110-WIRE-SCHEMA-EVOLUTION-AND-DEFAULTS.md), [Scenario 112](../../runtime-and-systems/RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md), [RT-24 merged-tree gate](../../toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md), [first evidence-shape and decision rules](../../QUALITY-REVIEW-PROTOCOL.md).
 
 ## 2. Fixed model and executable methods
 
-The [orthogonal test source](../../.github/scripts/test_research_orthogonal_oracles.py) is intentionally distinct from the original author test classes. In a new CI checkout it imports the two *original model implementations* from a pinned archival Git commit while deriving all expected outcomes in separately authored functions.
+The [orthogonal test source](../../../.github/scripts/test_research_orthogonal_oracles.py) is intentionally distinct from the original author test classes. In a new CI checkout it imports the two *original model implementations* from a pinned archival Git commit while deriving all expected outcomes in separately authored functions.
 
 | Vector | Independent method | Expected observation | What is shared or unproved |
 | --- | --- | --- | --- |
@@ -39,7 +39,7 @@ The JSON test additionally rejects malformed and non-object payloads and records
 
 ## 3. Reproduce and expected outputs
 
-[GitHub Actions workflow](../../.github/workflows/research-quality-orthogonal-oracles.yml) checks out both the PR's new oracle and the exact archival model commit. Before running it verifies model Git blobs; then it runs seven Python standard-library tests in CPython **3.12.14** on Ubuntu 24.04 and archives the environment and log:
+[GitHub Actions workflow](../../../.github/workflows/research-quality-orthogonal-oracles.yml) checks out both the PR's new oracle and the exact archival model commit. Before running it verifies model Git blobs; then it runs seven Python standard-library tests in CPython **3.12.14** on Ubuntu 24.04 and archives the environment and log:
 
 ```sh
 LLMLANG_ORACLE_MODEL_DIR=archival/research/PROTOTYPES/RT-04-01 \
@@ -49,7 +49,7 @@ LLMLANG_ORACLE_MODEL_DIR=archival/research/PROTOTYPES/RT-04-01 \
 
 **Verified expected/observed markers:** seven tests pass and markers `INDEPENDENT_SCHEMA_CASES=3456`, `INDEPENDENT_FAIRNESS_WORDS=21840`, `INDEPENDENT_GIT_WITNESS=clean-merge-with-missing-declared-source` appear. An unexpected mismatch or missing Git object is a **failure to investigate**, not evidence for accepting a design choice.
 
-**Observed GitHub Actions result:** [run #45261537559](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559) and [job #137997279418](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559/job/137997279418) **passed all seven tests in 0.155 s**. The archived model Git blobs matched the exact declared revision, and the new oracle test itself had Git blob `a07ffc59b0aea379f0113a312368b8ac56343f20`. CPython **3.12.14**, Git **2.56.1**, Linux `7.0.0-1014-aws x86_64`. [Raw CI artifact](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559/artifacts/14860068849) and [permanent machine-readable result record](../quality-audit/2026-11-23-orthogonal-oracle-results.json) retain exact numbers and links.
+**Observed GitHub Actions result:** [run #45261537559](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559) and [job #137997279418](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559/job/137997279418) **passed all seven tests in 0.155 s**. The archived model Git blobs matched the exact declared revision, and the new oracle test itself had Git blob `a07ffc59b0aea379f0113a312368b8ac56343f20`. CPython **3.12.14**, Git **2.56.1**, Linux `7.0.0-1014-aws x86_64`. [Raw CI artifact](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559/artifacts/14860068849) and [permanent machine-readable result record](../../quality-audit/2026-11-23-orthogonal-oracle-results.json) retain exact numbers and links.
 
 | Oracle / negative control | Actual observed cases | Result |
 | --- | ---: | --- |

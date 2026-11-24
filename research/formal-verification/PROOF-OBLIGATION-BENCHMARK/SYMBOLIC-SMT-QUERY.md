@@ -36,8 +36,8 @@ The earlier Python cvc5 adapter enumerates concrete inputs. This prototype quant
 Use CPython 3.9+, Lean 4.36.0 commit `611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9` and cvc5 1.4.2 commit `282d5e0`. The prior Lean symbolic proof entered `main` at `f80aac4`.
 
 ```sh
-transition=research/PROOF-OBLIGATION-BENCHMARK/generative/transition
-expected=research/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results
+transition=research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition
+expected=research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results
 python3 "$transition/test_symbolic_dual_check.py"
 scratch=$(mktemp -d)
 python3 "$transition/symbolic_dual_check.py" --lean /path/to/lean --cvc5 /path/to/cvc5 \

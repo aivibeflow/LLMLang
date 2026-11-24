@@ -44,7 +44,7 @@ The prototype demonstrates exact identity and aggregation on finite state fixtur
 Use CPython 3.9+ and the audited runs described in the three adapter reports. The fixture code was introduced by commit `991c053ffbc9e3ed0885763e3034f0d3c9354c2a`. The test uses the exact produced case data for reproducible offline comparison. The four required input hashes are in the recorded result. Run from the repository root.
 
 ```sh
-evidence=research/PROOF-OBLIGATION-BENCHMARK/evidence
+evidence=research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence
 python3 "$evidence/test_composition.py"
 python3 "$evidence/transition_experiment.py" \
   --smt /tmp/llmlang-rt33-smt/observations.jsonl \

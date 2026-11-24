@@ -109,4 +109,4 @@ Sources: [Rust `non_exhaustive`](https://doc.rust-lang.org/std/attribute.non_exh
 
 Follow-up: refine the public error contract on its admitted domain, not just the declared error-set type. Added failure modes, changed failure-state/cleanup semantics, or removed required notifications can break the public contract; narrowing allowed errors may be behaviorally compatible but still require callable/type/source compatibility checks. Treat changes as exact immutable revisions with explicit compatibility/migration evidence, not implicit cross-toolchain wire evolution.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

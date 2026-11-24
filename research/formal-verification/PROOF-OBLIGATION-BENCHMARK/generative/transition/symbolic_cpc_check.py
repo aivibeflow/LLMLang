@@ -7,7 +7,7 @@ import subprocess
 
 from smt_adapter import PROFILE as SMT_PROFILE
 
-LOGOS = (Path(__file__).resolve().parents[3]
+LOGOS = (Path(__file__).resolve().parents[4]
          / "PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding")
 SOURCE_DIGESTS = {
     "absolute": "ac59fcb856a5aaff9457c250f2cb9ef24aa193bd7ddd8b600a7c508265481aad",

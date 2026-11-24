@@ -671,7 +671,7 @@ References:
 - NASA paper, "Formal Requirements Elicitation with FRET": https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20200001989.pdf
 - FRET repository documentation: https://github.com/NASA-SW-VnV/fret
 
-For a programmer-oriented worked example, see [CF-007 — compositional bank transfer](../CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md): natural-language intent, explicit clarification, FRETish-inspired observation clauses, abstract callee contracts, and an analytical caller proof. Observation binding, progress, and source/contract correspondence remain independent obligations; the sketches are not parser-validated.
+For a programmer-oriented worked example, see [CF-007 — compositional bank transfer](../../formal-verification/CONTRACT-FORMALIZATION-CORPUS/cases/CF-007-compositional-bank-transfer.md): natural-language intent, explicit clarification, FRETish-inspired observation clauses, abstract callee contracts, and an analytical caller proof. Observation binding, progress, and source/contract correspondence remain independent obligations; the sketches are not parser-validated.
 
 ### Controlled Natural Language research
 

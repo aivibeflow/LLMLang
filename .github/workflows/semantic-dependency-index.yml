@@ -25,12 +25,12 @@ jobs:
         with:
           node-version: "22"
       - name: Run portable identity byte tests
-        run: python -B research/PROTOTYPES/IDENTITY-BYTES-01/compare.py
+        run: python -B research/semantic-representation/PROTOTYPES/IDENTITY-BYTES-01/compare.py
       - name: Run typed RT-24 tree diff tests
         working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01
         run: python -B -m unittest -v tests.test_rt24_typed_tree_diff
       - name: Run ordered interprocedural effect tests
-        run: python -B research/PROTOTYPES/ORDERED-EFFECTS-01/compare.py
+        run: python -B research/language-design/PROTOTYPES/ORDERED-EFFECTS-01/compare.py
       - name: Run RT-24 call-target merge tests
         working-directory: research/PROTOTYPES/DEPENDENCY-GRAPH-01
         run: python -B -m unittest -v tests.test_rt24_call_target_merge

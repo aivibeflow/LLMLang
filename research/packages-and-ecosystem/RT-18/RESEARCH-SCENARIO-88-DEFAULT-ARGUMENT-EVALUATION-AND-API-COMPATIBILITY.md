@@ -8,7 +8,7 @@
 
 When a caller omits an argument, when is its default expression evaluated, in which source environment are names and call-site metadata resolved, and which version of the declaration controls the value?
 
-[Scenario 84](../RT-31/RESEARCH-SCENARIO-84-FUNCTION-SIGNATURE-AND-CALL-SURFACE.md) compares parameter names/labels, defaults, returns, variadics, and receivers. [Scenario 77](../RT-03/RESEARCH-SCENARIO-77-CALL-ARGUMENT-EVALUATION-ORDER.md) studies expression and argument sequencing. This scenario isolates defaults as implicit call operands: it examines evaluation epoch, lexical/source provenance, side effects, and compatibility. It does not choose whether LLMLang has optional parameters, named arguments, or overloads.
+[Scenario 84](../../language-design/RT-31/RESEARCH-SCENARIO-84-FUNCTION-SIGNATURE-AND-CALL-SURFACE.md) compares parameter names/labels, defaults, returns, variadics, and receivers. [Scenario 77](../../language-design/RT-03/RESEARCH-SCENARIO-77-CALL-ARGUMENT-EVALUATION-ORDER.md) studies expression and argument sequencing. This scenario isolates defaults as implicit call operands: it examines evaluation epoch, lexical/source provenance, side effects, and compatibility. It does not choose whether LLMLang has optional parameters, named arguments, or overloads.
 
 ## 2. Prior-art comparison
 
@@ -92,4 +92,4 @@ No LLMLang default evaluation policy, call-site lowering, effect rule, or compat
 
 If defaults are adopted, specify whether their evaluation semantics belong to the public operation revision or a separately pinned adapter. A provider cannot silently replace public default expressions or their effects merely by matching a signature. Distinguish a changed default value, changed evaluation order, changed captured context and provider-only body change; test omitted and explicit arguments separately. This does not select default-argument syntax.
 
-Related: [Public interfaces and verified contract refinement](../RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.
+Related: [Public interfaces and verified contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This follow-up does not change earlier results or accepted rules.
