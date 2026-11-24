@@ -1,0 +1,91 @@
+{
+  "schema": "rt00-backend-preservation-replay-v1",
+  "baseline_commit": "6ea8f0891190b9c3029a879fd1f7fa61fb84d7b8",
+  "environment": {
+    "python": "3.12.14",
+    "git": "git version 2.56.1",
+    "kernel": "6.18.57",
+    "arch": "x86_64",
+    "gcc": "14.2.0-19",
+    "binutils_ld": "2.44",
+    "glibc": "2.41-12+deb13u4",
+    "node": [
+      "v22.23.5",
+      "v24.22.3"
+    ],
+    "llvm": "19.1.7",
+    "lld": "19.1.7",
+    "wabt": "1.0.36",
+    "package_archives": {
+      "llvm-19": {
+        "sha256": "0b1b7263f4f45e261099240fdbf00fc14b42b88410fd829e041bf83ea45866cb",
+        "debian_version": "1:19.1.7-3+b1"
+      },
+      "lld-19": {
+        "sha256": "756a805e8811d527dd2b5417f016c9342b8631fa9c1ddcd56265c13ae33bf3a4",
+        "debian_version": "1:19.1.7-3+b1"
+      },
+      "wabt": {
+        "sha256": "55e41a019c5cdade5792a8a6179d4ca1139c4f42ba235c259c476918ac314de6",
+        "debian_version": "1.0.36+dfsg+~cs1.0.36-2"
+      }
+    }
+  },
+  "fixture_paths": {
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py": "aa0d691782368e3722fd7afecb03dd0c6ee2b797",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py": "db0566b96eb866b04f4d41219e41ac9f7adc031c",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_mutable_view_probe.py": "2e626f8e520bbfa3b4178a60eb72f0b6bda054ba",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_view_probe.py": "90607849aa763c0e4f7dd3b4fe52910df5c74719",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_wasm_view_probe.py": "e616c5fcbb82143f65ec5e87af4a12b689b073c4",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py": "6da394af300f65d3d175d6f6bbc77ab8345707c4",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/wasm_view_host.mjs": "c0d0a480b804446edd19bfc3060abdf7fea73807",
+    "research/compiler-and-translation/PROTOTYPES/WASM-VIEWS-01/compare.mjs": "67b066a21e5df48cadd8be616902aaca0286fb66"
+  },
+  "earlier_report_blobs": {
+    "RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md": "585fbdd9411c9e2e7546ebf790a5d8c80d66881f",
+    "RESEARCH-SCENARIO-96B-LLVM-BYTE-VIEW-PRESERVATION.md": "219509655481f3a68af07e0716777c44261194af",
+    "RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md": "95c0b753baee85a6ff57937190771812d9fbe8c3",
+    "RT-13-WASM-MEMORY32-VIEWS.md": "0f1d032616308ff625779bda74a1844adad3e405"
+  },
+  "observations": {
+    "native_integer": {
+      "ir_sha256": "c46111f6b77eb621a5c154b17645044e1d76c7cb2808fe80189a63f447dc173d",
+      "profiles": {
+        "O0": 20978,
+        "O3": 20978
+      }
+    },
+    "native_view": {
+      "ir_sha256": "ddb41ceb866c77e957df865cd2102f7a02d3a468150fc82f79c7a7fb2bf782d0",
+      "profiles": {
+        "O0": 9800,
+        "O3": 9800
+      }
+    },
+    "llvm_to_wasm_view": {
+      "ir_sha256": "69d4184e269ac2b350ed0d8aa65d27a9faca1dd9ac590bf1a3259eff82a3ac6b",
+      "profiles": {
+        "O0": {
+          "comparisons_per_node_release": 16200,
+          "wasm_sha256": "e8161a3549e7fbadfd8acaa1d308693bcdd8e5f1b72a150812390ef596ca1467"
+        },
+        "O3": {
+          "comparisons_per_node_release": 16200,
+          "wasm_sha256": "b9609fba032fa20224a64f64d256ae4b43bd51ded38c2d1c83fea23972113e3f"
+        }
+      }
+    },
+    "handwritten_memory32_view": {
+      "wat_sha256": "f3bc341a41fabd8bab1490dfd9aa8dd23c0fb88cd8b0b61daeaca179cbd6c24e",
+      "comparisons_per_node_release": 12800
+    }
+  },
+  "stdout": {
+    "llvm_wasm_view_probe.txt": "Debian LLVM version 19.1.7\nDebian LLVM version 19.1.7\nDebian LLD 19.1.7\nlowering input SHA-256 69d4184e269ac2b350ed0d8aa65d27a9faca1dd9ac590bf1a3259eff82a3ac6b\nO0 WebAssembly SHA-256 e8161a3549e7fbadfd8acaa1d308693bcdd8e5f1b72a150812390ef596ca1467\n16200 comparisons passed\nO3 WebAssembly SHA-256 b9609fba032fa20224a64f64d256ae4b43bd51ded38c2d1c83fea23972113e3f\n16200 comparisons passed\n",
+    "compare-v24.22.3.txt": "12800 observations matched; both weakened guards violate the source view contract\nWAT SHA-256 f3bc341a41fabd8bab1490dfd9aa8dd23c0fb88cd8b0b61daeaca179cbd6c24e\n",
+    "llvm_view_probe.txt": "Debian LLVM version 19.1.7\nDebian LLVM version 19.1.7\ninput LLVM IR sha256 ddb41ceb866c77e957df865cd2102f7a02d3a468150fc82f79c7a7fb2bf782d0\nO0 9800 traces {'bounds': 4100, 'ok': 580, 'overflow': 1200, 'wrong_origin': 3920}\nO0 one_past_read ('bounds', None) != ('ok', 44)\nO0 erased_origin ('wrong_origin', None) != ('ok', 33)\nO3 9800 traces {'bounds': 4100, 'ok': 580, 'overflow': 1200, 'wrong_origin': 3920}\nO3 one_past_read ('bounds', None) != ('ok', 44)\nO3 erased_origin ('wrong_origin', None) != ('ok', 33)\n",
+    "llvm_wasm_view_probe_node24.txt": "Debian LLVM version 19.1.7\nDebian LLVM version 19.1.7\nDebian LLD 19.1.7\nlowering input SHA-256 69d4184e269ac2b350ed0d8aa65d27a9faca1dd9ac590bf1a3259eff82a3ac6b\nO0 WebAssembly SHA-256 e8161a3549e7fbadfd8acaa1d308693bcdd8e5f1b72a150812390ef596ca1467\n16200 comparisons passed\nO3 WebAssembly SHA-256 b9609fba032fa20224a64f64d256ae4b43bd51ded38c2d1c83fea23972113e3f\n16200 comparisons passed\n",
+    "compare-v22.23.5.txt": "12800 observations matched; both weakened guards violate the source view contract\nWAT SHA-256 f3bc341a41fabd8bab1490dfd9aa8dd23c0fb88cd8b0b61daeaca179cbd6c24e\n",
+    "llvm_integer_probe.txt": "opt Debian LLVM version 19.1.7\nllc Debian LLVM version 19.1.7\ngcc-14 (Debian 14.2.0-19) 14.2.0\ninput LLVM IR sha256 c46111f6b77eb621a5c154b17645044e1d76c7cb2808fe80189a63f447dc173d\n3 unsupported sources and one invalid dominance relation rejected\nO0 17 programs  20978 traces  {'ok': 17552, 'overflow': 1765, 'shift_count': 1566, 'zero_divisor': 95}\nO0 valid IR with missing overflow branch disagrees  Observation(status='overflow', value=None, events=(2147483647,)) != Observation(status='ok', value=2147483648, events=(2147483647, 2147483648))\nO3 17 programs  20978 traces  {'ok': 17552, 'overflow': 1765, 'shift_count': 1566, 'zero_divisor': 95}\nO3 valid IR with missing overflow branch disagrees  Observation(status='overflow', value=None, events=(2147483647,)) != Observation(status='ok', value=2147483648, events=(2147483647, 2147483648))\n"
+  }
+}

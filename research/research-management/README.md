@@ -20,6 +20,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Audits and evidence maps
 
+- [Native and WebAssembly preservation replay](RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.md)
 - [Public interface evidence reconciliation](RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.md)
 - [Thematic inventory refresh](RT-00/RT-00-A-THEMATIC-INVENTORY-REFRESH-2026-11-24.md) and [exact artifact records](RESEARCH-CORPUS-INVENTORY-2026-11-20.json)
 - [Repository audit](REPOSITORY-AUDIT-2026-11-17.md)
