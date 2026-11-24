@@ -561,6 +561,8 @@ The [RT-33 bounded Lean comparison](research/PROOF-OBLIGATION-BENCHMARK/LEAN-TRA
 
 **Research output (2026-11-23):** [RT-11 benchmark measurement boundary recheck](research/RT-11-BENCHMARK-MEASUREMENT-BOUNDARY-RECHECK-2026-11-23.md) recorded that one current-main run executes 467 incremental cache actions plus 12 clean oracles and compared instrumentation-only, larger synthetic workload, real Rust/Go/C++ workload, and premature product-prototype options. It recommends instrumentation-only as the lowest-dependency next experiment; a repeated timing attempt was stopped without retaining partial values. No latency or speedup claim is made; all §3.4 empirical-performance checkboxes remain open.
 
+**Research output (2026-11-24):** [RT-11 instrumented binding action timing](research/RT-11-ACTION-TIMING-INSTRUMENTATION-2026-11-24.md) adds opt-in per-miss wall/child-CPU/output samples and records two paired runs with raw JSON. A separate-link implementation edit executed 45 misses versus 53 for exact linkage in this synthetic fixture. The measurement wrapper itself added about 935 ms on those 45 actions while measured child wall sums were 234 ms, so the current instrumentation is too intrusive for absolute speedup claims. Replace it with lower-overhead measurement before timing broader workloads; representative LLMLang and real-project comparisons remain open.
+
 **Exit criteria:** a dependency-completeness policy; sound action-key model; tests showing that relevant changes invalidate all affected results and irrelevant changes preserve valid results; reproducible benchmark data.
 
 ---
