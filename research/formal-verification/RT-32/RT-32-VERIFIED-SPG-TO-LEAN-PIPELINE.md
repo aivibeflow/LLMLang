@@ -144,6 +144,8 @@ The PDG must support deterministic closure computation, incremental invalidation
 
 RT-03 supplies reference semantics and observable behavior; RT-05 supplies typed SPG identity and provenance; RT-07 supplies formal semantics, proof architecture, and TCB; RT-08 supplies fixtures and independent evidence; RT-09 supplies IR/lowering and source correspondence; RT-11 supplies incremental computation and invalidation; RT-24 supplies canonical semantic representation.
 
+The [exact SPG observation binding study](RT-32-SPG-LEAN-OBSERVATION-BINDING-2026-11-24.md) checks two scalar body and trace-contract pairs in Lean and compares their generated shallow functions with the typed evaluator. The reordered-effect control preserves all returned values and exposes the need for a whole-observation correspondence check.
+
 This study does not select Lean as the only verifier, require all LLMLang constructs to be formalized at once, define new surface syntax, make proof generation part of the language core, or claim that all program properties are decidable.
 
 ## Public-interface integration (2026-11-24; proposed)

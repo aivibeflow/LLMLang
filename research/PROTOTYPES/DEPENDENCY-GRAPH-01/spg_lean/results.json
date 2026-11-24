@@ -1,0 +1,171 @@
+{
+  "schema": "llmlang-rt32-spg-lean-observations-v1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "generic_lowering_axioms": "'SpgObservations.lower_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "positive_literal": {
+    "source": "emit(\"prepare\", (emit(\"left\", n) + emit(\"right\", 1)) if emit(\"test\", n == 0) else emit(\"fallback\", n + 2))",
+    "spg_snapshot": "29dec9e9bc34335cfbfadbf2335f3dcf7d5c998cd8f1ea67903b9b9f5ed59f40",
+    "spg_definition": "e906cebb60e1abedb23c298b8e81e35379ef1802ebe0f64067ed216223efddd1",
+    "spg_trace_contract": "f7254f53ac003afae9f4f8314decda2e009638d63fa758a5dfc5d74901519c8d",
+    "ordered_artifact": "70b1b9f9d428f24d3920fe4f054f07386c0b20b92e427ad5e23d4b99f34a1bc3",
+    "canonical_body": "[\"emit\",\"prepare\",[\"if\",[\"emit\",\"test\",[\"eq\",[\"argument\",0],[\"literal\",0]]],[\"add\",[\"emit\",\"left\",[\"argument\",0]],[\"emit\",\"right\",[\"literal\",1]]],[\"emit\",\"fallback\",[\"add\",[\"argument\",0],[\"literal\",2]]]]]",
+    "canonical_contract": "[[\"prepare\",\"test\",\"fallback\"],[\"prepare\",\"test\",\"left\",\"right\"]]",
+    "generated_module_sha256": "d5a12d95badaa656a5b08366049a978a6d7e49347e20814a570fd02690e5f677",
+    "axiom_audit": "'witness_bound' depends on axioms: [propext]\n'contract_bound' depends on axioms: [propext]\n'candidate_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'candidate_contract' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "observations": [
+      [
+        -79228162514264337593543950336,
+        -79228162514264337593543950334,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ],
+      [
+        -2147483649,
+        -2147483647,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ],
+      [
+        -1,
+        1,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          "prepare",
+          "test",
+          "left",
+          "right"
+        ]
+      ],
+      [
+        1,
+        3,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ],
+      [
+        2147483648,
+        2147483650,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ],
+      [
+        79228162514264337593543950336,
+        79228162514264337593543950338,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ]
+    ],
+    "controls": {
+      "reordered_candidate": "rejected by Lean",
+      "reordered_typed_witness": "rejected by Lean",
+      "wrong_order_contract": "rejected by Lean",
+      "subtraction": "unsupported"
+    }
+  },
+  "minimum_literal": {
+    "source": "emit(\"prepare\", (emit(\"left\", n) + emit(\"right\", 1)) if emit(\"test\", n == 0) else emit(\"fallback\", n + -2147483648))",
+    "spg_snapshot": "841c463c613af80a84fc00360a35cf40ee99b2a0d8cce354de9fe15798c2693e",
+    "spg_definition": "2a97f47a1a1f1c41e19136b79325827affd9f4864721a18ceacdd7a0d4de21e5",
+    "spg_trace_contract": "f7254f53ac003afae9f4f8314decda2e009638d63fa758a5dfc5d74901519c8d",
+    "ordered_artifact": "0ace010b1cec600df7a65872b39ee00282b2820689c066e2b791a0e9dd38b728",
+    "canonical_body": "[\"emit\",\"prepare\",[\"if\",[\"emit\",\"test\",[\"eq\",[\"argument\",0],[\"literal\",0]]],[\"add\",[\"emit\",\"left\",[\"argument\",0]],[\"emit\",\"right\",[\"literal\",1]]],[\"emit\",\"fallback\",[\"add\",[\"argument\",0],[\"literal\",-2147483648]]]]]",
+    "canonical_contract": "[[\"prepare\",\"test\",\"fallback\"],[\"prepare\",\"test\",\"left\",\"right\"]]",
+    "generated_module_sha256": "560709fcb65021882789357d170bf9bda02dd7f76f0c759acb27e2ff434e1881",
+    "axiom_audit": "'witness_bound' depends on axioms: [propext]\n'contract_bound' depends on axioms: [propext]\n'candidate_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'candidate_contract' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "observations": [
+      [
+        -79228162514264337593543950336,
+        -79228162514264337595691433984,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ],
+      [
+        -2147483649,
+        -4294967297,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ],
+      [
+        -1,
+        -2147483649,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          "prepare",
+          "test",
+          "left",
+          "right"
+        ]
+      ],
+      [
+        1,
+        -2147483647,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ],
+      [
+        2147483648,
+        0,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ],
+      [
+        79228162514264337593543950336,
+        79228162514264337591396466688,
+        [
+          "prepare",
+          "test",
+          "fallback"
+        ]
+      ]
+    ],
+    "controls": {
+      "reordered_candidate": "rejected by Lean",
+      "reordered_typed_witness": "rejected by Lean",
+      "wrong_order_contract": "rejected by Lean",
+      "subtraction": "unsupported"
+    }
+  }
+}
