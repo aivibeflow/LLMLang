@@ -1,0 +1,111 @@
+{
+  "controls": {
+    "llvm_code_unchanged": true,
+    "llvm_wrong_location": [
+      {
+        "debug_line": 7,
+        "pc": "1116",
+        "source_line": 7
+      },
+      {
+        "debug_line": 7,
+        "pc": "1129",
+        "source_line": 7
+      }
+    ],
+    "rust_wrong_sidecar": [
+      {
+        "debug_line": 9,
+        "pc": "1116",
+        "source_line": 7
+      },
+      {
+        "debug_line": 13,
+        "pc": "1124",
+        "source_line": 7
+      }
+    ]
+  },
+  "expected_origin_lines": [
+    2,
+    7
+  ],
+  "llvm_ir_sha256": "673734f40cd53c263b59a554f1a8fef6546ba618e9cf5fe1502e3024a54736bc",
+  "profiles": {
+    "llvm_O0": {
+      "callbacks": [
+        {
+          "debug_line": 2,
+          "pc": "111a",
+          "source_line": 2
+        },
+        {
+          "debug_line": 7,
+          "pc": "114f",
+          "source_line": 7
+        }
+      ],
+      "text_sha256": "8d7be04c52525b134f3b620854ee27dd97efcda06d4af807195f9c6e5b88da6b"
+    },
+    "llvm_O3": {
+      "callbacks": [
+        {
+          "debug_line": 2,
+          "pc": "1116",
+          "source_line": 2
+        },
+        {
+          "debug_line": 7,
+          "pc": "1129",
+          "source_line": 7
+        }
+      ],
+      "text_sha256": "452ae19491cac848db769f11cc3dbaefb9d27a7e2e2b1cab6c0a65792d3241b8"
+    },
+    "rust_O0": {
+      "callbacks": [
+        {
+          "debug_line": 9,
+          "pc": "11a0",
+          "source_line": 2
+        },
+        {
+          "debug_line": 13,
+          "pc": "11df",
+          "source_line": 7
+        }
+      ],
+      "text_sha256": "0e3851211bff291813dbc3bfe6e5193c1e05b3f8cf234350769341176bcc200f"
+    },
+    "rust_O3": {
+      "callbacks": [
+        {
+          "debug_line": 9,
+          "pc": "1116",
+          "source_line": 2
+        },
+        {
+          "debug_line": 13,
+          "pc": "1124",
+          "source_line": 7
+        }
+      ],
+      "text_sha256": "425f1492194e4a5499e8aa2b07be07ab6cf0fad991bf076f8109383ca2e11f89"
+    }
+  },
+  "runner_sha256": "ab39375a7add1a915083c3084bdca6d21dc9d18d2d8adb2f0e103e25ed90c65a",
+  "runtime_vectors_per_profile": 4,
+  "rust_generated_file": "/llmlang/generated/probe.rs",
+  "rust_sidecar": {
+    "9": 2,
+    "13": 7
+  },
+  "rust_source_sha256": "1b59f053ab1ff98eaf6cd053e7640901822a29924e5cf623799640e1503ab0fd",
+  "source_file": "/llmlang/source/checked_add.fixture",
+  "source_sha256": "6817b94cd1df774891b949b9cc7d6b2edd5fd671c744af1f5a0bafbc1a88064e",
+  "tools": {
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "llvm": "Debian LLVM version 19.1.7",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  }
+}
