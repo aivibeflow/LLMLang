@@ -74,3 +74,5 @@ The [MMIO metadata study](RT-37-MMIO-METADATA-AND-CAPABILITIES-2026-11-24.md) co
 The [volatile SysTick study](RT-37-CORTEX-M3-VOLATILE-COUNTFLAG-2026-11-24.md) checks the actual linked load count and read-to-clear behavior. Ordinary loads can coalesce even when the LLVM O0 IR retains both reads.
 
 The [transitive ISR effects study](RT-37-CORTEX-M3-TRANSITIVE-ISR-EFFECTS-2026-11-24.md) derives the call coverage of a bounded Thumb profile from the exact linked vector and functions. It rejects blocking and allocation below helpers, checks tail branches and retains unknown results where target or leaf evidence is missing.
+
+The [bounded allocator study](RT-37-CORTEX-M3-BOUNDED-ALLOCATOR-2026-11-24.md) compares fixed slots and a checked linear cursor on the same 64-byte Cortex-M3 arena across LLVM and Rust. It separates reservation behavior, linked footprint and arithmetic failure.
