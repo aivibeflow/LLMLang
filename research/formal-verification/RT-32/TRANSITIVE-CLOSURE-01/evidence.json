@@ -1,0 +1,29 @@
+{
+  "exhaustive": {
+    "closed_cases": 879,
+    "directed_graphs": 512,
+    "local_only_false_admissions": 2577,
+    "receipt_coverage_masks": 8,
+    "root_cases": 12288
+  },
+  "scenarios": {
+    "base_closure": "341ae18aefc366bb9964ac004f487219142a8ae2052e4ec4d910e6be3f86a86f",
+    "discharged_premise_closure": "88ae761a2f968617dfb5cd4c645546df3c7385bf87e74c520c59c7e158545f97",
+    "distinct_receipts_in_diamond": 6,
+    "modular_receipt": "e0fb5328bf7ee9aa98765e1c46c654fde69fd239fe400705021e40a5a9c2301f",
+    "negative_controls": {
+      "changed_provider_body": "wrong-claim",
+      "changed_public_contract": "wrong-claim",
+      "cyclic_discharge": "cyclic-discharge",
+      "dropped_proof_edge": "incomplete-or-different-dependencies",
+      "missing_expected_subject": "missing-expected-claim",
+      "missing_grandchild": "pending-receipt",
+      "unresolved_premise": "unresolved-assumption",
+      "unsupported_source_binding": "unsupported",
+      "wrong_producer": "wrong-provenance",
+      "wrong_toolchain": "wrong-provenance"
+    },
+    "rebound_closure": "d3be8941f40792d18cce0ec13d313520ecb5bef1c7f32cd457e265694c3751ef",
+    "replacement_artifact_closure": "041a5364f62559afd7a41957e1d2d2a17d4d8aea85988a86bd480dcf0c234cd4"
+  }
+}
