@@ -1,0 +1,22 @@
+{
+  "experiment": "rt33-transition-evidence-v1",
+  "fixture_revision": "991c053ffbc9e3ed0885763e3034f0d3c9354c2a",
+  "artifacts": {
+    "smt": "bfbad3ebff85bdda5d832bb04e3efdf21ebcdbe11029ab1c50d7b7bd0f7bd3e4",
+    "lean": "c7b75d69b8b5751dd41ffa3042838b500188c057b127c6548b2bffa8c94af5cd",
+    "tlc_summary": "cf8f5ecce6de977f907cd246613f450ddcd566e7c9966a6ad8e5d33d37fe4f9f",
+    "tlc_cases": "bf6160dca0cd6c752854f7b8d5cf36887b31743a76ba7ad31174235c8d2565e5"
+  },
+  "accepted_receipts": 2394,
+  "obligations": 798,
+  "counts": {
+    "bounded-agreement": 712,
+    "refuted": 86
+  },
+  "corpus_conjunction": "refuted",
+  "verdict_set_counts": {
+    "support": 712,
+    "counterexample": 86
+  },
+  "per_case_results_sha256": "1b9c91a665b1d39e021464470cebb571f737a36c19f4a45dcd047f88660c6fb2"
+}

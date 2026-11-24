@@ -22,6 +22,8 @@ jobs:
         run: |
           python3 research/PROOF-OBLIGATION-BENCHMARK/test_runner.py
           python3 research/PROOF-OBLIGATION-BENCHMARK/run.py run > pob-smoke.json
+      - name: Run evidence composition controls
+        run: python3 research/PROOF-OBLIGATION-BENCHMARK/evidence/test_composition.py
       - name: Run coverage inventory and deterministic generator
         run: |
           python3 research/PROOF-OBLIGATION-BENCHMARK/test_coverage_v2.py
