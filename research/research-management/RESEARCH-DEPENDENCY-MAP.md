@@ -268,6 +268,8 @@ The SCW-32 expression theorem proves preservation at DEP-007 for arbitrary typed
 
 The SCW-32 valuation theorem discharges the expression result's parser-constant relation when the exact table constructor succeeds. The mapping from a concrete source pair to that table's source valuation remains a program-level obligation. [Logos valuation binding](../formal-verification/RT-07/RT-07-LOGOS-VALUATION-BINDING-2026-11-24.md)
 
+The SCW-32–33 program theorem establishes one direction of the valuation relationship in DEP-007. The interpreted exact CPC assumptions characterize dependence for the concrete source pair constructed from that wire valuation. [Logos program assumptions](../formal-verification/RT-07/RT-07-LOGOS-PROGRAM-ASSUMPTIONS-2026-11-24.md)
+
 ## 6. Existing research-line placement
 
 The current Scenario 15–34 sequence is a substantial research line primarily spanning RT-02, RT-06, RT-07, and RT-08:
