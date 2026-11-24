@@ -1,0 +1,80 @@
+import Lean
+
+-- @DEFINITIONS@
+
+inductive Phase where
+  | evenPhase
+  | oddPhase
+
+def nextPhase : Phase → Phase
+  | .evenPhase => .oddPhase
+  | .oddPhase => .evenPhase
+
+def enter : Phase → String
+  | .evenPhase => "enter_even"
+  | .oddPhase => "enter_odd"
+
+def exit : Phase → String
+  | .evenPhase => "exit_even"
+  | .oddPhase => "exit_odd"
+
+def finish : Phase → String
+  | .evenPhase => "base_even"
+  | .oddPhase => "base_odd"
+
+def baseValue : Phase → Int
+  | .evenPhase => 0
+  | .oddPhase => 1
+
+def route (p : Phase) : Nat → List Phase
+  | 0 => []
+  | n + 1 => p :: route (nextPhase p) n
+
+def terminal (p : Phase) : Nat → Phase
+  | 0 => p
+  | n + 1 => terminal (nextPhase p) n
+
+def model (p : Phase) (n : Nat) : Int × List String :=
+  let last := terminal p n
+  (baseValue last, (route p n).map enter ++ [finish last] ++ (route p n).reverse.map exit)
+
+theorem model_step (p : Phase) (n : Nat) :
+    model p (n + 1) = ((model (nextPhase p) n).1, [enter p] ++ (model (nextPhase p) n).2 ++ [exit p]) := by
+  simp [model, route, terminal, List.map_append, List.append_assoc]
+
+theorem orderedPair (n : Nat) :
+    evenMember n = model .evenPhase n ∧ oddMember n = model .oddPhase n := by
+  induction n with
+  | zero => simp [evenMember, oddMember, model, route, terminal, finish, baseValue]
+  | succ n ih =>
+    constructor
+    · rw [evenMember, model_step]
+      simp [nextPhase, enter, exit, ih.2]
+    · rw [oddMember, model_step]
+      simp [nextPhase, enter, exit, ih.1]
+
+theorem route_length (p : Phase) (n : Nat) : (route p n).length = n := by
+  induction n generalizing p with
+  | zero => rfl
+  | succ n ih => simp [route, ih]
+
+theorem exact_length (p : Phase) (n : Nat) : (model p n).2.length = 2 * n + 1 := by
+  simp [model, route_length]
+  omega
+
+theorem generated_length (n : Nat) :
+    (evenMember n).2.length = 2 * n + 1 ∧ (oddMember n).2.length = 2 * n + 1 := by
+  constructor
+  · rw [(orderedPair n).1, exact_length]
+  · rw [(orderedPair n).2, exact_length]
+
+#print axioms orderedPair
+#print axioms generated_length
+
+def observationLine (value : Int × List String) : String :=
+  s!"{value.1}|{String.intercalate "," value.2}"
+
+def main : IO Unit := do
+  for n in List.range 20 do
+    IO.println (observationLine (evenMember n))
+    IO.println (observationLine (oddMember n))
