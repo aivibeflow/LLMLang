@@ -1,0 +1,1177 @@
+{
+  "call_core_source_id": "8da81a5246c17ea990558f3ae0746ab42edb464a6071efc3872a1d0ef0cb4309",
+  "cases": {
+    "bad_rebound/direct": {
+      "axioms": {
+        "closed": [
+          "'closedClaim' depends on axioms: [propext]"
+        ],
+        "conditional": [
+          "'conditional' depends on axioms: [propext]"
+        ],
+        "provider": [
+          "'providerChecked' depends on axioms: [propext]"
+        ]
+      },
+      "expected": "closed",
+      "negative_replay": null,
+      "observations": [
+        [
+          -79228162514264337593543950335,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          0,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          1,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          2,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          79228162514264337593543950337,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ]
+      ],
+      "source_ids": {
+        "Caller": "cfc2e24f64413585a148af57c49bf4856c9bb85f23c1f4f870e1e61c9796ff35",
+        "Closed": "90f8867d5ab47fd85e73d80bfec4425bbd19e589c5323bafc9f5dcad42cf1847",
+        "Provider": "f60f3fa1cbaa8c722ca67557a1fc7d8f7d462f6019be8d8288b1181470b440c9"
+      },
+      "subject": {
+        "binding": null,
+        "caller": "02edb6b1e13f3e3151aa9a0a7b0cd9e44d14406e9868d8160adf395af74b17cf",
+        "caller_allowed": [
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        "caller_body": [
+          "pin",
+          0,
+          [
+            "emit",
+            "argument",
+            [
+              "argument",
+              0
+            ]
+          ]
+        ],
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "caller_operation": "ff0be11bbad4b9449efc44893588f52ce4ae6415401df30a2dc64002a3d2dcde",
+        "mode": "pin",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_allowed": [
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "provider_body": [
+          "emit",
+          "first",
+          [
+            "emit",
+            "last",
+            [
+              "add",
+              [
+                "argument",
+                0
+              ],
+              [
+                "literal",
+                1
+              ]
+            ]
+          ]
+        ],
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "provider_operation": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "reference": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "root": "bc937a36d372cc17bf724b44592a91bfcc992e38cf188b56412f5fa6d7c033fe"
+      }
+    },
+    "bad_rebound/late": {
+      "axioms": {
+        "conditional": [
+          "'conditional' depends on axioms: [propext]"
+        ]
+      },
+      "expected": "bad_provider",
+      "negative_replay": null,
+      "observations": [
+        [
+          -79228162514264337593543950334,
+          [
+            "argument",
+            "last",
+            "first"
+          ]
+        ],
+        [
+          1,
+          [
+            "argument",
+            "last",
+            "first"
+          ]
+        ],
+        [
+          2,
+          [
+            "argument",
+            "last",
+            "first"
+          ]
+        ],
+        [
+          3,
+          [
+            "argument",
+            "last",
+            "first"
+          ]
+        ],
+        [
+          79228162514264337593543950338,
+          [
+            "argument",
+            "last",
+            "first"
+          ]
+        ]
+      ],
+      "source_ids": {
+        "Caller": "a125bdaa1d33f85c37b375bddcd4379d2c6ebc26b566edaaa47e2222585c926d",
+        "Closed": "85fd26769d273d158641d3780fd420988bc54f6f861f141fbdbdf31e40c98337",
+        "Provider": "9bc908c910f3b411d3f6d133dd0ca3744f2357febaf2bf4cda3010f1cc5cbcbe"
+      },
+      "subject": {
+        "binding": "c7253d295dfc8dcd12a33990e288ed0662e24798ef48629f0232d717ee458611",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_allowed": [
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        "caller_body": [
+          "op",
+          0,
+          [
+            "emit",
+            "argument",
+            [
+              "argument",
+              0
+            ]
+          ]
+        ],
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "caller_operation": "3e11a87d9a659e69b6be30386da050baff650e03fcc4accac32feec2952551b8",
+        "mode": "op",
+        "provider": "a040d18027a4d29d36968f8813a00a85ae43965d63a1075913b3a08170b0a6fb",
+        "provider_allowed": [
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "provider_body": [
+          "emit",
+          "last",
+          [
+            "emit",
+            "first",
+            [
+              "add",
+              [
+                "argument",
+                0
+              ],
+              [
+                "literal",
+                2
+              ]
+            ]
+          ]
+        ],
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "provider_operation": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "bc937a36d372cc17bf724b44592a91bfcc992e38cf188b56412f5fa6d7c033fe"
+      }
+    },
+    "base/direct": {
+      "axioms": {
+        "closed": [
+          "'closedClaim' depends on axioms: [propext]"
+        ],
+        "conditional": [
+          "'conditional' depends on axioms: [propext]"
+        ],
+        "provider": [
+          "'providerChecked' depends on axioms: [propext]"
+        ]
+      },
+      "expected": "closed",
+      "negative_replay": null,
+      "observations": [
+        [
+          -79228162514264337593543950335,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          0,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          1,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          2,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          79228162514264337593543950337,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ]
+      ],
+      "source_ids": {
+        "Caller": "cfc2e24f64413585a148af57c49bf4856c9bb85f23c1f4f870e1e61c9796ff35",
+        "Closed": "fe81b1cb7094460a1eec64a13a0e9d762dc0b7fd2c2fc782da8905feb6cdf817",
+        "Provider": "f60f3fa1cbaa8c722ca67557a1fc7d8f7d462f6019be8d8288b1181470b440c9"
+      },
+      "subject": {
+        "binding": null,
+        "caller": "02edb6b1e13f3e3151aa9a0a7b0cd9e44d14406e9868d8160adf395af74b17cf",
+        "caller_allowed": [
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        "caller_body": [
+          "pin",
+          0,
+          [
+            "emit",
+            "argument",
+            [
+              "argument",
+              0
+            ]
+          ]
+        ],
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "caller_operation": "ff0be11bbad4b9449efc44893588f52ce4ae6415401df30a2dc64002a3d2dcde",
+        "mode": "pin",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_allowed": [
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "provider_body": [
+          "emit",
+          "first",
+          [
+            "emit",
+            "last",
+            [
+              "add",
+              [
+                "argument",
+                0
+              ],
+              [
+                "literal",
+                1
+              ]
+            ]
+          ]
+        ],
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "provider_operation": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "reference": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "root": "71e43be7fa8ce1117fd1b9deb8fc212f94e9868f282643db918157fbe9a60079"
+      }
+    },
+    "base/late": {
+      "axioms": {
+        "closed": [
+          "'closedClaim' depends on axioms: [propext]"
+        ],
+        "conditional": [
+          "'conditional' depends on axioms: [propext]"
+        ],
+        "provider": [
+          "'providerChecked' depends on axioms: [propext]"
+        ]
+      },
+      "expected": "closed",
+      "negative_replay": null,
+      "observations": [
+        [
+          -79228162514264337593543950335,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          0,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          1,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          2,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          79228162514264337593543950337,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ]
+      ],
+      "source_ids": {
+        "Caller": "a125bdaa1d33f85c37b375bddcd4379d2c6ebc26b566edaaa47e2222585c926d",
+        "Closed": "12e7d38f7083896393897ecab3a4f3529ec3e2db836d7c21678f3ac9c4f90a67",
+        "Provider": "f60f3fa1cbaa8c722ca67557a1fc7d8f7d462f6019be8d8288b1181470b440c9"
+      },
+      "subject": {
+        "binding": "fed606c8f3d46bd6a982a6cc99f666d3463792f28e6fb33da60765290396f1d7",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_allowed": [
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        "caller_body": [
+          "op",
+          0,
+          [
+            "emit",
+            "argument",
+            [
+              "argument",
+              0
+            ]
+          ]
+        ],
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "caller_operation": "3e11a87d9a659e69b6be30386da050baff650e03fcc4accac32feec2952551b8",
+        "mode": "op",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_allowed": [
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "provider_body": [
+          "emit",
+          "first",
+          [
+            "emit",
+            "last",
+            [
+              "add",
+              [
+                "argument",
+                0
+              ],
+              [
+                "literal",
+                1
+              ]
+            ]
+          ]
+        ],
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "provider_operation": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "71e43be7fa8ce1117fd1b9deb8fc212f94e9868f282643db918157fbe9a60079"
+      }
+    },
+    "broader_provider/direct": {
+      "axioms": {},
+      "expected": "contract_mismatch",
+      "negative_replay": null,
+      "observations": [
+        [
+          -79228162514264337593543950335,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          0,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          1,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          2,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          79228162514264337593543950337,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ]
+      ],
+      "source_ids": {
+        "Caller": "10d7dd074cec45322dbff5484dc8bb0507dae7098b0dfd21b81cc1d4a220e5c3",
+        "Closed": "62bb8955e047dc36cfe0352de307b86567aeb61463a71bbc07d6a7be2b794726",
+        "Provider": "60d7b79c4fc5b8542f7fd9fe9d2d5ac72539de262a51e00aa021308884ce0553"
+      },
+      "subject": {
+        "binding": null,
+        "caller": "84d74feff0b8be7db1c992f0ed01196e0efcc6663826a8364e4086bcf209a2c5",
+        "caller_allowed": [
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        "caller_body": [
+          "pin",
+          0,
+          [
+            "emit",
+            "argument",
+            [
+              "argument",
+              0
+            ]
+          ]
+        ],
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "caller_operation": "ff0be11bbad4b9449efc44893588f52ce4ae6415401df30a2dc64002a3d2dcde",
+        "mode": "pin",
+        "provider": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "provider_allowed": [
+          [
+            "first",
+            "last"
+          ],
+          [
+            "last",
+            "first"
+          ]
+        ],
+        "provider_body": [
+          "emit",
+          "first",
+          [
+            "emit",
+            "last",
+            [
+              "add",
+              [
+                "argument",
+                0
+              ],
+              [
+                "literal",
+                1
+              ]
+            ]
+          ]
+        ],
+        "provider_contract": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "provider_operation": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b",
+        "reference": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "root": "b843fc372efc04ddb8077a878aac10aab2177ac98348de7ff4fd5c00965f7fe2"
+      }
+    },
+    "broader_provider/late": {
+      "axioms": {},
+      "expected": "contract_mismatch",
+      "negative_replay": null,
+      "observations": [
+        [
+          -79228162514264337593543950334,
+          [
+            "argument",
+            "last",
+            "first"
+          ]
+        ],
+        [
+          1,
+          [
+            "argument",
+            "last",
+            "first"
+          ]
+        ],
+        [
+          2,
+          [
+            "argument",
+            "last",
+            "first"
+          ]
+        ],
+        [
+          3,
+          [
+            "argument",
+            "last",
+            "first"
+          ]
+        ],
+        [
+          79228162514264337593543950338,
+          [
+            "argument",
+            "last",
+            "first"
+          ]
+        ]
+      ],
+      "source_ids": {
+        "Caller": "7ac8275483fff949691062f4e79ff367e5f5f5bb677ff00788b858badc119e27",
+        "Closed": "7922c3865300a1c4751c996ee600239aa45f187527d6d0bad4a84e4ce7c3e25c",
+        "Provider": "2fb8236617c418e99372ab77c644442b2eb0641a18d52f1ce2e10bcb8a649846"
+      },
+      "subject": {
+        "binding": "93c8046b314d5039898c07c8ae4f2c6d92c0b94117b791cec3b7cbb882d6692f",
+        "caller": "6812c8bc1a227fdbe1e6ea0fcf0498cfe998b2b73bfe52381637a007bc427835",
+        "caller_allowed": [
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        "caller_body": [
+          "op",
+          0,
+          [
+            "emit",
+            "argument",
+            [
+              "argument",
+              0
+            ]
+          ]
+        ],
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "caller_operation": "3e11a87d9a659e69b6be30386da050baff650e03fcc4accac32feec2952551b8",
+        "mode": "op",
+        "provider": "d2270d253901d83cf9a3d399f238ee0912edc65613d8cece8a768941e9bc1218",
+        "provider_allowed": [
+          [
+            "first",
+            "last"
+          ],
+          [
+            "last",
+            "first"
+          ]
+        ],
+        "provider_body": [
+          "emit",
+          "last",
+          [
+            "emit",
+            "first",
+            [
+              "add",
+              [
+                "argument",
+                0
+              ],
+              [
+                "literal",
+                2
+              ]
+            ]
+          ]
+        ],
+        "provider_contract": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "provider_operation": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b",
+        "reference": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b",
+        "root": "b843fc372efc04ddb8077a878aac10aab2177ac98348de7ff4fd5c00965f7fe2"
+      }
+    },
+    "primary_edit/direct": {
+      "axioms": {
+        "closed": [
+          "'closedClaim' depends on axioms: [propext]"
+        ],
+        "conditional": [
+          "'conditional' depends on axioms: [propext]"
+        ],
+        "provider": [
+          "'providerChecked' depends on axioms: [propext]"
+        ]
+      },
+      "expected": "closed",
+      "negative_replay": null,
+      "observations": [
+        [
+          -79228162514264337593543950332,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          3,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          4,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          5,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          79228162514264337593543950340,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ]
+      ],
+      "source_ids": {
+        "Caller": "46e02a886eaa01d38867b89780366956f853ef749abfbfc307b6d6944ed7fae6",
+        "Closed": "f16629a3d86d67702d5121b4d24dd998de4c4bee8d21df350eefe724979fd747",
+        "Provider": "a4c76aa1fbf0ac68648656f7ce6cdc3e3c1e28e140cdb107b49a76cb046ffa4e"
+      },
+      "subject": {
+        "binding": null,
+        "caller": "c75afe8798ae07ac689d109ec06b2121ab665a8cee4b17659a91aee0f14fa663",
+        "caller_allowed": [
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        "caller_body": [
+          "pin",
+          0,
+          [
+            "emit",
+            "argument",
+            [
+              "argument",
+              0
+            ]
+          ]
+        ],
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "caller_operation": "ff0be11bbad4b9449efc44893588f52ce4ae6415401df30a2dc64002a3d2dcde",
+        "mode": "pin",
+        "provider": "4100422215024e1274e3634333ee5d325eb0fe9d2e45fc61e44f8d1afca74a55",
+        "provider_allowed": [
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "provider_body": [
+          "emit",
+          "first",
+          [
+            "emit",
+            "last",
+            [
+              "add",
+              [
+                "argument",
+                0
+              ],
+              [
+                "literal",
+                4
+              ]
+            ]
+          ]
+        ],
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "provider_operation": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "reference": "4100422215024e1274e3634333ee5d325eb0fe9d2e45fc61e44f8d1afca74a55",
+        "root": "5d99dad3d72aeaa650e95c855754fcadc8771e714811c47a4cf4bc5336b95b40"
+      }
+    },
+    "primary_edit/late": {
+      "axioms": {
+        "closed": [
+          "'closedClaim' depends on axioms: [propext]"
+        ],
+        "conditional": [
+          "'conditional' depends on axioms: [propext]"
+        ],
+        "provider": [
+          "'providerChecked' depends on axioms: [propext]"
+        ]
+      },
+      "expected": "closed",
+      "negative_replay": null,
+      "observations": [
+        [
+          -79228162514264337593543950332,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          3,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          4,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          5,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          79228162514264337593543950340,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ]
+      ],
+      "source_ids": {
+        "Caller": "a125bdaa1d33f85c37b375bddcd4379d2c6ebc26b566edaaa47e2222585c926d",
+        "Closed": "623a2601f5bc75896cea9bcb02e365e7a8916aaa50ce371d5692643fcf53dd81",
+        "Provider": "a4c76aa1fbf0ac68648656f7ce6cdc3e3c1e28e140cdb107b49a76cb046ffa4e"
+      },
+      "subject": {
+        "binding": "9ee0c0496ebf815d3e5347b42672126e18e93c11cc4ef81d8c88d47fa9282c22",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_allowed": [
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        "caller_body": [
+          "op",
+          0,
+          [
+            "emit",
+            "argument",
+            [
+              "argument",
+              0
+            ]
+          ]
+        ],
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "caller_operation": "3e11a87d9a659e69b6be30386da050baff650e03fcc4accac32feec2952551b8",
+        "mode": "op",
+        "provider": "4100422215024e1274e3634333ee5d325eb0fe9d2e45fc61e44f8d1afca74a55",
+        "provider_allowed": [
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "provider_body": [
+          "emit",
+          "first",
+          [
+            "emit",
+            "last",
+            [
+              "add",
+              [
+                "argument",
+                0
+              ],
+              [
+                "literal",
+                4
+              ]
+            ]
+          ]
+        ],
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "provider_operation": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "5d99dad3d72aeaa650e95c855754fcadc8771e714811c47a4cf4bc5336b95b40"
+      }
+    },
+    "rebound/direct": {
+      "axioms": {
+        "closed": [
+          "'closedClaim' depends on axioms: [propext]"
+        ],
+        "conditional": [
+          "'conditional' depends on axioms: [propext]"
+        ],
+        "provider": [
+          "'providerChecked' depends on axioms: [propext]"
+        ]
+      },
+      "expected": "closed",
+      "negative_replay": null,
+      "observations": [
+        [
+          -79228162514264337593543950335,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          0,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          1,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          2,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          79228162514264337593543950337,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ]
+      ],
+      "source_ids": {
+        "Caller": "cfc2e24f64413585a148af57c49bf4856c9bb85f23c1f4f870e1e61c9796ff35",
+        "Closed": "a2c2f96e44753b1ee03247f0d1d17c914b8c0fb3713cc1bcdd5ecd52fc017def",
+        "Provider": "f60f3fa1cbaa8c722ca67557a1fc7d8f7d462f6019be8d8288b1181470b440c9"
+      },
+      "subject": {
+        "binding": null,
+        "caller": "02edb6b1e13f3e3151aa9a0a7b0cd9e44d14406e9868d8160adf395af74b17cf",
+        "caller_allowed": [
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        "caller_body": [
+          "pin",
+          0,
+          [
+            "emit",
+            "argument",
+            [
+              "argument",
+              0
+            ]
+          ]
+        ],
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "caller_operation": "ff0be11bbad4b9449efc44893588f52ce4ae6415401df30a2dc64002a3d2dcde",
+        "mode": "pin",
+        "provider": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "provider_allowed": [
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "provider_body": [
+          "emit",
+          "first",
+          [
+            "emit",
+            "last",
+            [
+              "add",
+              [
+                "argument",
+                0
+              ],
+              [
+                "literal",
+                1
+              ]
+            ]
+          ]
+        ],
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "provider_operation": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "reference": "a77e14b1302b80eebb900aa4eb252b99237ffc9efaa21b855adce6280a3e3ecd",
+        "root": "df561502604dbd37a4f3dbc355a62f5e27dcfafaeb94660f5c4a0b1a46706b48"
+      }
+    },
+    "rebound/late": {
+      "axioms": {
+        "closed": [
+          "'closedClaim' depends on axioms: [propext]"
+        ],
+        "conditional": [
+          "'conditional' depends on axioms: [propext]"
+        ],
+        "provider": [
+          "'providerChecked' depends on axioms: [propext]"
+        ]
+      },
+      "expected": "closed",
+      "negative_replay": "stale_provider_rejected",
+      "observations": [
+        [
+          -79228162514264337593543950334,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          1,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          2,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          3,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        [
+          79228162514264337593543950338,
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ]
+      ],
+      "source_ids": {
+        "Caller": "a125bdaa1d33f85c37b375bddcd4379d2c6ebc26b566edaaa47e2222585c926d",
+        "Closed": "185d3b8d41f9eaad1e04af228d31f8e8533825b3d986055909e7019325a5f418",
+        "Provider": "78127b5e7383f266c733f6d42e21900eaa07e3bb9e8357af9f4e733547b60048"
+      },
+      "subject": {
+        "binding": "779cff452f5065da70b9f106460dc190fbd3d68aa35edec4f51313816bd73656",
+        "caller": "6cc58c80a01c4d89ca9f2c40206b721c8eeff693abfb7bcd50696a53e44fd11e",
+        "caller_allowed": [
+          [
+            "argument",
+            "first",
+            "last"
+          ]
+        ],
+        "caller_body": [
+          "op",
+          0,
+          [
+            "emit",
+            "argument",
+            [
+              "argument",
+              0
+            ]
+          ]
+        ],
+        "caller_contract": "9ea2dfaa26c8516aaee398c0eff5f4a48266d54c02696610d0660e5d1f9ee97b",
+        "caller_operation": "3e11a87d9a659e69b6be30386da050baff650e03fcc4accac32feec2952551b8",
+        "mode": "op",
+        "provider": "a08d93e210b538647c12864206c092aa1474bc45807ccb30e55d1f59f147b2a0",
+        "provider_allowed": [
+          [
+            "first",
+            "last"
+          ]
+        ],
+        "provider_body": [
+          "emit",
+          "first",
+          [
+            "emit",
+            "last",
+            [
+              "add",
+              [
+                "argument",
+                0
+              ],
+              [
+                "literal",
+                2
+              ]
+            ]
+          ]
+        ],
+        "provider_contract": "95b6cde55bf7acaaabcf3d7ca9d170e845fe992574e7b97287630c9e6dbf23cd",
+        "provider_operation": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "reference": "6a0253abcf83a6cc1a58f9cbe98e39cc3489bb6fedd671f007bd1a4749c15ee8",
+        "root": "df561502604dbd37a4f3dbc355a62f5e27dcfafaeb94660f5c4a0b1a46706b48"
+      }
+    }
+  },
+  "format": "llmlang-generated-call/1",
+  "inputs": [
+    -79228162514264337593543950336,
+    -1,
+    0,
+    1,
+    79228162514264337593543950336
+  ],
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "python": "3.12.14"
+}
