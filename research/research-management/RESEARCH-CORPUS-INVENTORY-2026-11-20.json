@@ -2,8 +2,8 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "3886c7db47fa635f3ad1d0634fcf011fef4e8151",
-  "source": "Exact research path, blob and byte inventory for the rebased tree on the latest main baseline, excluding the inventory manifest itself.",
+  "revision": "af1f0cfe121a8ee8ff0a42fe15aa9f4bf3c967f4",
+  "source": "Exact research path, blob and byte inventory for the rebased current-main tree, excluding the inventory manifest itself.",
   "counts": {
     "research_files": 929,
     "research_artifacts_excluding_manifest": 929,
@@ -35,7 +35,7 @@
       "research-rfc-or-protocol-proposal": 2
     }
   },
-  "classification_note": "Latest main includes merged PR #486; RT-25 workload-fit recheck and its navigation references are added in this PR. Each newly introduced artifact received individual role review. All 929 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Against latest main af1f0cf (manifest excluded), this branch adds the RT-19 multi-file publication-boundary recheck and navigation references; each added artifact received individual role review. All 929 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
