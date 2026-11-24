@@ -270,6 +270,8 @@ The SCW-32 valuation theorem discharges the expression result's parser-constant 
 
 The SCW-32–33 program theorem establishes one direction of the valuation relationship in DEP-007. The interpreted exact CPC assumptions characterize dependence for the concrete source pair constructed from that wire valuation. [Logos program assumptions](../formal-verification/RT-07/RT-07-LOGOS-PROGRAM-ASSUMPTIONS-2026-11-24.md)
 
+The SCW-32/34 upstream model theorem extends DEP-007 to the pinned Logos model evaluator for every supported result under related constants. Agreement is checked under the upstream proof toolchain. Well-formed model extension and complete checker proof composition remain separate. [Logos upstream scalar model](../formal-verification/RT-07/RT-07-LOGOS-UPSTREAM-SCALAR-MODEL-2026-11-24.md)
+
 ## 6. Existing research-line placement
 
 The current Scenario 15–34 sequence is a substantial research line primarily spanning RT-02, RT-06, RT-07, and RT-08:

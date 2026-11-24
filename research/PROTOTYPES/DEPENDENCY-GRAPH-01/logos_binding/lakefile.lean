@@ -16,7 +16,7 @@ lean_lib LLMLangLogosBinding where
     `CpcNullaryAliases, `SymbolicCpcCertificate, `SourceCpcRefutation, `ProgramObservationSemantics, `ProgramObservationTests,
     `PairedObservationSemantics, `PairedObservationTests, `CanonicalQuerySymbols,
     `ProgramRelationalQuery, `QfLiaQuery, `QfLiaAdmissibility, `SolverRelationalQuery,
-    `ProgramRelationalQueryTests, `TypedQueryEquality, `SourceQueryEnvelope, `LogosScalarDenotation,
+    `ProgramRelationalQueryTests, `TypedQueryEquality, `SourceQueryEnvelope, `LogosScalarEvaluation, `LogosScalarDenotation,
     `LogosScalarPreservation, `LogosValuationBinding, `LogosProgramBridge]
 
 lean_exe testParserBinding where
