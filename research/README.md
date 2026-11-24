@@ -1,4 +1,4 @@
-The [current-main inventory reconciliation](RT-00-A-CURRENT-MAIN-INVENTORY-RECONCILIATION-2026-11-24.md) refreshes exact path/blob/size metadata and first-pass roles for all newly inventoried paths at main `1e7e4d9`; 21 changed existing roles still need content revalidation, and Stage 0.1 remains open.
+The [current-main inventory reconciliation](RT-00-A-CURRENT-MAIN-INVENTORY-RECONCILIATION-2026-11-24.md) refreshes exact path/blob/size metadata and first-pass roles for all newly inventoried paths at main `548182a`; 24 changed existing roles still need content revalidation, and Stage 0.1 remains open.
 
 # LLMLang Research Index
 

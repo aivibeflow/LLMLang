@@ -2,14 +2,14 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "1e7e4d99f266b6410742e1af1a9680d93231686f",
-  "source": "Exact inventory for the PR research tree based on main 1e7e4d99f266b6410742e1af1a9680d93231686f plus this reconciliation report; inventory manifest excluded.",
+  "revision": "548182a67afac67c0403c7bef5a7cd84cff821f0",
+  "source": "Exact inventory for PR research tree based on main 548182a67afac67c0403c7bef5a7cd84cff821f0 plus this reconciliation report; manifest excluded.",
   "counts": {
-    "research_files": 779,
-    "markdown_files": 382,
+    "research_files": 786,
+    "markdown_files": 384,
     "python_files": 261,
     "scenario_named_documents": 136,
-    "prototype_tree_files": 297,
+    "prototype_tree_files": 302,
     "preparation_and_reference_files": 24,
     "category_counts": {
       "audit-or-review-report": 72,
@@ -18,22 +18,22 @@
       "external-source-snapshot-or-license": 13,
       "index-or-research-management": 3,
       "other-research-artifact": 2,
-      "prototype-or-experiment-implementation": 178,
+      "prototype-or-experiment-implementation": 179,
       "prototype-report-or-readme": 30,
-      "prototype-test-evidence": 150,
+      "prototype-test-evidence": 154,
       "reference-register-or-manifest": 2,
-      "research-area-or-experiment-document": 83,
+      "research-area-or-experiment-document": 85,
       "research-background-or-design-analysis": 29,
       "research-preparation-brief-or-index": 13,
       "research-rfc-or-protocol-proposal": 2,
       "scenario-research-result": 136,
       "structured-fixture-or-schema": 16
     },
-    "lean_source_files": 38,
+    "lean_source_files": 39,
     "taxonomy_research_areas": 29,
     "dependency_edges": 136,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 779
+    "research_artifacts_excluding_manifest": 786
   },
   "classification_note": "At main 1e7e4d99f266b6410742e1af1a9680d93231686f, 168 paths are absent from the prior 610-record inventory and 21 represented paths have changed blob SHA or byte size. All newly added paths in the main tree and this reconciliation report have first-pass individual role/RT/stage mapping. Changed existing paths retain prior role mappings pending content revalidation; exact Git metadata does not validate semantic role. Claim validation, generated-output review, and experiment reproduction remain separate.",
   "index_check": {
@@ -907,8 +907,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
-      "git_blob_sha": "661edbd1d8ad2e01728faa6e35d8a1040dc57e6f",
-      "size_bytes": 1118,
+      "git_blob_sha": "48abb165070030ea89764fbb50fd8bbfa1180e45",
+      "size_bytes": 1143,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -999,8 +999,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean",
-      "git_blob_sha": "825b07fc8f4a7351765bf5d1693c9941a80a7a10",
-      "size_bytes": 19352,
+      "git_blob_sha": "f077357f13353437589fb63bb3ff5563af1a2c4a",
+      "size_bytes": 20942,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1862,8 +1862,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutation.lean",
-      "git_blob_sha": "2f8570700ef03043033bdd68e35582465ab8989c",
-      "size_bytes": 1084,
+      "git_blob_sha": "4fa95e5d8a1bbd4d497adcf33ee9553eb32e17be",
+      "size_bytes": 3674,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1882,8 +1882,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutationTests.lean",
-      "git_blob_sha": "89b1a300ed660b64856f5af36cbf7270bc05d6ce",
-      "size_bytes": 3028,
+      "git_blob_sha": "a68a071b738c957b8cbc5e5b742a1524f295252c",
+      "size_bytes": 3726,
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
@@ -9028,7 +9028,7 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "6b31f29f670efea5ae66fa57e930d7876af96aed",
+      "git_blob_sha": "d228a1689b9a364edf398aadc9924d8f5c944ce7",
       "size_bytes": 49426,
       "category": "index-or-research-management",
       "traceability": {
@@ -18881,8 +18881,8 @@
     },
     {
       "path": "research/RT-00-A-CURRENT-MAIN-INVENTORY-RECONCILIATION-2026-11-24.md",
-      "git_blob_sha": "48075f8c7df5c191558521b93e739e0f63914bae",
-      "size_bytes": 5494,
+      "git_blob_sha": "27915c2673e0f898a81265741783216fb8170a34",
+      "size_bytes": 5503,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -18935,6 +18935,146 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Bounded RT-07 typed source-owned JSON correspondence study; does not prove general parser or proof-backend soundness."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosVerdictConditions.lean",
+      "git_blob_sha": "2af17e39361c52175398f55036aed31ca923c1b6",
+      "size_bytes": 2997,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean model bounding runtime verdict conditions in the RT-07 checker trust-boundary study."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/bound-cpc/axioms.txt",
+      "git_blob_sha": "74892893555ff8bc514b7ef01f6689871fdb1f20",
+      "size_bytes": 228,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded axiom inventory for the bounded bound-CPC verdict evidence."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/isolated-runtime-build.txt",
+      "git_blob_sha": "3b8a35aef287e40f7d5b860ad28cf77206d697fe",
+      "size_bytes": 113,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded bounded runtime verdict evidence/axioms accompanying the RT-07 checker trust-boundary probe."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/observations.json",
+      "git_blob_sha": "b6ebdf5a5d230069dc1d7c2c4e27312fcee4e953",
+      "size_bytes": 692,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded bounded runtime verdict evidence/axioms accompanying the RT-07 checker trust-boundary probe."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/runtime-axioms.txt",
+      "git_blob_sha": "1f52cf76effaeda88474efe3fa6e90b118eec83d",
+      "size_bytes": 432,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded bounded runtime verdict evidence/axioms accompanying the RT-07 checker trust-boundary probe."
+      }
+    },
+    {
+      "path": "research/RT-07-BOUND-CPC-VERDICT.md",
+      "git_blob_sha": "e6b6c7325f9a56e42d06747b471c78805cae3b42",
+      "size_bytes": 4673,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded RT-07 study of exact source CPC assumptions in the ordinary Logos verdict."
+      }
+    },
+    {
+      "path": "research/RT-07-LOGOS-CHECKER-TRUST-BOUNDARY.md",
+      "git_blob_sha": "9b3b15f27141a36f963cbb07bc448c33540c7137",
+      "size_bytes": 5752,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded audit of Logos runtime verdict and checker trust boundary; not a general proof-system soundness claim."
       }
     }
   ],
@@ -19484,22 +19624,25 @@
   },
   "current_tree_reconciliation": {
     "reviewed_at": "2026-11-24",
-    "source_revision": "1e7e4d99f266b6410742e1af1a9680d93231686f",
+    "source_revision": "548182a67afac67c0403c7bef5a7cd84cff821f0",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
     "previous_records": 610,
-    "baseline_main_artifacts_excluding_manifest": 778,
-    "baseline_missing_manifest_paths": 168,
+    "baseline_main_artifacts_excluding_manifest": 785,
+    "baseline_missing_manifest_paths": 175,
     "baseline_extra_manifest_paths": 0,
-    "baseline_sha_or_size_mismatches": 21,
-    "current_records": 779,
-    "added_records": 169,
-    "refreshed_existing_records": 21,
+    "baseline_sha_or_size_mismatches": 24,
+    "current_records": 786,
+    "added_records": 176,
+    "refreshed_existing_records": 24,
     "refreshed_existing_paths": [
       "research/LLMLang-CONCEPT.md",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean",
       "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean",
       "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelopeTests.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutation.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutationTests.lean",
       "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
       "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
       "research/README.md",
@@ -19521,12 +19664,12 @@
     ],
     "removed_paths": 0,
     "tree_counts": {
-      "research_artifacts_excluding_manifest": 778,
-      "markdown_files": 381,
+      "research_artifacts_excluding_manifest": 785,
+      "markdown_files": 383,
       "mdx_files": 3,
       "python_files": 261,
-      "lean_files": 38,
-      "prototype_tree_files": 297,
+      "lean_files": 39,
+      "prototype_tree_files": 302,
       "scenario_named_documents": 136,
       "taxonomy_rt_rows": 29,
       "dependency_rows": 136,
@@ -19537,11 +19680,11 @@
         "external-source-snapshot-or-license": 13,
         "index-or-research-management": 3,
         "other-research-artifact": 2,
-        "prototype-or-experiment-implementation": 178,
+        "prototype-or-experiment-implementation": 179,
         "prototype-report-or-readme": 30,
-        "prototype-test-evidence": 150,
+        "prototype-test-evidence": 154,
         "reference-register-or-manifest": 2,
-        "research-area-or-experiment-document": 83,
+        "research-area-or-experiment-document": 85,
         "research-background-or-design-analysis": 29,
         "research-preparation-brief-or-index": 13,
         "research-rfc-or-protocol-proposal": 2,
@@ -19549,19 +19692,19 @@
         "structured-fixture-or-schema": 16
       },
       "markdown_mdx_files": 380,
-      "research_json_files": 70,
+      "research_json_files": 71,
       "other_tracked_file_types": {
-        "lean": 38,
-        "txt": 9,
+        "lean": 39,
+        "txt": 12,
         "rs": 3,
         "c": 3,
         "mjs": 3,
         "csv": 2,
-        "sha256sums": 1,
-        "jsonl": 1,
-        "lean_toolchain": 1,
         "toml": 1,
-        "proto": 1
+        "proto": 1,
+        "jsonl": 1,
+        "sha256sums": 1,
+        "lean_toolchain": 1
       }
     },
     "prototype_family_file_counts": {
@@ -19588,36 +19731,39 @@
     "scenario_crosswalk_boundary": "The scenario_named_documents count uses a broad filename predicate (SCENARIO- followed by digits) and is 137; the strict RESEARCH-SCENARIO-<number> report set is 136 and is fully mapped. The one broad-only path is the RT-00 Scenario 130 claim-traceability pilot, not a Scenario report. The 136 reports represent 135 scenario identifiers because Scenario 95 has a supplemental execution file; Scenario 16 remains absent with intent unresolved. See RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md.",
     "rt27_traceability_boundary": "RT-27 is registered in taxonomy and dependency map by PR #251; its physical storage format and requirements remain provisional.",
     "index_coverage_result": {
-      "research_markdown_mdx_documents": 385,
+      "research_markdown_mdx_documents": 387,
       "research_documents_without_index_inbound": 57,
       "research_documents_with_zero_inbound": 23,
       "unresolved_local_targets": 38,
-      "non_markdown_targets": 656,
+      "non_markdown_targets": 660,
       "auditor": ".github/scripts/audit_research_index_coverage.py",
-      "audit_revision": "1e7e4d99f266b6410742e1af1a9680d93231686f",
-      "documents_scanned": 386,
+      "audit_revision": "548182a67afac67c0403c7bef5a7cd84cff821f0",
+      "documents_scanned": 388,
       "index_documents": 21,
-      "local_link_occurrences": 2552,
+      "local_link_occurrences": 2560,
       "research_documents_with_zero_inbound_links": 23,
-      "unique_research_targets_with_inbound_links": 362,
+      "unique_research_targets_with_inbound_links": 364,
       "scenario_documents": 136,
       "scenario_documents_with_zero_inbound_links": 6,
       "scenario_documents_without_inbound_link_from_designated_index": 31,
-      "audit_command": "python3 .github/scripts/audit_research_index_coverage.py --revision 1e7e4d99f266b6410742e1af1a9680d93231686f"
+      "audit_command": "python3 .github/scripts/audit_research_index_coverage.py --revision 548182a67afac67c0403c7bef5a7cd84cff821f0"
     },
     "comparison_scope": "The inventory-freshness workflow validates path, Git blob SHA, and byte size on the final PR head. Semantic orphan/contradiction review and experiment validation remain separate.",
     "added_path_review": {
       "status": "all added paths have first-pass individual role and RT/stage mapping",
-      "count": 169,
+      "count": 176,
       "paths": []
     },
     "stale_record_review": {
       "status": "exact Git metadata refreshed; prior semantic mappings retained pending revalidation",
-      "count": 21,
+      "count": 24,
       "paths": [
         "research/LLMLang-CONCEPT.md",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean",
         "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean",
         "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelopeTests.lean",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutation.lean",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutationTests.lean",
         "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
         "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
         "research/README.md",
@@ -19664,14 +19810,9 @@
     "enumeration_method": "git ls-tree -r --full-tree origin/main research; exclude the inventory manifest itself; git cat-file -s for blob sizes",
     "open_research_prs_not_in_snapshot": [
       {
-        "number": 430,
-        "title": "RT-07: audit Logos runtime verdicts and the soundness boundary",
-        "research_paths_added": 4
-      },
-      {
-        "number": 428,
-        "title": "RT-07: bind exact source CPC assumptions to the ordinary Logos verdict",
-        "research_paths_added": 4
+        "number": 431,
+        "title": "RT-33: emit and replay Lean-owned symbolic SMT queries",
+        "research_paths_added": 13
       },
       {
         "number": 423,
