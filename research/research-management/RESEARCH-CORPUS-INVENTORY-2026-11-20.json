@@ -2,32 +2,32 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "35078012d728f21b054bc90e4715fd7ffc1104f7",
-  "source": "Exact research path, blob and byte inventory for the staged tree based on this main revision, excluding the inventory manifest itself.",
+  "revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
+  "source": "Exact PR-tree inventory based on main b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5 plus reconciliation report; inventory itself excluded from Git tree comparison.",
   "counts": {
-    "research_files": 840,
-    "research_artifacts_excluding_manifest": 840,
-    "markdown_files": 410,
+    "research_files": 870,
+    "research_artifacts_excluding_manifest": 870,
+    "markdown_files": 422,
     "mdx_files": 3,
-    "python_files": 267,
-    "lean_source_files": 41,
+    "python_files": 271,
+    "lean_source_files": 42,
     "scenario_named_documents": 136,
     "prototype_tree_files": 303,
     "preparation_and_reference_files": 24,
     "taxonomy_research_areas": 38,
     "dependency_edges": 262,
     "category_counts": {
-      "audit-or-review-report": 76,
+      "audit-or-review-report": 85,
       "cross-cutting-synthesis-or-status": 4,
       "example-or-fixture": 49,
       "external-source-snapshot-or-license": 13,
       "index-or-research-management": 14,
       "other-research-artifact": 2,
-      "prototype-or-experiment-implementation": 185,
+      "prototype-or-experiment-implementation": 189,
       "prototype-report-or-readme": 30,
-      "prototype-test-evidence": 173,
+      "prototype-test-evidence": 187,
       "reference-register-or-manifest": 2,
-      "research-area-or-experiment-document": 92,
+      "research-area-or-experiment-document": 95,
       "research-background-or-design-analysis": 30,
       "research-preparation-brief-or-index": 13,
       "research-rfc-or-protocol-proposal": 2,
@@ -35,7 +35,7 @@
       "structured-fixture-or-schema": 19
     }
   },
-  "classification_note": "New paths have first-pass roles. Carried-forward role mappings and recorded byte changes do not certify scientific or semantic equivalence.",
+  "classification_note": "Against current main b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5, 29 new tracked artifacts were individually role triaged and 23 existing blob changes were content reviewed. The PR tree includes this report. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -665,14 +665,14 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md",
-      "git_blob_sha": "c1fb282cc0982587f843d4af43585efc4a02dd6d",
-      "size_bytes": 36093,
+      "git_blob_sha": "82c5a2a33e373aa5f663f54820d3dbfe7662b281",
+      "size_bytes": 36216,
       "category": "prototype-report-or-readme",
       "traceability": {
         "items": [
           "PLAN.md §0.1 — prototype family index"
         ],
-        "method": "individual prototype module/test/result role reviewed against prototype README, module description, and paired scenario",
+        "method": "individual prototype module/test/result role reviewed against prototype README, module description, and paired scenario; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -703,8 +703,8 @@
         "basis": "prototype-family README/file inventory; this does not assert that every file implements every family area"
       },
       "semantic_review": {
-        "status": "file-role-triaged",
-        "basis": "Family README indexes prototype modules, tests, reports, commands, scope, and limitations; Stage 0 navigation/traceability role."
+        "status": "content-role-triaged",
+        "basis": "Navigation-only links or anchor fix; prior content role retained."
       }
     },
     {
@@ -5422,19 +5422,19 @@
         "items": [
           "PLAN.md §0.1"
         ],
-        "method": "current file and research-family scope",
+        "method": "current file and research-family scope; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
         0
       ],
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Navigation and scope index."
+        "status": "content-role-triaged",
+        "basis": "Navigation-only links or anchor fix; prior content role retained."
       },
       "path": "research/PROTOTYPES/README.md",
-      "git_blob_sha": "f18e51a1da15a2884f78f095b0d3ca83a2974622",
-      "size_bytes": 673
+      "git_blob_sha": "2097fe4766f16c9b407e64f6d1a5ca41e34131b9",
+      "size_bytes": 727
     },
     {
       "path": "research/PROTOTYPES/RT-04-01/README.md",
@@ -7227,19 +7227,19 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "14f3e28985fad046d7a0d942b0e81a96a4a42860",
-      "size_bytes": 59174,
+      "git_blob_sha": "12eae9b44060e8f4e88588a40557db2be30b6606",
+      "size_bytes": 59474,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
           "PLAN.md §0.1 — research corpus inventory"
         ],
-        "method": "first-pass content/heading/related-document review; see semantic traceability report",
+        "method": "first-pass content/heading/related-document review; see semantic traceability report; changed lines rechecked",
         "confidence": "medium"
       },
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Research navigation index and artifact discovery; administrative Stage 0 ownership."
+        "status": "content-role-triaged",
+        "basis": "Navigation-only links or anchor fix; prior content role retained."
       },
       "plan_stages": [
         0
@@ -10830,8 +10830,8 @@
     },
     {
       "path": "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md",
-      "git_blob_sha": "de7bf6ad6f2748a9f03ddde16e36c9ce32c639fb",
-      "size_bytes": 15025,
+      "git_blob_sha": "0deb6541cb0704681747b151d7415ac4cf0b2c0b",
+      "size_bytes": 15090,
       "category": "research-background-or-design-analysis",
       "traceability": {
         "items": [
@@ -10840,12 +10840,12 @@
           "RT-08",
           "RT-09"
         ],
-        "method": "first-pass content/heading/related-document review; see semantic traceability report",
+        "method": "first-pass content/heading/related-document review; see semantic traceability report; changed lines rechecked",
         "confidence": "medium"
       },
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Single canonical semantics, formal projections, proof boundaries, and executable/formal correspondence."
+        "status": "content-role-triaged",
+        "basis": "Navigation-only links or anchor fix; prior content role retained."
       },
       "plan_stages": [
         1,
@@ -10859,19 +10859,19 @@
         "items": [
           "RT-07"
         ],
-        "method": "current file and research-family scope",
+        "method": "current file and research-family scope; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
         2
       ],
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Russian-language companion on formal verification."
+        "status": "content-role-triaged",
+        "basis": "Navigation-only links or anchor fix; prior content role retained."
       },
       "path": "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.ru.md",
-      "git_blob_sha": "421cc3b17148a640bedc4b4b153231c89ed36b22",
-      "size_bytes": 25423
+      "git_blob_sha": "58a8bd7716130a86ddce7f1a91e3eb2c341248ae",
+      "size_bytes": 25473
     },
     {
       "path": "research/formal-verification/RT-07/RESEARCH-SCENARIO-04-VERIFICATION-REUSE.md",
@@ -11243,18 +11243,18 @@
     },
     {
       "path": "research/formal-verification/RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md",
-      "git_blob_sha": "d0d9af01389816f0393e9bb8f233785c10c92a99",
+      "git_blob_sha": "33c3e1bd6efaeba178d5c63324bdd40bcf1ad1d7",
       "size_bytes": 4727,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [],
-        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation",
+        "method": "inventory-only; no individual semantic role mapping performed in this reconciliation; changed lines rechecked",
         "confidence": "unresolved"
       },
       "plan_stages": [],
       "semantic_review": {
-        "status": "not-reviewed",
-        "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       }
     },
     {
@@ -12071,7 +12071,7 @@
     },
     {
       "path": "research/language-design/RT-03/RESEARCH-SCENARIO-45-NUMERIC-SEMANTICS-AND-OVERFLOW.md",
-      "git_blob_sha": "6f1326a86509fa154e09405dcbd91ed543f94e9c",
+      "git_blob_sha": "d96bc4f52731748677c159354454d93b996ee016",
       "size_bytes": 11120,
       "category": "scenario-research-result",
       "traceability": {
@@ -12079,7 +12079,7 @@
           "Scenario 45",
           "RT-03"
         ],
-        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md",
+        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -12090,6 +12090,10 @@
           "RT-03"
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
+      },
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       }
     },
     {
@@ -12232,15 +12236,15 @@
     },
     {
       "path": "research/language-design/RT-03/RESEARCH-SCENARIO-55-LOOP-RESULTS-LABELS-AND-CONTROL-TRANSFER.md",
-      "git_blob_sha": "efaa6bdea9a793517788828fdb66ec3164a262f6",
-      "size_bytes": 8662,
+      "git_blob_sha": "e6451cbf3b47b6fbb402c5716c2f3aacb2e0b385",
+      "size_bytes": 8686,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
           "Scenario 55",
           "RT-03"
         ],
-        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md",
+        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -12251,6 +12255,10 @@
           "RT-03"
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
+      },
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       }
     },
     {
@@ -12284,8 +12292,8 @@
     },
     {
       "path": "research/language-design/RT-03/RESEARCH-SCENARIO-63-EQUALITY-IDENTITY-AND-HASHING.md",
-      "git_blob_sha": "34ce5b68ffae025e09047865ac3e084d63d0352c",
-      "size_bytes": 7948,
+      "git_blob_sha": "798b27762f9ff845b067a449fe94b3648c721dea",
+      "size_bytes": 7941,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -12294,7 +12302,7 @@
           "RT-04",
           "RT-12"
         ],
-        "method": "Scenario ID plus first-pass content/header crosswalk; see semantic traceability report",
+        "method": "Scenario ID plus first-pass content/header crosswalk; see semantic traceability report; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -12309,6 +12317,10 @@
           "RT-12"
         ],
         "basis": "explicit Research area(s)/Aspect declaration in scenario report"
+      },
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       }
     },
     {
@@ -12359,8 +12371,8 @@
     },
     {
       "path": "research/language-design/RT-03/RESEARCH-SCENARIO-73-NUMERIC-LITERAL-TYPING-AND-CONVERSIONS.md",
-      "git_blob_sha": "bfba6301c145d4b5db560cefd8176a4a98784492",
-      "size_bytes": 8040,
+      "git_blob_sha": "f04ed96df5047c229642e6daf2100e5152769efb",
+      "size_bytes": 8044,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -12368,7 +12380,7 @@
           "RT-03",
           "RT-04"
         ],
-        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md",
+        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -12381,19 +12393,23 @@
           "RT-04"
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
+      },
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       }
     },
     {
       "path": "research/language-design/RT-03/RESEARCH-SCENARIO-74-REFUTABLE-PATTERN-FAILURE-AND-BINDING.md",
-      "git_blob_sha": "0e799da3788a7e0e336b5fa5450babd9ad165712",
-      "size_bytes": 7349,
+      "git_blob_sha": "497e558103a1231ec95b14bdefd6a4a2e17604e6",
+      "size_bytes": 7359,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
           "Scenario 74",
           "RT-03"
         ],
-        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md",
+        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -12404,6 +12420,10 @@
           "RT-03"
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
+      },
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       }
     },
     {
@@ -12457,7 +12477,7 @@
     },
     {
       "path": "research/language-design/RT-03/RESEARCH-SCENARIO-78-FLOATING-POINT-REPRODUCIBILITY-AND-IEEE-EDGES.md",
-      "git_blob_sha": "944331f00daee16ced4b1e2f572ec9fe1e996f8d",
+      "git_blob_sha": "e0d0a12b268f02ad3f6911d0bf3260493276cbb4",
       "size_bytes": 12270,
       "category": "scenario-research-result",
       "traceability": {
@@ -12465,7 +12485,7 @@
           "Scenario 78",
           "RT-03"
         ],
-        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md",
+        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -12476,6 +12496,10 @@
           "RT-03"
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
+      },
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       }
     },
     {
@@ -12519,20 +12543,20 @@
     },
     {
       "path": "research/language-design/RT-04/RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md",
-      "git_blob_sha": "d74d4836d09af51c93561a63c6975086092e386a",
-      "size_bytes": 47794,
+      "git_blob_sha": "91ad88bf1964cf0cb2441865b65edf8f1da4bc5f",
+      "size_bytes": 48150,
       "category": "research-background-or-design-analysis",
       "traceability": {
         "items": [
           "RT-03",
           "RT-04"
         ],
-        "method": "first-pass content/heading/related-document review; see semantic traceability report",
+        "method": "first-pass content/heading/related-document review; see semantic traceability report; changed lines rechecked",
         "confidence": "medium"
       },
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Explicit RT-03/RT-04 declaration and typed call/ownership transfer boundary."
+        "status": "content-role-triaged",
+        "basis": "Adds owned-return replay linkage and scoped result; broader ownership contract remains unresolved."
       },
       "plan_stages": [
         1,
@@ -13112,15 +13136,15 @@
     },
     {
       "path": "research/language-design/RT-04/RESEARCH-SCENARIO-42-GENERICS-CONSTRAINTS-AND-DISPATCH.md",
-      "git_blob_sha": "c1713e7542e5cac74a41578e0d721a7c09a9469e",
-      "size_bytes": 12929,
+      "git_blob_sha": "65590d84481d0a117125473791cb12cc37a4f378",
+      "size_bytes": 12893,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
           "Scenario 42",
           "RT-04"
         ],
-        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md",
+        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -13131,6 +13155,10 @@
           "RT-04"
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
+      },
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       }
     },
     {
@@ -13546,6 +13574,28 @@
       }
     },
     {
+      "path": "research/language-design/RT-04/RT-04-OWNED-PROVIDER-CONTRACT-REPLAY-2026-11-24.md",
+      "git_blob_sha": "192cb98207fb569be1e8eaecd586c8b01a0494c7",
+      "size_bytes": 4610,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.4.1",
+          "RT-04",
+          "COR-13"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Owned transfer / cleanup failure discriminator; paired runner and result ledger."
+      }
+    },
+    {
       "path": "research/language-design/RT-04/RT-04-PROTOTYPE-01-RESULTS.md",
       "git_blob_sha": "47ce0c61293b6d9965a8b27a8474999f810a7696",
       "size_bytes": 11393,
@@ -13610,6 +13660,50 @@
       "plan_stages": [
         5
       ]
+    },
+    {
+      "path": "research/language-design/RT-04/owned-contract-replay/results.json",
+      "git_blob_sha": "5f832cf1e60d47eb623ca1b900bc401c45d2414e",
+      "size_bytes": 29785,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.4.1",
+          "RT-04",
+          "COR-13"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Owned transfer / cleanup failure discriminator; paired runner and result ledger."
+      }
+    },
+    {
+      "path": "research/language-design/RT-04/owned-contract-replay/run.py",
+      "git_blob_sha": "0058d964027ebe08c40e30a48ed5bcbfa43bd6c3",
+      "size_bytes": 5743,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.4.1",
+          "RT-04",
+          "COR-13"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Owned transfer / cleanup failure discriminator; paired runner and result ledger."
+      }
     },
     {
       "path": "research/language-design/RT-31/RESEARCH-SCENARIO-80-COMMENTS-DOCS-AND-LEXICAL-TRIVIA.md",
@@ -15510,19 +15604,23 @@
     },
     {
       "path": "research/references/README.md",
-      "git_blob_sha": "c0083ce819f290ece7f59d13e021bc78b4217a83",
-      "size_bytes": 11504,
+      "git_blob_sha": "4c51e134316d1fdb5941fd60f069ff40f13d212a",
+      "size_bytes": 11581,
       "category": "reference-register-or-manifest",
       "traceability": {
         "items": [
           "cross-cutting prior art"
         ],
-        "method": "reference register use-cases; not a single RT item",
+        "method": "reference register use-cases; not a single RT item; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
         "Stage 0 (corpus/reference management only; domain mapping pending)"
-      ]
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Navigation-only links or anchor fix; prior content role retained."
+      }
     },
     {
       "path": "research/references/SNAPSHOT-MANIFEST.json",
@@ -15835,19 +15933,19 @@
         "items": [
           "PLAN.md §0.1"
         ],
-        "method": "current file and research-family scope",
+        "method": "current file and research-family scope; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
         0
       ],
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Navigation and scope index."
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       },
       "path": "research/research-management/README.md",
-      "git_blob_sha": "19c0ddb5e52a14d740be7bd68ae34bfecf2b9116",
-      "size_bytes": 1668
+      "git_blob_sha": "88ace0957ff8af4e0cf1e1a4fe3e7aa665b4ad7a",
+      "size_bytes": 2576
     },
     {
       "path": "research/research-management/REPOSITORY-AUDIT-2026-11-17.md",
@@ -16012,8 +16110,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
-      "git_blob_sha": "00a89ae057a19772564cde425f9877861a88af72",
-      "size_bytes": 86198,
+      "git_blob_sha": "d58fbcd72faa46d1f9d48435dd553fd24768f421",
+      "size_bytes": 93745,
       "category": "cross-cutting-synthesis-or-status",
       "traceability": {
         "items": [
@@ -16027,12 +16125,12 @@
           "RT-16",
           "RT-18"
         ],
-        "method": "first-pass content/heading/related-document review; see semantic traceability report",
+        "method": "first-pass content/heading/related-document review; see semantic traceability report; changed lines rechecked",
         "confidence": "medium"
       },
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Cross-area candidate-vector synthesis explicitly compares semantics, types/resources, identity, formal verification, runtime, backend, security, and evolution."
+        "status": "content-role-triaged",
+        "basis": "Added finite public-interface, typed-SPG observation, and owned-return comparisons with scoped discriminators and open selection gates."
       },
       "plan_stages": [
         1,
@@ -16277,6 +16375,26 @@
       "semantic_review": {
         "status": "not-reviewed",
         "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-A-POST-THEMATIC-INVENTORY-REFRESH-2026-11-24.md",
+      "git_blob_sha": "726bc42d7c5f6a3b6bf96c7dd2418cec88b3246e",
+      "size_bytes": 7884,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "Exact current-main corpus reconciliation",
+        "confidence": "high"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "current-main-inventory-reconciliation",
+        "basis": "Exact inventory, 29 new roles, 23 changed roles and navigation audit."
       }
     },
     {
@@ -16663,6 +16781,170 @@
       }
     },
     {
+      "path": "research/research-management/RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.json",
+      "git_blob_sha": "9e38bcb40566f3996059de739d89e870575b0486",
+      "size_bytes": 33516,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Research navigation reachability screen."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.md",
+      "git_blob_sha": "ee42dd0323646b564f1dac9012da4a5c9b6019d8",
+      "size_bytes": 4919,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Research navigation reachability screen."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-B-11-CHANGED-ARTIFACT-ROLES-2026-11-24.json",
+      "git_blob_sha": "567a57feee0a105e477ee0bc3e8b5211c04e3f4f",
+      "size_bytes": 62759,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Changed artifact role review ledger."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-B-11-CHANGED-ARTIFACT-ROLES-2026-11-24.md",
+      "git_blob_sha": "6646b751daad034922bb28eb22c724db4981fd2f",
+      "size_bytes": 6522,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Changed artifact role review ledger."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.json",
+      "git_blob_sha": "a479eba634d1f5c55904d79abb2b6f78901ee2d5",
+      "size_bytes": 13212,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Text overlap screen and candidate ledger."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.md",
+      "git_blob_sha": "1025d150ac3d29cf2516529669c03b363cb4bc18",
+      "size_bytes": 5987,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Text overlap screen and candidate ledger."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.json",
+      "git_blob_sha": "3c6dea928d50008e6c68ea413b2c309ca5a65ac3",
+      "size_bytes": 10373,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1",
+          "RT-05",
+          "RT-20"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Public-interface evidence audit."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.md",
+      "git_blob_sha": "eef54ea0b37cec66c77d4174e04b1334dcc633e3",
+      "size_bytes": 6310,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1",
+          "RT-05",
+          "RT-20"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Public-interface evidence audit."
+      }
+    },
+    {
       "path": "research/research-management/RT-00/RT-00-C-02-SQLITE-IDENTITY-AND-SOURCE-ARCHIVE-INTEGRITY-2026-11-21.md",
       "git_blob_sha": "d3e87f1451d21af01f9e4a1ee224ba081a5e5788",
       "size_bytes": 5261,
@@ -16676,6 +16958,50 @@
       "semantic_review": {
         "status": "not-reviewed",
         "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.json",
+      "git_blob_sha": "8ff600179c3edf42267980f1a2a907cd80122114",
+      "size_bytes": 6252,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1",
+          "RT-09",
+          "RT-13"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Backend preservation replay."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.md",
+      "git_blob_sha": "a68dcd3de39fb7b958f987f4ddbb0d29e24323f3",
+      "size_bytes": 4831,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1",
+          "RT-09",
+          "RT-13"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Backend preservation replay."
       }
     },
     {
@@ -16697,6 +17023,71 @@
       "semantic_review": {
         "status": "content-role-triaged",
         "basis": "RT-00 C current-main delta reconciles PR165/166, RT16/CLI, RT04, SQLite, RT24, fuel, and benchmark evidence."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.json",
+      "git_blob_sha": "86f92b6f6be06a78a9f7e48e021c011ea75f2679",
+      "size_bytes": 14121,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1",
+          "RT-03",
+          "RT-04"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Native lifecycle replay."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.md",
+      "git_blob_sha": "5bfc203cdc226f43c92c1c2d2ebd8615e739b86d",
+      "size_bytes": 4936,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1",
+          "RT-03",
+          "RT-04"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Native lifecycle replay."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-PROVIDER-QUEUE-REPLAY-2026-11-24.md",
+      "git_blob_sha": "0a109a95118bc1304706311124b1ae5457ab6d9a",
+      "size_bytes": 6278,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1",
+          "RT-12"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Package provider queue comparison."
       }
     },
     {
@@ -17095,20 +17486,20 @@
     },
     {
       "path": "research/research-management/RT-00/RT-00-QUALITY-RULES-PILOT-2026-11-23.md",
-      "git_blob_sha": "fa5244cd943e1320bbe8a80f5a2bf59cbf2d8043",
-      "size_bytes": 7153,
+      "git_blob_sha": "376fbf9593981b02ffa0f7af762b70e531658dcc",
+      "size_bytes": 7158,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
-        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
         0
       ],
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Stage 0.2 structural pilot implementation/test evidence; protocol remains proposed."
+        "status": "content-role-triaged",
+        "basis": "Corrects link to the renamed TODO anchor; research claims unchanged."
       }
     },
     {
@@ -17281,6 +17672,110 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Stage 0.2 structural census of root research documents and review queue; structure is not technical validation."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.json",
+      "git_blob_sha": "6cef5c03b834a52fe8375d034aa9e6d366e8d0a2",
+      "size_bytes": 8328,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.2",
+          "RT-33"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Three-backend quality-evidence replay."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.md",
+      "git_blob_sha": "e5db1fcacffabd1e9d0ddf94c1b1348a1b9c940c",
+      "size_bytes": 5214,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.2",
+          "RT-33"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Three-backend quality-evidence replay."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/package_provider_queue_replay.py",
+      "git_blob_sha": "d030465d983952e20fd4b3bbac8b5080cd3b945c",
+      "size_bytes": 6889,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Text overlap screen and candidate ledger."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/provider-queue-replay-2026-11-24.json",
+      "git_blob_sha": "b7b443a5ee9f7f7aa089c9fa7e7bd82f1f193709",
+      "size_bytes": 29593,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1",
+          "RT-12"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Package provider queue comparison."
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/provider-queue-replay-2026-11-24.png",
+      "git_blob_sha": "04baad4722366e482c01d9032754b04e5d600091",
+      "size_bytes": 58150,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §0.1",
+          "RT-12"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Package provider queue comparison."
       }
     },
     {
@@ -17621,15 +18116,15 @@
     },
     {
       "path": "research/runtime-and-systems/RT-10/RESEARCH-SCENARIO-57-STRUCTURED-CONCURRENCY-AND-TASK-LIFETIMES.md",
-      "git_blob_sha": "a31d86f89ce0e1b1d32a4d83e67fbe8e5a0e1ed8",
-      "size_bytes": 10659,
+      "git_blob_sha": "8c8cdae42d206adbb137ed4313ce265f41a44cf2",
+      "size_bytes": 10667,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
           "Scenario 57",
           "RT-03"
         ],
-        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md",
+        "method": "explicit Scenario ID in filename + candidate RT crosswalk from RESEARCH-TAXONOMY.md; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -17640,6 +18135,10 @@
           "RT-03"
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
+      },
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       }
     },
     {
@@ -17885,19 +18384,19 @@
         "items": [
           "RT-38"
         ],
-        "method": "current file and research-family scope",
+        "method": "current file and research-family scope; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
         6
       ],
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Proposed research brief, pilot and prerequisite gates."
+        "status": "content-role-triaged",
+        "basis": "Navigation-only links or anchor fix; prior content role retained."
       },
       "path": "research/runtime-and-systems/RT-38/README.md",
-      "git_blob_sha": "c563e5e83b1265dac28f8455365a14b1d06c7930",
-      "size_bytes": 6999
+      "git_blob_sha": "84a1c098163c714e8e072c507b3f95fe2186cbb7",
+      "size_bytes": 29405
     },
     {
       "path": "research/security/PROTOTYPES/RT-16-AUTHORIZATION-01/policy.py",
@@ -18066,25 +18565,69 @@
       ]
     },
     {
+      "path": "research/semantic-representation/RT-05/PUBLIC-INTERFACE-FINITE-REFINEMENT-PILOT-2026-11-24.md",
+      "git_blob_sha": "2e5b29c0cfd6784e9129275faccf0c405712f90d",
+      "size_bytes": 5892,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
+          "PLAN.md §1.3.1",
           "RT-05",
           "RT-20"
         ],
-        "method": "current file and research-family scope",
+        "method": "paired report/source, family scope and direct PLAN links",
         "confidence": "medium"
       },
       "plan_stages": [
         1
       ],
       "semantic_review": {
-        "status": "first-pass-content-triage",
-        "basis": "Candidate public names, provider refinement and evidence binding."
+        "status": "individual-file-role-triaged",
+        "basis": "Finite public-interface or typed-SPG observation pilot; paired sources and ledger."
+      }
+    },
+    {
+      "path": "research/semantic-representation/RT-05/PUBLIC-INTERFACE-SPG-OBSERVATION-PILOT-2026-11-24.md",
+      "git_blob_sha": "c04767989b3a4cffc2b9eda93fc25c2367b4ac4a",
+      "size_bytes": 5304,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.3.1",
+          "RT-05",
+          "RT-20"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite public-interface or typed-SPG observation pilot; paired sources and ledger."
+      }
+    },
+    {
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-05",
+          "RT-20"
+        ],
+        "method": "current file and research-family scope; changed lines rechecked",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Adds finite pilot links and scope notes; no general correspondence claim."
       },
       "path": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
-      "git_blob_sha": "5cc180530f4121e0a8331460f8b633a927a747e9",
-      "size_bytes": 21771
+      "git_blob_sha": "e22f6d6a2deb814470f573b733e17a470170f74d",
+      "size_bytes": 22283
     },
     {
       "path": "research/semantic-representation/RT-05/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md",
@@ -18407,14 +18950,14 @@
     },
     {
       "path": "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
-      "git_blob_sha": "cdd2f6a4197af2557a59b665a89b5a59c2e0f826",
-      "size_bytes": 27694,
+      "git_blob_sha": "d5d2d93df11304cba38d2e7cc57e4fc670ebfaa3",
+      "size_bytes": 27649,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
           "RT-05"
         ],
-        "method": "individual file content and scope review during RT-00-A2 reconciliation",
+        "method": "individual file content and scope review during RT-00-A2 reconciliation; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -18422,8 +18965,8 @@
         3
       ],
       "semantic_review": {
-        "status": "individual-file-role-triaged",
-        "basis": "Bounded typed SPG experiment; findings are limited to the closed scalar and ordered-event fixture."
+        "status": "content-role-triaged",
+        "basis": "Repairs links to current concept headings; model claim remains bounded."
       }
     },
     {
@@ -18443,9 +18986,141 @@
       }
     },
     {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/Refinement.lean",
+      "git_blob_sha": "7a45ccef12fa8e6099d8fbc3d2de864defb2279c",
+      "size_bytes": 1611,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.3.1",
+          "RT-05",
+          "RT-20"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite public-interface or typed-SPG observation pilot; paired sources and ledger."
+      }
+    },
+    {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/fixtures.json",
+      "git_blob_sha": "3338025fcdf5a40a49d5592d22a952142a56183f",
+      "size_bytes": 3965,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.3.1",
+          "RT-05",
+          "RT-20"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite public-interface or typed-SPG observation pilot; paired sources and ledger."
+      }
+    },
+    {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/results.json",
+      "git_blob_sha": "d37ec4bc4bd56a639854dbc02d8d73a220da0125",
+      "size_bytes": 3559,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.3.1",
+          "RT-05",
+          "RT-20"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite public-interface or typed-SPG observation pilot; paired sources and ledger."
+      }
+    },
+    {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/run.py",
+      "git_blob_sha": "3d1d36f5b8323b59aa8f5e0f216f842d902a1d99",
+      "size_bytes": 5858,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.3.1",
+          "RT-05",
+          "RT-20"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite public-interface or typed-SPG observation pilot; paired sources and ledger."
+      }
+    },
+    {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/spg-results.json",
+      "git_blob_sha": "1ebf69ea8999637c5ca09012bb378a2731ac8468",
+      "size_bytes": 8299,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.3.1",
+          "RT-05",
+          "RT-20"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite public-interface or typed-SPG observation pilot; paired sources and ledger."
+      }
+    },
+    {
+      "path": "research/semantic-representation/RT-05/public-refinement-pilot/spg_observations.py",
+      "git_blob_sha": "c949ecf3a7352f10c26cb0fb0fee412e618f305d",
+      "size_bytes": 8093,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "PLAN.md §1.3.1",
+          "RT-05",
+          "RT-20"
+        ],
+        "method": "paired report/source, family scope and direct PLAN links",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ],
+      "semantic_review": {
+        "status": "individual-file-role-triaged",
+        "basis": "Finite public-interface or typed-SPG observation pilot; paired sources and ledger."
+      }
+    },
+    {
       "path": "research/semantic-representation/RT-06/RESEARCH-SCENARIO-09-DEPENDENCY-DRIVEN-EVOLUTION.md",
-      "git_blob_sha": "d02a0b91d914dc3d58531b8dc3151ebf7a506a77",
-      "size_bytes": 39777,
+      "git_blob_sha": "347b27524ae53df86f8ee0d4e813e9869fc176b0",
+      "size_bytes": 39846,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -18453,7 +19128,7 @@
           "RT-05",
           "RT-06"
         ],
-        "method": "Scenario ID plus first-pass content/header crosswalk; see semantic traceability report",
+        "method": "Scenario ID plus first-pass content/header crosswalk; see semantic traceability report; changed lines rechecked",
         "confidence": "medium"
       },
       "plan_stages": [
@@ -18466,6 +19141,10 @@
           "RT-06"
         ],
         "basis": "content review of research question, scope, and findings"
+      },
+      "semantic_review": {
+        "status": "content-role-triaged",
+        "basis": "Changed lines inspected; role remains the existing research artifact role, with specific edit documented in current-main report."
       }
     },
     {
@@ -22730,5 +23409,136 @@
     },
     "prototype_path_scope": "Files under a family directory in any thematic or shared PROTOTYPES tree.",
     "role_review_boundary": "Only the explicitly recorded prior role queue and new roles were reviewed. Masking link destinations establishes edit shape, not destination or semantic equivalence."
+  },
+  "latest_main_reconciliation": {
+    "reviewed_at": "2026-11-24",
+    "source_revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
+    "previous_manifest_revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
+    "previous_records": 840,
+    "main_artifacts_excluding_manifest": 869,
+    "missing_manifest_paths": [
+      "research/language-design/RT-04/RT-04-OWNED-PROVIDER-CONTRACT-REPLAY-2026-11-24.md",
+      "research/language-design/RT-04/owned-contract-replay/results.json",
+      "research/language-design/RT-04/owned-contract-replay/run.py",
+      "research/research-management/RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.json",
+      "research/research-management/RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.md",
+      "research/research-management/RT-00/RT-00-B-11-CHANGED-ARTIFACT-ROLES-2026-11-24.json",
+      "research/research-management/RT-00/RT-00-B-11-CHANGED-ARTIFACT-ROLES-2026-11-24.md",
+      "research/research-management/RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.json",
+      "research/research-management/RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.md",
+      "research/research-management/RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.json",
+      "research/research-management/RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.md",
+      "research/research-management/RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.json",
+      "research/research-management/RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.md",
+      "research/research-management/RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.json",
+      "research/research-management/RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.md",
+      "research/research-management/RT-00/RT-00-C-PROVIDER-QUEUE-REPLAY-2026-11-24.md",
+      "research/research-management/RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.json",
+      "research/research-management/RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.md",
+      "research/research-management/RT-00/package_provider_queue_replay.py",
+      "research/research-management/RT-00/provider-queue-replay-2026-11-24.json",
+      "research/research-management/RT-00/provider-queue-replay-2026-11-24.png",
+      "research/semantic-representation/RT-05/PUBLIC-INTERFACE-FINITE-REFINEMENT-PILOT-2026-11-24.md",
+      "research/semantic-representation/RT-05/PUBLIC-INTERFACE-SPG-OBSERVATION-PILOT-2026-11-24.md",
+      "research/semantic-representation/RT-05/public-refinement-pilot/Refinement.lean",
+      "research/semantic-representation/RT-05/public-refinement-pilot/fixtures.json",
+      "research/semantic-representation/RT-05/public-refinement-pilot/results.json",
+      "research/semantic-representation/RT-05/public-refinement-pilot/run.py",
+      "research/semantic-representation/RT-05/public-refinement-pilot/spg-results.json",
+      "research/semantic-representation/RT-05/public-refinement-pilot/spg_observations.py"
+    ],
+    "manifest_only_paths": [],
+    "stale_blob_or_size_paths": [
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md",
+      "research/PROTOTYPES/README.md",
+      "research/README.md",
+      "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md",
+      "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.ru.md",
+      "research/formal-verification/RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md",
+      "research/language-design/RT-03/RESEARCH-SCENARIO-45-NUMERIC-SEMANTICS-AND-OVERFLOW.md",
+      "research/language-design/RT-03/RESEARCH-SCENARIO-55-LOOP-RESULTS-LABELS-AND-CONTROL-TRANSFER.md",
+      "research/language-design/RT-03/RESEARCH-SCENARIO-63-EQUALITY-IDENTITY-AND-HASHING.md",
+      "research/language-design/RT-03/RESEARCH-SCENARIO-73-NUMERIC-LITERAL-TYPING-AND-CONVERSIONS.md",
+      "research/language-design/RT-03/RESEARCH-SCENARIO-74-REFUTABLE-PATTERN-FAILURE-AND-BINDING.md",
+      "research/language-design/RT-03/RESEARCH-SCENARIO-78-FLOATING-POINT-REPRODUCIBILITY-AND-IEEE-EDGES.md",
+      "research/language-design/RT-04/RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md",
+      "research/language-design/RT-04/RESEARCH-SCENARIO-42-GENERICS-CONSTRAINTS-AND-DISPATCH.md",
+      "research/references/README.md",
+      "research/research-management/README.md",
+      "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
+      "research/research-management/RT-00/RT-00-QUALITY-RULES-PILOT-2026-11-23.md",
+      "research/runtime-and-systems/RT-10/RESEARCH-SCENARIO-57-STRUCTURED-CONCURRENCY-AND-TASK-LIFETIMES.md",
+      "research/runtime-and-systems/RT-38/README.md",
+      "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+      "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+      "research/semantic-representation/RT-06/RESEARCH-SCENARIO-09-DEPENDENCY-DRIVEN-EVOLUTION.md"
+    ],
+    "added_role_review": "29 new artifacts individually categorized from report/source/family scope and direct Plan links",
+    "changed_role_review": "23 changed artifacts inspected; see current-main report for change groups",
+    "current_pr_tree_records": 870,
+    "counts": {
+      "research_files": 870,
+      "research_artifacts_excluding_manifest": 870,
+      "markdown_files": 422,
+      "mdx_files": 3,
+      "python_files": 271,
+      "lean_source_files": 42,
+      "scenario_named_documents": 136,
+      "prototype_tree_files": 303,
+      "preparation_and_reference_files": 24,
+      "taxonomy_research_areas": 38,
+      "dependency_edges": 262,
+      "category_counts": {
+        "audit-or-review-report": 85,
+        "cross-cutting-synthesis-or-status": 4,
+        "example-or-fixture": 49,
+        "external-source-snapshot-or-license": 13,
+        "index-or-research-management": 14,
+        "other-research-artifact": 2,
+        "prototype-or-experiment-implementation": 189,
+        "prototype-report-or-readme": 30,
+        "prototype-test-evidence": 187,
+        "reference-register-or-manifest": 2,
+        "research-area-or-experiment-document": 95,
+        "research-background-or-design-analysis": 30,
+        "research-preparation-brief-or-index": 13,
+        "research-rfc-or-protocol-proposal": 2,
+        "scenario-research-result": 136,
+        "structured-fixture-or-schema": 19
+      }
+    },
+    "local_navigation_audit": {
+      "revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
+      "documents_scanned": 426,
+      "markdown_mdx_research": 425,
+      "index_documents": 35,
+      "local_link_occurrences": 3022,
+      "zero_inbound": 18,
+      "without_designated_index_inbound": 52,
+      "unresolved_local_targets": 38,
+      "non_markdown_targets": 754,
+      "scenario_documents": 136,
+      "scenario_zero_inbound": 4,
+      "scenario_without_index": 29,
+      "unique_research_targets_with_inbound_links": 407,
+      "python": "3.12.14",
+      "git": "2.52.0"
+    }
+  },
+  "index_coverage": {
+    "index": "research/README.md",
+    "audit_revision": "b7a4c0d3ed80eb4dae5c54af1943e00d0d6e78d5",
+    "research_markdown_mdx_documents": 425,
+    "documents_scanned": 426,
+    "index_documents": 35,
+    "local_link_occurrences": 3022,
+    "unique_research_targets_with_inbound_links": 407,
+    "research_documents_with_zero_inbound_links": 18,
+    "research_documents_without_inbound_link_from_designated_index": 52,
+    "scenario_documents": 136,
+    "scenario_documents_with_zero_inbound_links": 4,
+    "scenario_documents_without_inbound_link_from_designated_index": 29,
+    "unresolved_local_targets": 38,
+    "non_markdown_targets": 754
   }
 }
