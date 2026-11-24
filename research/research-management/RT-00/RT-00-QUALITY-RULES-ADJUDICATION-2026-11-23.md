@@ -73,6 +73,15 @@ python3 -B .github/scripts/validate_research_quality_adjudication.py --root .
 
 **Expected:** 5 tests; `OK`; `source_reports: 10`, `adjudicated: 33`, `layout_only: 16`, `documentation_gaps: 17`, `errors: []` and exit code 0. Tests intentionally reject missing/duplicate adjudications, invalid line references and unsupported verdicts. The validator does not prove that a cited line substantiates a verdict.
 
+### Archival citation check after directory moves (2026-11-24)
+
+After #444 and #446, the quality pilot reproduced the original warning sample, then the adjudication validator failed to find nine reports at their old working-tree paths. [CI run #45406286001](https://github.com/aivibeflow/LLMLang/actions/runs/45406286001)
+
+The validator now reads `419ae2c02b27eb52c63eef3a255a83004444222e:<sample path>` through Git and verifies the sample's recorded blob before checking line ranges. It shares source lookup with the warning replay. Reading current names would require remapping historical citations across both moves and later edits. The pinned lookup preserves the original review even after a rename, and fails if the recorded bytes differ or the archived object is missing. The [post-relocation comparison](RT-00-QUALITY-RULES-QUEUE-RELOCATION-2026-11-24.md#method-and-controls) diagrams the shared archival lookup.
+
+On CPython 3.12.14 and Git 2.56.1, the commands above now pass seven validator tests, including a relocated fixture and a mismatched blob. The real register validates all 33 cited judgments across 10 reports, with the original 16 layout-only and 17 documentation-gap classifications. This is a reproducibility check on the recorded citations. Independent claim review remains open.
+
+
 - **Not executable here:** no complete clean reproduction of the three underlying technical studies; no local Lean installation or actual solver/serialization run is claimed.
 - **UNKNOWN:** the exact historical working-tree snapshots for some reports remain unidentified; rerunning current main would be a *new* result, not proof of the original run.
 - **Rejected approach:** silently rewriting historical reports to add plausible versions, retroactively declaring missing fields a scientific failure, or treating zero outstanding *format* triage rows as closure of §0.2.

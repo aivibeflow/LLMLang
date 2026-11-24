@@ -1,4 +1,5 @@
 """Tests for accounting-only adjudication manifest validator."""
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,9 +13,16 @@ class AdjudicationValidationTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         (self.root / "research").mkdir()
-        (self.root / "research" / "ONE.md").write_text("# Sample\nexample\n")
-        self.sample = {"baseline_commit": "abc", "files": [{
-            "path": "research/ONE.md", "expected_warnings": [
+        self.path = "research/ONE.md"
+        (self.root / self.path).write_text("# Sample\nexample\n", encoding="utf-8")
+        self.git("init")
+        self.git("add", self.path)
+        self.git("-c", "user.name=Research Test", "-c", "user.email=research@example.invalid",
+                 "commit", "-m", "Pin fixture")
+        baseline = self.git("rev-parse", "HEAD")
+        self.sample = {"baseline_commit": baseline, "files": [{
+            "path": self.path, "git_blob": self.git("rev-parse", f"{baseline}:{self.path}"),
+            "expected_warnings": [
                 "missing section for decision boundary",
                 "missing metadata: Baseline",
             ],
@@ -23,7 +31,7 @@ class AdjudicationValidationTests(unittest.TestCase):
                 "grounding": "L1",
             }],
         }]}
-        self.adj = {"baseline_commit": "abc", "summary": {
+        self.adj = {"baseline_commit": baseline, "summary": {
             "remaining_initial": 1,
             "layout-only": 0,
             "documentation-gap": 1,
@@ -34,6 +42,10 @@ class AdjudicationValidationTests(unittest.TestCase):
             "assessment": "Original commit not stated",
             "follow_up": "Record exact revision",
         }]}]}
+
+    def git(self, *args):
+        return subprocess.check_output(["git", "-C", str(self.root), *args],
+                                       text=True, stderr=subprocess.DEVNULL).strip()
 
     def test_exact_complete_set_passes(self):
         self.assertEqual(validate(self.sample, self.adj, self.root), [])
@@ -53,6 +65,14 @@ class AdjudicationValidationTests(unittest.TestCase):
     def test_wrong_disposition_is_detected(self):
         self.adj["files"][0]["judgments"][0]["disposition"] = "proof established"
         self.assertTrue(any("disposition" in v for v in validate(self.sample, self.adj, self.root)))
+
+    def test_relocated_source_keeps_archived_citations(self):
+        self.git("mv", self.path, "research/RELOCATED.md")
+        self.assertEqual(validate(self.sample, self.adj, self.root), [])
+
+    def test_different_blob_cannot_authorize_citations(self):
+        self.sample["files"][0]["git_blob"] = "0" * 40
+        self.assertTrue(any("blob mismatch" in v for v in validate(self.sample, self.adj, self.root)))
 
 
 if __name__ == "__main__":
