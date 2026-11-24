@@ -24,6 +24,10 @@ jobs:
           python3 research/PROOF-OBLIGATION-BENCHMARK/coverage_v2.py > pob-coverage-v2.json
           python3 research/PROOF-OBLIGATION-BENCHMARK/generative/test_generator.py
           python3 research/PROOF-OBLIGATION-BENCHMARK/generative/generate.py --count 10000 --seed 42 > pob-generated-summary.json
+      - name: Run transition contract generator
+        run: |
+          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py
+          python3 research/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py --count 1000 --seed 42 > pob-transition-summary.json
       - uses: actions/upload-artifact@v6
         with:
           name: pob-smoke
@@ -31,4 +35,5 @@ jobs:
             pob-smoke.json
             pob-coverage-v2.json
             pob-generated-summary.json
+            pob-transition-summary.json
           if-no-files-found: error

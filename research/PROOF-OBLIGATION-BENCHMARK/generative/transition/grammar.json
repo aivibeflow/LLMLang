@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "profile": "finite integer-register transition system",
+  "state": "Map of declared integer registers; no implicit allocation or aliasing.",
+  "program": "Map of named atomic actions to lists of statements.",
+  "expressions": {
+    "int": [
+      "int",
+      "integer"
+    ],
+    "reg": [
+      "reg",
+      "declared register"
+    ],
+    "add": [
+      "add",
+      "int",
+      "int"
+    ],
+    "sub": [
+      "sub",
+      "int",
+      "int"
+    ],
+    "eq": [
+      "eq",
+      "int",
+      "int"
+    ],
+    "le": [
+      "le",
+      "int",
+      "int"
+    ],
+    "and": [
+      "and",
+      "bool",
+      "bool"
+    ],
+    "or": [
+      "or",
+      "bool",
+      "bool"
+    ],
+    "not": [
+      "not",
+      "bool"
+    ]
+  },
+  "statements": {
+    "set": [
+      "set",
+      "declared register",
+      "int expression"
+    ],
+    "emit": [
+      "emit",
+      "declared event",
+      "int expression"
+    ],
+    "if": [
+      "if",
+      "bool expression",
+      "statement list",
+      "statement list"
+    ]
+  },
+  "trace": "Finite sequence of declared actions; observations at action boundaries consist of register snapshots and ordered emitted events.",
+  "bounds": {
+    "registers": 16,
+    "actions": 12,
+    "events": 16,
+    "trace_length": 8,
+    "ast_nodes": 512,
+    "depth": 16,
+    "absolute_initial_and_literal": 1000000000
+  },
+  "unsupported": "Invalid type, unknown opcode/register/event/action, excessive size, malformed structure, or unsupported semantics raises Unsupported; no proof verdict."
+}

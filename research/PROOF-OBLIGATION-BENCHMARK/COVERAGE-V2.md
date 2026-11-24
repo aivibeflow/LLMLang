@@ -36,3 +36,7 @@ Use optional `--output corpus.jsonl` to create a new file containing complete fo
 - #396: actual LLM experiments with reviewed cases and reproducible scoring.
 
 No absolute contract completeness claim follows from this inventory or generated sample.
+
+## Transition profile update
+
+See [finite transition contract generator](TRANSITION-GENERATOR.md) for nine additional parameterized families, typed state/action grammar, trace oracle, per-obligation witnesses and blind export. Registry links use the transition/ prefix and remain unreviewed candidates.
