@@ -312,3 +312,9 @@ Research direction, not normative:
 - How should contracts express resource and timing guarantees without making proofs intractable?
 - Which obligations are mandatory for every function, and which are conditional on the function's declared effects and execution model?
 - How can natural-language business requirements be linked to formal predicates without pretending that formal proof validates the truth of human intent?
+
+## Public-interface integration (2026-11-24; proposed)
+
+Follow-up: split the conformance obligation into body satisfies provided contract and provided contract refines required public contract, or separately prove the body directly against the public contract without claiming an unproved intermediate contract. Public-admitted inputs imply provider-admitted inputs; corresponding provider outcomes imply public outcomes on that domain. In trace-based semantics include divergence, required events and environment assumptions; state abstraction, progress, security hyperproperties and probabilistic behavior require appropriate relations. Check satisfiability/realizability to expose vacuous contracts. Composition requires aligned models and discharged assumptions; these are new proposed fixtures, not retrospective experiment results.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

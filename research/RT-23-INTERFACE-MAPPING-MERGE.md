@@ -39,3 +39,9 @@ From `research/PROTOTYPES/DEPENDENCY-GRAPH-01` run the following on CPython 3.12
 ```sh
 python -B -m unittest -v tests.test_rt23_interface_mapping_merge tests.test_rt23_commit_recovery
 ```
+
+## Public-interface integration (2026-11-24; proposed)
+
+Follow-up discriminator, not a change to reported results: the tested symbol/signature mapping is only one of public-name catalog, operation-to-provider binding and external export mapping. Test cross-map consistency and exact revision-bound conformance evidence, including disjoint edits that combine into a missing or stale provider proof. Existing CAS and collision controls are useful but do not establish contract refinement.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

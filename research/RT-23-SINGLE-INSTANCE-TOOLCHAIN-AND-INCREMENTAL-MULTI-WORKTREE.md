@@ -464,3 +464,9 @@ Boundary: RT-23 specifies runtime coordination, shared semantic state, increment
 ## RT-24 relationship
 
 RT-23 owns shared immutable semantic state, versioned Interface Mapping Revisions, and synchronized commit/recovery. RT-24 defines the candidate merge semantics and keeps mapping revisions separate; its candidate must pass RT-23 exact-tree commit gates.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Clarify that a public interface revision is immutable semantic content. Its name catalog, provider binding and external-symbol mapping are three logically distinct selections (which may share a transaction/storage implementation). Every mapping revision is immutable; mutable heads advance by authorized compare-and-set. A candidate commit pins all relevant catalog, operation, provider and evidence revisions and rechecks freshness/authorization together. Two disjoint map edits can still violate a combined public-name, provider-coherence or ABI-symbol invariant; reject or explicitly resolve, never last-writer-wins. Do not treat a private function becoming exported as only a filesystem edit.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

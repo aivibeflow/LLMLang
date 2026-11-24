@@ -300,3 +300,9 @@ This adapter validates evidence bindings only. It does not authenticate the prod
 ## 14. RT-24 relationship
 
 RT-24 consumes typed semantic and hash-relevant relations from this research but does not treat the index as the source of semantic truth. In particular, a snapshot-scoped incoming-edge query is not a complete reverse-reference proof unless matching scoped dependency-completeness evidence exists. See [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md) for the current prototype limitations and the required fail-closed boundary.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Candidate edges/projections: scoped name lookup (including absent/ambiguous candidates and aliases), exact operation/public-contract use, implementation-owned provided contract, provider binding selection, external symbol mapping, and claim-specific evidence dependencies. Separate hash-relevant edges from resolution, provenance and proof relations. A caller's abstract proof may read only the public revision while execution, link and whole-system evidence read exact selected providers. Include negative scoped lookups and completeness state so a newly inserted shadowing export cannot escape invalidation. Keep the single provided Contract reference on the provider; do not add a duplicate authoritative edge from each caller.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

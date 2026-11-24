@@ -143,3 +143,9 @@ Advance the layered, callable-sized candidate for another comparison. Use typed,
 | Candidate specification | This is evidence for future graph representation and identity sections. A transfer into `draft/` requires choosing a semantic profile, validation of the broader boundary, and an explicit project decision. |
 
 [Research dependency map](RESEARCH-DEPENDENCY-MAP.md) · [Open questions](../TODO.md) · [Canonical representation and merge](RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md)
+
+## Public-interface integration (2026-11-24; proposed)
+
+Add a candidate public-operation view to the typed graph: ExportName/catalog revision -> exact Operation (OpHash) -> public Contract; Implementation -> provided Contract; Binding selects exact Operation and Implementation; evidence relates exact body and both contracts. A public interface group may own member operation references and joint invariants; its identity is not automatically any member OpHash. An implementation may provide several operations, but each conformance judgment is separate. Names, logical continuity, immutable values, and scoped export selections must be separated; external name observability determines hash relevance. Direct concrete calls remain distinct from abstract operation calls. Reject dangling, wrong-kind or conflicting edges and missing observation/profile correspondence; no schema is selected.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

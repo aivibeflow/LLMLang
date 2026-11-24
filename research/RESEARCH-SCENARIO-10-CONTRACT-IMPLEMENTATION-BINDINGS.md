@@ -173,3 +173,9 @@ Research direction, not a normative decision:
 1. Bazel toolchains: https://bazel.build/docs/toolchains
 2. Unison abilities: https://www.unison-lang.org/docs/language-reference/abilities-and-ability-handlers/
 3. Nix content-addressed outputs: https://github.com/NixOS/nix/blob/master/doc/manual/source/store/derivation/outputs/content-address.md
+
+## Public-interface integration (2026-11-24; proposed)
+
+Follow-up (not part of the original experiment): public name resolution should be separately revision-pinned before resolving an operation/provider. A stable name is a discovery/continuity handle, not the call target. Compare the earlier contract-keyed snapshot with an OpHash-keyed provider binding; different operations can share ContractHash but differ in signature or context. Validate the implementation's own contract and its refinement of the public contract, including exact profile and assumptions. Preserve conditional caller proofs independently of closed executable evidence.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

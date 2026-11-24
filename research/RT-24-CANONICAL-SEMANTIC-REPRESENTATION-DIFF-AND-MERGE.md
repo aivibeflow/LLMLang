@@ -374,3 +374,9 @@ Passing this gate permits a scoped prototype; it does not accept ADR-014 or prov
 - [RT-20 — LLM Patch Planning and Hash Propagation](RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md)
 - [RT-22 — Git Repository and Worktree MCP Surface](RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md)
 - [RT-23 — Single-Instance Toolchain and Multi-Worktree File Views](RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md)
+
+## Public-interface integration (2026-11-24; proposed)
+
+Add distinct diff/conflict classes for public name/alias, operation revision and contract, provider binding, and external symbol mapping. Identical final signatures do not resolve concurrent incompatible contract edits. Disjoint edits may combine into a stale certificate, ambiguous selection or duplicate public export; validate whole merged catalog/binding consistency, exact endpoints, and required evidence before atomic publication. Preserve pinned old revisions and explicit migration decisions. The existing interface mapping experiment is a scoped symbol/signature model, not proof of this richer semantic admission.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.

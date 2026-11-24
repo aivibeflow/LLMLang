@@ -202,3 +202,9 @@ If any scenario requires a selector that survives arbitrary edits, the decision 
 The comparative [RT-04 type/effect/ownership/capability report](RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md) identifies additional semantic distinctions that may affect operation-contract, implementation, conformance-class, and evidence identities: public type/refinement contracts, effect declarations and handlers, error/cancellation outcomes, resource protocols, capability requirements, and concurrency guarantees. These are candidate hash inputs or typed dependencies, not selected fields.
 
 Do not finalize the identity model or hash-bearing payloads until RT-04 scenarios validate which distinctions are externally observable, which are contract-level versus implementation-level, and how transitive effects/ownership/protocol dependencies are discovered. RT-04 does not resolve Stable Entity ID versus content-addressed values with explicit lineage/selection.
+
+## Public-interface integration (2026-11-24; proposed)
+
+Add public-interface discriminator cases: public rename versus private presentation rename, rename retaining an explicit alias, name reuse with different lineage, same public name with changed contract, same OpHash with different compatible provider, group split/merge with preserved member operations, and two branches publishing conflicting names or providers. Test alternatives A/B/C without presuming that stable ID and name are the same, or that a new independent interface hash is necessary. A behaviorally breaking new revision cannot silently replace an old pin.
+
+Related: [Public interfaces and verified contract refinement](PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). This is a candidate follow-up; it does not change accepted rules or previously reported evidence.
