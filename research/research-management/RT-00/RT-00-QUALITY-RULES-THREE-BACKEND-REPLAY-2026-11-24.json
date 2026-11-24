@@ -1,0 +1,209 @@
+{
+  "schema": "rt00-three-backend-evidence-replay-v1",
+  "baseline": "b62f7236038bcfa452ad603a93c816e9012c707e",
+  "environment": {
+    "python": "3.12.14",
+    "git": "git version 2.56.1",
+    "kernel": "6.18.57",
+    "arch": "x86_64",
+    "java": "openjdk version \"21.0.13\" 2026-10-20\nOpenJDK Runtime Environment (build 21.0.13+9-1-deb13u2-Debian)\nOpenJDK 64-Bit Server VM (build 21.0.13+9-1-deb13u2-Debian, mixed mode, sharing)",
+    "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "tlc": "tlaplus/tlaplus v1.8.0",
+    "tlc_jar_sha256": "fdffef247f563ef6edbfd44958d2a82db79e7564e07cb673262d896353fa6713"
+  },
+  "source_git_blobs": {
+    "evidence/composition.py": "c1b42a4189efcf38e31ba43327501212d4629c70",
+    "evidence/test_composition.py": "9b75203b4658cf246eb611bbf3eddbca4d1f90b6",
+    "evidence/transition_experiment.py": "3522d071518f8f87324a5a0fcad352b4354fc288",
+    "generative/transition/grammar.json": "515f4018ccb76f157e5f54775d73d66febd81745",
+    "generative/transition/generate.py": "17d5641c9c1e799fb2eb1beb6fa3c50f782a2b4f",
+    "generative/transition/machine.py": "ffb13df9bbe1f0903bc70b15f6fa696ba87590a2",
+    "generative/transition/smt_adapter.py": "b14ca2d784be4ae154a14b12008c7c46ef062422",
+    "generative/transition/lean_adapter.py": "a9846fdd8e2ae179450a991fab3cb167f49d438f",
+    "generative/transition/tlc_adapter.py": "45a87cf6b0652835eee7df60232c719f1408d093"
+  },
+  "matched_archived_outputs": {
+    "smt-transition-state-results/summary.json": {
+      "archived_blob": "6d98f214756d31ac3a3ac0bfb615776c312c6887",
+      "replayed_sha256": "e235c9008ceb2e35db885fa23ff4fb3311e6b627192b7870cfbf68b8efdb3c79",
+      "bytes": 1063
+    },
+    "smt-transition-state-results/stdout.txt": {
+      "archived_blob": "67695552d52b77eddb91741d0923ba59713c6c18",
+      "replayed_sha256": "c41a8cacac14641d6744c766e0a45825b42ccbacef8e6dd663371a05dcb4ad7a",
+      "bytes": 4626
+    },
+    "lean-transition-state-results/summary.json": {
+      "archived_blob": "9b8b1ab7a26359e2b0134ba4a32c41d2d61eb0e6",
+      "replayed_sha256": "6123a1b5e55c9d74faacac28754b2e4c715a250da95a4e93f3e7c7e3640631c3",
+      "bytes": 951
+    },
+    "lean-transition-state-results/outcomes.csv": {
+      "archived_blob": "df4fc6f0017fbe2204d4608aa6f187fd467438b4",
+      "replayed_sha256": "793a26b75064b070c32fd0080c380b26c7061ac21748b79e344711880a918d19",
+      "bytes": 44160
+    },
+    "tlc-transition-state-results/summary.json": {
+      "archived_blob": "1f3aff8ceb6fde8a1df71c84fdab6f1d1daa4caf",
+      "replayed_sha256": "cf8f5ecce6de977f907cd246613f450ddcd566e7c9966a6ad8e5d33d37fe4f9f",
+      "bytes": 1405
+    },
+    "tlc-transition-state-results/outcomes.csv": {
+      "archived_blob": "3f471105463542f344efc178a8cb9be97f76013f",
+      "replayed_sha256": "bf6160dca0cd6c752854f7b8d5cf36887b31743a76ba7ad31174235c8d2565e5",
+      "bytes": 27295
+    },
+    "tlc-transition-state-results/counterexample.json": {
+      "archived_blob": "94dbe87302d84f82fbf8b04540668b614265459a",
+      "replayed_sha256": "38a066e8fa1ab65097e658c887943f294ad0f1fc6453593ef34984eb1480fcd3",
+      "bytes": 457
+    },
+    "evidence/transition-result.json": {
+      "archived_blob": "4d984905b5bb0e7080f72450d72f76e40dca4b82",
+      "replayed_sha256": "1a3db0ed2e76eee424ce3abc2d4118373c8518167bbf8d5d39d81db0926141d7",
+      "bytes": 794
+    }
+  },
+  "unit_tests": {
+    "smt": 6,
+    "lean": 3,
+    "tlc": 4,
+    "composition": 11
+  },
+  "composition": {
+    "experiment": "rt33-transition-evidence-v1",
+    "fixture_revision": "991c053ffbc9e3ed0885763e3034f0d3c9354c2a",
+    "artifacts": {
+      "smt": "bfbad3ebff85bdda5d832bb04e3efdf21ebcdbe11029ab1c50d7b7bd0f7bd3e4",
+      "lean": "c7b75d69b8b5751dd41ffa3042838b500188c057b127c6548b2bffa8c94af5cd",
+      "tlc_summary": "cf8f5ecce6de977f907cd246613f450ddcd566e7c9966a6ad8e5d33d37fe4f9f",
+      "tlc_cases": "bf6160dca0cd6c752854f7b8d5cf36887b31743a76ba7ad31174235c8d2565e5"
+    },
+    "accepted_receipts": 2394,
+    "obligations": 798,
+    "counts": {
+      "bounded-agreement": 712,
+      "refuted": 86
+    },
+    "corpus_conjunction": "refuted",
+    "verdict_set_counts": {
+      "support": 712,
+      "counterexample": 86
+    },
+    "per_case_results_sha256": "1b9c91a665b1d39e021464470cebb571f737a36c19f4a45dcd047f88660c6fb2"
+  },
+  "backend_summaries": {
+    "smt": {
+      "profile": {
+        "id": "transition-state-smt-v1",
+        "solver_version": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+        "logic": "QF_LIA",
+        "timeout_seconds": 30,
+        "trace_max_actions": 8,
+        "obligation": "state at each action boundary for fixed initial registers and trace",
+        "unsupported": [
+          "effects",
+          "invariants",
+          "noninterference",
+          "symbolic initial states",
+          "unbounded traces",
+          "proof certificates"
+        ]
+      },
+      "solver_version": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+      "batch_status": "ok",
+      "query_sha256": "25ac10266d5f2106d37ea93f5c5d5fa2e4683a3e8f65185d633c9eb6f2acc3ef",
+      "stdout_sha256": "c41a8cacac14641d6744c766e0a45825b42ccbacef8e6dd663371a05dcb4ad7a",
+      "counts": {
+        "bounded-agreement": 712,
+        "replayed-counterexample": 86
+      },
+      "controls": [
+        {
+          "control": "all-boundaries",
+          "solver": "sat",
+          "outcome": "replayed-counterexample"
+        },
+        {
+          "control": "final-only",
+          "solver": "unsat",
+          "outcome": "translation-or-solver-conflict"
+        }
+      ]
+    },
+    "lean": {
+      "profile": {
+        "id": "transition-state-lean-v1",
+        "lean_version": "4.36.0",
+        "lean_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+        "obligation": "state at each action boundary for fixed initial registers and trace",
+        "timeout_seconds": 30,
+        "unsupported": [
+          "effects",
+          "invariants",
+          "noninterference",
+          "symbolic inputs",
+          "unbounded traces"
+        ]
+      },
+      "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+      "status": "kernel-checked",
+      "false_claim_rejected": true,
+      "smt_comparison": "match",
+      "smt_observations_sha256": "bfbad3ebff85bdda5d832bb04e3efdf21ebcdbe11029ab1c50d7b7bd0f7bd3e4",
+      "source_sha256": "e4a5201758117c20c89bd755e09a9e9c3cc687ef327b8a979150ec2dbec426d0",
+      "stdout_sha256": "3dcba2981c45ab496fa5a0948dcccb9664c9a35a84462c7292e5badb7af10bef",
+      "checked": {
+        "equal": 712,
+        "different": 86
+      }
+    },
+    "tlc": {
+      "profile": {
+        "id": "transition-state-tlc-v1",
+        "release": "tlaplus/tlaplus v1.8.0",
+        "jar_sha256": "fdffef247f563ef6edbfd44958d2a82db79e7564e07cb673262d896353fa6713",
+        "timeout_seconds": 30,
+        "obligation": "state at each action boundary for fixed initial registers and trace",
+        "unsupported": [
+          "effects",
+          "invariants beyond state equality",
+          "noninterference",
+          "symbolic inputs",
+          "unbounded traces",
+          "liveness",
+          "regular-infinite domains"
+        ]
+      },
+      "status": "bounded-comparison",
+      "error": null,
+      "cases": 798,
+      "expected_distinct_prefix_states": 2778,
+      "observations": {
+        "equal": 712,
+        "different": 86
+      },
+      "source_sha256": {
+        "Cases": "161220e50714e85805d1fe96b8598f14390a0c3482216e192166163e0e9de074",
+        "FinalOnly": "b1ede8cb3580e82782efed7c66e086756a2035ee6dfbf1b7d1f189bb1ea11705",
+        "FalseClaim": "bdd161297a3705e47c176f407535ae71043d2ab66831fce4f0710118caa2bf9b"
+      },
+      "checks": {
+        "complete_prefix_graph": true,
+        "weakened_observation_agrees": true,
+        "incorrect_full_claim_replayed": true
+      },
+      "comparisons": {
+        "smt": {
+          "matches": true,
+          "observations_sha256": "bfbad3ebff85bdda5d832bb04e3efdf21ebcdbe11029ab1c50d7b7bd0f7bd3e4"
+        },
+        "lean": {
+          "matches": true,
+          "observations_sha256": "c7b75d69b8b5751dd41ffa3042838b500188c057b127c6548b2bffa8c94af5cd"
+        }
+      }
+    }
+  }
+}
