@@ -1,0 +1,78 @@
+{
+  "schema": "llmlang-rt38-sv39-remap-v1",
+  "machine": "virt",
+  "cpu": "rv64",
+  "harts": 1,
+  "qemu_scope": {
+    "revision": "98f88efe8f07067667b8d9b1a5ce9551d34036c1",
+    "source_sha256": {
+      "target/riscv/insn_trans/trans_privileged.c.inc": "5545cc55241d4be2dcb7317c7a3143b2c5dcbfc33568f3a012cb379eb8e8c345",
+      "target/riscv/op_helper.c": "7afcac2a94b2615fe99077f18794075c454a8fc9480595fca53e80290ae77aee"
+    },
+    "address_operand_used": false
+  },
+  "tools": {
+    "mc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "objdump": "Debian LLVM version 19.1.7",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "input_sha256": {
+    "base-boot.s": "0ed50ccfffcb015f87aa28a13a011b93dd1418561d1b95ff9d4411246b417115",
+    "base-memory.ld": "e49d28407dab80a8fa229ac985c51444d374dda042a44b80fc69d073dd51d338",
+    "base-run.py": "82e7a733660f259da0df298a146abf06ff2915aad0ea1a07defdc185d7dc589b",
+    "transform.py": "318fbb4fe31da7a90d0fe69b719d6da3a0c6fd01d616b84989fb01e235c16e38",
+    "run.py": "48929124225908d8cd3409c2cd3c71fbe27d3f703be2d0a537047ebee32bcb61"
+  },
+  "images": {
+    "whole_hart": {
+      "elf_sha256": "0586423b779419368d3b69d44d2b3d12261943aea458352f9d3e7bc2df64f519",
+      "user_code_sha256": "421f2385dfd24c90b3c357bfe99f19abcc4d938200f4a9de306b78ca92a72b75",
+      "user_probe_physical": "0x80200050",
+      "user_probe_virtual": "0x40000050",
+      "update_instructions": [
+        "fence rw, rw",
+        "sfence.vma",
+        "ret"
+      ],
+      "uart": "BEISRAMBDPZ!"
+    },
+    "right_virtual_address": {
+      "elf_sha256": "c2de8170c1e5a4800662f352073848decb18d7157cdb03c11645c47ef70db837",
+      "user_code_sha256": "421f2385dfd24c90b3c357bfe99f19abcc4d938200f4a9de306b78ca92a72b75",
+      "user_probe_physical": "0x80200050",
+      "user_probe_virtual": "0x40000050",
+      "update_instructions": [
+        "fence rw, rw",
+        "lui t0, 0x40400",
+        "sfence.vma t0",
+        "ret"
+      ],
+      "uart": "BEISRAMBDPZ!"
+    },
+    "unrelated_virtual_address": {
+      "elf_sha256": "7f4db31e121ae5a99751301f43def38b741a6cd419faa0f38cfa9ba8d013d0f5",
+      "user_code_sha256": "421f2385dfd24c90b3c357bfe99f19abcc4d938200f4a9de306b78ca92a72b75",
+      "user_probe_physical": "0x80200050",
+      "user_probe_virtual": "0x40000050",
+      "update_instructions": [
+        "fence rw, rw",
+        "lui t0, 0x40401",
+        "sfence.vma t0",
+        "ret"
+      ],
+      "uart": "BEISRAMBDPZ!"
+    },
+    "only_memory_fence": {
+      "elf_sha256": "147aa46bd859a78f69b10b1e03c90b498bddd4fd7f59cc465d716d3db9b01314",
+      "user_code_sha256": "421f2385dfd24c90b3c357bfe99f19abcc4d938200f4a9de306b78ca92a72b75",
+      "user_probe_physical": "0x80200050",
+      "user_probe_virtual": "0x40000050",
+      "update_instructions": [
+        "fence rw, rw",
+        "ret"
+      ],
+      "uart": "BEISRAMADA!"
+    }
+  }
+}
