@@ -126,7 +126,7 @@ src/counterfactual_analysis.py compares normalized repeated baseline/treatment e
 Run focused tests with:
 python -m unittest discover -s tests -p 'test_counterfactual_analysis.py' -v
 
-See PROTOTYPE-21-RESULTS.md and Research Scenario 21.
+See [Prototype 21 Results](PROTOTYPE-21-RESULTS.md) and [Research Scenario 21](../../semantic-representation/RT-06/RESEARCH-SCENARIO-21-COUNTERFACTUAL-DEPENDENCY-DETECTION.md).
 
 ## Coverage-guided dependency discovery experiment
 

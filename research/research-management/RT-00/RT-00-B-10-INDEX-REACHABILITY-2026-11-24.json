@@ -1,0 +1,618 @@
+{
+  "schema": "rt00-index-reachability-v1",
+  "baseline_revision": "5d0d474848bee4b0c4f103af06dd3cfb5f7c6612",
+  "environment": {
+    "python": "3.12.14",
+    "arch": "x86_64"
+  },
+  "baseline": {
+    "roots": [
+      "research/README.md",
+      "PLAN.md"
+    ],
+    "summary": {
+      "artifacts": 847,
+      "markdown_mdx_documents": 416,
+      "artifacts_reachable_by_document_links": 714,
+      "documents_reachable_by_document_links": 393,
+      "artifacts_reachable_with_directory_links": 782,
+      "documents_reachable_with_directory_links": 408,
+      "documents_without_a_direct_index_link": 55,
+      "documents_without_an_incoming_document_link": 21
+    },
+    "artifacts_reachable_only_with_directory_links": [
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCpcCertificate.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/TypedQueryEquality.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/isolated-runtime-build.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/composed_oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/coverage_v2.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/composition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/test_composition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/transition_experiment.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/extended_oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/grammar.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/models.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/test_recursive.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/explore.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/models.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/test_system.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/templates.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/test_generator.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicQuery.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicState.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicStateExamples.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/TransitionState.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/lean_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/machine.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/smt_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/templates.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_lean_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_smt_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_symbolic_dual_check.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_tlc_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/tlc_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/run.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/sat-without-certificate-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/used-omitted-declaration-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/wrong-certificate-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/absolute-stdout.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/absolute.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-all.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-final-stdout.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-final.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_coverage_v2.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_runner.py",
+      "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.ru.md",
+      "research/language-design/RT-01/RESEARCH-DEEP-COMPARISON.md",
+      "research/language-design/RT-01/RESEARCH-RELATED-PROJECTS.md",
+      "research/language-design/RT-02/RESEARCH-SCENARIO-03-REQUIREMENT-IMPACT.md",
+      "research/language-design/RT-31/TOKEN_EFFICIENCY.md",
+      "research/research-management/RT-00/RT-00-B-02B-2-PYTHON-PROTOTYPE-AND-TEST-AUDIT-2026-11-20.md",
+      "research/research-management/RT-00/RT-00-B-02B-3-SCENARIO-OVERLAP-AND-SUPERSESSION-AUDIT-2026-11-20.md",
+      "research/research-management/RT-00/RT-00-B-02B-4-ORPHAN-AND-TRACEABILITY-AUDIT-2026-11-20.md",
+      "research/research-management/RT-00/RT-00-C-02-SQLITE-IDENTITY-AND-SOURCE-ARCHIVE-INTEGRITY-2026-11-21.md",
+      "research/semantic-representation/RT-05/PROTOTYPE-01-RESULTS.md",
+      "research/semantic-representation/RT-05/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md",
+      "research/semantic-representation/RT-06/RESEARCH-SCENARIO-09-DEPENDENCY-DRIVEN-EVOLUTION.md",
+      "research/semantic-representation/RT-06/RESEARCH-SCENARIO-21-COUNTERFACTUAL-DEPENDENCY-DETECTION.md",
+      "research/semantic-representation/RT-35/PREFERRED-FUNCTION-RELATIONAL-SCHEMA.json",
+      "research/toolchain-and-collaboration/RT-14/RESEARCH-SCENARIO-02-CONCURRENT-CHANGES.md",
+      "research/toolchain-and-collaboration/RT-14/RFC-REQUEST-CHANGE.md",
+      "research/toolchain-and-collaboration/benchmarks/git_binary_spg/run_benchmark.py"
+    ],
+    "artifacts_unreachable_with_directory_links": [
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/PROTOTYPE-21-RESULTS.md",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/__init__.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/adaptive_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/business_intent.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_graph_audit.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_semantic_diff.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_validation.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/contract_model.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/counterfactual_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/coverage_guided.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/dependency_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/execution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/formal_core.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/logos_runner.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/multifactor_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/persistence.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/project_state.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/proof_boundary.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_profile.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_evolution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/symbolic_relational.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/typed_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_adaptive_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_business_intent.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_graph_audit.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff_cip_v2.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_validation.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_contract_model.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_counterfactual_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_coverage_guided.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_dependency_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_execution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_finite_relational_consistency.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_formal_core.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_impact_planning.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_logos_runner.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_multifactor_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_persistence.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_project_state.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_proof_boundary.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_requirement_evolution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_requirement_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_scoped_binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_semantic_graph.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_symbolic_finite_differential.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_symbolic_relational.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_typed_ir.py",
+      "research/references/snapshots/Alive2/LICENSE-MIT.txt",
+      "research/references/snapshots/MCP/LICENSE.md",
+      "research/references/snapshots/MCP/authorization.mdx",
+      "research/references/snapshots/MCP/basic-index.mdx",
+      "research/references/snapshots/MCP/schema.json",
+      "research/references/snapshots/MCP/transports.mdx",
+      "research/references/snapshots/OCI/LICENSE-APACHE-2.0.txt",
+      "research/references/snapshots/OCI/descriptor.md",
+      "research/references/snapshots/OCI/image-layout.md",
+      "research/references/snapshots/OCI/manifest.md",
+      "research/references/snapshots/REAPI/LICENSE-APACHE-2.0.txt",
+      "research/references/snapshots/REAPI/remote_execution.proto"
+    ],
+    "unresolved_local_path_occurrences": [
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/alive2.png"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/google.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/nlnet.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/woven.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/matterlabs.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "BugList.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "image-index.md#image-index-property-descriptions"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#ebnf"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#canonicalization"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "annotations.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "conversion.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md#imageid"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#file-attributes"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#zstd-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#pre-defined-annotation-keys"
+      }
+    ]
+  },
+  "curated_links": {
+    "roots": [
+      "research/README.md",
+      "PLAN.md"
+    ],
+    "summary": {
+      "artifacts": 849,
+      "markdown_mdx_documents": 417,
+      "artifacts_reachable_by_document_links": 719,
+      "documents_reachable_by_document_links": 397,
+      "artifacts_reachable_with_directory_links": 849,
+      "documents_reachable_with_directory_links": 417,
+      "documents_without_a_direct_index_link": 52,
+      "documents_without_an_incoming_document_link": 18
+    },
+    "artifacts_reachable_only_with_directory_links": [
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCpcCertificate.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/TypedQueryEquality.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/isolated-runtime-build.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/__init__.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/adaptive_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/business_intent.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_graph_audit.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_semantic_diff.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_validation.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/contract_model.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/counterfactual_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/coverage_guided.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/dependency_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/execution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/formal_core.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/logos_runner.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/multifactor_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/persistence.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/project_state.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/proof_boundary.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_profile.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_evolution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/symbolic_relational.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/typed_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_adaptive_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_business_intent.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_graph_audit.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff_cip_v2.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_validation.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_contract_model.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_counterfactual_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_coverage_guided.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_dependency_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_execution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_finite_relational_consistency.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_formal_core.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_impact_planning.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_logos_runner.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_multifactor_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_persistence.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_project_state.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_proof_boundary.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_requirement_evolution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_requirement_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_scoped_binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_semantic_graph.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_symbolic_finite_differential.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_symbolic_relational.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_typed_ir.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/composed_oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/coverage_v2.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/composition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/test_composition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/transition_experiment.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/extended_oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/grammar.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/models.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/test_recursive.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/explore.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/models.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/test_system.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/templates.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/test_generator.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicQuery.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicState.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicStateExamples.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/TransitionState.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/lean_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/machine.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/smt_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/templates.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_lean_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_smt_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_symbolic_dual_check.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_tlc_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/tlc_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/run.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/sat-without-certificate-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/used-omitted-declaration-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/wrong-certificate-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/absolute-stdout.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/absolute.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-all.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-final-stdout.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-final.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_coverage_v2.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_runner.py",
+      "research/language-design/RT-01/RESEARCH-DEEP-COMPARISON.md",
+      "research/language-design/RT-01/RESEARCH-RELATED-PROJECTS.md",
+      "research/language-design/RT-02/RESEARCH-SCENARIO-03-REQUIREMENT-IMPACT.md",
+      "research/language-design/RT-31/TOKEN_EFFICIENCY.md",
+      "research/references/snapshots/Alive2/LICENSE-MIT.txt",
+      "research/references/snapshots/MCP/LICENSE.md",
+      "research/references/snapshots/MCP/authorization.mdx",
+      "research/references/snapshots/MCP/basic-index.mdx",
+      "research/references/snapshots/MCP/schema.json",
+      "research/references/snapshots/MCP/transports.mdx",
+      "research/references/snapshots/OCI/LICENSE-APACHE-2.0.txt",
+      "research/references/snapshots/OCI/descriptor.md",
+      "research/references/snapshots/OCI/image-layout.md",
+      "research/references/snapshots/OCI/manifest.md",
+      "research/references/snapshots/REAPI/LICENSE-APACHE-2.0.txt",
+      "research/references/snapshots/REAPI/remote_execution.proto",
+      "research/research-management/RT-00/RT-00-B-02B-2-PYTHON-PROTOTYPE-AND-TEST-AUDIT-2026-11-20.md",
+      "research/research-management/RT-00/RT-00-B-02B-3-SCENARIO-OVERLAP-AND-SUPERSESSION-AUDIT-2026-11-20.md",
+      "research/research-management/RT-00/RT-00-B-02B-4-ORPHAN-AND-TRACEABILITY-AUDIT-2026-11-20.md",
+      "research/research-management/RT-00/RT-00-C-02-SQLITE-IDENTITY-AND-SOURCE-ARCHIVE-INTEGRITY-2026-11-21.md",
+      "research/semantic-representation/RT-05/PROTOTYPE-01-RESULTS.md",
+      "research/semantic-representation/RT-05/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md",
+      "research/semantic-representation/RT-06/RESEARCH-SCENARIO-09-DEPENDENCY-DRIVEN-EVOLUTION.md",
+      "research/semantic-representation/RT-35/PREFERRED-FUNCTION-RELATIONAL-SCHEMA.json",
+      "research/toolchain-and-collaboration/RT-14/RESEARCH-SCENARIO-02-CONCURRENT-CHANGES.md",
+      "research/toolchain-and-collaboration/RT-14/RFC-REQUEST-CHANGE.md",
+      "research/toolchain-and-collaboration/benchmarks/git_binary_spg/run_benchmark.py"
+    ],
+    "artifacts_unreachable_with_directory_links": [],
+    "unresolved_local_path_occurrences": [
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/alive2.png"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/google.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/nlnet.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/woven.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/matterlabs.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "BugList.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "image-index.md#image-index-property-descriptions"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#ebnf"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#canonicalization"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "annotations.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "conversion.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md#imageid"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#file-attributes"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#zstd-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#pre-defined-annotation-keys"
+      }
+    ]
+  }
+}

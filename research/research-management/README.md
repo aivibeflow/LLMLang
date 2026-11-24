@@ -20,6 +20,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Audits and evidence maps
 
+- [Research navigation reachability](RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.md)
 - [Finite cvc5, Lean and TLC evidence replay](RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.md)
 - [Native and WebAssembly preservation replay](RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.md)
 - [Public interface evidence reconciliation](RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.md)

@@ -10,10 +10,10 @@ The files under `snapshots/` are verbatim source snapshots retrieved from the up
 
 | Source | Upstream revision | Relevant local snapshots | Use in LLMLang research |
 |---|---|---|---|
-| Model Context Protocol | Stable specification release `2026-07-28`, upstream commit `5f5440bb26a62e2cf3440b92da5a667efa03b267` | `snapshots/MCP/basic-index.mdx`, `authorization.mdx`, `transports.mdx`, `schema.json`; `LICENSE.md` | RT-16/19/22: protocol/transport boundary, authorization, schema source of truth, versioned server surface |
-| OCI Image Specification | Upstream commit `4feed4a6674e59d301b9294f187ac46acb2de99f` (2026-10-22) | `snapshots/OCI/descriptor.md`, `manifest.md`, `image-layout.md`; `LICENSE-APACHE-2.0.txt` | RT-05/11/12: typed content descriptors, digests, size/media type, manifest/layout and content-addressed distribution |
-| Alive2 | Upstream commit `3bdd4f5e1cefa47057e93110e707acd11cfe08e4` (2026-11-16) | `snapshots/Alive2/README.md`, `LICENSE-MIT.txt` | RT-07/09/13: LLVM translation validation, refinement checking and limits of the tool |
-| Bazel Remote Execution API | Upstream commit `e0c0554bfc8a37abf336c3e78070684367738e1d` (2026-11-10) | `snapshots/REAPI/remote_execution.proto`, `LICENSE-APACHE-2.0.txt` | RT-11/12: action cache, content-addressed storage, remote execution and API message contracts |
+| [Model Context Protocol](snapshots/MCP/) | Stable specification release `2026-07-28`, upstream commit `5f5440bb26a62e2cf3440b92da5a667efa03b267` | `snapshots/MCP/basic-index.mdx`, `authorization.mdx`, `transports.mdx`, `schema.json`; `LICENSE.md` | RT-16/19/22: protocol/transport boundary, authorization, schema source of truth, versioned server surface |
+| [OCI Image Specification](snapshots/OCI/) | Upstream commit `4feed4a6674e59d301b9294f187ac46acb2de99f` (2026-10-22) | `snapshots/OCI/descriptor.md`, `manifest.md`, `image-layout.md`; `LICENSE-APACHE-2.0.txt` | RT-05/11/12: typed content descriptors, digests, size/media type, manifest/layout and content-addressed distribution |
+| [Alive2](snapshots/Alive2/) | Upstream commit `3bdd4f5e1cefa47057e93110e707acd11cfe08e4` (2026-11-16) | `snapshots/Alive2/README.md`, `LICENSE-MIT.txt` | RT-07/09/13: LLVM translation validation, refinement checking and limits of the tool |
+| [Bazel Remote Execution API](snapshots/REAPI/) | Upstream commit `e0c0554bfc8a37abf336c3e78070684367738e1d` (2026-11-10) | `snapshots/REAPI/remote_execution.proto`, `LICENSE-APACHE-2.0.txt` | RT-11/12: action cache, content-addressed storage, remote execution and API message contracts |
 
 ### Attribution and licence notes
 
