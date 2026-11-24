@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "scope": "Finite explicit-state graph of deterministic atomic actions; environment chooses action order. Synthetic development, not LLMLang semantics.",
+  "state": "Fixed named integer fields with per-family bounds; heap graph edges encoded as masks; protocol and component states explicit.",
+  "transition": "Total action relation: disabled actions are stuttering with a rejected/no-op observation; actions and observations are named.",
+  "exploration": "Breadth-first reachable state graph to declared depth, checking every outgoing edge from each state reachable before depth bound. State merging is valid only for Markovian edge/state properties; path-dependent obligations require state augmentation.",
+  "limits": {
+    "max_depth": 8,
+    "max_states": 4096,
+    "max_edges": 32768,
+    "max_actions": 16,
+    "max_fields": 24,
+    "max_abs_integer": 1000000000
+  },
+  "verdicts": [
+    "bounded_pass",
+    "disproven"
+  ],
+  "unsupported": "Unknown family, malformed state, invalid action/observation, exceeded bound or resource cap fails without proof verdict."
+}

@@ -38,7 +38,8 @@
         ],
         "generated_candidates": [
           "transition/authorized_effect",
-          "transition/cancel_cleanup"
+          "transition/cancel_cleanup",
+          "system/ffi_buffer"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -51,7 +52,8 @@
         "generated_candidates": [
           "composition",
           "transition/transfer",
-          "transition/retry"
+          "transition/retry",
+          "system/fulfillment"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -73,7 +75,9 @@
           "POB-037"
         ],
         "generated_candidates": [
-          "transition/retry"
+          "transition/retry",
+          "system/partition_retry",
+          "system/quorum"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -115,7 +119,9 @@
       },
       "external_systems": {
         "manual_candidates": [],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "system/ffi_buffer"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "evolution": {
@@ -123,7 +129,9 @@
           "POB-021",
           "POB-038"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "system/rolling_upgrade"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "business_rules": {
@@ -132,7 +140,8 @@
           "POB-034"
         ],
         "generated_candidates": [
-          "transition/transfer"
+          "transition/transfer",
+          "system/fulfillment"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -194,7 +203,9 @@
           "POB-025",
           "POB-035"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "system/graph_gc"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "ownership": {
@@ -205,7 +216,10 @@
         ],
         "generated_candidates": [
           "transition/lifetime",
-          "transition/cancel_cleanup"
+          "transition/cancel_cleanup",
+          "system/heap_separation",
+          "system/graph_gc",
+          "system/ffi_buffer"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -231,7 +245,9 @@
         "generated_candidates": [
           "transition/transfer",
           "transition/retry",
-          "transition/deadline"
+          "transition/deadline",
+          "system/fulfillment",
+          "system/quorum"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -257,7 +273,9 @@
         ],
         "generated_candidates": [
           "transition/transfer",
-          "transition/cancel_cleanup"
+          "transition/cancel_cleanup",
+          "system/partition_retry",
+          "system/fulfillment"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -269,7 +287,9 @@
         ],
         "generated_candidates": [
           "transition/authorized_effect",
-          "transition/security_trace"
+          "transition/security_trace",
+          "system/heap_separation",
+          "system/ffi_buffer"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       }
@@ -363,7 +383,9 @@
         "manual_candidates": [
           "POB-028"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "system/heap_separation"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "probabilistic": {
@@ -388,7 +410,9 @@
       },
       "fixed_points": {
         "manual_candidates": [],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "system/graph_gc"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       }
     },
@@ -439,7 +463,9 @@
           "POB-025",
           "POB-035"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "system/graph_gc"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "module": {
@@ -457,7 +483,9 @@
         ],
         "generated_candidates": [
           "transition/retry",
-          "transition/reservation"
+          "transition/reservation",
+          "system/ffi_buffer",
+          "system/rolling_upgrade"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -466,21 +494,28 @@
           "POB-007",
           "POB-034"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "system/fulfillment"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "distributed_system": {
         "manual_candidates": [
           "POB-030"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "system/partition_retry",
+          "system/quorum"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "system_evolution": {
         "manual_candidates": [
           "POB-021"
         ],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "system/rolling_upgrade"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       }
     },
@@ -524,7 +559,8 @@
           "POB-037"
         ],
         "generated_candidates": [
-          "transition/retry"
+          "transition/retry",
+          "system/partition_retry"
         ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
@@ -535,7 +571,9 @@
       },
       "types_effects_memory": {
         "manual_candidates": [],
-        "generated_candidates": [],
+        "generated_candidates": [
+          "system/ffi_buffer"
+        ],
         "limitations": "Candidate links require semantic review; no link is an independently adjudicated coverage witness."
       },
       "evolution_concurrency": {
