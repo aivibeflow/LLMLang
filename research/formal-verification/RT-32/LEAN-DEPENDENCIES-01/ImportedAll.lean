@@ -1,0 +1,11 @@
+module
+
+import all Caller
+import all Provider
+meta import Inspect
+
+#inspect_receipt ReceiptFixture.checkedComposition
+#inspect_receipt ReceiptFixture.conditionalComposition
+#inspect_receipt ReceiptFixture.conditionalProvider
+#inspect_receipt ReceiptFixture.providerBridge
+#inspect_receipt ReceiptFixture.environmentPremise

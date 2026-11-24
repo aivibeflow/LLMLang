@@ -1,0 +1,7 @@
+import Caller
+import Inspect
+
+#inspect_receipt ReceiptFixture.checkedComposition
+#inspect_receipt ReceiptFixture.conditionalComposition
+#inspect_receipt ReceiptFixture.conditionalProvider
+#inspect_receipt ReceiptFixture.environmentPremise
