@@ -1,0 +1,24 @@
+{
+  "hard_kill": {
+    "cpu_us": 1034807,
+    "exit": -9
+  },
+  "locally_admitted_pair": {
+    "rusage_children_delta_us": 1222107,
+    "wait4_cpu_sum_us": 1222106,
+    "workers": [
+      {
+        "cpu_us": 612810,
+        "exit": 0
+      },
+      {
+        "cpu_us": 609296,
+        "exit": 0
+      }
+    ]
+  },
+  "soft_signal": {
+    "cpu_us": 1037181,
+    "exit": 23
+  }
+}
