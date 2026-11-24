@@ -1,0 +1,76 @@
+{
+  "architecture": "x86_64",
+  "cases": {
+    "cancel": {
+      "cleanup_cpu_in_reader_dispatch": true,
+      "dispatch_charge_bounded_by_thread_cpu": true,
+      "independent_work_lower_bound_met": true,
+      "profile_events": [
+        [
+          "reader",
+          "enter"
+        ],
+        [
+          "reader",
+          "leave"
+        ],
+        [
+          "worker",
+          "enter"
+        ],
+        [
+          "worker",
+          "leave"
+        ],
+        [
+          "reader",
+          "enter"
+        ],
+        [
+          "reader",
+          "leave"
+        ]
+      ],
+      "spanning_charge_exceeds_thread_cpu": true,
+      "terminal": "cancelled"
+    },
+    "normal": {
+      "cleanup_cpu_in_reader_dispatch": true,
+      "dispatch_charge_bounded_by_thread_cpu": true,
+      "independent_work_lower_bound_met": true,
+      "profile_events": [
+        [
+          "reader",
+          "enter"
+        ],
+        [
+          "reader",
+          "leave"
+        ],
+        [
+          "worker",
+          "enter"
+        ],
+        [
+          "worker",
+          "leave"
+        ],
+        [
+          "reader",
+          "enter"
+        ],
+        [
+          "reader",
+          "leave"
+        ]
+      ],
+      "spanning_charge_exceeds_thread_cpu": true,
+      "terminal": "finished"
+    }
+  },
+  "format": "rt26-coroutine-cpu-attribution/1",
+  "kernel_release": "6.18.57",
+  "python": "3.12.14",
+  "reader_step_cpu_ns": 20000000,
+  "worker_cpu_ns": 60000000
+}
