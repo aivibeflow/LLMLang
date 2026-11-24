@@ -1,0 +1,288 @@
+{
+  "exact_root_and_trace_manifest": "3fd6d37059190cbe19a35bddf112c55ce4e15ee3ac1463cc3db2cf1d31376b75",
+  "format": "owned-spg-normalization/1",
+  "observations_per_path": 8192,
+  "profile_pairs": 900,
+  "python": "3.12.14",
+  "rejected_input_kinds": [
+    "move_inner",
+    "boolean_index",
+    "empty_contract",
+    "unsupported_disposition",
+    "swap_scope_order"
+  ],
+  "renamed_export_root": "57a766a80d2e71b5d774c26def02d0bb058dab5d536cc314981ea9cce3620c72",
+  "role_swap": {
+    "first_only_outcomes": [
+      [
+        "CleanupFailedWithValue",
+        [
+          [
+            "handle",
+            "owned"
+          ],
+          [
+            "local",
+            "retained"
+          ]
+        ]
+      ],
+      [
+        "ErrWithCleanupErrors",
+        [
+          [
+            "handle",
+            "reconcile"
+          ]
+        ]
+      ],
+      [
+        "ErrWithCleanupErrors",
+        [
+          [
+            "handle",
+            "reconcile"
+          ],
+          [
+            "local",
+            "retained"
+          ]
+        ]
+      ],
+      [
+        "ErrWithCleanupErrors",
+        [
+          [
+            "local",
+            "retained"
+          ]
+        ]
+      ]
+    ],
+    "roots": [
+      "b9d7c170c820cdd31726aa4c994f8f4fd6c1ece7cbe44cdb06dd2f6f6f14b68e",
+      "8367e2c76c78da9962500ee876dd0060270bc9d65d4151919885342625bbcedd"
+    ],
+    "second_only_outcomes": [
+      [
+        "CleanupFailedWithValue",
+        [
+          [
+            "handle",
+            "owned"
+          ],
+          [
+            "local",
+            "reconcile"
+          ]
+        ]
+      ],
+      [
+        "ErrWithCleanupErrors",
+        [
+          [
+            "handle",
+            "retained"
+          ]
+        ]
+      ],
+      [
+        "ErrWithCleanupErrors",
+        [
+          [
+            "handle",
+            "retained"
+          ],
+          [
+            "local",
+            "reconcile"
+          ]
+        ]
+      ],
+      [
+        "ErrWithCleanupErrors",
+        [
+          [
+            "local",
+            "reconcile"
+          ]
+        ]
+      ]
+    ],
+    "unlabeled_deps": [
+      "5d17c5cf323f37dad728fa36bd1afe39d26dbdefb0b9e8a9399f33b20ba0279e",
+      "974f17391a370a3a3fc1c4e1aac7421fbfb16155d0c059400ff9e3fe6f6065ca"
+    ]
+  },
+  "witnesses": {
+    "branch_order": {
+      "erased_projection": "0c6d3eea85772615ce6509ed3c496bbd5f3fb24b7facbe7a9ffc3d29aa209d4d",
+      "input": [
+        true,
+        "ok",
+        "ok"
+      ],
+      "roots": [
+        "b9d7c170c820cdd31726aa4c994f8f4fd6c1ece7cbe44cdb06dd2f6f6f14b68e",
+        "043efa5a809b622ff7974d26cf88153890fdfdbef89e57d48d587877bb81c973"
+      ],
+      "traces": [
+        {
+          "cleanup_errors": [],
+          "domain_error": false,
+          "events": [
+            [
+              "acquire",
+              "handle",
+              "ok"
+            ],
+            [
+              "acquire",
+              "local",
+              "ok"
+            ],
+            [
+              "transfer",
+              "handle",
+              "ok"
+            ],
+            [
+              "release",
+              "local",
+              "ok"
+            ]
+          ],
+          "obligations": [
+            [
+              "handle",
+              "owned"
+            ]
+          ],
+          "tag": "OkWithValue"
+        },
+        {
+          "cleanup_errors": [],
+          "domain_error": true,
+          "events": [
+            [
+              "acquire",
+              "handle",
+              "ok"
+            ],
+            [
+              "acquire",
+              "local",
+              "ok"
+            ],
+            [
+              "release",
+              "local",
+              "ok"
+            ],
+            [
+              "release",
+              "handle",
+              "ok"
+            ]
+          ],
+          "obligations": [],
+          "tag": "Err"
+        }
+      ]
+    },
+    "transfer": {
+      "erased_projection": "f7f58dc1f25ff2927b509cbfcd0eee7721ec19bba8a1be97a4ff9a68ca190e58",
+      "input": [
+        true,
+        "retained_error",
+        "ok"
+      ],
+      "roots": [
+        "b9d7c170c820cdd31726aa4c994f8f4fd6c1ece7cbe44cdb06dd2f6f6f14b68e",
+        "c75d12fb02615aeb95c3973c5c0398ffd3bc554fd64f9ef6fbacef2c27eb95cd"
+      ],
+      "traces": [
+        {
+          "cleanup_errors": [
+            [
+              "local",
+              "retained_error"
+            ]
+          ],
+          "domain_error": false,
+          "events": [
+            [
+              "acquire",
+              "handle",
+              "ok"
+            ],
+            [
+              "acquire",
+              "local",
+              "ok"
+            ],
+            [
+              "transfer",
+              "handle",
+              "ok"
+            ],
+            [
+              "release",
+              "local",
+              "retained_error"
+            ]
+          ],
+          "obligations": [
+            [
+              "handle",
+              "owned"
+            ],
+            [
+              "local",
+              "retained"
+            ]
+          ],
+          "tag": "CleanupFailedWithValue"
+        },
+        {
+          "cleanup_errors": [
+            [
+              "local",
+              "retained_error"
+            ]
+          ],
+          "domain_error": false,
+          "events": [
+            [
+              "acquire",
+              "handle",
+              "ok"
+            ],
+            [
+              "acquire",
+              "local",
+              "ok"
+            ],
+            [
+              "release",
+              "local",
+              "retained_error"
+            ],
+            [
+              "release",
+              "handle",
+              "ok"
+            ]
+          ],
+          "obligations": [
+            [
+              "local",
+              "retained"
+            ]
+          ],
+          "tag": "StagedCleanupFailedWithoutValue"
+        }
+      ]
+    }
+  }
+}

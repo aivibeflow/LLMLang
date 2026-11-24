@@ -245,6 +245,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Separate syntax trees, source text, semantic representation, provenance, and generated artifacts.
 - [ ] Determine whether multiple source syntaxes can represent the same semantic graph.
 - [ ] Define canonicalization and normalization rules.
+  - [x] Compare canonical ownership and cleanup in a two-scope COR-13 fragment. The 900 input pairs preserve exact roots and 8,192 result/trace observations. Erasing transfer timing, branch order or close-contract roles hides semantic differences. Broader aliasing, effects and full frontend extraction remain open. [Owned SPG normalization](research/semantic-representation/RT-05/RT-05-OWNED-SPG-NORMALIZATION-2026-11-24.md).
 - [ ] Define semantic graph evolution, node replacement, splitting, merging, and lineage.
 - [ ] Decide artifact granularity: operations, interfaces, contracts, types, implementation components, tests, models, and proofs.
   - [x] Compare snapshot, value and expression storage layouts on the same acyclic SPG. All 54 archives restore exact graph bytes and agree with 5,832 result and trace observations. At 64 entries a local edit writes 27,076 per-value bytes, 27,153 expression-layout bytes or 139,101 whole-snapshot bytes. Context-free expression reuse is refuted, and workload and other artifact choices remain open. [SPG object granularity](research/semantic-representation/RT-05/RT-05-SPG-OBJECT-GRANULARITY-2026-11-24.md).
