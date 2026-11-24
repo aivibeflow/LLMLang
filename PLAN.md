@@ -987,6 +987,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Generate Go for the same checked integer fixture and replay 197,440 observations in each of two hosted forms. The cgo library exposes all 64 C ABI entries and needs libc. The standalone executable has no ELF needed libraries. Broader hosted capabilities and target selection remain open. [Generated Go integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-GO-INTEGER-LOWERING-2026-11-24.md).
 - [ ] Evaluate Rust for ownership and systems-language coverage.
 - [ ] Evaluate C++ for ABI and platform coverage.
+  - [x] Compile the same 64 integer programs as C++20 with GCC and Clang at O0 and O3. All profiles match 197,440 status, slot and callback observations and link all C ABI entries without undefined object symbols. Further platform, ownership and native C++ API coverage remain open. [Generated C++ integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-CPP-INTEGER-LOWERING-2026-11-24.md).
 - [ ] Consider Java as an alternative compiled target.
 - [ ] Implement two backends for the same subset.
 - [ ] Compare each backend against the same reference semantics and scenario corpus.
