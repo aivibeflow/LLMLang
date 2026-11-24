@@ -370,6 +370,17 @@ Priority is a planning aid, not a measure of correctness:
 - **Reconsideration trigger:** Independently built component exchange, cross-toolchain linking, dynamic loading, external RPC, persisted serialized messages, or a separately versioned binary/plugin ABI.
 - **Related:** [Architecture Decision — Immutable Components and Single-Version Toolchain Compatibility](draft/ARCHITECTURE-DECISIONS.md), [Scenario 134](research/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md).
 
+### LL-028 — Define backend-independent proof selection and evidence orchestration
+
+- **GitHub issue:** [#390](https://github.com/aivibeflow/LLMLang/issues/390)
+- **Status:** Open
+- **Priority:** P0
+- **Question:** How should LLMLang classify proof obligations and select, combine, and validate backends such as Lean, SMT, and TLA+ without making backend-specific semantics authoritative or silently weakening a contract?
+- **Context:** Contract meaning and authoritative LLMLang semantics must remain independent of proof engines. A single contract may generate heterogeneous obligations, and one obligation may benefit from complementary or independent backends. RT-32 investigates one Lean route; it does not settle whether all evidence should reduce to Lean.
+- **Questions to resolve:** Obligation taxonomy and typed planner inputs; versioned backend capability profiles; deterministic and auditable selection/abstention; backend-specific translation correspondence; proof certificates and trusted computing base; combination of complementary/diverse results; finite model bounds and environment assumptions; proven/disproven/unknown/unsupported/error semantics; evidence provenance and dependency closure; caching and invalidation; whether Lean is useful as an optional checker for selected results without requiring universal reduction to Lean.
+- **Recommendation:** Keep Contract IR backend-independent. Select one or more backends per proof obligation from explicit capability profiles, and abstain when required semantics or evidence strength is unsupported. Preserve each translation/correspondence obligation and all assumptions. Never aggregate partial, unknown, unsupported, or untrusted results into proven.
+- **Related:** [RT-33](research/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-32](research/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](research/LLMLang-FORMAL-VERIFICATION.md), [contract formalization corpus](research/CONTRACT-FORMALIZATION-CORPUS/README.md).
+
 ## AI authoring contexts
 
 ### LL-026 — Define the Knowledge Context model
