@@ -1,0 +1,39 @@
+{
+  "id": "POB-007",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Atomic transfer",
+  "labels": [
+    "FORM-01",
+    "FORM-02",
+    "FORM-03",
+    "DOMAIN-01",
+    "DOMAIN-06",
+    "DOMAIN-09"
+  ],
+  "contract": "Reject insufficient funds or injected failure without changes; otherwise transfer amount and preserve total.",
+  "scope": "Balances 0..3, amount 0..4, injected failure boolean; mathematical integers.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Failure leaves both balances unchanged; success debits and credits exactly amount without negative balances.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "transfer",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Debit before injected failure without rollback.",
+      "expected": "disproven"
+    }
+  ]
+}

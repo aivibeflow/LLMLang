@@ -1,0 +1,36 @@
+{
+  "id": "POB-002",
+  "revision": 1,
+  "status": "proposed",
+  "title": "First match",
+  "labels": [
+    "FORM-02",
+    "FORM-01",
+    "DOMAIN-03"
+  ],
+  "contract": "Return the least matching index or -1 if absent.",
+  "scope": "Lists length 0..3 over -1,0,1; target in -1,0,1.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Result is -1 iff target absent; otherwise index is in bounds, matches target and no earlier index matches.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "first_match",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Return last match.",
+      "expected": "disproven"
+    }
+  ]
+}

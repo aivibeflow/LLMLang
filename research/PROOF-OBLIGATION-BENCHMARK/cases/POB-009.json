@@ -1,0 +1,35 @@
+{
+  "id": "POB-009",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Bounded progress",
+  "labels": [
+    "FORM-05",
+    "DOMAIN-07"
+  ],
+  "contract": "A continuously pending request is served within two enabled scheduler ticks under the stipulated bounded fairness rule.",
+  "scope": "Three ticks, service choice at each tick; continuously pending until service; admitted traces contain service within first two ticks.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Every admitted trace completes by tick two; candidate must actually process service action.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "progress",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Ignore the first two service opportunities.",
+      "expected": "disproven"
+    }
+  ]
+}

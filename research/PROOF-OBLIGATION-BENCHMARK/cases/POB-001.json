@@ -1,0 +1,35 @@
+{
+  "id": "POB-001",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Sum",
+  "labels": [
+    "FORM-02",
+    "DOMAIN-01"
+  ],
+  "contract": "For a finite integer list, return the mathematical sum, including the empty list.",
+  "scope": "All lists of length 0..3 over -1,0,1.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "The result equals the integer sum of every input element.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "sum_all",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Drop the last element.",
+      "expected": "disproven"
+    }
+  ]
+}

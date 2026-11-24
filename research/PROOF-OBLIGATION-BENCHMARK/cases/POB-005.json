@@ -1,0 +1,36 @@
+{
+  "id": "POB-005",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Tree rotation",
+  "labels": [
+    "FORM-03",
+    "FORM-06",
+    "DOMAIN-03"
+  ],
+  "contract": "Rotate a three-node BST without changing key order or membership.",
+  "scope": "Strictly increasing triples drawn from -2..2; single left rotation at root.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "In-order sequence equals original and all three keys are retained; rotated root is original right child.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "rotate",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Drop the original left child.",
+      "expected": "disproven"
+    }
+  ]
+}

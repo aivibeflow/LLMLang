@@ -383,7 +383,7 @@ Priority is a planning aid, not a measure of correctness:
 
 ### LL-029 — Build a representative proof-obligation benchmark
 
-- **Status:** Open
+- **Status:** Open — proposed executable seed infrastructure in [#393](https://github.com/aivibeflow/LLMLang/issues/393); independent validation, backend integration and evaluation remain open. See [seed corpus and follow-ups](research/PROOF-OBLIGATION-BENCHMARK/README.md).
 - **Priority:** P0 (supports RT-33)
 - **Question:** Can the Toolchain reliably generate a complete and sound obligation set, classify heterogeneous obligations, select eligible verification backends, validate translations, and aggregate evidence without hiding uncertainty?
 - **Context:** The CF corpus (CF-001–CF-005) tests semantic fidelity of natural-language-to-contract formalization, not the downstream proof pipeline. RT-33 requires representative obligations beyond simple array algorithms and explicit tests for unsupported or incomplete evidence.

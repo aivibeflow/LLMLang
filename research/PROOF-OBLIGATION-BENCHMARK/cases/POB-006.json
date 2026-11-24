@@ -1,0 +1,38 @@
+{
+  "id": "POB-006",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Ownership cleanup",
+  "labels": [
+    "FORM-03",
+    "FORM-04",
+    "DOMAIN-04",
+    "DOMAIN-05",
+    "DOMAIN-09"
+  ],
+  "contract": "Release each acquired resource exactly once, including failure paths.",
+  "scope": "0..3 resources with unique IDs; optional failure after acquisition; abstract cleanup trace.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Release multiset equals acquire multiset, no duplicate release, and release occurs after acquisition.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "cleanup",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Skip the final release on failure.",
+      "expected": "disproven"
+    }
+  ]
+}

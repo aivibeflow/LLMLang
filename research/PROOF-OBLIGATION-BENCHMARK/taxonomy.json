@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "forms": {
+    "FORM-01": "Preconditions",
+    "FORM-02": "Postconditions",
+    "FORM-03": "Invariants",
+    "FORM-04": "Frame and effect conditions",
+    "FORM-05": "Termination and progress",
+    "FORM-06": "Refinement and equivalence"
+  },
+  "domains": {
+    "DOMAIN-01": "Arithmetic and numeric semantics",
+    "DOMAIN-02": "Algebraic properties",
+    "DOMAIN-03": "Data-structure properties",
+    "DOMAIN-04": "Ownership and memory safety",
+    "DOMAIN-05": "Resource properties",
+    "DOMAIN-06": "State transitions",
+    "DOMAIN-07": "Temporal and liveness properties",
+    "DOMAIN-08": "Concurrency and memory-model properties",
+    "DOMAIN-09": "Error, exception, and failure atomicity",
+    "DOMAIN-10": "Security and capability properties"
+  }
+}

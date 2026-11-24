@@ -1,0 +1,36 @@
+{
+  "id": "POB-004",
+  "revision": 1,
+  "status": "proposed",
+  "title": "Range reversal",
+  "labels": [
+    "FORM-02",
+    "FORM-04",
+    "DOMAIN-03"
+  ],
+  "contract": "Reverse [start,end) and preserve all outside positions.",
+  "scope": "Lists length 0..3 over -1,0,1; all legal endpoints.",
+  "assumptions": [
+    "Exactly the abstract finite model and input domain described in scope; no claim about LLMLang implementation or unbounded executions."
+  ],
+  "obligations": [
+    {
+      "id": "O1",
+      "claim": "Same length; each inside position has its mirrored original value; every outside position is unchanged.",
+      "dependencies": []
+    }
+  ],
+  "oracle": "reverse",
+  "variants": [
+    {
+      "id": "reference",
+      "description": "Reference implementation in oracle module.",
+      "expected": "bounded_pass"
+    },
+    {
+      "id": "mutation",
+      "description": "Reverse the whole list.",
+      "expected": "disproven"
+    }
+  ]
+}
