@@ -2,7 +2,7 @@
 
 **Status:** Proposed research/evaluation corpus; non-normative  
 **Purpose:** Evaluate proof-obligation generation, backend planning, verification, and evidence aggregation independently and end-to-end.  
-**Related research:** [RT-33 — Proof Backend Selection and Verification Orchestration](RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT--32 — Verified SPG-to-Lean Pipeline](RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](RESEARCH-TAXONOMY.md#2-research-area-inventory).  
+**Related research:** [RT-33 — Proof Backend Selection and Verification Orchestration](RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-32 — Verified SPG-to-Lean Pipeline](RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](RESEARCH-TAXONOMY.md#2-research-area-inventory).  
 **Related corpus:** [Contract Formalization Debug Corpus](CONTRACT-FORMALIZATION-CORPUS/README.md).
 
 ## 1. Why a separate benchmark
