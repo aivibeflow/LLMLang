@@ -76,3 +76,7 @@ Case IDs are stable and must never be reused. Changes to accepted meaning requir
 The initial cases do not cover overflow, concurrency, floating-point behavior, aliasing, ownership, exceptions, termination, or temporal properties. Add those as separate cases with explicit semantics.
 
 No surface contract language, Contract DSL, Contract IR schema, proof backend, or LLMLang semantic rule is selected by this corpus.
+
+## 7. Planned RT-34 resource-contract extension
+
+[RT-34](../RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) and its [complexity benchmark plan](../RT-34-COMPLEXITY-BENCHMARK.md) propose new formalization cases with explicit size measures, cost models, worst/expected/amortized scopes and resource guarantees. CF-005 remains unchanged: functional sorting does not imply a complexity requirement. Include underspecified requests where clarification or abstention is correct, and mutations that preserve function behavior while violating a stated bound. Allocate new stable CF IDs when fixtures are independently adjudicated; no new executable coverage is claimed by this plan.
