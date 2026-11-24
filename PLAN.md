@@ -480,6 +480,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Report speedup distributions and workload assumptions rather than a single headline number.
 - [ ] Identify workloads where caching is neutral or slower.
 
+**Research recheck (2026-11-24):** Recomputed all four rows in [the analytical estimate](research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md); the stated avoided-work and speedup figures match the published weights, hit fractions, and overhead values. Re-ran the [RT-11 binding invalidation benchmark](research/RT-11-BINDING-INVALIDATION-BENCHMARK.md) from the current-main prototype on Linux (`cc 14.2.0`, `x86_64-linux-gnu`): both linkage modes reproduced their action-count table and each incremental phase matched a clean-build oracle. This independently rechecks fixture behavior on one additional toolchain. Action counts are not elapsed-time measurements, and neither experiment measures LLMLang compilation or establishes representative workload hit rates. Controlled cold/warm/local/component/broad-change wall-time, CPU, memory, cache and critical-path measurements on representative LLMLang workloads remain external prerequisites; §3.4 remains open.
+
 **Status:** analytical estimate researched in `research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`; empirical benchmark results still required.
 
 **Exit criteria:** a dependency-completeness policy; sound action-key model; tests showing that relevant changes invalidate all affected results and irrelevant changes preserve valid results; reproducible benchmark data.
