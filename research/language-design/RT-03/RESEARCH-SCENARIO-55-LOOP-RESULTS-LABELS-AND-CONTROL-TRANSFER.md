@@ -35,7 +35,7 @@ Go uses a generalized `for` statement for infinite loops, condition loops, three
 
 The single loop construct reduces surface forms and makes result flow explicit in statements. The trade-off is more scaffolding for search-like constructs that naturally yield a found value, and labeled control transfer remains a nonlocal jump that tools must explain.
 
-Source: [Go specification — For statements and branch statements](https://go.dev/ref/spec#For_statements), [Go specification — Labels](https://go.dev/ref/spec#Labels).
+Source: [Go specification — For statements and branch statements](https://go.dev/ref/spec#For_statements), [Go specification — Labeled statements](https://go.dev/ref/spec#Labeled_statements).
 
 ### Swift: condition/collection loops and labeled statement exits
 

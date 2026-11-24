@@ -20,7 +20,7 @@ Sources: [Rust `PartialEq`](https://doc.rust-lang.org/core/cmp/trait.PartialEq.h
 
 Go defines comparability structurally for primitive, pointer, channel, array, and struct types, with some dynamic checks for interface values. Slices, maps, and functions are not comparable except to `nil`; a comparison of interface values with an identical dynamic type that is not comparable can panic at runtime. Pointers compare by address/pointed-to variable identity. The built-in map key contract follows these equality rules, so comparability affects the type system and collection eligibility rather than being an independently declared protocol. Floating-point comparisons follow IEEE behavior, including NaN inequality.
 
-Sources: [Go specification — Comparison operators](https://go.dev/ref/spec#Comparison_operators), [Go specification — Comparable types](https://go.dev/ref/spec#Comparison_operators), [Go FAQ — Slices and equality](https://go.dev/doc/faq#why_does_go_not_have_a_==_operator).
+Sources: [Go specification — Comparison operators](https://go.dev/ref/spec#Comparison_operators), [Go specification — Comparable types](https://go.dev/ref/spec#Comparison_operators), [Go FAQ — Why don’t maps allow slices as keys?](https://go.dev/doc/faq#map_keys).
 
 ### Swift: explicit `Equatable`/`Hashable`; class identity uses `===`
 

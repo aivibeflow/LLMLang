@@ -2,7 +2,7 @@
 
 **Date** · 2026-11-21  
 **Baseline** · `017e64b87c87371309197a392165258b8b088dd1`  
-**Status** · Lean proof for a bounded [Plan §2.4](../../../PLAN.md#24-correctness-of-optimization-and-translation) fragment
+**Status** · Lean proof for a bounded [Plan §2.4](../../../PLAN.md#25-correctness-of-optimization-and-translation) fragment
 
 ## Question
 

@@ -259,7 +259,7 @@ The system should maintain distinct edge classes, rather than treating every ref
 A declared dependency graph must be a sound over-approximation of actual dependencies. Missing edges can make incremental analysis unsound; redundant edges can cause unnecessary invalidation.
 
 Bazel explicitly distinguishes actual and declared dependencies and states that correct builds require actual dependencies to be covered by declared dependencies:
-https://bazel.build/versions/7.3.0/concepts/dependencies
+https://github.com/bazelbuild/bazel/blob/7.3.0/site/en/concepts/dependencies.md
 
 For LLMLang this principle is broader than build correctness: a hidden semantic dependency can invalidate impact analysis, verification reuse, and reproducibility claims.
 
@@ -580,7 +580,7 @@ Important limitation: Unison demonstrates the code-value and dependency model. I
 Bazel distinguishes declared from actual dependencies and uses dependency graphs to determine what must be rebuilt. Skyframe describes incremental evaluation and reverse-transitive invalidation.
 
 Sources:
-- https://bazel.build/versions/7.3.0/concepts/dependencies
+- https://github.com/bazelbuild/bazel/blob/7.3.0/site/en/concepts/dependencies.md
 - https://bazel.googlesource.com/bazel/%2B/d167757e358b239f261afa41c0725ae74e86aee5/site/en/reference/skyframe.md
 
 Relevance: a content-addressed graph is only as useful as its dependency completeness and precision. Over-approximated edges cause unnecessary work; missing edges can make results unsound.
@@ -897,7 +897,7 @@ This is a research recommendation, not an accepted language design decision.
 3. Unison, General FAQs — propagation and recursive definitions: https://www.unison-lang.org/docs/usage-topics/general-faqs/
 4. Unison, Dependents view, 2025-09-26: https://www.unison-lang.org/blog/dependents-release/
 5. Unison, UCM command reference — dependencies and dependents: https://www.unison-lang.org/docs/ucm-commands/
-6. Bazel, Dependencies: https://bazel.build/versions/7.3.0/concepts/dependencies
+6. Bazel, Dependencies: https://github.com/bazelbuild/bazel/blob/7.3.0/site/en/concepts/dependencies.md
 7. Bazel, Skyframe: https://bazel.googlesource.com/bazel/%2B/d167757e358b239f261afa41c0725ae74e86aee5/site/en/reference/skyframe.md
 8. Git, Git data model: https://git-scm.com/docs/gitdatamodel
 9. Nix, Content-addressed derivation outputs: https://github.com/NixOS/nix/blob/master/doc/manual/source/store/derivation/outputs/content-address.md

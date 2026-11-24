@@ -34,7 +34,7 @@ Go generic type parameters are constrained by interface types. A constraint defi
 
 This gives one interface syntax distinct roles while keeping the supported type-set rules intentionally bounded. The language specification's special rules for comparable, union terms, and operations on type parameters are part of the design cost; structural matching does not mean every arbitrary structural constraint is expressible.
 
-Sources: [Go specification — Interface types and type parameters](https://go.dev/ref/spec), [Go tutorial — Generics](https://go.dev/doc/tutorial/generics), [Go FAQ — Generics](https://go.dev/doc/faq#What_is_the_status_of_Go's_support_for_generic_programming).
+Sources: [Go specification — Interface types and type parameters](https://go.dev/ref/spec), [Go tutorial — Generics](https://go.dev/doc/tutorial/generics), [Go FAQ — Type parameters](https://go.dev/doc/faq#Type_Parameters).
 
 ### Swift: protocols, associated types, opaque and existential types
 
