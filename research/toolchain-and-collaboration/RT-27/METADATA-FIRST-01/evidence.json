@@ -1,0 +1,104 @@
+{
+  "commit": "7ac4e2b97ea6ca73dd4efeafe2f1df50e5586db1",
+  "controls": {
+    "changed_manifest_warm": "metadata differs from pinned blob: manifest.json",
+    "different_root_when_metadata_is_repinned": "1c3e150034639be99319b2257b4a1983237227aede56363b6d737216fb135e2f",
+    "mismatched_cache_value": "cache value does not match the selected address",
+    "wrong_offset": "metadata differs from pinned blob: index.json",
+    "wrong_record_even_with_repin": "record content address mismatch"
+  },
+  "files": {
+    "container.bin": {
+      "bytes": 30478,
+      "sha256": "91716efc1242fdcf03f228a743380411bbe45835e7badecd7654e30e648713ed"
+    },
+    "container.zip": {
+      "bytes": 83748,
+      "sha256": "82d39918814b1940439b4c1dd9278b4bfb31d3dc478abc72c6008417d5caab04"
+    },
+    "index.json": {
+      "bytes": 20131,
+      "sha256": "c2e9651027ca845a3f2b58680bd355be3e445d70f588d6b62917dc6d8c05b728"
+    },
+    "manifest.json": {
+      "bytes": 20342,
+      "sha256": "2c49916d0d8e51d97f2f0fdb3a5d8ee03e12439811512f58af29085bd5d3116e"
+    },
+    "scan.jsonl": {
+      "bytes": 69094,
+      "sha256": "32b3bf368f0e996fb9b460aec59d47941f607e9fa6eafb20696159cbf06cb9e5"
+    }
+  },
+  "format": "rt27-metadata-first/1",
+  "git": "git version 2.52.0",
+  "pinned_metadata_blobs": {
+    "index.json": "e6f81bf88f42c9e3732d85ebd0de6fd58e7bd7ab",
+    "manifest.json": "1a53b56290c80a8a3e56c8480ce8ab93ac7bad60"
+  },
+  "python": "3.12.14",
+  "records": 256,
+  "root": "72f8882f348e59bf41ca8dec4b6ae8e3349f8c6f5815727dc8bb852e9c617d91",
+  "runs": {
+    "indexed": {
+      "0": {
+        "cache_hits": 0,
+        "decodes": 256,
+        "metadata": 40473,
+        "payload": 30478
+      },
+      "128": {
+        "cache_hits": 128,
+        "decodes": 128,
+        "metadata": 40473,
+        "payload": 15228
+      },
+      "256": {
+        "cache_hits": 256,
+        "decodes": 0,
+        "metadata": 20342,
+        "payload": 0
+      }
+    },
+    "scan": {
+      "0": {
+        "cache_hits": 0,
+        "decodes": 256,
+        "metadata": 20342,
+        "payload": 69094
+      },
+      "128": {
+        "cache_hits": 128,
+        "decodes": 256,
+        "metadata": 20342,
+        "payload": 69094
+      },
+      "256": {
+        "cache_hits": 256,
+        "decodes": 0,
+        "metadata": 20342,
+        "payload": 0
+      }
+    },
+    "zip": {
+      "0": {
+        "cache_hits": 0,
+        "decodes": 256,
+        "metadata": 49824,
+        "payload": 54286
+      },
+      "128": {
+        "cache_hits": 128,
+        "decodes": 128,
+        "metadata": 49824,
+        "payload": 27132
+      },
+      "256": {
+        "cache_hits": 256,
+        "decodes": 0,
+        "metadata": 20342,
+        "payload": 0
+      }
+    }
+  },
+  "zlib": "1.3.2"
+}
