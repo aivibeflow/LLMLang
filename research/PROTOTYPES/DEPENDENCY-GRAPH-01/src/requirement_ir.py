@@ -234,15 +234,14 @@ def evaluate(expr: Expression, values: Mapping[str, Any]) -> bool:
     raise RequirementIRError("unsupported expression node")
 
 
-def _assignments(variables: tuple[Variable, ...], limit: int):
+def _assignments(variables: tuple[Variable, ...], limit: int) -> Iterable[dict[str, Any]] | None:
     count = 1
     for variable in variables:
         count *= len(variable.domain)
     if count > limit:
         return None
     names = [v.name for v in variables]
-    for values in product(*(v.domain for v in variables)):
-        yield dict(zip(names, values))
+    return (dict(zip(names, values)) for values in product(*(v.domain for v in variables)))
 
 
 def analyze(ir: RequirementIR, max_assignments: int = 10_000) -> Analysis:
@@ -272,13 +271,12 @@ def analyze(ir: RequirementIR, max_assignments: int = 10_000) -> Analysis:
                       "INVALID_EXPRESSION", "UNKNOWN_DIMENSION"} for i in issues):
         return Analysis(tuple(issues), (), "INVALID")
 
-    assignments = _assignments(ir.variables, max_assignments)
-    if assignments is not None:
-        assignments = tuple(assignments)
-    if assignments is None:
+    assignment_rows = _assignments(ir.variables, max_assignments)
+    if assignment_rows is None:
         issues.append(Issue("ANALYSIS_BOUND_EXCEEDED", "project",
                             f"finite state space exceeds {max_assignments} assignments"))
         return Analysis(tuple(issues), (), "UNKNOWN")
+    assignments = tuple(assignment_rows)
 
     scenarios: list[Scenario] = []
     by_scope: dict[str, list[Requirement]] = {}

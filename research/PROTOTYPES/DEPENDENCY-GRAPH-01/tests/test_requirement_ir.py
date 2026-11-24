@@ -111,6 +111,36 @@ class RequirementIRTests(unittest.TestCase):
         self.assertIn("ANALYSIS_BOUND_EXCEEDED",
                       {issue.code for issue in result.issues})
 
+    def test_assignment_limit_distinguishes_unknown_from_completed_analysis(self):
+        first = Requirement("R1", "preferred_order", "preferred_order",
+                            Predicate("rate_basis_points", Operator.EQ, 1200),
+                            ("intent:preferred-tax",))
+        second = Requirement("R2", "preferred_order", "preferred_order",
+                             Predicate("rate_basis_points", Operator.EQ, 1500),
+                             ("intent:preferred-tax",))
+        cases = {
+            "satisfiable": ((first,), "FINITE_MODEL_CONSISTENT", 18, 6, set()),
+            "contradictory": ((first, second), "NEEDS_REVIEW", 18, 0, {"CONTRADICTION"}),
+            "no_requirements": ((), "FINITE_MODEL_CONSISTENT", 0, 0, set()),
+        }
+        for case, (requirements, status, count, satisfying, codes) in cases.items():
+            ir = RequirementIR(self.variables, requirements, self.source_ids, self.decision_ids)
+            for limit in (0, 17):
+                with self.subTest(case=case, limit=limit):
+                    result = analyze(ir, max_assignments=limit)
+                    self.assertEqual(result.status, "UNKNOWN")
+                    self.assertEqual({issue.code for issue in result.issues}, {"ANALYSIS_BOUND_EXCEEDED"})
+                    self.assertEqual(result.scenarios, ())
+                    self.assertEqual(generate_scenarios(ir, max_assignments=limit), ())
+            for limit in (18, 19):
+                with self.subTest(case=case, limit=limit):
+                    result = analyze(ir, max_assignments=limit)
+                    self.assertEqual(result.status, status)
+                    self.assertEqual({issue.code for issue in result.issues}, codes)
+                    self.assertEqual(len(result.scenarios), count)
+                    self.assertEqual(sum(scenario.satisfies for scenario in result.scenarios), satisfying)
+                    self.assertEqual(generate_scenarios(ir, max_assignments=limit), result.scenarios)
+
     def test_caller_policy_is_explicit_input_not_hidden_callee_rule(self):
         rule = BusinessRule("preferred-tax", "preferred_order", "preferred_order",
                             Predicate("rate_basis_points", Operator.EQ, 1200),
