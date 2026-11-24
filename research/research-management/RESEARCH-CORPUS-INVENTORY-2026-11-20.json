@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "3886c7db47fa635f3ad1d0634fcf011fef4e8151",
-  "source": "Exact research path, blob and byte inventory for the rebased tree on the latest main baseline, excluding the inventory manifest itself.",
+  "revision": "a4aa36ccee24dac507289fd54c59f56a3edcff9c",
+  "source": "Exact research path, blob and byte inventory for the rebased current-main tree and RT-19 multi-file publication recheck, excluding the inventory manifest itself.",
   "counts": {
-    "research_files": 929,
-    "research_artifacts_excluding_manifest": 929,
+    "research_files": 935,
+    "research_artifacts_excluding_manifest": 935,
     "markdown_files": 436,
     "mdx_files": 3,
     "python_files": 276,
@@ -35,7 +35,7 @@
       "research-rfc-or-protocol-proposal": 2
     }
   },
-  "classification_note": "Latest main includes merged PR #486; RT-25 workload-fit recheck and its navigation references are added in this PR. Each newly introduced artifact received individual role review. All 929 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
+  "classification_note": "Against latest main 0eab94b (manifest excluded), this PR retains the RT-19 multi-file publication recheck; five artifacts from merged PRs #488 and #489 are included with separate role review. All 935 research artifacts excluding the manifest have exact path/blob/size records. Role triage is not claim validation.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -2732,6 +2732,54 @@
       }
     },
     {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/spg_lean/SpgObservations.lean",
+      "git_blob_sha": "6f642f07d0254d7afe967e49f4c28a623c61d04b",
+      "size_bytes": 3787,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-32"
+        ],
+        "method": "Lean proposition source for the verified SPG observation-binding experiment; role reviewed against PR #488.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        4
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/spg_lean/replay.py",
+      "git_blob_sha": "eb547ae920c38b4c9dd30d4e17579ca62898f798",
+      "size_bytes": 10877,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-32"
+        ],
+        "method": "Source-bound replay implementation for the verified SPG observation-binding experiment; role reviewed against PR #488.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        4
+      ]
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/spg_lean/results.json",
+      "git_blob_sha": "b5d4b4835d3436b632365ccc560ed3140093c65d",
+      "size_bytes": 5366,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-32"
+        ],
+        "method": "Recorded result evidence for the verified SPG observation-binding experiment; role reviewed against PR #488.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        4
+      ]
+    },
+    {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/__init__.py",
       "git_blob_sha": "a611c5c0ef8f5d435524387e328c928550f5cd9b",
       "size_bytes": 50,
@@ -3941,8 +3989,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_ir.py",
-      "git_blob_sha": "1a5c73f9b18f262cfcc49e98f9e03854876bd8fa",
-      "size_bytes": 12278,
+      "git_blob_sha": "80117535f4a78f2856dc0f847cc88a2b43515f02",
+      "size_bytes": 12283,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -5441,8 +5489,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_requirement_ir.py",
-      "git_blob_sha": "a57d087246cb370d7b4d631fbb70369a2192e895",
-      "size_bytes": 7380,
+      "git_blob_sha": "f09f4b47497edb6281f4e09a1c55ccf63cb062f4",
+      "size_bytes": 9389,
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
@@ -7875,8 +7923,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "42a03c6c67eefc67b512b75d9f49c461b21ad128",
-      "size_bytes": 59755,
+      "git_blob_sha": "94120e5bdc0f6703f650198bf4140aa0cacf66f3",
+      "size_bytes": 60078,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -12342,9 +12390,25 @@
       }
     },
     {
+      "path": "research/formal-verification/RT-32/RT-32-SPG-LEAN-OBSERVATION-BINDING-2026-11-24.md",
+      "git_blob_sha": "3890b526f575d60fb0f23e5d296fd46a5061f243",
+      "size_bytes": 4416,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-32"
+        ],
+        "method": "Research report on source and body-bound Lean observations; role reviewed against merged PR #488.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        4
+      ]
+    },
+    {
       "path": "research/formal-verification/RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md",
-      "git_blob_sha": "b28ce23ccd5061dd142d564606ff567997bfd122",
-      "size_bytes": 19285,
+      "git_blob_sha": "638bb47d2eb8cc98ad581e7512c18451d71df0c5",
+      "size_bytes": 19633,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -12910,6 +12974,22 @@
         ],
         "basis": "Research Taxonomy explicit links/ranges; candidate mapping, not a normative classification"
       }
+    },
+    {
+      "path": "research/language-design/RT-02/RT-02-REQUIREMENT-ASSIGNMENT-BOUND-2026-11-24.md",
+      "git_blob_sha": "bd0afa1c03cbc066529e8a9d495b19a011eb61f0",
+      "size_bytes": 2667,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-02"
+        ],
+        "method": "Research report distinguishing analysis budget exhaustion from finite contradiction; role reviewed against merged PR #489.",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1
+      ]
     },
     {
       "path": "research/language-design/RT-02/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md",
@@ -17130,8 +17210,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "43aee7c98dee6786f3095cbacaf3b9172e89c583",
-      "size_bytes": 97638,
+      "git_blob_sha": "7c7054c19ab2ef0265b23d704a6c03a8ced34f76",
+      "size_bytes": 98199,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -17151,8 +17231,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
-      "git_blob_sha": "4e0656aa22782286a5371393f4b44aa5ce65787b",
-      "size_bytes": 99267,
+      "git_blob_sha": "ef7ccdc418819df0c0c490b69b860c3e2979bb34",
+      "size_bytes": 100146,
       "category": "cross-cutting-synthesis-or-status",
       "traceability": {
         "items": [
@@ -17271,8 +17351,8 @@
     },
     {
       "path": "research/research-management/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "4477540c3ad638006af2ace54e67a491e479e1aa",
-      "size_bytes": 66860,
+      "git_blob_sha": "a45e8871573d5a5b0795b15a84445e12a8811862",
+      "size_bytes": 67301,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -21410,8 +21490,8 @@
         "basis": "Navigation and scope index."
       },
       "path": "research/toolchain-and-collaboration/README.md",
-      "git_blob_sha": "0fc19a489c5170dd9c63f8b3d32e417a057e43ae",
-      "size_bytes": 1917
+      "git_blob_sha": "de2fc1b425d74a0c4f1232d7972e8bda6ad52b0a",
+      "size_bytes": 2282
     },
     {
       "path": "research/toolchain-and-collaboration/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md",
@@ -21837,6 +21917,22 @@
         "status": "not-reviewed",
         "basis": "Added from the exact recursive Git-tree audit. This record establishes path/blob/size only; no semantic ownership, claim, or Plan-stage mapping is asserted."
       }
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/RT-19-MULTIFILE-PUBLICATION-BOUNDARY-RECHECK-2026-11-24.md",
+      "git_blob_sha": "f76d295c433403bad0d53288b1a0eb48672af312",
+      "size_bytes": 7078,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "RT-19 multi-file publication boundary recheck; individually role reviewed",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ]
     },
     {
       "path": "research/toolchain-and-collaboration/RT-19/RT-19-STORAGE-BACKEND-CONTRACT-RECHECK-2026-11-23.md",

@@ -23,6 +23,7 @@ This direction groups related research studies without changing their RT identif
 ## Recent bounded rechecks
 
 - [RT-19 transaction/recovery protocol comparison](RT-19/RT-19-TRANSACTION-RECOVERY-PROTOCOL-COMPARISON-2026-11-24.md) compares a single embedded DB coordinator, separate immutable object plus workspace journal/outbox contracts, and Git commit as acceptance. It favors testing the separated logical contracts in one DB transaction, with Git as reconstructible authority; it does not claim crash recovery or select a production backend.
+- [RT-19 multi-file publication boundary recheck](RT-19/RT-19-MULTIFILE-PUBLICATION-BOUNDARY-RECHECK-2026-11-24.md) compares per-file replacement, immutable generation publication, and exact Git-tree/ref publication. It favors validating a private complete tree before Git ref publication as the next experiment; no implementation or production format is selected.
 
 ## Dedicated research artifacts
 
