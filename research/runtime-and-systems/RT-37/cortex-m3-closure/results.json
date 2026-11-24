@@ -1,0 +1,260 @@
+{
+  "schema": "llmlang-freestanding-cortex-m3-v1",
+  "tool_versions": {
+    "mc": "Debian LLVM version 19.1.7",
+    "llc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "readelf": "Debian LLVM version 19.1.7",
+    "nm": "llvm-nm, compatible with GNU nm",
+    "objcopy": "llvm-objcopy, compatible with GNU objcopy",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "rustc_build": "rustc 1.85.1 (4eb161250 2025-03-15)\nbinary: rustc\ncommit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181\ncommit-date: 2025-03-15\nhost: x86_64-unknown-linux-gnu\nrelease: 1.85.1\nLLVM version: 19.1.7",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "target": "thumbv7m-none-eabi",
+  "machine": "lm3s6965evb",
+  "source_sha256": {
+    "inputs.json": "e59e21e596f2103e6ae6a1ea6270f050b922c1439d67db45608bb1c9c29609be",
+    "startup.s": "dea75a65935a992ae6076bc1df2aaa12f54f608a6fde0f31c6754b10cb7bbc72",
+    "memory.ld": "5085ad0a4168a699d202d6f9af2caeced5d70ec5c0d44372cb16e5ea335b2ecb",
+    "step.ll": "9aad2599598df165a42bc1a3a4f3aeffb437082885068a038b8eb6cd45c0dd97",
+    "step.rs": "e86a221dd0860c283f2536f991ba6c3ea71df5d1b898f3db5138a5d1a287ee6b",
+    "wide_division.ll": "65ccd348159e9a5f138cdf4719ff7331e43d91593f87e32d24d6ef5f8d076669",
+    "run.py": "5ec43ef68d29aaf7bc88bcbf7e97e46f59abdfa18dbb567897333d8a23092477"
+  },
+  "steps_per_image": 14,
+  "images": {
+    "llvm-O0": {
+      "flash_extent_bytes": 492,
+      "static_ram_bytes": 8,
+      "reset_vector": "0x41",
+      "initial_stack": "0x20010000",
+      "loads": [
+        {
+          "virtual": 0,
+          "physical": 0,
+          "file_bytes": 64,
+          "memory_bytes": 64,
+          "flags": "R"
+        },
+        {
+          "virtual": 64,
+          "physical": 64,
+          "file_bytes": 408,
+          "memory_bytes": 408,
+          "flags": "RE"
+        },
+        {
+          "virtual": 472,
+          "physical": 472,
+          "file_bytes": 16,
+          "memory_bytes": 16,
+          "flags": "R"
+        },
+        {
+          "virtual": 536870912,
+          "physical": 488,
+          "file_bytes": 4,
+          "memory_bytes": 4,
+          "flags": "RW"
+        },
+        {
+          "virtual": 536870916,
+          "physical": 536870916,
+          "file_bytes": 0,
+          "memory_bytes": 4,
+          "flags": "RW"
+        }
+      ],
+      "image_sha256": "330d5ebe7cef2ec70b30e443f7db79d99e346d78e6557e81c1b37367f843fff6",
+      "uart": "B ff ff f6 00 0d 1a 00 00 00 00 0d 04 00 00!"
+    },
+    "llvm-O2": {
+      "flash_extent_bytes": 472,
+      "static_ram_bytes": 8,
+      "reset_vector": "0x41",
+      "initial_stack": "0x20010000",
+      "loads": [
+        {
+          "virtual": 0,
+          "physical": 0,
+          "file_bytes": 64,
+          "memory_bytes": 64,
+          "flags": "R"
+        },
+        {
+          "virtual": 64,
+          "physical": 64,
+          "file_bytes": 388,
+          "memory_bytes": 388,
+          "flags": "RE"
+        },
+        {
+          "virtual": 452,
+          "physical": 452,
+          "file_bytes": 16,
+          "memory_bytes": 16,
+          "flags": "R"
+        },
+        {
+          "virtual": 536870912,
+          "physical": 468,
+          "file_bytes": 4,
+          "memory_bytes": 4,
+          "flags": "RW"
+        },
+        {
+          "virtual": 536870916,
+          "physical": 536870916,
+          "file_bytes": 0,
+          "memory_bytes": 4,
+          "flags": "RW"
+        }
+      ],
+      "image_sha256": "0dd864bbab43f215d03ec5c4cfa81b37728afbd0e4a0fc86d8d1d0b2db71f12c",
+      "uart": "B ff ff f6 00 0d 1a 00 00 00 00 0d 04 00 00!"
+    },
+    "rust-O0": {
+      "flash_extent_bytes": 684,
+      "static_ram_bytes": 8,
+      "reset_vector": "0x41",
+      "initial_stack": "0x20010000",
+      "loads": [
+        {
+          "virtual": 0,
+          "physical": 0,
+          "file_bytes": 64,
+          "memory_bytes": 64,
+          "flags": "R"
+        },
+        {
+          "virtual": 64,
+          "physical": 64,
+          "file_bytes": 600,
+          "memory_bytes": 600,
+          "flags": "RE"
+        },
+        {
+          "virtual": 664,
+          "physical": 664,
+          "file_bytes": 16,
+          "memory_bytes": 16,
+          "flags": "R"
+        },
+        {
+          "virtual": 536870912,
+          "physical": 680,
+          "file_bytes": 4,
+          "memory_bytes": 4,
+          "flags": "RW"
+        },
+        {
+          "virtual": 536870916,
+          "physical": 536870916,
+          "file_bytes": 0,
+          "memory_bytes": 4,
+          "flags": "RW"
+        }
+      ],
+      "image_sha256": "fdae8bfde270e5e7aab109dd0f777a5ea01e941dbc6f900e12b98fd7991f8dec",
+      "uart": "B ff ff f6 00 0d 1a 00 00 00 00 0d 04 00 00!"
+    },
+    "rust-O2": {
+      "flash_extent_bytes": 468,
+      "static_ram_bytes": 8,
+      "reset_vector": "0x41",
+      "initial_stack": "0x20010000",
+      "loads": [
+        {
+          "virtual": 0,
+          "physical": 0,
+          "file_bytes": 64,
+          "memory_bytes": 64,
+          "flags": "R"
+        },
+        {
+          "virtual": 64,
+          "physical": 64,
+          "file_bytes": 384,
+          "memory_bytes": 384,
+          "flags": "RE"
+        },
+        {
+          "virtual": 448,
+          "physical": 448,
+          "file_bytes": 16,
+          "memory_bytes": 16,
+          "flags": "R"
+        },
+        {
+          "virtual": 536870912,
+          "physical": 464,
+          "file_bytes": 4,
+          "memory_bytes": 4,
+          "flags": "RW"
+        },
+        {
+          "virtual": 536870916,
+          "physical": 536870916,
+          "file_bytes": 0,
+          "memory_bytes": 4,
+          "flags": "RW"
+        }
+      ],
+      "image_sha256": "1d97fdebdd294d90039fd3836ac2ee4723e3e9824f26a9e7c878ca61ef933ca3",
+      "uart": "B ff ff f6 00 0d 1a 00 00 00 00 0d 04 00 00!"
+    },
+    "rust-checked-add-O2": {
+      "flash_extent_bytes": 468,
+      "static_ram_bytes": 8,
+      "reset_vector": "0x41",
+      "initial_stack": "0x20010000",
+      "loads": [
+        {
+          "virtual": 0,
+          "physical": 0,
+          "file_bytes": 64,
+          "memory_bytes": 64,
+          "flags": "R"
+        },
+        {
+          "virtual": 64,
+          "physical": 64,
+          "file_bytes": 384,
+          "memory_bytes": 384,
+          "flags": "RE"
+        },
+        {
+          "virtual": 448,
+          "physical": 448,
+          "file_bytes": 16,
+          "memory_bytes": 16,
+          "flags": "R"
+        },
+        {
+          "virtual": 536870912,
+          "physical": 464,
+          "file_bytes": 4,
+          "memory_bytes": 4,
+          "flags": "RW"
+        },
+        {
+          "virtual": 536870916,
+          "physical": 536870916,
+          "file_bytes": 0,
+          "memory_bytes": 4,
+          "flags": "RW"
+        }
+      ],
+      "image_sha256": "7575c5d72f4091a5d781ae506a2c79f20f505e131609d1a9ab23256c4eb3c1ea",
+      "uart": "B ff ff f6 00 0d 1a 00 00 00 00 0d 04 00 00!"
+    }
+  },
+  "controls": {
+    "rust_checked_add_O0": "panic_const_add_overflow",
+    "llvm_wide_division_O2": "__aeabi_uldivmod",
+    "llvm_unspecified_unwind_O0": "__aeabi_unwind_cpp_pr0",
+    "skip_bss_zero": "X"
+  }
+}

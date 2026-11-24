@@ -1,6 +1,7 @@
 # RT-37 — Freestanding, embedded and real-time firmware
 
-**Status:** Proposed research brief; no normative semantics, compiler capability or experiment result.  
+**Status:** Bounded Cortex-M3 startup and runtime closure checked. Broader firmware and timing profile open.
+
 **Priority:** P0 shared profile feasibility; P1 firmware/real-time pilot and advanced targets.  
 **Date:** 2026-11-24  
 **Tracking:** [Issue #440](https://github.com/aivibeflow/LLMLang/issues/440)  
@@ -62,4 +63,4 @@ Negative controls: hidden libc/OS imports or allocator calls; invalid register m
 - Pin target, compiler/linker versions, source/SPG revisions, memory map, device model, clock/interrupt model, proof checker, assumptions and commands. Compare independent reference traces and negative controls; preserve link maps, binary imports, traces, measurements and proof/evidence scope.
 - Exit: documented comparative profile and unsupported operations; reproducible bootable firmware pilot with explicit runtime closure and independent tests; checked obligations in a declared fragment and separately scoped timing/resource evidence; unresolved gaps and draft-change proposals recorded. No automatic normative adoption.
 
-No experiments have been executed for this brief; target choices, resource bounds and profiles are candidates.
+The [Cortex-M3 runtime-closure study](RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md) boots five direct LLVM and freestanding Rust images against an independent UART oracle. Explicit startup, arithmetic and unwind choices determine closure. This validates the startup slice while the timer/GPIO workload, independent board tests and real-time claims remain open.
