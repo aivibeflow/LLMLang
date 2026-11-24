@@ -1,41 +1,41 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-23",
+  "generated_at": "2026-11-24",
   "repository": "aivibeflow/LLMLang",
-  "revision": "9135dfbe7724e12f2bbd664b53d860ec2f428d8b",
-  "source": "Exact research-tree inventory at baseline 9135dfbe7724e12f2bbd664b53d860ec2f428d8b plus RT-04/RT-05 contract-implementation identity recheck report; manifest excluded.",
+  "revision": "548182a67afac67c0403c7bef5a7cd84cff821f0",
+  "source": "Exact inventory for PR research tree based on main 548182a67afac67c0403c7bef5a7cd84cff821f0 plus this reconciliation report; manifest excluded.",
   "counts": {
-    "research_files": 610,
-    "markdown_files": 327,
-    "python_files": 227,
-    "scenario_named_documents": 140,
-    "prototype_tree_files": 289,
+    "research_files": 786,
+    "markdown_files": 384,
+    "python_files": 261,
+    "scenario_named_documents": 136,
+    "prototype_tree_files": 302,
     "preparation_and_reference_files": 24,
     "category_counts": {
-      "research-background-or-design-analysis": 27,
-      "example-or-fixture": 1,
-      "research-area-or-experiment-document": 67,
-      "structured-fixture-or-schema": 1,
-      "research-preparation-brief-or-index": 9,
-      "prototype-or-experiment-implementation": 146,
-      "prototype-test-evidence": 121,
-      "other-research-artifact": 2,
-      "prototype-report-or-readme": 20,
-      "index-or-research-management": 3,
-      "reference-register-or-manifest": 2,
-      "external-source-snapshot-or-license": 13,
-      "audit-or-review-report": 44,
+      "audit-or-review-report": 72,
       "cross-cutting-synthesis-or-status": 4,
+      "example-or-fixture": 46,
+      "external-source-snapshot-or-license": 13,
+      "index-or-research-management": 3,
+      "other-research-artifact": 2,
+      "prototype-or-experiment-implementation": 179,
+      "prototype-report-or-readme": 30,
+      "prototype-test-evidence": 154,
+      "reference-register-or-manifest": 2,
+      "research-area-or-experiment-document": 85,
+      "research-background-or-design-analysis": 29,
+      "research-preparation-brief-or-index": 13,
+      "research-rfc-or-protocol-proposal": 2,
       "scenario-research-result": 136,
-      "research-rfc-or-protocol-proposal": 2
+      "structured-fixture-or-schema": 16
     },
-    "lean_source_files": 33,
-    "taxonomy_research_areas": 28,
-    "dependency_edges": 135,
+    "lean_source_files": 39,
+    "taxonomy_research_areas": 29,
+    "dependency_edges": 136,
     "mdx_files": 3,
-    "research_artifacts_excluding_manifest": 610
+    "research_artifacts_excluding_manifest": 786
   },
-  "classification_note": "Categories and mappings are inventory metadata, not semantic proof. The inventory records first-pass root-level and scenario-to-RT crosswalks; individual role mappings for all 289 current prototype paths; first-pass relationship review of all 136 strict Scenario reports (135 scenario identifiers; the broad 137-path count includes one RT-00 pilot); bounded evidence-graph reviews for RT-04-01 and Dependency Graph/Logos; and content-role triage of previously unmapped artifacts. RT-27 is registered as a research area and its storage requirements remain provisional; RT-28 and its candidate dependency edges are registered but unvalidated. The Git byte-storage and quality-rules reports are recorded with their stated evidence boundaries. These reviews do not validate every claim, test outcome, generated artifact, or experiment environment; corpus-wide claim validation and reproducibility review remain open.",
+  "classification_note": "At main 1e7e4d99f266b6410742e1af1a9680d93231686f, 168 paths are absent from the prior 610-record inventory and 21 represented paths have changed blob SHA or byte size. All newly added paths in the main tree and this reconciliation report have first-pass individual role/RT/stage mapping. Changed existing paths retain prior role mappings pending content revalidation; exact Git metadata does not validate semantic role. Claim validation, generated-output review, and experiment reproduction remain separate.",
   "index_check": {
     "index": "research/README.md",
     "unique_relative_targets": 153,
@@ -268,8 +268,8 @@
     },
     {
       "path": "research/LLMLang-CONCEPT.md",
-      "git_blob_sha": "8b78b3ccbc0912c9e91b40618a7573f4b2c9f957",
-      "size_bytes": 66128,
+      "git_blob_sha": "869f5dcc4b40d786ceab4c5fdcb33328a7c464d1",
+      "size_bytes": 41633,
       "category": "research-background-or-design-analysis",
       "traceability": {
         "items": [
@@ -340,6 +340,8 @@
     },
     {
       "path": "research/LLVM-PRESERVATION-REPRODUCTION.md",
+      "git_blob_sha": "15b4fae7ae4663ddf1215e976319c1168d5b8c6c",
+      "size_bytes": 4920,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -356,9 +358,7 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Pinned reproduction protocol for the bounded LLVM integer and byte-view preservation experiments; documents environment and command evidence, not a complete frontend/backend proof or an accepted backend decision."
-      },
-      "git_blob_sha": "15b4fae7ae4663ddf1215e976319c1168d5b8c6c",
-      "size_bytes": 4920
+      }
     },
     {
       "path": "research/PACKAGE-INDEX-LOGICAL-SCHEMA.md",
@@ -907,8 +907,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
-      "git_blob_sha": "0ae5c89d9dde4582603c75db37c5d32e3d56a89c",
-      "size_bytes": 1076,
+      "git_blob_sha": "48abb165070030ea89764fbb50fd8bbfa1180e45",
+      "size_bytes": 1143,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -999,8 +999,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean",
-      "git_blob_sha": "825b07fc8f4a7351765bf5d1693c9941a80a7a10",
-      "size_bytes": 19352,
+      "git_blob_sha": "f077357f13353437589fb63bb3ff5563af1a2c4a",
+      "size_bytes": 20942,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1726,8 +1726,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean",
-      "git_blob_sha": "31e4df896207a254ae961abd6d870ea93424a5cd",
-      "size_bytes": 6453,
+      "git_blob_sha": "b30337f32264a93939ff93e0d93b78fc961028c8",
+      "size_bytes": 9660,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1747,8 +1747,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelopeTests.lean",
-      "git_blob_sha": "0d33054aa9d73c3cc0f6ed56708e51e81ae90f6d",
-      "size_bytes": 3367,
+      "git_blob_sha": "142909bf5d8ebe06d1b44cd858a42be0996dd496",
+      "size_bytes": 5100,
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
@@ -1862,8 +1862,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutation.lean",
-      "git_blob_sha": "2f8570700ef03043033bdd68e35582465ab8989c",
-      "size_bytes": 1084,
+      "git_blob_sha": "4fa95e5d8a1bbd4d497adcf33ee9553eb32e17be",
+      "size_bytes": 3674,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -1882,8 +1882,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutationTests.lean",
-      "git_blob_sha": "89b1a300ed660b64856f5af36cbf7270bc05d6ce",
-      "size_bytes": 3028,
+      "git_blob_sha": "a68a071b738c957b8cbc5e5b742a1524f295252c",
+      "size_bytes": 3726,
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
@@ -2684,8 +2684,8 @@
     },
     {
       "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
-      "git_blob_sha": "cd63e4ec5c5f0d7ae7e215596a5febe74e28f37b",
-      "size_bytes": 9524,
+      "git_blob_sha": "ef00765e37c31b8fa5449bb475cce3f8ff56304d",
+      "size_bytes": 16084,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -6149,6 +6149,8 @@
     },
     {
       "path": "research/PROTOTYPES/LLVM-PRESERVATION-01/run_llvm_preservation_probes.py",
+      "git_blob_sha": "7c906da668236777cce986d5646b4edb405289ff",
+      "size_bytes": 7520,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -6178,9 +6180,7 @@
       "semantic_review": {
         "status": "content-role-triaged",
         "basis": "Native reproduction runner for the bounded LLVM integer and byte-view preservation probes."
-      },
-      "git_blob_sha": "7c906da668236777cce986d5646b4edb405289ff",
-      "size_bytes": 7520
+      }
     },
     {
       "path": "research/PROTOTYPES/LLVM-PRESERVATION-01/wasm_view_host.mjs",
@@ -7945,6 +7945,8 @@
     },
     {
       "path": "research/PROTOTYPES/RT-04-01/run_native_probes.py",
+      "git_blob_sha": "853b7a12fd7e7b18b7bcfec11e070e5cc399d743",
+      "size_bytes": 13971,
       "category": "prototype-or-experiment-implementation",
       "traceability": {
         "items": [
@@ -7978,9 +7980,7 @@
       "semantic_review": {
         "status": "content-role-triaged",
         "basis": "Native orchestration runner for selected SQLite C-API, durable-receipt, and generated-Rust probes."
-      },
-      "git_blob_sha": "853b7a12fd7e7b18b7bcfec11e070e5cc399d743",
-      "size_bytes": 13971
+      }
     },
     {
       "path": "research/PROTOTYPES/RT-04-01/scheduler_fairness_model.py",
@@ -8645,6 +8645,8 @@
     },
     {
       "path": "research/PROTOTYPES/RT-04-01/test_rt04_native_probe_runner.py",
+      "git_blob_sha": "45e8c1d58a70ecfbd982e83af9a0e4a74dd18771",
+      "size_bytes": 2225,
       "category": "prototype-test-evidence",
       "traceability": {
         "items": [
@@ -8677,9 +8679,7 @@
       "semantic_review": {
         "status": "content-role-triaged",
         "basis": "Four command-inventory, suite-composition, tracked-path, and toolchain-gate tests for the native runner."
-      },
-      "git_blob_sha": "45e8c1d58a70ecfbd982e83af9a0e4a74dd18771",
-      "size_bytes": 2225
+      }
     },
     {
       "path": "research/PROTOTYPES/RT-04-01/test_rt04_owned_call_match.py",
@@ -9028,8 +9028,8 @@
     },
     {
       "path": "research/README.md",
-      "git_blob_sha": "b90276c558030a14ae2217369bef82322629d07e",
-      "size_bytes": 37391,
+      "git_blob_sha": "d228a1689b9a364edf398aadc9924d8f5c944ce7",
+      "size_bytes": 49426,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -9535,8 +9535,8 @@
     },
     {
       "path": "research/RESEARCH-DEPENDENCY-MAP.md",
-      "git_blob_sha": "f5b401828fbf41734a344bb324f4c68dd3578613",
-      "size_bytes": 60956,
+      "git_blob_sha": "509f59b78fca2b3cdbf6fc548395cbeaaf6717b4",
+      "size_bytes": 83773,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -9982,8 +9982,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md",
-      "git_blob_sha": "3ecbeb0d879e61d4f18a9618834399b953fc63ee",
-      "size_bytes": 5162,
+      "git_blob_sha": "c9900a4d0ee631dbd8447a28900ad024dd7a9c38",
+      "size_bytes": 7034,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -10431,8 +10431,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
-      "git_blob_sha": "1da764213b3249e48d90d40fdf9864e02accb48c",
-      "size_bytes": 6061,
+      "git_blob_sha": "af8655677e7310f88d2089b3022225faee6bde7e",
+      "size_bytes": 7576,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -11033,8 +11033,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md",
-      "git_blob_sha": "b1d3b461cdc5ebd0e255e9a8df098ded30eb4652",
-      "size_bytes": 16946,
+      "git_blob_sha": "7fb516c0d52647fc4671257600f1d503480da3cd",
+      "size_bytes": 17012,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -11354,8 +11354,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md",
-      "git_blob_sha": "b6553717a0a7b48b39fc913041ac0941b9435d29",
-      "size_bytes": 23598,
+      "git_blob_sha": "3dcefe21919f993362d9224da4bbe8e7a93d9b7a",
+      "size_bytes": 25524,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -11500,8 +11500,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
-      "git_blob_sha": "379f9450afed5f5708713f0120e69377a95e4a49",
-      "size_bytes": 36077,
+      "git_blob_sha": "55399fd1b7e40fe8232a91ed46b6a7f91f9d29c5",
+      "size_bytes": 35997,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -13250,8 +13250,8 @@
     },
     {
       "path": "research/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md",
-      "git_blob_sha": "5af8305b8838f11570892a818d8ae54de914c67b",
-      "size_bytes": 3917,
+      "git_blob_sha": "f631add52bb93c4f5ded69b700bb3219ab6fe38c",
+      "size_bytes": 5805,
       "category": "scenario-research-result",
       "traceability": {
         "items": [
@@ -13350,8 +13350,8 @@
     },
     {
       "path": "research/RESEARCH-TAXONOMY.md",
-      "git_blob_sha": "5139fbae8fa2a92650898f2e9d3ff5d912dd2cef",
-      "size_bytes": 49700,
+      "git_blob_sha": "d28ada21b8b0a7e4deb8f258378de3ab3320155b",
+      "size_bytes": 54904,
       "category": "index-or-research-management",
       "traceability": {
         "items": [
@@ -13843,8 +13843,8 @@
     },
     {
       "path": "research/RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md",
-      "git_blob_sha": "aec8cf203c60ff1cfb161c7a1dc88f03e0141c29",
-      "size_bytes": 48115,
+      "git_blob_sha": "064ef55c0acbcc68bedb048ea4c95ebe8dca4ff8",
+      "size_bytes": 48380,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [],
@@ -13875,6 +13875,8 @@
     },
     {
       "path": "research/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md",
+      "git_blob_sha": "d84e6d2e9f3715bf974b13e478a92f96d2774839",
+      "size_bytes": 20991,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -13889,9 +13891,7 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "RT-02 research proposal with a worked end-to-end example; explicitly non-normative and distinguishes reconstructed explanations from proof of user intent."
-      },
-      "git_blob_sha": "e7cbeba67a10923df04355871472ea8b6d003ab2",
-      "size_bytes": 20928
+      }
     },
     {
       "path": "research/RT-03-04-SHARED-SEMANTICS-CORPUS.md",
@@ -13911,6 +13911,8 @@
     },
     {
       "path": "research/RT-04-NATIVE-REPRODUCTION.md",
+      "git_blob_sha": "755d2c972c0f7f44bb5cab06f91bb89afbdc3dd9",
+      "size_bytes": 8331,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -13929,9 +13931,7 @@
       "semantic_review": {
         "status": "first-pass-content-triage",
         "basis": "Reproduction protocol separates Required CI model tests, native SQLite observations, and generated-Rust execution; manual/focused-PR workflow is not a Required CI gate."
-      },
-      "git_blob_sha": "755d2c972c0f7f44bb5cab06f91bb89afbdc3dd9",
-      "size_bytes": 8331
+      }
     },
     {
       "path": "research/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
@@ -14188,8 +14188,8 @@
     },
     {
       "path": "research/RT-07-SOURCE-OWNED-QUERY-ENVELOPE.md",
-      "git_blob_sha": "d0e5293651e8e4a8e3da2ec22328075a4f7a9ffc",
-      "size_bytes": 4297,
+      "git_blob_sha": "a744f7f125b124836871d4c2eb8d8e7e9a8340d2",
+      "size_bytes": 4372,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [],
@@ -14753,8 +14753,8 @@
     },
     {
       "path": "research/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md",
-      "git_blob_sha": "0d7dc8dac836b95e4f4f282bfc642eb86588bab4",
-      "size_bytes": 2770,
+      "git_blob_sha": "5e44df74cba37fdfc80e9a3fbcf97c46853640cf",
+      "size_bytes": 4518,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [],
@@ -14881,8 +14881,8 @@
     },
     {
       "path": "research/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md",
-      "git_blob_sha": "f29041a11f1be8340b43cee4b58dbe96b83de565",
-      "size_bytes": 8202,
+      "git_blob_sha": "5b7f568f6c2e11563ab7b2cee4b4b6759833722d",
+      "size_bytes": 8427,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -15185,8 +15185,8 @@
     },
     {
       "path": "research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md",
-      "git_blob_sha": "5993eadc1638ce16003b2aabdfd42e4b36be083b",
-      "size_bytes": 14687,
+      "git_blob_sha": "75c5062df58fd444995043e6afa71954e7f3e57b",
+      "size_bytes": 18190,
       "category": "research-area-or-experiment-document",
       "traceability": {
         "items": [
@@ -15343,8 +15343,8 @@
     },
     {
       "path": "research/RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md",
-      "git_blob_sha": "17fab1f6bcdba1519752e2b9eb93adbee724f1ed",
-      "size_bytes": 4447,
+      "git_blob_sha": "13f4359b8ad1e9c8ef702f3b88750cf7c99fe76f",
+      "size_bytes": 5783,
       "category": "audit-or-review-report",
       "traceability": {
         "items": [
@@ -15576,6 +15576,3505 @@
       "semantic_review": {
         "status": "reviewed",
         "basis": "bounded observable-output binding experiment"
+      }
+    },
+    {
+      "path": "research/CONTRACT-FORMALIZATION-CORPUS/README.md",
+      "git_blob_sha": "5e14429e83cf72718f89b71d9c8249454ed2034c",
+      "size_bytes": 6280,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-02"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Corpus README declares purpose, limitations, and RT-02/RT-32 relation."
+      }
+    },
+    {
+      "path": "research/CONTRACT-FORMALIZATION-CORPUS/TEMPLATE.md",
+      "git_blob_sha": "a396cccc599ec597d5bc7b593ef9a2e4675a8035",
+      "size_bytes": 1741,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-02"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Case template defining expected corpus inputs; not an accepted contract DSL."
+      }
+    },
+    {
+      "path": "research/CONTRACT-FORMALIZATION-CORPUS/cases/CF-001-sum-array.md",
+      "git_blob_sha": "2eaeca7bc7bf74c4266f1fcba9df57870facd22b",
+      "size_bytes": 3045,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-02"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stable CF case listed in corpus README; evaluates contract formalization only."
+      }
+    },
+    {
+      "path": "research/CONTRACT-FORMALIZATION-CORPUS/cases/CF-002-safe-array-lookup.md",
+      "git_blob_sha": "be687f2468939505f4254058fbd2f5e91d2de539",
+      "size_bytes": 2674,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-02"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stable CF case listed in corpus README; evaluates contract formalization only."
+      }
+    },
+    {
+      "path": "research/CONTRACT-FORMALIZATION-CORPUS/cases/CF-003-first-match.md",
+      "git_blob_sha": "ed09b0792dbeeee487c18526bcec9513f34f341c",
+      "size_bytes": 2752,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-02"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stable CF case listed in corpus README; evaluates contract formalization only."
+      }
+    },
+    {
+      "path": "research/CONTRACT-FORMALIZATION-CORPUS/cases/CF-004-reverse-range.md",
+      "git_blob_sha": "db501fd5c7055d22c2102a7987e494646f987d6e",
+      "size_bytes": 3182,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-02"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stable CF case listed in corpus README; evaluates contract formalization only."
+      }
+    },
+    {
+      "path": "research/CONTRACT-FORMALIZATION-CORPUS/cases/CF-005-sort-array.md",
+      "git_blob_sha": "de6d99f63b17aff1fb4bd667a636dffdafc5ab48",
+      "size_bytes": 2887,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-02"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stable CF case listed in corpus README; evaluates contract formalization only."
+      }
+    },
+    {
+      "path": "research/LLMLang-CONCEPT.ru.md",
+      "git_blob_sha": "29f77fcc7da492e4aa0dd7e81fb19b32c7cf1d08",
+      "size_bytes": 66462,
+      "category": "research-background-or-design-analysis",
+      "traceability": {
+        "items": [
+          "RT-01",
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-14"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        1,
+        5,
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Russian-language companion to LLMLang-CONCEPT.md; reciprocal navigation exists; translation parity is unverified."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md",
+      "git_blob_sha": "813a54a21bccefdfaac60cd5446c2a09b746b4d2",
+      "size_bytes": 2071,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK.md",
+      "git_blob_sha": "5796c5c54b6645555b4f39524e223aeb8927b388",
+      "size_bytes": 17419,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/COVERAGE-AND-REVIEW.md",
+      "git_blob_sha": "c52484dff47570983e5b14695c2ef6726916767b",
+      "size_bytes": 7645,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/COVERAGE-MATRIX.md",
+      "git_blob_sha": "293e64cfba07625777ab1aba5b8a8511ca9c4d06",
+      "size_bytes": 5659,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/COVERAGE-V2.md",
+      "git_blob_sha": "80a1bf2a40ff399870d90131d106d27b4e0a3c42",
+      "size_bytes": 4957,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/EXPERIMENT-PROTOCOL.md",
+      "git_blob_sha": "4ba81b4b056387680de0daa9921a248a521a61a9",
+      "size_bytes": 5088,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/LEAN-TRANSITION-STATE.md",
+      "git_blob_sha": "6d4efeb83afaef5174a1f4c6f451975ce7d1e38b",
+      "size_bytes": 5587,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/README.md",
+      "git_blob_sha": "a3a89a73171aed3422085b21970ef601d7723051",
+      "size_bytes": 7647,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/RECURSIVE-GENERATOR.md",
+      "git_blob_sha": "e5e573fd27f8ea546153569dd80a3c580cc33ace",
+      "size_bytes": 3734,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/SMT-TRANSITION-STATE.md",
+      "git_blob_sha": "747c414cfe6edc8de4983374fc236a9ae1bcf75b",
+      "size_bytes": 5039,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/SYSTEM-GENERATOR.md",
+      "git_blob_sha": "436c48302ceed27bda89890b0f830e72f36e868a",
+      "size_bytes": 4096,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/TRANSITION-GENERATOR.md",
+      "git_blob_sha": "857fd1b0d3161e91fd1203799f9ddd8c1cf21c38",
+      "size_bytes": 4102,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 benchmark README or scoped evaluation/protocol report; proposed, bounded evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/case.schema.json",
+      "git_blob_sha": "809375a0d726e33c1c280e4e6c4e9d8f721a7f44",
+      "size_bytes": 2829,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-001.json",
+      "git_blob_sha": "0ad87511762df2962651841d893b32e36f0bacfe",
+      "size_bytes": 896,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-002.json",
+      "git_blob_sha": "6e3bd5f7c5124fd53deedcd212ed07d21034534c",
+      "size_bytes": 946,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-003.json",
+      "git_blob_sha": "6c46e633081d3e3e608d7a245a7912e71a145b5b",
+      "size_bytes": 874,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-004.json",
+      "git_blob_sha": "27b818ea61f99c1722c852808636c378db19f59c",
+      "size_bytes": 957,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-005.json",
+      "git_blob_sha": "0ccea4bcdaf3c1ba4f75a585f1796f32506b0977",
+      "size_bytes": 996,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-006.json",
+      "git_blob_sha": "19441aab83333289908c5834772938ed8082d957",
+      "size_bytes": 1057,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-007.json",
+      "git_blob_sha": "d208245cfe3e5fd803268cf4eacd1b2b08024c82",
+      "size_bytes": 1115,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-008.json",
+      "git_blob_sha": "04d6e1be815c8dc6a30983984ca1b338ada3b420",
+      "size_bytes": 1083,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-009.json",
+      "git_blob_sha": "9e4f9a2e41140e599eda203428ab60cbbf59a141",
+      "size_bytes": 1099,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-010.json",
+      "git_blob_sha": "d1e91709aa881fb0bd923c412d80a9f103c8cb60",
+      "size_bytes": 945,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-011.json",
+      "git_blob_sha": "795a715946ebb33a8c5f721999d398093494c908",
+      "size_bytes": 1032,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-012.json",
+      "git_blob_sha": "58c3c9c2d86bf885a298d33686ecd25671ff15b5",
+      "size_bytes": 932,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-013.json",
+      "git_blob_sha": "cae6e309d1d5d83188bb659d49ce38bbef13d887",
+      "size_bytes": 1127,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-014.json",
+      "git_blob_sha": "57c3e22a1241043e25bb67a02e3670446f6e2f35",
+      "size_bytes": 1146,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-015.json",
+      "git_blob_sha": "361706e5b3c7717014051509deefb45b7364b7bd",
+      "size_bytes": 1154,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-016.json",
+      "git_blob_sha": "52ba0a903eae533b74c777c1fa071c33c4885aa6",
+      "size_bytes": 1197,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-017.json",
+      "git_blob_sha": "0e99b723a449e97f1351c2c58ff14d4e17eea60d",
+      "size_bytes": 1247,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-018.json",
+      "git_blob_sha": "fc02f132f4b24c9ec0184edfb2d8fba4f748794d",
+      "size_bytes": 1076,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-019.json",
+      "git_blob_sha": "85c539dbe44df9bedbee4e651a619ba67a2ec94f",
+      "size_bytes": 1149,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-020.json",
+      "git_blob_sha": "568608bec78954be18074ff19deeca16f4e210fb",
+      "size_bytes": 1263,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-021.json",
+      "git_blob_sha": "3c63c07ad482ffa822c60a00947ac1e375c69506",
+      "size_bytes": 1162,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-022.json",
+      "git_blob_sha": "153cb96a697d441f9ac4dd9d2b42fea68eff25db",
+      "size_bytes": 1179,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-023.json",
+      "git_blob_sha": "be6d2ce5123fe122ffe04def2e0d23325854468f",
+      "size_bytes": 1159,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-024.json",
+      "git_blob_sha": "92825973f9885802fe95e341ea36d67e17ed3369",
+      "size_bytes": 1125,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-025.json",
+      "git_blob_sha": "067fe009713923c7188f2bd8848c3cf86095899a",
+      "size_bytes": 1285,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-026.json",
+      "git_blob_sha": "0222f1f1c80c46e244aad0c948f9977621e6b7c0",
+      "size_bytes": 1235,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-027.json",
+      "git_blob_sha": "e2aaddb2b0163555a9932b4e675572f8a977c674",
+      "size_bytes": 1288,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-028.json",
+      "git_blob_sha": "012bd71ae6994392e12ae14aed723f943543a902",
+      "size_bytes": 1270,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-029.json",
+      "git_blob_sha": "4e2c17f9e85a51a60b6cbe953a5dca90124c26c0",
+      "size_bytes": 1273,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-030.json",
+      "git_blob_sha": "196c44cd4b8c00c70ce904200916405772601790",
+      "size_bytes": 1286,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-031.json",
+      "git_blob_sha": "21f2b8f37663ef64298228fcdcfb6bc5ef885560",
+      "size_bytes": 1345,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-032.json",
+      "git_blob_sha": "9c2686616d19cd40aced3e1f6977a43e5633d45e",
+      "size_bytes": 1373,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-033.json",
+      "git_blob_sha": "0a142810c5b7aa72f1843c21c4e00684bc4ae362",
+      "size_bytes": 1327,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-034.json",
+      "git_blob_sha": "e4f5b1e6738db281070fbb74e8051b510977998a",
+      "size_bytes": 1307,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-035.json",
+      "git_blob_sha": "54ef3ecfbfb31f28e835881823364caea467868d",
+      "size_bytes": 1480,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-036.json",
+      "git_blob_sha": "195fba6475f8038dae4fae22bae6712ccf652ad0",
+      "size_bytes": 1343,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-037.json",
+      "git_blob_sha": "c76be9f2abce4d6c69b88ff1fbfdf7f8cfceb3bf",
+      "size_bytes": 1401,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-038.json",
+      "git_blob_sha": "cbf5c166d0635cbcf53f4216dd751e59cc635919",
+      "size_bytes": 1313,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-039.json",
+      "git_blob_sha": "977b9908b3b15ccf40145f1494efef9f682b7c3a",
+      "size_bytes": 1320,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/cases/POB-040.json",
+      "git_blob_sha": "90bd4d0aaa308ee5bc35161e648b4fc0e59c1afe",
+      "size_bytes": 1209,
+      "category": "example-or-fixture",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit public POB case fixture listed by the RT-33 README; bounded development input, not independently adjudicated."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/composed_oracles.py",
+      "git_blob_sha": "ec58b5059e4439d8016ba8782058f6cd79ad4ba1",
+      "size_bytes": 7529,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/coverage-target.json",
+      "git_blob_sha": "f740aecd0080b2ad5f9b55592e93f802cb658805",
+      "size_bytes": 4775,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/coverage-v2.json",
+      "git_blob_sha": "3506cdd4abebd0b4b952e8e6c1c463f17481a590",
+      "size_bytes": 20186,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/coverage_matrix.py",
+      "git_blob_sha": "5f2abbcc1814836e1a368391a6c81726f584e2a3",
+      "size_bytes": 2368,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/coverage_v2.py",
+      "git_blob_sha": "4fe851fafea4fdbce2c0013c2530c0803cfbe567",
+      "size_bytes": 2632,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/extended_oracles.py",
+      "git_blob_sha": "3952179c41ea0f391639477fe0b82ededcb4ae37",
+      "size_bytes": 5188,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/generate.py",
+      "git_blob_sha": "51e39b6160cd1792458760c1c6b1283f926ba9da",
+      "size_bytes": 3803,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/grammar.json",
+      "git_blob_sha": "e8b5e23da5c9d20868ec49d38e0d8aea81f69c9c",
+      "size_bytes": 1126,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/grammar.py",
+      "git_blob_sha": "b26aa7e4bfc0aded1a8f4d0723aa3ce1ecb88b9f",
+      "size_bytes": 3176,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/oracle.py",
+      "git_blob_sha": "4631daa15b51ed992772624dba1e0c6a791fad00",
+      "size_bytes": 1025,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/generate.py",
+      "git_blob_sha": "0e15e56cf8f35405a65b75b77227be36171b97e1",
+      "size_bytes": 10100,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/models.py",
+      "git_blob_sha": "ebdb90ec7fd3d1d214263deebceb9d844f186489",
+      "size_bytes": 3602,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/oracle.py",
+      "git_blob_sha": "cf62136173f5ba0f57c9355d3061d702b30366cc",
+      "size_bytes": 1454,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/profile.json",
+      "git_blob_sha": "8972373635fa836287f02e59b7e92a07d471850d",
+      "size_bytes": 864,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/recursive/test_recursive.py",
+      "git_blob_sha": "cab0d5617fc7ca9aa9aef35b6ea3b1d9ce74c92d",
+      "size_bytes": 2145,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Test module in the RT-33 benchmark family; source presence is not pass evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/system/explore.py",
+      "git_blob_sha": "928deac0619f7fb506af7076ea9de85f6d9b324b",
+      "size_bytes": 2658,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/system/generate.py",
+      "git_blob_sha": "42c3dacccd306ffda1b7c11bceaeb44aa999cd06",
+      "size_bytes": 4339,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/system/models.py",
+      "git_blob_sha": "f7cda270fe388e0812aaef99c98d5c93d8f09f88",
+      "size_bytes": 7618,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/system/oracle.py",
+      "git_blob_sha": "9bf24465f3227d85c6a47c330bd0503739f6798b",
+      "size_bytes": 5633,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/system/profile.json",
+      "git_blob_sha": "4e6eaf5700bde0d79a308f27004e80cae1032d21",
+      "size_bytes": 1093,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/system/test_system.py",
+      "git_blob_sha": "eaec7f55953ec9e4db6fe46ee272ec8cf213531b",
+      "size_bytes": 3319,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Test module in the RT-33 benchmark family; source presence is not pass evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/templates.py",
+      "git_blob_sha": "7e7809d0c39a0dc8f86ad5cd619d7f4350367908",
+      "size_bytes": 2100,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/test_generator.py",
+      "git_blob_sha": "f0346da8c10936ca2d21fffdd69b5f518d0ae101",
+      "size_bytes": 1916,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Test module in the RT-33 benchmark family; source presence is not pass evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/TransitionState.lean",
+      "git_blob_sha": "f52fe314d168194dfccbf203187fc990fd2e9991",
+      "size_bytes": 1675,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py",
+      "git_blob_sha": "17d5641c9c1e799fb2eb1beb6fa3c50f782a2b4f",
+      "size_bytes": 6916,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/grammar.json",
+      "git_blob_sha": "515f4018ccb76f157e5f54775d73d66febd81745",
+      "size_bytes": 1544,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/lean_adapter.py",
+      "git_blob_sha": "a9846fdd8e2ae179450a991fab3cb167f49d438f",
+      "size_bytes": 9881,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/machine.py",
+      "git_blob_sha": "ffb13df9bbe1f0903bc70b15f6fa696ba87590a2",
+      "size_bytes": 3907,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/oracle.py",
+      "git_blob_sha": "ab1ee9889ced80caf91fc3897b0c99edf5c379fb",
+      "size_bytes": 4213,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/smt_adapter.py",
+      "git_blob_sha": "b14ca2d784be4ae154a14b12008c7c46ef062422",
+      "size_bytes": 8994,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/templates.py",
+      "git_blob_sha": "228a73cda853cee4af5b2ccc5ea93377ac5b324a",
+      "size_bytes": 5987,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_lean_adapter.py",
+      "git_blob_sha": "ab8e9ebc6c5da2a27cf8208c2bd869d048eb4f31",
+      "size_bytes": 1745,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Test module in the RT-33 benchmark family; source presence is not pass evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_smt_adapter.py",
+      "git_blob_sha": "2d1f1ed333f2ec8d9d4a06fce20dc9e50f01c915",
+      "size_bytes": 2885,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Test module in the RT-33 benchmark family; source presence is not pass evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py",
+      "git_blob_sha": "a883087096bf2eb3aebc0d0d3217063653e1be23",
+      "size_bytes": 3337,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Test module in the RT-33 benchmark family; source presence is not pass evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/lean-transition-state-results/false-claim-output.txt",
+      "git_blob_sha": "55eb44470a9bc5434d54366698afbbebea0c1a1e",
+      "size_bytes": 271,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored run output/result under the RT-33 benchmark family; presence does not independently validate the recorded outcome."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/lean-transition-state-results/outcomes.csv",
+      "git_blob_sha": "df4fc6f0017fbe2204d4608aa6f187fd467438b4",
+      "size_bytes": 44160,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored run output/result under the RT-33 benchmark family; presence does not independently validate the recorded outcome."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/lean-transition-state-results/summary.json",
+      "git_blob_sha": "9b8b1ab7a26359e2b0134ba4a32c41d2d61eb0e6",
+      "size_bytes": 951,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/oracles.py",
+      "git_blob_sha": "e1778f9112dacd7ff7bf372bb329a2fd69310338",
+      "size_bytes": 5045,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/run-record.schema.json",
+      "git_blob_sha": "5c196f1d47599b7b73306ea8588ec53dcf037280",
+      "size_bytes": 2306,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/run.py",
+      "git_blob_sha": "9e64b586bb450118793a752ec26f8b9eaa26e088",
+      "size_bytes": 8950,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Executable generator, oracle, adapter, runner, or Lean model in the RT-33 benchmark family."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/smt-transition-state-results/stdout.txt",
+      "git_blob_sha": "67695552d52b77eddb91741d0923ba59713c6c18",
+      "size_bytes": 4626,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored run output/result under the RT-33 benchmark family; presence does not independently validate the recorded outcome."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/smt-transition-state-results/summary.json",
+      "git_blob_sha": "6d98f214756d31ac3a3ac0bfb615776c312c6887",
+      "size_bytes": 1063,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/taxonomy.json",
+      "git_blob_sha": "f2d8a8a436ee7a19861564b895859b3238a25096",
+      "size_bytes": 777,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable RT-33 case schema, coverage profile, grammar, taxonomy, or run record."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/test_coverage_v2.py",
+      "git_blob_sha": "bf335071c61c0ea91f8a3447b4f0d3289c71c286",
+      "size_bytes": 1002,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Test module in the RT-33 benchmark family; source presence is not pass evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/test_runner.py",
+      "git_blob_sha": "7059ccd82dd75b5d9820bc7b1acc556d7e5dccef",
+      "size_bytes": 4032,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Test module in the RT-33 benchmark family; source presence is not pass evidence."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/ALLOCATOR-BENCH-01/graph.rs",
+      "git_blob_sha": "1169ae994d1af6f4bbf308e88ba945e2a986585c",
+      "size_bytes": 3695,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-25"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Rust workload executable for the documented synthetic dependency graph allocator comparison."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/ALLOCATOR-BENCH-01/results-linux-x86_64.json",
+      "git_blob_sha": "9309342170cc3d4be687186c1de65fe5341210c5",
+      "size_bytes": 4327,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-25"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Raw Linux x86-64 result data linked by the RT-25 report; eight samples/provider, not portable selection evidence."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/ALLOCATOR-BENCH-01/run.py",
+      "git_blob_sha": "7bcb4e43739aa561b7be9fb5872ba9ba73b757a1",
+      "size_bytes": 3353,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-25"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Runner records provider, timing and RSS measurements; does not itself select an allocator."
+      }
+    },
+    {
+      "path": "research/QUALITY-REVIEW-PROTOCOL.md",
+      "git_blob_sha": "8f5904b46649f47477081850060026c9bc688fd3",
+      "size_bytes": 8924,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Cross-cutting evidence-review protocol; supports Stage 0 research quality, not language design."
+      }
+    },
+    {
+      "path": "research/RT-00-B-08-ZERO-INBOUND-CANDIDATE-REVIEW-2026-11-23.md",
+      "git_blob_sha": "c4bb5eb51facb352bdd0d4b8f2e65424de4eb72b",
+      "size_bytes": 11849,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.1 relationship/index audit, with exact scope and counts pinned in this report; link or blob evidence does not settle semantic duplication."
+      }
+    },
+    {
+      "path": "research/RT-00-B-09-CURRENT-MAIN-CORPUS-RELATIONSHIP-DELTA-2026-11-24.json",
+      "git_blob_sha": "a558002bf7741402ff8afe5a28d56920d000e477",
+      "size_bytes": 16370,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.1 relationship/index audit, with exact scope and counts pinned in this report; link or blob evidence does not settle semantic duplication."
+      }
+    },
+    {
+      "path": "research/RT-00-B-09-CURRENT-MAIN-CORPUS-RELATIONSHIP-DELTA-2026-11-24.md",
+      "git_blob_sha": "dd2e1d04a2118b27550fd1facaaf520c2df1912a",
+      "size_bytes": 7819,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.1 relationship/index audit, with exact scope and counts pinned in this report; link or blob evidence does not settle semantic duplication."
+      }
+    },
+    {
+      "path": "research/RT-00-C-VERIFICATION-REUSE-IDENTITY-RECHECK-2026-11-24.md",
+      "git_blob_sha": "d5fb3319ccec808f0fdb02b7b2232060e2254937",
+      "size_bytes": 8506,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.1 bounded source-and-test recheck; this checks execution identity boundaries, not production cache correctness."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md",
+      "git_blob_sha": "b0651392e09a4ccd0ee12934160056a632553834",
+      "size_bytes": 12594,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 scoped warning triage and provenance spot checks; not reproduced science audit or accepted policy."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md",
+      "git_blob_sha": "3b5afcaccd0b9817226054f8e58c7e6459d897e6",
+      "size_bytes": 12789,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 purposive claim/evidence boundary review; sample does not represent all corpus claims."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-CLAIM-COHORT2-RERUN-2026-11-23.md",
+      "git_blob_sha": "e1aadcd032fc9d257a713734e8ec52f5a790f23f",
+      "size_bytes": 8109,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 selected archived-source rerun report; it records bounded CI evidence, not complete experiment provenance."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md",
+      "git_blob_sha": "ae68cfd4999369793616d603c595f4c8a5d843a5",
+      "size_bytes": 9018,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 bounded evidence-shape recheck; does not make an acceptance-policy decision."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-NAVIGATION-REMEDIATION-2026-11-23.md",
+      "git_blob_sha": "e0b45552cf84f9d73bbf49734cf6de7557ea57d2",
+      "size_bytes": 7473,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 navigation repairs to nine reports; experimental claims were not revised."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-ORTHOGONAL-ORACLES-2026-11-23.md",
+      "git_blob_sha": "ab60e9326699a1d1780dcaa163bb9955af42bc8b",
+      "size_bytes": 10048,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 orthogonal falsification of three bounded claim families; no general theorem or policy validation."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-PILOT-2026-11-23.md",
+      "git_blob_sha": "3738543af7b9543f4bea7bc9af19330c14afe5d1",
+      "size_bytes": 7014,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 structural pilot implementation/test evidence; protocol remains proposed."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-PINNED-LEAN-PROOF-2026-11-23.md",
+      "git_blob_sha": "991141008200014f16aab7d7fdf0ffb1c0064f0b",
+      "size_bytes": 7447,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 pinned Lean source/checker evidence report; scope limited to the recorded finite proof target."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md",
+      "git_blob_sha": "1c06a1b82b17cf285aeb03918ff7d775116d6508",
+      "size_bytes": 12237,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 source provenance recheck; publication snapshot identified for eight reports, original-run attestation remains absent."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-REAL-REPORT-PILOT-2026-11-23.md",
+      "git_blob_sha": "bcc87f76ca3925de0bd385415c28be6a65f5b63b",
+      "size_bytes": 14247,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 documentary/structural sample across ten evidence shapes; not technical-proof validation."
+      }
+    },
+    {
+      "path": "research/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md",
+      "git_blob_sha": "5fc4173ee7af2651e788db1cd9148ba11a9e580c",
+      "size_bytes": 9239,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "individual title/header, direct Plan link, and paired evidence/cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stage 0.2 structural census of root research documents and review queue; structure is not technical validation."
+      }
+    },
+    {
+      "path": "research/RT-11-ACTION-TIMING-INSTRUMENTATION-2026-11-24.md",
+      "git_blob_sha": "87c7a57715256b52707e2b6a3a855ad0e7f79677",
+      "size_bytes": 5337,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-11"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded RT-11 measurement report/raw JSON; two synthetic paired runs, not product performance evidence."
+      }
+    },
+    {
+      "path": "research/RT-11-BENCHMARK-MEASUREMENT-BOUNDARY-RECHECK-2026-11-23.md",
+      "git_blob_sha": "4c646ce5ecc4d3238114afe70516b9985b6b49ef",
+      "size_bytes": 6633,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-11"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded RT-11 measurement report/raw JSON; two synthetic paired runs, not product performance evidence."
+      }
+    },
+    {
+      "path": "research/RT-19-WORKSPACE-PERSISTENCE-TRANSACTION-BOUNDARY-RECHECK-2026-11-23.md",
+      "git_blob_sha": "cd52c8948f378ce1b8661a8cdbfbd4c94fbd3287",
+      "size_bytes": 9854,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [
+          "RT-19"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit RT-19 persistence transaction boundary recheck; bounded prototype/source comparison, open crash/recovery conditions retained."
+      }
+    },
+    {
+      "path": "research/RT-25-DEPENDENCY-GRAPH-ALLOCATOR-BENCHMARK.md",
+      "git_blob_sha": "218977750a6987e2e5f64095c5c165d1877125d3",
+      "size_bytes": 3109,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-25"
+        ],
+        "method": "first-pass individual path, family README, direct PLAN and explicit cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit RT-25/Plan §7.1 comparative study, with raw data, workload and stated host limits."
+      }
+    },
+    {
+      "path": "research/RT-29-RUST-FOUNDATION-FOR-LLMLANG-CAPABILITIES.md",
+      "git_blob_sha": "9478385928465dc62a2f1cdb78c1db6612679e81",
+      "size_bytes": 7354,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-29"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Research brief registered in taxonomy and Plan; comparative work is required and no Rust component is selected."
+      }
+    },
+    {
+      "path": "research/RT-30-BIDIRECTIONAL-SEMANTIC-TRANSLATION.md",
+      "git_blob_sha": "94231ee8f0ef3966dbe8f986f0dbb48762f2000f",
+      "size_bytes": 10688,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-30"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        6
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit bidirectional semantic translation research brief; no universal translatability claim."
+      }
+    },
+    {
+      "path": "research/RT-31-AI-ORIENTED-SYNTAX-AND-TOOLCHAIN-OPTIMIZATION.md",
+      "git_blob_sha": "2938147ba403d87a1561e48810a673eabe7fab04",
+      "size_bytes": 16800,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-31"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit AI-oriented syntax/toolchain research brief and Plan §7.9."
+      }
+    },
+    {
+      "path": "research/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md",
+      "git_blob_sha": "3c0e999fc0098a86e577c61a6d51f355920d3d84",
+      "size_bytes": 17508,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-32"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit verified SPG-to-Lean pipeline research brief; formalization/evidence boundaries remain open."
+      }
+    },
+    {
+      "path": "research/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md",
+      "git_blob_sha": "8ca1c36b4e1a7b6a618ca8de77f07d0ab0f5691b",
+      "size_bytes": 12189,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit proof backend orchestration brief; benchmark evaluation remains in progress."
+      }
+    },
+    {
+      "path": "research/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md",
+      "git_blob_sha": "6fb421f3b1791c2e935734109ddef33b165c7df1",
+      "size_bytes": 17284,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-34"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit RT-34 complexity inference proposal/benchmark plan; no resource contract or cost model is selected."
+      }
+    },
+    {
+      "path": "research/RT-34-COMPLEXITY-BENCHMARK.md",
+      "git_blob_sha": "ee5dd8d0f5cb76980bf296d22e3f39a6f055c17d",
+      "size_bytes": 8233,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-34"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit RT-34 complexity inference proposal/benchmark plan; no resource contract or cost model is selected."
+      }
+    },
+    {
+      "path": "research/RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md",
+      "git_blob_sha": "769d0c62f408d629a0b7654691a5c3a50f7f6760",
+      "size_bytes": 16477,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-35"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Explicit semantic function discovery/retrieval brief; retrieval method and acceptance remain open."
+      }
+    },
+    {
+      "path": "research/benchmarks/rt11-action-timing-linux-2026-11-24.json",
+      "git_blob_sha": "39783406d23e647fb602235b344cf4e973942e78",
+      "size_bytes": 1504232,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-11"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        7
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded RT-11 measurement report/raw JSON; two synthetic paired runs, not product performance evidence."
+      }
+    },
+    {
+      "path": "research/quality-audit/2026-11-23-adjudication.json",
+      "git_blob_sha": "00acf8a31ae4f590bbd8db037abffe1c7e101262",
+      "size_bytes": 15796,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable research quality audit evidence; records bounded observations and does not certify all claims."
+      }
+    },
+    {
+      "path": "research/quality-audit/2026-11-23-claim-cohort2-rerun-results.json",
+      "git_blob_sha": "0eb678ed8c62e490170ba5f363a82ff7dca2ed37",
+      "size_bytes": 2197,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable research quality audit evidence; records bounded observations and does not certify all claims."
+      }
+    },
+    {
+      "path": "research/quality-audit/2026-11-23-claim-cohort2.json",
+      "git_blob_sha": "87b22efadff832daa58a3d6038dc5a9b5c84ce04",
+      "size_bytes": 28179,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable research quality audit evidence; records bounded observations and does not certify all claims."
+      }
+    },
+    {
+      "path": "research/quality-audit/2026-11-23-historical-rerun-observations.json",
+      "git_blob_sha": "1d843d301e09385afed4d7f36353c1ec09ecbed8",
+      "size_bytes": 3831,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable research quality audit evidence; records bounded observations and does not certify all claims."
+      }
+    },
+    {
+      "path": "research/quality-audit/2026-11-23-independent-review-handoff.md",
+      "git_blob_sha": "e8b5119da2a3854047fa97242c2fe70cf29aa95d",
+      "size_bytes": 6018,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable research quality audit evidence; records bounded observations and does not certify all claims."
+      }
+    },
+    {
+      "path": "research/quality-audit/2026-11-23-orthogonal-oracle-results.json",
+      "git_blob_sha": "83ad14808e13db23ab9cf5f2f8b62566423eec8a",
+      "size_bytes": 2366,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable research quality audit evidence; records bounded observations and does not certify all claims."
+      }
+    },
+    {
+      "path": "research/quality-audit/2026-11-23-pinned-lean-proof-observations.json",
+      "git_blob_sha": "925565e5f3fbc0c80deff67e8de48ec747a8f544",
+      "size_bytes": 1852,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable research quality audit evidence; records bounded observations and does not certify all claims."
+      }
+    },
+    {
+      "path": "research/quality-audit/2026-11-23-publication-provenance.json",
+      "git_blob_sha": "233307407808635e8f4e8be8efe2b332316cc72f",
+      "size_bytes": 8646,
+      "category": "structured-fixture-or-schema",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable research quality audit evidence; records bounded observations and does not certify all claims."
+      }
+    },
+    {
+      "path": "research/quality-audit/2026-11-23-root-census-observations.json",
+      "git_blob_sha": "9dff05f25f30734d38d58afdb209554ce1a475e2",
+      "size_bytes": 8110,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable research quality audit evidence; records bounded observations and does not certify all claims."
+      }
+    },
+    {
+      "path": "research/quality-audit/2026-11-23-sample.json",
+      "git_blob_sha": "68a2f81b5ce05ea57a17c439583b717fb8268c1a",
+      "size_bytes": 11460,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Machine-readable research quality audit evidence; records bounded observations and does not certify all claims."
+      }
+    },
+    {
+      "path": "research/templates/CLAIM-REGISTER-TEMPLATE.md",
+      "git_blob_sha": "7fdb7c7de0ea0e20e7c8f8da10ff251a84d5e645",
+      "size_bytes": 2101,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Reusable template for evidence/claim reporting; process aid, not a research result."
+      }
+    },
+    {
+      "path": "research/templates/REPORT-TEMPLATE.md",
+      "git_blob_sha": "9922968af5e05cf69a3735adb9a27d669a325f55",
+      "size_bytes": 2991,
+      "category": "research-preparation-brief-or-index",
+      "traceability": {
+        "items": [
+          "RT-08"
+        ],
+        "method": "individual title/header and direct Plan/index cross-reference triage",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Reusable template for evidence/claim reporting; process aid, not a research result."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/SYMBOLIC-TRANSITION-CORRESPONDENCE.md",
+      "git_blob_sha": "46515b5b98c3906b5667a9ad9fdb10184a9a67f7",
+      "size_bytes": 4852,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "individual path and paired study documentation cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 bounded symbolic-state to Lean correspondence report; no unbounded transition theorem is established."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/TLC-TRANSITION-STATE.md",
+      "git_blob_sha": "4f90a6561d7482e222fd451178888516290b21f8",
+      "size_bytes": 5684,
+      "category": "prototype-report-or-readme",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "RT-33 bounded TLC transition-prefix adapter report; results are finite and do not establish unbounded temporal correctness."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicState.lean",
+      "git_blob_sha": "2652e5cffbcae79f26437188ffc8e878a44c1683",
+      "size_bytes": 6448,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "individual path and paired study documentation cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean symbolic state transition model for bounded POB cases."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicStateExamples.lean",
+      "git_blob_sha": "d34846d7f023c33ea642c6609e53f65084000b67",
+      "size_bytes": 1103,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "individual path and paired study documentation cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Positive/negative Lean examples paired with symbolic-state model; not a universal correspondence proof."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_tlc_adapter.py",
+      "git_blob_sha": "c16c260c6e781e6b24461c56259d656a64a02c53",
+      "size_bytes": 2817,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Test module for the bounded TLC transition adapter; test file presence is not execution evidence."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/generative/transition/tlc_adapter.py",
+      "git_blob_sha": "45a87cf6b0652835eee7df60232c719f1408d093",
+      "size_bytes": 13348,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded TLC adapter implementation for POB transition fixtures."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/symbolic-transition-results/SHA256SUMS",
+      "git_blob_sha": "a2fd881d3b37326db727a03b1347677885e4d35f",
+      "size_bytes": 580,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "individual path and paired study documentation cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded hashes/axiom inventory for bounded symbolic transition result."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/symbolic-transition-results/axioms.txt",
+      "git_blob_sha": "ece72191c5e8af57a4a3a9c3c64af14071a49f6f",
+      "size_bytes": 101,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "individual path and paired study documentation cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded hashes/axiom inventory for bounded symbolic transition result."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/tlc-transition-state-results/counterexample.json",
+      "git_blob_sha": "94dbe87302d84f82fbf8b04540668b614265459a",
+      "size_bytes": 457,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored bounded TLC result/counterexample outputs; does not constitute unbounded proof."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/tlc-transition-state-results/outcomes.csv",
+      "git_blob_sha": "3f471105463542f344efc178a8cb9be97f76013f",
+      "size_bytes": 27295,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored bounded TLC result/counterexample outputs; does not constitute unbounded proof."
+      }
+    },
+    {
+      "path": "research/PROOF-OBLIGATION-BENCHMARK/tlc-transition-state-results/summary.json",
+      "git_blob_sha": "1f3aff8ceb6fde8a1df71c84fdab6f1d1daa4caf",
+      "size_bytes": 1405,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-33"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored bounded TLC result/counterexample outputs; does not constitute unbounded proof."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosRenderedSorts.lean",
+      "git_blob_sha": "1d6867600a66770c92fa91edb44888a302e7e6a8",
+      "size_bytes": 12268,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean test/prototype source for preserving Int/Bool sorts through Logos rendering."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/TypedQueryEquality.lean",
+      "git_blob_sha": "a2c4ca13fd5c24175eb2daa57e2bf8fd5a94ebbc",
+      "size_bytes": 2906,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual path and paired study documentation cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean typed equality proof source for the RT-07 typed JSON/logical query correspondence."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-sorts/axioms.txt",
+      "git_blob_sha": "44f1989f1058c80b40f7312328e9fc28928d1bff",
+      "size_bytes": 219,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded axiom inventory for the bounded Logos rendered-sort proof."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/typed-json/axioms.txt",
+      "git_blob_sha": "6e7553470788f42280582a0ccca7f188fa91fc7b",
+      "size_bytes": 234,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual path and paired study documentation cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored envelope and axiom evidence accompanying bounded typed JSON correspondence proof."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/typed-json/envelopes.jsonl",
+      "git_blob_sha": "72c76ddfcc6c75500c9e154e41d4e0ef0d8aacb7",
+      "size_bytes": 5624,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual path and paired study documentation cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Stored envelope and axiom evidence accompanying bounded typed JSON correspondence proof."
+      }
+    },
+    {
+      "path": "research/RT-00-A-CURRENT-MAIN-INVENTORY-RECONCILIATION-2026-11-24.md",
+      "git_blob_sha": "27915c2673e0f898a81265741783216fb8170a34",
+      "size_bytes": 5503,
+      "category": "audit-or-review-report",
+      "traceability": {
+        "items": [],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        0
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "This PR current-main inventory reconciliation report; exact metadata and first-pass role triage only."
+      }
+    },
+    {
+      "path": "research/RT-07-LOGOS-RENDERED-SORTS.md",
+      "git_blob_sha": "2295dad89a1c349af373bf4956a90b2bd296b7e8",
+      "size_bytes": 3819,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "first-pass individual path and direct family/report cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded RT-07 report comparing typed rendering and preserving Int/Bool sorts; not a general source-to-proof correspondence result."
+      }
+    },
+    {
+      "path": "research/RT-07-TYPED-JSON-CORRESPONDENCE.md",
+      "git_blob_sha": "719ee39cc0ec56781e26f9ec0ae454240cc24ea7",
+      "size_bytes": 5278,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual path and paired study documentation cross-reference review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded RT-07 typed source-owned JSON correspondence study; does not prove general parser or proof-backend soundness."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LogosVerdictConditions.lean",
+      "git_blob_sha": "2af17e39361c52175398f55036aed31ca923c1b6",
+      "size_bytes": 2997,
+      "category": "prototype-or-experiment-implementation",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Lean model bounding runtime verdict conditions in the RT-07 checker trust-boundary study."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/bound-cpc/axioms.txt",
+      "git_blob_sha": "74892893555ff8bc514b7ef01f6689871fdb1f20",
+      "size_bytes": 228,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded axiom inventory for the bounded bound-CPC verdict evidence."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/isolated-runtime-build.txt",
+      "git_blob_sha": "3b8a35aef287e40f7d5b860ad28cf77206d697fe",
+      "size_bytes": 113,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded bounded runtime verdict evidence/axioms accompanying the RT-07 checker trust-boundary probe."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/observations.json",
+      "git_blob_sha": "b6ebdf5a5d230069dc1d7c2c4e27312fcee4e953",
+      "size_bytes": 692,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded bounded runtime verdict evidence/axioms accompanying the RT-07 checker trust-boundary probe."
+      }
+    },
+    {
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/runtime-axioms.txt",
+      "git_blob_sha": "1f52cf76effaeda88474efe3fa6e90b118eec83d",
+      "size_bytes": 432,
+      "category": "prototype-test-evidence",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Recorded bounded runtime verdict evidence/axioms accompanying the RT-07 checker trust-boundary probe."
+      }
+    },
+    {
+      "path": "research/RT-07-BOUND-CPC-VERDICT.md",
+      "git_blob_sha": "e6b6c7325f9a56e42d06747b471c78805cae3b42",
+      "size_bytes": 4673,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded RT-07 study of exact source CPC assumptions in the ordinary Logos verdict."
+      }
+    },
+    {
+      "path": "research/RT-07-LOGOS-CHECKER-TRUST-BOUNDARY.md",
+      "git_blob_sha": "9b3b15f27141a36f963cbb07bc448c33540c7137",
+      "size_bytes": 5752,
+      "category": "research-area-or-experiment-document",
+      "traceability": {
+        "items": [
+          "RT-07"
+        ],
+        "method": "individual source/report heading and paired evidence review",
+        "confidence": "medium"
+      },
+      "plan_stages": [
+        2
+      ],
+      "semantic_review": {
+        "status": "first-pass-content-triage",
+        "basis": "Bounded audit of Logos runtime verdict and checker trust boundary; not a general proof-system soundness claim."
       }
     }
   ],
@@ -16124,34 +19623,89 @@
     "b3_refreshed_existing_records": 1
   },
   "current_tree_reconciliation": {
-    "reviewed_at": "2026-11-23",
-    "source_revision": "c3f4d6841759415fb502806e1c3e27db30658433",
+    "reviewed_at": "2026-11-24",
+    "source_revision": "548182a67afac67c0403c7bef5a7cd84cff821f0",
     "audit_workflow_run": null,
     "audit_artifact_id": null,
     "audit_artifact_sha256": null,
-    "previous_records": 597,
-    "baseline_main_artifacts_excluding_manifest": 597,
-    "baseline_missing_manifest_paths": [],
+    "previous_records": 610,
+    "baseline_main_artifacts_excluding_manifest": 785,
+    "baseline_missing_manifest_paths": 175,
     "baseline_extra_manifest_paths": 0,
-    "baseline_sha_or_size_mismatches": [],
-    "current_records": 598,
-    "added_records": 1,
-    "refreshed_existing_records": 2,
+    "baseline_sha_or_size_mismatches": 24,
+    "current_records": 786,
+    "added_records": 176,
+    "refreshed_existing_records": 24,
     "refreshed_existing_paths": [
+      "research/LLMLang-CONCEPT.md",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelopeTests.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutation.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutationTests.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
       "research/README.md",
-      "research/RESEARCH-DEPENDENCY-MAP.md"
+      "research/RESEARCH-DEPENDENCY-MAP.md",
+      "research/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md",
+      "research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
+      "research/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md",
+      "research/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md",
+      "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
+      "research/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md",
+      "research/RESEARCH-TAXONOMY.md",
+      "research/RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md",
+      "research/RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md",
+      "research/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md",
+      "research/RT-07-SOURCE-OWNED-QUERY-ENVELOPE.md",
+      "research/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md",
+      "research/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md",
+      "research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md"
     ],
     "removed_paths": 0,
     "tree_counts": {
-      "research_artifacts_excluding_manifest": 598,
-      "markdown_files": 317,
+      "research_artifacts_excluding_manifest": 785,
+      "markdown_files": 383,
       "mdx_files": 3,
-      "python_files": 226,
-      "lean_files": 33,
-      "prototype_tree_files": 289,
-      "scenario_named_documents": 137,
-      "taxonomy_rt_rows": 28,
-      "dependency_rows": 135
+      "python_files": 261,
+      "lean_files": 39,
+      "prototype_tree_files": 302,
+      "scenario_named_documents": 136,
+      "taxonomy_rt_rows": 29,
+      "dependency_rows": 136,
+      "category_counts": {
+        "audit-or-review-report": 72,
+        "cross-cutting-synthesis-or-status": 4,
+        "example-or-fixture": 46,
+        "external-source-snapshot-or-license": 13,
+        "index-or-research-management": 3,
+        "other-research-artifact": 2,
+        "prototype-or-experiment-implementation": 179,
+        "prototype-report-or-readme": 30,
+        "prototype-test-evidence": 154,
+        "reference-register-or-manifest": 2,
+        "research-area-or-experiment-document": 85,
+        "research-background-or-design-analysis": 29,
+        "research-preparation-brief-or-index": 13,
+        "research-rfc-or-protocol-proposal": 2,
+        "scenario-research-result": 136,
+        "structured-fixture-or-schema": 16
+      },
+      "markdown_mdx_files": 380,
+      "research_json_files": 71,
+      "other_tracked_file_types": {
+        "lean": 39,
+        "txt": 12,
+        "rs": 3,
+        "c": 3,
+        "mjs": 3,
+        "csv": 2,
+        "toml": 1,
+        "proto": 1,
+        "jsonl": 1,
+        "sha256sums": 1,
+        "lean_toolchain": 1
+      }
     },
     "prototype_family_file_counts": {
       "ALLOCATOR-COMPAT-01": 1,
@@ -16177,15 +19731,96 @@
     "scenario_crosswalk_boundary": "The scenario_named_documents count uses a broad filename predicate (SCENARIO- followed by digits) and is 137; the strict RESEARCH-SCENARIO-<number> report set is 136 and is fully mapped. The one broad-only path is the RT-00 Scenario 130 claim-traceability pilot, not a Scenario report. The 136 reports represent 135 scenario identifiers because Scenario 95 has a supplemental execution file; Scenario 16 remains absent with intent unresolved. See RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md.",
     "rt27_traceability_boundary": "RT-27 is registered in taxonomy and dependency map by PR #251; its physical storage format and requirements remain provisional.",
     "index_coverage_result": {
-      "research_markdown_mdx_documents": 320,
+      "research_markdown_mdx_documents": 387,
       "research_documents_without_index_inbound": 57,
       "research_documents_with_zero_inbound": 23,
       "unresolved_local_targets": 38,
-      "unresolved_target_scope": "partial OCI and Alive2 snapshots; broken LLMLang-authored RT-24 taxonomy link fixed in this PR",
-      "non_markdown_targets": 492,
-      "auditor": ".github/scripts/audit_research_index_coverage.py"
+      "non_markdown_targets": 660,
+      "auditor": ".github/scripts/audit_research_index_coverage.py",
+      "audit_revision": "548182a67afac67c0403c7bef5a7cd84cff821f0",
+      "documents_scanned": 388,
+      "index_documents": 21,
+      "local_link_occurrences": 2560,
+      "research_documents_with_zero_inbound_links": 23,
+      "unique_research_targets_with_inbound_links": 364,
+      "scenario_documents": 136,
+      "scenario_documents_with_zero_inbound_links": 6,
+      "scenario_documents_without_inbound_link_from_designated_index": 31,
+      "audit_command": "python3 .github/scripts/audit_research_index_coverage.py --revision 548182a67afac67c0403c7bef5a7cd84cff821f0"
     },
-    "comparison_scope": "The inventory-freshness workflow validates path, Git blob SHA, and byte size on the final PR head. Semantic orphan/contradiction review and experiment validation remain separate."
+    "comparison_scope": "The inventory-freshness workflow validates path, Git blob SHA, and byte size on the final PR head. Semantic orphan/contradiction review and experiment validation remain separate.",
+    "added_path_review": {
+      "status": "all added paths have first-pass individual role and RT/stage mapping",
+      "count": 176,
+      "paths": []
+    },
+    "stale_record_review": {
+      "status": "exact Git metadata refreshed; prior semantic mappings retained pending revalidation",
+      "count": 24,
+      "paths": [
+        "research/LLMLang-CONCEPT.md",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelope.lean",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceQueryEnvelopeTests.lean",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutation.lean",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SourceWireRefutationTests.lean",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lakefile.lean",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py",
+        "research/README.md",
+        "research/RESEARCH-DEPENDENCY-MAP.md",
+        "research/RESEARCH-SCENARIO-103-REAL-SOLVER-TIMEOUT-ISOLATION.md",
+        "research/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
+        "research/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md",
+        "research/RESEARCH-SCENARIO-29-VERIFIED-PROOF-CHECKER-AND-ENCODER-VALIDATION.md",
+        "research/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
+        "research/RESEARCH-SCENARIO-98-FINITE-AST-PATH-COVERAGE.md",
+        "research/RESEARCH-TAXONOMY.md",
+        "research/RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md",
+        "research/RT-00-G-CURRENT-STATUS-AND-EXIT-REPORT-2026-11-21.md",
+        "research/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md",
+        "research/RT-07-SOURCE-OWNED-QUERY-ENVELOPE.md",
+        "research/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md",
+        "research/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md",
+        "research/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md"
+      ]
+    },
+    "removed_path_list": [],
+    "category_counts": {
+      "audit-or-review-report": 53,
+      "cross-cutting-synthesis-or-status": 4,
+      "example-or-fixture": 1,
+      "external-source-snapshot-or-license": 13,
+      "index-or-research-management": 3,
+      "other-research-artifact": 2,
+      "prototype-or-experiment-implementation": 148,
+      "prototype-report-or-readme": 20,
+      "prototype-test-evidence": 121,
+      "reference-register-or-manifest": 2,
+      "research-area-or-experiment-document": 67,
+      "research-background-or-design-analysis": 28,
+      "research-preparation-brief-or-index": 9,
+      "research-rfc-or-protocol-proposal": 2,
+      "scenario-research-result": 136,
+      "structured-fixture-or-schema": 1,
+      "unclassified-pending-review": 150
+    },
+    "pending_traceability_review": "17 existing paths changed since prior manifest; their exact Git metadata is current, while role metadata remains based on prior review. The 160 new path records have first-pass individual role and RT/stage mappings.",
+    "previous_manifest_revision": "9135dfbe7724e12f2bbd664b53d860ec2f428d8b",
+    "refresh_status": "exact path/blob/size inventory for the PR tree; first-pass role triage boundaries documented",
+    "enumeration_method": "git ls-tree -r --full-tree origin/main research; exclude the inventory manifest itself; git cat-file -s for blob sizes",
+    "open_research_prs_not_in_snapshot": [
+      {
+        "number": 431,
+        "title": "RT-33: emit and replay Lean-owned symbolic SMT queries",
+        "research_paths_added": 13
+      },
+      {
+        "number": 423,
+        "title": "RT-33: validate exact evidence composition across bounded backends",
+        "research_paths_added": 5
+      }
+    ],
+    "recheck_after_merge": "Refresh this inventory against main after any listed PR merges."
   },
   "previous_tree_reconciliation": {
     "reviewed_at": "2026-11-21",
