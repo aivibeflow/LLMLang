@@ -50,6 +50,9 @@ jobs:
           preservation_output=$(mktemp)
           lake env lean -DwarningAsError=true LogosScalarPreservation.lean > "$preservation_output"
           cmp evidence/logos-preservation/axioms.txt "$preservation_output"
+          valuation_output=$(mktemp)
+          lake env lean -DwarningAsError=true LogosValuationBinding.lean > "$valuation_output"
+          cmp evidence/logos-valuation/axioms.txt "$valuation_output"
       - name: Run parser-state binding and semantic correspondence tests
         run: |
           timeout 180s lake env lean -DwarningAsError=true --run Main.lean

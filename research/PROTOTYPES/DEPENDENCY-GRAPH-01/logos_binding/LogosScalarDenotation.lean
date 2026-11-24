@@ -80,14 +80,17 @@ def keyFor (binding : Eo.Term) : Except String SmtEval.native_String :=
   | .UConst key _ => pure key
   | _ => throw "CPC declaration did not translate to an SMT constant"
 
+def liftBinding (env : Env) (entry : String × Eo.Term) :
+    Except String (SmtEval.native_String × Scalar) := do
+  let (name, binding) := entry
+  let key ← keyFor binding
+  if hasExpectedSort binding .int then pure (key, .int (SourceQuerySemantics.asInt (env name .int)))
+  else if hasExpectedSort binding .bool then pure (key, .bool (SourceQuerySemantics.asBool (env name .bool)))
+  else throw "unsupported CPC declaration sort"
+
 def liftValuation (bindings : List (String × Eo.Term)) (env : Env) : Except String Valuation := do
-  let lifted ← bindings.mapM fun (name, binding) => do
-    let key ← keyFor binding
-    if hasExpectedSort binding .int then pure (key, .int (SourceQuerySemantics.asInt (env name .int)))
-    else if hasExpectedSort binding .bool then pure (key, .bool (SourceQuerySemantics.asBool (env name .bool)))
-    else throw "unsupported CPC declaration sort"
-  let keys := lifted.map Prod.fst
-  if keys.eraseDups.length == keys.length then pure lifted else throw "ambiguous SMT constants"
+  let lifted ← bindings.mapM (liftBinding env)
+  if (lifted.map Prod.fst).Nodup then pure lifted else throw "ambiguous SMT constants"
 
 private def evalRendered (env : Valuation) (term : Eo.Term) : Except String Scalar :=
   evalSmt env (__eo_to_smt term)
@@ -165,6 +168,9 @@ private def checkExpressions : Except String Nat := do
     throw "out-of-profile SMT term unexpectedly admitted"
   if (evalRendered model (apply3 .ite (.Boolean true) (.Numeral 1) (.Rational 1))).isOk then
     throw "out-of-profile SMT term admitted in an inactive branch"
+  let some xTerm := bindings.lookup "x" | throw "missing fixture declaration"
+  if (liftValuation [("x", xTerm), ("duplicate", xTerm)] testEnv).isOk then
+    throw "duplicate SMT constant identity unexpectedly admitted"
   pure count
 
 open LLMLang.SourceSyntax
@@ -269,5 +275,5 @@ def main : IO Unit :=
       IO.println s!"Expression evaluations compared: {expressions}"
       IO.println s!"Int-factor source pairs: {ints}, observable differences: {intDiff}"
       IO.println s!"Bool-factor source pairs: {bools}, observable differences: {boolDiff}"
-      IO.println "Two same-sort mutations and three invalid interpretations detected"
+      IO.println "Two same-sort mutations and four invalid interpretations detected"
   | .error message => throw (IO.userError message)
