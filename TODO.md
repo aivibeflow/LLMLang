@@ -169,6 +169,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Context:** Hash equality is not behavioral equivalence; tests, declarations, and formal proofs are different evidence strengths and must be tied to exact inputs and assumptions.
 - **Recommendation:** Bind evidence to exact artifact hashes, target profile, assumptions, and tool versions. Reuse only when all proof/test-relevant inputs are unchanged or a sound reuse rule is established.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 9.
+- **Evidence:** [RT-05 provided contract identity](research/semantic-representation/RT-05/RT-05-PROVIDED-CONTRACT-IDENTITY-2026-11-25.md) checks exact body-to-provider and provider-to-required evidence subjects. Substituting executable bytes alone loses the provided declaration and admits stale reuse in the fixture.
 
 ### LL-009 — Define registry trust, provenance, licensing, and retention policy
 
