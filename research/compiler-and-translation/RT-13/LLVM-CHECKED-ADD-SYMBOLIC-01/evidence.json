@@ -1,0 +1,192 @@
+{
+  "schema": "llmlang-llvm-checked-add-symbolic/1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "prior_lrat_ledger_sha256": "d7df42154b25ed2f99ad389f5f3b5c2e202831950263fb7426d46e660bf8244a",
+  "runner_sha256": "237cba5216bfe5350b896b8924f562d1169af4e6b9a9e1753009c029539effd9",
+  "model_sha256": "bb08b0e38f3fac744cff173c5f7d9e1520196e8d6755b901ac604d16ac21e213",
+  "exact_lean_module_sha256": "c81ec56c68b02fcd5704d45c68ed3ea79be0fbff62ba2131a4fb9831809608c2",
+  "arithmetic_lemmas": {
+    "CheckedAddition.source_overflow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CheckedAddition.target_overflow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CheckedAddition.narrow_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "theorems": {
+    "preserving_O0_partition": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "preserving_O0_complete_mismatch": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "preserving_O3_partition": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "preserving_O3_complete_mismatch": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "drop_overflow_O0_partition": {
+      "mode": "normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "drop_overflow_O0_witness": {
+      "mode": "normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "drop_overflow_O3_partition": {
+      "mode": "normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "drop_overflow_O3_witness": {
+      "mode": "normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O0_partition": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O0_status_and_stores_mismatch": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O0_witness": {
+      "mode": "normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O3_partition": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O3_status_and_stores_mismatch": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O3_witness": {
+      "mode": "normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O0_partition": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O0_status_and_effects_mismatch": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O0_witness": {
+      "mode": "normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O3_partition": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O3_status_and_effects_mismatch": {
+      "mode": "symbolic",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O3_witness": {
+      "mode": "normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  },
+  "incorrect_whole_domain_claims": {
+    "drop_overflow_O0_witness": "refused",
+    "reverse_effects_O0_witness": "refused",
+    "store_on_error_O0_witness": "refused"
+  }
+}
