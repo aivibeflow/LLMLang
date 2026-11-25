@@ -1,0 +1,362 @@
+{
+  "schema": "llmlang-rt11-typed-pipeline-invalidation/1",
+  "python": "3.12.14",
+  "runner_sha256": "035d8d712f115608ecd938fb44a676f99cd1555d221ab9721023bc1cf52bda50",
+  "baseline": {
+    "keys": {
+      "type": "82136067bbc879efd518d6d67918ef69ed1dfc0a52b6623643b8c050fc683045",
+      "contract": "24c446fc2914cd85db0d0a832400b0fb61728d76c77e8828f78f677cdb3254cc",
+      "optimization": "bc18a2e26f63a64c66dd3401b86268f180a169361e3e2db4e3f628a94a12ced8",
+      "code_generation": "7c23e6ae74483aa1c45d2f3d270c6beef5b302fe79374c75b6f0fa39f62d009a",
+      "tests": "25d8f959be67dac664b2b14467bab71eb30550072e2e8caf5b21f810ab58fd3b",
+      "proof": "ae58decef88ff4edc1c43742f849199d5bb96bcc0d458b6c3c9b042283e068cf"
+    },
+    "source_map": "42f4a8d96213618fb3f8d683e8bb824373d2fe2a520ed44ffb1e2307229d59b8",
+    "type_passed": true,
+    "optimized": [
+      1,
+      2
+    ],
+    "code": {
+      "target": "stack-profile-v1",
+      "instructions": [
+        [
+          "mul",
+          1
+        ],
+        [
+          "add",
+          2
+        ]
+      ]
+    },
+    "contract_refuted_at": [],
+    "failed_tests": [],
+    "finite_verification": "AGREES_IN_DECLARED_DOMAIN"
+  },
+  "edits": {
+    "formatting": {
+      "keys": {
+        "type": "82136067bbc879efd518d6d67918ef69ed1dfc0a52b6623643b8c050fc683045",
+        "contract": "24c446fc2914cd85db0d0a832400b0fb61728d76c77e8828f78f677cdb3254cc",
+        "optimization": "bc18a2e26f63a64c66dd3401b86268f180a169361e3e2db4e3f628a94a12ced8",
+        "code_generation": "7c23e6ae74483aa1c45d2f3d270c6beef5b302fe79374c75b6f0fa39f62d009a",
+        "tests": "25d8f959be67dac664b2b14467bab71eb30550072e2e8caf5b21f810ab58fd3b",
+        "proof": "ae58decef88ff4edc1c43742f849199d5bb96bcc0d458b6c3c9b042283e068cf"
+      },
+      "source_map": "2a5c86c6504b0d605a4d11aa33a0a854ce942047e301e10d21b0614000918a6b",
+      "type_passed": true,
+      "optimized": [
+        1,
+        2
+      ],
+      "code": {
+        "target": "stack-profile-v1",
+        "instructions": [
+          [
+            "mul",
+            1
+          ],
+          [
+            "add",
+            2
+          ]
+        ]
+      },
+      "contract_refuted_at": [],
+      "failed_tests": [],
+      "finite_verification": "AGREES_IN_DECLARED_DOMAIN",
+      "changed_actions": [],
+      "source_map_changed": true
+    },
+    "equivalent_ast_change": {
+      "keys": {
+        "type": "928775911d32d2e5c024eec1960aeb648f6ee8e72612689899a42ced7b05a7c4",
+        "contract": "e98bfa227f6e480889424ae49460894a84852f34e382adfc0bf947595b6d707a",
+        "optimization": "a1937a990dbd8c51b37715a15af74f191236440fbd39d93cff90e6336a1307a2",
+        "code_generation": "7c23e6ae74483aa1c45d2f3d270c6beef5b302fe79374c75b6f0fa39f62d009a",
+        "tests": "25d8f959be67dac664b2b14467bab71eb30550072e2e8caf5b21f810ab58fd3b",
+        "proof": "b8938a7241d8a90f1914473ff438ae7452469095b3377971f3ba9363c7daa4b3"
+      },
+      "source_map": "0e66efba39abe61752efaad46265c3644e592ea183a8d7c4ef5eeea1220b52ff",
+      "type_passed": true,
+      "optimized": [
+        1,
+        2
+      ],
+      "code": {
+        "target": "stack-profile-v1",
+        "instructions": [
+          [
+            "mul",
+            1
+          ],
+          [
+            "add",
+            2
+          ]
+        ]
+      },
+      "contract_refuted_at": [],
+      "failed_tests": [],
+      "finite_verification": "AGREES_IN_DECLARED_DOMAIN",
+      "changed_actions": [
+        "type",
+        "contract",
+        "optimization",
+        "proof"
+      ],
+      "source_map_changed": true
+    },
+    "changed_behavior": {
+      "keys": {
+        "type": "181f0424d342c9b49392b76cc12b6648100f75883df11978af7422c6688b6737",
+        "contract": "445be2616f9a7aca5e37209739c354718d81a3d71d87f88fbebed54c2c306f5f",
+        "optimization": "c81ebe4dce01903d9658a53bd4c1cc9ca91181946c20176ad3334c2625ef493c",
+        "code_generation": "8527fa391df517c378d5c605c5c22eefb3d7635f8a1788af1bc241ac99102355",
+        "tests": "e81f5346c5707c4d0886fdc688a72ab929bf23bc037005f5ed4bfed739c2a6e9",
+        "proof": "4cff1d9e9b77beee64c7ac2db286ba2e25abdb7612b408600f2079009222da34"
+      },
+      "source_map": "c0713106b8dd976590fe1e1477888d869d8f74170741b223a911d30abc100238",
+      "type_passed": true,
+      "optimized": [
+        1,
+        3
+      ],
+      "code": {
+        "target": "stack-profile-v1",
+        "instructions": [
+          [
+            "mul",
+            1
+          ],
+          [
+            "add",
+            3
+          ]
+        ]
+      },
+      "contract_refuted_at": [
+        5
+      ],
+      "failed_tests": [
+        0,
+        2
+      ],
+      "finite_verification": "REFUTED",
+      "changed_actions": [
+        "type",
+        "contract",
+        "optimization",
+        "code_generation",
+        "tests",
+        "proof"
+      ],
+      "source_map_changed": true
+    },
+    "changed_contract": {
+      "keys": {
+        "type": "82136067bbc879efd518d6d67918ef69ed1dfc0a52b6623643b8c050fc683045",
+        "contract": "11b4340638b46cfb6c694be8bf1dccc9295640faa756191ef3af78e9573fee49",
+        "optimization": "bc18a2e26f63a64c66dd3401b86268f180a169361e3e2db4e3f628a94a12ced8",
+        "code_generation": "7c23e6ae74483aa1c45d2f3d270c6beef5b302fe79374c75b6f0fa39f62d009a",
+        "tests": "25d8f959be67dac664b2b14467bab71eb30550072e2e8caf5b21f810ab58fd3b",
+        "proof": "dfab5d8a463ec7d43fda5085e79c3ecfcd25f2fac892dded7c1f1cb779614f51"
+      },
+      "source_map": "42f4a8d96213618fb3f8d683e8bb824373d2fe2a520ed44ffb1e2307229d59b8",
+      "type_passed": true,
+      "optimized": [
+        1,
+        2
+      ],
+      "code": {
+        "target": "stack-profile-v1",
+        "instructions": [
+          [
+            "mul",
+            1
+          ],
+          [
+            "add",
+            2
+          ]
+        ]
+      },
+      "contract_refuted_at": [
+        5
+      ],
+      "failed_tests": [],
+      "finite_verification": "REFUTED",
+      "changed_actions": [
+        "contract",
+        "proof"
+      ],
+      "source_map_changed": false
+    },
+    "changed_finite_domain": {
+      "keys": {
+        "type": "82136067bbc879efd518d6d67918ef69ed1dfc0a52b6623643b8c050fc683045",
+        "contract": "c4208057d334d8cb13eb0225fae103b13c42868db2f54c52708d5a24b277151e",
+        "optimization": "bc18a2e26f63a64c66dd3401b86268f180a169361e3e2db4e3f628a94a12ced8",
+        "code_generation": "7c23e6ae74483aa1c45d2f3d270c6beef5b302fe79374c75b6f0fa39f62d009a",
+        "tests": "25d8f959be67dac664b2b14467bab71eb30550072e2e8caf5b21f810ab58fd3b",
+        "proof": "63fd83fb4c77614ea233941d833ed0687689a5b274256b7a70a1c426325207a9"
+      },
+      "source_map": "42f4a8d96213618fb3f8d683e8bb824373d2fe2a520ed44ffb1e2307229d59b8",
+      "type_passed": true,
+      "optimized": [
+        1,
+        2
+      ],
+      "code": {
+        "target": "stack-profile-v1",
+        "instructions": [
+          [
+            "mul",
+            1
+          ],
+          [
+            "add",
+            2
+          ]
+        ]
+      },
+      "contract_refuted_at": [],
+      "failed_tests": [],
+      "finite_verification": "AGREES_IN_DECLARED_DOMAIN",
+      "changed_actions": [
+        "contract",
+        "proof"
+      ],
+      "source_map_changed": false
+    },
+    "changed_target": {
+      "keys": {
+        "type": "82136067bbc879efd518d6d67918ef69ed1dfc0a52b6623643b8c050fc683045",
+        "contract": "24c446fc2914cd85db0d0a832400b0fb61728d76c77e8828f78f677cdb3254cc",
+        "optimization": "bc18a2e26f63a64c66dd3401b86268f180a169361e3e2db4e3f628a94a12ced8",
+        "code_generation": "940036afa257aecc97ea1b141330e87f61f0052fc3cf47aaaa7c98c743582ab5",
+        "tests": "c1402adc8b71eee85e01843b127b103a3d1ee85694800670856cebf306df99a7",
+        "proof": "ae58decef88ff4edc1c43742f849199d5bb96bcc0d458b6c3c9b042283e068cf"
+      },
+      "source_map": "42f4a8d96213618fb3f8d683e8bb824373d2fe2a520ed44ffb1e2307229d59b8",
+      "type_passed": true,
+      "optimized": [
+        1,
+        2
+      ],
+      "code": {
+        "target": "stack-profile-v2",
+        "instructions": [
+          [
+            "mul",
+            1
+          ],
+          [
+            "add",
+            2
+          ]
+        ]
+      },
+      "contract_refuted_at": [],
+      "failed_tests": [],
+      "finite_verification": "AGREES_IN_DECLARED_DOMAIN",
+      "changed_actions": [
+        "code_generation",
+        "tests"
+      ],
+      "source_map_changed": false
+    },
+    "changed_tests": {
+      "keys": {
+        "type": "82136067bbc879efd518d6d67918ef69ed1dfc0a52b6623643b8c050fc683045",
+        "contract": "24c446fc2914cd85db0d0a832400b0fb61728d76c77e8828f78f677cdb3254cc",
+        "optimization": "bc18a2e26f63a64c66dd3401b86268f180a169361e3e2db4e3f628a94a12ced8",
+        "code_generation": "7c23e6ae74483aa1c45d2f3d270c6beef5b302fe79374c75b6f0fa39f62d009a",
+        "tests": "67962451c857ff11c2d86d9936af8ebb435d8be9ad9f2f64ca0c8a1b013e377f",
+        "proof": "ae58decef88ff4edc1c43742f849199d5bb96bcc0d458b6c3c9b042283e068cf"
+      },
+      "source_map": "42f4a8d96213618fb3f8d683e8bb824373d2fe2a520ed44ffb1e2307229d59b8",
+      "type_passed": true,
+      "optimized": [
+        1,
+        2
+      ],
+      "code": {
+        "target": "stack-profile-v1",
+        "instructions": [
+          [
+            "mul",
+            1
+          ],
+          [
+            "add",
+            2
+          ]
+        ]
+      },
+      "contract_refuted_at": [],
+      "failed_tests": [],
+      "finite_verification": "AGREES_IN_DECLARED_DOMAIN",
+      "changed_actions": [
+        "tests"
+      ],
+      "source_map_changed": false
+    },
+    "changed_verifier": {
+      "keys": {
+        "type": "82136067bbc879efd518d6d67918ef69ed1dfc0a52b6623643b8c050fc683045",
+        "contract": "24c446fc2914cd85db0d0a832400b0fb61728d76c77e8828f78f677cdb3254cc",
+        "optimization": "bc18a2e26f63a64c66dd3401b86268f180a169361e3e2db4e3f628a94a12ced8",
+        "code_generation": "7c23e6ae74483aa1c45d2f3d270c6beef5b302fe79374c75b6f0fa39f62d009a",
+        "tests": "25d8f959be67dac664b2b14467bab71eb30550072e2e8caf5b21f810ab58fd3b",
+        "proof": "8f1ffb9531d07b5756a3e670a63c80a400cacb5112a83d291b10c0e39810b256"
+      },
+      "source_map": "42f4a8d96213618fb3f8d683e8bb824373d2fe2a520ed44ffb1e2307229d59b8",
+      "type_passed": true,
+      "optimized": [
+        1,
+        2
+      ],
+      "code": {
+        "target": "stack-profile-v1",
+        "instructions": [
+          [
+            "mul",
+            1
+          ],
+          [
+            "add",
+            2
+          ]
+        ]
+      },
+      "contract_refuted_at": [],
+      "failed_tests": [],
+      "finite_verification": "AGREES_IN_DECLARED_DOMAIN",
+      "changed_actions": [
+        "proof"
+      ],
+      "source_map_changed": false
+    }
+  },
+  "type_invalid_control": {
+    "keys": {
+      "type": "4b80df3d2e2f62c46e1ede5f0f64697d817f78dca626057b599120453eb82504"
+    },
+    "source_map": "c1040f1ae22ea5263d6538fa556f53f13d743ba4072cbd0f3722bd548b556fe0",
+    "type_passed": false,
+    "withheld": [
+      "contract",
+      "optimization",
+      "code_generation",
+      "tests",
+      "proof"
+    ]
+  },
+  "type_interface_only_control": {
+    "shared_key": "82087cd3922f84d6713992d452d135c3e8f6fe3f2232465fab75a3708aeb9a3c",
+    "baseline_accepted": true,
+    "invalid_edit_accepted": false
+  }
+}
