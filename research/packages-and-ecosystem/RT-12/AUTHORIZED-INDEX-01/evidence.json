@@ -1,0 +1,336 @@
+{
+  "counts": {
+    "incompatible-rebuild": 3,
+    "rebuilt": 9,
+    "refused": 6,
+    "sparse": 6,
+    "unauthorized": 30
+  },
+  "directory_sha256": [
+    "c2f68c7b872402a54b7dd8e4047bdaddd2a0049005748248fed875048e64b224",
+    "75764da375a2d9bd404e0faca7c07cab813d2e8dbb53e9956bc922a5c4c14132"
+  ],
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "python": "3.12.14",
+  "rows": {
+    "absent_authority_record": [
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ]
+    ],
+    "alternate_under_original_pin": [
+      [
+        "found",
+        "3ba07e41eb6697a338ac8c2c468665cfa6498cd98ea02be47fe6558532561a0e",
+        "rebuilt"
+      ],
+      [
+        "found",
+        "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+        "rebuilt"
+      ],
+      [
+        "missing",
+        null,
+        "rebuilt"
+      ]
+    ],
+    "alternate_under_own_pin": [
+      [
+        "found",
+        "3ba07e41eb6697a338ac8c2c468665cfa6498cd98ea02be47fe6558532561a0e",
+        "sparse"
+      ],
+      [
+        "found",
+        "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+        "sparse"
+      ],
+      [
+        "missing",
+        null,
+        "sparse"
+      ]
+    ],
+    "authorized": [
+      [
+        "found",
+        "3ba07e41eb6697a338ac8c2c468665cfa6498cd98ea02be47fe6558532561a0e",
+        "sparse"
+      ],
+      [
+        "found",
+        "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+        "sparse"
+      ],
+      [
+        "missing",
+        null,
+        "sparse"
+      ]
+    ],
+    "corrupt_directory": [
+      [
+        "found",
+        "3ba07e41eb6697a338ac8c2c468665cfa6498cd98ea02be47fe6558532561a0e",
+        "rebuilt"
+      ],
+      [
+        "found",
+        "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+        "rebuilt"
+      ],
+      [
+        "missing",
+        null,
+        "rebuilt"
+      ]
+    ],
+    "inconsistent_signed_layout": [
+      [
+        "unavailable",
+        null,
+        "incompatible-rebuild"
+      ],
+      [
+        "unavailable",
+        null,
+        "incompatible-rebuild"
+      ],
+      [
+        "unavailable",
+        null,
+        "incompatible-rebuild"
+      ]
+    ],
+    "invalid_directory_digest": [
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ]
+    ],
+    "lost_directory_and_canonical": [
+      [
+        "unavailable",
+        null,
+        "refused"
+      ],
+      [
+        "unavailable",
+        null,
+        "refused"
+      ],
+      [
+        "unavailable",
+        null,
+        "refused"
+      ]
+    ],
+    "lost_directory_and_wrong_canonical": [
+      [
+        "unavailable",
+        null,
+        "refused"
+      ],
+      [
+        "unavailable",
+        null,
+        "refused"
+      ],
+      [
+        "unavailable",
+        null,
+        "refused"
+      ]
+    ],
+    "missing_directory": [
+      [
+        "found",
+        "3ba07e41eb6697a338ac8c2c468665cfa6498cd98ea02be47fe6558532561a0e",
+        "rebuilt"
+      ],
+      [
+        "found",
+        "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+        "rebuilt"
+      ],
+      [
+        "missing",
+        null,
+        "rebuilt"
+      ]
+    ],
+    "revoked_generation": [
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ]
+    ],
+    "stale_snapshot": [
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ]
+    ],
+    "unknown_key": [
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ]
+    ],
+    "unknown_statement_type": [
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ]
+    ],
+    "unsupported_layout": [
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ]
+    ],
+    "wrong_logical_digest": [
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ]
+    ],
+    "wrong_package": [
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ]
+    ],
+    "wrong_table": [
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ],
+      [
+        "unavailable",
+        null,
+        "unauthorized"
+      ]
+    ]
+  },
+  "scope": {
+    "authority_generation": 3,
+    "logical_sha256": "fd319f83b72e98ff7f23271d77e9d86164f265e44b91878c3efbbbbdd61d2e57",
+    "package": "fixture-package",
+    "snapshot": "fixture-snapshot-3",
+    "table": "objects",
+    "type": "package-index-projection:v1"
+  },
+  "sources": {
+    "check.py": "9a5ae0ed6696f03ff63d3452e01c1fd4757a7bfe55af67a95940a81a36890edc",
+    "signing": "226c4316aa95db2b1600fcc9efbb2ba636747c6ce363b8b6d2d33f670372fbef",
+    "sparse.py": "f4f523f26d156febe9116ef8d1580f3d85f0603478cea2b08f0c665aa6c13293"
+  }
+}
