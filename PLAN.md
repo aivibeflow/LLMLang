@@ -834,7 +834,9 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Bind each call-site/target alternative to its exact caller-required Contract hash; keep the provided Contract reference solely on the callee and resolve it through the existing caller-to-callee edge in RT-20 planning, validation, and semantic diff. Do not duplicate provided-contract hashes in call edges, reverse-index edges, or CIP decisions (declaration schema v2; dependency-index schema v3; not yet normatively equated with glossary CCHash).
 - [ ] Reconcile the candidate subset with the canonical SPG schema and formal semantics before normative adoption.
 - [ ] Define semantic dependencies separately from provenance, audit observations, and traceability.
+  - [ ] [WIP] Compare exact semantic, verification and traceability dependency scopes, including when an observed metadata read becomes a real input on `research/all`.
 - [ ] Define hash-relevant dependency edges and dependency closure.
+  - [ ] [WIP] Check typed dependency projections and transitive hash closure for declared actions and evidence on `research/all`.
 - [ ] Define how dependencies are discovered from static analysis, typed IR, runtime observations, tests, and formal semantics.
 - [x] Define confidence/evidence classes for dependency edges.
   - Distinguish discovery candidates, positive witnesses, covered may-sets, exact absence and unresolved evidence. The 648-case comparison finds 84 stale reuses with sample-only absence. Exact scoped exclusion safely reuses 32 more cases than the covered whole-program bound. [RT-06 dependency evidence classes](research/semantic-representation/RT-06/RT-06-DEPENDENCY-EVIDENCE-CLASSES-2026-11-25.md)
