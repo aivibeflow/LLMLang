@@ -1,0 +1,4146 @@
+{
+  "schema": "llmlang-queued-foreign-ownership/1",
+  "platform": {
+    "kernel": "6.18.57",
+    "machine": "x86_64",
+    "libc": "glibc 2.41",
+    "filesystem": "overlayfs",
+    "python": "3.12.14",
+    "compiler": "gcc (Debian 14.2.0-19) 14.2.0"
+  },
+  "source_sha256": {
+    "run.py": "636064ea650122dc5a4c149750a5f410467fe934449e2e7f187d08736038f1f7",
+    "receiver.c": "072e572ccee4009bb67830d7dda113b3727cdf8cd321ac196a3ae58e9c7b3c66",
+    "receiver.py": "c8c703c32c8f5fd26639487acdaeb1250bc9dcde28e2eb1895c9b03fd4f73270"
+  },
+  "profiles": [
+    "python",
+    "c-O0",
+    "c-O3"
+  ],
+  "schedules_per_profile": 40,
+  "checkpoints_per_profile": 232,
+  "checked_native_checkpoints": 696,
+  "policy_mismatches_per_profile": {
+    "sender": {
+      "unsafe": 20,
+      "unnecessary_refusal": 0
+    },
+    "last_receipt": {
+      "unsafe": 12,
+      "unnecessary_refusal": 0
+    },
+    "all_received": {
+      "unsafe": 10,
+      "unnecessary_refusal": 0
+    },
+    "including_queue": {
+      "unsafe": 0,
+      "unnecessary_refusal": 0
+    }
+  },
+  "schedules": [
+    {
+      "messages": 1,
+      "keep_original": false,
+      "same_inode": false,
+      "plan": "exit_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": false,
+      "same_inode": false,
+      "plan": "kill_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": false,
+      "same_inode": false,
+      "plan": "kill_after_one",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": false,
+      "same_inode": false,
+      "plan": "close_latest",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": false,
+      "same_inode": false,
+      "plan": "close_all",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": false,
+      "same_inode": true,
+      "plan": "exit_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": false,
+      "same_inode": true,
+      "plan": "kill_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": false,
+      "same_inode": true,
+      "plan": "kill_after_one",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": false,
+      "same_inode": true,
+      "plan": "close_latest",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": false,
+      "same_inode": true,
+      "plan": "close_all",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": true,
+      "same_inode": false,
+      "plan": "exit_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": true,
+      "same_inode": false,
+      "plan": "kill_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": true,
+      "same_inode": false,
+      "plan": "kill_after_one",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": true,
+      "same_inode": false,
+      "plan": "close_latest",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": true,
+      "same_inode": false,
+      "plan": "close_all",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": true,
+      "same_inode": true,
+      "plan": "exit_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": true,
+      "same_inode": true,
+      "plan": "kill_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": true,
+      "same_inode": true,
+      "plan": "kill_after_one",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": true,
+      "same_inode": true,
+      "plan": "close_latest",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 1,
+      "keep_original": true,
+      "same_inode": true,
+      "plan": "close_all",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": false,
+      "same_inode": false,
+      "plan": "exit_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": false,
+      "same_inode": false,
+      "plan": "kill_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": false,
+      "same_inode": false,
+      "plan": "kill_after_one",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": false,
+      "same_inode": false,
+      "plan": "close_latest",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:1",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0",
+              "1"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "close:1",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": false,
+      "same_inode": false,
+      "plan": "close_all",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:1",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0",
+              "1"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "close:1",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": false,
+      "same_inode": true,
+      "plan": "exit_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": false,
+      "same_inode": true,
+      "plan": "kill_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": false,
+      "same_inode": true,
+      "plan": "kill_after_one",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": false,
+      "same_inode": true,
+      "plan": "close_latest",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:1",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0",
+              "1"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "close:1",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": false,
+      "same_inode": true,
+      "plan": "close_all",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": false,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:1",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0",
+              "1"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "close:1",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": true,
+      "same_inode": false,
+      "plan": "exit_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": true,
+      "same_inode": false,
+      "plan": "kill_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": true,
+      "same_inode": false,
+      "plan": "kill_after_one",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": true,
+      "same_inode": false,
+      "plan": "close_latest",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:1",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0",
+              "1"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "close:1",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": true,
+      "same_inode": false,
+      "plan": "close_all",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "receive:1",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0",
+              "1"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "close:1",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": true,
+      "same_inode": true,
+      "plan": "exit_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": true,
+      "same_inode": true,
+      "plan": "kill_queued",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": true,
+      "same_inode": true,
+      "plan": "kill_after_one",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "kill",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": true,
+      "same_inode": true,
+      "plan": "close_latest",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:1",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0",
+              "1"
+            ]
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "close:1",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    },
+    {
+      "messages": 2,
+      "keep_original": true,
+      "same_inode": true,
+      "plan": "close_all",
+      "checkpoints": [
+        {
+          "event": "locked",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "send:1",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "0",
+              "1"
+            ],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:0",
+          "retained": {
+            "sender": true,
+            "queued": [
+              "1"
+            ],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "receive:1",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0",
+              "1"
+            ]
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "close:1",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": [
+              "0"
+            ]
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "close:0",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "exit",
+          "retained": {
+            "sender": true,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "busy",
+            "last_receipt": "busy",
+            "all_received": "busy",
+            "including_queue": "busy"
+          },
+          "observed": "busy"
+        },
+        {
+          "event": "local_close",
+          "retained": {
+            "sender": false,
+            "queued": [],
+            "received": []
+          },
+          "predictions": {
+            "sender": "available",
+            "last_receipt": "available",
+            "all_received": "available",
+            "including_queue": "available"
+          },
+          "observed": "available"
+        }
+      ]
+    }
+  ]
+}
