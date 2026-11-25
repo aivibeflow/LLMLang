@@ -1094,7 +1094,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - Compare 9,216 Rust and C++ runs of staged record construction and transfer. Implicit teardown agrees on 1,008 early-exit pairs but differs on all 144 completed pairs. An explicit release sequence yields equal graphs for all 36 paired sources and equal behavior in every tested input. Destructors that fail, ABI, other profiles and independent review remain open. [Cross-profile record cleanup](research/semantic-representation/RT-05/RT-05-CROSS-PROFILE-RECORD-CLEANUP-2026-11-25.md)
 - [ ] Define effects, capabilities, and error types.
 - [ ] Define type inference and explicit annotations.
-  - [ ] [WIP] Compare later-use numeric inference, local annotations and fixed public signatures in native Rust and Go source on `research/all`.
+  - [x] Compile seven matched Rust and Go inference cases. A later argument changes one Rust local from i32 to u64 and is rejected against the default Go int. Explicit local types preserve both earlier types when the new use converts explicitly. Both signature controls require a concrete result declaration for the tested API. [RT-04 native inference boundaries](research/language-design/RT-04/RT-04-NATIVE-INFERENCE-BOUNDARIES-2026-11-25.md)
 - [ ] Define compatibility between types exposed by different implementations.
 - [ ] Determine which guarantees are enforced by types, contracts, or proofs.
 
