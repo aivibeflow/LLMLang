@@ -359,6 +359,8 @@ RT-22 introduces an external-orchestrator dependency without making LLMLang depe
 
 ## 10. Single-instance and incremental multi-worktree runtime (RT-23)
 
+[Cross-map ref revalidation](../toolchain-and-collaboration/RT-24/RT-24-CROSS-MAP-REFS-2026-11-25.md) compares retaining the initial two-ref observation with rechecking a fresh export composition and verifying that exact peer OID. A second export advance distinguishes fresh evaluation from enforcing freshness in the publication transaction.
+
 RT-23 separates immutable semantic development from regular-file Git isolation. A single Toolchain Server serves multiple worktree File Views; semantic Change Sets do not require worktrees; interface mappings are versioned separately. File tracking is incremental and scoped to the affected worktree, with bounded reconciliation when event continuity is lost.
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
