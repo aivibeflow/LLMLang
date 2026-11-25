@@ -1205,8 +1205,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Estimated research complexity:** **9/10** — requires at least two independently validated realizations of a shared semantic subset.
 
 - [ ] Define the minimal common semantic subset for backend experiments.
-- [ ] Evaluate Python as an experimental/reference target.
-  - [ ] [WIP] Generate Python for the shared checked-integer corpus and compare normal and optimized interpreter profiles on `research/all`.
+- [x] Evaluate Python as an experimental/reference target.
+  - Generated Python matches 197,440 shared scalar observations in each of two CPython profiles. Native floor division and remainder change signed results in controls; an assertion-based shift check fails under optimization. Python is viable for the checked hosted subset. Resource semantics and native target integration remain open. [Generated Python integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-PYTHON-INTEGER-LOWERING-2026-11-25.md)
 - [ ] Evaluate Go as the first serious compiled target.
   - [x] Generate Go for the same checked integer fixture and replay 197,440 observations in each of two hosted forms. The cgo library exposes all 64 C ABI entries and needs libc. The standalone executable has no ELF needed libraries. Broader hosted capabilities and target selection remain open. [Generated Go integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-GO-INTEGER-LOWERING-2026-11-24.md).
 - [ ] Evaluate Rust for ownership and systems-language coverage.
