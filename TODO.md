@@ -164,6 +164,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Recommendation:** Hash only properties that can affect the artifact's interpretation or behavior; keep deployment-selection constraints in the binding when they do not alter the artifact itself.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 3.5, 5, and 8.
 - **Evidence:** [RT-05 native implementation identity](research/semantic-representation/RT-05/RT-05-NATIVE-IMPLEMENTATION-IDENTITY-2026-11-25.md) separates exact build recipes, caller bytes and the resolved provider/ABI in one Linux fixture. Provider and ABI admission require an explicit binding. The experiment holds the runtime libraries fixed and leaves the production envelope open.
+- **Candidate:** [Implementation and execution boundaries](research/semantic-representation/RT-05/RT-05-IMPLEMENTATION-AND-EXECUTION-BOUNDARIES-2026-11-25.md) distinguishes exact dependency propagation from concrete target, runtime and build inputs.
 
 ### LL-008 — Define compatibility evidence and evidence reuse rules
 

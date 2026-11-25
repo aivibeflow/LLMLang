@@ -43,6 +43,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-05 implementation and execution boundaries](RT-05/RT-05-IMPLEMENTATION-AND-EXECUTION-BOUNDARIES-2026-11-25.md) checks native, typed, action and evidence identities and exact dependency propagation.
 - [RT-05 hash edges and cycles](RT-05/RT-05-HASH-EDGE-AND-CYCLE-BOUNDARIES-2026-11-25.md) checks which role-labelled cycles belong to exact semantic identity.
 - [RT-05 canonical typed wire and digest suites](RT-05/RT-05-CANONICAL-TYPED-WIRE-AND-SUITES-2026-11-25.md) combines strict typed canonical wire admission with a versionable digest-suite policy.
 - [RT-05 candidate identity envelopes](RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md) specifies separate operation, implementation, contract, class, discovery and evidence fields.

@@ -1,0 +1,63 @@
+{
+  "archive": {
+    "native_collision_counts": {
+      "caller_only_key": 8,
+      "fixture_evidence_key": 0,
+      "implementation_key": 0
+    },
+    "native_pairs": 28,
+    "native_recipe_changes_without_resolved_change": 4,
+    "source_sha256": [
+      "f7489653d27f1046a2b3ca8ef434b01c61cd071b82db229364da37e9ed391b26",
+      "0834cf43dfaec78076386a8f3f5fae73639b4f08bdda219d075e66b1f36f7ca7",
+      "42c384b6873a99df9289bd2b290c35aa1c02d89e2567e38c2ce161f375ddbdd8"
+    ],
+    "typed_dependency_key_counts": {
+      "exact_subject": {
+        "missed_reuse": 0,
+        "safe_reuse": 96,
+        "stale_reuse": 128
+      },
+      "local_body": {
+        "missed_reuse": 0,
+        "safe_reuse": 96,
+        "stale_reuse": 384
+      },
+      "resolved_execution": {
+        "missed_reuse": 0,
+        "safe_reuse": 96,
+        "stale_reuse": 0
+      },
+      "whole_state": {
+        "missed_reuse": 96,
+        "safe_reuse": 0,
+        "stale_reuse": 0
+      }
+    },
+    "typed_dependency_pairs": 2016
+  },
+  "field_matrix": {
+    "edit_checks": {
+      "abstract": 105,
+      "direct": 105
+    },
+    "fields": [
+      "abi",
+      "assumptions",
+      "build-configuration",
+      "callee-contract",
+      "checker",
+      "native-output",
+      "operation",
+      "provider",
+      "runtime",
+      "runtime-configuration",
+      "semantic-configuration",
+      "target",
+      "toolchain",
+      "typed-body"
+    ]
+  },
+  "revision": "5f01f24c9056dff64baa2de7ec26d4151c2f06fb",
+  "runner_sha256": "fc95b5dd5469e4a4baa78fada58b61bf4bf6c60e8c085e5f1e458164e0d436d5"
+}
