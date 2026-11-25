@@ -149,6 +149,8 @@ Scenario 131 composes call results, cleanup order, and a later foreign role chec
 
 Scenario 133 demonstrates that the Rust output candidate can carry both transfer policies through an explicit handle state and ordered close operations. The bounded compiled corpus preserves diagnostics, release authority, and aliased admission at two optimization levels. Full backend comparison still needs a general source profile and correspondence with actual foreign resource dispositions. [Generated Rust for owned results](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
 
+The [nested-loop cost pilot](../formal-verification/RT-34/RT-34-NESTED-LOOP-COST-2026-11-25.md) proves both coarse and dependent cost envelopes for abstract events. Exact guarded cost needs a joint iteration domain and branch predicate. Scalar result preservation alone leaves additional target work unaccounted for.
+
 ### 5.2 Comparisons supported by the November 24 reproductions
 
 The reproduced studies below constrain components of the existing vectors. Their common comparison unit is the exact claim, observation scope and dependency closure. The [dependency map](RESEARCH-DEPENDENCY-MAP.md) records the corresponding cross-area relationships. Use these observations to eliminate a failing shortcut within its tested profile and to state the conditions a surviving implementation must meet.
