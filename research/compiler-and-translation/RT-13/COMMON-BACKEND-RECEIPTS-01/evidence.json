@@ -1,0 +1,55 @@
+{
+  "common_source_pins": {
+    "integer_fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+    "llvm_integer_probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a"
+  },
+  "groups": {
+    "cpp": {
+      "emitter_sha256": "378ae7badddb5a79991abc3589cb4b6b67ec61bb46f09fba65a0d8be522534e2",
+      "profiles": [
+        "clangxx_O0",
+        "clangxx_O3",
+        "gxx_O0",
+        "gxx_O3"
+      ],
+      "receipt_sha256": "becf2cf82f9c01cce8c5c51dda82a1056f7586bfa94d20df708aa3649d380a6d"
+    },
+    "go": {
+      "emitter_sha256": "ce112e486fa9cfce940eaea2a3aff3826a8cdc55ece5acc3a6be71fd8654875b",
+      "profiles": [
+        "c_shared",
+        "standalone"
+      ],
+      "receipt_sha256": "4c5659e89456a9b8a29a8797c71735a501f7f8ec03365501f67accbe4045de21"
+    },
+    "java": {
+      "emitter_sha256": "9efa84baac24a496c33b9541ae01d67dd83eddade67aa236fefbb8e58005dc84",
+      "profiles": [
+        "compiled",
+        "interpreted"
+      ],
+      "receipt_sha256": "121614ca8e6477fb2a284511be6068aba331a53be823ade6631cac46922f23c8"
+    },
+    "rust-and-llvm": {
+      "emitter_sha256": "37bf696956ea2899bebf8cdd66ab488ac95d7bc16db4465d2e1766f3acdd2074",
+      "profiles": [
+        "llvm_O0",
+        "llvm_O3",
+        "rust_O0",
+        "rust_O3"
+      ],
+      "receipt_sha256": "5038bb7fe98238ec4f24c46c681f9083810faec524681baa7beec82c12ef08fb"
+    }
+  },
+  "observations_across_archived_profiles": 2369280,
+  "observations_per_profile": 197440,
+  "programs": 64,
+  "python": "3.12.14",
+  "statuses_per_profile": {
+    "ok": 146048,
+    "overflow": 25120,
+    "shift_count": 25056,
+    "zero_divisor": 1216
+  },
+  "vectors_per_program": 3085
+}
