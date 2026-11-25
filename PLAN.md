@@ -602,6 +602,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [x] Audit transitive assumptions and exact types across six Lean declarations. Identical closed statements distinguish kernel reduction, an imported premise and native evaluation. A conditional type with an empty axiom set fails the closed request, and all policies refuse the placeholder. [Per-claim Lean trust](research/formal-verification/RT-07/RT-07-PER-CLAIM-LEAN-TRUST-2026-11-25.md)
 - [ ] Define proof object formats, proof checking, provenance, and evidence reuse.
 - [ ] Separate solver answers from independently checked proofs.
+  - [ ] [WIP] Compare incremental solver answers with independently checked evidence bound to effective push/pop and assumption contexts on `research/all`.
 - [ ] Define exact binding between source-level assumptions, typed IR, serialized queries, and proof obligations.
 - [ ] Define fail-closed behavior for unsupported or ambiguous constructs.
 - [ ] Define how proof status is represented: candidate, unknown, checked, rejected, or proven.
