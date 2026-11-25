@@ -27,6 +27,8 @@ RT-00 reproduces eight RT-32 proof and lifetime ledgers and five named concrete 
 
 RT-07 compares complete four-participant native increment histories using both permutation and interval-based witness checks. [Four-participant histories](../formal-verification/RT-07/RT-07-FOUR-COUNTER-HISTORIES-2026-11-25.md)
 
+RT-00 independently replays the RT-07 Dafny concurrent-frame and complete native-history evidence from a tracked archive. [Dafny frame replay](RT-00/RT-00-DAFNY-FRAME-REPLAY-2026-11-25.md)
+
 Scenario 94 compares scheduler fairness and liveness: preemption, weak/strong/bounded runnable-task progress, priority starvation, resource fairness, and structured joining are distinct. The cited guarantees are runtime/profile-specific or conditional; no LLMLang policy is selected and no runtime experiment has been run.
 
 Scenario 95 compares compiler diagnostic models and repair channels for humans and agents. Structured records, text renderers, editor transport, suggested edits, and repair authority are separate; studies of novice humans and LLM-generated explanations do not establish autonomous agent repair quality. No LLMLang diagnostic policy is selected.
