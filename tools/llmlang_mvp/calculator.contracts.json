@@ -1,148 +1,1103 @@
 {
-  "add": {
-    "public": {
-      "parameters": {
-        "left": "I64",
-        "right": "I64"
-      },
-      "returns": "I64",
-      "requires": [],
-      "ensures": [
-        "result == left + right"
-      ],
-      "errors": {
-        "ArithmeticOverflow": [
-          "left + right < -9223372036854775808 or left + right > 9223372036854775807"
-        ]
-      }
-    },
-    "provided": {
-      "parameters": {
-        "left": "I64",
-        "right": "I64"
-      },
-      "returns": "I64",
-      "requires": [],
-      "ensures": [
-        "result == left + right",
-        "right < 0 or result >= left"
-      ],
-      "errors": {
-        "ArithmeticOverflow": [
-          "left + right < -9223372036854775808 or left + right > 9223372036854775807"
-        ]
-      }
-    }
-  },
-  "sub": {
-    "public": {
-      "parameters": {
-        "left": "I64",
-        "right": "I64"
-      },
-      "returns": "I64",
-      "requires": [],
-      "ensures": [
-        "result == left - right"
-      ],
-      "errors": {
-        "ArithmeticOverflow": [
-          "left - right < -9223372036854775808 or left - right > 9223372036854775807"
-        ]
-      }
-    },
-    "provided": {
-      "parameters": {
-        "left": "I64",
-        "right": "I64"
-      },
-      "returns": "I64",
-      "requires": [],
-      "ensures": [
-        "result == left - right"
-      ],
-      "errors": {
-        "ArithmeticOverflow": [
-          "left - right < -9223372036854775808 or left - right > 9223372036854775807"
-        ]
-      }
-    }
-  },
-  "mul": {
-    "public": {
-      "parameters": {
-        "left": "I64",
-        "right": "I64"
-      },
-      "returns": "I64",
-      "requires": [],
-      "ensures": [
-        "result == left * right"
-      ],
-      "errors": {
-        "ArithmeticOverflow": [
-          "left * right < -9223372036854775808 or left * right > 9223372036854775807"
-        ]
-      }
-    },
-    "provided": {
-      "parameters": {
-        "left": "I64",
-        "right": "I64"
-      },
-      "returns": "I64",
-      "requires": [],
-      "ensures": [
-        "result == left * right"
-      ],
-      "errors": {
-        "ArithmeticOverflow": [
-          "left * right < -9223372036854775808 or left * right > 9223372036854775807"
-        ]
-      }
-    }
-  },
-  "div": {
-    "public": {
-      "parameters": {
-        "left": "I64",
-        "right": "I64"
-      },
-      "returns": "I64",
-      "requires": [],
-      "ensures": [
-        "right != 0",
-        "not (left == -9223372036854775808 and right == -1)",
-        "result == quotient(left, right)"
-      ],
-      "errors": {
-        "ArithmeticOverflow": [
-          "left == -9223372036854775808 and right == -1"
+  "schema": "llmlang-contract-ir/v1",
+  "profile": "scalar-v1",
+  "contracts": {
+    "add": {
+      "public": {
+        "parameters": [
+          [
+            "left",
+            "I64"
+          ],
+          [
+            "right",
+            "I64"
+          ]
         ],
-        "DivisionByZero": [
-          "right == 0"
-        ]
+        "returns": "I64",
+        "requires": [],
+        "ensures": [
+          {
+            "op": "equal",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "ref",
+                "type": "Int",
+                "name": "result"
+              },
+              {
+                "op": "add",
+                "type": "Int",
+                "args": [
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "left"
+                  },
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "right"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "errors": {
+          "ArithmeticOverflow": [
+            {
+              "op": "or",
+              "type": "Bool",
+              "args": [
+                {
+                  "op": "less-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "add",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "negate",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "literal",
+                          "type": "Int",
+                          "value": "9223372036854775808"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "greater-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "add",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "literal",
+                      "type": "Int",
+                      "value": "9223372036854775807"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "provided": {
+        "parameters": [
+          [
+            "left",
+            "I64"
+          ],
+          [
+            "right",
+            "I64"
+          ]
+        ],
+        "returns": "I64",
+        "requires": [],
+        "ensures": [
+          {
+            "op": "equal",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "ref",
+                "type": "Int",
+                "name": "result"
+              },
+              {
+                "op": "add",
+                "type": "Int",
+                "args": [
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "left"
+                  },
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "right"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "or",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "less-than",
+                "type": "Bool",
+                "args": [
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "right"
+                  },
+                  {
+                    "op": "literal",
+                    "type": "Int",
+                    "value": "0"
+                  }
+                ]
+              },
+              {
+                "op": "greater-or-equal",
+                "type": "Bool",
+                "args": [
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "result"
+                  },
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "left"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "errors": {
+          "ArithmeticOverflow": [
+            {
+              "op": "or",
+              "type": "Bool",
+              "args": [
+                {
+                  "op": "less-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "add",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "negate",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "literal",
+                          "type": "Int",
+                          "value": "9223372036854775808"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "greater-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "add",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "literal",
+                      "type": "Int",
+                      "value": "9223372036854775807"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
       }
     },
-    "provided": {
-      "parameters": {
-        "left": "I64",
-        "right": "I64"
-      },
-      "returns": "I64",
-      "requires": [],
-      "ensures": [
-        "right != 0",
-        "not (left == -9223372036854775808 and right == -1)",
-        "result == quotient(left, right)"
-      ],
-      "errors": {
-        "ArithmeticOverflow": [
-          "left == -9223372036854775808 and right == -1"
+    "sub": {
+      "public": {
+        "parameters": [
+          [
+            "left",
+            "I64"
+          ],
+          [
+            "right",
+            "I64"
+          ]
         ],
-        "DivisionByZero": [
-          "right == 0"
-        ]
+        "returns": "I64",
+        "requires": [],
+        "ensures": [
+          {
+            "op": "equal",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "ref",
+                "type": "Int",
+                "name": "result"
+              },
+              {
+                "op": "subtract",
+                "type": "Int",
+                "args": [
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "left"
+                  },
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "right"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "errors": {
+          "ArithmeticOverflow": [
+            {
+              "op": "or",
+              "type": "Bool",
+              "args": [
+                {
+                  "op": "less-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "subtract",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "negate",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "literal",
+                          "type": "Int",
+                          "value": "9223372036854775808"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "greater-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "subtract",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "literal",
+                      "type": "Int",
+                      "value": "9223372036854775807"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "provided": {
+        "parameters": [
+          [
+            "left",
+            "I64"
+          ],
+          [
+            "right",
+            "I64"
+          ]
+        ],
+        "returns": "I64",
+        "requires": [],
+        "ensures": [
+          {
+            "op": "equal",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "ref",
+                "type": "Int",
+                "name": "result"
+              },
+              {
+                "op": "subtract",
+                "type": "Int",
+                "args": [
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "left"
+                  },
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "right"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "errors": {
+          "ArithmeticOverflow": [
+            {
+              "op": "or",
+              "type": "Bool",
+              "args": [
+                {
+                  "op": "less-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "subtract",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "negate",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "literal",
+                          "type": "Int",
+                          "value": "9223372036854775808"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "greater-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "subtract",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "literal",
+                      "type": "Int",
+                      "value": "9223372036854775807"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "mul": {
+      "public": {
+        "parameters": [
+          [
+            "left",
+            "I64"
+          ],
+          [
+            "right",
+            "I64"
+          ]
+        ],
+        "returns": "I64",
+        "requires": [],
+        "ensures": [
+          {
+            "op": "equal",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "ref",
+                "type": "Int",
+                "name": "result"
+              },
+              {
+                "op": "multiply",
+                "type": "Int",
+                "args": [
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "left"
+                  },
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "right"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "errors": {
+          "ArithmeticOverflow": [
+            {
+              "op": "or",
+              "type": "Bool",
+              "args": [
+                {
+                  "op": "less-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "multiply",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "negate",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "literal",
+                          "type": "Int",
+                          "value": "9223372036854775808"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "greater-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "multiply",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "literal",
+                      "type": "Int",
+                      "value": "9223372036854775807"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "provided": {
+        "parameters": [
+          [
+            "left",
+            "I64"
+          ],
+          [
+            "right",
+            "I64"
+          ]
+        ],
+        "returns": "I64",
+        "requires": [],
+        "ensures": [
+          {
+            "op": "equal",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "ref",
+                "type": "Int",
+                "name": "result"
+              },
+              {
+                "op": "multiply",
+                "type": "Int",
+                "args": [
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "left"
+                  },
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "right"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "errors": {
+          "ArithmeticOverflow": [
+            {
+              "op": "or",
+              "type": "Bool",
+              "args": [
+                {
+                  "op": "less-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "multiply",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "negate",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "literal",
+                          "type": "Int",
+                          "value": "9223372036854775808"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "greater-than",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "multiply",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "left"
+                        },
+                        {
+                          "op": "ref",
+                          "type": "Int",
+                          "name": "right"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "literal",
+                      "type": "Int",
+                      "value": "9223372036854775807"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "div": {
+      "public": {
+        "parameters": [
+          [
+            "left",
+            "I64"
+          ],
+          [
+            "right",
+            "I64"
+          ]
+        ],
+        "returns": "I64",
+        "requires": [],
+        "ensures": [
+          {
+            "op": "not-equal",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "ref",
+                "type": "Int",
+                "name": "right"
+              },
+              {
+                "op": "literal",
+                "type": "Int",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "op": "not",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "and",
+                "type": "Bool",
+                "args": [
+                  {
+                    "op": "equal",
+                    "type": "Bool",
+                    "args": [
+                      {
+                        "op": "ref",
+                        "type": "Int",
+                        "name": "left"
+                      },
+                      {
+                        "op": "negate",
+                        "type": "Int",
+                        "args": [
+                          {
+                            "op": "literal",
+                            "type": "Int",
+                            "value": "9223372036854775808"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "op": "equal",
+                    "type": "Bool",
+                    "args": [
+                      {
+                        "op": "ref",
+                        "type": "Int",
+                        "name": "right"
+                      },
+                      {
+                        "op": "negate",
+                        "type": "Int",
+                        "args": [
+                          {
+                            "op": "literal",
+                            "type": "Int",
+                            "value": "1"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "equal",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "ref",
+                "type": "Int",
+                "name": "result"
+              },
+              {
+                "op": "quotient",
+                "type": "Int",
+                "args": [
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "left"
+                  },
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "right"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "errors": {
+          "ArithmeticOverflow": [
+            {
+              "op": "and",
+              "type": "Bool",
+              "args": [
+                {
+                  "op": "equal",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "ref",
+                      "type": "Int",
+                      "name": "left"
+                    },
+                    {
+                      "op": "negate",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "literal",
+                          "type": "Int",
+                          "value": "9223372036854775808"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "equal",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "ref",
+                      "type": "Int",
+                      "name": "right"
+                    },
+                    {
+                      "op": "negate",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "literal",
+                          "type": "Int",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "DivisionByZero": [
+            {
+              "op": "equal",
+              "type": "Bool",
+              "args": [
+                {
+                  "op": "ref",
+                  "type": "Int",
+                  "name": "right"
+                },
+                {
+                  "op": "literal",
+                  "type": "Int",
+                  "value": "0"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "provided": {
+        "parameters": [
+          [
+            "left",
+            "I64"
+          ],
+          [
+            "right",
+            "I64"
+          ]
+        ],
+        "returns": "I64",
+        "requires": [],
+        "ensures": [
+          {
+            "op": "not-equal",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "ref",
+                "type": "Int",
+                "name": "right"
+              },
+              {
+                "op": "literal",
+                "type": "Int",
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "op": "not",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "and",
+                "type": "Bool",
+                "args": [
+                  {
+                    "op": "equal",
+                    "type": "Bool",
+                    "args": [
+                      {
+                        "op": "ref",
+                        "type": "Int",
+                        "name": "left"
+                      },
+                      {
+                        "op": "negate",
+                        "type": "Int",
+                        "args": [
+                          {
+                            "op": "literal",
+                            "type": "Int",
+                            "value": "9223372036854775808"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "op": "equal",
+                    "type": "Bool",
+                    "args": [
+                      {
+                        "op": "ref",
+                        "type": "Int",
+                        "name": "right"
+                      },
+                      {
+                        "op": "negate",
+                        "type": "Int",
+                        "args": [
+                          {
+                            "op": "literal",
+                            "type": "Int",
+                            "value": "1"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "equal",
+            "type": "Bool",
+            "args": [
+              {
+                "op": "ref",
+                "type": "Int",
+                "name": "result"
+              },
+              {
+                "op": "quotient",
+                "type": "Int",
+                "args": [
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "left"
+                  },
+                  {
+                    "op": "ref",
+                    "type": "Int",
+                    "name": "right"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "errors": {
+          "ArithmeticOverflow": [
+            {
+              "op": "and",
+              "type": "Bool",
+              "args": [
+                {
+                  "op": "equal",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "ref",
+                      "type": "Int",
+                      "name": "left"
+                    },
+                    {
+                      "op": "negate",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "literal",
+                          "type": "Int",
+                          "value": "9223372036854775808"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "equal",
+                  "type": "Bool",
+                  "args": [
+                    {
+                      "op": "ref",
+                      "type": "Int",
+                      "name": "right"
+                    },
+                    {
+                      "op": "negate",
+                      "type": "Int",
+                      "args": [
+                        {
+                          "op": "literal",
+                          "type": "Int",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "DivisionByZero": [
+            {
+              "op": "equal",
+              "type": "Bool",
+              "args": [
+                {
+                  "op": "ref",
+                  "type": "Int",
+                  "name": "right"
+                },
+                {
+                  "op": "literal",
+                  "type": "Int",
+                  "value": "0"
+                }
+              ]
+            }
+          ]
+        }
       }
     }
   }

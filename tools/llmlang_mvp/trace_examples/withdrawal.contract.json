@@ -1,0 +1,8 @@
+{
+  "schema": "llmlang-trace-contract/v1",
+  "state": {"amount": "I64", "balance": "I64"},
+  "events": {},
+  "clauses": [
+    {"id": "failure_preserves_balance", "kind": "atomicity", "outcomes": ["error"], "fields": ["balance"], "events": []}
+  ]
+}
