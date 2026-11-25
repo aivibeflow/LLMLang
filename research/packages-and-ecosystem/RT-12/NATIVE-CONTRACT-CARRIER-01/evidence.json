@@ -1,0 +1,205 @@
+{
+  "elf": {
+    "missing": {
+      "artifact_sha256": "316c0afe7109a45ae0fb080694b7a8f6040d1343b7cdccec39380872b699ed74",
+      "contract_sha256": null,
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "provider": {
+      "artifact_sha256": "c6fad5cf96422edd40c4946f2155eae53f4872adcbb5fdc7d56556e8b6e34776",
+      "contract_sha256": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "sectionless": {
+      "artifact_sha256": "e00cdf987ee86792ab7bab27e3e292154d054bb4eb83fc92fe14f32ef040dc07",
+      "behavior": {
+        "calls": 16,
+        "mismatches": []
+      },
+      "contract_sha256": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "stripped": {
+      "artifact_sha256": "62c57ac963e9accf3d19a0424965e0b01bd0c6db8712c4086697e1482a6949db",
+      "contract_sha256": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "wrong": {
+      "artifact_sha256": "a1b6d6a44c895d3b92d110c8f9415dec3ce4ee2a1f9ef22b8dfc7ecf041d2a8b",
+      "behavior": {
+        "calls": 16,
+        "mismatches": [
+          {
+            "actual": 3,
+            "binding": "fixture_reserve",
+            "expected": 2,
+            "input": 1
+          },
+          {
+            "actual": 4,
+            "binding": "fixture_reserve",
+            "expected": 3,
+            "input": 2
+          },
+          {
+            "actual": 5,
+            "binding": "fixture_reserve",
+            "expected": 4,
+            "input": 3
+          },
+          {
+            "actual": 6,
+            "binding": "fixture_reserve",
+            "expected": 5,
+            "input": 4
+          },
+          {
+            "actual": 7,
+            "binding": "fixture_reserve",
+            "expected": 6,
+            "input": 5
+          },
+          {
+            "actual": 8,
+            "binding": "fixture_reserve",
+            "expected": 7,
+            "input": 6
+          },
+          {
+            "actual": 9,
+            "binding": "fixture_reserve",
+            "expected": 8,
+            "input": 7
+          },
+          {
+            "actual": 10,
+            "binding": "fixture_reserve",
+            "expected": 9,
+            "input": 8
+          }
+        ]
+      },
+      "contract_sha256": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    }
+  },
+  "fixture_sha256": {
+    "contracts.S": "6f287f2416a6437b6b82b32b6eb853a38634022fe1d8281c58c0064e939fe8da",
+    "contracts.json": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+    "contracts.rc": "1561e32156aa79a1efc753946c88328eb882ac7a46f64e775321628c9bcd02cf",
+    "provider.c": "14512405e31bf55842ecf783cb1c12dace964ced1648b27f47f3f3e93dd8fad6"
+  },
+  "host": "Linux x86_64",
+  "macho": {
+    "arm64-embedded": {
+      "artifact_sha256": "701b59b822882a2d81eeb432cf1517c77a9b9d4c1e40ddb65809607a1f12e0de",
+      "contract_sha256": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "arm64-missing": {
+      "artifact_sha256": "eafa8558b47fc990b0991a7a23d9326f62cfb52634096169fc8a43580b5f2869",
+      "contract_sha256": null,
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "universal-arm64": {
+      "artifact_sha256": "701b59b822882a2d81eeb432cf1517c77a9b9d4c1e40ddb65809607a1f12e0de",
+      "contract_sha256": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "universal-x86_64": {
+      "artifact_sha256": "2b26a5dc704d5d09d473ad1dcb2920a3b67df3c02d9a5d56766b8224be68db32",
+      "contract_sha256": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "universal_sha256": "27613a0d73f9503a380b1af4d2d46e483eca3c5c94ed247eb57e22c6e71b7579",
+    "x86_64-embedded": {
+      "artifact_sha256": "2b26a5dc704d5d09d473ad1dcb2920a3b67df3c02d9a5d56766b8224be68db32",
+      "contract_sha256": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "x86_64-missing": {
+      "artifact_sha256": "b2dc28a2e40a79f6d1f394adc4fb8da55a19f319420c5fb5585135576c3d511d",
+      "contract_sha256": null,
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    }
+  },
+  "pe": {
+    "aarch64-embedded": {
+      "artifact_sha256": "84fdcc7a714f766ecb047e83d04bff7e69184711d821625597f6e0193850534c",
+      "contract_sha256": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "aarch64-missing": {
+      "artifact_sha256": "1c523f4a217f64d3059dd93db614dbbd669d09ec60b204167c7b4a03a4c95af0",
+      "contract_sha256": null,
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "x86_64-embedded": {
+      "artifact_sha256": "b2e15fb51f4fdf5903cc38f899ada9f3fda9ab7e2c953e23db0e37d30f0d9c78",
+      "contract_sha256": "abc38f3bb7f3b741d120dca73697f8751038047b125b47f8465aeefa07a01744",
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    },
+    "x86_64-missing": {
+      "artifact_sha256": "e70e20648555c583bce52dc4fce19f7e031895d5aa1fb52584e4073b37ee2e4d",
+      "contract_sha256": null,
+      "exports": [
+        "fixture_quote",
+        "fixture_reserve"
+      ]
+    }
+  },
+  "python": "3.12.14",
+  "tools": {
+    "clang": "clang version 22.1.4 (https://github.com/llvm/llvm-project 35990504507d79e0b9deb809c8ee5e1b34ceef20)",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "ld.bfd": "GNU ld (GNU Binutils for Debian) 2.44",
+    "ld64.lld": "LLD 19.1.7 (/checkout/src/llvm-project/llvm 7e8c93c87c611f21d9bd95100563392f4c18bfe7)",
+    "lld-link": "LLD 19.1.7 (/checkout/src/llvm-project/llvm 7e8c93c87c611f21d9bd95100563392f4c18bfe7)",
+    "llvm-readobj": "Debian LLVM version 19.1.7",
+    "objdump": "GNU objdump (GNU Binutils for Debian) 2.44",
+    "readelf": "GNU readelf (GNU Binutils for Debian) 2.44",
+    "strip": "GNU strip (GNU Binutils for Debian) 2.44"
+  }
+}

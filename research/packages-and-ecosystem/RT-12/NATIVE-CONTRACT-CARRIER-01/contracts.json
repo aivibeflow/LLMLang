@@ -1,0 +1,26 @@
+{
+  "format": "llmlang-native-contract-fixture/1",
+  "library": "example.Inventory",
+  "interfaces": [
+    {
+      "id": "example.Reservation",
+      "revision": 1,
+      "operation": "reserve",
+      "binding": "fixture_reserve",
+      "type": "u32 -> u32",
+      "requires": [1, 8],
+      "ensures": {"add": 1},
+      "effects": []
+    },
+    {
+      "id": "example.Price",
+      "revision": 1,
+      "operation": "quote",
+      "binding": "fixture_quote",
+      "type": "u32 -> u32",
+      "requires": [1, 8],
+      "ensures": {"multiply": 3},
+      "effects": []
+    }
+  ]
+}
