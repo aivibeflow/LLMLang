@@ -254,6 +254,8 @@ For every experiment, record source commit, tool versions, fixtures, command, ra
 
 The [checked-add Lean bit-vector route](../compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-LEAN-2026-11-25.md) compares solver agreement and exact LRAT proof replay on the fixed-width LLVM observation predicates. Certificate replay can omit a SAT solver and retains a compiled reflection assumption. The [symbolic alternative](../compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-SYMBOLIC-2026-11-25.md) uses standard Lean axioms for these exact predicates and depends on operation-specific arithmetic correspondence lemmas.
 
+The [external receipt recovery fixture](../toolchain-and-collaboration/RT-19/RT-19-EXTERNAL-RECEIPT-RECOVERY-2026-11-25.md) compares receipt-only, filename-only and exact operation binding after a process crash. The exact recovery route relies on a stable immutable namespace and records observed effects separately.
+
 ## 8. Readiness assessment for comparative selection
 
 The [shared semantics corpus](../language-design/RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md) contains bounded evidence for A/B/D typed calls and private scalar state, A/D resource outcomes, and C actor scripts. The RT-04 call projection covers the typed trees. Source correspondence, cross-profile type and resource validation, the identity envelope, program proofs, the two-backend slice, the threat model, and workload weights remain open.

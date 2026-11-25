@@ -1,0 +1,496 @@
+{
+  "schema": "llmlang-external-receipt-recovery/1",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "kernel": "6.18.57",
+  "filesystem": "overlayfs",
+  "runner_sha256": "7ad5091f18ed6df755c9002687d70e6be9c78c0bce9a65e914be78d7a33e0fdc",
+  "exact_object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+  "completed_schedules": 24,
+  "counts": {
+    "receipt_only": {
+      "receipts": 1,
+      "false_receipts": 0,
+      "eligible_unresolved": 2
+    },
+    "name_only": {
+      "receipts": 6,
+      "false_receipts": 3,
+      "eligible_unresolved": 0
+    },
+    "exact": {
+      "receipts": 3,
+      "false_receipts": 0,
+      "eligible_unresolved": 0
+    }
+  },
+  "runs": [
+    {
+      "scenario": "clean",
+      "policy": "receipt_only",
+      "publisher": "published",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+      "recovery": [
+        "existing"
+      ],
+      "receipts": [
+        [
+          "op-1",
+          "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+          "published"
+        ]
+      ],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "clean",
+      "policy": "name_only",
+      "publisher": "published",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+      "recovery": [
+        "existing"
+      ],
+      "receipts": [
+        [
+          "op-1",
+          "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+          "published"
+        ]
+      ],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "clean",
+      "policy": "exact",
+      "publisher": "published",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+      "recovery": [
+        "existing"
+      ],
+      "receipts": [
+        [
+          "op-1",
+          "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+          "published"
+        ]
+      ],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "exit_before_link",
+      "policy": "receipt_only",
+      "publisher": "killed_before_link",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": null,
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "exit_before_link",
+      "policy": "name_only",
+      "publisher": "killed_before_link",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": null,
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "exit_before_link",
+      "policy": "exact",
+      "publisher": "killed_before_link",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": null,
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "exit_after_link",
+      "policy": "receipt_only",
+      "publisher": "killed_after_link",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": true
+    },
+    {
+      "scenario": "exit_after_link",
+      "policy": "name_only",
+      "publisher": "killed_after_link",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+      "recovery": [
+        "observed"
+      ],
+      "receipts": [
+        [
+          "op-1",
+          "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+          "observed"
+        ]
+      ],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "exit_after_link",
+      "policy": "exact",
+      "publisher": "killed_after_link",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+      "recovery": [
+        "observed"
+      ],
+      "receipts": [
+        [
+          "op-1",
+          "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+          "observed"
+        ]
+      ],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "revoked_after_link",
+      "policy": "receipt_only",
+      "publisher": "killed_after_link",
+      "authority": [
+        2,
+        0
+      ],
+      "object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": true
+    },
+    {
+      "scenario": "revoked_after_link",
+      "policy": "name_only",
+      "publisher": "killed_after_link",
+      "authority": [
+        2,
+        0
+      ],
+      "object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+      "recovery": [
+        "observed"
+      ],
+      "receipts": [
+        [
+          "op-1",
+          "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+          "observed"
+        ]
+      ],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "revoked_after_link",
+      "policy": "exact",
+      "publisher": "killed_after_link",
+      "authority": [
+        2,
+        0
+      ],
+      "object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+      "recovery": [
+        "observed"
+      ],
+      "receipts": [
+        [
+          "op-1",
+          "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+          "observed"
+        ]
+      ],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "collision_payload",
+      "policy": "receipt_only",
+      "publisher": "name_conflict",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "2747f5940d4b598ac868822fe30521da77277fc5a86a5ac25ff8f73c721a5fa0",
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "collision_payload",
+      "policy": "name_only",
+      "publisher": "name_conflict",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "2747f5940d4b598ac868822fe30521da77277fc5a86a5ac25ff8f73c721a5fa0",
+      "recovery": [
+        "observed"
+      ],
+      "receipts": [
+        [
+          "op-1",
+          "2747f5940d4b598ac868822fe30521da77277fc5a86a5ac25ff8f73c721a5fa0",
+          "observed"
+        ]
+      ],
+      "false_receipt": true,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "collision_payload",
+      "policy": "exact",
+      "publisher": "name_conflict",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "2747f5940d4b598ac868822fe30521da77277fc5a86a5ac25ff8f73c721a5fa0",
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "collision_operation",
+      "policy": "receipt_only",
+      "publisher": "name_conflict",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "4d63d0b9952342fddc523061095b0a1a8dbbbc02f4af3a0e02de1caddce138ca",
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "collision_operation",
+      "policy": "name_only",
+      "publisher": "name_conflict",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "4d63d0b9952342fddc523061095b0a1a8dbbbc02f4af3a0e02de1caddce138ca",
+      "recovery": [
+        "observed"
+      ],
+      "receipts": [
+        [
+          "op-1",
+          "4d63d0b9952342fddc523061095b0a1a8dbbbc02f4af3a0e02de1caddce138ca",
+          "observed"
+        ]
+      ],
+      "false_receipt": true,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "collision_operation",
+      "policy": "exact",
+      "publisher": "name_conflict",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "4d63d0b9952342fddc523061095b0a1a8dbbbc02f4af3a0e02de1caddce138ca",
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "collision_revision",
+      "policy": "receipt_only",
+      "publisher": "name_conflict",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "f0fe93aa7f05a66742cd5126813231e090e8a2e5f0e6e942b291f2b8d4d326b4",
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "collision_revision",
+      "policy": "name_only",
+      "publisher": "name_conflict",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "f0fe93aa7f05a66742cd5126813231e090e8a2e5f0e6e942b291f2b8d4d326b4",
+      "recovery": [
+        "observed"
+      ],
+      "receipts": [
+        [
+          "op-1",
+          "f0fe93aa7f05a66742cd5126813231e090e8a2e5f0e6e942b291f2b8d4d326b4",
+          "observed"
+        ]
+      ],
+      "false_receipt": true,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "collision_revision",
+      "policy": "exact",
+      "publisher": "name_conflict",
+      "authority": [
+        1,
+        1
+      ],
+      "object_sha256": "f0fe93aa7f05a66742cd5126813231e090e8a2e5f0e6e942b291f2b8d4d326b4",
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "revoked_before_link",
+      "policy": "receipt_only",
+      "publisher": "authority_refused",
+      "authority": [
+        2,
+        0
+      ],
+      "object_sha256": null,
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "revoked_before_link",
+      "policy": "name_only",
+      "publisher": "authority_refused",
+      "authority": [
+        2,
+        0
+      ],
+      "object_sha256": null,
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    },
+    {
+      "scenario": "revoked_before_link",
+      "policy": "exact",
+      "publisher": "authority_refused",
+      "authority": [
+        2,
+        0
+      ],
+      "object_sha256": null,
+      "recovery": [
+        "unresolved"
+      ],
+      "receipts": [],
+      "false_receipt": false,
+      "eligible_unresolved": false
+    }
+  ],
+  "concurrent": {
+    "scenario": "concurrent_recovery",
+    "policy": "exact",
+    "publisher": "killed_after_link",
+    "authority": [
+      2,
+      0
+    ],
+    "object_sha256": "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+    "recovery": [
+      "existing",
+      "observed"
+    ],
+    "receipts": [
+      [
+        "op-1",
+        "ac8b56182cc641113c474d3371c1233ec4ffd648f3c8415736a68c7107c0973c",
+        "observed"
+      ]
+    ],
+    "false_receipt": false,
+    "eligible_unresolved": false
+  }
+}
