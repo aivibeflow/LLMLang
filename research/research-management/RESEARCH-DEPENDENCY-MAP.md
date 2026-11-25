@@ -103,6 +103,8 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 
 ## 3. Directed dependency register
 
+A [pinned RT-03 crosswalk](../language-design/RT-03/RT-03-DOWNSTREAM-EDGE-EVIDENCE-2026-11-25.md) binds all 24 outgoing edges to scope-specific evidence or an explicit proxy. DEP-094 still lacks a selected LLMLang-authored bootstrap tool.
+
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
 |---|---|---|---|---|
 | DEP-001 | RT-01 → RT-02 | Constrains | Product goals, intended users, and acceptable human review determine what intent and requirement capture must express. | Strong hypothesis |

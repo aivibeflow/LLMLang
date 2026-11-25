@@ -40,6 +40,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-03 downstream edge evidence](RT-03/RT-03-DOWNSTREAM-EDGE-EVIDENCE-2026-11-25.md) cross-checks all direct RT-03 dependency edges against pinned findings.
 - [RT-31 attempt measures and attribution](RT-31/RT-31-ATTEMPT-MEASURES-AND-ATTRIBUTION-2026-11-25.md) checks separate semantic categories, attempt denominators and missing observations.
 - [RT-31 authoring corpus and comparison protocol](RT-31/RT-31-AUTHORING-CORPUS-AND-PROTOCOL-2026-11-25.md) pins staged acceptance and counterbalanced assignments.
 - [RT-31 syntax and semantic layers](RT-31/RT-31-SYNTAX-AND-SEMANTIC-LAYER-BOUNDARIES-2026-11-25.md) checks source provenance, contextual elaboration and frontend profile contracts.
