@@ -1,0 +1,197 @@
+{
+  "archive_tool": "GNU ar (GNU Binutils for Debian) 2.44",
+  "cases": {
+    "alpha_first": {
+      "archive_sha256": "9e1e093a0eff8db8a646826b3cedef1107707f8c529434299ea54b4bf1787286",
+      "linked_elf_sha256": "48e3f465275e236ec2990c5720af146fcb5cb0e15af3b5ea46b912d92b17ebc9",
+      "materialized_members": [
+        "alpha.o"
+      ],
+      "ordered_members": [
+        {
+          "name": "alpha.o",
+          "sha256": "d572f4ea694049b15e2104b25ad0c2b36bf2fbefc1547e0a9f1f9c9434e4f294"
+        },
+        {
+          "name": "beta.o",
+          "sha256": "2a309c2d10a022ed45e3be19518557818695eaa65987cd6dd151e61c66bbd5c6"
+        },
+        {
+          "name": "extra.o",
+          "sha256": "b4dd8a3d4f15b25f9256bbd4cc55fa804e49ae03047c8010d9a96540b73c71e5"
+        }
+      ],
+      "output": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "beta_first": {
+      "archive_sha256": "5140238f836a65f84d58865616750a63b4be03c379fb41930ea6684e2358b2f1",
+      "linked_elf_sha256": "42924342f3be88fbff070fa9a036c918f06c43bdddfa7bdd46665e6d8d210184",
+      "materialized_members": [
+        "beta.o"
+      ],
+      "ordered_members": [
+        {
+          "name": "beta.o",
+          "sha256": "2a309c2d10a022ed45e3be19518557818695eaa65987cd6dd151e61c66bbd5c6"
+        },
+        {
+          "name": "alpha.o",
+          "sha256": "d572f4ea694049b15e2104b25ad0c2b36bf2fbefc1547e0a9f1f9c9434e4f294"
+        },
+        {
+          "name": "extra.o",
+          "sha256": "b4dd8a3d4f15b25f9256bbd4cc55fa804e49ae03047c8010d9a96540b73c71e5"
+        }
+      ],
+      "output": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "force_extra_member": {
+      "archive_sha256": "9e1e093a0eff8db8a646826b3cedef1107707f8c529434299ea54b4bf1787286",
+      "linked_elf_sha256": "93978795cb3cec3200e1dc9dd292dac72ec27dacf9205e1dc22d90a328fa70ff",
+      "materialized_members": [
+        "alpha.o",
+        "extra.o"
+      ],
+      "ordered_members": [
+        {
+          "name": "alpha.o",
+          "sha256": "d572f4ea694049b15e2104b25ad0c2b36bf2fbefc1547e0a9f1f9c9434e4f294"
+        },
+        {
+          "name": "beta.o",
+          "sha256": "2a309c2d10a022ed45e3be19518557818695eaa65987cd6dd151e61c66bbd5c6"
+        },
+        {
+          "name": "extra.o",
+          "sha256": "b4dd8a3d4f15b25f9256bbd4cc55fa804e49ae03047c8010d9a96540b73c71e5"
+        }
+      ],
+      "output": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "unselected_member_changed": {
+      "archive_sha256": "4df3d8f0ce934fe0812391ccfa7c24d367f4d32fd7d86d409234361e74fa3f3f",
+      "linked_elf_sha256": "48e3f465275e236ec2990c5720af146fcb5cb0e15af3b5ea46b912d92b17ebc9",
+      "materialized_members": [
+        "alpha.o"
+      ],
+      "ordered_members": [
+        {
+          "name": "alpha.o",
+          "sha256": "d572f4ea694049b15e2104b25ad0c2b36bf2fbefc1547e0a9f1f9c9434e4f294"
+        },
+        {
+          "name": "beta.o",
+          "sha256": "2a309c2d10a022ed45e3be19518557818695eaa65987cd6dd151e61c66bbd5c6"
+        },
+        {
+          "name": "extra.o",
+          "sha256": "a97b4bb095e53efa5dc4f0007158b2a31941d9f64e9b8003bbdc3d4270782147"
+        }
+      ],
+      "output": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "unselected_members_omitted": {
+      "archive_sha256": "606aa2914eeb9293a105967c6fb4eb37e5394d9c9edddd37fa8fa20109429a27",
+      "linked_elf_sha256": "48e3f465275e236ec2990c5720af146fcb5cb0e15af3b5ea46b912d92b17ebc9",
+      "materialized_members": [
+        "alpha.o"
+      ],
+      "ordered_members": [
+        {
+          "name": "alpha.o",
+          "sha256": "d572f4ea694049b15e2104b25ad0c2b36bf2fbefc1547e0a9f1f9c9434e4f294"
+        }
+      ],
+      "output": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    }
+  },
+  "fresh_build_roots": 2,
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "linker": "GNU ld (GNU Binutils for Debian) 2.44",
+  "python": "3.12.14"
+}

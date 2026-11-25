@@ -1245,7 +1245,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Compare 18 translation closure controls. Four cover both requested roots, thirteen retain only the independent root, and one admits neither. An emission-only gate overstates complete coverage ten times. Local status, edge evidence, runtime binding and approved restrictions remain exact inputs. [RT-09 translation outcome closure](research/compiler-and-translation/RT-09/RT-09-TRANSLATION-OUTCOME-CLOSURE-2026-11-25.md)
 - [ ] Define runtime support as part of a target realization.
 - [ ] Define generated artifact identity and reproducibility.
-  - [ ] [WIP] Compare archive order, actual member selection and reproducible linked artifact identity on `research/all`.
+  - [x] Compare five static archive links in two fresh roots. Reordering equal member bytes selects another provider and changes all 16 results. Changing unused members preserves the exact ELF. Forcing one unused symbol changes ELF bytes while preserving results. [RT-09 static link artifact identity](research/compiler-and-translation/RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md)
 - [ ] Define verification independent of the code generator wherever practical.
 - [ ] Define incremental translation and selective verification invalidation.
 
