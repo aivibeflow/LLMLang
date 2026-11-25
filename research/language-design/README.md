@@ -40,6 +40,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-04 source ownership and grant boundaries](RT-04/RT-04-SOURCE-OWNERSHIP-AND-GRANT-BOUNDARIES-2026-11-25.md) checks exact call coverage, ownership paths and current capability ancestry.
 - [RT-03 semantic profiles for synthesis](RT-03/RT-03-SEMANTIC-PROFILES-FOR-SYNTHESIS-2026-11-25.md) aligns four candidates and their evidence across nine dimensions.
 - [RT-03 source route resource gate](RT-03/RT-03-SOURCE-ROUTE-RESOURCE-GATE-2026-11-25.md) checks exact source binding and proof-gated pruning under work limits in two solvers.
 - [RT-03 downstream edge evidence](RT-03/RT-03-DOWNSTREAM-EDGE-EVIDENCE-2026-11-25.md) cross-checks all direct RT-03 dependency edges against pinned findings.
