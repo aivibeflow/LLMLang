@@ -59,6 +59,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-20 call identity reconciliation](RT-20/RT-20-CALL-IDENTITY-RECONCILIATION-2026-11-25.md) checks immutable callable versions, source continuity and path-specific rebinds.
 - [RT-19 boundary tests](RT-19/RT-19-BOUNDARY-TESTS-2026-11-25.md) checks independent edits, scoped approval, stale validation and export fault recovery.
 - [RT-19 workspace arbitration](RT-19/RT-19-WORKSPACE-ARBITRATION-2026-11-25.md) checks local workspaces, shared-branch CAS and scoped durable retries.
 - [RT-19 interchange and publication contract](RT-19/RT-19-INTERCHANGE-AND-PUBLICATION-BOUNDARY-2026-11-25.md) checks import, checkout observations and leased export generations.
