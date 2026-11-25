@@ -1,0 +1,25 @@
+{
+  "archive": {
+    "core_cases": {
+      "conflicted": 2727,
+      "resolved": 1369
+    },
+    "diff_cases": 8,
+    "digests": {
+      "research/toolchain-and-collaboration/RT-24/CONTRACT-BODY-MERGES-01/evidence.json": "57fba5a676149953da4a96cbb9dae892b4c7f42d1c09b4af9acdd2230abf5d10",
+      "research/toolchain-and-collaboration/RT-24/DIFF-OBSERVATION-LAYERS-01/evidence.json": "88096eeb632115f39a700d74bac926aa03b347045c6203e88f437dfc0f8d44ec",
+      "research/toolchain-and-collaboration/RT-24/IDENTITY-LINEAGE-01/evidence.json": "5c0126baa4d2a8668ef5b49f93984c5403d7f64711fb3367654618f1020f5f1d",
+      "research/toolchain-and-collaboration/RT-24/PURE-MERGE-CORE-01/evidence.json": "6c67d2584dfd0d3513b10273791d555521e748408a705326cd2f8f8e2e1f8f35"
+    },
+    "lineage_cases": 704,
+    "native_contract_merge_refusals": 7
+  },
+  "baseline": "aeebb503a2852833632b82f31bc393d1c0652a3b",
+  "classification_cases": {
+    "insufficient-context": 2,
+    "metadata-conflict": 1,
+    "semantic-conflict": 124,
+    "structural-candidate": 1
+  },
+  "runner_sha256": "a3902946598c9d09e8a6e9cda8f94b5e4bdbeb7b39bcc74c6298db13107e5c99"
+}

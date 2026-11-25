@@ -62,6 +62,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-24 semantic diff and merge classification](RT-24/RT-24-SEMANTIC-DIFF-AND-MERGE-CLASSIFICATION-2026-11-25.md) defines typed deltas, exact three-way snapshots and structured conflicts.
 - [RT-24/27 logical Git program envelope](RT-27/RT-27-GIT-LOGICAL-PROGRAM-ENVELOPE-2026-11-25.md) defines a layout-independent exact manifest and offline admission.
 - [RT-11 cache work and span](RT-11/RT-11-CACHE-WORK-AND-SPAN-2026-11-25.md) checks the analytical sequential model and separates critical-path effects.
 - [PROTOTYPES](PROTOTYPES/)
