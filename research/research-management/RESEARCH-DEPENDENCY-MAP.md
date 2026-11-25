@@ -431,7 +431,7 @@ RT-25 evaluates allocator choices for the Rust-based LLMLang runtime and toolcha
 |---|---|---|---|---|
 | DEP-095 | RT-01 → RT-25 | Constrains | Allocator workloads and acceptance criteria must derive from representative LLMLang compiler, graph, package, cache, and concurrent-toolchain workloads rather than synthetic allocation loops alone. | Strong hypothesis |
 | DEP-096 | RT-04 → RT-25 | Constrains | Ownership, lifetime, aliasing, concurrency, and resource-cleanup behavior constrain which allocations can safely share an allocator and where allocator boundaries must remain explicit. | Strong hypothesis |
-| DEP-097 | RT-10 → RT-25 | Requires | Runtime ABI, process initialization/shutdown, threading, platform services, and FFI boundaries determine how a selected allocator can be installed and safely used. | Strong hypothesis |
+| DEP-097 | RT-10 → RT-25 | Requires | Runtime ABI, process initialization/shutdown, threading, platform services, and FFI boundaries determine how a selected allocator can be installed and safely used. Named Rust, public interposition and component scopes require independently checked provider and layout ownership. [RT-25 static allocator selection](../runtime-and-systems/RT-25/RT-25-STATIC-ALLOCATOR-SELECTION-2026-11-25.md) | Strong hypothesis |
 | DEP-098 | RT-11 → RT-25 | Influences | Build/cache workloads and their allocation/retention patterns affect allocator performance and memory-pressure measurements; allocator changes must not invalidate reproducibility assumptions. | Open hypothesis |
 | DEP-099 | RT-13 → RT-25 | Constrains | Backend targets, native linking, C ABI interoperability, and platform availability constrain allocator portability and deployment choices. | Strong hypothesis |
 
