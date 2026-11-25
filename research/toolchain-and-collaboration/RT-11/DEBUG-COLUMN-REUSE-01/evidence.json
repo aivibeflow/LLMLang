@@ -1,0 +1,153 @@
+{
+  "schema": "llmlang-rt11-debug-column-reuse/1",
+  "python": "3.12.14",
+  "architecture": "x86_64",
+  "tools": {
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "objcopy": "GNU objcopy (GNU Binutils for Debian) 2.44",
+    "readelf": "GNU readelf (GNU Binutils for Debian) 2.44"
+  },
+  "runner_sha256": "c32d85a51e91fa3a80998bd188e8961b5d6e6b711c24ebceb6e528a6e10f1ab5",
+  "inputs": [
+    0,
+    1,
+    6,
+    7,
+    127,
+    255,
+    65535,
+    2147483648,
+    4294967294,
+    4294967295
+  ],
+  "profiles": {
+    "baseline": {
+      "source": "#include <stdint.h>\nuint32_t compute(uint32_t x) {\n    return x + UINT32_C(7);\n}\n",
+      "source_sha256": "e5c1f943a6bc83351a715b5dce4fdb4966dab976762f669d41c09908d16569d1",
+      "no_debug": {
+        "raw_column_updates": [],
+        "object_sha256": "95669a6def9c42516d824610013e9ab636a585d0808dc4fa52adc58d17af7cbd",
+        "text_sha256": "fb9a79deb2bd44abfdcd22482fc53dbfc1566c5900789a18bcc1892b87ccd19a",
+        "debug_line_sha256": null,
+        "decoded_line_rows": [],
+        "observations": [
+          7,
+          8,
+          13,
+          14,
+          134,
+          262,
+          65542,
+          2147483655,
+          5,
+          6
+        ]
+      },
+      "debug": {
+        "raw_column_updates": [
+          30,
+          5,
+          14,
+          1
+        ],
+        "object_sha256": "4fe5bc66c221af98bb117e8deb07a82446f06054ab39b05b44f8ba0aee4bd8d2",
+        "text_sha256": "fb9a79deb2bd44abfdcd22482fc53dbfc1566c5900789a18bcc1892b87ccd19a",
+        "debug_line_sha256": "d7df2ac3cb274fbfd2f2d7acd49a46600c7f241033ed83194a4ebf17ed326ec4",
+        "decoded_line_rows": [
+          {
+            "line": 2,
+            "address": "0"
+          },
+          {
+            "line": 3,
+            "address": "0"
+          },
+          {
+            "line": 3,
+            "address": "0"
+          },
+          {
+            "line": 4,
+            "address": "0x3"
+          }
+        ],
+        "observations": [
+          7,
+          8,
+          13,
+          14,
+          134,
+          262,
+          65542,
+          2147483655,
+          5,
+          6
+        ]
+      }
+    },
+    "column_edit": {
+      "source": "#include <stdint.h>\nuint32_t compute(uint32_t x) {\n\treturn   x + UINT32_C(7);\n}\n",
+      "source_sha256": "72e0952e67f06ecae0faeef533b8fb334cb578a4015c9f517fc7dfacb670303b",
+      "no_debug": {
+        "raw_column_updates": [],
+        "object_sha256": "95669a6def9c42516d824610013e9ab636a585d0808dc4fa52adc58d17af7cbd",
+        "text_sha256": "fb9a79deb2bd44abfdcd22482fc53dbfc1566c5900789a18bcc1892b87ccd19a",
+        "debug_line_sha256": null,
+        "decoded_line_rows": [],
+        "observations": [
+          7,
+          8,
+          13,
+          14,
+          134,
+          262,
+          65542,
+          2147483655,
+          5,
+          6
+        ]
+      },
+      "debug": {
+        "raw_column_updates": [
+          30,
+          2,
+          13,
+          1
+        ],
+        "object_sha256": "fdcc76bea1327d2f49edfd806ac45c2f3830c0cb3df7ec3bac0521e2efae7fd4",
+        "text_sha256": "fb9a79deb2bd44abfdcd22482fc53dbfc1566c5900789a18bcc1892b87ccd19a",
+        "debug_line_sha256": "7df2b26439889edb1a1d6783870885ddcfdd087629f6e97c09d4e867977f832a",
+        "decoded_line_rows": [
+          {
+            "line": 2,
+            "address": "0"
+          },
+          {
+            "line": 3,
+            "address": "0"
+          },
+          {
+            "line": 3,
+            "address": "0"
+          },
+          {
+            "line": 4,
+            "address": "0x3"
+          }
+        ],
+        "observations": [
+          7,
+          8,
+          13,
+          14,
+          134,
+          262,
+          65542,
+          2147483655,
+          5,
+          6
+        ]
+      }
+    }
+  }
+}
