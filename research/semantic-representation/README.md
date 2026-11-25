@@ -16,6 +16,7 @@ This direction groups related research studies without changing their RT identif
 
 - [RT-05 source occurrence evidence after formatting](RT-05/RT-05-SOURCE-OCCURRENCE-EVIDENCE-2026-11-25.md)
 - [RT-05 native implementation identity](RT-05/RT-05-NATIVE-IMPLEMENTATION-IDENTITY-2026-11-25.md) — compares build actions, caller bytes and resolved provider, ABI and runtime identities.
+- [RT-05 typed edge projections](RT-05/RT-05-TYPED-EDGE-PROJECTIONS-2026-11-25.md) — compares identity closures for execution, verification and source navigation.
 - [Scenario 01 — Rename identity](RT-05/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md)
 - [Prototype 01 results](RT-05/PROTOTYPE-01-RESULTS.md). Early finite dependency-graph experiment.
 - [Scenario 09 — Dependency-driven evolution](RT-06/RESEARCH-SCENARIO-09-DEPENDENCY-DRIVEN-EVOLUTION.md)

@@ -1,0 +1,5086 @@
+{
+  "schema": "llmlang-typed-edge-projections/1",
+  "python": "3.12.14",
+  "runner_sha256": "f4badcaab4ca6a81e29f4eb25df1426ccace4a1974be133c7d3faa4cca137597",
+  "inputs": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "coordinates": [
+    "delta",
+    "helper_factor",
+    "obligation",
+    "format",
+    "display",
+    "verifier"
+  ],
+  "case_count": 64,
+  "pair_count": 2016,
+  "unrestricted_cycle": "cyclic identity dependency: implementation -> navigation -> implementation",
+  "comparisons": {
+    "snapshot": {
+      "implementation": {
+        "valid_reuse": 0,
+        "invalid_reuse": 0,
+        "missed_reuse": 480
+      },
+      "verification": {
+        "valid_reuse": 0,
+        "invalid_reuse": 0,
+        "missed_reuse": 96
+      },
+      "navigation": {
+        "valid_reuse": 0,
+        "invalid_reuse": 0,
+        "missed_reuse": 224
+      }
+    },
+    "implementation_for_all": {
+      "implementation": {
+        "valid_reuse": 480,
+        "invalid_reuse": 0,
+        "missed_reuse": 0
+      },
+      "verification": {
+        "valid_reuse": 96,
+        "invalid_reuse": 384,
+        "missed_reuse": 0
+      },
+      "navigation": {
+        "valid_reuse": 224,
+        "invalid_reuse": 256,
+        "missed_reuse": 0
+      }
+    },
+    "metadata_without_subject": {
+      "implementation": {
+        "valid_reuse": 480,
+        "invalid_reuse": 0,
+        "missed_reuse": 0
+      },
+      "verification": {
+        "valid_reuse": 96,
+        "invalid_reuse": 384,
+        "missed_reuse": 0
+      },
+      "navigation": {
+        "valid_reuse": 224,
+        "invalid_reuse": 256,
+        "missed_reuse": 0
+      }
+    },
+    "typed": {
+      "implementation": {
+        "valid_reuse": 480,
+        "invalid_reuse": 0,
+        "missed_reuse": 0
+      },
+      "verification": {
+        "valid_reuse": 96,
+        "invalid_reuse": 0,
+        "missed_reuse": 0
+      },
+      "navigation": {
+        "valid_reuse": 224,
+        "invalid_reuse": 0,
+        "missed_reuse": 0
+      }
+    }
+  },
+  "cases": [
+    {
+      "coordinates": [
+        1,
+        2,
+        "exact",
+        false,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "3e1ed8b759f7368af130323c2856799eaaeadc5cdc8e1a87ea52a88274f0ec09",
+          "verification": "3e1ed8b759f7368af130323c2856799eaaeadc5cdc8e1a87ea52a88274f0ec09",
+          "navigation": "3e1ed8b759f7368af130323c2856799eaaeadc5cdc8e1a87ea52a88274f0ec09"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ac27e6a88787504bb4c3ac901b01886617179fbef3956aa9c3176861aef73618",
+          "navigation": "55d50b35f45106f178cee07a3475e9266ce08873a88ea57c76838df956c5646e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "exact",
+        false,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "040bcbd5b7756a88b4f5b0a122b193b16b65b539028aa89cfb99924e2f4aa8ee",
+          "verification": "040bcbd5b7756a88b4f5b0a122b193b16b65b539028aa89cfb99924e2f4aa8ee",
+          "navigation": "040bcbd5b7756a88b4f5b0a122b193b16b65b539028aa89cfb99924e2f4aa8ee"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ccd6a28681ef784132179a9d63b3ff385a89171865f09ef1d2911faba724fb67",
+          "navigation": "55d50b35f45106f178cee07a3475e9266ce08873a88ea57c76838df956c5646e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "exact",
+        false,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "03d8fa5c713aa385b7c247ff9cec4ab0227cfe18fef9f828bfb534cc276c452d",
+          "verification": "03d8fa5c713aa385b7c247ff9cec4ab0227cfe18fef9f828bfb534cc276c452d",
+          "navigation": "03d8fa5c713aa385b7c247ff9cec4ab0227cfe18fef9f828bfb534cc276c452d"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ac27e6a88787504bb4c3ac901b01886617179fbef3956aa9c3176861aef73618",
+          "navigation": "55d50b35f45106f178cee07a3475e9266ce08873a88ea57c76838df956c5646e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "exact",
+        false,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "a91b033f51fca332847430ad4834bd2b0b8f233422f523c59106c532d583faf5",
+          "verification": "a91b033f51fca332847430ad4834bd2b0b8f233422f523c59106c532d583faf5",
+          "navigation": "a91b033f51fca332847430ad4834bd2b0b8f233422f523c59106c532d583faf5"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ccd6a28681ef784132179a9d63b3ff385a89171865f09ef1d2911faba724fb67",
+          "navigation": "55d50b35f45106f178cee07a3475e9266ce08873a88ea57c76838df956c5646e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "exact",
+        true,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "1a7e1f5207a9c6ac15c9a72120317a1e7fd8a0433b8e575c3eb597da4a5ef076",
+          "verification": "1a7e1f5207a9c6ac15c9a72120317a1e7fd8a0433b8e575c3eb597da4a5ef076",
+          "navigation": "1a7e1f5207a9c6ac15c9a72120317a1e7fd8a0433b8e575c3eb597da4a5ef076"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ac27e6a88787504bb4c3ac901b01886617179fbef3956aa9c3176861aef73618",
+          "navigation": "6ce19ff116c23f07e307710acbf85b4b658b5f772b76a4f4aa885a11052beb66"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "exact",
+        true,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "c3b23b3ff567e1f72c8edc21a0b2a259b6eb902ebfc8899423e69c1d5501ef32",
+          "verification": "c3b23b3ff567e1f72c8edc21a0b2a259b6eb902ebfc8899423e69c1d5501ef32",
+          "navigation": "c3b23b3ff567e1f72c8edc21a0b2a259b6eb902ebfc8899423e69c1d5501ef32"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ccd6a28681ef784132179a9d63b3ff385a89171865f09ef1d2911faba724fb67",
+          "navigation": "6ce19ff116c23f07e307710acbf85b4b658b5f772b76a4f4aa885a11052beb66"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "exact",
+        true,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "3a617339ee62adb6c4c29fda35b113d8156677baa4d48dba58577a98af6092b9",
+          "verification": "3a617339ee62adb6c4c29fda35b113d8156677baa4d48dba58577a98af6092b9",
+          "navigation": "3a617339ee62adb6c4c29fda35b113d8156677baa4d48dba58577a98af6092b9"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ac27e6a88787504bb4c3ac901b01886617179fbef3956aa9c3176861aef73618",
+          "navigation": "6ce19ff116c23f07e307710acbf85b4b658b5f772b76a4f4aa885a11052beb66"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "exact",
+        true,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "3b88680bf95f580b3159e1fab1e9f7df0605f645e1bf0a69e2320871f537d57d",
+          "verification": "3b88680bf95f580b3159e1fab1e9f7df0605f645e1bf0a69e2320871f537d57d",
+          "navigation": "3b88680bf95f580b3159e1fab1e9f7df0605f645e1bf0a69e2320871f537d57d"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ccd6a28681ef784132179a9d63b3ff385a89171865f09ef1d2911faba724fb67",
+          "navigation": "6ce19ff116c23f07e307710acbf85b4b658b5f772b76a4f4aa885a11052beb66"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "bounded",
+        false,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "9389425899b912afd57387cb98d5554bdad2a4dca8a5754839d0e6dad0b79b8c",
+          "verification": "9389425899b912afd57387cb98d5554bdad2a4dca8a5754839d0e6dad0b79b8c",
+          "navigation": "9389425899b912afd57387cb98d5554bdad2a4dca8a5754839d0e6dad0b79b8c"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ef8785106445fee8eeb37e3086184c6d4ec62085c8b9300b0f3a09f70c9207a5",
+          "navigation": "55d50b35f45106f178cee07a3475e9266ce08873a88ea57c76838df956c5646e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "bounded",
+        false,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "64e27b225ce440167ffc8e32a4e419f6eeff72697ba611156044d2daf6882c7c",
+          "verification": "64e27b225ce440167ffc8e32a4e419f6eeff72697ba611156044d2daf6882c7c",
+          "navigation": "64e27b225ce440167ffc8e32a4e419f6eeff72697ba611156044d2daf6882c7c"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "e6dda7a8f8c36b736db54448e6116dcc7b3cbe659ae5ce71a5994e40bbfbeac8",
+          "navigation": "55d50b35f45106f178cee07a3475e9266ce08873a88ea57c76838df956c5646e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "bounded",
+        false,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "0dfc50b7ba83169f8a7de6d143866afa0bbfc84eab0f9def88f1187374f18a7e",
+          "verification": "0dfc50b7ba83169f8a7de6d143866afa0bbfc84eab0f9def88f1187374f18a7e",
+          "navigation": "0dfc50b7ba83169f8a7de6d143866afa0bbfc84eab0f9def88f1187374f18a7e"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ef8785106445fee8eeb37e3086184c6d4ec62085c8b9300b0f3a09f70c9207a5",
+          "navigation": "55d50b35f45106f178cee07a3475e9266ce08873a88ea57c76838df956c5646e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "bounded",
+        false,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "baeb716724fabe35c02233cef6889ef5eb2d9bbc1e9dd271e6c57d9d21966fa8",
+          "verification": "baeb716724fabe35c02233cef6889ef5eb2d9bbc1e9dd271e6c57d9d21966fa8",
+          "navigation": "baeb716724fabe35c02233cef6889ef5eb2d9bbc1e9dd271e6c57d9d21966fa8"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "e6dda7a8f8c36b736db54448e6116dcc7b3cbe659ae5ce71a5994e40bbfbeac8",
+          "navigation": "55d50b35f45106f178cee07a3475e9266ce08873a88ea57c76838df956c5646e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "bounded",
+        true,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "1160980c74b3ee6e615b66d3a2c0ef08b7cfdea6e2f97f9b681c03b4fcbe141b",
+          "verification": "1160980c74b3ee6e615b66d3a2c0ef08b7cfdea6e2f97f9b681c03b4fcbe141b",
+          "navigation": "1160980c74b3ee6e615b66d3a2c0ef08b7cfdea6e2f97f9b681c03b4fcbe141b"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ef8785106445fee8eeb37e3086184c6d4ec62085c8b9300b0f3a09f70c9207a5",
+          "navigation": "6ce19ff116c23f07e307710acbf85b4b658b5f772b76a4f4aa885a11052beb66"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "bounded",
+        true,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "a02f3e8339b6d245269205985dc550c18a5028d9adafde66d109978c81db0d51",
+          "verification": "a02f3e8339b6d245269205985dc550c18a5028d9adafde66d109978c81db0d51",
+          "navigation": "a02f3e8339b6d245269205985dc550c18a5028d9adafde66d109978c81db0d51"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "e6dda7a8f8c36b736db54448e6116dcc7b3cbe659ae5ce71a5994e40bbfbeac8",
+          "navigation": "6ce19ff116c23f07e307710acbf85b4b658b5f772b76a4f4aa885a11052beb66"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "bounded",
+        true,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "15d292d004e50ed9b8d3b26b79ae30f1ac3a99d80643fe3d032d9f98b76fd0f2",
+          "verification": "15d292d004e50ed9b8d3b26b79ae30f1ac3a99d80643fe3d032d9f98b76fd0f2",
+          "navigation": "15d292d004e50ed9b8d3b26b79ae30f1ac3a99d80643fe3d032d9f98b76fd0f2"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "ef8785106445fee8eeb37e3086184c6d4ec62085c8b9300b0f3a09f70c9207a5",
+          "navigation": "6ce19ff116c23f07e307710acbf85b4b658b5f772b76a4f4aa885a11052beb66"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        2,
+        "bounded",
+        true,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "verification": [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "e4c9c4ed793c4aedae85d4c64437fd027930a99c5c628c8dd74a041d6f032d68",
+          "verification": "e4c9c4ed793c4aedae85d4c64437fd027930a99c5c628c8dd74a041d6f032d68",
+          "navigation": "e4c9c4ed793c4aedae85d4c64437fd027930a99c5c628c8dd74a041d6f032d68"
+        },
+        "implementation_for_all": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "navigation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114"
+        },
+        "metadata_without_subject": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "424a9c20bd4280adb19f5969d959bbe99298befba1ee08e3cbb7c941c4c2e114",
+          "verification": "e6dda7a8f8c36b736db54448e6116dcc7b3cbe659ae5ce71a5994e40bbfbeac8",
+          "navigation": "6ce19ff116c23f07e307710acbf85b4b658b5f772b76a4f4aa885a11052beb66"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "exact",
+        false,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "85b76238e9bde730f5b3d03b0903c0dbec3188064dcdc7115c0d932c88e468df",
+          "verification": "85b76238e9bde730f5b3d03b0903c0dbec3188064dcdc7115c0d932c88e468df",
+          "navigation": "85b76238e9bde730f5b3d03b0903c0dbec3188064dcdc7115c0d932c88e468df"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "48bd1db8552fed8a0948cc88023526008673446ae6345b56bbbf8cc941d58e80",
+          "navigation": "ba2652ca6894d59883a4fa2e3baf7fab9390c6af38578a730bcba4fddc8b94d0"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "exact",
+        false,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "dab412422d4801337243372f7548f61c616f4f67b216801fdbeaac5106199636",
+          "verification": "dab412422d4801337243372f7548f61c616f4f67b216801fdbeaac5106199636",
+          "navigation": "dab412422d4801337243372f7548f61c616f4f67b216801fdbeaac5106199636"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "48f6c718b80c3eb70f22f754b48899b97d2550003a2e88793e0c0a7721eebc48",
+          "navigation": "ba2652ca6894d59883a4fa2e3baf7fab9390c6af38578a730bcba4fddc8b94d0"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "exact",
+        false,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "1f7380e3a6d61c5aef4ff6d69177ca98641125022902a094bb4fc5a5f55e0bf6",
+          "verification": "1f7380e3a6d61c5aef4ff6d69177ca98641125022902a094bb4fc5a5f55e0bf6",
+          "navigation": "1f7380e3a6d61c5aef4ff6d69177ca98641125022902a094bb4fc5a5f55e0bf6"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "48bd1db8552fed8a0948cc88023526008673446ae6345b56bbbf8cc941d58e80",
+          "navigation": "ba2652ca6894d59883a4fa2e3baf7fab9390c6af38578a730bcba4fddc8b94d0"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "exact",
+        false,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "6e9ada4966f83532e85a42bf3353c6a6173c32ffce9504440e2656a06f41447a",
+          "verification": "6e9ada4966f83532e85a42bf3353c6a6173c32ffce9504440e2656a06f41447a",
+          "navigation": "6e9ada4966f83532e85a42bf3353c6a6173c32ffce9504440e2656a06f41447a"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "48f6c718b80c3eb70f22f754b48899b97d2550003a2e88793e0c0a7721eebc48",
+          "navigation": "ba2652ca6894d59883a4fa2e3baf7fab9390c6af38578a730bcba4fddc8b94d0"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "exact",
+        true,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "e9d6666d6e59c2100da3c29921ee833621401a28e3ec714027eb90850fa6e0a0",
+          "verification": "e9d6666d6e59c2100da3c29921ee833621401a28e3ec714027eb90850fa6e0a0",
+          "navigation": "e9d6666d6e59c2100da3c29921ee833621401a28e3ec714027eb90850fa6e0a0"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "48bd1db8552fed8a0948cc88023526008673446ae6345b56bbbf8cc941d58e80",
+          "navigation": "ab717bb2deea2f027877e1eb931cbaa9b89320354a45b499e5d1068a72a5074a"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "exact",
+        true,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "7247449bb766bbc9e9bebba1d9f9b2c81687087a054e35c081d651362dab1a04",
+          "verification": "7247449bb766bbc9e9bebba1d9f9b2c81687087a054e35c081d651362dab1a04",
+          "navigation": "7247449bb766bbc9e9bebba1d9f9b2c81687087a054e35c081d651362dab1a04"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "48f6c718b80c3eb70f22f754b48899b97d2550003a2e88793e0c0a7721eebc48",
+          "navigation": "ab717bb2deea2f027877e1eb931cbaa9b89320354a45b499e5d1068a72a5074a"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "exact",
+        true,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "e7becfde072a7b13abe201ac7a3e0f78b2cc987b016f003eff339038164d94a9",
+          "verification": "e7becfde072a7b13abe201ac7a3e0f78b2cc987b016f003eff339038164d94a9",
+          "navigation": "e7becfde072a7b13abe201ac7a3e0f78b2cc987b016f003eff339038164d94a9"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "48bd1db8552fed8a0948cc88023526008673446ae6345b56bbbf8cc941d58e80",
+          "navigation": "ab717bb2deea2f027877e1eb931cbaa9b89320354a45b499e5d1068a72a5074a"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "exact",
+        true,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "3b373600643a9c53420b9efe692f6a0cb2e09ad71b649b13946847600ae3eb67",
+          "verification": "3b373600643a9c53420b9efe692f6a0cb2e09ad71b649b13946847600ae3eb67",
+          "navigation": "3b373600643a9c53420b9efe692f6a0cb2e09ad71b649b13946847600ae3eb67"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "48f6c718b80c3eb70f22f754b48899b97d2550003a2e88793e0c0a7721eebc48",
+          "navigation": "ab717bb2deea2f027877e1eb931cbaa9b89320354a45b499e5d1068a72a5074a"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "bounded",
+        false,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "8d7c6bf99932ddc133d20cfef95f93a984e8879315a82b283cd9cec1706cef4b",
+          "verification": "8d7c6bf99932ddc133d20cfef95f93a984e8879315a82b283cd9cec1706cef4b",
+          "navigation": "8d7c6bf99932ddc133d20cfef95f93a984e8879315a82b283cd9cec1706cef4b"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "54deb041344444fdff78e8c82016e4dea4695422690ca1c1f2b9d01f23014db9",
+          "navigation": "ba2652ca6894d59883a4fa2e3baf7fab9390c6af38578a730bcba4fddc8b94d0"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "bounded",
+        false,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "f111506180d4dcacd2a664661e522a175bb7fdd90b1117e10e9b43b1047cc95c",
+          "verification": "f111506180d4dcacd2a664661e522a175bb7fdd90b1117e10e9b43b1047cc95c",
+          "navigation": "f111506180d4dcacd2a664661e522a175bb7fdd90b1117e10e9b43b1047cc95c"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "97e2fbb0528747ad0c544a6502de4dd3769783298087bfad0a2856679cb4c072",
+          "navigation": "ba2652ca6894d59883a4fa2e3baf7fab9390c6af38578a730bcba4fddc8b94d0"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "bounded",
+        false,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "8d57bbfffd4ca0683d0193174280bf9f20660bc12559501b163f7c4c66f3fe5d",
+          "verification": "8d57bbfffd4ca0683d0193174280bf9f20660bc12559501b163f7c4c66f3fe5d",
+          "navigation": "8d57bbfffd4ca0683d0193174280bf9f20660bc12559501b163f7c4c66f3fe5d"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "54deb041344444fdff78e8c82016e4dea4695422690ca1c1f2b9d01f23014db9",
+          "navigation": "ba2652ca6894d59883a4fa2e3baf7fab9390c6af38578a730bcba4fddc8b94d0"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "bounded",
+        false,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20310a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "999eb0ab616611c195a542e2f4eb2853c56ef88acd2a7a1d66f887112c991a1f",
+          "verification": "999eb0ab616611c195a542e2f4eb2853c56ef88acd2a7a1d66f887112c991a1f",
+          "navigation": "999eb0ab616611c195a542e2f4eb2853c56ef88acd2a7a1d66f887112c991a1f"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "4561153e5707f458d984ccc2b0d6ba5acbc8ca79108512f8074b654e2f5450e1"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "97e2fbb0528747ad0c544a6502de4dd3769783298087bfad0a2856679cb4c072",
+          "navigation": "ba2652ca6894d59883a4fa2e3baf7fab9390c6af38578a730bcba4fddc8b94d0"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "bounded",
+        true,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "78b0473c051303f6e4616aabf531fd2194a68e1985f7f51e888b5ee656ee20ae",
+          "verification": "78b0473c051303f6e4616aabf531fd2194a68e1985f7f51e888b5ee656ee20ae",
+          "navigation": "78b0473c051303f6e4616aabf531fd2194a68e1985f7f51e888b5ee656ee20ae"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "54deb041344444fdff78e8c82016e4dea4695422690ca1c1f2b9d01f23014db9",
+          "navigation": "ab717bb2deea2f027877e1eb931cbaa9b89320354a45b499e5d1068a72a5074a"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "bounded",
+        true,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "15df09b8af067f9460a3166104a529ce3cc2edb73cf2d7c7d2dd913194ddefb1",
+          "verification": "15df09b8af067f9460a3166104a529ce3cc2edb73cf2d7c7d2dd913194ddefb1",
+          "navigation": "15df09b8af067f9460a3166104a529ce3cc2edb73cf2d7c7d2dd913194ddefb1"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "97e2fbb0528747ad0c544a6502de4dd3769783298087bfad0a2856679cb4c072",
+          "navigation": "ab717bb2deea2f027877e1eb931cbaa9b89320354a45b499e5d1068a72a5074a"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "bounded",
+        true,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "4c4cd65f31626d77aa0f0d3202fc6f1a9951eaa2b12e3a2d3493c5d468e52315",
+          "verification": "4c4cd65f31626d77aa0f0d3202fc6f1a9951eaa2b12e3a2d3493c5d468e52315",
+          "navigation": "4c4cd65f31626d77aa0f0d3202fc6f1a9951eaa2b12e3a2d3493c5d468e52315"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "54deb041344444fdff78e8c82016e4dea4695422690ca1c1f2b9d01f23014db9",
+          "navigation": "ab717bb2deea2f027877e1eb931cbaa9b89320354a45b499e5d1068a72a5074a"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        1,
+        3,
+        "bounded",
+        true,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "verification": [
+          [
+            1,
+            4,
+            7,
+            10
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20310a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            1,
+            4,
+            7,
+            10
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "26ae59f6160296f5633e88a5d8ed7df2cb6742090671bbac92550d6535547040",
+          "verification": "26ae59f6160296f5633e88a5d8ed7df2cb6742090671bbac92550d6535547040",
+          "navigation": "26ae59f6160296f5633e88a5d8ed7df2cb6742090671bbac92550d6535547040"
+        },
+        "implementation_for_all": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "navigation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585"
+        },
+        "metadata_without_subject": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "68720bac290a0fa098d820db9a37332b83defbb651db6c0c553c6a550d05e083"
+        },
+        "typed": {
+          "implementation": "9ca2ee7c6313cfe6603f61a5a7b7ffa233d4567fdd8623f8f2d06b785bec5585",
+          "verification": "97e2fbb0528747ad0c544a6502de4dd3769783298087bfad0a2856679cb4c072",
+          "navigation": "ab717bb2deea2f027877e1eb931cbaa9b89320354a45b499e5d1068a72a5074a"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "exact",
+        false,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "20e2b5d897ac14143424f322e83ed1bef86cb424dd721dcc23658f892cbd51fe",
+          "verification": "20e2b5d897ac14143424f322e83ed1bef86cb424dd721dcc23658f892cbd51fe",
+          "navigation": "20e2b5d897ac14143424f322e83ed1bef86cb424dd721dcc23658f892cbd51fe"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "9d95658ace0242e939a6eadaf8637719cf40d084fd2db4a9b43c61e0a41a3427",
+          "navigation": "9272faaad93301e994fc7699a799e39f5c7d59f59f67f06058d10caf18a2aa19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "exact",
+        false,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "97ee06ad684978b5879ffc875bd551ef741266de0e1939a5ebb2febeffcaa1dc",
+          "verification": "97ee06ad684978b5879ffc875bd551ef741266de0e1939a5ebb2febeffcaa1dc",
+          "navigation": "97ee06ad684978b5879ffc875bd551ef741266de0e1939a5ebb2febeffcaa1dc"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "94330b1bde7122bdc5c8aac2f4bf6d605450945c782e7d8f7397898f4b3747a4",
+          "navigation": "9272faaad93301e994fc7699a799e39f5c7d59f59f67f06058d10caf18a2aa19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "exact",
+        false,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "ff7922a50f6467e617632281314c633a5ed1702b384cd0fc99b39a7af04da9ee",
+          "verification": "ff7922a50f6467e617632281314c633a5ed1702b384cd0fc99b39a7af04da9ee",
+          "navigation": "ff7922a50f6467e617632281314c633a5ed1702b384cd0fc99b39a7af04da9ee"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "9d95658ace0242e939a6eadaf8637719cf40d084fd2db4a9b43c61e0a41a3427",
+          "navigation": "9272faaad93301e994fc7699a799e39f5c7d59f59f67f06058d10caf18a2aa19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "exact",
+        false,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "1441116305a7225a66b0650ce0dd796408abefad16d39cec9578063e1252cc76",
+          "verification": "1441116305a7225a66b0650ce0dd796408abefad16d39cec9578063e1252cc76",
+          "navigation": "1441116305a7225a66b0650ce0dd796408abefad16d39cec9578063e1252cc76"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "94330b1bde7122bdc5c8aac2f4bf6d605450945c782e7d8f7397898f4b3747a4",
+          "navigation": "9272faaad93301e994fc7699a799e39f5c7d59f59f67f06058d10caf18a2aa19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "exact",
+        true,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "7dc716712a71e54fe284057228fb83f2572e66cf783ec4596f667af9819b41f1",
+          "verification": "7dc716712a71e54fe284057228fb83f2572e66cf783ec4596f667af9819b41f1",
+          "navigation": "7dc716712a71e54fe284057228fb83f2572e66cf783ec4596f667af9819b41f1"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "9d95658ace0242e939a6eadaf8637719cf40d084fd2db4a9b43c61e0a41a3427",
+          "navigation": "8a26e15e6e83b67d6d67a688f0de205e546f151ff174726c663a947c5a778a8e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "exact",
+        true,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "25c8a70cb1388aaa6ac0516c85f7a29f0050202cbc09b4a8076f724bf98069b8",
+          "verification": "25c8a70cb1388aaa6ac0516c85f7a29f0050202cbc09b4a8076f724bf98069b8",
+          "navigation": "25c8a70cb1388aaa6ac0516c85f7a29f0050202cbc09b4a8076f724bf98069b8"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "94330b1bde7122bdc5c8aac2f4bf6d605450945c782e7d8f7397898f4b3747a4",
+          "navigation": "8a26e15e6e83b67d6d67a688f0de205e546f151ff174726c663a947c5a778a8e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "exact",
+        true,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "06103c7e8ff2b5f2a54c7959074c2a261de58910448be5997db727ed08e8f16e",
+          "verification": "06103c7e8ff2b5f2a54c7959074c2a261de58910448be5997db727ed08e8f16e",
+          "navigation": "06103c7e8ff2b5f2a54c7959074c2a261de58910448be5997db727ed08e8f16e"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "9d95658ace0242e939a6eadaf8637719cf40d084fd2db4a9b43c61e0a41a3427",
+          "navigation": "8a26e15e6e83b67d6d67a688f0de205e546f151ff174726c663a947c5a778a8e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "exact",
+        true,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "470437dcee71cc423bebde20c89a8a0f65d4d70d8935a626b53c411fe99d5322",
+          "verification": "470437dcee71cc423bebde20c89a8a0f65d4d70d8935a626b53c411fe99d5322",
+          "navigation": "470437dcee71cc423bebde20c89a8a0f65d4d70d8935a626b53c411fe99d5322"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "94330b1bde7122bdc5c8aac2f4bf6d605450945c782e7d8f7397898f4b3747a4",
+          "navigation": "8a26e15e6e83b67d6d67a688f0de205e546f151ff174726c663a947c5a778a8e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "bounded",
+        false,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "9d39d580267fe351417214e6584d29f7df2086101f86fd49088e59df255a31cd",
+          "verification": "9d39d580267fe351417214e6584d29f7df2086101f86fd49088e59df255a31cd",
+          "navigation": "9d39d580267fe351417214e6584d29f7df2086101f86fd49088e59df255a31cd"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "af94951cb9598491822612c8f6ecf4717cb95a1baddcb68f2da22b012eeef765",
+          "navigation": "9272faaad93301e994fc7699a799e39f5c7d59f59f67f06058d10caf18a2aa19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "bounded",
+        false,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "332396cbd5fe0aaf52f36192ec92587730f93c3a33430626acb6a71bb5fb71c8",
+          "verification": "332396cbd5fe0aaf52f36192ec92587730f93c3a33430626acb6a71bb5fb71c8",
+          "navigation": "332396cbd5fe0aaf52f36192ec92587730f93c3a33430626acb6a71bb5fb71c8"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "94556f83ca49c82d876ef917ef64c68134ef74928b645eb4833dbff93797a12c",
+          "navigation": "9272faaad93301e994fc7699a799e39f5c7d59f59f67f06058d10caf18a2aa19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "bounded",
+        false,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "d08b800d2f5cfafdf0001b2b431a74c68a165c37f44da5a7f5d19d9ca3084a9f",
+          "verification": "d08b800d2f5cfafdf0001b2b431a74c68a165c37f44da5a7f5d19d9ca3084a9f",
+          "navigation": "d08b800d2f5cfafdf0001b2b431a74c68a165c37f44da5a7f5d19d9ca3084a9f"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "af94951cb9598491822612c8f6ecf4717cb95a1baddcb68f2da22b012eeef765",
+          "navigation": "9272faaad93301e994fc7699a799e39f5c7d59f59f67f06058d10caf18a2aa19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "bounded",
+        false,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "2dfb0d377563f8f1ce10f69785359b2cef1dbd7461410361543ba7c51fe16383",
+          "verification": "2dfb0d377563f8f1ce10f69785359b2cef1dbd7461410361543ba7c51fe16383",
+          "navigation": "2dfb0d377563f8f1ce10f69785359b2cef1dbd7461410361543ba7c51fe16383"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "94556f83ca49c82d876ef917ef64c68134ef74928b645eb4833dbff93797a12c",
+          "navigation": "9272faaad93301e994fc7699a799e39f5c7d59f59f67f06058d10caf18a2aa19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "bounded",
+        true,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "3524ddb0bc0d076996cc46b0fa7912035752e4d41180f0a0a397eb1aaf37905a",
+          "verification": "3524ddb0bc0d076996cc46b0fa7912035752e4d41180f0a0a397eb1aaf37905a",
+          "navigation": "3524ddb0bc0d076996cc46b0fa7912035752e4d41180f0a0a397eb1aaf37905a"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "af94951cb9598491822612c8f6ecf4717cb95a1baddcb68f2da22b012eeef765",
+          "navigation": "8a26e15e6e83b67d6d67a688f0de205e546f151ff174726c663a947c5a778a8e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "bounded",
+        true,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "3ffe972e7083c710b716d4019d8c2ecf04fe8b5e779840082e88b51d3c5e1266",
+          "verification": "3ffe972e7083c710b716d4019d8c2ecf04fe8b5e779840082e88b51d3c5e1266",
+          "navigation": "3ffe972e7083c710b716d4019d8c2ecf04fe8b5e779840082e88b51d3c5e1266"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "94556f83ca49c82d876ef917ef64c68134ef74928b645eb4833dbff93797a12c",
+          "navigation": "8a26e15e6e83b67d6d67a688f0de205e546f151ff174726c663a947c5a778a8e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "bounded",
+        true,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "ddcc354f2ff1431605d713462452c63bf30ee8eace8b139c7bfb17f182860283",
+          "verification": "ddcc354f2ff1431605d713462452c63bf30ee8eace8b139c7bfb17f182860283",
+          "navigation": "ddcc354f2ff1431605d713462452c63bf30ee8eace8b139c7bfb17f182860283"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "af94951cb9598491822612c8f6ecf4717cb95a1baddcb68f2da22b012eeef765",
+          "navigation": "8a26e15e6e83b67d6d67a688f0de205e546f151ff174726c663a947c5a778a8e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        2,
+        "bounded",
+        true,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "verification": [
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "408ec8081c07c126a0d6d94a8e434dc30967a57626a5d86cdeb2c7cafdd52cc4",
+          "verification": "408ec8081c07c126a0d6d94a8e434dc30967a57626a5d86cdeb2c7cafdd52cc4",
+          "navigation": "408ec8081c07c126a0d6d94a8e434dc30967a57626a5d86cdeb2c7cafdd52cc4"
+        },
+        "implementation_for_all": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "navigation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4"
+        },
+        "metadata_without_subject": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "281946c5f06a6a6029ba17a88a4f5b30477e9d7faa87d7c1149ff6e721cbd6a4",
+          "verification": "94556f83ca49c82d876ef917ef64c68134ef74928b645eb4833dbff93797a12c",
+          "navigation": "8a26e15e6e83b67d6d67a688f0de205e546f151ff174726c663a947c5a778a8e"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "exact",
+        false,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "f9310a20ec6bed33a8e6fdf5ca7616498e737848865a3417d2d61856ed92fe8e",
+          "verification": "f9310a20ec6bed33a8e6fdf5ca7616498e737848865a3417d2d61856ed92fe8e",
+          "navigation": "f9310a20ec6bed33a8e6fdf5ca7616498e737848865a3417d2d61856ed92fe8e"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "e46789d4239a31f54974697c355d97d2f1b09984864d9839504a4d5f7b9fe0d7",
+          "navigation": "791243726e43bef878e84399faf7bf09fd7071acb340d73578f4d80915c4c89b"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "exact",
+        false,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "08fc807c16e555d9b49a2cc707c8327f46b175a4b4e73d7e6d021e15e8fd26c8",
+          "verification": "08fc807c16e555d9b49a2cc707c8327f46b175a4b4e73d7e6d021e15e8fd26c8",
+          "navigation": "08fc807c16e555d9b49a2cc707c8327f46b175a4b4e73d7e6d021e15e8fd26c8"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "dae1e64e6a7e64089ef13871c18e69ef78b72b84f28d4d9d35a59404495d15ac",
+          "navigation": "791243726e43bef878e84399faf7bf09fd7071acb340d73578f4d80915c4c89b"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "exact",
+        false,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "dc708fd465578a952839de6ff7349e81515d9b7ab4acd1527ace32a34de42a13",
+          "verification": "dc708fd465578a952839de6ff7349e81515d9b7ab4acd1527ace32a34de42a13",
+          "navigation": "dc708fd465578a952839de6ff7349e81515d9b7ab4acd1527ace32a34de42a13"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "e46789d4239a31f54974697c355d97d2f1b09984864d9839504a4d5f7b9fe0d7",
+          "navigation": "791243726e43bef878e84399faf7bf09fd7071acb340d73578f4d80915c4c89b"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "exact",
+        false,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "6cec3781318e0e018d1b0f33d20e5695184e056130acb31c6da6b82449b08cf5",
+          "verification": "6cec3781318e0e018d1b0f33d20e5695184e056130acb31c6da6b82449b08cf5",
+          "navigation": "6cec3781318e0e018d1b0f33d20e5695184e056130acb31c6da6b82449b08cf5"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "dae1e64e6a7e64089ef13871c18e69ef78b72b84f28d4d9d35a59404495d15ac",
+          "navigation": "791243726e43bef878e84399faf7bf09fd7071acb340d73578f4d80915c4c89b"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "exact",
+        true,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "aa7491ffc3c5fea291f6b70a0efac8f60b55fe9c2c356613829834487792f86c",
+          "verification": "aa7491ffc3c5fea291f6b70a0efac8f60b55fe9c2c356613829834487792f86c",
+          "navigation": "aa7491ffc3c5fea291f6b70a0efac8f60b55fe9c2c356613829834487792f86c"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "e46789d4239a31f54974697c355d97d2f1b09984864d9839504a4d5f7b9fe0d7",
+          "navigation": "44c4ba2ad370a4cdbc455227d6197969182904779945fdd70a25ea13cb351c19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "exact",
+        true,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "852eda9a1634464e544f67fe71a8fe14a535da4773ee8a4b437760cfa0957b58",
+          "verification": "852eda9a1634464e544f67fe71a8fe14a535da4773ee8a4b437760cfa0957b58",
+          "navigation": "852eda9a1634464e544f67fe71a8fe14a535da4773ee8a4b437760cfa0957b58"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "dae1e64e6a7e64089ef13871c18e69ef78b72b84f28d4d9d35a59404495d15ac",
+          "navigation": "44c4ba2ad370a4cdbc455227d6197969182904779945fdd70a25ea13cb351c19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "exact",
+        true,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v1-inclusive",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "7f1eb15d84d0c17c3449e6fad0ce179bde44dc8f683473ea29974ecf3ffdecf0",
+          "verification": "7f1eb15d84d0c17c3449e6fad0ce179bde44dc8f683473ea29974ecf3ffdecf0",
+          "navigation": "7f1eb15d84d0c17c3449e6fad0ce179bde44dc8f683473ea29974ecf3ffdecf0"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "71e33fadb189c46f3ae5e910bd82de08f4d7e5c4f159ee7a67776ee42622c045",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "e46789d4239a31f54974697c355d97d2f1b09984864d9839504a4d5f7b9fe0d7",
+          "navigation": "44c4ba2ad370a4cdbc455227d6197969182904779945fdd70a25ea13cb351c19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "exact",
+        true,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "ca555c90a6403e0c335600fcdc16ad69dbfce9ad8654c23035b6601dcf72859a",
+          "verification": "ca555c90a6403e0c335600fcdc16ad69dbfce9ad8654c23035b6601dcf72859a",
+          "navigation": "ca555c90a6403e0c335600fcdc16ad69dbfce9ad8654c23035b6601dcf72859a"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "a67ddf29c68af81e1cc09decb61b3e8f37c562b97b46949ba6f9b1dd2568f7d3",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "dae1e64e6a7e64089ef13871c18e69ef78b72b84f28d4d9d35a59404495d15ac",
+          "navigation": "44c4ba2ad370a4cdbc455227d6197969182904779945fdd70a25ea13cb351c19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "bounded",
+        false,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "ffc1aa26f527cc6754481084608eb4880478c5c52e81590115c3c49d81a37487",
+          "verification": "ffc1aa26f527cc6754481084608eb4880478c5c52e81590115c3c49d81a37487",
+          "navigation": "ffc1aa26f527cc6754481084608eb4880478c5c52e81590115c3c49d81a37487"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "1981a5b1b995ac70dab925ae12d5812066b1e5aa9b15e65e79571eb2180f99f1",
+          "navigation": "791243726e43bef878e84399faf7bf09fd7071acb340d73578f4d80915c4c89b"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "bounded",
+        false,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "38135ea6ef8e55ab3d23afdba441a08d07543e198f7dd527f1444d255fc8c2dd",
+          "verification": "38135ea6ef8e55ab3d23afdba441a08d07543e198f7dd527f1444d255fc8c2dd",
+          "navigation": "38135ea6ef8e55ab3d23afdba441a08d07543e198f7dd527f1444d255fc8c2dd"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "7a24cf10a458bc06ca19b48b29cbaffec920c94cfd3242bf3f30181912f4e2c0",
+          "navigation": "791243726e43bef878e84399faf7bf09fd7071acb340d73578f4d80915c4c89b"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "bounded",
+        false,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "9f3cfd18fe041823b7f94a730ad2b6bcdd3e2de5dceb599fce3d66044d1d7257",
+          "verification": "9f3cfd18fe041823b7f94a730ad2b6bcdd3e2de5dceb599fce3d66044d1d7257",
+          "navigation": "9f3cfd18fe041823b7f94a730ad2b6bcdd3e2de5dceb599fce3d66044d1d7257"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "1981a5b1b995ac70dab925ae12d5812066b1e5aa9b15e65e79571eb2180f99f1",
+          "navigation": "791243726e43bef878e84399faf7bf09fd7071acb340d73578f4d80915c4c89b"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "bounded",
+        false,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "72657475726e2068656c706572287829202b20320a",
+          [
+            7,
+            13
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "dd1f7b2b4c4b3cb639bb1b2f2c5362467974dce945065ecfe7701ae625ca7f94",
+          "verification": "dd1f7b2b4c4b3cb639bb1b2f2c5362467974dce945065ecfe7701ae625ca7f94",
+          "navigation": "dd1f7b2b4c4b3cb639bb1b2f2c5362467974dce945065ecfe7701ae625ca7f94"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "01ce00df69b7b0fe0b1456b06f5b90405f2b7a43275b04158ec4bf956c7e734f"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "7a24cf10a458bc06ca19b48b29cbaffec920c94cfd3242bf3f30181912f4e2c0",
+          "navigation": "791243726e43bef878e84399faf7bf09fd7071acb340d73578f4d80915c4c89b"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "bounded",
+        true,
+        "original",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "54c4240f3249ee4e89e8713b81b2e9895c450b3be0db6820eca64f98e21b13c9",
+          "verification": "54c4240f3249ee4e89e8713b81b2e9895c450b3be0db6820eca64f98e21b13c9",
+          "navigation": "54c4240f3249ee4e89e8713b81b2e9895c450b3be0db6820eca64f98e21b13c9"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "1981a5b1b995ac70dab925ae12d5812066b1e5aa9b15e65e79571eb2180f99f1",
+          "navigation": "44c4ba2ad370a4cdbc455227d6197969182904779945fdd70a25ea13cb351c19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "bounded",
+        true,
+        "original",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "69d957bb5c3a3481613062af8e11368089d61a8a05ed5397fc9eee1f6d8c69e3",
+          "verification": "69d957bb5c3a3481613062af8e11368089d61a8a05ed5397fc9eee1f6d8c69e3",
+          "navigation": "69d957bb5c3a3481613062af8e11368089d61a8a05ed5397fc9eee1f6d8c69e3"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "7a24cf10a458bc06ca19b48b29cbaffec920c94cfd3242bf3f30181912f4e2c0",
+          "navigation": "44c4ba2ad370a4cdbc455227d6197969182904779945fdd70a25ea13cb351c19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "bounded",
+        true,
+        "renamed",
+        "v1-inclusive"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v1-inclusive",
+          [
+            true,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "496b9a76821de14587be9d72a4fb0379e916e5dd65ff8c873c6df3a27f1da096",
+          "verification": "496b9a76821de14587be9d72a4fb0379e916e5dd65ff8c873c6df3a27f1da096",
+          "navigation": "496b9a76821de14587be9d72a4fb0379e916e5dd65ff8c873c6df3a27f1da096"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "77ceb2b76c8bd7a39a459d104a5ed583091b7f859ffc2d1a94452d3f5d98ac80",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "1981a5b1b995ac70dab925ae12d5812066b1e5aa9b15e65e79571eb2180f99f1",
+          "navigation": "44c4ba2ad370a4cdbc455227d6197969182904779945fdd70a25ea13cb351c19"
+        }
+      }
+    },
+    {
+      "coordinates": [
+        2,
+        3,
+        "bounded",
+        true,
+        "renamed",
+        "v2-strict"
+      ],
+      "expected": {
+        "implementation": [
+          2,
+          5,
+          8,
+          11
+        ],
+        "verification": [
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            2,
+            4,
+            6,
+            8
+          ],
+          "v2-strict",
+          [
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "navigation": [
+          "2320cebb2073636f70650a202072657475726e2068656c706572287829202b20320a",
+          [
+            20,
+            26
+          ],
+          [
+            "helper",
+            3
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ]
+        ]
+      },
+      "keys": {
+        "snapshot": {
+          "implementation": "009e075174f986f8bfa7749d6d98fc7705025e3845766a473aec09fdea89084e",
+          "verification": "009e075174f986f8bfa7749d6d98fc7705025e3845766a473aec09fdea89084e",
+          "navigation": "009e075174f986f8bfa7749d6d98fc7705025e3845766a473aec09fdea89084e"
+        },
+        "implementation_for_all": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "navigation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d"
+        },
+        "metadata_without_subject": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "439f8f911fb60a4d907c71d48b3931e6742da77f4ede2384fdaae9ddd5049727",
+          "navigation": "880aa6c331b4a8f908c95c55f204f4f77b70dccba84105ea4d81c4fde6ebc2b8"
+        },
+        "typed": {
+          "implementation": "5a0d8a45282149a8bc5ee02d3e58120f0b64909331d35c95e34b0236a7ee2f2d",
+          "verification": "7a24cf10a458bc06ca19b48b29cbaffec920c94cfd3242bf3f30181912f4e2c0",
+          "navigation": "44c4ba2ad370a4cdbc455227d6197969182904779945fdd70a25ea13cb351c19"
+        }
+      }
+    }
+  ]
+}

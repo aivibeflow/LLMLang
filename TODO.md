@@ -127,6 +127,7 @@ Priority is a planning aid, not a measure of correctness:
 - **New evidence:** Two exact group encodings preserve addresses under display renames and propagate relevant changes to callers. Structural canonicalization can share a value address across symmetric members. Compare the cost of that invalidation with a design that pins Contract-level bindings separately from implementation closures. [RT-05 recursive identity](research/semantic-representation/RT-05/RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md)
 - **Recommendation:** Keep the hash-dependency relation acyclic for the initial model; represent other graph relations separately until a canonical cyclic-group scheme is justified.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 5; [Libraries and Templates](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md), section 5.
+- **Evidence:** [RT-05 typed edge projections](research/semantic-representation/RT-05/RT-05-TYPED-EDGE-PROJECTIONS-2026-11-25.md) distinguishes the implementation identity closure from verification and source-navigation closures in one closed graph. Reverse lookups can create cycles when followed as identity edges. The experiment holds production edge extraction and semantic cycles open.
 
 ### LL-006 — Decide artifact granularity for the initial SPG/store
 
