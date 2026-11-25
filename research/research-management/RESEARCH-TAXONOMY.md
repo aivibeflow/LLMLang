@@ -193,6 +193,8 @@ RT-07 compares Dafny source-level contract verification and concrete C ABI confo
 
 RT-05 compares typed pre-state and final-state graph clauses with emitted Dafny proofs and ordered executable array accesses. [Dafny mapping for overlapping copy and frames](../semantic-representation/RT-05/RT-05-DAFNY-SPG-COPY-FRAME-2026-11-25.md)
 
+RT-07 compares Dafny concurrent frame obligations and audit findings with the RT-04/10 ordered-history boundary for shared native updates. [Dafny concurrent frames and native histories](../formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md)
+
 ## 3. Required research artifact
 
 Every research report should identify:
