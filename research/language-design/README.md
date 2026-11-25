@@ -48,3 +48,4 @@ This direction groups related research studies without changing their RT identif
 - [RT-04 nested optional byte ABI](RT-04/RT-04-NESTED-OPTIONAL-BYTE-ABI-2026-11-25.md) compares the complete 16-bit input domain under two encodings.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
 - [RT-04 property-scoped operation substitution](RT-04/RT-04-PROPERTY-SCOPED-OPERATION-SUBSTITUTION-2026-11-25.md) — checks coverage, complete observations, progress and resource evidence separately.
+- [RT-04 joint contract conformance](RT-04/RT-04-JOINT-CONTRACT-CONFORMANCE-2026-11-25.md) — checks simultaneous conformance, feasibility and different observable conforming providers.
