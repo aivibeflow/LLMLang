@@ -1,0 +1,1076 @@
+{
+  "schema": "llmlang-native-implementation-identity/1",
+  "sources_sha256": {
+    "caller.c": "898947ebca993e1466ea420a0d1dd1843a6b615af1831a935bac3032bd7facc4",
+    "provider.c": "c02e0e4e5dd5533bcc9b3296bcfd9617165aea8156e1ff3398375c8dfbf6b39b",
+    "entry.h": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+    "run.py": "55400d4dfe91482c11c3894db4590f3859d525579f92e1586cecdbca30c5a1fe"
+  },
+  "host": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "kernel": "6.18.57",
+    "libc": [
+      "glibc",
+      "2.41"
+    ],
+    "python": "3.12.14"
+  },
+  "tools": {
+    "gcc": {
+      "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+      "version": "gcc (Debian 14.2.0-19) 14.2.0"
+    },
+    "cc1": {
+      "sha256": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291"
+    },
+    "as": {
+      "sha256": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+      "version": "GNU assembler (GNU Binutils for Debian) 2.44"
+    },
+    "ld": {
+      "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+      "version": "GNU ld (GNU Binutils for Debian) 2.44"
+    },
+    "collect2": {
+      "sha256": "ea31a4cebd9df1b6428c463428d461ccecfe66c897936409d5b2cde0b3af9e27"
+    }
+  },
+  "contract": {
+    "arguments": [
+      "u64",
+      "u64",
+      "u64"
+    ],
+    "result": [
+      "u64",
+      "u64"
+    ],
+    "specification": [
+      "first + salt + 1 modulo 2^64",
+      "second xor salt"
+    ]
+  },
+  "abstract_operation_key": "73c64332731fe135a56d987e58b26a38c9967515d8eedb3e2d4eb4a96b968d1f",
+  "inputs": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      18446744073709551615,
+      1,
+      0
+    ],
+    [
+      0,
+      18446744073709551615,
+      18446744073709551615
+    ],
+    [
+      18446744073709551615,
+      18446744073709551615,
+      18446744073709551615
+    ],
+    [
+      9223372036854775808,
+      4294967296,
+      17
+    ],
+    [
+      17,
+      23,
+      31
+    ],
+    [
+      99,
+      35,
+      1099511627776
+    ]
+  ],
+  "callers": [
+    {
+      "file": "caller-sysv-0/caller",
+      "sha256": "5bd7f8bb8c613b11e6182b323a4cba3e7556f9678165a17557c7801c2668b381",
+      "action": {
+        "argv": [
+          "gcc",
+          "-std=c17",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "-march=x86-64",
+          "-DTARGET_ABI=0",
+          "-DUNUSED_MARKER=0",
+          "caller.c",
+          "-ldl",
+          "-o",
+          "caller"
+        ],
+        "inputs": {
+          "entry.h": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+          "caller.c": "898947ebca993e1466ea420a0d1dd1843a6b615af1831a935bac3032bd7facc4"
+        },
+        "environment": {
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "toolchain": {
+          "gcc": {
+            "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "version": "gcc (Debian 14.2.0-19) 14.2.0"
+          },
+          "cc1": {
+            "sha256": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291"
+          },
+          "as": {
+            "sha256": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+            "version": "GNU assembler (GNU Binutils for Debian) 2.44"
+          },
+          "ld": {
+            "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "version": "GNU ld (GNU Binutils for Debian) 2.44"
+          },
+          "collect2": {
+            "sha256": "ea31a4cebd9df1b6428c463428d461ccecfe66c897936409d5b2cde0b3af9e27"
+          }
+        }
+      },
+      "action_key": "4748d22c50780ab4698ffc3259e5b515c4a2952e3e8453a9f09d85ad286cf08d"
+    },
+    {
+      "file": "caller-sysv-1/caller",
+      "sha256": "5bd7f8bb8c613b11e6182b323a4cba3e7556f9678165a17557c7801c2668b381",
+      "action": {
+        "argv": [
+          "gcc",
+          "-std=c17",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "-march=x86-64",
+          "-DTARGET_ABI=0",
+          "-DUNUSED_MARKER=1",
+          "caller.c",
+          "-ldl",
+          "-o",
+          "caller"
+        ],
+        "inputs": {
+          "entry.h": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+          "caller.c": "898947ebca993e1466ea420a0d1dd1843a6b615af1831a935bac3032bd7facc4"
+        },
+        "environment": {
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "toolchain": {
+          "gcc": {
+            "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "version": "gcc (Debian 14.2.0-19) 14.2.0"
+          },
+          "cc1": {
+            "sha256": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291"
+          },
+          "as": {
+            "sha256": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+            "version": "GNU assembler (GNU Binutils for Debian) 2.44"
+          },
+          "ld": {
+            "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "version": "GNU ld (GNU Binutils for Debian) 2.44"
+          },
+          "collect2": {
+            "sha256": "ea31a4cebd9df1b6428c463428d461ccecfe66c897936409d5b2cde0b3af9e27"
+          }
+        }
+      },
+      "action_key": "d66d4b8e2125d8be994fe830b69eebf42e043ccf9d92c0b7070f22eff96970b3"
+    },
+    {
+      "file": "caller-ms-0/caller",
+      "sha256": "b6496de59951c1457a3764e28badc4f46a9c12019744caeb3cf9c6ac12268995",
+      "action": {
+        "argv": [
+          "gcc",
+          "-std=c17",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "-march=x86-64",
+          "-DTARGET_ABI=1",
+          "-DUNUSED_MARKER=0",
+          "caller.c",
+          "-ldl",
+          "-o",
+          "caller"
+        ],
+        "inputs": {
+          "entry.h": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+          "caller.c": "898947ebca993e1466ea420a0d1dd1843a6b615af1831a935bac3032bd7facc4"
+        },
+        "environment": {
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "toolchain": {
+          "gcc": {
+            "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "version": "gcc (Debian 14.2.0-19) 14.2.0"
+          },
+          "cc1": {
+            "sha256": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291"
+          },
+          "as": {
+            "sha256": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+            "version": "GNU assembler (GNU Binutils for Debian) 2.44"
+          },
+          "ld": {
+            "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "version": "GNU ld (GNU Binutils for Debian) 2.44"
+          },
+          "collect2": {
+            "sha256": "ea31a4cebd9df1b6428c463428d461ccecfe66c897936409d5b2cde0b3af9e27"
+          }
+        }
+      },
+      "action_key": "362a025994af9dbdd81a205395b86be914db772639812a4054373009f566d7c3"
+    },
+    {
+      "file": "caller-ms-1/caller",
+      "sha256": "b6496de59951c1457a3764e28badc4f46a9c12019744caeb3cf9c6ac12268995",
+      "action": {
+        "argv": [
+          "gcc",
+          "-std=c17",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "-march=x86-64",
+          "-DTARGET_ABI=1",
+          "-DUNUSED_MARKER=1",
+          "caller.c",
+          "-ldl",
+          "-o",
+          "caller"
+        ],
+        "inputs": {
+          "entry.h": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+          "caller.c": "898947ebca993e1466ea420a0d1dd1843a6b615af1831a935bac3032bd7facc4"
+        },
+        "environment": {
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "toolchain": {
+          "gcc": {
+            "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "version": "gcc (Debian 14.2.0-19) 14.2.0"
+          },
+          "cc1": {
+            "sha256": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291"
+          },
+          "as": {
+            "sha256": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+            "version": "GNU assembler (GNU Binutils for Debian) 2.44"
+          },
+          "ld": {
+            "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "version": "GNU ld (GNU Binutils for Debian) 2.44"
+          },
+          "collect2": {
+            "sha256": "ea31a4cebd9df1b6428c463428d461ccecfe66c897936409d5b2cde0b3af9e27"
+          }
+        }
+      },
+      "action_key": "33e69986c0610a3a7439d23bd751b36bee18acb420d216868394217c1211f492"
+    }
+  ],
+  "providers": [
+    {
+      "file": "provider-sysv-1/provider.so",
+      "sha256": "84935acb4db3b795d0aacaf3d51b13e258a3de3a83e454dcce299ca2b80c4cdf",
+      "action": {
+        "argv": [
+          "gcc",
+          "-std=c17",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "-march=x86-64",
+          "-DTARGET_ABI=0",
+          "-DPROVIDER_DELTA=1",
+          "provider.c",
+          "-shared",
+          "-fPIC",
+          "-o",
+          "provider.so"
+        ],
+        "inputs": {
+          "entry.h": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+          "provider.c": "c02e0e4e5dd5533bcc9b3296bcfd9617165aea8156e1ff3398375c8dfbf6b39b"
+        },
+        "environment": {
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "toolchain": {
+          "gcc": {
+            "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "version": "gcc (Debian 14.2.0-19) 14.2.0"
+          },
+          "cc1": {
+            "sha256": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291"
+          },
+          "as": {
+            "sha256": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+            "version": "GNU assembler (GNU Binutils for Debian) 2.44"
+          },
+          "ld": {
+            "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "version": "GNU ld (GNU Binutils for Debian) 2.44"
+          },
+          "collect2": {
+            "sha256": "ea31a4cebd9df1b6428c463428d461ccecfe66c897936409d5b2cde0b3af9e27"
+          }
+        }
+      },
+      "action_key": "6913cc142b24ff1d306203e99f9f790e75cdb5539b172e4d1b3c5d274a95dccb"
+    },
+    {
+      "file": "provider-sysv-2/provider.so",
+      "sha256": "663970dda789a7fb15d000f00f53a57fb96080298e7c793ccbfe9809a2c41250",
+      "action": {
+        "argv": [
+          "gcc",
+          "-std=c17",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "-march=x86-64",
+          "-DTARGET_ABI=0",
+          "-DPROVIDER_DELTA=2",
+          "provider.c",
+          "-shared",
+          "-fPIC",
+          "-o",
+          "provider.so"
+        ],
+        "inputs": {
+          "entry.h": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+          "provider.c": "c02e0e4e5dd5533bcc9b3296bcfd9617165aea8156e1ff3398375c8dfbf6b39b"
+        },
+        "environment": {
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "toolchain": {
+          "gcc": {
+            "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "version": "gcc (Debian 14.2.0-19) 14.2.0"
+          },
+          "cc1": {
+            "sha256": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291"
+          },
+          "as": {
+            "sha256": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+            "version": "GNU assembler (GNU Binutils for Debian) 2.44"
+          },
+          "ld": {
+            "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "version": "GNU ld (GNU Binutils for Debian) 2.44"
+          },
+          "collect2": {
+            "sha256": "ea31a4cebd9df1b6428c463428d461ccecfe66c897936409d5b2cde0b3af9e27"
+          }
+        }
+      },
+      "action_key": "85af636dd5aa60ee0571a0e6b3929dd04894c1e36d422126e39d45a82d18912a"
+    },
+    {
+      "file": "provider-ms-1/provider.so",
+      "sha256": "57db2f45273185559048ad1ca7c1e5dcc3bb01be2369aec8f1ab7b713ce569f8",
+      "action": {
+        "argv": [
+          "gcc",
+          "-std=c17",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "-march=x86-64",
+          "-DTARGET_ABI=1",
+          "-DPROVIDER_DELTA=1",
+          "provider.c",
+          "-shared",
+          "-fPIC",
+          "-o",
+          "provider.so"
+        ],
+        "inputs": {
+          "entry.h": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+          "provider.c": "c02e0e4e5dd5533bcc9b3296bcfd9617165aea8156e1ff3398375c8dfbf6b39b"
+        },
+        "environment": {
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "toolchain": {
+          "gcc": {
+            "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "version": "gcc (Debian 14.2.0-19) 14.2.0"
+          },
+          "cc1": {
+            "sha256": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291"
+          },
+          "as": {
+            "sha256": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+            "version": "GNU assembler (GNU Binutils for Debian) 2.44"
+          },
+          "ld": {
+            "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "version": "GNU ld (GNU Binutils for Debian) 2.44"
+          },
+          "collect2": {
+            "sha256": "ea31a4cebd9df1b6428c463428d461ccecfe66c897936409d5b2cde0b3af9e27"
+          }
+        }
+      },
+      "action_key": "84735d5fb1b53c69b0c1706f6a7d1a933be28d9678eeae3e0124aee103b643a0"
+    },
+    {
+      "file": "provider-ms-2/provider.so",
+      "sha256": "d73fe1a3be983526de2a47f6f9934cabc1b7d3579e8c2f96b7c47c9a95e95e95",
+      "action": {
+        "argv": [
+          "gcc",
+          "-std=c17",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "-march=x86-64",
+          "-DTARGET_ABI=1",
+          "-DPROVIDER_DELTA=2",
+          "provider.c",
+          "-shared",
+          "-fPIC",
+          "-o",
+          "provider.so"
+        ],
+        "inputs": {
+          "entry.h": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+          "provider.c": "c02e0e4e5dd5533bcc9b3296bcfd9617165aea8156e1ff3398375c8dfbf6b39b"
+        },
+        "environment": {
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "toolchain": {
+          "gcc": {
+            "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "version": "gcc (Debian 14.2.0-19) 14.2.0"
+          },
+          "cc1": {
+            "sha256": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291"
+          },
+          "as": {
+            "sha256": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+            "version": "GNU assembler (GNU Binutils for Debian) 2.44"
+          },
+          "ld": {
+            "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "version": "GNU ld (GNU Binutils for Debian) 2.44"
+          },
+          "collect2": {
+            "sha256": "ea31a4cebd9df1b6428c463428d461ccecfe66c897936409d5b2cde0b3af9e27"
+          }
+        }
+      },
+      "action_key": "94985d22f30b7bbe77f23d20338bac34ebf148a083c4b36c0009fab2eb47e132"
+    }
+  ],
+  "rows": [
+    {
+      "abi": "sysv",
+      "delta": 1,
+      "marker": 0,
+      "caller_build_action": "4748d22c50780ab4698ffc3259e5b515c4a2952e3e8453a9f09d85ad286cf08d",
+      "provider_build_action": "6913cc142b24ff1d306203e99f9f790e75cdb5539b172e4d1b3c5d274a95dccb",
+      "caller_only_key": "e8783a6bc2b77a046edf88a41dea7054e9704c9d1ebf51988c9722d47d21c6b4",
+      "closed_implementation": {
+        "caller_sha256": "5bd7f8bb8c613b11e6182b323a4cba3e7556f9678165a17557c7801c2668b381",
+        "provider_sha256": "84935acb4db3b795d0aacaf3d51b13e258a3de3a83e454dcce299ca2b80c4cdf",
+        "target": {
+          "architecture": "x86_64",
+          "format": "ELF",
+          "call_abi": "sysv"
+        },
+        "external_entry": {
+          "symbol": "step",
+          "record_size": 16,
+          "field_offsets": [
+            0,
+            8
+          ],
+          "alignment": 8
+        },
+        "runtime_libraries_sha256": {
+          "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307"
+        }
+      },
+      "implementation_key": "65c6ce20da5ac5a46b017e85ad3c9cb6cee6035d01dfc2f20ff1cb3b921b69dc",
+      "fixture_evidence_key": "b34e895b7acf5a60700fd174186d6e6de7ba3a81b2c445dff9c1a7bb3ccedcf2",
+      "observed": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          18446744073709551615,
+          0
+        ],
+        [
+          9223372036854775826,
+          4294967313
+        ],
+        [
+          49,
+          8
+        ],
+        [
+          1099511627876,
+          1099511627811
+        ]
+      ],
+      "contract_mismatch_vectors": 0
+    },
+    {
+      "abi": "sysv",
+      "delta": 2,
+      "marker": 0,
+      "caller_build_action": "4748d22c50780ab4698ffc3259e5b515c4a2952e3e8453a9f09d85ad286cf08d",
+      "provider_build_action": "85af636dd5aa60ee0571a0e6b3929dd04894c1e36d422126e39d45a82d18912a",
+      "caller_only_key": "e8783a6bc2b77a046edf88a41dea7054e9704c9d1ebf51988c9722d47d21c6b4",
+      "closed_implementation": {
+        "caller_sha256": "5bd7f8bb8c613b11e6182b323a4cba3e7556f9678165a17557c7801c2668b381",
+        "provider_sha256": "663970dda789a7fb15d000f00f53a57fb96080298e7c793ccbfe9809a2c41250",
+        "target": {
+          "architecture": "x86_64",
+          "format": "ELF",
+          "call_abi": "sysv"
+        },
+        "external_entry": {
+          "symbol": "step",
+          "record_size": 16,
+          "field_offsets": [
+            0,
+            8
+          ],
+          "alignment": 8
+        },
+        "runtime_libraries_sha256": {
+          "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307"
+        }
+      },
+      "implementation_key": "813f40ae1e0674a0c16612a3d6b431e13ba362698b34d97bae27995d0cdeeff0",
+      "fixture_evidence_key": "355380bb0f8403c7ee010c54e4c42d60adbb5991c786ce18a33401d55ead5a12",
+      "observed": [
+        [
+          2,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          9223372036854775827,
+          4294967313
+        ],
+        [
+          50,
+          8
+        ],
+        [
+          1099511627877,
+          1099511627811
+        ]
+      ],
+      "contract_mismatch_vectors": 8
+    },
+    {
+      "abi": "sysv",
+      "delta": 1,
+      "marker": 1,
+      "caller_build_action": "d66d4b8e2125d8be994fe830b69eebf42e043ccf9d92c0b7070f22eff96970b3",
+      "provider_build_action": "6913cc142b24ff1d306203e99f9f790e75cdb5539b172e4d1b3c5d274a95dccb",
+      "caller_only_key": "e8783a6bc2b77a046edf88a41dea7054e9704c9d1ebf51988c9722d47d21c6b4",
+      "closed_implementation": {
+        "caller_sha256": "5bd7f8bb8c613b11e6182b323a4cba3e7556f9678165a17557c7801c2668b381",
+        "provider_sha256": "84935acb4db3b795d0aacaf3d51b13e258a3de3a83e454dcce299ca2b80c4cdf",
+        "target": {
+          "architecture": "x86_64",
+          "format": "ELF",
+          "call_abi": "sysv"
+        },
+        "external_entry": {
+          "symbol": "step",
+          "record_size": 16,
+          "field_offsets": [
+            0,
+            8
+          ],
+          "alignment": 8
+        },
+        "runtime_libraries_sha256": {
+          "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307"
+        }
+      },
+      "implementation_key": "65c6ce20da5ac5a46b017e85ad3c9cb6cee6035d01dfc2f20ff1cb3b921b69dc",
+      "fixture_evidence_key": "b34e895b7acf5a60700fd174186d6e6de7ba3a81b2c445dff9c1a7bb3ccedcf2",
+      "observed": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          18446744073709551615,
+          0
+        ],
+        [
+          9223372036854775826,
+          4294967313
+        ],
+        [
+          49,
+          8
+        ],
+        [
+          1099511627876,
+          1099511627811
+        ]
+      ],
+      "contract_mismatch_vectors": 0
+    },
+    {
+      "abi": "sysv",
+      "delta": 2,
+      "marker": 1,
+      "caller_build_action": "d66d4b8e2125d8be994fe830b69eebf42e043ccf9d92c0b7070f22eff96970b3",
+      "provider_build_action": "85af636dd5aa60ee0571a0e6b3929dd04894c1e36d422126e39d45a82d18912a",
+      "caller_only_key": "e8783a6bc2b77a046edf88a41dea7054e9704c9d1ebf51988c9722d47d21c6b4",
+      "closed_implementation": {
+        "caller_sha256": "5bd7f8bb8c613b11e6182b323a4cba3e7556f9678165a17557c7801c2668b381",
+        "provider_sha256": "663970dda789a7fb15d000f00f53a57fb96080298e7c793ccbfe9809a2c41250",
+        "target": {
+          "architecture": "x86_64",
+          "format": "ELF",
+          "call_abi": "sysv"
+        },
+        "external_entry": {
+          "symbol": "step",
+          "record_size": 16,
+          "field_offsets": [
+            0,
+            8
+          ],
+          "alignment": 8
+        },
+        "runtime_libraries_sha256": {
+          "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307"
+        }
+      },
+      "implementation_key": "813f40ae1e0674a0c16612a3d6b431e13ba362698b34d97bae27995d0cdeeff0",
+      "fixture_evidence_key": "355380bb0f8403c7ee010c54e4c42d60adbb5991c786ce18a33401d55ead5a12",
+      "observed": [
+        [
+          2,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          9223372036854775827,
+          4294967313
+        ],
+        [
+          50,
+          8
+        ],
+        [
+          1099511627877,
+          1099511627811
+        ]
+      ],
+      "contract_mismatch_vectors": 8
+    },
+    {
+      "abi": "ms",
+      "delta": 1,
+      "marker": 0,
+      "caller_build_action": "362a025994af9dbdd81a205395b86be914db772639812a4054373009f566d7c3",
+      "provider_build_action": "84735d5fb1b53c69b0c1706f6a7d1a933be28d9678eeae3e0124aee103b643a0",
+      "caller_only_key": "f3117e4e34c1e255c4f6d0a6b4f42278ba38ec15d8db633388cdccea3f2f5a06",
+      "closed_implementation": {
+        "caller_sha256": "b6496de59951c1457a3764e28badc4f46a9c12019744caeb3cf9c6ac12268995",
+        "provider_sha256": "57db2f45273185559048ad1ca7c1e5dcc3bb01be2369aec8f1ab7b713ce569f8",
+        "target": {
+          "architecture": "x86_64",
+          "format": "ELF",
+          "call_abi": "ms"
+        },
+        "external_entry": {
+          "symbol": "step",
+          "record_size": 16,
+          "field_offsets": [
+            0,
+            8
+          ],
+          "alignment": 8
+        },
+        "runtime_libraries_sha256": {
+          "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307"
+        }
+      },
+      "implementation_key": "26b6cfe30ec7966a7587d764ecff1fbcbb4fbd21e3efd17cad7dc45c2d453727",
+      "fixture_evidence_key": "b7b0baf7aad1e5006d41a039c8503477f38227ecf13e71041aa1eb21a858e38a",
+      "observed": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          18446744073709551615,
+          0
+        ],
+        [
+          9223372036854775826,
+          4294967313
+        ],
+        [
+          49,
+          8
+        ],
+        [
+          1099511627876,
+          1099511627811
+        ]
+      ],
+      "contract_mismatch_vectors": 0
+    },
+    {
+      "abi": "ms",
+      "delta": 2,
+      "marker": 0,
+      "caller_build_action": "362a025994af9dbdd81a205395b86be914db772639812a4054373009f566d7c3",
+      "provider_build_action": "94985d22f30b7bbe77f23d20338bac34ebf148a083c4b36c0009fab2eb47e132",
+      "caller_only_key": "f3117e4e34c1e255c4f6d0a6b4f42278ba38ec15d8db633388cdccea3f2f5a06",
+      "closed_implementation": {
+        "caller_sha256": "b6496de59951c1457a3764e28badc4f46a9c12019744caeb3cf9c6ac12268995",
+        "provider_sha256": "d73fe1a3be983526de2a47f6f9934cabc1b7d3579e8c2f96b7c47c9a95e95e95",
+        "target": {
+          "architecture": "x86_64",
+          "format": "ELF",
+          "call_abi": "ms"
+        },
+        "external_entry": {
+          "symbol": "step",
+          "record_size": 16,
+          "field_offsets": [
+            0,
+            8
+          ],
+          "alignment": 8
+        },
+        "runtime_libraries_sha256": {
+          "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307"
+        }
+      },
+      "implementation_key": "ad59b5de1f43d5e45fc3601c3e82af82734b5c46ea187e0946160404d0bb4a2a",
+      "fixture_evidence_key": "9d0edf2aa9651623c8b7c86a33e137fa65293077c732da5e3bfcd947a265b9c3",
+      "observed": [
+        [
+          2,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          9223372036854775827,
+          4294967313
+        ],
+        [
+          50,
+          8
+        ],
+        [
+          1099511627877,
+          1099511627811
+        ]
+      ],
+      "contract_mismatch_vectors": 8
+    },
+    {
+      "abi": "ms",
+      "delta": 1,
+      "marker": 1,
+      "caller_build_action": "33e69986c0610a3a7439d23bd751b36bee18acb420d216868394217c1211f492",
+      "provider_build_action": "84735d5fb1b53c69b0c1706f6a7d1a933be28d9678eeae3e0124aee103b643a0",
+      "caller_only_key": "f3117e4e34c1e255c4f6d0a6b4f42278ba38ec15d8db633388cdccea3f2f5a06",
+      "closed_implementation": {
+        "caller_sha256": "b6496de59951c1457a3764e28badc4f46a9c12019744caeb3cf9c6ac12268995",
+        "provider_sha256": "57db2f45273185559048ad1ca7c1e5dcc3bb01be2369aec8f1ab7b713ce569f8",
+        "target": {
+          "architecture": "x86_64",
+          "format": "ELF",
+          "call_abi": "ms"
+        },
+        "external_entry": {
+          "symbol": "step",
+          "record_size": 16,
+          "field_offsets": [
+            0,
+            8
+          ],
+          "alignment": 8
+        },
+        "runtime_libraries_sha256": {
+          "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307"
+        }
+      },
+      "implementation_key": "26b6cfe30ec7966a7587d764ecff1fbcbb4fbd21e3efd17cad7dc45c2d453727",
+      "fixture_evidence_key": "b7b0baf7aad1e5006d41a039c8503477f38227ecf13e71041aa1eb21a858e38a",
+      "observed": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          18446744073709551615,
+          0
+        ],
+        [
+          9223372036854775826,
+          4294967313
+        ],
+        [
+          49,
+          8
+        ],
+        [
+          1099511627876,
+          1099511627811
+        ]
+      ],
+      "contract_mismatch_vectors": 0
+    },
+    {
+      "abi": "ms",
+      "delta": 2,
+      "marker": 1,
+      "caller_build_action": "33e69986c0610a3a7439d23bd751b36bee18acb420d216868394217c1211f492",
+      "provider_build_action": "94985d22f30b7bbe77f23d20338bac34ebf148a083c4b36c0009fab2eb47e132",
+      "caller_only_key": "f3117e4e34c1e255c4f6d0a6b4f42278ba38ec15d8db633388cdccea3f2f5a06",
+      "closed_implementation": {
+        "caller_sha256": "b6496de59951c1457a3764e28badc4f46a9c12019744caeb3cf9c6ac12268995",
+        "provider_sha256": "d73fe1a3be983526de2a47f6f9934cabc1b7d3579e8c2f96b7c47c9a95e95e95",
+        "target": {
+          "architecture": "x86_64",
+          "format": "ELF",
+          "call_abi": "ms"
+        },
+        "external_entry": {
+          "symbol": "step",
+          "record_size": 16,
+          "field_offsets": [
+            0,
+            8
+          ],
+          "alignment": 8
+        },
+        "runtime_libraries_sha256": {
+          "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307"
+        }
+      },
+      "implementation_key": "ad59b5de1f43d5e45fc3601c3e82af82734b5c46ea187e0946160404d0bb4a2a",
+      "fixture_evidence_key": "9d0edf2aa9651623c8b7c86a33e137fa65293077c732da5e3bfcd947a265b9c3",
+      "observed": [
+        [
+          2,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          9223372036854775827,
+          4294967313
+        ],
+        [
+          50,
+          8
+        ],
+        [
+          1099511627877,
+          1099511627811
+        ]
+      ],
+      "contract_mismatch_vectors": 8
+    }
+  ],
+  "native_rows": 64,
+  "distinct_marker_recipe_pairs": 4,
+  "pairs_with_same_key_and_distinct_observations": {
+    "caller_only_key": 8,
+    "implementation_key": 0,
+    "fixture_evidence_key": 0
+  },
+  "abi_admissions": [
+    {
+      "required": "sysv",
+      "provider": "sysv",
+      "shape_admitted": true,
+      "exact_abi_admitted": true
+    },
+    {
+      "required": "sysv",
+      "provider": "ms",
+      "shape_admitted": true,
+      "exact_abi_admitted": false
+    },
+    {
+      "required": "ms",
+      "provider": "sysv",
+      "shape_admitted": true,
+      "exact_abi_admitted": false
+    },
+    {
+      "required": "ms",
+      "provider": "ms",
+      "shape_admitted": true,
+      "exact_abi_admitted": true
+    }
+  ]
+}

@@ -344,7 +344,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define hash-relevant versus descriptive, provenance, and evidentiary graph edges.
 - [ ] Define cycle handling in hash dependencies.
 - [ ] Define which target, ABI, runtime, toolchain, and configuration properties affect implementation identity.
-  - [ ] [WIP] Compare which linked provider and target profile identities belong in exact implementation and action keys using a closed native ABI fixture on `research/all`.
+  - [x] Compare build actions, caller bytes, resolved provider and native ABI identities on 64 Linux observations. Caller bytes alone merge eight pairs with distinct outputs. Four build-action changes preserve caller bytes and resolved identity. Exact runtime variation and production envelope selection remain open. [Native implementation identity](research/semantic-representation/RT-05/RT-05-NATIVE-IMPLEMENTATION-IDENTITY-2026-11-25.md)
 - [ ] Define stable-ID lifecycle, including rename, split, merge, deprecation, and replacement.
 - [ ] Define collision handling and migration policy.
   - [x] Compare dual digest locators and closed graph rewriting in 20 controls. Byte-preserving aliases leave the embedded legacy dependencies intact. A rewritten graph can drop that reader dependency, but changes exact conformance bindings. The synthetic collision quarantines the name. Production migration and evidence transfer remain open. [RT-05 collision and migration study](research/semantic-representation/RT-05/RT-05-DIGEST-MIGRATION-AND-COLLISION-2026-11-25.md)
