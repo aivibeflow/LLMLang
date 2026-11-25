@@ -2055,7 +2055,7 @@ Research a typed, versioned object describing the task an agent is expected to p
   - [x] Verify separate exact callable, manifest, fingerprint and index domains. Description and layout changes can retain the exact callable identity. [Semantic description and query](research/semantic-representation/RT-35/RT-35-SEMANTIC-DESCRIPTION-AND-QUERY-2026-11-25.md)
 - [x] Specify a candidate canonical description covering intent, input/output roles, preconditions, postconditions/behavior, effects/capabilities, errors, constraints, and optional cost characteristics.
   - [x] Supply a machine-readable reservation description and verify explicit unknown cost and optional projection behavior. [Candidate records](research/semantic-representation/RT-35/RT-35-SEMANTIC-DESCRIPTION-AND-QUERY-2026-11-25.md#candidate-records)
-- [ ] Compare single-vector, multi-aspect, structured, lexical, and hybrid fingerprints/retrieval channels; keep embedding and ANN choices replaceable.
+- [ ] [WIP] Compare single-vector, multi-aspect, structured, lexical, and hybrid fingerprints/retrieval channels; keep embedding and ANN choices replaceable.
 - [x] Define intent-only, structured-requirement, and hybrid query forms, including provenance for explicit hard constraints versus soft preferences.
   - [x] Check 108 query cases and two invalid-schema controls. Twenty-two current shape and provenance combinations pass, and free text does not establish hard requirements. [Query provenance](research/semantic-representation/RT-35/RT-35-SEMANTIC-DESCRIPTION-AND-QUERY-2026-11-25.md#checked-cases)
 - [x] Prototype KNN/ANN candidate retrieval and structured metadata/contract filters; preserve retrieval-channel and score provenance.
@@ -2066,10 +2066,10 @@ Research a typed, versioned object describing the task an agent is expected to p
   - [x] Verify that higher scores cannot override exclusion, unresolved candidates keep selection pending and two exact compatible identities remain ambiguous. Duplicate or conflicting evidence receives separate treatment. [Ambiguity and explanations](research/semantic-representation/RT-35/RT-35-HARD-COMPATIBILITY-AND-AMBIGUITY-2026-11-25.md#checked-outcomes)
 - [x] Demonstrate exact hash resolution and call binding against an immutable semantic snapshot; runtime invocation must not repeat semantic search.
   - [x] Replay 36 native calls using an exact snapshot and executable digest, including index removal and a separately authorized retained root. Reordering results preserves the binding. Nine stale, duplicate or mismatched controls refuse. Runtime invokes the sealed exact bytes without search. Production permissions and portability remain open. [Snapshot-bound native call](research/semantic-representation/RT-35/RT-35-BOUND-NATIVE-CALL-2026-11-25.md)
-- [ ] Define fingerprint/index versioning, incremental updates, cache keys/invalidation, snapshot consistency, stale-result rejection, and rebuild behavior.
+- [ ] [WIP] Define fingerprint/index versioning, incremental updates, cache keys/invalidation, snapshot consistency, stale-result rejection, and rebuild behavior.
 - [ ] Test access control, package/workspace scope, metadata visibility, tenant isolation, misleading descriptions, index poisoning, and adversarial near-neighbours.
-- [ ] Build a benchmark corpus with differently named equivalent-purpose functions, semantically close but incompatible functions, overlapping signatures, hard-constraint violations, and unknown contracts.
-- [ ] Compare structured-only, single-vector KNN, multi-aspect KNN, and hybrid retrieval using Recall@K, precision/MRR/nDCG, compatible-candidate recall, false-compatible/unsafe-selection rate, ambiguity quality, latency, storage, and update cost.
+- [ ] [WIP] Build a benchmark corpus with differently named equivalent-purpose functions, semantically close but incompatible functions, overlapping signatures, hard-constraint violations, and unknown contracts.
+- [ ] [WIP] Compare structured-only, single-vector KNN, multi-aspect KNN, and hybrid retrieval using Recall@K, precision/MRR/nDCG, compatible-candidate recall, false-compatible/unsafe-selection rate, ambiguity quality, latency, storage, and update cost.
 - [ ] Report uncertainty, model/index versions, failure cases, and reproducibility; establish evidence-based minimum safety and quality thresholds before automatic resolution.
 
 **Research brief:** [RT-35 — Semantic Function Discovery and Retrieval](research/semantic-representation/RT-35/RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md).
