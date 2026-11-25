@@ -1,0 +1,155 @@
+{
+  "format": "generic-context-inference-01",
+  "rows": [
+    {
+      "case": "explicit-type-argument",
+      "decision": "compiled",
+      "language": "rust",
+      "native_digest": "feb4f4b0b14401808adb2e8a7d139ed4693630905dcfe1c84a5ae32807526573",
+      "stdout": [
+        "u16:0"
+      ]
+    },
+    {
+      "case": "explicit-type-argument",
+      "decision": "compiled",
+      "language": "go",
+      "native_digest": "feceec99edd4a35a00c29470ef5510abf08a79fa197be737dc655f6c52ba40c1",
+      "stdout": [
+        "uint16:0"
+      ]
+    },
+    {
+      "case": "typed-result-assignment",
+      "decision": "compiled",
+      "language": "rust",
+      "native_digest": "feb4f4b0b14401808adb2e8a7d139ed4693630905dcfe1c84a5ae32807526573",
+      "stdout": [
+        "u16:0"
+      ]
+    },
+    {
+      "case": "typed-result-assignment",
+      "decision": "refused",
+      "diagnostic": "cannot infer T",
+      "language": "go"
+    },
+    {
+      "case": "typed-return-context",
+      "decision": "compiled",
+      "language": "rust",
+      "native_digest": "feb4f4b0b14401808adb2e8a7d139ed4693630905dcfe1c84a5ae32807526573",
+      "stdout": [
+        "u16:0"
+      ]
+    },
+    {
+      "case": "typed-return-context",
+      "decision": "refused",
+      "diagnostic": "cannot infer T",
+      "language": "go"
+    },
+    {
+      "case": "typed-function-value",
+      "decision": "compiled",
+      "language": "rust",
+      "native_digest": "feb4f4b0b14401808adb2e8a7d139ed4693630905dcfe1c84a5ae32807526573",
+      "stdout": [
+        "u16:0"
+      ]
+    },
+    {
+      "case": "typed-function-value",
+      "decision": "compiled",
+      "language": "go",
+      "native_digest": "feceec99edd4a35a00c29470ef5510abf08a79fa197be737dc655f6c52ba40c1",
+      "stdout": [
+        "uint16:0"
+      ]
+    },
+    {
+      "case": "argument-supplies-type",
+      "decision": "compiled",
+      "language": "rust",
+      "native_digest": "3bdb9a18ac759533e7265e41ce088c9793fac3ffc1dfa8c51d5c1b4a20d771fc",
+      "stdout": [
+        "u16:7"
+      ]
+    },
+    {
+      "case": "argument-supplies-type",
+      "decision": "compiled",
+      "language": "go",
+      "native_digest": "908b96abe8d06d310adb2716540b8dc981ece9e9013be2362a7ede34acbb5f18",
+      "stdout": [
+        "uint16:7"
+      ]
+    },
+    {
+      "case": "unconstrained-call",
+      "decision": "refused",
+      "diagnostic": "E0283",
+      "language": "rust"
+    },
+    {
+      "case": "unconstrained-call",
+      "decision": "refused",
+      "diagnostic": "cannot infer T",
+      "language": "go"
+    },
+    {
+      "case": "incompatible-use-contexts",
+      "decision": "refused",
+      "diagnostic": "E0308",
+      "language": "rust"
+    },
+    {
+      "case": "incompatible-use-contexts",
+      "decision": "refused",
+      "diagnostic": "cannot infer T",
+      "language": "go"
+    },
+    {
+      "case": "default-literal-through-generic-call",
+      "decision": "compiled",
+      "language": "rust",
+      "native_digest": "3658fa798f016f7d9013f41c3dceb7bbd5d70384072486856a709f9ee25b1cff",
+      "stdout": [
+        "i32:7"
+      ]
+    },
+    {
+      "case": "default-literal-through-generic-call",
+      "decision": "compiled",
+      "language": "go",
+      "native_digest": "8c86ca598c6cf0ff0699969d002cedbdf05690483b89f56c08b4b66550478004",
+      "stdout": [
+        "int:7"
+      ]
+    },
+    {
+      "case": "explicit-public-annotation-survives-private-type-edit",
+      "decision": "compiled",
+      "language": "rust",
+      "native_digest": "fd6fa5742db9b700fc656b497b3b8282f3bd52c739d33593f4551aee9e43e09e",
+      "stdout": [
+        "u16:7",
+        "u16:7"
+      ]
+    },
+    {
+      "case": "explicit-public-annotation-survives-private-type-edit",
+      "decision": "compiled",
+      "language": "go",
+      "native_digest": "ec8d997c2bc6493cc3faf5a4352f0638e46337f3e7b2352b6d2181dfa90e9311",
+      "stdout": [
+        "uint16:7",
+        "uint16:7"
+      ]
+    }
+  ],
+  "toolchains": {
+    "go": "go version go1.23.6 linux/amd64",
+    "rust": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  }
+}
