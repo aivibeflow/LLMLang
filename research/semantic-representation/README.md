@@ -43,6 +43,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-05 canonical typed wire and digest suites](RT-05/RT-05-CANONICAL-TYPED-WIRE-AND-SUITES-2026-11-25.md) combines strict typed canonical wire admission with a versionable digest-suite policy.
 - [RT-05 candidate identity envelopes](RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md) specifies separate operation, implementation, contract, class, discovery and evidence fields.
 - [RT-05 recursive representation boundaries](RT-05/RT-05-RECURSIVE-REPRESENTATION-BOUNDARIES-2026-11-25.md) defines exact mutual groups and checks layout and edit invalidation.
 - [RT-05 evolution and lineage boundaries](RT-05/RT-05-EVOLUTION-AND-LINEAGE-BOUNDARIES-2026-11-25.md) defines revision-bound continuation, replacement, split and merge.
