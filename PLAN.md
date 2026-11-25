@@ -892,8 +892,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 ## 3.3 Semantic build and cache graph
 
 **Estimated research complexity:** **6/10** — requires sound action keys, dependency closure, and demonstrated invalidation/reuse.
-- [ ] Define optional package-distributed cache-index files for validation, compilation, analysis, tests, and proofs; decide whether indexes and result payloads are embedded or separately fetched.
-  - [ ] [WIP] Compare five typed cache-result families across inline and separate package transport on `research/all` (#300).
+- [x] Define optional package-distributed cache-index files for validation, compilation, analysis, tests, and proofs; decide whether indexes and result payloads are embedded or separately fetched.
+  - [x] Verify five result families across 20 layout and request combinations plus ten refusal controls. Detached index and payloads preserve package-only transfer size. Embedding both enables self-contained offline exports. [Package cache delivery](research/toolchain-and-collaboration/RT-11/RT-11-PACKAGE-CACHE-DELIVERY-2026-11-25.md)
 - [x] Establish the version-identity split for cache records: composite `LanguageVersion`, append-only component-registry digest, and separate `ToolchainIdentity`; record the candidate design in [LANGUAGE-VERSIONING.md](research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md).
 - [x] Add an experimental version-bound cache-record validator and tests covering language-version, registry-digest, and toolchain changes to Action Key inputs. This remains a prototype, not a normative cache-index format.
 - [ ] Bind every cached result to exact Action Key inputs and complete dependency closure; define compatibility evidence for reuse across different language or toolchain identities.
