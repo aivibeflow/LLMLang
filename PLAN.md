@@ -273,6 +273,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Build clause-level round-trip and seeded-mutation experiments; measure semantic fidelity, provenance coverage, false acceptance, and unknown handling.
   - [x] Run a source-blind deterministic pilot on an order confirmation contract. Across 484 complete traces per interpretable case, all eight model mutations and one rendering-only mutation are detected. Four unchanged controls remain eligible and six incomplete controls remain unknown. [RT-02 clause round-trip and mutation pilot](research/language-design/RT-02/RT-02-CLAUSE-ROUNDTRIP-AND-MUTATION-2026-11-25.md)
 - [ ] Run controlled human-review studies comparing prompt-only, formal-only, reconstruction-only, and reconstruction-plus-scenarios/provenance; include domain stakeholders and predeclare thresholds.
+  - [ ] [WIP] Prepare a fixed four-arm review protocol, masked packets and a scoring dry run for the RT-02 pilot on `research/all`.
 - [ ] Keep intent correctness, formal-contract correctness, and implementation correctness as separate claims with separate evidence and acceptance gates.
 - [ ] Validate the workflow on representative requirement classes and risk levels; record limits before transferring any result into `draft/`.
 
