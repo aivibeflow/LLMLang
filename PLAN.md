@@ -1151,13 +1151,13 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [x] Specify exact base and parent scopes, closed candidate construction and immutable typed alternatives. Reconcile the 4,096-case core. [Diff and merge classification](research/toolchain-and-collaboration/RT-24/RT-24-SEMANTIC-DIFF-AND-MERGE-CLASSIFICATION-2026-11-25.md#three-way-candidate)
 - [x] Define conflict classes: same-node edits, contract/implementation divergence, identity collisions, dependency conflicts, split/merge conflicts, and metadata-only conflicts.
   - [x] Define six structured conflict subjects and check 128 combined finding and completeness states. [Diff and merge classification](research/toolchain-and-collaboration/RT-24/RT-24-SEMANTIC-DIFF-AND-MERGE-CLASSIFICATION-2026-11-25.md#typed-conflict-classes)
-- [ ] Define automatic merge when changes are provably independent.
+- [ ] [WIP] Define automatic merge when changes are provably independent.
   - [x] Check a sufficient read/write independence rule in Lean and 3,888 finite patch/state cases. All 1,458 admitted compositions commute, but 24 cases with valid independent parent edits still violate the merged capacity invariant. Full graph completeness and merge policy remain open. [RT-24 independent merge gate](research/toolchain-and-collaboration/RT-24/RT-24-INDEPENDENT-MERGE-GATE-2026-11-25.md)
-- [ ] Define conservative conflict behavior when independence cannot be established.
+- [ ] [WIP] Define conservative conflict behavior when independence cannot be established.
   - [x] Check eleven finite merge decisions and replay both retained alternatives. Missing, incomplete and stale checks remain pending. Fresh checks distinguish order-dependent conflict, invariant failure and an eligible candidate. General SPG completeness and publication remain open. [Conservative merge decisions](research/toolchain-and-collaboration/RT-24/RT-24-CONSERVATIVE-MERGE-2026-11-25.md)
-- [ ] Define interactive conflict resolution and preservation of both alternatives.
-- [ ] Define post-merge validation: graph integrity, type checking, contract checking, dependency completeness, tests, and proofs.
-- [ ] Define merge reproducibility and audit history.
+- [ ] [WIP] Define interactive conflict resolution and preservation of both alternatives.
+- [ ] [WIP] Define post-merge validation: graph integrity, type checking, contract checking, dependency completeness, tests, and proofs.
+- [ ] [WIP] Define merge reproducibility and audit history.
   - [x] Compare eleven replays of the same merged candidate. All reproduce the graph, while only three reproduce the exact validation audit, including one blocked decision. Policy changes, missing failures and mixed receipts invalidate replay. [RT-24 merge validation audit](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-VALIDATION-AUDIT-REPLAY-2026-11-25.md)
 
 **Mapping reconciliation evidence (2026-11-21)** · Disjoint interface keys can claim the same export. Revision and catalog checks reject stale publication even when logical entries repeat. [RT-23/24 mapping merge](research/toolchain-and-collaboration/RT-23/RT-23-INTERFACE-MAPPING-MERGE.md)
