@@ -1154,6 +1154,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define concurrency and environment-dependent behavior.
   - A blocking pipe probe distinguishes returned EINTR from a handled signal followed by a restarted read. [POSIX read interruption](research/runtime-and-systems/RT-10/RT-10-POSIX-READ-INTERRUPTION.md)
 - [ ] Define initial vertical slice, such as process startup, basic file I/O, and errors.
+  - [ ] [WIP] Compare process startup descriptor inheritance, close-on-exec and explicit POSIX spawn file actions with a native child observer on `research/all`.
 - [ ] Select initial Linux architecture and isolate syscall ABI details.
 - [ ] Define how existing C libraries and external ABI boundaries are called.
 - [ ] Define the trusted low-level runtime boundary.
