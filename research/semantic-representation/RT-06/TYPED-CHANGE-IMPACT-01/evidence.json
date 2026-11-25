@@ -1,0 +1,133 @@
+{
+  "schema": "llmlang-typed-change-impact/1",
+  "python": "3.12.14",
+  "archive_revision": "c1da4dc2753bc3db390f80e0643db911ce870e2c",
+  "archive_sha256": {
+    "impact_planning.py": "0d76d5b7be22b2ebb7f8f4622e717f140871665784b3a644e1847e5ffb513d4b",
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "runner_sha256": "980c4f42adcc5eb64985a865c13ef4289e3dd4290cb6899fe801e285f96fae13",
+  "counts": {
+    "edit_pairs": 992,
+    "checked_actions": 8896,
+    "stale_snapshot_requires_revalidation": 992,
+    "missing_audit_requires_revalidation": 992
+  },
+  "single_axis_cases": {
+    "target": {
+      "impacted": [
+        "build",
+        "native_validation",
+        "target"
+      ],
+      "audit_bindings": 2,
+      "actions": {
+        "build": [
+          "REBUILD",
+          "RUN_TESTS"
+        ],
+        "native_validation": [
+          "REPROVE"
+        ],
+        "target": []
+      }
+    },
+    "implementation": {
+      "impacted": [
+        "build",
+        "implementation",
+        "model_proof",
+        "native_validation"
+      ],
+      "audit_bindings": 4,
+      "actions": {
+        "build": [
+          "REBUILD",
+          "RUN_TESTS"
+        ],
+        "implementation": [
+          "REBUILD",
+          "RUN_TESTS"
+        ],
+        "model_proof": [
+          "REPROVE"
+        ],
+        "native_validation": [
+          "REPROVE"
+        ]
+      }
+    },
+    "design": {
+      "impacted": [
+        "design",
+        "design_obligation",
+        "native_validation",
+        "tests"
+      ],
+      "audit_bindings": 4,
+      "actions": {
+        "design": [
+          "RE_DERIVE"
+        ],
+        "design_obligation": [
+          "RE_DERIVE"
+        ],
+        "native_validation": [
+          "REPROVE"
+        ],
+        "tests": [
+          "REGENERATE_TESTS",
+          "RUN_TESTS"
+        ]
+      }
+    },
+    "contract": {
+      "impacted": [
+        "adequacy",
+        "contract",
+        "design_obligation",
+        "model_proof",
+        "native_validation",
+        "tests"
+      ],
+      "audit_bindings": 6,
+      "actions": {
+        "adequacy": [
+          "RE_DERIVE"
+        ],
+        "contract": [
+          "RE_DERIVE"
+        ],
+        "design_obligation": [
+          "RE_DERIVE"
+        ],
+        "model_proof": [
+          "REPROVE"
+        ],
+        "native_validation": [
+          "REPROVE"
+        ],
+        "tests": [
+          "REGENERATE_TESTS",
+          "RUN_TESTS"
+        ]
+      }
+    },
+    "requirement": {
+      "impacted": [
+        "adequacy",
+        "requirement"
+      ],
+      "audit_bindings": 2,
+      "actions": {
+        "adequacy": [
+          "RE_DERIVE"
+        ],
+        "requirement": [
+          "HUMAN_REVIEW"
+        ]
+      }
+    }
+  },
+  "ordered_plans_sha256": "af6b99ccaf2ebbc6ba45424ab49ee0455867135ab29aef5c6c14975aed801672"
+}

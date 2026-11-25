@@ -37,6 +37,8 @@ RT-11 checks third-order edit effects and relates exact ordered non-interference
 
 RT-11 measures native rebuild selection and scoped execution costs for local, shared and common-header changes. [Native edit locality](../toolchain-and-collaboration/RT-11/RT-11-NATIVE-EDIT-LOCALITY-2026-11-25.md)
 
+RT-06 checks typed impacts and conservative action planning across all five independently versioned change inputs. [Typed change-impact planning](../semantic-representation/RT-06/RT-06-TYPED-CHANGE-IMPACT-2026-11-25.md)
+
 RT-06 compares source call inventories and guarded typed SPG targets with exact finite execution and Lean evidence. [Guarded SPG dependency discovery](../semantic-representation/RT-06/RT-06-SPG-GUARDED-DEPENDENCY-DISCOVERY-2026-11-25.md)
 
 RT-06 validates typed action closures in the semantic store and distinguishes consumed metadata from retrieval links. [Dependency role closures](../semantic-representation/RT-06/RT-06-DEPENDENCY-ROLE-CLOSURE-2026-11-25.md)
