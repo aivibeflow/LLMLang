@@ -1,0 +1,1885 @@
+{
+  "pinned_tree": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+  "selection_ledger": "research/research-management/RT-00/EXACT-LEDGER-REFRESH-01/evidence.json",
+  "counts": {
+    "ledgers": 207,
+    "versions": 133,
+    "tool_artifact_hashes": 15,
+    "host_fields": 22,
+    "tool_and_host": 17,
+    "version_without_host": 116,
+    "none_under_checked_fields": 69
+  },
+  "ledgers": [
+    {
+      "path": "research/compiler-and-translation/RT-09/INCREMENTAL-TRANSLATION-CLOSURE-01/evidence.json",
+      "blob": "e81321825a9fc43aa2f1ce5233c0a385a4b4c3eb",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-09/SELECTIVE-TRANSLATION-01/evidence.json",
+      "blob": "f7140fdf520960c36228351e4260654639e39021",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-09/SSA-PARALLEL-COPIES-01/evidence.json",
+      "blob": "640bc41ecd869beea94a5d2f6927c6865e96cde6",
+      "version": {
+        "python": "3.12.14",
+        "compiler": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-09/STATIC-LINK-ARTIFACT-IDENTITY-01/evidence.json",
+      "blob": "0aab48e077190b164189c6e10e8a065862bce239",
+      "version": {
+        "python": "3.12.14",
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+        "archive_tool": "GNU ar (GNU Binutils for Debian) 2.44"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-09/TRANSLATION-OUTCOME-CLOSURE-01/evidence.json",
+      "blob": "679d3afb5421c0a5fa94ebdd4e601c699e3774e2",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-09/WASM-CHECKED-DIVISION-01/evidence.json",
+      "blob": "66ee6739b04b9fd65b19baf0465cd51b93ba65c4",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/COMMON-BACKEND-RECEIPTS-01/evidence.json",
+      "blob": "bbc49b58b97bfb812873a4adecde20463642b597",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/CPP-DESTRUCTOR-ABI-01/evidence.json",
+      "blob": "013e677229347b1223cc97257486d67d3d919562",
+      "version": {
+        "python": "3.12.14",
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+        "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/DIRECT-NATIVE-THRESHOLD-01/evidence.json",
+      "blob": "a8800b0db0179291a0d0f77421156e6f349eecb1",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/FFI-TAGGED-SUM-01/evidence.json",
+      "blob": "9f4ebd29d99930f040efbcbf90a9bbdf1b909899",
+      "version": {
+        "compiler": "cc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/FFI-TARGET-PACKAGE-CACHE-01/evidence.json",
+      "blob": "b270a25cbbece56c9a90b377ec2765ff0000dcc2",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/FFI-WINDOWS-COFF-PROFILES-01/evidence.json",
+      "blob": "c884768c650ab28bae196f89ca0621396270d8e2",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/GO-DEFERRED-RESOURCE-CAPTURE-01/evidence.json",
+      "blob": "cf62dfcc4f2686a91851541b5482c3b855bcb91b",
+      "version": {
+        "python": "3.12.14",
+        "go": "go version go1.24.13 linux/amd64"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/JAVA-CLEANUP-OCCURRENCES-01/evidence.json",
+      "blob": "c28c74509eae1e11e32c4438e7f0e475bc5bdfaf",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/LLVM-BITCODE-TOOLCHAIN-01/evidence.json",
+      "blob": "66bdf9075cd3e6bfeca2832c49de92f66e37c60e",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/LLVM-CORRELATED-FREEZE-01/evidence.json",
+      "blob": "4a4bf21185c09b7a55f3cf732e1f51788ea1bcfb",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/LLVM-DEFINEDNESS-BOUNDARIES-01/evidence.json",
+      "blob": "d6bb08ce6903e2d1c88eb39d310a824e45226d69",
+      "version": {
+        "python": "3.12.14",
+        "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/LLVM-PROGRESS-BOUNDARIES-01/evidence.json",
+      "blob": "17e3ed5b44bb82a385bff277e6d909682e87e940",
+      "version": {
+        "python": "3.12.14",
+        "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/PROFILE-GUIDED-RANKING-01/evidence.json",
+      "blob": "052e4566be7050312f48c06bc51784f762c75187",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/RUST-NONZERO-OPTIONAL-ABI-01/evidence.json",
+      "blob": "df4088f632029387a16192e1dc486e6ce5b1a299",
+      "version": {
+        "python": "3.12.14",
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/TARGET-SUPPORT-MATRIX-01/evidence.json",
+      "blob": "c2df466296470ec399aecf960338e545f02477e1",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/WASI-REACTOR-WRITE-01/evidence.json",
+      "blob": "b709081d9a0bb94fff6152b9df6b59d0be06049a",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/WASM-HOST-EFFECT-BOUNDARY-01/evidence.json",
+      "blob": "2327127e4ad599978f0853f959bc704862343eb4",
+      "version": {
+        "python": "3.12.14",
+        "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/compiler-and-translation/RT-28/SOURCE-BINDING-01/evidence.json",
+      "blob": "1a5db21d2401faacf710d4aa49af2132a86bfd83",
+      "version": {
+        "python": "3.12.14",
+        "git": "git version 2.56.1",
+        "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)"
+      },
+      "digest": {
+        "clang_sha256": "df2e7d9b9e23822587cf04ac28f206a1ddaac5053312a4c875acf5608701b9d2"
+      },
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-32/LEAN-ARTIFACT-REPLAY-01/evidence.json",
+      "blob": "706dd55286af0dbd23a004ce13f1fe2f8c25b03b",
+      "version": {
+        "sqlite": "3.53.1",
+        "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "digest": {
+        "tool_hashes.bin/lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+        "tool_hashes.lib/lean/Init.olean": "e619b6b24a1bf6a1b961271e047545ebe2c15a5e642f3c08033cb2f9a7accafd",
+        "tool_hashes.lib/lean/libleanshared.so": "e2c403b411497bbc325d0a26bf57ba0132271750bf6d84e32cd61a9db4777252"
+      },
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-33/CACHE-ADMISSION-SOUNDNESS-01/evidence.json",
+      "blob": "41f62323d0f4151b72b44bccdf0d4c08e465345a",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-33/CACHE-WORKSPACE-REUSE-01/evidence.json",
+      "blob": "9401538e551b7b3ccb0ce35d5fb7ed9ae98ee596",
+      "version": {
+        "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-33/CHECKED-TRANSFER-01/evidence.json",
+      "blob": "6e6f4ba32b79dbbd34ebadebad1732adc388ebd9",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-33/PANTOGRAPH-ADAPTER-01/evidence.json",
+      "blob": "212a966c18219bf010e489007d940ad1e982e933",
+      "version": {
+        "lean": "Lean (version 4.31.0, x86_64-unknown-linux-gnu, commit 68218e876d2a38b1985b8590fff244a83c321783, Release)"
+      },
+      "digest": {
+        "tool_hashes.lean": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+        "tool_hashes.lean_shared": "844963455a7800b417b067a3c7ad6cb86c34286b54be596b1e2b1e3808d6b718",
+        "tool_hashes.native_api": "2ea914bbd1415ec4bbceeec938e28013e23f2c472f9d338a0587d8e9777ea83d",
+        "tool_hashes.native_repl": "4ed17dc81eed70ced27fb2f5aeaf3d02e0f5ee88e583fca84c2bea8133e5eb04",
+        "tool_hashes.repl": "f834042cc4d824045698073463eff3792ff05a4524163999f88e2ecc76c17157"
+      },
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-33/REMOTE-PROOF-CAS-01/evidence.json",
+      "blob": "c8da605515c026aa5193eac4f62fecf03c06060c",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-33/SMT-ADAPTER-COMPARISON-01/evidence.json",
+      "blob": "fa708e3b1fca057cca8b63c7256c02964c867440",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-33/SMT-ARTIFACT-REPLAY-01/evidence.json",
+      "blob": "aa8440846841fd7096b03146879ae8ab2527d486",
+      "version": {
+        "sqlite": "3.53.1",
+        "tool_versions.carcara": "carcara 1.1.0 [git none unknown]",
+        "tool_versions.cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+        "tool_versions.lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+        "tool_versions.z3": "Z3 version 4.13.3 - 64 bit"
+      },
+      "digest": {
+        "tool_hashes.carcara": "8e4db8912497cd2b628c9d7f4f925b4601c2b9e4ffba91df5e980b61c70f2380",
+        "tool_hashes.cvc5": "6aecddf466552b83bb5883756c7955e0c9d5ddcc6d7f45b48c2f6e06a741b102",
+        "tool_hashes.lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+        "tool_hashes.z3": "c28f5598836fe6312ed4b25a98525fb58e2800d4c4f8117a1daeb04e6327686c"
+      },
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-33/TEMPORAL-CHECKPOINT-01/evidence.json",
+      "blob": "d6193a44c3fbcfb06104d764d9814a77fa426104",
+      "version": {
+        "java": "openjdk version \"21.0.13\" 2026-10-20",
+        "tlc": "2026.11.19.180144 bc1b506",
+        "apalache": "0.63.0"
+      },
+      "digest": {
+        "apalache_jar": "f2d43f2e279a657be50b2ecec3a013ba2915266008a2562b38412c3269347dc9"
+      },
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-33/TYPED-PROOF-KEYS-01/evidence.json",
+      "blob": "2547cea1828de85d59973cd5b663bb7fd806d81b",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-34/INFERENCE-VECTORS-01/evidence.json",
+      "blob": "698e06018000eb2017802c4ec3b58b7e0db2f148",
+      "version": {
+        "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-34/LOOP-CALL-CORRESPONDENCE-01/evidence.json",
+      "blob": "0f01868ad04ac589c95b9d09c9c76e9c6a28ec66",
+      "version": {
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+        "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-34/PARALLEL-EXPECTED-OUTPUT-01/evidence.json",
+      "blob": "f66ef293d8b23880056055abff83d897fda03104",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-34/READ-LOWER-AND-QUEUE-01/evidence.json",
+      "blob": "3bacd412697f2cb99a292e27d3dc60a9c13b6648",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-34/RESOURCE-AWARE-LOWERING-01/evidence.json",
+      "blob": "cfea0db1028c2c8db9026b3c4b074f7a1f65acf0",
+      "version": {
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+        "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/formal-verification/RT-34/RESOURCE-CONTRACT-IR-01/evidence.json",
+      "blob": "e4d0df514ffd5289d017f8b10f923de8b00ad374",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-01/ADOPTION-READINESS-01/evidence.json",
+      "blob": "c7f5543d340ba405bd88af1e5c520f5d5be6f5a9",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-01/END-TO-END-EXAMPLES-01/evidence.json",
+      "blob": "182d6bfc37d6fe77c3cc9c1c36aa99cfb23e98b5",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-03/DOWNSTREAM-EDGE-01/evidence.json",
+      "blob": "69b37755ad598161ffaabdc82d64df8ae357daf4",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-03/PROFILE-SYNTHESIS-01/evidence.json",
+      "blob": "11bac65301c6b10570d2f8cc6c8097afd14cf821",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/ASYNC-RESOURCE-CANCELLATION-01/evidence.json",
+      "blob": "cf2e09a2207e561e0c543d8256770cc953b075ed",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/CROSS-TARGET-CONFORMANCE-01/evidence.json",
+      "blob": "3cff53e19117fc2724cb235a31d05d3de9df6332",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/DEPENDENT-BOUNDARY-VALUES-01/evidence.json",
+      "blob": "2cc9dfd857962d2f3007722b1c30be92ba595a45",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/DISJOINT-BORROWS-01/evidence.json",
+      "blob": "147657651bc0300d2011c4df3750bbe44b864d19",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/DURABLE-TYPED-STATE-01/evidence.json",
+      "blob": "1f42de2f6f089a9aa06a0159f123eabf0c4c52f9",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/GENERIC-CONTEXT-INFERENCE-01/evidence.json",
+      "blob": "fc8274006daa7e8ff2406ccf912dbdbf9031f054",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/INFERENCE-BOUNDARIES-01/evidence.json",
+      "blob": "cbaddefa87ead04643ebc7e44d9aa4102df0c368",
+      "version": {
+        "python": "3.12.14",
+        "go": "go version go1.24.13 linux/amd64"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/LENGTH-REFINEMENT-01/evidence.json",
+      "blob": "9b68f32853153c29b05c8f76f1eb4b3a089f5eea",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/NATIVE-CLEANUP-FAILURE-01/evidence.json",
+      "blob": "1aa1230d9f8c94c41ec916105a38133289ac11b0",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/NESTED-OPTIONAL-BYTE-01/evidence.json",
+      "blob": "7caf36b4cccd032f019c25c467c1f67cd8da28a3",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {
+        "native_platform": "x86_64"
+      }
+    },
+    {
+      "path": "research/language-design/RT-04/OPAQUE-PROVIDER-TYPES-01/evidence.json",
+      "blob": "22af98f86c5caa7d227fdbf1f65f1d542bac564b",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/POLYMORPHIC-LIFETIMES-01/evidence.json",
+      "blob": "a1e4b09b81dbefce02b7c7f862ce8ab723fbbd28",
+      "version": {
+        "compiler": "rustc 1.85.1 (4eb161250 2025-03-15)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/PRIMITIVE-ALGEBRAIC-ENCODINGS-01/evidence.json",
+      "blob": "1bb85923b25f504c01c1998dc19c1eb260241c2f",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/RECOVERY-EFFECTS-01/evidence.json",
+      "blob": "a9d2f1e0d2955cb0c506e080a3bedda322149e47",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/SCOPED-MUTABLE-REGIONS-01/evidence.json",
+      "blob": "74045f3f9a8668141bacf4491d997d2f05a51551",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/STATE-INCARNATION-01/evidence.json",
+      "blob": "42c85f80838b923aa2efca1bbbfab6f6045cf3b1",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/TYPE-CONTRACT-RELATION-01/evidence.json",
+      "blob": "7b42ecb3076697832541f20eb4c5a255bd04b1f7",
+      "version": {
+        "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-04/TYPED-CAPABILITY-ERRORS-01/evidence.json",
+      "blob": "95b9eaa9d2f84f7703354d2407630f9d2b0cacc7",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-31/ATTEMPT-MEASURES-01/evidence.json",
+      "blob": "d272cea4376006e522e62bebd7e48977b31842b0",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-31/AUTHORING-PROTOCOL-01/evidence.json",
+      "blob": "256f3991b4205d8ad67d0f833a0c94ca002df154",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-31/FRONTEND-CONTRACT-01/evidence.json",
+      "blob": "4822ad6326fd82056a0fad12a38d218b87daf270",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-31/HELDOUT-REGRESSION-01/evidence.json",
+      "blob": "490338a32ae91d11910636e368806ddc0eae7fca",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-31/HYBRID-PROFILE-01/evidence.json",
+      "blob": "fc360f5e6acd64003418d7c2bd3a01cf61554fd9",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-31/MCP-SESSION-DAG-01/evidence.json",
+      "blob": "bca08fb4297601a58cad3d743d46072b44c276ed",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/language-design/RT-31/PRIVATE-RECORDING-01/evidence.json",
+      "blob": "37bf91dd602135415de9c2114bc522d4e21f2d77",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/EXTERNAL-CAS-COLLECTION-01/evidence.json",
+      "blob": "c962af22a6fb374a10ec7fc6824e1b43646bc593",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/GRAPH-REPLICA-RECOVERY-01/evidence.json",
+      "blob": "41a33160e47e416445b1933101813c10d976a323",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/IMMUTABLE-INSERTION-01/evidence.json",
+      "blob": "afe321564f93d546b5fbdb6872d6faabe4c6eae6",
+      "version": {
+        "runtime": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/INTEGRATED-GRAPH-INDEX-01/evidence.json",
+      "blob": "97872481ff08a1a9cdb4b90c240d280b39f962b1",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/LOCKED-RESOLUTION-01/evidence.json",
+      "blob": "f65159dba273f9160c8e79db746714b984f9ad1a",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/PORTABLE-GRAPH-PUBLICATION-01/evidence.json",
+      "blob": "6a179971da99dd2b26faeee8ad2077727432b77a",
+      "version": {
+        "git": "git version 2.52.0",
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/PUBLICATION-LIFECYCLE-01/evidence.json",
+      "blob": "8f5d6549a2501f69d1f90d3d65b49dbb7ab0b568",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/TEMPLATE-LIFECYCLE-01/evidence.json",
+      "blob": "0cda441f3f935dd4c7d7440aa348ef597399ce8d",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/TYPED-CLOSURE-01/evidence.json",
+      "blob": "414abc5e7a3f9d92fb472cdd7293de265807cad0",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/TYPED-OBJECT-LIFECYCLE-01/evidence.json",
+      "blob": "325cc6355bebcee244d597a628f8c3aa6b4dc92c",
+      "version": {
+        "sqlite": "3.53.1",
+        "node": "v24.22.3"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/CURRENT-CORPUS-RELATIONSHIPS-01/evidence.json",
+      "blob": "66c5ef1412624b1a176c8d01d4074ff711b9dc2a",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/DEPENDENCY-INTEGRATION-01/evidence.json",
+      "blob": "2dc42565fa3ae769138880c7df8ae013fcda3ee3",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/EVIDENCE-IDENTITY-DELTA-01/evidence.json",
+      "blob": "dc10683d8a69f72b18e7dc006102d70dcdbb342b",
+      "version": {
+        "python": "3.12.14",
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/FFI-ARCHIVE-REPLAY-01/evidence.json",
+      "blob": "c082a41bc2c2ef47c5695c8b81e6ba34e15e5a6d",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/GIT-ARCHIVE-REPLAY-01/evidence.json",
+      "blob": "cd5b1b7112872bf3012c1a741799693145b9e194",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/OBSERVATION-EDGE-REPLAY-01/evidence.json",
+      "blob": "5d9d660843636103d52b342baff453c0bf2e6c82",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/OBSERVATION-PROVENANCE-01/evidence.json",
+      "blob": "a76ee337afe4f34879e46bb5d4f757d6e374be97",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/RELATIONSHIP-CUE-ADJUDICATION-01/evidence.json",
+      "blob": "2da0bdc97b29915aa9e907f66110600b1588a848",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/RV64-COHORT-REPLAY-01/evidence.json",
+      "blob": "93915c475457f10ab006ca6df794dd6c3224f432",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {
+        "python_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+      },
+      "host": {
+        "host.machine": "x86_64",
+        "host.kernel": "6.18.57",
+        "host.libc": "glibc 2.41"
+      }
+    },
+    {
+      "path": "research/research-management/RT-00/SHARED-PROTOTYPE-ARCHIVE-01/evidence.json",
+      "blob": "980d8ebe92b3859dd372a95d6dab45856c8f3b81",
+      "version": {
+        "python": "3.12.14",
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/TIMING-PROVENANCE-01/evidence.json",
+      "blob": "02b9da8db19b9f5a4dbfe7702f007675df79ca90",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/TOOLCHAIN-DEPENDENCY-01/evidence.json",
+      "blob": "b46d749906964e6b73d745376c4c1882b018268a",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/TRACKED-ARCHIVE-REPLAY-01/evidence.json",
+      "blob": "fa6f90afd702b2449713974c7ae7aa67430d3776",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/RT-00/VERIFICATION-DEPENDENCIES-01/evidence.json",
+      "blob": "1da5c4aebf89f06ccf91b3a808de2e40f21785d5",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/SCALABILITY-METRICS-01/evidence.json",
+      "blob": "d12f9e6db8eca2d6f8bda7d33ee5f94fbd4c9173",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/planning-and-synthesis/CONCURRENT-RELEASE-01/evidence.json",
+      "blob": "2decd5fb7830a1774073bad238ddaa6b594dfdf4",
+      "version": {
+        "python": "3.12.14",
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-01/evidence.json",
+      "blob": "0eb035d0c2fcae152f1a12739f1b659e17ec7784",
+      "version": {
+        "python": "3.12.14",
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {
+        "host.machine": "x86_64",
+        "host.kernel": "6.18.57",
+        "host.libc": "glibc 2.41"
+      }
+    },
+    {
+      "path": "research/research-management/planning-and-synthesis/INTEGRATED-CANDIDATES-01/evidence.json",
+      "blob": "5abe099d122cde5a32cd0d4649247af11632c3e0",
+      "version": {
+        "python_version": "3.12.14",
+        "git_version": "git version 2.56.1",
+        "solver_versions.cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+        "solver_versions.z3": "Z3 version 4.13.3 - 64 bit"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/ASYNC-TERMINAL-SETTLEMENT-01/evidence.json",
+      "blob": "dc883e28ddf93cb2f6b74d2cd6617bc7949a271a",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/DIRECTORY-RELATIVE-POSIX-01/evidence.json",
+      "blob": "f3c0cb08899718bf54f2599cab71123e0c973558",
+      "version": {},
+      "digest": {},
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/LIBC-ERROR-CARRIERS-01/evidence.json",
+      "blob": "8e7e70abf99e2fa1bf39ac0ffd401b1b9ea94eea",
+      "version": {
+        "python": "3.12.14",
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {
+        "libc_archive_sha256.glibc": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+        "libc_archive_sha256.musl": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0"
+      },
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/LIBC-SYSCALL-CANCELLATION-01/evidence.json",
+      "blob": "96046909629505ec2e3e456c9cd6c7e5e406f662",
+      "version": {
+        "python": "3.12.14",
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {
+        "libc_archive_sha256.glibc": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+        "libc_archive_sha256.musl": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0"
+      },
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/LINUX-SYSCALL-ARCHITECTURES-01/evidence.json",
+      "blob": "31b4c8740fa38455a181bef0623d3774d45feeaf",
+      "version": {
+        "python": "3.12.14",
+        "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+        "qemu": "qemu-aarch64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+      },
+      "digest": {
+        "qemu_sha256": "73cc2584f119f9e74c85c0a8549dbb6fd104ae3897a06a7500797f9e5b4d0943"
+      },
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/MEDIATED-DESCRIPTORS-01/evidence.json",
+      "blob": "e2bb350422cbad7df54488f3d8678b20bd13a5d4",
+      "version": {},
+      "digest": {},
+      "host": {
+        "host": "x86_64"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/NATIVE-BYTE-TEXT-01/evidence.json",
+      "blob": "043d9a74f2c6c2cdbc0ce7f5e5355dd04f0ac2d9",
+      "version": {
+        "python": "3.12.14",
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/NATIVE-CALL-CLOSURE-01/evidence.json",
+      "blob": "a60e4e5bffb2ae207ab6a83063854972983a48e2",
+      "version": {
+        "python": "3.12.14",
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {},
+      "host": {
+        "platform": "x86_64"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/NATIVE-SIGNAL-PRIMITIVES-01/evidence.json",
+      "blob": "b40ad85e3ba1dafba138409be7580d8a7d651a31",
+      "version": {
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {},
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/PIPE-CONFORMANCE-SCOPE-01/evidence.json",
+      "blob": "4d95c64730e9413b72c3a436229a58ec38c98cb0",
+      "version": {},
+      "digest": {},
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/POSIX-EDITION-DESCRIPTORS-01/evidence.json",
+      "blob": "fdf1868fdcb1d46ee368a5366273f5ff936582a8",
+      "version": {
+        "python": "3.12.14",
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {
+        "libc_archives_sha256.glibc": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+        "libc_archives_sha256.musl": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0"
+      },
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/POSIX-PROFILE-EVIDENCE-01/evidence.json",
+      "blob": "fb2cc908c1ee0f0c0049d553e889fcaf8a906575",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/POSIX-READ-CONTINUATION-PROOF-01/evidence.json",
+      "blob": "7e7406513699843c94a6188c3e5315c47cd78b0b",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/POSIX-READV-PROGRESS-01/evidence.json",
+      "blob": "e5eac47ad10f1f833990828aa04cbf9bc73afbae",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/POSIX-STARTUP-IO-SLICE-01/evidence.json",
+      "blob": "7f59d9e00773b3100b966435748b20305a32f632",
+      "version": {
+        "python": "3.12.14",
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {
+        "libc_archive_sha256.glibc": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+        "libc_archive_sha256.musl": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0"
+      },
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/POSIX-UMASK-CONTEXT-01/evidence.json",
+      "blob": "02f0cbf5dbb45454fba4725f7d819b8f1425bacc",
+      "version": {
+        "python": "3.12.14",
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {
+        "libc_archive_sha256.glibc": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+        "libc_archive_sha256.musl": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0"
+      },
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/POSIX-WAIT-STATUS-01/evidence.json",
+      "blob": "82ca4987bff91f50c159101c8a77d0ad6edae7b6",
+      "version": {
+        "compiler": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {},
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/POSIX-WRITEV-TYPED-PROGRESS-01/evidence.json",
+      "blob": "3cd775c7ab07b5e4994264d4d7ed8411f994715b",
+      "version": {},
+      "digest": {},
+      "host": {
+        "machine": "x86_64"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/PPOLL-FFI-BOUNDARY-01/evidence.json",
+      "blob": "a897d13ea85113daa3f7bb77bf68479394e0420b",
+      "version": {},
+      "digest": {},
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/RELEASE-SEQUENCE-MEMBERSHIP-01/evidence.json",
+      "blob": "d0d2101cdb454d654dba770297d99532b4f1d56c",
+      "version": {
+        "runtime": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/RESUMABLE-EXECUTION-01/evidence.json",
+      "blob": "62f9df474900ee87406f166ba3b638b382459a39",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/STACK-VM-FUEL-01/evidence.json",
+      "blob": "550124f46afebc3d4b00cbb51bfcd3561c365af4",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/TAGGED-RUNTIME-BINDING-01/evidence.json",
+      "blob": "98cefe7e3d785127090f905c44a34017aef9d936",
+      "version": {
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/WAIT-PREDICATES-01/evidence.json",
+      "blob": "6d05e7d0a1cb0bc023f5dcc2567934c507bc7ef0",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-26/DELEGATED-QUOTA-01/evidence.json",
+      "blob": "74e459d177d9cf557da73aa8e8fb35e974062b84",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-26/DURABLE-LIMIT-HANDLERS-01/evidence.json",
+      "blob": "4406c288d966bdc1fd6299a379d50848bef49b11",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-26/NATIVE-DISK-ACCOUNTING-01/evidence.json",
+      "blob": "b5711e04ae2175cde9514e5dcda2c5ad72605cc9",
+      "version": {
+        "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {},
+      "host": {
+        "kernel": "6.18.57"
+      }
+    },
+    {
+      "path": "research/runtime-and-systems/RT-26/RESOURCE-AUTHORITY-01/evidence.json",
+      "blob": "32314531b731f1fcaecf15eb8cc8f89762494ce3",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/ESP32-SCHEDULING-PROFILES-01/evidence.json",
+      "blob": "1c71ebc824899386e85aba0594d34eab2588ea63",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/RESOURCE-AND-DEADLINE-01/evidence.json",
+      "blob": "2ae7b758dd9c6efb147a03cb2b7ba9701b2b5852",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/TARGET-CLOSURE-CROSSWALK-01/evidence.json",
+      "blob": "9d04995c15bbf964fed6cc742594d2a24bd8357f",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-nested-stack/evidence.json",
+      "blob": "fb719105a7ed4b047e9d7affa816bc0dc1eaa706",
+      "version": {
+        "python": "3.12.14",
+        "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+        "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-nvic-clear/evidence.json",
+      "blob": "0a46fe8e1d57cf307e2afc3162019abb68a8a927",
+      "version": {
+        "python": "3.12.14",
+        "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+        "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-startup-retention/evidence.json",
+      "blob": "a277eff92791b63cdad32710296cc2a2ad5ba659",
+      "version": {
+        "python": "3.12.14",
+        "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+        "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-38/COMPOSED-WAKEUP-AND-REUSE-01/evidence.json",
+      "blob": "9b4e114e7a805639a55219465d3a67104b58cf85",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/evidence.json",
+      "blob": "3e7793eca420ce0b4c2bf90a58637b98d450d104",
+      "version": {
+        "qemu_version": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+        "llvm_version": "Debian LLVM version 19.1.7"
+      },
+      "digest": {
+        "qemu_sha256": "5f8ec06281e48c4155a8646aa65959e0d9adc8b915c146b93cc0419b6576ba5f"
+      },
+      "host": {}
+    },
+    {
+      "path": "research/security/RT-16/ISOLATION-BOUNDARY-01/evidence.json",
+      "blob": "e3cb38fd1b7ea6377c3ade7d16677aad2d5338cb",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/security/RT-16/PROVENANCE-BOUNDARY-01/evidence.json",
+      "blob": "d3ef0039938e514b46fc477e8a79fcf5e1c875d5",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/security/RT-16/RECOVERY-CLOSURE-01/evidence.json",
+      "blob": "82847fff2f263c0e0ef40c69822a2e51df1f1512",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/security/RT-16/TRUST-HANDOFF-01/evidence.json",
+      "blob": "c04e7969d38443b36c5e6c0cacc0bb88b8e8b05c",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/semantic-representation/RT-35/ANN-FILTER-01/evidence.json",
+      "blob": "79ac487a3132d999b902bf7528a07302c1f612c6",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/semantic-representation/RT-35/BOUND-NATIVE-CALL-01/evidence.json",
+      "blob": "ce9c5fbc5aa2cfa0e6f00bb3e439437d6db94b6f",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/semantic-representation/RT-35/COMPATIBILITY-EXPLANATION-01/evidence.json",
+      "blob": "f6f658dbc9e7dfa4892bfe320bd80ec3c520cbc3",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/semantic-representation/RT-35/DESCRIPTION-QUERY-01/evidence.json",
+      "blob": "ccc1ba2baa80e27347a1d9241e94e37eae10c3b6",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/semantic-representation/RT-35/RESPONSE-GATE-01/evidence.json",
+      "blob": "7988a344e1e141d901cf0a4859cf8a55917dbb04",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/BUILD-STAGE-REPLAY-01/evidence.json",
+      "blob": "1ecbc2b876f1c15ff64a2058e42f8e6fca29d1ce",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/CROSS-LANGUAGE-RECEIPTS-01/evidence.json",
+      "blob": "6afdc53a362c6d4c475bc52546bfa8cc4c403c76",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/MULTI-ACTION-HITS-01/evidence.json",
+      "blob": "10fd21347acb4e8fd4277b6f26e2570e46096c20",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/NATIVE-RUNTIME-CLOSURE-01/evidence.json",
+      "blob": "83afdd0f58a74bec2f23f60939c3920e8d06c58d",
+      "version": {
+        "fixture_compiler.version": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {
+        "fixture_compiler.artifact": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+      },
+      "host": {
+        "platform.machine": "x86_64",
+        "platform.system": "Linux"
+      }
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/PACKAGE-CACHE-DELIVERY-01/evidence.json",
+      "blob": "a8cc2ffa3cd6e622340127ec4d8858dc5893d52b",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/PAIRED-CACHE-SPEEDUP-01/evidence.json",
+      "blob": "80ed9bfa201381475d7aed4c05a66f8190c100ca",
+      "version": {
+        "python": "3.12.14",
+        "host.python": "3.12.14"
+      },
+      "digest": {},
+      "host": {
+        "host.arch": "x86_64",
+        "host.linux": "6.18.57",
+        "host.cpu_name": "AMD EPYC 9V74 80-Core Processor"
+      }
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/PERSISTENT-LAYERED-CACHE-01/evidence.json",
+      "blob": "e58c4cd633df2383178514980dc6b78138f89874",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/SIGNED-REBUILD-ADMISSION-01/evidence.json",
+      "blob": "8f9d0b9008e26531120d164317b1d5311a2a640a",
+      "version": {
+        "tool.version": "14.2.0"
+      },
+      "digest": {
+        "tool.digest": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+      },
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/UPSTREAM-CONTENT-CACHE-01/evidence.json",
+      "blob": "96367088e5ffd28360be59775f854af127441131",
+      "version": {
+        "toolchain_and_host.python": "3.12.14"
+      },
+      "digest": {},
+      "host": {
+        "toolchain_and_host.arch": "x86_64",
+        "toolchain_and_host.kernel": "6.18.57",
+        "toolchain_and_host.filesystem": "overlayfs"
+      }
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-BOUNDARIES-01/evidence.json",
+      "blob": "04ac100c2d186765eecef7ffd79b78e222faf8d8",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-CANDIDATE-COVERAGE-01/evidence.json",
+      "blob": "59f8838bef1cf1b677f7be87eab6ee220591fba4",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-FIXTURE-SCORING-01/evidence.json",
+      "blob": "69303b6ad71351c9ac0209c7698b5abae6a03a9c",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-IDENTITY-01/evidence.json",
+      "blob": "722c82fbcd527541f6a8a6e6bc6de6a7409212e5",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-MINIMIZATION-01/evidence.json",
+      "blob": "bb715adf32110b76f5a59cab5bea7228a4ee626a",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-PROJECTIONS-01/evidence.json",
+      "blob": "62e09d62ac48f99060937f9bf6926a71cac0d6f5",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-TOKENS-01/evidence.json",
+      "blob": "756b5a7638370c095b1cafb51c56d7ae7ce15135",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/KNOWLEDGE-CONTEXT-MCP-01/evidence.json",
+      "blob": "6e8f64b952a4d2d7e25bd9374295a89dd1983fbe",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/KNOWLEDGE-CONTEXT-PAGES-01/evidence.json",
+      "blob": "a36391e4e78d5ca834524d24f38c39ddf64b9ebb",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/OBLIGATION-ROSTER-01/evidence.json",
+      "blob": "ea1105c5b01be9a72351a97a1868d6e8cfc5e103",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/SOURCE-INVENTORY-01/evidence.json",
+      "blob": "f8beeaa1faa1f7629b23761b44456eee08bbdd31",
+      "version": {
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/SOURCE-TRUST-01/evidence.json",
+      "blob": "8db2a2f96da2b79d38dc961f899dfff397695f08",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/TASK-AUTHORITY-01/evidence.json",
+      "blob": "69f1cd820a51c2141623edf11bc4cf0e82bbde90",
+      "version": {
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/TASK-IDENTITY-01/evidence.json",
+      "blob": "ed199374cecc9ab4d7b907c665026953ee953eae",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/TASK-LIFECYCLE-BOUNDARY-01/evidence.json",
+      "blob": "22f0152ef975afced032bc28e7acb1b7a59cc3d8",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/TASK-PINNED-REFERENCES-01/evidence.json",
+      "blob": "ef2028f36a0e92ceacde9836bc7532ef7f08575d",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/TASK-PRODUCERS-01/evidence.json",
+      "blob": "e0876794c2c1c410f9abdb930077ad9644c7fbcd",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/TASK-SIBLINGS-01/evidence.json",
+      "blob": "cdf52365e162299ce4c24900e47b93a476a495ae",
+      "version": {
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-17/CONTRACT-DIAGNOSTICS-01/evidence.json",
+      "blob": "a6f64c84bdd74e4f9bec748d0e9bd60a84e45e14",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-17/DEBUG-SOURCE-SCOPE-01/evidence.json",
+      "blob": "e88e3ab1922f9bacac79a5d9ba8688608d0e074d",
+      "version": {
+        "python": "3.12.14",
+        "compiler": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/GENERATION-PUBLICATION-01/evidence.json",
+      "blob": "8e0727100189a2d1be6fb044c1c72bcd7c5923fb",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/INTERCHANGE-BOUNDARY-01/evidence.json",
+      "blob": "115981910191620919cf3a62365ef99e061d9915",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/MULTIREF-RECOVERY-01/evidence.json",
+      "blob": "cb2833ce6d99def971ed82bb34d6f5f02dc591b7",
+      "version": {
+        "python": "3.12.14",
+        "git": "git version 2.56.1",
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/TOOLCHAIN-ROUNDTRIP-01/evidence.json",
+      "blob": "6708a97f6b8b3598478a8ed59c34b48247100739",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/WORKSPACE-ARBITRATION-01/evidence.json",
+      "blob": "2b021aea794c72fff703a90415f85f0661580ba2",
+      "version": {
+        "python": "3.12.14",
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/WORKTREE-EDIT-01/evidence.json",
+      "blob": "e9de01a4fbfc1926239220a6ab63d30853b52077",
+      "version": {
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/CALL-IDENTITY-RECONCILIATION-01/evidence.json",
+      "blob": "35374fcdbf415aea41c400e43386c414b2210cba",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/COMPLETION-OUTBOX-01/evidence.json",
+      "blob": "703fab1e619621d0c0555d732ea64bcd763e893e",
+      "version": {
+        "git": "git version 2.56.1",
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/EXACT-TREE-ACCEPTANCE-01/evidence.json",
+      "blob": "13982492316efe417c2e6e3d1633f99386a42f69",
+      "version": {
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/FORK-IDENTITY-01/evidence.json",
+      "blob": "dd4915c49a8ed3d8b2e6198357d3ed17368db587",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/NATIVE-PROPAGATION-01/evidence.json",
+      "blob": "ecf7665cf00a53f89398b11a004c26af85f5e45b",
+      "version": {
+        "gcc": "14.2.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/REVERSE-CALLS-01/evidence.json",
+      "blob": "4814a13c3aade7269c6b2915d3657c40f7c7888c",
+      "version": {
+        "gcc": "14.2.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/REVERSE-COVERAGE-01/evidence.json",
+      "blob": "fd4c5c5231880e49840601faf5ba775ba1898254",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/CIP-COORDINATOR-01/evidence.json",
+      "blob": "3e5a04d442e24e05660837041a189ca7afff77ca",
+      "version": {
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/CIP-RECOVERY-01/evidence.json",
+      "blob": "15d3cc84de8e022295884b35191eec934868820e",
+      "version": {
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/CONCURRENT-GRAPH-01/evidence.json",
+      "blob": "a781a59e1cae90a7a8a038a4dd7c92a6965662d8",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/FORK-REGISTRY-HANDOFF-01/evidence.json",
+      "blob": "5a8eabc85d3ec80528a4e2ee6a9bea10bde6f83a",
+      "version": {
+        "python": "3.12.14",
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/GIT-CORE-COORDINATOR-01/evidence.json",
+      "blob": "58ed974eb8ad47bb8ed496958c0e523424974bd8",
+      "version": {
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/GIT-MAPPING-COORDINATION-01/evidence.json",
+      "blob": "28bc561ab7c9e9b02c9e951a5950b85914e785e0",
+      "version": {
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/IDENTITY-LINEAGE-01/evidence.json",
+      "blob": "960198c27b81db8d84d3fec0d4c0fe0e015cc6ad",
+      "version": {
+        "python": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/MERGE-ATTRIBUTE-SCOPE-01/evidence.json",
+      "blob": "8d4480816541e778e7d6ff8115d07dc2326c9cbd",
+      "version": {
+        "python": "3.12.14",
+        "git": "git version 2.56.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/MERGE-AUDIT-REPLAY-01/evidence.json",
+      "blob": "2adb26b2e612c14b271c720721059477f5b82b60",
+      "version": {
+        "runtime": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/MERGE-COVERAGE-01/evidence.json",
+      "blob": "8738d8e99cb174095d3c392899797b277ba30de2",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/OPTIMISTIC-RETRY-01/evidence.json",
+      "blob": "0de07dc387b7245240fb2587253dbd1d2e211ea9",
+      "version": {
+        "python": "3.12.14",
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/PURE-MERGE-CORE-01/evidence.json",
+      "blob": "8f19fd35486e6e3a2a1346a650a6752194fc6f26",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/SOURCE-REVERSE-CIP-GATE-01/evidence.json",
+      "blob": "edb3a51942f409c6396058cea88d98400f97c0ca",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/TYPED-SEMANTIC-DIFF-01/evidence.json",
+      "blob": "8151320ee9c15e38b3e035bb2130c6924fe4df93",
+      "version": {},
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-27/DIVERGENT-GIT-HISTORY-01/evidence.json",
+      "blob": "e2418fa78a5da93ee5c7273b59d0d2a7987a2354",
+      "version": {
+        "git": "git version 2.52.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-27/GIT-CLOSED-REPRESENTATION-01/evidence.json",
+      "blob": "e56c7103291e997aa4421c3d720f5f0bc6ff3786",
+      "version": {
+        "git": "git version 2.52.0",
+        "sqlite": "3.53.1"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-27/JOURNAL-COMPACTION-01/evidence.json",
+      "blob": "98aa0bd6162fd5001f7304630e71306923e847c2",
+      "version": {
+        "git": "git version 2.56.1",
+        "runtime": "3.12.14"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-27/LARGE-BINARY-CLOSURE-01/evidence.json",
+      "blob": "f73afeb657abf58c4bf804e8ead7195f0e76addc",
+      "version": {
+        "git": "git version 2.52.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-27/PROTOTYPE-SPG-PACKS-01/evidence.json",
+      "blob": "1a8f48c89a0a24ec0796b0b979d391042bf1d398",
+      "version": {
+        "git": "git version 2.52.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-27/SEGMENTED-GIT-TRANSPORT-01/evidence.json",
+      "blob": "b3061f87cd7246488bf0b767fa0b90e29606ca0b",
+      "version": {
+        "git": "git version 2.52.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-27/SPG-PROFILED-RECORDS-01/evidence.json",
+      "blob": "7cd6d14a1c57ec90ea09b8e47da5811eb5f97b72",
+      "version": {
+        "git": "git version 2.52.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-27/SPG-REVIEW-PROJECTION-01/evidence.json",
+      "blob": "bdc0cb24fe34bc05ad52c6c47212a466f3ade704",
+      "version": {
+        "git": "git version 2.52.0"
+      },
+      "digest": {},
+      "host": {}
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-27/TEXT-MERGE-GATE-01/evidence.json",
+      "blob": "d39fe9c743e805e2260c6b6a4fd9691e6d63146d",
+      "version": {
+        "git": "git version 2.52.0"
+      },
+      "digest": {},
+      "host": {}
+    }
+  ]
+}
