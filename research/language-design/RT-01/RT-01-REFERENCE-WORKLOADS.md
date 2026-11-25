@@ -46,6 +46,8 @@ The last run used the three-executable interface. It returned status 1 after `T-
 
 The [typed CLI vertical slice](RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md) runs this exact corpus through a closed recipe interpreter and generated Rust O0/O3. All candidate and baseline configurations pass. Separate recipe changes distinguish checked division, positional-argument behavior and diagnostic stream policy. General source and participant evaluation remain open.
 
+The [Calculator call-site split](RT-01-CLI-CALL-SITE-REFACTOR-2026-11-25.md) exercises the move and refactor workload through native executables. An explicit per-call decision preserves the existing script and upgrades one report while refusing removal of required source. The controlled agent and reviewer comparison remains open.
+
 ## 3. Controls for design comparison
 
 For each candidate, record the version of the profile, toolchain and target along with the fixture and starting repository revision. Require the same observations across backends, with explicitly recorded unsupported cases. A disagreement with a fixture, an unsupported required feature, or missing evidence for a mandatory claim blocks acceptance for that workload. Two candidates that pass the same cases can still differ in source complexity, diagnostics or the work needed to check a change.

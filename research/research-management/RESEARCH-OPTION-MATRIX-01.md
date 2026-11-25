@@ -239,6 +239,8 @@ For histories with multiple best common ancestors, the [native merge-base compar
 
 [The typed CLI vertical slice](../language-design/RT-01/RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md) compares interpreting exact admitted recipes with lowering those same entry bodies to Rust O0/O3. Each candidate and existing host baseline passes 34 byte and exit cases. Floor division, empty positions and diagnostic stream changes fail both candidate routes. Extend the workload before using the result to rank full tools or evaluate authoring effort.
 
+[Calculator call-site split](../language-design/RT-01/RT-01-CLI-CALL-SITE-REFACTOR-2026-11-25.md) compares source path, alias, retained pin and explicit per-call binding. The executed workload separates preserving the old contract from choosing an opt-in variant and from reconstructing the exact provider. Both warm-cache removals match native behavior and fail source closure.
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.
