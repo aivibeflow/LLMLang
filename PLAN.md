@@ -575,6 +575,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define an executable reference semantics for a deliberately small subset.
 - [ ] Define observable behavior: return values, errors, state changes, I/O, resource behavior, concurrency, and declared effects.
 - [ ] Define semantic equivalence and refinement.
+  - [ ] [WIP] Compare nondeterministic observation refinement with terminal-only and explicit nontermination semantics, including Lean and finite graph checks on `research/all`.
   - [x] Kernel-check that one-way preservation of all postconditions is equivalent to equality of complete observations in the total deterministic state/Result fragment. Replay 8,210 pinned finite rows in Lean and reject the trace-erasure control. [RT-07 observation equivalence proof](research/formal-verification/RT-07/RT-07-STATE-RESULT-OBSERVATIONAL-EQUIVALENCE-2026-11-25.md)
 - [ ] Define evaluation order, effects, error propagation, and state transitions.
   - [x] Compare eager and short-circuit Boolean execution with state and errors. Two GCC profiles match every one of 588 observations per profile. The modes differ in 75 cases, including 37 visible only in the trace. Lean checks the exact determining-branch equivalence condition. Broader effects and compiler correspondence remain open. [Boolean effect order](research/formal-verification/RT-07/RT-07-BOOLEAN-EFFECT-ORDER-2026-11-25.md)
