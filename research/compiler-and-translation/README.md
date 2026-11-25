@@ -34,6 +34,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-28 native build handoff](RT-28/RT-28-NATIVE-BUILD-HANDOFF-2026-11-25.md) checks timestamp freshness, exact build receipts and typed Python use of a C shared artifact.
 - [RT-28 mixed-language settlement](RT-28/RT-28-MIXED-LANGUAGE-SETTLEMENT-2026-11-25.md) compares native C, a Python adapter and a mirror prototype with distinct seeded failure controls.
 - [RT-28 source occurrences and mirror bindings](RT-28/RT-28-SOURCE-OCCURRENCE-AND-MIRROR-BINDING-2026-11-25.md) checks incremental C and Python reconciliation over fourteen immutable Git revisions.
 

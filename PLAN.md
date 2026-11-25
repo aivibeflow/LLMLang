@@ -1731,7 +1731,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define editor, language-server, and debugging requirements.
   - [x] Check eight ELF builds and 64 source-binding pairs. Four exact DWARF requests resolve. Four stripped sessions stay unavailable, and 56 mismatched bindings refuse. The moved editor line maps to another function in the older artifact. Interactive debugging and editor evaluation remain open. [Editor and debug source scope](research/toolchain-and-collaboration/RT-17/RT-17-EDITOR-AND-DEBUG-SOURCE-SCOPE-2026-11-25.md)
   - [x] Exercise LSP push, pull, refresh and watched-file messages in 18 client/server sessions. A document version and document-bound result ID preserve four wrong results in each delivery style. A complete read projection rejects all four and avoids one whole-workspace refresh after an unrelated edit. Editor behavior and participant evaluation remain open. [LSP diagnostic freshness](research/toolchain-and-collaboration/RT-17/RT-17-LSP-DIAGNOSTIC-FRESHNESS-2026-11-24.md).
-- [ ] [WIP] Define migration and interoperability with existing languages and build systems.
+- [x] Define migration and interoperability with existing languages and build systems.
+  - [x] Check native GNU Make and typed Python interop with three verified shared builds and 51 observations. Header content changes defeat timestamp-only freshness, while the exact current build receipt refuses stale bytes. Production dependency discovery and cutover remain open. [Native migration build handoff](research/compiler-and-translation/RT-28/RT-28-NATIVE-BUILD-HANDOFF-2026-11-25.md)
 - [ ] [WIP human] Evaluate learning curve and review quality for human developers.
 - [ ] Evaluate LLM authoring workflows without treating generated output as trusted.
 - [ ] Build representative end-to-end examples.

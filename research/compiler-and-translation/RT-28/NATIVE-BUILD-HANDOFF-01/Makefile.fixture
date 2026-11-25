@@ -1,0 +1,2 @@
+provider.so: provider.c limits.h build.opts Makefile
+	$(CC) -std=c11 -Wall -Wextra -Werror -fPIC -shared -O2 $$(cat build.opts) provider.c -o provider.so
