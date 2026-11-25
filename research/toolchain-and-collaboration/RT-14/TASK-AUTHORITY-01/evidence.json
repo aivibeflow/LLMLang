@@ -1,0 +1,861 @@
+{
+  "git": "git version 2.56.1",
+  "admission_checks": 120,
+  "authorized_in_matrix": 2,
+  "native_commit": {
+    "tree": "6149391359d57ead53be5d94f7f95ebdabe48853",
+    "parent": "19bee2cfdd3fabcb3b7fac8a5fedb18213f0aa58",
+    "commit": "de1990ecdbfcabda7a8cb787230ae29a71b02d7c"
+  },
+  "native_local_push": "de1990ecdbfcabda7a8cb787230ae29a71b02d7c",
+  "commit_approval_cannot_authorize_push": "approval-binding-mismatch",
+  "push_approval_replay": "approval-replayed",
+  "push_after_local_head_moves": {
+    "exact_refspec": "de1990ecdbfcabda7a8cb787230ae29a71b02d7c",
+    "branch_refspec_control": "1c113142e86dcda45f57ec79d8aaeb88bb66f3a0"
+  },
+  "task_revision_change": "completion-unsatisfied",
+  "concurrent_git_head_change": "ref-CAS-refused; reservation released",
+  "matrix": [
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "exact",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "exact",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "exact",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "exact",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "exact",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "missing",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "missing",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "missing",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "missing",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "missing",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-actor",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-actor",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-actor",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-actor",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-actor",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-repo",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-repo",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-repo",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-repo",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-repo",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-base",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-base",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-base",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-base",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-base",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-action",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-action",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-action",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-action",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": false,
+      "capability": "wrong-action",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "exact",
+      "approval": "exact",
+      "result": "authorized"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "exact",
+      "approval": "missing",
+      "result": "approval-required"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "exact",
+      "approval": "expired",
+      "result": "approval-expired"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "exact",
+      "approval": "wrong-target",
+      "result": "approval-binding-mismatch"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "exact",
+      "approval": "wrong-approver",
+      "result": "approver-is-not-human"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "missing",
+      "approval": "exact",
+      "result": "missing-capability"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "missing",
+      "approval": "missing",
+      "result": "missing-capability"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "missing",
+      "approval": "expired",
+      "result": "missing-capability"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "missing",
+      "approval": "wrong-target",
+      "result": "missing-capability"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "missing",
+      "approval": "wrong-approver",
+      "result": "missing-capability"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-actor",
+      "approval": "exact",
+      "result": "wrong-principal"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-actor",
+      "approval": "missing",
+      "result": "wrong-principal"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-actor",
+      "approval": "expired",
+      "result": "wrong-principal"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-actor",
+      "approval": "wrong-target",
+      "result": "wrong-principal"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-actor",
+      "approval": "wrong-approver",
+      "result": "wrong-principal"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-repo",
+      "approval": "exact",
+      "result": "wrong-repository"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-repo",
+      "approval": "missing",
+      "result": "wrong-repository"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-repo",
+      "approval": "expired",
+      "result": "wrong-repository"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-repo",
+      "approval": "wrong-target",
+      "result": "wrong-repository"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-repo",
+      "approval": "wrong-approver",
+      "result": "wrong-repository"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-base",
+      "approval": "exact",
+      "result": "stale-snapshot"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-base",
+      "approval": "missing",
+      "result": "stale-snapshot"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-base",
+      "approval": "expired",
+      "result": "stale-snapshot"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-base",
+      "approval": "wrong-target",
+      "result": "stale-snapshot"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-base",
+      "approval": "wrong-approver",
+      "result": "stale-snapshot"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-action",
+      "approval": "exact",
+      "result": "action-not-granted"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-action",
+      "approval": "missing",
+      "result": "action-not-granted"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-action",
+      "approval": "expired",
+      "result": "action-not-granted"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-action",
+      "approval": "wrong-target",
+      "result": "action-not-granted"
+    },
+    {
+      "action": "commit",
+      "complete": true,
+      "capability": "wrong-action",
+      "approval": "wrong-approver",
+      "result": "action-not-granted"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "exact",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "exact",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "exact",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "exact",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "exact",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "missing",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "missing",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "missing",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "missing",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "missing",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-actor",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-actor",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-actor",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-actor",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-actor",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-repo",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-repo",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-repo",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-repo",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-repo",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-base",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-base",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-base",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-base",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-base",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-action",
+      "approval": "exact",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-action",
+      "approval": "missing",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-action",
+      "approval": "expired",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-action",
+      "approval": "wrong-target",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": false,
+      "capability": "wrong-action",
+      "approval": "wrong-approver",
+      "result": "completion-unsatisfied"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "exact",
+      "approval": "exact",
+      "result": "authorized"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "exact",
+      "approval": "missing",
+      "result": "approval-required"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "exact",
+      "approval": "expired",
+      "result": "approval-expired"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "exact",
+      "approval": "wrong-target",
+      "result": "approval-binding-mismatch"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "exact",
+      "approval": "wrong-approver",
+      "result": "approver-is-not-human"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "missing",
+      "approval": "exact",
+      "result": "missing-capability"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "missing",
+      "approval": "missing",
+      "result": "missing-capability"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "missing",
+      "approval": "expired",
+      "result": "missing-capability"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "missing",
+      "approval": "wrong-target",
+      "result": "missing-capability"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "missing",
+      "approval": "wrong-approver",
+      "result": "missing-capability"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-actor",
+      "approval": "exact",
+      "result": "wrong-principal"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-actor",
+      "approval": "missing",
+      "result": "wrong-principal"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-actor",
+      "approval": "expired",
+      "result": "wrong-principal"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-actor",
+      "approval": "wrong-target",
+      "result": "wrong-principal"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-actor",
+      "approval": "wrong-approver",
+      "result": "wrong-principal"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-repo",
+      "approval": "exact",
+      "result": "wrong-repository"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-repo",
+      "approval": "missing",
+      "result": "wrong-repository"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-repo",
+      "approval": "expired",
+      "result": "wrong-repository"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-repo",
+      "approval": "wrong-target",
+      "result": "wrong-repository"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-repo",
+      "approval": "wrong-approver",
+      "result": "wrong-repository"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-base",
+      "approval": "exact",
+      "result": "stale-snapshot"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-base",
+      "approval": "missing",
+      "result": "stale-snapshot"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-base",
+      "approval": "expired",
+      "result": "stale-snapshot"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-base",
+      "approval": "wrong-target",
+      "result": "stale-snapshot"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-base",
+      "approval": "wrong-approver",
+      "result": "stale-snapshot"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-action",
+      "approval": "exact",
+      "result": "action-not-granted"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-action",
+      "approval": "missing",
+      "result": "action-not-granted"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-action",
+      "approval": "expired",
+      "result": "action-not-granted"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-action",
+      "approval": "wrong-target",
+      "result": "action-not-granted"
+    },
+    {
+      "action": "push",
+      "complete": true,
+      "capability": "wrong-action",
+      "approval": "wrong-approver",
+      "result": "action-not-granted"
+    }
+  ]
+}
