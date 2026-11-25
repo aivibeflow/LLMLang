@@ -1287,7 +1287,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Compare five static archive links in two fresh roots. Reordering equal member bytes selects another provider and changes all 16 results. Changing unused members preserves the exact ELF. Forcing one unused symbol changes ELF bytes while preserving results. [RT-09 static link artifact identity](research/compiler-and-translation/RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md)
 - [ ] Define verification independent of the code generator wherever practical.
 - [ ] Define incremental translation and selective verification invalidation.
-  - [ ] [WIP] Check selective native translation and verification invalidation for source-location, contract-scope and body changes (#327).
+  - [x] Compare eight GCC builds and 2,048 native observations. A source-location change alters DWARF while preserving release bytes and validation scope. A wider contract preserves both binaries and requires fresh evidence. A body mutation changes machine text and fails all 128 required checks. Production dependency discovery and receipt reuse remain open. [Selective translation and verification](research/compiler-and-translation/RT-09/RT-09-SELECTIVE-TRANSLATION-2026-11-25.md)
 
 **Existing evidence:** [TRANSLATION-AND-TARGET-BACKENDS.md](research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md), [LLVM-BACKEND-ARCHITECTURE.md](research/compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md), and formal-verification research.
 
