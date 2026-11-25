@@ -1,0 +1,542 @@
+{
+  "builds": {
+    "0": {
+      "cases_per_lowering": 3645,
+      "scheduled_trace_mismatches": 0,
+      "sequential_terminal_mismatches": 888,
+      "sequential_trace_mismatches": 1050
+    },
+    "2": {
+      "cases_per_lowering": 3645,
+      "scheduled_trace_mismatches": 0,
+      "sequential_terminal_mismatches": 888,
+      "sequential_trace_mismatches": 1050
+    }
+  },
+  "compiler": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+  "moves": [
+    {
+      "mapping": [
+        "a",
+        "a",
+        "a"
+      ],
+      "schedule": [
+        [
+          "b",
+          "a"
+        ],
+        [
+          "c",
+          "a"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "a",
+        "a",
+        "b"
+      ],
+      "schedule": [
+        [
+          "c",
+          "b"
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "a",
+        "a",
+        "c"
+      ],
+      "schedule": [
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "a",
+        "b",
+        "a"
+      ],
+      "schedule": [
+        [
+          "c",
+          "a"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "a",
+        "b",
+        "b"
+      ],
+      "schedule": [
+        [
+          "c",
+          "b"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "a",
+        "b",
+        "c"
+      ],
+      "schedule": []
+    },
+    {
+      "mapping": [
+        "a",
+        "c",
+        "a"
+      ],
+      "schedule": [
+        [
+          "b",
+          "c"
+        ],
+        [
+          "c",
+          "a"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "a",
+        "c",
+        "b"
+      ],
+      "schedule": [
+        [
+          "tmp0",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "c",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "a",
+        "c",
+        "c"
+      ],
+      "schedule": [
+        [
+          "b",
+          "c"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "b",
+        "a",
+        "a"
+      ],
+      "schedule": [
+        [
+          "c",
+          "a"
+        ],
+        [
+          "tmp0",
+          "a"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "b",
+        "a",
+        "b"
+      ],
+      "schedule": [
+        [
+          "c",
+          "b"
+        ],
+        [
+          "tmp0",
+          "a"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "b",
+        "a",
+        "c"
+      ],
+      "schedule": [
+        [
+          "tmp0",
+          "a"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "b",
+        "b",
+        "a"
+      ],
+      "schedule": [
+        [
+          "c",
+          "a"
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "b",
+        "b",
+        "b"
+      ],
+      "schedule": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "c",
+          "b"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "b",
+        "b",
+        "c"
+      ],
+      "schedule": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "b",
+        "c",
+        "a"
+      ],
+      "schedule": [
+        [
+          "tmp0",
+          "a"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "c",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "b",
+        "c",
+        "b"
+      ],
+      "schedule": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "tmp0",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "c",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "b",
+        "c",
+        "c"
+      ],
+      "schedule": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "c",
+        "a",
+        "a"
+      ],
+      "schedule": [
+        [
+          "b",
+          "a"
+        ],
+        [
+          "tmp0",
+          "a"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "c",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "c",
+        "a",
+        "b"
+      ],
+      "schedule": [
+        [
+          "tmp0",
+          "a"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "c",
+          "b"
+        ],
+        [
+          "b",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "c",
+        "a",
+        "c"
+      ],
+      "schedule": [
+        [
+          "b",
+          "a"
+        ],
+        [
+          "a",
+          "c"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "c",
+        "b",
+        "a"
+      ],
+      "schedule": [
+        [
+          "tmp0",
+          "a"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "c",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "c",
+        "b",
+        "b"
+      ],
+      "schedule": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "c",
+          "b"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "c",
+        "b",
+        "c"
+      ],
+      "schedule": [
+        [
+          "a",
+          "c"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "c",
+        "c",
+        "a"
+      ],
+      "schedule": [
+        [
+          "b",
+          "c"
+        ],
+        [
+          "tmp0",
+          "a"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "c",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "c",
+        "c",
+        "b"
+      ],
+      "schedule": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "tmp0",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "c",
+          "tmp0"
+        ]
+      ]
+    },
+    {
+      "mapping": [
+        "c",
+        "c",
+        "c"
+      ],
+      "schedule": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "c"
+        ]
+      ]
+    }
+  ],
+  "python": "3.12.14",
+  "rotation_witness": {
+    "expected_packed_frames": [
+      131328,
+      513,
+      65538,
+      131328
+    ],
+    "naive_packed_frames": [
+      131328,
+      66049,
+      131330,
+      66049
+    ],
+    "seed": [
+      0,
+      1,
+      2
+    ]
+  },
+  "target": "x86_64-unknown-linux-gnu"
+}

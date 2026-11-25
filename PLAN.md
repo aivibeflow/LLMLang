@@ -1237,7 +1237,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] Decide whether backends consume typed SPG directly or a normalized target-independent semantic IR.
 - [ ] Define the lowering pipeline and preservation obligations.
-  - [ ] [WIP] Compare parallel SSA phi updates with scheduled and naive sequential copies over native loop traces on `research/all`.
+  - [x] Compare parallel LLVM phis, scheduled copies and direct sequential copies over 3,645 traces at each of two optimization levels. Scheduled copies match throughout. Direct sequential copies differ in 1,050 traces and 888 final states. General CFG lowering remains open. [RT-09 SSA parallel copy lowering](research/compiler-and-translation/RT-09/RT-09-SSA-PARALLEL-COPY-LOWERING-2026-11-25.md)
 - [ ] Define target capability declarations and unsupported constructs.
   - [x] Audit GCC and Clang freestanding links for two division routes and compare all 10,048 calls with the source oracle. The full route requires the pinned static `__udivti3` provider. The helper-free route enforces an explicit high-word restriction, and silent narrowing changes the witness. General target capability declarations remain open. [Wide division capability](research/compiler-and-translation/RT-13/RT-13-WIDE-DIVISION-CAPABILITY-2026-11-25.md)
 - [ ] Define explicit translation outcomes: exact under assumptions, preserved with runtime support, restricted, unsupported, and unverified.
