@@ -1608,7 +1608,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Check 96 typed library admissions plus a wrong-ABI control. Specification inspection and implementation eligibility use distinct exact checks. The public record includes conditions, effects, errors, state and ownership. Production conformance remains open. [Machine-readable contract model](research/packages-and-ecosystem/RT-12/RT-12-PACKAGE-AND-LIBRARY-CONTRACTS-2026-11-25.md#results)
 - [x] Define dependency resolution and versioning.
   - [x] Compare 126 exact request profiles and 16,038 provider orderings. Immutable locks replay on their retained catalog, shared release labels cannot identify differing bodies, and new selections bind their own request and snapshot. General version solving and production lock authority remain open. [Exact dependency locks](research/packages-and-ecosystem/RT-12/RT-12-EXACT-DEPENDENCY-LOCKS-2026-11-25.md)
-- [ ] Define template instantiation, customization, detachment, and migration.
+- [ ] [WIP] Define template instantiation, customization, detachment, and migration.
 - [ ] Define global semantic artifact store and registry interfaces.
 - [ ] Define artifact publication, signing, mirroring, licensing, revocation, retention, and garbage collection.
 - [x] Separate content integrity from publisher trust and licensing rights.
