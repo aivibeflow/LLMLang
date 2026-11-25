@@ -1003,8 +1003,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 ## 4.4 Git integration workflow
 
-- [ ] Prototype a Git merge driver that invokes the LLMLang semantic merge tool.
-  - [ ] [WIP] Verify the existing native driver invocation and replay its explicit repository-context controls (#322).
+- [x] Prototype a Git merge driver that invokes the LLMLang semantic merge tool.
+  - [x] Replay the scoped native driver and original ledger from the tracked archive. Two fresh runs reproduce all twelve cases, and all thirteen core/rebuild tests pass. The adapter invokes the fixture slot rule, while only the explicit repository context detects every cross-file failure. [Native driver replay](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-MERGE-DRIVER-REPLAY-2026-11-25.md)
   - [x] Compare a native file driver, explicit-context refusal and textual fallback across 12 temporary-repository cases. Merge, cherry-pick and rebase each report success for a pair with identical driver observations and different graph closure. Only the full pinned trees expose all three missing exact callees. [Native merge driver experiment](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-GIT-MERGE-DRIVER-2026-11-24.md).
 - [x] Prototype a Git mergetool integration for interactive conflicts.
   - [x] Verify the existing adapter and its pinned 12-case ledger satisfy the prototype gate. The coordinator resolves one semantic path in both successful cases, preserving the ordinary conflict where present. All seven failed invocations preserve their exact stages. This prototype supports a regular two-parent merge with one base and one conflicted semantic path. [Adapter](research/toolchain-and-collaboration/RT-24/NATIVE-MERGETOOL-01/mergetool.py) · [Recorded evidence](research/toolchain-and-collaboration/RT-24/NATIVE-MERGETOOL-01/evidence.json)
