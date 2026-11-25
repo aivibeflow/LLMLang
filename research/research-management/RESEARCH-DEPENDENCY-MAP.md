@@ -691,7 +691,7 @@ The cycle is an iterative research dependency, not a cyclic content-hash require
 
 | ID | Direction | Relation | Rationale | Confidence |
 |---|---|---|---|---|
-| DEP-234 | RT-07 → RT-36 | Requires | Formal semantics and proof context determine valid premise and guarantee judgments. | Strong hypothesis |
+| DEP-234 | RT-07 → RT-36 | Requires | Formal semantics and proof context determine valid premise and guarantee judgments. Restricted affine certificates replay in Lean with standard axioms, with branch coverage and assertion generation as distinct dependencies. [Restricted affine checker](../formal-verification/RT-07/RT-07-RESTRICTED-AFFINE-CERTIFICATES-2026-11-25.md) | Strong hypothesis with scoped checked alternatives |
 | DEP-235 | RT-05 → RT-36 | Requires | Exact semantic, contract, provider and binding identities scope assumptions. | Strong hypothesis |
 | DEP-236 | RT-32 → RT-36 | Requires | PDG supplies conditional theorem dependencies and discharge. | Strong hypothesis |
 | DEP-237 | RT-33 → RT-36 | Requires | Backend-neutral obligation/evidence composition and correspondence. | Strong hypothesis |

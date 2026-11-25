@@ -167,6 +167,8 @@ Priority is provisional and indicates dependency leverage, not importance to use
 
 RT-07 includes an exact-byte gate for source-derived query envelopes. Structural preservation through the decoder and CPC verification remain open. [Source-owned query envelope](../formal-verification/RT-07/RT-07-SOURCE-OWNED-QUERY-ENVELOPE.md)
 
+RT-07 also compares [restricted affine certificates](../formal-verification/RT-07/RT-07-RESTRICTED-AFFINE-CERTIFICATES-2026-11-25.md) with direct Lean tactics and archived CPC-backed query evidence.
+
 **Cross-cutting public-interface research (RT-05/20; proposed):** [stable names and verified contract refinement](../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) connects RT-03/04 call/type semantics, RT-05/06 identity/dependencies, RT-07/08/32/33 verification, RT-09/11 build boundaries, RT-12 package exports, RT-16 trust, RT-18 evolution, RT-19/20/23/24 publication/merge and RT-34/35 resources and discovery. This is a vector within existing areas, not a new RT identifier or accepted language rule.
 
 The [guarded dispatch identity comparison](../semantic-representation/RT-05/RT-05-GUARDED-DISPATCH-IDENTITY-2026-11-25.md) records execution reuse evidence for exact scoped state-to-provider relations.
