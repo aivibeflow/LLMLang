@@ -43,6 +43,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-35 hard compatibility and ambiguity](RT-35/RT-35-HARD-COMPATIBILITY-AND-AMBIGUITY-2026-11-25.md) checks seven typed obligations and keeps ranking separate from exact binding.
 - [RT-35 semantic description and queries](RT-35/RT-35-SEMANTIC-DESCRIPTION-AND-QUERY-2026-11-25.md) checks separate identity, canonical description, fingerprint and query provenance.
 - [PROTOTYPES](PROTOTYPES/)
 

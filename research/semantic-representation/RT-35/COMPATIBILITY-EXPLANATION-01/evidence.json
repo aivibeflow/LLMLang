@@ -1,0 +1,37 @@
+{
+  "checks": 2187,
+  "facets": [
+    "types",
+    "ownership",
+    "preconditions",
+    "postconditions",
+    "effects",
+    "capabilities",
+    "failure"
+  ],
+  "outcomes": {
+    "compatible": 1,
+    "excluded": 2059,
+    "unknown": 127
+  },
+  "python": "3.12.14",
+  "resolution": {
+    "conflicting_evidence_for_same_identity": "pending",
+    "duplicate_exact_result": "bound",
+    "higher_score_incompatible": "bound",
+    "incomplete_inventory": "pending",
+    "only_excluded": "no-match",
+    "two_certified": "ambiguous",
+    "unknown_alternative": "pending"
+  },
+  "source_sha256": "b1f3daaad01ae356d54fd353e59971fc6ca1416a6da9a97784fa0341985da815",
+  "typed_negative_controls": [
+    "capabilities",
+    "effects",
+    "failure",
+    "ownership",
+    "postconditions",
+    "preconditions",
+    "types"
+  ]
+}
