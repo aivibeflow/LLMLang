@@ -838,9 +838,11 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Define hash-relevant dependency edges and dependency closure.
   - [x] Check all 384 execution, verification and audit closure digests against independent expected member sets. Typed keys admit every scoped reuse and no stale hit. Lean checks when a note becomes an observed dependency. [Dependency role closures](research/semantic-representation/RT-06/RT-06-DEPENDENCY-ROLE-CLOSURE-2026-11-25.md)
 - [ ] Define how dependencies are discovered from static analysis, typed IR, runtime observations, tests, and formal semantics.
+  - [ ] [WIP] Compare source syntax, exact typed SPG call inventory, runtime witnesses and guarded completeness on a shared corpus on `research/all`.
 - [x] Define confidence/evidence classes for dependency edges.
   - Distinguish discovery candidates, positive witnesses, covered may-sets, exact absence and unresolved evidence. The 648-case comparison finds 84 stale reuses with sample-only absence. Exact scoped exclusion safely reuses 32 more cases than the covered whole-program bound. [RT-06 dependency evidence classes](research/semantic-representation/RT-06/RT-06-DEPENDENCY-EVIDENCE-CLASSES-2026-11-25.md)
 - [ ] Define sound conservative may-depend graphs.
+  - [ ] [WIP] Check sound guarded may-depend sets, sampled undercoverage and local unknown expansion from exact typed SPGs on `research/all`.
   - [x] Compare finite guard-sensitive may-dependency closure against 16,384 explicit queries. Location-only traversal misses targets in 3,408 queries. State-aware closure matches the known-table oracle, and local unknown expansion avoids misses with measurable loss of precision. Exhausted queries return unknown. Source extraction, wider effects and snapshot binding remain open. [Conditional dependency closure](research/semantic-representation/RT-06/RT-06-CONDITIONAL-DEPENDENCY-CLOSURE-2026-11-25.md).
 - [x] Define how missing or incomplete dependency evidence affects reuse.
   - [x] Compare 162 GCC header-search runs and prove the ordered selection rule in Lean. Prior positive depfiles alone admit 312 stale selections and 156 stale artifacts in 4,212 ordered comparisons. The exact prefix has zero stale reuse. [Negative header dependencies](research/toolchain-and-collaboration/RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md)
