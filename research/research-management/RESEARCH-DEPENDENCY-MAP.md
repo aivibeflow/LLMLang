@@ -661,6 +661,8 @@ These edges are research hypotheses, not implementation commitments. KNN/ANN is 
 
 ## Public-interface cross-area dependencies (proposed RT-05/20 vector)
 
+[Cross-map export proof](../toolchain-and-collaboration/RT-24/RT-24-CROSS-MAP-EXPORT-PROOF-2026-11-25.md) shows why resolving exact operation, binding and export identities is a separate gate from a clean semantic Git merge. An evidence predicate at the combined provider, ABI and scope distinguishes six eligible from 12 refused candidates in a closed fixture.
+
 See [public interfaces](../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). These proposed conditional dependencies do not change numbered historical edges.
 
 ```mermaid
