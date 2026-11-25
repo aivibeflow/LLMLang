@@ -598,6 +598,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 **Estimated research complexity:** **8/10** — includes trusted computing base, assumptions, evidence scope, and compositional proof boundaries.
 
 - [ ] Determine which claims belong in Lean, SMT, specialized checkers, testing, or trusted runtime code.
+  - [ ] [WIP] Compare the exact coverage and claim roles of Lean reasoning, two SMT backends, a specialized checker and native tests for checked signed-byte addition on `research/all`.
 - [ ] Define the trusted computing base for each proof claim.
   - [x] Audit transitive assumptions and exact types across six Lean declarations. Identical closed statements distinguish kernel reduction, an imported premise and native evaluation. A conditional type with an empty axiom set fails the closed request, and all policies refuse the placeholder. [Per-claim Lean trust](research/formal-verification/RT-07/RT-07-PER-CLAIM-LEAN-TRUST-2026-11-25.md)
 - [ ] Define proof object formats, proof checking, provenance, and evidence reuse.
