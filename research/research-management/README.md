@@ -37,6 +37,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-13 symbolic checked-add replay](RT-00/RT-00-C-RT13-SYMBOLIC-CHECKED-ADD-REPLAY-2026-11-25.md) — reproduces the proof ledger and checks additional concrete preservation controls.
 - [RT-13 CPC binding replay](RT-00/RT-00-C-RT13-CPC-BINDING-REPLAY-2026-11-25.md) — reproduces both Logos certificate bindings and separates declaration order, sort and admissible commands.
 - [RT-13 replay metadata audit](RT-00/RT-00-C-RT13-REPLAY-METADATA-2026-11-25.md) — checks the pinned replay routes and distinguishes inherited tool records from observed execution.
+- [Exact evidence identity delta](RT-00/RT-00-C-EVIDENCE-IDENTITY-DELTA-2026-11-25.md) — verifies the tracked source identities and embedded source records of 67 new ledgers.
 - [Binary64 claim relationships and observation boundaries](RT-00/RT-00-B-15-F64-RELATIONSHIP-REVIEW-2026-11-25.md)
 - [Corpus-wide text overlap and relationship adjudication](RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.md)
 - [SQLite and generated-Rust lifecycle replay](RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.md)

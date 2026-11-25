@@ -1,0 +1,2313 @@
+{
+  "schema": "llmlang-rt00-evidence-identity-delta/1",
+  "baseline": "d2e32df3ff25ef28dc66750b3e14e777d7cd7d35",
+  "tree": "087d2e5e952255778d76637ce5fd41b9df2d5396",
+  "python": "3.12.14",
+  "git": "git version 2.56.1",
+  "baseline_ledgers": 138,
+  "current_ledgers": 205,
+  "added": 67,
+  "removed": [],
+  "changed": 0,
+  "counts": {
+    "match": 167,
+    "inline-data": 8,
+    "inline-match": 17
+  },
+  "ledgers": [
+    {
+      "path": "research/compiler-and-translation/RT-13/COMPILE-ACTION-INPUTS-01/evidence.json",
+      "blob": "2794f2937fd8ba15ffbdd522cc5f55cc714f5e83",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "context.c",
+          "path": "research/compiler-and-translation/RT-13/COMPILE-ACTION-INPUTS-01/context.c",
+          "resolution": "adjacent",
+          "expected_sha256": "5015ee83b0ff4dda282d47e251d101ddf35e1dc7f8d0151f994229892bdc9e6f",
+          "current_blob": "1e3615bd3b25f60e47bb70747c26abbce8096486",
+          "current_sha256": "5015ee83b0ff4dda282d47e251d101ddf35e1dc7f8d0151f994229892bdc9e6f",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "pure.c",
+          "path": "research/compiler-and-translation/RT-13/COMPILE-ACTION-INPUTS-01/pure.c",
+          "resolution": "adjacent",
+          "expected_sha256": "056e50954dc812eff20bf756b71f676f3fbb3675d2844c3f3f17b2f6ba9a30e3",
+          "current_blob": "de72715ceea9db9033611f133c676ea24bcd30bf",
+          "current_sha256": "056e50954dc812eff20bf756b71f676f3fbb3675d2844c3f3f17b2f6ba9a30e3",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/compiler-and-translation/RT-13/COMPILE-ACTION-INPUTS-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "9f6a61d5ea13e7b2355221e780357eb765289e56f80c603f0caec89572f46aff",
+          "current_blob": "26797591731544f662b632b73880d06133a1dbd3",
+          "current_sha256": "9f6a61d5ea13e7b2355221e780357eb765289e56f80c603f0caec89572f46aff",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/WRITE-SWAP-VALIDATION-01/evidence.json",
+      "blob": "9b7b4d9173f967d86753df0bd32ec103e6f0d3fa",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/compiler-and-translation/RT-13/WRITE-SWAP-VALIDATION-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "66211c1e4f530607936b968baaf0e2f2e41eee728766693c10781a12ae2cb909",
+          "current_blob": "110a1c7dec3ae1a4e480565000b36c671a802672",
+          "current_sha256": "66211c1e4f530607936b968baaf0e2f2e41eee728766693c10781a12ae2cb909",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-07/LOGOS-BOUNDARY-RECHECK-01/evidence.json",
+      "blob": "c1bb9ea74cf38ca81952eeea01c46a203dc42210",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/formal-verification/RT-07/STRICT-QFLIA-ADMISSION-01/evidence.json",
+      "blob": "a86024b3cb77353bb2687d096cb8e91866cf5e72",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "Decode.lean",
+          "path": "research/formal-verification/RT-07/STRICT-QFLIA-ADMISSION-01/Decode.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "d7ae5e2ab6014a09bfd48110b5e6b8d288d2e400ba7e4329afb4e23a5e05c0b8",
+          "current_blob": "dc2984c979c14732ab7581274c6709eb8257d149",
+          "current_sha256": "d7ae5e2ab6014a09bfd48110b5e6b8d288d2e400ba7e4329afb4e23a5e05c0b8",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "LLMLangLogosBinding.lean",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "d97967f3743afce4e6c8d427e0fa9fed537a7d310ac8699b3745a12b598eea00",
+          "current_blob": "f077357f13353437589fb63bb3ff5563af1a2c4a",
+          "current_sha256": "d97967f3743afce4e6c8d427e0fa9fed537a7d310ac8699b3745a12b598eea00",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "qf_lia_ir.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_ir.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "54f71963d3bcfd5bf6a9549001ad4febeb96b8e6c11a9ce5febf2ae569fb3f01",
+          "current_blob": "6ac399f7c2ca3ee7929d2e2bb1c47b8941a34b95",
+          "current_sha256": "54f71963d3bcfd5bf6a9549001ad4febeb96b8e6c11a9ce5febf2ae569fb3f01",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "qf_lia_profile.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_profile.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "5adc1f7bc40a2f59b4439a2a3572d7e2e37043511907034f91dbe52ce948699c",
+          "current_blob": "58f15e194729faa36aa453911672c9ab4fb82074",
+          "current_sha256": "5adc1f7bc40a2f59b4439a2a3572d7e2e37043511907034f91dbe52ce948699c",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/formal-verification/RT-07/STRICT-QFLIA-ADMISSION-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "62cdd0423705efd452e58785885caefa5525a9ddb9c5ec0f0b742a036734fc52",
+          "current_blob": "0e5f648207fc21f1e2622e4591c96ab691212d45",
+          "current_sha256": "62cdd0423705efd452e58785885caefa5525a9ddb9c5ec0f0b742a036734fc52",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-07/THREE-SEMANTICS-01/evidence.json",
+      "blob": "574d9872cd1c127e752c7bdbcb6e8e456f794fca",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/formal-verification/RT-07/THREE-SEMANTICS-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "ff0036446f3cee77ef9db1c63a51a10ed0af88625b622fe0e2fbc0cb5367e5cd",
+          "current_blob": "05dfdf551efea25e75535351e7624fcecfd94082",
+          "current_sha256": "ff0036446f3cee77ef9db1c63a51a10ed0af88625b622fe0e2fbc0cb5367e5cd",
+          "outcome": "match"
+        },
+        {
+          "field": "prototype_sha256",
+          "label": "rt03_reference.py",
+          "path": "research/PROTOTYPES/RT-04-01/rt03_reference.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "9aa14d41f837c3c0bae137f6732b72ff9edb0b70a31f1f966639124be98ed8d8",
+          "current_blob": "7db88a17c7f75b3464314c8017ce2f0929d04e66",
+          "current_sha256": "9aa14d41f837c3c0bae137f6732b72ff9edb0b70a31f1f966639124be98ed8d8",
+          "outcome": "match"
+        },
+        {
+          "field": "prototype_sha256",
+          "label": "rt03_smallstep.py",
+          "path": "research/PROTOTYPES/RT-04-01/rt03_smallstep.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "79516cb51e8ec6f505ab8833646f42415eb1e5f46171aac399b41c6652ed7459",
+          "current_blob": "b9adb39f29e5ea53a9d1f5b97f1c99bcdd92084f",
+          "current_sha256": "79516cb51e8ec6f505ab8833646f42415eb1e5f46171aac399b41c6652ed7459",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-32/RECURSIVE-DISCHARGE-01/evidence.json",
+      "blob": "b04fddc982d423304b01828a35beff8023c49e91",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/formal-verification/RT-32/RECURSIVE-DISCHARGE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "dfe5ee590ea4d38621f2a0eee05aa9b81ee197dd0ff41608f8379279c56b433f",
+          "current_blob": "58b02d18eb9b57639973a1839b7b2cdfd4e9722c",
+          "current_sha256": "dfe5ee590ea4d38621f2a0eee05aa9b81ee197dd0ff41608f8379279c56b433f",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/CLAUSE-PROVENANCE-01/evidence.json",
+      "blob": "72f9efd8cbf937b1624ece6764cf71b826e5fc30",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "repository-root",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/CLAUSE-PROVENANCE-01/run.py",
+          "path": "research/language-design/RT-02/CLAUSE-PROVENANCE-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "577d8c873c2762b844ba834db6f083fa2fdf19dd95811b5aa4e8699074091965",
+          "current_blob": "1573a436387cb36f8af215f2258057a6034b9eee",
+          "current_sha256": "577d8c873c2762b844ba834db6f083fa2fdf19dd95811b5aa4e8699074091965",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "resolution": "repository-root",
+          "expected_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "current_blob": "03cbfc14b76cf65055bd3bbc0eb5284be5d6a751",
+          "current_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/EVIDENCE-GATES-01/evidence.json",
+      "blob": "49280dd6d418a70bbe89ffbb0699e453e7d8fcf5",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/language-design/RT-02/EVIDENCE-GATES-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "4d30eb396f042ec6781dc02bb4f78f23de1bdbceda2d7d02c2cb56e40ac4988d",
+          "current_blob": "cfce6a83232b822341cccb942e5834739ba6b302",
+          "current_sha256": "4d30eb396f042ec6781dc02bb4f78f23de1bdbceda2d7d02c2cb56e40ac4988d",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/RECONSTRUCTION-PACKAGE-01/evidence.json",
+      "blob": "066678d51e05ce865665943721c16f060264f52b",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "repository-root",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-PACKAGE-01/run.py",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-PACKAGE-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "16c4b5e963adf0a94985f2633987002e87964293acf062fdcef9135349480a07",
+          "current_blob": "23cc941f84e0b41f70a396c1515b2ecace729080",
+          "current_sha256": "16c4b5e963adf0a94985f2633987002e87964293acf062fdcef9135349480a07",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "resolution": "repository-root",
+          "expected_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "current_blob": "03cbfc14b76cf65055bd3bbc0eb5284be5d6a751",
+          "current_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/render.py",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/render.py",
+          "resolution": "repository-root",
+          "expected_sha256": "815c62433f1bef359c04cf69d96f28e13a66ff92ad04f4f3db6fcf99c7ee821e",
+          "current_blob": "a57e1b947ed859fb731baa57e0ee55c2225cd24b",
+          "current_sha256": "815c62433f1bef359c04cf69d96f28e13a66ff92ad04f4f3db6fcf99c7ee821e",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+          "current_blob": "745a063c83dc0df5a4db8d7d2a1fac646955d9fe",
+          "current_sha256": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/SEMANTIC-DIRECTION-01/run.py",
+          "path": "research/language-design/RT-02/SEMANTIC-DIRECTION-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "44dd78980b6748c4012d8725cecc12a96f1683ec9322809efdd792cafc5059ac",
+          "current_blob": "e57d00201bacc1446a5d25731aa4ef0e70f6cae9",
+          "current_sha256": "44dd78980b6748c4012d8725cecc12a96f1683ec9322809efdd792cafc5059ac",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/evidence.json",
+      "blob": "efe7018d5360ad3c4eedcdd2d13cd323887e99f6",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "file_sha256",
+          "label": "corpus.json",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "resolution": "adjacent",
+          "expected_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "current_blob": "03cbfc14b76cf65055bd3bbc0eb5284be5d6a751",
+          "current_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "outcome": "match"
+        },
+        {
+          "field": "file_sha256",
+          "label": "render.py",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/render.py",
+          "resolution": "adjacent",
+          "expected_sha256": "815c62433f1bef359c04cf69d96f28e13a66ff92ad04f4f3db6fcf99c7ee821e",
+          "current_blob": "a57e1b947ed859fb731baa57e0ee55c2225cd24b",
+          "current_sha256": "815c62433f1bef359c04cf69d96f28e13a66ff92ad04f4f3db6fcf99c7ee821e",
+          "outcome": "match"
+        },
+        {
+          "field": "file_sha256",
+          "label": "run.py",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+          "current_blob": "745a063c83dc0df5a4db8d7d2a1fac646955d9fe",
+          "current_sha256": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/RECONSTRUCTION-ROUTING-01/evidence.json",
+      "blob": "21629aba2c07484167d707579e99e667340a3826",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "resolution": "repository-root",
+          "expected_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "current_blob": "03cbfc14b76cf65055bd3bbc0eb5284be5d6a751",
+          "current_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/render.py",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/render.py",
+          "resolution": "repository-root",
+          "expected_sha256": "815c62433f1bef359c04cf69d96f28e13a66ff92ad04f4f3db6fcf99c7ee821e",
+          "current_blob": "a57e1b947ed859fb731baa57e0ee55c2225cd24b",
+          "current_sha256": "815c62433f1bef359c04cf69d96f28e13a66ff92ad04f4f3db6fcf99c7ee821e",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+          "current_blob": "745a063c83dc0df5a4db8d7d2a1fac646955d9fe",
+          "current_sha256": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUTING-01/run.py",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUTING-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "2dc333e595ecd6ee06f44a1c553bac92e6dab4f7f37e2927321f5d7a2a96660d",
+          "current_blob": "83e76daa21d0e21d4719ddc3a4aa43efa134d3fe",
+          "current_sha256": "2dc333e595ecd6ee06f44a1c553bac92e6dab4f7f37e2927321f5d7a2a96660d",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/SEMANTIC-DIRECTION-01/run.py",
+          "path": "research/language-design/RT-02/SEMANTIC-DIRECTION-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "44dd78980b6748c4012d8725cecc12a96f1683ec9322809efdd792cafc5059ac",
+          "current_blob": "e57d00201bacc1446a5d25731aa4ef0e70f6cae9",
+          "current_sha256": "44dd78980b6748c4012d8725cecc12a96f1683ec9322809efdd792cafc5059ac",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/REQUIREMENT-APPROVAL-01/evidence.json",
+      "blob": "b95e282180c348d768ab52a41dac3092dce224ea",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "business_intent.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/business_intent.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "2ec0d63d95a8432baa23ecd678e974ff670d26a9fbfbbcc640d92f8502845f2a",
+          "current_blob": "e5315c76752a304a35edfc04cbad10b8f522d5ef",
+          "current_sha256": "2ec0d63d95a8432baa23ecd678e974ff670d26a9fbfbbcc640d92f8502845f2a",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "review.py",
+          "path": "research/language-design/RT-02/REQUIREMENT-APPROVAL-01/review.py",
+          "resolution": "adjacent",
+          "expected_sha256": "8a79c98e0fbfe6b9231ad17b9d912832481c5c4c6ea920206605082f5c29f6b3",
+          "current_blob": "651d504960f6982eb4f8599a3d7d8f0378967aaa",
+          "current_sha256": "8a79c98e0fbfe6b9231ad17b9d912832481c5c4c6ea920206605082f5c29f6b3",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/language-design/RT-02/REQUIREMENT-APPROVAL-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "c6d823b0ef42ce8fa5df32d2bbb034d9cf811909a08356b53b540a2e71cdb39d",
+          "current_blob": "f082d1313e4856167576405cac9eabe2a5caa5fd",
+          "current_sha256": "c6d823b0ef42ce8fa5df32d2bbb034d9cf811909a08356b53b540a2e71cdb39d",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "semantic_graph.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/REQUIREMENT-BACKENDS-01/evidence.json",
+      "blob": "54a1433a07999c61094c725a83f3f3ca908aef1f",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "Withdrawal.lean",
+          "path": "research/language-design/RT-02/REQUIREMENT-BACKENDS-01/Withdrawal.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "ad5dd3c76d40528a4baeeba2ae257f73a93b95aa627d42e46466ea57cc7b52ea",
+          "current_blob": "b72b9a66ba2c30ab635d9080e2e78b76772cedfd",
+          "current_sha256": "ad5dd3c76d40528a4baeeba2ae257f73a93b95aa627d42e46466ea57cc7b52ea",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "fret.cjs",
+          "path": "research/language-design/RT-02/REQUIREMENT-BACKENDS-01/fret.cjs",
+          "resolution": "adjacent",
+          "expected_sha256": "13e3a1dfc762ed54fdb486ae9b50f1461b2afef82bf41215c6683c30ad1985f5",
+          "current_blob": "acbf794aebc1aa7d578a9c32bd1b0a0a1375a07e",
+          "current_sha256": "13e3a1dfc762ed54fdb486ae9b50f1461b2afef82bf41215c6683c30ad1985f5",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "package-lock.json",
+          "path": "research/language-design/RT-02/REQUIREMENT-BACKENDS-01/package-lock.json",
+          "resolution": "adjacent",
+          "expected_sha256": "ffb47aefb41ecbb7323750527b81307b130d31174057f0231c0e3e122e8c1e76",
+          "current_blob": "25f6111973216f277699bb87861b42ed414c32d4",
+          "current_sha256": "ffb47aefb41ecbb7323750527b81307b130d31174057f0231c0e3e122e8c1e76",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "package.json",
+          "path": "research/language-design/RT-02/REQUIREMENT-BACKENDS-01/package.json",
+          "resolution": "adjacent",
+          "expected_sha256": "6757994e3c925587342183a7784dd2fab55d9c67547ae79a7d4357b092b04835",
+          "current_blob": "247f0b3c1fcf39e943233510d24245f487e163dc",
+          "current_sha256": "6757994e3c925587342183a7784dd2fab55d9c67547ae79a7d4357b092b04835",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "requirements.json",
+          "path": "research/language-design/RT-02/REQUIREMENT-BACKENDS-01/requirements.json",
+          "resolution": "adjacent",
+          "expected_sha256": "7ad2eaff17802c3350894fc51e8903ebb0dd6732a3f220c037050d994eeb774a",
+          "current_blob": "87734ab2f265d2b33177cd9ae055979c7d7b76a8",
+          "current_sha256": "7ad2eaff17802c3350894fc51e8903ebb0dd6732a3f220c037050d994eeb774a",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/language-design/RT-02/REQUIREMENT-BACKENDS-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "35b6bb0cae246cecbbeadf8b5f2167f6aa26ba209fa087bb30b2b8f888d7882e",
+          "current_blob": "c7020aabbed70b77c0a740d9c695709fe87816b9",
+          "current_sha256": "35b6bb0cae246cecbbeadf8b5f2167f6aa26ba209fa087bb30b2b8f888d7882e",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/REQUIREMENT-CLASS-COVERAGE-01/evidence.json",
+      "blob": "45d4f1a46ba1f440a275e7f62a3a91364e230b3b",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "resolution": "repository-root",
+          "expected_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "current_blob": "03cbfc14b76cf65055bd3bbc0eb5284be5d6a751",
+          "current_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+          "current_blob": "745a063c83dc0df5a4db8d7d2a1fac646955d9fe",
+          "current_sha256": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/REQUIREMENT-CLASS-COVERAGE-01/run.py",
+          "path": "research/language-design/RT-02/REQUIREMENT-CLASS-COVERAGE-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "7dd6a7fb05f08bd70fb0b1ea08745ccddc5a807840969574056669bd1bd5ae44",
+          "current_blob": "ed49a5d70b45b29836b6f84a789a84b3cb4ea160",
+          "current_sha256": "7dd6a7fb05f08bd70fb0b1ea08745ccddc5a807840969574056669bd1bd5ae44",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/REQUIREMENT-LIFECYCLE-01/evidence.json",
+      "blob": "68b8d914a535db07befc04a8b4b284a11c782301",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_evolution.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_evolution.py",
+          "resolution": "repository-root",
+          "expected_sha256": "05d5581ea0e4df4cc9890d6e09355681f424a233f3f5b73cdb1dcf53b50a5198",
+          "current_blob": "5e66e8902bc4e40e3bb67b767d7a353c311b8168",
+          "current_sha256": "05d5581ea0e4df4cc9890d6e09355681f424a233f3f5b73cdb1dcf53b50a5198",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "repository-root",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/REQUIREMENT-LIFECYCLE-01/run.py",
+          "path": "research/language-design/RT-02/REQUIREMENT-LIFECYCLE-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "8bd123163cb80df2e7e7c75e54d8d8899b49db4bb203a92b5fdb43e966f34cda",
+          "current_blob": "51172eb15619d1d7241956dd6e2ceaa585a8d6de",
+          "current_sha256": "8bd123163cb80df2e7e7c75e54d8d8899b49db4bb203a92b5fdb43e966f34cda",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/REVISION-IMPACT-01/evidence.json",
+      "blob": "dd59090eb6fa41747d4feae0daf40f3c3112b689",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_evolution.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_evolution.py",
+          "resolution": "repository-root",
+          "expected_sha256": "05d5581ea0e4df4cc9890d6e09355681f424a233f3f5b73cdb1dcf53b50a5198",
+          "current_blob": "5e66e8902bc4e40e3bb67b767d7a353c311b8168",
+          "current_sha256": "05d5581ea0e4df4cc9890d6e09355681f424a233f3f5b73cdb1dcf53b50a5198",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "repository-root",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/REVISION-IMPACT-01/run.py",
+          "path": "research/language-design/RT-02/REVISION-IMPACT-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "75998319b55cc09d38842815366215499914a9b09eace2b2e234c80d61dd21bd",
+          "current_blob": "533127668405b74a76669051a336144d05173042",
+          "current_sha256": "75998319b55cc09d38842815366215499914a9b09eace2b2e234c80d61dd21bd",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/SCOPED-PROVENANCE-01/evidence.json",
+      "blob": "229ef58d7858fe8722a5f775e567501182280e08",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "repository-root",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/CLAUSE-PROVENANCE-01/run.py",
+          "path": "research/language-design/RT-02/CLAUSE-PROVENANCE-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "577d8c873c2762b844ba834db6f083fa2fdf19dd95811b5aa4e8699074091965",
+          "current_blob": "1573a436387cb36f8af215f2258057a6034b9eee",
+          "current_sha256": "577d8c873c2762b844ba834db6f083fa2fdf19dd95811b5aa4e8699074091965",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/SCOPED-PROVENANCE-01/run.py",
+          "path": "research/language-design/RT-02/SCOPED-PROVENANCE-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "e129da896612ee6b2547c4dd52742f85a5e46efea01f55f4c7d072a5afa3ffe8",
+          "current_blob": "f3a37f2435af3b191c0c3df6ff859931cd43af13",
+          "current_sha256": "e129da896612ee6b2547c4dd52742f85a5e46efea01f55f4c7d072a5afa3ffe8",
+          "outcome": "match"
+        },
+        {
+          "field": "sources",
+          "label": "default",
+          "outcome": "inline-data"
+        },
+        {
+          "field": "sources",
+          "label": "prohibition",
+          "outcome": "inline-data"
+        },
+        {
+          "field": "sources",
+          "label": "retail",
+          "outcome": "inline-data"
+        },
+        {
+          "field": "interpretations.revision",
+          "label": "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0",
+          "span_matches": true,
+          "expected_sha256": "6b5562cd88c8e73d1e7dcaa3013be00a3b272c395aed4713f227f901d33c3912",
+          "actual_sha256": "6b5562cd88c8e73d1e7dcaa3013be00a3b272c395aed4713f227f901d33c3912",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "interpretations.revision",
+          "label": "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0",
+          "span_matches": true,
+          "expected_sha256": "75084e6d6dd72528e7a98322c197582b6c6b0e9cce045f9a2028dfc78c69d0de",
+          "actual_sha256": "75084e6d6dd72528e7a98322c197582b6c6b0e9cce045f9a2028dfc78c69d0de",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "interpretations.revision",
+          "label": "823b79b1e5a03f9659159a7fc7ce85e20a9a94a28bd85750b8f98739209d31b8",
+          "span_matches": true,
+          "expected_sha256": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+          "actual_sha256": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "interpretations.revision",
+          "label": "837044ec2ead2d67ba3f3b88643a441e1a7cf91397cda38ed67d76116f5312e2",
+          "span_matches": true,
+          "expected_sha256": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+          "actual_sha256": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "interpretations.revision",
+          "label": "affa3fba8f0409fc02dd65a937103b4f7b5f36ef3eaede0e804e796629db5103",
+          "span_matches": true,
+          "expected_sha256": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+          "actual_sha256": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "interpretations.revision",
+          "label": "be40765960d964d789fa649adfed320a2f4628a1508c1485fe3ff75f9f97b141",
+          "span_matches": true,
+          "expected_sha256": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+          "actual_sha256": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "interpretations.revision",
+          "label": "d616a776a50fd3316f91430c01464d1e6940e36d4c274871e013be5e4576166b",
+          "span_matches": true,
+          "expected_sha256": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+          "actual_sha256": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+          "outcome": "inline-match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-02/SEMANTIC-DIRECTION-01/evidence.json",
+      "blob": "76b2cda0983babd013fe99d3374d2eda727829d5",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json",
+          "resolution": "repository-root",
+          "expected_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "current_blob": "03cbfc14b76cf65055bd3bbc0eb5284be5d6a751",
+          "current_sha256": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py",
+          "path": "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+          "current_blob": "745a063c83dc0df5a4db8d7d2a1fac646955d9fe",
+          "current_sha256": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-02/SEMANTIC-DIRECTION-01/run.py",
+          "path": "research/language-design/RT-02/SEMANTIC-DIRECTION-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "44dd78980b6748c4012d8725cecc12a96f1683ec9322809efdd792cafc5059ac",
+          "current_blob": "e57d00201bacc1446a5d25731aa4ef0e70f6cae9",
+          "current_sha256": "44dd78980b6748c4012d8725cecc12a96f1683ec9322809efdd792cafc5059ac",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-03/DIFFERENCE-CERTIFICATE-01/evidence.json",
+      "blob": "13a26d24b65799324df686b100a5c18965a16ccf",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "Certificate.lean",
+          "path": "research/language-design/RT-03/DIFFERENCE-CERTIFICATE-01/Certificate.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "1b600d44096ffd0e69ab9b24f804e9b1a0a8489b4312372b2ca6deabb2632f79",
+          "current_blob": "d6f83f1f3dcf0ac46e6ac24e1d71775175dd4201",
+          "current_sha256": "1b600d44096ffd0e69ab9b24f804e9b1a0a8489b4312372b2ca6deabb2632f79",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "checker.py",
+          "path": "research/language-design/RT-03/DIFFERENCE-CERTIFICATE-01/checker.py",
+          "resolution": "adjacent",
+          "expected_sha256": "cd3dc0e230639c9e86deb8cb95de1cdc8093dba35a4e2851dfdb9167e57423a1",
+          "current_blob": "484a15f1288d0ddd0c3b2115ec82843c51c929c8",
+          "current_sha256": "cd3dc0e230639c9e86deb8cb95de1cdc8093dba35a4e2851dfdb9167e57423a1",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "rt03_feasibility_outcomes.py",
+          "path": "research/PROTOTYPES/RT-04-01/rt03_feasibility_outcomes.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "8a385428324a59fd35c7600c980acfe716d00968c277ddcbe36eea260ed5366b",
+          "current_blob": "2c7ef593cd034f2cb4210c471adcb209cb4eb4e0",
+          "current_sha256": "8a385428324a59fd35c7600c980acfe716d00968c277ddcbe36eea260ed5366b",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/language-design/RT-03/DIFFERENCE-CERTIFICATE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "00257384a54d978eb174b1ef1b7b04a09d6eb42daa263cd9849e30a2bc11b750",
+          "current_blob": "be1a79c7d3d47f7b2da22551a4189284a8275bab",
+          "current_sha256": "00257384a54d978eb174b1ef1b7b04a09d6eb42daa263cd9849e30a2bc11b750",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-03/QFLIA-RESOURCE-CONTROLS-01/evidence.json",
+      "blob": "8a2e1ee763a4b9f9d6d96cd50e0b101a9c55760b",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "rt03_feasibility_outcomes.py",
+          "path": "research/PROTOTYPES/RT-04-01/rt03_feasibility_outcomes.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "8a385428324a59fd35c7600c980acfe716d00968c277ddcbe36eea260ed5366b",
+          "current_blob": "2c7ef593cd034f2cb4210c471adcb209cb4eb4e0",
+          "current_sha256": "8a385428324a59fd35c7600c980acfe716d00968c277ddcbe36eea260ed5366b",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/language-design/RT-03/QFLIA-RESOURCE-CONTROLS-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "a5190752651b6c4dfec2f6cfcce75e66c22575601c5c8f4117b46194deea0de2",
+          "current_blob": "1a43b64bea519aa753587df4ab7db7a220d7e4d6",
+          "current_sha256": "a5190752651b6c4dfec2f6cfcce75e66c22575601c5c8f4117b46194deea0de2",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-03/SOURCE-DIFFERENCE-ROUTES-01/evidence.json",
+      "blob": "acd54dc0f89e6fbf14662892357637f83ceb55ef",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "Polarity.lean",
+          "path": "research/language-design/RT-03/SOURCE-DIFFERENCE-ROUTES-01/Polarity.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "802c064f97a77c89c119e891fcac7edafac3e62adc28b1f791d5d8e14eb79a0a",
+          "current_blob": "40227a410e8927de7a66c236df477e08a8db529e",
+          "current_sha256": "802c064f97a77c89c119e891fcac7edafac3e62adc28b1f791d5d8e14eb79a0a",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "checker.py",
+          "path": "research/language-design/RT-03/DIFFERENCE-CERTIFICATE-01/checker.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "cd3dc0e230639c9e86deb8cb95de1cdc8093dba35a4e2851dfdb9167e57423a1",
+          "current_blob": "484a15f1288d0ddd0c3b2115ec82843c51c929c8",
+          "current_sha256": "cd3dc0e230639c9e86deb8cb95de1cdc8093dba35a4e2851dfdb9167e57423a1",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "rt03_feasibility_outcomes.py",
+          "path": "research/PROTOTYPES/RT-04-01/rt03_feasibility_outcomes.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "8a385428324a59fd35c7600c980acfe716d00968c277ddcbe36eea260ed5366b",
+          "current_blob": "2c7ef593cd034f2cb4210c471adcb209cb4eb4e0",
+          "current_sha256": "8a385428324a59fd35c7600c980acfe716d00968c277ddcbe36eea260ed5366b",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/language-design/RT-03/SOURCE-DIFFERENCE-ROUTES-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "89ebfaea305404651c56fcb80be342873515974f93186a77874923a1a1832bf5",
+          "current_blob": "74533b1050cb070b35c5d959b1d5676d0e1ff16c",
+          "current_sha256": "89ebfaea305404651c56fcb80be342873515974f93186a77874923a1a1832bf5",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-04/CLEANUP-IDENTITY-01/evidence.json",
+      "blob": "0d96b452fb058c48410fa7c2984fab789698a46f",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "formal-verification/RT-32/SOURCE-CLEANUP-KERNEL-01/evidence.json",
+          "path": "research/formal-verification/RT-32/SOURCE-CLEANUP-KERNEL-01/evidence.json",
+          "resolution": "research-root",
+          "expected_sha256": "5114232b42d656c7184d3a4727a97af790e57e72c4e3feffa1295b25cd9d0f7f",
+          "current_blob": "1d00050aa26710f14033158966fdf770928f1313",
+          "current_sha256": "5114232b42d656c7184d3a4727a97af790e57e72c4e3feffa1295b25cd9d0f7f",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "language-design/RT-04/CLEANUP-IDENTITY-01/run.py",
+          "path": "research/language-design/RT-04/CLEANUP-IDENTITY-01/run.py",
+          "resolution": "research-root",
+          "expected_sha256": "3b935372e142bc9f7a0ab4acd109d9b518e23bfe5aeec99469abe25bd4fe900a",
+          "current_blob": "e2b00ff7ab2cb17a54d1941eac3ec4b0c682e084",
+          "current_sha256": "3b935372e142bc9f7a0ab4acd109d9b518e23bfe5aeec99469abe25bd4fe900a",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "language-design/RT-04/owned-contract-replay/results.json",
+          "path": "research/language-design/RT-04/owned-contract-replay/results.json",
+          "resolution": "research-root",
+          "expected_sha256": "af5b4ef377c707f9f604a75f70d0ee41a517b8da7fb3334a0cb3b5ac8314b044",
+          "current_blob": "5f832cf1e60d47eb623ca1b900bc401c45d2414e",
+          "current_sha256": "af5b4ef377c707f9f604a75f70d0ee41a517b8da7fb3334a0cb3b5ac8314b044",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-04/CONTRACT-RELATIONS-01/evidence.json",
+      "blob": "630eb4201d6fb267c18e27d1cef32c99e808d268",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/language-design/RT-04/CONTRACT-RELATIONS-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "abe515a1931657d171af7dddf930779c30e3f6661083c7560bd1ae67c9fa776b",
+          "current_blob": "64249950667f61b57e29c6d209dfa432412e0c2f",
+          "current_sha256": "abe515a1931657d171af7dddf930779c30e3f6661083c7560bd1ae67c9fa776b",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-04/OPERATION-SUBSTITUTION-EVIDENCE-01/evidence.json",
+      "blob": "531493f0251c231cf019ae523d92f9bc6abedb41",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "repository-root",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/language-design/RT-04/OPERATION-SUBSTITUTION-EVIDENCE-01/run.py",
+          "path": "research/language-design/RT-04/OPERATION-SUBSTITUTION-EVIDENCE-01/run.py",
+          "resolution": "repository-root",
+          "expected_sha256": "e028a9ba4e916ed06479faf9879697a8b90425973b5efce9a69cc2ba5f2d338e",
+          "current_blob": "6358a92de628d66b2f57cbc0d4175d8d4e6faec7",
+          "current_sha256": "e028a9ba4e916ed06479faf9879697a8b90425973b5efce9a69cc2ba5f2d338e",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-04/VERIFIED-UNIT-ADAPTER-01/evidence.json",
+      "blob": "c8f79e4d0d0b61a8a55014ef579bc1b67bbe23ae",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "Adapter.lean",
+          "path": "research/language-design/RT-04/VERIFIED-UNIT-ADAPTER-01/Adapter.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "c6e46a72185b12ea67c59b1bbd6795a1f37c37520ebf572d414e82e9daad5a24",
+          "current_blob": "588b37281c99b4bcf33bdbf1e342d5b05b878762",
+          "current_sha256": "c6e46a72185b12ea67c59b1bbd6795a1f37c37520ebf572d414e82e9daad5a24",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/language-design/RT-04/VERIFIED-UNIT-ADAPTER-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "dc624c53af9507f3749a2e9e033e91ed836ac10e3d7296e0a6576e7d46e498d9",
+          "current_blob": "7d11ff410a26c7bdddfb9a2e298259fc457acb50",
+          "current_sha256": "dc624c53af9507f3749a2e9e033e91ed836ac10e3d7296e0a6576e7d46e498d9",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/CLOSED-GRAPH-BACKUP-01/evidence.json",
+      "blob": "588b2d4b931152ea7720003b4ef0215127ea0ba6",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/packages-and-ecosystem/RT-12/CLOSED-GRAPH-BACKUP-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "ef334ca1f35c0c24fb58847cb20328462ed656c7e5a6e6a71796f1f50532d170",
+          "current_blob": "29d117d7f4f269709974e18edfa7f88fe0144937",
+          "current_sha256": "ef334ca1f35c0c24fb58847cb20328462ed656c7e5a6e6a71796f1f50532d170",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/packages-and-ecosystem/RT-12/REACHABILITY-SWEEP-01/evidence.json",
+      "blob": "41049683bf6bd945103800426506f7e8953412ce",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/packages-and-ecosystem/RT-12/REACHABILITY-SWEEP-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "56c7bcad43a36eea533671b48fb3b73c7fee3da8cfc4de1146ce4b820941e514",
+          "current_blob": "7bc2966ef5440299f3c3755b41f599eb7ce5f6c6",
+          "current_sha256": "56c7bcad43a36eea533671b48fb3b73c7fee3da8cfc4de1146ce4b820941e514",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/BINARY64-NATIVE-REPLAY-01/evidence.json",
+      "blob": "27ed6d126638a25661e66009558d75bfc9822541",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/research-management/RT-00/DEPENDENCY-REGISTER-01/evidence.json",
+      "blob": "9ebbac1ba5f1bf937900ed9007294da8b6f85bd2",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/research-management/RT-00/EXPLICIT-RELATIONSHIPS-01/evidence.json",
+      "blob": "f9940fa5c9d6eb0b5d47cb5c228d56a32964349c",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/research-management/RT-00/F64-RELATIONSHIPS-01/evidence.json",
+      "blob": "0e957864e7b2147c3c85706b366ac04d0702c617",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/research-management/RT-00/PROOF-RECEIPT-STATUS-01/evidence.json",
+      "blob": "61fa5adeb4f1d0003ed5297e2fa5dd73a9b59ff4",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/composition.py",
+          "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/composition.py",
+          "resolution": "repository-root",
+          "expected_sha256": "5d45070a18878bf49fe2504483eb8363c11c2cba2990a8a97acaeb63482604bd",
+          "current_blob": "c1b42a4189efcf38e31ba43327501212d4629c70",
+          "current_sha256": "5d45070a18878bf49fe2504483eb8363c11c2cba2990a8a97acaeb63482604bd",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/formal-verification/RT-07/DAFNY-MODULAR-PROOF-CLOSURE-01/evidence.json",
+          "path": "research/formal-verification/RT-07/DAFNY-MODULAR-PROOF-CLOSURE-01/evidence.json",
+          "resolution": "repository-root",
+          "expected_sha256": "35309384190482e4426041ff0bd99c4aff87e282223d47e680bbf42104aad4b6",
+          "current_blob": "834997c8bcb81aa48f4cbbd8bd735fccb67fd99d",
+          "current_sha256": "35309384190482e4426041ff0bd99c4aff87e282223d47e680bbf42104aad4b6",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/QUALITY-WARNING-COVERAGE-01/evidence.json",
+      "blob": "f21efe06538bd21d4ff0a23b6c6c5b086b9fb1ac",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/research-management/RT-00/RT06-PATH-REPLAY-01/evidence.json",
+      "blob": "a8ddc425e5dff806838586ab732c8735b520294b",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/research-management/RT-00/RT13-CPC-REPLAY-01/evidence.json",
+      "blob": "9f0639d964c5ac63bb1dfb2481fb835b115d3001",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/research-management/RT-00/RT13-REPLAY-METADATA-01/evidence.json",
+      "blob": "0fc8536a3a2f96a33915d76e472d13735086824e",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/research-management/RT-00/RT13-SYMBOLIC-REPLAY-01/evidence.json",
+      "blob": "d27d6cbc2acf5d71b8ea8b99515f3b9e9154c2f5",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/runtime-and-systems/RT-25/ALLOCATOR-REPLAY-01/evidence.json",
+      "blob": "6273c86f71ce865327cd4c93ea226d89a0e38c58",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "research/runtime-and-systems/PROTOTYPES/ALLOCATOR-BENCH-01/graph.rs",
+          "path": "research/runtime-and-systems/PROTOTYPES/ALLOCATOR-BENCH-01/graph.rs",
+          "resolution": "repository-root",
+          "expected_sha256": "a23123a51683160c9b35f179c3a778da07bf8326144ee84ed67544584f3e6c51",
+          "current_blob": "1169ae994d1af6f4bbf308e88ba945e2a986585c",
+          "current_sha256": "a23123a51683160c9b35f179c3a778da07bf8326144ee84ed67544584f3e6c51",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/runtime-and-systems/PROTOTYPES/ALLOCATOR-BENCH-01/results-linux-x86_64.json",
+          "path": "research/runtime-and-systems/PROTOTYPES/ALLOCATOR-BENCH-01/results-linux-x86_64.json",
+          "resolution": "repository-root",
+          "expected_sha256": "13bda0796aca8fb94f3b2660455983e797d953236eebb6dbb3339aa2a7f51519",
+          "current_blob": "9309342170cc3d4be687186c1de65fe5341210c5",
+          "current_sha256": "13bda0796aca8fb94f3b2660455983e797d953236eebb6dbb3339aa2a7f51519",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "research/runtime-and-systems/PROTOTYPES/ALLOCATOR-COMPAT-01/probe.rs",
+          "path": "research/runtime-and-systems/PROTOTYPES/ALLOCATOR-COMPAT-01/probe.rs",
+          "resolution": "repository-root",
+          "expected_sha256": "f19188d110aa54729a159812067644c939859dd47c29731c964ee96fd02774dc",
+          "current_blob": "40f3a1cc16b7d81a2796e3bf99ca9f1fe4cbb018",
+          "current_sha256": "f19188d110aa54729a159812067644c939859dd47c29731c964ee96fd02774dc",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/CANONICAL-WIRE-01/evidence.json",
+      "blob": "e3a66530c0b64648a12ff4223b17f3c2330a5424",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "compare.py",
+          "path": "research/semantic-representation/PROTOTYPES/IDENTITY-BYTES-01/compare.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "ea6479107ea9aa0bbd666e118764ad7db3cb4d36cd57d99881c88d085ee661d5",
+          "current_blob": "f37db2261ec155a8aef2ad71f27deb2ef78715c1",
+          "current_sha256": "ea6479107ea9aa0bbd666e118764ad7db3cb4d36cd57d99881c88d085ee661d5",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "decode.mjs",
+          "path": "research/semantic-representation/RT-05/CANONICAL-WIRE-01/decode.mjs",
+          "resolution": "adjacent",
+          "expected_sha256": "688ae3f4ac8039224e2aa6aa89930a747596227f1552871358923eb86e1a737f",
+          "current_blob": "e091bd83f1336ca896c961e5aea9a7ccf43be884",
+          "current_sha256": "688ae3f4ac8039224e2aa6aa89930a747596227f1552871358923eb86e1a737f",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "encode.mjs",
+          "path": "research/semantic-representation/PROTOTYPES/IDENTITY-BYTES-01/encode.mjs",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "c842b566a055e9e073d0aa41f34821dbab8201b0d9f5fe1c7d856e6929ba3c61",
+          "current_blob": "f868ab7402bacf5bd2d4fe8381663e3a39f009ad",
+          "current_sha256": "c842b566a055e9e073d0aa41f34821dbab8201b0d9f5fe1c7d856e6929ba3c61",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/CANONICAL-WIRE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "7910cba595f146a8728ccd91b8b3d7e36fd5883f6e688a9cd7b824f35de5b081",
+          "current_blob": "ffa3b1d29e77988e80f0f0cf65112abfb8bd78ca",
+          "current_sha256": "7910cba595f146a8728ccd91b8b3d7e36fd5883f6e688a9cd7b824f35de5b081",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/CHECKED-REASSOCIATION-01/evidence.json",
+      "blob": "e615ab063887dac72657b40ddd6b86039dda2e4d",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "Reassociate.lean",
+          "path": "research/semantic-representation/RT-05/CHECKED-REASSOCIATION-01/Reassociate.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "42a4648b3f295ca7a226ced07618830d90d72ed8f5de146344cf8d689bcafb5f",
+          "current_blob": "0664a1ee7008b4d4654f109d22125ebfa9265db9",
+          "current_sha256": "42a4648b3f295ca7a226ced07618830d90d72ed8f5de146344cf8d689bcafb5f",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/CHECKED-REASSOCIATION-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "ecf8da1f3539097ae1d2ea76bc0cb3f98893f2f33087e8c760a98131e9e13445",
+          "current_blob": "1de275eb5a8e62ac3e47afec605d73af93a84621",
+          "current_sha256": "ecf8da1f3539097ae1d2ea76bc0cb3f98893f2f33087e8c760a98131e9e13445",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/CONFORMANCE-CLASS-IDENTITY-01/evidence.json",
+      "blob": "5a80718eee233e99bdd9c8b078a39fe8e1166506",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/CONFORMANCE-CLASS-IDENTITY-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "f4e091ccaa2a401427430f375ae740fe33f75012a9c254c42ac64e611ee41e2f",
+          "current_blob": "f91dc5399e79b0968e0ece9acb0961dd96fe2985",
+          "current_sha256": "f4e091ccaa2a401427430f375ae740fe33f75012a9c254c42ac64e611ee41e2f",
+          "outcome": "match"
+        },
+        {
+          "field": "source_ledger_sha256",
+          "label": "research/semantic-representation/RT-05/OPERATION-IDENTITY-01/evidence.json",
+          "path": "research/semantic-representation/RT-05/OPERATION-IDENTITY-01/evidence.json",
+          "resolution": "runner-defined-scalar",
+          "expected_sha256": "61c4d7bf9d35c8eee5ebf42265eaf4cfc1fc2d6242f2d45ff09ba5fceb2d84c7",
+          "current_blob": "48ac5c3cb2ce73da4534755ab267d64b20d46d4a",
+          "current_sha256": "61c4d7bf9d35c8eee5ebf42265eaf4cfc1fc2d6242f2d45ff09ba5fceb2d84c7",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/CROSS-SYNTAX-SPG-01/evidence.json",
+      "blob": "1ff51134a3dbb8cb1ddb1904475578c23ee57228",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "fixture_sha256",
+          "label": "observe.py",
+          "path": "research/semantic-representation/RT-05/CROSS-SYNTAX-SPG-01/observe.py",
+          "resolution": "adjacent",
+          "expected_sha256": "a8b7deab135e248015018a5f76e28969ae41eeacf18a1873d7b1891ab806c8d2",
+          "current_blob": "b6ac4b72125e37e8f914100c2c1307809ca6fadf",
+          "current_sha256": "a8b7deab135e248015018a5f76e28969ae41eeacf18a1873d7b1891ab806c8d2",
+          "outcome": "match"
+        },
+        {
+          "field": "fixture_sha256",
+          "label": "profiles.py",
+          "path": "research/language-design/RT-31/CROSS-PROFILE-SPG-01/profiles.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "8fc88d9b8d9af652783e9f3d3c43d66edb061d1e22ff62d622d46e6d307b6dcf",
+          "current_blob": "b4f460a52ebf8a188b6acff5c13556e6b05bfc61",
+          "current_sha256": "8fc88d9b8d9af652783e9f3d3c43d66edb061d1e22ff62d622d46e6d307b6dcf",
+          "outcome": "match"
+        },
+        {
+          "field": "fixture_sha256",
+          "label": "run.py",
+          "path": "research/language-design/RT-31/CROSS-PROFILE-SPG-01/run.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "344cdab493a1981021ab5d9096e473888761de4f8bcd24dd233b76301e58145a",
+          "current_blob": "b9e6bae5ba881f05592cb2e636a3cca34b56dbe9",
+          "current_sha256": "344cdab493a1981021ab5d9096e473888761de4f8bcd24dd233b76301e58145a",
+          "outcome": "match"
+        },
+        {
+          "field": "fixture_sha256",
+          "label": "sources.json",
+          "path": "research/semantic-representation/RT-05/CROSS-SYNTAX-SPG-01/sources.json",
+          "resolution": "adjacent",
+          "expected_sha256": "974101f0d6665d6ac3271d2659544397648e388304000d78777e3738b3e83b81",
+          "current_blob": "da1308cfdfa63d1524600b3a0beae5a51823d2da",
+          "current_sha256": "974101f0d6665d6ac3271d2659544397648e388304000d78777e3738b3e83b81",
+          "outcome": "match"
+        },
+        {
+          "field": "upstream_ledger_sha256",
+          "label": "research/language-design/RT-31/CROSS-PROFILE-SPG-01/evidence.json",
+          "path": "research/language-design/RT-31/CROSS-PROFILE-SPG-01/evidence.json",
+          "resolution": "runner-defined-scalar",
+          "expected_sha256": "4788a42753933dccd37a1afa9851b3321202f9ff1127bc191f29b835837bd934",
+          "current_blob": "fd2a3d342eee3416fff207a3a2258e3728fa8d9b",
+          "current_sha256": "4788a42753933dccd37a1afa9851b3321202f9ff1127bc191f29b835837bd934",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/DEPENDENCY-PROPAGATION-01/evidence.json",
+      "blob": "17a64e473dd45fd2afa5b5f2dd73b576052ee39c",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "sources_sha256",
+          "label": "Propagation.lean",
+          "path": "research/semantic-representation/RT-05/DEPENDENCY-PROPAGATION-01/Propagation.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "5c377d047c1505089701147faa6a54434f49600cdc7eea4e8fd94b96d2e6e930",
+          "current_blob": "b43fe2f15f1b135a320591ec9f9ccf4a149f9103",
+          "current_sha256": "5c377d047c1505089701147faa6a54434f49600cdc7eea4e8fd94b96d2e6e930",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "axioms.txt",
+          "path": "research/semantic-representation/RT-05/DEPENDENCY-PROPAGATION-01/axioms.txt",
+          "resolution": "adjacent",
+          "expected_sha256": "42c384b6873a99df9289bd2b290c35aa1c02d89e2567e38c2ce161f375ddbdd8",
+          "current_blob": "aa6f9fa722a1bc8a61dcdb66df92137aa4211f4b",
+          "current_sha256": "42c384b6873a99df9289bd2b290c35aa1c02d89e2567e38c2ce161f375ddbdd8",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/DEPENDENCY-PROPAGATION-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "b2270d83de93b1c4b0066d96e9ed80126af98ac81fd926c5fbacd48e5b2b24e8",
+          "current_blob": "bc81e56f683c0803edffcbdb797e3aa044321d43",
+          "current_sha256": "b2270d83de93b1c4b0066d96e9ed80126af98ac81fd926c5fbacd48e5b2b24e8",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/DIGEST-MIGRATION-01/evidence.json",
+      "blob": "7460cacd40f17a8cc39cd5a46f705d9b9f531965",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "migration.py",
+          "path": "research/semantic-representation/RT-05/DIGEST-MIGRATION-01/migration.py",
+          "resolution": "adjacent",
+          "expected_sha256": "4b9fd7c0a87a87761793a78c2198654e771f2dfe928815797992061a842e6958",
+          "current_blob": "299de45c8e6f38e44697ed90e0b8f7d2b9866bde",
+          "current_sha256": "4b9fd7c0a87a87761793a78c2198654e771f2dfe928815797992061a842e6958",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/DIGEST-MIGRATION-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "a3411411649e71791286b5dc254ffda5dbc66e32a132fa89005554e5451c8f14",
+          "current_blob": "fe4ca4f51defbfb380ac5d000cdb790c96160ab0",
+          "current_sha256": "a3411411649e71791286b5dc254ffda5dbc66e32a132fa89005554e5451c8f14",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "semantic_graph.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/EVIDENCE-GRANULARITY-01/evidence.json",
+      "blob": "ba535068e78b4b5c65efdbc96d3a4cb126972d23",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/EVIDENCE-GRANULARITY-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "300876a404b357f911a23793c9e40d9a10059ee38003e6ec05087dc909314613",
+          "current_blob": "cf0891da11b5a3e0eff35dd870bba1f13a391379",
+          "current_sha256": "300876a404b357f911a23793c9e40d9a10059ee38003e6ec05087dc909314613",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/IDENTITY-CROSSWALK-01/evidence.json",
+      "blob": "6b35d315f36ed984be1d54207aaf97e49f8ad328",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/IDENTITY-CROSSWALK-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "ffa3784a114630b301288cd3083da8e7ae758e6197af8b686c915b1119497dc9",
+          "current_blob": "4e09193d8330b2261b03cc194249114862164ea7",
+          "current_sha256": "ffa3784a114630b301288cd3083da8e7ae758e6197af8b686c915b1119497dc9",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "CANONICAL-WIRE-01",
+          "path": "research/semantic-representation/RT-05/CANONICAL-WIRE-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "73efd14211b5990138af8de324ca8ef3e9116f7b414792e407056c0a02c2ab06",
+          "current_blob": "e3a66530c0b64648a12ff4223b17f3c2330a5424",
+          "current_sha256": "73efd14211b5990138af8de324ca8ef3e9116f7b414792e407056c0a02c2ab06",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "CONFORMANCE-CLASS-IDENTITY-01",
+          "path": "research/semantic-representation/RT-05/CONFORMANCE-CLASS-IDENTITY-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "9fec93bfaba15c3abbb33b5ec798a3eff85b62b636b556530290db8a748bc77e",
+          "current_blob": "5a80718eee233e99bdd9c8b078a39fe8e1166506",
+          "current_sha256": "9fec93bfaba15c3abbb33b5ec798a3eff85b62b636b556530290db8a748bc77e",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "DEPENDENCY-PROPAGATION-01",
+          "path": "research/semantic-representation/RT-05/DEPENDENCY-PROPAGATION-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "0834cf43dfaec78076386a8f3f5fae73639b4f08bdda219d075e66b1f36f7ca7",
+          "current_blob": "17a64e473dd45fd2afa5b5f2dd73b576052ee39c",
+          "current_sha256": "0834cf43dfaec78076386a8f3f5fae73639b4f08bdda219d075e66b1f36f7ca7",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "DIGEST-MIGRATION-01",
+          "path": "research/semantic-representation/RT-05/DIGEST-MIGRATION-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "2300fbd9fe6cd4981ffbad1843ecdeaebcfc3c1b1a70d465acd8cbe0c250268a",
+          "current_blob": "7460cacd40f17a8cc39cd5a46f705d9b9f531965",
+          "current_sha256": "2300fbd9fe6cd4981ffbad1843ecdeaebcfc3c1b1a70d465acd8cbe0c250268a",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "GUARDED-DISPATCH-IDENTITY-01",
+          "path": "research/semantic-representation/RT-05/GUARDED-DISPATCH-IDENTITY-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "65b59478c9aefe35c4e0546d1a0a0f68b051adfd45716e0a33a24e5e763f68e8",
+          "current_blob": "0e244a0cb1bff6c05e42beaf0a060ce8c70c1f14",
+          "current_sha256": "65b59478c9aefe35c4e0546d1a0a0f68b051adfd45716e0a33a24e5e763f68e8",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "NATIVE-IMPLEMENTATION-IDENTITY-01",
+          "path": "research/semantic-representation/RT-05/NATIVE-IMPLEMENTATION-IDENTITY-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "f7489653d27f1046a2b3ca8ef434b01c61cd071b82db229364da37e9ed391b26",
+          "current_blob": "e0b7d2eefb95ba3be303d0c8601929698d2cd457",
+          "current_sha256": "f7489653d27f1046a2b3ca8ef434b01c61cd071b82db229364da37e9ed391b26",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "OPERATION-IDENTITY-01",
+          "path": "research/semantic-representation/RT-05/OPERATION-IDENTITY-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "61c4d7bf9d35c8eee5ebf42265eaf4cfc1fc2d6242f2d45ff09ba5fceb2d84c7",
+          "current_blob": "48ac5c3cb2ce73da4534755ab267d64b20d46d4a",
+          "current_sha256": "61c4d7bf9d35c8eee5ebf42265eaf4cfc1fc2d6242f2d45ff09ba5fceb2d84c7",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "OPERATION-LIFETIME-01",
+          "path": "research/semantic-representation/RT-05/OPERATION-LIFETIME-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "74ea00e004c315fdcbadfb1a178ef3d5ec9b18e8733822f4e7056d8be0fc748b",
+          "current_blob": "220cfca8cca23d0b73d177b79cff7e39d4bab374",
+          "current_sha256": "74ea00e004c315fdcbadfb1a178ef3d5ec9b18e8733822f4e7056d8be0fc748b",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "PROVIDED-CONTRACT-IDENTITY-01",
+          "path": "research/semantic-representation/RT-05/PROVIDED-CONTRACT-IDENTITY-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "7b51a95bb5992c1f760f9426c668fc14e01acc56c18988cf963310d28a35a5fd",
+          "current_blob": "e6b1f3a6dd7e9f3e17942b811f69467499a3e745",
+          "current_sha256": "7b51a95bb5992c1f760f9426c668fc14e01acc56c18988cf963310d28a35a5fd",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "RECURSIVE-TOPOLOGY-EDITS-01",
+          "path": "research/semantic-representation/RT-05/RECURSIVE-TOPOLOGY-EDITS-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "5a88298254d5d333b04537419b4e12c77ee2b078dcd543d01721c13458996b7c",
+          "current_blob": "cd67684d848173d4e1dd5450c3c7b4e567daefcd",
+          "current_sha256": "5a88298254d5d333b04537419b4e12c77ee2b078dcd543d01721c13458996b7c",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_ledger_sha256",
+          "label": "TYPED-EDGE-PROJECTIONS-01",
+          "path": "research/semantic-representation/RT-05/TYPED-EDGE-PROJECTIONS-01/evidence.json",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "bb19d6e1ae0c233e71a845cad6bc492c81e0a613446af2afa867fee0abf46d51",
+          "current_blob": "a5e9e78edd6d5f6827b0cdf1f5380abceef2caaa",
+          "current_sha256": "bb19d6e1ae0c233e71a845cad6bc492c81e0a613446af2afa867fee0abf46d51",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_axiom_output_sha256",
+          "label": "DEPENDENCY-PROPAGATION-01",
+          "path": "research/semantic-representation/RT-05/DEPENDENCY-PROPAGATION-01/axioms.txt",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "42c384b6873a99df9289bd2b290c35aa1c02d89e2567e38c2ce161f375ddbdd8",
+          "current_blob": "aa6f9fa722a1bc8a61dcdb66df92137aa4211f4b",
+          "current_sha256": "42c384b6873a99df9289bd2b290c35aa1c02d89e2567e38c2ce161f375ddbdd8",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_axiom_output_sha256",
+          "label": "OPERATION-IDENTITY-01",
+          "path": "research/semantic-representation/RT-05/OPERATION-IDENTITY-01/axioms.txt",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "d71d7d5b0209e6fd1f5a46de61b0764682314bedf25d6da7d659ac1c7e02bb4e",
+          "current_blob": "82fbd2fea508f5e586ac7ba62297a0ba28b1f7f1",
+          "current_sha256": "d71d7d5b0209e6fd1f5a46de61b0764682314bedf25d6da7d659ac1c7e02bb4e",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_axiom_output_sha256",
+          "label": "PROVIDED-CONTRACT-IDENTITY-01",
+          "path": "research/semantic-representation/RT-05/PROVIDED-CONTRACT-IDENTITY-01/axioms.txt",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "aee94058b53599c74005acac9405a87b97c366ae34c3f92a68943bfb95bf6df4",
+          "current_blob": "31824f51da9936dbbba783daada57b3665cc963d",
+          "current_sha256": "aee94058b53599c74005acac9405a87b97c366ae34c3f92a68943bfb95bf6df4",
+          "outcome": "match"
+        },
+        {
+          "field": "replayed_axiom_output_sha256",
+          "label": "TYPED-EDGE-PROJECTIONS-01",
+          "path": "research/semantic-representation/RT-05/TYPED-EDGE-PROJECTIONS-01/axioms.txt",
+          "resolution": "crosswalk-fixture",
+          "expected_sha256": "11d28207cfdadd8394c07a85ec08f714417578b0bd77802e84cabcb55ca44d1f",
+          "current_blob": "d2f09cbfc6ba3cbd600ed84d9624b1d431efeba4",
+          "current_sha256": "11d28207cfdadd8394c07a85ec08f714417578b0bd77802e84cabcb55ca44d1f",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/NATIVE-IMPLEMENTATION-IDENTITY-01/evidence.json",
+      "blob": "e0b7d2eefb95ba3be303d0c8601929698d2cd457",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "sources_sha256",
+          "label": "caller.c",
+          "path": "research/semantic-representation/RT-05/NATIVE-IMPLEMENTATION-IDENTITY-01/caller.c",
+          "resolution": "adjacent",
+          "expected_sha256": "898947ebca993e1466ea420a0d1dd1843a6b615af1831a935bac3032bd7facc4",
+          "current_blob": "ef2a525b8fe62c52da64a31b00799d0550eb7cf8",
+          "current_sha256": "898947ebca993e1466ea420a0d1dd1843a6b615af1831a935bac3032bd7facc4",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "entry.h",
+          "path": "research/semantic-representation/RT-05/NATIVE-IMPLEMENTATION-IDENTITY-01/entry.h",
+          "resolution": "adjacent",
+          "expected_sha256": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+          "current_blob": "a68201ccaddbf1d9d868bf617a6becb6a2f4631f",
+          "current_sha256": "150ff00b15d054c2b84f32776c44e878c913c6562b28c6d0f2ecdc2d60758c4f",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "provider.c",
+          "path": "research/semantic-representation/RT-05/NATIVE-IMPLEMENTATION-IDENTITY-01/provider.c",
+          "resolution": "adjacent",
+          "expected_sha256": "c02e0e4e5dd5533bcc9b3296bcfd9617165aea8156e1ff3398375c8dfbf6b39b",
+          "current_blob": "29a7299936f2d0ed4733d128c32ab3379cd0288f",
+          "current_sha256": "c02e0e4e5dd5533bcc9b3296bcfd9617165aea8156e1ff3398375c8dfbf6b39b",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/NATIVE-IMPLEMENTATION-IDENTITY-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "55400d4dfe91482c11c3894db4590f3859d525579f92e1586cecdbca30c5a1fe",
+          "current_blob": "22c379f9abfe4a7a57bcdadd8508d63db35218e1",
+          "current_sha256": "55400d4dfe91482c11c3894db4590f3859d525579f92e1586cecdbca30c5a1fe",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/OPERATION-IDENTITY-01/evidence.json",
+      "blob": "48ac5c3cb2ce73da4534755ab267d64b20d46d4a",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "sources_sha256",
+          "label": "Contract.lean",
+          "path": "research/semantic-representation/RT-05/OPERATION-IDENTITY-01/Contract.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "609c3b9f48bf0bf853ff20a2afc476aa24fbc1cf828612b4564a2785465ad0e9",
+          "current_blob": "435c362f54589ee97a23db49b95fa553fe18536b",
+          "current_sha256": "609c3b9f48bf0bf853ff20a2afc476aa24fbc1cf828612b4564a2785465ad0e9",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "provider.c",
+          "path": "research/semantic-representation/RT-05/OPERATION-IDENTITY-01/provider.c",
+          "resolution": "adjacent",
+          "expected_sha256": "92b80dffeb6171b048030ca28cb060025606802a43709e23d3f06457fd37d439",
+          "current_blob": "42bcd5465ca021a42b7d156a457444e7767a3afc",
+          "current_sha256": "92b80dffeb6171b048030ca28cb060025606802a43709e23d3f06457fd37d439",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/OPERATION-IDENTITY-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "ae50eba1846cd237a4e92c69c033cb833883f22bd353bba88c8f01d13e191592",
+          "current_blob": "8d2338a9e233bf09eee0e37955df55804731b23c",
+          "current_sha256": "ae50eba1846cd237a4e92c69c033cb833883f22bd353bba88c8f01d13e191592",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/OPERATION-LIFETIME-01/evidence.json",
+      "blob": "220cfca8cca23d0b73d177b79cff7e39d4bab374",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "runner",
+          "path": "research/semantic-representation/RT-05/OPERATION-LIFETIME-01/run.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "0ac30d1e8a15b9b164816d72b86d5111696eac89a8b0b5bb7744a78a33dedda0",
+          "current_blob": "6e59bc5c6b95e1379f517af2cd169c3692c3f057",
+          "current_sha256": "0ac30d1e8a15b9b164816d72b86d5111696eac89a8b0b5bb7744a78a33dedda0",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "semantic_graph",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/PER-INPUT-REFINEMENT-01/evidence.json",
+      "blob": "7329fe90684b26f2b427ed58eb6e037572aaa164",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "InputCoverage.lean",
+          "path": "research/semantic-representation/RT-05/PER-INPUT-REFINEMENT-01/InputCoverage.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "66d324214e3080f71ae6e7b540ad3f8613880fb4ce023af5c8040a0757570ba0",
+          "current_blob": "5b29c9c7ae5541f2927b84f4a361ee6060f0763d",
+          "current_sha256": "66d324214e3080f71ae6e7b540ad3f8613880fb4ce023af5c8040a0757570ba0",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/PER-INPUT-REFINEMENT-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "322415a2617f15dc1f5b1efbaf2d6d75b6f014ef79e8b304ba0fbbada0d26065",
+          "current_blob": "8410883c0b3e72056417f3738c07e727e28f40ea",
+          "current_sha256": "322415a2617f15dc1f5b1efbaf2d6d75b6f014ef79e8b304ba0fbbada0d26065",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/PROVIDED-CONTRACT-IDENTITY-01/evidence.json",
+      "blob": "e6b1f3a6dd7e9f3e17942b811f69467499a3e745",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "Admission.lean",
+          "path": "research/semantic-representation/RT-05/PROVIDED-CONTRACT-IDENTITY-01/Admission.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "b4d106987f8b689d3148287d655326f24e4f603b92002f4bb6e8207dbf89d785",
+          "current_blob": "726797fd5eee859150eae1a5c3c154ce29c1e0c7",
+          "current_sha256": "b4d106987f8b689d3148287d655326f24e4f603b92002f4bb6e8207dbf89d785",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "axioms.txt",
+          "path": "research/semantic-representation/RT-05/PROVIDED-CONTRACT-IDENTITY-01/axioms.txt",
+          "resolution": "adjacent",
+          "expected_sha256": "aee94058b53599c74005acac9405a87b97c366ae34c3f92a68943bfb95bf6df4",
+          "current_blob": "31824f51da9936dbbba783daada57b3665cc963d",
+          "current_sha256": "aee94058b53599c74005acac9405a87b97c366ae34c3f92a68943bfb95bf6df4",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/PROVIDED-CONTRACT-IDENTITY-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "5c07e0454e496040145f7eaee1689d0d9d0a9213e894589ca7a03b2f2e88d8da",
+          "current_blob": "09c39b603e232762b5f48b2ddefb856a265f5a9c",
+          "current_sha256": "5c07e0454e496040145f7eaee1689d0d9d0a9213e894589ca7a03b2f2e88d8da",
+          "outcome": "match"
+        },
+        {
+          "field": "native_ledger_sha256",
+          "label": "research/semantic-representation/RT-05/OPERATION-IDENTITY-01/evidence.json",
+          "path": "research/semantic-representation/RT-05/OPERATION-IDENTITY-01/evidence.json",
+          "resolution": "runner-defined-scalar",
+          "expected_sha256": "61c4d7bf9d35c8eee5ebf42265eaf4cfc1fc2d6242f2d45ff09ba5fceb2d84c7",
+          "current_blob": "48ac5c3cb2ce73da4534755ab267d64b20d46d4a",
+          "current_sha256": "61c4d7bf9d35c8eee5ebf42265eaf4cfc1fc2d6242f2d45ff09ba5fceb2d84c7",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/RECURSIVE-TOPOLOGY-EDITS-01/evidence.json",
+      "blob": "cd67684d848173d4e1dd5450c3c7b4e567daefcd",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "recursive_identity.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/recursive_identity.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556",
+          "current_blob": "5c1bd90f0ae1a9f5afe256e3ecef808f8913380b",
+          "current_sha256": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "runner",
+          "path": "research/semantic-representation/RT-05/RECURSIVE-TOPOLOGY-EDITS-01/run.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "9f5ae495bf0bab9dcb543e3556f306f75eba68067baa50f09f139dafeaf526ec",
+          "current_blob": "6bae298df731eed40be528b33ba5246ade882b4d",
+          "current_sha256": "9f5ae495bf0bab9dcb543e3556f306f75eba68067baa50f09f139dafeaf526ec",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "semantic_graph.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/SHARED-INSTRUCTION-PROVENANCE-01/evidence.json",
+      "blob": "c8716216386e120ebf8ecb697bc0e1c6e994b3ac",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/SHARED-INSTRUCTION-PROVENANCE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "78d47038d32778691f8413aba423a6da4ce0ad6ef774870e2f58b06f91018bf4",
+          "current_blob": "5882c650237d7de954da8a0e7789bf6bdcece1fb",
+          "current_sha256": "78d47038d32778691f8413aba423a6da4ce0ad6ef774870e2f58b06f91018bf4",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/SOURCE-OCCURRENCE-01/evidence.json",
+      "blob": "5b44c387570dea4020b6f940aec75c52d3fd4ac1",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/SOURCE-OCCURRENCE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "bdc508ed3f67fcb0df7388925f5ea2f47460e482566d0fd85b081dae0c978c1f",
+          "current_blob": "2fda351e1fa02c71ca502e68e13873a321fc0d62",
+          "current_sha256": "bdc508ed3f67fcb0df7388925f5ea2f47460e482566d0fd85b081dae0c978c1f",
+          "outcome": "match"
+        },
+        {
+          "field": "input_sha256",
+          "label": "src/persistence.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/persistence.py",
+          "resolution": "prototype-root",
+          "expected_sha256": "9a3aaeae773808d2195253e2cb0e3f2c39cc140a53c94080b7644f1854ac7da3",
+          "current_blob": "61ac24b9165c0e9971ea6d3b261185df33ce750c",
+          "current_sha256": "9a3aaeae773808d2195253e2cb0e3f2c39cc140a53c94080b7644f1854ac7da3",
+          "outcome": "match"
+        },
+        {
+          "field": "input_sha256",
+          "label": "src/recursive_identity.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/recursive_identity.py",
+          "resolution": "prototype-root",
+          "expected_sha256": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556",
+          "current_blob": "5c1bd90f0ae1a9f5afe256e3ecef808f8913380b",
+          "current_sha256": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556",
+          "outcome": "match"
+        },
+        {
+          "field": "input_sha256",
+          "label": "src/semantic_graph.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "resolution": "prototype-root",
+          "expected_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "current_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+          "current_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+          "outcome": "match"
+        },
+        {
+          "field": "input_sha256",
+          "label": "src/spg_admission.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py",
+          "resolution": "prototype-root",
+          "expected_sha256": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+          "current_blob": "fd5078b5ec91148fae8a78b783f5a0d7955ae3d4",
+          "current_sha256": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+          "outcome": "match"
+        },
+        {
+          "field": "input_sha256",
+          "label": "src/spg_representation.py",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py",
+          "resolution": "prototype-root",
+          "expected_sha256": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+          "current_blob": "918dfa431a066b321899fc7f1e5e0593db3104e3",
+          "current_sha256": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/TYPED-EDGE-PROJECTIONS-01/evidence.json",
+      "blob": "a5e9e78edd6d5f6827b0cdf1f5380abceef2caaa",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-05/TYPED-EDGE-PROJECTIONS-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "f4badcaab4ca6a81e29f4eb25df1426ccace4a1974be133c7d3faa4cca137597",
+          "current_blob": "4c665610ef69660a6479ed86d7340e87ffe6939f",
+          "current_sha256": "f4badcaab4ca6a81e29f4eb25df1426ccace4a1974be133c7d3faa4cca137597",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-06/DEPENDENCY-EVIDENCE-01/evidence.json",
+      "blob": "f082e5fa9ce7b29a11672e1da025865193678383",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/semantic-representation/RT-06/DEPENDENCY-EVIDENCE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "1d48e8ae5c0695c070f359568724cf34c196268a092c2c3764b31a053dbe5a77",
+          "current_blob": "ef144ce96dd8238b3e78dd19ce75442959633850",
+          "current_sha256": "1d48e8ae5c0695c070f359568724cf34c196268a092c2c3764b31a053dbe5a77",
+          "outcome": "match"
+        },
+        {
+          "field": "model_sha256",
+          "label": "Coverage.lean",
+          "path": "research/semantic-representation/RT-06/DEPENDENCY-EVIDENCE-01/Coverage.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "91bdea594005ba187035b850093017be39acec1b3614d07e38fc3accbfea9f66",
+          "current_blob": "0cee59d5dc333bbdc20e0c91aac10b5f96bb2054",
+          "current_sha256": "91bdea594005ba187035b850093017be39acec1b3614d07e38fc3accbfea9f66",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/CACHE-INDEX-MERGE-01/evidence.json",
+      "blob": "58bcc35ad5442b57c0ca69546831483202b56e5c",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "cache_index.py",
+          "path": "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/cache_index.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "2662ffa87450e05f075218b5593222262ff724e785ce512436bfa40443329b3b",
+          "current_blob": "554a9e73dc0cd211b5db5bd22e892c2646d10640",
+          "current_sha256": "2662ffa87450e05f075218b5593222262ff724e785ce512436bfa40443329b3b",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "language_version.py",
+          "path": "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/language_version.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "ef95a3198b49a6bd72db48aa600a50a2db2bf8fa922be3229e450ac57ab0d406",
+          "current_blob": "7c6e205746152b5470fda8275116511b34689337",
+          "current_sha256": "ef95a3198b49a6bd72db48aa600a50a2db2bf8fa922be3229e450ac57ab0d406",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "merge.py",
+          "path": "research/toolchain-and-collaboration/RT-11/CACHE-INDEX-MERGE-01/merge.py",
+          "resolution": "adjacent",
+          "expected_sha256": "c2de1b239b7cc4b5ba4b15d10e6ee1db9e555395b488248de4363b8704149e6c",
+          "current_blob": "cdcaad61e9996a58537cbd50b25d81f05f4290b5",
+          "current_sha256": "c2de1b239b7cc4b5ba4b15d10e6ee1db9e555395b488248de4363b8704149e6c",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "package_identity.py",
+          "path": "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458",
+          "current_blob": "5982fec3044928b3c687217138eb873d547c3d50",
+          "current_sha256": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/toolchain-and-collaboration/RT-11/CACHE-INDEX-MERGE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "68d19e9a9b871bb84e922dd6c2f40ded8675dc4e46cc9efd29aec0729d66f53f",
+          "current_blob": "97a12ffecc04d31014fc4a5f1ab8d140bd5e7522",
+          "current_sha256": "68d19e9a9b871bb84e922dd6c2f40ded8675dc4e46cc9efd29aec0729d66f53f",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/COMPILE-CACHE-TIMINGS-01/evidence.json",
+      "blob": "459cf8fc53249f868bc0e97c108345e664af987c",
+      "old_blob": null,
+      "source_identities": []
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/COMPOSED-NONINTERFERENCE-01/evidence.json",
+      "blob": "b03ad199e5ecd450d48bb4417bad9ae4c90e8af6",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "Composition.lean",
+          "path": "research/toolchain-and-collaboration/RT-11/COMPOSED-NONINTERFERENCE-01/Composition.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "cf501995946ea3a99a1493cbe161d5bfa0770c4f1d6865022265a42f4865c88e",
+          "current_blob": "44bbecd828c4fac1cbc222587f173e21dba466f7",
+          "current_sha256": "cf501995946ea3a99a1493cbe161d5bfa0770c4f1d6865022265a42f4865c88e",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/toolchain-and-collaboration/RT-11/COMPOSED-NONINTERFERENCE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "bdd398f40a0c5162d4e1ec88506b91a0fea1375b8ca042f8c2df46cd3e2eee3e",
+          "current_blob": "1bcf1721f8b44b0e661e732a527756303d4cb6b8",
+          "current_sha256": "bdd398f40a0c5162d4e1ec88506b91a0fea1375b8ca042f8c2df46cd3e2eee3e",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/DEBUG-COLUMN-REUSE-01/evidence.json",
+      "blob": "0702f0cda977456bc39a744e3abef6868fa44985",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/toolchain-and-collaboration/RT-11/DEBUG-COLUMN-REUSE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "c32d85a51e91fa3a80998bd188e8961b5d6e6b711c24ebceb6e528a6e10f1ab5",
+          "current_blob": "c147768ade39c5f8389d4f8b30c97ea75a03e50b",
+          "current_sha256": "c32d85a51e91fa3a80998bd188e8961b5d6e6b711c24ebceb6e528a6e10f1ab5",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/LAYERED-CACHE-01/evidence.json",
+      "blob": "194c0f7f108d6ba8db72f2c34f9fce24ab6987d8",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "sources_sha256",
+          "label": "cache_index",
+          "path": "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/cache_index.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "2662ffa87450e05f075218b5593222262ff724e785ce512436bfa40443329b3b",
+          "current_blob": "554a9e73dc0cd211b5db5bd22e892c2646d10640",
+          "current_sha256": "2662ffa87450e05f075218b5593222262ff724e785ce512436bfa40443329b3b",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "fixture",
+          "path": "research/toolchain-and-collaboration/RT-11/CACHE-INDEX-MERGE-01/run.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "68d19e9a9b871bb84e922dd6c2f40ded8675dc4e46cc9efd29aec0729d66f53f",
+          "current_blob": "97a12ffecc04d31014fc4a5f1ab8d140bd5e7522",
+          "current_sha256": "68d19e9a9b871bb84e922dd6c2f40ded8675dc4e46cc9efd29aec0729d66f53f",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "merge",
+          "path": "research/toolchain-and-collaboration/RT-11/CACHE-INDEX-MERGE-01/merge.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "c2de1b239b7cc4b5ba4b15d10e6ee1db9e555395b488248de4363b8704149e6c",
+          "current_blob": "cdcaad61e9996a58537cbd50b25d81f05f4290b5",
+          "current_sha256": "c2de1b239b7cc4b5ba4b15d10e6ee1db9e555395b488248de4363b8704149e6c",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "runner",
+          "path": "research/toolchain-and-collaboration/RT-11/LAYERED-CACHE-01/run.py",
+          "resolution": "runner-defined-alias",
+          "expected_sha256": "e73135d801ebd8f6730079debe2457d8a8de141280950e54eff8329ca3a4f0c8",
+          "current_blob": "59cce48fe6c7f089f548ed1f9022c3402ff26e08",
+          "current_sha256": "e73135d801ebd8f6730079debe2457d8a8de141280950e54eff8329ca3a4f0c8",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/PROOF-FRESHNESS-01/evidence.json",
+      "blob": "2ce28535f2d066fb097ecc456b35897c6ee72829",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "sources",
+          "label": "baseline",
+          "outcome": "inline-data"
+        },
+        {
+          "field": "sources",
+          "label": "changed",
+          "outcome": "inline-data"
+        },
+        {
+          "field": "sources",
+          "label": "formatting",
+          "outcome": "inline-data"
+        },
+        {
+          "field": "sources",
+          "label": "refactor",
+          "outcome": "inline-data"
+        },
+        {
+          "field": "sources",
+          "label": "refuted",
+          "outcome": "inline-data"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "SemanticControls.lean",
+          "path": "research/toolchain-and-collaboration/RT-11/PROOF-FRESHNESS-01/SemanticControls.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "0bafa9805b0f4a1099f529c2bad1fc8b75fa8641bab3347082d671a40b00fd4e",
+          "current_blob": "f51932b5d3d021bda1ecc08e723d7df8ebe71ef7",
+          "current_sha256": "0bafa9805b0f4a1099f529c2bad1fc8b75fa8641bab3347082d671a40b00fd4e",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "run.py",
+          "path": "research/toolchain-and-collaboration/RT-11/PROOF-FRESHNESS-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "40a14a824caa5f3186c0b47bb490095a71033e3b574a02a14eaa9b127cd12742",
+          "current_blob": "cf536ded9c44345c5cebe15aa6acb77640aa82cf",
+          "current_sha256": "40a14a824caa5f3186c0b47bb490095a71033e3b574a02a14eaa9b127cd12742",
+          "outcome": "match"
+        },
+        {
+          "field": "checked_source_runs.source_sha256",
+          "label": "baseline/4.34.0",
+          "expected_sha256": "4c587644787471f42012fbe58e581f0468bf8bed7182761041d0714672281acc",
+          "actual_sha256": "4c587644787471f42012fbe58e581f0468bf8bed7182761041d0714672281acc",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "checked_source_runs.source_sha256",
+          "label": "baseline/4.36.0",
+          "expected_sha256": "4c587644787471f42012fbe58e581f0468bf8bed7182761041d0714672281acc",
+          "actual_sha256": "4c587644787471f42012fbe58e581f0468bf8bed7182761041d0714672281acc",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "checked_source_runs.source_sha256",
+          "label": "changed/4.34.0",
+          "expected_sha256": "420e3c32a8d2d07c3478049c36e6918132f3f00a9b0cb64f07ac0b37fc23c5a8",
+          "actual_sha256": "420e3c32a8d2d07c3478049c36e6918132f3f00a9b0cb64f07ac0b37fc23c5a8",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "checked_source_runs.source_sha256",
+          "label": "changed/4.36.0",
+          "expected_sha256": "420e3c32a8d2d07c3478049c36e6918132f3f00a9b0cb64f07ac0b37fc23c5a8",
+          "actual_sha256": "420e3c32a8d2d07c3478049c36e6918132f3f00a9b0cb64f07ac0b37fc23c5a8",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "checked_source_runs.source_sha256",
+          "label": "formatting/4.34.0",
+          "expected_sha256": "f75350e811cf0b2cdd1eca9b8719567bfa9e124dc2ea30be243f235f8217a08c",
+          "actual_sha256": "f75350e811cf0b2cdd1eca9b8719567bfa9e124dc2ea30be243f235f8217a08c",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "checked_source_runs.source_sha256",
+          "label": "formatting/4.36.0",
+          "expected_sha256": "f75350e811cf0b2cdd1eca9b8719567bfa9e124dc2ea30be243f235f8217a08c",
+          "actual_sha256": "f75350e811cf0b2cdd1eca9b8719567bfa9e124dc2ea30be243f235f8217a08c",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "checked_source_runs.source_sha256",
+          "label": "refactor/4.34.0",
+          "expected_sha256": "d14a309aedad357579ef41b73c415f2feb77d84d75be3189b30cab8c0b3f527b",
+          "actual_sha256": "d14a309aedad357579ef41b73c415f2feb77d84d75be3189b30cab8c0b3f527b",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "checked_source_runs.source_sha256",
+          "label": "refactor/4.36.0",
+          "expected_sha256": "d14a309aedad357579ef41b73c415f2feb77d84d75be3189b30cab8c0b3f527b",
+          "actual_sha256": "d14a309aedad357579ef41b73c415f2feb77d84d75be3189b30cab8c0b3f527b",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "checked_source_runs.source_sha256",
+          "label": "refuted/4.34.0",
+          "expected_sha256": "3c4e3d51c3f9ec4b80c87eed3a7eb2b9166eefd94c6dfca4ed08957a64ac7514",
+          "actual_sha256": "3c4e3d51c3f9ec4b80c87eed3a7eb2b9166eefd94c6dfca4ed08957a64ac7514",
+          "outcome": "inline-match"
+        },
+        {
+          "field": "checked_source_runs.source_sha256",
+          "label": "refuted/4.36.0",
+          "expected_sha256": "3c4e3d51c3f9ec4b80c87eed3a7eb2b9166eefd94c6dfca4ed08957a64ac7514",
+          "actual_sha256": "3c4e3d51c3f9ec4b80c87eed3a7eb2b9166eefd94c6dfca4ed08957a64ac7514",
+          "outcome": "inline-match"
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/SCOPED-FALLBACK-01/evidence.json",
+      "blob": "038557604a10f46de4d6c55103e0fffe1df008d6",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/toolchain-and-collaboration/RT-11/SCOPED-FALLBACK-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "addb0b6eb5288942d612ccdaf6b3b2dbea4bcc4518e51eccee04ae656f682919",
+          "current_blob": "744e20ebeb214b22c631f6751ce061270a8088c0",
+          "current_sha256": "addb0b6eb5288942d612ccdaf6b3b2dbea4bcc4518e51eccee04ae656f682919",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/SOURCE-METADATA-REUSE-01/evidence.json",
+      "blob": "bbfc2643bf4b86a1d28d81ea6d203b1b2e8b951f",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "sources_sha256",
+          "label": "driver.c",
+          "path": "research/toolchain-and-collaboration/RT-11/SOURCE-METADATA-REUSE-01/driver.c",
+          "resolution": "adjacent",
+          "expected_sha256": "1e46db74447e47c12edcd689d0caaa0bdc0e4fcc357546de97aec2a1190335aa",
+          "current_blob": "ee6bf7b1e4d39df7ffb9b2ea830fc463a4e8854d",
+          "current_sha256": "1e46db74447e47c12edcd689d0caaa0bdc0e4fcc357546de97aec2a1190335aa",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "input.c",
+          "path": "research/toolchain-and-collaboration/RT-11/SOURCE-METADATA-REUSE-01/input.c",
+          "resolution": "adjacent",
+          "expected_sha256": "72d0bab4e2d192e3540f111e31859d96efb01c5912bc69c8a2eb6e3fc92df032",
+          "current_blob": "99ccbe5b258f8f3dfe3ae30859a7bf9b0ca5025f",
+          "current_sha256": "72d0bab4e2d192e3540f111e31859d96efb01c5912bc69c8a2eb6e3fc92df032",
+          "outcome": "match"
+        },
+        {
+          "field": "sources_sha256",
+          "label": "run.py",
+          "path": "research/toolchain-and-collaboration/RT-11/SOURCE-METADATA-REUSE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "dbe469fed2927bd06bc5b40cfef7a0238bf1215fe182390ca57b4870017462d8",
+          "current_blob": "c21af856e03cdf90afb123cd149dc7cfff072765",
+          "current_sha256": "dbe469fed2927bd06bc5b40cfef7a0238bf1215fe182390ca57b4870017462d8",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/TYPED-PIPELINE-INVALIDATION-01/evidence.json",
+      "blob": "7d218abd45752d0f4fe823254db54af2b4cf312f",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/toolchain-and-collaboration/RT-11/TYPED-PIPELINE-INVALIDATION-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "035d8d712f115608ecd938fb44a676f99cd1555d221ab9721023bc1cf52bda50",
+          "current_blob": "2362fbb2b8365b4d69195b6cddbe0738e2e8dd26",
+          "current_sha256": "035d8d712f115608ecd938fb44a676f99cd1555d221ab9721023bc1cf52bda50",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/INDEPENDENT-MERGE-01/evidence.json",
+      "blob": "2dea637ae55b413772466dfeaf990bd17fab2fd0",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "source_sha256",
+          "label": "Independence.lean",
+          "path": "research/toolchain-and-collaboration/RT-24/INDEPENDENT-MERGE-01/Independence.lean",
+          "resolution": "adjacent",
+          "expected_sha256": "9699f917e217a6961d20be4632f13fdca5ee4ba0788dc68c929933bd7dd9ec7b",
+          "current_blob": "03a008c813250186566b9f5507ef7c338f86c31b",
+          "current_sha256": "9699f917e217a6961d20be4632f13fdca5ee4ba0788dc68c929933bd7dd9ec7b",
+          "outcome": "match"
+        },
+        {
+          "field": "source_sha256",
+          "label": "run.py",
+          "path": "research/toolchain-and-collaboration/RT-24/INDEPENDENT-MERGE-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "bcea9750f28d19150536dd2da896f95ce1de59354f9829567466e0b6334256eb",
+          "current_blob": "d53b19f6ca1d76ef05664060c024d84ae49c0c5c",
+          "current_sha256": "bcea9750f28d19150536dd2da896f95ce1de59354f9829567466e0b6334256eb",
+          "outcome": "match"
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/MERGE-FALLBACK-01/evidence.json",
+      "blob": "2aa35a803d0f0dea16fa6ab9ed2f6aecb7fd26b9",
+      "old_blob": null,
+      "source_identities": [
+        {
+          "field": "runner_sha256",
+          "label": "run.py",
+          "path": "research/toolchain-and-collaboration/RT-24/MERGE-FALLBACK-01/run.py",
+          "resolution": "adjacent",
+          "expected_sha256": "5825a41ba367f4b43009a544d6a7fbcba33f9886e2e5991824eecfb1c4566055",
+          "current_blob": "5c3724ab9dc5063c4cf687251a2f33fe9dedb342",
+          "current_sha256": "5825a41ba367f4b43009a544d6a7fbcba33f9886e2e5991824eecfb1c4566055",
+          "outcome": "match"
+        }
+      ]
+    }
+  ]
+}
