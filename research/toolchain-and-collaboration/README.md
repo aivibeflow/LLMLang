@@ -62,6 +62,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-24 Git coordinator and doctor](RT-24/RT-24-GIT-COORDINATOR-AND-DOCTOR-2026-11-25.md) verifies exact local workflow prerequisites and separates path tools from whole-tree validation.
 - [RT-24 merge identities, locks and mapping](RT-24/RT-24-MERGE-IDENTITY-LOCKS-AND-MAPPING-2026-11-25.md) checks lineage, dependency locks and Interface Mapping revisions.
 - [RT-24 whole-graph reverse and CIP gate](RT-24/RT-24-WHOLE-GRAPH-REVERSE-AND-CIP-GATE-2026-11-25.md) composes independent source admission, checked reverse queries and exact RT-20 planning.
 - [RT-24 textual SPG clean clone](RT-24/RT-24-TEXTUAL-SPG-CLEAN-CLONE-2026-11-25.md) verifies typed textual import, exact dependency pins and canonical export across Git formats.

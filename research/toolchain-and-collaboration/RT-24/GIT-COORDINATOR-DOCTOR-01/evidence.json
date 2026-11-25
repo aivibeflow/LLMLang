@@ -1,0 +1,32 @@
+{
+  "baseline": "79b1a1c4c40c623a3b41ad4147eb448684255873",
+  "cases": {
+    "sha1/absent-tree": "required-tree-unavailable",
+    "sha1/different-driver": "configuration-mismatch",
+    "sha1/exact": "ready-for-candidate-check",
+    "sha1/local-info-override": "attribute-scope-mismatch",
+    "sha1/missing-coordinator": "coordinator-unavailable",
+    "sha1/trusted-ui-exit": "configuration-mismatch",
+    "sha1/unconfigured-driver": "configuration-mismatch",
+    "sha1/untracked-override": "attribute-scope-mismatch",
+    "sha1/wrong-tree": "required-tree-unavailable",
+    "sha256/absent-tree": "required-tree-unavailable",
+    "sha256/different-driver": "configuration-mismatch",
+    "sha256/exact": "ready-for-candidate-check",
+    "sha256/local-info-override": "attribute-scope-mismatch",
+    "sha256/missing-coordinator": "coordinator-unavailable",
+    "sha256/trusted-ui-exit": "configuration-mismatch",
+    "sha256/unconfigured-driver": "configuration-mismatch",
+    "sha256/untracked-override": "attribute-scope-mismatch",
+    "sha256/wrong-tree": "required-tree-unavailable"
+  },
+  "counts": {
+    "attribute-scope-mismatch": 4,
+    "configuration-mismatch": 6,
+    "coordinator-unavailable": 2,
+    "ready-for-candidate-check": 2,
+    "required-tree-unavailable": 4
+  },
+  "git": "git version 2.56.1",
+  "runner_sha256": "e58901a85cfc4830576ba70d049502e0604ed0d362be9f6dc0f2f890f421ada2"
+}
