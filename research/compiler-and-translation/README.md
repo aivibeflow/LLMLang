@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-13 Rust optional ABI](RT-13/RT-13-RUST-NONZERO-OPTIONAL-ABI-2026-11-25.md) checks the documented nonzero niche and a tagged FFI carrier.
 - [RT-13 C++ destructor ABI](RT-13/RT-13-CPP-DESTRUCTOR-ABI-2026-11-25.md) checks equal record layouts with different by-value return carriers.
 - [RT-13 Go deferred resource capture](RT-13/RT-13-GO-DEFERRED-RESOURCE-CAPTURE-2026-11-25.md) checks exact handle identity under versioned loop binding.
 - [RT-13 common subset backend receipts](RT-13/RT-13-COMMON-SUBSET-BACKEND-RECEIPTS-2026-11-25.md) verifies the implemented scalar backend gate across archived profiles.
