@@ -1,0 +1,6 @@
+if("$ENV{PILOT_WIFI}" STREQUAL "1")
+    idf_component_register(SRCS "main.c" REQUIRES esp_wifi)
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE PILOT_WIFI=1)
+else()
+    idf_component_register(SRCS "main.c")
+endif()
