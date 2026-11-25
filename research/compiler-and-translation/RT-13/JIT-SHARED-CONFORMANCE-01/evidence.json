@@ -1,0 +1,217 @@
+{
+  "fixture_source_sha256": "6817b94cd1df774891b949b9cc7d6b2edd5fd671c744af1f5a0bafbc1a88064e",
+  "input_sha256": "eb68e48fe8535cdc50b82982eafc4079ed80e125c3254df2336e438fa8efed5d",
+  "oracle_sources_sha256": {
+    "checked_add_replay.py": "4eca7b3da7c0eeaa3e673a136d9ea5f3b5010701b1ac10974276e62dd2da92d6",
+    "integer_fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+    "llvm_integer_probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a"
+  },
+  "policies": {
+    "drop_overflow": {
+      "common_trace_sha256": "5555b2cc3891be2e6bb878bfa4f426b0d8748b8077c14c657fbe6a4e0a9df229",
+      "different_fields": [
+        "effects",
+        "out_slot",
+        "status"
+      ],
+      "exact_input_or_machine": {
+        "cranelift-none": {
+          "clif_sha256": "6e6b5f2a5ff3521f38a7c08e67da2823ebd6484c2fa89a5393cc23a5850f70b0",
+          "function_bytes": 128,
+          "machine_sha256": "fe028877991655d5cfd9747f12a3dade24d6f05c6c13eca503286df6d2c3b6a6"
+        },
+        "cranelift-speed": {
+          "clif_sha256": "6e6b5f2a5ff3521f38a7c08e67da2823ebd6484c2fa89a5393cc23a5850f70b0",
+          "function_bytes": 128,
+          "machine_sha256": "fe028877991655d5cfd9747f12a3dade24d6f05c6c13eca503286df6d2c3b6a6"
+        },
+        "llvm_input_sha256": "bf78da791aa4ce51327307f9f1ba8797894e46194578338b90ff420a3f671c5b"
+      },
+      "first_wrong": {
+        "actual": {
+          "effects": [
+            1,
+            2147483648
+          ],
+          "out_slot": 2147483648,
+          "status": 0
+        },
+        "input": [
+          1,
+          2147483647,
+          1
+        ],
+        "reference": {
+          "effects": [
+            1
+          ],
+          "out_slot": 2880246324,
+          "status": 1
+        }
+      },
+      "mismatches": {
+        "full": 885,
+        "omit-effects": 885,
+        "omit-out_slot": 885,
+        "omit-status": 885
+      },
+      "profiles": [
+        "cranelift-none",
+        "cranelift-speed",
+        "llvm-orc-O0",
+        "llvm-orc-O3"
+      ]
+    },
+    "preserving": {
+      "common_trace_sha256": "bfbb7639091a981c977c8cdf5a7753346964d78b13568051ab0fb484f57e7e7f",
+      "different_fields": [],
+      "exact_input_or_machine": {
+        "cranelift-none": {
+          "clif_sha256": "4a88f95e1af72bae372310a8d60f11b5d7c84de8298c5309c8db23cd46f34257",
+          "function_bytes": 174,
+          "machine_sha256": "73329377537a30815974cb3329ee1e44c9d50637d78d7685f5b58601f18c8d3c"
+        },
+        "cranelift-speed": {
+          "clif_sha256": "4a88f95e1af72bae372310a8d60f11b5d7c84de8298c5309c8db23cd46f34257",
+          "function_bytes": 174,
+          "machine_sha256": "73329377537a30815974cb3329ee1e44c9d50637d78d7685f5b58601f18c8d3c"
+        },
+        "llvm_input_sha256": "dc36aa363d263d610c16f655278279e236ec4c935027e63cedd17d50a42182ec"
+      },
+      "first_wrong": null,
+      "mismatches": {
+        "full": 0,
+        "omit-effects": 0,
+        "omit-out_slot": 0,
+        "omit-status": 0
+      },
+      "profiles": [
+        "cranelift-none",
+        "cranelift-speed",
+        "llvm-orc-O0",
+        "llvm-orc-O3"
+      ]
+    },
+    "reverse_effects": {
+      "common_trace_sha256": "e17898bda0bc5a721b8772ec00c1eb8bfb73ba7d270d1275269447a8901f7913",
+      "different_fields": [
+        "effects"
+      ],
+      "exact_input_or_machine": {
+        "cranelift-none": {
+          "clif_sha256": "682b515f75277ca45b49176031f9e6e69636aba985b49a39aca1212ec8834649",
+          "function_bytes": 164,
+          "machine_sha256": "e67d5823fc5f7bc3a06113d99294926042c0cdc9b9199445cf2aee7f7bdfce98"
+        },
+        "cranelift-speed": {
+          "clif_sha256": "682b515f75277ca45b49176031f9e6e69636aba985b49a39aca1212ec8834649",
+          "function_bytes": 164,
+          "machine_sha256": "e67d5823fc5f7bc3a06113d99294926042c0cdc9b9199445cf2aee7f7bdfce98"
+        },
+        "llvm_input_sha256": "390e1ebb98d91f6ba432983c01510a068ebb5fd2704b738fa3a2b15104a7c01d"
+      },
+      "first_wrong": {
+        "actual": {
+          "effects": [
+            1,
+            0
+          ],
+          "out_slot": 1,
+          "status": 0
+        },
+        "input": [
+          0,
+          1,
+          0
+        ],
+        "reference": {
+          "effects": [
+            0,
+            1
+          ],
+          "out_slot": 1,
+          "status": 0
+        }
+      },
+      "mismatches": {
+        "full": 3661,
+        "omit-effects": 0,
+        "omit-out_slot": 3661,
+        "omit-status": 3661
+      },
+      "profiles": [
+        "cranelift-none",
+        "cranelift-speed",
+        "llvm-orc-O0",
+        "llvm-orc-O3"
+      ]
+    },
+    "store_on_error": {
+      "common_trace_sha256": "fb1ff5eeb7312326f983b2439061db413c794a5153b2b70bb858a7e531bfe950",
+      "different_fields": [
+        "out_slot"
+      ],
+      "exact_input_or_machine": {
+        "cranelift-none": {
+          "clif_sha256": "187522c093ec9310a0e4fb578e3d168ba60624404697c6e19e460bcaf7644b9c",
+          "function_bytes": 184,
+          "machine_sha256": "52bac0c8705e381205a7ddc651ab720ccdd19b91b98f4ca605da701723b13f22"
+        },
+        "cranelift-speed": {
+          "clif_sha256": "187522c093ec9310a0e4fb578e3d168ba60624404697c6e19e460bcaf7644b9c",
+          "function_bytes": 184,
+          "machine_sha256": "52bac0c8705e381205a7ddc651ab720ccdd19b91b98f4ca605da701723b13f22"
+        },
+        "llvm_input_sha256": "f5cbb0ee997e512dbd4d1926729db685d290394942f1a65cd2ee00142772099c"
+      },
+      "first_wrong": {
+        "actual": {
+          "effects": [
+            1
+          ],
+          "out_slot": 0,
+          "status": 1
+        },
+        "input": [
+          1,
+          2147483647,
+          1
+        ],
+        "reference": {
+          "effects": [
+            1
+          ],
+          "out_slot": 2880246324,
+          "status": 1
+        }
+      },
+      "mismatches": {
+        "full": 885,
+        "omit-effects": 885,
+        "omit-out_slot": 0,
+        "omit-status": 885
+      },
+      "profiles": [
+        "cranelift-none",
+        "cranelift-speed",
+        "llvm-orc-O0",
+        "llvm-orc-O3"
+      ]
+    }
+  },
+  "reference_sha256": "bfbb7639091a981c977c8cdf5a7753346964d78b13568051ab0fb484f57e7e7f",
+  "sources_sha256": {
+    "JIT-MATERIALIZATION-01/orc.cpp": "daafdd2597d2a23e7f3816b59b0f2a7bc7ed6c4bbc365ce7f83d0fb0afee0c23",
+    "JIT-SHARED-CONFORMANCE-01/run.py": "4450ac4c1f1d0881f469016fce4efc88adecb35a217b4b51ff6160dc31aa7d74",
+    "cranelift-checked-add/Cargo.lock": "a1e15c5bf9db982ca119a5837dd34e77c6377fa7725f1fee41300ecc6f7491b7",
+    "cranelift-checked-add/run.py": "1842048aaa533448861792b826fc380721fedd5910989dae15e15c24fb0aa730",
+    "cranelift-checked-add/src/main.rs": "01aa9fa2b764fbb31d254ede34df3d6d978aa3e7b218940fbafb853c084609e2"
+  },
+  "target": "x86_64-unknown-linux-gnu",
+  "tools": {
+    "gcc": "cc (Debian 14.2.0-19) 14.2.0",
+    "llvm": "19.1.7",
+    "rust": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  },
+  "vectors_per_policy_and_profile": 4596
+}

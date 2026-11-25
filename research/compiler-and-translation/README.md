@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-13 shared JIT conformance](RT-13/RT-13-SHARED-JIT-CONFORMANCE-2026-11-25.md) checks equivalent adversarial variants against one complete observation projection.
 - [RT-13 fresh-process JIT pilot](RT-13/RT-13-JIT-FRESH-PROCESS-2026-11-25.md) reports paired process duration, materialization and peak RSS for four checked-add profiles.
 - [RT-13 backend benchmark protocol](RT-13/RT-13-BACKEND-BENCHMARK-PROTOCOL-2026-11-25.md) specifies measurement boundaries and pins a shared executable starter corpus.
 - [RT-13 Wasm memory64 profiles](RT-13/RT-13-WASM-MEMORY64-PROFILES-2026-11-25.md) compares full-width byte-view arithmetic and engine admission for LLVM and WAT.
