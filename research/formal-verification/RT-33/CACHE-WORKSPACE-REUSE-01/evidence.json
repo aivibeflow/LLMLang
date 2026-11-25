@@ -1,0 +1,40 @@
+{
+  "basis": "c0196a202f648f8c62125591611324044f855caf",
+  "branch": "research/all",
+  "canonical_v1_orders": 2,
+  "checker": "510cd6cba45d0ffc49d2151c652dbeed096d6fcfed41320fb1b53fbc6b034b71",
+  "git_commit": "850d63ba4a0bae05ec5ddd57b095a954a752d827",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "migrated_exact_payload_sha256": "8bf6298a04d042c82d8b50029c8ac3dd3d97dd60dfd3bae3ee0396caa8d68e8a",
+  "result": {
+    "clone-changed-only-notes": "checked",
+    "corrupt-cas": "cas-refused",
+    "dirty-relevant-source-with-same-head": "source-scope-refused",
+    "duplicate-key": "receipt-refused",
+    "extra-field": "receipt-refused",
+    "floating-version": "receipt-refused",
+    "foreign-project-new-exact-authority": "checked",
+    "foreign-project-same-commit": "authority-or-checker-refused",
+    "fresh-signed-different-semantics": "checker-refused",
+    "invalid-artifact-hash": "receipt-refused",
+    "invalid-utf8": "receipt-refused",
+    "migrated-same-evidence-fresh-signature": "checked",
+    "missing-cas": "cas-refused",
+    "missing-dependency": "receipt-refused",
+    "origin": "checked",
+    "other-checker": "authority-or-checker-refused",
+    "oversize": "receipt-refused",
+    "reused-v1-signature-over-v2": "signature-refused",
+    "signed-but-unsupported-artifact": "checker-refused",
+    "source-symlink": "worktree-source-refused",
+    "stale-epoch": "authority-or-checker-refused",
+    "unchanged-clone": "checked",
+    "unexpected-signer": "signature-refused",
+    "unrecognized-version": "receipt-refused"
+  },
+  "same_git_commit_across_projects": true,
+  "source_hashes": {
+    "research/formal-verification/RT-32/LEAN-ARTIFACT-REPLAY-01/Defs.lean": "2e7e972f46fdb6d7336f31e98a971d4718d192c572383998d0c468ae904eeb53",
+    "research/toolchain-and-collaboration/RT-11/SIGNED-REBUILD-ADMISSION-01/run.py": "7ab2d18e95b59718b8f1efaba1ddcc1d7bff747719c8499dfd662f503c6fa51a"
+  }
+}
