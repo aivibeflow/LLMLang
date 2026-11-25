@@ -1,0 +1,178 @@
+{
+  "baseline": "2c0ce76a1eecc1aee9a6557db451b70afd4b869a",
+  "python": "3.12.14",
+  "git": "git version 2.52.0",
+  "taxonomy_blob": "02d465a403be945e24e580f58ac9c0a1919ef357",
+  "dependency_map_blob": "70e32edf9d3b0fa1881f4b8dc2c33be7218a7f7a",
+  "area_ids": [
+    "RT-01",
+    "RT-02",
+    "RT-03",
+    "RT-04",
+    "RT-05",
+    "RT-06",
+    "RT-07",
+    "RT-08",
+    "RT-09",
+    "RT-10",
+    "RT-11",
+    "RT-12",
+    "RT-13",
+    "RT-14",
+    "RT-15",
+    "RT-16",
+    "RT-17",
+    "RT-18",
+    "RT-19",
+    "RT-20",
+    "RT-21",
+    "RT-22",
+    "RT-23",
+    "RT-24",
+    "RT-25",
+    "RT-26",
+    "RT-27",
+    "RT-28",
+    "RT-29",
+    "RT-30",
+    "RT-31",
+    "RT-32",
+    "RT-33",
+    "RT-34",
+    "RT-35",
+    "RT-36",
+    "RT-37",
+    "RT-38"
+  ],
+  "edge_rows": 264,
+  "missing_edge_numbers": [],
+  "relation_counts": {
+    "Constrains": 64,
+    "Enables": 14,
+    "Influences": 89,
+    "Refines": 1,
+    "Requires": 96
+  },
+  "rows_with_undocumented_relation": [
+    "DEP-074"
+  ],
+  "distinct_directed_endpoint_pairs": 255,
+  "same_endpoint_and_relation_groups": [
+    {
+      "source": "RT-05",
+      "target": "RT-12",
+      "relation": "Requires",
+      "ids": [
+        "DEP-021",
+        "DEP-040"
+      ]
+    },
+    {
+      "source": "RT-05",
+      "target": "RT-14",
+      "relation": "Requires",
+      "ids": [
+        "DEP-027",
+        "DEP-078"
+      ]
+    },
+    {
+      "source": "RT-05",
+      "target": "RT-32",
+      "relation": "Requires",
+      "ids": [
+        "DEP-179",
+        "DEP-188"
+      ]
+    },
+    {
+      "source": "RT-14",
+      "target": "RT-19",
+      "relation": "Requires",
+      "ids": [
+        "DEP-045",
+        "DEP-082"
+      ]
+    },
+    {
+      "source": "RT-15",
+      "target": "RT-19",
+      "relation": "Constrains",
+      "ids": [
+        "DEP-047",
+        "DEP-264"
+      ]
+    },
+    {
+      "source": "RT-16",
+      "target": "RT-12",
+      "relation": "Constrains",
+      "ids": [
+        "DEP-031",
+        "DEP-043"
+      ]
+    },
+    {
+      "source": "RT-32",
+      "target": "RT-11",
+      "relation": "Influences",
+      "ids": [
+        "DEP-187",
+        "DEP-189"
+      ]
+    }
+  ],
+  "nontrivial_mutual_reachability_components": [
+    [
+      "RT-03",
+      "RT-04",
+      "RT-05",
+      "RT-06",
+      "RT-07",
+      "RT-08",
+      "RT-09",
+      "RT-10",
+      "RT-11",
+      "RT-12",
+      "RT-13",
+      "RT-14",
+      "RT-15",
+      "RT-16",
+      "RT-18",
+      "RT-19",
+      "RT-20",
+      "RT-22",
+      "RT-23",
+      "RT-24",
+      "RT-25",
+      "RT-26",
+      "RT-27",
+      "RT-28",
+      "RT-29",
+      "RT-30",
+      "RT-31",
+      "RT-32",
+      "RT-33",
+      "RT-34",
+      "RT-35",
+      "RT-36"
+    ]
+  ],
+  "path_rows": {
+    "DEP-010": [
+      "RT-03",
+      "RT-06",
+      "Requires"
+    ],
+    "DEP-053": [
+      "RT-06",
+      "RT-20",
+      "Requires"
+    ],
+    "DEP-060": [
+      "RT-07",
+      "RT-06",
+      "Constrains"
+    ]
+  }
+}
