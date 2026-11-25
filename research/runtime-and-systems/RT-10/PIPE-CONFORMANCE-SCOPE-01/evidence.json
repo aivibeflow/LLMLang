@@ -1,0 +1,73 @@
+{
+  "evidence_scope_controls": {
+    "altered evidence hash": "unverified",
+    "declared extension promoted to runtime": "scope-mismatch",
+    "different receipt schema": "scope-mismatch",
+    "exact scoped Linux extension": "scoped-observation",
+    "exact scoped write": "scoped-observation",
+    "extension promoted to POSIX": "scope-mismatch",
+    "general atomicity outside fixture size": "scope-mismatch",
+    "header is header evidence": "header-only",
+    "logical prefix theorem exact": "formal-model",
+    "missing receipt": "unknown",
+    "pipe bytes used for another operation": "scope-mismatch",
+    "prefix theorem promoted to kernel verification": "scope-mismatch",
+    "same observation on different libc": "scope-mismatch",
+    "scoped native receipts cannot prove generic POSIX": "scope-mismatch",
+    "verified native observation for musl": "scoped-observation"
+  },
+  "format": "pipe-conformance-scope-01",
+  "headers": {
+    "glibc/GNU": {
+      "F_GETPIPE_SZ": true,
+      "F_SETPIPE_SZ": true,
+      "_PC_PIPE_BUF": true
+    },
+    "glibc/POSIX": {
+      "F_GETPIPE_SZ": false,
+      "F_SETPIPE_SZ": false,
+      "_PC_PIPE_BUF": true
+    },
+    "musl/GNU": {
+      "F_GETPIPE_SZ": true,
+      "F_SETPIPE_SZ": true,
+      "_PC_PIPE_BUF": true
+    },
+    "musl/POSIX": {
+      "F_GETPIPE_SZ": false,
+      "F_SETPIPE_SZ": false,
+      "_PC_PIPE_BUF": true
+    }
+  },
+  "kernel": "6.18.57",
+  "native": {
+    "glibc/-O0": [
+      "linux-shrink busy-when-occupied empty-capacity=4096 unchanged-pipe-buf=4096",
+      "atomic-small blocked-request=4096 committed=0",
+      "large-nonblocking request=8192 committed=4096",
+      "atomic-small empty-request=4096 committed=4096"
+    ],
+    "glibc/-O2": [
+      "linux-shrink busy-when-occupied empty-capacity=4096 unchanged-pipe-buf=4096",
+      "atomic-small blocked-request=4096 committed=0",
+      "large-nonblocking request=8192 committed=4096",
+      "atomic-small empty-request=4096 committed=4096"
+    ],
+    "musl/-O0": [
+      "linux-shrink busy-when-occupied empty-capacity=4096 unchanged-pipe-buf=4096",
+      "atomic-small blocked-request=4096 committed=0",
+      "large-nonblocking request=8192 committed=4096",
+      "atomic-small empty-request=4096 committed=4096"
+    ],
+    "musl/-O2": [
+      "linux-shrink busy-when-occupied empty-capacity=4096 unchanged-pipe-buf=4096",
+      "atomic-small blocked-request=4096 committed=0",
+      "large-nonblocking request=8192 committed=4096",
+      "atomic-small empty-request=4096 committed=4096"
+    ]
+  },
+  "runtime_profiles": {
+    "glibc": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+    "musl": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0"
+  }
+}
