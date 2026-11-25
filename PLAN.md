@@ -1319,6 +1319,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Estimated research complexity:** **9/10** — requires at least two independently validated realizations of a shared semantic subset.
 
 - [ ] Define the minimal common semantic subset for backend experiments.
+  - [ ] [WIP] Specify the shared scalar fixture contract and independently verify its admission and complete observation corpus (#329).
 - [x] Evaluate Python as an experimental/reference target.
   - Generated Python matches 197,440 shared scalar observations in each of two CPython profiles. Native floor division and remainder change signed results in controls; an assertion-based shift check fails under optimization. Python is viable for the checked hosted subset. Resource semantics and native target integration remain open. [Generated Python integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-PYTHON-INTEGER-LOWERING-2026-11-25.md)
 - [ ] Evaluate Go as the first serious compiled target.
