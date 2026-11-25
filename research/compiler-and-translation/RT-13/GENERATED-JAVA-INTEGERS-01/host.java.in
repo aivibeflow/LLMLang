@@ -1,0 +1,58 @@
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.IOException;
+
+public final class IntegerProbe {
+    private static final int SENTINEL = 0xabad1234;
+
+    static final class Trace {
+        int slot = SENTINEL;
+        int count;
+        int first;
+        int second;
+
+        void emit(int word) {
+            switch (count++) {
+                case 0 -> first = word;
+                case 1 -> second = word;
+                default -> throw new IllegalStateException("unexpected extra effect");
+            }
+        }
+    }
+
+    // @GENERATED_PROBES@
+
+    static int invoke(int id, int a, int b, int enabled, Trace trace) {
+        return switch (id) {
+            // @GENERATED_REGISTRY@
+            default -> throw new IllegalArgumentException("unknown entry");
+        };
+    }
+
+    public static void main(String[] args) throws IOException {
+        var input = new DataInputStream(new BufferedInputStream(System.in));
+        var output = new DataOutputStream(new BufferedOutputStream(System.out));
+        for (;;) {
+            int id;
+            try {
+                id = Integer.reverseBytes(input.readInt());
+            } catch (EOFException end) {
+                break;
+            }
+            int a = Integer.reverseBytes(input.readInt());
+            int b = Integer.reverseBytes(input.readInt());
+            int enabled = Integer.reverseBytes(input.readInt());
+            var trace = new Trace();
+            int status = invoke(id, a, b, enabled, trace);
+            output.writeInt(Integer.reverseBytes(status));
+            output.writeInt(Integer.reverseBytes(trace.slot));
+            output.writeInt(Integer.reverseBytes(trace.count));
+            output.writeInt(Integer.reverseBytes(trace.first));
+            output.writeInt(Integer.reverseBytes(trace.second));
+        }
+        output.flush();
+    }
+}
