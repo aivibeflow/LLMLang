@@ -1,0 +1,195 @@
+{
+  "build_repetitions": 2,
+  "modes": {
+    "mapped-macros-and-debug": {
+      "artifact_groups": 2,
+      "builds": [
+        {
+          "artifact_bytes": 3136,
+          "artifact_group": 0,
+          "declared_input_key": "4bb01bf65b3022127d1bf56f5f594091b78cdfb62f57ca7bf25ede95622a63ea",
+          "epoch": "0",
+          "source_recipe_key": "548577881f44ba99c035849301d8abc05763edceb8286b0ed13f032d436531eb",
+          "source_root": "left"
+        },
+        {
+          "artifact_bytes": 3136,
+          "artifact_group": 1,
+          "declared_input_key": "6f897ec3e5d937d93d369e75cedca70f902eb1ded256fdfee0f47e575b2208ef",
+          "epoch": "86400",
+          "source_recipe_key": "548577881f44ba99c035849301d8abc05763edceb8286b0ed13f032d436531eb",
+          "source_root": "left"
+        },
+        {
+          "artifact_bytes": 3136,
+          "artifact_group": 0,
+          "declared_input_key": "4bb01bf65b3022127d1bf56f5f594091b78cdfb62f57ca7bf25ede95622a63ea",
+          "epoch": "0",
+          "source_recipe_key": "548577881f44ba99c035849301d8abc05763edceb8286b0ed13f032d436531eb",
+          "source_root": "right"
+        },
+        {
+          "artifact_bytes": 3136,
+          "artifact_group": 1,
+          "declared_input_key": "6f897ec3e5d937d93d369e75cedca70f902eb1ded256fdfee0f47e575b2208ef",
+          "epoch": "86400",
+          "source_recipe_key": "548577881f44ba99c035849301d8abc05763edceb8286b0ed13f032d436531eb",
+          "source_root": "right"
+        }
+      ],
+      "deterministic_artifact_sha256": [
+        "ea81fc541498e26faae37595d9bbf6fdee715a095d7ac07b3cfa82ea661a3d0d",
+        "fb030576df1d7cd4547760d66cc3645a46c561516e9fe8f748f25b76311f96d8"
+      ],
+      "false_hits": {
+        "declared_input_key": 0,
+        "source_recipe_key": 8
+      },
+      "shared_lookup_allowed_without_path_or_epoch": false
+    },
+    "pure": {
+      "artifact_groups": 1,
+      "builds": [
+        {
+          "artifact_bytes": 840,
+          "artifact_group": 0,
+          "declared_input_key": "2f67f912efddd22a3bc5b0a9e4b0405d1c5d794da0623b1b7077de59b76455f9",
+          "epoch": "0",
+          "source_recipe_key": "2f67f912efddd22a3bc5b0a9e4b0405d1c5d794da0623b1b7077de59b76455f9",
+          "source_root": "left"
+        },
+        {
+          "artifact_bytes": 840,
+          "artifact_group": 0,
+          "declared_input_key": "2f67f912efddd22a3bc5b0a9e4b0405d1c5d794da0623b1b7077de59b76455f9",
+          "epoch": "86400",
+          "source_recipe_key": "2f67f912efddd22a3bc5b0a9e4b0405d1c5d794da0623b1b7077de59b76455f9",
+          "source_root": "left"
+        },
+        {
+          "artifact_bytes": 840,
+          "artifact_group": 0,
+          "declared_input_key": "2f67f912efddd22a3bc5b0a9e4b0405d1c5d794da0623b1b7077de59b76455f9",
+          "epoch": "0",
+          "source_recipe_key": "2f67f912efddd22a3bc5b0a9e4b0405d1c5d794da0623b1b7077de59b76455f9",
+          "source_root": "right"
+        },
+        {
+          "artifact_bytes": 840,
+          "artifact_group": 0,
+          "declared_input_key": "2f67f912efddd22a3bc5b0a9e4b0405d1c5d794da0623b1b7077de59b76455f9",
+          "epoch": "86400",
+          "source_recipe_key": "2f67f912efddd22a3bc5b0a9e4b0405d1c5d794da0623b1b7077de59b76455f9",
+          "source_root": "right"
+        }
+      ],
+      "deterministic_artifact_sha256": [
+        "96d56a861d0f3e7eb4ddb6e3addf4238fa18e3b1a68ea3ef7b2b6b2a66b72dc9"
+      ],
+      "false_hits": {
+        "declared_input_key": 0,
+        "source_recipe_key": 0
+      },
+      "shared_lookup_allowed_without_path_or_epoch": true
+    },
+    "unmapped-debug": {
+      "artifact_groups": 2,
+      "builds": [
+        {
+          "artifact_bytes": null,
+          "artifact_group": 0,
+          "declared_input_key": "9dada64cc77ad42a1658dbe0b48bc4d4ef9d82f40150f8061cb54a2d2986ea90",
+          "epoch": "0",
+          "source_recipe_key": "b567941828731947a9153c002470eac675e7a1a594aae603a168254ab182cade",
+          "source_root": "left"
+        },
+        {
+          "artifact_bytes": null,
+          "artifact_group": 0,
+          "declared_input_key": "9dada64cc77ad42a1658dbe0b48bc4d4ef9d82f40150f8061cb54a2d2986ea90",
+          "epoch": "86400",
+          "source_recipe_key": "b567941828731947a9153c002470eac675e7a1a594aae603a168254ab182cade",
+          "source_root": "left"
+        },
+        {
+          "artifact_bytes": null,
+          "artifact_group": 1,
+          "declared_input_key": "41de1447e6a6f75ee8af179be9887a2fa6f287cd394d75029b6963be0f5a2b09",
+          "epoch": "0",
+          "source_recipe_key": "b567941828731947a9153c002470eac675e7a1a594aae603a168254ab182cade",
+          "source_root": "right"
+        },
+        {
+          "artifact_bytes": null,
+          "artifact_group": 1,
+          "declared_input_key": "41de1447e6a6f75ee8af179be9887a2fa6f287cd394d75029b6963be0f5a2b09",
+          "epoch": "86400",
+          "source_recipe_key": "b567941828731947a9153c002470eac675e7a1a594aae603a168254ab182cade",
+          "source_root": "right"
+        }
+      ],
+      "deterministic_artifact_sha256": null,
+      "false_hits": {
+        "declared_input_key": 0,
+        "source_recipe_key": 8
+      },
+      "shared_lookup_allowed_without_path_or_epoch": false
+    },
+    "unmapped-macros": {
+      "artifact_groups": 4,
+      "builds": [
+        {
+          "artifact_bytes": null,
+          "artifact_group": 0,
+          "declared_input_key": "dba3bc129a47a40db5fc51564d46de668dfa3a15cd86b389a76815ed96d849ec",
+          "epoch": "0",
+          "source_recipe_key": "748cab085b5d0b6f5c9402e6d2dc848436e382d3651a78ea3298d484e8d24247",
+          "source_root": "left"
+        },
+        {
+          "artifact_bytes": null,
+          "artifact_group": 1,
+          "declared_input_key": "358c549e5f6c1a96cf188ef6a56605108387943b198d045ea892734aa99008a0",
+          "epoch": "86400",
+          "source_recipe_key": "748cab085b5d0b6f5c9402e6d2dc848436e382d3651a78ea3298d484e8d24247",
+          "source_root": "left"
+        },
+        {
+          "artifact_bytes": null,
+          "artifact_group": 2,
+          "declared_input_key": "1b72a0bf432d4b5a4043dbf2dd28e7fb85bced34187e312786784fd2650fffeb",
+          "epoch": "0",
+          "source_recipe_key": "748cab085b5d0b6f5c9402e6d2dc848436e382d3651a78ea3298d484e8d24247",
+          "source_root": "right"
+        },
+        {
+          "artifact_bytes": null,
+          "artifact_group": 3,
+          "declared_input_key": "c1047b6ad0fd7aada51b29ea1a3dbb7f6f1008db64e334ddc6b3006ebe4a2a03",
+          "epoch": "86400",
+          "source_recipe_key": "748cab085b5d0b6f5c9402e6d2dc848436e382d3651a78ea3298d484e8d24247",
+          "source_root": "right"
+        }
+      ],
+      "deterministic_artifact_sha256": null,
+      "false_hits": {
+        "declared_input_key": 0,
+        "source_recipe_key": 12
+      },
+      "shared_lookup_allowed_without_path_or_epoch": false
+    }
+  },
+  "ordered_reuse_pairs_per_mode": 16,
+  "python": "3.12.14",
+  "schema": "rt13-compile-action-inputs-v1",
+  "source_sha256": {
+    "context.c": "5015ee83b0ff4dda282d47e251d101ddf35e1dc7f8d0151f994229892bdc9e6f",
+    "pure.c": "056e50954dc812eff20bf756b71f676f3fbb3675d2844c3f3f17b2f6ba9a30e3",
+    "run.py": "9f6a61d5ea13e7b2355221e780357eb765289e56f80c603f0caec89572f46aff"
+  },
+  "tool": {
+    "clang_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+    "target": "x86_64-pc-linux-gnu",
+    "version": "Debian clang version 19.1.7 (3+b1)"
+  }
+}
