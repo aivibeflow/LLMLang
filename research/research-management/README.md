@@ -69,3 +69,4 @@ This direction groups related research studies without changing their RT identif
 - [English and Russian concept proof boundaries](RT-00/RT-00-B-CONCEPT-TRANSLATION-PROOF-BOUNDARY-2026-11-25.md) — compares shared §18A claims and the English-only RT-36 proposal.
 - [Immutable component versions and state commits](RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md) — checks component, runtime and Toolchain publication boundaries with two worked cases.
 - [Negative-result warning adjudication](RT-00/RT-00-C-NEGATIVE-RESULT-WARNING-ADJUDICATION-2026-11-25.md) — classifies exact source passages for all seven flagged nested reports.
+- [Historical draft publication boundaries](RT-00/RT-00-C-DRAFT-BOUNDARY-HISTORY-2026-11-25.md) — traces the draft layout and exact accepted decision body across 21 published trees.
