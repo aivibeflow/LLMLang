@@ -1139,6 +1139,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Compare Linux file-size enforcement and a shared live-byte reservation. Two files can exceed a 4,096-byte group limit by 2,048 even when each child obeys its file limit. Serialized admission and terminal file-length settlement respect the fixture cap and retain charges for surviving files. [Linux file budget settlement](research/runtime-and-systems/RT-26/RT-26-LINUX-FILE-BUDGET-SETTLEMENT-2026-11-24.md).
 - [ ] Determine which resource controls belong in high-level language semantics and APIs versus runtime, OS/container, and deployment integrations; preserve explicit capability and portability boundaries.
 - [ ] Define memory model and concurrency semantics.
+  - [ ] [WIP] Derive release-sequence membership from explicit flag modification orders and read-from edges under C++17 and C++20 on `research/all`.
   - Compare the same sequential increment contract against native atomic-load/store and atomic fetch-add histories. Sequential verification or a declared concurrency assumption does not certify shared interleavings. [Dafny concurrent frames and native histories](research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md)
 - [ ] Define threads, synchronization, atomics, signals, blocking I/O, and scheduling boundaries.
 - [ ] Define capability and security model.
