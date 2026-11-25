@@ -54,6 +54,7 @@ This direction groups related research studies without changing their RT identif
 ## Cross-direction evidence
 
 - [RT-26 resource authority and fallback](RT-26/RT-26-RESOURCE-AUTHORITY-BOUNDARY-2026-11-25.md) checks capability-scoped admission against five pinned Linux accounting witnesses.
+- [Native disk accounting](RT-26/RT-26-NATIVE-DISK-ACCOUNTING-2026-11-25.md) compares logical task charges, process I/O counters and delegated budget decisions.
 - [RT-25 component allocator ownership](RT-25/RT-25-COMPONENT-ALLOCATOR-OWNERSHIP-2026-11-25.md) checks explicit buffers with a named allocator alongside two process providers.
 - [RT-25 concurrent ownership and address limits](RT-25/RT-25-ALLOCATOR-CONCURRENT-AND-ADDRESS-LIMIT-2026-11-25.md) checks cross-thread buffers across five providers and runs separate process address-space controls.
 - [RT-25 modern Google TCMalloc](RT-25/RT-25-MODERN-GOOGLE-TCMALLOC-2026-11-25.md) checks the pinned native build, process-wide Rust allocation and a head-to-head graph workload.
