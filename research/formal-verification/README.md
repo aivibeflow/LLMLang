@@ -29,6 +29,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [ADR-018 — Formal verification backends (Accepted)](../../draft/adr/018-formal-verification-backends.md) · [Матрица проверок и границ поддержки](VERIFICATION-COVERAGE.ru.md)
 - [Dafny syntax and invariant receipts](RT-07/RT-07-DAFNY-SYNTAX-AND-INVARIANT-RECEIPTS-2026-11-25.md) checks a shared typed affine-loop subset and exact receipt reuse.
 - [Dafny construct transfer](RT-07/RT-07-DAFNY-CONSTRUCT-TRANSFER-2026-11-25.md) compares thirteen documented constructs with candidate LLMLang obligations and evidence boundaries.
 - [Multi-backend integration and verification artifact cache](RT-33/VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) — candidate adapters, persistent proof and certificate reuse, exact admission and VAC-01–15 execution plan.
