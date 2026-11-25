@@ -1392,8 +1392,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define a shared contract for multiple POSIX implementations.
   - [x] Check 72 native rows in glibc and musl with exact archive identities. Descriptor-relative effects and the checked error variants agree across both profiles. [Descriptor-relative POSIX](research/runtime-and-systems/RT-10/RT-10-DIRECTORY-RELATIVE-POSIX-2026-11-25.md)
   - [x] Replay both native probes with statically linked glibc 2.41 and musl 1.2.5. The exact linker-selected archives are distinct, and all 464 file fields and startup case outcomes match. Other kernels and POSIX profiles remain open. [POSIX cross-libc contract](research/runtime-and-systems/RT-10/RT-10-POSIX-CROSS-LIBC-2026-11-25.md)
-- [ ] Separate portable runtime implementation from native Linux syscall implementation.
-  - [ ] [WIP] Check libc and Linux syscall ppoll timeout behavior, kernel mask layout and portable wrapper boundaries on `research/all` (#326).
+- [x] Separate portable runtime implementation from native Linux syscall implementation.
+  - [x] Check 140 native observations. Libc preserves the input timeout on expiry. Linux updates the native pointer to zero and uses an eight-byte kernel signal mask. [POSIX ppoll ABI](research/runtime-and-systems/RT-10/RT-10-PPOLL-FFI-BOUNDARY-2026-11-25.md)
   - [x] Compare 16 glibc, musl and raw-syscall read cases with a queued deferred cancellation. Libc cancels before consuming the byte. The raw syscall consumes it before the next cancellation check, although both handlers run and both joins report cancellation. Blocking cancellation races remain open. [RT-10 libc and syscall cancellation](research/runtime-and-systems/RT-10/RT-10-LIBC-SYSCALL-CANCELLATION-2026-11-25.md)
 - [ ] Define conformance evidence, optional features, and implementation-defined behavior.
   - [x] Define scoped POSIX conformance receipts and check seventeen controls over 46 exact observations. Header availability, runtime evidence, contradiction and unknown coverage remain distinct across profiles and entry points. A changed receipt is refused. Full conformance inventory and edition choice remain open. [RT-10 POSIX profile evidence](research/runtime-and-systems/RT-10/RT-10-POSIX-PROFILE-EVIDENCE-2026-11-25.md)
@@ -1411,8 +1411,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Isolate Linux syscall ABI details.
   - [ ] [WIP human] Select the initial Linux architecture after reviewing the bounded syscall and target-profile evidence.
   - [x] Check one freestanding read/write contract across 24 cases with distinct x86-64 and AArch64 syscall adapters. Native x86-64 and QEMU Linux user AArch64 agree on bad descriptors, zero request, short progress, exact bytes and EOF. Physical AArch64 and initial architecture selection remain open. [RT-10 Linux syscall architectures](research/runtime-and-systems/RT-10/RT-10-LINUX-SYSCALL-ARCHITECTURES-2026-11-25.md)
-- [ ] Define how existing C libraries and external ABI boundaries are called.
-  - [ ] [WIP] Verify exact ppoll foreign input, output and timeout parameter shapes across glibc, musl and the native ABI on `research/all` (#326).
+- [x] Define how existing C libraries and external ABI boundaries are called.
+  - [x] Verify exact static glibc and musl profiles. Passing a 128-byte libc mask size to the native eight-byte Linux ABI fails. Readiness, timeout, restored mask and error disposition remain distinct. [POSIX ppoll ABI](research/runtime-and-systems/RT-10/RT-10-PPOLL-FFI-BOUNDARY-2026-11-25.md)
   - [x] Compare six native error-carrier observations across glibc and musl at two optimization levels. Try-lock returns EBUSY without replacing a prior errno, a successful read keeps stale errno, and delayed capture observes the next failure. Two synchronized threads retain distinct error values. [RT-10 libc error carriers](research/runtime-and-systems/RT-10/RT-10-LIBC-ERROR-CARRIERS-2026-11-25.md)
 - [x] Define the trusted low-level runtime boundary.
   - [x] Scope trusted admission to exact primitive, descriptor, request and progress. Static glibc, musl and Linux syscall adapters agree on distinct would-block, zero-request, progress and peer-closed dispositions. [Typed POSIX vector output](research/runtime-and-systems/RT-10/RT-10-POSIX-WRITEV-TYPED-PROGRESS-2026-11-25.md)
