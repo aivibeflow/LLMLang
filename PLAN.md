@@ -1215,6 +1215,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] Research automated LLMLang → C, C++, Go, and Rust translation and C/C++/Go/Rust → LLMLang import as separate directions.
 - [ ] Define a source/target matrix, semantic observation model, preservation contracts, and explicit exact/runtime-supported/restricted/partial/unverified/unsupported outcomes.
+  - [ ] [WIP] Compose the four verified wrapping importers and exporters into a source/target capability matrix with native cross-language checks on `research/all`.
 - [ ] Compare canonical semantic IR, direct SPG lowering, and hybrid representations; preserve source provenance without conflating it with semantic identity.
 - [ ] Evaluate whether a dedicated C runtime can implement high-level LLMLang features while keeping LLMLang—not C—as the semantic source of truth; compare runtime requirements and costs for all four targets.
 - [ ] Cover same-language round trips, cross-target migration, mixed-language modules, ABI/FFI, source-language undefined/implementation-defined behavior, and incremental regeneration.
