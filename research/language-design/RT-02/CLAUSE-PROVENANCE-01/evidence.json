@@ -1,0 +1,277 @@
+{
+  "schema": "llmlang-rt02-clause-provenance/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "research/language-design/RT-02/CLAUSE-PROVENANCE-01/run.py": "577d8c873c2762b844ba834db6f083fa2fdf19dd95811b5aa4e8699074091965",
+    "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "interpretations": {
+    "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5": {
+      "source": "clock",
+      "revision": "8e2632b3f9878fdf5ca846bae04731d5ebeac9ef3bfabfa2c61d8f3e53e22422",
+      "start": 0,
+      "end": 45,
+      "quote": "Use payment registration as the clock origin.",
+      "scope": "retail",
+      "field": "clock-origin",
+      "value": "payment registration",
+      "authority": "stakeholder",
+      "supersedes": null
+    },
+    "6505520a31e5f3ebf3a3d5b88b2c22f171ac8b501cc6f0f5119d4e2f8dcc3ce8": {
+      "source": "clock-copy",
+      "revision": "25ea56b614ab3314a8f77b43b0aefe503c18005cc012f96a4c0bdef580df26e0",
+      "start": 35,
+      "end": 59,
+      "quote": "use payment registration",
+      "scope": "retail",
+      "field": "clock-origin",
+      "value": "payment registration",
+      "authority": "stakeholder",
+      "supersedes": null
+    },
+    "81316e497e07e75e48c1b1ff95020e8a47579ce39f9ae99897e63ae920fd2844": {
+      "source": "conflicting-clock",
+      "revision": "883939f6858302d4663a4dd5937158f70423dc215533751f21a0fbe5aabbbeae",
+      "start": 31,
+      "end": 73,
+      "quote": "use reservation completion as clock origin",
+      "scope": "retail",
+      "field": "clock-origin",
+      "value": "reservation completion",
+      "authority": "stakeholder",
+      "supersedes": null
+    },
+    "739e6216b65eed38fab7636f6f5c9d1fc208b7d581dc9fc766e155390ef3ec73": {
+      "source": "conflicting-clock",
+      "revision": "883939f6858302d4663a4dd5937158f70423dc215533751f21a0fbe5aabbbeae",
+      "start": 31,
+      "end": 73,
+      "quote": "use reservation completion as clock origin",
+      "scope": "retail",
+      "field": "clock-origin",
+      "value": "reservation completion",
+      "authority": "proposal-agent",
+      "supersedes": null
+    },
+    "822e16253d92e5dce6c2ce0bb93ab07c42a28c527eb795507d92f4bbd86cc211": {
+      "source": "conflicting-clock",
+      "revision": "883939f6858302d4663a4dd5937158f70423dc215533751f21a0fbe5aabbbeae",
+      "start": 31,
+      "end": 73,
+      "quote": "use reservation completion as clock origin",
+      "scope": "retail",
+      "field": "clock-origin",
+      "value": "reservation completion",
+      "authority": "stakeholder",
+      "supersedes": "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+    },
+    "5446ccb865bc9348d37fb9f6bd1d6e563f74dc693153df7679cecb7e3ccf676a": {
+      "source": "conflicting-clock",
+      "revision": "883939f6858302d4663a4dd5937158f70423dc215533751f21a0fbe5aabbbeae",
+      "start": 31,
+      "end": 73,
+      "quote": "use reservation completion as clock origin",
+      "scope": "wholesale",
+      "field": "clock-origin",
+      "value": "reservation completion",
+      "authority": "stakeholder",
+      "supersedes": "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+    },
+    "00ba3d00d7e696ac40b520b85ff4842725e637d3db9385ac02a55f729dedb01b": {
+      "source": "operator",
+      "revision": "875fe1130553aeb2c8c17ec78c17169ae9b0419b46e30cc2605144bfe0e21567",
+      "start": 18,
+      "end": 55,
+      "quote": "the automatic order-status transition",
+      "scope": "retail",
+      "field": "action",
+      "value": "automatic confirmation",
+      "authority": "stakeholder",
+      "supersedes": null
+    },
+    "111aaa5ce104bee0207f64ebc54d4eab3faf678d047761df0448ee7469c2d70e": {
+      "source": "clock",
+      "revision": "8e2632b3f9878fdf5ca846bae04731d5ebeac9ef3bfabfa2c61d8f3e53e22422",
+      "start": 0,
+      "end": 46,
+      "quote": "Use payment registration as the clock origin.",
+      "scope": "retail",
+      "field": "clock-origin",
+      "value": "payment registration",
+      "authority": "stakeholder",
+      "supersedes": null
+    },
+    "cc42bc3a73a28a47c2c50f14ac2ed780135897a051e523b251f3fd0bb5c19175": {
+      "source": "missing-source",
+      "revision": "8e2632b3f9878fdf5ca846bae04731d5ebeac9ef3bfabfa2c61d8f3e53e22422",
+      "start": 0,
+      "end": 45,
+      "quote": "Use payment registration as the clock origin.",
+      "scope": "retail",
+      "field": "clock-origin",
+      "value": "payment registration",
+      "authority": "stakeholder",
+      "supersedes": null
+    }
+  },
+  "source_controls": {
+    "exact_span": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+      ],
+      "references": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+      ],
+      "requested_value": "payment registration",
+      "status": "SUPPORTED"
+    },
+    "equivalent_attestations": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5",
+        "6505520a31e5f3ebf3a3d5b88b2c22f171ac8b501cc6f0f5119d4e2f8dcc3ce8"
+      ],
+      "references": [
+        "6505520a31e5f3ebf3a3d5b88b2c22f171ac8b501cc6f0f5119d4e2f8dcc3ce8"
+      ],
+      "requested_value": "payment registration",
+      "status": "SUPPORTED"
+    },
+    "wrong_value": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+      ],
+      "references": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+      ],
+      "requested_value": "reservation completion",
+      "status": "UNSUPPORTED"
+    },
+    "wrong_field": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5",
+        "00ba3d00d7e696ac40b520b85ff4842725e637d3db9385ac02a55f729dedb01b"
+      ],
+      "references": [
+        "00ba3d00d7e696ac40b520b85ff4842725e637d3db9385ac02a55f729dedb01b"
+      ],
+      "requested_value": "payment registration",
+      "status": "UNSUPPORTED"
+    },
+    "dangling_reference": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+      ],
+      "references": [
+        "missing"
+      ],
+      "requested_value": "payment registration",
+      "status": "DANGLING_REFERENCE"
+    },
+    "dangling_source": {
+      "selected": [
+        "cc42bc3a73a28a47c2c50f14ac2ed780135897a051e523b251f3fd0bb5c19175"
+      ],
+      "references": [
+        "cc42bc3a73a28a47c2c50f14ac2ed780135897a051e523b251f3fd0bb5c19175"
+      ],
+      "requested_value": "payment registration",
+      "status": "DANGLING_SOURCE"
+    },
+    "stale_source_revision": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+      ],
+      "references": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+      ],
+      "requested_value": "payment registration",
+      "status": "STALE_SOURCE_REVISION"
+    },
+    "incorrect_span": {
+      "selected": [
+        "111aaa5ce104bee0207f64ebc54d4eab3faf678d047761df0448ee7469c2d70e"
+      ],
+      "references": [
+        "111aaa5ce104bee0207f64ebc54d4eab3faf678d047761df0448ee7469c2d70e"
+      ],
+      "requested_value": "payment registration",
+      "status": "INVALID_SPAN"
+    },
+    "unauthorized_clarification": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5",
+        "739e6216b65eed38fab7636f6f5c9d1fc208b7d581dc9fc766e155390ef3ec73"
+      ],
+      "references": [
+        "739e6216b65eed38fab7636f6f5c9d1fc208b7d581dc9fc766e155390ef3ec73"
+      ],
+      "requested_value": "reservation completion",
+      "status": "UNAUTHORIZED"
+    },
+    "contradiction_not_cited_by_clause": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5",
+        "81316e497e07e75e48c1b1ff95020e8a47579ce39f9ae99897e63ae920fd2844"
+      ],
+      "references": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+      ],
+      "requested_value": "payment registration",
+      "status": "CONFLICT"
+    },
+    "authorized_replacement": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5",
+        "822e16253d92e5dce6c2ce0bb93ab07c42a28c527eb795507d92f4bbd86cc211"
+      ],
+      "references": [
+        "822e16253d92e5dce6c2ce0bb93ab07c42a28c527eb795507d92f4bbd86cc211"
+      ],
+      "requested_value": "reservation completion",
+      "status": "SUPPORTED"
+    },
+    "use_replaced_decision": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5",
+        "822e16253d92e5dce6c2ce0bb93ab07c42a28c527eb795507d92f4bbd86cc211"
+      ],
+      "references": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+      ],
+      "requested_value": "payment registration",
+      "status": "UNSUPPORTED"
+    },
+    "mixed_active_and_replaced_support": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5",
+        "822e16253d92e5dce6c2ce0bb93ab07c42a28c527eb795507d92f4bbd86cc211"
+      ],
+      "references": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5",
+        "822e16253d92e5dce6c2ce0bb93ab07c42a28c527eb795507d92f4bbd86cc211"
+      ],
+      "requested_value": "reservation completion",
+      "status": "UNSUPPORTED"
+    },
+    "out_of_scope_replacement": {
+      "selected": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5",
+        "5446ccb865bc9348d37fb9f6bd1d6e563f74dc693153df7679cecb7e3ccf676a"
+      ],
+      "references": [
+        "fe8779bccf8beaf87cabb9facc37bd4e95bfc924e95dff49ca5bda09ee0f32c5"
+      ],
+      "requested_value": "payment registration",
+      "status": "INVALID_SUPERSESSION"
+    }
+  },
+  "typed_chain_controls": {
+    "exact_typed_chain": "SUPPORTED",
+    "stale_formal_edge": "STALE_CLAUSE_BINDING",
+    "stale_render_edge": "STALE_CLAUSE_BINDING",
+    "formal_changes_meaning": "INTERPRETATION_MISMATCH",
+    "render_changes_meaning": "INTERPRETATION_MISMATCH"
+  }
+}
