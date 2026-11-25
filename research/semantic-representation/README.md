@@ -43,6 +43,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-05/20 public backend correspondence](RT-05/RT-05-PUBLIC-BACKEND-CORRESPONDENCE-2026-11-25.md) checks independent native and source observations against a finite public contract.
 - [RT-05/20 public evolution and reuse](RT-05/RT-05-PUBLIC-EVOLUTION-AND-REUSE-2026-11-25.md) checks exact revision, package export, index, provider and cache consistency.
 - [RT-05/20 public resolution and caller admission](RT-05/RT-05-PUBLIC-RESOLUTION-AND-CALLER-ADMISSION-2026-11-25.md) checks complete exact candidates, authorized publication and conditional caller evidence.
 - [RT-05/20 public body and refinement obligations](RT-05/RT-05-PUBLIC-BODY-AND-REFINEMENT-OBLIGATIONS-2026-11-25.md) generates separately bound finite obligations across six properties.
