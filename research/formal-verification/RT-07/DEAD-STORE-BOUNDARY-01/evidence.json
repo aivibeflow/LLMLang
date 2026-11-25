@@ -1,0 +1,85 @@
+{
+  "schema": "llmlang-dead-store-boundary/1",
+  "python": "3.12.14",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "sources_sha256": {
+    "run.py": "5dd5b5d52eaa92833e4f501ddb328025c5bd58662192ec1e37274645dcaf414a",
+    "Store.lean": "0c6cb2655317e5a8e92a7d33cb276f4588be935ae336d8fa77d92cb93f76e545",
+    "probe.c": "a0cc094ede24db2b1396a163882673105e09146567ce7123c7ce27dbe9240b3d",
+    "axioms.txt": "3456a185e1980cd81dab031d2fb874988e445e9c52efd9e6fafb599479625263"
+  },
+  "profiles": 486,
+  "native_observations_per_optimization": 972,
+  "sample_values": [
+    0,
+    1,
+    255
+  ],
+  "native_rows_sha256": {
+    "-O0": "399e03abd94494bceca63d85d0e9cc05ef7a1753e08c88b3d9829e554ef9d275",
+    "-O2": "399e03abd94494bceca63d85d0e9cc05ef7a1753e08c88b3d9829e554ef9d275"
+  },
+  "guards": {
+    "final_cells": {
+      "admitted": 486,
+      "false_admission": 297,
+      "false_refusal": 0
+    },
+    "hidden_write": {
+      "admitted": 243,
+      "false_admission": 54,
+      "false_refusal": 0
+    },
+    "exact_rule": {
+      "admitted": 189,
+      "false_admission": 0,
+      "false_refusal": 0
+    }
+  },
+  "witnesses": {
+    "intervening_alias_read": {
+      "profile": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "source": [
+        0,
+        0,
+        1
+      ],
+      "after_elimination": [
+        0,
+        0,
+        0
+      ]
+    },
+    "trace": {
+      "profile": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": [
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "after_elimination": [
+        0,
+        0,
+        -1,
+        0
+      ]
+    }
+  },
+  "reference_sha256": "399e03abd94494bceca63d85d0e9cc05ef7a1753e08c88b3d9829e554ef9d275"
+}

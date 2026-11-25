@@ -26,6 +26,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-07 sequential contract composition](RT-07/RT-07-SEQUENTIAL-CONTRACT-COMPOSITION-2026-11-25.md) — checks exact handoff and error-trace composition.
 - [RT-07 explicit environment boundary](RT-07/RT-07-EXPLICIT-ENVIRONMENT-BOUNDARY-2026-11-25.md) — checks conditional assumptions, observable absence and native correspondence.
 - [RT-07 state/Result reference entry](RT-07/RT-07-STATE-RESULT-REFERENCE-ENTRY-2026-11-25.md) — exposes the executable restricted reference semantics and typed admission.
+- [RT-07 dead-store alias boundary](RT-07/RT-07-DEAD-STORE-ALIAS-BOUNDARY-2026-11-25.md) — checks when declared write visibility and intervening reads permit removal.
 - [CONTRACT-FORMALIZATION-CORPUS](CONTRACT-FORMALIZATION-CORPUS/)
 - [PROOF-OBLIGATION-BENCHMARK](PROOF-OBLIGATION-BENCHMARK/)
 
