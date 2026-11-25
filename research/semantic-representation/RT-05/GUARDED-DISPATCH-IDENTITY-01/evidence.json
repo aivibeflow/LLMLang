@@ -1,0 +1,403 @@
+{
+  "compared_pairs": 19200,
+  "counts": {
+    "exact-selector": {
+      "conservative_miss": 3183,
+      "required_recompute": 15342,
+      "safe_reuse": 675,
+      "stale_reuse": 0
+    },
+    "one-trace": {
+      "conservative_miss": 520,
+      "required_recompute": 11960,
+      "safe_reuse": 3338,
+      "stale_reuse": 3382
+    },
+    "scoped-relation": {
+      "conservative_miss": 671,
+      "required_recompute": 15342,
+      "safe_reuse": 3187,
+      "stale_reuse": 0
+    },
+    "target-set": {
+      "conservative_miss": 671,
+      "required_recompute": 13634,
+      "safe_reuse": 3187,
+      "stale_reuse": 1708
+    },
+    "whole-snapshot": {
+      "conservative_miss": 3618,
+      "required_recompute": 15342,
+      "safe_reuse": 240,
+      "stale_reuse": 0
+    }
+  },
+  "format": "rt05-finite-guarded-dispatch/1",
+  "git": "git version 2.52.0",
+  "native_git_witness": [
+    {
+      "commit": "48e5189cd04e3a059b2389a69b4f8a7986f183a8",
+      "keys": {
+        "exact-selector": "4c9ce4a5dbc1422e80caa20f0375591933d5108e5f5963bb8b06c98496adea49",
+        "one-trace": "b87a25f93fe19235f4077592b2169dc1a5088d396d91bd0bc1da96cb51df783d",
+        "scoped-relation": "b7009f12814107795b2dce9e354c69e4de585bac5a0d8d37035f6a2bf9538593",
+        "target-set": "7549a0127ba08063b54e13b51845fbde66ff32c3e1f493bcd131be29fb5e5feb",
+        "whole-snapshot": "3607fed88746b30be05bf8a438686f2bccc4ccc5c825896bf7f7697646f1fec1"
+      },
+      "outcome": [
+        [
+          2,
+          [
+            "emit",
+            10
+          ],
+          10
+        ],
+        [
+          3,
+          [
+            "emit",
+            20
+          ],
+          20
+        ]
+      ],
+      "root": "1f76fa0df9dcd8558203e233d67a56624bda0d40d8f33fef95e2d9759c11f5e8"
+    },
+    {
+      "commit": "cba0c08e384e26f96488e1510b6261f63fdd6194",
+      "keys": {
+        "exact-selector": "ad27a18c42d6c4c07c29b115ec2b7e72fdf0cf11ca656804e871dccbe89a5dce",
+        "one-trace": "5bfefbec75e307cdcf05470b4e4a382f414212b3e9d3a28972936c3685df13a3",
+        "scoped-relation": "bf4103687761eefeb372a65e607be9f53d8b06f2b48d70cc394fcabab2806712",
+        "target-set": "7549a0127ba08063b54e13b51845fbde66ff32c3e1f493bcd131be29fb5e5feb",
+        "whole-snapshot": "63547c1f9b5ab6c17ccf68dc7843485e370a5efd0e0a0d21b0e6a53ed29c238c"
+      },
+      "outcome": [
+        [
+          2,
+          [
+            "emit",
+            20
+          ],
+          20
+        ],
+        [
+          3,
+          [
+            "emit",
+            10
+          ],
+          10
+        ]
+      ],
+      "root": "c48a5f53d2ca3e959fc7685780bbe32bd460bce4e8165f753346e10520b53710"
+    }
+  ],
+  "python": "3.12.14",
+  "reordered_source_control": {
+    "after": "when 3 call right\nwhen 2 call right\nwhen 1 call left\nwhen 0 call left\n",
+    "before": "when 0 call left\nwhen 1 call left\nwhen 2 call right\nwhen 3 call right\n",
+    "scoped_identity_preserved": true,
+    "selector_identity_changed": true
+  },
+  "unknown_selector_controls": {
+    "ambiguous-row": "when 0 call left\nwhen 1 call left\nwhen 2 call right\nwhen 3 call right\nwhen 0 call right\n",
+    "missing-row": "when 0 call left\nwhen 1 call left\nwhen 2 call right\n",
+    "unknown-guard": "when external call left\nwhen 1 call left\nwhen 2 call right\nwhen 3 call right\n"
+  },
+  "witnesses": {
+    "exact-selector": {
+      "conservative_miss": {
+        "after": {
+          "catalog": {
+            "left": [
+              4,
+              6
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "before": {
+          "catalog": {
+            "left": [
+              3,
+              7
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "edit": "left-equivalent",
+        "scope": [
+          0
+        ]
+      }
+    },
+    "one-trace": {
+      "conservative_miss": {
+        "after": {
+          "catalog": {
+            "left": [
+              4,
+              6
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "before": {
+          "catalog": {
+            "left": [
+              3,
+              7
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "edit": "left-equivalent",
+        "scope": [
+          0
+        ]
+      },
+      "stale_reuse": {
+        "after": {
+          "catalog": {
+            "left": [
+              3,
+              7
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call right\n"
+        },
+        "before": {
+          "catalog": {
+            "left": [
+              3,
+              7
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "edit": "unchanged",
+        "scope": [
+          0,
+          3
+        ]
+      }
+    },
+    "scoped-relation": {
+      "conservative_miss": {
+        "after": {
+          "catalog": {
+            "left": [
+              4,
+              6
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "before": {
+          "catalog": {
+            "left": [
+              3,
+              7
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "edit": "left-equivalent",
+        "scope": [
+          0
+        ]
+      }
+    },
+    "target-set": {
+      "conservative_miss": {
+        "after": {
+          "catalog": {
+            "left": [
+              4,
+              6
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "before": {
+          "catalog": {
+            "left": [
+              3,
+              7
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "edit": "left-equivalent",
+        "scope": [
+          0
+        ]
+      },
+      "stale_reuse": {
+        "after": {
+          "catalog": {
+            "left": [
+              3,
+              7
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call right\nwhen 3 call left\n"
+        },
+        "before": {
+          "catalog": {
+            "left": [
+              3,
+              7
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call right\n"
+        },
+        "edit": "unchanged",
+        "scope": [
+          2,
+          3
+        ]
+      }
+    },
+    "whole-snapshot": {
+      "conservative_miss": {
+        "after": {
+          "catalog": {
+            "left": [
+              3,
+              7
+            ],
+            "right": [
+              9,
+              12
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "before": {
+          "catalog": {
+            "left": [
+              3,
+              7
+            ],
+            "right": [
+              9,
+              11
+            ],
+            "unrelated": [
+              11,
+              19
+            ]
+          },
+          "source": "when 0 call left\nwhen 1 call left\nwhen 2 call left\nwhen 3 call left\n"
+        },
+        "edit": "right-value",
+        "scope": [
+          0
+        ]
+      }
+    }
+  }
+}
