@@ -26,6 +26,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-13 state/Result mutation coverage](RT-13/RT-13-STATE-RESULT-MUTATION-COVERAGE-2026-11-25.md) — checks which generators and projections expose seeded rewrite faults.
 - [Exhaustive evidence boundary](RT-13/RT-13-EXHAUSTIVE-EVIDENCE-BOUNDARY-2026-11-25.md) — exact domains, observation coverage and requirements for a broader claim.
 - [Graph occurrence preservation](RT-13/RT-13-GRAPH-OCCURRENCE-PRESERVATION-2026-11-25.md) — typed graph sharing and correspondence with the executable state/Result reference.
+- [LLVM validator and choice scope](RT-13/RT-13-LLVM-VALIDATOR-CHOICE-SCOPE-2026-11-25.md) — structural, Alive2, Vellvm and native scope with a freeze discriminator.
 - [PROTOTYPES](PROTOTYPES/)
 
 ## Cross-direction evidence
