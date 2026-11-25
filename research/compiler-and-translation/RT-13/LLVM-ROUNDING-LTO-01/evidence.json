@@ -1,0 +1,414 @@
+{
+  "format": "rt13-llvm-rounding-lto/1",
+  "profiles": {
+    "19/full": {
+      "assembly_observations": {
+        "inline_literals": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": false
+        },
+        "inline_loads": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": true
+        },
+        "keep_call": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        }
+      },
+      "evidence_sha256": "4465f5a8f1778d117ff60414bf84ffe619cec141f85b869269e305b982ce8dcf",
+      "results": {
+        "downward/0/inline_literals": "0000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "0000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    },
+    "19/native": {
+      "assembly_observations": {
+        "inline_literals": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        },
+        "inline_loads": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        },
+        "keep_call": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        }
+      },
+      "evidence_sha256": "dfb865eb6db7ebe5af94f9c80e6335c534cb5bfef275f394cf85ce57c1e4eb7d",
+      "results": {
+        "downward/0/inline_literals": "8000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "8000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    },
+    "19/thin": {
+      "assembly_observations": {
+        "inline_literals": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": false
+        },
+        "inline_loads": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": true
+        },
+        "keep_call": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        }
+      },
+      "evidence_sha256": "4465f5a8f1778d117ff60414bf84ffe619cec141f85b869269e305b982ce8dcf",
+      "results": {
+        "downward/0/inline_literals": "0000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "0000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    },
+    "22/full": {
+      "assembly_observations": {
+        "inline_literals": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": false
+        },
+        "inline_loads": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": true
+        },
+        "keep_call": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        }
+      },
+      "evidence_sha256": "4465f5a8f1778d117ff60414bf84ffe619cec141f85b869269e305b982ce8dcf",
+      "results": {
+        "downward/0/inline_literals": "0000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "0000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    },
+    "22/native": {
+      "assembly_observations": {
+        "inline_literals": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        },
+        "inline_loads": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        },
+        "keep_call": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        }
+      },
+      "evidence_sha256": "dfb865eb6db7ebe5af94f9c80e6335c534cb5bfef275f394cf85ce57c1e4eb7d",
+      "results": {
+        "downward/0/inline_literals": "8000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "8000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    },
+    "22/thin": {
+      "assembly_observations": {
+        "inline_literals": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": false
+        },
+        "inline_loads": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": true
+        },
+        "keep_call": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        }
+      },
+      "evidence_sha256": "4465f5a8f1778d117ff60414bf84ffe619cec141f85b869269e305b982ce8dcf",
+      "results": {
+        "downward/0/inline_literals": "0000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "0000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    },
+    "23/full": {
+      "assembly_observations": {
+        "inline_literals": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": false
+        },
+        "inline_loads": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": true
+        },
+        "keep_call": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        }
+      },
+      "evidence_sha256": "4465f5a8f1778d117ff60414bf84ffe619cec141f85b869269e305b982ce8dcf",
+      "results": {
+        "downward/0/inline_literals": "0000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "0000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    },
+    "23/native": {
+      "assembly_observations": {
+        "inline_literals": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        },
+        "inline_loads": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        },
+        "keep_call": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        }
+      },
+      "evidence_sha256": "dfb865eb6db7ebe5af94f9c80e6335c534cb5bfef275f394cf85ce57c1e4eb7d",
+      "results": {
+        "downward/0/inline_literals": "8000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "8000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    },
+    "23/thin": {
+      "assembly_observations": {
+        "inline_literals": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": false
+        },
+        "inline_loads": {
+          "calls_or_jumps_to_dynamic_sum": false,
+          "retained_addsd": true
+        },
+        "keep_call": {
+          "calls_or_jumps_to_dynamic_sum": true,
+          "retained_addsd": false
+        }
+      },
+      "evidence_sha256": "4465f5a8f1778d117ff60414bf84ffe619cec141f85b869269e305b982ce8dcf",
+      "results": {
+        "downward/0/inline_literals": "0000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "0000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    }
+  },
+  "python": "3.12.14",
+  "rows_per_link": 24,
+  "sources_sha256": {
+    "host.c": "e7ab51a686648cda6d6f97dfc9e3bda0312ba47c6d9e763458f750abf7792cd6",
+    "operation.ll": "7fc305509151bc44fca082b8f96f7c0f56bdca13fa97571e7b8f26c1e27c4a69",
+    "wrappers.ll": "1f3dac13ee440cbb57a63bc14a77a8a12804ba95cb1adf3d4f7d7710c7607152"
+  },
+  "target": "x86_64-unknown-linux-gnu",
+  "toolchains": {
+    "19": {
+      "clang": "Debian clang version 19.1.7 (3+b1)",
+      "linker": "Debian LLD 19.1.7 (compatible with GNU linkers)"
+    },
+    "22": {
+      "clang": "clang version 22.1.4 (https://github.com/llvm/llvm-project 35990504507d79e0b9deb809c8ee5e1b34ceef20)",
+      "linker": "LLD 22.1.4 (https://github.com/llvm/llvm-project 35990504507d79e0b9deb809c8ee5e1b34ceef20) (compatible with GNU linkers)"
+    },
+    "23": {
+      "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+      "linker": "LLD 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689) (compatible with GNU linkers)"
+    }
+  }
+}
