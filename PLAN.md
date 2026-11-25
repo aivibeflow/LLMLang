@@ -1489,6 +1489,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Benchmark compilation and cache performance.
   - [x] Measure a persistent native cache across ten trials. Fresh processes restore 10/10 artifacts, a verifier-only edit restores 9/10, and a damaged entry is refused before use. Median full-process warm restore is 47.05 ms versus 147.02 ms forced. Concurrent and distributed caching remain open. [RT-11 persistent build cache](research/toolchain-and-collaboration/RT-11/RT-11-PERSISTENT-BUILD-CACHE-BENCHMARK-2026-11-25.md)
 - [ ] Benchmark proof and test execution costs.
+  - [ ] [WIP] Measure separate Lean proof replay and finite-oracle execution costs for three pinned evidence packages.
 - [ ] Benchmark storage, indexing, and garbage collection.
 - [ ] Benchmark large repositories and highly connected graphs.
 - [ ] Benchmark concurrent edits and merge operations.
