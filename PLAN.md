@@ -888,6 +888,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define crash recovery, corruption detection, backup, and replication.
   - [x] Verify eight backup/restore controls. A valid SQLite index backup loses readability when the external closure is collected. A closed portable envelope reconstructs the exact root and bytes in an empty store, and a failed staged restore preserves the previous root. Power-loss durability and replication remain open. [RT-12 closed graph backup](research/packages-and-ecosystem/RT-12/RT-12-CLOSED-GRAPH-BACKUP-2026-11-25.md)
 - [ ] Define local repository storage versus shared/global artifact storage.
+  - [ ] [WIP] Compare isolated local closures, shared CAS references, and pinned offline materialization for multiple exact repository roots on `research/all`.
 - [ ] Define portability without requiring a live external database.
   - [ ] [WIP] Compare native offline Git clone reconstruction for manifest-only, closed and historical semantic object inventories on `research/all`.
 
