@@ -1,0 +1,23 @@
+{
+  "bounded_fixture_with_unverified_production_scope": "effect-free-shadow-candidate",
+  "profiles": {
+    "canary-candidate": 1,
+    "effect-free-shadow-candidate": 242,
+    "study-only": 19440
+  },
+  "python": "3.12.14",
+  "source_sha256": "03b6633b4948ea3cb87e5a4659bf77a9b7a4493f30348a77f6b0ca4a1011cb4d",
+  "total_profiles": 19683,
+  "unbound_candidate": "study-only",
+  "unknown_single_fact": {
+    "bounded_operational_cost": "effect-free-shadow-candidate",
+    "effect_isolation": "study-only",
+    "human_authority": "effect-free-shadow-candidate",
+    "immutable_baseline": "study-only",
+    "independent_observations": "study-only",
+    "observed_rollback": "effect-free-shadow-candidate",
+    "representative_workload": "effect-free-shadow-candidate",
+    "reversible_state": "effect-free-shadow-candidate",
+    "typed_unit": "study-only"
+  }
+}
