@@ -864,7 +864,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 **Estimated research complexity:** **5/10** — controlled benchmark design and measurement; conclusions depend on representative workloads and hardware.
 
 - [ ] Validate the analytical model in `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
-  - [ ] [WIP] Recompute the analytical cache model and compare paired native speedup distributions and slower cases against both build baselines on `research/all`.
+  - [x] Recompute the published analytical table and compare an equal-cost compile-action approximation with 35 archived paired C++ blocks. The cold residual spans −37.951 to 41.548 ms. Representative calibration remains open. [Paired cache speedups](research/toolchain-and-collaboration/RT-11/RT-11-PAIRED-CACHE-SPEEDUP-2026-11-25.md)
 - [ ] Implement reproducible benchmarks for cold, warm, local-edit, component-edit, and broad-change builds.
   - [x] Run 105 timed synthetic C++ builds across three methods and five stages. All 35 trial/stage artifact manifests agree. Content-keyed and incremental Make execute the same compiler counts and their observed time ranges overlap. Representative workloads and controlled hardware remain open. [RT-11 synthetic C++ cache timings](research/toolchain-and-collaboration/RT-11/RT-11-SYNTHETIC-CXX-CACHE-TIMINGS-2026-11-25.md)
 - [x] Measure cache hit rates by action type.
@@ -872,10 +872,10 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Measure hashing, dependency discovery, scheduling, storage, and verification overhead.
   - [x] Record 17 isolated samples per phase at 2, 8 and 24 native components. At 24, discovery has median 210.992 ms, hashing 2.097 ms, scheduling 0.091 ms, verified restoration 4.233 ms and executable checks 24.395 ms. All manifests and observations agree. Controlled hardware and integrated overhead remain open. [Build phase overhead](research/toolchain-and-collaboration/RT-11/RT-11-BUILD-PHASE-OVERHEAD-2026-11-25.md)
 - [ ] Compare against clean and conventional incremental builds in representative Rust, Go, and C++ projects.
-- [ ] Report speedup distributions and workload assumptions rather than a single headline number.
-- [ ] Identify workloads where caching is neutral or slower.
+- [x] Report speedup distributions and workload assumptions rather than a single headline number. All 35 blocks have exact output agreement. The warm median is 337.856× against forced rebuild and 1.281× against incremental Make. [Paired cache speedups](research/toolchain-and-collaboration/RT-11/RT-11-PAIRED-CACHE-SPEEDUP-2026-11-25.md)
+- [x] Identify workloads where caching is neutral or slower. Cold and broad edit each lose to forced rebuild in five of seven blocks, and component edits are near parity with incremental Make in the sample. [Paired cache speedups](research/toolchain-and-collaboration/RT-11/RT-11-PAIRED-CACHE-SPEEDUP-2026-11-25.md)
 
-**Status:** analytical estimate researched in `research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`; empirical benchmark results still required.
+**Status:** the analytical table, synthetic native hit rates and timing distributions are checked. Representative Rust, Go and C++ comparisons, controlled hardware and calibration of LLMLang stage weights remain open.
 
 **Research output (2026-11-23):** [RT-11 cache speedup model recheck](research/toolchain-and-collaboration/RT-11/RT-11-CACHE-SPEEDUP-MODEL-RECHECK-2026-11-23.md) reran the synthetic binding experiment on CPython 3.12.14 / Debian GCC 14.2.0. Clean-build outputs matched; action-count reuse patterns were reproduced, including a counterexample showing caller compile identity is not a safe executable-verification key. No durations or representative workloads were measured, so the analytical speedup ratios remain hypotheses and every empirical-performance checkbox above remains open.
 
