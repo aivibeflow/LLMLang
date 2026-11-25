@@ -1,0 +1,2 @@
+FIXTURE_1.0 { global: apply; };
+FIXTURE_2.0 { global: apply; fixture_provider_address; local: *; } FIXTURE_1.0;
