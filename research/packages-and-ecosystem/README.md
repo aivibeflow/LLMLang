@@ -18,6 +18,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-12 typed target closure](RT-12/RT-12-TYPED-TARGET-CLOSURE-2026-11-25.md) compares independent target edge interpretations and fail-closed exact resolution.
 - [RT-12 portable manifest scalars](RT-12/RT-12-PORTABLE-MANIFEST-SCALARS-2026-11-25.md) compares exact version types and signed TOML integer limits in two readers.
 - [RT-12 authorized index reconstruction](RT-12/RT-12-AUTHORIZED-INDEX-RECONSTRUCTION-2026-11-25.md) checks signed physical projections and reconstruction from the canonical table.
 - [RT-12 logical package content](RT-12/RT-12-LOGICAL-PACKAGE-CONTENT-2026-11-25.md) checks package selections, typed index relationships, included evidence and separate provenance.
