@@ -1,0 +1,58 @@
+{
+  "baseline": "756d582cc0c8d4a084fbd9faffcaff9d9c8ece47",
+  "python": "3.12.14",
+  "git": "git version 2.52.0",
+  "kernel": "6.18.57",
+  "architecture": "x86_64",
+  "rustc": [
+    "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "binary: rustc",
+    "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+    "commit-date: 2025-03-15",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.85.1",
+    "LLVM version: 19.1.7"
+  ],
+  "node": "v22.23.5",
+  "v8": "12.4.254.21-node.57",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "binutils": "GNU objdump (GNU Binutils for Debian) 2.44",
+  "glibc": "ldd (Debian GLIBC 2.41-12+deb13u4) 2.41",
+  "java": [
+    "openjdk 21.0.13 2026-10-20",
+    "OpenJDK Runtime Environment (build 21.0.13+9-1-deb13u2-Debian)",
+    "OpenJDK 64-Bit Server VM (build 21.0.13+9-1-deb13u2-Debian, mixed mode, sharing)"
+  ],
+  "locale": "C",
+  "python_hash_seed": "1",
+  "replays": {
+    "research/semantic-representation/RT-05/CROSS-RUNTIME-F64-01": {
+      "runner_sha256": "0c8d54709a0dd4d92bc064be13bee8a2f7480029769c146ab043794d7a6b2084",
+      "archive_sha256": "edb22fcce1fdb39a1dccc31513a9fbfd288454402368cc3b859220eb46d55650",
+      "replay_sha256": "edb22fcce1fdb39a1dccc31513a9fbfd288454402368cc3b859220eb46d55650",
+      "bytes": 247878,
+      "byte_equal": true
+    },
+    "research/semantic-representation/RT-05/NATIVE-F64-MINMAX-01": {
+      "runner_sha256": "b56293fc730339c09d3f7e61e8a3f7b84f33e31570ca25ceb0675eaf0cfd31ec",
+      "archive_sha256": "d6bb67b8007e34185cebfbecccf0c318dfda471b124084a5fb2f39899aab63e5",
+      "replay_sha256": "d6bb67b8007e34185cebfbecccf0c318dfda471b124084a5fb2f39899aab63e5",
+      "bytes": 319810,
+      "byte_equal": true
+    },
+    "research/semantic-representation/RT-05/F64-I64-CONVERSION-01": {
+      "runner_sha256": "5b3a3563c8c5f9679a1d28ca31812ef752854a03d3f72784c18a9664d64c0bda",
+      "archive_sha256": "5990c6083f41c058ef36e2aef6b07cd648a6b57f5c111e5aef0c782e0476e260",
+      "replay_sha256": "5990c6083f41c058ef36e2aef6b07cd648a6b57f5c111e5aef0c782e0476e260",
+      "bytes": 80318,
+      "byte_equal": true
+    },
+    "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01": {
+      "runner_sha256": "a1c280d533073037061b313c8cd68c55dbbcfc303cd618be10efcbf21cab23ce",
+      "archive_sha256": "fa492120e723bb852df41f5391f6c1c4187bc6fec8810e7a639a5fc2a20245fb",
+      "replay_sha256": "fa492120e723bb852df41f5391f6c1c4187bc6fec8810e7a639a5fc2a20245fb",
+      "bytes": 8998,
+      "byte_equal": true
+    }
+  }
+}
