@@ -1,0 +1,804 @@
+{
+  "schema": "llmlang-rt24-gitlink-reconstruction/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "source_sha256": "540803a1503f8ca098847fd8ce6f2297ec67b244a0fc22cfa2bc23088ed2ba52",
+  "provider_commits": {
+    "old": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+    "new": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+    "missing": "40136f80262eb44e01e9ba640d2e5796b592cc9e",
+    "equivalent": "0e1e2e89bdd75333c4dbdfbb1b020e5d565a2750"
+  },
+  "samples": [
+    -5,
+    -1,
+    0,
+    9
+  ],
+  "scenarios": 13,
+  "metrics": {
+    "worktree": {
+      "exact": 3,
+      "wrong_acceptance": 6,
+      "available_refused": 1,
+      "expected_refusal": 3
+    },
+    "nested_head": {
+      "exact": 4,
+      "wrong_acceptance": 4,
+      "available_refused": 1,
+      "expected_refusal": 4
+    },
+    "upstream_tip": {
+      "exact": 1,
+      "wrong_acceptance": 10,
+      "available_refused": 0,
+      "expected_refusal": 2
+    },
+    "exact_gitlink": {
+      "exact": 7,
+      "wrong_acceptance": 0,
+      "available_refused": 0,
+      "expected_refusal": 6
+    }
+  },
+  "observations": [
+    {
+      "case": "plain_clone_offline",
+      "snapshot": "6281f483ee35efb46d54525a2268e6980d79f61b",
+      "context": {
+        "tree": "cbaad0b04fa85f4797d9d4b4daa7bd5101f0222d",
+        "mode": "160000",
+        "pin": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "declared": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "not-requested",
+      "nested_head": null,
+      "upstream_tip": null,
+      "expected": "unavailable",
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "nested_head": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "upstream_tip": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "exact_gitlink": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "authorized_recursive_checkout",
+      "snapshot": "6281f483ee35efb46d54525a2268e6980d79f61b",
+      "context": {
+        "tree": "cbaad0b04fa85f4797d9d4b4daa7bd5101f0222d",
+        "mode": "160000",
+        "pin": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "declared": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "recursive",
+      "nested_head": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "exact",
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "receipt": "visible-by-path",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        },
+        "nested_head": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact_gitlink": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "explicit_pinned_checkout_after_clone",
+      "snapshot": "6281f483ee35efb46d54525a2268e6980d79f61b",
+      "context": {
+        "tree": "cbaad0b04fa85f4797d9d4b4daa7bd5101f0222d",
+        "mode": "160000",
+        "pin": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "declared": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "pinned",
+      "nested_head": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "exact",
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "receipt": "visible-by-path",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        },
+        "nested_head": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact_gitlink": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "authorized_blob_store_without_checkout",
+      "snapshot": "6281f483ee35efb46d54525a2268e6980d79f61b",
+      "context": {
+        "tree": "cbaad0b04fa85f4797d9d4b4daa7bd5101f0222d",
+        "mode": "160000",
+        "pin": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "declared": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "object-store",
+      "nested_head": null,
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "exact",
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "nested_head": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact_gitlink": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "remote_update_moves_worktree",
+      "snapshot": "6281f483ee35efb46d54525a2268e6980d79f61b",
+      "context": {
+        "tree": "cbaad0b04fa85f4797d9d4b4daa7bd5101f0222d",
+        "mode": "160000",
+        "pin": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "declared": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "remote",
+      "nested_head": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "exact",
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "receipt": "visible-by-path",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "nested_head": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact_gitlink": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "other_commit_same_payload",
+      "snapshot": "6281f483ee35efb46d54525a2268e6980d79f61b",
+      "context": {
+        "tree": "cbaad0b04fa85f4797d9d4b4daa7bd5101f0222d",
+        "mode": "160000",
+        "pin": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "declared": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "equivalent",
+      "nested_head": "0e1e2e89bdd75333c4dbdfbb1b020e5d565a2750",
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "exact",
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "receipt": "visible-by-path",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "wrong_acceptance"
+        },
+        "nested_head": {
+          "status": "accepted",
+          "receipt": "0e1e2e89bdd75333c4dbdfbb1b020e5d565a2750",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "wrong_acceptance"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact_gitlink": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "dirty_nested_worktree",
+      "snapshot": "6281f483ee35efb46d54525a2268e6980d79f61b",
+      "context": {
+        "tree": "cbaad0b04fa85f4797d9d4b4daa7bd5101f0222d",
+        "mode": "160000",
+        "pin": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "declared": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "dirty",
+      "nested_head": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "exact",
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "receipt": "visible-by-path",
+          "semantic_root": "1e9b48491911b3c176be72ce02cb4b9e4b77015227793f0db2a8861f9e206dc4",
+          "delta": 99,
+          "observations": [
+            94,
+            98,
+            99,
+            108
+          ],
+          "class": "wrong_acceptance"
+        },
+        "nested_head": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact_gitlink": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "explicit_gitlink_upgrade",
+      "snapshot": "8e9cd6f9eaf39eb6d59e50ebaf5909f7c602bc4f",
+      "context": {
+        "tree": "f7bf78795692e7d70ba2cfe8aabd5f42b588b3c9",
+        "mode": "160000",
+        "pin": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+        "declared": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "pinned",
+      "nested_head": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "exact",
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "receipt": "visible-by-path",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "exact"
+        },
+        "nested_head": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "exact"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "exact"
+        },
+        "exact_gitlink": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "declaration_and_gitlink_disagree",
+      "snapshot": "66208e43902519c91680e657acecd9f9527678d0",
+      "context": {
+        "tree": "086587453c3b26f2eee42d33ad910b4723b7af08",
+        "mode": "160000",
+        "pin": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "declared": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "pinned",
+      "nested_head": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "mismatch",
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "receipt": "visible-by-path",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "wrong_acceptance"
+        },
+        "nested_head": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "wrong_acceptance"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact_gitlink": {
+          "status": "mismatch",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "new_origin_contains_same_git_objects",
+      "snapshot": "c54f04ec97667b96f5e5df95c329288a82e6ccb9",
+      "context": {
+        "tree": "5bcbf1c0ff1d0d881ab5928a812dbe7a26f6c373",
+        "mode": "160000",
+        "pin": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "declared": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../mirror\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "pinned",
+      "nested_head": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "authority",
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "receipt": "visible-by-path",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "wrong_acceptance"
+        },
+        "nested_head": {
+          "status": "accepted",
+          "receipt": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "wrong_acceptance"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact_gitlink": {
+          "status": "authority",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "regular_file_in_place_of_dependency",
+      "snapshot": "69ccba843ff5a2ece47be1052e75388ec545b45b",
+      "context": {
+        "tree": "a3622fd6e84c92e46e6e69e6975143f8c7437ddd",
+        "mode": "040000",
+        "pin": "ee82994d31e6406c8fd4bd891c23ce641631f1f7",
+        "declared": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": true
+      },
+      "hydration": "not-requested",
+      "nested_head": null,
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "invalid",
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "receipt": "visible-by-path",
+          "semantic_root": "8b21cb55076cf7702013572872b0c92e5d488fd7de01a6b0e63bb0eb7e99afc4",
+          "delta": 11,
+          "observations": [
+            6,
+            10,
+            11,
+            20
+          ],
+          "class": "wrong_acceptance"
+        },
+        "nested_head": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact_gitlink": {
+          "status": "invalid-tree-entry",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "pinned_commit_does_not_contain_value",
+      "snapshot": "862a9a88b2c0ebaf9b2c7cea583c81e7722f781f",
+      "context": {
+        "tree": "4070c65a84dc3be36783cebc9f69b77d403bde53",
+        "mode": "160000",
+        "pin": "40136f80262eb44e01e9ba640d2e5796b592cc9e",
+        "declared": "40136f80262eb44e01e9ba640d2e5796b592cc9e",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "pinned",
+      "nested_head": "40136f80262eb44e01e9ba640d2e5796b592cc9e",
+      "upstream_tip": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+      "expected": "invalid",
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "nested_head": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "upstream_tip": {
+          "status": "accepted",
+          "receipt": "6aef298ca71174d4d208a32a46f74c03adb8b598",
+          "semantic_root": "2e5eb1618f5fa1fa25edee18cc0530fe576565f4b6920ef148a466558ecb4be3",
+          "delta": 17,
+          "observations": [
+            12,
+            16,
+            17,
+            26
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact_gitlink": {
+          "status": "invalid-dependency-inventory",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "authorized_origin_unavailable",
+      "snapshot": "6281f483ee35efb46d54525a2268e6980d79f61b",
+      "context": {
+        "tree": "cbaad0b04fa85f4797d9d4b4daa7bd5101f0222d",
+        "mode": "160000",
+        "pin": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "declared": "bafcb70fbdb96da3d10ffb0171edeaecf67206f2",
+        "module_config": "[submodule \"provider\"]\n\tpath = vendor/provider\n\turl = ../provider\n",
+        "super_archive_includes_payload": false
+      },
+      "hydration": "origin-unavailable",
+      "nested_head": null,
+      "upstream_tip": null,
+      "expected": "unavailable",
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "nested_head": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "upstream_tip": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "exact_gitlink": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        }
+      }
+    }
+  ]
+}
