@@ -97,6 +97,8 @@ For a closed two-integer profile, [restricted affine certificates](../formal-ver
 
 [Cross-runtime I64 encoding](../semantic-representation/RT-05/RT-05-CROSS-RUNTIME-I64-ENCODING-2026-11-25.md) compares bare JSON number consumption, a safe-integer restriction, preserved numeric source tokens, canonical decimal text and fixed-width hexadecimal. The exact routes share the same typed graph root. Bare JavaScript numbers change 56 observed values. Payload size and parser compatibility remain separate from semantic identity.
 
+[Stateful bound method](../semantic-representation/RT-05/RT-05-STATEFUL-BOUND-METHOD-2026-11-25.md) compares code, captured values and explicit shared mutable cells in C and Rust. Identical method code remains reusable while the executable receiver descriptor retains the state its observations depend on.
+
 [Mutable reference topology](../semantic-representation/RT-05/RT-05-MUTABLE-REFERENCE-TOPOLOGY-2026-11-25.md) compares physical identifiers, separate-root projection and a shared canonical cell table. The shared table preserves native mutation and reference observations across relabeling. Immutable value sharing and concrete mutable aliasing have distinct identity requirements.
 
 ## 4. Integrated candidate vectors
