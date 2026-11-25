@@ -5,6 +5,8 @@
 
 The bounded cross-aspect synthesis connects RT-03/04, RT-05/07/08/11/13/16/19 with exact provider binding, ordered observations, current authority and publication preconditions. The cross-product and independent constraint relation preserve scope and withheld cases. [Integrated candidate enumeration](planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
 
+The native release fixture connects exact provider and action identity, independently rebuilt bytes, ordered resource evidence and current policy generation through a local catalog transition. [Native release admission](planning-and-synthesis/EXACT-PROVIDER-RELEASE-2026-11-25.md)
+
 Scenario 94 compares scheduler fairness and liveness: preemption, weak/strong/bounded runnable-task progress, priority starvation, resource fairness, and structured joining are distinct. The cited guarantees are runtime/profile-specific or conditional; no LLMLang policy is selected and no runtime experiment has been run.
 
 Scenario 95 compares compiler diagnostic models and repair channels for humans and agents. Structured records, text renderers, editor transport, suggested edits, and repair authority are separate; studies of novice humans and LLM-generated explanations do not establish autonomous agent repair quality. No LLMLang diagnostic policy is selected.

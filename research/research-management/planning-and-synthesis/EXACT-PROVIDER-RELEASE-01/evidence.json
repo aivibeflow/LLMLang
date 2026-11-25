@@ -1,0 +1,336 @@
+{
+  "base": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+  "build_environment": {
+    "LANG": "C",
+    "LC_ALL": "C",
+    "PATH": "/usr/bin:/bin"
+  },
+  "format": "scoped-provider-release/1",
+  "host": {
+    "kernel": "6.18.57",
+    "libc": "glibc 2.41",
+    "machine": "x86_64"
+  },
+  "inputs": {
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/__init__.py": "a611c5c0ef8f5d435524387e328c928550f5cd9b",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "0e86564830d3668ee888ee7f7f5994be953a2598",
+    "research/PROTOTYPES/RT-04-01/rt04_backup_roles.py": "cbf002088284e6bf76b4064cdfa3e8e2dbe4adb3",
+    "research/PROTOTYPES/RT-04-01/rt04_owned_call_match.py": "7c84fa78e36ae8c8032de32e8bd8646ccee0f527",
+    "research/PROTOTYPES/RT-04-01/rt04_return_disposition.py": "5364ca4c707d36117692936e35437f7a9b2b5b65",
+    "research/PROTOTYPES/RT-04-01/rt04_rust_owned_probe.py": "7d7c5b8eba2aa62dbc71230cd7499e57fbbe01c2",
+    "research/PROTOTYPES/RT-04-01/rt04_shared_owned_handlers.py": "0b03261129c54c2d2aa350c2a7bbe6e54dc245eb",
+    "research/PROTOTYPES/RT-04-01/rt04_shared_owned_workload.py": "0d94450eaf177337fe84689cdd51fa931c15a487",
+    "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/caller.c": "a04c89d9cd921724acf70ffa815c39cd8a6c3065",
+    "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/run.py": "a681cb5569e40d92abf7363bf85ff0e1d1a6790f",
+    "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/provider.c": "878ad8bf8595b7780bc463234aa0ac6aba675962",
+    "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/run.py": "281c739207fc9737596b52d809f306c60d048177",
+    "research/toolchain-and-collaboration/RT-11/SIGNED-REBUILD-ADMISSION-01/run.py": "aa0df25eb15f2b9fa779967fd4ade0c71ae8a1e3"
+  },
+  "native_executions_total": 8,
+  "outcomes": {
+    "c": {
+      "attempts": {
+        "exact_replacement": {
+          "selected_after": "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+          "verdict": "published"
+        },
+        "exact_rollback_reauthorized": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "published"
+        },
+        "historical_signature_after_reauthorize": {
+          "selected_after": "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+          "verdict": "no-attestation"
+        },
+        "independent_rebuild_disagrees": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "rebuild-disagrees"
+        },
+        "initial_release": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "published"
+        },
+        "missing_artifact_in_evidence": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "evidence-refused"
+        },
+        "missing_descriptor_audit": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "evidence-refused"
+        },
+        "narrow_projection": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "evidence-refused"
+        },
+        "old_payload_under_new_address": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "payload-refused"
+        },
+        "revoked_publisher": {
+          "selected_after": "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+          "verdict": "authority-refused"
+        },
+        "signed_request_with_unbound_action": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "evidence-refused"
+        },
+        "stale_parent": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "parent-refused"
+        },
+        "stale_signed_cache": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "no-attestation"
+        },
+        "stale_trace": {
+          "selected_after": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "verdict": "evidence-refused"
+        }
+      },
+      "history": [
+        [
+          null,
+          "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          1
+        ],
+        [
+          "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+          1
+        ],
+        [
+          "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+          "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+          3
+        ]
+      ],
+      "profiles": {
+        "consume-retained": {
+          "declared_closure": {
+            "command": [
+              "gcc",
+              "-std=c17",
+              "-Wall",
+              "-Wextra",
+              "-Werror",
+              "-O2",
+              "caller.c",
+              "provider.o",
+              "-o",
+              "release"
+            ],
+            "provider_object": "5a26957b88a9b8e6df76412d4b3a6f8bae01c1ba74eae19ae14496a1d4743c27",
+            "provider_source": "afb03175d472b8eb5c97a823995eed6fb1ea8a318e93c40fd828c7609bbea0a7",
+            "route_sources": {
+              "caller.c": "936e7fe25fb1526e66e96bce9a9fa0f12aac3d747fe9339e28018f98cc432584",
+              "fixture.h": "1b052181e28133265464422507f425bf1944623fe46ae27abdbde3f8744ebfc7"
+            },
+            "source_caller": "65b2a0510f13092bc3a62e6d1807dd9f3b0921378bd4e232a5ccfd57dde3ab12"
+          },
+          "evidence": {
+            "action": "16cf7d534ce38a4bbdd8ceb161f2ec8da7635ed8a45decb5e1eead2fe7365948",
+            "artifact": "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+            "closure": "53c9d9b6d56635a23d0f0734a05f382fcb38d9c408ba4034444c3ff8919cd5e5",
+            "inputs": "7574581b3c05e6c4b095d913e0027a18106a15818fa80b5b7aa106394c4aed06",
+            "projection": "ordered-result-effects-ownership-and-descriptor-audit/v1",
+            "trace": "fcd25f83e31417aac973e87e4f402248bd5a3f3125ee4a8314b7f8aa6798064c"
+          }
+        },
+        "scripted": {
+          "declared_closure": {
+            "command": [
+              "gcc",
+              "-std=c17",
+              "-Wall",
+              "-Wextra",
+              "-Werror",
+              "-O2",
+              "caller.c",
+              "provider.o",
+              "-o",
+              "release"
+            ],
+            "provider_object": "519dbd1f7c34d17a22c5749c8a7507d16634cebaed9c0e1d22ef53a2e67661f2",
+            "provider_source": "8f25687765500cdd6d957baf7b3b22a2f6c36960341e6f70111ead5b5ec577ba",
+            "route_sources": {
+              "caller.c": "936e7fe25fb1526e66e96bce9a9fa0f12aac3d747fe9339e28018f98cc432584",
+              "fixture.h": "1b052181e28133265464422507f425bf1944623fe46ae27abdbde3f8744ebfc7"
+            },
+            "source_caller": "65b2a0510f13092bc3a62e6d1807dd9f3b0921378bd4e232a5ccfd57dde3ab12"
+          },
+          "evidence": {
+            "action": "518afa053c4cdbaa48e4dfdac0d69def48683cc54427677fecc2548487865195",
+            "artifact": "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+            "closure": "12d39432f91ce1b15c1fc6e38dcb7d7d142f09b3e24f13f9055f853d68600b13",
+            "inputs": "7574581b3c05e6c4b095d913e0027a18106a15818fa80b5b7aa106394c4aed06",
+            "projection": "ordered-result-effects-ownership-and-descriptor-audit/v1",
+            "trace": "0c1c2599ff1fcbe1b9f212b8bdbace7970ad41925c67af7dec4cc71d415330e7"
+          }
+        }
+      }
+    },
+    "rust": {
+      "attempts": {
+        "exact_replacement": {
+          "selected_after": "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+          "verdict": "published"
+        },
+        "exact_rollback_reauthorized": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "published"
+        },
+        "historical_signature_after_reauthorize": {
+          "selected_after": "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+          "verdict": "no-attestation"
+        },
+        "independent_rebuild_disagrees": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "rebuild-disagrees"
+        },
+        "initial_release": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "published"
+        },
+        "missing_artifact_in_evidence": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "evidence-refused"
+        },
+        "missing_descriptor_audit": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "evidence-refused"
+        },
+        "narrow_projection": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "evidence-refused"
+        },
+        "old_payload_under_new_address": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "payload-refused"
+        },
+        "revoked_publisher": {
+          "selected_after": "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+          "verdict": "authority-refused"
+        },
+        "signed_request_with_unbound_action": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "evidence-refused"
+        },
+        "stale_parent": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "parent-refused"
+        },
+        "stale_signed_cache": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "no-attestation"
+        },
+        "stale_trace": {
+          "selected_after": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "verdict": "evidence-refused"
+        }
+      },
+      "history": [
+        [
+          null,
+          "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          1
+        ],
+        [
+          "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+          1
+        ],
+        [
+          "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+          "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+          3
+        ]
+      ],
+      "profiles": {
+        "consume-retained": {
+          "declared_closure": {
+            "command": [
+              "rustc",
+              "--edition=2021",
+              "-D",
+              "warnings",
+              "-C",
+              "opt-level=3",
+              "-C",
+              "link-arg=provider.o",
+              "caller.rs",
+              "-o",
+              "release"
+            ],
+            "provider_object": "5a26957b88a9b8e6df76412d4b3a6f8bae01c1ba74eae19ae14496a1d4743c27",
+            "provider_source": "afb03175d472b8eb5c97a823995eed6fb1ea8a318e93c40fd828c7609bbea0a7",
+            "route_sources": {
+              "caller.rs": "ce317e298e6f04672ffe98596959384e94e31ea45ae0b585f5dcad24df153612"
+            },
+            "source_caller": "65b2a0510f13092bc3a62e6d1807dd9f3b0921378bd4e232a5ccfd57dde3ab12"
+          },
+          "evidence": {
+            "action": "14a409b544cd933cfb4380626fb99ee4bc5c13ab53374fd87edf45c1f37fb96c",
+            "artifact": "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+            "closure": "b6754870914859e6218ca45fa0e605bdb4a488a4d6063b297c1fa5fd94f25990",
+            "inputs": "7574581b3c05e6c4b095d913e0027a18106a15818fa80b5b7aa106394c4aed06",
+            "projection": "ordered-result-effects-ownership-and-descriptor-audit/v1",
+            "trace": "fcd25f83e31417aac973e87e4f402248bd5a3f3125ee4a8314b7f8aa6798064c"
+          }
+        },
+        "scripted": {
+          "declared_closure": {
+            "command": [
+              "rustc",
+              "--edition=2021",
+              "-D",
+              "warnings",
+              "-C",
+              "opt-level=3",
+              "-C",
+              "link-arg=provider.o",
+              "caller.rs",
+              "-o",
+              "release"
+            ],
+            "provider_object": "519dbd1f7c34d17a22c5749c8a7507d16634cebaed9c0e1d22ef53a2e67661f2",
+            "provider_source": "8f25687765500cdd6d957baf7b3b22a2f6c36960341e6f70111ead5b5ec577ba",
+            "route_sources": {
+              "caller.rs": "ce317e298e6f04672ffe98596959384e94e31ea45ae0b585f5dcad24df153612"
+            },
+            "source_caller": "65b2a0510f13092bc3a62e6d1807dd9f3b0921378bd4e232a5ccfd57dde3ab12"
+          },
+          "evidence": {
+            "action": "6237e7290511a443e910c297eada3f3aff7f3c6081abea53f778f7e9077bd156",
+            "artifact": "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+            "closure": "3d00983d077fb99a1382a052e611a4a6a63273fbf67f7ea58a86cd8f441d3ce5",
+            "inputs": "7574581b3c05e6c4b095d913e0027a18106a15818fa80b5b7aa106394c4aed06",
+            "projection": "ordered-result-effects-ownership-and-descriptor-audit/v1",
+            "trace": "0c1c2599ff1fcbe1b9f212b8bdbace7970ad41925c67af7dec4cc71d415330e7"
+          }
+        }
+      }
+    }
+  },
+  "python": "3.12.14",
+  "replacement_changed_rows_per_route": 5720,
+  "rows_per_execution": 20992,
+  "sqlite": "3.53.1",
+  "tools": {
+    "gcc": {
+      "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+      "version": "gcc (Debian 14.2.0-19) 14.2.0"
+    },
+    "ld": {
+      "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+      "version": "GNU ld (GNU Binutils for Debian) 2.44"
+    },
+    "openssl": {
+      "sha256": "acc10176d038aeb7b2a77d9ec972ac2985857a7191f7aecb7c54ef0e2c7e9549",
+      "version": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)"
+    },
+    "rustc": {
+      "sha256": "f8d033fd72e878ec60493788c8bffec2e6c154dcab6f0cb4c145af8ada26a7ed",
+      "version": "rustc 1.85.1 (4eb161250 2025-03-15)"
+    }
+  }
+}

@@ -306,6 +306,8 @@ For histories with multiple best common ancestors, the [native merge-base compar
 
 A finite owned-result workflow combines exact provider selection, build admission, native evidence, effect authority and authorized publication. Eight of 576 profiles pass the normal modeled request. A change to the requested provider leaves four eligible and makes four require an explicit repin. The model withholds all eight eligible profiles when the publisher is revoked or the required evidence domain widens. The component experiments provide distinct premises for this finite comparison. [Integrated candidate enumeration](planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
 
+The native release fixture checks how this workflow's evidence and authority interfaces compose. Two exact C/Rust artifacts accept the checked provider replacement and freshly authorized rollback. Old or narrower evidence, mismatched bytes or action, and revoked rights preserve the catalog selection. [Native release admission](planning-and-synthesis/EXACT-PROVIDER-RELEASE-2026-11-25.md)
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.
