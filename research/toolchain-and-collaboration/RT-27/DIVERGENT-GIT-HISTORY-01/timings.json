@@ -1,0 +1,398 @@
+[
+  {
+    "checkout": {
+      "cpu_ns": 7046000,
+      "max_rss_kib": 2312,
+      "wall_ns": 7129566
+    },
+    "clone": {
+      "cpu_ns": 53349000,
+      "max_rss_kib": 5248,
+      "wall_ns": 55605583
+    },
+    "common_repack": {
+      "cpu_ns": 113871000,
+      "max_rss_kib": 6016,
+      "wall_ns": 115770108
+    },
+    "fetch": {
+      "cpu_ns": 96834000,
+      "max_rss_kib": 3768,
+      "wall_ns": 97471458
+    },
+    "layout": "stable-shards",
+    "pre_compaction_repack": {
+      "cpu_ns": 80169000,
+      "max_rss_kib": 5760,
+      "wall_ns": 81470875
+    },
+    "read_git_archive": {
+      "cpu_ns": 3578000,
+      "max_rss_kib": 2060,
+      "wall_ns": 3998400
+    },
+    "reconstruct": {
+      "cpu_ns": 10605386,
+      "peak_traced_bytes": 919544,
+      "wall_ns": 10604552
+    },
+    "repack": {
+      "cpu_ns": 6315000,
+      "max_rss_kib": 2324,
+      "wall_ns": 7919115
+    },
+    "trial": 1
+  },
+  {
+    "checkout": {
+      "cpu_ns": 7418000,
+      "max_rss_kib": 2724,
+      "wall_ns": 7605196
+    },
+    "clone": {
+      "cpu_ns": 55910000,
+      "max_rss_kib": 3872,
+      "wall_ns": 62254362
+    },
+    "common_repack": {
+      "cpu_ns": 48444000,
+      "max_rss_kib": 4120,
+      "wall_ns": 52869234
+    },
+    "fetch": {
+      "cpu_ns": 55504000,
+      "max_rss_kib": 2680,
+      "wall_ns": 56095250
+    },
+    "layout": "immutable-segments",
+    "pre_compaction_repack": {
+      "cpu_ns": 38870000,
+      "max_rss_kib": 3204,
+      "wall_ns": 41351772
+    },
+    "read_git_archive": {
+      "cpu_ns": 3116000,
+      "max_rss_kib": 2688,
+      "wall_ns": 3709712
+    },
+    "reconstruct": {
+      "cpu_ns": 13628220,
+      "peak_traced_bytes": 1570963,
+      "wall_ns": 13626206
+    },
+    "repack": {
+      "cpu_ns": 29140000,
+      "max_rss_kib": 5608,
+      "wall_ns": 31144837
+    },
+    "trial": 1
+  },
+  {
+    "checkout": {
+      "cpu_ns": 8305000,
+      "max_rss_kib": 2312,
+      "wall_ns": 8523276
+    },
+    "clone": {
+      "cpu_ns": 57859000,
+      "max_rss_kib": 4136,
+      "wall_ns": 61830029
+    },
+    "common_repack": {
+      "cpu_ns": 260147000,
+      "max_rss_kib": 4896,
+      "wall_ns": 263109819
+    },
+    "fetch": {
+      "cpu_ns": 105542000,
+      "max_rss_kib": 3552,
+      "wall_ns": 106093079
+    },
+    "layout": "content-defined-chunks",
+    "pre_compaction_repack": {
+      "cpu_ns": 153919000,
+      "max_rss_kib": 4896,
+      "wall_ns": 155472965
+    },
+    "read_git_archive": {
+      "cpu_ns": 3824000,
+      "max_rss_kib": 2580,
+      "wall_ns": 4602454
+    },
+    "reconstruct": {
+      "cpu_ns": 12472018,
+      "peak_traced_bytes": 887569,
+      "wall_ns": 12468434
+    },
+    "repack": {
+      "cpu_ns": 8461000,
+      "max_rss_kib": 2656,
+      "wall_ns": 9950614
+    },
+    "trial": 1
+  },
+  {
+    "checkout": {
+      "cpu_ns": 7578000,
+      "max_rss_kib": 2312,
+      "wall_ns": 7832191
+    },
+    "clone": {
+      "cpu_ns": 66497000,
+      "max_rss_kib": 5032,
+      "wall_ns": 68628785
+    },
+    "common_repack": {
+      "cpu_ns": 109148000,
+      "max_rss_kib": 6016,
+      "wall_ns": 114015232
+    },
+    "fetch": {
+      "cpu_ns": 96944000,
+      "max_rss_kib": 3768,
+      "wall_ns": 97707916
+    },
+    "layout": "stable-shards",
+    "pre_compaction_repack": {
+      "cpu_ns": 115123000,
+      "max_rss_kib": 5760,
+      "wall_ns": 118956439
+    },
+    "read_git_archive": {
+      "cpu_ns": 2520000,
+      "max_rss_kib": 2060,
+      "wall_ns": 2974321
+    },
+    "reconstruct": {
+      "cpu_ns": 10818832,
+      "peak_traced_bytes": 919544,
+      "wall_ns": 10816547
+    },
+    "repack": {
+      "cpu_ns": 13941000,
+      "max_rss_kib": 2320,
+      "wall_ns": 19906435
+    },
+    "trial": 2
+  },
+  {
+    "checkout": {
+      "cpu_ns": 8680000,
+      "max_rss_kib": 2692,
+      "wall_ns": 8809751
+    },
+    "clone": {
+      "cpu_ns": 33718000,
+      "max_rss_kib": 3872,
+      "wall_ns": 36513516
+    },
+    "common_repack": {
+      "cpu_ns": 40827000,
+      "max_rss_kib": 4120,
+      "wall_ns": 43014206
+    },
+    "fetch": {
+      "cpu_ns": 55211000,
+      "max_rss_kib": 2680,
+      "wall_ns": 59007156
+    },
+    "layout": "immutable-segments",
+    "pre_compaction_repack": {
+      "cpu_ns": 28020000,
+      "max_rss_kib": 3204,
+      "wall_ns": 29552723
+    },
+    "read_git_archive": {
+      "cpu_ns": 3747000,
+      "max_rss_kib": 2688,
+      "wall_ns": 4153856
+    },
+    "reconstruct": {
+      "cpu_ns": 12903687,
+      "peak_traced_bytes": 1570963,
+      "wall_ns": 12901439
+    },
+    "repack": {
+      "cpu_ns": 24418000,
+      "max_rss_kib": 5700,
+      "wall_ns": 26154867
+    },
+    "trial": 2
+  },
+  {
+    "checkout": {
+      "cpu_ns": 9089000,
+      "max_rss_kib": 2312,
+      "wall_ns": 9418996
+    },
+    "clone": {
+      "cpu_ns": 55376000,
+      "max_rss_kib": 4264,
+      "wall_ns": 61085105
+    },
+    "common_repack": {
+      "cpu_ns": 259750000,
+      "max_rss_kib": 4900,
+      "wall_ns": 262747156
+    },
+    "fetch": {
+      "cpu_ns": 122873000,
+      "max_rss_kib": 3592,
+      "wall_ns": 123277770
+    },
+    "layout": "content-defined-chunks",
+    "pre_compaction_repack": {
+      "cpu_ns": 154096000,
+      "max_rss_kib": 4908,
+      "wall_ns": 156080716
+    },
+    "read_git_archive": {
+      "cpu_ns": 3660000,
+      "max_rss_kib": 2576,
+      "wall_ns": 4235962
+    },
+    "reconstruct": {
+      "cpu_ns": 11145986,
+      "peak_traced_bytes": 887569,
+      "wall_ns": 11143511
+    },
+    "repack": {
+      "cpu_ns": 9283000,
+      "max_rss_kib": 2576,
+      "wall_ns": 12801537
+    },
+    "trial": 2
+  },
+  {
+    "checkout": {
+      "cpu_ns": 7444000,
+      "max_rss_kib": 2312,
+      "wall_ns": 7588522
+    },
+    "clone": {
+      "cpu_ns": 68967000,
+      "max_rss_kib": 5032,
+      "wall_ns": 71111743
+    },
+    "common_repack": {
+      "cpu_ns": 100964000,
+      "max_rss_kib": 6016,
+      "wall_ns": 104747873
+    },
+    "fetch": {
+      "cpu_ns": 83052000,
+      "max_rss_kib": 3768,
+      "wall_ns": 83522255
+    },
+    "layout": "stable-shards",
+    "pre_compaction_repack": {
+      "cpu_ns": 81166000,
+      "max_rss_kib": 5760,
+      "wall_ns": 83202104
+    },
+    "read_git_archive": {
+      "cpu_ns": 2437000,
+      "max_rss_kib": 2060,
+      "wall_ns": 2814377
+    },
+    "reconstruct": {
+      "cpu_ns": 10382746,
+      "peak_traced_bytes": 919544,
+      "wall_ns": 10381267
+    },
+    "repack": {
+      "cpu_ns": 5429000,
+      "max_rss_kib": 2320,
+      "wall_ns": 6783025
+    },
+    "trial": 3
+  },
+  {
+    "checkout": {
+      "cpu_ns": 7564000,
+      "max_rss_kib": 2724,
+      "wall_ns": 7698694
+    },
+    "clone": {
+      "cpu_ns": 28212000,
+      "max_rss_kib": 3872,
+      "wall_ns": 31099837
+    },
+    "common_repack": {
+      "cpu_ns": 39231000,
+      "max_rss_kib": 4120,
+      "wall_ns": 41042439
+    },
+    "fetch": {
+      "cpu_ns": 47278000,
+      "max_rss_kib": 2680,
+      "wall_ns": 47652389
+    },
+    "layout": "immutable-segments",
+    "pre_compaction_repack": {
+      "cpu_ns": 25629000,
+      "max_rss_kib": 3204,
+      "wall_ns": 27170197
+    },
+    "read_git_archive": {
+      "cpu_ns": 3245000,
+      "max_rss_kib": 2688,
+      "wall_ns": 3568729
+    },
+    "reconstruct": {
+      "cpu_ns": 11004546,
+      "peak_traced_bytes": 1570963,
+      "wall_ns": 11003544
+    },
+    "repack": {
+      "cpu_ns": 20829000,
+      "max_rss_kib": 5700,
+      "wall_ns": 22093486
+    },
+    "trial": 3
+  },
+  {
+    "checkout": {
+      "cpu_ns": 5464000,
+      "max_rss_kib": 2312,
+      "wall_ns": 5628618
+    },
+    "clone": {
+      "cpu_ns": 47462000,
+      "max_rss_kib": 4136,
+      "wall_ns": 49251028
+    },
+    "common_repack": {
+      "cpu_ns": 221558000,
+      "max_rss_kib": 4896,
+      "wall_ns": 223057691
+    },
+    "fetch": {
+      "cpu_ns": 96179000,
+      "max_rss_kib": 3508,
+      "wall_ns": 97133479
+    },
+    "layout": "content-defined-chunks",
+    "pre_compaction_repack": {
+      "cpu_ns": 125373000,
+      "max_rss_kib": 4904,
+      "wall_ns": 126696163
+    },
+    "read_git_archive": {
+      "cpu_ns": 4746000,
+      "max_rss_kib": 2564,
+      "wall_ns": 5170120
+    },
+    "reconstruct": {
+      "cpu_ns": 16256620,
+      "peak_traced_bytes": 887569,
+      "wall_ns": 16253584
+    },
+    "repack": {
+      "cpu_ns": 7833000,
+      "max_rss_kib": 2560,
+      "wall_ns": 9298151
+    },
+    "trial": 3
+  }
+]
