@@ -1466,7 +1466,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define concurrent graph edits and optimistic update rules.
 - [ ] Define stable identity under rename, split, and merge.
 - [ ] Define independent changes to contracts and implementations.
-  - [ ] [WIP] Check independently valid contract and implementation branch edits against their combined source and native observations on `research/all`.
+  - [x] Compare 32 clean native merges of individually valid contract and provider edits and 3,250 native observations. Validation of the exact combined pair refuses seven of 16 pairs on value or modeled trace obligations. General proof composition and cross-operation dependencies remain open. [Contract and implementation merges](research/toolchain-and-collaboration/RT-24/RT-24-CONTRACT-BODY-MERGES-2026-11-25.md)
 - [ ] Define conflict detection and safe automatic resolution.
 - [ ] Define reviewable semantic change sets.
 - [ ] Define provenance, authorship, approval, and audit trails.
