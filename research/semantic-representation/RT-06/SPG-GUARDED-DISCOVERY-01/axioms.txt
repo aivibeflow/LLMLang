@@ -1,0 +1,2 @@
+'exact_guard' depends on axioms: [propext]
+'expand_guard_sound' depends on axioms: [propext]

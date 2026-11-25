@@ -1,0 +1,56 @@
+{
+  "schema": "llmlang-spg-guarded-dependency-discovery/1",
+  "python": "3.12.14",
+  "archive_revision": "22d607ba6f24ff187877a2da500892a3fc2b043b",
+  "lean_observations_sha256": "977e71ccd3981b728fa29493b6e7a30f7094245d9d2cb9e5064d5dcd08ab01b5",
+  "sources_sha256": {
+    "run.py": "a08742c00c3b2298b3c7286a959d45e3d91686fd10d76bf215636a32e2d368ae",
+    "Guard.lean": "b886df5dabca4d33458d3668a2c2e0fdb1d169e5c9eb69581f9c02ccf93c7790",
+    "axioms.txt": "454325ff2ec2d1da1a0d1a09c1ef9c8c8134a99c66b6a2943388850e55fef03b"
+  },
+  "counts": {
+    "compiled_source_profiles": 25,
+    "typed_site_occurrences": 100,
+    "runtime_rows": 250,
+    "may_dependency_requests": 2325,
+    "static_has_extras": 2090,
+    "sample_only_misses": 1310,
+    "assume_unknown_false_misses": 420
+  },
+  "witnesses": {
+    "unknown_false": {
+      "first": -2,
+      "second": -2,
+      "domain": [
+        -2
+      ],
+      "required": [
+        "alpha",
+        "gamma"
+      ],
+      "guessed": [
+        "gamma"
+      ]
+    },
+    "sample_only": {
+      "first": -2,
+      "second": -2,
+      "domain": [
+        -2
+      ],
+      "gates": [
+        false,
+        true
+      ],
+      "required": [
+        "alpha",
+        "gamma"
+      ],
+      "observed": [
+        "gamma"
+      ]
+    }
+  },
+  "exact_spg_corpus_sha256": "b512890d8211da30e2a7432f07ba1273a14dc02489e08e1978149f43e0d86d6f",
+  "dependency_request_rows_sha256": "dd204a0ff5106b0134533f6a363db88f10469820b92955a2e70405a4fea41587"
+}

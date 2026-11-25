@@ -23,6 +23,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-06 dependency evidence classes](RT-06/RT-06-DEPENDENCY-EVIDENCE-CLASSES-2026-11-25.md) — checks positive witnesses, conservative coverage and exact scoped absence.
 - [SCC dependency scheduling](RT-06/RT-06-SCC-DEPENDENCY-SCHEDULING-2026-11-25.md) — deterministic cyclic analysis and topology change controls.
 - [Dependency role closures](RT-06/RT-06-DEPENDENCY-ROLE-CLOSURE-2026-11-25.md) — execution, verification and source audit input closures.
+- [Guarded SPG dependency discovery](RT-06/RT-06-SPG-GUARDED-DEPENDENCY-DISCOVERY-2026-11-25.md) — source sites, typed guards, execution witnesses and conservative may sets.
 - [RT-05 source occurrence evidence after formatting](RT-05/RT-05-SOURCE-OCCURRENCE-EVIDENCE-2026-11-25.md)
 - [RT-05 native implementation identity](RT-05/RT-05-NATIVE-IMPLEMENTATION-IDENTITY-2026-11-25.md) — compares build actions, caller bytes and resolved provider, ABI and runtime identities.
 - [RT-05 typed edge projections](RT-05/RT-05-TYPED-EDGE-PROJECTIONS-2026-11-25.md) — compares identity closures for execution, verification and source navigation.
