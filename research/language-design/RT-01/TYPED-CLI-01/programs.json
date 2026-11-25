@@ -1,0 +1,25 @@
+{
+  "hello": {
+    "handler": "write_literal",
+    "literal": "Hello, world!\n"
+  },
+  "echo": {
+    "handler": "join_arguments",
+    "separator": " ",
+    "suffix": "\n",
+    "keep_empty": true
+  },
+  "calculator": {
+    "handler": "checked_record",
+    "separators": [32, 9, 13],
+    "terminator": 10,
+    "operations": {"+": "add", "-": "subtract", "*": "multiply", "/": "divide"},
+    "division": "toward_zero",
+    "diagnostic_stream": "stderr",
+    "diagnostics": {
+      "invalid": "invalid input\n",
+      "overflow": "arithmetic overflow\n",
+      "zero": "division by zero\n"
+    }
+  }
+}
