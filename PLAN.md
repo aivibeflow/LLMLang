@@ -361,6 +361,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 - [ ] Define contract structure and semantics: preconditions, postconditions, invariants, effects, errors, state transitions, and assumptions.
 - [ ] Define the difference between exact contract equality, refinement, substitutability, and behavioral equivalence.
+  - [ ] [WIP] Compare exact equality, contract and call-site refinement, and full versus projected behavioral equivalence in a finite contract model on `research/all`.
 - [ ] Define how one operation can have many implementations and how one implementation can satisfy multiple contracts.
 - [ ] Define contract-based analogue discovery separately from call identity and dispatch.
 - [ ] Define the evidence required before substituting an implementation for a specific `OpHash`.
