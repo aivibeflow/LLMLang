@@ -1,0 +1,75 @@
+{
+  "schema": "llmlang-recovery-contracts/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "Recovery.lean": "3661aef0f4609d37935c14118ba5512bd89f429e6ec670a9db4f4a353285925c",
+    "axioms.txt": "15a7b31eb3adf1e121e4a6821a439f516655c87ed484c24b64b1189491e766f6",
+    "run.py": "79ab495097697db1de5066c99491bbe9858cb306c9993982b2cc2b69465de2e8"
+  },
+  "primary_atoms_per_initial_state": 9,
+  "counts": {
+    "admission_profiles": 65536,
+    "exists_false_admission": 11136,
+    "composition_profiles": 4096,
+    "mutation_comparisons": 12288,
+    "refinement_comparisons": 157464
+  },
+  "disagreements": {
+    "erase_prefix": 2496,
+    "rollback_state": 1792,
+    "cancel_is_retry": 1536
+  },
+  "witnesses": {
+    "erase_prefix": {
+      "initial": 0,
+      "handlers": [
+        "retry"
+      ],
+      "primary_mask": 4,
+      "exact_only": "{\"code\":null,\"outcome\":\"diverged\",\"state\":null,\"trace\":[\"primary-0:retry-0\",\"handler:retry-0:diverged\"]}",
+      "mutation_only": "{\"code\":null,\"outcome\":\"diverged\",\"state\":null,\"trace\":[\"handler:retry-0:diverged\"]}"
+    },
+    "rollback_state": {
+      "initial": 0,
+      "handlers": [
+        "retry"
+      ],
+      "primary_mask": 8,
+      "exact_only": "{\"code\":\"fatal\",\"outcome\":\"error\",\"state\":0,\"trace\":[\"primary-0:retry-1\",\"handler:retry-1:error\"]}",
+      "mutation_only": "{\"code\":null,\"outcome\":\"diverged\",\"state\":null,\"trace\":[\"primary-0:retry-1\",\"handler:retry-0:diverged\"]}"
+    },
+    "existential_handoff": {
+      "initial": 0,
+      "handlers": [
+        "retry"
+      ],
+      "primary_mask": 12,
+      "allowed_inputs": [
+        [
+          "retry",
+          0
+        ]
+      ],
+      "actual_handler_inputs": [
+        [
+          "retry",
+          0
+        ],
+        [
+          "retry",
+          1
+        ]
+      ]
+    },
+    "cancel_is_retry": {
+      "initial": 0,
+      "handlers": [
+        "retry"
+      ],
+      "primary_mask": 64,
+      "exact_only": "{\"code\":null,\"outcome\":\"cancelled\",\"state\":0,\"trace\":[\"primary-0:cancelled-0\"]}",
+      "mutation_only": "{\"code\":null,\"outcome\":\"diverged\",\"state\":null,\"trace\":[\"primary-0:cancelled-0\",\"handler:retry-0:diverged\"]}"
+    }
+  },
+  "composition_rows_sha256": "939bbd13c638eddece9663bd3d93b123a1f1c356015547b19138abcb06d401fe"
+}
