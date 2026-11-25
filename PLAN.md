@@ -338,6 +338,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define the distinct roles of logical/stable IDs, semantic hashes, operation identity, implementation identity, action keys, artifact hashes, and evidence identity.
   - [x] Compare guarded execution keys across 19,200 scope and edit pairs. The exact possible-provider set still allows 1,708 stale reuses when the selection relation changes. A per-state projection preserves all scoped observations in the fixture and permits 3,187 safe reuses. General guards and identity envelopes remain open. [Guarded dispatch identity](research/semantic-representation/RT-05/RT-05-GUARDED-DISPATCH-IDENTITY-2026-11-25.md).
 - [ ] Specify the exact semantic payload committed by `OpHash`.
+  - [ ] [WIP] Compare contract-addressed and exact-body operation identities when multiple providers satisfy the same permissive observation contract on `research/all`.
 - [ ] Specify `ImpHash` and the identity of a concrete implementation.
 - [ ] Define the contract identity and the identity of a class of compatible implementations.
 - [ ] Define canonical typed serialization, domain separation, digest encoding, and hash algorithm agility.
