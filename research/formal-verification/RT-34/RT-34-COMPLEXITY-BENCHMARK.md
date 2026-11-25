@@ -45,7 +45,7 @@ Unless stated otherwise use nonnegative unbounded natural sizes and a specified 
 | CXB-024 | Correct algorithm plus unnecessary nested work | Functional contract holds; declared smaller bound may be refuted by family | CF/POB |
 | CXB-025 | Piecewise and multivariate size domain | Uniform constants over declared domain; no single-variable substitution without proof | POB |
 | CXB-026 | Bounded or empty admitted input family | Report nonvacuity/limited scope; do not advertise meaningful unbounded optimality | CF/POB |
-| CXB-027 | Change callee body/contract/model and proof binding | Revalidate exact provider evidence and dependent closure; stale reuse rejected | POB |
+| CXB-027 | Change callee body/contract/model and proof binding | Revalidate exact provider evidence and dependent closure; stale reuse rejected | POB, [affine call pilot](RT-34-CALL-COST-BINDING-2026-11-25.md) |
 | CXB-028 | Source-preserving result but extra target work | Functional correspondence does not certify target cost | POB |
 | CXB-029 | Finite observations compatible with divergent asymptotics | EMPIRICAL only; arbitrary threshold can hide expensive path | POB/measurement |
 | CXB-030 | Undischarged assumptions, solver timeout, malformed certificate | Conditional/unknown/error separated; no proof promotion | POB |

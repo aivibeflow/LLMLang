@@ -1,0 +1,285 @@
+{
+  "schema": "llmlang-call-cost-binding/1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "python": "3.12.14",
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "source_sha256": {
+    "CallCost.lean": "d95310d6458d9830c3338bec1657cc3349c337ed81e37d5fda2944a7f90aa0dc",
+    "run.py": "0f93ad15319a247df090bb45923b70ff8155b26b57fc731b96525eebcf158e1a"
+  },
+  "generated_c_sha256": "3978928cd5e4f25c33588d95c27b26f26a8dcd13d3c033e2a16f4450b1e1371f",
+  "generated_lean_sha256": "6d397f7435a290a5ae618dadef5555f4c94b92f4820e70a7d657d9604df2cb36",
+  "native_abstract_observations": 544,
+  "native_stdout_sha256": "e0c090d07d5724c01fd9d37a782e8cfeedf637dba3d5640756205570114f3b0f",
+  "model_axioms": {
+    "CallCost.exact_condition": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CallCost.scoped_call": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "claim_axioms": {
+    "case0Proof": [
+      "propext",
+      "Quot.sound"
+    ],
+    "case1Proof": [
+      "propext",
+      "Quot.sound"
+    ],
+    "case2Proof": [
+      "propext",
+      "Quot.sound"
+    ],
+    "case3Proof": [],
+    "case4Proof": [],
+    "case5Proof": [],
+    "case6Proof": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "stale_direct_proof_application": "refused",
+  "certificates": [
+    {
+      "provider": "first",
+      "profile": "unit",
+      "budget": "base",
+      "exact_key": "f64340cf9abdca17f3d53860427eac42ce935a24fefba115eab80d2f218680f3",
+      "summary": [
+        2,
+        1
+      ],
+      "theorem": "case0Proof",
+      "status": "proven",
+      "witness": null
+    },
+    {
+      "provider": "equivalent",
+      "profile": "unit",
+      "budget": "base",
+      "exact_key": "f2f168c9542b799a94e813013c498948d13056ce2b819716ef83a962a6275aef",
+      "summary": [
+        2,
+        1
+      ],
+      "theorem": "case1Proof",
+      "status": "proven",
+      "witness": null
+    },
+    {
+      "provider": "smaller",
+      "profile": "unit",
+      "budget": "base",
+      "exact_key": "eca2334981728c72328d42c06fc61c91036e77875f567eb4678582029c5dfcf9",
+      "summary": [
+        1,
+        0
+      ],
+      "theorem": "case2Proof",
+      "status": "proven",
+      "witness": null
+    },
+    {
+      "provider": "slower",
+      "profile": "unit",
+      "budget": "base",
+      "exact_key": "2bd05bd9926a0f25052aa5266e10fdb8ec2d552270e6da576526c54d11190eb6",
+      "summary": [
+        3,
+        1
+      ],
+      "theorem": "case3Proof",
+      "status": "refuted",
+      "witness": 2
+    },
+    {
+      "provider": "first",
+      "profile": "heavy",
+      "budget": "base",
+      "exact_key": "58c0e2b66d3c33e34957c1763f636db804b7c2454a2ecbbaecad690f9d6a7810",
+      "summary": [
+        4,
+        1
+      ],
+      "theorem": "case4Proof",
+      "status": "refuted",
+      "witness": 2
+    },
+    {
+      "provider": "first",
+      "profile": "unit",
+      "budget": "tight",
+      "exact_key": "7e4e70770f76245ff9596bc498a33c602baa6ee611c96eb9672f1ad6c4f1b310",
+      "summary": [
+        2,
+        1
+      ],
+      "theorem": "case5Proof",
+      "status": "refuted",
+      "witness": 0
+    },
+    {
+      "provider": "smaller",
+      "profile": "unit",
+      "budget": "tight",
+      "exact_key": "ab892146c67025109e982ee1ec8c8d0988e9f4ee88f58f219055acac8e52f707",
+      "summary": [
+        1,
+        0
+      ],
+      "theorem": "case6Proof",
+      "status": "proven",
+      "witness": null
+    }
+  ],
+  "policies": {
+    "functional_contract": {
+      "proven": 11,
+      "refuted": 0,
+      "unknown": 0,
+      "false_proofs": 5,
+      "unbound_proofs": 4
+    },
+    "same_exact_key": {
+      "proven": 1,
+      "refuted": 0,
+      "unknown": 10,
+      "false_proofs": 0,
+      "unbound_proofs": 0
+    },
+    "checked_rebind": {
+      "proven": 4,
+      "refuted": 3,
+      "unknown": 4,
+      "false_proofs": 0,
+      "unbound_proofs": 0
+    }
+  },
+  "snapshots": [
+    {
+      "case": "base",
+      "current": "f64340cf9abdca17f3d53860427eac42ce935a24fefba115eab80d2f218680f3",
+      "offered": "f64340cf9abdca17f3d53860427eac42ce935a24fefba115eab80d2f218680f3",
+      "actual_budget_status": "proven",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "proven",
+        "checked_rebind": "proven"
+      }
+    },
+    {
+      "case": "equal_cost_rebind",
+      "current": "f2f168c9542b799a94e813013c498948d13056ce2b819716ef83a962a6275aef",
+      "offered": "f2f168c9542b799a94e813013c498948d13056ce2b819716ef83a962a6275aef",
+      "actual_budget_status": "proven",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "unknown",
+        "checked_rebind": "proven"
+      }
+    },
+    {
+      "case": "lower_cost_rebind",
+      "current": "eca2334981728c72328d42c06fc61c91036e77875f567eb4678582029c5dfcf9",
+      "offered": "eca2334981728c72328d42c06fc61c91036e77875f567eb4678582029c5dfcf9",
+      "actual_budget_status": "proven",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "unknown",
+        "checked_rebind": "proven"
+      }
+    },
+    {
+      "case": "higher_cost_rebind",
+      "current": "2bd05bd9926a0f25052aa5266e10fdb8ec2d552270e6da576526c54d11190eb6",
+      "offered": "2bd05bd9926a0f25052aa5266e10fdb8ec2d552270e6da576526c54d11190eb6",
+      "actual_budget_status": "refuted",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "unknown",
+        "checked_rebind": "refuted"
+      }
+    },
+    {
+      "case": "more_expensive_profile",
+      "current": "58c0e2b66d3c33e34957c1763f636db804b7c2454a2ecbbaecad690f9d6a7810",
+      "offered": "58c0e2b66d3c33e34957c1763f636db804b7c2454a2ecbbaecad690f9d6a7810",
+      "actual_budget_status": "refuted",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "unknown",
+        "checked_rebind": "refuted"
+      }
+    },
+    {
+      "case": "tighter_budget",
+      "current": "7e4e70770f76245ff9596bc498a33c602baa6ee611c96eb9672f1ad6c4f1b310",
+      "offered": "7e4e70770f76245ff9596bc498a33c602baa6ee611c96eb9672f1ad6c4f1b310",
+      "actual_budget_status": "refuted",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "unknown",
+        "checked_rebind": "refuted"
+      }
+    },
+    {
+      "case": "lower_cost_tighter_budget",
+      "current": "ab892146c67025109e982ee1ec8c8d0988e9f4ee88f58f219055acac8e52f707",
+      "offered": "ab892146c67025109e982ee1ec8c8d0988e9f4ee88f58f219055acac8e52f707",
+      "actual_budget_status": "proven",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "unknown",
+        "checked_rebind": "proven"
+      }
+    },
+    {
+      "case": "missing_proof",
+      "current": "f2f168c9542b799a94e813013c498948d13056ce2b819716ef83a962a6275aef",
+      "offered": null,
+      "actual_budget_status": "proven",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "unknown",
+        "checked_rebind": "unknown"
+      }
+    },
+    {
+      "case": "old_provider_proof",
+      "current": "f2f168c9542b799a94e813013c498948d13056ce2b819716ef83a962a6275aef",
+      "offered": "f64340cf9abdca17f3d53860427eac42ce935a24fefba115eab80d2f218680f3",
+      "actual_budget_status": "proven",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "unknown",
+        "checked_rebind": "unknown"
+      }
+    },
+    {
+      "case": "old_proof_for_slower_provider",
+      "current": "2bd05bd9926a0f25052aa5266e10fdb8ec2d552270e6da576526c54d11190eb6",
+      "offered": "f64340cf9abdca17f3d53860427eac42ce935a24fefba115eab80d2f218680f3",
+      "actual_budget_status": "refuted",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "unknown",
+        "checked_rebind": "unknown"
+      }
+    },
+    {
+      "case": "old_profile_proof",
+      "current": "58c0e2b66d3c33e34957c1763f636db804b7c2454a2ecbbaecad690f9d6a7810",
+      "offered": "f64340cf9abdca17f3d53860427eac42ce935a24fefba115eab80d2f218680f3",
+      "actual_budget_status": "refuted",
+      "decisions": {
+        "functional_contract": "proven",
+        "same_exact_key": "unknown",
+        "checked_rebind": "unknown"
+      }
+    }
+  ]
+}
