@@ -40,6 +40,8 @@ The transfer study should distinguish at least three claims:
 
 Only the first is ordinary Dafny verification; the second is a restricted language-enforced condition plus an execution-environment premise; the third requires a separate formal model and proof methodology. LLMLang should not treat `reads`/`modifies` or effect capabilities alone as a concurrency proof. Its research must define shared-memory semantics, atomic operations, synchronization, observable histories, and the correspondence between the model and target runtime.
 
+The [Dafny concurrent frames and native histories](formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md) checks methods using provably empty frames, freshly allocated objects, and explicit `{:assume_concurrent}` annotations. The latter remain separately auditable. The native counter comparison distinguishes a sequential postcondition from complete shared-operation history.
+
 ## 3. Candidate contract core
 
 A useful experiment should start with a small, ordinary procedural example, not the entire Dafny language. A possible LLMLang surface sketch is:
