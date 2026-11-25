@@ -1468,6 +1468,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define provenance, authorship, approval, and audit trails.
 - [ ] Define collaboration across branches, forks, and shared artifact registries.
 - [ ] Test large multi-contributor scenarios.
+  - [ ] [WIP] Compare native Git integration of 48 independent contributor heads with full-graph and affected-group semantic checks on `research/all`.
 
 **Existing evidence:** requirement evolution and semantic impact scenarios 18–19; Git semantic merge research.
 
