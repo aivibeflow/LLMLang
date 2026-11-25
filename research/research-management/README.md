@@ -51,3 +51,4 @@ This direction groups related research studies without changing their RT identif
 - [Dependency Graph prototype evidence](RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-DEPENDENCY-GRAPH-01-2026-11-20.md) and [RT-04-01 prototype evidence](RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md)
 - [Scenario 133 current-main generated Rust replay](RT-00/RT-00-C-SCENARIO-133-CURRENT-MAIN-REPLAY-2026-11-25.md) — rechecks the bounded native corpus with pinned Rust 1.85.1 / LLVM 19.1.7 and records the fresh runner limits.
 - [Dafny modular proof closure replay](RT-00/RT-00-C-DAFNY-MODULAR-PROOF-REPLAY-2026-11-25.md) — reproduces the full Dafny/Z3, Lean, cvc5 and Logos ledger on a fresh runner.
+- [Draft citations to research on research/all](RT-00/RT-00-C-DRAFT-CITATION-RESEARCH-ALL-AUDIT-2026-11-25.md) — checks all current direct draft-to-research citations, their resolution and their scope.

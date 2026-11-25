@@ -1,0 +1,178 @@
+{
+  "revision": "41ce460f60ce9965145ed5767a94b0983e32b5b5",
+  "git": "git version 2.56.1",
+  "draft_files": [
+    "draft/.gitkeep",
+    "draft/ARCHITECTURE-DECISIONS.md",
+    "draft/GLOSSARY.md",
+    "draft/README.md",
+    "draft/examples/0001-hello-world/main.llmlang",
+    "draft/examples/0002-echo/main.llmlang",
+    "draft/examples/0003-calculator/main.llmlang",
+    "draft/examples/README.md"
+  ],
+  "citations": [
+    {
+      "source": "draft/ARCHITECTURE-DECISIONS.md",
+      "line": 6,
+      "target": "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+      "target_type": "blob",
+      "target_object": "d6e6cddb5c6a7f8c50ee45f4a00a4729f0b5302b",
+      "fragment": null,
+      "role": "decision background"
+    },
+    {
+      "source": "draft/ARCHITECTURE-DECISIONS.md",
+      "line": 6,
+      "target": "research/README.md",
+      "target_type": "blob",
+      "target_object": "82908830c2c5f412473ec68eec1dc7dcda30a1be",
+      "fragment": "core-semantic-and-type-research",
+      "role": "decision background"
+    },
+    {
+      "source": "draft/ARCHITECTURE-DECISIONS.md",
+      "line": 6,
+      "target": "research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+      "target_type": "blob",
+      "target_object": "3f332faa4cd8e6ec1a01c11d5c0474527ae9d8ab",
+      "fragment": null,
+      "role": "decision background"
+    },
+    {
+      "source": "draft/ARCHITECTURE-DECISIONS.md",
+      "line": 36,
+      "target": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+      "target_type": "blob",
+      "target_object": "3cfedfb455ec3c60409d177c90decb00661b417e",
+      "fragment": null,
+      "role": "related candidate"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 10,
+      "target": "research/compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md",
+      "target_type": "blob",
+      "target_object": "6dccf8880c663f447815d3b1763fcf6d3c468972",
+      "fragment": null,
+      "role": "candidate terminology and supporting studies"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 10,
+      "target": "research/language-design/RT-04/RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md",
+      "target_type": "blob",
+      "target_object": "0ba8c3ef72c6c4d1f82015e032ec22f1df0319d5",
+      "fragment": null,
+      "role": "candidate terminology and supporting studies"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 10,
+      "target": "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-72-SUM-TYPE-LAYOUT-ABI-AND-INTEROPERABILITY.md",
+      "target_type": "blob",
+      "target_object": "71d142f353490d1a053f6c2d5ee3b22e2df49691",
+      "fragment": null,
+      "role": "candidate terminology and supporting studies"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 11,
+      "target": "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+      "target_type": "blob",
+      "target_object": "d6e6cddb5c6a7f8c50ee45f4a00a4729f0b5302b",
+      "fragment": null,
+      "role": "candidate terminology and bounded evidence"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 11,
+      "target": "research/packages-and-ecosystem/RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md",
+      "target_type": "blob",
+      "target_object": "3ad8a7189986873919ad99c65cc23b2ce66c2bb0",
+      "fragment": null,
+      "role": "candidate terminology and bounded evidence"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 11,
+      "target": "research/language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md",
+      "target_type": "blob",
+      "target_object": "8c035fc05d4ffa1a6c9c523a8ccf1992a123c66f",
+      "fragment": null,
+      "role": "candidate terminology and bounded evidence"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 12,
+      "target": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+      "target_type": "blob",
+      "target_object": "3cfedfb455ec3c60409d177c90decb00661b417e",
+      "fragment": null,
+      "role": "candidate terminology and bounded evidence"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 12,
+      "target": "research/semantic-representation/RT-05/PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md",
+      "target_type": "blob",
+      "target_object": "054382b3aed61c53362ef583ed2e59d38bbb800f",
+      "fragment": null,
+      "role": "candidate terminology and bounded evidence"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 13,
+      "target": "research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md",
+      "target_type": "blob",
+      "target_object": "9486556647452df15c51b6ef3714420be4d80e8e",
+      "fragment": null,
+      "role": "candidate trust terminology"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 159,
+      "target": "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+      "target_type": "blob",
+      "target_object": "d6e6cddb5c6a7f8c50ee45f4a00a4729f0b5302b",
+      "fragment": null,
+      "role": "candidate compatibility terminology"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 167,
+      "target": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+      "target_type": "blob",
+      "target_object": "3cfedfb455ec3c60409d177c90decb00661b417e",
+      "fragment": null,
+      "role": "candidate public interface terminology"
+    },
+    {
+      "source": "draft/GLOSSARY.md",
+      "line": 180,
+      "target": "research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md",
+      "target_type": "blob",
+      "target_object": "9486556647452df15c51b6ef3714420be4d80e8e",
+      "fragment": null,
+      "role": "candidate trust terminology"
+    },
+    {
+      "source": "draft/README.md",
+      "line": 8,
+      "target": "research",
+      "target_type": "tree",
+      "target_object": "5723312d57f010dc2fa397b7f14a10cf3e62e83b",
+      "fragment": null,
+      "role": "directory navigation"
+    },
+    {
+      "source": "draft/README.md",
+      "line": 10,
+      "target": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+      "target_type": "blob",
+      "target_object": "3cfedfb455ec3c60409d177c90decb00661b417e",
+      "fragment": null,
+      "role": "related candidate"
+    }
+  ]
+}
