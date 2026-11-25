@@ -29,6 +29,7 @@ This direction groups related research studies without changing their RT identif
 - [Research navigation reachability](RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.md)
 - [Finite cvc5, Lean and TLC evidence replay](RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.md)
 - [Negative-result boundary recheck](RT-00/RT-00-NEGATIVE-RESULT-BOUNDARY-RECHECK-2026-11-24.md) — distinguishes falsified bounded controls, recommendation-scoped exclusions, neutral results, and unavailable candidates across five recent implementation studies.
+- [Solver worker protocol audit](RT-00/RT-00-C-SOLVER-WORKER-PROTOCOL-AUDIT-2026-11-25.md) — rechecks the current one-shot SymPy worker against injected startup, crash, malformed, stale-response and timeout cases; keeps solver trust separate from protocol validity.
 - [Report structure recheck](RT-00/RT-00-REPORT-STRUCTURE-RECHECK-2026-11-24.md) — maps five recent RT-19/25/32/13 reports to the proposed minimum schema by content and identifies metadata/claim-level gaps.
 - [Research-to-draft boundary recheck](RT-00/RT-00-RESEARCH-DRAFT-BOUNDARY-RECHECK-2026-11-24.md) — checks that selected empirical recommendations remain distinct from the accepted compatibility decision and proposed quality policy.
 - [Recent evidence-class boundary recheck](RT-00/RT-00-RECENT-EVIDENCE-CLASS-RECHECK-2026-11-24.md) — crosswalks four current-main implementation studies against the proposed Stage 0.2 evidence vocabulary; documents claim-level record gaps and pending human/maintainer review.
