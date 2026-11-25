@@ -1,6 +1,6 @@
 # RT-24 — Repository setup and team workflow for semantic merges
 
-This guide describes a candidate integration on the tested Linux Git 2.56.1 profile. Ordinary Git transports commits and trees. The semantic coordinator validates the complete selected graph and produces evidence for publication. The currently tested adapters are bounded research prototypes. [ADR-014](../../../docs/adr/014-git-semantic-merge.md) · [Git integration issue](https://github.com/aivibeflow/LLMLang/issues/322)
+This guide describes a candidate integration on the tested Linux Git 2.56.1 profile. Ordinary Git transports commits and trees. The semantic coordinator validates the complete selected graph and produces evidence for publication. The currently tested adapters are bounded research prototypes. [ADR-014](../../../draft/adr/014-git-semantic-merge.md) · [Git integration issue](https://github.com/aivibeflow/LLMLang/issues/322)
 
 ## Repository setup
 

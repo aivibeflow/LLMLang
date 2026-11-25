@@ -4,7 +4,7 @@
 **Date:** 2026-11-18  
 **Priority:** P0  
 **Related research:** RT-02, identity Studies 05–08 (formerly grouped under the RT-05 research area), RT-06, RT-08, RT-14, RT-15, RT-19  
-**Related documents:** [Development Engine RFC](../RT-14/RFC-DEVELOPMENT-ENGINE.md), [RT-19 — Toolchain Server and Semantic Development API](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [ADR-015](../../../docs/adr/015-toolchain-server-semantic-api.md), [Research dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
+**Related documents:** [Development Engine RFC](../RT-14/RFC-DEVELOPMENT-ENGINE.md), [RT-19 — Toolchain Server and Semantic Development API](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [ADR-015](../../../draft/adr/015-toolchain-server-semantic-api.md), [Research dependency map](../../research-management/RESEARCH-DEPENDENCY-MAP.md)
 
 > This document records workflow requirements and a candidate algorithm derived from the RT-20 design discussion. It is a research proposal. It does not settle the canonical SPG schema, hash envelope, call-graph semantics, or commit policy, and it does not change the Proposed status of ADR-015.
 
@@ -451,7 +451,7 @@ Passing these criteria supports a scoped RT-20/RT-19 design decision. It does no
 Study RT-20 together with:
 
 - [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — defines semantic three-way merge, conflict handling, repository-wide graph validation, and Git integration. RT-20's caller-impact and hash-propagation rules remain mandatory inside merge/reconciliation.
-- [ADR-014](../../../docs/adr/014-git-semantic-merge.md) — proposed repository representation and semantic merge direction.
+- [ADR-014](../../../draft/adr/014-git-semantic-merge.md) — proposed repository representation and semantic merge direction.
 - [RT-22](../RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — repository/worktree operations, commit preparation, merge reconciliation, and recovery.
 - [RT-23](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — shared semantic snapshots, mapping revisions, and synchronized commit protocol.
 - [RT-19](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — semantic API and Change Set/Snapshot lifecycle.

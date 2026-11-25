@@ -2,7 +2,7 @@
 
 **Status:** Executable in-memory lifecycle prototype; not production code  
 **Research:** [RT-19 — Toolchain Server and Semantic Development API](../../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)  
-**Related proposal:** [ADR-015](../../../../docs/adr/015-toolchain-server-semantic-api.md)
+**Related proposal:** [ADR-015](../../../../draft/adr/015-toolchain-server-semantic-api.md)
 
 ## Purpose
 

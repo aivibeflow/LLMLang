@@ -3,7 +3,7 @@
 **Evidence** — Bounded experiment with an in-memory workspace engine.
 **Baseline** — LLMLang `e7d5181f72601f6c5e446beeb3b397bc90241fbc`.
 **Tracking** — [RT-19](RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) · [Issue #337](https://github.com/aivibeflow/LLMLang/issues/337).
-**Decisions** — Proposed [ADR-015](../../../docs/adr/015-toolchain-server-semantic-api.md) and accepted [ADR-017](../../../docs/adr/017-mcp-agent-object-format.md).
+**Decisions** — Proposed [ADR-015](../../../draft/adr/015-toolchain-server-semantic-api.md) and accepted [ADR-017](../../../draft/adr/017-mcp-agent-object-format.md).
 
 ## Question and setup
 
