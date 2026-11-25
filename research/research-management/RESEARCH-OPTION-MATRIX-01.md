@@ -264,6 +264,8 @@ Do not score an unmeasured criterion as a numeric zero. Mark it **unknown**, rep
 
 [CLI action keys](../language-design/RT-01/RT-01-CLI-ACTION-KEYS-2026-11-25.md) compare semantic-only cache identity, full input closure and scoped action manifests on actual executables. The scoped key plans nine compilations versus 18 for the full key and reproduces its observed outputs. Semantic-only keys can hide a failing native provider rebind. The experiment counts actions and leaves cost distributions open.
 
+[Executable clean clones](../toolchain-and-collaboration/RT-24/RT-24-CLEAN-CLONE-CLI-2026-11-25.md) compare packed and per-entry repository data for the same typed CLI. Both distinct layouts reproduce the exact selected graph and native output corpus. The per-entry layout adds 1,017 uncompressed bytes for one edit versus 1,397 for the pack. The verified build requires runtime and tool identities in addition to the semantic root.
+
 ## 7. Discriminating research programme
 
 1. **RT-03 shared semantics corpus:** define common programs and observations for values, control flow, divergence, recursion, errors, state, I/O, resources, cancellation, concurrency, and modules; implement at least two independent reference semantics for candidate profiles. Extend path analysis with difficult formula families, real resource deadlines, and source/CFG correspondence.
