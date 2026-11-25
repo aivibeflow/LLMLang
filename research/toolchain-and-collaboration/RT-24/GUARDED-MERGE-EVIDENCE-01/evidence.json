@@ -1,0 +1,523 @@
+{
+  "cases": {
+    "invalid-composition": {
+      "fresh_validation": "invalid",
+      "label": "invalid-composition",
+      "missing_states": [
+        0
+      ],
+      "moved_state": 0,
+      "provider_only_receipts": "covered",
+      "publication_and_retry": {
+        "outcome": "blocked",
+        "receipt": null
+      },
+      "snapshots": {
+        "base": {
+          "commit": "a1e213956430277ad1b1f29cdadf368ad0d49053",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "ca597450a1d898194ce92856503a6bf288eeddada52478c548dda19a32a21e97",
+          "tree": "1868fbc89e3b9c5ae2d23d7888fa904479302e45"
+        },
+        "merge": {
+          "commit": "9934592399652c217e9e76047fe34b7bcc097c24",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 0,
+              "value": 99
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "f00ca0deb65e2ff0c35c5fed9f34c824669f9946ed600469cbf88741ea285764",
+          "tree": "ca30e498167d2efd9f0209d50f888f152a5ce901"
+        },
+        "provider": {
+          "commit": "7bb51e7d80feb84f57c2ddbe88faa381b6f2b820",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "d4c49e57d967c2d78d5d066c0755ed42e7bdcd2dc6a74cecc24140867783e26c",
+          "tree": "cbe2b5bd915961918f35e71bfd4ceebeca8b9d8c"
+        },
+        "routing": {
+          "commit": "ce28a23779e13e36a2b19867927f9a0cb2bc724e",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "0f7760009a75f2a3f28a0d8d7baf05f63132a8abe03c7dda33966b1c82970cd7",
+          "tree": "a0953853f4280a9351afc2e62bda00251b8dfb5b"
+        }
+      },
+      "state_bound_receipts": "unknown"
+    },
+    "valid-but-uncovered": {
+      "fresh_validation": "valid",
+      "label": "valid-but-uncovered",
+      "missing_states": [
+        1
+      ],
+      "moved_state": 1,
+      "provider_only_receipts": "covered",
+      "publication_and_retry": {
+        "admitted_by": "fresh",
+        "outcome": "published",
+        "receipt": "e827f76b21a15a7671a66f4483ed757417ca6fac"
+      },
+      "snapshots": {
+        "base": {
+          "commit": "a1e213956430277ad1b1f29cdadf368ad0d49053",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "ca597450a1d898194ce92856503a6bf288eeddada52478c548dda19a32a21e97",
+          "tree": "1868fbc89e3b9c5ae2d23d7888fa904479302e45"
+        },
+        "merge": {
+          "commit": "e827f76b21a15a7671a66f4483ed757417ca6fac",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "50636f7fc4c4fd3706b8df4bd6e26faff0b35229fb2d6d18802ad5952871e577",
+          "tree": "023a35880c43e9646b8187670ebda13a0aae9150"
+        },
+        "provider": {
+          "commit": "7bb51e7d80feb84f57c2ddbe88faa381b6f2b820",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "d4c49e57d967c2d78d5d066c0755ed42e7bdcd2dc6a74cecc24140867783e26c",
+          "tree": "cbe2b5bd915961918f35e71bfd4ceebeca8b9d8c"
+        },
+        "routing": {
+          "commit": "dbc60b59c05e799ceb250cb385bfad7a2eea9ba2",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "2edf5a02c58a595a42346a1b3345efb0a9174bc7d42f4c1019026a071aa8b1e3",
+          "tree": "654b66b7a6ba1c32774560794b2382624dbe7dd7"
+        }
+      },
+      "state_bound_receipts": "unknown"
+    },
+    "valid-covered": {
+      "fresh_validation": "valid",
+      "label": "valid-covered",
+      "missing_states": [],
+      "moved_state": 2,
+      "provider_only_receipts": "covered",
+      "publication_and_retry": {
+        "admitted_by": "composed",
+        "outcome": "published",
+        "receipt": "3d3b0cbd13def9caa919072e60ad5691c4ae7360"
+      },
+      "snapshots": {
+        "base": {
+          "commit": "a1e213956430277ad1b1f29cdadf368ad0d49053",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "ca597450a1d898194ce92856503a6bf288eeddada52478c548dda19a32a21e97",
+          "tree": "1868fbc89e3b9c5ae2d23d7888fa904479302e45"
+        },
+        "merge": {
+          "commit": "3d3b0cbd13def9caa919072e60ad5691c4ae7360",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "5ee31b465a295d67ec7717b208a6954f1d76adbce3d52ac93239683164e3234c",
+          "tree": "e067bc492f23aff8891d506f71747d8565c56312"
+        },
+        "provider": {
+          "commit": "7bb51e7d80feb84f57c2ddbe88faa381b6f2b820",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "d7ee50f0f285275d134e9c9e1e9a26134d78a89ea98d4eed26e4c844e7db2c17",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "d4c49e57d967c2d78d5d066c0755ed42e7bdcd2dc6a74cecc24140867783e26c",
+          "tree": "cbe2b5bd915961918f35e71bfd4ceebeca8b9d8c"
+        },
+        "routing": {
+          "commit": "42a7704d1a1fd98e82c57d23ff35dad31cabeb09",
+          "observations": [
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 0,
+              "value": 10
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 1,
+              "value": 20
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "5b3155852617deea9cbf40659f8e5b7b2858f96f3e62e598c815f74be3ca30dc",
+              "operation": "830cd77b9ee2d1ed64445a82e89852394f67840e60ad3a3bbcad4096c1244334",
+              "provider": "left",
+              "state": 2,
+              "value": 30
+            },
+            {
+              "contract": "7642e98a430b566f42b05213bae2520f17c70524a2aa620ed62e4e54dbc9b226",
+              "implementation": "a24ea937e03c329abd0ed5a38bd0ca17a4159ab9f9dd4976bb24ffbb59a9c06a",
+              "operation": "297d4e4700c64475c66b1df897a3bf2aee6edd50cc8f40f98a457b59e5855cc9",
+              "provider": "right",
+              "state": 3,
+              "value": 40
+            }
+          ],
+          "root": "b1bdab178b36619d736c9797434508633bd202f2058af8a46863e4cd43d53435",
+          "tree": "95e5fba1da5a37858081ded9dc1fab840cb7fc5c"
+        }
+      },
+      "state_bound_receipts": "covered"
+    }
+  },
+  "format": "rt24-guarded-merge-evidence/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14"
+}
