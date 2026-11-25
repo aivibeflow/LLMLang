@@ -1316,6 +1316,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] Preserve the LLMLang-owned semantic source of truth and replaceable backend boundary; do not make LLVM IR the canonical semantic IR.
 - [ ] Define a conservative LLVM IR subset and source-to-LLVM lowering contract.
+  - [ ] [WIP] Compare LLVM function and loop progress promises against source divergence and volatile interactions on `research/all`.
 - [ ] Research poison, undef, overflow flags, pointer provenance, aliasing, floating-point flags, atomics, and memory ordering.
   - [x] Compare six LLVM shift and division policies. Guarded, poison-masked shift and divisor-sanitized routes cover all 65,536 pairs each. Two unguarded division routes leave 256 zero-divisor cases outside the defined IR even with later masking or freeze. Both native builds match 392,704 defined calls each. [RT-13 LLVM eager definedness](research/compiler-and-translation/RT-13/RT-13-LLVM-EAGER-DEFINEDNESS-2026-11-25.md)
   - [x] Compare split and fused binary64 rounding over 6,859 triples in C, Rust and Java. GCC contraction emits FMA and changes 77 outcomes. Explicit FMA matches the value oracle in all six profiles, while raw NaN bits differ in 114 cases. IR flags, exception modes, other architectures and broad lowering remain open. [Binary64 contraction](research/compiler-and-translation/RT-13/RT-13-BINARY64-CONTRACTION-2026-11-25.md).
