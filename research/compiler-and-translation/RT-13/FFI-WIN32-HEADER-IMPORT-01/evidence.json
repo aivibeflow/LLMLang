@@ -1,0 +1,84 @@
+{
+  "dependent_dll": "KERNEL32.dll",
+  "generated_header_sha256": "255dd595885df1c80f9912dc42a1d1b5d5f87f24efc17cb7f9059777e9cc0b31",
+  "header_sha256": {
+    "errhandlingapi.h": "fbbc422008445e0f0977984361d9fce142330474a833bce97d051c9b7825f466",
+    "fileapi.h": "2484faf2d31472d77d80f8f0c189cbf399cc1e739021888b20aefbb32d8bc11b",
+    "handleapi.h": "f5f310cba9ef7d9c67bc30349fa73572847e77ed356a166ac5e5f435237bb335"
+  },
+  "import_archive": "libkernel32.a",
+  "imports": [
+    "CloseHandle",
+    "CreateFileW",
+    "GetLastError"
+  ],
+  "kernel32_import_archive_sha256": "7e374e069e6a78de2bbc8cf56bbf2fe804d87589f14a566525f71faf914a3dbd",
+  "linked_dll_sha256": "2648bf72b0fdb99b6aca5fe2cf6355a1c5ccd97a41d8774f633cf7dde29919d1",
+  "native_mock_trace": [
+    "open:0:5:1",
+    "open:0:5:1",
+    "open:1:0:0:close:0:6:1",
+    "open:1:0:0:close:1:0:0",
+    "open:0:5:1",
+    "open:0:5:1",
+    "open:1:0:0:close:0:6:1",
+    "open:1:0:0:close:1:0:0"
+  ],
+  "sdk_scope": "MinGW header and import archive only",
+  "source_sha256": {
+    "adapter.c": "f978492ab6984e1e2e76479d6c64caaec86231591850fc2e79a15a0b45414483",
+    "check.py": "0f1b7f9d968609b9511ad1936384d79c36f2fb93b8a3dce162dbbeb3440c146f",
+    "mock.c": "d34b5fa392a5a8be868b01f69ad7e3bfcd4bb5eeaf6c83703d891dada6e419ec",
+    "mock_api.h": "53007597f57cb735f4553e5230b0298b24a2e4503841dd52cfcab851d80a9132"
+  },
+  "symbols": {
+    "CloseHandle": {
+      "attribute": "DLLImportAttr",
+      "desugared_parameters": [
+        "void *"
+      ],
+      "header": "handleapi.h",
+      "parameters": [
+        "HANDLE"
+      ],
+      "return_type": "WINBOOL"
+    },
+    "CreateFileW": {
+      "attribute": "DLLImportAttr",
+      "desugared_parameters": [
+        "const WCHAR *",
+        "unsigned long",
+        "unsigned long",
+        "struct _SECURITY_ATTRIBUTES *",
+        "unsigned long",
+        "unsigned long",
+        "void *"
+      ],
+      "header": "fileapi.h",
+      "parameters": [
+        "LPCWSTR",
+        "DWORD",
+        "DWORD",
+        "LPSECURITY_ATTRIBUTES",
+        "DWORD",
+        "DWORD",
+        "HANDLE"
+      ],
+      "return_type": "HANDLE"
+    },
+    "GetLastError": {
+      "attribute": "DLLImportAttr",
+      "desugared_parameters": [],
+      "header": "errhandlingapi.h",
+      "parameters": [],
+      "return_type": "DWORD"
+    }
+  },
+  "target": "x86_64-w64-windows-gnu",
+  "tool_versions": {
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "lld": "Debian LLD 19.1.7",
+    "readobj": "Debian LLVM version 19.1.7"
+  },
+  "wrong_64_bit_error_type_refused": true
+}
