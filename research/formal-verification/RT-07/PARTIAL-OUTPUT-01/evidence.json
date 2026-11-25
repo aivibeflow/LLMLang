@@ -1,0 +1,74 @@
+{
+  "schema": "llmlang-partial-output/1",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "4b451b189ef8ee2a2b9f07e54cc3360201134d9f61aad9afcab3caca913f0eb7",
+    "Prefix.lean": "c0918b2097f8bdf67464278f12cd5dee2f8b20802d979b0bc4a7ecac500f7cc5",
+    "axioms.txt": "ff274af3bc870e1bd89ce41c53884ebbc1a29b84da4b0f19ce81387e945f78a0",
+    "probe.c": "21d8cdaddd52c15a5e170958ed34aa91bfab0e1c06a0a13c05196aed03ee53de"
+  },
+  "native_observations_per_optimization": 2316,
+  "native_rows_sha256": {
+    "-O0": "9fd47ad41d2c91ec03743d357acf6460962aed314c486231fc8820b7f0d5eaf5",
+    "-O2": "9fd47ad41d2c91ec03743d357acf6460962aed314c486231fc8820b7f0d5eaf5"
+  },
+  "counts": {
+    "robust_rows": 1158,
+    "split_pairs": 996,
+    "split_pairs_differing_in_calls": 996,
+    "short_drop_differences": 400,
+    "short_drop_false_success": 384
+  },
+  "witnesses": {
+    "false_success": [
+      [
+        2,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        "eio",
+        "41",
+        [
+          "2:1",
+          "1:eio"
+        ]
+      ],
+      [
+        "ok",
+        "41",
+        [
+          "2:1"
+        ]
+      ]
+    ],
+    "call_trace": [
+      [
+        2,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        "eio",
+        "",
+        [
+          "1:eio"
+        ]
+      ],
+      [
+        "eio",
+        "",
+        [
+          "2:eio"
+        ]
+      ]
+    ]
+  }
+}
