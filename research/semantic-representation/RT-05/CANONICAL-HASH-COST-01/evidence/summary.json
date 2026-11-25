@@ -1,0 +1,263 @@
+{
+  "profiles": {
+    "flat/512": {
+      "invocations_per_scope": 64,
+      "observations_sha256": "f70283b07d0743f39ae615163664301a8a91d789f47aa58039d8c0636154385b",
+      "phase_ns_per_object": {
+        "encode": {
+          "median": 63479.25,
+          "n": 10,
+          "p10": 61817.1890625,
+          "p90": 76887.25625
+        },
+        "encode_hash": {
+          "median": 66862.3359375,
+          "n": 10,
+          "p10": 65050.896875,
+          "p90": 69450.584375
+        },
+        "hash": {
+          "median": 5385.234375,
+          "n": 10,
+          "p10": 5031.1875,
+          "p90": 5622.025
+        },
+        "retained_hash": {
+          "median": 5108.578125,
+          "n": 10,
+          "p10": 5049.80625,
+          "p90": 5947.8
+        }
+      },
+      "retained_canonical_bytes": 34392,
+      "retained_including_setup_ns_per_object": {
+        "median": 9728.0078125,
+        "n": 10,
+        "p10": 9100.7921875,
+        "p90": 10991.340625
+      },
+      "setup_per_four_objects_ns": {
+        "median": 272569.5,
+        "n": 10,
+        "p10": 258441.8,
+        "p90": 369983.2
+      }
+    },
+    "flat/64": {
+      "invocations_per_scope": 64,
+      "observations_sha256": "be8a4d17211d3e7960420db46897928f7fcdd1e19701993b99761670aa2ca936",
+      "phase_ns_per_object": {
+        "encode": {
+          "median": 9953.71875,
+          "n": 10,
+          "p10": 9308.6703125,
+          "p90": 10372.2359375
+        },
+        "encode_hash": {
+          "median": 10539.9765625,
+          "n": 10,
+          "p10": 10332.175,
+          "p90": 11385.5296875
+        },
+        "hash": {
+          "median": 874.015625,
+          "n": 10,
+          "p10": 847.5140625,
+          "p90": 1086.209375
+        },
+        "retained_hash": {
+          "median": 902.3359375,
+          "n": 10,
+          "p10": 878.665625,
+          "p90": 1079.9921875
+        }
+      },
+      "retained_canonical_bytes": 4066,
+      "retained_including_setup_ns_per_object": {
+        "median": 1570.109375,
+        "n": 10,
+        "p10": 1524.0578125,
+        "p90": 2731.778125
+      },
+      "setup_per_four_objects_ns": {
+        "median": 42737.5,
+        "n": 10,
+        "p10": 42288.9,
+        "p90": 54502.8
+      }
+    },
+    "flat/8": {
+      "invocations_per_scope": 64,
+      "observations_sha256": "cda69b401391590fe708f95be66db7f21e84f9f4195534fced2a21f6210a5bc8",
+      "phase_ns_per_object": {
+        "encode": {
+          "median": 3030.453125,
+          "n": 10,
+          "p10": 2698.30625,
+          "p90": 3622.1640625
+        },
+        "encode_hash": {
+          "median": 3070.8984375,
+          "n": 10,
+          "p10": 3017.6078125,
+          "p90": 3187.0765625
+        },
+        "hash": {
+          "median": 365.296875,
+          "n": 10,
+          "p10": 346.625,
+          "p90": 372.015625
+        },
+        "retained_hash": {
+          "median": 404.8046875,
+          "n": 10,
+          "p10": 377.109375,
+          "p90": 526.7
+        }
+      },
+      "retained_canonical_bytes": 485,
+      "retained_including_setup_ns_per_object": {
+        "median": 633.8203125,
+        "n": 10,
+        "p10": 605.45,
+        "p90": 1031.6109375
+      },
+      "setup_per_four_objects_ns": {
+        "median": 14677.0,
+        "n": 10,
+        "p10": 14425.9,
+        "p90": 18366.8
+      }
+    },
+    "nested/512": {
+      "invocations_per_scope": 64,
+      "observations_sha256": "2ec58db08c4fb76821fca0d7d6b646c3924c4c5d394b4e8c0215b081d1b5618d",
+      "phase_ns_per_object": {
+        "encode": {
+          "median": 461777.5234375,
+          "n": 10,
+          "p10": 433368.390625,
+          "p90": 649773.8671875
+        },
+        "encode_hash": {
+          "median": 465908.9140625,
+          "n": 10,
+          "p10": 432368.0078125,
+          "p90": 526935.3375
+        },
+        "hash": {
+          "median": 27610.609375,
+          "n": 10,
+          "p10": 27183.8671875,
+          "p90": 49497.2515625
+        },
+        "retained_hash": {
+          "median": 27564.3671875,
+          "n": 10,
+          "p10": 27282.265625,
+          "p90": 29635.80625
+        }
+      },
+      "retained_canonical_bytes": 192703,
+      "retained_including_setup_ns_per_object": {
+        "median": 56381.1171875,
+        "n": 10,
+        "p10": 55148.29375,
+        "p90": 69259.2140625
+      },
+      "setup_per_four_objects_ns": {
+        "median": 1808159.5,
+        "n": 10,
+        "p10": 1759422.6,
+        "p90": 2519093.6
+      }
+    },
+    "nested/64": {
+      "invocations_per_scope": 64,
+      "observations_sha256": "b2cfc18162e9e5e9d58ac3fd6da4cccba1455c1a7ddb7e4207485967431944e8",
+      "phase_ns_per_object": {
+        "encode": {
+          "median": 53505.34375,
+          "n": 10,
+          "p10": 53104.5546875,
+          "p90": 57602.921875
+        },
+        "encode_hash": {
+          "median": 56715.4296875,
+          "n": 10,
+          "p10": 55272.38125,
+          "p90": 62452.678125
+        },
+        "hash": {
+          "median": 3551.53125,
+          "n": 10,
+          "p10": 3530.4046875,
+          "p90": 3595.9265625
+        },
+        "retained_hash": {
+          "median": 3599.1015625,
+          "n": 10,
+          "p10": 3537.5921875,
+          "p90": 3839.653125
+        }
+      },
+      "retained_canonical_bytes": 23465,
+      "retained_including_setup_ns_per_object": {
+        "median": 7223.71875,
+        "n": 10,
+        "p10": 6935.0875,
+        "p90": 7443.9765625
+      },
+      "setup_per_four_objects_ns": {
+        "median": 222691.5,
+        "n": 10,
+        "p10": 218597.4,
+        "p90": 243600.7
+      }
+    },
+    "nested/8": {
+      "invocations_per_scope": 64,
+      "observations_sha256": "d381775967d34527f2d98bba30cd6ad6816123bbab66b484df5ef63689eb8bbb",
+      "phase_ns_per_object": {
+        "encode": {
+          "median": 8389.6328125,
+          "n": 10,
+          "p10": 8308.9875,
+          "p90": 8818.7953125
+        },
+        "encode_hash": {
+          "median": 9373.1875,
+          "n": 10,
+          "p10": 9157.340625,
+          "p90": 9974.734375
+        },
+        "hash": {
+          "median": 679.1171875,
+          "n": 10,
+          "p10": 646.265625,
+          "p90": 958.6890625
+        },
+        "retained_hash": {
+          "median": 715.3515625,
+          "n": 10,
+          "p10": 676.28125,
+          "p90": 757.046875
+        }
+      },
+      "retained_canonical_bytes": 2879,
+      "retained_including_setup_ns_per_object": {
+        "median": 1357.9296875,
+        "n": 10,
+        "p10": 1312.0921875,
+        "p90": 1873.084375
+      },
+      "setup_per_four_objects_ns": {
+        "median": 41090.5,
+        "n": 10,
+        "p10": 40383.9,
+        "p90": 72894.4
+      }
+    }
+  },
+  "samples_sha256": "5287f374d638f1edbf94f3718a0815d2f0034fa2e3ed976c746c26fca1affe63"
+}

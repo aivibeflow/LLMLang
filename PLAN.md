@@ -1480,8 +1480,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [x] Benchmark semantic graph size and traversal.
   - [x] Compare repeated reverse-index construction with a retained immutable index across 60 trials and three graph shapes. All 360 query results match the oracle. At 8,192 nodes the retained route takes 5.25–24.26 ms per six-query batch including setup, with 1.82–5.82 MiB of extra index allocations. Persistent and representative workloads remain open. [RT-05 reverse traversal benchmark](research/semantic-representation/RT-05/RT-05-REVERSE-TRAVERSAL-BENCHMARK-2026-11-25.md)
-- [ ] Benchmark canonicalization and hashing.
-  - [ ] [WIP] Measure canonical encoding and SHA-256 separately on pinned semantic payloads, including keyed reuse of verified canonical bytes.
+- [x] Benchmark canonicalization and hashing.
+  - [x] Measure separate encoding and SHA-256 phases over 60 trials. For nested 512-entry payloads the medians are 461.78 and 27.61 µs per object, and retained lookup plus hashing with setup takes 56.38 µs. All byte and digest observations agree across repeated exact keys. Representative payload distributions and persistent caching remain open. [RT-05 canonical hash cost](research/semantic-representation/RT-05/RT-05-CANONICAL-HASH-COST-2026-11-25.md)
 - [ ] Benchmark dependency discovery and impact planning.
 - [ ] Benchmark compilation and cache performance.
 - [ ] Benchmark proof and test execution costs.
