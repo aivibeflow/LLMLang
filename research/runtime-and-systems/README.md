@@ -33,6 +33,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-10 POSIX profile evidence](RT-10/RT-10-POSIX-PROFILE-EVIDENCE-2026-11-25.md) checks exact scope, availability and runtime claim coverage.
 - [RT-10 libc and syscall cancellation](RT-10/RT-10-LIBC-SYSCALL-CANCELLATION-2026-11-25.md) distinguishes a cancelled join from byte settlement.
 - [RT-10 typed readv progress](RT-10/RT-10-POSIX-READV-TYPED-PROGRESS-2026-11-25.md) distinguishes zero requests, EOF, would-block and vector continuation.
+- [Typed POSIX vector output](RT-10/RT-10-POSIX-WRITEV-TYPED-PROGRESS-2026-11-25.md) checks native partial writev progress, typed errors and exact continuation.
 - [RT-10 POSIX edition descriptors](RT-10/RT-10-POSIX-EDITION-DESCRIPTORS-2026-11-25.md) compares edition requests, descriptor declarations and native flags.
 - [RT-10 native wait predicates](RT-10/RT-10-WAIT-PREDICATES-AND-CANCELLATION-2026-11-25.md) compares notification, work readiness and cancellation.
 - [RT-10 release sequence membership](RT-10/RT-10-RELEASE-SEQUENCE-MEMBERSHIP-2026-11-25.md) checks version-specific synchronization under explicit read-from edges.

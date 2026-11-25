@@ -1381,8 +1381,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] [WIP human] Select initial POSIX edition and explicit conformance profile.
   - [x] Compare 24 header probes and 14 native static runs across two Linux libc profiles. Both baseline versions report 200809. GNU mode exposes pipe2 and dup3 on both, POSIX flags expose them on musl only, and neither profile declares close-on-fork flags. Edition selection remains open. [RT-10 POSIX edition descriptors](research/runtime-and-systems/RT-10/RT-10-POSIX-EDITION-DESCRIPTORS-2026-11-25.md)
-- [ ] Define LLMLang-facing API: close POSIX mapping versus safer typed facade.
-  - [ ] [WIP] Compare raw nonblocking writev with an exact typed output cursor across partial progress and error on `research/all` (#326).
+- [x] Define LLMLang-facing API: close POSIX mapping versus safer typed facade.
+  - [x] Check 16 native vector trials. Typed cursor resume reconstructs 8,192 bytes, while full raw reissue duplicates 4,096 bytes. Two Lean propositions check the prefix contract. [Typed POSIX vector output](research/runtime-and-systems/RT-10/RT-10-POSIX-WRITEV-TYPED-PROGRESS-2026-11-25.md)
   - [x] Compare 108 native vector reads. Zero-length requests and EOF both return zero but have distinct typed meanings. A retry from the exact cursor preserves all seven bytes, while reissuing the full vector overwrites its completed prefix. [RT-10 typed readv progress](research/runtime-and-systems/RT-10/RT-10-POSIX-READV-TYPED-PROGRESS-2026-11-25.md)
 - [ ] Define a shared contract for multiple POSIX implementations.
   - [x] Replay both native probes with statically linked glibc 2.41 and musl 1.2.5. The exact linker-selected archives are distinct, and all 464 file fields and startup case outcomes match. Other kernels and POSIX profiles remain open. [POSIX cross-libc contract](research/runtime-and-systems/RT-10/RT-10-POSIX-CROSS-LIBC-2026-11-25.md)
@@ -1404,8 +1404,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Check one freestanding read/write contract across 24 cases with distinct x86-64 and AArch64 syscall adapters. Native x86-64 and QEMU Linux user AArch64 agree on bad descriptors, zero request, short progress, exact bytes and EOF. Physical AArch64 and initial architecture selection remain open. [RT-10 Linux syscall architectures](research/runtime-and-systems/RT-10/RT-10-LINUX-SYSCALL-ARCHITECTURES-2026-11-25.md)
 - [ ] Define how existing C libraries and external ABI boundaries are called.
   - [x] Compare six native error-carrier observations across glibc and musl at two optimization levels. Try-lock returns EBUSY without replacing a prior errno, a successful read keeps stale errno, and delayed capture observes the next failure. Two synchronized threads retain distinct error values. [RT-10 libc error carriers](research/runtime-and-systems/RT-10/RT-10-LIBC-ERROR-CARRIERS-2026-11-25.md)
-- [ ] Define the trusted low-level runtime boundary.
-  - [ ] [WIP] Check native writev effect settlement, typed byte progress and the trusted adapter boundary on `research/all` (#326).
+- [x] Define the trusted low-level runtime boundary.
+  - [x] Scope trusted admission to exact primitive, descriptor, request and progress. Static glibc, musl and Linux syscall adapters agree on distinct would-block, zero-request, progress and peer-closed dispositions. [Typed POSIX vector output](research/runtime-and-systems/RT-10/RT-10-POSIX-WRITEV-TYPED-PROGRESS-2026-11-25.md)
 - [ ] Compare behavior using conformance, differential, and contract-derived tests.
   - [x] Check 416 native child wait observations across glibc and musl. Repeated peeks preserve stop, continue and terminal statuses. Consumption drains the requested status, and terminal reaping makes the child unavailable. Exit 143 and SIGTERM share a scalar projection while their typed outcomes differ. Multiple waiters and other kernels remain open. [POSIX child wait status](research/runtime-and-systems/RT-10/RT-10-POSIX-WAIT-STATUS-2026-11-25.md)
 - [ ] Define precisely what POSIX compatibility and formal verification claims cover.
