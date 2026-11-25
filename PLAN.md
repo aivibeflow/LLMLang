@@ -1160,6 +1160,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Estimated research complexity:** **9/10** — platform profiles, API semantics, conformance evidence, and runtime boundaries.
 
 - [ ] Select initial POSIX edition and explicit conformance profile.
+  - [ ] [WIP] Compare POSIX Issue 7 and Issue 8 descriptor API declarations and runtime support on pinned Linux libc profiles on `research/all`.
 - [ ] Define LLMLang-facing API: close POSIX mapping versus safer typed facade.
 - [ ] Define a shared contract for multiple POSIX implementations.
   - [x] Replay both native probes with statically linked glibc 2.41 and musl 1.2.5. The exact linker-selected archives are distinct, and all 464 file fields and startup case outcomes match. Other kernels and POSIX profiles remain open. [POSIX cross-libc contract](research/runtime-and-systems/RT-10/RT-10-POSIX-CROSS-LIBC-2026-11-25.md)
