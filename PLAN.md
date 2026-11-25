@@ -1486,6 +1486,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Compare with Rust, Go, and C++ workflows on representative projects.
 - [ ] Report memory, latency, throughput, cache hit rates, and confidence intervals.
 - [ ] Identify pathological workloads and fallback strategies.
+  - [ ] [WIP] Benchmark path expansion and exact state deduplication on synthetic diamond dependency chains (#332).
 - [ ] **Mandatory research RT-25:** evaluate whether LLMLang's Rust-based runtime/toolchain should support alternative memory allocators, and whether allocator selection should be configurable per executable, process, or component. Complete the comparative study and its reproducible benchmark before selecting or rejecting an allocator. See [RT-25 — Memory Allocator Compatibility, Selection, and Benchmarking](research/runtime-and-systems/RT-25/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md).
   - The first graph-shaped Rust workload compares glibc and jemalloc on one pinned configuration. [Allocator benchmark](research/runtime-and-systems/RT-25/RT-25-DEPENDENCY-GRAPH-ALLOCATOR-BENCHMARK.md)
   - [x] Cross-check existing results against RT-01 workload coverage and RT-25 acceptance gates; the bounded comparison does not select an allocator. [Workload-fit recheck (2026-11-24)](research/runtime-and-systems/RT-25/RT-25-WORKLOAD-FIT-RECHECK-2026-11-24.md)
