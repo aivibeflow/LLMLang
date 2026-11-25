@@ -59,6 +59,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-20 reverse coverage](RT-20/RT-20-REVERSE-COVERAGE-BY-CALL-KIND-2026-11-25.md) checks exact and empty caller results across five call families.
 - [RT-20 call identity reconciliation](RT-20/RT-20-CALL-IDENTITY-RECONCILIATION-2026-11-25.md) checks immutable callable versions, source continuity and path-specific rebinds.
 - [RT-19 boundary tests](RT-19/RT-19-BOUNDARY-TESTS-2026-11-25.md) checks independent edits, scoped approval, stale validation and export fault recovery.
 - [RT-19 workspace arbitration](RT-19/RT-19-WORKSPACE-ARBITRATION-2026-11-25.md) checks local workspaces, shared-branch CAS and scoped durable retries.
