@@ -27,6 +27,7 @@ This direction groups related research studies without changing their RT identif
 - [Exhaustive evidence boundary](RT-13/RT-13-EXHAUSTIVE-EVIDENCE-BOUNDARY-2026-11-25.md) — exact domains, observation coverage and requirements for a broader claim.
 - [Graph occurrence preservation](RT-13/RT-13-GRAPH-OCCURRENCE-PRESERVATION-2026-11-25.md) — typed graph sharing and correspondence with the executable state/Result reference.
 - [LLVM validator and choice scope](RT-13/RT-13-LLVM-VALIDATOR-CHOICE-SCOPE-2026-11-25.md) — structural, Alive2, Vellvm and native scope with a freeze discriminator.
+- [Differential shrinking](RT-13/RT-13-DIFFERENTIAL-SHRINKING-2026-11-25.md) — admissible generation and witness reduction preserving the disputed observation.
 - [PROTOTYPES](PROTOTYPES/)
 
 ## Cross-direction evidence

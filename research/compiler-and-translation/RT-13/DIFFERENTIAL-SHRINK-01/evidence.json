@@ -1,0 +1,2239 @@
+{
+  "schema": "llmlang-differential-shrinking/1",
+  "python": "3.12.14",
+  "runner_sha256": "fca2a48653a0d89adbe60bba0e112080c7b2cf9104335d1688343facac0ffd00",
+  "archived_revision": "409d51c2de9026f12cc42450b29fcbe622a716cd",
+  "archived_metadata_sha256": "eb05a5dd8f287d4b4a1195e88d470bc3640a73898e14b9d14cafcc2c921bf32e",
+  "archived_sources": {
+    "research/compiler-and-translation/RT-13/STATE-RESULT-MUTATIONS-01/run.py": "f45af8527943da8b57269c2020a77a41bd1c12ea11cd0f739acc1a91f3e027bc",
+    "research/formal-verification/RT-07/STATE-RESULT-REFERENCE-01/reference.py": "83d9e003fda21fba074c060ee3db0d9023fe519b231da31fd491425b2a2497b4",
+    "research/formal-verification/RT-07/THREE-SEMANTICS-01/run.py": "ff0036446f3cee77ef9db1c63a51a10ed0af88625b622fe0e2fbc0cb5367e5cd",
+    "research/PROTOTYPES/RT-04-01/rt03_reference.py": "9aa14d41f837c3c0bae137f6732b72ff9edb0b70a31f1f966639124be98ed8d8",
+    "research/PROTOTYPES/RT-04-01/rt03_smallstep.py": "79516cb51e8ec6f505ab8833646f42415eb1e5f46171aac399b41c6652ed7459"
+  },
+  "seeds": [
+    17705,
+    17706,
+    17707,
+    17708
+  ],
+  "samples_per_seed": 384,
+  "counts": {
+    "generated_rows": 3072,
+    "distinct_trees_per_seed_total": 992,
+    "witnesses": 28,
+    "order_only_witnesses": 4,
+    "shrunk": 28,
+    "reached_corpus_minimum": 28
+  },
+  "results": {
+    "17705": {
+      "drop_overwritten_write/complete": {
+        "start": {
+          "nodes": 21,
+          "cell": 0,
+          "tree_sha256": "0c56fa500e9a4f47b79dc88c533a9419987f855a8b6d31e9e2a8cc9ea53d3320"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 21,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 7,
+            "cell": 0,
+            "tree_sha256": "b3383c5bd0192151369d3d262d89fa4948e2fc5c924473db38622e09297bb2d0"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "a2f421b4fed0f3d005fe2604422b56ef3b51d859c80d1ce160b3b0fca5e436d7"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "76f65c92b4103209f6151015adeea6ee6fd3d3947386338d7a7e0f073deff497"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "4b54c7fdce2d201ed224844e7cb4a594858a72b063d76df99b3c8d57d1c070ff"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "c429a56b7186c2ff7e970f02cb02f68ee284032ad8bb0900dcee0651c8c4ad49"
+          }
+        ],
+        "smaller_candidates_refused": 11,
+        "emitted": [
+          "write",
+          0
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "drop_read/complete": {
+        "start": {
+          "nodes": 101,
+          "cell": 0,
+          "tree_sha256": "c350e05a173d5229c434253b30128e33e3984eeb7d72430a1ab1dd817f25772a"
+        },
+        "end": [
+          [
+            "read"
+          ],
+          0
+        ],
+        "nodes_before": 101,
+        "nodes_after": 1,
+        "steps": [
+          {
+            "nodes": 1,
+            "cell": 0,
+            "tree_sha256": "8a2d0b87e8c712cc8e06c5c3f8de5e7f9dc8edcca03079a7aec0cb6436294927"
+          }
+        ],
+        "smaller_candidates_refused": 1,
+        "emitted": [
+          "skip"
+        ],
+        "source_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          []
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 1
+      },
+      "exchange_write_order/complete": {
+        "start": {
+          "nodes": 65,
+          "cell": 0,
+          "tree_sha256": "3dd93215265fc689bac5d16d48046eb41b6cacc93849f3dfb39d21be02878279"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 65,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 41,
+            "cell": 0,
+            "tree_sha256": "5fdaafe3478b46beb7c5f9d4841c0c4f021175d09fe519b7c45944af8e6b2194"
+          },
+          {
+            "nodes": 23,
+            "cell": 0,
+            "tree_sha256": "be03d40b13c22d760faee9697bc74460490fd64d0692b372a5ad69d8965833c6"
+          },
+          {
+            "nodes": 11,
+            "cell": 0,
+            "tree_sha256": "0b994da7dab173f571519f78e5962118a0575309b67696a7cb4876f4c43514dc"
+          },
+          {
+            "nodes": 7,
+            "cell": 0,
+            "tree_sha256": "d74394c050e4f4d7ee982e24f9723a0e9e3c5f28b0b17af6b9e8d14c1e7c083d"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "4b54c7fdce2d201ed224844e7cb4a594858a72b063d76df99b3c8d57d1c070ff"
+          }
+        ],
+        "smaller_candidates_refused": 12,
+        "emitted": [
+          "strict",
+          [
+            "write",
+            1
+          ],
+          [
+            "write",
+            0
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          1,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "exchange_write_order/order_only": {
+        "start": {
+          "nodes": 65,
+          "cell": 0,
+          "tree_sha256": "3dd93215265fc689bac5d16d48046eb41b6cacc93849f3dfb39d21be02878279"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "strict",
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 65,
+        "nodes_after": 5,
+        "steps": [
+          {
+            "nodes": 41,
+            "cell": 0,
+            "tree_sha256": "5fdaafe3478b46beb7c5f9d4841c0c4f021175d09fe519b7c45944af8e6b2194"
+          },
+          {
+            "nodes": 23,
+            "cell": 0,
+            "tree_sha256": "be03d40b13c22d760faee9697bc74460490fd64d0692b372a5ad69d8965833c6"
+          },
+          {
+            "nodes": 11,
+            "cell": 0,
+            "tree_sha256": "0b994da7dab173f571519f78e5962118a0575309b67696a7cb4876f4c43514dc"
+          },
+          {
+            "nodes": 7,
+            "cell": 0,
+            "tree_sha256": "d74394c050e4f4d7ee982e24f9723a0e9e3c5f28b0b17af6b9e8d14c1e7c083d"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "9a8d97742a1c0bf194c7d019af3118ff8dde18144fea166eba6a7c6585717122"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "09561f1305696da615a6fa5ee0252bb51051ae5e593917aa375424b3a02bb78c"
+          }
+        ],
+        "smaller_candidates_refused": 20,
+        "emitted": [
+          "strict",
+          [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ],
+          [
+            "write",
+            0
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 5
+      },
+      "ignore_left_failure/complete": {
+        "start": {
+          "nodes": 7,
+          "cell": 0,
+          "tree_sha256": "d963a09637e34c9e121c2f788b876d26138dc1d643e06b89c4d30c52e6bcec8b"
+        },
+        "end": [
+          [
+            "bind",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 7,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "c7d8b1bb98a8f733e837d4dd7852b79f36ec5c3a24a6dd5065fbea23c8010ded"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "696ca813e83a5a1312935381cf7e487b9e59aacf92708a3255f3f7eb48c14f57"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "strict",
+          [
+            "fail"
+          ],
+          [
+            "read"
+          ]
+        ],
+        "source_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "target_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "run_skipped_branch/complete": {
+        "start": {
+          "nodes": 79,
+          "cell": 0,
+          "tree_sha256": "0c094351a4af4a25f2f1de551e6d755cc7179768b78819c8afdaaaed118b6b8d"
+        },
+        "end": [
+          [
+            "else",
+            [
+              "read"
+            ],
+            [
+              "fail"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 79,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "0fe1f69986f2ece7e532a1a4b4b377a54ed27d1fab35b52daf2b1d9a68009431"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "79f8d972cd0a7e1d3b2c582d4a8280462e4d60ea3b5a13652c4ac60e4647db02"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "strict",
+          [
+            "read"
+          ],
+          [
+            "fail"
+          ]
+        ],
+        "source_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "target_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "short_circuit_strict/complete": {
+        "start": {
+          "nodes": 39,
+          "cell": 0,
+          "tree_sha256": "37c1501dc0221e2fc39ad5712434b57b5b518c4a4a4b4d0d278a2565ec6b95d6"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 39,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 19,
+            "cell": 0,
+            "tree_sha256": "f11495930141f2a825bde772e1648ea321bce90f0a91a87b8edc7690a412e327"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "410683044453df5d734895326682780e82cf857e37596d86a2d6922914807ade"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "bd3b90d76747af03fe5371a4dd399610f68f3fc15be62673b4dcda25cae14df9"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "1d5f4bd8e44ad5ceae29fa35cdffd8cc202cc3927db59bb1438d43b7db6ebd12"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "bind",
+          [
+            "fail"
+          ],
+          [
+            "read"
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      }
+    },
+    "17706": {
+      "drop_overwritten_write/complete": {
+        "start": {
+          "nodes": 97,
+          "cell": 0,
+          "tree_sha256": "92713338de569ec5521c57adffc409afd9fb417206b80bfc031fdd8612bb8ce8"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 97,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "76f65c92b4103209f6151015adeea6ee6fd3d3947386338d7a7e0f073deff497"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "4b54c7fdce2d201ed224844e7cb4a594858a72b063d76df99b3c8d57d1c070ff"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "c429a56b7186c2ff7e970f02cb02f68ee284032ad8bb0900dcee0651c8c4ad49"
+          }
+        ],
+        "smaller_candidates_refused": 11,
+        "emitted": [
+          "write",
+          0
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "drop_read/complete": {
+        "start": {
+          "nodes": 7,
+          "cell": 0,
+          "tree_sha256": "ba8e5f3c1c02db0a92c919beb1bbf340f105c0b2bbeac22c34f4e6398c9a6c11"
+        },
+        "end": [
+          [
+            "read"
+          ],
+          0
+        ],
+        "nodes_before": 7,
+        "nodes_after": 1,
+        "steps": [
+          {
+            "nodes": 1,
+            "cell": 0,
+            "tree_sha256": "8a2d0b87e8c712cc8e06c5c3f8de5e7f9dc8edcca03079a7aec0cb6436294927"
+          }
+        ],
+        "smaller_candidates_refused": 1,
+        "emitted": [
+          "skip"
+        ],
+        "source_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          []
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 1
+      },
+      "exchange_write_order/complete": {
+        "start": {
+          "nodes": 5,
+          "cell": 0,
+          "tree_sha256": "b60b71a7c1421516fe5275d81de1a6c9684784e9cb511e3b4681e552e42af218"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 5,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "4b54c7fdce2d201ed224844e7cb4a594858a72b063d76df99b3c8d57d1c070ff"
+          }
+        ],
+        "smaller_candidates_refused": 12,
+        "emitted": [
+          "strict",
+          [
+            "write",
+            1
+          ],
+          [
+            "write",
+            0
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          1,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "exchange_write_order/order_only": {
+        "start": {
+          "nodes": 35,
+          "cell": 0,
+          "tree_sha256": "8cbecbf2680d9ccea3f3827ad5ce6afd8ac31537409f8bf4bf075652cb6190d0"
+        },
+        "end": [
+          [
+            "bind",
+            [
+              "strict",
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 35,
+        "nodes_after": 5,
+        "steps": [
+          {
+            "nodes": 23,
+            "cell": 0,
+            "tree_sha256": "4f3731fe6329492eb8d7889755a7743f55d298b730618638aeba3b6c77a71337"
+          },
+          {
+            "nodes": 15,
+            "cell": 0,
+            "tree_sha256": "65eadc7404ecfe2a43bb9b07e81bfa53a798b6cf8e82526b24ededcbec6d8a36"
+          },
+          {
+            "nodes": 9,
+            "cell": 0,
+            "tree_sha256": "64125fa5e3f20421c2c040f4e5e0037286232b03488b06e32e5f0c7b8fc22186"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "22cbb3601815ec176511f271f1fff39dba61acc985dfd3092999d85c87c9ce2e"
+          }
+        ],
+        "smaller_candidates_refused": 21,
+        "emitted": [
+          "bind",
+          [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ],
+          [
+            "write",
+            0
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 5
+      },
+      "ignore_left_failure/complete": {
+        "start": {
+          "nodes": 17,
+          "cell": 0,
+          "tree_sha256": "bca857bd663a8c5c195d5ca769bbd36845fefb11a4bf55f061fbe96f23fdb257"
+        },
+        "end": [
+          [
+            "bind",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 17,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "696ca813e83a5a1312935381cf7e487b9e59aacf92708a3255f3f7eb48c14f57"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "strict",
+          [
+            "fail"
+          ],
+          [
+            "read"
+          ]
+        ],
+        "source_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "target_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "run_skipped_branch/complete": {
+        "start": {
+          "nodes": 7,
+          "cell": 0,
+          "tree_sha256": "ba8e5f3c1c02db0a92c919beb1bbf340f105c0b2bbeac22c34f4e6398c9a6c11"
+        },
+        "end": [
+          [
+            "else",
+            [
+              "read"
+            ],
+            [
+              "fail"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 7,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "1397c0acc23645775cc720a55163da0d21a4c2f30b6f06978ad629c454233411"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "104a155a3243fd988042f8f079dfd87191c0e7a0fdf24bc0f858a1913bfe5399"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "79f8d972cd0a7e1d3b2c582d4a8280462e4d60ea3b5a13652c4ac60e4647db02"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "strict",
+          [
+            "read"
+          ],
+          [
+            "fail"
+          ]
+        ],
+        "source_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "target_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "short_circuit_strict/complete": {
+        "start": {
+          "nodes": 5,
+          "cell": 0,
+          "tree_sha256": "a24b4cc4b28740b5d489f0714e74ecb82526749dd7bd926e867c28a12dde8582"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 5,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "f227ae4e075b630872a8fd1aec034ec99d777865e2909bfc115f7bc5ab78bec9"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "1d5f4bd8e44ad5ceae29fa35cdffd8cc202cc3927db59bb1438d43b7db6ebd12"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "bind",
+          [
+            "fail"
+          ],
+          [
+            "read"
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      }
+    },
+    "17707": {
+      "drop_overwritten_write/complete": {
+        "start": {
+          "nodes": 93,
+          "cell": 0,
+          "tree_sha256": "f994850f112506159a737607e12369e0b3c2d1ac63262642a803d19269a7f1d3"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 93,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 33,
+            "cell": 0,
+            "tree_sha256": "1fc9664766aa17cab47728311330998daa9f8b6ba37050c40677498277b2b798"
+          },
+          {
+            "nodes": 21,
+            "cell": 0,
+            "tree_sha256": "eabf812bb0dbc28e813f77b968c81a44c601d99699a224bfb8fe4383e48c6488"
+          },
+          {
+            "nodes": 13,
+            "cell": 0,
+            "tree_sha256": "d0b5e12bc5ef5517a3fd0707818edd09231d39d23fc87ebf1a9450fbd54e60b1"
+          },
+          {
+            "nodes": 7,
+            "cell": 0,
+            "tree_sha256": "1d38b7d643b10d8fa41ae6fd1e905c74d73e95abdf9274d11cddec5aeb1d4070"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "b2646fae471ade45be903d7a8a92c34f5b1dcb19e690f5714908377f60e16258"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "c429a56b7186c2ff7e970f02cb02f68ee284032ad8bb0900dcee0651c8c4ad49"
+          }
+        ],
+        "smaller_candidates_refused": 11,
+        "emitted": [
+          "write",
+          0
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "drop_read/complete": {
+        "start": {
+          "nodes": 83,
+          "cell": 0,
+          "tree_sha256": "3b21475343989e4b72bbb1578f81ec9f4884714eedeed463d1dec0045c04d2ee"
+        },
+        "end": [
+          [
+            "read"
+          ],
+          0
+        ],
+        "nodes_before": 83,
+        "nodes_after": 1,
+        "steps": [
+          {
+            "nodes": 1,
+            "cell": 0,
+            "tree_sha256": "8a2d0b87e8c712cc8e06c5c3f8de5e7f9dc8edcca03079a7aec0cb6436294927"
+          }
+        ],
+        "smaller_candidates_refused": 1,
+        "emitted": [
+          "skip"
+        ],
+        "source_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          []
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 1
+      },
+      "exchange_write_order/complete": {
+        "start": {
+          "nodes": 29,
+          "cell": 0,
+          "tree_sha256": "bfb70b4d8f31af028892a1debc3986898549a68adcb70fe8d5e36225477827ad"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 29,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "b73aadd90a551f2fa2a40ff4df7d90d2de9a80e0ffafe277ad57c5cb733e991d"
+          }
+        ],
+        "smaller_candidates_refused": 12,
+        "emitted": [
+          "strict",
+          [
+            "write",
+            0
+          ],
+          [
+            "write",
+            1
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          1,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "exchange_write_order/order_only": {
+        "start": {
+          "nodes": 27,
+          "cell": 0,
+          "tree_sha256": "db9972dfb55a536b70b4f722e6afe27cc3d2e7286a5648c34316fbb826776ffa"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "strict",
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 27,
+        "nodes_after": 5,
+        "steps": [
+          {
+            "nodes": 13,
+            "cell": 0,
+            "tree_sha256": "bbce7b597b6d4ded38c4eca937ddcbae4d82bcc52cc9db003df3876bc0d396d6"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "9a8d97742a1c0bf194c7d019af3118ff8dde18144fea166eba6a7c6585717122"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "09561f1305696da615a6fa5ee0252bb51051ae5e593917aa375424b3a02bb78c"
+          }
+        ],
+        "smaller_candidates_refused": 20,
+        "emitted": [
+          "strict",
+          [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ],
+          [
+            "write",
+            0
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 5
+      },
+      "ignore_left_failure/complete": {
+        "start": {
+          "nodes": 83,
+          "cell": 0,
+          "tree_sha256": "3b21475343989e4b72bbb1578f81ec9f4884714eedeed463d1dec0045c04d2ee"
+        },
+        "end": [
+          [
+            "bind",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 83,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 51,
+            "cell": 0,
+            "tree_sha256": "b11176b3e3bcdbf0258fee91c69d194f4191e18ac5c90640f132804ade566e5e"
+          },
+          {
+            "nodes": 25,
+            "cell": 0,
+            "tree_sha256": "2786dd40c40476e83d49d2980f83dd15af59cff7388daca7a13780051b474880"
+          },
+          {
+            "nodes": 9,
+            "cell": 0,
+            "tree_sha256": "cdf4203ab6d6bb72063b580178c02964306db6ac25b695a64827f6629243e1b6"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "8ea3ae13e813829be0adeb769031a5e3414439c0e156f425bbb2ee9d54baceb3"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "696ca813e83a5a1312935381cf7e487b9e59aacf92708a3255f3f7eb48c14f57"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "strict",
+          [
+            "fail"
+          ],
+          [
+            "read"
+          ]
+        ],
+        "source_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "target_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "run_skipped_branch/complete": {
+        "start": {
+          "nodes": 83,
+          "cell": 0,
+          "tree_sha256": "3b21475343989e4b72bbb1578f81ec9f4884714eedeed463d1dec0045c04d2ee"
+        },
+        "end": [
+          [
+            "else",
+            [
+              "read"
+            ],
+            [
+              "fail"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 83,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 31,
+            "cell": 0,
+            "tree_sha256": "199fe99ab93b53291a25259e3689b81cf6202695baa3259957c3296bab3809a9"
+          },
+          {
+            "nodes": 13,
+            "cell": 0,
+            "tree_sha256": "a7caa85fb6becd2287ab985714c6f89335d6867637201a4bbec9e35ac4c9ba97"
+          },
+          {
+            "nodes": 7,
+            "cell": 0,
+            "tree_sha256": "599c1711d977574031622e1ac00e93c95ca9882a7fd159ef1d4dc100bb848095"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "ba260f90b32648f3d5b5a61030f103356067e2956c5202905cab9562b8886327"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "0fe1f69986f2ece7e532a1a4b4b377a54ed27d1fab35b52daf2b1d9a68009431"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "79f8d972cd0a7e1d3b2c582d4a8280462e4d60ea3b5a13652c4ac60e4647db02"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "strict",
+          [
+            "read"
+          ],
+          [
+            "fail"
+          ]
+        ],
+        "source_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "target_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "short_circuit_strict/complete": {
+        "start": {
+          "nodes": 89,
+          "cell": 0,
+          "tree_sha256": "c69b9d7b0261c5bcd7e653ddb9b2485afd1f9e51e3071eb1d92d72226629c258"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 89,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 21,
+            "cell": 0,
+            "tree_sha256": "6b84881960bad4590223dfa64c9f95be1b928e8a2e5291eed9552196e3600d93"
+          },
+          {
+            "nodes": 13,
+            "cell": 0,
+            "tree_sha256": "dc8b5a5823ed59fe30d39247e145bae1bba7503fd46b1c02d64056394d903d60"
+          },
+          {
+            "nodes": 9,
+            "cell": 0,
+            "tree_sha256": "5d7830aece4a8d015de2087f1b617f6a514101993d3c810d3b81e63caefb1fce"
+          },
+          {
+            "nodes": 7,
+            "cell": 0,
+            "tree_sha256": "3402e6a02ef6e673efecbd48f07fcf075a90312e0e2dd3507303e353a240f0c6"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "da896bd052a52280a6e1d16be6fe53e58b5a8f67b561d98512cf17d3169f6c09"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "f227ae4e075b630872a8fd1aec034ec99d777865e2909bfc115f7bc5ab78bec9"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "1d5f4bd8e44ad5ceae29fa35cdffd8cc202cc3927db59bb1438d43b7db6ebd12"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "bind",
+          [
+            "fail"
+          ],
+          [
+            "read"
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      }
+    },
+    "17708": {
+      "drop_overwritten_write/complete": {
+        "start": {
+          "nodes": 13,
+          "cell": 0,
+          "tree_sha256": "e5ceb79c6da9f18fc5888999011741d81c727c891dab648e99fe08783f91db92"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 13,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "06957a709696064199961edf8173adcdf24407a7f9bc5e44c5c9ce500fd2fea3"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "b73aadd90a551f2fa2a40ff4df7d90d2de9a80e0ffafe277ad57c5cb733e991d"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "c429a56b7186c2ff7e970f02cb02f68ee284032ad8bb0900dcee0651c8c4ad49"
+          }
+        ],
+        "smaller_candidates_refused": 11,
+        "emitted": [
+          "write",
+          0
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "drop_read/complete": {
+        "start": {
+          "nodes": 3,
+          "cell": 0,
+          "tree_sha256": "96d3392b9dcfd319d6ba90285052de45e823bb1542797e28a9c1fabc50f14267"
+        },
+        "end": [
+          [
+            "read"
+          ],
+          0
+        ],
+        "nodes_before": 3,
+        "nodes_after": 1,
+        "steps": [
+          {
+            "nodes": 1,
+            "cell": 0,
+            "tree_sha256": "8a2d0b87e8c712cc8e06c5c3f8de5e7f9dc8edcca03079a7aec0cb6436294927"
+          }
+        ],
+        "smaller_candidates_refused": 1,
+        "emitted": [
+          "skip"
+        ],
+        "source_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          []
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 1
+      },
+      "exchange_write_order/complete": {
+        "start": {
+          "nodes": 13,
+          "cell": 0,
+          "tree_sha256": "e5ceb79c6da9f18fc5888999011741d81c727c891dab648e99fe08783f91db92"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 13,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "06957a709696064199961edf8173adcdf24407a7f9bc5e44c5c9ce500fd2fea3"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "b73aadd90a551f2fa2a40ff4df7d90d2de9a80e0ffafe277ad57c5cb733e991d"
+          }
+        ],
+        "smaller_candidates_refused": 12,
+        "emitted": [
+          "strict",
+          [
+            "write",
+            0
+          ],
+          [
+            "write",
+            1
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          1,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "exchange_write_order/order_only": {
+        "start": {
+          "nodes": 155,
+          "cell": 0,
+          "tree_sha256": "82283c0717fe35484ca6b5818a9b63e6ef1f348d04b35a3ab804c2e2b599bb97"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "strict",
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 155,
+        "nodes_after": 5,
+        "steps": [
+          {
+            "nodes": 91,
+            "cell": 0,
+            "tree_sha256": "03f1a9be439cc3a15664002dcd17bf76e9ea67a261545fcda21d4fce19e53266"
+          },
+          {
+            "nodes": 43,
+            "cell": 0,
+            "tree_sha256": "cd0157b93ea3d582a1a48a8971f8f8078db1d6abdcf94351cab302e1c3248247"
+          },
+          {
+            "nodes": 23,
+            "cell": 0,
+            "tree_sha256": "3db0eb6b0c26ec0937c0e87f8ce74038493228365091bf8545b7df5abef6eb28"
+          },
+          {
+            "nodes": 13,
+            "cell": 0,
+            "tree_sha256": "371922c5cc12f0566cad626164c8dfd3fbe24fec0b61d7458ea6081e08bd41a0"
+          },
+          {
+            "nodes": 7,
+            "cell": 0,
+            "tree_sha256": "e881745c756466e2cbea12f334f7215651ecbec906e64fede3808b89e0f4d136"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "09561f1305696da615a6fa5ee0252bb51051ae5e593917aa375424b3a02bb78c"
+          }
+        ],
+        "smaller_candidates_refused": 20,
+        "emitted": [
+          "strict",
+          [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ],
+          [
+            "write",
+            0
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "ok",
+            null
+          ],
+          0,
+          [
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 5
+      },
+      "ignore_left_failure/complete": {
+        "start": {
+          "nodes": 75,
+          "cell": 0,
+          "tree_sha256": "c2f11b9a108d5dd829bea2f20f5c6f572b5531a4ef6650e1b080317a30c2b825"
+        },
+        "end": [
+          [
+            "bind",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 75,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 15,
+            "cell": 0,
+            "tree_sha256": "4b25d1225cac76613016e2272b2205c97ab0c8b78fb2b32877a19037a85d6927"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "9f7819584a18324006d565051088e3154bffdba2d9099e040b5274bde6c45060"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "696ca813e83a5a1312935381cf7e487b9e59aacf92708a3255f3f7eb48c14f57"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "strict",
+          [
+            "fail"
+          ],
+          [
+            "read"
+          ]
+        ],
+        "source_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "target_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "run_skipped_branch/complete": {
+        "start": {
+          "nodes": 75,
+          "cell": 0,
+          "tree_sha256": "a700d45bd7ea22073ee543ccc86f8314d0c30bdea4875b4399c1523c69359f57"
+        },
+        "end": [
+          [
+            "else",
+            [
+              "read"
+            ],
+            [
+              "fail"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 75,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 35,
+            "cell": 0,
+            "tree_sha256": "86dac16255c96f900742fa903ac0a77f46d5a9afcb211995957a298b41a19204"
+          },
+          {
+            "nodes": 19,
+            "cell": 0,
+            "tree_sha256": "6431744c69cbfb10bd431113dc5d67700da660325e413355c39443c62332bd9b"
+          },
+          {
+            "nodes": 11,
+            "cell": 0,
+            "tree_sha256": "96c18473eeb5d2104940dfb74301c2ededa2f7fe6b0466a865b129ff7aad0b39"
+          },
+          {
+            "nodes": 9,
+            "cell": 0,
+            "tree_sha256": "e91abb15c4415706d223bc3be08da4ed45a42c5818b6e6ade2d8f729a8c2c12c"
+          },
+          {
+            "nodes": 7,
+            "cell": 0,
+            "tree_sha256": "1a03ab21e602ef5b068947ba9f3cb8e43d5f9ba35012cba5ffb1882362a88915"
+          },
+          {
+            "nodes": 5,
+            "cell": 0,
+            "tree_sha256": "43f90591c1db2b4d9054f711a41608c4b0f45b83cd7bb7d4bf267ff4e6f55147"
+          },
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "79f8d972cd0a7e1d3b2c582d4a8280462e4d60ea3b5a13652c4ac60e4647db02"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "strict",
+          [
+            "read"
+          ],
+          [
+            "fail"
+          ]
+        ],
+        "source_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "target_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      },
+      "short_circuit_strict/complete": {
+        "start": {
+          "nodes": 3,
+          "cell": 0,
+          "tree_sha256": "f44029666430fa630961685d93ac44621692d01cdc247023c94d365eed858715"
+        },
+        "end": [
+          [
+            "strict",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          0
+        ],
+        "nodes_before": 3,
+        "nodes_after": 3,
+        "steps": [
+          {
+            "nodes": 3,
+            "cell": 0,
+            "tree_sha256": "1d5f4bd8e44ad5ceae29fa35cdffd8cc202cc3927db59bb1438d43b7db6ebd12"
+          }
+        ],
+        "smaller_candidates_refused": 6,
+        "emitted": [
+          "bind",
+          [
+            "fail"
+          ],
+          [
+            "read"
+          ]
+        ],
+        "source_observation": [
+          [
+            "ok",
+            0
+          ],
+          0,
+          [
+            [
+              "read",
+              0
+            ]
+          ]
+        ],
+        "target_observation": [
+          [
+            "error",
+            "planned"
+          ],
+          0,
+          []
+        ],
+        "minimum_nodes_in_exhaustive_corpus": 3
+      }
+    }
+  }
+}
