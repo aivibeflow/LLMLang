@@ -771,6 +771,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Exit criteria:** a small, executable reference semantics; at least one end-to-end, independently checked proof path with explicit assumptions; a documented trusted computing base; reproducible CI validation.
 
+- [ ] [WIP] Establish reproducible section 2.5 fixture checks for graph correspondence, differential witnesses and pass composition on `research/all`.
+
 ---
 
 
