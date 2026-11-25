@@ -202,6 +202,8 @@ The highest-leverage gaps to address explicitly are:
 
 These are gaps to research, not predetermined design requirements.
 
+RT-13 compares the constrained dynamic signed-zero witness across three LLVM-based Clang builds and two call-site inlining policies. [Dynamic rounding across LLVM versions](../compiler-and-translation/RT-13/RT-13-LLVM-DYNAMIC-ROUNDING-VERSIONS-2026-11-25.md)
+
 RT-23 and RT-24 have a bounded mapping-revision merge experiment with key and export conflicts. [Interface mapping merge](../toolchain-and-collaboration/RT-23/RT-23-INTERFACE-MAPPING-MERGE.md)
 
 ## 5. Relationship to the specification space
