@@ -40,3 +40,4 @@ See [shared executable research prototypes](../PROTOTYPES/README.md) for integra
 - [RT-05 per-input layered refinement](RT-05/RT-05-PER-INPUT-LAYERED-REFINEMENT-2026-11-25.md) — checks the required input domain, pointwise refinement and coverage across all three layers.
 - [RT-05 shared instruction provenance](RT-05/RT-05-SHARED-INSTRUCTION-PROVENANCE-2026-11-25.md) — separates exact many-to-one source mapping from behavioral preservation.
 - [RT-05 verification evidence granularity](RT-05/RT-05-VERIFICATION-EVIDENCE-GRANULARITY-2026-11-25.md) — compares evidence layouts and exact receipt admission under claim revisions.
+- [RT-05 checked reassociation](RT-05/RT-05-CHECKED-REASSOCIATION-2026-11-25.md) — checks exact guards for grouping under overflow and ordered operand observations.

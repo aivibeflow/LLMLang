@@ -1,0 +1,97 @@
+{
+  "schema": "llmlang-rt05-reassociation/1",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "axioms": [
+    "'guardedReassociation' depends on axioms: [propext]",
+    "'resultCounterexample' does not depend on any axioms",
+    "'sameFailureDifferentTrace' does not depend on any axioms",
+    "'exactObservedCondition' depends on axioms: [propext]",
+    "'exactValueCondition' depends on axioms: [propext]"
+  ],
+  "signed_domain": [
+    -8,
+    7
+  ],
+  "source_sha256": {
+    "run.py": "ecf8da1f3539097ae1d2ea76bc0cb3f98893f2f33087e8c760a98131e9e13445",
+    "Reassociate.lean": "42a4648b3f295ca7a226ced07618830d90d72ed8f5de146344cf8d689bcafb5f"
+  },
+  "counts": {
+    "triples": 4096,
+    "wrapping_agreement": 4096,
+    "checked_value_mismatches": 672,
+    "checked_complete_mismatches": 1360,
+    "same_value_or_failure_but_different_trace": 688,
+    "both_partial_sums_in_range": 2392,
+    "both_partial_sums_in_range_with_final_failure": 344
+  },
+  "first_witnesses": {
+    "checked_complete_mismatches": {
+      "values": [
+        -8,
+        -8,
+        -8
+      ],
+      "left": {
+        "value": null,
+        "trace": [
+          0,
+          1
+        ]
+      },
+      "right": {
+        "value": null,
+        "trace": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    "same_value_or_failure_but_different_trace": {
+      "values": [
+        -8,
+        -8,
+        -8
+      ],
+      "left": {
+        "value": null,
+        "trace": [
+          0,
+          1
+        ]
+      },
+      "right": {
+        "value": null,
+        "trace": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    "checked_value_mismatches": {
+      "values": [
+        -8,
+        -7,
+        7
+      ],
+      "left": {
+        "value": null,
+        "trace": [
+          0,
+          1
+        ]
+      },
+      "right": {
+        "value": -8,
+        "trace": [
+          0,
+          1,
+          2
+        ]
+      }
+    }
+  }
+}
