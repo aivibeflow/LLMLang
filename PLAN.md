@@ -1115,6 +1115,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define VM requirements, if a VM is needed.
   - [x] Compare reference and stack VM fuel across 5,265 cases. Source-node charges preserve result, ordered trace, terminal state and budget throughout. Executable opcode charges differ on result, trace or terminal state in 1,280 cases. Production VM choice and broader effects remain open. [RT-10 stack VM fuel correspondence](research/runtime-and-systems/RT-10/RT-10-STACK-VM-FUEL-CORRESPONDENCE-2026-11-25.md)
 - [ ] Define runtime representation of values and semantic calls.
+  - [ ] [WIP] Compare length-delimited bytes, C strings and validated UTF-8 across a native call boundary on `research/all`.
 - [ ] Define explicit call binding to immutable operation identity.
   - [x] Compare four native call closures with identical wrapper bytes. The exact wrapper check admits all four, while the declared closure admits only the selected helper. A changed helper produces sixteen different results, another preserves the sample with different bytes, and an absent helper fails loading. [RT-10 exact native call closure](research/runtime-and-systems/RT-10/RT-10-EXACT-NATIVE-CALL-CLOSURE-2026-11-25.md)
 - [ ] Define error propagation, cancellation, and resource cleanup.
