@@ -1,0 +1,181 @@
+{
+  "profiles": [
+    {
+      "abi": "System V and x86-64 Linux syscall",
+      "architecture_and_cpu": "x86-64 baseline",
+      "claim": "read/write/exit and byte traces",
+      "evidence": "linux",
+      "id": "x86_64-linux-raw",
+      "level": "native",
+      "linker": "LLD 23.1.1",
+      "object_format": "ELF64",
+      "os": "Linux 6.18.57",
+      "runtime": "host kernel",
+      "sysroot_and_libraries": "freestanding, no libc",
+      "toolchain": "Clang 23.1.1 and GNU readelf 2.44"
+    },
+    {
+      "abi": "AAPCS64 and AArch64 Linux syscall",
+      "architecture_and_cpu": "AArch64 baseline",
+      "claim": "read/write/exit and byte traces",
+      "evidence": "linux",
+      "id": "aarch64-linux-raw",
+      "level": "user-emulated",
+      "linker": "LLD 23.1.1",
+      "object_format": "ELF64",
+      "os": "Linux ABI under QEMU user mode",
+      "runtime": "QEMU user 10.0.13 and host Linux",
+      "sysroot_and_libraries": "freestanding, no libc",
+      "toolchain": "Clang 23.1.1 and GNU readelf 2.44"
+    },
+    {
+      "abi": "Thumb procedure convention for the fixture",
+      "architecture_and_cpu": "Cortex-M3 Thumb",
+      "claim": "startup RAM range behavior",
+      "evidence": "cortex",
+      "id": "cortex-m3-freestanding",
+      "level": "machine-emulated",
+      "linker": "LLD 19.1.7",
+      "object_format": "ELF32",
+      "os": "no OS",
+      "runtime": "QEMU 10.0.13 lm3s6965evb",
+      "sysroot_and_libraries": "freestanding, no libc",
+      "toolchain": "LLVM MC 19.1.7 and Clang 23.1.1 preprocessing"
+    },
+    {
+      "abi": "i64 input and named i32 host import",
+      "architecture_and_cpu": "wasm32 core",
+      "claim": "checked scalar import effects and input admission",
+      "evidence": "wasm",
+      "id": "wasm32-js-host",
+      "level": "hosted-engine",
+      "linker": "Wasm LLD 19.1.7 or WABT direct assembly",
+      "object_format": "WebAssembly",
+      "os": "JavaScript host",
+      "runtime": "Node 22.23.5 or 24.22.3",
+      "sysroot_and_libraries": "freestanding, no WASI",
+      "toolchain": "Clang 23.1.1 or WABT 1.0.36"
+    },
+    {
+      "abi": "fixture freestanding RISC-V ABI",
+      "architecture_and_cpu": "RV64 with A, without Zabha",
+      "claim": "byte/word RMW and fence fixture",
+      "evidence": "atomics",
+      "id": "rv64-atomic-a",
+      "level": "machine-emulated",
+      "linker": "LLD 19.1.7",
+      "object_format": "ELF64",
+      "os": "no OS",
+      "runtime": "QEMU 10.0.13 virt, two harts",
+      "sysroot_and_libraries": "freestanding, no libc",
+      "toolchain": "LLVM 19.1.7 opt and llc"
+    },
+    {
+      "abi": "fixture freestanding RISC-V ABI",
+      "architecture_and_cpu": "RV64 with A and Zabha",
+      "claim": "byte/word RMW and fence fixture",
+      "evidence": "atomics",
+      "id": "rv64-atomic-zabha",
+      "level": "machine-emulated",
+      "linker": "LLD 19.1.7",
+      "object_format": "ELF64",
+      "os": "no OS",
+      "runtime": "QEMU 10.0.13 virt, two harts",
+      "sysroot_and_libraries": "freestanding, no libc",
+      "toolchain": "LLVM 19.1.7 opt and llc"
+    },
+    {
+      "abi": "fixture freestanding RISC-V ABI",
+      "architecture_and_cpu": "RV64 without A, Zaamo and Zalrsc",
+      "claim": "four unresolved atomic helper symbols",
+      "evidence": "atomics",
+      "id": "rv64-atomic-no-a",
+      "level": "unresolved-runtime",
+      "linker": "unresolved runtime link",
+      "object_format": "ELF64 object",
+      "os": "no OS",
+      "runtime": "atomic runtime helper required",
+      "sysroot_and_libraries": "freestanding, selected helper artifacts absent",
+      "toolchain": "LLVM 19.1.7 opt and llc"
+    },
+    {
+      "abi": "AArch64 object ABI",
+      "architecture_and_cpu": "AArch64 without LSE",
+      "claim": "exclusive-instruction lowering",
+      "evidence": "atomics",
+      "id": "aarch64-atomic-baseline",
+      "level": "object-only",
+      "linker": "no linked image in this fixture",
+      "object_format": "ELF64 object",
+      "os": "AArch64 LLVM target, OS runtime untested",
+      "runtime": "runtime untested",
+      "sysroot_and_libraries": "no sysroot selected",
+      "toolchain": "LLVM 19.1.7 opt and llc"
+    },
+    {
+      "abi": "AArch64 object ABI",
+      "architecture_and_cpu": "AArch64 with LSE",
+      "claim": "LSE lowering",
+      "evidence": "atomics",
+      "id": "aarch64-atomic-lse",
+      "level": "object-only",
+      "linker": "no linked image in this fixture",
+      "object_format": "ELF64 object",
+      "os": "AArch64 LLVM target, OS runtime untested",
+      "runtime": "runtime untested",
+      "sysroot_and_libraries": "no sysroot selected",
+      "toolchain": "LLVM 19.1.7 opt and llc"
+    },
+    {
+      "abi": "System V and explicit Microsoft x64 conventions",
+      "architecture_and_cpu": "x86-64 baseline",
+      "claim": "one two-field by-value aggregate and pointer bridge",
+      "evidence": "by_value",
+      "id": "x86_64-hosted-abi",
+      "level": "native",
+      "linker": "GCC host driver, linker not measured separately",
+      "object_format": "ELF64",
+      "os": "Linux",
+      "runtime": "native Linux caller and provider",
+      "sysroot_and_libraries": "host Linux C runtime",
+      "toolchain": "GCC 14.2.0, rustc 1.85.1, GNU objdump 2.44"
+    },
+    {
+      "abi": "Microsoft x64",
+      "architecture_and_cpu": "x86-64",
+      "claim": "Windows execution and system linkage",
+      "evidence": null,
+      "id": "x86_64-windows-native",
+      "level": "unknown",
+      "linker": "unverified",
+      "object_format": "PE/COFF",
+      "os": "Windows",
+      "runtime": "native Windows unverified",
+      "sysroot_and_libraries": "Windows SDK and CRT unverified",
+      "toolchain": "toolchain profile unverified"
+    }
+  ],
+  "schema": "target-support-evidence-v1",
+  "sources": {
+    "atomics": {
+      "path": "compiler-and-translation/RT-13/atomic-lowering/results.json",
+      "sha256": "e6552b0ce1e1e93c2dc3fd7c2b3cc573e8769c0b90214eb3b6c1e518caa82a88"
+    },
+    "by_value": {
+      "path": "compiler-and-translation/RT-13/BY-VALUE-CALL-ABI-01/evidence.json",
+      "sha256": "73ebe19d7e32da01d83cf2d648033258e94799c97c63a461d738c30d028306c1"
+    },
+    "cortex": {
+      "path": "runtime-and-systems/RT-37/cortex-m3-startup-retention/evidence.json",
+      "sha256": "01857b2c992e9e4f5e6cac8d02fd9d37ba72a5a97f9dc29d3f840c4dbba54e55"
+    },
+    "linux": {
+      "path": "runtime-and-systems/RT-10/LINUX-SYSCALL-ARCHITECTURES-01/evidence.json",
+      "sha256": "5b6bcb1e52f55e9cca55d3e15fe632e8bc3aa6b8bed8f383ae1e940960582f3f"
+    },
+    "wasm": {
+      "path": "compiler-and-translation/RT-13/WASM-HOST-EFFECT-BOUNDARY-01/evidence.json",
+      "sha256": "199662764830afb0ed9a7684259a4bd3283cca4c24b926ef725c0b4989de1cce"
+    }
+  }
+}
