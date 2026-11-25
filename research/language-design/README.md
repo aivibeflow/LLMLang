@@ -65,6 +65,7 @@ This direction groups related research studies without changing their RT identif
 - [Async resource cancellation](RT-04/RT-04-ASYNC-RESOURCE-CANCELLATION-2026-11-25.md) checks guard lifetime, implicit cleanup and explicit finalization diagnostics.
 - [Typed capability errors](RT-04/RT-04-TYPED-CAPABILITY-ERRORS-2026-11-25.md) checks attenuated native permits, handled errors and ordered effect observations.
 - [Generic context inference](RT-04/RT-04-GENERIC-CONTEXT-INFERENCE-2026-11-25.md) checks argument, result and function-value contexts and explicit API types.
+- [Type, contract and relational evidence](RT-04/RT-04-TYPE-CONTRACT-RELATION-2026-11-25.md) distinguishes unit identity, pointwise behavior and cross-call proofs.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
 - [RT-04 property-scoped operation substitution](RT-04/RT-04-PROPERTY-SCOPED-OPERATION-SUBSTITUTION-2026-11-25.md) — checks coverage, complete observations, progress and resource evidence separately.
 - [RT-04 joint contract conformance](RT-04/RT-04-JOINT-CONTRACT-CONFORMANCE-2026-11-25.md) — checks simultaneous conformance, feasibility and different observable conforming providers.

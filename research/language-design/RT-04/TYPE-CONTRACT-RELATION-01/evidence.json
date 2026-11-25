@@ -1,0 +1,109 @@
+{
+  "format": "type-contract-relation-01",
+  "lean_axioms": [
+    "'identity_range' depends on axioms: [propext, Quot.sound]",
+    "'offset_range' depends on axioms: [propext]",
+    "'alternating_range' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'identity_monotone' does not depend on any axioms",
+    "'offset_monotone' does not depend on any axioms",
+    "'alternating_counterexample' does not depend on any axioms",
+    "'far_counterexample' does not depend on any axioms"
+  ],
+  "reported": {
+    "0": {
+      "layout": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "native": {
+        "Alternating": {
+          "monotone_pair_refusals": 753,
+          "pointwise_refusals": 0,
+          "raw_abi_observations": 256,
+          "raw_output": "a7b0b2aea06262bd54ef24a6406cafdec56e9fa0d9c3b832a9835931fa31ab03",
+          "type_admitted": true
+        },
+        "Far": {
+          "monotone_pair_refusals": 0,
+          "pointwise_refusals": 256,
+          "raw_abi_observations": 256,
+          "raw_output": "0adb714f965560c07d08143a9d460c4709e499b10c461c9529609da2480076bd",
+          "type_admitted": true
+        },
+        "Identity": {
+          "monotone_pair_refusals": 0,
+          "pointwise_refusals": 0,
+          "raw_abi_observations": 256,
+          "raw_output": "ce694d5c7d7c923baab12ec1d6802c1c51fd2b080f75601205f07d9129708f35",
+          "type_admitted": true
+        },
+        "Offset": {
+          "monotone_pair_refusals": 0,
+          "pointwise_refusals": 0,
+          "raw_abi_observations": 256,
+          "raw_output": "de8c43f5200406b3772f20632ad0ab417b582255d97ac1e96042431ff4894fb3",
+          "type_admitted": true
+        },
+        "WrongUnit": {
+          "monotone_pair_refusals": 0,
+          "pointwise_refusals": 223,
+          "raw_abi_observations": 256,
+          "raw_output": "c2944ae3fb43fc6319b9ff371f1e7fb71a730020abf69d539b711f3d43a79c66",
+          "type_admitted": false
+        }
+      },
+      "typed_observations": 1024,
+      "wrong_unit_compiler_code": "E0271"
+    },
+    "2": {
+      "layout": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "native": {
+        "Alternating": {
+          "monotone_pair_refusals": 753,
+          "pointwise_refusals": 0,
+          "raw_abi_observations": 256,
+          "raw_output": "a7b0b2aea06262bd54ef24a6406cafdec56e9fa0d9c3b832a9835931fa31ab03",
+          "type_admitted": true
+        },
+        "Far": {
+          "monotone_pair_refusals": 0,
+          "pointwise_refusals": 256,
+          "raw_abi_observations": 256,
+          "raw_output": "0adb714f965560c07d08143a9d460c4709e499b10c461c9529609da2480076bd",
+          "type_admitted": true
+        },
+        "Identity": {
+          "monotone_pair_refusals": 0,
+          "pointwise_refusals": 0,
+          "raw_abi_observations": 256,
+          "raw_output": "ce694d5c7d7c923baab12ec1d6802c1c51fd2b080f75601205f07d9129708f35",
+          "type_admitted": true
+        },
+        "Offset": {
+          "monotone_pair_refusals": 0,
+          "pointwise_refusals": 0,
+          "raw_abi_observations": 256,
+          "raw_output": "de8c43f5200406b3772f20632ad0ab417b582255d97ac1e96042431ff4894fb3",
+          "type_admitted": true
+        },
+        "WrongUnit": {
+          "monotone_pair_refusals": 0,
+          "pointwise_refusals": 223,
+          "raw_abi_observations": 256,
+          "raw_output": "c2944ae3fb43fc6319b9ff371f1e7fb71a730020abf69d539b711f3d43a79c66",
+          "type_admitted": false
+        }
+      },
+      "typed_observations": 1024,
+      "wrong_unit_compiler_code": "E0271"
+    }
+  },
+  "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+}

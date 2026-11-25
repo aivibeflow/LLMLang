@@ -1283,16 +1283,16 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define type inference and explicit annotations.
   - [x] Check 18 Rust and Go compilation decisions. Expected return or assignment types infer a generic result in Rust. Both infer it in the typed function-value control, and explicit API annotations survive a private type edit. [Generic context inference](research/language-design/RT-04/RT-04-GENERIC-CONTEXT-INFERENCE-2026-11-25.md)
   - [x] Compile seven matched Rust and Go inference cases. A later argument changes one Rust local from i32 to u64 and is rejected against the default Go int. Explicit local types preserve both earlier types when the new use converts explicitly. Both signature controls require a concrete result declaration for the tested API. [RT-04 native inference boundaries](research/language-design/RT-04/RT-04-NATIVE-INFERENCE-BOUNDARIES-2026-11-25.md)
-- [ ] Define compatibility between types exposed by different implementations.
-  - [ ] [WIP] Check output type, representation and contract compatibility for separately built provider variants on `research/all` (#324).
+- [x] Define compatibility between types exposed by different implementations.
+  - [x] Compile a typed consumer against four compatible result types and refuse a fifth provider whose unit differs at the same native representation. Compare 4,608 typed and raw native observations across two optimization levels. [Type, contract and relational evidence](research/language-design/RT-04/RT-04-TYPE-CONTRACT-RELATION-2026-11-25.md)
   - [x] Compile eight provider variants and twelve separate clients for opaque and erased Rust results. The six admitted providers agree on the method result, while one opaque replacement changes native size and breaks Send clients without a signature edit. Explicit Send rejects that provider at definition. Binary compatibility and LLMLang policy remain open. [RT-04 opaque provider compatibility](research/language-design/RT-04/RT-04-OPAQUE-PROVIDER-COMPATIBILITY-2026-11-25.md)
-- [ ] Determine which guarantees are enforced by types, contracts, or proofs.
-  - [ ] [WIP] Distinguish representation-safe output, pointwise contract checks and a relational guarantee with Lean on `research/all` (#324).
+- [x] Determine which guarantees are enforced by types, contracts, or proofs.
+  - [x] Check a pointwise range contract and separate monotonicity across calls. One typed provider passes every pointwise check and violates 753 ordered pairs per build. Seven Lean propositions check the respective obligations. [Type, contract and relational evidence](research/language-design/RT-04/RT-04-TYPE-CONTRACT-RELATION-2026-11-25.md)
   - [x] Compare type, pairwise contract and global law admission over 216 equality/hash models and 1,296 insertion-order trials. Nine models satisfy every pairwise hash check yet are order-dependent. Lean checks projection-derived equivalence and compatible hashing, plus the transitivity counterexample. General collection and custom-equality policy remain open. [Collection key laws](research/language-design/RT-04/RT-04-EQUALITY-KEY-LAWS-2026-11-25.md)
 
 **Existing evidence:** concept and formal-verification research; typed requirement and typed relational IR prototypes.
 
-**Status:** partially researched; complete language type-system design remains open.
+**Status:** all scoped comparisons have checked evidence. Candidate primitive, algebraic and dependent representations, polymorphism, native ownership and typestate, effects, inference and provider compatibility remain subject to a cohesive production LLMLang type-system design and review.
 
 ## 5.2 Execution semantics and runtime architecture
 
