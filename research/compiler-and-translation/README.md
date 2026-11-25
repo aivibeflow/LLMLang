@@ -79,6 +79,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-09 incremental translation closure](RT-09/RT-09-INCREMENTAL-TRANSLATION-CLOSURE-2026-11-25.md) checks exact artifacts and partitioned validation in two separate native build roots.
 - [RT-30 shared ownership runtime](RT-30/RT-30-SHARED-OWNERSHIP-RUNTIME-2026-11-25.md) checks mixed-language state transitions, selective relinking and boundary cost.
 - [RT-30 directional replay](RT-30/RT-30-DIRECTIONAL-REPLAY-2026-11-25.md) independently checks four importers and 20 native translation routes.
+- [RT-28 zlib release mirror](RT-28/RT-28-ZLIB-RELEASE-MIRROR-2026-11-25.md) compares real upstream source changes, exact execution and local rollback.
 - [RT-09 translation outcome closure](RT-09/RT-09-TRANSLATION-OUTCOME-CLOSURE-2026-11-25.md) composes scoped region decisions and required target evidence.
 - [RT-09 SSA parallel-copy lowering](RT-09/RT-09-SSA-PARALLEL-COPY-LOWERING-2026-11-25.md) checks scheduled sequential assignments against native LLVM phi traces.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.

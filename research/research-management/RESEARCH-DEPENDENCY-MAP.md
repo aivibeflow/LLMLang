@@ -495,7 +495,7 @@ RT-28 depends on LLMLang's semantic identity, dependency, verification, compiler
 | DEP-120 | RT-06 → RT-28 | Requires | Incremental reconciliation needs dependency/caller discovery and conservative impact closure. | Strong hypothesis |
 | DEP-121 | RT-07 → RT-28 | Constrains | Any formal refinement claim needs a trusted semantic model and explicit proof boundary; unsupported cases remain unproven. | Strong hypothesis |
 | DEP-122 | RT-08 → RT-28 | Requires | Differential, stateful, fuzz, and regression evidence need reproducible test and evidence contracts. | Strong hypothesis |
-| DEP-123 | RT-09 → RT-28 | Enables | Compiler frontends and IR provide candidate source-language semantic extraction mechanisms and their completeness limits. | Strong hypothesis |
+| DEP-123 | RT-09 → RT-28 | Enables | Compiler frontends and IR provide candidate source-language semantic extraction mechanisms and their completeness limits. A K&R-to-prototype change can preserve typed body and native provider bytes while changing the source release and adoption receipt. [RT-28 zlib release mirror](../compiler-and-translation/RT-28/RT-28-ZLIB-RELEASE-MIRROR-2026-11-25.md) | Strong hypothesis |
 | DEP-124 | RT-10 → RT-28 | Constrains | Mixed-language execution, side effects, cancellation, cleanup, and runtime state require explicit runtime/ABI boundaries. | Strong hypothesis |
 | DEP-125 | RT-11 → RT-28 | Influences | Incremental computation and caching can bound re-analysis and re-verification, subject to sound invalidation. | Strong hypothesis |
 | DEP-126 | RT-13 → RT-28 | Requires | Cross-language calling conventions, type representation, and FFI/ABI compatibility are prerequisites for in-process interoperation. | Strong hypothesis |
