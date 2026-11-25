@@ -1394,6 +1394,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 ## 6.4 Implementation discovery, selection, and optimization
 
 - [ ] Separate discovery of contract-compatible implementations from selection of a concrete implementation.
+  - [ ] [WIP] Model immutable catalog discovery separately from target selection and verify request, snapshot and implementation binding.
 - [ ] Define selection constraints: target, ABI, capabilities, runtime, security, performance, and deployment environment.
 - [ ] Define static binding versus runtime dispatch.
 - [ ] Define specialization and multi-versioning.
