@@ -1,0 +1,4 @@
+'BooleanEffectOrder.effectFreeSuccessfulRightAgrees' depends on axioms: [propext]
+'BooleanEffectOrder.determiningBranchEquality' depends on axioms: [propext]
+'BooleanEffectOrder.determiningBranchCannotEraseWriteTrace' does not depend on any axioms
+'BooleanEffectOrder.determiningBranchCannotEraseError' does not depend on any axioms
