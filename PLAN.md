@@ -873,6 +873,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define impact planning and non-interference gates.
   - [x] Compare separate and composed non-interference checks across 6,144 truth-table edits. Independent baseline checks admit 768 changed outcomes despite disjoint writes. Lean checks a counterexample and composition under sequential or uniformly applicable premises. [RT-11 composed non-interference](research/toolchain-and-collaboration/RT-11/RT-11-COMPOSED-NONINTERFERENCE-2026-11-25.md)
 - [ ] Benchmark small local edits, shared component edits, and broad semantic changes.
+  - [ ] [WIP] Measure paired clean and exact incremental native builds for local, shared and broad edits with scoped action counts on `research/all`.
 
 **Existing evidence:** [SEMANTIC-COMPILATION-CACHE.md](research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), scenarios 18–28, and dependency graph prototypes.
 
