@@ -1,0 +1,149 @@
+{
+  "cases": {
+    "files/journal-parent": {
+      "acquisition_after_prune_rejected": false,
+      "after_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "after_release_and_gc": null,
+      "after_rewrite_before_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "clone": {
+        "after_explicit_fetch": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+        "default_clone_lacks_pin": true
+      },
+      "old_commit": "947e662d58328c72c0f9db8ff67a60ccbc1d2f9c",
+      "old_root": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "peer_retains_after_first_release": null,
+      "published_commit": "e8fdf5d346b5cc8d412402188e20fe0245b57105",
+      "published_root": "e5bbeba6346329b06dfaf95755f7ab70c09c2ae9c1dc38606f0f5ecd2059c354",
+      "stale_verified_acquisition_rejected": false
+    },
+    "files/late-explicit-lease": {
+      "acquisition_after_prune_rejected": false,
+      "after_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "after_release_and_gc": null,
+      "after_rewrite_before_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "clone": null,
+      "old_commit": "947e662d58328c72c0f9db8ff67a60ccbc1d2f9c",
+      "old_root": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "peer_retains_after_first_release": null,
+      "published_commit": "e8fdf5d346b5cc8d412402188e20fe0245b57105",
+      "published_root": "e5bbeba6346329b06dfaf95755f7ab70c09c2ae9c1dc38606f0f5ecd2059c354",
+      "stale_verified_acquisition_rejected": false
+    },
+    "files/late-verified-lease": {
+      "acquisition_after_prune_rejected": true,
+      "after_gc": null,
+      "after_release_and_gc": null,
+      "after_rewrite_before_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "clone": null,
+      "old_commit": "947e662d58328c72c0f9db8ff67a60ccbc1d2f9c",
+      "old_root": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "peer_retains_after_first_release": null,
+      "published_commit": "e8fdf5d346b5cc8d412402188e20fe0245b57105",
+      "published_root": "e5bbeba6346329b06dfaf95755f7ab70c09c2ae9c1dc38606f0f5ecd2059c354",
+      "stale_verified_acquisition_rejected": true
+    },
+    "files/oid-only": {
+      "acquisition_after_prune_rejected": true,
+      "after_gc": null,
+      "after_release_and_gc": null,
+      "after_rewrite_before_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "clone": null,
+      "old_commit": "947e662d58328c72c0f9db8ff67a60ccbc1d2f9c",
+      "old_root": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "peer_retains_after_first_release": null,
+      "published_commit": "e8fdf5d346b5cc8d412402188e20fe0245b57105",
+      "published_root": "e5bbeba6346329b06dfaf95755f7ab70c09c2ae9c1dc38606f0f5ecd2059c354",
+      "stale_verified_acquisition_rejected": false
+    },
+    "files/verified-lease": {
+      "acquisition_after_prune_rejected": false,
+      "after_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "after_release_and_gc": null,
+      "after_rewrite_before_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "clone": {
+        "after_explicit_fetch": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+        "default_clone_lacks_pin": true
+      },
+      "old_commit": "947e662d58328c72c0f9db8ff67a60ccbc1d2f9c",
+      "old_root": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "peer_retains_after_first_release": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "published_commit": "e8fdf5d346b5cc8d412402188e20fe0245b57105",
+      "published_root": "e5bbeba6346329b06dfaf95755f7ab70c09c2ae9c1dc38606f0f5ecd2059c354",
+      "stale_verified_acquisition_rejected": false
+    },
+    "reftable/journal-parent": {
+      "acquisition_after_prune_rejected": false,
+      "after_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "after_release_and_gc": null,
+      "after_rewrite_before_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "clone": {
+        "after_explicit_fetch": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+        "default_clone_lacks_pin": true
+      },
+      "old_commit": "947e662d58328c72c0f9db8ff67a60ccbc1d2f9c",
+      "old_root": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "peer_retains_after_first_release": null,
+      "published_commit": "e8fdf5d346b5cc8d412402188e20fe0245b57105",
+      "published_root": "e5bbeba6346329b06dfaf95755f7ab70c09c2ae9c1dc38606f0f5ecd2059c354",
+      "stale_verified_acquisition_rejected": false
+    },
+    "reftable/late-explicit-lease": {
+      "acquisition_after_prune_rejected": false,
+      "after_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "after_release_and_gc": null,
+      "after_rewrite_before_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "clone": null,
+      "old_commit": "947e662d58328c72c0f9db8ff67a60ccbc1d2f9c",
+      "old_root": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "peer_retains_after_first_release": null,
+      "published_commit": "e8fdf5d346b5cc8d412402188e20fe0245b57105",
+      "published_root": "e5bbeba6346329b06dfaf95755f7ab70c09c2ae9c1dc38606f0f5ecd2059c354",
+      "stale_verified_acquisition_rejected": false
+    },
+    "reftable/late-verified-lease": {
+      "acquisition_after_prune_rejected": true,
+      "after_gc": null,
+      "after_release_and_gc": null,
+      "after_rewrite_before_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "clone": null,
+      "old_commit": "947e662d58328c72c0f9db8ff67a60ccbc1d2f9c",
+      "old_root": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "peer_retains_after_first_release": null,
+      "published_commit": "e8fdf5d346b5cc8d412402188e20fe0245b57105",
+      "published_root": "e5bbeba6346329b06dfaf95755f7ab70c09c2ae9c1dc38606f0f5ecd2059c354",
+      "stale_verified_acquisition_rejected": true
+    },
+    "reftable/oid-only": {
+      "acquisition_after_prune_rejected": true,
+      "after_gc": null,
+      "after_release_and_gc": null,
+      "after_rewrite_before_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "clone": null,
+      "old_commit": "947e662d58328c72c0f9db8ff67a60ccbc1d2f9c",
+      "old_root": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "peer_retains_after_first_release": null,
+      "published_commit": "e8fdf5d346b5cc8d412402188e20fe0245b57105",
+      "published_root": "e5bbeba6346329b06dfaf95755f7ab70c09c2ae9c1dc38606f0f5ecd2059c354",
+      "stale_verified_acquisition_rejected": false
+    },
+    "reftable/verified-lease": {
+      "acquisition_after_prune_rejected": false,
+      "after_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "after_release_and_gc": null,
+      "after_rewrite_before_gc": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "clone": {
+        "after_explicit_fetch": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+        "default_clone_lacks_pin": true
+      },
+      "old_commit": "947e662d58328c72c0f9db8ff67a60ccbc1d2f9c",
+      "old_root": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "peer_retains_after_first_release": "870ab20ea58ecef35708ee546fe94d2be909e1005fdfca54981c451714419440",
+      "published_commit": "e8fdf5d346b5cc8d412402188e20fe0245b57105",
+      "published_root": "e5bbeba6346329b06dfaf95755f7ab70c09c2ae9c1dc38606f0f5ecd2059c354",
+      "stale_verified_acquisition_rejected": false
+    }
+  },
+  "format": "rt23-pinned-git-retention/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14"
+}
