@@ -1,0 +1,100 @@
+{
+  "schema": "llmlang-finite-control-semantic-accounts/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "32f35e0b421beabeedf68b65531576ca43462559784d6f43d09650d499b1e804",
+    "Accounts.lean": "65d6b50a57df67e3c417d9ab3db9b89e559620cb82717cb78beef874f98c9cfb",
+    "axioms.txt": "fcfdb55c4f8e1392881c2dfb0c0bd3b17b0ced3c725ca50cd4ab311d8bfb0ffe"
+  },
+  "successor_order": [
+    "state-0",
+    "state-1",
+    "state-2",
+    "return",
+    "error"
+  ],
+  "observation_order": [
+    "return",
+    "error",
+    "deadlock",
+    "diverge"
+  ],
+  "counts": {
+    "graphs": 32768,
+    "outcome_comparisons": 98304,
+    "divergent_starts": 81984,
+    "deadlocking_starts": 6888,
+    "postconditions_per_mode": 786432,
+    "total_holds": 52887,
+    "liberal_holds": 292518,
+    "liberal_only_accepts_with_divergence": 239631,
+    "deadlock_hidden_by_return_error_only": 19290
+  },
+  "controls": {
+    "return_with_optional_self_loop": {
+      "successor_masks": [
+        9,
+        0,
+        0
+      ],
+      "outcomes": [
+        "return",
+        "diverge"
+      ],
+      "postcondition": [
+        "return"
+      ],
+      "total": false,
+      "liberal": true
+    },
+    "return_with_optional_deadlock": {
+      "successor_masks": [
+        10,
+        0,
+        0
+      ],
+      "outcomes": [
+        "return",
+        "deadlock"
+      ],
+      "postcondition": [
+        "return"
+      ],
+      "total": false,
+      "liberal": false
+    },
+    "allowed_deadlock": {
+      "successor_masks": [
+        10,
+        0,
+        0
+      ],
+      "outcomes": [
+        "return",
+        "deadlock"
+      ],
+      "postcondition": [
+        "return",
+        "deadlock"
+      ],
+      "total": true,
+      "liberal": true
+    },
+    "error_is_not_a_loop": {
+      "successor_masks": [
+        16,
+        0,
+        0
+      ],
+      "outcomes": [
+        "error"
+      ],
+      "postcondition": [
+        "return"
+      ],
+      "total": false,
+      "liberal": false
+    }
+  },
+  "ordered_comparisons_sha256": "6d616706346f2610ed60d009e52a824575b95af1d3ac24ac3234617b09d4f96a"
+}
