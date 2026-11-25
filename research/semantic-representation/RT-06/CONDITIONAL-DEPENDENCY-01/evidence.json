@@ -1,0 +1,479 @@
+{
+  "allow_either_extras_against_full_union": 1024,
+  "concrete_queries": 16384,
+  "control_locations": 4,
+  "external_truth_tables": 16,
+  "flag_states": 4,
+  "format": "rt06-conditional-dependency/1",
+  "interrupted_queries_returning_unknown": 1024,
+  "python": "3.12.14",
+  "rows": {
+    "allow-either": {
+      "extra_targets": 25424,
+      "missed_targets": 0,
+      "queries_with_extras": 16384,
+      "queries_with_misses": 0
+    },
+    "assume-external-false": {
+      "extra_targets": 2304,
+      "missed_targets": 9648,
+      "queries_with_extras": 2304,
+      "queries_with_misses": 9648
+    },
+    "exact": {
+      "extra_targets": 0,
+      "missed_targets": 0,
+      "queries_with_extras": 0,
+      "queries_with_misses": 0
+    },
+    "first-state": {
+      "extra_targets": 0,
+      "missed_targets": 4912,
+      "queries_with_extras": 0,
+      "queries_with_misses": 3408
+    },
+    "ignore-guards": {
+      "extra_targets": 53072,
+      "missed_targets": 0,
+      "queries_with_extras": 16384,
+      "queries_with_misses": 0
+    }
+  },
+  "source_programs": 256,
+  "union_witness": {
+    "added_by_local_override": [
+      "inconsistent"
+    ],
+    "configuration": [
+      "keep",
+      "keep",
+      "any",
+      "never"
+    ],
+    "entry_flags": 0,
+    "stable_union": [
+      "external-provider",
+      "legacy"
+    ]
+  },
+  "witnesses": {
+    "allow-either": {
+      "extra": {
+        "actual": [
+          "external-provider",
+          "inconsistent",
+          "legacy"
+        ],
+        "configuration": [
+          "keep",
+          "keep",
+          "any",
+          "never"
+        ],
+        "difference": [
+          "external-provider",
+          "inconsistent"
+        ],
+        "entry_flags": 0,
+        "expected": [
+          "legacy"
+        ],
+        "external_truth_table": 0,
+        "source": {
+          "check": [
+            {
+              "guard": "not-external",
+              "target": "inconsistent",
+              "update": "keep"
+            }
+          ],
+          "entry": [
+            {
+              "guard": "any",
+              "target": "shared",
+              "update": "keep"
+            },
+            {
+              "guard": "never",
+              "target": "relay",
+              "update": "keep"
+            }
+          ],
+          "relay": [
+            {
+              "guard": "low-one",
+              "target": "modern",
+              "update": "keep"
+            },
+            {
+              "guard": "not-external",
+              "target": "shared",
+              "update": "keep"
+            }
+          ],
+          "shared": [
+            {
+              "guard": "low-zero",
+              "target": "legacy",
+              "update": "keep"
+            },
+            {
+              "guard": "any",
+              "target": "relay",
+              "update": "keep"
+            },
+            {
+              "guard": "external",
+              "target": "external-provider",
+              "update": "keep"
+            },
+            {
+              "guard": "never",
+              "target": "dormant",
+              "update": "keep"
+            },
+            {
+              "guard": "external",
+              "target": "check",
+              "update": "keep"
+            }
+          ]
+        }
+      }
+    },
+    "assume-external-false": {
+      "extra": {
+        "actual": [
+          "legacy",
+          "modern"
+        ],
+        "configuration": [
+          "keep",
+          "toggle-low",
+          "any",
+          "never"
+        ],
+        "difference": [
+          "modern"
+        ],
+        "entry_flags": 0,
+        "expected": [
+          "external-provider",
+          "legacy"
+        ],
+        "external_truth_table": 1,
+        "source": {
+          "check": [
+            {
+              "guard": "not-external",
+              "target": "inconsistent",
+              "update": "keep"
+            }
+          ],
+          "entry": [
+            {
+              "guard": "any",
+              "target": "shared",
+              "update": "keep"
+            },
+            {
+              "guard": "never",
+              "target": "relay",
+              "update": "keep"
+            }
+          ],
+          "relay": [
+            {
+              "guard": "low-one",
+              "target": "modern",
+              "update": "keep"
+            },
+            {
+              "guard": "not-external",
+              "target": "shared",
+              "update": "toggle-low"
+            }
+          ],
+          "shared": [
+            {
+              "guard": "low-zero",
+              "target": "legacy",
+              "update": "keep"
+            },
+            {
+              "guard": "any",
+              "target": "relay",
+              "update": "keep"
+            },
+            {
+              "guard": "external",
+              "target": "external-provider",
+              "update": "keep"
+            },
+            {
+              "guard": "never",
+              "target": "dormant",
+              "update": "keep"
+            },
+            {
+              "guard": "external",
+              "target": "check",
+              "update": "keep"
+            }
+          ]
+        }
+      },
+      "miss": {
+        "actual": [
+          "legacy"
+        ],
+        "configuration": [
+          "keep",
+          "keep",
+          "any",
+          "never"
+        ],
+        "difference": [
+          "external-provider"
+        ],
+        "entry_flags": 0,
+        "expected": [
+          "external-provider",
+          "legacy"
+        ],
+        "external_truth_table": 1,
+        "source": {
+          "check": [
+            {
+              "guard": "not-external",
+              "target": "inconsistent",
+              "update": "keep"
+            }
+          ],
+          "entry": [
+            {
+              "guard": "any",
+              "target": "shared",
+              "update": "keep"
+            },
+            {
+              "guard": "never",
+              "target": "relay",
+              "update": "keep"
+            }
+          ],
+          "relay": [
+            {
+              "guard": "low-one",
+              "target": "modern",
+              "update": "keep"
+            },
+            {
+              "guard": "not-external",
+              "target": "shared",
+              "update": "keep"
+            }
+          ],
+          "shared": [
+            {
+              "guard": "low-zero",
+              "target": "legacy",
+              "update": "keep"
+            },
+            {
+              "guard": "any",
+              "target": "relay",
+              "update": "keep"
+            },
+            {
+              "guard": "external",
+              "target": "external-provider",
+              "update": "keep"
+            },
+            {
+              "guard": "never",
+              "target": "dormant",
+              "update": "keep"
+            },
+            {
+              "guard": "external",
+              "target": "check",
+              "update": "keep"
+            }
+          ]
+        }
+      }
+    },
+    "exact": {},
+    "first-state": {
+      "miss": {
+        "actual": [
+          "legacy"
+        ],
+        "configuration": [
+          "keep",
+          "toggle-low",
+          "any",
+          "never"
+        ],
+        "difference": [
+          "modern"
+        ],
+        "entry_flags": 0,
+        "expected": [
+          "legacy",
+          "modern"
+        ],
+        "external_truth_table": 0,
+        "source": {
+          "check": [
+            {
+              "guard": "not-external",
+              "target": "inconsistent",
+              "update": "keep"
+            }
+          ],
+          "entry": [
+            {
+              "guard": "any",
+              "target": "shared",
+              "update": "keep"
+            },
+            {
+              "guard": "never",
+              "target": "relay",
+              "update": "keep"
+            }
+          ],
+          "relay": [
+            {
+              "guard": "low-one",
+              "target": "modern",
+              "update": "keep"
+            },
+            {
+              "guard": "not-external",
+              "target": "shared",
+              "update": "toggle-low"
+            }
+          ],
+          "shared": [
+            {
+              "guard": "low-zero",
+              "target": "legacy",
+              "update": "keep"
+            },
+            {
+              "guard": "any",
+              "target": "relay",
+              "update": "keep"
+            },
+            {
+              "guard": "external",
+              "target": "external-provider",
+              "update": "keep"
+            },
+            {
+              "guard": "never",
+              "target": "dormant",
+              "update": "keep"
+            },
+            {
+              "guard": "external",
+              "target": "check",
+              "update": "keep"
+            }
+          ]
+        }
+      }
+    },
+    "ignore-guards": {
+      "extra": {
+        "actual": [
+          "dormant",
+          "external-provider",
+          "inconsistent",
+          "legacy",
+          "modern"
+        ],
+        "configuration": [
+          "keep",
+          "keep",
+          "any",
+          "never"
+        ],
+        "difference": [
+          "dormant",
+          "external-provider",
+          "inconsistent",
+          "modern"
+        ],
+        "entry_flags": 0,
+        "expected": [
+          "legacy"
+        ],
+        "external_truth_table": 0,
+        "source": {
+          "check": [
+            {
+              "guard": "not-external",
+              "target": "inconsistent",
+              "update": "keep"
+            }
+          ],
+          "entry": [
+            {
+              "guard": "any",
+              "target": "shared",
+              "update": "keep"
+            },
+            {
+              "guard": "never",
+              "target": "relay",
+              "update": "keep"
+            }
+          ],
+          "relay": [
+            {
+              "guard": "low-one",
+              "target": "modern",
+              "update": "keep"
+            },
+            {
+              "guard": "not-external",
+              "target": "shared",
+              "update": "keep"
+            }
+          ],
+          "shared": [
+            {
+              "guard": "low-zero",
+              "target": "legacy",
+              "update": "keep"
+            },
+            {
+              "guard": "any",
+              "target": "relay",
+              "update": "keep"
+            },
+            {
+              "guard": "external",
+              "target": "external-provider",
+              "update": "keep"
+            },
+            {
+              "guard": "never",
+              "target": "dormant",
+              "update": "keep"
+            },
+            {
+              "guard": "external",
+              "target": "check",
+              "update": "keep"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
