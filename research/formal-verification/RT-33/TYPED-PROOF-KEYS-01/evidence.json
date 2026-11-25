@@ -1,0 +1,64 @@
+{
+  "basis": "7e9b90e9c512379d1af387e5ae63a522653f263d",
+  "keys_by_property": {
+    "event-trace": {
+      "canonical_orders": 6,
+      "false-key-substitutions": {
+        "artifact=>check": 15360,
+        "closure=>admission": 48,
+        "obligation=>execution": 7680
+      },
+      "generic_cache_shape_accepts_missing_declared_role": true,
+      "independent_role_refusals": 3,
+      "invalidations": {
+        "admission": 32752,
+        "artifact": 16384,
+        "check": 31744,
+        "closure": 32704,
+        "execution": 32256,
+        "obligation": 24576
+      },
+      "matrix": 32768
+    },
+    "integer-result": {
+      "canonical_orders": 6,
+      "false-key-substitutions": {
+        "artifact=>check": 15360,
+        "closure=>admission": 48,
+        "obligation=>execution": 7680
+      },
+      "generic_cache_shape_accepts_missing_declared_role": true,
+      "independent_role_refusals": 3,
+      "invalidations": {
+        "admission": 32752,
+        "artifact": 16384,
+        "check": 31744,
+        "closure": 32704,
+        "execution": 32256,
+        "obligation": 24576
+      },
+      "matrix": 32768
+    }
+  },
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "signed_controls": {
+    "closure-with-unknown-assumption": "independent-check-unavailable",
+    "corrupt-cas": "artifact-unavailable",
+    "damaged-signature": "issuer-or-signature",
+    "exact": "admitted",
+    "missing-check": "independent-check-unavailable",
+    "missing-payload": "artifact-unavailable",
+    "old-policy-epoch": "wrong-binding",
+    "refresh-under-current-policy": "admitted",
+    "revoked-signer": "issuer-or-signature",
+    "second-occurrence": "wrong-binding",
+    "signed-rehashed-artifact": "independent-check-unavailable",
+    "unapproved-signer": "issuer-or-signature"
+  },
+  "source_hashes": {
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/cache_index.py": "2662ffa87450e05f075218b5593222262ff724e785ce512436bfa40443329b3b",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/language_version.py": "ef95a3198b49a6bd72db48aa600a50a2db2bf8fa922be3229e450ac57ab0d406",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458",
+    "research/toolchain-and-collaboration/RT-11/SIGNED-REBUILD-ADMISSION-01/run.py": "7ab2d18e95b59718b8f1efaba1ddcc1d7bff747719c8499dfd662f503c6fa51a"
+  }
+}
