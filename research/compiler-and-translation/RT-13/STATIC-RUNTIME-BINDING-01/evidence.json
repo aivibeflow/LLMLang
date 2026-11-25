@@ -1,0 +1,56 @@
+{
+  "profiles": {
+    "clang": {
+      "compiler": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+      "shared_objects_sha256": {
+        "provider-1.so": "2943aa4cc27902d96961b910a269d326cc83f81476f5c7c9d5a5e8f874a1ae6f",
+        "provider-2.so": "dab435daff05c5894b3607b326e9637a553cadb266e824cae615fc3029af1d91"
+      },
+      "statically_defined_step": true,
+      "trace": [
+        "static-before 1 28 9 1",
+        "retained-during-replacement 1",
+        "stale-new-call-rejected 1",
+        "independent-rejection-controls 2",
+        "runtime-after 2 28 9 1",
+        "static-after 1 28 9 1",
+        "runtime-already-started 1 4294967294 4294967295 1",
+        "retired-handle-released 1",
+        "runtime-no-binding 1",
+        "static-without-runtime-binding 1 28 9 1"
+      ],
+      "trials": 16
+    },
+    "gcc": {
+      "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+      "shared_objects_sha256": {
+        "provider-1.so": "3a8d98e53e23ea0080bd25a8dc613baa5a6e5d117e234ae312d3525a7b1fe1ad",
+        "provider-2.so": "b8871bf6b07ef9a7470c6b4428701124f4e02228625e33f726acafbafb5ba23c"
+      },
+      "statically_defined_step": true,
+      "trace": [
+        "static-before 1 28 9 1",
+        "retained-during-replacement 1",
+        "stale-new-call-rejected 1",
+        "independent-rejection-controls 2",
+        "runtime-after 2 28 9 1",
+        "static-after 1 28 9 1",
+        "runtime-already-started 1 4294967294 4294967295 1",
+        "retired-handle-released 1",
+        "runtime-no-binding 1",
+        "static-without-runtime-binding 1 28 9 1"
+      ],
+      "trials": 16
+    }
+  },
+  "source_sha256": {
+    "probe.c": "728f9cf7e6640a95fed40708d9c40cbb19777458eda0aff3473f811926cbffe8",
+    "provider.c": "dabb7710cb1f9ac9699c63d84ec89f2253392182a2a0f668214170640cc8b899",
+    "provider.h": "2ea4272d7e03dcf6889761b3dacd4da17846a8478d12e3ac3177c6c215db7649",
+    "run.py": "269a64802c23bc8bd1bfd97ffbbccafb7edb177ecb2dffc20358ffe50a3bbfc3"
+  },
+  "tools": {
+    "binutils": "GNU readelf (GNU Binutils for Debian) 2.44",
+    "glibc": "glibc 2.41"
+  }
+}
