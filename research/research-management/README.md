@@ -65,3 +65,4 @@ This direction groups related research studies without changing their RT identif
 - [Dafny contract boundary replays](RT-00/RT-00-C-DAFNY-CONTRACT-BOUNDARIES-REPLAY-2026-11-25.md) — reproduces the complete typed overlapping-copy and foreign C lookup ledgers.
 - [Structural warning coverage after research relocation](RT-00/RT-00-C-QUALITY-WARNING-COVERAGE-2026-11-25.md) — compares root-only and explicit report selection and checks the structural control.
 - [English and Russian concept proof boundaries](RT-00/RT-00-B-CONCEPT-TRANSLATION-PROOF-BOUNDARY-2026-11-25.md) — compares shared §18A claims and the English-only RT-36 proposal.
+- [Immutable component versions and state commits](RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md) — checks component, runtime and Toolchain publication boundaries with two worked cases.
