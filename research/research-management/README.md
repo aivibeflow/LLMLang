@@ -67,3 +67,4 @@ This direction groups related research studies without changing their RT identif
 - [Structural warning coverage after research relocation](RT-00/RT-00-C-QUALITY-WARNING-COVERAGE-2026-11-25.md) — compares root-only and explicit report selection and checks the structural control.
 - [English and Russian concept proof boundaries](RT-00/RT-00-B-CONCEPT-TRANSLATION-PROOF-BOUNDARY-2026-11-25.md) — compares shared §18A claims and the English-only RT-36 proposal.
 - [Immutable component versions and state commits](RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md) — checks component, runtime and Toolchain publication boundaries with two worked cases.
+- [Negative-result warning adjudication](RT-00/RT-00-C-NEGATIVE-RESULT-WARNING-ADJUDICATION-2026-11-25.md) — classifies exact source passages for all seven flagged nested reports.
