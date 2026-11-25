@@ -1,0 +1,2 @@
+'ScopedConditional.lower_matches_deep' depends on axioms: [propext]
+'ScopedConditional.checked_wire_correspondence' depends on axioms: [propext, Quot.sound]

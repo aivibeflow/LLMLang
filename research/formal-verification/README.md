@@ -28,6 +28,7 @@ This direction groups related research studies without changing their RT identif
 - [Incremental proof invalidation](RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md) — exact modular reuse, provider freshness and transitive evidence.
 - [Generated proof route comparison](RT-32/RT-32-PROOF-ROUTE-COMPARISON-2026-11-25.md) — Lean tactics, reusable lemmas, SMT witnesses and rejection controls.
 - [SPG proof dependency occurrences](RT-32/RT-32-SPG-PDG-OCCURRENCES-2026-11-25.md) — distinct occurrence discharges and exact transitive evidence.
+- [Conditional embedding correspondence](RT-32/RT-32-CONDITIONAL-EMBEDDING-CORRESPONDENCE-2026-11-25.md) — deep and shallow semantics for ordered guard and arm effects.
 - [RT-07 Lean and Logos proof boundary](RT-07/RT-07-LEAN-LOGOS-PROOF-BOUNDARY-RECHECK-2026-11-25.md) — distinguishes parser verdict conditions, source hypotheses and exact native axiom closure.
 - [RT-07 observation equivalence proof](RT-07/RT-07-STATE-RESULT-OBSERVATIONAL-EQUIVALENCE-2026-11-25.md) — kernel-checked equivalence of full observations and preservation of all postconditions.
 - [RT-07 operational, denotational and axiomatic comparison](RT-07/RT-07-THREE-SEMANTICS-STATE-RESULT-2026-11-25.md) — finite state/Result and ordered-history semantics.
