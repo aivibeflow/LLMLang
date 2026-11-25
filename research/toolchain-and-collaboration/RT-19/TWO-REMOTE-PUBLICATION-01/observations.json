@@ -1,0 +1,499 @@
+{
+  "git": "git version 2.56.1",
+  "ref_storage_outcomes": {
+    "files": {
+      "after-alpha": {
+        "after_process_exit": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "untouched"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "denied_observer": {
+          "outcome": "denied"
+        },
+        "observer_only": {
+          "outcome": "pending-append",
+          "participants": {
+            "alpha": "exact",
+            "beta": "untouched"
+          }
+        },
+        "terminal": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        }
+      },
+      "after-beta": {
+        "after_process_exit": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "denied_observer": {
+          "outcome": "denied"
+        },
+        "observer_only": {
+          "outcome": "pending-seal",
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          }
+        },
+        "terminal": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        }
+      },
+      "after-seal": {
+        "after_process_exit": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "prepared"
+        },
+        "denied_observer": {
+          "outcome": "denied"
+        },
+        "observer_only": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        },
+        "terminal": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        }
+      },
+      "before-delivery": {
+        "after_process_exit": {
+          "participants": {
+            "alpha": "untouched",
+            "beta": "untouched"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "denied_observer": {
+          "outcome": "denied"
+        },
+        "observer_only": {
+          "outcome": "pending-append",
+          "participants": {
+            "alpha": "untouched",
+            "beta": "untouched"
+          }
+        },
+        "terminal": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        }
+      },
+      "between-probes-and-release": {
+        "physical": {
+          "participants": {
+            "alpha": "diverged",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        },
+        "released": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        }
+      },
+      "different-release-present": {
+        "before_recovery": {
+          "participants": {
+            "alpha": "untouched",
+            "beta": "untouched"
+          },
+          "published": true,
+          "state": "prepared"
+        },
+        "recovery": {
+          "outcome": "release-conflict"
+        }
+      },
+      "diverged-alpha": {
+        "before_recovery": {
+          "participants": {
+            "alpha": "diverged",
+            "beta": "untouched"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "recovery": {
+          "outcome": "conflict",
+          "participants": {
+            "alpha": "diverged",
+            "beta": "untouched"
+          }
+        }
+      },
+      "diverged-beta": {
+        "before_recovery": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "diverged"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "recovery": {
+          "outcome": "conflict",
+          "participants": {
+            "alpha": "exact",
+            "beta": "diverged"
+          }
+        }
+      },
+      "receiver-refusal": {
+        "after_hook_failure": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "untouched"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "first": {
+          "outcome": "target-refused",
+          "target": "beta"
+        },
+        "recovered": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        }
+      },
+      "receiver-unavailable": {
+        "recovered": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        },
+        "recovery": {
+          "outcome": "pending-observation",
+          "participants": {
+            "alpha": "exact",
+            "beta": "unavailable"
+          }
+        },
+        "unavailable": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "unavailable"
+          },
+          "published": false,
+          "state": "prepared"
+        }
+      },
+      "released-and-live-head-diverged": {
+        "observer": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        },
+        "physical": {
+          "participants": {
+            "alpha": "diverged",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        },
+        "released": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        }
+      },
+      "unwitnessed-beta": {
+        "before_recovery": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "unwitnessed"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "recovery": {
+          "outcome": "conflict",
+          "participants": {
+            "alpha": "exact",
+            "beta": "unwitnessed"
+          }
+        }
+      }
+    },
+    "reftable": {
+      "after-alpha": {
+        "after_process_exit": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "untouched"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "denied_observer": {
+          "outcome": "denied"
+        },
+        "observer_only": {
+          "outcome": "pending-append",
+          "participants": {
+            "alpha": "exact",
+            "beta": "untouched"
+          }
+        },
+        "terminal": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        }
+      },
+      "after-beta": {
+        "after_process_exit": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "denied_observer": {
+          "outcome": "denied"
+        },
+        "observer_only": {
+          "outcome": "pending-seal",
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          }
+        },
+        "terminal": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        }
+      },
+      "after-seal": {
+        "after_process_exit": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "prepared"
+        },
+        "denied_observer": {
+          "outcome": "denied"
+        },
+        "observer_only": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        },
+        "terminal": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        }
+      },
+      "before-delivery": {
+        "after_process_exit": {
+          "participants": {
+            "alpha": "untouched",
+            "beta": "untouched"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "denied_observer": {
+          "outcome": "denied"
+        },
+        "observer_only": {
+          "outcome": "pending-append",
+          "participants": {
+            "alpha": "untouched",
+            "beta": "untouched"
+          }
+        },
+        "terminal": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        }
+      },
+      "between-probes-and-release": {
+        "physical": {
+          "participants": {
+            "alpha": "diverged",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        },
+        "released": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        }
+      },
+      "different-release-present": {
+        "before_recovery": {
+          "participants": {
+            "alpha": "untouched",
+            "beta": "untouched"
+          },
+          "published": true,
+          "state": "prepared"
+        },
+        "recovery": {
+          "outcome": "release-conflict"
+        }
+      },
+      "diverged-alpha": {
+        "before_recovery": {
+          "participants": {
+            "alpha": "diverged",
+            "beta": "untouched"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "recovery": {
+          "outcome": "conflict",
+          "participants": {
+            "alpha": "diverged",
+            "beta": "untouched"
+          }
+        }
+      },
+      "diverged-beta": {
+        "before_recovery": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "diverged"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "recovery": {
+          "outcome": "conflict",
+          "participants": {
+            "alpha": "exact",
+            "beta": "diverged"
+          }
+        }
+      },
+      "receiver-refusal": {
+        "after_hook_failure": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "untouched"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "first": {
+          "outcome": "target-refused",
+          "target": "beta"
+        },
+        "recovered": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        }
+      },
+      "receiver-unavailable": {
+        "recovered": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        },
+        "recovery": {
+          "outcome": "pending-observation",
+          "participants": {
+            "alpha": "exact",
+            "beta": "unavailable"
+          }
+        },
+        "unavailable": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "unavailable"
+          },
+          "published": false,
+          "state": "prepared"
+        }
+      },
+      "released-and-live-head-diverged": {
+        "observer": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        },
+        "physical": {
+          "participants": {
+            "alpha": "diverged",
+            "beta": "exact"
+          },
+          "published": true,
+          "state": "settled"
+        },
+        "released": {
+          "outcome": "settled",
+          "release": "c63cea04621865426cb4644cb123a3774b4dc2e8"
+        }
+      },
+      "unwitnessed-beta": {
+        "before_recovery": {
+          "participants": {
+            "alpha": "exact",
+            "beta": "unwitnessed"
+          },
+          "published": false,
+          "state": "prepared"
+        },
+        "recovery": {
+          "outcome": "conflict",
+          "participants": {
+            "alpha": "exact",
+            "beta": "unwitnessed"
+          }
+        }
+      }
+    }
+  },
+  "scenarios_per_storage": 12,
+  "sqlite": "3.53.1"
+}
