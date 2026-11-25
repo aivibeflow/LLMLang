@@ -1164,7 +1164,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Select initial POSIX edition and explicit conformance profile.
   - [x] Compare 24 header probes and 14 native static runs across two Linux libc profiles. Both baseline versions report 200809. GNU mode exposes pipe2 and dup3 on both, POSIX flags expose them on musl only, and neither profile declares close-on-fork flags. Edition selection remains open. [RT-10 POSIX edition descriptors](research/runtime-and-systems/RT-10/RT-10-POSIX-EDITION-DESCRIPTORS-2026-11-25.md)
 - [ ] Define LLMLang-facing API: close POSIX mapping versus safer typed facade.
-  - [ ] [WIP] Compare raw Linux readv results with typed vector progress, zero-request and EOF states on `research/all`.
+  - [x] Compare 108 native vector reads. Zero-length requests and EOF both return zero but have distinct typed meanings. A retry from the exact cursor preserves all seven bytes, while reissuing the full vector overwrites its completed prefix. [RT-10 typed readv progress](research/runtime-and-systems/RT-10/RT-10-POSIX-READV-TYPED-PROGRESS-2026-11-25.md)
 - [ ] Define a shared contract for multiple POSIX implementations.
   - [x] Replay both native probes with statically linked glibc 2.41 and musl 1.2.5. The exact linker-selected archives are distinct, and all 464 file fields and startup case outcomes match. Other kernels and POSIX profiles remain open. [POSIX cross-libc contract](research/runtime-and-systems/RT-10/RT-10-POSIX-CROSS-LIBC-2026-11-25.md)
 - [ ] Separate portable runtime implementation from native Linux syscall implementation.
