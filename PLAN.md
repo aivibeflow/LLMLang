@@ -387,6 +387,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define the difference between exact contract equality, refinement, substitutability, and behavioral equivalence.
   - [x] Compare refinement on 261,121 ordered finite contract pairs. The shared-domain shortcut accepts 19,110 pairs that fail full refinement. Two conforming bodies return the same value with different effect order. [RT-04 finite contract relations](research/language-design/RT-04/RT-04-CONTRACT-RELATIONS-FINITE-COMPARISON-2026-11-25.md)
 - [ ] Define how one operation can have many implementations and how one implementation can satisfy multiple contracts.
+  - [ ] [WIP] Check simultaneous conformance, joint feasibility of several contracts, and observable differences among conforming providers on `research/all`.
 - [ ] Define contract-based analogue discovery separately from call identity and dispatch.
 - [ ] Define the evidence required before substituting an implementation for a specific `OpHash`.
   - [x] Compare seven candidate providers and six receipt controls for exact operation substitution. Observation alone misses four violations of coverage, progress or resource bounds. A scoped context edit invalidates just the affected receipt in the declared model. [RT-04 property-scoped substitution](research/language-design/RT-04/RT-04-PROPERTY-SCOPED-OPERATION-SUBSTITUTION-2026-11-25.md)
