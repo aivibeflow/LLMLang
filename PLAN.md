@@ -864,6 +864,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 **Estimated research complexity:** **5/10** — controlled benchmark design and measurement; conclusions depend on representative workloads and hardware.
 
 - [ ] Validate the analytical model in `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
+  - [ ] [WIP] Recompute the analytical cache model and compare paired native speedup distributions and slower cases against both build baselines on `research/all`.
 - [ ] Implement reproducible benchmarks for cold, warm, local-edit, component-edit, and broad-change builds.
   - [x] Run 105 timed synthetic C++ builds across three methods and five stages. All 35 trial/stage artifact manifests agree. Content-keyed and incremental Make execute the same compiler counts and their observed time ranges overlap. Representative workloads and controlled hardware remain open. [RT-11 synthetic C++ cache timings](research/toolchain-and-collaboration/RT-11/RT-11-SYNTHETIC-CXX-CACHE-TIMINGS-2026-11-25.md)
 - [x] Measure cache hit rates by action type.
