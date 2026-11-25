@@ -1,0 +1,191 @@
+{
+  "comparisons": {
+    "context-mismatch": 56,
+    "resolved": 4,
+    "unavailable": 4
+  },
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "old_artifact_has_rows_for_moved_line": [
+    "0x401115",
+    "0x401119",
+    "0x401123",
+    "0x40112c"
+  ],
+  "old_line_includes_main_symbol": true,
+  "profiles": {
+    "base/-O0/dwarf4": {
+      "artifact": "21cc79bf9fc1f11cc6df54c22ba8c73f50cb2237b24ec4b2b7b0c4d462a88bf9",
+      "profile": "-O0/dwarf4",
+      "requested_line": 2,
+      "rows": {
+        "1": [
+          "0x401106"
+        ],
+        "2": [
+          "0x40110d"
+        ],
+        "3": [
+          "0x401113"
+        ],
+        "4": [
+          "0x401115",
+          "0x401119",
+          "0x401123",
+          "0x40112c"
+        ]
+      },
+      "source": "163a7bd5c17ab0d7e7fd822e9b28260b1f30a099877e97e28f46ec6c1bb7c778",
+      "symbols": {
+        "helper": [
+          4198662,
+          15
+        ],
+        "main": [
+          4198677,
+          25
+        ]
+      },
+      "target": "x86_64"
+    },
+    "base/-O0/stripped": {
+      "artifact": "81a947d9e4ca2f098f05c0cc3335ee071079787f1025c7f2b8c49116b680b35a",
+      "profile": "-O0/stripped",
+      "requested_line": 2,
+      "rows": {},
+      "source": "163a7bd5c17ab0d7e7fd822e9b28260b1f30a099877e97e28f46ec6c1bb7c778",
+      "symbols": {},
+      "target": "x86_64"
+    },
+    "base/-O2/dwarf4": {
+      "artifact": "62b5c146e724b80d7a5702234bd9ba16ae560a72381df55d0eca6c10bb3b387b",
+      "profile": "-O2/dwarf4",
+      "requested_line": 2,
+      "rows": {
+        "1": [
+          "0x401130"
+        ],
+        "2": [
+          "0x401130"
+        ],
+        "3": [
+          "0x401133"
+        ],
+        "4": [
+          "0x401020",
+          "0x40102a",
+          "0x401033"
+        ]
+      },
+      "source": "163a7bd5c17ab0d7e7fd822e9b28260b1f30a099877e97e28f46ec6c1bb7c778",
+      "symbols": {
+        "helper": [
+          4198704,
+          4
+        ],
+        "main": [
+          4198432,
+          20
+        ]
+      },
+      "target": "x86_64"
+    },
+    "base/-O2/stripped": {
+      "artifact": "f69fe5e215560415f9962743217ef0be4b2ea07d36d58860caa7b128017a8d1e",
+      "profile": "-O2/stripped",
+      "requested_line": 2,
+      "rows": {},
+      "source": "163a7bd5c17ab0d7e7fd822e9b28260b1f30a099877e97e28f46ec6c1bb7c778",
+      "symbols": {},
+      "target": "x86_64"
+    },
+    "moved/-O0/dwarf4": {
+      "artifact": "6f76b5f98014b73717eb1e74afa1a9f2d6a5727b21803a5aa97f75b14e0dd9a3",
+      "profile": "-O0/dwarf4",
+      "requested_line": 4,
+      "rows": {
+        "1": [
+          "0x401106"
+        ],
+        "4": [
+          "0x40110d"
+        ],
+        "5": [
+          "0x401113"
+        ],
+        "6": [
+          "0x401115",
+          "0x401119",
+          "0x401123",
+          "0x40112c"
+        ]
+      },
+      "source": "d37517e2d9bd1c5cf70f340e8e4b1ce4b82931e6aa4ca5150f88fd4f1a090653",
+      "symbols": {
+        "helper": [
+          4198662,
+          15
+        ],
+        "main": [
+          4198677,
+          25
+        ]
+      },
+      "target": "x86_64"
+    },
+    "moved/-O0/stripped": {
+      "artifact": "81a947d9e4ca2f098f05c0cc3335ee071079787f1025c7f2b8c49116b680b35a",
+      "profile": "-O0/stripped",
+      "requested_line": 4,
+      "rows": {},
+      "source": "d37517e2d9bd1c5cf70f340e8e4b1ce4b82931e6aa4ca5150f88fd4f1a090653",
+      "symbols": {},
+      "target": "x86_64"
+    },
+    "moved/-O2/dwarf4": {
+      "artifact": "ba6de8c9f965bef10414e5ae2321a9a245b904526e73261409a27212aa47c7ea",
+      "profile": "-O2/dwarf4",
+      "requested_line": 4,
+      "rows": {
+        "1": [
+          "0x401130"
+        ],
+        "4": [
+          "0x401130"
+        ],
+        "5": [
+          "0x401133"
+        ],
+        "6": [
+          "0x401020",
+          "0x40102a",
+          "0x401033"
+        ]
+      },
+      "source": "d37517e2d9bd1c5cf70f340e8e4b1ce4b82931e6aa4ca5150f88fd4f1a090653",
+      "symbols": {
+        "helper": [
+          4198704,
+          4
+        ],
+        "main": [
+          4198432,
+          20
+        ]
+      },
+      "target": "x86_64"
+    },
+    "moved/-O2/stripped": {
+      "artifact": "f69fe5e215560415f9962743217ef0be4b2ea07d36d58860caa7b128017a8d1e",
+      "profile": "-O2/stripped",
+      "requested_line": 4,
+      "rows": {},
+      "source": "d37517e2d9bd1c5cf70f340e8e4b1ce4b82931e6aa4ca5150f88fd4f1a090653",
+      "symbols": {},
+      "target": "x86_64"
+    }
+  },
+  "python": "3.12.14",
+  "readelf": "GNU readelf (GNU Binutils for Debian) 2.44",
+  "source_sha256": "f32c2ec8449b6969ec6382e1a49b9b37b970e41b70f47eb08cd2a2d60f8b6b31",
+  "wrong_target": "context-mismatch"
+}
