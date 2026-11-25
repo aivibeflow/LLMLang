@@ -63,6 +63,7 @@ This direction groups related research studies without changing their RT identif
 - [Durable typed transitions](RT-04/RT-04-DURABLE-TYPED-STATE-2026-11-25.md) checks exact concurrent publications, interruptions and historical retry scope.
 - [Scoped mutable regions](RT-04/RT-04-SCOPED-MUTABLE-REGIONS-2026-11-25.md) checks checked disjointness, scoped thread borrows and the owner lifetime.
 - [Async resource cancellation](RT-04/RT-04-ASYNC-RESOURCE-CANCELLATION-2026-11-25.md) checks guard lifetime, implicit cleanup and explicit finalization diagnostics.
+- [Typed capability errors](RT-04/RT-04-TYPED-CAPABILITY-ERRORS-2026-11-25.md) checks attenuated native permits, handled errors and ordered effect observations.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
 - [RT-04 property-scoped operation substitution](RT-04/RT-04-PROPERTY-SCOPED-OPERATION-SUBSTITUTION-2026-11-25.md) — checks coverage, complete observations, progress and resource evidence separately.
 - [RT-04 joint contract conformance](RT-04/RT-04-JOINT-CONTRACT-CONFORMANCE-2026-11-25.md) — checks simultaneous conformance, feasibility and different observable conforming providers.
