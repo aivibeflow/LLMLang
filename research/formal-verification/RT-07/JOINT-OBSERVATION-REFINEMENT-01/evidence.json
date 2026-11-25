@@ -1,0 +1,109 @@
+{
+  "schema": "llmlang-joint-observation-refinement/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "cb23258ffb2874c2399c5f004389e6c291e2c5b8c8a003ef3bceb04fd11803b3",
+    "Refinement.lean": "1a5ff27196d5f0c323b5e4b5d613dc1de8d33b44b7b68204bb366c71926b0543",
+    "axioms.txt": "3eaf91a706091340cee14a569f919702cd26d4834babf87ad98502bbd47ea595"
+  },
+  "outcome_order": [
+    [
+      "return",
+      []
+    ],
+    [
+      "return",
+      [
+        "read"
+      ]
+    ],
+    [
+      "return",
+      [
+        "read",
+        "write"
+      ]
+    ],
+    [
+      "return",
+      [
+        "write",
+        "read"
+      ]
+    ],
+    [
+      "error",
+      []
+    ],
+    [
+      "error",
+      [
+        "read"
+      ]
+    ],
+    [
+      "error",
+      [
+        "read",
+        "write"
+      ]
+    ],
+    [
+      "error",
+      [
+        "write",
+        "read"
+      ]
+    ]
+  ],
+  "contexts": 256,
+  "counts": {
+    "ordered_set_pairs": 65536,
+    "joint_refinements": 6561,
+    "joint_equalities": 256,
+    "marginal_equalities": 9070,
+    "false_marginal_refinements": 20912
+  },
+  "preserved_contexts": {
+    "tag": 4,
+    "trace": 16,
+    "marginals": 18
+  },
+  "witnesses": {
+    "equal_marginals_with_context_mismatch": {
+      "candidate": [
+        [
+          "return",
+          [
+            "read"
+          ]
+        ],
+        [
+          "error",
+          []
+        ]
+      ],
+      "reference": [
+        [
+          "return",
+          []
+        ],
+        [
+          "error",
+          [
+            "read"
+          ]
+        ]
+      ],
+      "context_true_on": [
+        [
+          "return",
+          [
+            "read"
+          ]
+        ]
+      ]
+    }
+  },
+  "ordered_checks_sha256": "68fdb8d0abbe91d66d9e58952d4d4b519e05191a72b16146560b8053850a4f79"
+}

@@ -162,6 +162,7 @@ Formal verification can establish that an implementation satisfies a formal spec
 - [Declared observation profile](research/formal-verification/RT-07/RT-07-DECLARED-OBSERVATION-PROFILE-2026-11-25.md) — seven observation axes, exact projection rules, and a replay of the component evidence.
 - [Finite control semantic accounts](research/formal-verification/RT-07/RT-07-FINITE-CONTROL-SEMANTIC-ACCOUNTS-2026-11-25.md) — operational, denotational and axiomatic agreement for return, error, deadlock and divergence.
 - [Coherent environmental observations](research/formal-verification/RT-07/RT-07-COHERENT-ENVIRONMENT-2026-11-25.md) — explicit snapshot assumptions and witnesses for wrapped generation tokens.
+- [Joint observation refinement](research/formal-verification/RT-07/RT-07-JOINT-OBSERVATION-REFINEMENT-2026-11-25.md) — preserving correlations between result tags and ordered traces.
 - [Prototype QF_LIA profile](research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_profile.py) and [typed query IR](research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_ir.py) — strict relational query builder and typed SMT-LIB renderer.
 - [QF_LIA CI workflow](research/../.github/workflows/qf-lia-profile.yml) — Python compile check and focused tests for the strict profile and deterministic canonical JSON exporter.
 - [QF_LIA focused tests](research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py) — accepted/rejected constructs, canonical IR, and renderer checks.
