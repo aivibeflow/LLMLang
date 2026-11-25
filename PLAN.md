@@ -179,6 +179,8 @@ The CNL round trip checks that the review text preserves the formal contract. Hu
 
 The development scope includes every class in the [verification coverage matrix](research/formal-verification/VERIFICATION-COVERAGE.ru.md). The rows below are required work, including the later profiles. The evidence routes describe an implementation sequence. A route counts as supported only for its declared semantics and evidence policy. Backend selection follows [ADR-018](draft/adr/018-formal-verification-backends.md).
 
+The [MVP release record](tools/llmlang_mvp/RELEASE.md#contract-ir-coverage-for-plan-13) maps the executable scalar and bounded trace coverage to these families. The broader models and evidence routes below remain part of the roadmap.
+
 | Contract family | Required Contract IR and controlled natural language | Profile and validation boundary |
 |---|---|---|
 | Preconditions and admissibility | Typed inputs, domains, ranges, nullability, validated references, required input state, quantifier bounds and admissibility of a callee's arguments. Distinguish caller obligations from provider promises. | Start with scalar Boogie + Z3 checks. Test boundaries and contradictory or vacuous preconditions. |
@@ -886,8 +888,8 @@ Deliver one reproducible LLMLang CLI application from a clean checkout. Use Calc
 
 The MVP workstream includes the Contract IR language, its formal semantics, typed grammar and versioned representation, as well as the LLMLang frontend and SPG, the interpreter and native backend, verification and evidence admission, controlled natural-language rendering and review, and CLI and CI integration. Use the typed Contract IR interface as the boundary for parallel implementation.
 
-- [ ] Agree on the smallest integration interface with the Contract IR workstream. Specify versioned typed input and diagnostics, shared numeric types and exact overflow rules, callable signatures, clause roles, outcome types, contract and clause references, and the observations exposed by the SPG. Define which component assigns canonical contract identity and how the consumer checks the schema version. Use small positive and negative fixtures as the interface acceptance cases.
-- [ ] Proceed in parallel with the frontend, SPG, execution and conformance fixtures. Build their consumers against the agreed interface or local fixtures while the Contract IR language is in development. Integrate with the actual implementation before MVP acceptance and reject unsupported versions explicitly. [Contract IR roadmap](#contract-ir-and-controlled-natural-language-rendering)
+- [x] Freeze the [versioned scalar Contract IR](tools/llmlang_mvp/CONTRACT-IR.md) with typed input and diagnostics, numeric and overflow rules, callable signatures, scoped clauses, outcomes and canonical contract identity.
+- [x] Integrate the typed interchange with the frontend, SPG, execution and verification and reject unsupported schemas and profiles explicitly. [Contract IR roadmap](#contract-ir-and-controlled-natural-language-rendering)
 
 <a name="implementation-sequence"></a>
 
@@ -903,14 +905,14 @@ The MVP workstream includes the Contract IR language, its formal semantics, type
 
 ### 8.1.3 MVP acceptance
 
-The [scalar implementation](tools/llmlang_mvp/README.md) provides a provisional frontend, reference interpreter, Rust generation, scalar Contract IR, controlled rendering, and Boogie + Z3 checks. Remaining integration work includes a Rust implementation of the Stage 0 compiler, source confirmation of general solver counterexamples, and authenticated review approval with clause-level provenance and scenario evidence. The full contract-family roadmap remains open.
+The [scalar implementation](tools/llmlang_mvp/README.md) provides a Rust Stage 0 compiler, reference interpreter, versioned typed Contract IR, controlled rendering, exact-revision signed approval and Boogie + Z3 checks with counterexample replay. The [release record](tools/llmlang_mvp/RELEASE.md) reports reproducible checks, the proof and test scopes, and the bounded trace coverage. The full contract-family roadmap remains open.
 
 
-- [ ] A clean checkout produces a native Calculator executable through the documented commands, and the frontend reconstructs the same canonical SPG on repeated runs.
-- [ ] The interpreter and native executable agree with the applicable RT-01 reference cases for Calculator. Hello and Echo pass the documented smoke tests. A passing build must report which RT-01 cases are in scope and identify any remaining exclusions.
-- [ ] A reviewer can see the full controlled rendering of the MVP contract, with checked round-trip fidelity and exact revision identity.
-- [ ] One conforming provider binds successfully. A provider with the same signature and a stronger precondition is rejected, and a provider whose body violates its own contract is rejected separately. An old `ImplHash` binding stays unchanged when a replacement is published. Evidence for a different binding or revision cannot authorize admission.
-- [ ] The release record states the supported source, execution and contract profiles and links the reproducible checks.
+- [x] A clean checkout produces a native Calculator executable through the documented commands, and the frontend reconstructs the same canonical SPG on repeated runs.
+- [x] The interpreter and native executable agree with the applicable RT-01 reference cases for Calculator. Hello and Echo pass the documented smoke tests. The conformance report lists every case in scope and the remaining exclusions.
+- [x] A reviewer can see the full controlled rendering of the MVP contract, with checked round-trip fidelity and exact revision identity.
+- [x] One conforming provider binds successfully. Stronger preconditions and body violations fail separate checks. An old `ImplHash` binding stays unchanged when a replacement is published. Stale approval or a mismatched binding blocks admission.
+- [x] The [release record](tools/llmlang_mvp/RELEASE.md) states the supported profiles and links the reproducible checks.
 
 Full self-hosting, additional dialects, semantic Git merge, broader native ABI support, and the full contract-family rollout follow this CLI milestone. An agent workflow over MCP can build on the same typed change, validation and review interfaces after the CLI path is reproducible. [ADR-015](draft/adr/015-toolchain-server-semantic-api.md) · [ADR-017](draft/adr/017-mcp-agent-object-format.md)
 

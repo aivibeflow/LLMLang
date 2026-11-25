@@ -1,6 +1,7 @@
 """Generate scalar LLMLang obligations and check them with Boogie and Z3."""
 
 import ast
+from dataclasses import asdict
 from hashlib import sha256
 from pathlib import Path
 import os
@@ -10,8 +11,9 @@ import signal
 import subprocess
 from tempfile import TemporaryDirectory
 
-from .contract import contract_hash
-from .frontend import _digest
+from . import runtime
+from .contract import admits_outcome, contract_hash, holds
+from .frontend import IDENTIFIER, _digest
 
 
 MIN_I64 = -(2**63)
@@ -22,6 +24,9 @@ COMPARISONS = {
 }
 ARITHMETIC = {ast.Add: "+", ast.Sub: "-", ast.Mult: "*"}
 BPL_TYPES = {"i64": "int", "bool": "bool"}
+CALL_REQUIREMENT = "callee public precondition: "
+PROVIDER_REQUIREMENT = "provider strengthens public preconditions"
+PROVIDER_GUARANTEE = "provider weakens public guarantees"
 SUPPORT = """\
 function {:inline} magnitude(x: int): int { (if x < 0 then -x else x) }
 function {:inline} quotient(a: int, b: int): int {
@@ -150,8 +155,12 @@ class Procedure:
     def emit_expr(self, expr, names, statements):
         kind, *parts = expr
         if kind == "i64":
+            if type(parts[0]) is not int or not MIN_I64 <= parts[0] <= MAX_I64:
+                raise Unsupported("invalid signed 64-bit SPG literal")
             return str(parts[0]), "i64"
         if kind == "bool":
+            if type(parts[0]) is not bool:
+                raise Unsupported("invalid Bool SPG literal")
             return str(parts[0]).lower(), "bool"
         if kind == "var":
             return names[parts[0]]
@@ -163,7 +172,10 @@ class Procedure:
             args = [self.emit_expr(arg, names, statements)[0] for arg in inputs]
             value = self.local(target["result"])
             error = self.local("i64")
-            statements.append(f"assert {precondition(self.contracts[callee]['public'], args)};")
+            statements.append(
+                f'assert {{:msg "{CALL_REQUIREMENT}{callee}"}} '
+                f"{precondition(self.contracts[callee]['public'], args)};"
+            )
             statements.append(
                 f"call {value}, {error} := {self.procedure_names[callee]}({', '.join(args)});"
             )
@@ -222,6 +234,15 @@ class Procedure:
                 raise Unsupported(f"unsupported program statement {kind}")
 
 
+def error_codes(functions, contracts):
+    encountered = {"ArithmeticOverflow", "DivisionByZero"}
+    for name, fn in functions.items():
+        encountered.update(error_names(fn["body"]))
+        for contract in contracts[name].values():
+            encountered.update(contract.errors)
+    return {name: index for index, name in enumerate(sorted(encountered), start=1)}
+
+
 def build_obligations(program, contracts):
     """Return Boogie source and the exact expected proof checks."""
     if program.get("schema") != "llmlang-spg/v1":
@@ -229,14 +250,11 @@ def build_obligations(program, contracts):
     functions = program["functions"]
     if not functions or functions.keys() != contracts.keys():
         raise Unsupported("every function must have an exact public/provided contract pair")
+    if any(not IDENTIFIER.fullmatch(name) for name in functions):
+        raise Unsupported("invalid SPG function name")
     check_call_graph(functions)
     names = {name: f"body_{index}" for index, name in enumerate(sorted(functions))}
-    encountered = {"ArithmeticOverflow", "DivisionByZero"}
-    for name, fn in functions.items():
-        encountered.update(error_names(fn["body"]))
-        for contract in contracts[name].values():
-            encountered.update(contract.errors)
-    errors = {name: index for index, name in enumerate(sorted(encountered), start=1)}
+    errors = error_codes(functions, contracts)
     declarations = [SUPPORT]
     checks = []
     for name, procedure_name in names.items():
@@ -293,13 +311,32 @@ def build_obligations(program, contracts):
             "{",
             f"  var result_value: {return_type};",
             "  var result_error: int;",
-            f'  assert {{:msg "provider strengthens public preconditions"}} {pre_provided};',
+            f'  assert {{:msg "{PROVIDER_REQUIREMENT}"}} {pre_provided};',
             "  havoc result_value, result_error;",
             f"  assume {result_range};",
             f"  assume {post_provided};",
-            f'  assert {{:msg "provider weakens public guarantees"}} {post_public};',
+            '  assume {:captureState "refinement_outcome"} true;',
+            f'  assert {{:msg "{PROVIDER_GUARANTEE}"}} {post_public};',
             "}",
         ]))
+        domains = {}
+        defaults = {param: False if typ == "bool" else 0 for param, typ in parameters}
+        for role, definition, predicate in (
+            ("public", public, pre_public), ("provided", provided, pre_provided),
+        ):
+            if holds(definition.requires, defaults):
+                domains[role] = {"status": "inhabited", "arguments": defaults}
+                continue
+            probe = procedure_name.replace("body_", f"domain_{role}_", 1)
+            declarations.append("\n".join([
+                f"procedure {probe}({args})",
+                f"  requires {conjunction(ranges)};",
+                f"  requires {predicate};",
+                "{",
+                '  assert {:msg "input-domain witness requested"} false;',
+                "}",
+            ]))
+            domains[role] = {"status": "unconfirmed", "procedure": probe}
         checks.append({
             "function": name,
             "impl_hash": fn["impl_hash"],
@@ -307,8 +344,195 @@ def build_obligations(program, contracts):
             "provided_contract_hash": contract_hash(provided),
             "body_procedure": procedure_name,
             "refinement_procedure": refinement_name,
+            "domains": domains,
         })
     return "\n\n".join(declarations) + "\n", checks
+
+
+_PROCEDURE_OUTPUT = re.compile(
+    r"(?ms)^Verifying (\w+) \.\.\.\n(.*?)(?=^Verifying |\Z)"
+)
+_MODEL = re.compile(r"(?ms)^\*\*\* MODEL\n(.*?)^\*\*\* END_MODEL\n?")
+_DISPOSITION = re.compile(r"(?m)^  \[[^\n]*\]  (\w+)$")
+
+
+def _state(model, name):
+    """Return scalar bindings from a single Boogie 3.5 model state."""
+    start = f"*** STATE {name}\n"
+    body = model.partition(start)[2]
+    if not body:
+        return {}
+    state, end, _ = body.partition("*** END_STATE\n")
+    if not end:
+        raise ValueError(f"incomplete model state {name}")
+    assignments = {}
+    for line in state.splitlines():
+        binding = re.fullmatch(r"  ([a-zA-Z0-9_]+) ->[ \t]*(.*)", line)
+        if not binding or binding[1] in assignments:
+            raise ValueError(f"invalid model state {name}")
+        assignments[binding[1]] = binding[2].strip()
+    return assignments
+
+
+def _scalar(state, name, kind, completed):
+    value = state.get(name)
+    if value == "":
+        # Boogie leaves unconstrained scalar symbols blank. A concrete completion is
+        # only a candidate and must still satisfy all replayed premises.
+        completed.append(name)
+        return False if kind == "bool" else 0
+    if kind == "bool":
+        if value in ("true", "false"):
+            return value == "true"
+    elif value is not None:
+        negative = re.fullmatch(r"\(- ([0-9]+)\)", value)
+        if negative or re.fullmatch(r"-?[0-9]+", value):
+            number = -int(negative[1]) if negative else int(value)
+            if MIN_I64 <= number <= MAX_I64:
+                return number
+    raise ValueError(f"missing or invalid {kind} model value for {name}")
+
+
+def _model_arguments(model, function, completed):
+    initial = _state(model, "<initial>")
+    return {
+        name: _scalar(initial, f"arg_{index}", kind, completed)
+        for index, (name, kind) in enumerate(function["params"])
+    }
+
+
+def _replay(program, contracts, error_tags, function, obligation, messages, model):
+    completed = []
+    row = {"status": "unconfirmed"}
+    fn = program["functions"][function]
+    public, provided = (contracts[function][role] for role in ("public", "provided"))
+    try:
+        arguments = _model_arguments(model, fn, completed)
+        row["arguments"] = arguments
+        if obligation == "refinement":
+            if not holds(public.requires, arguments):
+                raise ValueError("model inputs violate the public precondition")
+            if PROVIDER_REQUIREMENT in messages:
+                row["kind"] = "provider-precondition"
+                if not holds(provided.requires, arguments):
+                    row["status"] = "confirmed-contract"
+            elif PROVIDER_GUARANTEE in messages:
+                row["kind"] = "provider-guarantee"
+                if not holds(provided.requires, arguments):
+                    raise ValueError("model inputs violate the provided precondition")
+                state = _state(model, "refinement_outcome")
+                tag = _scalar(state, "result_error", "i64", completed)
+                if tag == 0:
+                    candidate = runtime.Outcome(
+                        value=_scalar(state, "result_value", fn["result"], completed)
+                    )
+                elif tag in error_tags:
+                    candidate = runtime.Outcome(error=error_tags[tag])
+                else:
+                    raise ValueError("unknown model outcome tag")
+                row["model_outcome"] = asdict(candidate)
+                if (admits_outcome(provided, arguments, candidate)
+                        and not admits_outcome(public, arguments, candidate)):
+                    row["status"] = "confirmed-contract"
+                    observed = runtime.evaluate(program, function, tuple(arguments.values()))
+                    row["observed_outcome"] = asdict(observed)
+                    if (admits_outcome(provided, arguments, observed)
+                            and not admits_outcome(public, arguments, observed)):
+                        row["status"] = "confirmed-source"
+        else:
+            if not holds(provided.requires, arguments):
+                raise ValueError("model inputs violate the provided precondition")
+            expected_callee = next(
+                (line.removeprefix(CALL_REQUIREMENT) for line in messages
+                 if line.startswith(CALL_REQUIREMENT)),
+                None,
+            )
+
+            def observe_call(caller, callee, values):
+                if caller == function and callee == expected_callee:
+                    callee_public = contracts[callee]["public"]
+                    bindings = dict(zip((name for name, _ in callee_public.parameters),
+                                        values, strict=True))
+                    if not holds(callee_public.requires, bindings):
+                        row["invalid_call"] = {"callee": callee, "arguments": bindings}
+
+            observed = runtime.evaluate(
+                program, function, tuple(arguments.values()), observe_call=observe_call,
+            )
+            row["observed_outcome"] = asdict(observed)
+            if expected_callee is not None:
+                row["kind"] = "callee-precondition"
+                if "invalid_call" in row:
+                    row["status"] = "confirmed-source"
+            else:
+                row["kind"] = "body-postcondition"
+                if not admits_outcome(provided, arguments, observed):
+                    row["status"] = "confirmed-source"
+    except (ValueError, KeyError, RecursionError) as exc:
+        row["status"] = "unconfirmed"
+        row["diagnostic"] = str(exc)
+    if completed:
+        row["completed_model_symbols"] = completed
+    return row
+
+
+def _record_domain(domain, section, function, definition):
+    disposition = _DISPOSITION.search(section)
+    if disposition and disposition[1] == "verified":
+        domain["status"] = "empty"
+        domain["diagnostic"] = "typed preconditions admit no input"
+        return 0
+    if not disposition or disposition[1] != "error":
+        domain["diagnostic"] = "Boogie did not resolve the input-domain probe"
+        return 0
+
+    try:
+        model = _MODEL.search(section)
+        if not model:
+            raise ValueError("Boogie did not report a complete input-domain model")
+        completed = []
+        arguments = _model_arguments(model[1], function, completed)
+        if not holds(definition.requires, arguments):
+            raise ValueError("model inputs do not satisfy the precondition")
+        domain.update(status="inhabited", arguments=arguments)
+        if completed:
+            domain["completed_model_symbols"] = completed
+    except (ValueError, KeyError, RecursionError) as exc:
+        domain["diagnostic"] = str(exc)
+    # A successful probe produces an expected error for its one false assertion.
+    return 1
+
+
+def _record_dispositions(output, checks, program, contracts):
+    sections = dict(_PROCEDURE_OUTPUT.findall(output))
+    error_tags = {tag: name for name, tag in error_codes(program["functions"], contracts).items()}
+    probe_errors = 0
+    for check in checks:
+        function = check["function"]
+        for role, domain in check["domains"].items():
+            if "procedure" in domain:
+                probe_errors += _record_domain(
+                    domain, sections.get(domain["procedure"], ""),
+                    program["functions"][function], contracts[function][role],
+                )
+        for obligation in ("body", "refinement"):
+            section = sections.get(check[f"{obligation}_procedure"], "")
+            disposition = _DISPOSITION.search(section)
+            check[obligation] = disposition[1] if disposition else "unreported"
+            if check[obligation] != "error":
+                continue
+            witnesses = []
+            previous = 0
+            for model in _MODEL.finditer(section):
+                messages = section[previous:model.start()].splitlines()
+                witnesses.append(_replay(
+                    program, contracts, error_tags, function, obligation, messages, model[1],
+                ))
+                previous = model.end()
+            check[f"{obligation}_counterexamples"] = witnesses or [
+                {"status": "unconfirmed", "diagnostic": "Boogie did not report a complete model"}
+            ]
+    return probe_errors
 
 
 def verify(program, contracts, *, boogie="boogie", z3=None, timeout=30):
@@ -343,7 +567,7 @@ def verify(program, contracts, *, boogie="boogie", z3=None, timeout=30):
             with subprocess.Popen(
                 [boogie_path, "/proverOpt:SOLVER=z3",
                  f"/proverOpt:PROVER_PATH={Path(z3_path).resolve()}",
-                 "/proverWarnings:1", "/trace",
+                 "/proverWarnings:1", "/trace", "/printModel:1",
                  p.name],
                 cwd=directory, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                 text=True, start_new_session=True,
@@ -363,29 +587,40 @@ def verify(program, contracts, *, boogie="boogie", z3=None, timeout=30):
     except (OSError, subprocess.CalledProcessError) as exc:
         return dict(report, status="ERROR", diagnostic=str(exc))
     output = stdout + stderr
-    dispositions = dict(re.findall(
-        r"(?m)^Verifying (\w+) \.\.\.\n(?:\[TRACE\][^\n]*\n)*"
-        r"  \[[^\n]*\]  (\w+)",
-        output,
-    ))
-    for check in checks:
-        check["body"] = dispositions.get(check["body_procedure"], "unreported")
-        check["refinement"] = dispositions.get(check["refinement_procedure"], "unreported")
+    expected_probe_errors = _record_dispositions(output, checks, program, contracts)
     summary = re.search(r"finished with (\d+) verified, (\d+) errors?([^\n]*)", output)
+    domains = [domain for check in checks for domain in check["domains"].values()]
+    if summary:
+        report["boogie_summary"] = {
+            "verified": int(summary[1]),
+            "errors": int(summary[2]),
+            "expected_input_domain_probe_errors": expected_probe_errors,
+        }
     if re.search(r"timed out|out of (?:resources?|memory)|inconclusive", output, re.I):
         status = "UNKNOWN"
     elif re.search(r"prover (?:error|warning)|fatal error|internal error", output, re.I) or not summary:
         status = "ERROR"
-    elif int(summary[2]):
+    elif any(domain["status"] == "empty" for domain in domains):
         status = "REJECTED"
+    elif int(summary[2]) > expected_probe_errors:
+        confirmed = any(
+            witness["status"] in {"confirmed-source", "confirmed-contract"}
+            for check in checks
+            for obligation in ("body", "refinement")
+            for witness in check.get(f"{obligation}_counterexamples", ())
+        )
+        status = "REJECTED" if confirmed else "UNKNOWN"
+    elif any(domain["status"] != "inhabited" for domain in domains):
+        status = "UNKNOWN"
     elif (returncode == 0 and int(summary[1]) == 2 * len(checks)
+          and int(summary[2]) == expected_probe_errors
           and all(check["body"] == check["refinement"] == "verified" for check in checks)):
         status = "VERIFIED"
     else:
         status = "ERROR"
     # Keep the solver's diagnostic but omit trace performance and local tool paths.
     diagnostic = "\n".join(
-        line for line in output.splitlines()
+        line for line in _MODEL.sub("", output).splitlines()
         if not line.startswith(("  [", "[TRACE]", "Parsing "))
     ).strip()
     return dict(report, status=status, diagnostic=diagnostic)

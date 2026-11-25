@@ -13,6 +13,7 @@ from dataclasses import dataclass
 import hashlib
 import json
 import keyword
+import operator
 import re
 
 
@@ -50,6 +51,65 @@ CLAUSE_HEADER = re.compile(r"Clause ([A-Za-z0-9_-]+)\. ")
 
 class ContractError(ValueError):
     """Contract data or controlled text violates the supported profile."""
+
+
+_EVALUATE_BINARY = {
+    ast.Add: operator.add,
+    ast.Sub: operator.sub,
+    ast.Mult: operator.mul,
+    ast.Eq: operator.eq,
+    ast.NotEq: operator.ne,
+    ast.Lt: operator.lt,
+    ast.LtE: operator.le,
+    ast.Gt: operator.gt,
+    ast.GtE: operator.ge,
+}
+
+
+def _evaluate(node: ast.expr, names: dict[str, int | bool]) -> int | bool:
+    match node:
+        case ast.Constant(value=value):
+            return value
+        case ast.Name(id=name):
+            return names[name]
+        case ast.UnaryOp(op=ast.Not(), operand=value):
+            return not _evaluate(value, names)
+        case ast.UnaryOp(op=ast.USub(), operand=value):
+            return -_evaluate(value, names)
+        case ast.BinOp(left=left, op=op, right=right):
+            return _EVALUATE_BINARY[type(op)](_evaluate(left, names), _evaluate(right, names))
+        case ast.Compare(left=left, ops=[op], comparators=[right]):
+            return _EVALUATE_BINARY[type(op)](_evaluate(left, names), _evaluate(right, names))
+        case ast.BoolOp(op=ast.And(), values=values):
+            return all(_evaluate(value, names) for value in values)
+        case ast.BoolOp(op=ast.Or(), values=values):
+            return any(_evaluate(value, names) for value in values)
+        case ast.Call(func=ast.Name(id="quotient"), args=[left, right], keywords=[]):
+            numerator = _evaluate(left, names)
+            denominator = _evaluate(right, names)
+            if denominator == 0:
+                return 0
+            magnitude = abs(numerator) // abs(denominator)
+            return -magnitude if (numerator < 0) != (denominator < 0) else magnitude
+    raise ContractError(f"unsupported scalar predicate node: {ast.dump(node)}")
+
+
+def holds(clauses: tuple[ast.expr, ...], names: dict[str, int | bool]) -> bool:
+    """Evaluate the conjunction of validated, normalized scalar clauses."""
+    return all(_evaluate(clause, names) is True for clause in clauses)
+
+
+def admits_outcome(contract: Contract, names: dict[str, int | bool], outcome) -> bool:
+    """Check an outcome against a contract independently of its input domain."""
+    if outcome.error is None:
+        if contract.returns == "Bool":
+            if type(outcome.value) is not bool:
+                return False
+        elif type(outcome.value) is not int or not -(2**63) <= outcome.value < 2**63:
+            return False
+        return holds(contract.ensures, dict(names, result=outcome.value))
+    clauses = contract.errors.get(outcome.error)
+    return outcome.value is None and clauses is not None and holds(clauses, names)
 
 
 def _expression(source: str) -> ast.expr:
