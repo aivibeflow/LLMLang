@@ -589,6 +589,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 **Estimated research complexity:** **8/10** — requires a precise executable semantics and correspondence with source programs.
 
 - [ ] Compare operational, denotational, and axiomatic semantics for the initial LLMLang core.
+  - [ ] [WIP] Compare graph execution, outcome denotations and total/partial predicate transformers for a finite nondeterministic control fragment on `research/all`.
   - [x] Compare operational, denotational and weakest-precondition accounts for a closed state/Result fragment. All 8,210 observations and 57,470 predicate comparisons agree. A restored cell preserves the final value while violating the no-write property. [RT-07 three-semantics pilot](research/formal-verification/RT-07/RT-07-THREE-SEMANTICS-STATE-RESULT-2026-11-25.md)
 - [x] Define an executable reference semantics for a deliberately small subset.
   - [x] Publish a reference entry for the closed state/Result fragment. All 8,210 typed wire observations agree with the recursive and small-step evaluators. Three process-level positives and 12 admission refusals pass. The executable subset leaves production syntax and source correspondence open. [State/Result reference entry](research/formal-verification/RT-07/RT-07-STATE-RESULT-REFERENCE-ENTRY-2026-11-25.md)
