@@ -390,6 +390,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [x] Define how one operation can have many implementations and how one implementation can satisfy multiple contracts.
   - [x] Prove joint conformance for applicable contracts. Among 1,048,576 finite pairs, 93,600 are individually feasible and have no common provider. Both GCC profiles match the 32-row native observation reference, and 385 contracts allow equal results with different effects. [Joint contract conformance](research/language-design/RT-04/RT-04-JOINT-CONTRACT-CONFORMANCE-2026-11-25.md)
 - [ ] Define contract-based analogue discovery separately from call identity and dispatch.
+  - [ ] [WIP] Compare finite structural analogue rankings with exact refinement and fixed operation/provider dispatch on `research/all`.
 - [ ] Define the evidence required before substituting an implementation for a specific `OpHash`.
   - [x] Compare seven candidate providers and six receipt controls for exact operation substitution. Observation alone misses four violations of coverage, progress or resource bounds. A scoped context edit invalidates just the affected receipt in the declared model. [RT-04 property-scoped substitution](research/language-design/RT-04/RT-04-PROPERTY-SCOPED-OPERATION-SUBSTITUTION-2026-11-25.md)
 - [ ] Define verified adapters for compatible but non-identical contracts.
