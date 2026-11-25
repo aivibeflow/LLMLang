@@ -1,0 +1,3 @@
+'coherent_of_equal_generation' does not depend on any axioms
+'equal_token_within_same_quotient' depends on axioms: [propext]
+'wraps_allow_mixed_origins' does not depend on any axioms
