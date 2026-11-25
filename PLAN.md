@@ -1764,8 +1764,8 @@ Research a typed, versioned object describing the task an agent is expected to p
 - [ ] Specify a candidate canonical description covering intent, input/output roles, preconditions, postconditions/behavior, effects/capabilities, errors, constraints, and optional cost characteristics.
 - [ ] Compare single-vector, multi-aspect, structured, lexical, and hybrid fingerprints/retrieval channels; keep embedding and ANN choices replaceable.
 - [ ] Define intent-only, structured-requirement, and hybrid query forms, including provenance for explicit hard constraints versus soft preferences.
-- [ ] Prototype KNN/ANN candidate retrieval and structured metadata/contract filters; preserve retrieval-channel and score provenance.
-  - [ ] [WIP] Prototype exact and approximate neighbor search with structured scope and contract evidence, and verify channel and score provenance (#335).
+- [x] Prototype KNN/ANN candidate retrieval and structured metadata/contract filters; preserve retrieval-channel and score provenance.
+  - [x] Compare exact and approximate KD-tree retrieval over 3,072 functions and 192 queries. Pre-filtered ANN at eps 0.6 recovers 1,528 of 1,536 exact scoped pairs and 325 of 327 compatible pairs. Global top-eight followed by filtering leaves 102 empty shortlists. Exact receipt mismatch stays pending. Real embeddings and production measurement remain open. [ANN and contract filters](research/semantic-representation/RT-35/RT-35-ANN-CONTRACT-FILTER-2026-11-25.md)
 - [ ] Define and test hard compatibility checks for types, ownership, preconditions, postconditions, effects, capabilities, and failure behavior. Similarity scores must never authorize compatibility.
 - [ ] Specify unknown/incomplete evidence behavior, exclusion reasons, ranking, explanation, and ambiguity handling; do not silently bind an arbitrary top-1 result.
 - [ ] Demonstrate exact hash resolution and call binding against an immutable semantic snapshot; runtime invocation must not repeat semantic search.
