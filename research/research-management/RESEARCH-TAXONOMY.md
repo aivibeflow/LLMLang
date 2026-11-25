@@ -21,6 +21,8 @@ RT-00 replays the RT-37 firmware and embedded model ledgers and records separate
 
 RT-37 compares the exact LM3S6965 part documentation with pinned Cortex-M3 emulator observations for SysTick, NVIC and GPIO. [Part register evidence](../runtime-and-systems/RT-37/RT-37-LM3S6965-PART-REGISTER-2026-11-25.md)
 
+RT-37 exercises separate GPIO and NVIC acknowledgment scopes with reproducible qtest register observations. [GPIO edge acknowledgment](../runtime-and-systems/RT-37/RT-37-GPIO-EDGE-ACK-2026-11-25.md)
+
 RT-00 reproduces eight RT-32 proof and lifetime ledgers and five named concrete antecedent ledgers. [RT-32 lifetime replay](RT-00/RT-00-RT32-LIFETIME-REPLAY-2026-11-25.md)
 
 RT-07 compares complete four-participant native increment histories using both permutation and interval-based witness checks. [Four-participant histories](../formal-verification/RT-07/RT-07-FOUR-COUNTER-HISTORIES-2026-11-25.md)

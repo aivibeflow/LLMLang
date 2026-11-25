@@ -24,6 +24,8 @@ The Cortex-M3 replay rechecks DEP-017, DEP-019 and DEP-024 across twelve exact l
 
 TI's exact LM3S6965 register manual refines DEP-246 with named read, write-one alias and bit-mask effects. Matching emulator cases establish their local observation scope. Debugger-originated reads, GPIO edge latch and hardware retain separate premises. [Part register evidence](../runtime-and-systems/RT-37/RT-37-LM3S6965-PART-REGISTER-2026-11-25.md)
 
+The GPIO edge qtest observations refine DEP-246 and DEP-247 by separating raw edge acknowledgment, interrupt masking and NVIC pending clearance. A peripheral line that remains asserted prevents effective controller-only clearing in the checked QEMU model. [GPIO edge acknowledgment](../runtime-and-systems/RT-37/RT-37-GPIO-EDGE-ACK-2026-11-25.md)
+
 The RT-32 cohort confirms selected DEP-007, DEP-012 and DEP-054 interfaces by independently reproducing the exact antecedent bytes, proof and cache keys. Definitionally usable proof terms, byte-exact module reuse and closure over current binding and trust have separate admission conditions. [RT-32 lifetime replay](RT-00/RT-00-RT32-LIFETIME-REPLAY-2026-11-25.md)
 
 The four-participant history oracle refines DEP-007, DEP-014, DEP-018 and DEP-019 for a no-wrap sequentially consistent increment. Full real-time precedence and exact returns separate an all-history update guarantee from one sequential proof. [Four-participant histories](../formal-verification/RT-07/RT-07-FOUR-COUNTER-HISTORIES-2026-11-25.md)

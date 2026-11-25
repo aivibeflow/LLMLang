@@ -4,6 +4,8 @@ The tracked-archive replay checks twelve ledgers across Cortex-M3 firmware, link
 
 The manufacturer part manual supplies scoped LM3S6965 register rules and separates debugger, edge latch and physical claims. [Part register evidence](RT-37-LM3S6965-PART-REGISTER-2026-11-25.md)
 
+The GPIO edge test distinguishes a retained raw latch, masked delivery and pending-state clearance on two emulated ports. [GPIO edge acknowledgment](RT-37-GPIO-EDGE-ACK-2026-11-25.md)
+
 **Status:** Bounded Cortex-M3 startup, runtime closure, timer/GPIO and stack slices checked in QEMU. Broader firmware and timing profile open.
 
 **Priority:** P0 shared profile feasibility; P1 firmware/real-time pilot and advanced targets.  
