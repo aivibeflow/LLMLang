@@ -1402,6 +1402,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define selection constraints: target, ABI, capabilities, runtime, security, performance, and deployment environment.
   - [x] Prove profile identity, capability/feature inclusion and exact matching receipts for mandatory bounds. A 4,200-cell matrix matches the independent oracle. Overlap and number-only checks each admit 18 invalid cases. Runtime identity and policy authority remain explicit inputs. [RT-13 typed selection constraints](research/compiler-and-translation/RT-13/RT-13-TYPED-SELECTION-CONSTRAINTS-2026-11-25.md)
 - [ ] Define static binding versus runtime dispatch.
+  - [ ] [WIP] Compare a statically bound artifact with runtime dispatch across provider replacement and retained invocation leases.
 - [ ] Define specialization and multi-versioning.
   - [x] Prove guarded division equivalence in Lean and match 56,304 observations across GCC and Clang. The specialized route requires checked evidence and an exact power-of-two divisor. Omitting that condition changes 1,506 results. General multi-version policy remains open. [Guarded specialization](research/compiler-and-translation/RT-13/RT-13-GUARDED-SPECIALIZATION-2026-11-25.md)
 - [ ] Define cost models and profile-guided selection.
