@@ -448,7 +448,7 @@ RT-26 studies resource accounting and enforcement as a potential high-level LLML
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
 |---|---|---|---|---|
-| DEP-100 | RT-03 → RT-26 | Constrains | Resource scopes, budget declarations, limit events, and handler outcomes must have precise evaluation, error, effect, and observable semantics. | Strong hypothesis |
+| DEP-100 | RT-03 → RT-26 | Constrains | Resource scopes, budget declarations, limit events, and handler outcomes must have precise evaluation, error, effect, and observable semantics. A transaction binds limit events, typed decisions and hierarchical hard caps even when native output settles less than its admitted reservation. [Durable limit handlers](../runtime-and-systems/RT-26/RT-26-DURABLE-LIMIT-HANDLERS-2026-11-25.md) | Strong hypothesis |
 | DEP-101 | RT-04 → RT-26 | Constrains | Ownership, effects, capabilities, and concurrency determine who may allocate, consume, transfer, observe, or modify a task's resource budget. | Strong hypothesis |
 | DEP-102 | RT-10 → RT-26 | Requires | Runtime task identity, scheduling, coroutine lifecycle, cancellation, cleanup, and platform services provide the execution points needed for accounting and enforcement. Distinct logical and kernel disk counters can produce different budget decisions; exact primitive settlement binds the task metric. [Native disk accounting](../runtime-and-systems/RT-26/RT-26-NATIVE-DISK-ACCOUNTING-2026-11-25.md) | Strong hypothesis |
 | DEP-103 | RT-13 → RT-26 | Constrains | Backend and target differences determine which counters, accounting APIs, preemption mechanisms, and enforcement guarantees are available. | Strong hypothesis |
