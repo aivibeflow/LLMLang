@@ -1,0 +1,98 @@
+{
+  "basis": "4ec1a3fafc4aff01fa58067c46fd0f9bf452a3f1",
+  "checked_request": {
+    "artifact": "8b068931f684b53e80e7271e48849e8de27de5d826b921fba16dff1dcb99a529",
+    "dependencies": [
+      [
+        "expectation",
+        "da12ae96917a64fd3d8b9ad8711cc921755d36d39d54af44273088b19cec54b7"
+      ],
+      [
+        "observed-source",
+        "ab7e7b3a42a54291bbf60822526cf6238fe61247e9b7bffcb7b613cdfa2205d5"
+      ]
+    ],
+    "epoch": 5,
+    "query": "5c3c223934b65a7b179c604a7a0ac3552fa377b8d8d0a332842bd7101e99075f",
+    "revision": "source-revision-a",
+    "semantics": "integers-within-bound"
+  },
+  "checker_source_sha256": "7e53fe2294b09f81fa6d380b1d62ebb48a70944317895176a9728a6e103916a9",
+  "controls": {
+    "corrupt-dependency": "dependency-bytes-refused",
+    "corrupt-proof-bytes": "artifact-bytes-refused",
+    "different-bound-same-wire": "typed-query-refused",
+    "different-revision": "semantic-scope-refused",
+    "different-semantics": "semantic-scope-refused",
+    "forged-declared-inventory": "inventory-refused",
+    "missing-source-role": "inventory-refused",
+    "previous-epoch": "live-policy-refused",
+    "revoked-premise": "live-policy-refused",
+    "unsupported-rule": "certificate-refused"
+  },
+  "finite_projection": {
+    "eligible_preflights": 1,
+    "refused_preflights": 63
+  },
+  "kernel": [
+    "'CacheAdmission.checkerSound' does not depend on any axioms",
+    "'CacheAdmission.foldCorrespondence' does not depend on any axioms",
+    "'CacheAdmission.admittedSource' does not depend on any axioms",
+    "'CacheAdmission.changedEpochRefuses' does not depend on any axioms",
+    "'CacheAdmission.revokedPremiseRefuses' does not depend on any axioms",
+    "'CacheAdmission.differentInventoryRefuses' does not depend on any axioms",
+    "'CacheAdmission.unsupportedRefuses' does not depend on any axioms",
+    "'CacheAdmission.scopedUnsatCanMissSource' does not depend on any axioms"
+  ],
+  "native": {
+    "altered-result": {
+      "certificate": "missing-alethe-certificate",
+      "proof_or_verdict": "sat\n",
+      "query": "(set-logic QF_LIA)\n(declare-const x Int)\n(assert (= x 4))\n(assert (not (= x 3)))\n(assert true)\n(check-sat)\n(exit)\n",
+      "solver": "sat",
+      "source_admission": "certificate-refused"
+    },
+    "original": {
+      "certificate": "checked",
+      "proof_or_verdict": "unsat\n(\n(assume a0 (! (= x 3) :named @p_1))\n(assume a1 (! (not @p_1) :named @p_2))\n(assume a2 true)\n(step t0 (cl) :rule resolution :premises (a0 a1) :args (@p_1 true))\n)\n",
+      "query": "(set-logic QF_LIA)\n(declare-const x Int)\n(assert (= x 3))\n(assert (not (= x 3)))\n(assert true)\n(check-sat)\n(exit)\n",
+      "solver": "unsat",
+      "source_admission": "admitted"
+    },
+    "outside-bound": {
+      "certificate": "checked",
+      "proof_or_verdict": "unsat\n(\n(assume a0 (= x 7))\n(assume a1 (not (= x 3)))\n(assume a2 false)\n(step t0 (cl (not false)) :rule false)\n(step t1 (cl) :rule resolution :premises (a2 t0) :args (false true))\n)\n",
+      "query": "(set-logic QF_LIA)\n(declare-const x Int)\n(assert (= x 7))\n(assert (not (= x 3)))\n(assert false)\n(check-sat)\n(exit)\n",
+      "solver": "unsat",
+      "source_admission": "source-outside-bound"
+    }
+  },
+  "publication": {
+    "revoke-after-publication": {
+      "active_receipts": 0,
+      "historical_receipts": 1,
+      "writer": "published"
+    },
+    "revoke-before-publication": {
+      "active_receipts": 0,
+      "historical_receipts": 0,
+      "writer": "refused-at-publication"
+    },
+    "unrelated-checked-identity": "refused-at-publication"
+  },
+  "sqlite": "3.53.1",
+  "tools": {
+    "carcara": {
+      "sha256": "8e4db8912497cd2b628c9d7f4f925b4601c2b9e4ffba91df5e980b61c70f2380",
+      "version": "carcara 1.1.0 [git none unknown]"
+    },
+    "cvc5": {
+      "sha256": "6aecddf466552b83bb5883756c7955e0c9d5ddcc6d7f45b48c2f6e06a741b102",
+      "version": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]"
+    },
+    "lean": {
+      "sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+    }
+  }
+}
