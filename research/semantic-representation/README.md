@@ -32,3 +32,4 @@ This direction groups related research studies without changing their RT identif
 ## Cross-direction evidence
 
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
+- [RT-05 per-input layered refinement](RT-05/RT-05-PER-INPUT-LAYERED-REFINEMENT-2026-11-25.md) — checks the required input domain, pointwise refinement and coverage across all three layers.
