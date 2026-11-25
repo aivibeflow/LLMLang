@@ -1,0 +1,51 @@
+{
+  "archives": {
+    "baseline": {
+      "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+      "archive_sha256": "089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3",
+      "index_markdown_sha256": "043897e255f643f1fb22142599bbdd2430dd94ccad08534ca21c16388b639c1b"
+    },
+    "exact-rebuild": {
+      "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+      "archive_sha256": "089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3",
+      "index_markdown_sha256": "043897e255f643f1fb22142599bbdd2430dd94ccad08534ca21c16388b639c1b"
+    },
+    "display-metadata-edit": {
+      "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+      "archive_sha256": "c1e59825d5820579c9b36a7fb447b6f72f248b1f74bedcca58d9a998d2078028",
+      "index_markdown_sha256": "043897e255f643f1fb22142599bbdd2430dd94ccad08534ca21c16388b639c1b"
+    },
+    "machine-index-relocated": {
+      "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+      "archive_sha256": "3d174eacef424ce1663fb6330993a81be1da5cb8fdaaf956f86842c991b3f214",
+      "index_markdown_sha256": "043897e255f643f1fb22142599bbdd2430dd94ccad08534ca21c16388b639c1b"
+    },
+    "changed-export-target": {
+      "package_root": "sha256:1ccd01e81d701dd76afd6901258d05d1e301b95acb3ed5a1c0281918e5bf9595",
+      "archive_sha256": "6ea87f3a7603fa73000f27c8dae5d361eba26c0d51620e0dc9b84f8a059c0248",
+      "index_markdown_sha256": "a0e435346427ab10a08c64b14267a85b5ea061b13131867c8c5aa47268c48dbc"
+    },
+    "escaped-export-name": {
+      "package_root": "sha256:e924d5438609fb813712f84487390793204426a841f106598ef3184eae4a11b1",
+      "archive_sha256": "7fcbc8c520ae2b0a1b9516da2913f44158b64a9e2993e43c0166cd3b7dc30a84",
+      "index_markdown_sha256": "afa79574644a6118544e7d8a42c48bb0015f21bb296d144adaadee34893d460a"
+    }
+  },
+  "sidecar_checks": {
+    "correct": true,
+    "edited": false,
+    "stale": false,
+    "absence_preserves_package": true
+  },
+  "strict_archive_controls": {
+    "embedded_undeclared_index_refused": true,
+    "changed_payload_refused": true
+  },
+  "source_sha256": {
+    "research/packages-and-ecosystem/RT-12/STATIC-INDEX-01/run.py": "8b1d32f04f4966b76d4a98e4a5edb8fa48e968cbeecbe7cda13a178ea30e2d0f",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_archive.py": "01febe052788c913ebb750561e0430a9609c50cb9b86558f74ecc680499bfff1",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/test_package_archive.py": "3f43628810fb3898b2c6c8e40173ce59b1cb157478d847952f7dcb24dd6b1764",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_index.py": "e03e977aef9a7dd9764854468bf0c43875236dae700bcdc498b2286e1de6ae3c",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458"
+  }
+}
