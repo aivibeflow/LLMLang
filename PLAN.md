@@ -869,6 +869,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Measure cache hit rates by action type.
   - [x] Measure 70 native build actions across seven stages. Exact-payload keys hit 20/28 compiles, 9/14 archives, 9/14 links and 8/14 verifications, with every artifact matching forced rebuild. Propagated producer keys cause three extra misses and a policy-blind key returns one stale acceptance. Representative workload distributions remain open. [Multi-action cache hits](research/toolchain-and-collaboration/RT-11/RT-11-MULTI-ACTION-CACHE-HITS-2026-11-25.md)
 - [ ] Measure hashing, dependency discovery, scheduling, storage, and verification overhead.
+  - [ ] [WIP] Measure separate discovery, hashing, scheduling, local storage and verification costs on a pinned native build fixture on `research/all`.
 - [ ] Compare against clean and conventional incremental builds in representative Rust, Go, and C++ projects.
 - [ ] Report speedup distributions and workload assumptions rather than a single headline number.
 - [ ] Identify workloads where caching is neutral or slower.
