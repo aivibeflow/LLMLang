@@ -1,0 +1,41 @@
+{
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "counts": {
+    "cases": 192,
+    "content_integrity_accepted": 128,
+    "content_integrity_overallowed": 126,
+    "exact_declared_use_accepted": 2,
+    "exact_declared_use_overallowed": 0,
+    "integrity_and_publisher_accepted": 16,
+    "integrity_and_publisher_overallowed": 14,
+    "integrity_and_signature_accepted": 64,
+    "integrity_and_signature_overallowed": 62
+  },
+  "repacking_controls": {
+    "old_publication_applies_after_repacking": false,
+    "fresh_publication_applies_after_repacking": true,
+    "declared_use_preserved_across_physical_repacking": true,
+    "declared_use_after_logical_change": false
+  },
+  "packages": {
+    "base": {
+      "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+      "archive_sha256": "089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+    },
+    "repacked": {
+      "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+      "archive_sha256": "e263c8319cc38f847303d1d714986399bf30f14442d793788fd61a283290b99f"
+    },
+    "different": {
+      "package_root": "sha256:1ccd01e81d701dd76afd6901258d05d1e301b95acb3ed5a1c0281918e5bf9595",
+      "archive_sha256": "6ea87f3a7603fa73000f27c8dae5d361eba26c0d51620e0dc9b84f8a059c0248"
+    }
+  },
+  "source_sha256": {
+    "research/packages-and-ecosystem/RT-12/DECLARED-PACKAGE-RIGHTS-01/run.py": "9c9da813e979a40da5d0059db84ae862bdd973e0cb79fe006fc151dd2d9e4952",
+    "research/packages-and-ecosystem/RT-12/STATIC-INDEX-01/run.py": "8b1d32f04f4966b76d4a98e4a5edb8fa48e968cbeecbe7cda13a178ea30e2d0f",
+    "research/security/RT-16/BUILD-ATTESTATION-01/run.py": "226c4316aa95db2b1600fcc9efbb2ba636747c6ce363b8b6d2d33f670372fbef",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_archive.py": "01febe052788c913ebb750561e0430a9609c50cb9b86558f74ecc680499bfff1",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458"
+  }
+}

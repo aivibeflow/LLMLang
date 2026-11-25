@@ -1467,8 +1467,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define template instantiation, customization, detachment, and migration.
 - [ ] Define global semantic artifact store and registry interfaces.
 - [ ] Define artifact publication, signing, mirroring, licensing, revocation, retention, and garbage collection.
-- [ ] Separate content integrity from publisher trust and licensing rights.
-  - [ ] [WIP] Compare exact package bytes, signed publisher authority and independently scoped declared rights across mirrored deliveries on `research/all`.
+- [x] Separate content integrity from publisher trust and licensing rights.
+  - [x] Compare verified bytes, publication signatures and exact declared-use scope across 192 native Ed25519 cases. Integrity alone accepts 128, publisher authority accepts 16, and the full check admits two. Repacking preserves root-bound declared use while requiring a new exact archive statement. Production license and authority policy remain open. [Declared package rights](research/packages-and-ecosystem/RT-12/RT-12-DECLARED-PACKAGE-RIGHTS-2026-11-25.md)
 - [ ] Define opaque implementation evidence and verification limitations.
 
 **Existing evidence:** `research/LIBRARIES-AND-TEMPLATES.md` and `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`; related TODO items LL-006–LL-012.
