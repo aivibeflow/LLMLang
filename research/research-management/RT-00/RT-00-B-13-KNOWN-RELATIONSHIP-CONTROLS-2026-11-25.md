@@ -1,7 +1,7 @@
 # RT-00 B13 — Known Relationship Controls Recheck — 2026-11-25
 
 **Status:** four previously missed lexical-screen controls rechecked against current `main`; broad semantic review remains open
-**Baseline:** `origin/main` at `983b2e0e6ee25f53de40ad0a3b5035d584ae3799`
+**Baseline:** `main` at `305bf66db5f93a0b6a4308f9c6099d2d888b75d2` (the exact main tree at the time of this correction)
 **Scope:** recheck the four known relationship controls recorded by B12, the 2026-11-24 all-pairs text-overlap screen. This is a bounded falsification/reconciliation pass, not a new corpus-wide semantic scan.
 
 ## Result
@@ -13,7 +13,7 @@ B12 compared 87,990 unordered Markdown/MDX pairs and manually reviewed 18 candid
 | Scenario 31; Scenario 32 | `d9ed864000747071b81390972d4824683184cc63`; `b2ddc72dfedb36c2519a0344b0c720b0e3c9feae` | Section-level supersession: the earlier text-oriented query representation is replaced by canonical typed query IR. Do not mark the whole Scenario 31 report superseded; its profile and prior-art observations remain relevant. Scenario 32's typed IR and limits remain relevant; its parser-state bridge sketch is superseded by the compiled prototype. |
 | `GIT-SEMANTIC-REPOSITORY.md`; `GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md` | `a079f82f102da12695d63bae80460885484e6227`; `f5961f5e42cee1f927467672071159a767571a83` | Partial supersession: use the focused document and accepted ADRs for current architecture. Preserve the older broad report as historical rationale/alternatives; only its embedded proposal and stale current-guidance portions are superseded. |
 | `RESEARCH-RELATED-PROJECTS.md`; `RESEARCH-DEEP-COMPARISON.md` | `534108da6ad042ce3466be72f2507307f030b1ac`; `7194d2435ece2fb8cb3a3891d898dc142f37370e` | Scoped supersession: the deep comparison supersedes overlapping claims for the four projects it investigates. The initial scan covers a wider project set and remains complementary. |
-| English and Russian `LLMLang-FORMAL-VERIFICATION` reports | `0deb6541cb0704681747b151d7415ac4cf0b2c0b`; `58a8bd7716130a86ddce7f1a91e3eb2c341248ae` | Maintained language companions with reciprocal navigation, not duplicates. The Russian document has scope/content differences (including absence of later English §18A.9); translation parity is not established by links or this recheck. |
+| English and Russian `LLMLang-FORMAL-VERIFICATION` reports | `0deb6541cb0704681747b151d7415ac4cf0b2c0b`; `58a8bd7716130a86ddce7f1a91e3eb2c341248ae` | Maintained language companions with reciprocal navigation, not duplicates. Their headings have matching numbered sections through §11 plus two unnumbered additions; this structural correspondence does not establish translation parity or sentence-level equivalence. |
 
 The relationship decisions align with B4's manual supersession register, B12's published control metadata, and the current text of the paired documents. Navigation links are treated as evidence of discoverability only, not as proof of semantic equivalence or supersession. No document is wholly discarded by these dispositions.
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "study": "RT-00 B13 known relationship controls recheck",
-  "baseline": "983b2e0e6ee25f53de40ad0a3b5035d584ae3799",
+  "baseline": "305bf66db5f93a0b6a4308f9c6099d2d888b75d2",
   "baseline_ref": "origin/main",
   "source": "RT-00 B12 text-overlap screen known_relationship_controls",
   "result": "4/4 known missed controls rechecked; corpus-wide semantic review remains open",
@@ -55,7 +55,7 @@
       ],
       "relationship": "maintained language companions with reciprocal navigation",
       "translation_parity": "unverified",
-      "known_scope_difference": "Russian companion lacks later English section 18A.9"
+      "known_scope_difference": "No sentence-level parity review was performed; both versions contain sections 1-11 and two unnumbered additions"
     }
   ],
   "exact_blob_scan": {
