@@ -1447,9 +1447,11 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define static package archive and optional generated human-readable index (for example, `INDEX.md`) derived from the machine index.
   - [x] Reproduce six static archive variants and derive an optional detached index from verified machine tables. Descriptive and layout changes preserve the package root and document. Export changes invalidate stale documents, and the strict archive refuses undeclared embedded entries and damaged payloads. [Static and human index](research/packages-and-ecosystem/RT-12/RT-12-STATIC-INDEX-2026-11-25.md)
 - [ ] Define Dynamic Package requests by exact root Content Hash values and explicit dependency policies.
+  - [ ] [WIP] Check explicit Dynamic Package request admission and mapping to the existing SQLite Provider on `research/all`.
 - [ ] Define exact-hash transitive dependency closure, optional/target/feature dependency semantics, and fail-closed missing-dependency behavior.
   - [x] Compare exact feature and target decisions in 3,840 resolver cases. Unbound Boolean reuse yields 1,846 incorrect memberships or outcomes. A snapshot-, root-, policy- and profile-bound gate matches all 240 current decisions and rejects the stale inputs. General target-kind and provider policies remain open. [Conditional package closure](research/packages-and-ecosystem/RT-12/RT-12-CONDITIONAL-CLOSURE-2026-11-25.md)
 - [ ] Define provider snapshot consistency, deterministic logical package roots, and separation of content from delivery metadata.
+  - [ ] [WIP] Check exact Static and Dynamic Package roots and physical bytes across two pinned Provider snapshots and distinct delivery metadata on `research/all`.
 - [ ] Define multi-provider index merge, availability metadata, selective retrieval, and trust/provenance boundaries.
 - [x] Add a reproducible Provider benchmark harness for chain, diamond, high-fan-out, and many-dependency graphs; report time, throughput, Python allocation peak, process RSS, temporary-directory disk high-water, and archive size.
 - [x] Add CI stress coverage for 1,200-object chain and high-fan-out dependency closures.
