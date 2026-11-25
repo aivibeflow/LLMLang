@@ -1,0 +1,70 @@
+{
+  "archived_history_checks": {
+    "COMPOSED-LINEAGE-01": {
+      "sha256": "449c1dc02429a27148846f69ec00e98f29bfe590a930699d0119a0920429f27e",
+      "summary": {
+        "exact-continuation": {
+          "excess": 0,
+          "omitted": 0,
+          "unknown": 2
+        },
+        "reachable": {
+          "excess": 6,
+          "omitted": 0,
+          "unknown": 1
+        },
+        "stable-id": {
+          "excess": 7,
+          "omitted": 0,
+          "unknown": 0
+        },
+        "value": {
+          "excess": 20,
+          "omitted": 0,
+          "unknown": 0
+        }
+      }
+    },
+    "MULTI-PARENT-LINEAGE-01": {
+      "sha256": "fa5a9a73a61aa95d208b79371fe143577c83251f0830d627851075289bfba663",
+      "summary": {
+        "all-parents": {
+          "excess_grants": 5,
+          "missed_grants": 2,
+          "unknown": 1
+        },
+        "any-parent": {
+          "excess_grants": 7,
+          "missed_grants": 0,
+          "unknown": 1
+        },
+        "exact-choice": {
+          "excess_grants": 0,
+          "missed_grants": 0,
+          "unknown": 6
+        },
+        "first-parent": {
+          "excess_grants": 6,
+          "missed_grants": 1,
+          "unknown": 1
+        }
+      }
+    }
+  },
+  "revision": "e8ac755bf6a7339aa3967b5e6afe3c4d41a1312d",
+  "runner_sha256": "7d7d48d8f6836d55738e31dac998d6529601d8edf6deed704f72bf9d2ce58f52",
+  "transitions": {
+    "cases": 864,
+    "dispositions": {
+      "add": 2,
+      "conflict": 424,
+      "continue": 1,
+      "merge": 1,
+      "pending": 432,
+      "remove": 2,
+      "replace": 1,
+      "split": 1
+    },
+    "duplicate_endpoint_control": "conflict"
+  }
+}
