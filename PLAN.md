@@ -1465,6 +1465,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define cache poisoning and malicious artifact defenses.
 - [ ] Define secret handling and isolation of build/test environments.
 - [ ] Define reproducible builds and attestations.
+  - [ ] [WIP] Compare native reproducibility and exact signed build predicates across independent checkout paths, source and recipe changes on `research/all`.
 - [ ] Define recovery and revocation when a tool, proof checker, or implementation is compromised.
 
 **Status:** an initial threat model and tested authorization-policy experiment now exist in [RT-16 Threat Model 01](research/security/RT-16/RT-16-THREAT-MODEL-01.md). They cover scope binding, human approval, replay, evidence identity, and fail-closed checks at fixture level. A complete security architecture remains open; persistent multi-client authorization, concurrency/crash injection, sandbox testing, signed/authenticated evidence, and operational approval policy are high-priority gaps.
