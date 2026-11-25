@@ -24,6 +24,7 @@ This direction groups related research studies without changing their RT identif
 ## Dedicated research artifacts
 
 - [RT-32 recursive proof discharge](RT-32/RT-32-RECURSIVE-PROOF-DISCHARGE-2026-11-25.md) — distinguishes checked recursive induction from unsupported conditional cycles.
+- [Incremental proof invalidation](RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md) — exact modular reuse, provider freshness and transitive evidence.
 - [RT-07 Lean and Logos proof boundary](RT-07/RT-07-LEAN-LOGOS-PROOF-BOUNDARY-RECHECK-2026-11-25.md) — distinguishes parser verdict conditions, source hypotheses and exact native axiom closure.
 - [RT-07 observation equivalence proof](RT-07/RT-07-STATE-RESULT-OBSERVATIONAL-EQUIVALENCE-2026-11-25.md) — kernel-checked equivalence of full observations and preservation of all postconditions.
 - [RT-07 operational, denotational and axiomatic comparison](RT-07/RT-07-THREE-SEMANTICS-STATE-RESULT-2026-11-25.md) — finite state/Result and ordered-history semantics.
