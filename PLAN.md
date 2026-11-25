@@ -604,6 +604,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define fail-closed behavior for unsupported or ambiguous constructs.
 - [ ] Define how proof status is represented: candidate, unknown, checked, rejected, or proven.
 - [ ] Define the relationship between proof validity and specification adequacy; a proof cannot establish that the specification captures user intent.
+  - [ ] [WIP] Check proof validity, contract feasibility and adequacy relative to a recorded intent relation with Lean and finite countermodels on `research/all`.
 
 **Existing evidence:** scenarios 28–33, prototype 29, Lean CPC parser-state binding prototype, Logos integration, and `research/LLMLang-FORMAL-VERIFICATION.md`.
 
