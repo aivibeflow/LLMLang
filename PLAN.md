@@ -823,7 +823,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define deterministic versus nondeterministic action handling.
   - [x] Compare exact compile artifacts under ambient path and fixed-clock changes. Across 32 builds, requests keyed without relevant path or clock inputs can hit incorrect artifacts. Keys using the declared inputs prevent every tested false hit, while unavailable relevant inputs block lookup. General action determinism and environment discovery remain open. [RT-13 compile action inputs](research/compiler-and-translation/RT-13/RT-13-COMPILE-ACTION-DETERMINISM-2026-11-25.md)
 - [ ] Define local, workspace, remote, and global cache layers.
-  - [ ] [WIP] Compare layer-scoped cache lookup and promotion under local misses, eviction, and unavailable shared records on `research/all`.
+  - [x] Compare 17 process, workspace, team and global content controls. Complete mirrored records permit an offline hit, while missing records and authorized disagreement prevent early local admission. Verified artifact promotion retains original authority and is rechecked after policy changes. Persistent storage and transport remain open. [Layered cache lookup](research/toolchain-and-collaboration/RT-11/RT-11-LAYERED-CACHE-LOOKUP-2026-11-25.md)
 - [ ] Define cache integrity, trust, provenance, and eviction.
 - [ ] Define test and proof evidence caching with exact subject and assumption binding.
 - [ ] Define behavior for incomplete dependency closure: invalidate conservatively or disable caching.

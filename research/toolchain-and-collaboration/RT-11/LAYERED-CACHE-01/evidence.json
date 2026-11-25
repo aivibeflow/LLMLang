@@ -1,0 +1,239 @@
+{
+  "schema": "llmlang-layered-cache/1",
+  "python": "3.12.14",
+  "action_key": "sha256:82b67c9726a1fad0dd86e133a6c613d57e07eb1056639a79ec44490faa3a6300",
+  "sources_sha256": {
+    "runner": "e73135d801ebd8f6730079debe2457d8a8de141280950e54eff8329ca3a4f0c8",
+    "cache_index": "2662ffa87450e05f075218b5593222262ff724e785ce512436bfa40443329b3b",
+    "merge": "c2de1b239b7cc4b5ba4b15d10e6ee1db9e555395b488248de4363b8704149e6c",
+    "fixture": "68d19e9a9b871bb84e922dd6c2f40ded8675dc4e46cc9efd29aec0729d66f53f"
+  },
+  "first_layer_control": "hit",
+  "cases": [
+    {
+      "case": "process exact record and payload",
+      "result": {
+        "status": "hit",
+        "corrupt_copies": [],
+        "artifacts": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "process"
+          ]
+        ],
+        "original_records": [
+          "sha256:2fe884bfa82bc7fd0ec2eac1d3535a2fae635e0793b06e0653d0f9929ec7923f"
+        ]
+      }
+    },
+    {
+      "case": "workspace hit after process miss",
+      "result": {
+        "status": "hit",
+        "corrupt_copies": [],
+        "artifacts": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "workspace"
+          ]
+        ],
+        "original_records": [
+          "sha256:2fe884bfa82bc7fd0ec2eac1d3535a2fae635e0793b06e0653d0f9929ec7923f"
+        ]
+      }
+    },
+    {
+      "case": "team hit after nearer misses",
+      "result": {
+        "status": "hit",
+        "corrupt_copies": [],
+        "artifacts": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "team"
+          ]
+        ],
+        "original_records": [
+          "sha256:2fe884bfa82bc7fd0ec2eac1d3535a2fae635e0793b06e0653d0f9929ec7923f"
+        ]
+      }
+    },
+    {
+      "case": "workspace record with evicted payload",
+      "result": {
+        "status": "hit",
+        "corrupt_copies": [],
+        "artifacts": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "global-content"
+          ]
+        ],
+        "original_records": [
+          "sha256:2fe884bfa82bc7fd0ec2eac1d3535a2fae635e0793b06e0653d0f9929ec7923f"
+        ]
+      }
+    },
+    {
+      "case": "global bytes without an action record",
+      "result": {
+        "status": "miss",
+        "corrupt_copies": []
+      }
+    },
+    {
+      "case": "unauthenticated view unknown despite local bytes",
+      "result": {
+        "status": "view-unavailable"
+      }
+    },
+    {
+      "case": "evicted output retains metadata",
+      "result": {
+        "status": "artifact-missing",
+        "corrupt_copies": []
+      }
+    },
+    {
+      "case": "corrupt nearer copy falls back to verified lower copy",
+      "result": {
+        "status": "hit",
+        "corrupt_copies": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "process"
+          ]
+        ],
+        "artifacts": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "global-content"
+          ]
+        ],
+        "original_records": [
+          "sha256:2fe884bfa82bc7fd0ec2eac1d3535a2fae635e0793b06e0653d0f9929ec7923f"
+        ]
+      }
+    },
+    {
+      "case": "corrupt sole copy",
+      "result": {
+        "status": "artifact-integrity-error",
+        "corrupt_copies": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "process"
+          ]
+        ]
+      }
+    },
+    {
+      "case": "authorized cross-layer disagreement survives eviction",
+      "result": {
+        "status": "conflict",
+        "corrupt_copies": []
+      }
+    },
+    {
+      "case": "disagreement outside authority does not win",
+      "result": {
+        "status": "hit",
+        "corrupt_copies": [],
+        "artifacts": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "process"
+          ]
+        ],
+        "original_records": [
+          "sha256:272fdd9135f42af97c0635a6ec9b128abdc3f5351513381301151c69cc3b14c8",
+          "sha256:2fe884bfa82bc7fd0ec2eac1d3535a2fae635e0793b06e0653d0f9929ec7923f"
+        ]
+      }
+    },
+    {
+      "case": "unreachable team record keeps pinned view incomplete",
+      "result": {
+        "status": "records-unavailable",
+        "missing": [
+          "sha256:6fc7a69e7fa3761e6b7eb4f10c6bc8e906b96754d44ace9044f9eb3486bb53c0"
+        ]
+      }
+    },
+    {
+      "case": "mirrored team record completes the view offline",
+      "result": {
+        "status": "hit",
+        "corrupt_copies": [],
+        "artifacts": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "process"
+          ]
+        ],
+        "original_records": [
+          "sha256:2fe884bfa82bc7fd0ec2eac1d3535a2fae635e0793b06e0653d0f9929ec7923f",
+          "sha256:6fc7a69e7fa3761e6b7eb4f10c6bc8e906b96754d44ace9044f9eb3486bb53c0"
+        ]
+      }
+    },
+    {
+      "case": "promote checked records and bytes into process",
+      "result": {
+        "status": "hit",
+        "corrupt_copies": [],
+        "artifacts": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "global-content"
+          ]
+        ],
+        "original_records": [
+          "sha256:2fe884bfa82bc7fd0ec2eac1d3535a2fae635e0793b06e0653d0f9929ec7923f",
+          "sha256:6fc7a69e7fa3761e6b7eb4f10c6bc8e906b96754d44ace9044f9eb3486bb53c0"
+        ]
+      }
+    },
+    {
+      "case": "promoted process hit offline",
+      "result": {
+        "status": "hit",
+        "corrupt_copies": [],
+        "artifacts": [
+          [
+            "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+            "process"
+          ]
+        ],
+        "original_records": [
+          "sha256:2fe884bfa82bc7fd0ec2eac1d3535a2fae635e0793b06e0653d0f9929ec7923f",
+          "sha256:6fc7a69e7fa3761e6b7eb4f10c6bc8e906b96754d44ace9044f9eb3486bb53c0"
+        ]
+      }
+    },
+    {
+      "case": "promotion retains original authority after revocation",
+      "result": {
+        "status": "no-applicable-attestation",
+        "corrupt_copies": []
+      }
+    },
+    {
+      "case": "changed evidence scope is checked on promoted data",
+      "result": {
+        "status": "no-applicable-attestation",
+        "corrupt_copies": []
+      }
+    }
+  ],
+  "counts": {
+    "hit": 9,
+    "miss": 1,
+    "view-unavailable": 1,
+    "artifact-missing": 1,
+    "artifact-integrity-error": 1,
+    "conflict": 1,
+    "records-unavailable": 1,
+    "no-applicable-attestation": 2
+  }
+}
