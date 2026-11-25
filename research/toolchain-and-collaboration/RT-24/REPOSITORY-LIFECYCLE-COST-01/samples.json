@@ -1,0 +1,715 @@
+{
+  "host": {
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "git": "git version 2.56.1",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.12.14",
+    "runner_sha256": "ceefa82d7e6ed753b50ea1c3d3d0a007963cfb401eb736b643b196d7e7862840",
+    "sqlite": "3.53.1",
+    "temp_filesystem": "overlayfs"
+  },
+  "samples": [
+    {
+      "changed_modules": 4,
+      "expected_root": "9de6068452300f2d3a7bb88408312ded6871bfe283be8ce74bbeed82eb4be29e",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 6032292,
+        "full_semantic_export": 1947882,
+        "full_semantic_import": 548766,
+        "incremental_worktree_sync": 137222,
+        "native_git_merge": 6674536
+      },
+      "sample": 0,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 16,
+      "expected_root": "6be3f7830a62cd31b31d84a7a58141bad51d4a0e09dd12e787dea5001910506b",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 3628622,
+        "full_semantic_export": 1245540,
+        "full_semantic_import": 735731,
+        "incremental_worktree_sync": 512013,
+        "native_git_merge": 7973415
+      },
+      "sample": 0,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "2fa3d31862dbdd406cdb798d61de51cabf23434b4de93991b66d41dec6498b87",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 8935223,
+        "full_semantic_export": 19418861,
+        "full_semantic_import": 4389199,
+        "incremental_worktree_sync": 155599,
+        "native_git_merge": 11379024
+      },
+      "sample": 0,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 64,
+      "expected_root": "b08f30fc1eb8e7d0ff7c6cafa84519c4f2f4cdd842be6c824c0c5da76b9d84cb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 6054065,
+        "full_semantic_export": 10749514,
+        "full_semantic_import": 4713345,
+        "incremental_worktree_sync": 2654941,
+        "native_git_merge": 12555326
+      },
+      "sample": 0,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "b0b195deee28df08fe2c79a8576cbf73bced13022f8c8ffccbc331f43611c4eb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 11224827,
+        "full_semantic_export": 56495620,
+        "full_semantic_import": 18242943,
+        "incremental_worktree_sync": 226282,
+        "native_git_merge": 22646608
+      },
+      "sample": 0,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 256,
+      "expected_root": "a1be174bdd2c8e7f9d3318851f87bd9c5f7e0f0fe5d724c79d1f2ed3459a8aad",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 11414871,
+        "full_semantic_export": 51360070,
+        "full_semantic_import": 13775590,
+        "incremental_worktree_sync": 16229460,
+        "native_git_merge": 29050913
+      },
+      "sample": 0,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 256,
+      "expected_root": "a1be174bdd2c8e7f9d3318851f87bd9c5f7e0f0fe5d724c79d1f2ed3459a8aad",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 11405548,
+        "full_semantic_export": 67094328,
+        "full_semantic_import": 16097932,
+        "incremental_worktree_sync": 16499292,
+        "native_git_merge": 43088297
+      },
+      "sample": 1,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "b0b195deee28df08fe2c79a8576cbf73bced13022f8c8ffccbc331f43611c4eb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 11839515,
+        "full_semantic_export": 48771287,
+        "full_semantic_import": 17056936,
+        "incremental_worktree_sync": 238761,
+        "native_git_merge": 22115163
+      },
+      "sample": 1,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 64,
+      "expected_root": "b08f30fc1eb8e7d0ff7c6cafa84519c4f2f4cdd842be6c824c0c5da76b9d84cb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 8024550,
+        "full_semantic_export": 29822115,
+        "full_semantic_import": 3918387,
+        "incremental_worktree_sync": 8158442,
+        "native_git_merge": 14036258
+      },
+      "sample": 1,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "2fa3d31862dbdd406cdb798d61de51cabf23434b4de93991b66d41dec6498b87",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 6753032,
+        "full_semantic_export": 21698155,
+        "full_semantic_import": 5355709,
+        "incremental_worktree_sync": 303106,
+        "native_git_merge": 13325729
+      },
+      "sample": 1,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 16,
+      "expected_root": "6be3f7830a62cd31b31d84a7a58141bad51d4a0e09dd12e787dea5001910506b",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 6787172,
+        "full_semantic_export": 1063537,
+        "full_semantic_import": 509389,
+        "incremental_worktree_sync": 750933,
+        "native_git_merge": 8491822
+      },
+      "sample": 1,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "9de6068452300f2d3a7bb88408312ded6871bfe283be8ce74bbeed82eb4be29e",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 3299618,
+        "full_semantic_export": 1068870,
+        "full_semantic_import": 468699,
+        "incremental_worktree_sync": 227024,
+        "native_git_merge": 7801923
+      },
+      "sample": 1,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "9de6068452300f2d3a7bb88408312ded6871bfe283be8ce74bbeed82eb4be29e",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 3857718,
+        "full_semantic_export": 753958,
+        "full_semantic_import": 488277,
+        "incremental_worktree_sync": 658067,
+        "native_git_merge": 7042637
+      },
+      "sample": 2,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 16,
+      "expected_root": "6be3f7830a62cd31b31d84a7a58141bad51d4a0e09dd12e787dea5001910506b",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 5607979,
+        "full_semantic_export": 1023113,
+        "full_semantic_import": 559482,
+        "incremental_worktree_sync": 1751759,
+        "native_git_merge": 9941967
+      },
+      "sample": 2,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "2fa3d31862dbdd406cdb798d61de51cabf23434b4de93991b66d41dec6498b87",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 5249813,
+        "full_semantic_export": 18696640,
+        "full_semantic_import": 4595181,
+        "incremental_worktree_sync": 168388,
+        "native_git_merge": 10493428
+      },
+      "sample": 2,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 64,
+      "expected_root": "b08f30fc1eb8e7d0ff7c6cafa84519c4f2f4cdd842be6c824c0c5da76b9d84cb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 7245034,
+        "full_semantic_export": 22064268,
+        "full_semantic_import": 4492000,
+        "incremental_worktree_sync": 3116819,
+        "native_git_merge": 12629210
+      },
+      "sample": 2,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "b0b195deee28df08fe2c79a8576cbf73bced13022f8c8ffccbc331f43611c4eb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 9744677,
+        "full_semantic_export": 80273040,
+        "full_semantic_import": 15003073,
+        "incremental_worktree_sync": 170691,
+        "native_git_merge": 17950935
+      },
+      "sample": 2,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 256,
+      "expected_root": "a1be174bdd2c8e7f9d3318851f87bd9c5f7e0f0fe5d724c79d1f2ed3459a8aad",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 11943749,
+        "full_semantic_export": 87893751,
+        "full_semantic_import": 15534274,
+        "incremental_worktree_sync": 14943866,
+        "native_git_merge": 26999679
+      },
+      "sample": 2,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 256,
+      "expected_root": "a1be174bdd2c8e7f9d3318851f87bd9c5f7e0f0fe5d724c79d1f2ed3459a8aad",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 14965883,
+        "full_semantic_export": 131691364,
+        "full_semantic_import": 19302080,
+        "incremental_worktree_sync": 13358082,
+        "native_git_merge": 29912524
+      },
+      "sample": 3,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "b0b195deee28df08fe2c79a8576cbf73bced13022f8c8ffccbc331f43611c4eb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 17210411,
+        "full_semantic_export": 104886011,
+        "full_semantic_import": 17979692,
+        "incremental_worktree_sync": 273843,
+        "native_git_merge": 32063656
+      },
+      "sample": 3,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 64,
+      "expected_root": "b08f30fc1eb8e7d0ff7c6cafa84519c4f2f4cdd842be6c824c0c5da76b9d84cb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 6112963,
+        "full_semantic_export": 7933328,
+        "full_semantic_import": 5043902,
+        "incremental_worktree_sync": 3899951,
+        "native_git_merge": 17199034
+      },
+      "sample": 3,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "2fa3d31862dbdd406cdb798d61de51cabf23434b4de93991b66d41dec6498b87",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 5712645,
+        "full_semantic_export": 8392472,
+        "full_semantic_import": 4031053,
+        "incremental_worktree_sync": 226453,
+        "native_git_merge": 16307464
+      },
+      "sample": 3,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 16,
+      "expected_root": "6be3f7830a62cd31b31d84a7a58141bad51d4a0e09dd12e787dea5001910506b",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 3034078,
+        "full_semantic_export": 2833124,
+        "full_semantic_import": 466566,
+        "incremental_worktree_sync": 984057,
+        "native_git_merge": 8263394
+      },
+      "sample": 3,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "9de6068452300f2d3a7bb88408312ded6871bfe283be8ce74bbeed82eb4be29e",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 3354074,
+        "full_semantic_export": 877870,
+        "full_semantic_import": 520465,
+        "incremental_worktree_sync": 496850,
+        "native_git_merge": 8218422
+      },
+      "sample": 3,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "9de6068452300f2d3a7bb88408312ded6871bfe283be8ce74bbeed82eb4be29e",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 4034759,
+        "full_semantic_export": 837871,
+        "full_semantic_import": 485203,
+        "incremental_worktree_sync": 146705,
+        "native_git_merge": 8974918
+      },
+      "sample": 4,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 16,
+      "expected_root": "6be3f7830a62cd31b31d84a7a58141bad51d4a0e09dd12e787dea5001910506b",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 6998123,
+        "full_semantic_export": 788508,
+        "full_semantic_import": 489029,
+        "incremental_worktree_sync": 946571,
+        "native_git_merge": 7678213
+      },
+      "sample": 4,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "2fa3d31862dbdd406cdb798d61de51cabf23434b4de93991b66d41dec6498b87",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 4532901,
+        "full_semantic_export": 6626267,
+        "full_semantic_import": 6269132,
+        "incremental_worktree_sync": 166434,
+        "native_git_merge": 11904804
+      },
+      "sample": 4,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 64,
+      "expected_root": "b08f30fc1eb8e7d0ff7c6cafa84519c4f2f4cdd842be6c824c0c5da76b9d84cb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 5210486,
+        "full_semantic_export": 6963102,
+        "full_semantic_import": 3651837,
+        "incremental_worktree_sync": 1895886,
+        "native_git_merge": 10810031
+      },
+      "sample": 4,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "b0b195deee28df08fe2c79a8576cbf73bced13022f8c8ffccbc331f43611c4eb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 11694850,
+        "full_semantic_export": 98022494,
+        "full_semantic_import": 14754482,
+        "incremental_worktree_sync": 176399,
+        "native_git_merge": 14798086
+      },
+      "sample": 4,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 256,
+      "expected_root": "a1be174bdd2c8e7f9d3318851f87bd9c5f7e0f0fe5d724c79d1f2ed3459a8aad",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 10734685,
+        "full_semantic_export": 127547411,
+        "full_semantic_import": 14690798,
+        "incremental_worktree_sync": 11116295,
+        "native_git_merge": 27959230
+      },
+      "sample": 4,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 256,
+      "expected_root": "a1be174bdd2c8e7f9d3318851f87bd9c5f7e0f0fe5d724c79d1f2ed3459a8aad",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 10818398,
+        "full_semantic_export": 133922930,
+        "full_semantic_import": 14883611,
+        "incremental_worktree_sync": 14284671,
+        "native_git_merge": 32684430
+      },
+      "sample": 5,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "b0b195deee28df08fe2c79a8576cbf73bced13022f8c8ffccbc331f43611c4eb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 11609730,
+        "full_semantic_export": 103214855,
+        "full_semantic_import": 15374483,
+        "incremental_worktree_sync": 443842,
+        "native_git_merge": 25442222
+      },
+      "sample": 5,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 64,
+      "expected_root": "b08f30fc1eb8e7d0ff7c6cafa84519c4f2f4cdd842be6c824c0c5da76b9d84cb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 5300189,
+        "full_semantic_export": 7248992,
+        "full_semantic_import": 6963153,
+        "incremental_worktree_sync": 5263785,
+        "native_git_merge": 26964919
+      },
+      "sample": 5,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "2fa3d31862dbdd406cdb798d61de51cabf23434b4de93991b66d41dec6498b87",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 4566982,
+        "full_semantic_export": 6801925,
+        "full_semantic_import": 3936204,
+        "incremental_worktree_sync": 247744,
+        "native_git_merge": 14812427
+      },
+      "sample": 5,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 16,
+      "expected_root": "6be3f7830a62cd31b31d84a7a58141bad51d4a0e09dd12e787dea5001910506b",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 2526222,
+        "full_semantic_export": 763412,
+        "full_semantic_import": 477442,
+        "incremental_worktree_sync": 1070323,
+        "native_git_merge": 6816567
+      },
+      "sample": 5,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "9de6068452300f2d3a7bb88408312ded6871bfe283be8ce74bbeed82eb4be29e",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 3205411,
+        "full_semantic_export": 792785,
+        "full_semantic_import": 479795,
+        "incremental_worktree_sync": 187415,
+        "native_git_merge": 7298119
+      },
+      "sample": 5,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "9de6068452300f2d3a7bb88408312ded6871bfe283be8ce74bbeed82eb4be29e",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 3137100,
+        "full_semantic_export": 933822,
+        "full_semantic_import": 494677,
+        "incremental_worktree_sync": 144082,
+        "native_git_merge": 8213529
+      },
+      "sample": 6,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 16,
+      "expected_root": "6be3f7830a62cd31b31d84a7a58141bad51d4a0e09dd12e787dea5001910506b",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 2880162,
+        "full_semantic_export": 769581,
+        "full_semantic_import": 519484,
+        "incremental_worktree_sync": 455539,
+        "native_git_merge": 7499751
+      },
+      "sample": 6,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "2fa3d31862dbdd406cdb798d61de51cabf23434b4de93991b66d41dec6498b87",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 4451081,
+        "full_semantic_export": 8952415,
+        "full_semantic_import": 3972227,
+        "incremental_worktree_sync": 155058,
+        "native_git_merge": 10455885
+      },
+      "sample": 6,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 64,
+      "expected_root": "b08f30fc1eb8e7d0ff7c6cafa84519c4f2f4cdd842be6c824c0c5da76b9d84cb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 4628517,
+        "full_semantic_export": 6165120,
+        "full_semantic_import": 3949404,
+        "incremental_worktree_sync": 2469048,
+        "native_git_merge": 10741780
+      },
+      "sample": 6,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "b0b195deee28df08fe2c79a8576cbf73bced13022f8c8ffccbc331f43611c4eb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 11237663,
+        "full_semantic_export": 147576493,
+        "full_semantic_import": 14407381,
+        "incremental_worktree_sync": 182809,
+        "native_git_merge": 17299512
+      },
+      "sample": 6,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 256,
+      "expected_root": "a1be174bdd2c8e7f9d3318851f87bd9c5f7e0f0fe5d724c79d1f2ed3459a8aad",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 11149274,
+        "full_semantic_export": 155723405,
+        "full_semantic_import": 14190924,
+        "incremental_worktree_sync": 15747360,
+        "native_git_merge": 27928421
+      },
+      "sample": 6,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 256,
+      "expected_root": "a1be174bdd2c8e7f9d3318851f87bd9c5f7e0f0fe5d724c79d1f2ed3459a8aad",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 14520427,
+        "full_semantic_export": 244355146,
+        "full_semantic_import": 19589367,
+        "incremental_worktree_sync": 13341725,
+        "native_git_merge": 34469428
+      },
+      "sample": 7,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "b0b195deee28df08fe2c79a8576cbf73bced13022f8c8ffccbc331f43611c4eb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 14952062,
+        "full_semantic_export": 185652858,
+        "full_semantic_import": 20459845,
+        "incremental_worktree_sync": 252120,
+        "native_git_merge": 18398887
+      },
+      "sample": 7,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 64,
+      "expected_root": "b08f30fc1eb8e7d0ff7c6cafa84519c4f2f4cdd842be6c824c0c5da76b9d84cb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 7038869,
+        "full_semantic_export": 10121354,
+        "full_semantic_import": 7098967,
+        "incremental_worktree_sync": 5308871,
+        "native_git_merge": 12112439
+      },
+      "sample": 7,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "2fa3d31862dbdd406cdb798d61de51cabf23434b4de93991b66d41dec6498b87",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 4371764,
+        "full_semantic_export": 8298509,
+        "full_semantic_import": 5513433,
+        "incremental_worktree_sync": 264459,
+        "native_git_merge": 12373388
+      },
+      "sample": 7,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 16,
+      "expected_root": "6be3f7830a62cd31b31d84a7a58141bad51d4a0e09dd12e787dea5001910506b",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 5563195,
+        "full_semantic_export": 762430,
+        "full_semantic_import": 476851,
+        "incremental_worktree_sync": 652739,
+        "native_git_merge": 7630483
+      },
+      "sample": 7,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "9de6068452300f2d3a7bb88408312ded6871bfe283be8ce74bbeed82eb4be29e",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 3141837,
+        "full_semantic_export": 1134297,
+        "full_semantic_import": 569908,
+        "incremental_worktree_sync": 262826,
+        "native_git_merge": 6651604
+      },
+      "sample": 7,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "9de6068452300f2d3a7bb88408312ded6871bfe283be8ce74bbeed82eb4be29e",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 3954471,
+        "full_semantic_export": 759286,
+        "full_semantic_import": 626691,
+        "incremental_worktree_sync": 195207,
+        "native_git_merge": 7869394
+      },
+      "sample": 8,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 16,
+      "expected_root": "6be3f7830a62cd31b31d84a7a58141bad51d4a0e09dd12e787dea5001910506b",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 3027309,
+        "full_semantic_export": 972389,
+        "full_semantic_import": 627362,
+        "incremental_worktree_sync": 676774,
+        "native_git_merge": 9389838
+      },
+      "sample": 8,
+      "tracked_modules": 32
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "2fa3d31862dbdd406cdb798d61de51cabf23434b4de93991b66d41dec6498b87",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 7427465,
+        "full_semantic_export": 26560581,
+        "full_semantic_import": 5063771,
+        "incremental_worktree_sync": 305499,
+        "native_git_merge": 11256712
+      },
+      "sample": 8,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 64,
+      "expected_root": "b08f30fc1eb8e7d0ff7c6cafa84519c4f2f4cdd842be6c824c0c5da76b9d84cb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 7673146,
+        "full_semantic_export": 32432329,
+        "full_semantic_import": 4732455,
+        "incremental_worktree_sync": 25651905,
+        "native_git_merge": 17884236
+      },
+      "sample": 8,
+      "tracked_modules": 256
+    },
+    {
+      "changed_modules": 4,
+      "expected_root": "b0b195deee28df08fe2c79a8576cbf73bced13022f8c8ffccbc331f43611c4eb",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 12097958,
+        "full_semantic_export": 207862875,
+        "full_semantic_import": 21546760,
+        "incremental_worktree_sync": 214916,
+        "native_git_merge": 26145606
+      },
+      "sample": 8,
+      "tracked_modules": 1024
+    },
+    {
+      "changed_modules": 256,
+      "expected_root": "a1be174bdd2c8e7f9d3318851f87bd9c5f7e0f0fe5d724c79d1f2ed3459a8aad",
+      "ns": {
+        "fresh_sqlite_cache_rebuild": 10408221,
+        "full_semantic_export": 207374822,
+        "full_semantic_import": 16426889,
+        "incremental_worktree_sync": 11594505,
+        "native_git_merge": 25465385
+      },
+      "sample": 8,
+      "tracked_modules": 1024
+    }
+  ]
+}
