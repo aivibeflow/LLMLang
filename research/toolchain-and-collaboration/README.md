@@ -4,6 +4,12 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [Build, cache and bootstrap](build-and-bootstrap/README.md) · RT-11, RT-21
+- [Git, worktrees and semantic storage](git-and-storage/README.md) · RT-15, RT-22, RT-23, RT-24, RT-27
+- [Toolchain API, diagnostics and agent workflows](api-and-workflows/README.md) · RT-14, RT-17, RT-19, RT-20
+
 ## Studies
 
 | ID | Scope |
