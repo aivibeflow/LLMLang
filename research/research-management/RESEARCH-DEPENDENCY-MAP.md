@@ -530,6 +530,8 @@ These edges are research hypotheses, not adoption decisions. Rust's ownership mo
 
 ## 18. Bidirectional semantic translation across LLMLang and C/C++/Go/Rust (RT-30)
 
+[Native record layout](../compiler-and-translation/RT-13/RT-13-NATIVE-RECORD-LAYOUT-2026-11-25.md) separates physical member correspondence and function behavior at an exact external provider. Aggregate size and alignment fail to distinguish same-size field reorderings. A binary-checked layout adapter and a distinct output check jointly protect the closed C fixture.
+
 RT-30 studies source-to-target generation and target-to-LLMLang import as separate preservation problems, plus round-trip and cross-target migration. The C runtime is a hypothesis for realizing LLMLang constructs, not a semantic authority or a reason to constrain the language to C.
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
