@@ -27,3 +27,20 @@ The checker cross-reconciles seven committed ledgers and records their exact byt
 ```sh
 LC_ALL=C PYTHONHASHSEED=37 python -B research/runtime-and-systems/RT-37/TARGET-CLOSURE-CROSSWALK-01/check.py
 ```
+
+## Version-pinned archival crosswalk check
+
+A later clean export of `research/all` at `8ead100bc1e29699b42ccae79b75021bcf3f1755` reproduced the seven-source evidence ledger byte for byte under both hash seeds. The replay used CPython 3.12.14, Git 2.56.1 and GNU tar 1.35 on Linux 6.18.57 x86-64. The checker SHA-256 is `db24e4e1b7edf994f700755d70375fed45a7d8aab22bc2945a4fbf7100e5bd18` and the reproduced ledger SHA-256 is `ab3bbc9e94a7b7317d600778cf2357e5e7a018fb883e10b19ef9e8645bdf726f`. This pins the fresh archive comparison. The original Python execution version remains unavailable in the archived records.
+
+```sh
+set -eu
+path=research/runtime-and-systems/RT-37
+fixture="$path/TARGET-CLOSURE-CROSSWALK-01"
+export_dir=$(mktemp -d)
+git archive 8ead100bc1e29699b42ccae79b75021bcf3f1755 "$path" |
+  tar -x -C "$export_dir"
+for seed in 37 73; do
+  LC_ALL=C PYTHONHASHSEED="$seed" python3 -B "$export_dir/$fixture/check.py" > "$export_dir/result.json"
+  cmp "$export_dir/$fixture/evidence.json" "$export_dir/result.json"
+done
+```

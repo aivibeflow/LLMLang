@@ -12,7 +12,7 @@ The eight embedded matches include four Rust studies that use the field `rust`, 
 
 The RT-37 target-closure crosswalk calls `python -B` and reads seven committed evidence ledgers. The checked report and fixture records give no version for that Python execution. Tool identities for the referenced firmware studies apply to their own evidence. The pinned plan does not mention any of the 13 fixture identifiers literally. A control substituted a different command line and the verifier rejected the association. Reversing the manifest order produced the same audit ledger.
 
-The checks used exact GitHub Git data responses. The [local reproduction command](RESIDUAL-TOOL-PROVENANCE-01/run.mjs) uses the same comparison logic. The shell was offline, so the command-line invocation remains unchecked.
+The checks used exact GitHub Git data responses. The [local reproduction command](RESIDUAL-TOOL-PROVENANCE-01/run.mjs) uses the same comparison logic. A subsequent local run with Node.js 24.22.3 and Git 2.56.1 on Linux 6.18.57 x86-64 reproduced the committed JSON byte for byte.
 
 ```sh
 fixture=research/research-management/RT-00/RESIDUAL-TOOL-PROVENANCE-01
