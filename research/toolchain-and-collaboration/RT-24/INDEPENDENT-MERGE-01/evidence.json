@@ -1,0 +1,109 @@
+{
+  "axioms": [
+    "'MergeFixture.resultUnaffected' depends on axioms: [propext]",
+    "'MergeFixture.independentEditsCommute' depends on axioms: [propext, Quot.sound]",
+    "'MergeFixture.passingParentsCanFail' depends on axioms: [propext, Quot.sound]"
+  ],
+  "baseline": "568e1e1927b4f2bb3461e95584b703f52557cd7e",
+  "checks": 3888,
+  "counts": {
+    "independent_with_valid_parents": 384,
+    "merged_capacity_violation": 24,
+    "needs_review": 2430,
+    "order_difference": 1458,
+    "proven_shape": 1458
+  },
+  "edits": 12,
+  "examples": {
+    "omitted_read_would_appear_disjoint": {
+      "actual_right_reads": [
+        0
+      ],
+      "backward": [
+        0,
+        1,
+        0
+      ],
+      "base": [
+        1,
+        0,
+        0
+      ],
+      "claimed_right_reads": [],
+      "forward": [
+        0,
+        0,
+        0
+      ]
+    },
+    "overlapping_edits_with_order_difference": {
+      "backward": [
+        0,
+        0,
+        0
+      ],
+      "base": [
+        0,
+        0,
+        0
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "left": {
+        "literal": 0,
+        "source": null,
+        "target": 0
+      },
+      "right": {
+        "literal": 1,
+        "source": null,
+        "target": 0
+      }
+    },
+    "valid_parents_invalid_candidate": {
+      "base": [
+        0,
+        0,
+        1
+      ],
+      "candidate": [
+        1,
+        1,
+        1
+      ],
+      "left": {
+        "literal": 1,
+        "source": null,
+        "target": 0
+      },
+      "parents": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "right": {
+        "literal": 1,
+        "source": null,
+        "target": 1
+      }
+    }
+  },
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "python": "3.12.14",
+  "schema": "rt24-independent-edits-v1",
+  "source_sha256": {
+    "Independence.lean": "9699f917e217a6961d20be4632f13fdca5ee4ba0788dc68c929933bd7dd9ec7b",
+    "run.py": "bcea9750f28d19150536dd2da896f95ce1de59354f9829567466e0b6334256eb"
+  },
+  "states": 27
+}
