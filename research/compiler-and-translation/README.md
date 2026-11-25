@@ -67,6 +67,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-13 typed header imports](RT-13/RT-13-FFI-TYPED-HEADER-IMPORT-2026-11-25.md) checks C declarations, exact symbol providers and separate behavior contracts.
 - [RT-13 foreign-thread callbacks](RT-13/RT-13-FFI-LOADED-CALLBACK-2026-11-25.md) checks reentry, join, cancellation and contained callback failures.
 - [RT-13 Windows COFF profiles](RT-13/RT-13-FFI-WINDOWS-COFF-PROFILES-2026-11-25.md) checks target-specific call lowering and import-library identity on two cross-builds.
+- [RT-13 Mach-O profiles](RT-13/RT-13-FFI-MACHO-PROFILES-2026-11-25.md) checks exact platform, architecture and minimum OS claims in three cross-builds.
 - [RT-13 Java cleanup occurrences](RT-13/RT-13-JAVA-CLEANUP-OCCURRENCES-2026-11-25.md) compares automatic suppression with separate typed failure occurrences.
 - [RT-09 static link artifact identity](RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md) compares archive order, selected native members and exact executable bytes.
 - [RT-09 ordered runtime realization](RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md) binds native runtime providers and independently audits ordered effects.
