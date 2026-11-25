@@ -63,6 +63,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Recommendation:** Prefer a dedicated, typed operation-definition envelope with explicit references to interface and contract artifacts, plus only those additional fields that affect call semantics. Avoid duplicating their full content in multiple places.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 3.6.
 - **Evidence:** [RT-05 permissive operation identity](research/semantic-representation/RT-05/RT-05-PERMISSIVE-OPERATION-IDENTITY-2026-11-25.md) contrasts a complete relational contract address with exact provider binding. The fixture requires the ordered value/effect relation and its arithmetic interpretation, and leaves the production envelope open.
+- **Candidate:** [Exact identity envelope matrix](research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md) specifies and checks candidate fields without adopting a production schema.
 
 ### LL-002 — Define Operation Stable ID lifecycle
 
@@ -91,6 +92,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Recommendation:** Separate candidate discovery from acceptance. Require evidence against the exact OpHash and target constraints; otherwise do not substitute transparently.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 3.6 and 9.
 - **Evidence:** [RT-05 conformance class identity](research/semantic-representation/RT-05/RT-05-CONFORMANCE-CLASS-IDENTITY-2026-11-25.md) separates a stable class definition from changing candidate discoveries and verifies finite membership only for exact evidence records.
+- **Candidate:** [Exact identity envelope matrix](research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md) specifies and checks candidate fields without adopting a production schema.
 
 ---
 

@@ -367,11 +367,14 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [x] Define the distinct roles of logical/stable IDs, semantic hashes, operation identity, implementation identity, action keys, artifact hashes, and evidence identity.
   - [x] Define the candidate identity roles and check their change boundaries. Eleven ledgers and four Lean axiom outputs reproduce byte for byte, and 13 crosswalk controls agree with the reported distinctions. The production envelopes remain open. [Identity roles crosswalk](research/semantic-representation/RT-05/RT-05-IDENTITY-ROLES-CROSSWALK-2026-11-25.md)
   - [x] Compare guarded execution keys across 19,200 scope and edit pairs. The exact possible-provider set still allows 1,708 stale reuses when the selection relation changes. A per-state projection preserves all scoped observations in the fixture and permits 3,187 safe reuses. General guards and identity envelopes remain open. [Guarded dispatch identity](research/semantic-representation/RT-05/RT-05-GUARDED-DISPATCH-IDENTITY-2026-11-25.md).
-- [ ] [WIP] Specify the exact semantic payload committed by `OpHash`.
+- [x] Specify the exact semantic payload committed by `OpHash`.
+  - [x] Define the candidate interface, contract and call-context fields and check exact transitive address changes. [Candidate identity envelopes](research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md)
   - [x] Compare contract-addressed and body-qualified operation identity across ten native profiles and 2,560 observations. Six conforming provider pairs share the scoped contract address and have distinct traces or values. Separate value and trace projections give 511 false admissions. Lean checks the model boundaries without axioms. The production envelope remains open. [Permissive operation identity](research/semantic-representation/RT-05/RT-05-PERMISSIVE-OPERATION-IDENTITY-2026-11-25.md)
-- [ ] [WIP] Specify `ImplHash` and the identity of a concrete implementation.
+- [x] Specify `ImplHash` and the identity of a concrete implementation.
+  - [x] Define the candidate body, typed dependency, provided-contract and execution-profile fields. [Candidate identity envelopes](research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md)
   - [x] Compare real provider artifacts under six declared contracts and two public requirements. Executable plus public identity merges 29 pairs with opposite two-stage admission. The exact provider declaration separates them, and Lean checks the composition theorem. The production implementation envelope remains open. [Provided contract identity](research/semantic-representation/RT-05/RT-05-PROVIDED-CONTRACT-IDENTITY-2026-11-25.md)
-- [ ] [WIP] Define the contract identity and the identity of a class of compatible implementations.
+- [x] Define the contract identity and the identity of a class of compatible implementations.
+  - [x] Define exact contract, class predicate, finite discovery and evidence domains and check 153 single or paired edits. [Candidate identity envelopes](research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md)
   - [x] Recheck conformance class, interpreted contract and discovery identities using four classes and 120 source-bound evidence requests. Discovery changes the snapshot without changing the class. Class-and-implementation reuse confuses 100 request pairs with different dispositions, while exact evidence requests separate them. General evidence authority and canonical format remain open. [Conformance class identity](research/semantic-representation/RT-05/RT-05-CONFORMANCE-CLASS-IDENTITY-2026-11-25.md)
 - [ ] Define canonical typed serialization, domain separation, digest encoding, and hash algorithm agility.
   - [x] Compare strict, normalizing and raw-digest admission on 31 byte inputs in Python and JavaScript. Normalization accepts seven alternate canonical spellings and raw digest alone accepts 11 inputs refused by strict typed admission. The production schema and digest registry remain open. [Canonical wire admission](research/semantic-representation/RT-05/RT-05-CANONICAL-WIRE-ADMISSION-2026-11-25.md)
@@ -393,6 +396,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 **Existing evidence:** [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [LLMLang-CONCEPT.md](research/language-design/RT-01/LLMLang-CONCEPT.md), and the open questions LL-001–LL-008 in `TODO.md`.
 
 **Status:** researched; decision pending on canonical envelopes, dependency boundaries, stable-ID lifecycle, and exact `OpHash`/`ImplHash` payloads. The current project plan explicitly defers locking identity choices until cross-aspect synthesis.
+
+- [ ] [WIP human] Approve the production identity envelopes after cross-aspect synthesis and record the decision under LL-001 and related open decisions.
 
 **Research output (2026-11-21)** · Python and Node agree on a typed UTF-8 identity fixture across 127 cases. The corpus distinguishes exact integers, Unicode, map order and identity domains. [Portable identity bytes](research/semantic-representation/RT-05/RT-05-PORTABLE-IDENTITY-BYTES.md)
 

@@ -1,0 +1,1706 @@
+{
+  "matrix": {
+    "baseline": {
+      "candidates": "candidates/1/sha256/849961d5aef8284a1360a185de7a44325ec35ea140fc052fe985ebcf159248f3",
+      "conformance_class": "class/1/sha256/9486381a46e5b3f918a4c91119228470019ad691b6938d2de4e0cdb6f8c6ac35",
+      "contract": "contract/1/sha256/caa43b4edfc0038d60138b3c8f271b7db82b948fa9a5a1878359788f0b032747",
+      "evidence": "evidence/1/sha256/bd37a1258fa6d5578bc9c4c0ff9e6c1a65cefc4f1cd9f0cb622592635fa47b0d",
+      "implementation": "implementation/1/sha256/6e9cefb3d582c6a6b9bd7f69dd49a7443a246f4dc8d5792498f1267fe91daff2",
+      "operation": "operation/1/sha256/f00c4585f16b7bc7e797e0df00a25e2b06641c653c56fd75682cccbd2c7f5d50"
+    },
+    "cases": [
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "operation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "implementation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_constraints"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_criteria"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates"
+        ],
+        "fields": [
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates"
+        ],
+        "fields": [
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [],
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "contract_value"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "contract_profile"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "operation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "body"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "exact_dependency"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "provided_contract"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "implementation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "class_constraints"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "class_criteria"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "interface",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "contract_profile"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "operation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "body"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "exact_dependency"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "provided_contract"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "implementation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "class_constraints"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "class_criteria"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_value",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "operation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "body"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "exact_dependency"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "provided_contract"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "implementation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "class_constraints"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "class_criteria"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "contract",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "contract_profile",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "body"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "exact_dependency"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "provided_contract"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "implementation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "class_constraints"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "class_criteria"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence",
+          "operation"
+        ],
+        "fields": [
+          "operation_context",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "exact_dependency"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "provided_contract"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "implementation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "class_constraints"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "class_criteria"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "body",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "provided_contract"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "implementation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "class_constraints"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "class_criteria"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "exact_dependency",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract",
+          "implementation_context"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract",
+          "class_constraints"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract",
+          "class_criteria"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract",
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "provided_contract",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "implementation_context",
+          "class_constraints"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "implementation_context",
+          "class_criteria"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "implementation_context",
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "implementation_context",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "implementation_context",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "implementation_context",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "implementation_context",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "implementation_context",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence",
+          "implementation"
+        ],
+        "fields": [
+          "implementation_context",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_constraints",
+          "class_criteria"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_constraints",
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_constraints",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_constraints",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_constraints",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_constraints",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_constraints",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_constraints",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_criteria",
+          "other_candidate"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_criteria",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_criteria",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_criteria",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_criteria",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_criteria",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "conformance_class",
+          "evidence"
+        ],
+        "fields": [
+          "class_criteria",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates"
+        ],
+        "fields": [
+          "other_candidate",
+          "discovery_scope"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence"
+        ],
+        "fields": [
+          "other_candidate",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence"
+        ],
+        "fields": [
+          "other_candidate",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence"
+        ],
+        "fields": [
+          "other_candidate",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence"
+        ],
+        "fields": [
+          "other_candidate",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates"
+        ],
+        "fields": [
+          "other_candidate",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence"
+        ],
+        "fields": [
+          "discovery_scope",
+          "assumptions"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence"
+        ],
+        "fields": [
+          "discovery_scope",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence"
+        ],
+        "fields": [
+          "discovery_scope",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates",
+          "evidence"
+        ],
+        "fields": [
+          "discovery_scope",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "candidates"
+        ],
+        "fields": [
+          "discovery_scope",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "assumptions",
+          "verifier"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "assumptions",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "assumptions",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "assumptions",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "verifier",
+          "evidence_payload"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "verifier",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "verifier",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "evidence_payload",
+          "review_policy"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "evidence_payload",
+          "description"
+        ]
+      },
+      {
+        "changed_identities": [
+          "evidence"
+        ],
+        "fields": [
+          "review_policy",
+          "description"
+        ]
+      }
+    ],
+    "count": 153
+  },
+  "prior_ledgers": {
+    "CONFORMANCE-CLASS-IDENTITY-01": "9fec93bfaba15c3abbb33b5ec798a3eff85b62b636b556530290db8a748bc77e",
+    "OPERATION-IDENTITY-01": "61c4d7bf9d35c8eee5ebf42265eaf4cfc1fc2d6242f2d45ff09ba5fceb2d84c7",
+    "PROVIDED-CONTRACT-IDENTITY-01": "7b51a95bb5992c1f760f9426c668fc14e01acc56c18988cf963310d28a35a5fd"
+  },
+  "revision": "2426691c3b0200edf9b6dfb8bb5083050b3b7b28",
+  "runner_sha256": "566685f22bce75b6370fca3af5a26d2825098a4fd2147bd4287fa862c2f8c733"
+}
