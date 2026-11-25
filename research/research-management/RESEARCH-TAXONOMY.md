@@ -189,6 +189,8 @@ RT-03 and RT-05 compare five conversion policies for binary64 and signed I64, in
 
 RT-13 compares binary64-to-I64 LLVM range guards, poison masking, and saturation using Alive2, native execution and both Vellvm extraction modes. [LLVM checked F64 to I64 lowering](../compiler-and-translation/RT-13/RT-13-LLVM-F64-I64-LOWERING-2026-11-25.md)
 
+RT-07 compares Dafny source-level contract verification and concrete C ABI conformance for a kernel-style lookup, with an explicit foreign assumption linked to RT-38. [Dafny kernel-style lookup and foreign boundary](../formal-verification/RT-07/RT-07-DAFNY-KERNEL-FOREIGN-BOUNDARY-2026-11-25.md)
+
 ## 3. Required research artifact
 
 Every research report should identify:

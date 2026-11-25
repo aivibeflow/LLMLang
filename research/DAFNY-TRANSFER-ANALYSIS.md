@@ -129,6 +129,8 @@ Add a controlled seL4-inspired case study to the transfer programme:
 - Determine whether Dafny is a useful implementation/specification language for the bounded component, a contract frontend, or a baseline beside Isabelle/HOL.
 - Do not extrapolate a toy component result to seL4 itself. Record properties, configuration, source/binary scope, assumptions, and tool trust explicitly.
 
+The [Dafny kernel-style lookup and foreign boundary](formal-verification/RT-07/RT-07-DAFNY-KERNEL-FOREIGN-BOUNDARY-2026-11-25.md) measures this boundary on a fixed-width table lookup. Dafny verifies the source implementation and a separate client under an extern declaration. Independent native results detect wrong overflow handling, different refusal priority and an incompatible signed result binding. The case distinguishes the scope of the source proof from the exact external-provider obligation.
+
 ## 8. Decision criteria
 
 Prefer reuse of Dafny tooling when it provides the needed verification semantics and the translation boundary can be made explicit and trustworthy. Prefer LLMLang-native constructs only when the requirements materially differ—for example, provenance-aware contract lifecycle, effect/capability composition, or graph-level incremental evidence—and a small formal model demonstrates that difference.

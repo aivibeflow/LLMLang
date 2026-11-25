@@ -656,12 +656,13 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Prototype a bounded mapping in either direction and bind generated obligations/results to exact source, SPG, contract, verifier, and assumption identities. Include negative/unsupported cases; make no soundness claim without a correctness argument.
 - [ ] Compare invariant discovery, proof failures, solver variability, incremental re-verification, and evidence invalidation after specification or implementation edits.
 - [ ] Characterize Dafny's heap/frame model and concurrency boundary: distinguish sequential `reads`/`modifies` reasoning, restricted `{:concurrent}` empty-frame declarations, and general concurrent-algorithm verification. Compare these with LLMLang's proposed effects, ownership, synchronization, and history semantics.
-- [ ] Use seL4 as a high-assurance case study: distinguish Dafny contract expressiveness from proof coverage of low-level C, ABI/extern boundaries, hardware assumptions, compiler translation, and binary-level refinement. Assess a bounded kernel-like example; do not treat it as a direct seL4 rewrite estimate.
+- [x] Use seL4 as a high-assurance case study: distinguish Dafny contract expressiveness from proof coverage of low-level C, ABI/extern boundaries, hardware assumptions, compiler translation, and binary-level refinement. Assess a bounded kernel-like example; do not treat it as a direct seL4 rewrite estimate.
+  - Verify a bounded table lookup in Dafny with two Z3 versions and compare its generated caller with four native C/ABI routes on 1,836 input triples per configuration. The exact bridge matches all inputs. Three incompatible providers or bindings leave the Dafny verification result unchanged and alter native observations. Production C and binary correspondence, hardware assumptions and adoption remain open. [Dafny kernel-style lookup and foreign boundary](research/formal-verification/RT-07/RT-07-DAFNY-KERNEL-FOREIGN-BOUNDARY-2026-11-25.md)
 - [ ] Record transfer decisions as candidates with evidence, limitations, and open questions. See [Dafny Transfer Analysis](research/DAFNY-TRANSFER-ANALYSIS.md) and [Dafny–LLMLang comparison](research/COMPARISON-DAFNY-LLMLANG.md).
 
 **Deliverable:** construct-by-construct transfer matrix, candidate contract/syntax proposal, reproducible example corpus, and recommendation on Dafny reuse versus an independent LLMLang verifier.
 
-**Status:** not started as a focused transfer study. Existing Dafny material is a comparative synthesis, not an adopted syntax, translation specification, or compatibility proof.
+**Status:** a scoped lookup experiment compares Dafny verification with native foreign-provider and ABI observations. The broader construct mapping, candidate syntax, translation validation and transfer decision remain open.
 
 # Stage 3 — Dependency graph, incremental computation, and cache
 
