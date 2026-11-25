@@ -1,0 +1,455 @@
+{
+  "buckets": [
+    "short",
+    "long"
+  ],
+  "controls": {
+    "invalid_weights": [
+      [
+        "invalid-workload-mix",
+        null
+      ],
+      [
+        "invalid-workload-mix",
+        null
+      ],
+      [
+        "invalid-workload-mix",
+        null
+      ]
+    ],
+    "stable_tie": [
+      "bounded-improvement",
+      "b"
+    ]
+  },
+  "cost_data_kind": "synthetic interval estimates",
+  "counts": {
+    "baseline": 1614,
+    "baseline-missing-comparable-cost": 864,
+    "baseline-retained": 750,
+    "bounded-improvement": 114,
+    "cases": 2592,
+    "long-specialized": 66,
+    "no-eligible-baseline": 864,
+    "short-specialized": 48
+  },
+  "margin": 2,
+  "mix_examples": {
+    "0/1": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          10,
+          13
+        ],
+        "long-specialized": [
+          13,
+          15
+        ],
+        "short-specialized": [
+          18,
+          20
+        ]
+      },
+      "selected": "baseline"
+    },
+    "0/16": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          160,
+          208
+        ],
+        "long-specialized": [
+          73,
+          105
+        ],
+        "short-specialized": [
+          213,
+          245
+        ]
+      },
+      "selected": "long-specialized"
+    },
+    "0/4": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          40,
+          52
+        ],
+        "long-specialized": [
+          25,
+          33
+        ],
+        "short-specialized": [
+          57,
+          65
+        ]
+      },
+      "selected": "long-specialized"
+    },
+    "0/64": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          640,
+          832
+        ],
+        "long-specialized": [
+          265,
+          393
+        ],
+        "short-specialized": [
+          837,
+          965
+        ]
+      },
+      "selected": "long-specialized"
+    },
+    "1/0": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          7,
+          9
+        ],
+        "long-specialized": [
+          17,
+          19
+        ],
+        "short-specialized": [
+          8,
+          9
+        ]
+      },
+      "selected": "baseline"
+    },
+    "1/1": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          17,
+          22
+        ],
+        "long-specialized": [
+          21,
+          25
+        ],
+        "short-specialized": [
+          21,
+          24
+        ]
+      },
+      "selected": "baseline"
+    },
+    "1/16": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          167,
+          217
+        ],
+        "long-specialized": [
+          81,
+          115
+        ],
+        "short-specialized": [
+          216,
+          249
+        ]
+      },
+      "selected": "long-specialized"
+    },
+    "1/4": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          47,
+          61
+        ],
+        "long-specialized": [
+          33,
+          43
+        ],
+        "short-specialized": [
+          60,
+          69
+        ]
+      },
+      "selected": "long-specialized"
+    },
+    "1/64": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          647,
+          841
+        ],
+        "long-specialized": [
+          273,
+          403
+        ],
+        "short-specialized": [
+          840,
+          969
+        ]
+      },
+      "selected": "long-specialized"
+    },
+    "16/0": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          112,
+          144
+        ],
+        "long-specialized": [
+          137,
+          169
+        ],
+        "short-specialized": [
+          53,
+          69
+        ]
+      },
+      "selected": "short-specialized"
+    },
+    "16/1": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          122,
+          157
+        ],
+        "long-specialized": [
+          141,
+          175
+        ],
+        "short-specialized": [
+          66,
+          84
+        ]
+      },
+      "selected": "short-specialized"
+    },
+    "16/16": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          272,
+          352
+        ],
+        "long-specialized": [
+          201,
+          265
+        ],
+        "short-specialized": [
+          261,
+          309
+        ]
+      },
+      "selected": "long-specialized"
+    },
+    "16/4": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          152,
+          196
+        ],
+        "long-specialized": [
+          153,
+          193
+        ],
+        "short-specialized": [
+          105,
+          129
+        ]
+      },
+      "selected": "short-specialized"
+    },
+    "16/64": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          752,
+          976
+        ],
+        "long-specialized": [
+          393,
+          553
+        ],
+        "short-specialized": [
+          885,
+          1029
+        ]
+      },
+      "selected": "long-specialized"
+    },
+    "4/0": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          28,
+          36
+        ],
+        "long-specialized": [
+          41,
+          49
+        ],
+        "short-specialized": [
+          17,
+          21
+        ]
+      },
+      "selected": "short-specialized"
+    },
+    "4/1": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          38,
+          49
+        ],
+        "long-specialized": [
+          45,
+          55
+        ],
+        "short-specialized": [
+          30,
+          36
+        ]
+      },
+      "selected": "baseline"
+    },
+    "4/16": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          188,
+          244
+        ],
+        "long-specialized": [
+          105,
+          145
+        ],
+        "short-specialized": [
+          225,
+          261
+        ]
+      },
+      "selected": "long-specialized"
+    },
+    "4/4": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          68,
+          88
+        ],
+        "long-specialized": [
+          57,
+          73
+        ],
+        "short-specialized": [
+          69,
+          81
+        ]
+      },
+      "selected": "baseline"
+    },
+    "4/64": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          668,
+          868
+        ],
+        "long-specialized": [
+          297,
+          433
+        ],
+        "short-specialized": [
+          849,
+          981
+        ]
+      },
+      "selected": "long-specialized"
+    },
+    "64/0": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          448,
+          576
+        ],
+        "long-specialized": [
+          521,
+          649
+        ],
+        "short-specialized": [
+          197,
+          261
+        ]
+      },
+      "selected": "short-specialized"
+    },
+    "64/1": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          458,
+          589
+        ],
+        "long-specialized": [
+          525,
+          655
+        ],
+        "short-specialized": [
+          210,
+          276
+        ]
+      },
+      "selected": "short-specialized"
+    },
+    "64/16": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          608,
+          784
+        ],
+        "long-specialized": [
+          585,
+          745
+        ],
+        "short-specialized": [
+          405,
+          501
+        ]
+      },
+      "selected": "short-specialized"
+    },
+    "64/4": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          488,
+          628
+        ],
+        "long-specialized": [
+          537,
+          673
+        ],
+        "short-specialized": [
+          249,
+          321
+        ]
+      },
+      "selected": "short-specialized"
+    },
+    "64/64": {
+      "bounds_with_switch_cost": {
+        "baseline": [
+          1088,
+          1408
+        ],
+        "long-specialized": [
+          777,
+          1033
+        ],
+        "short-specialized": [
+          1029,
+          1221
+        ]
+      },
+      "selected": "long-specialized"
+    }
+  },
+  "scope": [
+    "checked-add/v1",
+    "linux-x86_64-sysv",
+    "host-A",
+    "elapsed-us"
+  ],
+  "source_sha256": "28e3cec2cd8d1cf1f0b4516a39f2645daf783f2703ab5417fa8c3b2703a8b48c"
+}
