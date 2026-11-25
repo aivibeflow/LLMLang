@@ -1,0 +1,55 @@
+{
+  "format": "directory-relative-posix-01",
+  "kernel": "6.18.57",
+  "observations": 72,
+  "rows": {
+    "glibc/-O0": {
+      "archive": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+      "observed_fields": [
+        "original A A A",
+        "peer-cwd-changed B A A",
+        "peer-cwd-restored A A A",
+        "rename-and-replace C A A 1 1",
+        "errors EBADF ENOTDIR ENOENT",
+        "remaining-owner A EBADF"
+      ],
+      "runs": 3
+    },
+    "glibc/-O2": {
+      "archive": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+      "observed_fields": [
+        "original A A A",
+        "peer-cwd-changed B A A",
+        "peer-cwd-restored A A A",
+        "rename-and-replace C A A 1 1",
+        "errors EBADF ENOTDIR ENOENT",
+        "remaining-owner A EBADF"
+      ],
+      "runs": 3
+    },
+    "musl/-O0": {
+      "archive": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0",
+      "observed_fields": [
+        "original A A A",
+        "peer-cwd-changed B A A",
+        "peer-cwd-restored A A A",
+        "rename-and-replace C A A 1 1",
+        "errors EBADF ENOTDIR ENOENT",
+        "remaining-owner A EBADF"
+      ],
+      "runs": 3
+    },
+    "musl/-O2": {
+      "archive": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0",
+      "observed_fields": [
+        "original A A A",
+        "peer-cwd-changed B A A",
+        "peer-cwd-restored A A A",
+        "rename-and-replace C A A 1 1",
+        "errors EBADF ENOTDIR ENOENT",
+        "remaining-owner A EBADF"
+      ],
+      "runs": 3
+    }
+  }
+}
