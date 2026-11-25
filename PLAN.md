@@ -1187,6 +1187,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Decide whether backends consume typed SPG directly or a normalized target-independent semantic IR.
 - [ ] Define the lowering pipeline and preservation obligations.
 - [ ] Define target capability declarations and unsupported constructs.
+  - [ ] [WIP] Check declared native and runtime-supported lowering for wide integer division through an exact freestanding link audit on `research/all`.
 - [ ] Define explicit translation outcomes: exact under assumptions, preserved with runtime support, restricted, unsupported, and unverified.
 - [ ] Define runtime support as part of a target realization.
 - [ ] Define generated artifact identity and reproducibility.
