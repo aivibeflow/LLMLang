@@ -1538,6 +1538,7 @@ Research a typed, versioned object describing the task an agent is expected to p
 - [ ] Compare lifecycle models for creation, clarification, planning, execution, blocked/failed states, cancellation, retry, delegation, decomposition, review, handoff, and completion.
 - [ ] Define how a task pins its baseline snapshot, selected Knowledge Context, target objects, and related Change Set/CIP without duplicating their authoritative state.
 - [ ] Specify machine-checkable completion obligations: required mutations, tests, proofs, audits, approvals, evidence bindings, and fail-closed behavior when obligations remain unknown or unsatisfied.
+  - [ ] [WIP] Compare exact Task Context completion with receipts bound only by label or task ID, and separate the completion receipt from publication permission on `research/all`.
 - [ ] Study multi-agent ownership, concurrent task revisions, subtask dependencies, idempotency, recovery, and the boundary between task completion and commit/push authorization.
 - [ ] Keep authorization independent: a Task Context describes requested work and constraints but does not grant capabilities; RT-16 policy checks remain authoritative.
 - [ ] Build lifecycle and adversarial fixtures for stale baselines, scope expansion, omitted obligations, conflicting delegated work, cancellation/retry, and partial completion.
