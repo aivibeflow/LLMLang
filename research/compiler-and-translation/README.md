@@ -65,6 +65,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-13 LLVM bitcode toolchain](RT-13/RT-13-LLVM-BITCODE-TOOLCHAIN-2026-11-25.md) checks exact producer, consumer and native compatibility scopes.
 - [RT-13 incremental Cranelift provider](RT-13/RT-13-CRANELIFT-INCREMENTAL-PROVIDER-2026-11-25.md) compares direct and indirect native calls through provider replacement and release.
 - [RT-13 typed header imports](RT-13/RT-13-FFI-TYPED-HEADER-IMPORT-2026-11-25.md) checks C declarations, exact symbol providers and separate behavior contracts.
+- [RT-13 foreign-thread callbacks](RT-13/RT-13-FFI-LOADED-CALLBACK-2026-11-25.md) checks reentry, join, cancellation and contained callback failures.
 - [RT-13 Java cleanup occurrences](RT-13/RT-13-JAVA-CLEANUP-OCCURRENCES-2026-11-25.md) compares automatic suppression with separate typed failure occurrences.
 - [RT-09 static link artifact identity](RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md) compares archive order, selected native members and exact executable bytes.
 - [RT-09 ordered runtime realization](RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md) binds native runtime providers and independently audits ordered effects.
