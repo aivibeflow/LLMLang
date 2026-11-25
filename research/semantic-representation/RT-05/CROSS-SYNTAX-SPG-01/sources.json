@@ -1,0 +1,12 @@
+{
+  "operation": {
+    "infix/1": "op(\"provider\", emit(\"left\", x), emit(\"right\", x + 3)) if choose else emit(\"fallback\", x - 2)",
+    "json-tree/1": "[\"if\", [\"arg\", \"choose\"], [\"op\", \"provider\", [\"emit\", \"left\", [\"arg\", \"x\"]], [\"emit\", \"right\", [\"add\", [\"arg\", \"x\"], 3]]], [\"emit\", \"fallback\", [\"sub\", [\"arg\", \"x\"], 2]]]",
+    "s-expression/1": "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 3))) (emit \"fallback\" (sub (arg \"x\") 2)))"
+  },
+  "pin": {
+    "infix/1": "pin(\"primary\", emit(\"left\", x), emit(\"right\", x + 3)) if choose else emit(\"fallback\", x - 2)",
+    "json-tree/1": "[\"if\", [\"arg\", \"choose\"], [\"pin\", \"primary\", [\"emit\", \"left\", [\"arg\", \"x\"]], [\"emit\", \"right\", [\"add\", [\"arg\", \"x\"], 3]]], [\"emit\", \"fallback\", [\"sub\", [\"arg\", \"x\"], 2]]]",
+    "s-expression/1": "(if (arg \"choose\") (pin \"primary\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 3))) (emit \"fallback\" (sub (arg \"x\") 2)))"
+  }
+}
