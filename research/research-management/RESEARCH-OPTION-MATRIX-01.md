@@ -252,7 +252,7 @@ Do not score an unmeasured criterion as a numeric zero. Mark it **unknown**, rep
 
 For every experiment, record source commit, tool versions, fixtures, command, raw results, limitations, and criteria that would falsify the favored vector. Keep unsupported claims marked unknown.
 
-The [checked-add Lean bit-vector route](../compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-LEAN-2026-11-25.md) compares solver agreement and exact LRAT proof replay on the fixed-width LLVM observation predicates. Certificate replay can omit a SAT solver and retains a compiled reflection assumption.
+The [checked-add Lean bit-vector route](../compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-LEAN-2026-11-25.md) compares solver agreement and exact LRAT proof replay on the fixed-width LLVM observation predicates. Certificate replay can omit a SAT solver and retains a compiled reflection assumption. The [symbolic alternative](../compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-SYMBOLIC-2026-11-25.md) uses standard Lean axioms for these exact predicates and depends on operation-specific arithmetic correspondence lemmas.
 
 ## 8. Readiness assessment for comparative selection
 
