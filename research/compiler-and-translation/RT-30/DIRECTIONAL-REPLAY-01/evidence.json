@@ -1,0 +1,48 @@
+{
+  "directions": {
+    "cross_target": 12,
+    "forward": 4,
+    "reexport": 4,
+    "reverse": 4
+  },
+  "importer_refusals": {
+    "c": 8,
+    "cpp": 9,
+    "go": 10,
+    "rust": 10
+  },
+  "matrix_native_observations": 740400,
+  "relative_install_directory_ignored": "Clang InstalledDir only",
+  "replays": {
+    "c_family": {
+      "archived_ledger_sha256": "3c0c2e4a11acbc60e8d69c5fa5d52f4328d7d5aafe79c2c1671aa4c937ac893a",
+      "replayed_normalized_ledger_sha256": "eeff07a063052b6abb991662235420b066decb95d52bac4e1162660a46677564",
+      "source_files_checked": 5
+    },
+    "go": {
+      "archived_ledger_sha256": "70b4d989fd0d1af42472e30a1f0848e1d5437f780131c0cdd4338056b32f433a",
+      "replayed_normalized_ledger_sha256": "c010edb254a4d417265d417f86c805686e093a2a97d321eadb49295aa051d507",
+      "source_files_checked": 8
+    },
+    "matrix": {
+      "archived_ledger_sha256": "9156e7ff0430734be263a7f714c389dd1c8e7741a03b20f22c0e2678edd18fd3",
+      "replayed_normalized_ledger_sha256": "58990f5350b60e3632ea652c4c8888f3f8c2bb135a86bf6a891621ec93e0ebcc",
+      "source_files_checked": 17
+    },
+    "rust": {
+      "archived_ledger_sha256": "3d26ce43f04d2cada57b95d7fd862990952250c53cee7c14dd953e9add8604fd",
+      "replayed_normalized_ledger_sha256": "03c5cbfca6c30d8e84db32f0e2b4bfaabdb6a07bb6bf8a5abb0f44b0848ecdaa",
+      "source_files_checked": 10
+    }
+  },
+  "roundtrip_native_observations": 666360,
+  "runner_sha256": "5b1eb979d95f28a385f14b4991b26119bba22e6a6aaaaba6ed631898e14cdacf",
+  "scope_controls": {
+    "cross-target receipt digest changed": "refused",
+    "direction inventory contains an unsupported route": "refused",
+    "re-export marked merely emitted": "refused",
+    "reverse direction incorrectly counted as native": "refused",
+    "reverse import missing one program": "refused",
+    "route deleted": "refused"
+  }
+}

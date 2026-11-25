@@ -1541,8 +1541,8 @@ Vendor references: [STM32F1](https://www.st.com/en/microcontrollers-microprocess
 
 ### Required bidirectional translation study (RT-30)
 
-- [ ] Research automated LLMLang → C, C++, Go, and Rust translation and C/C++/Go/Rust → LLMLang import as separate directions.
-  - [ ] [WIP] Replay and cross-check exact forward, reverse and cross-target wrapping translation evidence independently for all four languages on `research/all` (#328).
+- [x] Research automated LLMLang → C, C++, Go, and Rust translation and C/C++/Go/Rust → LLMLang import as separate directions.
+  - [x] Replay 20 native routes and four restricted importer profiles. Separate forward, reverse, same-language and cross-target claims. Four experiment ledgers reproduce, including 1,406,760 combined native observations and 37 importer refusals. [RT-30 directional replay](research/compiler-and-translation/RT-30/RT-30-DIRECTIONAL-REPLAY-2026-11-25.md)
 - [x] Define a source/target matrix, semantic observation model, preservation contracts, and explicit exact/runtime-supported/restricted/partial/unverified/unsupported outcomes.
   - [x] Define and exercise the restricted wrapping matrix: four exact imports into the checked model and 20 native routes with 740,400 matching observations. Record the shared observation contract and six evidence-dependent outcome classes. The matrix records restricted support; additional language semantics and general translator obligations remain open. [Wrapping translation matrix](research/compiler-and-translation/RT-30/RT-30-WRAPPING-TRANSLATION-MATRIX-2026-11-25.md)
 - [x] Compare canonical semantic IR, direct SPG lowering, and hybrid representations; preserve source provenance without conflating it with semantic identity.
