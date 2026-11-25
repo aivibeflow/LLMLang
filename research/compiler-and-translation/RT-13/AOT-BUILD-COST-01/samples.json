@@ -1,0 +1,6145 @@
+{
+  "affinity": [
+    0
+  ],
+  "clang": "Debian clang version 19.1.7 (3+b1)",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "diagnostics": {
+    "debug": {
+      "error_location": "invalid.c:1:40",
+      "unresolved": "missing_provider"
+    },
+    "release": {
+      "error_location": "invalid.c:1:40",
+      "unresolved": "missing_provider"
+    }
+  },
+  "filesystem": "overlayfs",
+  "linker": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "runner_sha256": "c0f8a14169dfe54b3f27e1d269a20ebdf0d2405882675d14f4046f6187529fc3",
+  "samples": [
+    {
+      "batch": 0,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18948,
+          18908,
+          112606
+        ],
+        "edited": [
+          18898,
+          18898,
+          18898
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 229513701,
+        "clean_link_ns": 64960050,
+        "clean_peak_tool_kib": 73804,
+        "incremental_compile_ns": 43684059,
+        "incremental_link_ns": 54162728,
+        "incremental_peak_tool_kib": 68348
+      }
+    },
+    {
+      "batch": 0,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73328,
+          73328,
+          73338
+        ],
+        "edited": [
+          73338,
+          73348,
+          73348
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 603867387,
+        "clean_link_ns": 51915205,
+        "clean_peak_tool_kib": 73588,
+        "incremental_compile_ns": 53476553,
+        "incremental_link_ns": 73829259,
+        "incremental_peak_tool_kib": 69368
+      }
+    },
+    {
+      "batch": 0,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          1164995,
+          1551774,
+          477022
+        ],
+        "edited": [
+          608265,
+          617108,
+          949677
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 630845324,
+        "clean_link_ns": 79110753,
+        "clean_peak_tool_kib": 65964,
+        "incremental_compile_ns": 43290405,
+        "incremental_link_ns": 68203315,
+        "incremental_peak_tool_kib": 64148
+      }
+    },
+    {
+      "batch": 0,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          168969,
+          157081,
+          157692
+        ],
+        "edited": [
+          142740,
+          142820,
+          142891
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 389687939,
+        "clean_link_ns": 55619428,
+        "clean_peak_tool_kib": 73816,
+        "incremental_compile_ns": 55991169,
+        "incremental_link_ns": 50552097,
+        "incremental_peak_tool_kib": 69216
+      }
+    },
+    {
+      "batch": 0,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          118785,
+          111343,
+          120196
+        ],
+        "edited": [
+          117283,
+          115841,
+          119525
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 344772743,
+        "clean_link_ns": 54552248,
+        "clean_peak_tool_kib": 66188,
+        "incremental_compile_ns": 30169171,
+        "incremental_link_ns": 42158564,
+        "incremental_peak_tool_kib": 65476
+      }
+    },
+    {
+      "batch": 0,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          84184,
+          89852,
+          89862
+        ],
+        "edited": [
+          89852,
+          89862,
+          89852
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 162811473,
+        "clean_link_ns": 43811734,
+        "clean_peak_tool_kib": 66256,
+        "incremental_compile_ns": 28961518,
+        "incremental_link_ns": 43173387,
+        "incremental_peak_tool_kib": 63988
+      }
+    },
+    {
+      "batch": 1,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          111193,
+          112696,
+          112145
+        ],
+        "edited": [
+          114499,
+          108650,
+          120487
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 262230999,
+        "clean_link_ns": 41334475,
+        "clean_peak_tool_kib": 66360,
+        "incremental_compile_ns": 29176364,
+        "incremental_link_ns": 44136672,
+        "incremental_peak_tool_kib": 65396
+      }
+    },
+    {
+      "batch": 1,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18998,
+          18927,
+          18908
+        ],
+        "edited": [
+          18918,
+          18908,
+          147957
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 161800140,
+        "clean_link_ns": 41939474,
+        "clean_peak_tool_kib": 73864,
+        "incremental_compile_ns": 34059758,
+        "incremental_link_ns": 43130123,
+        "incremental_peak_tool_kib": 68076
+      }
+    },
+    {
+      "batch": 1,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73338,
+          73338,
+          73328
+        ],
+        "edited": [
+          73328,
+          280562,
+          144021
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 631749112,
+        "clean_link_ns": 54112117,
+        "clean_peak_tool_kib": 73132,
+        "incremental_compile_ns": 36216386,
+        "incremental_link_ns": 47234283,
+        "incremental_peak_tool_kib": 69260
+      }
+    },
+    {
+      "batch": 1,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          214375,
+          157912,
+          286051
+        ],
+        "edited": [
+          202227,
+          143280,
+          157412
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 360737697,
+        "clean_link_ns": 55898562,
+        "clean_peak_tool_kib": 73192,
+        "incremental_compile_ns": 34458875,
+        "incremental_link_ns": 44158503,
+        "incremental_peak_tool_kib": 69240
+      }
+    },
+    {
+      "batch": 1,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          611278,
+          505332,
+          543929
+        ],
+        "edited": [
+          612600,
+          1288944,
+          489499
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 541679790,
+        "clean_link_ns": 51077068,
+        "clean_peak_tool_kib": 66516,
+        "incremental_compile_ns": 37998899,
+        "incremental_link_ns": 56565281,
+        "incremental_peak_tool_kib": 64364
+      }
+    },
+    {
+      "batch": 1,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89862,
+          89842,
+          89842
+        ],
+        "edited": [
+          89882,
+          89852,
+          89852
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 195941699,
+        "clean_link_ns": 46952398,
+        "clean_peak_tool_kib": 65632,
+        "incremental_compile_ns": 31074923,
+        "incremental_link_ns": 45033419,
+        "incremental_peak_tool_kib": 64136
+      }
+    },
+    {
+      "batch": 2,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          713037,
+          563428,
+          593131
+        ],
+        "edited": [
+          642835,
+          450993,
+          489409
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 583959550,
+        "clean_link_ns": 47570276,
+        "clean_peak_tool_kib": 66380,
+        "incremental_compile_ns": 32148109,
+        "incremental_link_ns": 70236785,
+        "incremental_peak_tool_kib": 64364
+      }
+    },
+    {
+      "batch": 2,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          37765,
+          18908,
+          22834
+        ],
+        "edited": [
+          18918,
+          18898,
+          18907
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 204564979,
+        "clean_link_ns": 44898702,
+        "clean_peak_tool_kib": 73416,
+        "incremental_compile_ns": 36095990,
+        "incremental_link_ns": 43989556,
+        "incremental_peak_tool_kib": 68200
+      }
+    },
+    {
+      "batch": 2,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73348,
+          73328,
+          114739
+        ],
+        "edited": [
+          73338,
+          73338,
+          73338
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 624921050,
+        "clean_link_ns": 46629764,
+        "clean_peak_tool_kib": 73700,
+        "incremental_compile_ns": 60781970,
+        "incremental_link_ns": 49735907,
+        "incremental_peak_tool_kib": 68984
+      }
+    },
+    {
+      "batch": 2,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          179554,
+          176820,
+          264189
+        ],
+        "edited": [
+          201316,
+          417565,
+          143231
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 319319188,
+        "clean_link_ns": 44567436,
+        "clean_peak_tool_kib": 73712,
+        "incremental_compile_ns": 34162343,
+        "incremental_link_ns": 45060983,
+        "incremental_peak_tool_kib": 69492
+      }
+    },
+    {
+      "batch": 2,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          115691,
+          112936,
+          940049
+        ],
+        "edited": [
+          114769,
+          236468,
+          128118
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 286656766,
+        "clean_link_ns": 43007598,
+        "clean_peak_tool_kib": 66348,
+        "incremental_compile_ns": 35753295,
+        "incremental_link_ns": 42586499,
+        "incremental_peak_tool_kib": 65616
+      }
+    },
+    {
+      "batch": 2,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89853,
+          89842,
+          144032
+        ],
+        "edited": [
+          80178,
+          89863,
+          89862
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 160620330,
+        "clean_link_ns": 43718065,
+        "clean_peak_tool_kib": 66124,
+        "incremental_compile_ns": 32604977,
+        "incremental_link_ns": 42538588,
+        "incremental_peak_tool_kib": 63676
+      }
+    },
+    {
+      "batch": 3,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157592,
+          157242,
+          210660
+        ],
+        "edited": [
+          160116,
+          176229,
+          143101
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 337721339,
+        "clean_link_ns": 72051528,
+        "clean_peak_tool_kib": 73892,
+        "incremental_compile_ns": 38680396,
+        "incremental_link_ns": 67205736,
+        "incremental_peak_tool_kib": 69084
+      }
+    },
+    {
+      "batch": 3,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18908,
+          18908,
+          18958
+        ],
+        "edited": [
+          18908,
+          18908,
+          18907
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 198941769,
+        "clean_link_ns": 70600515,
+        "clean_peak_tool_kib": 73416,
+        "incremental_compile_ns": 33910971,
+        "incremental_link_ns": 46139592,
+        "incremental_peak_tool_kib": 68360
+      }
+    },
+    {
+      "batch": 3,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          114849,
+          109952,
+          110813
+        ],
+        "edited": [
+          115280,
+          140597,
+          200665
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 296556418,
+        "clean_link_ns": 46307949,
+        "clean_peak_tool_kib": 65884,
+        "incremental_compile_ns": 32673259,
+        "incremental_link_ns": 45593156,
+        "incremental_peak_tool_kib": 65528
+      }
+    },
+    {
+      "batch": 3,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          450772,
+          486245,
+          450241
+        ],
+        "edited": [
+          509188,
+          503630,
+          880303
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 565368918,
+        "clean_link_ns": 51867759,
+        "clean_peak_tool_kib": 66188,
+        "incremental_compile_ns": 32634276,
+        "incremental_link_ns": 42469659,
+        "incremental_peak_tool_kib": 64612
+      }
+    },
+    {
+      "batch": 3,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          113397,
+          109481,
+          89952
+        ],
+        "edited": [
+          89862,
+          143571,
+          89852
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 153057187,
+        "clean_link_ns": 51257343,
+        "clean_peak_tool_kib": 66216,
+        "incremental_compile_ns": 33314546,
+        "incremental_link_ns": 48206539,
+        "incremental_peak_tool_kib": 63912
+      }
+    },
+    {
+      "batch": 3,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73348,
+          73328,
+          73358
+        ],
+        "edited": [
+          73318,
+          73338,
+          73338
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 667905309,
+        "clean_link_ns": 54632663,
+        "clean_peak_tool_kib": 73464,
+        "incremental_compile_ns": 32545695,
+        "incremental_link_ns": 44577656,
+        "incremental_peak_tool_kib": 69292
+      }
+    },
+    {
+      "batch": 4,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157412,
+          157592,
+          157331
+        ],
+        "edited": [
+          144282,
+          144713,
+          143311
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 318862805,
+        "clean_link_ns": 47812480,
+        "clean_peak_tool_kib": 73192,
+        "incremental_compile_ns": 34665161,
+        "incremental_link_ns": 55834668,
+        "incremental_peak_tool_kib": 69216
+      }
+    },
+    {
+      "batch": 4,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          126796,
+          89843,
+          89862
+        ],
+        "edited": [
+          89862,
+          89842,
+          133877
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 158856079,
+        "clean_link_ns": 45243234,
+        "clean_peak_tool_kib": 66048,
+        "incremental_compile_ns": 31593026,
+        "incremental_link_ns": 44788667,
+        "incremental_peak_tool_kib": 64088
+      }
+    },
+    {
+      "batch": 4,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          110012,
+          115430,
+          107548
+        ],
+        "edited": [
+          114889,
+          111854,
+          116000
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 292684595,
+        "clean_link_ns": 43549196,
+        "clean_peak_tool_kib": 66344,
+        "incremental_compile_ns": 30451949,
+        "incremental_link_ns": 44137960,
+        "incremental_peak_tool_kib": 65544
+      }
+    },
+    {
+      "batch": 4,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          57054,
+          18897,
+          18907
+        ],
+        "edited": [
+          19028,
+          18918,
+          45397
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 170406963,
+        "clean_link_ns": 44222905,
+        "clean_peak_tool_kib": 73180,
+        "incremental_compile_ns": 31067453,
+        "incremental_link_ns": 42706467,
+        "incremental_peak_tool_kib": 68036
+      }
+    },
+    {
+      "batch": 4,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          521807,
+          493405,
+          469330
+        ],
+        "edited": [
+          451664,
+          470040,
+          472124
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 524493109,
+        "clean_link_ns": 45786033,
+        "clean_peak_tool_kib": 66284,
+        "incremental_compile_ns": 28873820,
+        "incremental_link_ns": 41272870,
+        "incremental_peak_tool_kib": 64424
+      }
+    },
+    {
+      "batch": 4,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          93046,
+          73328,
+          73328
+        ],
+        "edited": [
+          73358,
+          73348,
+          73337
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 549284035,
+        "clean_link_ns": 42513494,
+        "clean_peak_tool_kib": 73484,
+        "incremental_compile_ns": 32991762,
+        "incremental_link_ns": 49086291,
+        "incremental_peak_tool_kib": 68840
+      }
+    },
+    {
+      "batch": 5,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89852,
+          125925,
+          83883
+        ],
+        "edited": [
+          89852,
+          89852,
+          89842
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 181478612,
+        "clean_link_ns": 46142396,
+        "clean_peak_tool_kib": 65956,
+        "incremental_compile_ns": 31520118,
+        "incremental_link_ns": 47036781,
+        "incremental_peak_tool_kib": 64000
+      }
+    },
+    {
+      "batch": 5,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73348,
+          77604,
+          73328
+        ],
+        "edited": [
+          73338,
+          73328,
+          73318
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 616548120,
+        "clean_link_ns": 46326236,
+        "clean_peak_tool_kib": 73864,
+        "incremental_compile_ns": 33082169,
+        "incremental_link_ns": 46049669,
+        "incremental_peak_tool_kib": 69056
+      }
+    },
+    {
+      "batch": 5,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          470882,
+          472285,
+          470331
+        ],
+        "edited": [
+          607884,
+          492284,
+          496430
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 527173576,
+        "clean_link_ns": 49354157,
+        "clean_peak_tool_kib": 66188,
+        "incremental_compile_ns": 35283013,
+        "incremental_link_ns": 51738472,
+        "incremental_peak_tool_kib": 64248
+      }
+    },
+    {
+      "batch": 5,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          222677,
+          208907,
+          157621
+        ],
+        "edited": [
+          144092,
+          143141,
+          143471
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 332222470,
+        "clean_link_ns": 54850826,
+        "clean_peak_tool_kib": 73668,
+        "incremental_compile_ns": 39429838,
+        "incremental_link_ns": 57171804,
+        "incremental_peak_tool_kib": 69216
+      }
+    },
+    {
+      "batch": 5,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          115409,
+          110663,
+          112715
+        ],
+        "edited": [
+          115079,
+          114959,
+          114939
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 296376742,
+        "clean_link_ns": 53125471,
+        "clean_peak_tool_kib": 66360,
+        "incremental_compile_ns": 35171530,
+        "incremental_link_ns": 54208578,
+        "incremental_peak_tool_kib": 65552
+      }
+    },
+    {
+      "batch": 5,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18908,
+          18918,
+          18898
+        ],
+        "edited": [
+          18898,
+          18968,
+          47610
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 225661862,
+        "clean_link_ns": 51451519,
+        "clean_peak_tool_kib": 73444,
+        "incremental_compile_ns": 43723285,
+        "incremental_link_ns": 53279337,
+        "incremental_peak_tool_kib": 68324
+      }
+    },
+    {
+      "batch": 6,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          46328,
+          112064,
+          89912
+        ],
+        "edited": [
+          89852,
+          89852,
+          89903
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 207247484,
+        "clean_link_ns": 55549484,
+        "clean_peak_tool_kib": 66216,
+        "incremental_compile_ns": 32186772,
+        "incremental_link_ns": 48515123,
+        "incremental_peak_tool_kib": 64004
+      }
+    },
+    {
+      "batch": 6,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73328,
+          73357,
+          73328
+        ],
+        "edited": [
+          73338,
+          73328,
+          73338
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 669914699,
+        "clean_link_ns": 49529995,
+        "clean_peak_tool_kib": 73824,
+        "incremental_compile_ns": 38766424,
+        "incremental_link_ns": 55195623,
+        "incremental_peak_tool_kib": 69080
+      }
+    },
+    {
+      "batch": 6,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157411,
+          205102,
+          216348
+        ],
+        "edited": [
+          143110,
+          144713,
+          302194
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 358741881,
+        "clean_link_ns": 49921381,
+        "clean_peak_tool_kib": 73712,
+        "incremental_compile_ns": 37144820,
+        "incremental_link_ns": 55093829,
+        "incremental_peak_tool_kib": 69472
+      }
+    },
+    {
+      "batch": 6,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          469180,
+          530050,
+          608945
+        ],
+        "edited": [
+          508678,
+          642154,
+          509439
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 602008354,
+        "clean_link_ns": 49575953,
+        "clean_peak_tool_kib": 66176,
+        "incremental_compile_ns": 43602688,
+        "incremental_link_ns": 65468684,
+        "incremental_peak_tool_kib": 64328
+      }
+    },
+    {
+      "batch": 6,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          108610,
+          189409,
+          117793
+        ],
+        "edited": [
+          116111,
+          113938,
+          114759
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 322927326,
+        "clean_link_ns": 56054276,
+        "clean_peak_tool_kib": 66344,
+        "incremental_compile_ns": 37336341,
+        "incremental_link_ns": 55281490,
+        "incremental_peak_tool_kib": 65240
+      }
+    },
+    {
+      "batch": 6,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18998,
+          18908,
+          18898
+        ],
+        "edited": [
+          18948,
+          18908,
+          18918
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 215225611,
+        "clean_link_ns": 54419303,
+        "clean_peak_tool_kib": 73864,
+        "incremental_compile_ns": 38613719,
+        "incremental_link_ns": 51057211,
+        "incremental_peak_tool_kib": 68032
+      }
+    },
+    {
+      "batch": 7,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          239192,
+          269015,
+          157601
+        ],
+        "edited": [
+          143230,
+          143211,
+          142680
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 366169513,
+        "clean_link_ns": 49749027,
+        "clean_peak_tool_kib": 73812,
+        "incremental_compile_ns": 38517848,
+        "incremental_link_ns": 53326315,
+        "incremental_peak_tool_kib": 69388
+      }
+    },
+    {
+      "batch": 7,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73348,
+          73338,
+          73338
+        ],
+        "edited": [
+          73909,
+          91405,
+          73338
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 672751960,
+        "clean_link_ns": 48799843,
+        "clean_peak_tool_kib": 73868,
+        "incremental_compile_ns": 36482357,
+        "incremental_link_ns": 49322570,
+        "incremental_peak_tool_kib": 69056
+      }
+    },
+    {
+      "batch": 7,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          120597,
+          18908,
+          18908
+        ],
+        "edited": [
+          18928,
+          18898,
+          18898
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 185048398,
+        "clean_link_ns": 50515119,
+        "clean_peak_tool_kib": 73176,
+        "incremental_compile_ns": 40641480,
+        "incremental_link_ns": 57236494,
+        "incremental_peak_tool_kib": 68424
+      }
+    },
+    {
+      "batch": 7,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          94278,
+          94278,
+          94279
+        ],
+        "edited": [
+          51155,
+          52076,
+          49643
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 198462161,
+        "clean_link_ns": 64043269,
+        "clean_peak_tool_kib": 66292,
+        "incremental_compile_ns": 40073806,
+        "incremental_link_ns": 68146603,
+        "incremental_peak_tool_kib": 64084
+      }
+    },
+    {
+      "batch": 7,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          110443,
+          111033,
+          115530
+        ],
+        "edited": [
+          114739,
+          119075,
+          113527
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 299964867,
+        "clean_link_ns": 45210939,
+        "clean_peak_tool_kib": 66520,
+        "incremental_compile_ns": 30877065,
+        "incremental_link_ns": 42626933,
+        "incremental_peak_tool_kib": 65608
+      }
+    },
+    {
+      "batch": 7,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          455500,
+          525683,
+          450602
+        ],
+        "edited": [
+          467657,
+          451523,
+          462169
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 551702853,
+        "clean_link_ns": 46546663,
+        "clean_peak_tool_kib": 66168,
+        "incremental_compile_ns": 30117369,
+        "incremental_link_ns": 45502357,
+        "incremental_peak_tool_kib": 64360
+      }
+    },
+    {
+      "batch": 8,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          450592,
+          556067,
+          471163
+        ],
+        "edited": [
+          745506,
+          454027,
+          460196
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 512524489,
+        "clean_link_ns": 44647262,
+        "clean_peak_tool_kib": 66276,
+        "incremental_compile_ns": 33134894,
+        "incremental_link_ns": 52191423,
+        "incremental_peak_tool_kib": 64244
+      }
+    },
+    {
+      "batch": 8,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18907,
+          18908,
+          18908
+        ],
+        "edited": [
+          18908,
+          18947,
+          18918
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 188260921,
+        "clean_link_ns": 48895174,
+        "clean_peak_tool_kib": 73848,
+        "incremental_compile_ns": 34677771,
+        "incremental_link_ns": 47625908,
+        "incremental_peak_tool_kib": 68380
+      }
+    },
+    {
+      "batch": 8,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          135038,
+          116992,
+          2565009
+        ],
+        "edited": [
+          117763,
+          116611,
+          114569
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 341698268,
+        "clean_link_ns": 57197390,
+        "clean_peak_tool_kib": 65884,
+        "incremental_compile_ns": 41888928,
+        "incremental_link_ns": 67928754,
+        "incremental_peak_tool_kib": 65608
+      }
+    },
+    {
+      "batch": 8,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89852,
+          103852,
+          80758
+        ],
+        "edited": [
+          139335,
+          89852,
+          138112
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 180618689,
+        "clean_link_ns": 55093688,
+        "clean_peak_tool_kib": 65796,
+        "incremental_compile_ns": 37609028,
+        "incremental_link_ns": 58215150,
+        "incremental_peak_tool_kib": 64120
+      }
+    },
+    {
+      "batch": 8,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73318,
+          73338,
+          73348
+        ],
+        "edited": [
+          73338,
+          73328,
+          73388
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 709877564,
+        "clean_link_ns": 44247053,
+        "clean_peak_tool_kib": 73128,
+        "incremental_compile_ns": 33013015,
+        "incremental_link_ns": 48921532,
+        "incremental_peak_tool_kib": 68968
+      }
+    },
+    {
+      "batch": 8,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          174807,
+          157442,
+          242587
+        ],
+        "edited": [
+          214806,
+          143271,
+          143210
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 350729084,
+        "clean_link_ns": 48537749,
+        "clean_peak_tool_kib": 73192,
+        "incremental_compile_ns": 39481050,
+        "incremental_link_ns": 49109589,
+        "incremental_peak_tool_kib": 69428
+      }
+    },
+    {
+      "batch": 9,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          112516,
+          110032,
+          110562
+        ],
+        "edited": [
+          113877,
+          179764,
+          192522
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 334012370,
+        "clean_link_ns": 42778366,
+        "clean_peak_tool_kib": 66248,
+        "incremental_compile_ns": 36891694,
+        "incremental_link_ns": 47650204,
+        "incremental_peak_tool_kib": 65692
+      }
+    },
+    {
+      "batch": 9,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89852,
+          89842,
+          171331
+        ],
+        "edited": [
+          156099,
+          83744,
+          143351
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 185087875,
+        "clean_link_ns": 47483249,
+        "clean_peak_tool_kib": 66124,
+        "incremental_compile_ns": 33294268,
+        "incremental_link_ns": 46083672,
+        "incremental_peak_tool_kib": 63676
+      }
+    },
+    {
+      "batch": 9,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          707229,
+          538771,
+          679548
+        ],
+        "edited": [
+          537089,
+          505964,
+          1295123
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 565495253,
+        "clean_link_ns": 62426499,
+        "clean_peak_tool_kib": 65924,
+        "incremental_compile_ns": 33235551,
+        "incremental_link_ns": 57579181,
+        "incremental_peak_tool_kib": 64348
+      }
+    },
+    {
+      "batch": 9,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157111,
+          157211,
+          157251
+        ],
+        "edited": [
+          143090,
+          173465,
+          170851
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 329748161,
+        "clean_link_ns": 42569598,
+        "clean_peak_tool_kib": 73584,
+        "incremental_compile_ns": 34464397,
+        "incremental_link_ns": 49419043,
+        "incremental_peak_tool_kib": 69240
+      }
+    },
+    {
+      "batch": 9,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          124653,
+          73368,
+          73338
+        ],
+        "edited": [
+          73328,
+          73338,
+          73839
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 629105833,
+        "clean_link_ns": 42600784,
+        "clean_peak_tool_kib": 73700,
+        "incremental_compile_ns": 32102065,
+        "incremental_link_ns": 43677487,
+        "incremental_peak_tool_kib": 69260
+      }
+    },
+    {
+      "batch": 9,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18927,
+          18908,
+          18908
+        ],
+        "edited": [
+          18908,
+          18917,
+          46699
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 170757050,
+        "clean_link_ns": 58824741,
+        "clean_peak_tool_kib": 73848,
+        "incremental_compile_ns": 35647505,
+        "incremental_link_ns": 47452814,
+        "incremental_peak_tool_kib": 68620
+      }
+    },
+    {
+      "batch": 10,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18898,
+          18918,
+          18918
+        ],
+        "edited": [
+          18918,
+          18908,
+          18908
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 204863143,
+        "clean_link_ns": 53688683,
+        "clean_peak_tool_kib": 73168,
+        "incremental_compile_ns": 39293194,
+        "incremental_link_ns": 49892790,
+        "incremental_peak_tool_kib": 68356
+      }
+    },
+    {
+      "batch": 10,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73328,
+          73357,
+          105825
+        ],
+        "edited": [
+          73328,
+          73338,
+          73338
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 651198944,
+        "clean_link_ns": 47155498,
+        "clean_peak_tool_kib": 73592,
+        "incremental_compile_ns": 37186106,
+        "incremental_link_ns": 86601591,
+        "incremental_peak_tool_kib": 68972
+      }
+    },
+    {
+      "batch": 10,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          112245,
+          116030,
+          113076
+        ],
+        "edited": [
+          115660,
+          116441,
+          116651
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 292831229,
+        "clean_link_ns": 49035861,
+        "clean_peak_tool_kib": 65760,
+        "incremental_compile_ns": 32699740,
+        "incremental_link_ns": 59160240,
+        "incremental_peak_tool_kib": 65640
+      }
+    },
+    {
+      "batch": 10,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89862,
+          89862,
+          89842
+        ],
+        "edited": [
+          89993,
+          89852,
+          89852
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 172070651,
+        "clean_link_ns": 47147396,
+        "clean_peak_tool_kib": 66216,
+        "incremental_compile_ns": 32479543,
+        "incremental_link_ns": 56829511,
+        "incremental_peak_tool_kib": 63988
+      }
+    },
+    {
+      "batch": 10,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157652,
+          157101,
+          316375
+        ],
+        "edited": [
+          142669,
+          143120,
+          361341
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 367368626,
+        "clean_link_ns": 58330526,
+        "clean_peak_tool_kib": 73876,
+        "incremental_compile_ns": 38700276,
+        "incremental_link_ns": 59839973,
+        "incremental_peak_tool_kib": 69484
+      }
+    },
+    {
+      "batch": 10,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          549677,
+          493775,
+          569937
+        ],
+        "edited": [
+          563769,
+          529357,
+          666890
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 688166169,
+        "clean_link_ns": 72256014,
+        "clean_peak_tool_kib": 65968,
+        "incremental_compile_ns": 37848926,
+        "incremental_link_ns": 53796165,
+        "incremental_peak_tool_kib": 64560
+      }
+    },
+    {
+      "batch": 11,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18908,
+          436661,
+          18908
+        ],
+        "edited": [
+          18918,
+          46939,
+          18908
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 184008950,
+        "clean_link_ns": 63421615,
+        "clean_peak_tool_kib": 73864,
+        "incremental_compile_ns": 47765509,
+        "incremental_link_ns": 56081882,
+        "incremental_peak_tool_kib": 68076
+      }
+    },
+    {
+      "batch": 11,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          123462,
+          73317,
+          94959
+        ],
+        "edited": [
+          110192,
+          73368,
+          73338
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 657850243,
+        "clean_link_ns": 56395764,
+        "clean_peak_tool_kib": 73584,
+        "incremental_compile_ns": 42240283,
+        "incremental_link_ns": 63544456,
+        "incremental_peak_tool_kib": 69300
+      }
+    },
+    {
+      "batch": 11,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          450322,
+          524320,
+          579471
+        ],
+        "edited": [
+          463711,
+          717904,
+          470472
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 708431372,
+        "clean_link_ns": 54866506,
+        "clean_peak_tool_kib": 66528,
+        "incremental_compile_ns": 33509179,
+        "incremental_link_ns": 46101500,
+        "incremental_peak_tool_kib": 64364
+      }
+    },
+    {
+      "batch": 11,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89852,
+          89852,
+          89842
+        ],
+        "edited": [
+          89842,
+          89852,
+          89852
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 159112594,
+        "clean_link_ns": 43690117,
+        "clean_peak_tool_kib": 66048,
+        "incremental_compile_ns": 31898283,
+        "incremental_link_ns": 43636559,
+        "incremental_peak_tool_kib": 63784
+      }
+    },
+    {
+      "batch": 11,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157431,
+          157381,
+          157652
+        ],
+        "edited": [
+          166715,
+          166285,
+          177591
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 370671326,
+        "clean_link_ns": 65787812,
+        "clean_peak_tool_kib": 73188,
+        "incremental_compile_ns": 35723193,
+        "incremental_link_ns": 43075544,
+        "incremental_peak_tool_kib": 69228
+      }
+    },
+    {
+      "batch": 11,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          112976,
+          111303,
+          106376
+        ],
+        "edited": [
+          207565,
+          131123,
+          116651
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 293711002,
+        "clean_link_ns": 45973581,
+        "clean_peak_tool_kib": 66176,
+        "incremental_compile_ns": 29928890,
+        "incremental_link_ns": 54892195,
+        "incremental_peak_tool_kib": 65476
+      }
+    },
+    {
+      "batch": 12,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89842,
+          89852,
+          89862
+        ],
+        "edited": [
+          89852,
+          89852,
+          89862
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 152804715,
+        "clean_link_ns": 45918431,
+        "clean_peak_tool_kib": 66048,
+        "incremental_compile_ns": 31739681,
+        "incremental_link_ns": 44919045,
+        "incremental_peak_tool_kib": 63944
+      }
+    },
+    {
+      "batch": 12,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73328,
+          153615,
+          73328
+        ],
+        "edited": [
+          73348,
+          125074,
+          97253
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 718953224,
+        "clean_link_ns": 49270036,
+        "clean_peak_tool_kib": 73428,
+        "incremental_compile_ns": 34264184,
+        "incremental_link_ns": 53604326,
+        "incremental_peak_tool_kib": 69056
+      }
+    },
+    {
+      "batch": 12,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          119025,
+          236127,
+          144182
+        ],
+        "edited": [
+          190890,
+          232792,
+          114768
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 362090720,
+        "clean_link_ns": 52917356,
+        "clean_peak_tool_kib": 65904,
+        "incremental_compile_ns": 35273126,
+        "incremental_link_ns": 49567813,
+        "incremental_peak_tool_kib": 65576
+      }
+    },
+    {
+      "batch": 12,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18898,
+          18908,
+          18918
+        ],
+        "edited": [
+          18898,
+          18908,
+          18908
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 198024830,
+        "clean_link_ns": 45177704,
+        "clean_peak_tool_kib": 73864,
+        "incremental_compile_ns": 35839697,
+        "incremental_link_ns": 43875992,
+        "incremental_peak_tool_kib": 68192
+      }
+    },
+    {
+      "batch": 12,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157532,
+          157492,
+          285078
+        ],
+        "edited": [
+          143180,
+          143761,
+          173996
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 354366818,
+        "clean_link_ns": 53668226,
+        "clean_peak_tool_kib": 73456,
+        "incremental_compile_ns": 39851114,
+        "incremental_link_ns": 67603416,
+        "incremental_peak_tool_kib": 69420
+      }
+    },
+    {
+      "batch": 12,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          505152,
+          452394,
+          488438
+        ],
+        "edited": [
+          446966,
+          479705,
+          537140
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 704922166,
+        "clean_link_ns": 52044421,
+        "clean_peak_tool_kib": 66492,
+        "incremental_compile_ns": 40501645,
+        "incremental_link_ns": 46451505,
+        "incremental_peak_tool_kib": 64612
+      }
+    },
+    {
+      "batch": 13,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89842,
+          89852,
+          89852
+        ],
+        "edited": [
+          144612,
+          89852,
+          143300
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 170036336,
+        "clean_link_ns": 47618769,
+        "clean_peak_tool_kib": 65796,
+        "incremental_compile_ns": 40978424,
+        "incremental_link_ns": 57192749,
+        "incremental_peak_tool_kib": 64020
+      }
+    },
+    {
+      "batch": 13,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          365286,
+          163210,
+          108679
+        ],
+        "edited": [
+          114388,
+          114729,
+          122881
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 386357671,
+        "clean_link_ns": 51012725,
+        "clean_peak_tool_kib": 66176,
+        "incremental_compile_ns": 43310090,
+        "incremental_link_ns": 46259143,
+        "incremental_peak_tool_kib": 65236
+      }
+    },
+    {
+      "batch": 13,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73327,
+          74449,
+          73378
+        ],
+        "edited": [
+          73348,
+          73338,
+          345627
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 728278210,
+        "clean_link_ns": 47503650,
+        "clean_peak_tool_kib": 73884,
+        "incremental_compile_ns": 35525015,
+        "incremental_link_ns": 48964016,
+        "incremental_peak_tool_kib": 69388
+      }
+    },
+    {
+      "batch": 13,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18917,
+          18908,
+          18908
+        ],
+        "edited": [
+          18907,
+          18888,
+          18918
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 181533063,
+        "clean_link_ns": 45866466,
+        "clean_peak_tool_kib": 73656,
+        "incremental_compile_ns": 42044572,
+        "incremental_link_ns": 52579687,
+        "incremental_peak_tool_kib": 68592
+      }
+    },
+    {
+      "batch": 13,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          165874,
+          157421,
+          157371
+        ],
+        "edited": [
+          142550,
+          184461,
+          165573
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 377111250,
+        "clean_link_ns": 63014941,
+        "clean_peak_tool_kib": 73852,
+        "incremental_compile_ns": 43301483,
+        "incremental_link_ns": 59748493,
+        "incremental_peak_tool_kib": 69204
+      }
+    },
+    {
+      "batch": 13,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          560534,
+          496690,
+          478263
+        ],
+        "edited": [
+          506814,
+          577339,
+          660440
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 689703581,
+        "clean_link_ns": 77780776,
+        "clean_peak_tool_kib": 65884,
+        "incremental_compile_ns": 57041175,
+        "incremental_link_ns": 69657095,
+        "incremental_peak_tool_kib": 64148
+      }
+    },
+    {
+      "batch": 14,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          132605,
+          166735,
+          141118
+        ],
+        "edited": [
+          132755,
+          115670,
+          108850
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 374416254,
+        "clean_link_ns": 100439533,
+        "clean_peak_tool_kib": 65888,
+        "incremental_compile_ns": 38276502,
+        "incremental_link_ns": 49262700,
+        "incremental_peak_tool_kib": 65580
+      }
+    },
+    {
+      "batch": 14,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          178693,
+          368712,
+          411254
+        ],
+        "edited": [
+          142749,
+          143901,
+          143170
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 386186649,
+        "clean_link_ns": 82036050,
+        "clean_peak_tool_kib": 73888,
+        "incremental_compile_ns": 53309131,
+        "incremental_link_ns": 65894681,
+        "incremental_peak_tool_kib": 69392
+      }
+    },
+    {
+      "batch": 14,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          758404,
+          469430,
+          433657
+        ],
+        "edited": [
+          934583,
+          465024,
+          831512
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 994133615,
+        "clean_link_ns": 60482468,
+        "clean_peak_tool_kib": 66176,
+        "incremental_compile_ns": 37140978,
+        "incremental_link_ns": 102373341,
+        "incremental_peak_tool_kib": 64248
+      }
+    },
+    {
+      "batch": 14,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18917,
+          18898,
+          42202
+        ],
+        "edited": [
+          18888,
+          18908,
+          18918
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 237741366,
+        "clean_link_ns": 68568240,
+        "clean_peak_tool_kib": 73464,
+        "incremental_compile_ns": 45063881,
+        "incremental_link_ns": 57335335,
+        "incremental_peak_tool_kib": 68200
+      }
+    },
+    {
+      "batch": 14,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73338,
+          73328,
+          73347
+        ],
+        "edited": [
+          130381,
+          186494,
+          152714
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 718687321,
+        "clean_link_ns": 55427945,
+        "clean_peak_tool_kib": 73868,
+        "incremental_compile_ns": 40581847,
+        "incremental_link_ns": 54663522,
+        "incremental_peak_tool_kib": 69300
+      }
+    },
+    {
+      "batch": 14,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          102801,
+          89852,
+          81390
+        ],
+        "edited": [
+          89852,
+          108379,
+          78926
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 188588410,
+        "clean_link_ns": 49469774,
+        "clean_peak_tool_kib": 65796,
+        "incremental_compile_ns": 32723310,
+        "incremental_link_ns": 50323128,
+        "incremental_peak_tool_kib": 63912
+      }
+    },
+    {
+      "batch": 15,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73338,
+          73328,
+          73327
+        ],
+        "edited": [
+          73318,
+          73347,
+          73337
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 732350022,
+        "clean_link_ns": 65391508,
+        "clean_peak_tool_kib": 73136,
+        "incremental_compile_ns": 39593980,
+        "incremental_link_ns": 61781330,
+        "incremental_peak_tool_kib": 69256
+      }
+    },
+    {
+      "batch": 15,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          260543,
+          157421,
+          177591
+        ],
+        "edited": [
+          200745,
+          143060,
+          171642
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 363534759,
+        "clean_link_ns": 62045624,
+        "clean_peak_tool_kib": 73884,
+        "incremental_compile_ns": 41088224,
+        "incremental_link_ns": 49954216,
+        "incremental_peak_tool_kib": 69324
+      }
+    },
+    {
+      "batch": 15,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18918,
+          18928,
+          20329
+        ],
+        "edited": [
+          18897,
+          18938,
+          18908
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 197660284,
+        "clean_link_ns": 59702217,
+        "clean_peak_tool_kib": 73880,
+        "incremental_compile_ns": 40711646,
+        "incremental_link_ns": 69376670,
+        "incremental_peak_tool_kib": 68356
+      }
+    },
+    {
+      "batch": 15,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          501246,
+          451803,
+          450181
+        ],
+        "edited": [
+          521016,
+          1133244,
+          630506
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 617891293,
+        "clean_link_ns": 61978275,
+        "clean_peak_tool_kib": 66196,
+        "incremental_compile_ns": 50425067,
+        "incremental_link_ns": 71924938,
+        "incremental_peak_tool_kib": 64612
+      }
+    },
+    {
+      "batch": 15,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          185783,
+          113136,
+          150531
+        ],
+        "edited": [
+          115159,
+          172503,
+          114008
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 388907624,
+        "clean_link_ns": 49700593,
+        "clean_peak_tool_kib": 66376,
+        "incremental_compile_ns": 39579228,
+        "incremental_link_ns": 56438389,
+        "incremental_peak_tool_kib": 65608
+      }
+    },
+    {
+      "batch": 15,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89852,
+          87418,
+          89842
+        ],
+        "edited": [
+          89872,
+          89842,
+          89852
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 198300886,
+        "clean_link_ns": 56502473,
+        "clean_peak_tool_kib": 66240,
+        "incremental_compile_ns": 33775048,
+        "incremental_link_ns": 54366234,
+        "incremental_peak_tool_kib": 63956
+      }
+    },
+    {
+      "batch": 16,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73328,
+          73318,
+          118665
+        ],
+        "edited": [
+          73318,
+          73338,
+          73327
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 704386628,
+        "clean_link_ns": 72146534,
+        "clean_peak_tool_kib": 73884,
+        "incremental_compile_ns": 62061896,
+        "incremental_link_ns": 78854316,
+        "incremental_peak_tool_kib": 69388
+      }
+    },
+    {
+      "batch": 16,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          381050,
+          887709,
+          351467
+        ],
+        "edited": [
+          1424043,
+          668723,
+          648012
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 794369438,
+        "clean_link_ns": 84138646,
+        "clean_peak_tool_kib": 66272,
+        "incremental_compile_ns": 40902761,
+        "incremental_link_ns": 67487489,
+        "incremental_peak_tool_kib": 64828
+      }
+    },
+    {
+      "batch": 16,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          253332,
+          118805,
+          547945
+        ],
+        "edited": [
+          1203967,
+          360740,
+          450952
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 868321200,
+        "clean_link_ns": 105959328,
+        "clean_peak_tool_kib": 65928,
+        "incremental_compile_ns": 58484911,
+        "incremental_link_ns": 91140781,
+        "incremental_peak_tool_kib": 65904
+      }
+    },
+    {
+      "batch": 16,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          22293,
+          18938,
+          18908
+        ],
+        "edited": [
+          18908,
+          18908,
+          18918
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 269773365,
+        "clean_link_ns": 67795253,
+        "clean_peak_tool_kib": 73804,
+        "incremental_compile_ns": 69778564,
+        "incremental_link_ns": 70790841,
+        "incremental_peak_tool_kib": 68424
+      }
+    },
+    {
+      "batch": 16,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89862,
+          89852,
+          89842
+        ],
+        "edited": [
+          109010,
+          89862,
+          90463
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 243410351,
+        "clean_link_ns": 45734512,
+        "clean_peak_tool_kib": 66056,
+        "incremental_compile_ns": 33176909,
+        "incremental_link_ns": 44996207,
+        "incremental_peak_tool_kib": 64024
+      }
+    },
+    {
+      "batch": 16,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157641,
+          192693,
+          157291
+        ],
+        "edited": [
+          142930,
+          205161,
+          143260
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 346298406,
+        "clean_link_ns": 48021609,
+        "clean_peak_tool_kib": 73896,
+        "incremental_compile_ns": 41648445,
+        "incremental_link_ns": 50308841,
+        "incremental_peak_tool_kib": 69312
+      }
+    },
+    {
+      "batch": 17,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73328,
+          73328,
+          73327
+        ],
+        "edited": [
+          90243,
+          73338,
+          73348
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 706721120,
+        "clean_link_ns": 54366652,
+        "clean_peak_tool_kib": 73888,
+        "incremental_compile_ns": 32482039,
+        "incremental_link_ns": 43889112,
+        "incremental_peak_tool_kib": 68844
+      }
+    },
+    {
+      "batch": 17,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89852,
+          169780,
+          89862
+        ],
+        "edited": [
+          89862,
+          134787,
+          168147
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 149874294,
+        "clean_link_ns": 43409278,
+        "clean_peak_tool_kib": 66236,
+        "incremental_compile_ns": 33417421,
+        "incremental_link_ns": 47628653,
+        "incremental_peak_tool_kib": 64416
+      }
+    },
+    {
+      "batch": 17,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18908,
+          18918,
+          18907
+        ],
+        "edited": [
+          18908,
+          78756,
+          18908
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 183898407,
+        "clean_link_ns": 51640130,
+        "clean_peak_tool_kib": 73684,
+        "incremental_compile_ns": 36232023,
+        "incremental_link_ns": 48534528,
+        "incremental_peak_tool_kib": 68328
+      }
+    },
+    {
+      "batch": 17,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          485583,
+          625658,
+          529427
+        ],
+        "edited": [
+          453946,
+          482378,
+          513394
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 604573168,
+        "clean_link_ns": 56938708,
+        "clean_peak_tool_kib": 66372,
+        "incremental_compile_ns": 40725761,
+        "incremental_link_ns": 76368467,
+        "incremental_peak_tool_kib": 64828
+      }
+    },
+    {
+      "batch": 17,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157602,
+          157671,
+          157781
+        ],
+        "edited": [
+          226633,
+          150561,
+          204620
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 399287532,
+        "clean_link_ns": 53239468,
+        "clean_peak_tool_kib": 73716,
+        "incremental_compile_ns": 39354787,
+        "incremental_link_ns": 53282592,
+        "incremental_peak_tool_kib": 69192
+      }
+    },
+    {
+      "batch": 17,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          112906,
+          114508,
+          118614
+        ],
+        "edited": [
+          118053,
+          114789,
+          121489
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 347535377,
+        "clean_link_ns": 54971398,
+        "clean_peak_tool_kib": 66252,
+        "incremental_compile_ns": 30808135,
+        "incremental_link_ns": 50998701,
+        "incremental_peak_tool_kib": 65580
+      }
+    },
+    {
+      "batch": 18,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18918,
+          18908,
+          18918
+        ],
+        "edited": [
+          18938,
+          18907,
+          18917
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 184197406,
+        "clean_link_ns": 45977003,
+        "clean_peak_tool_kib": 73184,
+        "incremental_compile_ns": 37187599,
+        "incremental_link_ns": 50492977,
+        "incremental_peak_tool_kib": 68328
+      }
+    },
+    {
+      "batch": 18,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          194867,
+          177131,
+          264178
+        ],
+        "edited": [
+          143190,
+          142750,
+          453366
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 361609789,
+        "clean_link_ns": 49105644,
+        "clean_peak_tool_kib": 73460,
+        "incremental_compile_ns": 37571202,
+        "incremental_link_ns": 52832545,
+        "incremental_peak_tool_kib": 69484
+      }
+    },
+    {
+      "batch": 18,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          111884,
+          111995,
+          119486
+        ],
+        "edited": [
+          118484,
+          115330,
+          115009
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 392803735,
+        "clean_link_ns": 46195283,
+        "clean_peak_tool_kib": 66368,
+        "incremental_compile_ns": 31921902,
+        "incremental_link_ns": 51515509,
+        "incremental_peak_tool_kib": 65472
+      }
+    },
+    {
+      "batch": 18,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          168267,
+          73338,
+          73348
+        ],
+        "edited": [
+          92496,
+          73338,
+          73327
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 610458465,
+        "clean_link_ns": 52564516,
+        "clean_peak_tool_kib": 73140,
+        "incremental_compile_ns": 35845837,
+        "incremental_link_ns": 53432057,
+        "incremental_peak_tool_kib": 69264
+      }
+    },
+    {
+      "batch": 18,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          492424,
+          517411,
+          506084
+        ],
+        "edited": [
+          477181,
+          501717,
+          510891
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 544497758,
+        "clean_link_ns": 47002649,
+        "clean_peak_tool_kib": 66192,
+        "incremental_compile_ns": 31702209,
+        "incremental_link_ns": 47700987,
+        "incremental_peak_tool_kib": 64560
+      }
+    },
+    {
+      "batch": 18,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89852,
+          140046,
+          101529
+        ],
+        "edited": [
+          89862,
+          132535,
+          89461
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 177850910,
+        "clean_link_ns": 64150033,
+        "clean_peak_tool_kib": 66260,
+        "incremental_compile_ns": 30254222,
+        "incremental_link_ns": 47855834,
+        "incremental_peak_tool_kib": 64080
+      }
+    },
+    {
+      "batch": 19,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89882,
+          112405,
+          89912
+        ],
+        "edited": [
+          89852,
+          99867,
+          82061
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 161837698,
+        "clean_link_ns": 62084182,
+        "clean_peak_tool_kib": 65836,
+        "incremental_compile_ns": 39977066,
+        "incremental_link_ns": 56739244,
+        "incremental_peak_tool_kib": 64100
+      }
+    },
+    {
+      "batch": 19,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          728228,
+          265359,
+          175487
+        ],
+        "edited": [
+          114368,
+          116280,
+          121899
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 371522945,
+        "clean_link_ns": 55024308,
+        "clean_peak_tool_kib": 65908,
+        "incremental_compile_ns": 37550465,
+        "incremental_link_ns": 53185879,
+        "incremental_peak_tool_kib": 65484
+      }
+    },
+    {
+      "batch": 19,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          1067627,
+          450811,
+          477070
+        ],
+        "edited": [
+          715400,
+          807745,
+          827775
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 703925652,
+        "clean_link_ns": 64245399,
+        "clean_peak_tool_kib": 65896,
+        "incremental_compile_ns": 41006686,
+        "incremental_link_ns": 57897719,
+        "incremental_peak_tool_kib": 64332
+      }
+    },
+    {
+      "batch": 19,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          188947,
+          228766,
+          284878
+        ],
+        "edited": [
+          143180,
+          144883,
+          204781
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 482578717,
+        "clean_link_ns": 59672609,
+        "clean_peak_tool_kib": 73820,
+        "incremental_compile_ns": 63117548,
+        "incremental_link_ns": 93445590,
+        "incremental_peak_tool_kib": 69488
+      }
+    },
+    {
+      "batch": 19,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18917,
+          18898,
+          18897
+        ],
+        "edited": [
+          18918,
+          18908,
+          18908
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 337336765,
+        "clean_link_ns": 55483120,
+        "clean_peak_tool_kib": 73864,
+        "incremental_compile_ns": 53453222,
+        "incremental_link_ns": 71212643,
+        "incremental_peak_tool_kib": 68328
+      }
+    },
+    {
+      "batch": 19,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          77824,
+          73348,
+          133516
+        ],
+        "edited": [
+          75691,
+          97143,
+          73327
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 895265610,
+        "clean_link_ns": 58561718,
+        "clean_peak_tool_kib": 73432,
+        "incremental_compile_ns": 73535422,
+        "incremental_link_ns": 60178360,
+        "incremental_peak_tool_kib": 68984
+      }
+    },
+    {
+      "batch": 20,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18918,
+          18998,
+          18898
+        ],
+        "edited": [
+          18908,
+          18908,
+          18908
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 309273390,
+        "clean_link_ns": 59095244,
+        "clean_peak_tool_kib": 73576,
+        "incremental_compile_ns": 46342960,
+        "incremental_link_ns": 69583617,
+        "incremental_peak_tool_kib": 68360
+      }
+    },
+    {
+      "batch": 20,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          808238,
+          550889,
+          485754
+        ],
+        "edited": [
+          509428,
+          582947,
+          1192717
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 822434596,
+        "clean_link_ns": 72398746,
+        "clean_peak_tool_kib": 65968,
+        "incremental_compile_ns": 42839143,
+        "incremental_link_ns": 79545455,
+        "incremental_peak_tool_kib": 64040
+      }
+    },
+    {
+      "batch": 20,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          185603,
+          206793,
+          233262
+        ],
+        "edited": [
+          129901,
+          131904,
+          564510
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 478464501,
+        "clean_link_ns": 92488515,
+        "clean_peak_tool_kib": 66256,
+        "incremental_compile_ns": 72772315,
+        "incremental_link_ns": 85591157,
+        "incremental_peak_tool_kib": 65200
+      }
+    },
+    {
+      "batch": 20,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157502,
+          157411,
+          157421
+        ],
+        "edited": [
+          142970,
+          146495,
+          144783
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 506131085,
+        "clean_link_ns": 91758968,
+        "clean_peak_tool_kib": 73580,
+        "incremental_compile_ns": 67815434,
+        "incremental_link_ns": 108522665,
+        "incremental_peak_tool_kib": 69496
+      }
+    },
+    {
+      "batch": 20,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          185061,
+          73338,
+          76322
+        ],
+        "edited": [
+          73327,
+          73337,
+          85596
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 1003536232,
+        "clean_link_ns": 55659621,
+        "clean_peak_tool_kib": 73724,
+        "incremental_compile_ns": 51288242,
+        "incremental_link_ns": 58720506,
+        "incremental_peak_tool_kib": 68728
+      }
+    },
+    {
+      "batch": 20,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          106106,
+          89852,
+          269195
+        ],
+        "edited": [
+          89892,
+          89862,
+          168327
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 244363053,
+        "clean_link_ns": 59241000,
+        "clean_peak_tool_kib": 66236,
+        "incremental_compile_ns": 48553527,
+        "incremental_link_ns": 109850536,
+        "incremental_peak_tool_kib": 64100
+      }
+    },
+    {
+      "batch": 21,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          101539,
+          112735,
+          111584
+        ],
+        "edited": [
+          118003,
+          194355,
+          327972
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 339877599,
+        "clean_link_ns": 56949671,
+        "clean_peak_tool_kib": 66348,
+        "incremental_compile_ns": 39679261,
+        "incremental_link_ns": 57141378,
+        "incremental_peak_tool_kib": 65908
+      }
+    },
+    {
+      "batch": 21,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157702,
+          286611,
+          233202
+        ],
+        "edited": [
+          142669,
+          142820,
+          142880
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 396879474,
+        "clean_link_ns": 59789381,
+        "clean_peak_tool_kib": 73460,
+        "incremental_compile_ns": 38263797,
+        "incremental_link_ns": 51463330,
+        "incremental_peak_tool_kib": 69212
+      }
+    },
+    {
+      "batch": 21,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          520755,
+          721279,
+          730403
+        ],
+        "edited": [
+          630085,
+          450862,
+          506945
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 622145571,
+        "clean_link_ns": 52053456,
+        "clean_peak_tool_kib": 66360,
+        "incremental_compile_ns": 34275871,
+        "incremental_link_ns": 47158819,
+        "incremental_peak_tool_kib": 64352
+      }
+    },
+    {
+      "batch": 21,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          88750,
+          88751,
+          88751
+        ],
+        "edited": [
+          89852,
+          89852,
+          89862
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 159459393,
+        "clean_link_ns": 45931317,
+        "clean_peak_tool_kib": 66220,
+        "incremental_compile_ns": 27721768,
+        "incremental_link_ns": 40977442,
+        "incremental_peak_tool_kib": 63788
+      }
+    },
+    {
+      "batch": 21,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73328,
+          73317,
+          73347
+        ],
+        "edited": [
+          73318,
+          73338,
+          73388
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 589474635,
+        "clean_link_ns": 45469568,
+        "clean_peak_tool_kib": 73464,
+        "incremental_compile_ns": 32647570,
+        "incremental_link_ns": 46520522,
+        "incremental_peak_tool_kib": 69036
+      }
+    },
+    {
+      "batch": 21,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18887,
+          18908,
+          18908
+        ],
+        "edited": [
+          18918,
+          18908,
+          18898
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 169061522,
+        "clean_link_ns": 44699608,
+        "clean_peak_tool_kib": 73176,
+        "incremental_compile_ns": 35969898,
+        "incremental_link_ns": 62313392,
+        "incremental_peak_tool_kib": 68352
+      }
+    },
+    {
+      "batch": 22,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          110863,
+          185272,
+          143080
+        ],
+        "edited": [
+          148909,
+          151833,
+          148017
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 281039916,
+        "clean_link_ns": 45078354,
+        "clean_peak_tool_kib": 66344,
+        "incremental_compile_ns": 30748441,
+        "incremental_link_ns": 46275252,
+        "incremental_peak_tool_kib": 65476
+      }
+    },
+    {
+      "batch": 22,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18898,
+          18908,
+          18907
+        ],
+        "edited": [
+          18917,
+          18907,
+          30475
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 175105218,
+        "clean_link_ns": 49788661,
+        "clean_peak_tool_kib": 73572,
+        "incremental_compile_ns": 32587302,
+        "incremental_link_ns": 46158360,
+        "incremental_peak_tool_kib": 68080
+      }
+    },
+    {
+      "batch": 22,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157521,
+          157741,
+          157802
+        ],
+        "edited": [
+          142590,
+          143171,
+          143230
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 366662539,
+        "clean_link_ns": 53866328,
+        "clean_peak_tool_kib": 73432,
+        "incremental_compile_ns": 36438166,
+        "incremental_link_ns": 49027323,
+        "incremental_peak_tool_kib": 69220
+      }
+    },
+    {
+      "batch": 22,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73348,
+          73317,
+          73318
+        ],
+        "edited": [
+          73358,
+          73578,
+          73438
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 646627209,
+        "clean_link_ns": 48337804,
+        "clean_peak_tool_kib": 73704,
+        "incremental_compile_ns": 31010747,
+        "incremental_link_ns": 60719161,
+        "incremental_peak_tool_kib": 68828
+      }
+    },
+    {
+      "batch": 22,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89872,
+          89852,
+          89852
+        ],
+        "edited": [
+          89852,
+          89852,
+          89862
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 156501798,
+        "clean_link_ns": 45989111,
+        "clean_peak_tool_kib": 65800,
+        "incremental_compile_ns": 29865935,
+        "incremental_link_ns": 43521708,
+        "incremental_peak_tool_kib": 64124
+      }
+    },
+    {
+      "batch": 22,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          509288,
+          557048,
+          525522
+        ],
+        "edited": [
+          451894,
+          472795,
+          506845
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 504409379,
+        "clean_link_ns": 50115853,
+        "clean_peak_tool_kib": 65892,
+        "incremental_compile_ns": 29503226,
+        "incremental_link_ns": 49355296,
+        "incremental_peak_tool_kib": 64348
+      }
+    },
+    {
+      "batch": 23,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18908,
+          48602,
+          18907
+        ],
+        "edited": [
+          18898,
+          18908,
+          18918
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 189723989,
+        "clean_link_ns": 47110489,
+        "clean_peak_tool_kib": 73468,
+        "incremental_compile_ns": 50621136,
+        "incremental_link_ns": 55966246,
+        "incremental_peak_tool_kib": 68356
+      }
+    },
+    {
+      "batch": 23,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          112405,
+          256567,
+          113126
+        ],
+        "edited": [
+          135559,
+          114419,
+          119726
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 324849369,
+        "clean_link_ns": 59546086,
+        "clean_peak_tool_kib": 66372,
+        "incremental_compile_ns": 37152022,
+        "incremental_link_ns": 50834699,
+        "incremental_peak_tool_kib": 65432
+      }
+    },
+    {
+      "batch": 23,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73338,
+          73348,
+          73338
+        ],
+        "edited": [
+          106096,
+          73397,
+          97964
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 743799387,
+        "clean_link_ns": 49342437,
+        "clean_peak_tool_kib": 73640,
+        "incremental_compile_ns": 35850489,
+        "incremental_link_ns": 44819513,
+        "incremental_peak_tool_kib": 69124
+      }
+    },
+    {
+      "batch": 23,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          96332,
+          89862,
+          89902
+        ],
+        "edited": [
+          89851,
+          192382,
+          114058
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 180004893,
+        "clean_link_ns": 45562294,
+        "clean_peak_tool_kib": 66236,
+        "incremental_compile_ns": 32381243,
+        "incremental_link_ns": 51618059,
+        "incremental_peak_tool_kib": 64060
+      }
+    },
+    {
+      "batch": 23,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          526213,
+          719347,
+          490771
+        ],
+        "edited": [
+          471162,
+          719537,
+          449300
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 646665434,
+        "clean_link_ns": 59818855,
+        "clean_peak_tool_kib": 65968,
+        "incremental_compile_ns": 34799364,
+        "incremental_link_ns": 52238180,
+        "incremental_peak_tool_kib": 64360
+      }
+    },
+    {
+      "batch": 23,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157641,
+          3193061,
+          157842
+        ],
+        "edited": [
+          171382,
+          236137,
+          144702
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 361080843,
+        "clean_link_ns": 52456671,
+        "clean_peak_tool_kib": 73604,
+        "incremental_compile_ns": 41052450,
+        "incremental_link_ns": 47166460,
+        "incremental_peak_tool_kib": 69480
+      }
+    },
+    {
+      "batch": 24,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89862,
+          89852,
+          177561
+        ],
+        "edited": [
+          89872,
+          89792,
+          87018
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 232206405,
+        "clean_link_ns": 52307155,
+        "clean_peak_tool_kib": 66156,
+        "incremental_compile_ns": 44568004,
+        "incremental_link_ns": 64058652,
+        "incremental_peak_tool_kib": 64024
+      }
+    },
+    {
+      "batch": 24,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          639489,
+          572621,
+          519433
+        ],
+        "edited": [
+          457102,
+          539673,
+          477331
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 623688248,
+        "clean_link_ns": 57771858,
+        "clean_peak_tool_kib": 66240,
+        "incremental_compile_ns": 39965808,
+        "incremental_link_ns": 57130836,
+        "incremental_peak_tool_kib": 64616
+      }
+    },
+    {
+      "batch": 24,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157231,
+          157852,
+          221195
+        ],
+        "edited": [
+          142760,
+          143010,
+          143140
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 383518376,
+        "clean_link_ns": 53382081,
+        "clean_peak_tool_kib": 73716,
+        "incremental_compile_ns": 37258266,
+        "incremental_link_ns": 64191648,
+        "incremental_peak_tool_kib": 69052
+      }
+    },
+    {
+      "batch": 24,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18907,
+          18908,
+          18938
+        ],
+        "edited": [
+          18888,
+          18908,
+          19008
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 191892605,
+        "clean_link_ns": 53917837,
+        "clean_peak_tool_kib": 73860,
+        "incremental_compile_ns": 37920479,
+        "incremental_link_ns": 50333312,
+        "incremental_peak_tool_kib": 68224
+      }
+    },
+    {
+      "batch": 24,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          109702,
+          110622,
+          112255
+        ],
+        "edited": [
+          114559,
+          115970,
+          112726
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 302408819,
+        "clean_link_ns": 44147856,
+        "clean_peak_tool_kib": 66360,
+        "incremental_compile_ns": 33249769,
+        "incremental_link_ns": 48253027,
+        "incremental_peak_tool_kib": 65584
+      }
+    },
+    {
+      "batch": 24,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73478,
+          73338,
+          73328
+        ],
+        "edited": [
+          159134,
+          73328,
+          73358
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 712081673,
+        "clean_link_ns": 63576523,
+        "clean_peak_tool_kib": 73520,
+        "incremental_compile_ns": 42569748,
+        "incremental_link_ns": 52377405,
+        "incremental_peak_tool_kib": 68892
+      }
+    },
+    {
+      "batch": 25,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18897,
+          18907,
+          18908
+        ],
+        "edited": [
+          18908,
+          20430,
+          18918
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 194552405,
+        "clean_link_ns": 47473031,
+        "clean_peak_tool_kib": 73180,
+        "incremental_compile_ns": 34766727,
+        "incremental_link_ns": 55816737,
+        "incremental_peak_tool_kib": 68424
+      }
+    },
+    {
+      "batch": 25,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          176809,
+          157441,
+          157832
+        ],
+        "edited": [
+          162809,
+          144302,
+          143351
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 443350408,
+        "clean_link_ns": 53004035,
+        "clean_peak_tool_kib": 73716,
+        "incremental_compile_ns": 35948683,
+        "incremental_link_ns": 47457873,
+        "incremental_peak_tool_kib": 69300
+      }
+    },
+    {
+      "batch": 25,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89852,
+          89862,
+          89852
+        ],
+        "edited": [
+          113757,
+          151493,
+          89852
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 156381621,
+        "clean_link_ns": 49579485,
+        "clean_peak_tool_kib": 66064,
+        "incremental_compile_ns": 33178784,
+        "incremental_link_ns": 51149220,
+        "incremental_peak_tool_kib": 64164
+      }
+    },
+    {
+      "batch": 25,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73308,
+          76111,
+          147547
+        ],
+        "edited": [
+          73318,
+          73328,
+          76803
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 634242095,
+        "clean_link_ns": 58055715,
+        "clean_peak_tool_kib": 73888,
+        "incremental_compile_ns": 38363650,
+        "incremental_link_ns": 46033086,
+        "incremental_peak_tool_kib": 68992
+      }
+    },
+    {
+      "batch": 25,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          112755,
+          113356,
+          114879
+        ],
+        "edited": [
+          113787,
+          115039,
+          116351
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 298658137,
+        "clean_link_ns": 44288438,
+        "clean_peak_tool_kib": 66372,
+        "incremental_compile_ns": 31153051,
+        "incremental_link_ns": 59731091,
+        "incremental_peak_tool_kib": 65200
+      }
+    },
+    {
+      "batch": 25,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          474407,
+          552742,
+          503700
+        ],
+        "edited": [
+          518111,
+          528206,
+          509658
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 538598491,
+        "clean_link_ns": 46668511,
+        "clean_peak_tool_kib": 66348,
+        "incremental_compile_ns": 29623204,
+        "incremental_link_ns": 45947743,
+        "incremental_peak_tool_kib": 64248
+      }
+    },
+    {
+      "batch": 26,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          117823,
+          113406,
+          115399
+        ],
+        "edited": [
+          115410,
+          121178,
+          124894
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 290921567,
+        "clean_link_ns": 45376945,
+        "clean_peak_tool_kib": 66384,
+        "incremental_compile_ns": 31391931,
+        "incremental_link_ns": 45764474,
+        "incremental_peak_tool_kib": 65912
+      }
+    },
+    {
+      "batch": 26,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          202377,
+          121299,
+          115470
+        ],
+        "edited": [
+          133066,
+          98634,
+          89842
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 153918003,
+        "clean_link_ns": 49192067,
+        "clean_peak_tool_kib": 65636,
+        "incremental_compile_ns": 32859256,
+        "incremental_link_ns": 53460204,
+        "incremental_peak_tool_kib": 64124
+      }
+    },
+    {
+      "batch": 26,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          509788,
+          592420,
+          520775
+        ],
+        "edited": [
+          517500,
+          450562,
+          258199
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 547279618,
+        "clean_link_ns": 64658145,
+        "clean_peak_tool_kib": 65892,
+        "incremental_compile_ns": 34178483,
+        "incremental_link_ns": 55731178,
+        "incremental_peak_tool_kib": 64536
+      }
+    },
+    {
+      "batch": 26,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157171,
+          157081,
+          157972
+        ],
+        "edited": [
+          142839,
+          142830,
+          143160
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 330819825,
+        "clean_link_ns": 43137277,
+        "clean_peak_tool_kib": 73200,
+        "incremental_compile_ns": 34878651,
+        "incremental_link_ns": 49427573,
+        "incremental_peak_tool_kib": 69436
+      }
+    },
+    {
+      "batch": 26,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          20000,
+          18898,
+          18958
+        ],
+        "edited": [
+          18917,
+          18898,
+          18908
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 185264252,
+        "clean_link_ns": 61109250,
+        "clean_peak_tool_kib": 73180,
+        "incremental_compile_ns": 35447836,
+        "incremental_link_ns": 45324468,
+        "incremental_peak_tool_kib": 68176
+      }
+    },
+    {
+      "batch": 26,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73328,
+          73338,
+          73338
+        ],
+        "edited": [
+          73338,
+          73387,
+          73328
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 645616250,
+        "clean_link_ns": 56516210,
+        "clean_peak_tool_kib": 73816,
+        "incremental_compile_ns": 46156239,
+        "incremental_link_ns": 59771309,
+        "incremental_peak_tool_kib": 68984
+      }
+    },
+    {
+      "batch": 27,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          279951,
+          89862,
+          89852
+        ],
+        "edited": [
+          89852,
+          89892,
+          89852
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 202485095,
+        "clean_link_ns": 49574419,
+        "clean_peak_tool_kib": 66244,
+        "incremental_compile_ns": 39713199,
+        "incremental_link_ns": 48423192,
+        "incremental_peak_tool_kib": 64024
+      }
+    },
+    {
+      "batch": 27,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73368,
+          107057,
+          73327
+        ],
+        "edited": [
+          73318,
+          73328,
+          73327
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 656359719,
+        "clean_link_ns": 51894555,
+        "clean_peak_tool_kib": 73456,
+        "incremental_compile_ns": 36275682,
+        "incremental_link_ns": 47322232,
+        "incremental_peak_tool_kib": 68816
+      }
+    },
+    {
+      "batch": 27,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157382,
+          157431,
+          157371
+        ],
+        "edited": [
+          144512,
+          142970,
+          166444
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 324416498,
+        "clean_link_ns": 52454807,
+        "clean_peak_tool_kib": 73480,
+        "incremental_compile_ns": 33570600,
+        "incremental_link_ns": 47820664,
+        "incremental_peak_tool_kib": 69576
+      }
+    },
+    {
+      "batch": 27,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          239171,
+          174085,
+          178773
+        ],
+        "edited": [
+          114448,
+          145804,
+          154026
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 338036424,
+        "clean_link_ns": 46678035,
+        "clean_peak_tool_kib": 66372,
+        "incremental_compile_ns": 32490534,
+        "incremental_link_ns": 50160093,
+        "incremental_peak_tool_kib": 65400
+      }
+    },
+    {
+      "batch": 27,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          467516,
+          450922,
+          472734
+        ],
+        "edited": [
+          509058,
+          548125,
+          478763
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 583566981,
+        "clean_link_ns": 44181210,
+        "clean_peak_tool_kib": 65968,
+        "incremental_compile_ns": 31632906,
+        "incremental_link_ns": 59281951,
+        "incremental_peak_tool_kib": 64544
+      }
+    },
+    {
+      "batch": 27,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18908,
+          18898,
+          18908
+        ],
+        "edited": [
+          18888,
+          18938,
+          18918
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 177985330,
+        "clean_link_ns": 53294360,
+        "clean_peak_tool_kib": 73176,
+        "incremental_compile_ns": 33162241,
+        "incremental_link_ns": 46842908,
+        "incremental_peak_tool_kib": 68040
+      }
+    },
+    {
+      "batch": 28,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          146966,
+          89852,
+          89852
+        ],
+        "edited": [
+          89852,
+          89842,
+          145944
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 158939834,
+        "clean_link_ns": 50477599,
+        "clean_peak_tool_kib": 66236,
+        "incremental_compile_ns": 43678231,
+        "incremental_link_ns": 46993027,
+        "incremental_peak_tool_kib": 64412
+      }
+    },
+    {
+      "batch": 28,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          114428,
+          113807,
+          112475
+        ],
+        "edited": [
+          117312,
+          119075,
+          114628
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 328966051,
+        "clean_link_ns": 49562473,
+        "clean_peak_tool_kib": 66348,
+        "incremental_compile_ns": 43348456,
+        "incremental_link_ns": 66987596,
+        "incremental_peak_tool_kib": 65916
+      }
+    },
+    {
+      "batch": 28,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18898,
+          38707,
+          18907
+        ],
+        "edited": [
+          18898,
+          18908,
+          18917
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 205259553,
+        "clean_link_ns": 53105787,
+        "clean_peak_tool_kib": 73516,
+        "incremental_compile_ns": 35924443,
+        "incremental_link_ns": 73717441,
+        "incremental_peak_tool_kib": 68356
+      }
+    },
+    {
+      "batch": 28,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73318,
+          74479,
+          73347
+        ],
+        "edited": [
+          73337,
+          73348,
+          73357
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 634066527,
+        "clean_link_ns": 54943707,
+        "clean_peak_tool_kib": 73464,
+        "incremental_compile_ns": 41752353,
+        "incremental_link_ns": 53065328,
+        "incremental_peak_tool_kib": 69372
+      }
+    },
+    {
+      "batch": 28,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157522,
+          157241,
+          157782
+        ],
+        "edited": [
+          265169,
+          178902,
+          143280
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 331768751,
+        "clean_link_ns": 45556059,
+        "clean_peak_tool_kib": 73192,
+        "incremental_compile_ns": 38393579,
+        "incremental_link_ns": 45450584,
+        "incremental_peak_tool_kib": 69220
+      }
+    },
+    {
+      "batch": 28,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          493775,
+          850089,
+          523379
+        ],
+        "edited": [
+          598169,
+          455459,
+          719707
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 580325972,
+        "clean_link_ns": 60663387,
+        "clean_peak_tool_kib": 65968,
+        "incremental_compile_ns": 41004058,
+        "incremental_link_ns": 71394117,
+        "incremental_peak_tool_kib": 64332
+      }
+    },
+    {
+      "batch": 29,
+      "binary_bytes": 6664,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          18908,
+          18907,
+          18908
+        ],
+        "edited": [
+          18907,
+          18918,
+          18898
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 195719898,
+        "clean_link_ns": 51925494,
+        "clean_peak_tool_kib": 73676,
+        "incremental_compile_ns": 38436403,
+        "incremental_link_ns": 53937178,
+        "incremental_peak_tool_kib": 68384
+      }
+    },
+    {
+      "batch": 29,
+      "binary_bytes": 10192,
+      "checksum": [
+        2361937883,
+        3267123358
+      ],
+      "clean_objects": 5,
+      "family": "scalar",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 4,
+      "provider_calls_per_runtime": 16384,
+      "runtime_batch_ns": {
+        "clean": [
+          89852,
+          89842,
+          101629
+        ],
+        "edited": [
+          89852,
+          103032,
+          92026
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 180396350,
+        "clean_link_ns": 52035175,
+        "clean_peak_tool_kib": 65760,
+        "incremental_compile_ns": 32208656,
+        "incremental_link_ns": 48162717,
+        "incremental_peak_tool_kib": 64004
+      }
+    },
+    {
+      "batch": 29,
+      "binary_bytes": 19680,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          1153133,
+          533313,
+          489289
+        ],
+        "edited": [
+          606240,
+          592580,
+          545612
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 659398983,
+        "clean_link_ns": 61330357,
+        "clean_peak_tool_kib": 66244,
+        "incremental_compile_ns": 38951069,
+        "incremental_link_ns": 65494784,
+        "incremental_peak_tool_kib": 64536
+      }
+    },
+    {
+      "batch": 29,
+      "binary_bytes": 13224,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "debug",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          108820,
+          111504,
+          147086
+        ],
+        "edited": [
+          115440,
+          115810,
+          116922
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 386240604,
+        "clean_link_ns": 83533357,
+        "clean_peak_tool_kib": 66348,
+        "incremental_compile_ns": 36448793,
+        "incremental_link_ns": 52271462,
+        "incremental_peak_tool_kib": 65428
+      }
+    },
+    {
+      "batch": 29,
+      "binary_bytes": 8848,
+      "checksum": [
+        1376614469,
+        1407727557
+      ],
+      "clean_objects": 17,
+      "family": "table",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 16,
+      "provider_calls_per_runtime": 65536,
+      "runtime_batch_ns": {
+        "clean": [
+          73328,
+          73327,
+          147086
+        ],
+        "edited": [
+          73328,
+          95951,
+          101879
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 689658998,
+        "clean_link_ns": 60257081,
+        "clean_peak_tool_kib": 73724,
+        "incremental_compile_ns": 39170541,
+        "incremental_link_ns": 50771459,
+        "incremental_peak_tool_kib": 68736
+      }
+    },
+    {
+      "batch": 29,
+      "binary_bytes": 7584,
+      "checksum": [
+        48812433,
+        3063237413
+      ],
+      "clean_objects": 9,
+      "family": "dispatch",
+      "incremental_objects": 1,
+      "mode": "release",
+      "modules": 8,
+      "provider_calls_per_runtime": 32768,
+      "runtime_batch_ns": {
+        "clean": [
+          157822,
+          156980,
+          157321
+        ],
+        "edited": [
+          142940,
+          143060,
+          320321
+        ]
+      },
+      "stages": {
+        "clean_compile_ns": 360612717,
+        "clean_link_ns": 49233150,
+        "clean_peak_tool_kib": 73864,
+        "incremental_compile_ns": 38183180,
+        "incremental_link_ns": 50621678,
+        "incremental_peak_tool_kib": 69088
+      }
+    }
+  ],
+  "seed": 20261125
+}
