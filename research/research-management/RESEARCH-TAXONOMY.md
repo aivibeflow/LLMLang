@@ -51,6 +51,8 @@ RT-06 and RT-11 show how absent inputs affect compiler lookup, dependency comple
 
 RT-11 tests metadata reuse against exact ELF load, artifact and native self-inspection observations. [ELF metadata reuse](../toolchain-and-collaboration/RT-11/RT-11-ELF-METADATA-REUSE-2026-11-25.md)
 
+RT-11 checks typed build input/output roles and exact independent test and proof evidence requests. [Typed action receipts](../toolchain-and-collaboration/RT-11/RT-11-TYPED-ACTION-RECEIPTS-2026-11-25.md)
+
 RT-11 compares stage-specific native cache inputs, implementation identity and Lean evidence under direct and contract-bound provider changes. [Six-stage native propagation](../toolchain-and-collaboration/RT-11/RT-11-SIX-STAGE-PROPAGATION-2026-11-25.md)
 
 RT-32 tests persistent proof cache transitions, exact dependency payloads and rollback on interrupted local publication. [Persistent proof cache](../formal-verification/RT-32/RT-32-PERSISTENT-PROOF-CACHE-2026-11-25.md)

@@ -67,6 +67,7 @@ See [shared executable research prototypes](../PROTOTYPES/README.md) for integra
 - [RT-11 composed non-interference](RT-11/RT-11-COMPOSED-NONINTERFERENCE-2026-11-25.md) — distinguishes separate edit checks from applicable evidence about their composed result.
 - [RT-11 typed pipeline invalidation](RT-11/RT-11-TYPED-PIPELINE-INVALIDATION-2026-11-25.md) — compares precise consumed inputs and reusable outputs across six pipeline actions.
 - [Six-stage native propagation](RT-11/RT-11-SIX-STAGE-PROPAGATION-2026-11-25.md) — exact native artifacts and proof freshness after implementation edits.
+- [Typed action receipts](RT-11/RT-11-TYPED-ACTION-RECEIPTS-2026-11-25.md) — actual native and Lean outputs with role and proof-subject checks.
 - [ELF metadata reuse](RT-11/RT-11-ELF-METADATA-REUSE-2026-11-25.md) — loads, exact artifacts and runtime self-inspection.
 - [Negative header dependencies](RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md) — exact positive and absent inputs in ordered compiler search.
 - [Native edit locality](RT-11/RT-11-NATIVE-EDIT-LOCALITY-2026-11-25.md) — paired action counts, artifact equality and exploratory rebuild time.

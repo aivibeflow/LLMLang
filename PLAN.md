@@ -900,8 +900,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define cache-index merge, conflict handling, artifact availability/eviction, and trust/evidence checks.
   - [x] Check 23 scoped index merge and lookup controls across the existing schema validator. All 24 contributing orders agree. Authorized result conflicts, missing/corrupt payloads, stale attestations and output shape block exact reuse separately. Durable publication and authentication remain open. [RT-11 cache-index admission](research/toolchain-and-collaboration/RT-11/RT-11-CACHE-INDEX-MERGE-ADMISSION-2026-11-25.md)
 
-- [ ] Define typed build actions and their inputs/outputs.
-  - [ ] [WIP] Check typed compile, link, test and proof requests against real artifacts and invalid input/output role controls on `research/all`.
+- [x] Define typed build actions and their inputs/outputs.
+  - [x] Check 20 compile, link, test and proof results across five variants, plus an exact driver compilation. A byte-identical output preserves downstream action keys. Wrong roles, input order and output payloads are refused. [Typed action receipts](research/toolchain-and-collaboration/RT-11/RT-11-TYPED-ACTION-RECEIPTS-2026-11-25.md)
   - Compare the generated RT-01 CLI with a separately linked native division object. The scoped action key plans nine compilations across six edits, versus 18 under whole-input invalidation. Entry and semantic snapshot keys retain stale artifacts and hide two failures of a requested replacement. General closure extraction and controlled timing remain open. [CLI action keys](research/language-design/RT-01/RT-01-CLI-ACTION-KEYS-2026-11-25.md)
 - [x] Keep Semantic Hash, Action Key, and Artifact Hash distinct.
   - Five native compilation cells demonstrate a changed contract with the same action and object, different action keys for the same object, and an omitted flag yielding one incomplete key for two objects. [Semantic, action and artifact identities](research/toolchain-and-collaboration/RT-11/RT-11-SEMANTIC-ACTION-ARTIFACT-IDENTITIES-2026-11-25.md)
@@ -913,8 +913,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [x] Compare 17 process, workspace, team and global content controls. Complete mirrored records permit an offline hit, while missing records and authorized disagreement prevent early local admission. Verified artifact promotion retains original authority and is rechecked after policy changes. Persistent storage and transport remain open. [Layered cache lookup](research/toolchain-and-collaboration/RT-11/RT-11-LAYERED-CACHE-LOOKUP-2026-11-25.md)
 - [ ] Define cache integrity, trust, provenance, and eviction.
   - [x] Compare 35 native cache reads around scheduled file maintenance. Retained descriptors survive unlink and replacement but observe in-place writes. Verified snapshots and cooperative leases retain all exact bytes in the valid-start controls. Network leases and persistent metadata remain open. [Cache artifact lifetime](research/toolchain-and-collaboration/RT-11/RT-11-CACHE-ARTIFACT-LIFETIME-2026-11-25.md)
-- [ ] Define test and proof evidence caching with exact subject and assumption binding.
-  - [ ] [WIP] Check separate reusable test receipts and Lean proof receipts against exact executable, subject, premise and output bindings on `research/all`.
+- [x] Define test and proof evidence caching with exact subject and assumption binding.
+  - [x] Match 15 native test observations and five Lean propositions. Different executable bytes, test cases, premises or source applicability invalidate the corresponding receipt. A test receipt cannot be admitted as a proof. [Typed action receipts](research/toolchain-and-collaboration/RT-11/RT-11-TYPED-ACTION-RECEIPTS-2026-11-25.md)
 - [ ] Define behavior for incomplete dependency closure: invalidate conservatively or disable caching.
 - [ ] Define reproducibility requirements and cache poisoning defenses.
 
