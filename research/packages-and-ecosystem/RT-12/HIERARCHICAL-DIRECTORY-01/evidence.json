@@ -1,0 +1,324 @@
+{
+  "runner_sha256": "82a9fd68db4d26f3468601efe6af66e6e68c1fadb06f44ac836a7966682132fb",
+  "entry_bytes": 76,
+  "leaf_entries": 64,
+  "scales": [
+    {
+      "blocks": 16,
+      "level_two_pages": 1,
+      "derived_storage_bytes": {
+        "omitted": 0,
+        "flat": 1216,
+        "two-level": 1292
+      },
+      "derived_bytes_written_for_one_replacement": {
+        "omitted": 0,
+        "flat": 1216,
+        "two-level": 1292
+      },
+      "queries": {
+        "single": {
+          "queries": 1,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 1216
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 1216
+            },
+            "flat-seek": {
+              "read_calls": 4,
+              "read_bytes": 304
+            },
+            "two-level": {
+              "read_calls": 2,
+              "read_bytes": 1292
+            }
+          }
+        },
+        "dispersed-64": {
+          "queries": 64,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 1216
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 1216
+            },
+            "flat-seek": {
+              "read_calls": 262,
+              "read_bytes": 19912
+            },
+            "two-level": {
+              "read_calls": 2,
+              "read_bytes": 1292
+            }
+          }
+        },
+        "clustered-64": {
+          "queries": 64,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 1216
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 1216
+            },
+            "flat-seek": {
+              "read_calls": 257,
+              "read_bytes": 19532
+            },
+            "two-level": {
+              "read_calls": 2,
+              "read_bytes": 1292
+            }
+          }
+        }
+      }
+    },
+    {
+      "blocks": 128,
+      "level_two_pages": 2,
+      "derived_storage_bytes": {
+        "omitted": 0,
+        "flat": 9728,
+        "two-level": 9880
+      },
+      "derived_bytes_written_for_one_replacement": {
+        "omitted": 0,
+        "flat": 9728,
+        "two-level": 5016
+      },
+      "queries": {
+        "single": {
+          "queries": 1,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 9728
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 9728
+            },
+            "flat-seek": {
+              "read_calls": 7,
+              "read_bytes": 532
+            },
+            "two-level": {
+              "read_calls": 2,
+              "read_bytes": 5016
+            }
+          }
+        },
+        "dispersed-64": {
+          "queries": 64,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 9728
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 9728
+            },
+            "flat-seek": {
+              "read_calls": 452,
+              "read_bytes": 34352
+            },
+            "two-level": {
+              "read_calls": 3,
+              "read_bytes": 9880
+            }
+          }
+        },
+        "clustered-64": {
+          "queries": 64,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 9728
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 9728
+            },
+            "flat-seek": {
+              "read_calls": 448,
+              "read_bytes": 34048
+            },
+            "two-level": {
+              "read_calls": 2,
+              "read_bytes": 5016
+            }
+          }
+        }
+      }
+    },
+    {
+      "blocks": 4096,
+      "level_two_pages": 64,
+      "derived_storage_bytes": {
+        "omitted": 0,
+        "flat": 311296,
+        "two-level": 316160
+      },
+      "derived_bytes_written_for_one_replacement": {
+        "omitted": 0,
+        "flat": 311296,
+        "two-level": 9728
+      },
+      "queries": {
+        "single": {
+          "queries": 1,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 311296
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 311296
+            },
+            "flat-seek": {
+              "read_calls": 12,
+              "read_bytes": 912
+            },
+            "two-level": {
+              "read_calls": 2,
+              "read_bytes": 9728
+            }
+          }
+        },
+        "dispersed-64": {
+          "queries": 64,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 311296
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 311296
+            },
+            "flat-seek": {
+              "read_calls": 770,
+              "read_bytes": 58520
+            },
+            "two-level": {
+              "read_calls": 46,
+              "read_bytes": 223744
+            }
+          }
+        },
+        "clustered-64": {
+          "queries": 64,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 311296
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 311296
+            },
+            "flat-seek": {
+              "read_calls": 768,
+              "read_bytes": 58368
+            },
+            "two-level": {
+              "read_calls": 2,
+              "read_bytes": 9728
+            }
+          }
+        }
+      }
+    },
+    {
+      "blocks": 65536,
+      "level_two_pages": 1024,
+      "derived_storage_bytes": {
+        "omitted": 0,
+        "flat": 4980736,
+        "two-level": 5058560
+      },
+      "derived_bytes_written_for_one_replacement": {
+        "omitted": 0,
+        "flat": 4980736,
+        "two-level": 82688
+      },
+      "queries": {
+        "single": {
+          "queries": 1,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 4980736
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 4980736
+            },
+            "flat-seek": {
+              "read_calls": 16,
+              "read_bytes": 1216
+            },
+            "two-level": {
+              "read_calls": 2,
+              "read_bytes": 82688
+            }
+          }
+        },
+        "dispersed-64": {
+          "queries": 64,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 4980736
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 4980736
+            },
+            "flat-seek": {
+              "read_calls": 1026,
+              "read_bytes": 77976
+            },
+            "two-level": {
+              "read_calls": 60,
+              "read_bytes": 364800
+            }
+          }
+        },
+        "clustered-64": {
+          "queries": 64,
+          "modes": {
+            "omitted": {
+              "read_calls": 1,
+              "read_bytes": 4980736
+            },
+            "flat-retained": {
+              "read_calls": 1,
+              "read_bytes": 4980736
+            },
+            "flat-seek": {
+              "read_calls": 1024,
+              "read_bytes": 77824
+            },
+            "two-level": {
+              "read_calls": 2,
+              "read_bytes": 82688
+            }
+          }
+        }
+      }
+    }
+  ],
+  "matched_routes": 2064
+}
