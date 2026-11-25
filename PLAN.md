@@ -340,7 +340,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define cycle handling in hash dependencies.
 - [ ] Define which target, ABI, runtime, toolchain, and configuration properties affect implementation identity.
 - [ ] Define stable-ID lifecycle, including rename, split, merge, deprecation, and replacement.
-- [ ] Define collision handling and migration policy.
+- [ ] Define collision handling and migration policy. [WIP] — check collision and digest migration policy against exact operation and evidence bindings on `research/all`.
 - [ ] Specify the invariant that a semantic change affecting an implementation changes its `ImpHash`; determine the exact dependency propagation rules that make this automatic.
 
 **Existing evidence:** `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, `research/LLMLang-CONCEPT.md`, and the open questions LL-001–LL-008 in `TODO.md`.
