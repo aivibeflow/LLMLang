@@ -1,0 +1,104 @@
+{
+  "baseline": "41ce460f60ce9965145ed5767a94b0983e32b5b5",
+  "archive_pins": {
+    "research/semantic-representation/RT-05/CROSS-RUNTIME-F64-01": {
+      "git_blob": "38f8c1f3eae10fa43ca3d40b39fab8c6784598b4",
+      "sha256": "edb22fcce1fdb39a1dccc31513a9fbfd288454402368cc3b859220eb46d55650"
+    },
+    "research/semantic-representation/RT-05/NATIVE-F64-MINMAX-01": {
+      "git_blob": "4add8295e90ed561d37443575e19cea7dd78fe50",
+      "sha256": "d6bb67b8007e34185cebfbecccf0c318dfda471b124084a5fb2f39899aab63e5"
+    },
+    "research/semantic-representation/RT-05/F64-I64-CONVERSION-01": {
+      "git_blob": "7858a6c76df5b0b79766cd359b87bd8e39b76eca",
+      "sha256": "5990c6083f41c058ef36e2aef6b07cd648a6b57f5c111e5aef0c782e0476e260"
+    },
+    "research/formal-verification/RT-32/F64-EXTREMA-GUARD-01": {
+      "git_blob": "b7bbba911b59d19aa54be399f22b888928106949",
+      "sha256": "bc2bb1bd62acfd9589dd981dd80f4b4af33ef296e7ac7042d3871512d273f342"
+    },
+    "research/compiler-and-translation/RT-13/LLVM-F64-I64-LOWERING-01": {
+      "git_blob": "060e2e0a2c16295ecc31426b9115645a40471156",
+      "sha256": "d451dad410054a0d6a658f651a27a42ff61db392ca6e06ccdb2b8be1c80b405e"
+    }
+  },
+  "extrema": {
+    "pairs_per_family": 1024,
+    "literal_identity_words_in_common": 32,
+    "unanimous_pairs": 518,
+    "input_replacement_mismatches": {
+      "glibc": {
+        "nan_only": 216,
+        "zero_only": 50
+      },
+      "sse2": {
+        "nan_only": 0,
+        "zero_only": 48
+      },
+      "rust": {
+        "nan_only": 0,
+        "zero_only": 62
+      },
+      "node": {
+        "nan_only": 0,
+        "zero_only": 35
+      },
+      "python": {
+        "nan_only": 0,
+        "zero_only": 48
+      }
+    }
+  },
+  "conversion": {
+    "rows_per_route": 216,
+    "matching_checked_routes": [
+      "bits_branch",
+      "ordered_branch",
+      "ordered_select",
+      "guarded_saturate"
+    ],
+    "plain_saturation_mismatches": 63
+  },
+  "examples": {
+    "glibc_signaling_nan_and_one": {
+      "original": [
+        "7ff8000000000000",
+        "7ff8000000000000"
+      ],
+      "canonicalized_operand": [
+        "3ff0000000000000",
+        "3ff0000000000000"
+      ]
+    },
+    "node_mixed_zeros": {
+      "original": [
+        "8000000000000000",
+        "0000000000000000"
+      ],
+      "positive_only_operands": [
+        "0000000000000000",
+        "0000000000000000"
+      ]
+    },
+    "checked_conversion_signed_zeros": {
+      "0000000000000000": [
+        0,
+        "0"
+      ],
+      "8000000000000000": [
+        0,
+        "0"
+      ]
+    },
+    "checked_conversion_nan_samples": {
+      "7ff0000000000001": [
+        2,
+        "0"
+      ],
+      "7ff8000000000000": [
+        2,
+        "0"
+      ]
+    }
+  }
+}
