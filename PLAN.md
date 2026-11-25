@@ -1157,7 +1157,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Compare six native wait schedules in two Rust builds. A one-shot waiter reports work on an empty notification, while a predicate waiter re-enters waiting and observes already published work without relying on a notification. Simultaneous work and cancellation require explicit precedence. [RT-10 native wait predicates](research/runtime-and-systems/RT-10/RT-10-WAIT-PREDICATES-AND-CANCELLATION-2026-11-25.md)
 - [ ] Define capability and security model.
 - [ ] Define trusted low-level primitives and their contracts.
-  - [ ] [WIP] Compare native POSIX error conventions, boundary values and errno isolation under glibc and musl on `research/all`.
+  - [x] Check 336 native observations under glibc and musl using primitive-specific error channels. Generic negative-result and errno rules disagree 216 and 240 times. The two libcs expose different incidental errno for the same EAI result. Wider primitive contracts remain open. [Primitive error domains](research/runtime-and-systems/RT-10/RT-10-PRIMITIVE-ERROR-DOMAINS-2026-11-25.md)
 - [ ] Define runtime versioning and its contribution to implementation identity.
   - [x] Compare interface, release label and provider bytes across six native selections and 180 calls. A same-label replacement changes 24 observations; metadata-only and label-only rebuilds change bytes while preserving all observed behavior. Verified load-time binding and a runtime version policy remain open. [Runtime version identity](research/runtime-and-systems/RT-10/RT-10-RUNTIME-VERSION-IDENTITY-2026-11-25.md)
 
