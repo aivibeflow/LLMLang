@@ -950,6 +950,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define interactive conflict resolution and preservation of both alternatives.
 - [ ] Define post-merge validation: graph integrity, type checking, contract checking, dependency completeness, tests, and proofs.
 - [ ] Define merge reproducibility and audit history.
+  - [ ] [WIP] Compare result-only merge replay with complete validation-decision audit replay over the same candidate on `research/all`.
 
 **Mapping reconciliation evidence (2026-11-21)** · Disjoint interface keys can claim the same export. Revision and catalog checks reject stale publication even when logical entries repeat. [RT-23/24 mapping merge](research/toolchain-and-collaboration/RT-23/RT-23-INTERFACE-MAPPING-MERGE.md)
 
