@@ -558,7 +558,7 @@ RT-32 depends on authoritative semantics, typed SPG identities, proof architectu
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
 |---|---|---|---|---|
-| DEP-178 | RT-03 → RT-32 | Requires | Generated Lean definitions and correctness claims need a precise LLMLang reference semantics and observable-behavior boundary. | Strong hypothesis |
+| DEP-178 | RT-03 → RT-32 | Requires | Generated Lean definitions and correctness claims need a precise LLMLang reference semantics and observable-behavior boundary. A finite kernel replay checks source spans, guard effects, cleanup and staged returns against exact external observations. [Source cleanup kernel replay](../formal-verification/RT-32/RT-32-SOURCE-CLEANUP-KERNEL-2026-11-25.md) | Strong hypothesis with scoped checked observations |
 | DEP-179 | RT-05 → RT-32 | Requires | Translation inputs, source correspondence, and proof provenance require typed SPG nodes, stable semantic identity, and exact snapshot binding. Two scalar witnesses reconstruct the SPG body and contract bytes in Lean. A reordered witness fails binding even though its returned value is unchanged. [Exact SPG observation binding](../formal-verification/RT-32/RT-32-SPG-LEAN-OBSERVATION-BINDING-2026-11-24.md) | Scoped kernel and replay evidence |
 | DEP-180 | RT-07 → RT-32 | Requires | Embedding choices, proof obligations, TCB, assumptions, and independent proof checking must fit the formal-verification architecture. | Strong hypothesis |
 | DEP-181 | RT-08 → RT-32 | Requires | Positive, negative, adversarial, and regression fixtures are needed to falsify incorrect translations and stale or incomplete proofs. | Strong hypothesis |
