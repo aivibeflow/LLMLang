@@ -1,0 +1,2 @@
+'failed_prefix_stops' does not depend on any axioms
+'pure_total_operand_commutes' does not depend on any axioms
