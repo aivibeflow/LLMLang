@@ -1188,6 +1188,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define the trusted low-level runtime boundary.
 - [ ] Compare behavior using conformance, differential, and contract-derived tests.
 - [ ] Define precisely what POSIX compatibility and formal verification claims cover.
+  - [ ] [WIP] Check a conditional proof of exact read continuation and identify the native premises needed to apply it on `research/all`.
 
 **Existing evidence:** `research/POSIX-RUNTIME-ARCHITECTURE.md`; related open questions LL-013–LL-019 in `TODO.md`.
 
