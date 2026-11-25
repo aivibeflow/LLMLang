@@ -16,6 +16,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Recent bounded rechecks
 
+- [RT-37 Cortex-M3 NVIC pending clear](RT-37/RT-37-CORTEX-M3-NVIC-PENDING-CLEAR-2026-11-25.md) checks exact write-one-to-clear and read-modify-write effects.
 - [RT-37 Cortex-M3 nested exception stack](RT-37/RT-37-CORTEX-M3-NESTED-EXCEPTION-STACK-2026-11-25.md) compares priority, masking and observed frame displacement.
 - [RT-37 Cortex-M3 startup RAM retention](RT-37/RT-37-CORTEX-M3-STARTUP-RETENTION-2026-11-25.md) checks exact copy and clear intervals during software re-entry.
 - [RT-10 POSIX read continuation proof](RT-10/RT-10-POSIX-READ-CONTINUATION-PROOF-2026-11-25.md) checks abstract prefix conservation and audits concrete premises.
