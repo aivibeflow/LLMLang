@@ -1,0 +1,233 @@
+{
+  "builds": {
+    "aarch64": {
+      "0": {
+        "artifact_sha256": "20d814379310af5785eb9dc32a927bab208512db80e4ef52450532785cefa61c",
+        "cases": [
+          {
+            "input_hex": "",
+            "trace": [
+              "BZ",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "78",
+            "trace": [
+              "BZ",
+              "1:78",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "61626364",
+            "trace": [
+              "BZ",
+              "4:61626364",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "6162636465",
+            "trace": [
+              "BZ",
+              "4:61626364",
+              "1:65",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "4142434445464748",
+            "trace": [
+              "BZ",
+              "4:41424344",
+              "4:45464748",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "00ff80",
+            "trace": [
+              "BZ",
+              "3:00ff80",
+              "0:"
+            ]
+          }
+        ],
+        "observation": "qemu_linux_user"
+      },
+      "2": {
+        "artifact_sha256": "77797c91d16d33dbc80f0f778d00a1eb5aca0747b1cf7a827e1f84bcc07c754c",
+        "cases": [
+          {
+            "input_hex": "",
+            "trace": [
+              "BZ",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "78",
+            "trace": [
+              "BZ",
+              "1:78",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "61626364",
+            "trace": [
+              "BZ",
+              "4:61626364",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "6162636465",
+            "trace": [
+              "BZ",
+              "4:61626364",
+              "1:65",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "4142434445464748",
+            "trace": [
+              "BZ",
+              "4:41424344",
+              "4:45464748",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "00ff80",
+            "trace": [
+              "BZ",
+              "3:00ff80",
+              "0:"
+            ]
+          }
+        ],
+        "observation": "qemu_linux_user"
+      }
+    },
+    "x86_64": {
+      "0": {
+        "artifact_sha256": "1f10482d4552019fc9bbd609c9ed8ecb3ce6554236ff9391a94453eb91acab43",
+        "cases": [
+          {
+            "input_hex": "",
+            "trace": [
+              "BZ",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "78",
+            "trace": [
+              "BZ",
+              "1:78",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "61626364",
+            "trace": [
+              "BZ",
+              "4:61626364",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "6162636465",
+            "trace": [
+              "BZ",
+              "4:61626364",
+              "1:65",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "4142434445464748",
+            "trace": [
+              "BZ",
+              "4:41424344",
+              "4:45464748",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "00ff80",
+            "trace": [
+              "BZ",
+              "3:00ff80",
+              "0:"
+            ]
+          }
+        ],
+        "observation": "native"
+      },
+      "2": {
+        "artifact_sha256": "08a8b26b795d0abf475423f2057f75b5e4259f7634f1f6d279d3c6acf6898ed4",
+        "cases": [
+          {
+            "input_hex": "",
+            "trace": [
+              "BZ",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "78",
+            "trace": [
+              "BZ",
+              "1:78",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "61626364",
+            "trace": [
+              "BZ",
+              "4:61626364",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "6162636465",
+            "trace": [
+              "BZ",
+              "4:61626364",
+              "1:65",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "4142434445464748",
+            "trace": [
+              "BZ",
+              "4:41424344",
+              "4:45464748",
+              "0:"
+            ]
+          },
+          {
+            "input_hex": "00ff80",
+            "trace": [
+              "BZ",
+              "3:00ff80",
+              "0:"
+            ]
+          }
+        ],
+        "observation": "native"
+      }
+    }
+  },
+  "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+  "kernel": "6.18.57",
+  "python": "3.12.14",
+  "qemu": "qemu-aarch64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "qemu_sha256": "73cc2584f119f9e74c85c0a8549dbb6fd104ae3897a06a7500797f9e5b4d0943"
+}

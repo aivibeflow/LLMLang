@@ -16,6 +16,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Recent bounded rechecks
 
+- [RT-10 Linux syscall architectures](RT-10/RT-10-LINUX-SYSCALL-ARCHITECTURES-2026-11-25.md) compares freestanding adapters on native x86-64 and emulated AArch64.
 - [RT-10 POSIX startup and file I/O slice](RT-10/RT-10-POSIX-STARTUP-IO-SLICE-2026-11-25.md) composes process startup, typed errors and regular-file progress.
 - [RT-10 POSIX profile evidence](RT-10/RT-10-POSIX-PROFILE-EVIDENCE-2026-11-25.md) checks exact scope, availability and runtime claim coverage.
 - [RT-10 libc and syscall cancellation](RT-10/RT-10-LIBC-SYSCALL-CANCELLATION-2026-11-25.md) distinguishes a cancelled join from byte settlement.
