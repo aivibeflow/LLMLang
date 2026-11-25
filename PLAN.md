@@ -403,6 +403,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define verified adapters for compatible but non-identical contracts.
   - [x] Verify a bounded unit-conversion adapter under the exact provider assumption. Lean checks all natural inputs in the model and four counterexamples. The executable comparison agrees on all 65 directed inputs and distinguishes wrong scaling, wrapping and trace changes. General adapter admission and native correspondence remain open. [RT-04 checked unit adapter](research/language-design/RT-04/RT-04-VERIFIED-UNIT-ADAPTER-2026-11-25.md)
 - [ ] Define what may be inferred automatically and what requires proof or explicit approval.
+  - [ ] [WIP] Check what partial and projected observations can establish about an implementation contract, with independent proof and approval gates on `research/all`.
 - [ ] Define evidence binding to exact semantic inputs, assumptions, target profile, and tool versions.
 
 **Existing evidence:** global semantic artifact store research; operation identity and analogue-discovery questions LL-001–LL-003; requirement/contract work in scenarios 15–19.
