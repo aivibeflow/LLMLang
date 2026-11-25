@@ -235,6 +235,8 @@ cmp "$study/evidence.json" /tmp/llmlang-toolchain-option-evidence.json
 
 [Configuration-bound caller coverage](../toolchain-and-collaboration/RT-24/RT-24-CONFIG-CALLER-COVERAGE-2026-11-25.md) compares caller-source, selected flag, all-profile union and exact build-profile coverage over 32 native builds. A changed header can alter the active target with identical caller bytes. Equal edges also leave the receipt tied to the original build profile.
 
+[Pinned gitlink reconstruction](../toolchain-and-collaboration/RT-24/RT-24-PINNED-GITLINK-RECONSTRUCTION-2026-11-25.md) compares working bytes, nested HEAD, remote tip and exact dependency admission. The exact mode reconstructs seven available dependencies and refuses six others across thirteen native cases. The superproject tree preserves gitlinks, while ordinary archives omit the nested payload.
+
 [Cross-map export proof](../toolchain-and-collaboration/RT-24/RT-24-CROSS-MAP-EXPORT-PROOF-2026-11-25.md) compares native Git success, reference closure, contract-level receipt presence and exact selected-tuple evidence. All 18 native candidates are clean, while six satisfy the exact operation, provider, ABI and input-scope check. Use the combined selection to validate export proof coverage before advancing a ref.
 
 [Partial and sparse Git reconstruction](../toolchain-and-collaboration/RT-24/RT-24-PARTIAL-SPARSE-RECONSTRUCTION-2026-11-25.md) distinguishes visibility, object availability and exact tree membership. A verified blob cache restores two available graphs that lack local Git payloads, and a path cache accepts eight incorrect snapshots.
