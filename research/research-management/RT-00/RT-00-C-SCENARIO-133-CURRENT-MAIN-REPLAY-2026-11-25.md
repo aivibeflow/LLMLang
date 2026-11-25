@@ -1,8 +1,8 @@
 # RT-00 C — Scenario 133 current-main generated Rust replay
 
-**Date:** 2026-11-25  
-**Current main baseline:** `c9cb445c6e68ccae45a362e0bcc95fc4a235198d`  
-**Evidence type:** source-pinned, bounded native differential replay plus generator unit tests  
+**Date:** 2026-11-25
+**Current main baseline:** `c9cb445c6e68ccae45a362e0bcc95fc4a235198d`
+**Evidence type:** source-pinned, bounded native differential replay plus generator unit tests
 **Status:** current-main replay passed; original host identity and full clean-historical replay remain distinct/unresolved.
 
 ## Question and scope
