@@ -1365,6 +1365,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define selection constraints: target, ABI, capabilities, runtime, security, performance, and deployment environment.
 - [ ] Define static binding versus runtime dispatch.
 - [ ] Define specialization and multi-versioning.
+  - [ ] [WIP] Verify guarded unsigned division specialization with exact fallback and a Lean/native comparison on `research/all`.
 - [ ] Define cost models and profile-guided selection.
 - [x] Define safe fallback when no compatible implementation is available.
   - [x] Prove that ordered fallback selects only a materialized candidate bound by exact checked evidence and returns unavailable iff none qualifies. Across 9,216 pairs the gate rejects 9,025 and selects 191 correctly. ABI-only admits 4,698 incorrect dispatches. Production evidence authority and runtime races remain open. [Evidence-gated fallback](research/compiler-and-translation/RT-13/RT-13-IMPLEMENTATION-FALLBACK-2026-11-25.md)
