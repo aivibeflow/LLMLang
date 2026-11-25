@@ -1476,6 +1476,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Add a reproducible Provider benchmark harness for chain, diamond, high-fan-out, and many-dependency graphs; report time, throughput, Python allocation peak, process RSS, temporary-directory disk high-water, and archive size.
 - [x] Add CI stress coverage for 1,200-object chain and high-fan-out dependency closures.
 - [ ] Run and retain representative small/medium/large benchmark baselines on controlled hardware; CI measurements are exploratory and are not acceptance thresholds.
+  - [ ] [WIP] Measure repeated small, medium, and large Provider workloads for four graph shapes on a pinned logical CPU and retain raw samples (#333).
 - [x] Define a public immutable snapshot read API that can expose exact object metadata, dependency edges, and streaming payloads without private storage access; then implement a Provider adapter for a persistent backend.
   - [x] Verify the public metadata, dependency and payload-stream API and the existing SQLite Provider adapter. Pinned, reopened and in-memory views produce the same verified archive with 131 edges and 2,099,220 streamed bytes. A stale view refuses missing data and preserves the destination. Distributed lease and retention policy remain open. [Public snapshot replay](research/packages-and-ecosystem/RT-12/RT-12-PUBLIC-SNAPSHOT-REPLAY-2026-11-25.md)
 
