@@ -450,6 +450,8 @@ These edges are research dependencies, not accepted architecture. In particular,
 
 ## 15. SPG repository storage and Git-efficient persistence (RT-27)
 
+[Executable clean clones](../toolchain-and-collaboration/RT-24/RT-24-CLEAN-CLONE-CLI-2026-11-25.md) compare packed and per-entry Git storage against byte-exact round-trip and native build reconstruction. Restoring exact semantic entries still leaves a separate check for runtime and tool identities.
+
 RT-27 studies the physical repository representation for large SPG collections. It must support metadata inspection before payload deserialization, content-hash cache checks, independently addressable records/blocks, parallel reads where practical, deterministic reconstruction, and realistic Git history behavior for workloads dominated by adding/removing immutable objects. The research requirements do not select a format.
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
