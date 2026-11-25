@@ -1,0 +1,64 @@
+{
+  "git": "git version 2.56.1",
+  "call_site_decisions": 8,
+  "consumer_paths": {
+    "legacy": "preserve",
+    "modern": "migrate",
+    "adaptive": "adapt",
+    "forked": "fork"
+  },
+  "cases": {
+    "missing-plan": {
+      "status": "plan-required"
+    },
+    "source-coverage": {
+      "status": "wrong-source-coverage"
+    },
+    "omitted-site": {
+      "status": "incomplete-call-site-plan"
+    },
+    "omitted-path": {
+      "status": "candidate-diff-refused"
+    },
+    "wrong-edge": {
+      "status": "candidate-diff-refused"
+    },
+    "old-tree": {
+      "status": "wrong-approved-tree"
+    },
+    "old-snapshot": {
+      "status": "wrong-plan-snapshot"
+    },
+    "invalid-inventory": {
+      "status": "invalid-inventory"
+    },
+    "wrong-source-ancestry": {
+      "status": "wrong-source-ancestry"
+    },
+    "tree-not-from-inputs": {
+      "status": "wrong-source-candidate"
+    },
+    "authorized-original": {
+      "status": "published",
+      "commit": "d031fe261a04b6ef9d6904e779f88eebcccce361",
+      "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+      "plan": "9fd8708cf8e70e3071f098c025cc7fb3cbb40d2a994b79434218990860080118",
+      "semantic_diff": "ca336c5d6983f849b9d0a69a46db5c41719dca6123b2a496802691c17233a6e8",
+      "parents": [
+        "6d44e7e58389104eb1cd5c7fda152323bc0f0f55",
+        "423eed5af38f3a764afbba42122429c229ef0dca"
+      ]
+    },
+    "authorized-rebuild": {
+      "status": "published",
+      "commit": "d9d59683f0a44d10efd5e9fa0f98b963072d750d",
+      "tree": "dbd5c324a8d184c36d5630e9e6d35e1fb4bb0f18",
+      "plan": "a38e4eaab3ecc1c70c0b488a4cdd084a54a98449a949ebad8fbe76ee4441ed4a",
+      "semantic_diff": "ee70bf3c0cf98f3fba42ff2bd7156d40dc8d229c9f26fd430fef763100def4b6",
+      "parents": [
+        "6d44e7e58389104eb1cd5c7fda152323bc0f0f55",
+        "496d77a3404a942e45bdd8a514fd48a76812f2e4"
+      ]
+    }
+  }
+}
