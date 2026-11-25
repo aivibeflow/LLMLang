@@ -1601,8 +1601,10 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Status:** researched and prototyped at an exploratory level. A candidate TOML manifest schema, example fixture, Package Content Root Hash projection, identity exclusions, and PMI invariants are documented. The logical index, external-memory validation, streaming archive writer/verifier, exact dependency-policy resolver, and disk-backed Provider-to-archive pipeline have executable prototypes and CI coverage. The Provider uses SQLite for graph traversal state and streams sorted index rows plus one object payload at a time. A reproducible benchmark harness and 1,200-object chain/high-fan-out stress tests are implemented; CI records exploratory measurements, but controlled-hardware baselines and large-scale acceptance criteria remain open. The Toolchain Server Prototype 01 currently has only an in-memory lifecycle model and does not expose the public snapshot enumeration, dependency-edge, or streaming-payload API needed by Provider; no adapter is added against its private state. A persistent immutable-object backend and public snapshot read contract remain open. No normative wire format, codec policy, provider protocol, cache-index schema, final manifest schema, canonical hash encoding, or digest algorithm has been accepted.
 
 
-- [ ] [WIP] Define Package versus Library boundaries.
-- [ ] [WIP] Define library identity and public machine-readable contracts.
+- [x] Define Package versus Library boundaries.
+  - [x] Verify eight packages with independently addressed library layers, including two libraries sharing one exact specification. Descriptive repacking preserves the package root and library identities. [Package and library contracts](research/packages-and-ecosystem/RT-12/RT-12-PACKAGE-AND-LIBRARY-CONTRACTS-2026-11-25.md)
+- [x] Define library identity and public machine-readable contracts.
+  - [x] Check 96 typed library admissions plus a wrong-ABI control. Specification inspection and implementation eligibility use distinct exact checks. The public record includes conditions, effects, errors, state and ownership. Production conformance remains open. [Machine-readable contract model](research/packages-and-ecosystem/RT-12/RT-12-PACKAGE-AND-LIBRARY-CONTRACTS-2026-11-25.md#results)
 - [ ] Define dependency resolution and versioning.
 - [ ] Define template instantiation, customization, detachment, and migration.
 - [ ] Define global semantic artifact store and registry interfaces.

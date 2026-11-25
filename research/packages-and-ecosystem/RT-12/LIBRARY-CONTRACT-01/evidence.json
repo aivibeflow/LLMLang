@@ -1,0 +1,161 @@
+{
+  "checks": 96,
+  "contract": {
+    "operations": {
+      "reserve": {
+        "capabilities": [
+          "ledger-write"
+        ],
+        "effects": [
+          "ledger-write"
+        ],
+        "errors": {
+          "Denied": {
+            "state": "unchanged"
+          }
+        },
+        "input": "Quantity",
+        "output": "Quantity",
+        "ownership": {
+          "result": "caller-owned"
+        },
+        "postconditions": [
+          {
+            "left": "result",
+            "op": "equal",
+            "right": "quantity"
+          }
+        ],
+        "preconditions": [
+          {
+            "arg": "quantity",
+            "op": "positive"
+          }
+        ],
+        "state": {
+          "after_success": "reserved",
+          "before": "available"
+        }
+      }
+    },
+    "schema": "llmlang.library-spec.fixture/v1",
+    "types": {
+      "Quantity": {
+        "maximum": 100,
+        "representation": "u32"
+      }
+    }
+  },
+  "observations": {
+    "capability-unavailable": 9,
+    "eligible-for-fixture-execution": 9,
+    "implementation-evidence-unavailable": 12,
+    "implementation-unavailable": 6,
+    "specification-available": 36,
+    "specification-mismatch": 24
+  },
+  "profiles": {
+    "base": {
+      "archive": "sha256:54cb1d17ea52e912dc28cd7298b12aae2903818f2761e65b2b0ea42a74ceee7e",
+      "layers": {
+        "design": "sha256:4e183b79dd84b2bd147d75fcf705b90ba273de57be2d4cda3771500795475819",
+        "implementation": "sha256:2ccb3af9e9808565016ea91dda2c121364e7f4a019f2e4e7e679adbe58b7bf95",
+        "specification": "sha256:7330f7c8d189dab237adc586cb303ebccd9bae1d61aa1b22c5010f391cdfd191"
+      },
+      "library_count": 1,
+      "library_id": "library:inventory",
+      "package_root": "sha256:892b272cddc780c68529a38105419c6dc4c08a47daa8c5da27fa6292874c053f",
+      "public_specification_payload": "sha256:ff19121f363541bbf0990501d4601856bb41e0acc331dad1dd9f49b5f00d943f"
+    },
+    "new_carrier": {
+      "archive": "sha256:e41ff24ee926aa680433bd7d8ec1437918f2a63fdb7b0c7254b9dd57a66a1e32",
+      "layers": {
+        "design": "sha256:4e183b79dd84b2bd147d75fcf705b90ba273de57be2d4cda3771500795475819",
+        "implementation": "sha256:2ccb3af9e9808565016ea91dda2c121364e7f4a019f2e4e7e679adbe58b7bf95",
+        "specification": "sha256:7330f7c8d189dab237adc586cb303ebccd9bae1d61aa1b22c5010f391cdfd191"
+      },
+      "library_count": 1,
+      "library_id": "library:inventory",
+      "package_root": "sha256:892b272cddc780c68529a38105419c6dc4c08a47daa8c5da27fa6292874c053f",
+      "public_specification_payload": "sha256:ff19121f363541bbf0990501d4601856bb41e0acc331dad1dd9f49b5f00d943f"
+    },
+    "new_contract": {
+      "archive": "sha256:fe0c939a3b2a79020140edb75e84fadc19ddf1abdc284ab3de2156d349179060",
+      "layers": {
+        "design": "sha256:4e183b79dd84b2bd147d75fcf705b90ba273de57be2d4cda3771500795475819",
+        "implementation": "sha256:2ccb3af9e9808565016ea91dda2c121364e7f4a019f2e4e7e679adbe58b7bf95",
+        "specification": "sha256:1e85f320f29afb2067670761b2ee73bb7403c2c0bab1b09f0a25a2f39d0ba009"
+      },
+      "library_count": 1,
+      "library_id": "library:inventory",
+      "package_root": "sha256:c995a66d41c7903f527f5f54e6cd80cc75e64ec841c6ee8665a802587e8accd0",
+      "public_specification_payload": "sha256:b29b5197eaf87d3444ceb650c03841948827e433da5813e9cdaec680ca492722"
+    },
+    "new_design": {
+      "archive": "sha256:705c29b0c8ac0c4c3e0b9b9cedbbcfb50b829de7f00be4c37948e5db3d71df10",
+      "layers": {
+        "design": "sha256:25bd696529ac6554a17c3d5499260eb0ec022aafd0427178724254adb732b3b3",
+        "implementation": "sha256:2ccb3af9e9808565016ea91dda2c121364e7f4a019f2e4e7e679adbe58b7bf95",
+        "specification": "sha256:7330f7c8d189dab237adc586cb303ebccd9bae1d61aa1b22c5010f391cdfd191"
+      },
+      "library_count": 1,
+      "library_id": "library:inventory",
+      "package_root": "sha256:7f84407b5dad9d2d6f04a070644b8bd71c399427661e6cf83298ff3f8abc1384",
+      "public_specification_payload": "sha256:ff19121f363541bbf0990501d4601856bb41e0acc331dad1dd9f49b5f00d943f"
+    },
+    "new_implementation": {
+      "archive": "sha256:4bc0606d58f0a04026b4f5d69d617fa52edad128b33ab57e4bd6fff10c61630f",
+      "layers": {
+        "design": "sha256:4e183b79dd84b2bd147d75fcf705b90ba273de57be2d4cda3771500795475819",
+        "implementation": "sha256:5981f791a112e51149afd2c78e1da97b979974388456684edd0ac7db44f0df35",
+        "specification": "sha256:7330f7c8d189dab237adc586cb303ebccd9bae1d61aa1b22c5010f391cdfd191"
+      },
+      "library_count": 1,
+      "library_id": "library:inventory",
+      "package_root": "sha256:539c8fc3659b2f548f7cabff86fd3ba4c87457c378ffd4356011ad834be122c2",
+      "public_specification_payload": "sha256:ff19121f363541bbf0990501d4601856bb41e0acc331dad1dd9f49b5f00d943f"
+    },
+    "other_library": {
+      "archive": "sha256:486fe6dfe09e04f78e0ef936bf6c24502b4065fb045895e9dd62e6344af40e95",
+      "layers": {
+        "design": "sha256:4e183b79dd84b2bd147d75fcf705b90ba273de57be2d4cda3771500795475819",
+        "implementation": "sha256:2ccb3af9e9808565016ea91dda2c121364e7f4a019f2e4e7e679adbe58b7bf95",
+        "specification": "sha256:7330f7c8d189dab237adc586cb303ebccd9bae1d61aa1b22c5010f391cdfd191"
+      },
+      "library_count": 1,
+      "library_id": "library:warehouse",
+      "package_root": "sha256:8a9cf0b3d40d94fa4b4deea2ebddac4e3611e178ada6d5a3ce3cff9417407bbe",
+      "public_specification_payload": "sha256:ff19121f363541bbf0990501d4601856bb41e0acc331dad1dd9f49b5f00d943f"
+    },
+    "spec_only": {
+      "archive": "sha256:a6efc5246be22a6a5ee54f6e73bcd57b6a50b7962571fefeb33fc241b872304f",
+      "layers": {
+        "specification": "sha256:7330f7c8d189dab237adc586cb303ebccd9bae1d61aa1b22c5010f391cdfd191"
+      },
+      "library_count": 1,
+      "library_id": "library:inventory",
+      "package_root": "sha256:ace8c754e5ebd5ddb8cdd3fcb354b7684eb28a0ca1bd73f14a9378be4d19b853",
+      "public_specification_payload": "sha256:ff19121f363541bbf0990501d4601856bb41e0acc331dad1dd9f49b5f00d943f"
+    },
+    "two_libraries": {
+      "archive": "sha256:6b8144b317fdb9b6d9f3b2ba8cbf5b973c918fbb14e19dbc8af956f39ddab3cf",
+      "layers": {
+        "design": "sha256:4e183b79dd84b2bd147d75fcf705b90ba273de57be2d4cda3771500795475819",
+        "implementation": "sha256:2ccb3af9e9808565016ea91dda2c121364e7f4a019f2e4e7e679adbe58b7bf95",
+        "specification": "sha256:7330f7c8d189dab237adc586cb303ebccd9bae1d61aa1b22c5010f391cdfd191"
+      },
+      "library_count": 2,
+      "library_id": "library:inventory",
+      "package_root": "sha256:bd0cba35398f3f23272c17ec9f4dfeeb81fa8d3aaf18c8f36a6bc9bb1efaf1cb",
+      "public_specification_payload": "sha256:ff19121f363541bbf0990501d4601856bb41e0acc331dad1dd9f49b5f00d943f"
+    }
+  },
+  "python": "3.12.14",
+  "sources": {
+    "PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458",
+    "PROTOTYPES/PACKAGE-INDEX-01/package_archive.py": "01febe052788c913ebb750561e0430a9609c50cb9b86558f74ecc680499bfff1",
+    "RT-12/LIBRARY-CONTRACT-01/check.py": "e315eb5a321cc73dd267eb397d930152eb3a24af8b4d034d8dc1f65d508e5c20",
+    "RT-12/PACKAGE-CONTENT-01/check.py": "3639b7a18d0684f061fbf5d2f2126ccc3c0e628798572ca7c8ca95523a555633"
+  },
+  "wrong_abi": "implementation-evidence-unavailable"
+}
