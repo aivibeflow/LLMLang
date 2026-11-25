@@ -171,6 +171,8 @@ The [guarded dispatch identity comparison](../semantic-representation/RT-05/RT-0
 
 The [modular caller pilot](../semantic-representation/RT-05/PUBLIC-INTERFACE-MODULAR-CALLER-2026-11-24.md) connects the RT-05 and RT-20 public binding model to the RT-32 proof boundary. The abstract caller theorem is checked in Lean, with finite source comparisons and separate witnesses for the two concrete provider models.
 
+RT-34 has a checked [binary-search cost pilot](../formal-verification/RT-34/RT-34-BINARY-SEARCH-PROBE-BOUNDS-2026-11-25.md) covering exact halving bounds, two event models and a progress counterexample.
+
 ## 3. Required research artifact
 
 Every research report should identify:
