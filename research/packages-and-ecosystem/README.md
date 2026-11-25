@@ -18,6 +18,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-12 opaque implementation evidence](RT-12/RT-12-OPAQUE-IMPLEMENTATION-EVIDENCE-2026-11-25.md) checks exact artifact binding and the limits of finite observations on stripped providers.
 - [RT-12 publication and retention lifecycle](RT-12/RT-12-PUBLICATION-RETENTION-LIFECYCLE-2026-11-25.md) checks delivery authority, revocation, historical leases and local collection.
 - [RT-12 shared Store and scoped registry](RT-12/RT-12-SHARED-STORE-AND-SCOPED-REGISTRY-2026-11-25.md) checks exact authorized reads over retained registry generations and shared object bytes.
 - [RT-12 template lifecycle](RT-12/RT-12-TEMPLATE-LIFECYCLE-2026-11-25.md) checks typed expansion, local edits, detachment and exact three-way migration.
