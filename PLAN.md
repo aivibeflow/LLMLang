@@ -1214,7 +1214,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Evaluate whether a dedicated C runtime can implement high-level LLMLang features while keeping LLMLang—not C—as the semantic source of truth; compare runtime requirements and costs for all four targets.
 - [ ] Cover same-language round trips, cross-target migration, mixed-language modules, ABI/FFI, source-language undefined/implementation-defined behavior, and incremental regeneration.
 - [ ] Build differential conformance fixtures for both directions and a bounded bidirectional vertical slice with pinned compilers, runtimes, and platform profiles.
-  - [ ] [WIP] Check a bounded Go import and re-export slice for wrapping scalar operations, ordered callbacks and explicit refusal cases on `research/all`.
+  - [x] Import, re-export and reimport 12 closed Go wrapping programs. Original and generated executables each match 37,020 source observations. Ten refusal cases distinguish directives, malformed or ill-typed input and unsupported behavior; two are confirmed by native divergence. Broader Go and cross-language imports remain open. [Go wrapping round trip](research/compiler-and-translation/RT-30/RT-30-GO-WRAPPING-ROUNDTRIP-2026-11-25.md)
 
 **Research brief:** [RT-30 — Bidirectional Semantic Translation](research/compiler-and-translation/RT-30/RT-30-BIDIRECTIONAL-SEMANTIC-TRANSLATION.md). Coordinate with RT-13, RT-28, and RT-29. This is a research goal, not a claim that all programs in the four languages are translatable.
 

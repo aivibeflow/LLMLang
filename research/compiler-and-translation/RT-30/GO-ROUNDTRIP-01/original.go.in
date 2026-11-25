@@ -1,0 +1,9 @@
+package main
+
+// Independent host source used as input to the restricted importer.
+func @NAME@(a,b, enabled uint32, emit func(uint32), out *uint32) uint32 {
+    emit(a); value := b   // Preserve the left-argument observation.
+    if enabled != 0 { value = @LEFT@ @OP@ @RIGHT@ }
+    emit(value); *out = value
+    return 0
+}
