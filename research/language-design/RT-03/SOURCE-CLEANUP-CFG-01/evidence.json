@@ -1,0 +1,790 @@
+{
+  "schema": "llmlang-source-cleanup-cfg/1",
+  "python": "3.12.14",
+  "runner_sha256": {
+    "run.py": "b7fd11eddc9ef95e8084d7b9833632ea4b3b865f7193e533dea4d6a349a69002",
+    "flow.py": "6b2e052c617d16cd37e4d4fa55770351da299fb70fa3a340f441fa83d5ca768b",
+    "reference.py": "138915528f312e10b2d8939ba6e5b8c26cef70556cf54f68f1ac329bb55acce9"
+  },
+  "fixtures": {
+    "and/return_on_true": {
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if probe(\"left\", x) and probe(\"right\", y):\n                emit(\"selected\")\n                return stage(\"handle\")\n            emit(\"fallback\")\n            fail(\"primary\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n",
+      "sha256": "21fc85d64202e26ac268295efe9188718eb899713424a3fbd424107aff3c6b08",
+      "graph_sha256": "1e997098369a56c8948412b8ab416c826fa6bb62e5927ad43e8661afda4afca3",
+      "full_cfg_nodes": 17,
+      "entry": 16,
+      "call_spans": [
+        [
+          2,
+          2,
+          4,
+          22
+        ],
+        [
+          4,
+          4,
+          8,
+          26
+        ],
+        [
+          6,
+          6,
+          15,
+          31
+        ],
+        [
+          6,
+          6,
+          36,
+          53
+        ],
+        [
+          7,
+          7,
+          16,
+          32
+        ],
+        [
+          8,
+          8,
+          23,
+          38
+        ],
+        [
+          9,
+          9,
+          12,
+          28
+        ],
+        [
+          10,
+          10,
+          12,
+          27
+        ],
+        [
+          12,
+          12,
+          12,
+          31
+        ],
+        [
+          14,
+          14,
+          8,
+          27
+        ]
+      ]
+    },
+    "and/return_on_false": {
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if probe(\"left\", x) and probe(\"right\", y):\n                emit(\"selected\")\n                fail(\"primary\")\n            emit(\"fallback\")\n            return stage(\"handle\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n",
+      "sha256": "ab7f8f91203fbf02bf8e3dfcecc7e42cbb174f18b0684f174bf5085e94f4e9c7",
+      "graph_sha256": "8811aafbbe461a08d929b891ff7fd55d2cce0340c416380552c753194dcd3788",
+      "full_cfg_nodes": 17,
+      "entry": 16,
+      "call_spans": [
+        [
+          2,
+          2,
+          4,
+          22
+        ],
+        [
+          4,
+          4,
+          8,
+          26
+        ],
+        [
+          6,
+          6,
+          15,
+          31
+        ],
+        [
+          6,
+          6,
+          36,
+          53
+        ],
+        [
+          7,
+          7,
+          16,
+          32
+        ],
+        [
+          8,
+          8,
+          16,
+          31
+        ],
+        [
+          9,
+          9,
+          12,
+          28
+        ],
+        [
+          10,
+          10,
+          19,
+          34
+        ],
+        [
+          12,
+          12,
+          12,
+          31
+        ],
+        [
+          14,
+          14,
+          8,
+          27
+        ]
+      ]
+    },
+    "or/return_on_true": {
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if probe(\"left\", x) or probe(\"right\", y):\n                emit(\"selected\")\n                return stage(\"handle\")\n            emit(\"fallback\")\n            fail(\"primary\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n",
+      "sha256": "f24ea1a213e593c5866f06f0a68390ba20839033066be147dff71760d945a234",
+      "graph_sha256": "e7e80478b42e046e3247b9bb3a823b289c3002f9b36b84a9447c7d68ae3ded6a",
+      "full_cfg_nodes": 17,
+      "entry": 16,
+      "call_spans": [
+        [
+          2,
+          2,
+          4,
+          22
+        ],
+        [
+          4,
+          4,
+          8,
+          26
+        ],
+        [
+          6,
+          6,
+          15,
+          31
+        ],
+        [
+          6,
+          6,
+          35,
+          52
+        ],
+        [
+          7,
+          7,
+          16,
+          32
+        ],
+        [
+          8,
+          8,
+          23,
+          38
+        ],
+        [
+          9,
+          9,
+          12,
+          28
+        ],
+        [
+          10,
+          10,
+          12,
+          27
+        ],
+        [
+          12,
+          12,
+          12,
+          31
+        ],
+        [
+          14,
+          14,
+          8,
+          27
+        ]
+      ]
+    },
+    "or/return_on_false": {
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if probe(\"left\", x) or probe(\"right\", y):\n                emit(\"selected\")\n                fail(\"primary\")\n            emit(\"fallback\")\n            return stage(\"handle\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n",
+      "sha256": "2cd2df0900397515c63b170d2e9fc92415dfd3d8ceb0a1541062b38b6e8b972f",
+      "graph_sha256": "336cc11a210a31d0302fc91933f43204fb0a018161ea4c50ff3fc5a09c67abd2",
+      "full_cfg_nodes": 17,
+      "entry": 16,
+      "call_spans": [
+        [
+          2,
+          2,
+          4,
+          22
+        ],
+        [
+          4,
+          4,
+          8,
+          26
+        ],
+        [
+          6,
+          6,
+          15,
+          31
+        ],
+        [
+          6,
+          6,
+          35,
+          52
+        ],
+        [
+          7,
+          7,
+          16,
+          32
+        ],
+        [
+          8,
+          8,
+          16,
+          31
+        ],
+        [
+          9,
+          9,
+          12,
+          28
+        ],
+        [
+          10,
+          10,
+          19,
+          34
+        ],
+        [
+          12,
+          12,
+          12,
+          31
+        ],
+        [
+          14,
+          14,
+          8,
+          27
+        ]
+      ]
+    },
+    "nested_and/return_on_true": {
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if (probe(\"left\", x) or probe(\"right\", y)) and probe(\"tail\", True):\n                emit(\"selected\")\n                return stage(\"handle\")\n            emit(\"fallback\")\n            fail(\"primary\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n",
+      "sha256": "b7db7e97a397b820b6ffd982f402a3d0314f0d9acc7f799c732517be1c84b2b4",
+      "graph_sha256": "6e973faf2ac5cea958cfe79b15a433e280e93601d29038c8cfb81874388a425d",
+      "full_cfg_nodes": 18,
+      "entry": 17,
+      "call_spans": [
+        [
+          2,
+          2,
+          4,
+          22
+        ],
+        [
+          4,
+          4,
+          8,
+          26
+        ],
+        [
+          6,
+          6,
+          16,
+          32
+        ],
+        [
+          6,
+          6,
+          36,
+          53
+        ],
+        [
+          6,
+          6,
+          59,
+          78
+        ],
+        [
+          7,
+          7,
+          16,
+          32
+        ],
+        [
+          8,
+          8,
+          23,
+          38
+        ],
+        [
+          9,
+          9,
+          12,
+          28
+        ],
+        [
+          10,
+          10,
+          12,
+          27
+        ],
+        [
+          12,
+          12,
+          12,
+          31
+        ],
+        [
+          14,
+          14,
+          8,
+          27
+        ]
+      ]
+    },
+    "nested_and/return_on_false": {
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if (probe(\"left\", x) or probe(\"right\", y)) and probe(\"tail\", True):\n                emit(\"selected\")\n                fail(\"primary\")\n            emit(\"fallback\")\n            return stage(\"handle\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n",
+      "sha256": "4769351f50a6234e52e4006ec7d49c964b6607ae751edef15cc734f4ff52bfb2",
+      "graph_sha256": "e277e98e7258c22fc9432883c62e34131bc125481f3e851d8497d16b5be0727a",
+      "full_cfg_nodes": 18,
+      "entry": 17,
+      "call_spans": [
+        [
+          2,
+          2,
+          4,
+          22
+        ],
+        [
+          4,
+          4,
+          8,
+          26
+        ],
+        [
+          6,
+          6,
+          16,
+          32
+        ],
+        [
+          6,
+          6,
+          36,
+          53
+        ],
+        [
+          6,
+          6,
+          59,
+          78
+        ],
+        [
+          7,
+          7,
+          16,
+          32
+        ],
+        [
+          8,
+          8,
+          16,
+          31
+        ],
+        [
+          9,
+          9,
+          12,
+          28
+        ],
+        [
+          10,
+          10,
+          19,
+          34
+        ],
+        [
+          12,
+          12,
+          12,
+          31
+        ],
+        [
+          14,
+          14,
+          8,
+          27
+        ]
+      ]
+    },
+    "nested_or/return_on_true": {
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if (probe(\"left\", x) and probe(\"right\", y)) or probe(\"tail\", False):\n                emit(\"selected\")\n                return stage(\"handle\")\n            emit(\"fallback\")\n            fail(\"primary\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n",
+      "sha256": "aea503bbb62cbd7982a0cfccf7a84e9b501cb626be2e09282e65029e2d280099",
+      "graph_sha256": "c05916b5d23c5edc7a0c5d31b0ef184cc95bd232c9ab013b22b66bb9e3669693",
+      "full_cfg_nodes": 18,
+      "entry": 17,
+      "call_spans": [
+        [
+          2,
+          2,
+          4,
+          22
+        ],
+        [
+          4,
+          4,
+          8,
+          26
+        ],
+        [
+          6,
+          6,
+          16,
+          32
+        ],
+        [
+          6,
+          6,
+          37,
+          54
+        ],
+        [
+          6,
+          6,
+          59,
+          79
+        ],
+        [
+          7,
+          7,
+          16,
+          32
+        ],
+        [
+          8,
+          8,
+          23,
+          38
+        ],
+        [
+          9,
+          9,
+          12,
+          28
+        ],
+        [
+          10,
+          10,
+          12,
+          27
+        ],
+        [
+          12,
+          12,
+          12,
+          31
+        ],
+        [
+          14,
+          14,
+          8,
+          27
+        ]
+      ]
+    },
+    "nested_or/return_on_false": {
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if (probe(\"left\", x) and probe(\"right\", y)) or probe(\"tail\", False):\n                emit(\"selected\")\n                fail(\"primary\")\n            emit(\"fallback\")\n            return stage(\"handle\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n",
+      "sha256": "5e0c492b3bec33a56aad81e82cae971bcae21b5c05e798f8973e9f1d67f5f55b",
+      "graph_sha256": "fdc6922c407a16d103dc108b5929052a1f1178bd6cef0d3b85a41ae1fec98339",
+      "full_cfg_nodes": 18,
+      "entry": 17,
+      "call_spans": [
+        [
+          2,
+          2,
+          4,
+          22
+        ],
+        [
+          4,
+          4,
+          8,
+          26
+        ],
+        [
+          6,
+          6,
+          16,
+          32
+        ],
+        [
+          6,
+          6,
+          37,
+          54
+        ],
+        [
+          6,
+          6,
+          59,
+          79
+        ],
+        [
+          7,
+          7,
+          16,
+          32
+        ],
+        [
+          8,
+          8,
+          16,
+          31
+        ],
+        [
+          9,
+          9,
+          12,
+          28
+        ],
+        [
+          10,
+          10,
+          19,
+          34
+        ],
+        [
+          12,
+          12,
+          12,
+          31
+        ],
+        [
+          14,
+          14,
+          8,
+          27
+        ]
+      ]
+    }
+  },
+  "executions_per_policy": 128,
+  "mismatches": {
+    "full": {
+      "any": 0,
+      "trace": 0,
+      "result": 0,
+      "errors": 0,
+      "slots": 0,
+      "handle": 0
+    },
+    "eager": {
+      "any": 80,
+      "trace": 80,
+      "result": 0,
+      "errors": 0,
+      "slots": 0,
+      "handle": 0
+    },
+    "return_bypasses_cleanup": {
+      "any": 64,
+      "trace": 64,
+      "result": 48,
+      "errors": 48,
+      "slots": 64,
+      "handle": 48
+    },
+    "last_error_only": {
+      "any": 64,
+      "trace": 0,
+      "result": 0,
+      "errors": 64,
+      "slots": 0,
+      "handle": 0
+    }
+  },
+  "observed_cases": {
+    "ok": 16,
+    "pending": 48,
+    "nested_causes": 16,
+    "covered_source_calls": 84
+  },
+  "controls": [
+    {
+      "case": "unknown_call",
+      "expected": "unsupported",
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if probe(\"left\", x) and probe(\"right\", y):\n                foreign(\"selected\")\n                return stage(\"handle\")\n            emit(\"fallback\")\n            fail(\"primary\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n"
+    },
+    {
+      "case": "unmodeled_resource_call",
+      "expected": "unsupported",
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if probe(\"left\", x) and probe(\"right\", y):\n                emit(\"selected\")\n                return stage(\"handle\")\n            emit(\"fallback\")\n            fail(\"primary\")\n        finally:\n            object.close(\"inner\")\n    finally:\n        close_slot(\"outer\")\n"
+    },
+    {
+      "case": "unknown_predicate",
+      "expected": "unsupported",
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if probe(\"left\", other) and probe(\"right\", y):\n                emit(\"selected\")\n                return stage(\"handle\")\n            emit(\"fallback\")\n            fail(\"primary\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n"
+    },
+    {
+      "case": "dynamic_handle",
+      "expected": "unsupported",
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if probe(\"left\", x) and probe(\"right\", y):\n                emit(\"selected\")\n                return stage(x)\n            emit(\"fallback\")\n            fail(\"primary\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n"
+    },
+    {
+      "case": "unadmitted_finally",
+      "expected": "unsupported",
+      "source": "def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if probe(\"left\", x) and probe(\"right\", y):\n                emit(\"selected\")\n                return stage(\"handle\")\n            emit(\"fallback\")\n            fail(\"primary\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n        emit(\"extra\")\n"
+    },
+    {
+      "case": "async",
+      "expected": "unsupported",
+      "source": "async def entry(x, y):\n    open_slot(\"outer\")\n    try:\n        open_slot(\"inner\")\n        try:\n            if probe(\"left\", x) and probe(\"right\", y):\n                emit(\"selected\")\n                return stage(\"handle\")\n            emit(\"fallback\")\n            fail(\"primary\")\n        finally:\n            close_slot(\"inner\")\n    finally:\n        close_slot(\"outer\")\n"
+    }
+  ],
+  "executions": [
+    {"fixture": "and/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {}},
+    {"fixture": "and/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "and/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {}},
+    {"fixture": "and/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "and/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[6, 6, 36, 53], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {}},
+    {"fixture": "or/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "or/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {}},
+    {"fixture": "or/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", false], [[6, 6, 35, 52], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "or/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 15, 31], "probe", "left", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_and/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 36, 53], "probe", "right", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_and/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 59, 78], "probe", "tail", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 12, 27], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_or/return_on_true", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 23, 38], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": false, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": false, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"eager": ["trace"], "return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": "handle", "errors": [], "slots": {"outer": "released", "inner": "released"}, "handle": "caller"}, "disagreements": {"return_bypasses_cleanup": ["trace", "slots"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": true, "y": false}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", false], [[6, 6, 59, 79], "probe", "tail", false], [[9, 9, 12, 28], "emit", "fallback"], [[10, 10, 19, 34], "stage", "handle"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "pending"}, "disagreements": {"return_bypasses_cleanup": ["trace", "result", "errors", "slots", "handle"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary"], "slots": {"outer": "released", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": false, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", true], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:outer"], "slots": {"outer": "debt", "inner": "released"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": false}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", true]], "result": null, "errors": ["primary", "close:inner"], "slots": {"outer": "released", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}},
+    {"fixture": "nested_or/return_on_false", "inputs": {"x": true, "y": true}, "release_failures": {"inner": true, "outer": true}, "source_observation": {"trace": [[[2, 2, 4, 22], "open", "outer"], [[4, 4, 8, 26], "open", "inner"], [[6, 6, 16, 32], "probe", "left", true], [[6, 6, 37, 54], "probe", "right", true], [[7, 7, 16, 32], "emit", "selected"], [[8, 8, 16, 31], "fail", "primary"], [[12, 12, 12, 31], "close", "inner", false], [[14, 14, 8, 27], "close", "outer", false]], "result": null, "errors": ["primary", "close:inner", "close:outer"], "slots": {"outer": "debt", "inner": "debt"}, "handle": "none"}, "disagreements": {"eager": ["trace"], "last_error_only": ["errors"]}}
+  ]
+}
