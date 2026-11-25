@@ -1,0 +1,358 @@
+{
+  "schema": "llmlang-rt23-indexed-journal-recovery/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "history": 64,
+  "window": 8,
+  "source_digests": {
+    "run.py": "d1c68a660ca650fac7c37d2287b477a4279c69387bac4550349e754d74c55223",
+    "test_rt23_commit_recovery.py": "100cc263dc500abe7f2dcbeb5e16e0645c1300248bd132110e8f8e2d47a006e3",
+    "test_rt24_merge_tree_gate.py": "aa6aa6f76cb0632160bcc06bfd42cb2b640171a554e484c0b2ad90c2fc617cba"
+  },
+  "profiles": [
+    "files",
+    "reftable"
+  ],
+  "results": {
+    "ref_backend": "both",
+    "ordinary_branch": "013dcac2447b30c41c3eebcaf5085a2c70841736",
+    "clean_clone_replays": 9,
+    "reuse_rejected": true,
+    "stale_cas_rejected": true,
+    "audited_index": {
+      "prefix": 32,
+      "latest": 65
+    },
+    "cas_boundary": [
+      {
+        "case": "prepared_objects_before_cas",
+        "identity": [
+          "project:A",
+          "request-032"
+        ],
+        "candidate": "fced88d95f474a41868ddee06bd6ea212872f697",
+        "expected": "undecided",
+        "heads": {
+          "scan": "91321234764c54a7e0fae10fc48f0433bdfddade",
+          "indexed": "0cc3b2eeb430fbbf6263976c6562c33917dafe84"
+        },
+        "observations": {
+          "scan": {
+            "result": "undecided",
+            "receipts_examined": 64
+          },
+          "window": {
+            "result": "history-window-exhausted",
+            "receipts_examined": 8
+          },
+          "indexed": {
+            "result": "undecided",
+            "receipts_examined": 0
+          }
+        }
+      },
+      {
+        "case": "same_request_after_cas",
+        "identity": [
+          "project:A",
+          "request-032"
+        ],
+        "candidate": "fced88d95f474a41868ddee06bd6ea212872f697",
+        "expected": "published",
+        "heads": {
+          "scan": "41db0e28e24889090f1c5eb89b0a7a90f060b2c2",
+          "indexed": "be040dca3cd7b8578759cb8f220e10a0306e1120"
+        },
+        "observations": {
+          "scan": {
+            "result": "published",
+            "receipts_examined": 1
+          },
+          "window": {
+            "result": "published",
+            "receipts_examined": 1
+          },
+          "indexed": {
+            "result": "published",
+            "receipts_examined": 1
+          }
+        }
+      }
+    ],
+    "queries": [
+      {
+        "case": "oldest",
+        "identity": [
+          "project:A",
+          "request-000"
+        ],
+        "candidate": "37c77a64f6323e0aa733f3845286919a038556a0",
+        "expected": "published",
+        "heads": {
+          "scan": "41db0e28e24889090f1c5eb89b0a7a90f060b2c2",
+          "indexed": "be040dca3cd7b8578759cb8f220e10a0306e1120"
+        },
+        "observations": {
+          "scan": {
+            "result": "published",
+            "receipts_examined": 65
+          },
+          "window": {
+            "result": "history-window-exhausted",
+            "receipts_examined": 8
+          },
+          "indexed": {
+            "result": "published",
+            "receipts_examined": 1
+          }
+        }
+      },
+      {
+        "case": "same_key_other_scope",
+        "identity": [
+          "project:B",
+          "request-000"
+        ],
+        "candidate": "ae58a5c27153811c7a8075f0810fb3fbba4a95e6",
+        "expected": "published",
+        "heads": {
+          "scan": "41db0e28e24889090f1c5eb89b0a7a90f060b2c2",
+          "indexed": "be040dca3cd7b8578759cb8f220e10a0306e1120"
+        },
+        "observations": {
+          "scan": {
+            "result": "published",
+            "receipts_examined": 64
+          },
+          "window": {
+            "result": "history-window-exhausted",
+            "receipts_examined": 8
+          },
+          "indexed": {
+            "result": "published",
+            "receipts_examined": 1
+          }
+        }
+      },
+      {
+        "case": "middle",
+        "identity": [
+          "project:B",
+          "request-015"
+        ],
+        "candidate": "9071f1fee0127b8dc0a5f4acad925d1ef60a31a7",
+        "expected": "published",
+        "heads": {
+          "scan": "41db0e28e24889090f1c5eb89b0a7a90f060b2c2",
+          "indexed": "be040dca3cd7b8578759cb8f220e10a0306e1120"
+        },
+        "observations": {
+          "scan": {
+            "result": "published",
+            "receipts_examined": 34
+          },
+          "window": {
+            "result": "history-window-exhausted",
+            "receipts_examined": 8
+          },
+          "indexed": {
+            "result": "published",
+            "receipts_examined": 1
+          }
+        }
+      },
+      {
+        "case": "recent",
+        "identity": [
+          "project:B",
+          "request-031"
+        ],
+        "candidate": "cd64dc061c884254f0f4bf27e8cf3e8e0e09f564",
+        "expected": "published",
+        "heads": {
+          "scan": "41db0e28e24889090f1c5eb89b0a7a90f060b2c2",
+          "indexed": "be040dca3cd7b8578759cb8f220e10a0306e1120"
+        },
+        "observations": {
+          "scan": {
+            "result": "published",
+            "receipts_examined": 2
+          },
+          "window": {
+            "result": "published",
+            "receipts_examined": 2
+          },
+          "indexed": {
+            "result": "published",
+            "receipts_examined": 1
+          }
+        }
+      },
+      {
+        "case": "latest",
+        "identity": [
+          "project:A",
+          "request-032"
+        ],
+        "candidate": "fced88d95f474a41868ddee06bd6ea212872f697",
+        "expected": "published",
+        "heads": {
+          "scan": "41db0e28e24889090f1c5eb89b0a7a90f060b2c2",
+          "indexed": "be040dca3cd7b8578759cb8f220e10a0306e1120"
+        },
+        "observations": {
+          "scan": {
+            "result": "published",
+            "receipts_examined": 1
+          },
+          "window": {
+            "result": "published",
+            "receipts_examined": 1
+          },
+          "indexed": {
+            "result": "published",
+            "receipts_examined": 1
+          }
+        }
+      },
+      {
+        "case": "same_key_different_commit",
+        "identity": [
+          "project:A",
+          "request-000"
+        ],
+        "candidate": "42a4161833538f0882a7d9f4be145f6d9bbc02b2",
+        "expected": "request-conflict",
+        "heads": {
+          "scan": "41db0e28e24889090f1c5eb89b0a7a90f060b2c2",
+          "indexed": "be040dca3cd7b8578759cb8f220e10a0306e1120"
+        },
+        "observations": {
+          "scan": {
+            "result": "request-conflict",
+            "receipts_examined": 65
+          },
+          "window": {
+            "result": "history-window-exhausted",
+            "receipts_examined": 8
+          },
+          "indexed": {
+            "result": "request-conflict",
+            "receipts_examined": 1
+          }
+        }
+      },
+      {
+        "case": "absent_key",
+        "identity": [
+          "project:A",
+          "unseen request"
+        ],
+        "candidate": "37c77a64f6323e0aa733f3845286919a038556a0",
+        "expected": "undecided",
+        "heads": {
+          "scan": "41db0e28e24889090f1c5eb89b0a7a90f060b2c2",
+          "indexed": "be040dca3cd7b8578759cb8f220e10a0306e1120"
+        },
+        "observations": {
+          "scan": {
+            "result": "undecided",
+            "receipts_examined": 65
+          },
+          "window": {
+            "result": "history-window-exhausted",
+            "receipts_examined": 8
+          },
+          "indexed": {
+            "result": "undecided",
+            "receipts_examined": 0
+          }
+        }
+      },
+      {
+        "case": "future_key_at_pinned_head",
+        "identity": [
+          "project:A",
+          "request-032"
+        ],
+        "candidate": "fced88d95f474a41868ddee06bd6ea212872f697",
+        "expected": "undecided",
+        "heads": {
+          "scan": "5863478b57e2af4b190942e38dab1e0000552f18",
+          "indexed": "ee8c4ac5c414657683fa3b593614ae13f05f6dbb"
+        },
+        "observations": {
+          "scan": {
+            "result": "undecided",
+            "receipts_examined": 32
+          },
+          "window": {
+            "result": "history-window-exhausted",
+            "receipts_examined": 8
+          },
+          "indexed": {
+            "result": "undecided",
+            "receipts_examined": 0
+          }
+        }
+      },
+      {
+        "case": "old_key_at_pinned_head",
+        "identity": [
+          "project:A",
+          "request-000"
+        ],
+        "candidate": "37c77a64f6323e0aa733f3845286919a038556a0",
+        "expected": "published",
+        "heads": {
+          "scan": "5863478b57e2af4b190942e38dab1e0000552f18",
+          "indexed": "ee8c4ac5c414657683fa3b593614ae13f05f6dbb"
+        },
+        "observations": {
+          "scan": {
+            "result": "published",
+            "receipts_examined": 32
+          },
+          "window": {
+            "result": "history-window-exhausted",
+            "receipts_examined": 8
+          },
+          "indexed": {
+            "result": "published",
+            "receipts_examined": 1
+          }
+        }
+      }
+    ],
+    "reachable_objects": {
+      "scan": {
+        "commit": {
+          "objects": 132,
+          "uncompressed_bytes": 35261
+        },
+        "tree": {
+          "objects": 198,
+          "uncompressed_bytes": 10516
+        },
+        "blob": {
+          "objects": 132,
+          "uncompressed_bytes": 37473
+        }
+      },
+      "indexed": {
+        "commit": {
+          "objects": 132,
+          "uncompressed_bytes": 35269
+        },
+        "tree": {
+          "objects": 329,
+          "uncompressed_bytes": 80998
+        },
+        "blob": {
+          "objects": 132,
+          "uncompressed_bytes": 37473
+        }
+      }
+    }
+  }
+}
