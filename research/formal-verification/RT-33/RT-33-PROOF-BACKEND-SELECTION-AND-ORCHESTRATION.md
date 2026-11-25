@@ -122,3 +122,7 @@ Related: [Public interfaces and verified contract refinement](../../semantic-rep
 ## Explicit assumptions and conditional verification (RT-36; proposed)
 
 Preserve exact assumption sets, backend axioms and source correspondence in evidence envelopes and aggregation. Separate local check result from closure and policy admission; never close via backend agreement, runtime tests or trust approval. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.
+
+## Multi-backend integration and verification artifact cache (2026-11-25; proposed)
+
+The [integration and cache execution brief](VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) compares available interfaces, proposes isolated versioned adapters, exact proof artifact/check/closure/admission identities, and defines VAC-01–15 experiments. It generalizes the existing RT-32 persistent receipt prototype without adopting a universal backend or new normative status. See [PLAN §3.5](../../../PLAN.md#35-verification-artifact-cache-and-incremental-proof-reuse-rt-11323336).
