@@ -1,0 +1,179 @@
+{
+  "cases": {
+    "current-ref/publish-git": {
+      "after_release": null,
+      "observation": {
+        "generations": {
+          "program/left.json": "old",
+          "program/right.json": "new"
+        },
+        "root": "878073c5c773b79c659eba58852fe4baeca0a4fadb43c9bdc258ff09aabe5002",
+        "status": "mixed"
+      },
+      "pins": {
+        "new": {
+          "commit": "95da078a890c3fd32f153c9fcbc4bdb72aa77762",
+          "root": "95752a45efdaba1b453bde4b844c2f761a66786d8863d16040d7592090a410ca"
+        },
+        "old": {
+          "commit": "c98fb59c80305f1458c91cd3027d1bad2aa7c54a",
+          "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228"
+        }
+      },
+      "transition": "ref-published"
+    },
+    "directory-fd/mutate-old": {
+      "after_release": null,
+      "observation": {
+        "generations": {
+          "program/left.json": "old",
+          "program/right.json": "new"
+        },
+        "root": "878073c5c773b79c659eba58852fe4baeca0a4fadb43c9bdc258ff09aabe5002",
+        "status": "mixed"
+      },
+      "pins": {
+        "new": {
+          "commit": "95da078a890c3fd32f153c9fcbc4bdb72aa77762",
+          "root": "95752a45efdaba1b453bde4b844c2f761a66786d8863d16040d7592090a410ca"
+        },
+        "old": {
+          "commit": "c98fb59c80305f1458c91cd3027d1bad2aa7c54a",
+          "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228"
+        }
+      },
+      "transition": "old-file-replaced"
+    },
+    "directory-fd/reclaim-old": {
+      "after_release": null,
+      "observation": {
+        "root": null,
+        "status": "missing"
+      },
+      "pins": {
+        "new": {
+          "commit": "95da078a890c3fd32f153c9fcbc4bdb72aa77762",
+          "root": "95752a45efdaba1b453bde4b844c2f761a66786d8863d16040d7592090a410ca"
+        },
+        "old": {
+          "commit": "c98fb59c80305f1458c91cd3027d1bad2aa7c54a",
+          "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228"
+        }
+      },
+      "transition": "reclaimed"
+    },
+    "directory-fd/switch": {
+      "after_release": null,
+      "observation": {
+        "generations": {
+          "program/left.json": "old",
+          "program/right.json": "old"
+        },
+        "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228",
+        "status": "old"
+      },
+      "pins": {
+        "new": {
+          "commit": "95da078a890c3fd32f153c9fcbc4bdb72aa77762",
+          "root": "95752a45efdaba1b453bde4b844c2f761a66786d8863d16040d7592090a410ca"
+        },
+        "old": {
+          "commit": "c98fb59c80305f1458c91cd3027d1bad2aa7c54a",
+          "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228"
+        }
+      },
+      "transition": "pointer-switched"
+    },
+    "directory-lease/reclaim-old": {
+      "after_release": "reclaimed",
+      "observation": {
+        "generations": {
+          "program/left.json": "old",
+          "program/right.json": "old"
+        },
+        "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228",
+        "status": "old"
+      },
+      "pins": {
+        "new": {
+          "commit": "95da078a890c3fd32f153c9fcbc4bdb72aa77762",
+          "root": "95752a45efdaba1b453bde4b844c2f761a66786d8863d16040d7592090a410ca"
+        },
+        "old": {
+          "commit": "c98fb59c80305f1458c91cd3027d1bad2aa7c54a",
+          "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228"
+        }
+      },
+      "transition": "reader-holds-lease"
+    },
+    "manifest/switch": {
+      "after_release": null,
+      "observation": {
+        "generations": {
+          "program/left.json": "old",
+          "program/right.json": "new"
+        },
+        "root": null,
+        "status": "digest-mismatch"
+      },
+      "pins": {
+        "new": {
+          "commit": "95da078a890c3fd32f153c9fcbc4bdb72aa77762",
+          "root": "95752a45efdaba1b453bde4b844c2f761a66786d8863d16040d7592090a410ca"
+        },
+        "old": {
+          "commit": "c98fb59c80305f1458c91cd3027d1bad2aa7c54a",
+          "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228"
+        }
+      },
+      "transition": "pointer-switched"
+    },
+    "path/switch": {
+      "after_release": null,
+      "observation": {
+        "generations": {
+          "program/left.json": "old",
+          "program/right.json": "new"
+        },
+        "root": "878073c5c773b79c659eba58852fe4baeca0a4fadb43c9bdc258ff09aabe5002",
+        "status": "mixed"
+      },
+      "pins": {
+        "new": {
+          "commit": "95da078a890c3fd32f153c9fcbc4bdb72aa77762",
+          "root": "95752a45efdaba1b453bde4b844c2f761a66786d8863d16040d7592090a410ca"
+        },
+        "old": {
+          "commit": "c98fb59c80305f1458c91cd3027d1bad2aa7c54a",
+          "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228"
+        }
+      },
+      "transition": "pointer-switched"
+    },
+    "pinned-git/publish-git": {
+      "after_release": null,
+      "observation": {
+        "generations": {
+          "program/left.json": "old",
+          "program/right.json": "old"
+        },
+        "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228",
+        "status": "old"
+      },
+      "pins": {
+        "new": {
+          "commit": "95da078a890c3fd32f153c9fcbc4bdb72aa77762",
+          "root": "95752a45efdaba1b453bde4b844c2f761a66786d8863d16040d7592090a410ca"
+        },
+        "old": {
+          "commit": "c98fb59c80305f1458c91cd3027d1bad2aa7c54a",
+          "root": "1a87bb042587ecc80fc102c8567881386955091d49d204ee46a7fc786f73d228"
+        }
+      },
+      "transition": "ref-published"
+    }
+  },
+  "format": "rt23-native-generation-reads/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14"
+}
