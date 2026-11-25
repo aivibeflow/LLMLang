@@ -68,5 +68,6 @@ See [shared executable research prototypes](../PROTOTYPES/README.md) for integra
 - [RT-11 typed pipeline invalidation](RT-11/RT-11-TYPED-PIPELINE-INVALIDATION-2026-11-25.md) — compares precise consumed inputs and reusable outputs across six pipeline actions.
 - [Six-stage native propagation](RT-11/RT-11-SIX-STAGE-PROPAGATION-2026-11-25.md) — exact native artifacts and proof freshness after implementation edits.
 - [ELF metadata reuse](RT-11/RT-11-ELF-METADATA-REUSE-2026-11-25.md) — loads, exact artifacts and runtime self-inspection.
+- [Negative header dependencies](RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md) — exact positive and absent inputs in ordered compiler search.
 - [RT-11 debug column reuse](RT-11/RT-11-DEBUG-COLUMN-REUSE-2026-11-25.md) — tests exact DWARF column evidence when code and line/address observations remain equal.
 - [RT-11 cross-toolchain cache compatibility](RT-11/RT-11-CROSS-TOOLCHAIN-CACHE-COMPATIBILITY-2026-11-25.md) — tests exact artifact identity and finite compatibility evidence under different native compilers.

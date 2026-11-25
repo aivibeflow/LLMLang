@@ -33,6 +33,8 @@ RT-32 replays exact proof generation for conditional, loop, recursive and modula
 
 RT-32 compares deep, shallow and hybrid embeddings of effectful conditions and separates structured correspondence from byte parsing and source extraction. [Conditional embedding correspondence](../formal-verification/RT-32/RT-32-CONDITIONAL-EMBEDDING-CORRESPONDENCE-2026-11-25.md)
 
+RT-06 and RT-11 show how absent inputs affect compiler lookup, dependency completeness and reuse. [Negative header dependencies](../toolchain-and-collaboration/RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md)
+
 RT-11 tests metadata reuse against exact ELF load, artifact and native self-inspection observations. [ELF metadata reuse](../toolchain-and-collaboration/RT-11/RT-11-ELF-METADATA-REUSE-2026-11-25.md)
 
 RT-11 compares stage-specific native cache inputs, implementation identity and Lean evidence under direct and contract-bound provider changes. [Six-stage native propagation](../toolchain-and-collaboration/RT-11/RT-11-SIX-STAGE-PROPAGATION-2026-11-25.md)
