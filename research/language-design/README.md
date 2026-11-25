@@ -39,3 +39,4 @@ This direction groups related research studies without changing their RT identif
 ## Cross-direction evidence
 
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
+- [RT-04 property-scoped operation substitution](RT-04/RT-04-PROPERTY-SCOPED-OPERATION-SUBSTITUTION-2026-11-25.md) — checks coverage, complete observations, progress and resource evidence separately.

@@ -382,7 +382,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define how one operation can have many implementations and how one implementation can satisfy multiple contracts.
 - [ ] Define contract-based analogue discovery separately from call identity and dispatch.
 - [ ] Define the evidence required before substituting an implementation for a specific `OpHash`.
-  - [ ] [WIP] Check property-specific evidence for exact operation substitution, including progress and resource profiles, in a bounded fixture on `research/all`.
+  - [x] Compare seven candidate providers and six receipt controls for exact operation substitution. Observation alone misses four violations of coverage, progress or resource bounds. A scoped context edit invalidates just the affected receipt in the declared model. [RT-04 property-scoped substitution](research/language-design/RT-04/RT-04-PROPERTY-SCOPED-OPERATION-SUBSTITUTION-2026-11-25.md)
 - [ ] Define verified adapters for compatible but non-identical contracts.
   - [x] Verify a bounded unit-conversion adapter under the exact provider assumption. Lean checks all natural inputs in the model and four counterexamples. The executable comparison agrees on all 65 directed inputs and distinguishes wrong scaling, wrapping and trace changes. General adapter admission and native correspondence remain open. [RT-04 checked unit adapter](research/language-design/RT-04/RT-04-VERIFIED-UNIT-ADAPTER-2026-11-25.md)
 - [ ] Define what may be inferred automatically and what requires proof or explicit approval.
