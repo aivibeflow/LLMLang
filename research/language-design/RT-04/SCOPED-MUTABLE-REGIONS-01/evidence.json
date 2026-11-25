@@ -1,0 +1,45 @@
+{
+  "format": "scoped-mutable-regions-01",
+  "kernel_audit": [
+    "'adjacent_or_apart' depends on axioms: [propext, Quot.sound]",
+    "'empty_occupies_nothing' depends on axioms: [propext, Quot.sound]",
+    "'overlap_has_a_witness' does not depend on any axioms"
+  ],
+  "observations": {
+    "0": {
+      "compile_refusals": {
+        "aliased": "E0499",
+        "detached-borrow": "E0597",
+        "non-send": "E0277",
+        "owner-outlived": "E0515"
+      },
+      "dispositions": {
+        "ok": 748,
+        "out-of-bounds": 2745,
+        "overflow": 2,
+        "overlap": 477
+      },
+      "observations": 3972,
+      "output": "b845f16ca13f79f4195ce2d996a1a25926ad8db042b744058f0d3a8a16a45aae",
+      "parallel_writes": 252
+    },
+    "2": {
+      "compile_refusals": {
+        "aliased": "E0499",
+        "detached-borrow": "E0597",
+        "non-send": "E0277",
+        "owner-outlived": "E0515"
+      },
+      "dispositions": {
+        "ok": 748,
+        "out-of-bounds": 2745,
+        "overflow": 2,
+        "overlap": 477
+      },
+      "observations": 3972,
+      "output": "b845f16ca13f79f4195ce2d996a1a25926ad8db042b744058f0d3a8a16a45aae",
+      "parallel_writes": 252
+    }
+  },
+  "rust": "rustc 1.85.1 (4eb161250 2025-03-15)"
+}
