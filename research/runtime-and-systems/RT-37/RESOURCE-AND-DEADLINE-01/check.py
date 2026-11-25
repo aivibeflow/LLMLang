@@ -66,17 +66,25 @@ def read(path):
     return json.loads((ROOT / path).read_text())
 
 
-def elf(path, expected):
-    image = path.read_bytes()
-    assert sha256(image).hexdigest() == expected
-    output = subprocess.check_output(["readelf", "-lW", path], text=True, timeout=10)
+def elf(name, path, expected):
+    header_path = Path(__file__).parent / f"{name}-program-headers.txt"
+    output = header_path.read_text()
+    image_size = None
+    if path is not None:
+        image = path.read_bytes()
+        image_size = len(image)
+        assert sha256(image).hexdigest() == expected
+        actual = subprocess.check_output(["readelf", "-lW", path], text=True, timeout=10)
+        assert [line.rstrip() for line in actual.splitlines()] == output.splitlines()
     loads = []
     for line in output.splitlines():
         fields = line.split()
         if not fields or fields[0] != "LOAD":
             continue
         offset, address, physical, file_size, memory_size = (int(value, 16) for value in fields[1:6])
-        assert offset + file_size <= len(image) and file_size <= memory_size
+        assert file_size <= memory_size
+        if image_size is not None:
+            assert offset + file_size <= image_size
         loads.append({"address": address, "physical": physical, "file_bytes": file_size,
                       "memory_bytes": memory_size})
     assert loads
@@ -100,9 +108,9 @@ def compose(options):
     manifests = read("MCU-TARGET-MANIFESTS-01/manifests.json")["profiles"]
     arm = read("MCU-GPIO-TIMER-UART-01/stm32-evidence.json")
     esp = read("MCU-GPIO-TIMER-UART-01/esp-evidence.json")
-    stm = {name: arm_layout(elf(path, arm[name]["elf_sha256"]), manifests[name]["memory"])
+    stm = {name: arm_layout(elf(name, path, arm[name]["elf_sha256"]), manifests[name]["memory"])
            for name, path in (("f1", options.f1), ("f4", options.f4))}
-    esp_segments = elf(options.esp, esp["elf_sha256"])
+    esp_segments = elf("esp", options.esp, esp["elf_sha256"])
     nested = read("cortex-m3-nested-stack/evidence.json")
     stack = read("cortex-m3-stack/results.json")
     return {
@@ -120,5 +128,5 @@ def compose(options):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     for target in ("f1", "f4", "esp"):
-        parser.add_argument(f"--{target}", required=True, type=Path)
+        parser.add_argument(f"--{target}", type=Path)
     print(json.dumps(compose(parser.parse_args()), indent=2, sort_keys=True))

@@ -29,9 +29,8 @@ Across 19,200 deadline checks, 4,955 meet their bound, 5,845 finish after the de
 
 Using this model on a device requires target-specific bounds for instructions, flash wait states, clocks, interrupt masking, priority and nesting, memory interference and RTOS service. DMA, SMP interference, periodic release jitter and measured physical latency are beyond the fixture. Selected boards and calibrated inputs remain human-gated.
 
-Replay with CPython 3.12.14 and GNU readelf 2.44 using the three exact pilot ELFs. Two hash seeds produced byte-identical [evidence](RESOURCE-AND-DEADLINE-01/evidence.json) on those artifacts. A rebuilt ESP32 image with different build metadata requires a corresponding new artifact receipt.
+Replay with CPython 3.12.14 using the committed program-header captures. Two hash seeds produced byte-identical [evidence](RESOURCE-AND-DEADLINE-01/evidence.json). Optional ELF arguments verify their artifact digests and recapture the headers with GNU readelf 2.44. A rebuilt ESP32 image with different build metadata requires a corresponding new artifact receipt. [F103 headers](RESOURCE-AND-DEADLINE-01/f1-program-headers.txt) · [F407 headers](RESOURCE-AND-DEADLINE-01/f4-program-headers.txt) · [ESP32 headers](RESOURCE-AND-DEADLINE-01/esp-program-headers.txt)
 
 ```sh
-LC_ALL=C PYTHONHASHSEED=37 python -B research/runtime-and-systems/RT-37/RESOURCE-AND-DEADLINE-01/check.py \
-  --f1 /path/to/f1/firmware.elf --f4 /path/to/f4/firmware.elf --esp /path/to/esp32.elf
+LC_ALL=C PYTHONHASHSEED=37 python -B research/runtime-and-systems/RT-37/RESOURCE-AND-DEADLINE-01/check.py
 ```
