@@ -221,6 +221,10 @@ The [Owned-result provider binding](../compiler-and-translation/RT-13/RT-13-BOUN
 
 For histories with multiple best common ancestors, the [native merge-base comparison](../toolchain-and-collaboration/RT-24/RT-24-MULTIPLE-MERGE-BASES-2026-11-25.md) separates exact Git virtual-base synthesis from the stricter agreement of all real bases. The base-resolution policy affects which clean trees can be published.
 
+### 5.5 Semantic function discovery and binding
+
+[Scoped retrieval](../semantic-representation/RT-35/RT-35-SCOPED-RETRIEVAL-2026-11-25.md) compares structured, lexical, single-vector, multi-aspect and reciprocal-rank hybrid suggestions against the same exact finite contract checks. Lexical and multi-aspect tie at 42/48 compatible pairs. An index-only binding gate falsely binds 18/36 contexts for each channel and can miss a compatible alternative even with the current index root. The complete authorized snapshot registry preserves both ambiguity and pending compatibility. Compare candidate ranking separately from binding authority. Keep the channel replaceable pending measured ANN, storage and update costs and an independently collected corpus.
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.

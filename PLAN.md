@@ -1398,6 +1398,8 @@ Research a typed, versioned object describing the task an agent is expected to p
 
 **Research brief:** [RT-35 — Semantic Function Discovery and Retrieval](research/semantic-representation/RT-35/RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md).
 
+**Bounded evidence:** [Scoped retrieval and exact function binding](research/semantic-representation/RT-35/RT-35-SCOPED-RETRIEVAL-2026-11-25.md) compares five ranking channels in 36 contexts. Lexical and multi-aspect recover 42/48 compatible pairs, yet shortlist-only checking falsely binds 18/36 contexts for either channel. Complete authorized selection gives 12 bound, 12 ambiguous and 12 pending decisions. Stale roots, mismatched rows, prior-root receipts and omitted compatible rows distinguish exact binding from derived-index retrieval. Real workload labels, production embedding and ANN comparisons, index lifecycle measurements and independent review remain open.
+
 **Coordination:** RT-03/04 define function meaning and compatibility; RT-05/24 define canonical semantics and immutable identity; RT-06/11 constrain dependency-aware indexing and cache invalidation; RT-07/08 provide soundness and evaluation gates; RT-09/19 define compiler/Toolchain integration; RT-12 defines package/library discovery scope; RT-14/31 inform agent intent and evaluation; RT-16 governs authorization and trust; RT-18 governs versioning; RT-20 constrains exact call binding and caller compatibility.
 
 **Status:** research required. Semantic fingerprints and KNN/ANN are proposed discovery mechanisms, not selected architecture or language semantics. Exact function hashes remain authoritative for calls.

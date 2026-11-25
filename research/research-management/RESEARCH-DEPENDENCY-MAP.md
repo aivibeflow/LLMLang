@@ -649,6 +649,8 @@ RT-35 studies semantic retrieval as a Toolchain capability. Approximate similari
 
 These edges are research hypotheses, not implementation commitments. KNN/ANN is candidate retrieval, never the authority for compatibility or invocation. The exact function hash remains the call-binding identity; fingerprints and indexes are derived, replaceable Toolchain data.
 
+[Scoped retrieval](../semantic-representation/RT-35/RT-35-SCOPED-RETRIEVAL-2026-11-25.md) exercises DEP-213, DEP-216, DEP-219, DEP-222, DEP-225 and DEP-226 on finite functions and three fixture scopes. A current index with an omitted compatible entry falsely binds when it supplies the candidate universe. The complete authorized snapshot registry preserves ambiguity, and previous-root evidence for an unchanged artifact stays unknown. Incremental lifecycle and production access-control checks remain open.
+
 ## Public-interface cross-area dependencies (proposed RT-05/20 vector)
 
 See [public interfaces](../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). These proposed conditional dependencies do not change numbered historical edges.
