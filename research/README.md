@@ -6,7 +6,7 @@ The [current-main inventory reconciliation](research-management/RT-00/RT-00-A-CU
 
 Research documents are exploratory evidence and do not change the candidate or normative language specification unless a decision is explicitly accepted.
 
-[Feasibility summary by research direction](research-management/LLMLANG-FEASIBILITY-SUMMARY.md) — achievable scope, excluded guarantees, and evidence links for RT-01–RT-38.
+[Feasibility summary by research direction](research-management/LLMLANG-FEASIBILITY-SUMMARY.md) ([русская версия](research-management/LLMLANG-FEASIBILITY-SUMMARY.ru.md)) — achievable scope, excluded guarantees, and evidence links for RT-01–RT-38.
 
 ## Research directory layout
 

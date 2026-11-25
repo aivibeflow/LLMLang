@@ -1,6 +1,7 @@
 # ADR-015: Toolchain Server and semantic development API
 
-- **Status:** Proposed; validation required before acceptance
+- **Status:** Accepted
+- **Accepted:** 2026-11-25
 - **Date:** 2026-11-18
 - **Decision owners:** LLMLang project
 - **Related research:** [RT-19 — Toolchain Server and Semantic Development API](../../research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
@@ -8,7 +9,7 @@
 - **Related repository decision:** [ADR-014 — Git repository representation and semantic merge](014-git-semantic-merge.md)
 - **Related agent interchange decision:** [ADR-017 — Default object format for agent interaction through MCP](017-mcp-agent-object-format.md)
 
-> This ADR records a proposed architectural direction for research and prototype evaluation. Its status is not Accepted. It does not authorize implementation to bypass the current semantic, identity, or repository constraints.
+> This ADR adopts the architectural direction for the Toolchain Server. The implementation must satisfy the existing semantic, identity, and repository constraints and the validation criteria below.
 
 ## Context
 
@@ -16,9 +17,9 @@ LLMLang is intended to let agents author programs through structured semantic op
 
 An implementation that exposes only file read/write tools would leave agents responsible for textual placement, formatting, cross-file edits, and source-level bookkeeping. That is inconsistent with the intended semantic authoring model.
 
-At the same time, making an external database the only authoritative copy of program meaning would conflict with ADR-014's proposed Git-portability boundary.
+At the same time, making an external database the only authoritative copy of program meaning would conflict with ADR-014's Git-portability boundary.
 
-## Proposed direction
+## Decision
 
 1. **Introduce a transport-neutral Toolchain API.** Domain operations and error semantics are independent of MCP, JSON-RPC, CLI, IDE, or CI transports.
 2. **Provide MCP as an adapter.** MCP Tools expose bounded semantic actions; Resources expose read-only semantic views and reports; Prompts are optional task templates. MCP session/connection identity is not durable workspace identity.
@@ -26,7 +27,7 @@ At the same time, making an external database the only authoritative copy of pro
 4. **Use explicit Workspace and Change Set handles.** A Workspace is an isolated working view rooted at an immutable base snapshot. A Change Set groups proposed operations and evidence. Neither may mutate an accepted snapshot in place.
 5. **Publish immutable snapshots.** Acceptance creates a new immutable semantic snapshot only after required validation, verification, and policy checks. Semantic acceptance is distinct from filesystem export, Git commit, and push.
 6. **Use optimistic concurrency by default.** Mutations compare expected object/workspace hashes. Stale writes and conflicting changes fail explicitly; last-writer-wins is prohibited for semantic entities.
-7. **Keep Git-visible repository inputs sufficient for reconstruction.** In line with Proposed ADR-014, local SPG databases, workflow stores, indexes, and caches are derived/reconstructible. No external database becomes the sole authoritative source of accepted program meaning.
+7. **Keep Git-visible repository inputs sufficient for reconstruction.** In line with ADR-014, local SPG databases, workflow stores, indexes, and caches are derived/reconstructible. No external database becomes the sole authoritative source of accepted program meaning.
 8. **Separate logical storage responsibilities.** Immutable semantic objects, mutable workspace/change records, evidence/audit records, indexes, and disposable caches have distinct contracts even if they initially share one physical database.
 9. **Start as a modular monolith.** Do not introduce a distributed server or remote shared database until measured requirements justify the operational complexity.
 10. **Synchronize deterministically.** Import constructs a candidate graph and validates it before publication. Export serializes an exact snapshot canonically, detects external edits, and publishes a consistent file generation. Neither direction silently overwrites concurrent changes.
@@ -87,9 +88,9 @@ Deferred. A modular monolith can establish semantics, transaction boundaries, an
 - MCP compatibility and authorization behavior must be tested independently.
 - The design may be more complex than file editing for very small or syntax-oriented tasks.
 
-## Validation required before acceptance
+## Implementation validation
 
-The proposal must pass the RT-19 exit criteria, including:
+Validate the implementation against the RT-19 exit criteria:
 - typed mutations against exact baselines;
 - immutable accepted snapshots;
 - deterministic import/export round trips;
@@ -100,4 +101,4 @@ The proposal must pass the RT-19 exit criteria, including:
 - authorization and audit tests;
 - comparison against direct source-file editing for correctness, review effort, latency, and context cost.
 
-Until that evidence exists, this ADR remains Proposed and must not be cited as an accepted architecture.
+Record evidence against these criteria before declaring the implementation complete.
