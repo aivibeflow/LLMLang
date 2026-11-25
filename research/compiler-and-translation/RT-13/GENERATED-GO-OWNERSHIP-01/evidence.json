@@ -1,0 +1,99 @@
+{
+  "cases": {
+    "forwarding/after_cleanup": {
+      "binary_sha256": {
+        "default": "702351587702206cdb58c4e0f7296153542f630f8719b6aaac584480db1ecbf7",
+        "no_optimization": "f813bad68753186b11c1f0fb8edfa593112edff86a5e3845308b773a7019ee96"
+      },
+      "go_sha256": "09fb2be0efe266bd10dc9920e102fbfd34ac74409be6156d2b5d49c55a1c4602",
+      "observations_per_profile": 10496,
+      "proposals_started": 2576,
+      "reference_trace_sha256": "28b2f6416a20a7025e8057bb3197a3c725dff17d639e8083301cb551e1625b1a",
+      "source_sha256": "9a65495d3ffe6f4461ce60d5bd95660ed07d52250624d41d7035655682f4bde3"
+    },
+    "forwarding/before_cleanup": {
+      "binary_sha256": {
+        "default": "89807a2e155fc7bfec788c1164b763d0f98be877c1506b7ca67bc5b7ae19939c",
+        "no_optimization": "61275426558d090c022a66a58778eb2b0a5d1fe65b5ec603763369f4424d39a8"
+      },
+      "go_sha256": "02719032c4a4223480f3333ed646f79341b8e0a2e1028c290abc56c9e0edf064",
+      "observations_per_profile": 10496,
+      "proposals_started": 1856,
+      "reference_trace_sha256": "0d86fd863b06271ef999556a72026c7c9999aa600c6b4a729329179f56b3193d",
+      "source_sha256": "9a65495d3ffe6f4461ce60d5bd95660ed07d52250624d41d7035655682f4bde3"
+    },
+    "recovery/after_cleanup": {
+      "binary_sha256": {
+        "default": "a571afa44c3a2ba8d683bedf4f5e9b017171bf881a32ebad06ae542fa18a1800",
+        "no_optimization": "e1738e1a0af4ffe981072cdc5bbecdef0ef2156088e5227b0eee041a84ea0b2f"
+      },
+      "go_sha256": "486d743317ecedd40c30a3acd96b2bd4ef25a1c23cce359f495740799b7451ed",
+      "observations_per_profile": 10496,
+      "proposals_started": 2996,
+      "reference_trace_sha256": "48b4b6fa265a510b516f76b090a843984f8903ac38acdc36d9744efdda728383",
+      "source_sha256": "f893672d656bd3567f1ee2da6a1d5e4d36ec16b159d38508066d518e9b091702"
+    },
+    "recovery/before_cleanup": {
+      "binary_sha256": {
+        "default": "d1e6cdd5c1e996f77699197a792f773583b764611d96c3196bb01755622d0d0a",
+        "no_optimization": "65139e2eb2032954c2ee1af31c8723d0c34aba921283b02ee6a5543dc998670d"
+      },
+      "go_sha256": "efd4b4dbb866f85d6ecab42206440ba567f2eaeede3e8d875a426e718745301c",
+      "observations_per_profile": 10496,
+      "proposals_started": 2816,
+      "reference_trace_sha256": "06ee228a1b81ac917cbadc9c624039a92318dffc6c742b1fc36c829ea44d5183",
+      "source_sha256": "f893672d656bd3567f1ee2da6a1d5e4d36ec16b159d38508066d518e9b091702"
+    },
+    "retargeted_recovery/after_cleanup": {
+      "binary_sha256": {
+        "default": "e0ed8ee7a59e9af648d9f4d7b0fdaa6369d0ac4723622ea9624a69488d641d0c",
+        "no_optimization": "71636addb3ae0f925b38ba1c61e7ee0e47b1c2b2f4f3ae239ec6ec3d70243193"
+      },
+      "go_sha256": "396bf3cb156f64183f223c668574dbadc99f2e53c7ca3d82558694f5486e3a1d",
+      "observations_per_profile": 10496,
+      "proposals_started": 2590,
+      "reference_trace_sha256": "87fa1eeeb39ba2ae9cd236fcae3ad46f8658cd0dfb8cdecbfc0c6d098ea78dd2",
+      "source_sha256": "65b2a0510f13092bc3a62e6d1807dd9f3b0921378bd4e232a5ccfd57dde3ab12"
+    },
+    "retargeted_recovery/before_cleanup": {
+      "binary_sha256": {
+        "default": "d494d76f56c4d22d3cb989dbd6f0f76027b60ca0fb6e1c58752202b6bd3a1c9d",
+        "no_optimization": "a31708229ff818e7149a9efad1849d76986ea11176de52f5e408d836e50d41f0"
+      },
+      "go_sha256": "a9e79cfd0ccf2ca8191d8c9e361f41c97727d9940067276682497bd46109b3cc",
+      "observations_per_profile": 10496,
+      "proposals_started": 2368,
+      "reference_trace_sha256": "e8643e3e9fdb53db94e9e66d01fb731d2a382758305ab54108ecfec522bd59c3",
+      "source_sha256": "65b2a0510f13092bc3a62e6d1807dd9f3b0921378bd4e232a5ccfd57dde3ab12"
+    }
+  },
+  "format": "rt13-go-owned-outcomes/1",
+  "go": "go version go1.27.4 linux/amd64",
+  "input_rows_sha256": "9bacfa3beb63b0a343c0ba5821b290a359ad178e52d5297aff6e26a64996ab2f",
+  "profiles": [
+    "default",
+    "no_optimization"
+  ],
+  "python": "3.12.14",
+  "source_rejections": [
+    "release_reconciliation_only",
+    "modified_callee"
+  ],
+  "wrong_output_controls": {
+    "drop_caller_recovery": {
+      "expected": "ErrWithCleanupErrors|handle,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,ok;release,handle,retained_error;match,error_with_handle,release_first;release,caller_handle,ok;check,second,refused|1|handle,retained_error|refused||",
+      "input": "a,b,a,a,0,ok,retained_error,ok",
+      "observed": "ErrWithCleanupErrors|handle,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,ok;release,handle,retained_error;match,error_with_handle,preserve;check,second,refused|1|handle,retained_error|refused|handle,a,b|handle,retained"
+    },
+    "force_staged_transfer": {
+      "expected": "OkWithValue|handle,owned|check,handle,ok;acquire,handle,ok;acquire,local,ok;transfer,handle,ok;release,local,ok;match,success,preserve;check,second,refused|0||refused|handle,a,b|handle,owned",
+      "input": "a,b,a,a,1,ok,ok,ok",
+      "observed": "OkWithValue|handle,owned|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,ok;transfer,handle,ok;match,success,preserve;check,second,refused|0||refused|handle,a,b|handle,owned"
+    },
+    "forget_alias_roles": {
+      "expected": "ErrWithCleanupErrors|handle,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,ok;release,handle,retained_error;match,error_with_handle,release_first;release,caller_handle,retained_error;check,second,refused|1|handle,retained_error;caller_handle,retained_error|refused|handle,a,b|handle,retained",
+      "input": "a,b,a,b,0,ok,retained_error,retained_error",
+      "observed": "ErrWithCleanupErrors|handle,retained|check,handle,ok;acquire,handle,ok;acquire,local,ok;release,local,ok;release,handle,retained_error;match,error_with_handle,release_first;release,caller_handle,retained_error;check,second,ok;acquire,second,ok|1|handle,retained_error;caller_handle,retained_error|started|handle,a,b;second,a,b|handle,retained"
+    }
+  }
+}

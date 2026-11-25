@@ -1,0 +1,192 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
+
+// @CHECKED_CALLER@
+
+type roles struct {
+	source      string
+	destination string
+}
+
+type lease struct {
+	id        string
+	exclusive bool
+}
+
+func (r roles) leases() [2]lease {
+	return [2]lease{{r.source, false}, {r.destination, true}}
+}
+
+func (r roles) admitted(held *roles) bool {
+	if r.source == r.destination {
+		return false
+	}
+	if held == nil {
+		return true
+	}
+	for _, next := range r.leases() {
+		for _, current := range held.leases() {
+			if next.id == current.id && (next.exclusive || current.exclusive) {
+				return false
+			}
+		}
+	}
+	return true
+}
+
+type observation struct {
+	tag, returned, domain, second, forwarded string
+	events, errors, reservations             []string
+}
+
+func (o *observation) emit(action, slot, outcome string) {
+	o.events = append(o.events, strings.Join([]string{action, slot, outcome}, ","))
+}
+
+func (o *observation) release(slot, result string) string {
+	o.emit("release", slot, result)
+	if result != "ok" {
+		o.errors = append(o.errors, slot+","+result)
+	}
+	switch result {
+	case "retained_error":
+		return "retained"
+	case "indeterminate":
+		return "reconcile"
+	case "ok", "consumed_error":
+		return ""
+	default:
+		panic("unsupported disposition")
+	}
+}
+
+func (o *observation) retain(slot string, pair roles) {
+	o.reservations = append(o.reservations, strings.Join([]string{slot, pair.source, pair.destination}, ","))
+}
+
+func (o observation) encode() string {
+	return strings.Join([]string{
+		o.tag, o.returned, strings.Join(o.events, ";"), o.domain,
+		strings.Join(o.errors, ";"), o.second, strings.Join(o.reservations, ";"), o.forwarded,
+	}, "|")
+}
+
+func obligations(owned, scratch string) string {
+	active := make([]string, 0, 2)
+	if owned != "" {
+		active = append(active, "handle,"+owned)
+	}
+	if scratch != "" {
+		active = append(active, "local,"+scratch)
+	}
+	return strings.Join(active, ";")
+}
+
+func groupFor(tag, owned string) string {
+	if tag == "OkWithValue" {
+		return "success"
+	}
+	switch owned {
+	case "":
+		return "error_without_handle"
+	case "reconcile":
+		return "error_reconcile"
+	default:
+		return "error_with_handle"
+	}
+}
+
+func evaluate(row string) observation {
+	fields := strings.Split(row, ",")
+	if len(fields) != 8 {
+		panic("expected eight fields")
+	}
+	first := roles{fields[firstSource], fields[firstDestination]}
+	second := roles{fields[secondSource], fields[secondDestination]}
+	result := observation{domain: "0", second: "not_reached"}
+	if !first.admitted(nil) {
+		result.emit("check", "handle", "refused")
+		return result
+	}
+	result.emit("check", "handle", "ok")
+	result.emit("acquire", "handle", "ok")
+	result.emit("acquire", "local", "ok")
+
+	wantsValue := fields[4] == "1"
+	early := wantsValue && earlyTransfer
+	if early {
+		result.emit("transfer", "handle", "ok")
+	}
+	scratch := result.release("local", fields[5])
+	owned := ""
+	switch {
+	case early:
+		owned = "owned"
+	case wantsValue && fields[5] == "ok":
+		result.emit("transfer", "handle", "ok")
+		owned = "owned"
+	default:
+		owned = result.release("handle", fields[6])
+	}
+	switch {
+	case !wantsValue && len(result.errors) > 0:
+		result.tag, result.domain = "ErrWithCleanupErrors", "1"
+	case !wantsValue:
+		result.tag, result.domain = "Err", "1"
+	case len(result.errors) == 0:
+		result.tag = "OkWithValue"
+	case early:
+		result.tag = "CleanupFailedWithValue"
+	default:
+		result.tag = "StagedCleanupFailedWithoutValue"
+	}
+	result.returned = obligations(owned, scratch)
+
+	caseName := groupFor(result.tag, owned)
+	actionName := checkedAction(caseName)
+	result.emit("match", caseName, actionName)
+	if actionName == "release_first" {
+		if owned != "owned" && owned != "retained" {
+			panic("caller action attempted release without a usable handle")
+		}
+		owned = result.release("caller_handle", fields[7])
+	}
+	result.forwarded = obligations(owned, scratch)
+	var held *roles
+	if owned != "" {
+		result.retain("handle", first)
+		held = &first
+	}
+	if second.admitted(held) {
+		result.emit("check", "second", "ok")
+		result.emit("acquire", "second", "ok")
+		result.retain("second", second)
+		result.second = "started"
+	} else {
+		result.emit("check", "second", "refused")
+		result.second = "refused"
+	}
+	return result
+}
+
+func main() {
+	input := bufio.NewScanner(os.Stdin)
+	output := bufio.NewWriter(os.Stdout)
+	for input.Scan() {
+		if _, err := fmt.Fprintln(output, evaluate(input.Text()).encode()); err != nil {
+			panic(err)
+		}
+	}
+	if err := input.Err(); err != nil {
+		panic(err)
+	}
+	if err := output.Flush(); err != nil {
+		panic(err)
+	}
+}
