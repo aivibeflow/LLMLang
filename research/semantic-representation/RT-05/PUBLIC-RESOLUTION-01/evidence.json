@@ -1,0 +1,19 @@
+{
+  "publication_cases": 768,
+  "publication_counts": {
+    "closed-caller": 6,
+    "conditional-caller": 378,
+    "published": 12,
+    "unavailable-caller": 384,
+    "withheld": 756
+  },
+  "resolution_cases": 96,
+  "resolution_counts": {
+    "ambiguous": 1,
+    "bound": 6,
+    "choice-refused": 4,
+    "no-match": 1,
+    "pending": 84
+  },
+  "runner_sha256": "07f8d29f58f3c37543b31847f7d816fae61e0f21efa423839910e79a61ae31fe"
+}
