@@ -1,0 +1,24 @@
+{
+  "counter_delta": {
+    "burst_usec": 0,
+    "nice_usec": 0,
+    "nr_bursts": 0,
+    "nr_periods": 375,
+    "nr_throttled": 0,
+    "system_usec": 1333097,
+    "throttled_usec": 0,
+    "usage_usec": 37442441,
+    "user_usec": 36109343
+  },
+  "cpu": 4,
+  "cpu_max": "400000 100000",
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "kernel": "6.18.57",
+  "python": "3.12.14",
+  "seed": 20261125,
+  "source_sha256": {
+    "measure.py": "2cdf610811ff8356bfcd5d1e44ba4fb8cddcb917bd2a27d90f8ebefb7ec11230",
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "trials": 10
+}

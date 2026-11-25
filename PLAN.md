@@ -1474,8 +1474,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ## 7.1 Performance and scalability
 
-- [ ] Benchmark semantic graph size and traversal.
-  - [ ] [WIP] Measure the existing content graph's repeated reverse traversal with and without an immutable retained index across three synthetic topologies.
+- [x] Benchmark semantic graph size and traversal.
+  - [x] Compare repeated reverse-index construction with a retained immutable index across 60 trials and three graph shapes. All 360 query results match the oracle. At 8,192 nodes the retained route takes 5.25–24.26 ms per six-query batch including setup, with 1.82–5.82 MiB of extra index allocations. Persistent and representative workloads remain open. [RT-05 reverse traversal benchmark](research/semantic-representation/RT-05/RT-05-REVERSE-TRAVERSAL-BENCHMARK-2026-11-25.md)
 - [ ] Benchmark canonicalization and hashing.
 - [ ] Benchmark dependency discovery and impact planning.
 - [ ] Benchmark compilation and cache performance.

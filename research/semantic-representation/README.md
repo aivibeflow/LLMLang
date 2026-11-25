@@ -42,6 +42,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-05 reverse traversal benchmark](RT-05/RT-05-REVERSE-TRAVERSAL-BENCHMARK-2026-11-25.md) compares immutable reverse-index retention, graph sizes and repeated checked queries.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
 - [RT-05 per-input layered refinement](RT-05/RT-05-PER-INPUT-LAYERED-REFINEMENT-2026-11-25.md) — checks the required input domain, pointwise refinement and coverage across all three layers.
 - [RT-05 shared instruction provenance](RT-05/RT-05-SHARED-INSTRUCTION-PROVENANCE-2026-11-25.md) — separates exact many-to-one source mapping from behavioral preservation.
