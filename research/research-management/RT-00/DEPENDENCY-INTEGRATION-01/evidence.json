@@ -1,0 +1,3375 @@
+{
+  "baseline": "92a121b69d5d3389ee413850f33dc62d6d63bcbb",
+  "edges_with_linked_paths": 94,
+  "local_link_occurrences": 223,
+  "map_blob": "ca8117fa111cba7cde6c3ca80d0922752754d187",
+  "missing_link_paths": {},
+  "missing_terminal_separator": [
+    "DEP-087"
+  ],
+  "rows": {
+    "DEP-001": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-01",
+      "target": "RT-02",
+      "terminal_separator": true
+    },
+    "DEP-002": {
+      "confidence": "Strong hypothesis with bounded execution evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "812b358385cbadbc50cf5ba26e9b61775defd90c",
+          "path": "research/language-design/RT-01/RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-01",
+      "target": "RT-03",
+      "terminal_separator": true
+    },
+    "DEP-003": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-02",
+      "target": "RT-03",
+      "terminal_separator": true
+    },
+    "DEP-004": {
+      "confidence": "Strong hypothesis with scoped native evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "64b8ddfdda1059d6137f1478857dc34ec9776112",
+          "path": "research/language-design/RT-04/RT-04-QUEUED-FOREIGN-OWNERSHIP-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-03",
+      "target": "RT-04",
+      "terminal_separator": true
+    },
+    "DEP-005": {
+      "confidence": "Strong hypothesis with scoped experimental evidence",
+      "links": [
+        {
+          "anchor": "7-results-and-falsifiers",
+          "blob": "d5d2d93df11304cba38d2e7cc57e4fc670ebfaa3",
+          "path": "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md"
+        },
+        {
+          "anchor": "",
+          "blob": "843ff3996bd3fa08ec99a1e60614217fa711393f",
+          "path": "research/research-management/RT-00/RT-00-DEP-005-EVIDENCE-RECHECK-2026-11-23.md"
+        },
+        {
+          "anchor": "",
+          "blob": "222751067da0440c3d86bd3c9e37d8ad729a7f5b",
+          "path": "research/semantic-representation/RT-05/RT-05-MACRO-BINDING-IDENTITY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "3d6c6d08afa8a3039a41c9823bc519caab1e4399",
+          "path": "research/semantic-representation/RT-05/RT-05-MUTABLE-REFERENCE-TOPOLOGY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "4c02bee58f2d746f1da1912fbd10522c799667a6",
+          "path": "research/semantic-representation/RT-05/RT-05-NATIVE-F64-MINMAX-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "0d072dcc1a217168ede2a3d7964fd88ffa4cb594",
+          "path": "research/semantic-representation/RT-05/RT-05-F64-I64-CONVERSION-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-03",
+      "target": "RT-05",
+      "terminal_separator": true
+    },
+    "DEP-006": {
+      "confidence": "Open hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "4da1df2c672cc944fece93847e1bf6ede986e15e",
+          "path": "research/research-management/RT-00/RT-00-DEP-006-TYPE-IDENTITY-EVIDENCE-RECHECK-2026-11-23.md"
+        },
+        {
+          "anchor": "",
+          "blob": "cc0daf19e69156eb71e955615746b5cd249a85bc",
+          "path": "research/semantic-representation/RT-05/RT-05-STATEFUL-BOUND-METHOD-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "182acf79c6cfe5b019599c010f2cee3ae30ff7e8",
+          "path": "research/semantic-representation/RT-05/RT-05-DAFNY-SPG-COPY-FRAME-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "e4f732d00fb9f859de95de66c244949a62c229b7",
+          "path": "research/language-design/RT-04/RT-04-PRIMITIVE-ALGEBRAIC-ENCODINGS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "aee248edc70808083c7b87e3c8607b72da9ee851",
+          "path": "research/language-design/RT-04/RT-04-POLYMORPHIC-LIFETIMES-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "13d995a75a28c661ebe778bebb69fa4d861b2802",
+          "path": "research/language-design/RT-04/RT-04-DEPENDENT-BOUNDARY-VALUES-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "c92a8743084c27dc937bb54665e9b20924e790de",
+          "path": "research/language-design/RT-04/RT-04-DURABLE-TYPED-STATE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "5bc0016e56f4c9c220ad4603d13ce14584757ba6",
+          "path": "research/language-design/RT-04/RT-04-SCOPED-MUTABLE-REGIONS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a5eb836029294374689d7abc269c727f6a71e60b",
+          "path": "research/language-design/RT-04/RT-04-ASYNC-RESOURCE-CANCELLATION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "c8389f0005bf0c7ad60ee3067b398bd065978edd",
+          "path": "research/language-design/RT-04/RT-04-TYPED-CAPABILITY-ERRORS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "99e2d0c65d359748977eb984af64c70d1ca250be",
+          "path": "research/language-design/RT-04/RT-04-GENERIC-CONTEXT-INFERENCE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "157f22587d1a9b4e1e207897751fee392f891e48",
+          "path": "research/language-design/RT-04/RT-04-TYPE-CONTRACT-RELATION-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-04",
+      "target": "RT-05",
+      "terminal_separator": true
+    },
+    "DEP-007": {
+      "confidence": "Strong hypothesis with checked witnesses",
+      "links": [
+        {
+          "anchor": "checked-results",
+          "blob": "33c3e1bd6efaeba178d5c63324bdd40bcf1ad1d7",
+          "path": "research/formal-verification/RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md"
+        },
+        {
+          "anchor": "",
+          "blob": "13f4359b8ad1e9c8ef702f3b88750cf7c99fe76f",
+          "path": "research/research-management/RT-00/RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md"
+        },
+        {
+          "anchor": "",
+          "blob": "6a12a289f620f0945dc4f6398acf661e0af741f6",
+          "path": "research/formal-verification/RT-07/RT-07-DAFNY-KERNEL-FOREIGN-BOUNDARY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "f9409cdefc8d2dddf0bd4e1a88b539fcc75c00ff",
+          "path": "research/formal-verification/RT-07/RT-07-DAFNY-MODULAR-PROOF-CLOSURE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "ae5572602f467993bbec6f1422ce21606393bb11",
+          "path": "research/research-management/RT-00/RT-00-OBSERVATION-EVIDENCE-DEPENDENCY-RECHECK-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "34332511cc90b2abb6a42defc775c7a66b0cf422",
+          "path": "research/formal-verification/RT-07/RT-07-FINITE-CONTROL-SEMANTIC-ACCOUNTS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "55bb5ca9d5b63867d0e701ecb84e5073b22e55f8",
+          "path": "research/formal-verification/RT-07/RT-07-DECLARED-OBSERVATION-PROFILE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "bd8fb886f29b31b0649b0c0b20770dbf9d19e383",
+          "path": "research/formal-verification/RT-07/RT-07-JOINT-OBSERVATION-REFINEMENT-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-07",
+      "terminal_separator": true
+    },
+    "DEP-008": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "4f4284675053c0d30a4ea53776106db8e58c1c33",
+          "path": "research/research-management/RT-00/RT-00-DEP-008-TYPED-PROOF-BOUNDARY-RECHECK-2026-11-23.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-04",
+      "target": "RT-07",
+      "terminal_separator": true
+    },
+    "DEP-009": {
+      "confidence": "Scoped experimental evidence for the edge check",
+      "links": [
+        {
+          "anchor": "results",
+          "blob": "73ec88647369116e0076b5a53aef800168ee304a",
+          "path": "research/semantic-representation/RT-05/RT-05-TYPED-SPG-IMPORT-VALIDATION.md"
+        },
+        {
+          "anchor": "",
+          "blob": "012f4da73bdb2d18fc3bad0b0fa336e7aebeb153",
+          "path": "research/research-management/RT-00/RT-00-DEP-009-SPG-ADMISSION-RECHECK-2026-11-23.md"
+        },
+        {
+          "anchor": "",
+          "blob": "86880e8fc464e0499985472036e37bcaa4ba5030",
+          "path": "research/semantic-representation/RT-06/RT-06-DEPENDENCY-ROLE-CLOSURE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "e8e3a2d0928e65ac42e5b7144de426214aad0f8a",
+          "path": "research/semantic-representation/RT-06/RT-06-SPG-INDEX-RECONCILIATION-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-06",
+      "terminal_separator": true
+    },
+    "DEP-010": {
+      "confidence": "Established within Scenarios 25\u201334 scope with additional bounded experimental evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "5f9f9b4beaedb53e0057fa44b284d1a891c39e76",
+          "path": "research/semantic-representation/RT-06/RT-06-CONDITIONAL-DEPENDENCY-CLOSURE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "3e912c7873cb0a90ad434db213b09d77dc18542d",
+          "path": "research/research-management/RT-00/RT-00-DEPENDENCY-REGISTER-AND-PATH-BOUNDARY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "0e7b2a0d5348484e7cc71d23be8ce377b074657e",
+          "path": "research/semantic-representation/RT-06/RT-06-SPG-GUARDED-DEPENDENCY-DISCOVERY-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-06",
+      "terminal_separator": true
+    },
+    "DEP-011": {
+      "confidence": "Established within Scenarios 18\u201325 scope",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "23e2e33d670dd09760dabc902370044493e8f2d1",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a92365f70aa99654d54278e0f8c34f8b84fd7756",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-EDIT-LOCALITY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "6f4b27cd8d9be020a9dac5ed4f5b73b94f288c5b",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-THREE-EDIT-INTERFERENCE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "ff4b2d8e842ecc48d712b598dece0f971a3f09a7",
+          "path": "research/semantic-representation/RT-06/RT-06-SCC-DEPENDENCY-SCHEDULING-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-06",
+      "target": "RT-11",
+      "terminal_separator": true
+    },
+    "DEP-012": {
+      "confidence": "Strong hypothesis with a scoped counterexample to caller-only reuse",
+      "links": [
+        {
+          "anchor": "7-results-and-falsifiers",
+          "blob": "d5d2d93df11304cba38d2e7cc57e4fc670ebfaa3",
+          "path": "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md"
+        },
+        {
+          "anchor": "",
+          "blob": "095d7c5116500702c5534287ce0f377b64d8684c",
+          "path": "research/research-management/RT-00/RT-00-DEP-012-CACHE-IDENTITY-RECHECK-2026-11-23.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a507b2635d7ab8bb205b088a96a682db104d0809",
+          "path": "research/compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "266dcc9a6a07910bc03dcc9fadf86c6a56f57b78",
+          "path": "research/semantic-representation/RT-05/RT-05-GUARDED-DISPATCH-IDENTITY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "15bcfb505e82495d6f06933203bffb5fbf3b3e8d",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-SIX-STAGE-PROPAGATION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "f6ef826807ca3f0946e1284613d182ad9500a002",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-ELF-METADATA-REUSE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "ab244d5ba5e1d63e60c4bdfbdd40b8e0ed4281e4",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-TYPED-ACTION-RECEIPTS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "1b65bbf17beab01bf37e8e613fc9575f0c295611",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-RUNTIME-CLOSURE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "4d4fabddc88f5bb465653c295299936d78983d14",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-CROSS-LANGUAGE-RECEIPTS-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-11",
+      "terminal_separator": true
+    },
+    "DEP-013": {
+      "confidence": "Strong hypothesis with scoped reference and mutation evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "ae5572602f467993bbec6f1422ce21606393bb11",
+          "path": "research/research-management/RT-00/RT-00-OBSERVATION-EVIDENCE-DEPENDENCY-RECHECK-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "3ad247c2d062c613deda059a360a0867caa3ca25",
+          "path": "research/compiler-and-translation/RT-13/RT-13-EXHAUSTIVE-EVIDENCE-BOUNDARY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a392c276ca31f7c3cf900744ed99a1870c8ed371",
+          "path": "research/compiler-and-translation/RT-13/RT-13-DIFFERENTIAL-SHRINKING-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-03",
+      "target": "RT-08",
+      "terminal_separator": true
+    },
+    "DEP-014": {
+      "confidence": "Strong hypothesis with a scoped checked rule and exact-target controls",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "ae5572602f467993bbec6f1422ce21606393bb11",
+          "path": "research/research-management/RT-00/RT-00-OBSERVATION-EVIDENCE-DEPENDENCY-RECHECK-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "994be04682b4b5ff245eefbd14613ddbcd8cba43",
+          "path": "research/formal-verification/RT-07/RT-07-IDENTICAL-BRANCH-GUARD-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "4e93da9460db3d9944e52aa536d89fbea55dce9d",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-VALIDATOR-CHOICE-SCOPE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "bb248236d621fe62cfb82b4a87d1f29dec478c09",
+          "path": "research/compiler-and-translation/RT-13/RT-13-COMPILER-PASS-COMPOSITION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "7fd122b203ec99dd18251faf67f9f469e219258b",
+          "path": "research/compiler-and-translation/RT-13/RT-13-OPTIMIZATION-REPLAY-2026-11-25.md"
+        }
+      ],
+      "relation": "Enables",
+      "source": "RT-07",
+      "target": "RT-08",
+      "terminal_separator": true
+    },
+    "DEP-015": {
+      "confidence": "Strong hypothesis with a scoped graph correspondence theorem",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "df9d0c2f7bced77b909e80083e2e8d86bde52a32",
+          "path": "research/semantic-representation/RT-05/RT-05-GENERIC-PROVIDER-BINDING-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "60b525e4599f8664cca6cc52491dc7399f5648fe",
+          "path": "research/compiler-and-translation/RT-13/RT-13-GRAPH-OCCURRENCE-PRESERVATION-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-09",
+      "terminal_separator": true
+    },
+    "DEP-016": {
+      "confidence": "Design obligation with scoped experimental evidence",
+      "links": [
+        {
+          "anchor": "results",
+          "blob": "c5a0963c9ad1bbf34a85679c3888aa124236fc1c",
+          "path": "research/compiler-and-translation/RT-09/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md"
+        },
+        {
+          "anchor": "",
+          "blob": "fc32f25de9ba7e3c734d58f9ced23783a0ca1e47",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-OBSERVATIONS-2026-11-24.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a507b2635d7ab8bb205b088a96a682db104d0809",
+          "path": "research/compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "e119dd86b742cf3aad0ea03c3334cc5bf9f45bc4",
+          "path": "research/compiler-and-translation/RT-13/RT-13-BINARY64-CONTRACTION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "4dd53a332b36022b311896e8f9e6b7628beb8cb4",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-FP-FLAGS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "cce51672f05bb9f1f464435186e95294879a555f",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-DYNAMIC-ROUNDING-VERSIONS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "e04986098cfa588e9dc5500da9924a15b0664c98",
+          "path": "research/formal-verification/RT-32/RT-32-F64-EXTREMA-AGREEMENT-GUARD-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "24d83ca8b5c19c6a5c811606ef6ff588492d328c",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-F64-I64-LOWERING-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "d3170b2a1c36e60b5cb2eb3bc78e889f9536febf",
+          "path": "research/compiler-and-translation/RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "fce7f791773752e0392a8d1d450a85a5c9824fd3",
+          "path": "research/compiler-and-translation/RT-09/RT-09-WASM-CHECKED-DIVISION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "d782c5ca40c968dc8eea655643809609ee59bc92",
+          "path": "research/compiler-and-translation/RT-09/RT-09-INCREMENTAL-TRANSLATION-CLOSURE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "5c211760193df51f2a95af447ab409a0d77acf85",
+          "path": "research/compiler-and-translation/RT-13/RT-13-ORDERED-ROLLBACK-CROSS-BACKEND-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "2acff9c4ca38d29920d0d59d301d1060f71b9f4e",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-CORRELATED-FREEZE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "dc50b1f2af0db288bdd83e4693086a95c06fe83c",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-BITCODE-TOOLCHAIN-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-03",
+      "target": "RT-09",
+      "terminal_separator": true
+    },
+    "DEP-017": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-04",
+      "target": "RT-09",
+      "terminal_separator": true
+    },
+    "DEP-018": {
+      "confidence": "Strong hypothesis with scoped adapter evidence",
+      "links": [
+        {
+          "anchor": "method-and-results",
+          "blob": "1472dc63f7bf0950bf4ef2f3e73a289dc07e6b01",
+          "path": "research/runtime-and-systems/RT-10/RT-10-POSIX-NONBLOCKING-PIPE-IO.md"
+        },
+        {
+          "anchor": "",
+          "blob": "6115d0c664dfd4062feb3fef82487e85fcb95f67",
+          "path": "research/formal-verification/RT-07/RT-07-COHERENT-ENVIRONMENT-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "0c295388aab4f9c7019d25a116b22e437796f417",
+          "path": "research/formal-verification/RT-07/RT-07-CALL-EVALUATION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "f9f5372ab05ee12a60b57ea41b41a3957cb85929",
+          "path": "research/runtime-and-systems/RT-10/RT-10-RESUMABLE-EXECUTION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a677ec6042101ccba8a066e0dee37db129bf6ec5",
+          "path": "research/runtime-and-systems/RT-10/RT-10-NATIVE-SIGNAL-PRIMITIVES-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "7c92892cabca4a04c66232f18c511b23cbef029b",
+          "path": "research/runtime-and-systems/RT-10/RT-10-ASYNC-TERMINAL-SETTLEMENT-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "170912d57b7eda18a1ea87ed80462d03f61412bb",
+          "path": "research/runtime-and-systems/RT-38/RT-38-RV64-TIMER-PREEMPTION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "208f064cf3178fb2754cf1a7eabd78cd7ad7d78b",
+          "path": "research/runtime-and-systems/RT-38/RT-38-RV64-PREEMPTIVE-IPC-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a596ca3443b29be6838f9b25c9b1de3540e74e61",
+          "path": "research/runtime-and-systems/RT-38/RT-38-RV64-LIVE-FRAME-IPC-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "4d9d8d28beca709382fe470e1cc1bef0cdec5774",
+          "path": "research/runtime-and-systems/RT-38/RT-38-SCOPED-SMP-DMA-REUSE-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-03",
+      "target": "RT-10",
+      "terminal_separator": true
+    },
+    "DEP-019": {
+      "confidence": "Strong hypothesis with bounded model evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "a3556a3f148193475be477f9f3688d846cfac570",
+          "path": "research/language-design/RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md"
+        },
+        {
+          "anchor": "",
+          "blob": "2b23e9dfa9e511749a41458c3e1f480d2027f35f",
+          "path": "research/language-design/RT-04/RT-04-RMW-RELEASE-SEQUENCES-AND-FENCES-2026-11-24.md"
+        },
+        {
+          "anchor": "",
+          "blob": "ff3411313e7e5dcf0cf6954e540abceb544b41f8",
+          "path": "research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "91c679f35e44008e37f637fb60330565d1471655",
+          "path": "research/runtime-and-systems/RT-10/RT-10-ATOMIC-STORE-BUFFERING-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-04",
+      "target": "RT-10",
+      "terminal_separator": true
+    },
+    "DEP-020": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-10",
+      "target": "RT-12",
+      "terminal_separator": true
+    },
+    "DEP-021": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-12",
+      "terminal_separator": true
+    },
+    "DEP-022": {
+      "confidence": "Strong hypothesis with a scoped composition theorem",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "0d66b3acd8df4377e2d74d11afcfb26a8a0224df",
+          "path": "research/formal-verification/RT-07/RT-07-NONVACUOUS-CONTRACT-COMPOSITION-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-07",
+      "target": "RT-12",
+      "terminal_separator": true
+    },
+    "DEP-023": {
+      "confidence": "Scoped target evidence and design obligation",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "dbb74449f7a82da3703501282af2fb2635551613",
+          "path": "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-116-ATOMIC-BACKEND-LOWERING-OBLIGATIONS.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a3556a3f148193475be477f9f3688d846cfac570",
+          "path": "research/language-design/RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md"
+        },
+        {
+          "anchor": "",
+          "blob": "03fde4b4c3e4736cf9ec2a485a033118f89bcba6",
+          "path": "research/compiler-and-translation/RT-13/RT-13-ATOMIC-BYTE-WORD-LOWERING-2026-11-24.md"
+        },
+        {
+          "anchor": "",
+          "blob": "78c1ca5f9803084c62cfbe1fc34851c656abd093",
+          "path": "research/compiler-and-translation/RT-13/RT-13-CRANELIFT-CHECKED-ADD-2026-11-24.md"
+        },
+        {
+          "anchor": "",
+          "blob": "43530df72bb1399ebbc1c85fe54b3cba326b11d4",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-LEAN-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "03618ccb146362afd5274f0bbdf1bacbe2efe86a",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-SYMBOLIC-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-09",
+      "target": "RT-13",
+      "terminal_separator": true
+    },
+    "DEP-024": {
+      "confidence": "Strong hypothesis with scoped experimental evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "9747a2519bcd74572f17ba6f2d089018ebef71dc",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-DYNAMIC-ROUNDING-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "3ee980445163e6c95d1422efd616b0bbe2549c23",
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-DYNAMIC-ROUNDING-LTO-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "b349334a962efd140c7d7657e8f82f6741aa2b24",
+          "path": "research/runtime-and-systems/RT-10/RT-10-TAGGED-RUNTIME-BINDING-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "0902af4d2b700342c38938ff627cd2814a593be7",
+          "path": "research/runtime-and-systems/RT-10/RT-10-POSIX-WRITEV-TYPED-PROGRESS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "73cc346f74a5c9fffa9946b0ecdb56b040eea0f3",
+          "path": "research/runtime-and-systems/RT-10/RT-10-DIRECTORY-RELATIVE-POSIX-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "6caa2bf95f4cef0917d7b1752905e36e322eedb1",
+          "path": "research/runtime-and-systems/RT-10/RT-10-PPOLL-FFI-BOUNDARY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "7a008c4070a7465d8885c79e62cea2df486c6534",
+          "path": "research/runtime-and-systems/RT-10/RT-10-PIPE-CONFORMANCE-SCOPE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "9a99af63a6faf40f70c0f486151fd1934a9aefde",
+          "path": "research/compiler-and-translation/RT-13/RT-13-WASI-REACTOR-WRITE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "3bf466de02ca5966d9d3c751ba2a55131993b93c",
+          "path": "research/compiler-and-translation/RT-13/RT-13-CRANELIFT-INCREMENTAL-PROVIDER-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "db48ff0bebc370f034306d0178951d8e33eb6bee",
+          "path": "research/runtime-and-systems/RT-38/RT-38-RV64-HAL-QEMU-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "7893de4f2fc72fb702cd2bbe02ea99186f129b56",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-TYPED-HEADER-IMPORT-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "7e770b57c9374bdf01e412445d379d5dffa1951d",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-LOADED-CALLBACK-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "763ce17d3f0ad1203999b7fa5281a92b2cc7e662",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-WINDOWS-COFF-PROFILES-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "b97384d279425720ee14292d8ddfdfd44ed0c696",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-MACHO-PROFILES-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "4afa97bda658eb8cf0dab818106f471b3d0eb3ad",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-LINUX-TRIPLE-REPLAY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "e538b85dae2e27b7ffcb98cfa88e296ec8ff0b23",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-SIX-LANGUAGE-EXPORT-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "b24f00c43c9309b3138a64631cf29fb4e5de38b0",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-CONDITIONAL-RECEIPTS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "bf19923a5ce1610eb73a1033723e295878b5d412",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-FREESTANDING-ARCHIVE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "5af156b9c32750636ad2c21993b4c8c774156922",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-BIDIRECTIONAL-HOSTED-CONFORMANCE-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-10",
+      "target": "RT-13",
+      "terminal_separator": true
+    },
+    "DEP-025": {
+      "confidence": "Established in ADR-014 as an architectural prerequisite",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-15",
+      "terminal_separator": true
+    },
+    "DEP-026": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-06",
+      "target": "RT-15",
+      "terminal_separator": true
+    },
+    "DEP-027": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-028": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-03",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-029": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "75530ecc4b2aec11b1ca93c575cfabbbdc6e7990",
+          "path": "research/semantic-representation/RT-06/RT-06-TYPED-CHANGE-IMPACT-2026-11-25.md"
+        }
+      ],
+      "relation": "Enables",
+      "source": "RT-08",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-030": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "8bce58d2f86ea0cb7c4a395f1c0493ef7bb9fe81",
+          "path": "research/language-design/RT-04/RT-04-CONCURRENT-GRANT-REVOCATION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "815add7857a489140f9cd6623fc651449b7e2b01",
+          "path": "research/runtime-and-systems/RT-10/RT-10-MEDIATED-DESCRIPTORS-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-10",
+      "terminal_separator": true
+    },
+    "DEP-031": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-12",
+      "terminal_separator": true
+    },
+    "DEP-032": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-033": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Enables",
+      "source": "RT-08",
+      "target": "RT-18",
+      "terminal_separator": true
+    },
+    "DEP-034": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-12",
+      "target": "RT-18",
+      "terminal_separator": true
+    },
+    "DEP-035": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-13",
+      "target": "RT-18",
+      "terminal_separator": true
+    },
+    "DEP-036": {
+      "confidence": "Bounded evidence with broader hypothesis open",
+      "links": [
+        {
+          "anchor": "dependency-map-evidence",
+          "blob": "d83784df78a697a17647373cf9f76b37ddd8dbdb",
+          "path": "research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-03",
+      "target": "RT-11",
+      "terminal_separator": true
+    },
+    "DEP-037": {
+      "confidence": "Bounded evidence with broader hypothesis open",
+      "links": [
+        {
+          "anchor": "dependency-map-evidence",
+          "blob": "d83784df78a697a17647373cf9f76b37ddd8dbdb",
+          "path": "research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-03",
+      "target": "RT-15",
+      "terminal_separator": true
+    },
+    "DEP-038": {
+      "confidence": "Bounded evidence with broader hypothesis open",
+      "links": [
+        {
+          "anchor": "dependency-map-evidence",
+          "blob": "d83784df78a697a17647373cf9f76b37ddd8dbdb",
+          "path": "research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-03",
+      "target": "RT-16",
+      "terminal_separator": true
+    },
+    "DEP-039": {
+      "confidence": "Bounded evidence with broader hypothesis open",
+      "links": [
+        {
+          "anchor": "dependency-map-evidence",
+          "blob": "d83784df78a697a17647373cf9f76b37ddd8dbdb",
+          "path": "research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-03",
+      "target": "RT-18",
+      "terminal_separator": true
+    },
+    "DEP-040": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "e287d0d5436c940e67e490f214bb341e28c3110f",
+          "path": "research/packages-and-ecosystem/RT-12/RT-12-GRAPH-REPLICA-RECOVERY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a8f38b70ca5ef43b36f3f984d4d699b522ff1dcc",
+          "path": "research/packages-and-ecosystem/RT-12/RT-12-EXTERNAL-CAS-COLLECTION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "4494fc6f4e41c86ce21f1aa01ebb02cce3b06385",
+          "path": "research/packages-and-ecosystem/RT-12/RT-12-INTEGRATED-GRAPH-INDEX-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-12",
+      "terminal_separator": true
+    },
+    "DEP-041": {
+      "confidence": "Scoped portable storage evidence, canonical identities open",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "ecc74fdb1526ab543f40a07b2fc11403fc4c2b29",
+          "path": "research/packages-and-ecosystem/RT-12/RT-12-PORTABLE-GRAPH-PUBLICATION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "6e536b043c5dec00b91efd1ab8ba27fa728ba302",
+          "path": "research/packages-and-ecosystem/RT-12/RT-12-TYPED-OBJECT-LIFECYCLE-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-12",
+      "target": "RT-05",
+      "terminal_separator": true
+    },
+    "DEP-042": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "57218a6031ab587d202a93c7c7d6b778df9e519c",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-PACKAGE-CACHE-DELIVERY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "ad0a1663f92bf891b44b3e3ba9b4419e0cf3fc5f",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-SIGNED-REBUILD-ADMISSION-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-12",
+      "target": "RT-11",
+      "terminal_separator": true
+    },
+    "DEP-043": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-12",
+      "terminal_separator": true
+    },
+    "DEP-044": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-12",
+      "target": "RT-17",
+      "terminal_separator": true
+    },
+    "DEP-045": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-14",
+      "target": "RT-19",
+      "terminal_separator": true
+    },
+    "DEP-046": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-19",
+      "terminal_separator": true
+    },
+    "DEP-047": {
+      "confidence": "Scoped Git and filesystem evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "44a590e052d108e0ee40d13714ac2b3ae80e1ede",
+          "path": "research/research-management/RT-00/RT-00-TOOLCHAIN-PUBLICATION-DEPENDENCIES-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-15",
+      "target": "RT-19",
+      "terminal_separator": true
+    },
+    "DEP-048": {
+      "confidence": "Scoped native authority and finite model evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "44a590e052d108e0ee40d13714ac2b3ae80e1ede",
+          "path": "research/research-management/RT-00/RT-00-TOOLCHAIN-PUBLICATION-DEPENDENCIES-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-19",
+      "terminal_separator": true
+    },
+    "DEP-049": {
+      "confidence": "Open hypothesis with scoped protocol evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "752c1935f78bd604173824e30b3e4c9e39ab13d4",
+          "path": "research/toolchain-and-collaboration/RT-17/RT-17-LSP-POSITION-ENCODINGS-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-19",
+      "target": "RT-17",
+      "terminal_separator": true
+    },
+    "DEP-050": {
+      "confidence": "Scoped SQLite evidence, production integration open",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "ca5baa833e8bc8f40ee7b6cd0e6cfafc33b94e38",
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-PERSISTENT-LAYERED-CACHE-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-19",
+      "target": "RT-11",
+      "terminal_separator": true
+    },
+    "DEP-051": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-02",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-052": {
+      "confidence": "Strong hypothesis with scoped experimental evidence",
+      "links": [
+        {
+          "anchor": "7-results-and-falsifiers",
+          "blob": "d5d2d93df11304cba38d2e7cc57e4fc670ebfaa3",
+          "path": "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-05",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-053": {
+      "confidence": "Strong hypothesis with additional bounded experimental evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "5f9f9b4beaedb53e0057fa44b284d1a891c39e76",
+          "path": "research/semantic-representation/RT-06/RT-06-CONDITIONAL-DEPENDENCY-CLOSURE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "89074145b7f5e8daa70cfa903d0a4d70be1c1bf4",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-GUARDED-MERGE-EVIDENCE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "3e912c7873cb0a90ad434db213b09d77dc18542d",
+          "path": "research/research-management/RT-00/RT-00-DEPENDENCY-REGISTER-AND-PATH-BOUNDARY-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-06",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-054": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-08",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-055": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-14",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-056": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-15",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-057": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-058": {
+      "confidence": "Scoped composition evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "44a590e052d108e0ee40d13714ac2b3ae80e1ede",
+          "path": "research/research-management/RT-00/RT-00-TOOLCHAIN-PUBLICATION-DEPENDENCIES-2026-11-25.md"
+        }
+      ],
+      "relation": "Enables",
+      "source": "RT-19",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-059": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-20",
+      "target": "RT-19",
+      "terminal_separator": true
+    },
+    "DEP-060": {
+      "confidence": "Emerging; bounded result-policy evidence and one real worker-timeout experiment in Scenarios 102\u2013108",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "3e912c7873cb0a90ad434db213b09d77dc18542d",
+          "path": "research/research-management/RT-00/RT-00-DEPENDENCY-REGISTER-AND-PATH-BOUNDARY-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-07",
+      "target": "RT-06",
+      "terminal_separator": true
+    },
+    "DEP-061": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-21",
+      "terminal_separator": true
+    },
+    "DEP-062": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-09",
+      "target": "RT-21",
+      "terminal_separator": true
+    },
+    "DEP-063": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-10",
+      "target": "RT-21",
+      "terminal_separator": true
+    },
+    "DEP-064": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Enables",
+      "source": "RT-11",
+      "target": "RT-21",
+      "terminal_separator": true
+    },
+    "DEP-065": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Enables",
+      "source": "RT-19",
+      "target": "RT-21",
+      "terminal_separator": true
+    },
+    "DEP-066": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-20",
+      "target": "RT-21",
+      "terminal_separator": true
+    },
+    "DEP-067": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-19",
+      "target": "RT-22",
+      "terminal_separator": true
+    },
+    "DEP-068": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-20",
+      "target": "RT-22",
+      "terminal_separator": true
+    },
+    "DEP-069": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-15",
+      "target": "RT-22",
+      "terminal_separator": true
+    },
+    "DEP-070": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-16",
+      "target": "RT-22",
+      "terminal_separator": true
+    },
+    "DEP-071": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Enables",
+      "source": "RT-22",
+      "target": "RT-21",
+      "terminal_separator": true
+    },
+    "DEP-072": {
+      "confidence": "Strong hypothesis with scoped native read evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "1aa2e0c9de0f0dffea708dc3a1c2abd5dd2d81f8",
+          "path": "research/toolchain-and-collaboration/RT-23/RT-23-NATIVE-GENERATION-READS-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-23",
+      "terminal_separator": true
+    },
+    "DEP-073": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "d2e1c91c531289e7c811deabdb95194467339955",
+          "path": "research/toolchain-and-collaboration/RT-23/RT-23-INDEXED-JOURNAL-RECOVERY-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-19",
+      "target": "RT-23",
+      "terminal_separator": true
+    },
+    "DEP-074": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-22",
+      "target": "RT-23",
+      "terminal_separator": true
+    },
+    "DEP-075": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-11",
+      "target": "RT-23",
+      "terminal_separator": true
+    },
+    "DEP-076": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-23",
+      "terminal_separator": true
+    },
+    "DEP-077": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Enables",
+      "source": "RT-23",
+      "target": "RT-21",
+      "terminal_separator": true
+    },
+    "DEP-078": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-079": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-06",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-080": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-02",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-081": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-16",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-082": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-14",
+      "target": "RT-19",
+      "terminal_separator": true
+    },
+    "DEP-083": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-14",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-084": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Enables",
+      "source": "RT-19",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-085": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-20",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-086": {
+      "confidence": "Scoped exact Git and semantic evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "a07721ff4c9a63a71da8629ae488ad8b0b9b50ac",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-GIT-LAYOUTS-2026-11-24.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-24",
+      "terminal_separator": true
+    },
+    "DEP-087": {
+      "confidence": "Strong hypothesis with scoped experimental evidence",
+      "links": [
+        {
+          "anchor": "results",
+          "blob": "9df0c678d7c6017055407243e976a30b82c9f740",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-CLOSED-THREE-WAY-MERGE.md"
+        },
+        {
+          "anchor": "7-results-and-falsifiers",
+          "blob": "d5d2d93df11304cba38d2e7cc57e4fc670ebfaa3",
+          "path": "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md"
+        },
+        {
+          "anchor": "",
+          "blob": "7ff571be2c49d6ca7d31ac9a5526609d57fb40e7",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-VERSIONED-I64-GIT-MERGE-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-24",
+      "terminal_separator": false
+    },
+    "DEP-088": {
+      "confidence": "Strong hypothesis with scoped experimental evidence",
+      "links": [
+        {
+          "anchor": "5-results",
+          "blob": "8df3b63e049c0ca830342fad07bd2e856f235c02",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md"
+        },
+        {
+          "anchor": "",
+          "blob": "85ff69e0271081f2019ae5831ac519d9cd7e95a2",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-CONFIG-CALLER-COVERAGE-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-06",
+      "target": "RT-24",
+      "terminal_separator": true
+    },
+    "DEP-089": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "a80e89d5604610f9f551026994693340896be587",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-PROFILE-BOUND-GIT-PATHS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a1951f245ec28730f39ecbb9126ae7c6f4ea227b",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-PARTIAL-SPARSE-RECONSTRUCTION-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-15",
+      "target": "RT-24",
+      "terminal_separator": true
+    },
+    "DEP-090": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Enables",
+      "source": "RT-19",
+      "target": "RT-24",
+      "terminal_separator": true
+    },
+    "DEP-091": {
+      "confidence": "Strong hypothesis with evidence for the incomplete-input gate",
+      "links": [
+        {
+          "anchor": "5-results",
+          "blob": "8df3b63e049c0ca830342fad07bd2e856f235c02",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-20",
+      "target": "RT-24",
+      "terminal_separator": true
+    },
+    "DEP-092": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "6fa765deb849799faf74c4f9199863b64b538750",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-PINNED-GITLINK-RECONSTRUCTION-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-22",
+      "target": "RT-24",
+      "terminal_separator": true
+    },
+    "DEP-093": {
+      "confidence": "Strong hypothesis with scoped tree and mapping evidence with scoped native read evidence",
+      "links": [
+        {
+          "anchor": "5-results",
+          "blob": "8df3b63e049c0ca830342fad07bd2e856f235c02",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md"
+        },
+        {
+          "anchor": "experiment-and-results",
+          "blob": "e19424428cbbe175759d3069c66516ad5b42bd2b",
+          "path": "research/toolchain-and-collaboration/RT-23/RT-23-INTERFACE-MAPPING-MERGE.md"
+        },
+        {
+          "anchor": "",
+          "blob": "1aa2e0c9de0f0dffea708dc3a1c2abd5dd2d81f8",
+          "path": "research/toolchain-and-collaboration/RT-23/RT-23-NATIVE-GENERATION-READS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "2c7ff4200ec7e9ddda0d0e88ccfb0abd7894e5ae",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-CONFIGURED-MERGE-PUBLICATION-2026-11-25.md"
+        }
+      ],
+      "relation": "Enables",
+      "source": "RT-23",
+      "target": "RT-24",
+      "terminal_separator": true
+    },
+    "DEP-094": {
+      "confidence": "Scoped executable bootstrap evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "6b1911ea0cea6551cd967662eb847c588b0fe488",
+          "path": "research/toolchain-and-collaboration/RT-21/RT-21-STRUCTURED-DEPENDENCY-BOOTSTRAP-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-21",
+      "terminal_separator": true
+    },
+    "DEP-095": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-01",
+      "target": "RT-25",
+      "terminal_separator": true
+    },
+    "DEP-096": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-04",
+      "target": "RT-25",
+      "terminal_separator": true
+    },
+    "DEP-097": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "47d5ba8f732a583fe8077c43f13ef96a217a7f35",
+          "path": "research/runtime-and-systems/RT-25/RT-25-STATIC-ALLOCATOR-SELECTION-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-10",
+      "target": "RT-25",
+      "terminal_separator": true
+    },
+    "DEP-098": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-11",
+      "target": "RT-25",
+      "terminal_separator": true
+    },
+    "DEP-099": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-13",
+      "target": "RT-25",
+      "terminal_separator": true
+    },
+    "DEP-100": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "c597d6987c0858609b4169c4be47b9ce94dd384c",
+          "path": "research/runtime-and-systems/RT-26/RT-26-DURABLE-LIMIT-HANDLERS-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-03",
+      "target": "RT-26",
+      "terminal_separator": true
+    },
+    "DEP-101": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-04",
+      "target": "RT-26",
+      "terminal_separator": true
+    },
+    "DEP-102": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "4f5bb02b9549734e2622b0f4872d48d740a99dd4",
+          "path": "research/runtime-and-systems/RT-26/RT-26-NATIVE-DISK-ACCOUNTING-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "00a4f2307cd960324c42a5924570fe6e878da08e",
+          "path": "research/runtime-and-systems/RT-26/RT-26-CPU-TIMER-SCOPE-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-10",
+      "target": "RT-26",
+      "terminal_separator": true
+    },
+    "DEP-103": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-13",
+      "target": "RT-26",
+      "terminal_separator": true
+    },
+    "DEP-104": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-26",
+      "terminal_separator": true
+    },
+    "DEP-105": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-18",
+      "target": "RT-26",
+      "terminal_separator": true
+    },
+    "DEP-106": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-19",
+      "target": "RT-26",
+      "terminal_separator": true
+    },
+    "DEP-107": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-20",
+      "target": "RT-26",
+      "terminal_separator": true
+    },
+    "DEP-108": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-25",
+      "target": "RT-26",
+      "terminal_separator": true
+    },
+    "DEP-109": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "6ee34fc13fdfddc26d0373511947d45ac24225ed",
+          "path": "research/semantic-representation/RT-05/RT-05-CROSS-RUNTIME-F64-IDENTITY-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-27",
+      "terminal_separator": true
+    },
+    "DEP-110": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-11",
+      "target": "RT-27",
+      "terminal_separator": true
+    },
+    "DEP-111": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "302ea82e2a018408956d01311441c697fa9f92be",
+          "path": "research/toolchain-and-collaboration/RT-27/RT-27-DIVERGENT-GIT-HISTORY-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "a61ab4940b7dcd9cb0857ee801666979103981cd",
+          "path": "research/toolchain-and-collaboration/RT-27/RT-27-SEGMENTED-GIT-TRANSPORT-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "c993ed27bc065d97dffe92f528cfe54a4b2d23a1",
+          "path": "research/toolchain-and-collaboration/RT-27/RT-27-PROTOTYPE-SPG-PACKS-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-15",
+      "target": "RT-27",
+      "terminal_separator": true
+    },
+    "DEP-112": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "fe9620daf0b629606d142dc9c0a39b6141e4ab0e",
+          "path": "research/toolchain-and-collaboration/RT-19/RT-19-EXTERNAL-RECEIPT-RECOVERY-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-19",
+      "target": "RT-27",
+      "terminal_separator": true
+    },
+    "DEP-113": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-22",
+      "target": "RT-27",
+      "terminal_separator": true
+    },
+    "DEP-114": {
+      "confidence": "Strong hypothesis with scoped native retention evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "8c8eef8697871e7c8ce672104fb40ea0e6e2f4d1",
+          "path": "research/toolchain-and-collaboration/RT-23/RT-23-PINNED-GIT-RETENTION-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-23",
+      "target": "RT-27",
+      "terminal_separator": true
+    },
+    "DEP-115": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "76fadc0fd1bffbc379e100d4543294161abc3554",
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-LFS-OBJECT-ADMISSION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "22e3f53448cb1e8605ca96b4822b5a744899ff85",
+          "path": "research/toolchain-and-collaboration/RT-27/RT-27-GIT-CLOSED-REPRESENTATION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "d1b9c25a9fe3d1378f2838ca900c38eb5fa10dcd",
+          "path": "research/toolchain-and-collaboration/RT-27/RT-27-TEXT-MERGE-GATE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "1d9417d3259d1d4fff0af56bee6790907ab2dab0",
+          "path": "research/toolchain-and-collaboration/RT-27/RT-27-SPG-PROFILED-RECORDS-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "78abde172b0f48b2bb1850d194b0a9623118e182",
+          "path": "research/toolchain-and-collaboration/RT-27/RT-27-LARGE-BINARY-CLOSURE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "c3c3fe88d3a214ce590737270cea15dc3056ae42",
+          "path": "research/toolchain-and-collaboration/RT-27/RT-27-SPG-REVIEW-PROJECTION-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-24",
+      "target": "RT-27",
+      "terminal_separator": true
+    },
+    "DEP-116": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-02",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-117": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-03",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-118": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-04",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-119": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-120": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-06",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-121": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-07",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-122": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-08",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-123": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "ec124c5b6aab9f4895e40f8ba29d893d42a6fdd3",
+          "path": "research/compiler-and-translation/RT-28/RT-28-ZLIB-RELEASE-MIRROR-2026-11-25.md"
+        }
+      ],
+      "relation": "Enables",
+      "source": "RT-09",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-124": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-10",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-125": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-11",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-126": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-13",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-127": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-14",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-128": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-129": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-18",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-130": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Enables",
+      "source": "RT-19",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-131": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-20",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-132": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-22",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-133": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Enables",
+      "source": "RT-23",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-134": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-24",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-135": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-27",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-136": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-03",
+      "target": "RT-29",
+      "terminal_separator": true
+    },
+    "DEP-137": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-04",
+      "target": "RT-29",
+      "terminal_separator": true
+    },
+    "DEP-138": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-09",
+      "target": "RT-29",
+      "terminal_separator": true
+    },
+    "DEP-139": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-10",
+      "target": "RT-29",
+      "terminal_separator": true
+    },
+    "DEP-140": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-13",
+      "target": "RT-29",
+      "terminal_separator": true
+    },
+    "DEP-141": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-18",
+      "target": "RT-29",
+      "terminal_separator": true
+    },
+    "DEP-142": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-25",
+      "target": "RT-29",
+      "terminal_separator": true
+    },
+    "DEP-143": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-29",
+      "target": "RT-03",
+      "terminal_separator": true
+    },
+    "DEP-144": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-29",
+      "target": "RT-04",
+      "terminal_separator": true
+    },
+    "DEP-145": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-29",
+      "target": "RT-09",
+      "terminal_separator": true
+    },
+    "DEP-146": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-29",
+      "target": "RT-10",
+      "terminal_separator": true
+    },
+    "DEP-147": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-29",
+      "target": "RT-13",
+      "terminal_separator": true
+    },
+    "DEP-148": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-30",
+      "terminal_separator": true
+    },
+    "DEP-149": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-04",
+      "target": "RT-30",
+      "terminal_separator": true
+    },
+    "DEP-150": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-05",
+      "target": "RT-30",
+      "terminal_separator": true
+    },
+    "DEP-151": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-07",
+      "target": "RT-30",
+      "terminal_separator": true
+    },
+    "DEP-152": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "f568766fd4ca3bbaab9bcc0e2fb43f5c7f1681e7",
+          "path": "research/compiler-and-translation/RT-30/RT-30-DIRECTIONAL-REPLAY-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-09",
+      "target": "RT-30",
+      "terminal_separator": true
+    },
+    "DEP-153": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "a41e1c4ac8b84de81eeaccf02cbbb8e6c33abb11",
+          "path": "research/compiler-and-translation/RT-30/RT-30-SHARED-OWNERSHIP-RUNTIME-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-10",
+      "target": "RT-30",
+      "terminal_separator": true
+    },
+    "DEP-154": {
+      "confidence": "Strong hypothesis with scoped native evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "8b1c1c84645ec2feb9e6fb141bcaa00b8904e97f",
+          "path": "research/compiler-and-translation/RT-13/RT-13-BY-VALUE-CALL-ABI-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-13",
+      "target": "RT-30",
+      "terminal_separator": true
+    },
+    "DEP-155": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-18",
+      "target": "RT-30",
+      "terminal_separator": true
+    },
+    "DEP-156": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-28",
+      "target": "RT-30",
+      "terminal_separator": true
+    },
+    "DEP-157": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-29",
+      "target": "RT-30",
+      "terminal_separator": true
+    },
+    "DEP-158": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-30",
+      "target": "RT-03",
+      "terminal_separator": true
+    },
+    "DEP-159": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-30",
+      "target": "RT-09",
+      "terminal_separator": true
+    },
+    "DEP-160": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-30",
+      "target": "RT-10",
+      "terminal_separator": true
+    },
+    "DEP-161": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-30",
+      "target": "RT-13",
+      "terminal_separator": true
+    },
+    "DEP-162": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-163": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-05",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-164": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-07",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-165": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-08",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-166": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-09",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-167": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-14",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-168": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-169": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-18",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-170": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-19",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-171": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-22",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-172": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-24",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-173": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-30",
+      "target": "RT-31",
+      "terminal_separator": true
+    },
+    "DEP-174": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-31",
+      "target": "RT-03",
+      "terminal_separator": true
+    },
+    "DEP-175": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-31",
+      "target": "RT-09",
+      "terminal_separator": true
+    },
+    "DEP-176": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-31",
+      "target": "RT-14",
+      "terminal_separator": true
+    },
+    "DEP-177": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-31",
+      "target": "RT-19",
+      "terminal_separator": true
+    },
+    "DEP-178": {
+      "confidence": "Strong hypothesis with scoped checked observations",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "050685b220d7529d1d395ee26e74579c688e620e",
+          "path": "research/formal-verification/RT-32/RT-32-SOURCE-CLEANUP-KERNEL-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-32",
+      "terminal_separator": true
+    },
+    "DEP-179": {
+      "confidence": "Scoped kernel and replay evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "3890b526f575d60fb0f23e5d296fd46a5061f243",
+          "path": "research/formal-verification/RT-32/RT-32-SPG-LEAN-OBSERVATION-BINDING-2026-11-24.md"
+        },
+        {
+          "anchor": "",
+          "blob": "6d81d42c598d9da4e81317d8af874c9703eb746e",
+          "path": "research/formal-verification/RT-32/RT-32-SIGNED-I64-BYTE-KERNEL-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "b0e1e688e5effb4759b56feb190792e77e7a728d",
+          "path": "research/formal-verification/RT-32/RT-32-MUTABLE-RENAMING-KERNEL-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "77a812569dd4d3a29913f4b00910e2fc46bf1785",
+          "path": "research/formal-verification/RT-32/RT-32-BOUND-METHOD-OBSERVATION-COMPLETENESS-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-32",
+      "terminal_separator": true
+    },
+    "DEP-180": {
+      "confidence": "Strong hypothesis with a checked linear arithmetic comparison",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "516a6d1d419f80f6d8782660b18d271f2c2ec937",
+          "path": "research/formal-verification/RT-32/RT-32-PROOF-ROUTE-COMPARISON-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-07",
+      "target": "RT-32",
+      "terminal_separator": true
+    },
+    "DEP-181": {
+      "confidence": "Strong hypothesis with bounded evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "6a0128ff1054cfca43e517128ba408a76ec4dc90",
+          "path": "research/formal-verification/RT-32/RT-32-WORKER-CANCEL-KERNEL-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "dd658271e488a6fab750359c308331dac748f783",
+          "path": "research/formal-verification/RT-32/RT-32-CORE-OBLIGATION-CORPUS-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-08",
+      "target": "RT-32",
+      "terminal_separator": true
+    },
+    "DEP-182": {
+      "confidence": "Strong hypothesis with a checked structured subset",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "0aa2bcc8327d2989156319c4bc14ed60e9f3c647",
+          "path": "research/formal-verification/RT-32/RT-32-CONDITIONAL-EMBEDDING-CORRESPONDENCE-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-09",
+      "target": "RT-32",
+      "terminal_separator": true
+    },
+    "DEP-183": {
+      "confidence": "Strong hypothesis with checked reuse boundaries",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "090ea0a8e6f93fb9e1dc1250d0ba3d0029998450",
+          "path": "research/formal-verification/RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "c12804b3c263de00608ef05101b028fbb80700ff",
+          "path": "research/formal-verification/RT-32/RT-32-PERSISTENT-PROOF-CACHE-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-11",
+      "target": "RT-32",
+      "terminal_separator": true
+    },
+    "DEP-184": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-24",
+      "target": "RT-32",
+      "terminal_separator": true
+    },
+    "DEP-185": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-32",
+      "target": "RT-07",
+      "terminal_separator": true
+    },
+    "DEP-186": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-32",
+      "target": "RT-09",
+      "terminal_separator": true
+    },
+    "DEP-187": {
+      "confidence": "Scoped checked distinction. General correspondence and reuse costs remain open.",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "cbed219de269cbbf396bdd174efb2ddc429d97a4",
+          "path": "research/semantic-representation/RT-05/PUBLIC-INTERFACE-MODULAR-CALLER-2026-11-24.md"
+        },
+        {
+          "anchor": "",
+          "blob": "054382b3aed61c53362ef583ed2e59d38bbb800f",
+          "path": "research/semantic-representation/RT-05/PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-32",
+      "target": "RT-11",
+      "terminal_separator": true
+    },
+    "DEP-188": {
+      "confidence": "Strong hypothesis with a checked typed inventory fixture",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "27301e1e1feb00bc7d5f87857c41b90551b43694",
+          "path": "research/formal-verification/RT-32/RT-32-SPG-PDG-OCCURRENCES-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-32",
+      "terminal_separator": true
+    },
+    "DEP-189": {
+      "confidence": "Strong hypothesis with scoped replay and invalidation evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "090ea0a8e6f93fb9e1dc1250d0ba3d0029998450",
+          "path": "research/formal-verification/RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-32",
+      "target": "RT-11",
+      "terminal_separator": true
+    },
+    "DEP-190": {
+      "confidence": "Strong hypothesis with scoped schedule and trust evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "ac1c768f683874d923c38fcafcced6fbd40101eb",
+          "path": "research/formal-verification/RT-32/RT-32-CALLER-EVIDENCE-STATES-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-32",
+      "target": "RT-08",
+      "terminal_separator": true
+    },
+    "DEP-191": {
+      "confidence": "Scoped native temporal evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "aa6dba58760f196958e2e818f454d39291d0dcb7",
+          "path": "research/research-management/RT-00/RT-00-VERIFICATION-DEPENDENCIES-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-33",
+      "terminal_separator": true
+    },
+    "DEP-192": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-33",
+      "terminal_separator": true
+    },
+    "DEP-193": {
+      "confidence": "Scoped proof checker and trust evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "aa6dba58760f196958e2e818f454d39291d0dcb7",
+          "path": "research/research-management/RT-00/RT-00-VERIFICATION-DEPENDENCIES-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-07",
+      "target": "RT-33",
+      "terminal_separator": true
+    },
+    "DEP-194": {
+      "confidence": "Scoped independent adapter evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "aa6dba58760f196958e2e818f454d39291d0dcb7",
+          "path": "research/research-management/RT-00/RT-00-VERIFICATION-DEPENDENCIES-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-08",
+      "target": "RT-33",
+      "terminal_separator": true
+    },
+    "DEP-195": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-09",
+      "target": "RT-33",
+      "terminal_separator": true
+    },
+    "DEP-196": {
+      "confidence": "Scoped cache and proof replay evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "aa6dba58760f196958e2e818f454d39291d0dcb7",
+          "path": "research/research-management/RT-00/RT-00-VERIFICATION-DEPENDENCIES-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-11",
+      "target": "RT-33",
+      "terminal_separator": true
+    },
+    "DEP-197": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-32",
+      "target": "RT-33",
+      "terminal_separator": true
+    },
+    "DEP-198": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-33",
+      "target": "RT-07",
+      "terminal_separator": true
+    },
+    "DEP-199": {
+      "confidence": "Scoped native abstention evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "aa6dba58760f196958e2e818f454d39291d0dcb7",
+          "path": "research/research-management/RT-00/RT-00-VERIFICATION-DEPENDENCIES-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-33",
+      "target": "RT-08",
+      "terminal_separator": true
+    },
+    "DEP-200": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-33",
+      "target": "RT-11",
+      "terminal_separator": true
+    },
+    "DEP-201": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-34",
+      "terminal_separator": true
+    },
+    "DEP-202": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "0d14166780a3ada3027f7ab67c1490423e89aa7a",
+          "path": "research/formal-verification/RT-34/RT-34-RESOURCE-CONTRACT-IR-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-04",
+      "target": "RT-34",
+      "terminal_separator": true
+    },
+    "DEP-203": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-34",
+      "terminal_separator": true
+    },
+    "DEP-204": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "f55598ce839e88065be34866363d82ba25767625",
+          "path": "research/formal-verification/RT-34/RT-34-READ-LOWER-AND-QUEUE-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "c03fbb9ffd31f9001796acae4b49aca5a8d78ccd",
+          "path": "research/formal-verification/RT-34/RT-34-PARALLEL-EXPECTED-OUTPUT-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-07",
+      "target": "RT-34",
+      "terminal_separator": true
+    },
+    "DEP-205": {
+      "confidence": "Strong hypothesis",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "71beafff5ee279aa84915885ae04f6422f8f005c",
+          "path": "research/formal-verification/RT-34/RT-34-INFERENCE-VECTORS-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-08",
+      "target": "RT-34",
+      "terminal_separator": true
+    },
+    "DEP-206": {
+      "confidence": "Strong hypothesis with scoped checked cost evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "00d3fc14a01e1988c07d12979fe0369151f02f4e",
+          "path": "research/formal-verification/RT-34/RT-34-CALL-COST-BINDING-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "d4395440d4f09b643fbf374f1c17590631486755",
+          "path": "research/formal-verification/RT-34/RT-34-RESOURCE-AWARE-LOWERING-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-11",
+      "target": "RT-34",
+      "terminal_separator": true
+    },
+    "DEP-207": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-26",
+      "target": "RT-34",
+      "terminal_separator": true
+    },
+    "DEP-208": {
+      "confidence": "Strong hypothesis with scoped checked costs",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "0ed41326f967c399c11d9bc27e83bb0017139b1e",
+          "path": "research/formal-verification/RT-34/RT-34-NESTED-LOOP-COST-2026-11-25.md"
+        },
+        {
+          "anchor": "",
+          "blob": "8d070a61f9a24a7eb5b1a8d7152f9814a3d7de74",
+          "path": "research/formal-verification/RT-34/RT-34-LOOP-CALL-CORRESPONDENCE-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-32",
+      "target": "RT-34",
+      "terminal_separator": true
+    },
+    "DEP-209": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-33",
+      "target": "RT-34",
+      "terminal_separator": true
+    },
+    "DEP-210": {
+      "confidence": "Checked for one finite native and symbolic resource model",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "d4395440d4f09b643fbf374f1c17590631486755",
+          "path": "research/formal-verification/RT-34/RT-34-RESOURCE-AWARE-LOWERING-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-34",
+      "target": "RT-09",
+      "terminal_separator": true
+    },
+    "DEP-211": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-34",
+      "target": "RT-33",
+      "terminal_separator": true
+    },
+    "DEP-212": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-213": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-04",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-214": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-05",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-215": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-06",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-216": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-07",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-217": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-08",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-218": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-09",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-219": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-11",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-220": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-12",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-221": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-14",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-222": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-16",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-223": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-18",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-224": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-19",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-225": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-20",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-226": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Constrains",
+      "source": "RT-24",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-227": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-31",
+      "target": "RT-35",
+      "terminal_separator": true
+    },
+    "DEP-228": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-35",
+      "target": "RT-05",
+      "terminal_separator": true
+    },
+    "DEP-229": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-35",
+      "target": "RT-09",
+      "terminal_separator": true
+    },
+    "DEP-230": {
+      "confidence": "Bounded experiment",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "200e750f973a349a4eaa866455a6a00471f85209",
+          "path": "research/semantic-representation/RT-35/RT-35-PERSISTENT-INDEX-GENERATIONS-2026-11-25.md"
+        }
+      ],
+      "relation": "Influences",
+      "source": "RT-35",
+      "target": "RT-11",
+      "terminal_separator": true
+    },
+    "DEP-231": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-35",
+      "target": "RT-12",
+      "terminal_separator": true
+    },
+    "DEP-232": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-35",
+      "target": "RT-19",
+      "terminal_separator": true
+    },
+    "DEP-233": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-35",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-234": {
+      "confidence": "Strong hypothesis with scoped checked alternatives",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "9dee340c9d519c8dcfaac2b8da96d6c98f883c81",
+          "path": "research/formal-verification/RT-07/RT-07-RESTRICTED-AFFINE-CERTIFICATES-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-07",
+      "target": "RT-36",
+      "terminal_separator": true
+    },
+    "DEP-235": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-05",
+      "target": "RT-36",
+      "terminal_separator": true
+    },
+    "DEP-236": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-32",
+      "target": "RT-36",
+      "terminal_separator": true
+    },
+    "DEP-237": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-33",
+      "target": "RT-36",
+      "terminal_separator": true
+    },
+    "DEP-238": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-13",
+      "target": "RT-36",
+      "terminal_separator": true
+    },
+    "DEP-239": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-16",
+      "target": "RT-36",
+      "terminal_separator": true
+    },
+    "DEP-240": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-08",
+      "target": "RT-36",
+      "terminal_separator": true
+    },
+    "DEP-241": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-36",
+      "target": "RT-11",
+      "terminal_separator": true
+    },
+    "DEP-242": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-36",
+      "target": "RT-20",
+      "terminal_separator": true
+    },
+    "DEP-243": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-36",
+      "target": "RT-28",
+      "terminal_separator": true
+    },
+    "DEP-244": {
+      "confidence": "Open hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-36",
+      "target": "RT-34",
+      "terminal_separator": true
+    },
+    "DEP-245": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-03",
+      "target": "RT-37",
+      "terminal_separator": true
+    },
+    "DEP-246": {
+      "confidence": "Scoped metadata and binary effect evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "e03278b88997438eaffeacfb47843edcbf7a63fe",
+          "path": "research/runtime-and-systems/RT-37/RT-37-MMIO-METADATA-AND-CAPABILITIES-2026-11-24.md"
+        },
+        {
+          "anchor": "",
+          "blob": "1fb1ce57221e69dc5338a709e78d0b81959b05be",
+          "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-TRANSITIVE-ISR-EFFECTS-2026-11-24.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-04",
+      "target": "RT-37",
+      "terminal_separator": true
+    },
+    "DEP-247": {
+      "confidence": "Scoped emulator evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "b88e419a8df74115c9c909e618504ec8ac4f0176",
+          "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-09",
+      "target": "RT-37",
+      "terminal_separator": true
+    },
+    "DEP-248": {
+      "confidence": "Scoped counterexample to boot-only admission",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "b88e419a8df74115c9c909e618504ec8ac4f0176",
+          "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-10",
+      "target": "RT-37",
+      "terminal_separator": true
+    },
+    "DEP-249": {
+      "confidence": "Scoped emulator and binary evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "89c3af04d00b2a801cea5904a1a99214327abd62",
+          "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-SYSTICK-GPIO-2026-11-24.md"
+        },
+        {
+          "anchor": "",
+          "blob": "f75c79e18b0211666a1c73a702958785d8e1c02a",
+          "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-VOLATILE-COUNTFLAG-2026-11-24.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-13",
+      "target": "RT-37",
+      "terminal_separator": true
+    },
+    "DEP-250": {
+      "confidence": "Scoped binary and emulator evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "451346aa6a173e330bf76c9c58a2db90fb89b3e4",
+          "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-STACK-BOUND-2026-11-24.md"
+        },
+        {
+          "anchor": "",
+          "blob": "f6ce53c534e10770142fa69cd83d5720d0337036",
+          "path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-BOUNDED-ALLOCATOR-2026-11-24.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-34",
+      "target": "RT-37",
+      "terminal_separator": true
+    },
+    "DEP-251": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-36",
+      "target": "RT-37",
+      "terminal_separator": true
+    },
+    "DEP-252": {
+      "confidence": "Scoped emulator evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "02423f232bc90c7f218ee64181267ed38990ecc8",
+          "path": "research/runtime-and-systems/RT-38/RT-38-RV64-PMP-SV39-TRAP-ISOLATION-2026-11-24.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-37",
+      "target": "RT-38",
+      "terminal_separator": true
+    },
+    "DEP-253": {
+      "confidence": "Scoped proof model and emulator evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "a9005eb49fa4c12197bdbd576c977f39a790374b",
+          "path": "research/runtime-and-systems/RT-38/RT-38-RV64-FRAME-ALLOCATOR-2026-11-24.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-04",
+      "target": "RT-38",
+      "terminal_separator": true
+    },
+    "DEP-254": {
+      "confidence": "Scoped linked and emulator evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "d5dc05794f162bb60483513784b4b8bb0f50db2d",
+          "path": "research/runtime-and-systems/RT-38/RT-38-SV39-REMAP-REVOKE-2026-11-24.md"
+        },
+        {
+          "anchor": "",
+          "blob": "02be224aa03052cdeb7daf77faa42f6da1e1bf1f",
+          "path": "research/runtime-and-systems/RT-38/RT-38-RV64-COOPERATIVE-SCHEDULER-2026-11-24.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-09",
+      "target": "RT-38",
+      "terminal_separator": true
+    },
+    "DEP-255": {
+      "confidence": "Scoped syscall and emulator evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "c433d57825313fc99d9b55e40c7fc7b0460ece96",
+          "path": "research/runtime-and-systems/RT-38/RT-38-RV64-IPC-REVOCATION-2026-11-24.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-16",
+      "target": "RT-38",
+      "terminal_separator": true
+    },
+    "DEP-256": {
+      "confidence": "Scoped source, binary and emulator evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "459e1cc31f106837c9e82c351c830099d3c27c24",
+          "path": "research/runtime-and-systems/RT-38/RT-38-RV64-ISOLATED-IPC-PILOT-2026-11-24.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-36",
+      "target": "RT-38",
+      "terminal_separator": true
+    },
+    "DEP-257": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-07",
+      "target": "RT-37",
+      "terminal_separator": true
+    },
+    "DEP-258": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-08",
+      "target": "RT-37",
+      "terminal_separator": true
+    },
+    "DEP-259": {
+      "confidence": "Strong hypothesis with scoped checker evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "da48e5102c74ff3175f3786b3929819d6440fdb7",
+          "path": "research/runtime-and-systems/RT-38/RT-38-SEL4-LOOKUP-SOURCE-DECODER-2026-11-25.md"
+        }
+      ],
+      "relation": "Requires",
+      "source": "RT-07",
+      "target": "RT-38",
+      "terminal_separator": true
+    },
+    "DEP-260": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Requires",
+      "source": "RT-08",
+      "target": "RT-38",
+      "terminal_separator": true
+    },
+    "DEP-261": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-32",
+      "target": "RT-37",
+      "terminal_separator": true
+    },
+    "DEP-262": {
+      "confidence": "Strong hypothesis",
+      "links": [],
+      "relation": "Influences",
+      "source": "RT-33",
+      "target": "RT-38",
+      "terminal_separator": true
+    },
+    "DEP-263": {
+      "confidence": "Scoped local process recovery evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "44a590e052d108e0ee40d13714ac2b3ae80e1ede",
+          "path": "research/research-management/RT-00/RT-00-TOOLCHAIN-PUBLICATION-DEPENDENCIES-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-19",
+      "target": "RT-15",
+      "terminal_separator": true
+    },
+    "DEP-264": {
+      "confidence": "Scoped native SQLite, Git and filesystem evidence",
+      "links": [
+        {
+          "anchor": "",
+          "blob": "44a590e052d108e0ee40d13714ac2b3ae80e1ede",
+          "path": "research/research-management/RT-00/RT-00-TOOLCHAIN-PUBLICATION-DEPENDENCIES-2026-11-25.md"
+        }
+      ],
+      "relation": "Constrains",
+      "source": "RT-15",
+      "target": "RT-19",
+      "terminal_separator": true
+    }
+  },
+  "scoped_controls": {
+    "bootstrap_cases": 16468,
+    "control_inputs_sha256": {
+      "research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-01/evidence.json": "c8483ca99da3fc7f1c0f1d2b9e3f1f64087d1c0eced08d664d94d658c0afd464",
+      "research/toolchain-and-collaboration/RT-21/DEPENDENCY-BOOTSTRAP-01/observations.json": "1643c990b27d04a0001f4df9f7723158676dbfd893216143d74ce9ddbd3022ae"
+    },
+    "native_observations": 167936,
+    "release_verdicts": {
+      "c": {
+        "exact_replacement": "published",
+        "exact_rollback_reauthorized": "published",
+        "historical_signature_after_reauthorize": "no-attestation",
+        "independent_rebuild_disagrees": "rebuild-disagrees",
+        "initial_release": "published",
+        "missing_artifact_in_evidence": "evidence-refused",
+        "missing_descriptor_audit": "evidence-refused",
+        "narrow_projection": "evidence-refused",
+        "old_payload_under_new_address": "payload-refused",
+        "revoked_publisher": "authority-refused",
+        "signed_request_with_unbound_action": "evidence-refused",
+        "stale_parent": "parent-refused",
+        "stale_signed_cache": "no-attestation",
+        "stale_trace": "evidence-refused"
+      },
+      "rust": {
+        "exact_replacement": "published",
+        "exact_rollback_reauthorized": "published",
+        "historical_signature_after_reauthorize": "no-attestation",
+        "independent_rebuild_disagrees": "rebuild-disagrees",
+        "initial_release": "published",
+        "missing_artifact_in_evidence": "evidence-refused",
+        "missing_descriptor_audit": "evidence-refused",
+        "narrow_projection": "evidence-refused",
+        "old_payload_under_new_address": "payload-refused",
+        "revoked_publisher": "authority-refused",
+        "signed_request_with_unbound_action": "evidence-refused",
+        "stale_parent": "parent-refused",
+        "stale_signed_cache": "no-attestation",
+        "stale_trace": "evidence-refused"
+      }
+    }
+  }
+}
