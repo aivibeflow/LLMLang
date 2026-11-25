@@ -1,0 +1,249 @@
+{
+  "builds": {
+    "direct": {
+      "artifact_sha256": "db21f37a0b7c7fea61fd992c8910fdf78afdee864cac1f6425c795a251b80b71",
+      "host_observations": {
+        "v22.23.5": {
+          "checkedWideInput": "refused-at-host",
+          "imports": [
+            {
+              "kind": "function",
+              "module": "llmlang",
+              "name": "commit"
+            }
+          ],
+          "missingHostImport": "LinkError",
+          "narrowedInput": "18446744073709551616",
+          "numberInputRejected": "TypeError",
+          "rawNarrowingEffect": [
+            0
+          ],
+          "rawNarrowingResult": 0,
+          "scenarios": {
+            "changedEffectPayload": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "0364fbfcaf34b561d7137e4d2f5734e290efe39bc70eba6a675771d428a7a23c"
+            },
+            "omittedEffect": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "31c0723fbb29d4fe4b869b76ec560688ffdbd8ffade9c01272c21ff3994b4958"
+            },
+            "selected": {
+              "calls": 261,
+              "effectMismatches": 0,
+              "returnMismatches": 0,
+              "transcriptSha256": "dc1985f176b785b5c95d648c59cce3ce367da2010fb13acf8238c4e0c2c3e9a8"
+            }
+          }
+        },
+        "v24.22.3": {
+          "checkedWideInput": "refused-at-host",
+          "imports": [
+            {
+              "kind": "function",
+              "module": "llmlang",
+              "name": "commit"
+            }
+          ],
+          "missingHostImport": "LinkError",
+          "narrowedInput": "18446744073709551616",
+          "numberInputRejected": "TypeError",
+          "rawNarrowingEffect": [
+            0
+          ],
+          "rawNarrowingResult": 0,
+          "scenarios": {
+            "changedEffectPayload": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "0364fbfcaf34b561d7137e4d2f5734e290efe39bc70eba6a675771d428a7a23c"
+            },
+            "omittedEffect": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "31c0723fbb29d4fe4b869b76ec560688ffdbd8ffade9c01272c21ff3994b4958"
+            },
+            "selected": {
+              "calls": 261,
+              "effectMismatches": 0,
+              "returnMismatches": 0,
+              "transcriptSha256": "dc1985f176b785b5c95d648c59cce3ce367da2010fb13acf8238c4e0c2c3e9a8"
+            }
+          }
+        }
+      }
+    },
+    "llvm-O0": {
+      "artifact_sha256": "6f44aac93efac4573df823ba9a491fd64c617c616203f4b61f77d3d14d022b01",
+      "host_observations": {
+        "v22.23.5": {
+          "checkedWideInput": "refused-at-host",
+          "imports": [
+            {
+              "kind": "function",
+              "module": "llmlang",
+              "name": "commit"
+            }
+          ],
+          "missingHostImport": "LinkError",
+          "narrowedInput": "18446744073709551616",
+          "numberInputRejected": "TypeError",
+          "rawNarrowingEffect": [
+            0
+          ],
+          "rawNarrowingResult": 0,
+          "scenarios": {
+            "changedEffectPayload": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "0364fbfcaf34b561d7137e4d2f5734e290efe39bc70eba6a675771d428a7a23c"
+            },
+            "omittedEffect": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "31c0723fbb29d4fe4b869b76ec560688ffdbd8ffade9c01272c21ff3994b4958"
+            },
+            "selected": {
+              "calls": 261,
+              "effectMismatches": 0,
+              "returnMismatches": 0,
+              "transcriptSha256": "dc1985f176b785b5c95d648c59cce3ce367da2010fb13acf8238c4e0c2c3e9a8"
+            }
+          }
+        },
+        "v24.22.3": {
+          "checkedWideInput": "refused-at-host",
+          "imports": [
+            {
+              "kind": "function",
+              "module": "llmlang",
+              "name": "commit"
+            }
+          ],
+          "missingHostImport": "LinkError",
+          "narrowedInput": "18446744073709551616",
+          "numberInputRejected": "TypeError",
+          "rawNarrowingEffect": [
+            0
+          ],
+          "rawNarrowingResult": 0,
+          "scenarios": {
+            "changedEffectPayload": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "0364fbfcaf34b561d7137e4d2f5734e290efe39bc70eba6a675771d428a7a23c"
+            },
+            "omittedEffect": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "31c0723fbb29d4fe4b869b76ec560688ffdbd8ffade9c01272c21ff3994b4958"
+            },
+            "selected": {
+              "calls": 261,
+              "effectMismatches": 0,
+              "returnMismatches": 0,
+              "transcriptSha256": "dc1985f176b785b5c95d648c59cce3ce367da2010fb13acf8238c4e0c2c3e9a8"
+            }
+          }
+        }
+      }
+    },
+    "llvm-O3": {
+      "artifact_sha256": "c3b720312014d81c2670d77505423ccb5d66a264047afa4093b7fa62468f84ec",
+      "host_observations": {
+        "v22.23.5": {
+          "checkedWideInput": "refused-at-host",
+          "imports": [
+            {
+              "kind": "function",
+              "module": "llmlang",
+              "name": "commit"
+            }
+          ],
+          "missingHostImport": "LinkError",
+          "narrowedInput": "18446744073709551616",
+          "numberInputRejected": "TypeError",
+          "rawNarrowingEffect": [
+            0
+          ],
+          "rawNarrowingResult": 0,
+          "scenarios": {
+            "changedEffectPayload": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "0364fbfcaf34b561d7137e4d2f5734e290efe39bc70eba6a675771d428a7a23c"
+            },
+            "omittedEffect": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "31c0723fbb29d4fe4b869b76ec560688ffdbd8ffade9c01272c21ff3994b4958"
+            },
+            "selected": {
+              "calls": 261,
+              "effectMismatches": 0,
+              "returnMismatches": 0,
+              "transcriptSha256": "dc1985f176b785b5c95d648c59cce3ce367da2010fb13acf8238c4e0c2c3e9a8"
+            }
+          }
+        },
+        "v24.22.3": {
+          "checkedWideInput": "refused-at-host",
+          "imports": [
+            {
+              "kind": "function",
+              "module": "llmlang",
+              "name": "commit"
+            }
+          ],
+          "missingHostImport": "LinkError",
+          "narrowedInput": "18446744073709551616",
+          "numberInputRejected": "TypeError",
+          "rawNarrowingEffect": [
+            0
+          ],
+          "rawNarrowingResult": 0,
+          "scenarios": {
+            "changedEffectPayload": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "0364fbfcaf34b561d7137e4d2f5734e290efe39bc70eba6a675771d428a7a23c"
+            },
+            "omittedEffect": {
+              "calls": 261,
+              "effectMismatches": 256,
+              "returnMismatches": 0,
+              "transcriptSha256": "31c0723fbb29d4fe4b869b76ec560688ffdbd8ffade9c01272c21ff3994b4958"
+            },
+            "selected": {
+              "calls": 261,
+              "effectMismatches": 0,
+              "returnMismatches": 0,
+              "transcriptSha256": "dc1985f176b785b5c95d648c59cce3ce367da2010fb13acf8238c4e0c2c3e9a8"
+            }
+          }
+        }
+      }
+    }
+  },
+  "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+  "linker": "Debian LLD 19.1.7",
+  "node": [
+    "v22.23.5",
+    "v24.22.3"
+  ],
+  "python": "3.12.14",
+  "wat2wasm": "1.0.36"
+}
