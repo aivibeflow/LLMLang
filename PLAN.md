@@ -789,6 +789,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define how an `ImplHash` change propagates through dependent semantic nodes and action results.
 - [ ] Define safe reuse when only non-semantic metadata changes.
 - [ ] Define conservative fallback when dependency completeness cannot be established.
+  - [ ] [WIP] Compare scoped fallback and whole-graph recomputation when incremental actions have mixed complete, stale and unknown dependency evidence on `research/all`.
 - [ ] Define impact planning and non-interference gates.
 - [ ] Benchmark small local edits, shared component edits, and broad semantic changes.
 
