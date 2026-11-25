@@ -1,0 +1,332 @@
+{
+  "rustc": [
+    "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "binary: rustc",
+    "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+    "commit-date: 2025-03-15",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.85.1",
+    "LLVM version: 19.1.7"
+  ],
+  "runner_sha256": "fb4b4e82feebc32545546a1031a39dcf55ca95976c693d7eb79aeb223d1d4420",
+  "compile_cases": 40,
+  "native_links": 24,
+  "native_observations": 6144,
+  "wrongful_success_in_wildcard_controls": 340,
+  "profiles": {
+    "closed-v1-O0": {
+      "exhaustive-old": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 170
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "b6d950ee7571abd0526a50dac6629696312c31a6c1c1bb1a9a74731a01ed1d8b"
+      },
+      "explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 170
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "b6d950ee7571abd0526a50dac6629696312c31a6c1c1bb1a9a74731a01ed1d8b"
+      },
+      "wildcard-success": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 170
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "b6d950ee7571abd0526a50dac6629696312c31a6c1c1bb1a9a74731a01ed1d8b"
+      },
+      "exhaustive-new": {
+        "compile": "E0599"
+      },
+      "new-with-explicit-unknown": {
+        "compile": "E0599"
+      }
+    },
+    "closed-v2-O0": {
+      "exhaustive-old": {
+        "compile": "E0004"
+      },
+      "explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 85,
+          "unsupported": 85
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "35ee200f9b84b53bf5da105cf1bb91043b1da6838c27de346a85ba450821be20"
+      },
+      "wildcard-success": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 171,
+          "denied": 85
+        },
+        "unrecognized_as_success": 85,
+        "trace_sha256": "68479f4d697e291cc9d7260ef5bc38599a9c06c5be9ed8dff041989a625131f6"
+      },
+      "exhaustive-new": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "deferred": 85,
+          "denied": 85
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "5722ff5196b24a9512672095eb092d69c50be48f63186c68a72721639ef96233"
+      },
+      "new-with-explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "deferred": 85,
+          "denied": 85
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "5722ff5196b24a9512672095eb092d69c50be48f63186c68a72721639ef96233"
+      }
+    },
+    "open-v1-O0": {
+      "exhaustive-old": {
+        "compile": "E0004"
+      },
+      "explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 170
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "b6d950ee7571abd0526a50dac6629696312c31a6c1c1bb1a9a74731a01ed1d8b"
+      },
+      "wildcard-success": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 170
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "b6d950ee7571abd0526a50dac6629696312c31a6c1c1bb1a9a74731a01ed1d8b"
+      },
+      "exhaustive-new": {
+        "compile": "E0599"
+      },
+      "new-with-explicit-unknown": {
+        "compile": "E0599"
+      }
+    },
+    "open-v2-O0": {
+      "exhaustive-old": {
+        "compile": "E0004"
+      },
+      "explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 85,
+          "unsupported": 85
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "35ee200f9b84b53bf5da105cf1bb91043b1da6838c27de346a85ba450821be20"
+      },
+      "wildcard-success": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 171,
+          "denied": 85
+        },
+        "unrecognized_as_success": 85,
+        "trace_sha256": "68479f4d697e291cc9d7260ef5bc38599a9c06c5be9ed8dff041989a625131f6"
+      },
+      "exhaustive-new": {
+        "compile": "E0004"
+      },
+      "new-with-explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "deferred": 85,
+          "denied": 85
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "5722ff5196b24a9512672095eb092d69c50be48f63186c68a72721639ef96233"
+      }
+    },
+    "closed-v1-O3": {
+      "exhaustive-old": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 170
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "b6d950ee7571abd0526a50dac6629696312c31a6c1c1bb1a9a74731a01ed1d8b"
+      },
+      "explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 170
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "b6d950ee7571abd0526a50dac6629696312c31a6c1c1bb1a9a74731a01ed1d8b"
+      },
+      "wildcard-success": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 170
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "b6d950ee7571abd0526a50dac6629696312c31a6c1c1bb1a9a74731a01ed1d8b"
+      },
+      "exhaustive-new": {
+        "compile": "E0599"
+      },
+      "new-with-explicit-unknown": {
+        "compile": "E0599"
+      }
+    },
+    "closed-v2-O3": {
+      "exhaustive-old": {
+        "compile": "E0004"
+      },
+      "explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 85,
+          "unsupported": 85
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "35ee200f9b84b53bf5da105cf1bb91043b1da6838c27de346a85ba450821be20"
+      },
+      "wildcard-success": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 171,
+          "denied": 85
+        },
+        "unrecognized_as_success": 85,
+        "trace_sha256": "68479f4d697e291cc9d7260ef5bc38599a9c06c5be9ed8dff041989a625131f6"
+      },
+      "exhaustive-new": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "deferred": 85,
+          "denied": 85
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "5722ff5196b24a9512672095eb092d69c50be48f63186c68a72721639ef96233"
+      },
+      "new-with-explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "deferred": 85,
+          "denied": 85
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "5722ff5196b24a9512672095eb092d69c50be48f63186c68a72721639ef96233"
+      }
+    },
+    "open-v1-O3": {
+      "exhaustive-old": {
+        "compile": "E0004"
+      },
+      "explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 170
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "b6d950ee7571abd0526a50dac6629696312c31a6c1c1bb1a9a74731a01ed1d8b"
+      },
+      "wildcard-success": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 170
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "b6d950ee7571abd0526a50dac6629696312c31a6c1c1bb1a9a74731a01ed1d8b"
+      },
+      "exhaustive-new": {
+        "compile": "E0599"
+      },
+      "new-with-explicit-unknown": {
+        "compile": "E0599"
+      }
+    },
+    "open-v2-O3": {
+      "exhaustive-old": {
+        "compile": "E0004"
+      },
+      "explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "denied": 85,
+          "unsupported": 85
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "35ee200f9b84b53bf5da105cf1bb91043b1da6838c27de346a85ba450821be20"
+      },
+      "wildcard-success": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 171,
+          "denied": 85
+        },
+        "unrecognized_as_success": 85,
+        "trace_sha256": "68479f4d697e291cc9d7260ef5bc38599a9c06c5be9ed8dff041989a625131f6"
+      },
+      "exhaustive-new": {
+        "compile": "E0004"
+      },
+      "new-with-explicit-unknown": {
+        "compile": "admitted",
+        "observations": 256,
+        "status_counts": {
+          "accepted": 86,
+          "deferred": 85,
+          "denied": 85
+        },
+        "unrecognized_as_success": 0,
+        "trace_sha256": "5722ff5196b24a9512672095eb092d69c50be48f63186c68a72721639ef96233"
+      }
+    }
+  }
+}
