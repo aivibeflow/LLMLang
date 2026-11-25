@@ -1,0 +1,2283 @@
+{
+  "schema": "llmlang-rt24-partial-sparse-reconstruction/1",
+  "python": "3.12.14",
+  "git": "git version 2.52.0",
+  "source_sha256": "218ee09c947f7327b2b05baaca0622772e92eae15a32a4cd09b777df6a58603e",
+  "object_formats": [
+    "sha1",
+    "sha256"
+  ],
+  "scenarios": 22,
+  "metrics": {
+    "worktree": {
+      "exact": 4,
+      "wrong_acceptance": 2,
+      "available_refused": 6,
+      "refused": 10
+    },
+    "path_cache": {
+      "exact": 6,
+      "wrong_acceptance": 8,
+      "available_refused": 4,
+      "refused": 4
+    },
+    "pinned_git": {
+      "exact": 10,
+      "wrong_acceptance": 0,
+      "available_refused": 2,
+      "refused": 10
+    },
+    "pinned_git_cache": {
+      "exact": 12,
+      "wrong_acceptance": 0,
+      "available_refused": 0,
+      "refused": 10
+    }
+  },
+  "observations": [
+    {
+      "case": "normal_full_clone",
+      "format": "sha1",
+      "commit": "a8de82b6a9b9641ee17a1e4833dbd41a4396eb7d",
+      "tree": "af8639149fd691326f784443bdd870962ab6be79",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053",
+        "providers/delta.json": "01df6c25f6398732b2c9a708dbea7fb85d7e0357"
+      },
+      "visible": [
+        "entry/root.json",
+        "callers/start.json",
+        "providers/delta.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "expected": "exact",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "sparse_checkout_with_full_objects",
+      "format": "sha1",
+      "commit": "a8de82b6a9b9641ee17a1e4833dbd41a4396eb7d",
+      "tree": "af8639149fd691326f784443bdd870962ab6be79",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053",
+        "providers/delta.json": "01df6c25f6398732b2c9a708dbea7fb85d7e0357"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "expected": "exact",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "path_cache": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "pinned_git": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "shallow_current_tree",
+      "format": "sha1",
+      "commit": "a8de82b6a9b9641ee17a1e4833dbd41a4396eb7d",
+      "tree": "af8639149fd691326f784443bdd870962ab6be79",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053",
+        "providers/delta.json": "01df6c25f6398732b2c9a708dbea7fb85d7e0357"
+      },
+      "visible": [
+        "entry/root.json",
+        "callers/start.json",
+        "providers/delta.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "expected": "exact",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "dirty_provider_overlay",
+      "format": "sha1",
+      "commit": "a8de82b6a9b9641ee17a1e4833dbd41a4396eb7d",
+      "tree": "af8639149fd691326f784443bdd870962ab6be79",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053",
+        "providers/delta.json": "01df6c25f6398732b2c9a708dbea7fb85d7e0357"
+      },
+      "visible": [
+        "entry/root.json",
+        "callers/start.json",
+        "providers/delta.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "expected": "exact",
+      "dirty_overlay": true,
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "semantic_root": "607de4a11f0f5f352828a4db28b5172b38fd770bfa1085d93f35ea10e504d0f4",
+          "delta": 11,
+          "results": [
+            8,
+            11,
+            15,
+            30
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "wrong_acceptance"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "607de4a11f0f5f352828a4db28b5172b38fd770bfa1085d93f35ea10e504d0f4",
+          "delta": 11,
+          "results": [
+            8,
+            11,
+            15,
+            30
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "wrong_acceptance"
+        },
+        "pinned_git": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "offline_partial_cold",
+      "format": "sha1",
+      "commit": "a8de82b6a9b9641ee17a1e4833dbd41a4396eb7d",
+      "tree": "af8639149fd691326f784443bdd870962ab6be79",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053",
+        "providers/delta.json": "01df6c25f6398732b2c9a708dbea7fb85d7e0357"
+      },
+      "visible": [],
+      "initial_availability": {
+        "entry/root.json": "promised_unavailable",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "promised_unavailable",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "expected": "unavailable",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "entry/root.json",
+          "reads": [],
+          "classification": "refused"
+        },
+        "path_cache": {
+          "status": "unavailable",
+          "blocked_path": "entry/root.json",
+          "reads": [],
+          "classification": "refused"
+        },
+        "pinned_git": {
+          "status": "unavailable",
+          "blocked_path": "entry/root.json",
+          "reads": [],
+          "classification": "refused"
+        },
+        "pinned_git_cache": {
+          "status": "unavailable",
+          "blocked_path": "entry/root.json",
+          "reads": [],
+          "classification": "refused"
+        }
+      }
+    },
+    {
+      "case": "offline_sparse_partial",
+      "format": "sha1",
+      "commit": "a8de82b6a9b9641ee17a1e4833dbd41a4396eb7d",
+      "tree": "af8639149fd691326f784443bdd870962ab6be79",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053",
+        "providers/delta.json": "01df6c25f6398732b2c9a708dbea7fb85d7e0357"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "expected": "unavailable",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "path_cache": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "pinned_git": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "pinned_git_cache": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        }
+      }
+    },
+    {
+      "case": "hydrate_exact_promised_blobs",
+      "format": "sha1",
+      "commit": "a8de82b6a9b9641ee17a1e4833dbd41a4396eb7d",
+      "tree": "af8639149fd691326f784443bdd870962ab6be79",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053",
+        "providers/delta.json": "01df6c25f6398732b2c9a708dbea7fb85d7e0357"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "expected": "exact",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "path_cache": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "pinned_git": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "offline_exact_cache",
+      "format": "sha1",
+      "commit": "a8de82b6a9b9641ee17a1e4833dbd41a4396eb7d",
+      "tree": "af8639149fd691326f784443bdd870962ab6be79",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053",
+        "providers/delta.json": "01df6c25f6398732b2c9a708dbea7fb85d7e0357"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "expected": "exact",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "path_cache"
+            ],
+            [
+              "providers/delta.json",
+              "path_cache"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "verified_object_cache"
+            ],
+            [
+              "providers/delta.json",
+              "verified_object_cache"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "offline_stale_path_cache",
+      "format": "sha1",
+      "commit": "a8de82b6a9b9641ee17a1e4833dbd41a4396eb7d",
+      "tree": "af8639149fd691326f784443bdd870962ab6be79",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053",
+        "providers/delta.json": "01df6c25f6398732b2c9a708dbea7fb85d7e0357"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "expected": "unavailable",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "607de4a11f0f5f352828a4db28b5172b38fd770bfa1085d93f35ea10e504d0f4",
+          "delta": 11,
+          "results": [
+            8,
+            11,
+            15,
+            30
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "path_cache"
+            ],
+            [
+              "providers/delta.json",
+              "path_cache"
+            ]
+          ],
+          "classification": "wrong_acceptance"
+        },
+        "pinned_git": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "pinned_git_cache": {
+          "status": "unavailable",
+          "blocked_path": "providers/delta.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "verified_object_cache"
+            ]
+          ],
+          "classification": "refused"
+        }
+      }
+    },
+    {
+      "case": "offline_corrupt_object_cache",
+      "format": "sha1",
+      "commit": "a8de82b6a9b9641ee17a1e4833dbd41a4396eb7d",
+      "tree": "af8639149fd691326f784443bdd870962ab6be79",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053",
+        "providers/delta.json": "01df6c25f6398732b2c9a708dbea7fb85d7e0357"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "expected": "corrupt",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "607de4a11f0f5f352828a4db28b5172b38fd770bfa1085d93f35ea10e504d0f4",
+          "delta": 11,
+          "results": [
+            8,
+            11,
+            15,
+            30
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "path_cache"
+            ],
+            [
+              "providers/delta.json",
+              "path_cache"
+            ]
+          ],
+          "classification": "wrong_acceptance"
+        },
+        "pinned_git": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "pinned_git_cache": {
+          "status": "corrupt",
+          "blocked_path": "providers/delta.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "verified_object_cache"
+            ]
+          ],
+          "classification": "refused"
+        }
+      }
+    },
+    {
+      "case": "committed_missing_provider",
+      "format": "sha1",
+      "commit": "8952d9bb1e0c743c05d3bafddb06371d0e5c4705",
+      "tree": "fe004fa56e252c3687d53e30a6bbdb588fbf9e7e",
+      "inventory": {
+        "callers/start.json": "d765a93bc9c198fe1e4b4e264085ee3aa43c03f2",
+        "entry/root.json": "99645a28e1d6816a915c34d129a6599109d80cf1",
+        "ordinary/notes.json": "7c5d0f072a66ea3bb7fe0331184f0facd0c1d053"
+      },
+      "visible": [
+        "entry/root.json",
+        "callers/start.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "absent"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "absent"
+      },
+      "expected": "invalid",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "providers/delta.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "path_cache"
+            ]
+          ],
+          "classification": "wrong_acceptance"
+        },
+        "pinned_git": {
+          "status": "invalid",
+          "blocked_path": "providers/delta.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "pinned_git_cache": {
+          "status": "invalid",
+          "blocked_path": "providers/delta.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        }
+      }
+    },
+    {
+      "case": "normal_full_clone",
+      "format": "sha256",
+      "commit": "5a1f50407eb385b71226580996c341f969e75ef662505de01b3e98852701b4b0",
+      "tree": "eea233c355866c727d7355e5d2c00ec0ac0bb91715331a10da1aecfab2053838",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6",
+        "providers/delta.json": "da010654979d5c83959ee6b9dfbb59a6bdab96c5e4292d3346ed7adf3a3c6c35"
+      },
+      "visible": [
+        "entry/root.json",
+        "callers/start.json",
+        "providers/delta.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "expected": "exact",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "sparse_checkout_with_full_objects",
+      "format": "sha256",
+      "commit": "5a1f50407eb385b71226580996c341f969e75ef662505de01b3e98852701b4b0",
+      "tree": "eea233c355866c727d7355e5d2c00ec0ac0bb91715331a10da1aecfab2053838",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6",
+        "providers/delta.json": "da010654979d5c83959ee6b9dfbb59a6bdab96c5e4292d3346ed7adf3a3c6c35"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "expected": "exact",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "path_cache": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "pinned_git": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "shallow_current_tree",
+      "format": "sha256",
+      "commit": "5a1f50407eb385b71226580996c341f969e75ef662505de01b3e98852701b4b0",
+      "tree": "eea233c355866c727d7355e5d2c00ec0ac0bb91715331a10da1aecfab2053838",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6",
+        "providers/delta.json": "da010654979d5c83959ee6b9dfbb59a6bdab96c5e4292d3346ed7adf3a3c6c35"
+      },
+      "visible": [
+        "entry/root.json",
+        "callers/start.json",
+        "providers/delta.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "expected": "exact",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "dirty_provider_overlay",
+      "format": "sha256",
+      "commit": "5a1f50407eb385b71226580996c341f969e75ef662505de01b3e98852701b4b0",
+      "tree": "eea233c355866c727d7355e5d2c00ec0ac0bb91715331a10da1aecfab2053838",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6",
+        "providers/delta.json": "da010654979d5c83959ee6b9dfbb59a6bdab96c5e4292d3346ed7adf3a3c6c35"
+      },
+      "visible": [
+        "entry/root.json",
+        "callers/start.json",
+        "providers/delta.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "expected": "exact",
+      "dirty_overlay": true,
+      "policies": {
+        "worktree": {
+          "status": "accepted",
+          "semantic_root": "607de4a11f0f5f352828a4db28b5172b38fd770bfa1085d93f35ea10e504d0f4",
+          "delta": 11,
+          "results": [
+            8,
+            11,
+            15,
+            30
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "wrong_acceptance"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "607de4a11f0f5f352828a4db28b5172b38fd770bfa1085d93f35ea10e504d0f4",
+          "delta": 11,
+          "results": [
+            8,
+            11,
+            15,
+            30
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "worktree"
+            ]
+          ],
+          "classification": "wrong_acceptance"
+        },
+        "pinned_git": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "offline_partial_cold",
+      "format": "sha256",
+      "commit": "5a1f50407eb385b71226580996c341f969e75ef662505de01b3e98852701b4b0",
+      "tree": "eea233c355866c727d7355e5d2c00ec0ac0bb91715331a10da1aecfab2053838",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6",
+        "providers/delta.json": "da010654979d5c83959ee6b9dfbb59a6bdab96c5e4292d3346ed7adf3a3c6c35"
+      },
+      "visible": [],
+      "initial_availability": {
+        "entry/root.json": "promised_unavailable",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "promised_unavailable",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "expected": "unavailable",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "entry/root.json",
+          "reads": [],
+          "classification": "refused"
+        },
+        "path_cache": {
+          "status": "unavailable",
+          "blocked_path": "entry/root.json",
+          "reads": [],
+          "classification": "refused"
+        },
+        "pinned_git": {
+          "status": "unavailable",
+          "blocked_path": "entry/root.json",
+          "reads": [],
+          "classification": "refused"
+        },
+        "pinned_git_cache": {
+          "status": "unavailable",
+          "blocked_path": "entry/root.json",
+          "reads": [],
+          "classification": "refused"
+        }
+      }
+    },
+    {
+      "case": "offline_sparse_partial",
+      "format": "sha256",
+      "commit": "5a1f50407eb385b71226580996c341f969e75ef662505de01b3e98852701b4b0",
+      "tree": "eea233c355866c727d7355e5d2c00ec0ac0bb91715331a10da1aecfab2053838",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6",
+        "providers/delta.json": "da010654979d5c83959ee6b9dfbb59a6bdab96c5e4292d3346ed7adf3a3c6c35"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "expected": "unavailable",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "path_cache": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "pinned_git": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "pinned_git_cache": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        }
+      }
+    },
+    {
+      "case": "hydrate_exact_promised_blobs",
+      "format": "sha256",
+      "commit": "5a1f50407eb385b71226580996c341f969e75ef662505de01b3e98852701b4b0",
+      "tree": "eea233c355866c727d7355e5d2c00ec0ac0bb91715331a10da1aecfab2053838",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6",
+        "providers/delta.json": "da010654979d5c83959ee6b9dfbb59a6bdab96c5e4292d3346ed7adf3a3c6c35"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "present"
+      },
+      "expected": "exact",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "path_cache": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "pinned_git": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ],
+            [
+              "providers/delta.json",
+              "git"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "offline_exact_cache",
+      "format": "sha256",
+      "commit": "5a1f50407eb385b71226580996c341f969e75ef662505de01b3e98852701b4b0",
+      "tree": "eea233c355866c727d7355e5d2c00ec0ac0bb91715331a10da1aecfab2053838",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6",
+        "providers/delta.json": "da010654979d5c83959ee6b9dfbb59a6bdab96c5e4292d3346ed7adf3a3c6c35"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "expected": "exact",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "path_cache"
+            ],
+            [
+              "providers/delta.json",
+              "path_cache"
+            ]
+          ],
+          "classification": "exact"
+        },
+        "pinned_git": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ]
+          ],
+          "classification": "available_refused"
+        },
+        "pinned_git_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "verified_object_cache"
+            ],
+            [
+              "providers/delta.json",
+              "verified_object_cache"
+            ]
+          ],
+          "classification": "exact"
+        }
+      }
+    },
+    {
+      "case": "offline_stale_path_cache",
+      "format": "sha256",
+      "commit": "5a1f50407eb385b71226580996c341f969e75ef662505de01b3e98852701b4b0",
+      "tree": "eea233c355866c727d7355e5d2c00ec0ac0bb91715331a10da1aecfab2053838",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6",
+        "providers/delta.json": "da010654979d5c83959ee6b9dfbb59a6bdab96c5e4292d3346ed7adf3a3c6c35"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "expected": "unavailable",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "607de4a11f0f5f352828a4db28b5172b38fd770bfa1085d93f35ea10e504d0f4",
+          "delta": 11,
+          "results": [
+            8,
+            11,
+            15,
+            30
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "path_cache"
+            ],
+            [
+              "providers/delta.json",
+              "path_cache"
+            ]
+          ],
+          "classification": "wrong_acceptance"
+        },
+        "pinned_git": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "pinned_git_cache": {
+          "status": "unavailable",
+          "blocked_path": "providers/delta.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "verified_object_cache"
+            ]
+          ],
+          "classification": "refused"
+        }
+      }
+    },
+    {
+      "case": "offline_corrupt_object_cache",
+      "format": "sha256",
+      "commit": "5a1f50407eb385b71226580996c341f969e75ef662505de01b3e98852701b4b0",
+      "tree": "eea233c355866c727d7355e5d2c00ec0ac0bb91715331a10da1aecfab2053838",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6",
+        "providers/delta.json": "da010654979d5c83959ee6b9dfbb59a6bdab96c5e4292d3346ed7adf3a3c6c35"
+      },
+      "visible": [
+        "entry/root.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "promised_unavailable",
+        "providers/delta.json": "promised_unavailable"
+      },
+      "expected": "corrupt",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "607de4a11f0f5f352828a4db28b5172b38fd770bfa1085d93f35ea10e504d0f4",
+          "delta": 11,
+          "results": [
+            8,
+            11,
+            15,
+            30
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "path_cache"
+            ],
+            [
+              "providers/delta.json",
+              "path_cache"
+            ]
+          ],
+          "classification": "wrong_acceptance"
+        },
+        "pinned_git": {
+          "status": "unavailable",
+          "blocked_path": "callers/start.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "pinned_git_cache": {
+          "status": "corrupt",
+          "blocked_path": "providers/delta.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "verified_object_cache"
+            ]
+          ],
+          "classification": "refused"
+        }
+      }
+    },
+    {
+      "case": "committed_missing_provider",
+      "format": "sha256",
+      "commit": "037ae2150a017d97c525cfcb215dcfd7b3558bd8b4aa2d652b62331fe5e5cbb6",
+      "tree": "6c6572b9fcfc5116c4bf10845481a0b6c38263e1696af22a070dc3ee4bdeda61",
+      "inventory": {
+        "callers/start.json": "661e113ab4521b49f48fa015022484caa42ed8a705d87686d4649a2b49f18a28",
+        "entry/root.json": "8c8faa040cc324f086b8573384eaa575427a65fd1ea25c6a3b28f7e00a0914cf",
+        "ordinary/notes.json": "47b3641fb00813e4cc480520bec3d14437584b189fb657ec52163571283c3ed6"
+      },
+      "visible": [
+        "entry/root.json",
+        "callers/start.json"
+      ],
+      "initial_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "absent"
+      },
+      "hydrated_availability": {
+        "entry/root.json": "present",
+        "callers/start.json": "present",
+        "providers/delta.json": "absent"
+      },
+      "expected": "invalid",
+      "dirty_overlay": false,
+      "policies": {
+        "worktree": {
+          "status": "unavailable",
+          "blocked_path": "providers/delta.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "path_cache": {
+          "status": "accepted",
+          "semantic_root": "103bace6528d56b4bb2070a31843443114bfbea6bd18cf56005039981765796b",
+          "delta": 17,
+          "results": [
+            14,
+            17,
+            21,
+            36
+          ],
+          "reads": [
+            [
+              "entry/root.json",
+              "worktree"
+            ],
+            [
+              "callers/start.json",
+              "worktree"
+            ],
+            [
+              "providers/delta.json",
+              "path_cache"
+            ]
+          ],
+          "classification": "wrong_acceptance"
+        },
+        "pinned_git": {
+          "status": "invalid",
+          "blocked_path": "providers/delta.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        },
+        "pinned_git_cache": {
+          "status": "invalid",
+          "blocked_path": "providers/delta.json",
+          "reads": [
+            [
+              "entry/root.json",
+              "git"
+            ],
+            [
+              "callers/start.json",
+              "git"
+            ]
+          ],
+          "classification": "refused"
+        }
+      }
+    }
+  ]
+}
