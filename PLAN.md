@@ -555,6 +555,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 **Estimated research complexity:** **8/10** — requires a precise executable semantics and correspondence with source programs.
 
 - [ ] Compare operational, denotational, and axiomatic semantics for the initial LLMLang core.
+  - [ ] [WIP] Compare existing operational evaluators, a finite denotation and a weakest-precondition semantics on a closed RT-03 fragment on `research/all`.
 - [ ] Define an executable reference semantics for a deliberately small subset.
 - [ ] Define observable behavior: return values, errors, state changes, I/O, resource behavior, concurrency, and declared effects.
 - [ ] Define semantic equivalence and refinement.
