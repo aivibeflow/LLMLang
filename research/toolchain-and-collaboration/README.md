@@ -59,6 +59,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-17 contract diagnostics and impact](RT-17/RT-17-CONTRACT-DIAGNOSTICS-AND-IMPACT-2026-11-25.md) checks exact receipt scope and explicit unavailable observations.
 - [RT-24 fork and registry handoff](RT-24/RT-24-FORK-AND-REGISTRY-HANDOFF-2026-11-25.md) checks exact fork origin, target, candidate, registry scope and ref publication.
 - [RT-24 signed audit chain](RT-24/RT-24-SIGNED-AUDIT-CHAIN-2026-11-25.md) checks separate authorship, validation, approval and publication records under an exact checkpoint.
 - [RT-24 reviewable change sets](RT-24/RT-24-REVIEWABLE-CHANGESET-2026-11-25.md) reconciles source projection, exact packets and dependency-closed review subjects.
