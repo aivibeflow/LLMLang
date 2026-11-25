@@ -720,7 +720,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Replay the exact checked-add formulas in Lean for O0 and O3, with 12 LRAT certificates and eight normalization proofs. Each LRAT theorem has one native reflection axiom; the offline route rejects a certificate for a different goal. General LLVM/source correspondence remains open. [Lean bit-vector replay](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-LEAN-2026-11-25.md)
 - [x] Prove the same checked-add claims with symbolic signed arithmetic and normalization in Lean. All 20 claims and three arithmetic lemmas use only standard axioms, and three false preservation claims are refused. This covers the exact fixture without changing the general LRAT assumption. [Symbolic checked-add proof](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-SYMBOLIC-2026-11-25.md)
 - [ ] Define differential and property-based testing against reference semantics.
-  - [ ] [WIP] Measure projection and generator mutation coverage for state/Result rewrites against the executable reference on `research/all`.
+  - [x] Compare six rewrite mutations across 77,376 finite observations. Final Result and cell hide all 240 overwritten-write mismatches in the exhaustive corpus. An event multiset hides 16 order mismatches, and success-only generation misses two error mutations. [State/Result mutation coverage](research/compiler-and-translation/RT-13/RT-13-STATE-RESULT-MUTATION-COVERAGE-2026-11-25.md)
 - [ ] Define when testing is sufficient evidence and when formal proof is required.
 
 **Prior art:** Lean, SMT solvers, TLAPS, Dafny, K Framework, Vellvm, Alive2.

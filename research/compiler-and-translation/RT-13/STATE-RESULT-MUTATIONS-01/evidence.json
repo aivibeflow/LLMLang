@@ -1,0 +1,1255 @@
+{
+  "schema": "llmlang-state-result-test-coverage/1",
+  "python": "3.12.14",
+  "seed": 17707,
+  "sources_sha256": {
+    "research/compiler-and-translation/RT-13/STATE-RESULT-MUTATIONS-01/run.py": "f45af8527943da8b57269c2020a77a41bd1c12ea11cd0f739acc1a91f3e027bc",
+    "research/formal-verification/RT-07/STATE-RESULT-REFERENCE-01/reference.py": "83d9e003fda21fba074c060ee3db0d9023fe519b231da31fd491425b2a2497b4",
+    "research/formal-verification/RT-07/THREE-SEMANTICS-01/run.py": "ff0036446f3cee77ef9db1c63a51a10ed0af88625b622fe0e2fbc0cb5367e5cd",
+    "research/PROTOTYPES/RT-04-01/rt03_reference.py": "9aa14d41f837c3c0bae137f6732b72ff9edb0b70a31f1f966639124be98ed8d8",
+    "research/PROTOTYPES/RT-04-01/rt03_smallstep.py": "79516cb51e8ec6f505ab8833646f42415eb1e5f46171aac399b41c6652ed7459"
+  },
+  "corpora": {
+    "bounded_exhaustive": {
+      "generated_programs": 4105,
+      "distinct_programs": 4105,
+      "source_initial_profiles": 8210,
+      "checked_mutant_observations": 49260,
+      "differences": {
+        "ignore_left_failure": {
+          "result": 514,
+          "cell": 152,
+          "result_and_cell": 524,
+          "event_multiset": 560,
+          "complete": 560
+        },
+        "short_circuit_strict": {
+          "result": 560,
+          "cell": 164,
+          "result_and_cell": 568,
+          "event_multiset": 584,
+          "complete": 584
+        },
+        "drop_overwritten_write": {
+          "result": 0,
+          "cell": 0,
+          "result_and_cell": 0,
+          "event_multiset": 240,
+          "complete": 240
+        },
+        "exchange_write_order": {
+          "result": 8,
+          "cell": 104,
+          "result_and_cell": 104,
+          "event_multiset": 104,
+          "complete": 120
+        },
+        "drop_read": {
+          "result": 1514,
+          "cell": 0,
+          "result_and_cell": 1514,
+          "event_multiset": 2562,
+          "complete": 2562
+        },
+        "run_skipped_branch": {
+          "result": 1778,
+          "cell": 1176,
+          "result_and_cell": 2438,
+          "event_multiset": 4734,
+          "complete": 4734
+        }
+      },
+      "first_complete_witnesses": {
+        "drop_read": {
+          "program": [
+            "read"
+          ],
+          "initial": 0,
+          "emitted": [
+            "skip"
+          ],
+          "expected": [
+            [
+              "ok",
+              0
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            []
+          ],
+          "different_projections": [
+            "result",
+            "result_and_cell",
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "ignore_left_failure": {
+          "program": [
+            "bind",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "strict",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          "expected": [
+            [
+              "error",
+              "planned"
+            ],
+            0,
+            []
+          ],
+          "actual": [
+            [
+              "ok",
+              0
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "result",
+            "result_and_cell",
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "run_skipped_branch": {
+          "program": [
+            "else",
+            [
+              "read"
+            ],
+            [
+              "fail"
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "strict",
+            [
+              "read"
+            ],
+            [
+              "fail"
+            ]
+          ],
+          "expected": [
+            [
+              "error",
+              "planned"
+            ],
+            0,
+            []
+          ],
+          "actual": [
+            [
+              "error",
+              "planned"
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "short_circuit_strict": {
+          "program": [
+            "strict",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "bind",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          "expected": [
+            [
+              "ok",
+              0
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "error",
+              "planned"
+            ],
+            0,
+            []
+          ],
+          "different_projections": [
+            "result",
+            "result_and_cell",
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "drop_overwritten_write": {
+          "program": [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "write",
+            0
+          ],
+          "expected": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "exchange_write_order": {
+          "program": [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "strict",
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          "expected": [
+            [
+              "ok",
+              null
+            ],
+            1,
+            [
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                1
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "cell",
+            "result_and_cell",
+            "event_multiset",
+            "complete"
+          ]
+        }
+      },
+      "first_order_only_witnesses": {
+        "exchange_write_order": {
+          "program": [
+            "bind",
+            [
+              "strict",
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                1
+              ]
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "bind",
+            [
+              "strict",
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          "expected": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "complete"
+          ]
+        }
+      },
+      "comparison_rows_sha256": "ba98ccfe4ff9b8e055c5c03a8a0f9351c56e6cedf3ce7f706d74a0f0adc127ad"
+    },
+    "seeded_general": {
+      "generated_programs": 2048,
+      "distinct_programs": 1181,
+      "source_initial_profiles": 2362,
+      "checked_mutant_observations": 14172,
+      "differences": {
+        "ignore_left_failure": {
+          "result": 311,
+          "cell": 146,
+          "result_and_cell": 335,
+          "event_multiset": 436,
+          "complete": 436
+        },
+        "short_circuit_strict": {
+          "result": 316,
+          "cell": 150,
+          "result_and_cell": 372,
+          "event_multiset": 456,
+          "complete": 456
+        },
+        "drop_overwritten_write": {
+          "result": 0,
+          "cell": 0,
+          "result_and_cell": 0,
+          "event_multiset": 120,
+          "complete": 120
+        },
+        "exchange_write_order": {
+          "result": 8,
+          "cell": 58,
+          "result_and_cell": 58,
+          "event_multiset": 58,
+          "complete": 78
+        },
+        "drop_read": {
+          "result": 358,
+          "cell": 0,
+          "result_and_cell": 358,
+          "event_multiset": 1018,
+          "complete": 1018
+        },
+        "run_skipped_branch": {
+          "result": 754,
+          "cell": 639,
+          "result_and_cell": 1070,
+          "event_multiset": 1966,
+          "complete": 1966
+        }
+      },
+      "first_complete_witnesses": {
+        "drop_read": {
+          "program": [
+            "read"
+          ],
+          "initial": 0,
+          "emitted": [
+            "skip"
+          ],
+          "expected": [
+            [
+              "ok",
+              0
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            []
+          ],
+          "different_projections": [
+            "result",
+            "result_and_cell",
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "ignore_left_failure": {
+          "program": [
+            "bind",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "strict",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          "expected": [
+            [
+              "error",
+              "planned"
+            ],
+            0,
+            []
+          ],
+          "actual": [
+            [
+              "ok",
+              0
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "result",
+            "result_and_cell",
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "run_skipped_branch": {
+          "program": [
+            "else",
+            [
+              "read"
+            ],
+            [
+              "fail"
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "strict",
+            [
+              "read"
+            ],
+            [
+              "fail"
+            ]
+          ],
+          "expected": [
+            [
+              "error",
+              "planned"
+            ],
+            0,
+            []
+          ],
+          "actual": [
+            [
+              "error",
+              "planned"
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "short_circuit_strict": {
+          "program": [
+            "strict",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "bind",
+            [
+              "fail"
+            ],
+            [
+              "read"
+            ]
+          ],
+          "expected": [
+            [
+              "ok",
+              0
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "error",
+              "planned"
+            ],
+            0,
+            []
+          ],
+          "different_projections": [
+            "result",
+            "result_and_cell",
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "drop_overwritten_write": {
+          "program": [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "write",
+            0
+          ],
+          "expected": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "exchange_write_order": {
+          "program": [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "strict",
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          "expected": [
+            [
+              "ok",
+              null
+            ],
+            1,
+            [
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                1
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "cell",
+            "result_and_cell",
+            "event_multiset",
+            "complete"
+          ]
+        }
+      },
+      "first_order_only_witnesses": {
+        "exchange_write_order": {
+          "program": [
+            "strict",
+            [
+              "read"
+            ],
+            [
+              "bind",
+              [
+                "strict",
+                [
+                  "write",
+                  0
+                ],
+                [
+                  "write",
+                  1
+                ]
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "strict",
+            [
+              "read"
+            ],
+            [
+              "bind",
+              [
+                "strict",
+                [
+                  "write",
+                  1
+                ],
+                [
+                  "write",
+                  0
+                ]
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "expected": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ],
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ],
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "complete"
+          ]
+        }
+      },
+      "comparison_rows_sha256": "4e2855db888029d120ad9d7a8e1af83135a7f281f05515ba2428f591762fa2a5"
+    },
+    "seeded_success_only": {
+      "generated_programs": 2048,
+      "distinct_programs": 1162,
+      "source_initial_profiles": 2324,
+      "checked_mutant_observations": 13944,
+      "differences": {
+        "ignore_left_failure": {
+          "result": 0,
+          "cell": 0,
+          "result_and_cell": 0,
+          "event_multiset": 0,
+          "complete": 0
+        },
+        "short_circuit_strict": {
+          "result": 0,
+          "cell": 0,
+          "result_and_cell": 0,
+          "event_multiset": 0,
+          "complete": 0
+        },
+        "drop_overwritten_write": {
+          "result": 0,
+          "cell": 0,
+          "result_and_cell": 0,
+          "event_multiset": 252,
+          "complete": 252
+        },
+        "exchange_write_order": {
+          "result": 8,
+          "cell": 54,
+          "result_and_cell": 54,
+          "event_multiset": 66,
+          "complete": 122
+        },
+        "drop_read": {
+          "result": 580,
+          "cell": 0,
+          "result_and_cell": 580,
+          "event_multiset": 1338,
+          "complete": 1338
+        },
+        "run_skipped_branch": {
+          "result": 539,
+          "cell": 622,
+          "result_and_cell": 879,
+          "event_multiset": 2070,
+          "complete": 2070
+        }
+      },
+      "first_complete_witnesses": {
+        "drop_read": {
+          "program": [
+            "read"
+          ],
+          "initial": 0,
+          "emitted": [
+            "skip"
+          ],
+          "expected": [
+            [
+              "ok",
+              0
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            []
+          ],
+          "different_projections": [
+            "result",
+            "result_and_cell",
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "run_skipped_branch": {
+          "program": [
+            "else",
+            [
+              "read"
+            ],
+            [
+              "read"
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "strict",
+            [
+              "read"
+            ],
+            [
+              "read"
+            ]
+          ],
+          "expected": [
+            [
+              "ok",
+              0
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              0
+            ],
+            0,
+            [
+              [
+                "read",
+                0
+              ],
+              [
+                "read",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "drop_overwritten_write": {
+          "program": [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "write",
+            0
+          ],
+          "expected": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "event_multiset",
+            "complete"
+          ]
+        },
+        "exchange_write_order": {
+          "program": [
+            "strict",
+            [
+              "write",
+              0
+            ],
+            [
+              "write",
+              1
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "strict",
+            [
+              "write",
+              1
+            ],
+            [
+              "write",
+              0
+            ]
+          ],
+          "expected": [
+            [
+              "ok",
+              null
+            ],
+            1,
+            [
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                1
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            0,
+            [
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ]
+          ],
+          "different_projections": [
+            "cell",
+            "result_and_cell",
+            "event_multiset",
+            "complete"
+          ]
+        }
+      },
+      "first_order_only_witnesses": {
+        "exchange_write_order": {
+          "program": [
+            "strict",
+            [
+              "strict",
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                1
+              ]
+            ],
+            [
+              "strict",
+              [
+                "skip"
+              ],
+              [
+                "write",
+                1
+              ]
+            ]
+          ],
+          "initial": 0,
+          "emitted": [
+            "strict",
+            [
+              "strict",
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ]
+            ],
+            [
+              "write",
+              1
+            ]
+          ],
+          "expected": [
+            [
+              "ok",
+              null
+            ],
+            1,
+            [
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                1
+              ]
+            ]
+          ],
+          "actual": [
+            [
+              "ok",
+              null
+            ],
+            1,
+            [
+              [
+                "write",
+                1
+              ],
+              [
+                "write",
+                0
+              ],
+              [
+                "write",
+                1
+              ]
+            ]
+          ],
+          "different_projections": [
+            "complete"
+          ]
+        }
+      },
+      "comparison_rows_sha256": "e03c556a54ab9c2272ec83efbcc154aaa1c3941db1cea92df8f2837f9dfd050c"
+    }
+  }
+}
