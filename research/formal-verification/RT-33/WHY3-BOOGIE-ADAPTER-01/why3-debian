@@ -1,0 +1,10 @@
+#!/bin/sh
+# Run the extracted CLI at the library paths compiled into this Debian build.
+set -eu
+bundle=${WHY3_BUNDLE:?set WHY3_BUNDLE to the package extraction directory}
+export PROOT_NO_SECCOMP=1
+export LD_LIBRARY_PATH="$bundle/proot/usr/lib/x86_64-linux-gnu"
+exec "$bundle/proot/usr/bin/proot" \
+  -b "$bundle/root/usr/lib/x86_64-linux-gnu/ocaml:/usr/lib/x86_64-linux-gnu/ocaml" \
+  -b "$bundle/root/usr/share/why3:/usr/share/why3" \
+  "$bundle/root/usr/bin/why3" "$@"
