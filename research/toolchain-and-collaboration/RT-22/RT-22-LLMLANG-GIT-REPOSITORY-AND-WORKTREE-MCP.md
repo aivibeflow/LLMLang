@@ -209,7 +209,7 @@ The single-server, shared-semantic-state, versioned-interface-mapping, and incre
 Study RT-22 together with:
 
 - [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — authoritative research for semantic diff/merge rules, conflict classes, Git driver/mergetool, and repository-level SPG validation.
-- [ADR-014](../../../docs/adr/014-git-semantic-merge.md) — proposed architecture for Git-visible source representation and semantic merge.
+- [ADR-014](../../../draft/adr/014-git-semantic-merge.md) — proposed architecture for Git-visible source representation and semantic merge.
 - [RT-20](../RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — caller impact, migration/preservation decisions, hash propagation, and verified completion gates.
 - [RT-23](../RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — single-server runtime, shared semantic state, per-worktree file views, and synchronized commit protocol.
 - [RT-19](../RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) — transport-neutral semantic API and snapshot/change-set lifecycle.

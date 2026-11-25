@@ -8,7 +8,7 @@
 
 ## Question
 
-Can generated Rust preserve the observations that distinguish transfer timing and caller recovery in COR-13? The experiment uses the proposed Rust output path and the two caller policies from Scenario 132. A mismatch in any recorded field fails the comparison. [ADR-016](../../../docs/adr/016-compiler-bootstrap.md) · [Typed caller recovery](../../language-design/RT-04/RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md)
+Can generated Rust preserve the observations that distinguish transfer timing and caller recovery in COR-13? The experiment uses the proposed Rust output path and the two caller policies from Scenario 132. A mismatch in any recorded field fails the comparison. [ADR-016](../../../draft/adr/016-compiler-bootstrap.md) · [Typed caller recovery](../../language-design/RT-04/RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md)
 
 ## Translation and observations
 
@@ -38,4 +38,4 @@ The runner requires Rust 1.85.1 and compiles the generated source with edition 2
 
 **Current-main recheck (2026-11-25):** The exact committed generator/runtime was re-run in native CI at checkout `d75fd5474950944a2a101bc419316603abb1fb78` with Rust 1.85.1 / LLVM 19.1.7 and Python 3.12.14. All 125,952 comparisons again matched, and all ten commands in the native suite passed. The runner OS/kernel differs from the full historical host profile; this fresh execution does not attest the original uncommitted state. See the [source-hash and environment ledger](../../research-management/RT-00/RT-00-C-SCENARIO-133-CURRENT-MAIN-REPLAY-2026-11-25.json) and [replay report](../../research-management/RT-00/RT-00-C-SCENARIO-133-CURRENT-MAIN-REPLAY-2026-11-25.md).
 
-The result establishes preservation for this fixture with an explicit carrier for obligations and explicit cleanup. Release dispositions and resource identities are supplied by the corpus. General lowering, live FFI and concurrency, other host targets, and the clean-machine bootstrap chain remain open. [Bootstrap acceptance criteria](../../../docs/adr/016-compiler-bootstrap.md#validation-required-before-acceptance)
+The result establishes preservation for this fixture with an explicit carrier for obligations and explicit cleanup. Release dispositions and resource identities are supplied by the corpus. General lowering, live FFI and concurrency, other host targets, and the clean-machine bootstrap chain remain open. [Bootstrap acceptance criteria](../../../draft/adr/016-compiler-bootstrap.md#validation-required-before-acceptance)

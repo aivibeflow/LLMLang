@@ -4,7 +4,7 @@
 **Date:** 2026-11-18  
 **Priority:** P0  
 **Depends on:** RT-03 (language semantics), Research Studies 05–08 (identity and occurrence alternatives), Semantic Dependency Index research, RT-19 (semantic API and snapshots), RT-20 (caller impact/hash propagation), RT-22 (repository/worktree contract), RT-23 (shared semantic state and synchronized commit). No standalone RT-05 specification currently exists in the repository.  
-**Related:** [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [ADR-014](../../../docs/adr/014-git-semantic-merge.md)
+**Related:** [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [ADR-014](../../../draft/adr/014-git-semantic-merge.md)
 
 > This document narrows the next research and implementation boundary. It defines a candidate contract and deterministic algorithm shape, while leaving the final SPG schema, canonical byte encoding, hash envelope, and complete language semantics to their owning research and decisions. It does not accept ADR-014.
 
@@ -364,7 +364,7 @@ Passing this gate permits a scoped prototype; it does not accept ADR-014 or prov
 ## References
 
 - [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
-- [ADR-014 — Git repository representation and semantic merge](../../../docs/adr/014-git-semantic-merge.md)
+- [ADR-014 — Git repository representation and semantic merge](../../../draft/adr/014-git-semantic-merge.md)
 - [RT-24 Identity and SPG Reconciliation](RT-24-IDENTITY-AND-SPG-RECONCILIATION.md)
 - [Study 05 — Name-Free Semantic Entities](../../semantic-representation/RT-05/RESEARCH-SCENARIO-05-NAME-FREE-SEMANTIC-CORE.md)
 - [Study 06 — Content-Addressed Entity Identity](../../semantic-representation/RT-05/RESEARCH-SCENARIO-06-CONTENT-ADDRESSED-ENTITY-IDENTITY.md)

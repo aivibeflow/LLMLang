@@ -225,7 +225,7 @@ Assessment uses the proposed Q1–Q5 vocabulary from the Scenario 0.2 study. Tha
 - Microsoft TypeScript Wiki, [Using the Language Service API](https://github.com/microsoft/TypeScript/wiki/using-the-language-service-api) and [Using the Compiler API](https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API).
 - Elm, [Error Message Catalog](https://github.com/elm/error-message-catalog).
 - Santos and Becker, [Not the Silver Bullet: LLM-enhanced Programming Error Messages are Ineffective in Practice](https://doi.org/10.1145/3689535.3689554), UKICER 2024; 106 novice participants, six C debugging tasks.
-- LLMLang [Scenario 87](../../language-design/RT-31/RESEARCH-SCENARIO-87-ASYNC-AWAIT-PARSER-DIAGNOSTIC-CORPUS.md), [RT-01 Reference Workloads](../../language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md), [ADR-015](../../../docs/adr/015-toolchain-server-semantic-api.md), and [Research Quality and Decision Rules](../../research-management/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md).
+- LLMLang [Scenario 87](../../language-design/RT-31/RESEARCH-SCENARIO-87-ASYNC-AWAIT-PARSER-DIAGNOSTIC-CORPUS.md), [RT-01 Reference Workloads](../../language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md), [ADR-015](../../../draft/adr/015-toolchain-server-semantic-api.md), and [Research Quality and Decision Rules](../../research-management/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md).
 
 ---
 

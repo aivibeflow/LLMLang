@@ -2,7 +2,7 @@
 
 - **Evidence** — Nine native Git replay paths over a closed, typed declaration inventory.
 - **LLMLang baseline** — `8c672288cbb7c9f34b59f7a5d347625683e2e40e`.
-- **Tracking** — [PLAN §4.5](../../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle) · [Proposed ADR-014](../../../docs/adr/014-git-semantic-merge.md).
+- **Tracking** — [PLAN §4.5](../../../PLAN.md#45-end-to-end-semantic-merge-and-synchronized-commit-lifecycle) · [Proposed ADR-014](../../../draft/adr/014-git-semantic-merge.md).
 
 ## Question
 

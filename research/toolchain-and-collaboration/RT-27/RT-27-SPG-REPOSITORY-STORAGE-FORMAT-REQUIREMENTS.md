@@ -3,7 +3,7 @@
 **Status:** Research requirements; no storage format or physical layout selected  
 **Date:** 2026-11-23  
 **Priority:** P0  
-**Related:** [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md), [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [ADR-017 — Default object format for agent interaction through MCP](../../../docs/adr/017-mcp-agent-object-format.md)
+**Related:** [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md), [Git Representation and Semantic Merge](../RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md), [ADR-017 — Default object format for agent interaction through MCP](../../../draft/adr/017-mcp-agent-object-format.md)
 
 > This document records the requirements and evaluation criteria for the canonical repository/on-disk representation of SPG. It is not an accepted format decision. ADR-017's JSON decision applies only to MCP-facing object exchange and does not constrain this storage format.
 
