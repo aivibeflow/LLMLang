@@ -177,6 +177,8 @@ The [nested-loop cost pilot](../formal-verification/RT-34/RT-34-NESTED-LOOP-COST
 
 [Unicode source binding](../semantic-representation/RT-05/RT-05-UNICODE-SOURCE-BINDING-2026-11-25.md) compares raw spelling, decoded names, normalization and resolved cells. The correct name rule still leaves the Rust capture obligation, where six observations per setting distinguish shared assignment from shadowing. Full source-profile resolution preserves every native vector while retaining exact literal data.
 
+[Bound-method observation completeness](../formal-verification/RT-32/RT-32-BOUND-METHOD-OBSERVATION-COMPLETENESS-2026-11-25.md) proves that six fixed probes determine the scoped receiver context and all its admitted traces. Five probes leave nine collisions in the native corpus, which the sixth distinguishes.
+
 [Mutable renaming kernel](../formal-verification/RT-32/RT-32-MUTABLE-RENAMING-KERNEL-2026-11-25.md) proves that reads, writes, reference equality and relinking preserve the ordered replies under a bijection of locations. Per-root copying can change observations by splitting one location into several.
 
 ### 5.2 Comparisons supported by the November 24 reproductions
