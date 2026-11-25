@@ -1,0 +1,100 @@
+{
+  "cases": {
+    "dependency_absent": {
+      "exact_closure": false,
+      "native": {
+        "load": "missing-dependency"
+      },
+      "source_oracle_matches": false,
+      "wrapper_only": true
+    },
+    "different_behavior": {
+      "exact_closure": false,
+      "native": {
+        "helper_digest": "79fefcdfa9779a882394106d0933988dc9f7eec2bc4b9b9b18602b509548175a",
+        "load": "resolved",
+        "outcomes_for_inputs_0_to_15": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ]
+      },
+      "source_oracle_matches": false,
+      "wrapper_only": true
+    },
+    "same_behavior_different_bytes": {
+      "exact_closure": false,
+      "native": {
+        "helper_digest": "db8771f8464b63a5cb9880704f2499c3bfdbf063315dc57f3a00164bd9923a6d",
+        "load": "resolved",
+        "outcomes_for_inputs_0_to_15": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "source_oracle_matches": true,
+      "wrapper_only": true
+    },
+    "selected": {
+      "exact_closure": true,
+      "native": {
+        "helper_digest": "ad31ea491b47e553b3b68f723afc706fea1ed1e0018e0b488de02662a1404f3a",
+        "load": "resolved",
+        "outcomes_for_inputs_0_to_15": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "source_oracle_matches": true,
+      "wrapper_only": true
+    }
+  },
+  "declared_dependency_sha256": "ad31ea491b47e553b3b68f723afc706fea1ed1e0018e0b488de02662a1404f3a",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "platform": "x86_64",
+  "python": "3.12.14",
+  "readelf": "GNU readelf (GNU Binutils for Debian) 2.44",
+  "required_dependency": "libllmlang_fixture_arithmetic.so",
+  "wrapper_sha256": "6f32a2b0c62362d3950a11e18949e19f10541efc803527a861070743c4371550"
+}
