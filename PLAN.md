@@ -404,8 +404,8 @@ Research the complete path from a user's request to an accepted, traceable busin
   - [x] Verify a bounded unit-conversion adapter under the exact provider assumption. Lean checks all natural inputs in the model and four counterexamples. The executable comparison agrees on all 65 directed inputs and distinguishes wrong scaling, wrapping and trace changes. General adapter admission and native correspondence remain open. [RT-04 checked unit adapter](research/language-design/RT-04/RT-04-VERIFIED-UNIT-ADAPTER-2026-11-25.md)
 - [x] Define what may be inferred automatically and what requires proof or explicit approval.
   - [x] Prove exact consequences of recorded inputs and projections. The direct rule and exhaustive provider enumeration agree across 49,152 claims. Existential choice falsely admits 29,696, and nine scoped controls keep proof and approval independent. [Contract inference boundary](research/language-design/RT-04/RT-04-CONTRACT-INFERENCE-BOUNDARY-2026-11-25.md)
-- [ ] Define evidence binding to exact semantic inputs, assumptions, target profile, and tool versions.
-  - [ ] [WIP] Check exact conformance receipts across native and WebAssembly provider profiles, toolchain settings and observable contract assumptions on `research/all`.
+- [x] Define evidence binding to exact semantic inputs, assumptions, target profile, and tool versions.
+  - [x] Bind native and WebAssembly receipts to exact sources, contract relation, assumption, target, artifact and toolchain. Across 128 observations, twelve scopes conform and four refute the marker-erasing provider. Only 12 of 192 reuse pairs admit, and all ten single-field changes refuse. [Cross-target conformance receipts](research/language-design/RT-04/RT-04-CROSS-TARGET-CONFORMANCE-RECEIPTS-2026-11-25.md)
 
 **Existing evidence:** global semantic artifact store research; operation identity and analogue-discovery questions LL-001–LL-003; requirement/contract work in scenarios 15–19.
 
