@@ -705,7 +705,7 @@ See also public-interface refinement and RT-03/04/06/09/10/12/18/19/23/24. The R
 | DEP-256 | RT-36 → RT-38 | Requires | Hardware, boot, HAL and compiler assumptions scope kernel proofs. A wrong shared-ASID switch passes QEMU's integrated IPC trace because the model flushes on a changed root. Linked instructions distinguish the omitted fence. [RV64 isolated IPC pilot](../runtime-and-systems/RT-38/RT-38-RV64-ISOLATED-IPC-PILOT-2026-11-24.md) | Scoped source, binary and emulator evidence |
 | DEP-257 | RT-07 → RT-37 | Requires | Functional and resource proof semantics must be checked. | Strong hypothesis |
 | DEP-258 | RT-08 → RT-37 | Requires | Independent reference and negative controls test profile feasibility. | Strong hypothesis |
-| DEP-259 | RT-07 → RT-38 | Requires | Compositional proof and global invariants govern kernel claims. | Strong hypothesis |
+| DEP-259 | RT-07 → RT-38 | Requires | Compositional proof and global invariants govern kernel claims. In the bounded lookup format, checked byte admission and evaluator equality supply the source-side premise for the original Isabelle correspondence. [Lookup source decoder](../runtime-and-systems/RT-38/RT-38-SEL4-LOOKUP-SOURCE-DECODER-2026-11-25.md) | Strong hypothesis with scoped checker evidence |
 | DEP-260 | RT-08 → RT-38 | Requires | Independent reference and negative controls test kernel claims. | Strong hypothesis |
 | DEP-261 | RT-32 → RT-37 | Influences | Typed evidence graph tracks hardware premise dependencies. | Strong hypothesis |
 | DEP-262 | RT-33 → RT-38 | Influences | Backend-neutral evidence composition scopes source and binary claims. | Strong hypothesis |
