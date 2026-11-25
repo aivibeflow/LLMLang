@@ -278,6 +278,7 @@ Research the complete path from a user's request to an accepted, traceable busin
   - [ ] [WIP] Prepare a fixed four-arm review protocol, masked packets and a scoring dry run for the RT-02 pilot on `research/all`.
 - [x] Keep intent correctness, formal-contract correctness, and implementation correctness as separate claims with separate evidence and acceptance gates.
 - [ ] Validate the workflow on representative requirement classes and risk levels; record limits before transferring any result into `draft/`.
+  - [ ] [WIP] Evaluate bounded intent-to-contract workflow coverage across distinct requirement classes and synthetic risk policies on `research/all`.
 
 **Status:** partially researched. Scenarios 15/17/18 supply the building blocks. The controlled order fixture adds bounded evidence for deterministic reconstruction and semantic-difference detection. Human-review effectiveness and broader requirement classes remain unvalidated. The linked research proposal includes a worked order-confirmation example and an experiment plan; it is not a normative architecture decision.
 
