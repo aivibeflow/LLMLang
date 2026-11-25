@@ -18,6 +18,18 @@ The project authority supplies the contract. A test may come from the project or
 
 The test treats sources within a permitted class set as alternatives. It admits a role when an authorized current value is present in a closed inventory and no other authorized current reply contradicts it. A purpose requiring a report from each source must declare each as a separate obligation. Two sources giving the same value do not produce two required-role credits. Duplicate exact replies leave the inventory identity unchanged.
 
+```mermaid
+flowchart LR
+    I[SQLite inventory at the requested snapshot] --> S{Exact finalization seal?}
+    S -->|No| U[Unsealed]
+    S -->|Yes| C{Every role present and unconflicted?}
+    R[Purpose-specific roles and source authority] --> C
+    C -->|Yes| A[Complete]
+    C -->|No| B[Incomplete with role dispositions]
+```
+
+The seal check and source checks combine for completion, while the verifier records the role dispositions separately for diagnostics.
+
 ## Observations
 
 CPython 3.12.14 and SQLite 3.53.1 exercised 144 scenarios in 2,648 distinct insertion orders, using exact role dispositions as the expected outcomes. The same inventory had the same digest and decision under each ordering. Forty-eight orders returned complete, 1,276 returned incomplete, and 1,324 returned unsealed. A role-presence check returned 2,600 false completions, including explicit absence accompanied by a derived suggestion and a report for an earlier revision.

@@ -6,6 +6,18 @@ For a declared purpose, Knowledge Context records the required source roles and 
 
 The model uses two synthetic revisions, two purposes, and two roles. Call validation requires contract precondition and error plus test assertion and edge case. Recovery audit requires contract error and effects plus test edge case and settlement. The same object can therefore supply different minimum views. A projection grant permits the approved field tuple, and a full grant also permits the original. The selection policy reports completeness only when every required role is satisfied.
 
+```mermaid
+flowchart LR
+    R[Required roles and fields] --> V[Verify current source and authorization]
+    E[Evidence candidate] --> V
+    V -->|Exact object and full grant| M[Required role satisfied]
+    V -->|Checked complete projection| M
+    V -->|Bound summary or ranked candidate| O[Supporting information]
+    V -->|Invalid binding or evidence| F[Refuse]
+```
+
+The form-specific checks run after the shared source and authorization checks. A task counts only the required-role outcomes toward purpose completeness.
+
 ## Observations
 
 The executable model compared four forms under nine mutations or controls and three grant levels. All 864 classifications matched a separate expected-outcome table.

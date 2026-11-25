@@ -14,6 +14,22 @@ A Knowledge Context manifest binds a declared purpose, recipient, authority revi
 
 Snapshot/supporting-evidence changes and evidence approval changes invalidate the manifest. Some leave the rendered bytes identical. A prefix change can alter the prompt without changing the manifest. A build dependency can change while the displayed object and optional explanation stay the same. A build-only tool or option change does not change the manifest or prompt. In this study the build action consumes the dependency closure and explicit build inputs. An action that consumes a prompt or context manifest needs the identity of its actual inputs in its action contract.
 
+```mermaid
+flowchart LR
+    O[Semantic object] --> D[Dependency digest]
+    O --> C[Knowledge Context key]
+    D --> C
+    K[Purpose, provenance, scope and selection] --> C
+    O --> P[Exact prompt digest]
+    S[Selected supporting text] --> C
+    S --> P
+    F[Renderer prefix] --> P
+    D --> A[Build Action Key]
+    B[Compiler, options and execution grant] --> A
+```
+
+The arrows show inputs to the fixture's five keys. The live disclosure and execution gates apply when the consumer attempts reuse.
+
 ## Observations
 
 The checker compares 8,192 combinations of 13 single-field transitions to a separate expected invalidation table. It repeats the reuse decisions under all four read/build authority combinations, for 32,768 combined states. Every key comparison and authorization decision matched. Substituting prompt equality for manifest equality would incorrectly reuse the manifest in 1,016 combinations. Substituting manifest equality for prompt equality would reuse stale rendered bytes in eight. Substituting dependency closure equality for Action Key equality would incorrectly reuse a build in 1,792 combinations. Matching keys with revoked read or execution authority were refused by the corresponding gate.
