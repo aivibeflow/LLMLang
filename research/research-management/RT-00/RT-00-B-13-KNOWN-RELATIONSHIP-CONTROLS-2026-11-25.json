@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "study": "RT-00 B13 known relationship controls recheck",
+  "baseline": "983b2e0e6ee25f53de40ad0a3b5035d584ae3799",
+  "baseline_ref": "origin/main",
+  "source": "RT-00 B12 text-overlap screen known_relationship_controls",
+  "result": "4/4 known missed controls rechecked; corpus-wide semantic review remains open",
+  "controls": [
+    {
+      "paths": [
+        "research/formal-verification/RT-07/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md",
+        "research/formal-verification/RT-07/RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md"
+      ],
+      "blobs": [
+        "d9ed864000747071b81390972d4824683184cc63",
+        "b2ddc72dfedb36c2519a0344b0c720b0e3c9feae"
+      ],
+      "relationship": "section-level supersession from text-oriented query representation to canonical typed query IR",
+      "preserved_scope": "Scenario 31 profile and prior-art observations; Scenario 32 typed IR and limits",
+      "superseded_scope": "Scenario 32 parser-state bridge sketch, replaced by compiled prototype"
+    },
+    {
+      "paths": [
+        "research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md",
+        "research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md"
+      ],
+      "blobs": [
+        "a079f82f102da12695d63bae80460885484e6227",
+        "f5961f5e42cee1f927467672071159a767571a83"
+      ],
+      "relationship": "partial supersession of current architecture guidance and embedded proposal",
+      "preserved_scope": "historical rationale and alternatives in broad report",
+      "superseded_scope": "stale current guidance and embedded proposal; consult focused report and accepted ADRs"
+    },
+    {
+      "paths": [
+        "research/language-design/RT-01/RESEARCH-RELATED-PROJECTS.md",
+        "research/language-design/RT-01/RESEARCH-DEEP-COMPARISON.md"
+      ],
+      "blobs": [
+        "534108da6ad042ce3466be72f2507307f030b1ac",
+        "7194d2435ece2fb8cb3a3891d898dc142f37370e"
+      ],
+      "relationship": "scoped supersession for overlapping claims on four deeply reviewed projects",
+      "preserved_scope": "initial broad scan's wider project coverage"
+    },
+    {
+      "paths": [
+        "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md",
+        "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.ru.md"
+      ],
+      "blobs": [
+        "0deb6541cb0704681747b151d7415ac4cf0b2c0b",
+        "58a8bd7716130a86ddce7f1a91e3eb2c341248ae"
+      ],
+      "relationship": "maintained language companions with reciprocal navigation",
+      "translation_parity": "unverified",
+      "known_scope_difference": "Russian companion lacks later English section 18A.9"
+    }
+  ],
+  "exact_blob_scan": {
+    "research_paths": 1722,
+    "unique_blobs": 1711,
+    "repeated_blob_groups": 6,
+    "markdown_mdx_paths": 612,
+    "unique_markdown_mdx_blobs": 612,
+    "interpretation": "Five groups are repeated lockfiles, solver output, or query-scoped fixtures; one is the shared OCI/REAPI Apache-2.0 license. Exact identity does not determine semantic duplication."
+  },
+  "open_dependencies": [
+    "Corpus-wide content-level semantic pair and changed-family review",
+    "Claim/paragraph lineage and cross-cutting contradiction reconciliation",
+    "Semantic orphan adjudication beyond bounded B8 cases",
+    "Scenario 16 author or archival evidence",
+    "Language-aware translation parity review"
+  ]
+}
