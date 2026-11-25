@@ -1,0 +1,75 @@
+{
+  "schema": "llmlang-source-cleanup-kernel/1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "python": "3.12.14",
+  "native_evidence_sha256": "0a93aefcbdd66f67cc2e9bbeedd7b1160764dc108a223d8a9f7d04624c2b2bac",
+  "runner_sha256": "a10c91274a0657e670bf1aeb74074c616a06cb31440c506de82232c6e5d14900",
+  "model_sha256": "bf08ed5140ac781eeb2c2544dd97c982ea2a826ffd8ecde90ae7c466196524f8",
+  "generated_lean_sha256": "3930caf1e70537c3ddc85750ba44d2f66b78218a653f93338249a104024ae4d4",
+  "native_observations": 128,
+  "source_agreement": 8,
+  "resource_completion": 8,
+  "mutation_inequalities": 4,
+  "theorems": {
+    "sourceAgreement0": [
+      "propext"
+    ],
+    "resourceCompletion0": [
+      "propext"
+    ],
+    "sourceAgreement1": [
+      "propext"
+    ],
+    "resourceCompletion1": [
+      "propext"
+    ],
+    "sourceAgreement2": [
+      "propext"
+    ],
+    "resourceCompletion2": [
+      "propext"
+    ],
+    "sourceAgreement3": [
+      "propext"
+    ],
+    "resourceCompletion3": [
+      "propext"
+    ],
+    "sourceAgreement4": [
+      "propext"
+    ],
+    "resourceCompletion4": [
+      "propext"
+    ],
+    "sourceAgreement5": [
+      "propext"
+    ],
+    "resourceCompletion5": [
+      "propext"
+    ],
+    "sourceAgreement6": [
+      "propext"
+    ],
+    "resourceCompletion6": [
+      "propext"
+    ],
+    "sourceAgreement7": [
+      "propext"
+    ],
+    "resourceCompletion7": [
+      "propext"
+    ],
+    "reject_eagerEvaluation": [
+      "propext"
+    ],
+    "reject_returnBypassesCleanup": [
+      "propext"
+    ],
+    "reject_sourceSpanChanged": [
+      "propext"
+    ],
+    "reject_missingEntry": [
+      "propext"
+    ]
+  }
+}
