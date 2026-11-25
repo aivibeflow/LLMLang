@@ -31,6 +31,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-07 proof validity and adequacy](RT-07/RT-07-PROOF-VALIDITY-AND-ADEQUACY-2026-11-25.md) — proves the transfer condition for recorded intent and checks feasibility and coverage controls.
 - [RT-07 per-claim Lean trust](RT-07/RT-07-PER-CLAIM-LEAN-TRUST-2026-11-25.md) — checks exact theorem types, transitive assumptions and native evaluation trust.
 - [RT-07 incremental solver evidence](RT-07/RT-07-INCREMENTAL-SOLVER-EVIDENCE-2026-11-25.md) — binds validated models and independent Lean refutations to active assertion and assumption scopes.
+- [RT-07 solver session recovery](RT-07/RT-07-SOLVER-SESSION-RECOVERY-2026-11-25.md) — compares typed admission, unresolved context and fresh replay after bad incremental commands.
 - [CONTRACT-FORMALIZATION-CORPUS](CONTRACT-FORMALIZATION-CORPUS/)
 - [PROOF-OBLIGATION-BENCHMARK](PROOF-OBLIGATION-BENCHMARK/)
 

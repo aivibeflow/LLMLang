@@ -1,0 +1,1229 @@
+{
+  "schema": "llmlang-solver-session-recovery/1",
+  "python": "3.12.14",
+  "runner_sha256": "b55f06f6b0cb062396097de88958b274c44b907b3fa0bbf1f0370f3e80aa3114",
+  "solvers": {
+    "cvc5": {
+      "version": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+      "counts": {
+        "completed_cases": 9,
+        "quarantined": 7,
+        "faults_without_solver_diagnostic": 0,
+        "blind_answers_after_fault": 1,
+        "wrong_blind_answers_against_approved_repair": 0,
+        "fresh_repaired_contexts": 6
+      },
+      "cases": [
+        {
+          "case": "valid_sat",
+          "typed_request_matches": true,
+          "solver_reported_command_issue": false,
+          "quarantined": false,
+          "completed_prefix": "sat",
+          "blind_tail": "sat",
+          "after_fail_closed": "sat",
+          "fresh_tail": "sat",
+          "original": {
+            "exit": 0,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "frame-complete"
+              ],
+              "tail": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_prefix\"",
+              "sat",
+              "\"end_prefix\"",
+              "\"begin_mutation\"",
+              "\"end_mutation\"",
+              "\"begin_tail\"",
+              "sat",
+              "\"end_tail\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "4f2817b539a923bb9a5f4919b28d3d3fcc445c9eaee89412db41205a9bef7f25"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_fresh\"",
+              "sat",
+              "\"end_fresh\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "dcb78c452fbf621c6c7e289ab67d77592457e4384e6c33604d26b58cf87406d5"
+          }
+        },
+        {
+          "case": "valid_unsat",
+          "typed_request_matches": true,
+          "solver_reported_command_issue": false,
+          "quarantined": false,
+          "completed_prefix": "sat",
+          "blind_tail": "unsat",
+          "after_fail_closed": "unsat",
+          "fresh_tail": "unsat",
+          "original": {
+            "exit": 0,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "frame-complete"
+              ],
+              "tail": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_prefix\"",
+              "sat",
+              "\"end_prefix\"",
+              "\"begin_mutation\"",
+              "\"end_mutation\"",
+              "\"begin_tail\"",
+              "unsat",
+              "\"end_tail\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "b24438137c906ab51c1295af111f3b4f357495840224b1c85e8b139075ef503b"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_fresh\"",
+              "unsat",
+              "\"end_fresh\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "779538d409963e28a7138edcda864dac84fa92bb86e7fa747eba57927a926ae4"
+          }
+        },
+        {
+          "case": "boolean_equality_extension",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": null,
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "unsat",
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"Parse Error: <stdin>:10.18: Subexpressions must have the same type:",
+                "Equation: (= x true)",
+                "Type 1: Int",
+                "Type 2: Bool",
+                "\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_prefix\"",
+              "sat",
+              "\"end_prefix\"",
+              "\"begin_mutation\"",
+              "(error \"Parse Error: <stdin>:10.18: Subexpressions must have the same type:",
+              "Equation: (= x true)",
+              "Type 1: Int",
+              "Type 2: Bool",
+              "\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "d2582d7fe437c97f3da82a1a89270f1e3e175e25f70651211c8d8823f6a4f4dd"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_fresh\"",
+              "unsat",
+              "\"end_fresh\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "779538d409963e28a7138edcda864dac84fa92bb86e7fa747eba57927a926ae4"
+          }
+        },
+        {
+          "case": "ill_typed_assertion",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": null,
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "unsat",
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"Parse Error: <stdin>:10.23: Subexpressions must have the same type:",
+                "Equation: (= x \"invalid\")",
+                "Type 1: Int",
+                "Type 2: String",
+                "\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_prefix\"",
+              "sat",
+              "\"end_prefix\"",
+              "\"begin_mutation\"",
+              "(error \"Parse Error: <stdin>:10.23: Subexpressions must have the same type:",
+              "Equation: (= x \"invalid\")",
+              "Type 1: Int",
+              "Type 2: String",
+              "\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "a00468dae509c5d9fa503109ae94d4e050705ff1a4d88d2d14a1ed17d2a9fcce"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_fresh\"",
+              "unsat",
+              "\"end_fresh\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "779538d409963e28a7138edcda864dac84fa92bb86e7fa747eba57927a926ae4"
+          }
+        },
+        {
+          "case": "unresolved_symbol",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": null,
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "unsat",
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"Parse Error: <stdin>:10.12: Symbol 'undeclared' not declared as a variable\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_prefix\"",
+              "sat",
+              "\"end_prefix\"",
+              "\"begin_mutation\"",
+              "(error \"Parse Error: <stdin>:10.12: Symbol 'undeclared' not declared as a variable\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "e1601c4d6390ff0a90cd06dfa9262690eda60bac8d75537062f0c5dd11dfdd3a"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_fresh\"",
+              "unsat",
+              "\"end_fresh\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "c3e1a78ca8478f242ced2bc17de2f005851347778eba8c4a9f0888e5fb2154a1"
+          }
+        },
+        {
+          "case": "unsupported_command",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": null,
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "unsat",
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"Parse Error: <stdin>:10.2: Expected SMT-LIBv2 command, got `llmlang-unknown-command` (SYMBOL).\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_prefix\"",
+              "sat",
+              "\"end_prefix\"",
+              "\"begin_mutation\"",
+              "(error \"Parse Error: <stdin>:10.2: Expected SMT-LIBv2 command, got `llmlang-unknown-command` (SYMBOL).\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "821d9965e5676f3b7c16681e983d783d3165d07165b59bcdebc879f42f7199b2"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_fresh\"",
+              "unsat",
+              "\"end_fresh\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "779538d409963e28a7138edcda864dac84fa92bb86e7fa747eba57927a926ae4"
+          }
+        },
+        {
+          "case": "scope_underflow",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": null,
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "sat",
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"cannot pop beyond first pushed context\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_prefix\"",
+              "sat",
+              "\"end_prefix\"",
+              "\"begin_mutation\"",
+              "(error \"cannot pop beyond first pushed context\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "a5a6f4b3911df00fd862a481addac794965cc679110c80ab062b18c2ed6238ff"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_fresh\"",
+              "sat",
+              "\"end_fresh\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "1e3c134073714992afdcc66c5c8667c9c1827b4dcf59cb4da4ee624cd8520a43"
+          }
+        },
+        {
+          "case": "model_after_unsat",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "unsat",
+          "blind_tail": "sat",
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "sat",
+          "original": {
+            "exit": 0,
+            "frames": {
+              "prefix": [
+                "unsat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"cannot get value unless after a SAT or UNKNOWN response.\")",
+                "frame-complete"
+              ],
+              "tail": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_prefix\"",
+              "unsat",
+              "\"end_prefix\"",
+              "\"begin_mutation\"",
+              "(error \"cannot get value unless after a SAT or UNKNOWN response.\")",
+              "\"end_mutation\"",
+              "\"begin_tail\"",
+              "sat",
+              "\"end_tail\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "c31027d9f24455482dc82279ee2f6f11c0ab338b45d7c8f352291b96af39c928"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "\"begin_fresh\"",
+              "sat",
+              "\"end_fresh\""
+            ],
+            "stderr": [],
+            "smt_input_sha256": "35620d5555dc11c977f7aafc61164b5e8ffd0afe2b2a813e4e45d0bd57055dc3"
+          }
+        },
+        {
+          "case": "no_approved_repair",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": null,
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": null,
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"Parse Error: <stdin>:10.12: Symbol 'absent' not declared as a variable\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_prefix\"",
+              "sat",
+              "\"end_prefix\"",
+              "\"begin_mutation\"",
+              "(error \"Parse Error: <stdin>:10.12: Symbol 'absent' not declared as a variable\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "39177159256b821b34faf19c2bb601ed96c5c733c5c786655410760cf88bdddb"
+          },
+          "fresh": null
+        }
+      ],
+      "boolean_integer_equality_controls": {
+        "false": [
+          {
+            "x": 0,
+            "answer": null,
+            "exit": 1,
+            "frames": {
+              "extension": [
+                "(error \"Parse Error: <stdin>:8.19: Subexpressions must have the same type:",
+                "Equation: (= x false)",
+                "Type 1: Int",
+                "Type 2: Bool",
+                "\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_extension\"",
+              "(error \"Parse Error: <stdin>:8.19: Subexpressions must have the same type:",
+              "Equation: (= x false)",
+              "Type 1: Int",
+              "Type 2: Bool",
+              "\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "d9d2d72fea569590a43f5408e9522ad6cc121ce2993226af3ec9adea557d3387"
+          },
+          {
+            "x": 1,
+            "answer": null,
+            "exit": 1,
+            "frames": {
+              "extension": [
+                "(error \"Parse Error: <stdin>:8.19: Subexpressions must have the same type:",
+                "Equation: (= x false)",
+                "Type 1: Int",
+                "Type 2: Bool",
+                "\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_extension\"",
+              "(error \"Parse Error: <stdin>:8.19: Subexpressions must have the same type:",
+              "Equation: (= x false)",
+              "Type 1: Int",
+              "Type 2: Bool",
+              "\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "e51ac6ef17b83a6c7c6818bf2614726536ba331ad971cb4723be5059bf79b391"
+          },
+          {
+            "x": 2,
+            "answer": null,
+            "exit": 1,
+            "frames": {
+              "extension": [
+                "(error \"Parse Error: <stdin>:8.19: Subexpressions must have the same type:",
+                "Equation: (= x false)",
+                "Type 1: Int",
+                "Type 2: Bool",
+                "\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_extension\"",
+              "(error \"Parse Error: <stdin>:8.19: Subexpressions must have the same type:",
+              "Equation: (= x false)",
+              "Type 1: Int",
+              "Type 2: Bool",
+              "\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "4485f1a684720dc3e6417cd9a55906dcbcb34e60e15a461a208b6e005d63085b"
+          }
+        ],
+        "true": [
+          {
+            "x": 0,
+            "answer": null,
+            "exit": 1,
+            "frames": {
+              "extension": [
+                "(error \"Parse Error: <stdin>:8.18: Subexpressions must have the same type:",
+                "Equation: (= x true)",
+                "Type 1: Int",
+                "Type 2: Bool",
+                "\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_extension\"",
+              "(error \"Parse Error: <stdin>:8.18: Subexpressions must have the same type:",
+              "Equation: (= x true)",
+              "Type 1: Int",
+              "Type 2: Bool",
+              "\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "887626be3001ecbcf8a5a639eb3e9dc7eb4d22edad68d7a4a03af50c78455c3b"
+          },
+          {
+            "x": 1,
+            "answer": null,
+            "exit": 1,
+            "frames": {
+              "extension": [
+                "(error \"Parse Error: <stdin>:8.18: Subexpressions must have the same type:",
+                "Equation: (= x true)",
+                "Type 1: Int",
+                "Type 2: Bool",
+                "\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_extension\"",
+              "(error \"Parse Error: <stdin>:8.18: Subexpressions must have the same type:",
+              "Equation: (= x true)",
+              "Type 1: Int",
+              "Type 2: Bool",
+              "\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "6f9779aa2de8b1cd671be550c614008fa8d027d8e9188110b61477ff00ad39e4"
+          },
+          {
+            "x": 2,
+            "answer": null,
+            "exit": 1,
+            "frames": {
+              "extension": [
+                "(error \"Parse Error: <stdin>:8.18: Subexpressions must have the same type:",
+                "Equation: (= x true)",
+                "Type 1: Int",
+                "Type 2: Bool",
+                "\")"
+              ]
+            },
+            "stdout": [
+              "\"begin_extension\"",
+              "(error \"Parse Error: <stdin>:8.18: Subexpressions must have the same type:",
+              "Equation: (= x true)",
+              "Type 1: Int",
+              "Type 2: Bool",
+              "\")"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "49f48d5edd53ff66d8ad673fbff08e449ca10a056289ccb92bee837c7722284a"
+          }
+        ]
+      }
+    },
+    "z3": {
+      "version": "Z3 version 4.13.3 - 64 bit",
+      "counts": {
+        "completed_cases": 9,
+        "quarantined": 7,
+        "faults_without_solver_diagnostic": 1,
+        "blind_answers_after_fault": 7,
+        "wrong_blind_answers_against_approved_repair": 4,
+        "fresh_repaired_contexts": 6
+      },
+      "cases": [
+        {
+          "case": "valid_sat",
+          "typed_request_matches": true,
+          "solver_reported_command_issue": false,
+          "quarantined": false,
+          "completed_prefix": "sat",
+          "blind_tail": "sat",
+          "after_fail_closed": "sat",
+          "fresh_tail": "sat",
+          "original": {
+            "exit": 0,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "frame-complete"
+              ],
+              "tail": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_prefix",
+              "sat",
+              "end_prefix",
+              "begin_mutation",
+              "end_mutation",
+              "begin_tail",
+              "sat",
+              "end_tail"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "4f2817b539a923bb9a5f4919b28d3d3fcc445c9eaee89412db41205a9bef7f25"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_fresh",
+              "sat",
+              "end_fresh"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "dcb78c452fbf621c6c7e289ab67d77592457e4384e6c33604d26b58cf87406d5"
+          }
+        },
+        {
+          "case": "valid_unsat",
+          "typed_request_matches": true,
+          "solver_reported_command_issue": false,
+          "quarantined": false,
+          "completed_prefix": "sat",
+          "blind_tail": "unsat",
+          "after_fail_closed": "unsat",
+          "fresh_tail": "unsat",
+          "original": {
+            "exit": 0,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "frame-complete"
+              ],
+              "tail": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_prefix",
+              "sat",
+              "end_prefix",
+              "begin_mutation",
+              "end_mutation",
+              "begin_tail",
+              "unsat",
+              "end_tail"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "b24438137c906ab51c1295af111f3b4f357495840224b1c85e8b139075ef503b"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_fresh",
+              "unsat",
+              "end_fresh"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "779538d409963e28a7138edcda864dac84fa92bb86e7fa747eba57927a926ae4"
+          }
+        },
+        {
+          "case": "boolean_equality_extension",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": false,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": "unsat",
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "unsat",
+          "original": {
+            "exit": 0,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "frame-complete"
+              ],
+              "tail": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_prefix",
+              "sat",
+              "end_prefix",
+              "begin_mutation",
+              "end_mutation",
+              "begin_tail",
+              "unsat",
+              "end_tail"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "d2582d7fe437c97f3da82a1a89270f1e3e175e25f70651211c8d8823f6a4f4dd"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_fresh",
+              "unsat",
+              "end_fresh"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "779538d409963e28a7138edcda864dac84fa92bb86e7fa747eba57927a926ae4"
+          }
+        },
+        {
+          "case": "ill_typed_assertion",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": "sat",
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "unsat",
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"line 10 column 22: Sorts Int and String are incompatible\")",
+                "frame-complete"
+              ],
+              "tail": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_prefix",
+              "sat",
+              "end_prefix",
+              "begin_mutation",
+              "(error \"line 10 column 22: Sorts Int and String are incompatible\")",
+              "end_mutation",
+              "begin_tail",
+              "sat",
+              "end_tail"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "a00468dae509c5d9fa503109ae94d4e050705ff1a4d88d2d14a1ed17d2a9fcce"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_fresh",
+              "unsat",
+              "end_fresh"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "779538d409963e28a7138edcda864dac84fa92bb86e7fa747eba57927a926ae4"
+          }
+        },
+        {
+          "case": "unresolved_symbol",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": "sat",
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "unsat",
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"line 10 column 11: unknown constant undeclared\")",
+                "frame-complete"
+              ],
+              "tail": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_prefix",
+              "sat",
+              "end_prefix",
+              "begin_mutation",
+              "(error \"line 10 column 11: unknown constant undeclared\")",
+              "end_mutation",
+              "begin_tail",
+              "sat",
+              "end_tail"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "e1601c4d6390ff0a90cd06dfa9262690eda60bac8d75537062f0c5dd11dfdd3a"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_fresh",
+              "unsat",
+              "end_fresh"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "c3e1a78ca8478f242ced2bc17de2f005851347778eba8c4a9f0888e5fb2154a1"
+          }
+        },
+        {
+          "case": "unsupported_command",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": "sat",
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "unsat",
+          "original": {
+            "exit": 0,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "unsupported",
+                "frame-complete"
+              ],
+              "tail": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_prefix",
+              "sat",
+              "end_prefix",
+              "begin_mutation",
+              "unsupported",
+              "end_mutation",
+              "begin_tail",
+              "sat",
+              "end_tail"
+            ],
+            "stderr": [
+              "; llmlang-unknown-command line: 10 position: 24"
+            ],
+            "smt_input_sha256": "821d9965e5676f3b7c16681e983d783d3165d07165b59bcdebc879f42f7199b2"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_fresh",
+              "unsat",
+              "end_fresh"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "779538d409963e28a7138edcda864dac84fa92bb86e7fa747eba57927a926ae4"
+          }
+        },
+        {
+          "case": "scope_underflow",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": "unsat",
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "sat",
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"line 12 column 6: invalid pop command, argument is greater than the current stack depth\")",
+                "frame-complete"
+              ],
+              "tail": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_prefix",
+              "sat",
+              "end_prefix",
+              "begin_mutation",
+              "(error \"line 12 column 6: invalid pop command, argument is greater than the current stack depth\")",
+              "end_mutation",
+              "begin_tail",
+              "unsat",
+              "end_tail"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "a5a6f4b3911df00fd862a481addac794965cc679110c80ab062b18c2ed6238ff"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_fresh",
+              "sat",
+              "end_fresh"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "1e3c134073714992afdcc66c5c8667c9c1827b4dcf59cb4da4ee624cd8520a43"
+          }
+        },
+        {
+          "case": "model_after_unsat",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "unsat",
+          "blind_tail": "sat",
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": "sat",
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "unsat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"line 13 column 14: model is not available\")",
+                "frame-complete"
+              ],
+              "tail": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_prefix",
+              "unsat",
+              "end_prefix",
+              "begin_mutation",
+              "(error \"line 13 column 14: model is not available\")",
+              "end_mutation",
+              "begin_tail",
+              "sat",
+              "end_tail"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "c31027d9f24455482dc82279ee2f6f11c0ab338b45d7c8f352291b96af39c928"
+          },
+          "fresh": {
+            "exit": 0,
+            "frames": {
+              "fresh": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_fresh",
+              "sat",
+              "end_fresh"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "35620d5555dc11c977f7aafc61164b5e8ffd0afe2b2a813e4e45d0bd57055dc3"
+          }
+        },
+        {
+          "case": "no_approved_repair",
+          "typed_request_matches": false,
+          "solver_reported_command_issue": true,
+          "quarantined": true,
+          "completed_prefix": "sat",
+          "blind_tail": "sat",
+          "after_fail_closed": "unresolved-context",
+          "fresh_tail": null,
+          "original": {
+            "exit": 1,
+            "frames": {
+              "prefix": [
+                "sat",
+                "frame-complete"
+              ],
+              "mutation": [
+                "(error \"line 10 column 11: unknown constant absent\")",
+                "frame-complete"
+              ],
+              "tail": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_prefix",
+              "sat",
+              "end_prefix",
+              "begin_mutation",
+              "(error \"line 10 column 11: unknown constant absent\")",
+              "end_mutation",
+              "begin_tail",
+              "sat",
+              "end_tail"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "39177159256b821b34faf19c2bb601ed96c5c733c5c786655410760cf88bdddb"
+          },
+          "fresh": null
+        }
+      ],
+      "boolean_integer_equality_controls": {
+        "false": [
+          {
+            "x": 0,
+            "answer": "sat",
+            "exit": 0,
+            "frames": {
+              "extension": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_extension",
+              "sat",
+              "end_extension"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "d9d2d72fea569590a43f5408e9522ad6cc121ce2993226af3ec9adea557d3387"
+          },
+          {
+            "x": 1,
+            "answer": "unsat",
+            "exit": 0,
+            "frames": {
+              "extension": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_extension",
+              "unsat",
+              "end_extension"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "e51ac6ef17b83a6c7c6818bf2614726536ba331ad971cb4723be5059bf79b391"
+          },
+          {
+            "x": 2,
+            "answer": "unsat",
+            "exit": 0,
+            "frames": {
+              "extension": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_extension",
+              "unsat",
+              "end_extension"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "4485f1a684720dc3e6417cd9a55906dcbcb34e60e15a461a208b6e005d63085b"
+          }
+        ],
+        "true": [
+          {
+            "x": 0,
+            "answer": "unsat",
+            "exit": 0,
+            "frames": {
+              "extension": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_extension",
+              "unsat",
+              "end_extension"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "887626be3001ecbcf8a5a639eb3e9dc7eb4d22edad68d7a4a03af50c78455c3b"
+          },
+          {
+            "x": 1,
+            "answer": "sat",
+            "exit": 0,
+            "frames": {
+              "extension": [
+                "sat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_extension",
+              "sat",
+              "end_extension"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "6f9779aa2de8b1cd671be550c614008fa8d027d8e9188110b61477ff00ad39e4"
+          },
+          {
+            "x": 2,
+            "answer": "unsat",
+            "exit": 0,
+            "frames": {
+              "extension": [
+                "unsat",
+                "frame-complete"
+              ]
+            },
+            "stdout": [
+              "begin_extension",
+              "unsat",
+              "end_extension"
+            ],
+            "stderr": [],
+            "smt_input_sha256": "49f48d5edd53ff66d8ad673fbff08e449ca10a056289ccb92bee837c7722284a"
+          }
+        ]
+      }
+    }
+  }
+}
