@@ -1,0 +1,156 @@
+{
+  "schema": "llmlang-analogue-dispatch/1",
+  "python": "3.12.14",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "sources_sha256": {
+    "run.py": "788aa0a475e6a8ac1b0e0335008d6549b47342ecf05016d123e27b1dd3a328ae",
+    "joint_contract_runner": "33ce6716d61e4c54b441abf619f1c7150d31bdc25ad71b82ed3b5ed5b1d43817",
+    "native_provider_probe": "73601941f32830b8ec8d71fc2509c8d1e800818694a68fff5f39c4697fc3dea6"
+  },
+  "profile": "toy-c17-event-observations/1",
+  "seed": 290,
+  "request_contracts": 27,
+  "catalog_size": 12,
+  "candidate_contracts": 961,
+  "native_comparison_sha256": {
+    "-O0": "1774de380f21247af2251be21468116ac20ba43627d467349abb61330d27799c",
+    "-O2": "1774de380f21247af2251be21468116ac20ba43627d467349abb61330d27799c"
+  },
+  "counts": {
+    "scored_candidates": 10368,
+    "catalogs": 864,
+    "catalogs_with_refining_candidate": 277,
+    "unsafe_top_one": 660,
+    "refining_candidate_outside_top_three": 16,
+    "advisory_dispatch_comparisons": 1728,
+    "unfiltered_analogue_violates_required_contract": 1200,
+    "unfiltered_analogue_changes_exact_provider": 1310,
+    "unsafe_top_one_with_refining_alternative": 73
+  },
+  "witnesses": {
+    "unsafe_rank_before_admissible": {
+      "request": [
+        1,
+        1,
+        2
+      ],
+      "rank_one": [
+        1,
+        9,
+        13
+      ],
+      "rank_one_score": "1/2",
+      "first_refining_candidate": [
+        3,
+        1,
+        5
+      ],
+      "refining_rank": 3,
+      "first_refining_score": "1/3"
+    }
+  },
+  "dispatch_controls": {
+    "exact": {
+      "result": 4,
+      "binding": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 1
+      },
+      "receipt": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 1
+      }
+    },
+    "same_contract_wrong_operation": {
+      "result": "wrong-operation",
+      "binding": {
+        "operation": "other",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 1
+      },
+      "receipt": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 1
+      }
+    },
+    "same_operation_different_provider": {
+      "result": "wrong-binding",
+      "binding": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 1
+      },
+      "receipt": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 1
+      }
+    },
+    "stale_receipt": {
+      "result": "unverified-binding",
+      "binding": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 1
+      },
+      "receipt": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 0
+      }
+    },
+    "wrong_profile": {
+      "result": "unverified-binding",
+      "binding": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 1
+      },
+      "receipt": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "different",
+        "epoch": 1
+      }
+    },
+    "correct_provider_for_different_contract": {
+      "result": "unverified-binding",
+      "binding": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "a37646ae527383e562ca937451d48f18b26060fd6df6f7c1d6c38cec9721ffb0",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 1
+      },
+      "receipt": {
+        "operation": "4647240669259fbc104231c61c05353c343dcfa66409f1c032b34c68da12d78a",
+        "implementation": 4,
+        "contract": "other",
+        "profile": "toy-c17-event-observations/1",
+        "epoch": 1
+      }
+    }
+  }
+}
