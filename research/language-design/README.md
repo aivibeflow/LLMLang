@@ -38,6 +38,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-04 recovery effects and capabilities](RT-04/RT-04-RECOVERY-EFFECTS-AND-CAPABILITIES-2026-11-25.md) compares handled errors, reachable grants and ordered effects.
 - [RT-04 native inference boundaries](RT-04/RT-04-NATIVE-INFERENCE-BOUNDARIES-2026-11-25.md) compares numeric inference, annotations and public return types in Rust and Go.
 - [RT-04 native cleanup failure](RT-04/RT-04-NATIVE-CLEANUP-FAILURE-2026-11-25.md) compares destructor panic, explicit errors and native process outcomes.
 - [RT-04 disjoint mutable borrows](RT-04/RT-04-DISJOINT-MUTABLE-BORROWS-2026-11-25.md) checks explicit runtime separation and static lifetime constraints.
