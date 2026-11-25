@@ -1,0 +1,2940 @@
+{
+  "baseline": "4678c1535b6136e3c667f8eca8511ef06b3089d3",
+  "python": "3.12.14",
+  "source_sha256": "d69573bd1572ac2d62df2df07d3f529ad44ebcd4a7dcf6566557c5ab11bd2504",
+  "assembly_reference_sha256": "38c8a8c9d04376f9df9264076a95d10e93d9642808754de3a09cdb392c848ba3",
+  "cases": {
+    "unchanged": {
+      "pinned-grant": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "note",
+              "reference": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              },
+              "text": "retry safely"
+            },
+            "next_cursor": null,
+            "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": true
+      },
+      "live-page": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "note",
+              "reference": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              },
+              "text": "retry safely"
+            },
+            "next_cursor": null,
+            "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": true
+      },
+      "exact-scope": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "note",
+              "reference": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              },
+              "text": "retry safely"
+            },
+            "next_cursor": null,
+            "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": true
+      }
+    },
+    "optional-revoked": {
+      "pinned-grant": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "note",
+              "reference": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              },
+              "text": "retry safely"
+            },
+            "next_cursor": null,
+            "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161"
+          }
+        ],
+        "content_sent_after_revocation": [
+          "design#1"
+        ],
+        "assembled_view_completed": true
+      },
+      "live-page": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "unavailable"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "exact-scope": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "unavailable"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      }
+    },
+    "mandatory-revoked": {
+      "pinned-grant": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "note",
+              "reference": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              },
+              "text": "retry safely"
+            },
+            "next_cursor": null,
+            "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161"
+          }
+        ],
+        "content_sent_after_revocation": [
+          "test#1"
+        ],
+        "assembled_view_completed": true
+      },
+      "live-page": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "unavailable"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "exact-scope": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "unavailable"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      }
+    },
+    "rotated-equivalent-scope": {
+      "pinned-grant": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "note",
+              "reference": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              },
+              "text": "retry safely"
+            },
+            "next_cursor": null,
+            "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": true
+      },
+      "live-page": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "note",
+              "reference": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              },
+              "text": "retry safely"
+            },
+            "next_cursor": null,
+            "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": true
+      },
+      "exact-scope": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "unavailable"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      }
+    },
+    "other-principal": {
+      "pinned-grant": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "unavailable"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "live-page": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "unavailable"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "exact-scope": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "unavailable"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      }
+    },
+    "unknown-cursor": {
+      "pinned-grant": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "live-page": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "exact-scope": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      }
+    },
+    "missing-source": {
+      "pinned-grant": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "live-page": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "exact-scope": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      }
+    },
+    "only-new-snapshot-retained": {
+      "pinned-grant": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "live-page": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "exact-scope": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      }
+    },
+    "changed-source-bytes": {
+      "pinned-grant": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "live-page": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      },
+      "exact-scope": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "unavailable"
+          },
+          {
+            "status": "unavailable"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": false
+      }
+    },
+    "new-snapshot-retains-old": {
+      "pinned-grant": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "note",
+              "reference": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              },
+              "text": "retry safely"
+            },
+            "next_cursor": null,
+            "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": true
+      },
+      "live-page": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "note",
+              "reference": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              },
+              "text": "retry safely"
+            },
+            "next_cursor": null,
+            "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": true
+      },
+      "exact-scope": {
+        "opened": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "fresh_inspection": {
+          "status": "ready",
+          "manifest": {
+            "snapshot": "snap-7",
+            "purpose": "review-quota-change",
+            "assembly_version": 1,
+            "scope_revision": "capability-revision-1",
+            "budget_utf8_bytes": 50,
+            "required": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              }
+            },
+            "bindings": {
+              "contract": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "test": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "note": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              }
+            },
+            "omissions": {}
+          },
+          "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+          "first_cursor": "14bf049a6109aee5410a9909b3787b9c63a0c8441d60ab96694adaf32ea3e1dd"
+        },
+        "pages": [
+          {
+            "status": "page",
+            "entry": {
+              "role": "contract",
+              "reference": {
+                "source": "spec#1",
+                "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+              },
+              "text": "quota \u2264 3"
+            },
+            "next_cursor": "0cc2bf3db4fb349e9fe7884135b2df46cbe00a504b05f618ec08c4c722c3bf2b",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "test",
+              "reference": {
+                "source": "test#1",
+                "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+              },
+              "text": "4 is error"
+            },
+            "next_cursor": "54604daf9fb4b751ce0981082dde88af0e12b3dfbea3e62e655ed14e6394474a",
+            "rendered_sha256": null
+          },
+          {
+            "status": "page",
+            "entry": {
+              "role": "note",
+              "reference": {
+                "source": "design#1",
+                "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+              },
+              "text": "retry safely"
+            },
+            "next_cursor": null,
+            "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161"
+          }
+        ],
+        "content_sent_after_revocation": [],
+        "assembled_view_completed": true
+      }
+    }
+  }
+}
