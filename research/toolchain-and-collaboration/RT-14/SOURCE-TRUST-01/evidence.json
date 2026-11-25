@@ -1,0 +1,239 @@
+{
+  "controls": {
+    "affirmative-and-absent": {
+      "inventory_digest": "f57e8439794caeaf78e69f4eb62d6854ccdcb52d3d944be35f3b82e02cbcdb3f",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "incomplete",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "conflict",
+          null
+        ]
+      }
+    },
+    "approved-authorities-agree": {
+      "inventory_digest": "22bcc7f059916cd98c2a0ecf82a8b60e2aa831b37e7f7e578f04cefd5e5721e8",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "complete",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "present",
+          "approved-value"
+        ]
+      }
+    },
+    "approved-authorities-disagree": {
+      "inventory_digest": "f89d9cb2ac6f1c90e98c84ef16e1210361ad256f376355d9739b7d1ada0c9e8e",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "incomplete",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "conflict",
+          null
+        ]
+      }
+    },
+    "changed-authoritative-value": {
+      "inventory_digest": "1249684dc7d574e74e34892cfabae969488cce3338c594f51be457ef66c55b27",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "unsealed",
+      "statuses": {
+        "contract": [
+          "present",
+          "replacement"
+        ],
+        "test": [
+          "present",
+          "approved-value"
+        ]
+      }
+    },
+    "duplicate-reply": {
+      "inventory_digest": "5accc9b3ddcfaf6b3328ab916717f4ad2f16545daeb27f1314656e5ed81f9cc1",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "complete",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "present",
+          "approved-value"
+        ]
+      }
+    },
+    "other-purpose-seal": {
+      "inventory_digest": "5accc9b3ddcfaf6b3328ab916717f4ad2f16545daeb27f1314656e5ed81f9cc1",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "unsealed",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "present",
+          "approved-value"
+        ]
+      }
+    },
+    "other-snapshot-seal": {
+      "inventory_digest": "5accc9b3ddcfaf6b3328ab916717f4ad2f16545daeb27f1314656e5ed81f9cc1",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "unsealed",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "present",
+          "approved-value"
+        ]
+      }
+    },
+    "retired-source": {
+      "inventory_digest": "787c57abf6ab6fef5d38a59653b1b0d5ff7b2d646af3c4d79d36e1a3a41a5b34",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "unsealed",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "unknown",
+          null
+        ]
+      }
+    },
+    "wrong-locator": {
+      "inventory_digest": "b76b85bdd9ea8c5708b580016403ef8bb86e07cbfd4058fd2c31df13833781f7",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "incomplete",
+      "statuses": {
+        "contract": [
+          "untrusted",
+          null
+        ],
+        "test": [
+          "present",
+          "approved-value"
+        ]
+      }
+    }
+  },
+  "logical_cases": 144,
+  "observations": {
+    "conflict": {
+      "inventory_digest": "80999b55cb662653becc7deaf115ea993a583c234bf659289b80f761783edcb9",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "incomplete",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "conflict",
+          null
+        ]
+      }
+    },
+    "missing": {
+      "inventory_digest": "ae4b6be1d4b685a8687494143bfdcb27102bd0ce8d48c7e757db74910986dbdb",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "incomplete",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "missing",
+          null
+        ]
+      }
+    },
+    "present": {
+      "inventory_digest": "5accc9b3ddcfaf6b3328ab916717f4ad2f16545daeb27f1314656e5ed81f9cc1",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "complete",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "present",
+          "approved-value"
+        ]
+      }
+    },
+    "stale": {
+      "inventory_digest": "a1c0b6e1732929f5d68ac98862f026a71c090207b855c4671fd8693607b0251d",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "incomplete",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "stale",
+          null
+        ]
+      }
+    },
+    "unknown": {
+      "inventory_digest": "4b7e6826715f4014c309bd2abce217c7ad7a47a96d84e20e1780611cbf842d64",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "incomplete",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "unknown",
+          null
+        ]
+      }
+    },
+    "untrusted": {
+      "inventory_digest": "3960f2777e73d1df0a8b3c0012e158a16286bae8130de5dad2358ab9b6dd27b2",
+      "requirements_digest": "ecdec4da9b4c00e611ad16fe383889fa13a4a15df9db45f0b65632de3c347411",
+      "result": "incomplete",
+      "statuses": {
+        "contract": [
+          "present",
+          "approved-value"
+        ],
+        "test": [
+          "untrusted",
+          null
+        ]
+      }
+    }
+  },
+  "orders": {
+    "complete": 48,
+    "incomplete": 1276,
+    "role_presence_false_complete": 2600,
+    "unsealed": 1324
+  },
+  "sqlite": "3.53.1"
+}
