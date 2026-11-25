@@ -1143,7 +1143,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Derive release-sequence membership in 360 selected read-from cases over 60 flag modification orders. C++17 derives 150 edges and C++20 derives 90. Equal numeric values cannot establish the required edge. Complete memory-model and target conformance remain open. [RT-10 release sequence membership](research/runtime-and-systems/RT-10/RT-10-RELEASE-SEQUENCE-MEMBERSHIP-2026-11-25.md)
   - Compare the same sequential increment contract against native atomic-load/store and atomic fetch-add histories. Sequential verification or a declared concurrency assumption does not certify shared interleavings. [Dafny concurrent frames and native histories](research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md)
 - [ ] Define threads, synchronization, atomics, signals, blocking I/O, and scheduling boundaries.
-  - [ ] [WIP] Compare native condition-variable wakeups with work and cancellation predicates in a controlled scheduler fixture on `research/all`.
+  - [x] Compare six native wait schedules in two Rust builds. A one-shot waiter reports work on an empty notification, while a predicate waiter re-enters waiting and observes already published work without relying on a notification. Simultaneous work and cancellation require explicit precedence. [RT-10 native wait predicates](research/runtime-and-systems/RT-10/RT-10-WAIT-PREDICATES-AND-CANCELLATION-2026-11-25.md)
 - [ ] Define capability and security model.
 - [ ] Define trusted low-level primitives and their contracts.
 - [ ] Define runtime versioning and its contribution to implementation identity.
