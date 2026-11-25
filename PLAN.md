@@ -869,7 +869,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define canonical object encoding and immutable object lifecycle.
 - [ ] Define indexes for graph traversal, reverse dependencies, contracts, and implementation discovery.
 - [ ] Define transactions and atomic publication of graph revisions.
-- [ ] Define garbage collection and reachability.
+- [ ] Define garbage collection and reachability. [WIP] — compare pinned reachability and concurrent publication against a stale storage sweep on `research/all`.
 - [ ] Define crash recovery, corruption detection, backup, and replication.
 - [ ] Define local repository storage versus shared/global artifact storage.
 - [ ] Define portability without requiring a live external database.
