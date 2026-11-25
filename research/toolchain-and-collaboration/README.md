@@ -60,6 +60,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-14 obligation roster and inspection](RT-14/RT-14-OBLIGATION-ROSTER-AND-INSPECTION-2026-11-25.md) checks typed completion requirements, reproducible receipts and exact subject binding.
 - [RT-14 pinned task references](RT-14/RT-14-TASK-PINNED-REFERENCES-2026-11-25.md) checks authoritative producer records and separate action permissions.
 - [RT-14 Task Context lifecycle](RT-14/RT-14-TASK-LIFECYCLE-BOUNDARY-2026-11-25.md) checks separate task revisions, execution attempts and phase evidence.
 - [RT-14 context fixture scoring](RT-14/RT-14-CONTEXT-FIXTURE-SCORING-2026-11-25.md) reports readiness errors separately from representative participant outcomes.
