@@ -564,7 +564,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define an executable reference semantics for a deliberately small subset.
 - [ ] Define observable behavior: return values, errors, state changes, I/O, resource behavior, concurrency, and declared effects.
 - [ ] Define semantic equivalence and refinement.
-  - [ ] [WIP] Kernel-check whether agreement on all postconditions characterizes complete observations in the closed state/Result fragment on `research/all`.
+  - [x] Kernel-check that one-way preservation of all postconditions is equivalent to equality of complete observations in the total deterministic state/Result fragment. Replay 8,210 pinned finite rows in Lean and reject the trace-erasure control. [RT-07 observation equivalence proof](research/formal-verification/RT-07/RT-07-STATE-RESULT-OBSERVATIONAL-EQUIVALENCE-2026-11-25.md)
 - [ ] Define evaluation order, effects, error propagation, and state transitions.
 - [ ] Define semantics of contracts and their composition.
 - [ ] Define semantics-preserving transformations and compiler correctness boundaries.- [ ] Define assumptions and environmental boundaries explicitly.
