@@ -118,6 +118,8 @@ The [recursive-group storage study](../semantic-representation/RT-05/RT-05-RECUR
 
 See dependency edges DEP-004–010, DEP-012–019, DEP-023–024, and DEP-030–039 in [Research Dependency Map](RESEARCH-DEPENDENCY-MAP.md). Validate or revise these edges as the discriminating experiments run.
 
+[By-value call conventions](../compiler-and-translation/RT-13/RT-13-BY-VALUE-CALL-ABI-2026-11-25.md) compare explicit direct entry binding and a fixed pointer bridge across System V and Microsoft x64 code generated on Linux. Equal field layout cannot establish direct call compatibility. Both checked paths preserve 1,024 native output vectors each. Broader target and foreign claim policy remain open.
+
 ### 5.1 Compatibility of ownership, close, and dependency proof
 
 The resource experiments constrain combinations of four choices. The caller can observe logical close or completed destruction. A call can transfer ownership before cleanup or stage the transfer. An error can carry diagnostics alone or include outstanding capabilities and reconciliation obligations. A close may require source proof, let the caller recover from busy, or consume the capability and defer destruction. A candidate that uses a runtime observation also needs a rule for the scope and freshness of that observation.
