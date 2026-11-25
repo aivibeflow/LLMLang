@@ -16,7 +16,7 @@ Process duration includes launch, dynamic loader and program initialization, par
 
 ## Results
 
-Two runs used 30 paired batches each, with randomized profile order within each batch. Every sample starts a fresh process after priming the executables and libraries. The runner was CPU 4 of an Intel Xeon Platinum 8573C on Linux. The two recorded cgroup intervals show zero throttled periods. The host's uncontrolled scheduling and storage cache behavior remain potential variation sources.
+Two runs used 30 paired batches each, with randomized profile order within each batch. Every sample starts a fresh process after priming the executables and libraries. The runner was CPU 4 of an AMD EPYC 9V74 on Linux 6.18.57. The two recorded cgroup intervals show zero throttled periods. The host's uncontrolled scheduling and storage cache behavior remain potential variation sources.
 
 Each row reports 60 processes. Values show the median and p10–p90.
 
