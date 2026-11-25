@@ -1,0 +1,221 @@
+{
+  "baseline": "2546379f0bed8a44ef80ef40597d9c7d9ca8f16b",
+  "git": "git version 2.56.1",
+  "python": "3.12.14",
+  "results": {
+    "sha1/1/dependency-pin": {
+      "status": "dependency-pin"
+    },
+    "sha1/1/missing-entry": {
+      "status": "inventory"
+    },
+    "sha1/1/stale-source-pin": {
+      "status": "file-pin"
+    },
+    "sha1/1/unsupported-call": {
+      "status": "unsupported-source"
+    },
+    "sha1/1/valid": {
+      "observations": [
+        [
+          "ok",
+          -9223372036854775807
+        ],
+        [
+          "ok",
+          -1
+        ],
+        [
+          "ok",
+          1
+        ],
+        [
+          "ok",
+          4
+        ],
+        [
+          "ok",
+          9223372036854775806
+        ],
+        [
+          "ok",
+          9223372036854775807
+        ],
+        [
+          "overflow",
+          null
+        ]
+      ],
+      "root": "2cee786866ce117f7bf98688a0bea3ddbb73507ad477de72bac63e47f75a2093",
+      "status": "exact"
+    },
+    "sha1/1/wrong-mode": {
+      "status": "file-mode"
+    },
+    "sha1/1/wrong-root": {
+      "status": "root-or-roundtrip"
+    },
+    "sha1/2/dependency-pin": {
+      "status": "dependency-pin"
+    },
+    "sha1/2/missing-entry": {
+      "status": "inventory"
+    },
+    "sha1/2/stale-source-pin": {
+      "status": "file-pin"
+    },
+    "sha1/2/unsupported-call": {
+      "status": "unsupported-source"
+    },
+    "sha1/2/valid": {
+      "observations": [
+        [
+          "ok",
+          -9223372036854775806
+        ],
+        [
+          "ok",
+          0
+        ],
+        [
+          "ok",
+          2
+        ],
+        [
+          "ok",
+          5
+        ],
+        [
+          "ok",
+          9223372036854775807
+        ],
+        [
+          "overflow",
+          null
+        ],
+        [
+          "overflow",
+          null
+        ]
+      ],
+      "root": "304f6cfb5c43a33b893be835d637732fc1defcc2be76c862c401d0992fb5a3a4",
+      "status": "exact"
+    },
+    "sha1/2/wrong-mode": {
+      "status": "file-mode"
+    },
+    "sha1/2/wrong-root": {
+      "status": "root-or-roundtrip"
+    },
+    "sha256/1/dependency-pin": {
+      "status": "dependency-pin"
+    },
+    "sha256/1/missing-entry": {
+      "status": "inventory"
+    },
+    "sha256/1/stale-source-pin": {
+      "status": "file-pin"
+    },
+    "sha256/1/unsupported-call": {
+      "status": "unsupported-source"
+    },
+    "sha256/1/valid": {
+      "observations": [
+        [
+          "ok",
+          -9223372036854775807
+        ],
+        [
+          "ok",
+          -1
+        ],
+        [
+          "ok",
+          1
+        ],
+        [
+          "ok",
+          4
+        ],
+        [
+          "ok",
+          9223372036854775806
+        ],
+        [
+          "ok",
+          9223372036854775807
+        ],
+        [
+          "overflow",
+          null
+        ]
+      ],
+      "root": "2cee786866ce117f7bf98688a0bea3ddbb73507ad477de72bac63e47f75a2093",
+      "status": "exact"
+    },
+    "sha256/1/wrong-mode": {
+      "status": "file-mode"
+    },
+    "sha256/1/wrong-root": {
+      "status": "root-or-roundtrip"
+    },
+    "sha256/2/dependency-pin": {
+      "status": "dependency-pin"
+    },
+    "sha256/2/missing-entry": {
+      "status": "inventory"
+    },
+    "sha256/2/stale-source-pin": {
+      "status": "file-pin"
+    },
+    "sha256/2/unsupported-call": {
+      "status": "unsupported-source"
+    },
+    "sha256/2/valid": {
+      "observations": [
+        [
+          "ok",
+          -9223372036854775806
+        ],
+        [
+          "ok",
+          0
+        ],
+        [
+          "ok",
+          2
+        ],
+        [
+          "ok",
+          5
+        ],
+        [
+          "ok",
+          9223372036854775807
+        ],
+        [
+          "overflow",
+          null
+        ],
+        [
+          "overflow",
+          null
+        ]
+      ],
+      "root": "304f6cfb5c43a33b893be835d637732fc1defcc2be76c862c401d0992fb5a3a4",
+      "status": "exact"
+    },
+    "sha256/2/wrong-mode": {
+      "status": "file-mode"
+    },
+    "sha256/2/wrong-root": {
+      "status": "root-or-roundtrip"
+    }
+  },
+  "runner_sha256": "031864ec7076269838684465f2b38b1bb0ae16288ff981a5e71182c665b127fe",
+  "source_inventory": [
+    "llmlang-manifest.json",
+    "src/entry.llm",
+    "vendor/math.llm"
+  ]
+}

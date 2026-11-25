@@ -62,6 +62,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-24 textual SPG clean clone](RT-24/RT-24-TEXTUAL-SPG-CLEAN-CLONE-2026-11-25.md) verifies typed textual import, exact dependency pins and canonical export across Git formats.
 - [RT-24 ordinary Git workflow conflict gate](RT-24/RT-24-GIT-WORKFLOW-CONFLICT-GATE-2026-11-25.md) checks conflict preservation and joint semantic validation across 36 native cases.
 - [RT-24 merge validation and resolution protocol](RT-24/RT-24-MERGE-VALIDATION-AND-RESOLUTION-PROTOCOL-2026-11-25.md) checks scoped automatic and interactive decisions and exact audits.
 - [RT-24 semantic diff and merge classification](RT-24/RT-24-SEMANTIC-DIFF-AND-MERGE-CLASSIFICATION-2026-11-25.md) defines typed deltas, exact three-way snapshots and structured conflicts.
