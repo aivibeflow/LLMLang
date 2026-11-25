@@ -1,0 +1,44 @@
+{
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "target": "x86_64-linux-gnu",
+  "libc_glibc_profile": "glibc 2.41",
+  "musl_original_specs_sha256": "ffaa141b9ca85cc25ab5b29e8317846b9bf8e2c221044ec8ea240f00fc7ebace",
+  "kernel": "6.18.57",
+  "filesystem": "overlayfs",
+  "verified_file_fields_per_repetition": 21,
+  "verified_spawn_cases_per_repetition": 8,
+  "checks_across_profiles": 464,
+  "builds": {
+    "glibc-O0": {
+      "runtime_archive_sha256": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+      "file_binary_sha256": "f31159732419ee1b49515fd2bafb9148daf91831f8b6d0c3fa27ec52d8e340b4",
+      "spawn_binary_sha256": "8f4b42dac62d44944651c63b70107780aaf3e62e29f265685e2777205509c18f",
+      "repetitions": 4
+    },
+    "glibc-O2": {
+      "runtime_archive_sha256": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+      "file_binary_sha256": "32f81ea9f5592fe3f4152cfcfd561eefc153cb1c429e1f9ade9808befcf10523",
+      "spawn_binary_sha256": "ecaa12125f53eb9abf242fe0382dd9ea23150e2dfdd1a7550c9d2444ede1b8a9",
+      "repetitions": 4
+    },
+    "musl-O0": {
+      "runtime_archive_sha256": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0",
+      "file_binary_sha256": "f06bca5090f2d5f82439925a7f1e212f310a02afdb2f909279e57e9e4cf7d753",
+      "spawn_binary_sha256": "f2a3a0f5b3a0d731658cb233d46cc11cc9c4c6fa1736735af834c988d52c69f0",
+      "repetitions": 4
+    },
+    "musl-O2": {
+      "runtime_archive_sha256": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0",
+      "file_binary_sha256": "21412b2a33dcb6ffa698addc0019555065dd16827c19016a9d3b4788512d7b9b",
+      "spawn_binary_sha256": "17996794aa1558c5aa2100203c03bad981de489d7d15dee9044d6c7b2a4d0d30",
+      "repetitions": 4
+    }
+  },
+  "source_sha256": {
+    "POSIX-CROSS-LIBC-01/run.py": "aa2f3ee51e210885edad46251ed2089eb40cef7544613c987d00c1b7719f7135",
+    "POSIX-FILE-IDENTITY-01/probe.c": "44e2e21a4d5e2e3107fa9fbe6165aa75cfb9da7edf905747706eac70f2f1c44f",
+    "POSIX-FILE-IDENTITY-01/run.py": "74e06aea65c332b2733e57233349f82ef4c754e756abcc4b7c78776860e5a6e7",
+    "POSIX-SPAWN-DESCRIPTORS-01/probe.c": "ccb0058c52d1fdaa6e348a1ffb66b8dcb124e2272e582a4209e2c461599dd150",
+    "POSIX-SPAWN-DESCRIPTORS-01/run.py": "d4b448e3f8ab84926968b852e77f30b9d4c9b6ac9dcdf64452598e73cdf72e17"
+  }
+}
