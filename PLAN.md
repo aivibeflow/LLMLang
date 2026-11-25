@@ -1150,6 +1150,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Select initial POSIX edition and explicit conformance profile.
 - [ ] Define LLMLang-facing API: close POSIX mapping versus safer typed facade.
 - [ ] Define a shared contract for multiple POSIX implementations.
+  - [ ] [WIP] Compare the exact file-description and process-startup probes under glibc and musl on the same Linux kernel on `research/all`.
 - [ ] Separate portable runtime implementation from native Linux syscall implementation.
 - [ ] Define conformance evidence, optional features, and implementation-defined behavior.
 - [ ] Define error, resource, process, file, and descriptor semantics.
