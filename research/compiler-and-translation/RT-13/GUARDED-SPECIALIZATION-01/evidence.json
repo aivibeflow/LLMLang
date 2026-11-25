@@ -1,0 +1,75 @@
+{
+  "toolchain": {
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "proof_axioms": [
+    "'guarded_division_refines' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'denominator_check_cannot_be_removed' does not depend on any axioms"
+  ],
+  "cases_per_profile": 14076,
+  "native_observations": 56304,
+  "profiles": {
+    "gcc-O0": {
+      "artifact_sha256": "f9b79be43bb069b534d535c5116545722c93da3557d31b5d7df811c2911017b5",
+      "observation_sha256": "827e42b80877133012f317eb9fd8c11d2cf1068e7d62ab97e4d054029e3ea5d1",
+      "route_counts": {
+        "0": 66,
+        "1": 13306,
+        "2": 704
+      }
+    },
+    "gcc-O3": {
+      "artifact_sha256": "e469e45937e37336f86a125e101999862586602c441517eaa109e0aa144214da",
+      "observation_sha256": "827e42b80877133012f317eb9fd8c11d2cf1068e7d62ab97e4d054029e3ea5d1",
+      "route_counts": {
+        "0": 66,
+        "1": 13306,
+        "2": 704
+      }
+    },
+    "clang-O0": {
+      "artifact_sha256": "907768a7d81b787d092d1d009ab6d588a6396eb00e0c227007790ecd45297fa6",
+      "observation_sha256": "827e42b80877133012f317eb9fd8c11d2cf1068e7d62ab97e4d054029e3ea5d1",
+      "route_counts": {
+        "0": 66,
+        "1": 13306,
+        "2": 704
+      }
+    },
+    "clang-O3": {
+      "artifact_sha256": "5c1f843a68d0305a12ea13d3c5fea036f753406a77c0f3175a4fa5e781bb54d8",
+      "observation_sha256": "827e42b80877133012f317eb9fd8c11d2cf1068e7d62ab97e4d054029e3ea5d1",
+      "route_counts": {
+        "0": 66,
+        "1": 13306,
+        "2": 704
+      }
+    }
+  },
+  "omitted_guard_control": {
+    "wrong_value_or_status": 1506,
+    "input": [
+      63,
+      6,
+      1,
+      1
+    ],
+    "expected": [
+      0,
+      10,
+      1
+    ],
+    "observed": [
+      0,
+      31,
+      2
+    ]
+  },
+  "source_sha256": {
+    "Specialization.lean": "e6622dda3ae63d4c6a61eb5f09c1ad052e51c20aa9998b03550207e2cd86cd7c",
+    "probe.c": "c656c693159a1fe4f668d245d3a0cf8b8cdf69852b34b63f320c807a378f33e7",
+    "run.py": "39f808a0c23aea133490c6a76651a9ac74bc7881d6740e961505b6314f98a076"
+  }
+}
