@@ -1,0 +1,20 @@
+{
+  "cases": 256,
+  "identical_prose_only_pairs": 128,
+  "outcomes": {
+    "dependency-refused": 128,
+    "executed": 32,
+    "knowledge-refused": 224,
+    "read-False": 224,
+    "read-True": 32,
+    "ready": 16,
+    "runtime-refused": 96,
+    "unsatisfied": 16
+  },
+  "supporting_artifacts": {
+    "research/toolchain-and-collaboration/RT-14/CONTEXT-INTEGRATION-01/run.py": "e473f140f7b5ba8c961233b4a1b8674aca6758cd79b1b81c7f61508d6b7312af",
+    "research/toolchain-and-collaboration/RT-14/KNOWLEDGE-CONTEXT-01/run.py": "38c8a8c9d04376f9df9264076a95d10e93d9642808754de3a09cdb392c848ba3",
+    "research/toolchain-and-collaboration/RT-14/TASK-CONTEXT-COMPLETION-01/run.py": "bfb00d4a6bd428d1cefde6906a0bf4a108f47693d7e69b6c6e58f2abb1aad63a"
+  },
+  "supporting_snapshot": "20cddea848f9c7da627e44d0c283d50b57248465"
+}
