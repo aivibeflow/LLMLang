@@ -1,0 +1,55 @@
+{
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "theorems": [
+    "'revocation_persists' does not depend on any axioms",
+    "'unseen_event_does_not_apply' depends on axioms: [propext]",
+    "'issuance_before_cutoff_is_unaffected' depends on axioms: [propext]",
+    "'replacement_does_not_validate_old_dependency' does not depend on any axioms"
+  ],
+  "total_cases": 2160,
+  "matrix": {
+    "unchanged": {
+      "cases": 540,
+      "current_accepted": 216,
+      "cached_accepted": 216,
+      "cached_incorrect_acceptance": 0
+    },
+    "prospective-signer": {
+      "cases": 540,
+      "current_accepted": 198,
+      "cached_accepted": 198,
+      "cached_incorrect_acceptance": 0
+    },
+    "retroactive-checker": {
+      "cases": 540,
+      "current_accepted": 153,
+      "cached_accepted": 189,
+      "cached_incorrect_acceptance": 36
+    },
+    "prior-implementation": {
+      "cases": 540,
+      "current_accepted": 117,
+      "cached_accepted": 189,
+      "cached_incorrect_acceptance": 72
+    }
+  },
+  "recovery_controls": {
+    "accepted_in_historical_view": true,
+    "old_receipt_current": false,
+    "stale_policy_view_current": false,
+    "new_signer_same_compromised_checker": false,
+    "independent_recheck": true,
+    "old_dependent_with_replacement": false,
+    "relinked_dependent_with_replacement": true,
+    "different_subject": false,
+    "blocked_implementation_with_same_subject": false
+  },
+  "receipt_identities": {
+    "previous": "643dedc6f699a7c9421c89abfe513ee4f35f41a734f3279ca3ee7a2c2af0214a",
+    "independent_recheck": "ccb2d5beae73b75bac8f07be6d1b43930bca27a643916f99ec87fd6aabff7291"
+  },
+  "source_sha256": {
+    "Revocation.lean": "9c82d007b3f6bfdeddce4ba61e4b2e6b451c127b1aa2146455a8edba6c0e9a47",
+    "run.py": "104994e358a1c3ecfe1c0b501fcecb39cc685c85c76f175bd9f76fc4ef75ca75"
+  }
+}
