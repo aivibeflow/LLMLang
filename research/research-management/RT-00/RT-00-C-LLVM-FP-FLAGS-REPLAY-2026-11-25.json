@@ -1,0 +1,77 @@
+{
+  "baseline": "d2e32df3ff25ef28dc66750b3e14e777d7cd7d35",
+  "deb_sha256": {
+    "clang-19_1%3a19.1.7-3+b1_amd64.deb": "bbb74458d782b7792b61b0eed92746df5e6d033778c045cf8c2b3835b7c4efc4",
+    "libclang-common-19-dev_1%3a19.1.7-3+b1_amd64.deb": "4018e40e2d4144fe38c45822e68cca63c1bf6c7872c3073ebb262ad4b2f9b8bc",
+    "libclang-cpp19_1%3a19.1.7-3+b1_amd64.deb": "a7d2b6df51050834f6ea5c0d5e34869c2298b0bcdaa91eff17ba3db2cd545c47",
+    "libclang1-19_1%3a19.1.7-3+b1_amd64.deb": "4e7e2a5fe236e280d32fb529350b3c1cfd9410a964629a57ea079a314c45d7a3",
+    "libllvm19_1%3a19.1.7-3+b1_amd64.deb": "db0d614d61345ca710fb73e75105f1ec6e38898fa7b3aa99fa7eb7d8b0a11d57",
+    "llvm-19_1%3a19.1.7-3+b1_amd64.deb": "0b1b7263f4f45e261099240fdbf00fc14b42b88410fd829e041bf83ea45866cb"
+  },
+  "environment": {
+    "LC_ALL": "C",
+    "PYTHONHASHSEED": "1",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "fma": true,
+    "kernel": "6.18.57",
+    "libc": "ldd (Debian GLIBC 2.41-12+deb13u4) 2.41",
+    "linker": "GNU ld (GNU Binutils for Debian) 2.44",
+    "machine": "x86_64",
+    "python": "3.12.14"
+  },
+  "exact_published_ledger_match": true,
+  "fixture": "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01",
+  "ledger_sha256": "7fd2c17399cfa181f5139d369dce0887663b80975a2537c12eb767556691d7d6",
+  "profiles": {
+    "O0": {
+      "contract_differences_from_split": 0,
+      "contract_is_fused": false,
+      "exact_expression_disagreements": 0,
+      "exact_fma_disagreements": 0,
+      "nnan_inputs_excluded": 1083,
+      "nsz_differences_from_signed_zero": 0,
+      "raw_rows_sha256": "b80ef2cdffb0868c3120d10403accca842fa0cbf70bdae4b82cd079748345c51",
+      "rows": 6859
+    },
+    "O3": {
+      "contract_differences_from_split": 77,
+      "contract_is_fused": true,
+      "exact_expression_disagreements": 0,
+      "exact_fma_disagreements": 0,
+      "nnan_inputs_excluded": 1083,
+      "nsz_differences_from_signed_zero": 361,
+      "raw_rows_sha256": "834462e9cae2e3e4ce740ab84c38590f81eb4971c4988e498b79729f04a4d950",
+      "rows": 6859
+    }
+  },
+  "rows_per_profile": 6859,
+  "schema": "rt00-llvm-fp-flags-replay-v1",
+  "source_inputs": {
+    "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/run.py": {
+      "git_blob": "b779e3a51eeb955476b5f107c24f5cfe913e33f6",
+      "sha256": "a1c280d533073037061b313c8cd68c55dbbcfc303cd618be10efcbf21cab23ce"
+    },
+    "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01/evidence.json": {
+      "git_blob": "a38ac0acef15acbaec3d07ce05006cc548febcd8",
+      "sha256": "7fd2c17399cfa181f5139d369dce0887663b80975a2537c12eb767556691d7d6"
+    },
+    "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01/host.c": {
+      "git_blob": "24d71ab9bdf2c21c2a58c5d9553f1fde8b6e0b0c",
+      "sha256": "2516eb41640881f49e93a178fff676d19fd29c779c61bdc19086c6097fa0f605"
+    },
+    "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01/operations.ll": {
+      "git_blob": "fd65dd28f5062992ddf3565141f0023882c8744f",
+      "sha256": "138f20fb669b86806a00e56d0ca54b9ea3337a4581b469ee0e47577281973ecc"
+    },
+    "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01/run.py": {
+      "git_blob": "fa950f04d9e434add3db4454c55adf42fc3bdc63",
+      "sha256": "cbd055265009aa531c129e5899eea18fbfb22acf0e91826278eacfb167352d05"
+    }
+  },
+  "versions": {
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "llc": "Debian LLVM version 19.1.7",
+    "llvm-as": "Debian LLVM version 19.1.7",
+    "opt": "Debian LLVM version 19.1.7"
+  }
+}
