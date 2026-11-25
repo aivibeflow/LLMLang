@@ -1,0 +1,241 @@
+{
+  "baseline_commit": "efbcf8ef1ba71e8c4d8d219654ea8ab38ab9040d",
+  "baseline_tree": "2af775e171361b78fa3ba1c2a6c471d07846ff34",
+  "exact_receipts": 26,
+  "exact_figures": 3,
+  "replays": [
+    {
+      "runner": "research/runtime-and-systems/RT-10/POSIX-FILE-IDENTITY-01/run.py",
+      "runner_sha256": "74e06aea65c332b2733e57233349f82ef4c754e756abcc4b7c78776860e5a6e7",
+      "evidence": "research/runtime-and-systems/RT-10/POSIX-FILE-IDENTITY-01/evidence.json",
+      "bytes": 7769,
+      "expected_sha256": "c1d991b438605f10b53b2b0e4796ae80ce7f6f757953b322c4d061f4559d3ed0",
+      "observed_sha256": "c1d991b438605f10b53b2b0e4796ae80ce7f6f757953b322c4d061f4559d3ed0"
+    },
+    {
+      "runner": "research/runtime-and-systems/RT-10/POSIX-SPAWN-DESCRIPTORS-01/run.py",
+      "runner_sha256": "d4b448e3f8ab84926968b852e77f30b9d4c9b6ac9dcdf64452598e73cdf72e17",
+      "evidence": "research/runtime-and-systems/RT-10/POSIX-SPAWN-DESCRIPTORS-01/evidence.json",
+      "bytes": 1940,
+      "expected_sha256": "bc4588af3990f939ed710dfc73509c2def3b88cc15973136da4470c8c233b256",
+      "observed_sha256": "bc4588af3990f939ed710dfc73509c2def3b88cc15973136da4470c8c233b256"
+    },
+    {
+      "runner": "research/runtime-and-systems/RT-10/POSIX-CROSS-LIBC-01/run.py",
+      "runner_sha256": "aa2f3ee51e210885edad46251ed2089eb40cef7544613c987d00c1b7719f7135",
+      "evidence": "research/runtime-and-systems/RT-10/POSIX-CROSS-LIBC-01/evidence.json",
+      "bytes": 2331,
+      "expected_sha256": "f715d364fb3effa5fe4f188604abeee9a2c85618111dc061eac4bd369efb72ee",
+      "observed_sha256": "f715d364fb3effa5fe4f188604abeee9a2c85618111dc061eac4bd369efb72ee"
+    },
+    {
+      "runner": "research/compiler-and-translation/RT-13/WIDE-DIVISION-CAPABILITY-01/run.py",
+      "runner_sha256": "fcee641166a328a31234d991b9eef75844dd8108f5a8048a4be5dfd5f1274176",
+      "evidence": "research/compiler-and-translation/RT-13/WIDE-DIVISION-CAPABILITY-01/evidence.json",
+      "bytes": 5096,
+      "expected_sha256": "dac236230e12486dec28632b11055fbe7f5a5f835a55b0e92e740407a5ff3dd6",
+      "observed_sha256": "dac236230e12486dec28632b11055fbe7f5a5f835a55b0e92e740407a5ff3dd6"
+    },
+    {
+      "runner": "research/compiler-and-translation/RT-13/GENERATED-PYTHON-INTEGERS-01/run.py",
+      "runner_sha256": "012558920c4e528f36ad31cf0d5868c1bdf212b5468d649d2e0a780bd069721d",
+      "evidence": "research/compiler-and-translation/RT-13/GENERATED-PYTHON-INTEGERS-01/evidence.json",
+      "bytes": 4126,
+      "expected_sha256": "b07325e5af5f21ecf7ebe7027da6b201eea19deb10692b9fb0673d47f226f1c0",
+      "observed_sha256": "b07325e5af5f21ecf7ebe7027da6b201eea19deb10692b9fb0673d47f226f1c0"
+    },
+    {
+      "runner": "research/compiler-and-translation/RT-13/IMPLEMENTATION-FALLBACK-01/run.py",
+      "runner_sha256": "d42f59a08b7c440bf46398034528d7bec355289c1550b412f3ffd52ec9768099",
+      "evidence": "research/compiler-and-translation/RT-13/IMPLEMENTATION-FALLBACK-01/evidence.json",
+      "bytes": 1262,
+      "expected_sha256": "1739512ec5e4ce385845025c7c87610f9f55892875e735f38f894fde4512144d",
+      "observed_sha256": "1739512ec5e4ce385845025c7c87610f9f55892875e735f38f894fde4512144d"
+    },
+    {
+      "runner": "research/compiler-and-translation/RT-13/DISPATCH-TIMING-01/run.py",
+      "runner_sha256": "35dfb605f0e26bcf45836d3fd99d7d112ba7212e14640bacae9cf3510ab10a15",
+      "evidence": "research/compiler-and-translation/RT-13/DISPATCH-TIMING-01/evidence.json",
+      "bytes": 2567,
+      "expected_sha256": "b3ba1d470156afec117b837eca39877cc706bd0413d2a94805308881602345cc",
+      "observed_sha256": "b3ba1d470156afec117b837eca39877cc706bd0413d2a94805308881602345cc"
+    },
+    {
+      "runner": "research/toolchain-and-collaboration/RT-14/KNOWLEDGE-CONTEXT-01/run.py",
+      "runner_sha256": "38c8a8c9d04376f9df9264076a95d10e93d9642808754de3a09cdb392c848ba3",
+      "evidence": "research/toolchain-and-collaboration/RT-14/KNOWLEDGE-CONTEXT-01/evidence.json",
+      "bytes": 16347,
+      "expected_sha256": "b43c30661b1e7ebc60fe7c70163f47161a7782f866a1f60dd94af7e7d97db51f",
+      "observed_sha256": "b43c30661b1e7ebc60fe7c70163f47161a7782f866a1f60dd94af7e7d97db51f"
+    },
+    {
+      "runner": "research/toolchain-and-collaboration/RT-14/TASK-CONTEXT-COMPLETION-01/run.py",
+      "runner_sha256": "bfb00d4a6bd428d1cefde6906a0bf4a108f47693d7e69b6c6e58f2abb1aad63a",
+      "evidence": "research/toolchain-and-collaboration/RT-14/TASK-CONTEXT-COMPLETION-01/evidence.json",
+      "bytes": 3791,
+      "expected_sha256": "1d788c1ca616b9087ed601a56f64b2b8c12ce9d9f0e9434382ed50fa9021e1c4",
+      "observed_sha256": "1d788c1ca616b9087ed601a56f64b2b8c12ce9d9f0e9434382ed50fa9021e1c4"
+    },
+    {
+      "runner": "research/language-design/RT-31/MCP-ATTRIBUTION-01/run.py",
+      "runner_sha256": "7dbcaf82a7511c3211bcc77f68e5537efaa15c4c8400a92e5af75d52efce0527",
+      "evidence": "research/language-design/RT-31/MCP-ATTRIBUTION-01/evidence.json",
+      "bytes": 5263,
+      "expected_sha256": "062bf3475432e9e569afa9c6cc67ccc88319ed480371494e1d2f9c6febb7ea09",
+      "observed_sha256": "062bf3475432e9e569afa9c6cc67ccc88319ed480371494e1d2f9c6febb7ea09"
+    },
+    {
+      "runner": "research/compiler-and-translation/RT-30/GO-ROUNDTRIP-01/roundtrip.py",
+      "runner_sha256": "dde64303b2ae3f93895ebc34477a1b4f93ccc55c5b84e49ef854a2db53bef42b",
+      "evidence": "research/compiler-and-translation/RT-30/GO-ROUNDTRIP-01/evidence.json",
+      "bytes": 4384,
+      "expected_sha256": "70b4d989fd0d1af42472e30a1f0848e1d5437f780131c0cdd4338056b32f433a",
+      "observed_sha256": "70b4d989fd0d1af42472e30a1f0848e1d5437f780131c0cdd4338056b32f433a"
+    },
+    {
+      "runner": "research/compiler-and-translation/RT-30/C-FAMILY-ROUNDTRIP-01/roundtrip.py",
+      "runner_sha256": "94fff47fa40442b9c22f152e0a095bbb08c791a03aba90171cd221cd86ab76b2",
+      "evidence": "research/compiler-and-translation/RT-30/C-FAMILY-ROUNDTRIP-01/evidence.json",
+      "bytes": 4238,
+      "expected_sha256": "3c0c2e4a11acbc60e8d69c5fa5d52f4328d7d5aafe79c2c1671aa4c937ac893a",
+      "observed_sha256": "3c0c2e4a11acbc60e8d69c5fa5d52f4328d7d5aafe79c2c1671aa4c937ac893a"
+    },
+    {
+      "runner": "research/compiler-and-translation/RT-30/RUST-WRAPPING-ROUNDTRIP-01/roundtrip.py",
+      "runner_sha256": "4dfb5fa2bcc886cb231c512689f783382b138010a02b82cece8b1eeb439030ce",
+      "evidence": "research/compiler-and-translation/RT-30/RUST-WRAPPING-ROUNDTRIP-01/evidence.json",
+      "bytes": 4805,
+      "expected_sha256": "3d26ce43f04d2cada57b95d7fd862990952250c53cee7c14dd953e9add8604fd",
+      "observed_sha256": "3d26ce43f04d2cada57b95d7fd862990952250c53cee7c14dd953e9add8604fd"
+    },
+    {
+      "runner": "research/compiler-and-translation/RT-30/WRAPPING-TRANSLATION-MATRIX-01/matrix.py",
+      "runner_sha256": "afc1346733096772110fae4aa2c8a3defb0b9abc768d1c57f343e9355bb2b49c",
+      "evidence": "research/compiler-and-translation/RT-30/WRAPPING-TRANSLATION-MATRIX-01/evidence.json",
+      "bytes": 8194,
+      "expected_sha256": "9156e7ff0430734be263a7f714c389dd1c8e7741a03b20f22c0e2678edd18fd3",
+      "observed_sha256": "9156e7ff0430734be263a7f714c389dd1c8e7741a03b20f22c0e2678edd18fd3"
+    },
+    {
+      "runner": "research/compiler-and-translation/RT-30/PROVENANCE-ROUTES-01/run.py",
+      "runner_sha256": "553404a25f5401422da22b4bf60cb719516c2bf20a979407a2bbdeb73ca9bc08",
+      "evidence": "research/compiler-and-translation/RT-30/PROVENANCE-ROUTES-01/evidence.json",
+      "bytes": 8099,
+      "expected_sha256": "9f4d517f1519b4b9691a029b4b79c8e9e33d9b2e08ac93622e54a5546338fd3e",
+      "observed_sha256": "9f4d517f1519b4b9691a029b4b79c8e9e33d9b2e08ac93622e54a5546338fd3e"
+    },
+    {
+      "runner": "research/compiler-and-translation/RT-30/SHARED-C-RUNTIME-01/run.py",
+      "runner_sha256": "3d60487a399fd2879da8befb88b34d2453cede401f70b87e9317efdff456cfce",
+      "evidence": "research/compiler-and-translation/RT-30/SHARED-C-RUNTIME-01/evidence.json",
+      "bytes": 3546,
+      "expected_sha256": "882b7fe71346ef2315178cb34b7bc02de95af81e160710d8f121ff8dcfef287f",
+      "observed_sha256": "882b7fe71346ef2315178cb34b7bc02de95af81e160710d8f121ff8dcfef287f"
+    },
+    {
+      "runner": "research/packages-and-ecosystem/RT-12/INDEX-COMPRESSION-01/run.py",
+      "runner_sha256": "cce13c2f831be60e74d1fe227df47e68758fc9ebf9a42720605f9ab7d10365e5",
+      "evidence": "research/packages-and-ecosystem/RT-12/INDEX-COMPRESSION-01/evidence.json",
+      "bytes": 3696,
+      "expected_sha256": "3e95235cb1d90eb307a59094104d29f55e2bf2427049ffe67c2b46732db9da8a",
+      "observed_sha256": "3e95235cb1d90eb307a59094104d29f55e2bf2427049ffe67c2b46732db9da8a"
+    },
+    {
+      "runner": "research/packages-and-ecosystem/RT-12/INDEX-INTEGRITY-01/sparse.py",
+      "runner_sha256": "f4f523f26d156febe9116ef8d1580f3d85f0603478cea2b08f0c665aa6c13293",
+      "evidence": "research/packages-and-ecosystem/RT-12/INDEX-INTEGRITY-01/evidence.json",
+      "bytes": 13941,
+      "expected_sha256": "84d93de4165e7c322c64f18a4e4d259e04cc70e24d81fe9b9f4db18711eb805b",
+      "observed_sha256": "84d93de4165e7c322c64f18a4e4d259e04cc70e24d81fe9b9f4db18711eb805b"
+    },
+    {
+      "runner": "research/packages-and-ecosystem/RT-12/HIERARCHICAL-DIRECTORY-01/run.py",
+      "runner_sha256": "82a9fd68db4d26f3468601efe6af66e6e68c1fadb06f44ac836a7966682132fb",
+      "evidence": "research/packages-and-ecosystem/RT-12/HIERARCHICAL-DIRECTORY-01/evidence.json",
+      "bytes": 7802,
+      "expected_sha256": "bdf3aae350c46886b60a4fd901a5fe8b7cff0c38325a40d450dd3a64c508aa2c",
+      "observed_sha256": "bdf3aae350c46886b60a4fd901a5fe8b7cff0c38325a40d450dd3a64c508aa2c"
+    },
+    {
+      "runner": "research/packages-and-ecosystem/RT-12/INDEPENDENT-PACKAGE-IDENTITY-01/run.py",
+      "runner_sha256": "984007b85cf368bb3ee2921d96f3a6d134f63b95990b45186d3882287d4b9e8f",
+      "evidence": "research/packages-and-ecosystem/RT-12/INDEPENDENT-PACKAGE-IDENTITY-01/evidence.json",
+      "bytes": 37278,
+      "expected_sha256": "4f7955d08ab1a06e34cb5232eebd9f4741c376981518f9dddb09eda27ce5e846",
+      "observed_sha256": "4f7955d08ab1a06e34cb5232eebd9f4741c376981518f9dddb09eda27ce5e846"
+    },
+    {
+      "runner": "research/packages-and-ecosystem/RT-12/CONDITIONAL-CLOSURE-01/run.py",
+      "runner_sha256": "866fa4843826e9a6b0634c5c788a0ccfed66f6279b573b88db2456c8e2f6a096",
+      "evidence": "research/packages-and-ecosystem/RT-12/CONDITIONAL-CLOSURE-01/evidence.json",
+      "bytes": 1786,
+      "expected_sha256": "02144d88d33655dc906ddedec7993e5d32c7f6b7f08b4b82fbfc9f16963663a2",
+      "observed_sha256": "02144d88d33655dc906ddedec7993e5d32c7f6b7f08b4b82fbfc9f16963663a2"
+    },
+    {
+      "runner": "research/security/RT-16/BUILD-ATTESTATION-01/run.py",
+      "runner_sha256": "226c4316aa95db2b1600fcc9efbb2ba636747c6ce363b8b6d2d33f670372fbef",
+      "evidence": "research/security/RT-16/BUILD-ATTESTATION-01/evidence.json",
+      "bytes": 4453,
+      "expected_sha256": "f406ebdf2215eb7390b5b70f4677ffd31ad396a8a2f74f4053c0e51b3ee79d8f",
+      "observed_sha256": "f406ebdf2215eb7390b5b70f4677ffd31ad396a8a2f74f4053c0e51b3ee79d8f"
+    },
+    {
+      "runner": "research/security/RT-16/PROOF-REVOCATION-01/run.py",
+      "runner_sha256": "104994e358a1c3ecfe1c0b501fcecb39cc685c85c76f175bd9f76fc4ef75ca75",
+      "evidence": "research/security/RT-16/PROOF-REVOCATION-01/evidence.json",
+      "bytes": 1898,
+      "expected_sha256": "f7c3ff5038806e8ca0474dea47d3a71f0e3ece8c7e72373b5ec7f72f4ac379fc",
+      "observed_sha256": "f7c3ff5038806e8ca0474dea47d3a71f0e3ece8c7e72373b5ec7f72f4ac379fc"
+    },
+    {
+      "runner": "research/semantic-representation/RT-05/NATIVE-TYPE-IDENTITY-01/run.py",
+      "runner_sha256": "c6ad369754a4f31dec6ce77dee4824c3e1c2f308a59180199897a107f3ac3269",
+      "evidence": "research/semantic-representation/RT-05/NATIVE-TYPE-IDENTITY-01/evidence.json",
+      "bytes": 3729,
+      "expected_sha256": "160251723c492ace986a49f04d65ceff10e3967fb330209b660f158c4736ae56",
+      "observed_sha256": "160251723c492ace986a49f04d65ceff10e3967fb330209b660f158c4736ae56"
+    },
+    {
+      "runner": "research/semantic-representation/RT-05/NATIVE-TYPESTATE-01/run.py",
+      "runner_sha256": "c5c40f97bc46ae3d7c30fda6360d62b62bd73a9ab5ac160371649f575f76a5d4",
+      "evidence": "research/semantic-representation/RT-05/NATIVE-TYPESTATE-01/evidence.json",
+      "bytes": 1257,
+      "expected_sha256": "2784871539cc6e97362e618d57185cdb93c4976ea428efe64ae1fa547ed3afc9",
+      "observed_sha256": "2784871539cc6e97362e618d57185cdb93c4976ea428efe64ae1fa547ed3afc9"
+    },
+    {
+      "runner": "research/semantic-representation/RT-05/SUM-EXTENSION-01/run.py",
+      "runner_sha256": "fb4b4e82feebc32545546a1031a39dcf55ca95976c693d7eb79aeb223d1d4420",
+      "evidence": "research/semantic-representation/RT-05/SUM-EXTENSION-01/evidence.json",
+      "bytes": 9578,
+      "expected_sha256": "dd6de17c9e276e1798c80dd15e316b3c2745e2205a89e9911e887f24395143f9",
+      "observed_sha256": "dd6de17c9e276e1798c80dd15e316b3c2745e2205a89e9911e887f24395143f9"
+    }
+  ],
+  "figures": [
+    {
+      "figure": "research/packages-and-ecosystem/RT-12/INDEX-COMPRESSION-01/index-compression.svg",
+      "data": "research/packages-and-ecosystem/RT-12/INDEX-COMPRESSION-01/evidence.json",
+      "bytes": 73011,
+      "sha256": "c4cf7bf35d856dde71e72b68e65006f85465a1d257459007f7e6b395e0b21569"
+    },
+    {
+      "figure": "research/packages-and-ecosystem/RT-12/HIERARCHICAL-DIRECTORY-01/hierarchy-lookup.svg",
+      "data": "research/packages-and-ecosystem/RT-12/HIERARCHICAL-DIRECTORY-01/evidence.json",
+      "bytes": 166928,
+      "sha256": "d4972da775134083979c33cffae449751a79be08b905847d6aeb1b90b0c5b504"
+    },
+    {
+      "figure": "research/compiler-and-translation/RT-13/DISPATCH-TIMING-01/dispatch-latency.svg",
+      "data": "research/compiler-and-translation/RT-13/DISPATCH-TIMING-01/samples.csv",
+      "bytes": 74414,
+      "sha256": "05a1489553cf71ee233f19e2170e204ec97b61811fb94b54cd43ccd536e3f54f"
+    }
+  ],
+  "archive_measurements_checked": {
+    "dispatch_intervals": 70,
+    "compression_intervals": 140,
+    "compression_memory_traces": 20
+  }
+}
