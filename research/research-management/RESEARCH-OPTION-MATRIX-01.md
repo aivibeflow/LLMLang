@@ -181,6 +181,8 @@ The [nested-loop cost pilot](../formal-verification/RT-34/RT-34-NESTED-LOOP-COST
 
 ### 5.2 Comparisons supported by the November 24 reproductions
 
+The [pinned Logos proof audit](../formal-verification/RT-07/RT-07-LOGOS-VERDICT-PROOF-2026-11-25.md) composes the source implication with the actual verdict theorem under 2,118 native computation axioms.
+
 The reproduced studies below constrain components of the existing vectors. Their common comparison unit is the exact claim, observation scope and dependency closure. The [dependency map](RESEARCH-DEPENDENCY-MAP.md) records the corresponding cross-area relationships. Use these observations to eliminate a failing shortcut within its tested profile and to state the conditions a surviving implementation must meet.
 
 ```mermaid
