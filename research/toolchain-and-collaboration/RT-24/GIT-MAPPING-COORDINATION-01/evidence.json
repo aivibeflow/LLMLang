@@ -1,0 +1,76 @@
+{
+  "git": "git version 2.56.1",
+  "cases": {
+    "independent": {
+      "status": "published",
+      "commit": "e2c77844c1bc5c1d8700b4cb300a62f52e9cbb42",
+      "tree": "33cd9c5217e614cbeae4f2dbafcbbef676194f45",
+      "candidate": "6e580e762b3f4e8c42713bcfa8d480267460ffdebaf4f4469f42678b49c5bda3",
+      "mapping_revision": "76f5b33fc0de2d920612e8eaa844d0ca6f12b6d11082b5803b9f18f89e58e88a",
+      "semantic_root": "8c358315d2c11d7a691704460ec96a5eb5004b26ba69edec945a7a89bf0488ee",
+      "entries": [
+        [
+          [
+            "api",
+            "entry"
+          ],
+          [
+            "g",
+            "sig2"
+          ]
+        ],
+        [
+          [
+            "cli",
+            "entry"
+          ],
+          [
+            "g",
+            "cli-g"
+          ]
+        ]
+      ],
+      "ordinary_blob_retained": "811468aa7650876382775e64a1c63fd219edcf7f",
+      "clean_clone": "same semantic and mapping identities"
+    },
+    "same-key": {
+      "status": "mapping-conflict",
+      "detail": "concurrent edits to [('api', 'entry')]"
+    },
+    "same-key-divergent": {
+      "status": "mapping-conflict",
+      "detail": "concurrent edits to [('api', 'entry')]"
+    },
+    "delete-update": {
+      "status": "mapping-conflict",
+      "detail": "concurrent edits to [('api', 'entry')]"
+    },
+    "export-collision": {
+      "status": "mapping-conflict",
+      "detail": "export ('api', 'g') claimed by 'first' and 'second'"
+    },
+    "wrong-signature": {
+      "status": "mapping-conflict",
+      "detail": "catalog does not provide exact signature for ('api', 'g')"
+    },
+    "wrong-parent": {
+      "status": "mapping-conflict",
+      "detail": "tip does not descend directly from the pinned base"
+    },
+    "catalog-mismatch": {
+      "status": "catalog-snapshot-mismatch"
+    },
+    "stale-current": {
+      "status": "ref-transaction-refused"
+    },
+    "stale-incoming": {
+      "status": "ref-transaction-refused"
+    },
+    "stale-catalog": {
+      "status": "ref-transaction-refused"
+    },
+    "stale-head": {
+      "status": "ref-transaction-refused"
+    }
+  }
+}
