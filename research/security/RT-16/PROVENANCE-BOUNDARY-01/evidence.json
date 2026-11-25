@@ -1,0 +1,26 @@
+{
+  "build_profiles": 8,
+  "cache_controls": {
+    "conflict-with-missing-alternative": "conflict",
+    "explicit-revocation": "exact-hit",
+    "no-independent-rebuild": "rebuild-unavailable",
+    "signed-disagrees-with-rebuild": "rebuild-disagrees",
+    "wrong-bytes": "payload-refused"
+  },
+  "candidate_orders": 120,
+  "exact_rebuilds": 3,
+  "inputs": {
+    "packages-and-ecosystem/RT-12/DECLARED-PACKAGE-RIGHTS-01": "96cd6a2a14deed87811b3c01107bf6630947e84068ac4d3ad88d02cb499f5611",
+    "security/RT-16/BUILD-ATTESTATION-01": "f406ebdf2215eb7390b5b70f4677ffd31ad396a8a2f74f4053c0e51b3ee79d8f",
+    "toolchain-and-collaboration/RT-11/SIGNED-REBUILD-ADMISSION-01": "a50fbd3d3068b82867a5e8e8c13da6b6c2bf8583f120c208e13edb697d9a218c"
+  },
+  "package_repacking": {
+    "declared_use_after_logical_change": false,
+    "declared_use_preserved_across_physical_repacking": true,
+    "fresh_publication_applies_after_repacking": true,
+    "old_publication_applies_after_repacking": false
+  },
+  "signed_exact_recipe_admissions": 2,
+  "signed_subject_admissions": 6,
+  "source_sha256": "568ca63c4d1ae8ea2154c7a2266ed9873c7e39b9ad811865c69548cca2f19281"
+}
