@@ -607,6 +607,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define semantics-preserving transformations and compiler correctness boundaries.
   - [x] Prove the exact criterion for removing an overwritten store with an optional intervening alias read and declared visibility. Final-cell equality falsely admits 297 of 486 candidates. Both GCC profiles match all 972 oracle rows each. General alias analysis and compiler correspondence remain open. [Dead-store alias boundary](research/formal-verification/RT-07/RT-07-DEAD-STORE-ALIAS-BOUNDARY-2026-11-25.md)
 - [ ] Define assumptions and environmental boundaries explicitly.
+  - [ ] [WIP] Check exact environmental pair reads, coherent generation evidence and epoch reuse under an explicit interleaving model on `research/all`.
   - [x] Compare a conditional POSIX environment read with an explicit observation model. Two native profiles agree on 144 cases each. Successful-only input footprints merge 64 distinct outcomes, while an exact read or checked projection prevents stale reuse in 1,224 comparisons. Lean checks the conditional assumptions. General environment extraction remains open. [Explicit environment boundary](research/formal-verification/RT-07/RT-07-EXPLICIT-ENVIRONMENT-BOUNDARY-2026-11-25.md)
 
 **Existing evidence:** [LLMLang-FORMAL-VERIFICATION.md](research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md), [LLMLang-CONCEPT.md](research/language-design/RT-01/LLMLang-CONCEPT.md), typed requirement IR and formal dependency scenarios 25–33.
