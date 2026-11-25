@@ -1,0 +1,21 @@
+use std::rc::Rc;
+
+pub trait Value {
+    fn sum(&self) -> u8;
+}
+
+impl Value for [u8; 4] {
+    fn sum(&self) -> u8 {
+        self.iter().copied().sum()
+    }
+}
+
+impl Value for Rc<[u8; 4]> {
+    fn sum(&self) -> u8 {
+        self.iter().copied().sum()
+    }
+}
+
+pub fn value() -> @RESULT@ {
+    @BODY@
+}

@@ -1098,7 +1098,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define type inference and explicit annotations.
   - [x] Compile seven matched Rust and Go inference cases. A later argument changes one Rust local from i32 to u64 and is rejected against the default Go int. Explicit local types preserve both earlier types when the new use converts explicitly. Both signature controls require a concrete result declaration for the tested API. [RT-04 native inference boundaries](research/language-design/RT-04/RT-04-NATIVE-INFERENCE-BOUNDARIES-2026-11-25.md)
 - [ ] Define compatibility between types exposed by different implementations.
-  - [ ] [WIP] Compare opaque and erased public result types across separately compiled provider changes, including Send and native size observations on `research/all`.
+  - [x] Compile eight provider variants and twelve separate clients for opaque and erased Rust results. The six admitted providers agree on the method result, while one opaque replacement changes native size and breaks Send clients without a signature edit. Explicit Send rejects that provider at definition. Binary compatibility and LLMLang policy remain open. [RT-04 opaque provider compatibility](research/language-design/RT-04/RT-04-OPAQUE-PROVIDER-COMPATIBILITY-2026-11-25.md)
 - [ ] Determine which guarantees are enforced by types, contracts, or proofs.
 
 **Existing evidence:** concept and formal-verification research; typed requirement and typed relational IR prototypes.
