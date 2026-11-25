@@ -1,0 +1,2033 @@
+{
+  "schema": "llmlang-rt24-versioned-i64-merge/1",
+  "python": "3.12.14",
+  "git": "git version 2.52.0",
+  "node": "v22.23.5",
+  "v8": "12.4.254.21-node.57",
+  "sources": {
+    "run.py": "920193d44b086034385ce918b8d38a33d3b761cc6b75ed804b8a2bdbbf41d962",
+    "read.js": "bc7efa4dd486d982ee55d5d8e0e5d28494fdbe37b117297c67ca5347b485294c"
+  },
+  "scenarios": 12,
+  "metrics": {
+    "single_v2": {
+      "exact": 1,
+      "valid_refused": 5,
+      "wrong_published": 0,
+      "expected_refusal": 6
+    },
+    "rounded": {
+      "exact": 2,
+      "valid_refused": 3,
+      "wrong_published": 4,
+      "expected_refusal": 3
+    },
+    "exact_unbound": {
+      "exact": 6,
+      "valid_refused": 0,
+      "wrong_published": 2,
+      "expected_refusal": 4
+    },
+    "exact_bound": {
+      "exact": 6,
+      "valid_refused": 0,
+      "wrong_published": 0,
+      "expected_refusal": 6
+    }
+  },
+  "observations": [
+    {
+      "case": "upgrade_disjoint_wide",
+      "parents": [
+        "5aceff549ee82b5868a0143a62331f1faca4e37d",
+        "f9700ca25dba097003c89ffd356f72a74513b255",
+        "870f72e20361150eac74b4dd105ff7e2d6916015"
+      ],
+      "parent_blobs": [
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "79fddd5108549e354486b1928e5f2d5843c1d18d"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000001\",\"b\":\"fffffffffffffffd\"},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":4},\"root\":\"b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c",
+        "0dd40e14953101ebebda11f857ef27a9a683ad7e2ff786c740e7016e40e5d2e1",
+        "2acd9ccbb665f768b13fb06769a6dd97c435d332b2912df316631985d822b55e"
+      ],
+      "git_index": {
+        "1": "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2": "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "3": "79fddd5108549e354486b1928e5f2d5843c1d18d"
+      },
+      "expected": [
+        "9007199254740993",
+        "4"
+      ],
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "valid_refused",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "2c20ea67a4f721b668015be2d7012da698579a6451c3b42c56f5d6be3fd95ef2",
+              "nodes": [
+                "9007199254740992",
+                "4"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "c1512805baa2012274e7f92ebf723a3c587f8b8f",
+            "tree": "dd49f8f2e950ad7be78ee0d94aea4a970bf90d4f",
+            "blob": "4a13c537554d75b04a34109b3ab03e37686227fb",
+            "root": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+            "wire_sha256": "de96569bb04f025f480ba9584ce3c582b2a9d965a19b12fd612140abc540af1d"
+          },
+          "candidate": [
+            "9007199254740993",
+            "4"
+          ]
+        },
+        "exact_unbound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "ccb803ab7809da8771fce717416a65a47e071040",
+            "tree": "dd49f8f2e950ad7be78ee0d94aea4a970bf90d4f",
+            "blob": "4a13c537554d75b04a34109b3ab03e37686227fb",
+            "root": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+            "wire_sha256": "de96569bb04f025f480ba9584ce3c582b2a9d965a19b12fd612140abc540af1d"
+          },
+          "candidate": [
+            "9007199254740993",
+            "4"
+          ]
+        },
+        "exact_bound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "5d8a7ddea7f4ee68728064c876a26899b490118e",
+            "tree": "dd49f8f2e950ad7be78ee0d94aea4a970bf90d4f",
+            "blob": "4a13c537554d75b04a34109b3ab03e37686227fb",
+            "root": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+            "wire_sha256": "de96569bb04f025f480ba9584ce3c582b2a9d965a19b12fd612140abc540af1d"
+          },
+          "candidate": [
+            "9007199254740993",
+            "4"
+          ]
+        }
+      }
+    },
+    {
+      "case": "upgrade_with_edit",
+      "parents": [
+        "5aceff549ee82b5868a0143a62331f1faca4e37d",
+        "c27f2a76ed34723c226b91c71834bf1aa99253da",
+        "27e16c93db7500af0bcbf2dae1468e988b5323d1"
+      ],
+      "parent_blobs": [
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "4a13c537554d75b04a34109b3ab03e37686227fb",
+        "80f6e75db005fd9b63015f1f4f3c450db532d3f8"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000001\",\"b\":\"0000000000000004\"},\"root\":\"b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19\"}\n",
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740995,\"b\":-3},\"root\":\"863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c",
+        "de96569bb04f025f480ba9584ce3c582b2a9d965a19b12fd612140abc540af1d",
+        "1954b12397538fd991b2dc7691462ef3cfda37d6a981b4af14c619fdc8c1add3"
+      ],
+      "git_index": {
+        "1": "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2": "4a13c537554d75b04a34109b3ab03e37686227fb",
+        "3": "80f6e75db005fd9b63015f1f4f3c450db532d3f8"
+      },
+      "expected": [
+        "9007199254740995",
+        "4"
+      ],
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "valid_refused",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "conflict",
+          "class": "valid_refused",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "eb83dbecfc1b529ee1c3b19fb55358ed94fc001a19dcfcad4a43a3693f6f2ff6",
+              "nodes": [
+                "9007199254740996",
+                "-3"
+              ]
+            }
+          ]
+        },
+        "exact_unbound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "a80121c6631e6618d09d3a8901d8ec92e754bd69",
+            "tree": "67c329366ef51e63bd08ab09e984ae4e0401ed72",
+            "blob": "bf92e759e50d3d7f8f0ebb9305af79ec0c8f5823",
+            "root": "9f728d376787c3c206ae3efb284c0b9408864738e1061668e6639711a04891b0",
+            "wire_sha256": "ffd6b13e30e2267ba4c3fcb3afe8c73fd23ff504563023f7634895a75ba9a4c9"
+          },
+          "candidate": [
+            "9007199254740995",
+            "4"
+          ]
+        },
+        "exact_bound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "54ac9d40b778d7ef2c9cc0be0a55274bd401c0ec",
+            "tree": "67c329366ef51e63bd08ab09e984ae4e0401ed72",
+            "blob": "bf92e759e50d3d7f8f0ebb9305af79ec0c8f5823",
+            "root": "9f728d376787c3c206ae3efb284c0b9408864738e1061668e6639711a04891b0",
+            "wire_sha256": "ffd6b13e30e2267ba4c3fcb3afe8c73fd23ff504563023f7634895a75ba9a4c9"
+          },
+          "candidate": [
+            "9007199254740995",
+            "4"
+          ]
+        }
+      }
+    },
+    {
+      "case": "legacy_write_no_upgrade",
+      "parents": [
+        "5aceff549ee82b5868a0143a62331f1faca4e37d",
+        "019ba9df1861053d938f526bc41ee6c23ee918c5",
+        "6f64bb954731e2c2f62afd3dc20b9650ca5b5285"
+      ],
+      "parent_blobs": [
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "79fddd5108549e354486b1928e5f2d5843c1d18d",
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":4},\"root\":\"b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19\"}\n",
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c",
+        "2acd9ccbb665f768b13fb06769a6dd97c435d332b2912df316631985d822b55e",
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c"
+      ],
+      "git_index": {
+        "0": "79fddd5108549e354486b1928e5f2d5843c1d18d"
+      },
+      "expected": [
+        "9007199254740993",
+        "4"
+      ],
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "valid_refused",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "version"
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "merged",
+          "class": "wrong_published",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "2c20ea67a4f721b668015be2d7012da698579a6451c3b42c56f5d6be3fd95ef2",
+              "nodes": [
+                "9007199254740992",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "adea5dfc2b4e755102428b12c6a6afa3e5f53b2b",
+            "tree": "0757652030428e6836c3e0782695115654277b69",
+            "blob": "70dc50b80fc470868520c2c641bd622b49aeb9ea",
+            "root": "2c20ea67a4f721b668015be2d7012da698579a6451c3b42c56f5d6be3fd95ef2",
+            "wire_sha256": "c9e9ff3c7eeb39f16b6bec17229c5ea2cd77acf2c73f9a09611210f7ee84c8fe"
+          },
+          "candidate": [
+            "9007199254740992",
+            "4"
+          ]
+        },
+        "exact_unbound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "217f99ceb5960cb59e2fa5192b3b51e1b4e5795c",
+            "tree": "dd49f8f2e950ad7be78ee0d94aea4a970bf90d4f",
+            "blob": "4a13c537554d75b04a34109b3ab03e37686227fb",
+            "root": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+            "wire_sha256": "de96569bb04f025f480ba9584ce3c582b2a9d965a19b12fd612140abc540af1d"
+          },
+          "candidate": [
+            "9007199254740993",
+            "4"
+          ]
+        },
+        "exact_bound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "90059c4885e473760556c5f175efd43438eea84a",
+            "tree": "dd49f8f2e950ad7be78ee0d94aea4a970bf90d4f",
+            "blob": "4a13c537554d75b04a34109b3ab03e37686227fb",
+            "root": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+            "wire_sha256": "de96569bb04f025f480ba9584ce3c582b2a9d965a19b12fd612140abc540af1d"
+          },
+          "candidate": [
+            "9007199254740993",
+            "4"
+          ]
+        }
+      }
+    },
+    {
+      "case": "all_upgraded",
+      "parents": [
+        "f5f0135b03bfe729b30cb68a28b7d7d99aa4a434",
+        "d4990f4a1ddeb36a4320ebfc6e3a690e8668ffc9",
+        "2684cdce1d4501b22091c2b9afe00cb52cc40b0c"
+      ],
+      "parent_blobs": [
+        "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "4a13c537554d75b04a34109b3ab03e37686227fb",
+        "a13489b2046f211e1ad34162a14287c7336428e8"
+      ],
+      "parent_wires": [
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000001\",\"b\":\"fffffffffffffffd\"},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000001\",\"b\":\"0000000000000004\"},\"root\":\"b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000003\",\"b\":\"fffffffffffffffd\"},\"root\":\"863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "0dd40e14953101ebebda11f857ef27a9a683ad7e2ff786c740e7016e40e5d2e1",
+        "de96569bb04f025f480ba9584ce3c582b2a9d965a19b12fd612140abc540af1d",
+        "f1ed4b30bdb86def7bbdc515a04e8bb1588e85573e4b647f5d52690c2487243c"
+      ],
+      "git_index": {
+        "1": "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "2": "4a13c537554d75b04a34109b3ab03e37686227fb",
+        "3": "a13489b2046f211e1ad34162a14287c7336428e8"
+      },
+      "expected": [
+        "9007199254740995",
+        "4"
+      ],
+      "policies": {
+        "single_v2": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "47f6f65ff9b586f941e11e9687add113305fef50",
+            "tree": "67c329366ef51e63bd08ab09e984ae4e0401ed72",
+            "blob": "bf92e759e50d3d7f8f0ebb9305af79ec0c8f5823",
+            "root": "9f728d376787c3c206ae3efb284c0b9408864738e1061668e6639711a04891b0",
+            "wire_sha256": "ffd6b13e30e2267ba4c3fcb3afe8c73fd23ff504563023f7634895a75ba9a4c9"
+          },
+          "candidate": [
+            "9007199254740995",
+            "4"
+          ]
+        },
+        "rounded": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "98091a8bbf1d4de89980e44e3dca33c2fbadf9cc",
+            "tree": "67c329366ef51e63bd08ab09e984ae4e0401ed72",
+            "blob": "bf92e759e50d3d7f8f0ebb9305af79ec0c8f5823",
+            "root": "9f728d376787c3c206ae3efb284c0b9408864738e1061668e6639711a04891b0",
+            "wire_sha256": "ffd6b13e30e2267ba4c3fcb3afe8c73fd23ff504563023f7634895a75ba9a4c9"
+          },
+          "candidate": [
+            "9007199254740995",
+            "4"
+          ]
+        },
+        "exact_unbound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "f9a8a000e1fca95269a7a75fc168ae17c42fcac9",
+            "tree": "67c329366ef51e63bd08ab09e984ae4e0401ed72",
+            "blob": "bf92e759e50d3d7f8f0ebb9305af79ec0c8f5823",
+            "root": "9f728d376787c3c206ae3efb284c0b9408864738e1061668e6639711a04891b0",
+            "wire_sha256": "ffd6b13e30e2267ba4c3fcb3afe8c73fd23ff504563023f7634895a75ba9a4c9"
+          },
+          "candidate": [
+            "9007199254740995",
+            "4"
+          ]
+        },
+        "exact_bound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "84617faecacb2241340020053fca5663b0e719c5",
+            "tree": "67c329366ef51e63bd08ab09e984ae4e0401ed72",
+            "blob": "bf92e759e50d3d7f8f0ebb9305af79ec0c8f5823",
+            "root": "9f728d376787c3c206ae3efb284c0b9408864738e1061668e6639711a04891b0",
+            "wire_sha256": "ffd6b13e30e2267ba4c3fcb3afe8c73fd23ff504563023f7634895a75ba9a4c9"
+          },
+          "candidate": [
+            "9007199254740995",
+            "4"
+          ]
+        }
+      }
+    },
+    {
+      "case": "stale_root_after_lossy_write",
+      "parents": [
+        "5aceff549ee82b5868a0143a62331f1faca4e37d",
+        "f9700ca25dba097003c89ffd356f72a74513b255",
+        "c41a4120ce5462ae35e4af17ab693206163634f1"
+      ],
+      "parent_blobs": [
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "2f9494cd69ced1dc3471433715b765f616bed137"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000001\",\"b\":\"fffffffffffffffd\"},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740992,\"b\":4},\"root\":\"b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c",
+        "0dd40e14953101ebebda11f857ef27a9a683ad7e2ff786c740e7016e40e5d2e1",
+        "69c41c827e8115803da0b9084fe00a7aaab8bc8b3aec389e31c0a2a0ecebbe0d"
+      ],
+      "git_index": {
+        "1": "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2": "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "3": "2f9494cd69ced1dc3471433715b765f616bed137"
+      },
+      "expected": null,
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "merged",
+          "class": "wrong_published",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "2c20ea67a4f721b668015be2d7012da698579a6451c3b42c56f5d6be3fd95ef2",
+              "nodes": [
+                "9007199254740992",
+                "4"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "41c94d4ae19f4874a153f4b2bcc44ab7a305c2a4",
+            "tree": "dd49f8f2e950ad7be78ee0d94aea4a970bf90d4f",
+            "blob": "4a13c537554d75b04a34109b3ab03e37686227fb",
+            "root": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+            "wire_sha256": "de96569bb04f025f480ba9584ce3c582b2a9d965a19b12fd612140abc540af1d"
+          },
+          "candidate": [
+            "9007199254740993",
+            "4"
+          ]
+        },
+        "exact_unbound": {
+          "status": "merged",
+          "class": "wrong_published",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "2c20ea67a4f721b668015be2d7012da698579a6451c3b42c56f5d6be3fd95ef2",
+              "nodes": [
+                "9007199254740992",
+                "4"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "c4e4acb044078e04695c4beb5360406015e988e7",
+            "tree": "0757652030428e6836c3e0782695115654277b69",
+            "blob": "70dc50b80fc470868520c2c641bd622b49aeb9ea",
+            "root": "2c20ea67a4f721b668015be2d7012da698579a6451c3b42c56f5d6be3fd95ef2",
+            "wire_sha256": "c9e9ff3c7eeb39f16b6bec17229c5ea2cd77acf2c73f9a09611210f7ee84c8fe"
+          },
+          "candidate": [
+            "9007199254740992",
+            "4"
+          ]
+        },
+        "exact_bound": {
+          "status": "root",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "root"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case": "stale_root_on_hex_branch",
+      "parents": [
+        "5aceff549ee82b5868a0143a62331f1faca4e37d",
+        "1a6a2e84af5c84bdd79a1ac8f4dd46dba4bbbf43",
+        "27e16c93db7500af0bcbf2dae1468e988b5323d1"
+      ],
+      "parent_blobs": [
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "48e576b6a579699457a8a5bc22eb4fb3fd7baad7",
+        "80f6e75db005fd9b63015f1f4f3c450db532d3f8"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000001\",\"b\":\"0000000000000004\"},\"root\":\"0000000000000000000000000000000000000000000000000000000000000000\"}\n",
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740995,\"b\":-3},\"root\":\"863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c",
+        "b17bef7eddae5364d0f9f0904fb8d73383897cc2bc078d849895ffef198ceadd",
+        "1954b12397538fd991b2dc7691462ef3cfda37d6a981b4af14c619fdc8c1add3"
+      ],
+      "git_index": {
+        "1": "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2": "48e576b6a579699457a8a5bc22eb4fb3fd7baad7",
+        "3": "80f6e75db005fd9b63015f1f4f3c450db532d3f8"
+      },
+      "expected": null,
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "root"
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "conflict",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "eb83dbecfc1b529ee1c3b19fb55358ed94fc001a19dcfcad4a43a3693f6f2ff6",
+              "nodes": [
+                "9007199254740996",
+                "-3"
+              ]
+            }
+          ]
+        },
+        "exact_unbound": {
+          "status": "merged",
+          "class": "wrong_published",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+              "nodes": [
+                "9007199254740993",
+                "4"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "eec0d4bc62e398d3dd906a0173598c2e92f6534f",
+            "tree": "67c329366ef51e63bd08ab09e984ae4e0401ed72",
+            "blob": "bf92e759e50d3d7f8f0ebb9305af79ec0c8f5823",
+            "root": "9f728d376787c3c206ae3efb284c0b9408864738e1061668e6639711a04891b0",
+            "wire_sha256": "ffd6b13e30e2267ba4c3fcb3afe8c73fd23ff504563023f7634895a75ba9a4c9"
+          },
+          "candidate": [
+            "9007199254740995",
+            "4"
+          ]
+        },
+        "exact_bound": {
+          "status": "root",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "root"
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case": "same_slot_conflict",
+      "parents": [
+        "5aceff549ee82b5868a0143a62331f1faca4e37d",
+        "dd81d4ab51396d30828214a64b6f431afb292e30",
+        "c305d89f1df84e5c19c8b994cc50b9cdcfed48de"
+      ],
+      "parent_blobs": [
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "a13489b2046f211e1ad34162a14287c7336428e8",
+        "e4a4742349e4bd553b46e7cffae9e0cc78d437a1"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000003\",\"b\":\"fffffffffffffffd\"},\"root\":\"863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53\"}\n",
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740997,\"b\":-3},\"root\":\"f1e730dca69cf3ca9f61ceeb08457ab271ddd19b1e7bd625d3375e0e440e6c56\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c",
+        "f1ed4b30bdb86def7bbdc515a04e8bb1588e85573e4b647f5d52690c2487243c",
+        "8d2d05dca06389306c8d4f6933fd316292f445e6f73e7af412e819c533f7cec7"
+      ],
+      "git_index": {
+        "1": "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2": "a13489b2046f211e1ad34162a14287c7336428e8",
+        "3": "e4a4742349e4bd553b46e7cffae9e0cc78d437a1"
+      },
+      "expected": null,
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "conflict",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "eb83dbecfc1b529ee1c3b19fb55358ed94fc001a19dcfcad4a43a3693f6f2ff6",
+              "nodes": [
+                "9007199254740996",
+                "-3"
+              ]
+            }
+          ]
+        },
+        "exact_unbound": {
+          "status": "conflict",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "f1e730dca69cf3ca9f61ceeb08457ab271ddd19b1e7bd625d3375e0e440e6c56",
+              "nodes": [
+                "9007199254740997",
+                "-3"
+              ]
+            }
+          ]
+        },
+        "exact_bound": {
+          "status": "conflict",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "f1e730dca69cf3ca9f61ceeb08457ab271ddd19b1e7bd625d3375e0e440e6c56",
+              "nodes": [
+                "9007199254740997",
+                "-3"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case": "same_edit_two_versions",
+      "parents": [
+        "5aceff549ee82b5868a0143a62331f1faca4e37d",
+        "dd81d4ab51396d30828214a64b6f431afb292e30",
+        "27e16c93db7500af0bcbf2dae1468e988b5323d1"
+      ],
+      "parent_blobs": [
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "a13489b2046f211e1ad34162a14287c7336428e8",
+        "80f6e75db005fd9b63015f1f4f3c450db532d3f8"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000003\",\"b\":\"fffffffffffffffd\"},\"root\":\"863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53\"}\n",
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740995,\"b\":-3},\"root\":\"863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c",
+        "f1ed4b30bdb86def7bbdc515a04e8bb1588e85573e4b647f5d52690c2487243c",
+        "1954b12397538fd991b2dc7691462ef3cfda37d6a981b4af14c619fdc8c1add3"
+      ],
+      "git_index": {
+        "1": "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2": "a13489b2046f211e1ad34162a14287c7336428e8",
+        "3": "80f6e75db005fd9b63015f1f4f3c450db532d3f8"
+      },
+      "expected": [
+        "9007199254740995",
+        "-3"
+      ],
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "valid_refused",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "conflict",
+          "class": "valid_refused",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "eb83dbecfc1b529ee1c3b19fb55358ed94fc001a19dcfcad4a43a3693f6f2ff6",
+              "nodes": [
+                "9007199254740996",
+                "-3"
+              ]
+            }
+          ]
+        },
+        "exact_unbound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "87684c6a405becc72b96bbe7d3f25793b8e5ba00",
+            "tree": "beac4a1fc028d26374a2076db8e26ec47a9016fb",
+            "blob": "a13489b2046f211e1ad34162a14287c7336428e8",
+            "root": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+            "wire_sha256": "f1ed4b30bdb86def7bbdc515a04e8bb1588e85573e4b647f5d52690c2487243c"
+          },
+          "candidate": [
+            "9007199254740995",
+            "-3"
+          ]
+        },
+        "exact_bound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+              "nodes": [
+                "9007199254740995",
+                "-3"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "13cbfffc45bf03830c70c3d634a6ac10498d8994",
+            "tree": "beac4a1fc028d26374a2076db8e26ec47a9016fb",
+            "blob": "a13489b2046f211e1ad34162a14287c7336428e8",
+            "root": "863ea82c9aab03f99ef1b7fb5c563a7afe375c94f3bdded6011d39cb21d11b53",
+            "wire_sha256": "f1ed4b30bdb86def7bbdc515a04e8bb1588e85573e4b647f5d52690c2487243c"
+          },
+          "candidate": [
+            "9007199254740995",
+            "-3"
+          ]
+        }
+      }
+    },
+    {
+      "case": "signed_limits",
+      "parents": [
+        "f29cb74ca4bb2171634980e4ecb1b4bafccce5d6",
+        "306c918b1b28f3ca255b30b5b7adaefcc9967344",
+        "202d1d82057c85c44d46548998d4072ebdfba7e8"
+      ],
+      "parent_blobs": [
+        "016aa6a7c74aa117d14508970b8c7a7fdddb8831",
+        "3d5b0ca650354db273112b01a4d8644fae8c49e4",
+        "c451c69296aa60afc6e656f50ec81a7f0c297cdd"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9223372036854775807,\"b\":-9223372036854775808},\"root\":\"8bb1fdf173a00fd15e3dd415107016323ff2ea7f7b98bdf4074fb718ba3f2577\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"7fffffffffffffff\",\"b\":\"8000000000000000\"},\"root\":\"8bb1fdf173a00fd15e3dd415107016323ff2ea7f7b98bdf4074fb718ba3f2577\"}\n",
+        "{\"version\":1,\"nodes\":{\"a\":9223372036854775807,\"b\":-9223372036854775807},\"root\":\"a3e804c6a90d4a57b065faf59caaacc6ad381e82f1f59f811aa5591ba0cd59e3\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "489dede1086b4fb159082f7fecc7f0befe56d8ed047d1bf6722b83551cea001e",
+        "46f5d75764953254f146e7bf11829b8aa2e1b06ffa9127485419f93f748c595d",
+        "0c18d43df93f28942e7f898345dbe5bb36386874dd65c2497b658c5478f55b82"
+      ],
+      "git_index": {
+        "1": "016aa6a7c74aa117d14508970b8c7a7fdddb8831",
+        "2": "3d5b0ca650354db273112b01a4d8644fae8c49e4",
+        "3": "c451c69296aa60afc6e656f50ec81a7f0c297cdd"
+      },
+      "expected": [
+        "9223372036854775807",
+        "-9223372036854775807"
+      ],
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "valid_refused",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "8bb1fdf173a00fd15e3dd415107016323ff2ea7f7b98bdf4074fb718ba3f2577",
+              "nodes": [
+                "9223372036854775807",
+                "-9223372036854775808"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "range",
+          "class": "valid_refused",
+          "inputs": [
+            {
+              "status": "range"
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "8bb1fdf173a00fd15e3dd415107016323ff2ea7f7b98bdf4074fb718ba3f2577",
+              "nodes": [
+                "9223372036854775807",
+                "-9223372036854775808"
+              ]
+            },
+            {
+              "status": "range"
+            }
+          ]
+        },
+        "exact_unbound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8bb1fdf173a00fd15e3dd415107016323ff2ea7f7b98bdf4074fb718ba3f2577",
+              "nodes": [
+                "9223372036854775807",
+                "-9223372036854775808"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "8bb1fdf173a00fd15e3dd415107016323ff2ea7f7b98bdf4074fb718ba3f2577",
+              "nodes": [
+                "9223372036854775807",
+                "-9223372036854775808"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "a3e804c6a90d4a57b065faf59caaacc6ad381e82f1f59f811aa5591ba0cd59e3",
+              "nodes": [
+                "9223372036854775807",
+                "-9223372036854775807"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "2ffdd63d7b6856df4665f6839acf68e2d2be23fe",
+            "tree": "00fa44b82052030d74a244b8e3181734f7beccd3",
+            "blob": "d8dcf9e25be50b36c9b94f52b3a2e092d28e7039",
+            "root": "a3e804c6a90d4a57b065faf59caaacc6ad381e82f1f59f811aa5591ba0cd59e3",
+            "wire_sha256": "b486f524467129a667e5b6f5c6832e69efea245e7fd6c7a3bab20424f48dc161"
+          },
+          "candidate": [
+            "9223372036854775807",
+            "-9223372036854775807"
+          ]
+        },
+        "exact_bound": {
+          "status": "merged",
+          "class": "exact",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8bb1fdf173a00fd15e3dd415107016323ff2ea7f7b98bdf4074fb718ba3f2577",
+              "nodes": [
+                "9223372036854775807",
+                "-9223372036854775808"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "8bb1fdf173a00fd15e3dd415107016323ff2ea7f7b98bdf4074fb718ba3f2577",
+              "nodes": [
+                "9223372036854775807",
+                "-9223372036854775808"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "a3e804c6a90d4a57b065faf59caaacc6ad381e82f1f59f811aa5591ba0cd59e3",
+              "nodes": [
+                "9223372036854775807",
+                "-9223372036854775807"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "1d678c9fb2dfb63881f90eee63f055c93849895b",
+            "tree": "00fa44b82052030d74a244b8e3181734f7beccd3",
+            "blob": "d8dcf9e25be50b36c9b94f52b3a2e092d28e7039",
+            "root": "a3e804c6a90d4a57b065faf59caaacc6ad381e82f1f59f811aa5591ba0cd59e3",
+            "wire_sha256": "b486f524467129a667e5b6f5c6832e69efea245e7fd6c7a3bab20424f48dc161"
+          },
+          "candidate": [
+            "9223372036854775807",
+            "-9223372036854775807"
+          ]
+        }
+      }
+    },
+    {
+      "case": "noncanonical_number",
+      "parents": [
+        "5aceff549ee82b5868a0143a62331f1faca4e37d",
+        "f9700ca25dba097003c89ffd356f72a74513b255",
+        "d0101847082fd459e35c7ab4b60f27946f4b6057"
+      ],
+      "parent_blobs": [
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "3052573986344c45d81a5fda75bdce098d482ad9"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000001\",\"b\":\"fffffffffffffffd\"},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":4e0},\"root\":\"b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c",
+        "0dd40e14953101ebebda11f857ef27a9a683ad7e2ff786c740e7016e40e5d2e1",
+        "d29ec483b88455b521c30e333a419dea473a383913e8ca042fc7e74fbc13d2c4"
+      ],
+      "git_index": {
+        "1": "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2": "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "3": "3052573986344c45d81a5fda75bdce098d482ad9"
+      },
+      "expected": null,
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "merged",
+          "class": "wrong_published",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "2c20ea67a4f721b668015be2d7012da698579a6451c3b42c56f5d6be3fd95ef2",
+              "nodes": [
+                "9007199254740992",
+                "4"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "2450320df671f0e66d816395474368f6638bd64b",
+            "tree": "dd49f8f2e950ad7be78ee0d94aea4a970bf90d4f",
+            "blob": "4a13c537554d75b04a34109b3ab03e37686227fb",
+            "root": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+            "wire_sha256": "de96569bb04f025f480ba9584ce3c582b2a9d965a19b12fd612140abc540af1d"
+          },
+          "candidate": [
+            "9007199254740993",
+            "4"
+          ]
+        },
+        "exact_unbound": {
+          "status": "syntax",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "syntax"
+            }
+          ]
+        },
+        "exact_bound": {
+          "status": "syntax",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "syntax"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case": "unknown_version",
+      "parents": [
+        "5aceff549ee82b5868a0143a62331f1faca4e37d",
+        "f9700ca25dba097003c89ffd356f72a74513b255",
+        "678fd455074b5a56a5b1b91842acdebd8cc784ef"
+      ],
+      "parent_blobs": [
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "c7d30c4b61cb82087b8b1e4e5a7b61f160197df0"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000001\",\"b\":\"fffffffffffffffd\"},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":3,\"nodes\":{\"a\":\"0020000000000001\",\"b\":\"0000000000000004\"},\"root\":\"b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c",
+        "0dd40e14953101ebebda11f857ef27a9a683ad7e2ff786c740e7016e40e5d2e1",
+        "e98f82fb403deb320424a6d23f84cd3e90c0769bfde58d249f04f971b28ecd6b"
+      ],
+      "git_index": {
+        "1": "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2": "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "3": "c7d30c4b61cb82087b8b1e4e5a7b61f160197df0"
+      },
+      "expected": null,
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "version",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "exact_unbound": {
+          "status": "version",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "exact_bound": {
+          "status": "version",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case": "noncanonical_key_order",
+      "parents": [
+        "5aceff549ee82b5868a0143a62331f1faca4e37d",
+        "f9700ca25dba097003c89ffd356f72a74513b255",
+        "cc0515322762a73d7ba3726aaeb9d64dcc3cbd38"
+      ],
+      "parent_blobs": [
+        "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "a4f2454e29efc4b013958f5d021d1bd78e9621f6"
+      ],
+      "parent_wires": [
+        "{\"version\":1,\"nodes\":{\"a\":9007199254740993,\"b\":-3},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":2,\"nodes\":{\"a\":\"0020000000000001\",\"b\":\"fffffffffffffffd\"},\"root\":\"51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2\"}\n",
+        "{\"version\":1,\"nodes\":{\"b\":4,\"a\":9007199254740993},\"root\":\"b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19\"}\n"
+      ],
+      "parent_wire_sha256": [
+        "b6eb1958a825a9f22b6e11998664e52ba1e69b3f906e535ba26391cc0d36dd5c",
+        "0dd40e14953101ebebda11f857ef27a9a683ad7e2ff786c740e7016e40e5d2e1",
+        "32b3a6002ba1207e3912ea65234009079560c5a734eb4adb4dc4540b359f9a15"
+      ],
+      "git_index": {
+        "1": "2ec363ab6c9a1d14a86932e5524f35e58805706d",
+        "2": "2b7293bbc7623813d611f9f1063d04705bd5c455",
+        "3": "a4f2454e29efc4b013958f5d021d1bd78e9621f6"
+      },
+      "expected": null,
+      "policies": {
+        "single_v2": {
+          "status": "version",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "version"
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "version"
+            }
+          ]
+        },
+        "rounded": {
+          "status": "merged",
+          "class": "wrong_published",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "8086cc9a7a75941cc9407a5acccc88ae8125c100262946b91b38e2322caf6821",
+              "nodes": [
+                "9007199254740992",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "2c20ea67a4f721b668015be2d7012da698579a6451c3b42c56f5d6be3fd95ef2",
+              "nodes": [
+                "9007199254740992",
+                "4"
+              ]
+            }
+          ],
+          "artifact": {
+            "commit": "0b8c8029f815cc2ccdb250234adbd04238f5ad62",
+            "tree": "dd49f8f2e950ad7be78ee0d94aea4a970bf90d4f",
+            "blob": "4a13c537554d75b04a34109b3ab03e37686227fb",
+            "root": "b83b934e2a6c354f82c55676ef29dcc1a13e7a84709fca4f56214d523fcffc19",
+            "wire_sha256": "de96569bb04f025f480ba9584ce3c582b2a9d965a19b12fd612140abc540af1d"
+          },
+          "candidate": [
+            "9007199254740993",
+            "4"
+          ]
+        },
+        "exact_unbound": {
+          "status": "noncanonical",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "noncanonical"
+            }
+          ]
+        },
+        "exact_bound": {
+          "status": "noncanonical",
+          "class": "expected_refusal",
+          "inputs": [
+            {
+              "status": "accepted",
+              "version": 1,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "accepted",
+              "version": 2,
+              "digest": "51e450d129b4ae39f2d9579e67c30cd65364dabbbcd35189dcb3ebe6a5b4f8f2",
+              "nodes": [
+                "9007199254740993",
+                "-3"
+              ]
+            },
+            {
+              "status": "noncanonical"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
