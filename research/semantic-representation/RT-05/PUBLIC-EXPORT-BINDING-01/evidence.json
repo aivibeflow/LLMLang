@@ -1,0 +1,28 @@
+{
+  "bindings": {
+    "direct": {
+      "bound": 5,
+      "pending": 15
+    },
+    "foreign": {
+      "bound": 2,
+      "pending": 18
+    },
+    "operation": {
+      "bound": 4,
+      "pending": 16
+    }
+  },
+  "prior_ledgers": {
+    "research/language-design/RT-04/MODULAR-OPERATION-SUBSTITUTION-01/evidence.json": "943e785c841837ca26cb6201cc0c7e085d9bcba56f441c456c036aeb391fc956",
+    "research/semantic-representation/RT-05/CANDIDATE-ENVELOPES-01/evidence.json": "27a497eabff1d1006aea4cf94e6ae279c47dd64dd8cdb34d49de2405419754ca",
+    "research/semantic-representation/RT-05/IMPORT-RESOLUTION-01/evidence.json": "369ab5bd24d3ab87d09da449d4a57eda6f19413acca591c33d8a33d50000dca5",
+    "research/semantic-representation/RT-05/NATIVE-IMPLEMENTATION-IDENTITY-01/evidence.json": "f7489653d27f1046a2b3ca8ef434b01c61cd071b82db229364da37e9ed391b26"
+  },
+  "revision": "42254e9209aa525330c3fcaeb64959237878e72e",
+  "runner_sha256": "fc6cb486632886bc34a7593cc6dee8451ea6d6aeca633ef4eb8bf76f85618491",
+  "scope": {
+    "absent": 16,
+    "exact": 4
+  }
+}

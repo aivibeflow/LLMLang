@@ -43,6 +43,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-05/20 public exports and binding modes](RT-05/RT-05-PUBLIC-EXPORTS-AND-BINDING-MODES-2026-11-25.md) checks scoped names and exact portable/native binding records.
 - [RT-05 durable digest migration](RT-05/RT-05-DURABLE-DIGEST-MIGRATION-2026-11-25.md) checks staged closure publication and persistent collision quarantine in SQLite WAL.
 - [RT-05 stable-ID publication](RT-05/RT-05-STABLE-ID-PUBLICATION-2026-11-25.md) defines lifetime changes, exact archive resolution and generation-bound allocation.
 - [RT-05 implementation and execution boundaries](RT-05/RT-05-IMPLEMENTATION-AND-EXECUTION-BOUNDARIES-2026-11-25.md) checks native, typed, action and evidence identities and exact dependency propagation.
