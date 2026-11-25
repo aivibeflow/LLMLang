@@ -1,0 +1,2947 @@
+{
+  "format": "rt13-llvm-dynamic-rounding/1",
+  "profiles": {
+    "O0": {
+      "counts": {
+        "parameterized": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "plain": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "strict": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        }
+      },
+      "isolated_fold_controls": {},
+      "observations": {
+        "divide_by_zero/downward/0/parameterized": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/downward/0/plain": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/downward/0/strict": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/downward/1/parameterized": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/downward/1/plain": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/downward/1/strict": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/nearest/0/parameterized": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/nearest/0/plain": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/nearest/0/strict": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/nearest/1/parameterized": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/nearest/1/plain": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/nearest/1/strict": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/toward-zero/0/parameterized": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/toward-zero/0/plain": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/toward-zero/0/strict": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/toward-zero/1/parameterized": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/toward-zero/1/plain": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/toward-zero/1/strict": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/upward/0/parameterized": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/upward/0/plain": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/upward/0/strict": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/upward/1/parameterized": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/upward/1/plain": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/upward/1/strict": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "exact_addition/downward/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/downward/0/strict": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/downward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/downward/1/strict": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/nearest/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/nearest/0/strict": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/nearest/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/nearest/1/strict": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/toward-zero/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/toward-zero/0/strict": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/toward-zero/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/toward-zero/1/strict": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/upward/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/upward/0/strict": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/upward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/upward/1/strict": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/downward/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/downward/0/strict": {
+          "flags": 0,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/downward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/downward/1/strict": {
+          "flags": 1,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/nearest/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/nearest/0/strict": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/nearest/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/nearest/1/strict": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/toward-zero/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/toward-zero/0/strict": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/toward-zero/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/toward-zero/1/strict": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/upward/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/upward/0/strict": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/upward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/upward/1/strict": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "halfway_negative/downward/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "bff0000000000001",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_negative/downward/0/plain": {
+          "flags": 16,
+          "raw_bits": "bff0000000000001",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_negative/downward/0/strict": {
+          "flags": 16,
+          "raw_bits": "bff0000000000001",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_negative/downward/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "bff0000000000001",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 17
+        },
+        "halfway_negative/downward/1/plain": {
+          "flags": 17,
+          "raw_bits": "bff0000000000001",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 17
+        },
+        "halfway_negative/downward/1/strict": {
+          "flags": 17,
+          "raw_bits": "bff0000000000001",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 17
+        },
+        "halfway_negative/nearest/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/nearest/0/plain": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/nearest/0/strict": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/nearest/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/nearest/1/plain": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/nearest/1/strict": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/toward-zero/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/toward-zero/0/plain": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/toward-zero/0/strict": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/toward-zero/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/toward-zero/1/plain": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/toward-zero/1/strict": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/upward/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/upward/0/plain": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/upward/0/strict": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/upward/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/upward/1/plain": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/upward/1/strict": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/downward/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/downward/0/plain": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/downward/0/strict": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/downward/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/downward/1/plain": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/downward/1/strict": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/nearest/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/nearest/0/plain": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/nearest/0/strict": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/nearest/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/nearest/1/plain": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/nearest/1/strict": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/toward-zero/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/toward-zero/0/plain": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/toward-zero/0/strict": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/toward-zero/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/toward-zero/1/plain": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/toward-zero/1/strict": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/upward/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000001",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_positive/upward/0/plain": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000001",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_positive/upward/0/strict": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000001",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_positive/upward/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000001",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 17
+        },
+        "halfway_positive/upward/1/plain": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000001",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 17
+        },
+        "halfway_positive/upward/1/strict": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000001",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 17
+        },
+        "invalid_division/downward/0/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/downward/0/plain": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/downward/0/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/downward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/downward/1/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/0/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/0/plain": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/0/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/1/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/0/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/0/plain": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/0/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/1/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/0/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/0/plain": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/0/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/1/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "overflow_negative/downward/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/downward/0/plain": {
+          "flags": 20,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/downward/0/strict": {
+          "flags": 20,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/downward/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/downward/1/plain": {
+          "flags": 21,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/downward/1/strict": {
+          "flags": 21,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/nearest/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/nearest/0/plain": {
+          "flags": 20,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/nearest/0/strict": {
+          "flags": 20,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/nearest/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/nearest/1/plain": {
+          "flags": 21,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/nearest/1/strict": {
+          "flags": 21,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/toward-zero/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/toward-zero/0/plain": {
+          "flags": 20,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/toward-zero/0/strict": {
+          "flags": 20,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/toward-zero/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_negative/toward-zero/1/plain": {
+          "flags": 21,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_negative/toward-zero/1/strict": {
+          "flags": 21,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_negative/upward/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/upward/0/plain": {
+          "flags": 20,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/upward/0/strict": {
+          "flags": 20,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/upward/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_negative/upward/1/plain": {
+          "flags": 21,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_negative/upward/1/strict": {
+          "flags": 21,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/downward/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/downward/0/plain": {
+          "flags": 20,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/downward/0/strict": {
+          "flags": 20,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/downward/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/downward/1/plain": {
+          "flags": 21,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/downward/1/strict": {
+          "flags": 21,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/nearest/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/nearest/0/plain": {
+          "flags": 20,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/nearest/0/strict": {
+          "flags": 20,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/nearest/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_positive/nearest/1/plain": {
+          "flags": 21,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_positive/nearest/1/strict": {
+          "flags": 21,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_positive/toward-zero/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/toward-zero/0/plain": {
+          "flags": 20,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/toward-zero/0/strict": {
+          "flags": 20,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/toward-zero/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/toward-zero/1/plain": {
+          "flags": 21,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/toward-zero/1/strict": {
+          "flags": 21,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/upward/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/upward/0/plain": {
+          "flags": 20,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/upward/0/strict": {
+          "flags": 20,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/upward/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_positive/upward/1/plain": {
+          "flags": 21,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_positive/upward/1/strict": {
+          "flags": 21,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "subnormal_negative/downward/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "8000000000000001",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_negative/downward/0/plain": {
+          "flags": 24,
+          "raw_bits": "8000000000000001",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_negative/downward/0/strict": {
+          "flags": 24,
+          "raw_bits": "8000000000000001",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_negative/downward/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "8000000000000001",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 25
+        },
+        "subnormal_negative/downward/1/plain": {
+          "flags": 25,
+          "raw_bits": "8000000000000001",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 25
+        },
+        "subnormal_negative/downward/1/strict": {
+          "flags": 25,
+          "raw_bits": "8000000000000001",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 25
+        },
+        "subnormal_negative/nearest/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/nearest/0/plain": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/nearest/0/strict": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/nearest/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/nearest/1/plain": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/nearest/1/strict": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/toward-zero/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/toward-zero/0/plain": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/toward-zero/0/strict": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/toward-zero/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/toward-zero/1/plain": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/toward-zero/1/strict": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/upward/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/upward/0/plain": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/upward/0/strict": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/upward/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/upward/1/plain": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/upward/1/strict": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/downward/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/downward/0/plain": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/downward/0/strict": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/downward/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/downward/1/plain": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/downward/1/strict": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/nearest/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/nearest/0/plain": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/nearest/0/strict": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/nearest/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/nearest/1/plain": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/nearest/1/strict": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/toward-zero/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/toward-zero/0/plain": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/toward-zero/0/strict": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/toward-zero/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/toward-zero/1/plain": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/toward-zero/1/strict": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/upward/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "0000000000000001",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_positive/upward/0/plain": {
+          "flags": 24,
+          "raw_bits": "0000000000000001",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_positive/upward/0/strict": {
+          "flags": 24,
+          "raw_bits": "0000000000000001",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_positive/upward/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "0000000000000001",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 25
+        },
+        "subnormal_positive/upward/1/plain": {
+          "flags": 25,
+          "raw_bits": "0000000000000001",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 25
+        },
+        "subnormal_positive/upward/1/strict": {
+          "flags": 25,
+          "raw_bits": "0000000000000001",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 25
+        }
+      },
+      "strict_cancellation_optimized_ir": "%value = call double @llvm.experimental.constrained.fadd.f64(double 1.000000e+00, double -1.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.strict\") #1\n  ret double %value"
+    },
+    "O3": {
+      "counts": {
+        "parameterized": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "plain": {
+          "flag_mismatches": 60,
+          "seed_dropped": 0,
+          "value_mismatches": 18
+        },
+        "strict": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 2
+        }
+      },
+      "isolated_fold_controls": {
+        "early-cse": "%value = call double @llvm.experimental.constrained.fadd.f64(double 1.000000e+00, double -1.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.strict\") #1\n  ret double 0.000000e+00",
+        "instcombine": "ret double 0.000000e+00"
+      },
+      "observations": {
+        "divide_by_zero/downward/0/parameterized": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/downward/0/strict": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/downward/1/parameterized": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/downward/1/strict": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/nearest/0/parameterized": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/nearest/0/strict": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/nearest/1/parameterized": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/nearest/1/strict": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/toward-zero/0/parameterized": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/toward-zero/0/strict": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/toward-zero/1/parameterized": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/toward-zero/1/strict": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/upward/0/parameterized": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/upward/0/strict": {
+          "flags": 2,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 2
+        },
+        "divide_by_zero/upward/1/parameterized": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "divide_by_zero/upward/1/strict": {
+          "flags": 3,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 3
+        },
+        "exact_addition/downward/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/downward/0/strict": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/downward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/downward/1/strict": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/nearest/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/nearest/0/strict": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/nearest/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/nearest/1/strict": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/toward-zero/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/toward-zero/0/strict": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/toward-zero/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/toward-zero/1/strict": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/upward/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/upward/0/strict": {
+          "flags": 0,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 0
+        },
+        "exact_addition/upward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_addition/upward/1/strict": {
+          "flags": 1,
+          "raw_bits": "4000000000000000",
+          "reference_bits": "4000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/downward/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/downward/0/strict": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/downward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/downward/1/strict": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/nearest/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/nearest/0/strict": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/nearest/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/nearest/1/strict": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/toward-zero/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/toward-zero/0/strict": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/toward-zero/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/toward-zero/1/strict": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/upward/0/parameterized": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/upward/0/strict": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 0
+        },
+        "exact_cancellation/upward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "exact_cancellation/upward/1/strict": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 1
+        },
+        "halfway_negative/downward/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "bff0000000000001",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_negative/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_negative/downward/0/strict": {
+          "flags": 16,
+          "raw_bits": "bff0000000000001",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_negative/downward/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "bff0000000000001",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 17
+        },
+        "halfway_negative/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 17
+        },
+        "halfway_negative/downward/1/strict": {
+          "flags": 17,
+          "raw_bits": "bff0000000000001",
+          "reference_bits": "bff0000000000001",
+          "reference_flags": 17
+        },
+        "halfway_negative/nearest/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/nearest/0/strict": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/nearest/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/nearest/1/strict": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/toward-zero/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/toward-zero/0/strict": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/toward-zero/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/toward-zero/1/strict": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/upward/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/upward/0/strict": {
+          "flags": 16,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_negative/upward/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_negative/upward/1/strict": {
+          "flags": 17,
+          "raw_bits": "bff0000000000000",
+          "reference_bits": "bff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/downward/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/downward/0/strict": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/downward/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/downward/1/strict": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/nearest/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/nearest/0/strict": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/nearest/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/nearest/1/strict": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/toward-zero/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/toward-zero/0/strict": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 16
+        },
+        "halfway_positive/toward-zero/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/toward-zero/1/strict": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000000",
+          "reference_flags": 17
+        },
+        "halfway_positive/upward/0/parameterized": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000001",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_positive/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_positive/upward/0/strict": {
+          "flags": 16,
+          "raw_bits": "3ff0000000000001",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 16
+        },
+        "halfway_positive/upward/1/parameterized": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000001",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 17
+        },
+        "halfway_positive/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "3ff0000000000000",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 17
+        },
+        "halfway_positive/upward/1/strict": {
+          "flags": 17,
+          "raw_bits": "3ff0000000000001",
+          "reference_bits": "3ff0000000000001",
+          "reference_flags": 17
+        },
+        "invalid_division/downward/0/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/downward/0/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/downward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/downward/1/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/0/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/0/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/nearest/1/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/0/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/0/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/toward-zero/1/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/0/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/0/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/1/parameterized": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "invalid_division/upward/1/strict": {
+          "flags": 1,
+          "raw_bits": "fff8000000000000",
+          "reference_bits": "7ff8000000000000",
+          "reference_flags": 1
+        },
+        "overflow_negative/downward/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/downward/0/strict": {
+          "flags": 20,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/downward/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/downward/1/strict": {
+          "flags": 21,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/nearest/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/nearest/0/strict": {
+          "flags": 20,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_negative/nearest/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/nearest/1/strict": {
+          "flags": 21,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "fff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_negative/toward-zero/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/toward-zero/0/strict": {
+          "flags": 20,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/toward-zero/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_negative/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_negative/toward-zero/1/strict": {
+          "flags": 21,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_negative/upward/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/upward/0/strict": {
+          "flags": 20,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_negative/upward/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_negative/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "fff0000000000000",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_negative/upward/1/strict": {
+          "flags": 21,
+          "raw_bits": "ffefffffffffffff",
+          "reference_bits": "ffefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/downward/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/downward/0/strict": {
+          "flags": 20,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/downward/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/downward/1/strict": {
+          "flags": 21,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/nearest/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/nearest/0/strict": {
+          "flags": 20,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/nearest/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_positive/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_positive/nearest/1/strict": {
+          "flags": 21,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_positive/toward-zero/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/toward-zero/0/strict": {
+          "flags": 20,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 20
+        },
+        "overflow_positive/toward-zero/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/toward-zero/1/strict": {
+          "flags": 21,
+          "raw_bits": "7fefffffffffffff",
+          "reference_bits": "7fefffffffffffff",
+          "reference_flags": 21
+        },
+        "overflow_positive/upward/0/parameterized": {
+          "flags": 20,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/upward/0/strict": {
+          "flags": 20,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 20
+        },
+        "overflow_positive/upward/1/parameterized": {
+          "flags": 21,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_positive/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "overflow_positive/upward/1/strict": {
+          "flags": 21,
+          "raw_bits": "7ff0000000000000",
+          "reference_bits": "7ff0000000000000",
+          "reference_flags": 21
+        },
+        "subnormal_negative/downward/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "8000000000000001",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_negative/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_negative/downward/0/strict": {
+          "flags": 24,
+          "raw_bits": "8000000000000001",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_negative/downward/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "8000000000000001",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 25
+        },
+        "subnormal_negative/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 25
+        },
+        "subnormal_negative/downward/1/strict": {
+          "flags": 25,
+          "raw_bits": "8000000000000001",
+          "reference_bits": "8000000000000001",
+          "reference_flags": 25
+        },
+        "subnormal_negative/nearest/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/nearest/0/strict": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/nearest/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/nearest/1/strict": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/toward-zero/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/toward-zero/0/strict": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/toward-zero/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/toward-zero/1/strict": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/upward/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/upward/0/strict": {
+          "flags": 24,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_negative/upward/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_negative/upward/1/strict": {
+          "flags": 25,
+          "raw_bits": "8000000000000000",
+          "reference_bits": "8000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/downward/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/downward/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/downward/0/strict": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/downward/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/downward/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/downward/1/strict": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/nearest/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/nearest/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/nearest/0/strict": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/nearest/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/nearest/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/nearest/1/strict": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/toward-zero/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/toward-zero/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/toward-zero/0/strict": {
+          "flags": 24,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 24
+        },
+        "subnormal_positive/toward-zero/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/toward-zero/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/toward-zero/1/strict": {
+          "flags": 25,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000000",
+          "reference_flags": 25
+        },
+        "subnormal_positive/upward/0/parameterized": {
+          "flags": 24,
+          "raw_bits": "0000000000000001",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_positive/upward/0/plain": {
+          "flags": 0,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_positive/upward/0/strict": {
+          "flags": 24,
+          "raw_bits": "0000000000000001",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 24
+        },
+        "subnormal_positive/upward/1/parameterized": {
+          "flags": 25,
+          "raw_bits": "0000000000000001",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 25
+        },
+        "subnormal_positive/upward/1/plain": {
+          "flags": 1,
+          "raw_bits": "0000000000000000",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 25
+        },
+        "subnormal_positive/upward/1/strict": {
+          "flags": 25,
+          "raw_bits": "0000000000000001",
+          "reference_bits": "0000000000000001",
+          "reference_flags": 25
+        }
+      },
+      "strict_cancellation_optimized_ir": "ret double 0.000000e+00"
+    }
+  },
+  "python": "3.12.14",
+  "rows_per_route_and_profile": 80,
+  "source_sha256": {
+    "generated_header": "844e56ad44e8f30fc9eacf3d1e25a294fdd9c05140926f15ca8734c9848ec1cb",
+    "generated_ir": "2fdcc9ebf3a569a9e340a5f32c270a5017e4d433edda3d6df85b35ab0d5e9b3d",
+    "host_c": "4d7d3ca0ff343c7652efdfb04983b78be33ab6257cbadbc2760b015057450cac"
+  },
+  "versions": {
+    "as": "Debian LLVM version 19.1.7",
+    "cc": "Debian clang version 19.1.7 (3+b1)",
+    "llc": "Debian LLVM version 19.1.7",
+    "opt": "Debian LLVM version 19.1.7"
+  }
+}
