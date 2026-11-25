@@ -1,0 +1,220 @@
+{
+  "outcomes": {
+    "accepted": 4,
+    "stale-branch": 4,
+    "stale-workspace": 8
+  },
+  "python": "3.12.14",
+  "rows": [
+    {
+      "branch_roots": {
+        "left": "candidate-a",
+        "right": "candidate-b"
+      },
+      "changed_retry": false,
+      "durable_receipts": 2,
+      "retry": "replay",
+      "reverse_order": false,
+      "same_branch": false,
+      "second": "accepted",
+      "stale_workspace": false
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-a",
+        "right": "candidate-b"
+      },
+      "changed_retry": true,
+      "durable_receipts": 2,
+      "retry": "request-conflict",
+      "reverse_order": false,
+      "same_branch": false,
+      "second": "accepted",
+      "stale_workspace": false
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-a",
+        "right": "base"
+      },
+      "changed_retry": false,
+      "durable_receipts": 1,
+      "retry": "replay",
+      "reverse_order": false,
+      "same_branch": false,
+      "second": "stale-workspace",
+      "stale_workspace": true
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-a",
+        "right": "base"
+      },
+      "changed_retry": true,
+      "durable_receipts": 1,
+      "retry": "request-conflict",
+      "reverse_order": false,
+      "same_branch": false,
+      "second": "stale-workspace",
+      "stale_workspace": true
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-a",
+        "right": "candidate-b"
+      },
+      "changed_retry": false,
+      "durable_receipts": 2,
+      "retry": "replay",
+      "reverse_order": true,
+      "same_branch": false,
+      "second": "accepted",
+      "stale_workspace": false
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-a",
+        "right": "candidate-b"
+      },
+      "changed_retry": true,
+      "durable_receipts": 2,
+      "retry": "request-conflict",
+      "reverse_order": true,
+      "same_branch": false,
+      "second": "accepted",
+      "stale_workspace": false
+    },
+    {
+      "branch_roots": {
+        "left": "base",
+        "right": "candidate-b"
+      },
+      "changed_retry": false,
+      "durable_receipts": 1,
+      "retry": "replay",
+      "reverse_order": true,
+      "same_branch": false,
+      "second": "stale-workspace",
+      "stale_workspace": true
+    },
+    {
+      "branch_roots": {
+        "left": "base",
+        "right": "candidate-b"
+      },
+      "changed_retry": true,
+      "durable_receipts": 1,
+      "retry": "request-conflict",
+      "reverse_order": true,
+      "same_branch": false,
+      "second": "stale-workspace",
+      "stale_workspace": true
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-a",
+        "right": "base"
+      },
+      "changed_retry": false,
+      "durable_receipts": 1,
+      "retry": "replay",
+      "reverse_order": false,
+      "same_branch": true,
+      "second": "stale-branch",
+      "stale_workspace": false
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-a",
+        "right": "base"
+      },
+      "changed_retry": true,
+      "durable_receipts": 1,
+      "retry": "request-conflict",
+      "reverse_order": false,
+      "same_branch": true,
+      "second": "stale-branch",
+      "stale_workspace": false
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-a",
+        "right": "base"
+      },
+      "changed_retry": false,
+      "durable_receipts": 1,
+      "retry": "replay",
+      "reverse_order": false,
+      "same_branch": true,
+      "second": "stale-workspace",
+      "stale_workspace": true
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-a",
+        "right": "base"
+      },
+      "changed_retry": true,
+      "durable_receipts": 1,
+      "retry": "request-conflict",
+      "reverse_order": false,
+      "same_branch": true,
+      "second": "stale-workspace",
+      "stale_workspace": true
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-b",
+        "right": "base"
+      },
+      "changed_retry": false,
+      "durable_receipts": 1,
+      "retry": "replay",
+      "reverse_order": true,
+      "same_branch": true,
+      "second": "stale-branch",
+      "stale_workspace": false
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-b",
+        "right": "base"
+      },
+      "changed_retry": true,
+      "durable_receipts": 1,
+      "retry": "request-conflict",
+      "reverse_order": true,
+      "same_branch": true,
+      "second": "stale-branch",
+      "stale_workspace": false
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-b",
+        "right": "base"
+      },
+      "changed_retry": false,
+      "durable_receipts": 1,
+      "retry": "replay",
+      "reverse_order": true,
+      "same_branch": true,
+      "second": "stale-workspace",
+      "stale_workspace": true
+    },
+    {
+      "branch_roots": {
+        "left": "candidate-b",
+        "right": "base"
+      },
+      "changed_retry": true,
+      "durable_receipts": 1,
+      "retry": "request-conflict",
+      "reverse_order": true,
+      "same_branch": true,
+      "second": "stale-workspace",
+      "stale_workspace": true
+    }
+  ],
+  "source_sha256": "0c9a10de2102e90ee5ba62be093c8b267556c67ec477be98d35387db92ff5271",
+  "sqlite": "3.53.1"
+}

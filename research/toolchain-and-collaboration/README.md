@@ -59,6 +59,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-19 workspace arbitration](RT-19/RT-19-WORKSPACE-ARBITRATION-2026-11-25.md) checks local workspaces, shared-branch CAS and scoped durable retries.
 - [RT-19 interchange and publication contract](RT-19/RT-19-INTERCHANGE-AND-PUBLICATION-BOUNDARY-2026-11-25.md) checks import, checkout observations and leased export generations.
 - [RT-19 prepared multi-ref recovery](RT-19/RT-19-MULTIREF-TRANSACTION-RECOVERY-2026-11-25.md) checks logical observation rights and local native ref batch recovery.
 - [RT-17 editor and debug source scope](RT-17/RT-17-EDITOR-AND-DEBUG-SOURCE-SCOPE-2026-11-25.md) checks exact native debug artifact and source binding alongside editor requirements.
