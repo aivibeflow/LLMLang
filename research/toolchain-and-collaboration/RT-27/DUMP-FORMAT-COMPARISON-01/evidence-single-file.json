@@ -1,0 +1,227 @@
+{
+  "source_sha256": "f9dbfe5da3d5047eb192f0af56e6f5087b943e92c104f8ec3da10eb091e5ed2b",
+  "comparison_evidence_sha256": "5e30419a1a725e610fcc8b580ec481498c93cec7da9dca1bc5d29feae6850e7b",
+  "objects": 20000,
+  "range_count": 8,
+  "seed": 27001,
+  "selection_sha256": "24d0b4f7800f0a9944543ddebe9f6b108cef624d1d5dd06875a5d4b5354abdb7",
+  "visible_cpus": 3,
+  "profiles": [
+    {
+      "profile": "jsonl",
+      "file_bytes": 6431766,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 138.515
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 92.292
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 90.784
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 139.653
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 137.217
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 82.889
+        }
+      ]
+    },
+    {
+      "profile": "json-seq",
+      "file_bytes": 6451766,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 136.197
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 84.212
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 110.589
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 147.916
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 149.81
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 89.208
+        }
+      ]
+    },
+    {
+      "profile": "cbor",
+      "file_bytes": 5263822,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 134.455
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 209.45
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 84.84
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 114.855
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 112.663
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 73.558
+        }
+      ]
+    },
+    {
+      "profile": "protobuf",
+      "file_bytes": 5290017,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 124.905
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 82.739
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 83.687
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 130.878
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 125.926
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 79.669
+        }
+      ]
+    },
+    {
+      "profile": "flatbuffers",
+      "file_bytes": 6368212,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 299.131
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 252.777
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 197.198
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 282.082
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 285.93
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 153.601
+        }
+      ]
+    },
+    {
+      "profile": "cbor-zlib",
+      "file_bytes": 2570680,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 154.086
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 91.734
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 87.073
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 152.193
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 150.83
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 165.183
+        }
+      ]
+    }
+  ]
+}

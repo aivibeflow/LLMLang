@@ -80,6 +80,10 @@ Rejected as the long-term semantic merge model. Textual merge cannot reliably de
 This ADR captures the current project direction and supersedes the earlier embedded ADR-0001 proposal that treated the external KV store as the authoritative home of semantic code. The earlier proposal remains preserved in the research report as historical research material. The current direction keeps Git repository source authoritative and makes KV a reconstructible derived store.
 
 
+## Follow-up decision
+
+[ADR-024](024-package-directory-and-protobuf-dumps.md) specifies directory-based program packages with separately indexed, independently compressed Protobuf records.
+
 ## Related documents and ownership
 
 Study this ADR together with the detailed documents below; this ADR records an accepted direction and does not replace their detailed contracts:

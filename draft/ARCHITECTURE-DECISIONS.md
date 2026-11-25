@@ -10,3 +10,4 @@
 - [ADR-021 — Structures and target data layout](adr/021-structures-and-data-layout.md) — Accepted on 2026-11-25.
 - [ADR-022 — Syntax dialects with shared semantics](adr/022-syntax-dialects-and-shared-semantics.md) — Accepted on 2026-11-25.
 - [ADR-023 — Immutable components and single-version Toolchain compatibility](adr/023-immutable-components-and-toolchain-compatibility.md) — Accepted on 2026-11-20.
+- [ADR-024 — Package directories and indexed Protobuf dumps](adr/024-package-directory-and-protobuf-dumps.md) — Accepted on 2026-11-26.

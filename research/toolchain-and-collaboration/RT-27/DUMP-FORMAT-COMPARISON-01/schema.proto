@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message Record {
+  uint32 kind = 1;
+  string name = 2;
+  sint64 i64 = 3;
+  repeated uint32 refs = 4;
+  string body = 5;
+}

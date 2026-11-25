@@ -361,9 +361,9 @@ Define canonical SPG object envelopes and authority. Validate distributed recove
 
 **Estimated research complexity:** **6/10** — repository mapping and semantic versioning need consistency with SPG identity.
 
-Select a canonical production representation and shard or layout policy after SPG identity and lineage review.
+[ADR-024](draft/adr/024-package-directory-and-protobuf-dumps.md) selects package directories with separately indexed, independently compressed Protobuf records and LZ4 as the initial codec.
 
-- [ ] [WIP human] Select no physical format or shard key until benchmark results are reviewed against the unresolved SPG identity/lineage model.
+- [ ] Specify the versioned wire schema, record framing, index encoding, canonical profile, and file partitioning policy. Validate reconstruction, deterministic export, and independent range reads against the SPG identity and lineage model.
 
 ## 4.4 Git integration workflow
 
