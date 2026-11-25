@@ -292,6 +292,8 @@ The SCW-32 reverse theorem extends DEP-007 to every admitted concrete pair after
 
 The SCW-34 source refutation theorem proves the DEP-007 implication from a sound verdict for the actual parsed assumptions to equality of source observations. The verdict soundness theorem and well-formed base model are explicit premises. [Logos source refutation composition](../formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md)
 
+[Cross-profile record cleanup](../semantic-representation/RT-05/RT-05-CROSS-PROFILE-RECORD-CLEANUP-2026-11-25.md) adds scoped RT-04/RT-05 and compiler correspondence evidence. Rust and C++ agree on failed staged acquisition and diverge on implicit completed drop order. A shared exact semantic body is supported by the explicit cleanup lowering over this observation model.
+
 ## 6. Existing research-line placement
 
 The current Scenario 15–34 sequence is a substantial research line primarily spanning RT-02, RT-06, RT-07, and RT-08:
