@@ -50,7 +50,7 @@ def _references_outside_inventory(store, snapshot):
     return (*audit.errors, *(f"unselected dependency {value}" for value in sorted(outside)))
 
 
-def _input_conflicts(store, entry, role):
+def validate_closed_input(store: ContentStore, entry: MergeInput, role: str) -> tuple[MergeConflict, ...]:
     if entry.policy != CLOSED_POLICY:
         return (MergeConflict("unsupported-context", role, details=(entry.policy,)),)
     try:
@@ -108,7 +108,7 @@ def merge_closed(store: ContentStore, baseline: MergeInput, ours: MergeInput,
     inputs = (baseline, ours, theirs)
     pins = (baseline.exact_pin, ours.exact_pin, theirs.exact_pin)
     invalid = tuple(conflict for role, entry in zip(("base", "ours", "theirs"), inputs)
-                    for conflict in _input_conflicts(store, entry, role))
+                    for conflict in validate_closed_input(store, entry, role))
     if invalid:
         return MergeResult(pins, conflicts=invalid)
 

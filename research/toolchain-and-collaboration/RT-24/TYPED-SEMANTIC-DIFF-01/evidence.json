@@ -1,0 +1,237 @@
+{
+  "exact": {
+    "baseline_pin": "15dfcecb729566abad38148441b79c11b085e50acc5e2ca7c6eced32f9c998be",
+    "candidate_pin": "bdc7c78e4899a8c703803d4148426b04305127d37d11a384316d368db765370b",
+    "difference_id": "4da4012b6d1f7953a26362a17b277fb094df8e310b47bb63c74d10883df57030",
+    "selections": [
+      {
+        "logical_key": "api",
+        "change_kind": "replace",
+        "baseline_hash": "864ca27e1b83bbfaad869602591d25103bdc4fd0d1af28b872aabaaea480d8e8",
+        "candidate_hash": "98f795df718b888f64d64f71397c770db70355a28f9c84ecc6639ab81ec18946"
+      },
+      {
+        "logical_key": "merge-a",
+        "change_kind": "remove",
+        "baseline_hash": "30e21c63f6fc3731a701314825f7e32ab13c9b18261d822a157cd62e49061ca6",
+        "candidate_hash": null
+      },
+      {
+        "logical_key": "merge-b",
+        "change_kind": "remove",
+        "baseline_hash": "7e110b04f63a6d628505256eeb2b0203727c5505dad583a98dab8aacabc11135",
+        "candidate_hash": null
+      },
+      {
+        "logical_key": "merged",
+        "change_kind": "add",
+        "baseline_hash": null,
+        "candidate_hash": "aa6bda471794eef197357e52d4b6bc6bba078dbe4a1315bda67b748afca4ef39"
+      },
+      {
+        "logical_key": "new-name",
+        "change_kind": "add",
+        "baseline_hash": null,
+        "candidate_hash": "19bb6bf19e628326a08e5a2ea26f835f249979ffd22b7f74142a84f6fdc79878"
+      },
+      {
+        "logical_key": "old-name",
+        "change_kind": "remove",
+        "baseline_hash": "19bb6bf19e628326a08e5a2ea26f835f249979ffd22b7f74142a84f6fdc79878",
+        "candidate_hash": null
+      },
+      {
+        "logical_key": "part-a",
+        "change_kind": "add",
+        "baseline_hash": null,
+        "candidate_hash": "2118e931291f43cf516899d8bf2688d96ab966d3bd8aab27e399d64a703ec2c7"
+      },
+      {
+        "logical_key": "part-b",
+        "change_kind": "add",
+        "baseline_hash": null,
+        "candidate_hash": "ada551d0e9e5e53514f1e2aa4068f6fc3b213992b44160697c245412cfde1c3d"
+      },
+      {
+        "logical_key": "split",
+        "change_kind": "remove",
+        "baseline_hash": "c31265009b2a61c185f6fad375d41c4b526e7593ceecb67fe30a7e542a9100e8",
+        "candidate_hash": null
+      }
+    ],
+    "edges": [
+      {
+        "slot": "api",
+        "edge_kind": "call",
+        "edge_id": "choice/direct",
+        "operation": "retarget",
+        "before": {
+          "relation": "calls",
+          "target_hash": "5f4cfe60995c6ea47b826bcec3703073d8c50291221ff1f4f264e658bb4db086",
+          "condition": "known",
+          "required_contract_hash": "87a4117e7c1581d3ba9d18a7eba9a7778350b2473d04854371ea739315d7cf20"
+        },
+        "after": {
+          "relation": "calls",
+          "target_hash": "887c93b6247fd3d6e18f96d0991bd6d80a115fce9729717ec2e8bc5681a40e85",
+          "condition": "known",
+          "required_contract_hash": "87a4117e7c1581d3ba9d18a7eba9a7778350b2473d04854371ea739315d7cf20"
+        }
+      },
+      {
+        "slot": "api",
+        "edge_kind": "call",
+        "edge_id": "choice/fallback",
+        "operation": "modify",
+        "before": {
+          "relation": "calls",
+          "target_hash": "5f4cfe60995c6ea47b826bcec3703073d8c50291221ff1f4f264e658bb4db086",
+          "condition": "other",
+          "required_contract_hash": "87a4117e7c1581d3ba9d18a7eba9a7778350b2473d04854371ea739315d7cf20"
+        },
+        "after": {
+          "relation": "calls",
+          "target_hash": "5f4cfe60995c6ea47b826bcec3703073d8c50291221ff1f4f264e658bb4db086",
+          "condition": "special",
+          "required_contract_hash": "ae44924d6529d17e5d1b956af30f46eab7d12038c79218d6cc0c9f811d576789"
+        }
+      },
+      {
+        "slot": "api",
+        "edge_kind": "reference",
+        "edge_id": "arg-type",
+        "operation": "retarget",
+        "before": {
+          "relation": "uses_type",
+          "target_hash": "c3e605d278f97bbc0d771082a40b292f91a3549e8fcd2913262fedc515d533a0",
+          "condition": null,
+          "required_contract_hash": null
+        },
+        "after": {
+          "relation": "uses_type",
+          "target_hash": "ae298f38d01631e2614df9c3d1024ff647aa2c7ce9842a7d124594863e45f934",
+          "condition": null,
+          "required_contract_hash": null
+        }
+      }
+    ],
+    "entrypoints": [
+      {
+        "entrypoint": "alias",
+        "before": {
+          "slot": "old-name",
+          "value_hash": "19bb6bf19e628326a08e5a2ea26f835f249979ffd22b7f74142a84f6fdc79878"
+        },
+        "after": {
+          "slot": "new-name",
+          "value_hash": "19bb6bf19e628326a08e5a2ea26f835f249979ffd22b7f74142a84f6fdc79878"
+        }
+      },
+      {
+        "entrypoint": "entry",
+        "before": {
+          "slot": "api",
+          "value_hash": "864ca27e1b83bbfaad869602591d25103bdc4fd0d1af28b872aabaaea480d8e8"
+        },
+        "after": {
+          "slot": "api",
+          "value_hash": "98f795df718b888f64d64f71397c770db70355a28f9c84ecc6639ab81ec18946"
+        }
+      }
+    ],
+    "removed_values": [
+      "30e21c63f6fc3731a701314825f7e32ab13c9b18261d822a157cd62e49061ca6",
+      "7e110b04f63a6d628505256eeb2b0203727c5505dad583a98dab8aacabc11135",
+      "864ca27e1b83bbfaad869602591d25103bdc4fd0d1af28b872aabaaea480d8e8",
+      "c31265009b2a61c185f6fad375d41c4b526e7593ceecb67fe30a7e542a9100e8"
+    ],
+    "added_values": [
+      "2118e931291f43cf516899d8bf2688d96ab966d3bd8aab27e399d64a703ec2c7",
+      "98f795df718b888f64d64f71397c770db70355a28f9c84ecc6639ab81ec18946",
+      "aa6bda471794eef197357e52d4b6bc6bba078dbe4a1315bda67b748afca4ef39",
+      "ada551d0e9e5e53514f1e2aa4068f6fc3b213992b44160697c245412cfde1c3d"
+    ],
+    "lineage": [
+      {
+        "kind": "merge",
+        "baseline_pin": "15dfcecb729566abad38148441b79c11b085e50acc5e2ca7c6eced32f9c998be",
+        "candidate_pin": "bdc7c78e4899a8c703803d4148426b04305127d37d11a384316d368db765370b",
+        "origins": [
+          {
+            "slot": "merge-a",
+            "value_hash": "30e21c63f6fc3731a701314825f7e32ab13c9b18261d822a157cd62e49061ca6"
+          },
+          {
+            "slot": "merge-b",
+            "value_hash": "7e110b04f63a6d628505256eeb2b0203727c5505dad583a98dab8aacabc11135"
+          }
+        ],
+        "successors": [
+          {
+            "slot": "merged",
+            "value_hash": "aa6bda471794eef197357e52d4b6bc6bba078dbe4a1315bda67b748afca4ef39"
+          }
+        ],
+        "evidence_id": "fixture-evidence/merge"
+      },
+      {
+        "kind": "rename",
+        "baseline_pin": "15dfcecb729566abad38148441b79c11b085e50acc5e2ca7c6eced32f9c998be",
+        "candidate_pin": "bdc7c78e4899a8c703803d4148426b04305127d37d11a384316d368db765370b",
+        "origins": [
+          {
+            "slot": "old-name",
+            "value_hash": "19bb6bf19e628326a08e5a2ea26f835f249979ffd22b7f74142a84f6fdc79878"
+          }
+        ],
+        "successors": [
+          {
+            "slot": "new-name",
+            "value_hash": "19bb6bf19e628326a08e5a2ea26f835f249979ffd22b7f74142a84f6fdc79878"
+          }
+        ],
+        "evidence_id": "fixture-evidence/rename"
+      },
+      {
+        "kind": "split",
+        "baseline_pin": "15dfcecb729566abad38148441b79c11b085e50acc5e2ca7c6eced32f9c998be",
+        "candidate_pin": "bdc7c78e4899a8c703803d4148426b04305127d37d11a384316d368db765370b",
+        "origins": [
+          {
+            "slot": "split",
+            "value_hash": "c31265009b2a61c185f6fad375d41c4b526e7593ceecb67fe30a7e542a9100e8"
+          }
+        ],
+        "successors": [
+          {
+            "slot": "part-a",
+            "value_hash": "2118e931291f43cf516899d8bf2688d96ab966d3bd8aab27e399d64a703ec2c7"
+          },
+          {
+            "slot": "part-b",
+            "value_hash": "ada551d0e9e5e53514f1e2aa4068f6fc3b213992b44160697c245412cfde1c3d"
+          }
+        ],
+        "evidence_id": "fixture-evidence/split"
+      }
+    ],
+    "errors": []
+  },
+  "undeclared_identity": "f281a45c6ff852e974ebe5610b18088fbf6ae6b7353e8556d50f09935da65a27",
+  "reversed_identity": "189ccc4cf3d9c6e3af8c252d6df944eae14c22787b22d2879b7e862257090362",
+  "ordering_checks": 48,
+  "controls": {
+    "declared_lineage_stale_scope": "attached to different inputs",
+    "lineage_endpoint_binding": "endpoint is absent or stale",
+    "lineage_cardinality": "cardinality",
+    "malformed_pin": "exact pin",
+    "missing_selected_dependency": "unselected dependency",
+    "unsupported_context": "unsupported-context",
+    "unpaired_replacement": [
+      "remove",
+      "remove",
+      "add",
+      "add"
+    ]
+  }
+}
