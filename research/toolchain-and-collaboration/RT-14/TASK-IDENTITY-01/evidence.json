@@ -1,0 +1,44 @@
+{
+  "changed_declaration_digests": {
+    "acceptance_criteria": "959a6f17ba6832dd1a07b038c4425cadde94712b854773c1f6efc5e1233fd12c",
+    "assumptions": "5d1e5baaa6ea1591e605a26813c4b92a9e7059d3da4fd4de2e4305748de4166a",
+    "constraints": "1391fda5364985857210096c3443bce3845bc794cf1194263b626401ecaf0975",
+    "deliverables": "4911a77a135478aef5b7474048b3f36afc2387326681648c7335ca31c921d9e8",
+    "in_scope": "24210e6d01ff89dca389de1357c30833a00881a79e8d0019d12f524b4e8f2a6f",
+    "non_goals": "3b8677c8022a14a9770c06a011248a7bc1a1ddd6474aecd02a126cf2722ec671",
+    "objective": "c7f9352437c4679570b3080e40a0e4ddbabc9f81009f28235d5bf7a50f6c82e1",
+    "out_of_scope": "b7e3aec1fca708aff43eae2330d5f002004065a88d850d1dd7b45cc38af9a474",
+    "prerequisites": "c4bdcaca6c0c23a966d7329de56c0064942f5136b483c00f693bb71a5694c308",
+    "requirements": "eefdc803350e601d482d49232ffe3e99070201b0b0e15919718056bad052a582"
+  },
+  "display_title_preserved_head_and_receipt": true,
+  "equivalent_input_orders": 514,
+  "history": {
+    "changed": "fe8c8ab9b7fc33acf0ad0dd26d4ecc62396bf2dede372b3410afe01f16d4b127",
+    "declaration_digests": {
+      "4dda4f031239031b19dbdae2fa6b3690308486ca369b686b0bb2b6f770e08c08": "31bd80d629829e1d3b433c19c940807e746a81ca3bf0d98db1639ae5bbaeb826",
+      "6ecfc724d291d6e4a6c58ec0b756f2fc19a552d1178a4503c2d2844321f68bd2": "31bd80d629829e1d3b433c19c940807e746a81ca3bf0d98db1639ae5bbaeb826",
+      "a1af383d72da866e352c7d1c8bf1ad239cb4ed5c822896e88721d6123cf3401f": "31bd80d629829e1d3b433c19c940807e746a81ca3bf0d98db1639ae5bbaeb826",
+      "fe8c8ab9b7fc33acf0ad0dd26d4ecc62396bf2dede372b3410afe01f16d4b127": "c7f9352437c4679570b3080e40a0e4ddbabc9f81009f28235d5bf7a50f6c82e1"
+    },
+    "other_task": "a1af383d72da866e352c7d1c8bf1ad239cb4ed5c822896e88721d6123cf3401f",
+    "restored_content": "6ecfc724d291d6e4a6c58ec0b756f2fc19a552d1178a4503c2d2844321f68bd2",
+    "root": "4dda4f031239031b19dbdae2fa6b3690308486ca369b686b0bb2b6f770e08c08"
+  },
+  "receipt_controls": {
+    "new-revision-with-exact-receipt": "accepted",
+    "other-task": "pending",
+    "restored-content": "pending"
+  },
+  "refusals": {
+    "conflicting-prerequisites": "competing revisions for one reference",
+    "duplicate-item": "duplicate entry",
+    "empty-approval": "deliverables and acceptance criteria differ",
+    "extra-field": "unknown or missing declaration field",
+    "overlap": "overlapping scope",
+    "qualifying-orphan": "deliverables and acceptance criteria differ",
+    "unknown-reference-revision": "invalid exact reference",
+    "wrong-goal-target": "objective target is outside scope"
+  },
+  "sqlite": "3.53.1"
+}
