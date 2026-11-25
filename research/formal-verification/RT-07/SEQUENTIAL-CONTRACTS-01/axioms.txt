@@ -1,0 +1,3 @@
+'SequentialContracts.sequenceSatisfies' does not depend on any axioms
+'SequentialContracts.prefixFailureIsAnExactSequenceOutcome' depends on axioms: [propext]
+'SequentialContracts.oneValidIntermediateDoesNotEstablishHandoff' does not depend on any axioms

@@ -1,0 +1,2127 @@
+{
+  "schema": "llmlang-sequential-contracts/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "run.py": "746f6f43feb11cea18b5ea1d21bcb113bb39257f933cb172e831ee67fff0f6d3",
+    "Sequence.lean": "5c2b5618a8b7c49ef11f730da6593a6f989838ba303b8aced2244df2c5356b91",
+    "axioms.txt": "5eb9a3cc17e05cdc71d04a423b10c8d314b1c263671f669bbaa2211e9a622202"
+  },
+  "first_outcome_order": [
+    [
+      "success",
+      0,
+      [
+        "prefix-write-0"
+      ]
+    ],
+    [
+      "success",
+      1,
+      [
+        "prefix-write-1"
+      ]
+    ],
+    [
+      "error",
+      0,
+      [
+        "prefix-write-0",
+        "raise"
+      ]
+    ],
+    [
+      "error",
+      1,
+      [
+        "prefix-write-1",
+        "raise"
+      ]
+    ]
+  ],
+  "second_outcome_order_by_state": {
+    "0": [
+      [
+        "success",
+        0,
+        [
+          "read-0"
+        ]
+      ],
+      [
+        "error",
+        1,
+        [
+          "read-0",
+          "write-1",
+          "raise"
+        ]
+      ]
+    ],
+    "1": [
+      [
+        "success",
+        1,
+        [
+          "read-1"
+        ]
+      ],
+      [
+        "error",
+        0,
+        [
+          "read-1",
+          "write-0",
+          "raise"
+        ]
+      ]
+    ]
+  },
+  "contract_pairs": 60,
+  "concrete_refinement_checks": 972,
+  "concrete_outcomes_checked": 1728,
+  "gates": {
+    "all_successful": {
+      "admitted": 32,
+      "false_admission": 0,
+      "false_refusal": 0
+    },
+    "some_successful": {
+      "admitted": 28,
+      "false_admission": 8,
+      "false_refusal": 12
+    },
+    "all_final_states": {
+      "admitted": 21,
+      "false_admission": 0,
+      "false_refusal": 11
+    },
+    "unchecked": {
+      "admitted": 60,
+      "false_admission": 28,
+      "false_refusal": 0
+    }
+  },
+  "controls": {
+    "mixed_legal_and_illegal_successes": [
+      3,
+      1,
+      [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ]
+    ],
+    "error_state_needs_no_second_precondition": [
+      4,
+      0,
+      [
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ]
+    ]
+  },
+  "cases": [
+    {
+      "first_mask": 1,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 1,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 1,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 1,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 2,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 2,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 2,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 2,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 3,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 3,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 3,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 3,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 4,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 4,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 4,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 4,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 5,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 5,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 5,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 5,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 6,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 6,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 6,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 6,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 7,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 7,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 7,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 7,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 8,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 8,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 8,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 8,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 9,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 9,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 9,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 9,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 10,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 10,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 10,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 10,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 11,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 11,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 11,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 11,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 12,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 12,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 12,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 12,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": false,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 13,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 13,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 13,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 13,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 14,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 14,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 14,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 14,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 15,
+      "second_precondition_mask": 0,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": false,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 15,
+      "second_precondition_mask": 1,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 15,
+      "second_precondition_mask": 2,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ]
+      ],
+      "dispositions": {
+        "all_successful": false,
+        "some_successful": true,
+        "all_final_states": false,
+        "unchecked": true
+      }
+    },
+    {
+      "first_mask": 15,
+      "second_precondition_mask": 3,
+      "declared_outcomes": [
+        [
+          "success",
+          0,
+          [
+            "prefix-write-0"
+          ]
+        ],
+        [
+          "success",
+          1,
+          [
+            "prefix-write-1"
+          ]
+        ],
+        [
+          "error",
+          0,
+          [
+            "prefix-write-0",
+            "raise"
+          ]
+        ],
+        [
+          "error",
+          1,
+          [
+            "prefix-write-1",
+            "raise"
+          ]
+        ]
+      ],
+      "unmet_outcomes": [],
+      "dispositions": {
+        "all_successful": true,
+        "some_successful": true,
+        "all_final_states": true,
+        "unchecked": true
+      }
+    }
+  ]
+}

@@ -580,7 +580,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define evaluation order, effects, error propagation, and state transitions.
   - [x] Compare eager and short-circuit Boolean execution with state and errors. Two GCC profiles match every one of 588 observations per profile. The modes differ in 75 cases, including 37 visible only in the trace. Lean checks the exact determining-branch equivalence condition. Broader effects and compiler correspondence remain open. [Boolean effect order](research/formal-verification/RT-07/RT-07-BOOLEAN-EFFECT-ORDER-2026-11-25.md)
 - [ ] Define semantics of contracts and their composition.
-  - [ ] [WIP] Check sequential contract composition over nondeterministic intermediate states and exact error traces with Lean and exhaustive controls on `research/all`.
+  - [x] Prove sequential contract satisfaction under a universal successful-state handoff. Across 60 declared pairs, accepting one suitable success gives eight false admissions. All 972 concrete refinement cases preserve exact composed observations. Divergence, recovery and source correspondence remain open. [Sequential contract composition](research/formal-verification/RT-07/RT-07-SEQUENTIAL-CONTRACT-COMPOSITION-2026-11-25.md)
 - [ ] Define semantics-preserving transformations and compiler correctness boundaries.
 - [ ] Define assumptions and environmental boundaries explicitly.
 
