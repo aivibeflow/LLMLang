@@ -1,0 +1,1935 @@
+{
+  "all_candidates": 535,
+  "base": "9847850c12cda140e0bdb396d611c2ec96b85c33",
+  "candidate_screen_sha256": "50e0716c0da8f16c3ed973250d61f43261f460351d7f0199923a5ccb17c8e34f",
+  "cue_counts": {
+    "conflict": 55,
+    "replacement": 66
+  },
+  "disposition_counts": {
+    "index_crosswalk_or_context": 40,
+    "same_subject_distinct_scope": 48,
+    "scoped_supersession": 6,
+    "updated_execution_status": 1
+  },
+  "reviewed": [
+    {
+      "candidate": 1,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/DAFNY-TRANSFER-ANALYSIS.md",
+      "first_blob": "7371ea2faddc2a95a4376e5749debd205d1c8565",
+      "markers": [
+        {
+          "blob": "7371ea2faddc2a95a4376e5749debd205d1c8565",
+          "cue": "conflict",
+          "excerpt_sha256": "831dc92b643d89cfa68ea662e68ec7860fb9e1985acc079317486eae34a63eb8",
+          "line": 77,
+          "path": "research/DAFNY-TRANSFER-ANALYSIS.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/formal-verification/RT-07/RT-07-DAFNY-MODULAR-PROOF-CLOSURE-2026-11-25.md",
+      "second_blob": "f9409cdefc8d2dddf0bd4e1a88b539fcc75c00ff"
+    },
+    {
+      "candidate": 13,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/PROTOTYPES/RT-04-01/README.md",
+      "first_blob": "7ffa3912193b5e3baf176151a668ec2481bb3783",
+      "markers": [
+        {
+          "blob": "7ffa3912193b5e3baf176151a668ec2481bb3783",
+          "cue": "conflict",
+          "excerpt_sha256": "4e6686f00cbf73b2a9ab9e53d201c26d3a6b072488f1ac96bfbc70c93d3a55e1",
+          "line": 244,
+          "path": "research/PROTOTYPES/RT-04-01/README.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/semantic-representation/RT-06/RESEARCH-SCENARIO-101-SOLVER-VS-TRUTH-TABLE-PATHS.md",
+      "second_blob": "fa86c666ab123d91073f1738beea44f15e47f3aa"
+    },
+    {
+      "candidate": 30,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/README.md",
+      "first_blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+      "markers": [
+        {
+          "blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+          "cue": "replacement",
+          "excerpt_sha256": "083aadaa1bb10513b13facd7049eef7f6863e9b26c156fdd992769e03818ca0e",
+          "line": 89,
+          "path": "research/README.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/README.md",
+      "second_blob": "aac2493cc5d3856078ddf3cc61cff0598bec3637"
+    },
+    {
+      "candidate": 31,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/README.md",
+      "first_blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+      "markers": [
+        {
+          "blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+          "cue": "replacement",
+          "excerpt_sha256": "083aadaa1bb10513b13facd7049eef7f6863e9b26c156fdd992769e03818ca0e",
+          "line": 89,
+          "path": "research/README.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/formal-verification/RT-33/PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md",
+      "second_blob": "813a54a21bccefdfaac60cd5446c2a09b746b4d2"
+    },
+    {
+      "candidate": 32,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/README.md",
+      "first_blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+      "markers": [
+        {
+          "blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+          "cue": "replacement",
+          "excerpt_sha256": "083aadaa1bb10513b13facd7049eef7f6863e9b26c156fdd992769e03818ca0e",
+          "line": 89,
+          "path": "research/README.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/formal-verification/RT-33/PROOF-OBLIGATION-BENCHMARK.md",
+      "second_blob": "078b440f127dc0c2967512f07ff49e935767cd36"
+    },
+    {
+      "candidate": 36,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/README.md",
+      "first_blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+      "markers": [
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "shared_citation"
+        }
+      ],
+      "second": "research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+      "second_blob": "3f332faa4cd8e6ec1a01c11d5c0474527ae9d8ab"
+    },
+    {
+      "candidate": 37,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/README.md",
+      "first_blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+      "markers": [
+        {
+          "blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+          "cue": "replacement",
+          "excerpt_sha256": "c7e31306d91ea4d7aed4bd2d187c385f554b17d22d108a3bcf7615bd35f4811e",
+          "line": 228,
+          "path": "research/README.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md",
+      "second_blob": "cf8805463df3b8ce8eda519b2c40fe20108ce1c5"
+    },
+    {
+      "candidate": 38,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/README.md",
+      "first_blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+      "markers": [
+        {
+          "blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+          "cue": "conflict",
+          "excerpt_sha256": "c8c3ac22a83538ec5c483361588b6174d7a84ec9382889da4b230e337b4961cb",
+          "line": 234,
+          "path": "research/README.md",
+          "signal": "direct_cue"
+        },
+        {
+          "blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+          "cue": "conflict",
+          "excerpt_sha256": "70d2f582f3e0bd7999c21942b37abcda80b479f697d5c9ba7fa764b11365b99f",
+          "line": 259,
+          "path": "research/README.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RT-00/RT-00-B-06-UNIFIED-CONTRADICTIONS-AND-UNRESOLVED-REGISTER-2026-11-21.md",
+      "second_blob": "65a2f50c7dcd09e5905e2e7e211729bc0e93e6a1"
+    },
+    {
+      "candidate": 39,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/README.md",
+      "first_blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+      "markers": [
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+      "second_blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d"
+    },
+    {
+      "candidate": 45,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/README.md",
+      "first_blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+      "markers": [
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "shared_citation"
+        }
+      ],
+      "second": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+      "second_blob": "3cfedfb455ec3c60409d177c90decb00661b417e"
+    },
+    {
+      "candidate": 46,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/README.md",
+      "first_blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+      "markers": [
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "shared_citation"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+      "second_blob": "d6e6cddb5c6a7f8c50ee45f4a00a4729f0b5302b"
+    },
+    {
+      "candidate": 58,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/compiler-and-translation/RT-09/RT-09-ORDERED-SPG-LOWERING.md",
+      "first_blob": "d8e5ead09e86488e440168f11c7a7ee789ba1a66",
+      "markers": [
+        {
+          "blob": "d402cb63e005a5b57576da1894c64636bb1bcf15",
+          "cue": "replacement",
+          "excerpt_sha256": "c943423e3d16e6283fb28e081354044339aa59c750216eb972ec7159a443f8bb",
+          "line": 3,
+          "path": "research/compiler-and-translation/RT-09/RT-09-SSA-PARALLEL-COPY-LOWERING-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/compiler-and-translation/RT-09/RT-09-SSA-PARALLEL-COPY-LOWERING-2026-11-25.md",
+      "second_blob": "d402cb63e005a5b57576da1894c64636bb1bcf15"
+    },
+    {
+      "candidate": 84,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md",
+      "first_blob": "bc362d88d0b826469df9444c371db51bda0e6abc",
+      "markers": [
+        {
+          "blob": "672f4f9c5a9f1547caebc4e0a9b5efc50a0c0989",
+          "cue": "conflict",
+          "excerpt_sha256": "71b50ecd6ca6af49b39f7eeac2931fa1128d80ff0b0e5bf499e3340955a88e97",
+          "line": 167,
+          "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
+      "second_blob": "672f4f9c5a9f1547caebc4e0a9b5efc50a0c0989"
+    },
+    {
+      "candidate": 92,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md",
+      "first_blob": "23ea93db7456aeaa43d63be83c6437d602cf381c",
+      "markers": [
+        {
+          "blob": "672f4f9c5a9f1547caebc4e0a9b5efc50a0c0989",
+          "cue": "conflict",
+          "excerpt_sha256": "f612e4d7372ca16863a527b46840490ab716a6a02ef092f28c8b3937b775548e",
+          "line": 170,
+          "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
+      "second_blob": "672f4f9c5a9f1547caebc4e0a9b5efc50a0c0989"
+    },
+    {
+      "candidate": 126,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md",
+      "first_blob": "122e9953023d8e5ae1e7adf78f3d9521baf28cd4",
+      "markers": [
+        {
+          "blob": "349c739d45d6a073ad1cdeb7e7236ab91129cc37",
+          "cue": "replacement",
+          "excerpt_sha256": "dfd8e571665814f49105ed0f77ab8b613b592db0c97a54332af345fc17e46388",
+          "line": 37,
+          "path": "research/research-management/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md",
+      "second_blob": "349c739d45d6a073ad1cdeb7e7236ab91129cc37"
+    },
+    {
+      "candidate": 179,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/compiler-and-translation/RT-13/RT-13-FFI-CONDITIONAL-RECEIPTS-2026-11-25.md",
+      "first_blob": "b24f00c43c9309b3138a64631cf29fb4e5de38b0",
+      "markers": [
+        {
+          "blob": "b24f00c43c9309b3138a64631cf29fb4e5de38b0",
+          "cue": "conflict",
+          "excerpt_sha256": "c27c905a77b24f541c84307d90f09f6b1b2c19157d536a3e700375152e802316",
+          "line": 20,
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-CONDITIONAL-RECEIPTS-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/compiler-and-translation/RT-13/RT-13-FFI-SIX-LANGUAGE-EXPORT-2026-11-25.md",
+      "second_blob": "e538b85dae2e27b7ffcb98cfa88e296ec8ff0b23"
+    },
+    {
+      "candidate": 180,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/compiler-and-translation/RT-13/RT-13-FFI-CROSS-BUILD-CACHE-2026-11-25.md",
+      "first_blob": "5db88bd54efab8133c1da2034c474158709820c6",
+      "markers": [
+        {
+          "blob": "5db88bd54efab8133c1da2034c474158709820c6",
+          "cue": "conflict",
+          "excerpt_sha256": "5639d25888d0c0fefc98d3bc56e485b5f9ffcb6580de8dd535b3384fb2ae70a2",
+          "line": 5,
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-CROSS-BUILD-CACHE-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/compiler-and-translation/RT-13/RT-13-FFI-TARGET-PACKAGE-CACHE-2026-11-25.md",
+      "second_blob": "7b1da9b15a887260cabaa3138035705e446d561d"
+    },
+    {
+      "candidate": 207,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-SYMBOLIC-2026-11-25.md",
+      "first_blob": "03618ccb146362afd5274f0bbdf1bacbe2efe86a",
+      "markers": [
+        {
+          "blob": "6fe9db40dc9055df19551e852a11511ff00c3a46",
+          "cue": "replacement",
+          "excerpt_sha256": "247579cedaa9de42beac9892c28fe176787316f88d4550b55ab9f52f0cb30689",
+          "line": 5,
+          "path": "research/research-management/RT-00/RT-00-C-RT13-SYMBOLIC-CHECKED-ADD-REPLAY-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RT-00/RT-00-C-RT13-SYMBOLIC-CHECKED-ADD-REPLAY-2026-11-25.md",
+      "second_blob": "6fe9db40dc9055df19551e852a11511ff00c3a46"
+    },
+    {
+      "candidate": 284,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/README.md",
+      "first_blob": "aac2493cc5d3856078ddf3cc61cff0598bec3637",
+      "markers": [
+        {
+          "blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+          "cue": "replacement",
+          "excerpt_sha256": "083aadaa1bb10513b13facd7049eef7f6863e9b26c156fdd992769e03818ca0e",
+          "line": 89,
+          "path": "research/README.md",
+          "signal": "shared_citation"
+        }
+      ],
+      "second": "research/formal-verification/RT-33/PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md",
+      "second_blob": "813a54a21bccefdfaac60cd5446c2a09b746b4d2"
+    },
+    {
+      "candidate": 285,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/README.md",
+      "first_blob": "aac2493cc5d3856078ddf3cc61cff0598bec3637",
+      "markers": [
+        {
+          "blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+          "cue": "replacement",
+          "excerpt_sha256": "083aadaa1bb10513b13facd7049eef7f6863e9b26c156fdd992769e03818ca0e",
+          "line": 89,
+          "path": "research/README.md",
+          "signal": "shared_citation"
+        }
+      ],
+      "second": "research/formal-verification/RT-33/PROOF-OBLIGATION-BENCHMARK.md",
+      "second_blob": "078b440f127dc0c2967512f07ff49e935767cd36"
+    },
+    {
+      "candidate": 300,
+      "disposition": "scoped_supersession",
+      "first": "research/formal-verification/RT-07/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md",
+      "first_blob": "5923fa711b1ecf43491cdd56d71c663796067b5b",
+      "markers": [
+        {
+          "blob": "3ec7d5b5acf0c2465316f96e210000d62e5bb2b2",
+          "cue": "replacement",
+          "excerpt_sha256": "8be330b2e80aaf3490b2e6522955e78010e329b11d42fc141e73e5255a47e4e3",
+          "line": 127,
+          "path": "research/research-management/RT-00/RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/formal-verification/RT-07/RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md",
+      "second_blob": "53f6978365ddbb036e7fc06e1a5b57d86d56f850"
+    },
+    {
+      "candidate": 302,
+      "disposition": "scoped_supersession",
+      "first": "research/formal-verification/RT-07/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md",
+      "first_blob": "d9ed864000747071b81390972d4824683184cc63",
+      "markers": [
+        {
+          "blob": "f973caa835ef835fbbe47d16f9387af723c60c3a",
+          "cue": "replacement",
+          "excerpt_sha256": "f045c17efb193f0fd07f3966233448693e0e5256df69d22f5227b53e25829593",
+          "line": 78,
+          "path": "research/research-management/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        },
+        {
+          "blob": "5c478f482f0d6f321d3407fddbe6e9ed85542199",
+          "cue": "replacement",
+          "excerpt_sha256": "625094eac7ff71713d29b3fe6b98fce2075ab97a10af1905cd49dbb308b92d3b",
+          "line": 265,
+          "path": "research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        },
+        {
+          "blob": "5c478f482f0d6f321d3407fddbe6e9ed85542199",
+          "cue": "replacement",
+          "excerpt_sha256": "b11d72f21c42d90d08bb3947d462c6ec2e72f5887f3761af866e5fb79334cc35",
+          "line": 611,
+          "path": "research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        },
+        {
+          "blob": "7832aadabb8bb1b325a13f5304408029d6a78be3",
+          "cue": "replacement",
+          "excerpt_sha256": "bbfe5112a9f01b2af86cb2243c1dac92dce535b3cb88637a014ef7644b0ec6fb",
+          "line": 81,
+          "path": "research/research-management/RT-00/RT-00-B-02B-3-SCENARIO-OVERLAP-AND-SUPERSESSION-AUDIT-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        },
+        {
+          "blob": "3ec7d5b5acf0c2465316f96e210000d62e5bb2b2",
+          "cue": "conflict",
+          "excerpt_sha256": "c40e65c515a31dde2e27751b3056edf28b23b19a50be7c4a7b9599184cee35f4",
+          "line": 128,
+          "path": "research/research-management/RT-00/RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        },
+        {
+          "blob": "559a8d2a70bd56aceb6db4a3e76afa4dc1c650dc",
+          "cue": "replacement",
+          "excerpt_sha256": "be7ac3995891e756c1c5a8aa850c6eeb54e85e3d3eff4a9be4ee9409a0871e1b",
+          "line": 14,
+          "path": "research/research-management/RT-00/RT-00-B-13-KNOWN-RELATIONSHIP-CONTROLS-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        },
+        {
+          "blob": "5334dd2c8558926236fa504c0f6a242c44a77d54",
+          "cue": "replacement",
+          "excerpt_sha256": "c910cea5aa325aa7ce89ceff9e5b0d6a244baf272bb2beb66e6df534d9d73e5b",
+          "line": 26,
+          "path": "research/research-management/RT-00/RT-00-B-16-EXPLICIT-RELATIONSHIP-SCREEN-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/formal-verification/RT-07/RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md",
+      "second_blob": "b2ddc72dfedb36c2519a0344b0c720b0e3c9feae"
+    },
+    {
+      "candidate": 304,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-07/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md",
+      "first_blob": "d9ed864000747071b81390972d4824683184cc63",
+      "markers": [
+        {
+          "blob": "5c478f482f0d6f321d3407fddbe6e9ed85542199",
+          "cue": "replacement",
+          "excerpt_sha256": "b11d72f21c42d90d08bb3947d462c6ec2e72f5887f3761af866e5fb79334cc35",
+          "line": 611,
+          "path": "research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md",
+      "second_blob": "17bc5e1db448627c28a20db0c182d9dbc2444912"
+    },
+    {
+      "candidate": 307,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-07/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md",
+      "first_blob": "d9ed864000747071b81390972d4824683184cc63",
+      "markers": [
+        {
+          "blob": "5c478f482f0d6f321d3407fddbe6e9ed85542199",
+          "cue": "replacement",
+          "excerpt_sha256": "625094eac7ff71713d29b3fe6b98fce2075ab97a10af1905cd49dbb308b92d3b",
+          "line": 265,
+          "path": "research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md",
+      "second_blob": "f5961f5e42cee1f927467672071159a767571a83"
+    },
+    {
+      "candidate": 308,
+      "disposition": "scoped_supersession",
+      "first": "research/formal-verification/RT-07/RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md",
+      "first_blob": "b2ddc72dfedb36c2519a0344b0c720b0e3c9feae",
+      "markers": [
+        {
+          "blob": "3ec7d5b5acf0c2465316f96e210000d62e5bb2b2",
+          "cue": "replacement",
+          "excerpt_sha256": "4334336ff24cb9d176d79f54dece6f70c14053f59fe20134eed78114e4cdcc1f",
+          "line": 129,
+          "path": "research/research-management/RT-00/RT-00-B-02B-5-DEPENDENCY-GRAPH-EVIDENCE-CONSOLIDATION-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/formal-verification/RT-07/RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md",
+      "second_blob": "53f6978365ddbb036e7fc06e1a5b57d86d56f850"
+    },
+    {
+      "candidate": 309,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-07/RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md",
+      "first_blob": "b2ddc72dfedb36c2519a0344b0c720b0e3c9feae",
+      "markers": [
+        {
+          "blob": "5c478f482f0d6f321d3407fddbe6e9ed85542199",
+          "cue": "replacement",
+          "excerpt_sha256": "b11d72f21c42d90d08bb3947d462c6ec2e72f5887f3761af866e5fb79334cc35",
+          "line": 611,
+          "path": "research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md",
+      "second_blob": "17bc5e1db448627c28a20db0c182d9dbc2444912"
+    },
+    {
+      "candidate": 311,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-07/RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md",
+      "first_blob": "b2ddc72dfedb36c2519a0344b0c720b0e3c9feae",
+      "markers": [
+        {
+          "blob": "5c478f482f0d6f321d3407fddbe6e9ed85542199",
+          "cue": "replacement",
+          "excerpt_sha256": "625094eac7ff71713d29b3fe6b98fce2075ab97a10af1905cd49dbb308b92d3b",
+          "line": 265,
+          "path": "research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md",
+      "second_blob": "f5961f5e42cee1f927467672071159a767571a83"
+    },
+    {
+      "candidate": 312,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-07/RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md",
+      "first_blob": "53f6978365ddbb036e7fc06e1a5b57d86d56f850",
+      "markers": [
+        {
+          "blob": "f973caa835ef835fbbe47d16f9387af723c60c3a",
+          "cue": "replacement",
+          "excerpt_sha256": "9801cf1ccdc6f4cd6e66bf5bd741d599193e43ec5af53583f0702b3839af7b03",
+          "line": 392,
+          "path": "research/research-management/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
+      "second_blob": "66ef0bace5a82589a67174fa2b4c479c4ceb6b83"
+    },
+    {
+      "candidate": 313,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-07/RESEARCH-SCENARIO-33-CPC-PARSER-STATE-BINDING.md",
+      "first_blob": "53f6978365ddbb036e7fc06e1a5b57d86d56f850",
+      "markers": [
+        {
+          "blob": "f973caa835ef835fbbe47d16f9387af723c60c3a",
+          "cue": "replacement",
+          "excerpt_sha256": "9801cf1ccdc6f4cd6e66bf5bd741d599193e43ec5af53583f0702b3839af7b03",
+          "line": 392,
+          "path": "research/research-management/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/language-design/RT-03/RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md",
+      "second_blob": "840f6ba4f8e9df30478cd0575d798e22bb84cfc9"
+    },
+    {
+      "candidate": 318,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md",
+      "first_blob": "66ef0bace5a82589a67174fa2b4c479c4ceb6b83",
+      "markers": [
+        {
+          "blob": "f973caa835ef835fbbe47d16f9387af723c60c3a",
+          "cue": "replacement",
+          "excerpt_sha256": "9801cf1ccdc6f4cd6e66bf5bd741d599193e43ec5af53583f0702b3839af7b03",
+          "line": 392,
+          "path": "research/research-management/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/language-design/RT-03/RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md",
+      "second_blob": "840f6ba4f8e9df30478cd0575d798e22bb84cfc9"
+    },
+    {
+      "candidate": 321,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md",
+      "first_blob": "ff3411313e7e5dcf0cf6954e540abceb544b41f8",
+      "markers": [
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/language-design/RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
+      "second_blob": "a3556a3f148193475be477f9f3688d846cfac570"
+    },
+    {
+      "candidate": 322,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md",
+      "first_blob": "ff3411313e7e5dcf0cf6954e540abceb544b41f8",
+      "markers": [
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/language-design/RT-04/RT-04-RMW-RELEASE-SEQUENCES-AND-FENCES-2026-11-24.md",
+      "second_blob": "2b23e9dfa9e511749a41458c3e1f480d2027f35f"
+    },
+    {
+      "candidate": 323,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md",
+      "first_blob": "ff3411313e7e5dcf0cf6954e540abceb544b41f8",
+      "markers": [
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+      "second_blob": "9a966b3f5f67f802e82df2e0229424410644ddb5"
+    },
+    {
+      "candidate": 324,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md",
+      "first_blob": "ff3411313e7e5dcf0cf6954e540abceb544b41f8",
+      "markers": [
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/runtime-and-systems/RT-10/RT-10-ATOMIC-STORE-BUFFERING-2026-11-25.md",
+      "second_blob": "91c679f35e44008e37f637fb60330565d1471655"
+    },
+    {
+      "candidate": 331,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/formal-verification/RT-07/RT-07-LOGOS-CONCRETE-PAIR-LIFTING-2026-11-24.md",
+      "first_blob": "27641b31514425563aff1a253f30dde2d1308220",
+      "markers": [
+        {
+          "blob": "ae69441e2dd0de9bc35e733e029d0ee808419737",
+          "cue": "conflict",
+          "excerpt_sha256": "9e08699db20c8971f6cfcde6de28fb22f328227f2b67d1628dc8c0c3f5f59939",
+          "line": 12,
+          "path": "research/formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "ae69441e2dd0de9bc35e733e029d0ee808419737",
+          "cue": "conflict",
+          "excerpt_sha256": "9e08699db20c8971f6cfcde6de28fb22f328227f2b67d1628dc8c0c3f5f59939",
+          "line": 12,
+          "path": "research/formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md",
+      "second_blob": "a4bb56ad9f0aeaad3948630591f36bcc7aa04f01"
+    },
+    {
+      "candidate": 332,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/formal-verification/RT-07/RT-07-LOGOS-CONCRETE-PAIR-LIFTING-2026-11-24.md",
+      "first_blob": "27641b31514425563aff1a253f30dde2d1308220",
+      "markers": [
+        {
+          "blob": "ae69441e2dd0de9bc35e733e029d0ee808419737",
+          "cue": "conflict",
+          "excerpt_sha256": "9e08699db20c8971f6cfcde6de28fb22f328227f2b67d1628dc8c0c3f5f59939",
+          "line": 12,
+          "path": "research/formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md",
+      "second_blob": "ae69441e2dd0de9bc35e733e029d0ee808419737"
+    },
+    {
+      "candidate": 333,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md",
+      "first_blob": "a4bb56ad9f0aeaad3948630591f36bcc7aa04f01",
+      "markers": [
+        {
+          "blob": "a4bb56ad9f0aeaad3948630591f36bcc7aa04f01",
+          "cue": "replacement",
+          "excerpt_sha256": "6d3d08af6b62a309502970d96fdb180b1237bab33b3efcbefe60fcc3ee850ec9",
+          "line": 12,
+          "path": "research/formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/formal-verification/RT-07/RT-07-LOGOS-SINGLE-KERNEL-PROGRAM-2026-11-24.md",
+      "second_blob": "fb86ea0d4e60e5e3b8793877af3c1cf11646252d"
+    },
+    {
+      "candidate": 334,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md",
+      "first_blob": "a4bb56ad9f0aeaad3948630591f36bcc7aa04f01",
+      "markers": [
+        {
+          "blob": "ae69441e2dd0de9bc35e733e029d0ee808419737",
+          "cue": "conflict",
+          "excerpt_sha256": "9e08699db20c8971f6cfcde6de28fb22f328227f2b67d1628dc8c0c3f5f59939",
+          "line": 12,
+          "path": "research/formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md",
+      "second_blob": "ae69441e2dd0de9bc35e733e029d0ee808419737"
+    },
+    {
+      "candidate": 343,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/formal-verification/RT-07/RT-07-SOURCE-CPC-PROOF-REBINDING-2026-11-25.md",
+      "first_blob": "2e5a797f02011e27bed8941efa32e66fa6487e3d",
+      "markers": [
+        {
+          "blob": "69527653fb2cb2599d8552419c65b1097fa08169",
+          "cue": "conflict",
+          "excerpt_sha256": "214569d7dfb8eba17ddb37f8b900508fdcd6cc0a1d40650ee2015aec87b4991f",
+          "line": 34,
+          "path": "research/formal-verification/RT-33/RT-33-SMT-ARTIFACT-REPLAY-2026-11-25.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "69527653fb2cb2599d8552419c65b1097fa08169",
+          "cue": "conflict",
+          "excerpt_sha256": "214569d7dfb8eba17ddb37f8b900508fdcd6cc0a1d40650ee2015aec87b4991f",
+          "line": 34,
+          "path": "research/formal-verification/RT-33/RT-33-SMT-ARTIFACT-REPLAY-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/formal-verification/RT-32/RT-32-LEAN-ARTIFACT-REPLAY-2026-11-25.md",
+      "second_blob": "19c79eb24b46d7395137114971b6c0c3be7f9dd5"
+    },
+    {
+      "candidate": 344,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/formal-verification/RT-07/RT-07-SOURCE-CPC-PROOF-REBINDING-2026-11-25.md",
+      "first_blob": "2e5a797f02011e27bed8941efa32e66fa6487e3d",
+      "markers": [
+        {
+          "blob": "69527653fb2cb2599d8552419c65b1097fa08169",
+          "cue": "conflict",
+          "excerpt_sha256": "214569d7dfb8eba17ddb37f8b900508fdcd6cc0a1d40650ee2015aec87b4991f",
+          "line": 34,
+          "path": "research/formal-verification/RT-33/RT-33-SMT-ARTIFACT-REPLAY-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/formal-verification/RT-33/RT-33-SMT-ARTIFACT-REPLAY-2026-11-25.md",
+      "second_blob": "69527653fb2cb2599d8552419c65b1097fa08169"
+    },
+    {
+      "candidate": 353,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/formal-verification/RT-32/RT-32-LEAN-ARTIFACT-REPLAY-2026-11-25.md",
+      "first_blob": "19c79eb24b46d7395137114971b6c0c3be7f9dd5",
+      "markers": [
+        {
+          "blob": "69527653fb2cb2599d8552419c65b1097fa08169",
+          "cue": "conflict",
+          "excerpt_sha256": "214569d7dfb8eba17ddb37f8b900508fdcd6cc0a1d40650ee2015aec87b4991f",
+          "line": 34,
+          "path": "research/formal-verification/RT-33/RT-33-SMT-ARTIFACT-REPLAY-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/formal-verification/RT-33/RT-33-SMT-ARTIFACT-REPLAY-2026-11-25.md",
+      "second_blob": "69527653fb2cb2599d8552419c65b1097fa08169"
+    },
+    {
+      "candidate": 363,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-33/PROOF-OBLIGATION-BENCHMARK-TEMPLATE.md",
+      "first_blob": "813a54a21bccefdfaac60cd5446c2a09b746b4d2",
+      "markers": [
+        {
+          "blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+          "cue": "replacement",
+          "excerpt_sha256": "083aadaa1bb10513b13facd7049eef7f6863e9b26c156fdd992769e03818ca0e",
+          "line": 89,
+          "path": "research/README.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "49a424b6a5fc86ea9f9b84ebd3b523376d65a8ef",
+          "cue": "replacement",
+          "excerpt_sha256": "083aadaa1bb10513b13facd7049eef7f6863e9b26c156fdd992769e03818ca0e",
+          "line": 89,
+          "path": "research/README.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/formal-verification/RT-33/PROOF-OBLIGATION-BENCHMARK.md",
+      "second_blob": "078b440f127dc0c2967512f07ff49e935767cd36"
+    },
+    {
+      "candidate": 364,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-33/PROOF-OBLIGATION-BENCHMARK.md",
+      "first_blob": "078b440f127dc0c2967512f07ff49e935767cd36",
+      "markers": [
+        {
+          "blob": "078b440f127dc0c2967512f07ff49e935767cd36",
+          "cue": "conflict",
+          "excerpt_sha256": "3ccf25146dfc4cfe974be1d641700bd7f9f27863eda9986a6cf0bdcc745b8805",
+          "line": 194,
+          "path": "research/formal-verification/RT-33/PROOF-OBLIGATION-BENCHMARK.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md",
+      "second_blob": "228d42c819f7b2b741db481df357c6d4b2050af3"
+    },
+    {
+      "candidate": 366,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md",
+      "first_blob": "228d42c819f7b2b741db481df357c6d4b2050af3",
+      "markers": [
+        {
+          "blob": "716602f68a2178555d381e5561b7747fab375e63",
+          "cue": "conflict",
+          "excerpt_sha256": "496357ff61afae6f4649ea1278f3934826d161be6c22ca5bf946afd540bd0dae",
+          "line": 107,
+          "path": "research/security/RT-16/RT-16-THREAT-MODEL-01.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/security/RT-16/RT-16-THREAT-MODEL-01.md",
+      "second_blob": "716602f68a2178555d381e5561b7747fab375e63"
+    },
+    {
+      "candidate": 371,
+      "disposition": "scoped_supersession",
+      "first": "research/language-design/RT-01/RESEARCH-DEEP-COMPARISON.md",
+      "first_blob": "7194d2435ece2fb8cb3a3891d898dc142f37370e",
+      "markers": [
+        {
+          "blob": "559a8d2a70bd56aceb6db4a3e76afa4dc1c650dc",
+          "cue": "replacement",
+          "excerpt_sha256": "5ca0b6285bf3ffbd2d2041c1f340f431a817d41c4bdb092c97552b40be4ba383",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-B-13-KNOWN-RELATIONSHIP-CONTROLS-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/language-design/RT-01/RESEARCH-RELATED-PROJECTS.md",
+      "second_blob": "534108da6ad042ce3466be72f2507307f030b1ac"
+    },
+    {
+      "candidate": 373,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md",
+      "first_blob": "3d0f871850fff2b1c603b6756a6fb83977310b36",
+      "markers": [
+        {
+          "blob": "3d0f871850fff2b1c603b6756a6fb83977310b36",
+          "cue": "replacement",
+          "excerpt_sha256": "9b9e99fc2d8c8d6f82cdd8fd609bb453e8318ce91a29049aa7f2058a7e377a2a",
+          "line": 14,
+          "path": "research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-11/RT-11-BINDING-INVALIDATION-BENCHMARK.md",
+      "second_blob": "14ee3fb5b7bec23e2fb6eaac2e6cf2bc9658ac05"
+    },
+    {
+      "candidate": 374,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-02/RT-02-ARTIFACT-LIFECYCLE-BINDING-2026-11-25.md",
+      "first_blob": "0996f7c931794afeb0f8ea6bbb8b1f7f21e78041",
+      "markers": [
+        {
+          "blob": "b28741b74f1b815a7dca9fde07a49312646528cd",
+          "cue": "conflict",
+          "excerpt_sha256": "9f5e0dc70bce9eae43beea82e667d3d66f5c05dcc58979cd0694c2d5d2c2b5e7",
+          "line": 5,
+          "path": "research/language-design/RT-02/RT-02-CLAUSE-PROVENANCE-AUTHORITY-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/language-design/RT-02/RT-02-CLAUSE-PROVENANCE-AUTHORITY-2026-11-25.md",
+      "second_blob": "b28741b74f1b815a7dca9fde07a49312646528cd"
+    },
+    {
+      "candidate": 375,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-02/RT-02-ARTIFACT-LIFECYCLE-BINDING-2026-11-25.md",
+      "first_blob": "0996f7c931794afeb0f8ea6bbb8b1f7f21e78041",
+      "markers": [
+        {
+          "blob": "b28741b74f1b815a7dca9fde07a49312646528cd",
+          "cue": "conflict",
+          "excerpt_sha256": "9f5e0dc70bce9eae43beea82e667d3d66f5c05dcc58979cd0694c2d5d2c2b5e7",
+          "line": 5,
+          "path": "research/language-design/RT-02/RT-02-CLAUSE-PROVENANCE-AUTHORITY-2026-11-25.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "b28741b74f1b815a7dca9fde07a49312646528cd",
+          "cue": "conflict",
+          "excerpt_sha256": "9f5e0dc70bce9eae43beea82e667d3d66f5c05dcc58979cd0694c2d5d2c2b5e7",
+          "line": 5,
+          "path": "research/language-design/RT-02/RT-02-CLAUSE-PROVENANCE-AUTHORITY-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/language-design/RT-02/RT-02-CLAUSE-ROUNDTRIP-AND-MUTATION-2026-11-25.md",
+      "second_blob": "36fb01b1fbbe149fff6324eef52773e24919d72e"
+    },
+    {
+      "candidate": 376,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-02/RT-02-CLAUSE-PROVENANCE-AUTHORITY-2026-11-25.md",
+      "first_blob": "b28741b74f1b815a7dca9fde07a49312646528cd",
+      "markers": [
+        {
+          "blob": "b28741b74f1b815a7dca9fde07a49312646528cd",
+          "cue": "conflict",
+          "excerpt_sha256": "9f5e0dc70bce9eae43beea82e667d3d66f5c05dcc58979cd0694c2d5d2c2b5e7",
+          "line": 5,
+          "path": "research/language-design/RT-02/RT-02-CLAUSE-PROVENANCE-AUTHORITY-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/language-design/RT-02/RT-02-CLAUSE-ROUNDTRIP-AND-MUTATION-2026-11-25.md",
+      "second_blob": "36fb01b1fbbe149fff6324eef52773e24919d72e"
+    },
+    {
+      "candidate": 377,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-02/RT-02-CLAUSE-PROVENANCE-AUTHORITY-2026-11-25.md",
+      "first_blob": "b28741b74f1b815a7dca9fde07a49312646528cd",
+      "markers": [
+        {
+          "blob": "23fe5ca6285d35f19c496883d522a8e4df8262fa",
+          "cue": "replacement",
+          "excerpt_sha256": "ef54f77da13e219d1243a44ffda8dc6d657fb9600f2fcf090fabc51139b515df",
+          "line": 5,
+          "path": "research/language-design/RT-02/RT-02-SCOPED-CLARIFICATION-OVERRIDES-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/language-design/RT-02/RT-02-SCOPED-CLARIFICATION-OVERRIDES-2026-11-25.md",
+      "second_blob": "23fe5ca6285d35f19c496883d522a8e4df8262fa"
+    },
+    {
+      "candidate": 383,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-03/RT-03-EXACT-DIFFERENCE-CERTIFICATES-2026-11-25.md",
+      "first_blob": "d40c73b5decc8a9b3061d7ccce76a646fd1ad951",
+      "markers": [
+        {
+          "blob": "ed7bfcb6b5bd75885a1df11b437d85d3996e2453",
+          "cue": "conflict",
+          "excerpt_sha256": "8843fb943c45630b278f0619fadf11cf0ba702a7439d635d5204e7906c085820",
+          "line": 9,
+          "path": "research/language-design/RT-03/RT-03-SOURCE-ROUTE-RESOURCE-GATE-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/language-design/RT-03/RT-03-SOURCE-ROUTE-RESOURCE-GATE-2026-11-25.md",
+      "second_blob": "ed7bfcb6b5bd75885a1df11b437d85d3996e2453"
+    },
+    {
+      "candidate": 384,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
+      "first_blob": "a3556a3f148193475be477f9f3688d846cfac570",
+      "markers": [
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/language-design/RT-04/RT-04-RMW-RELEASE-SEQUENCES-AND-FENCES-2026-11-24.md",
+      "second_blob": "2b23e9dfa9e511749a41458c3e1f480d2027f35f"
+    },
+    {
+      "candidate": 385,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/language-design/RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
+      "first_blob": "a3556a3f148193475be477f9f3688d846cfac570",
+      "markers": [
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+      "second_blob": "9a966b3f5f67f802e82df2e0229424410644ddb5"
+    },
+    {
+      "candidate": 387,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md",
+      "first_blob": "a3556a3f148193475be477f9f3688d846cfac570",
+      "markers": [
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/runtime-and-systems/RT-10/RT-10-ATOMIC-STORE-BUFFERING-2026-11-25.md",
+      "second_blob": "91c679f35e44008e37f637fb60330565d1471655"
+    },
+    {
+      "candidate": 390,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-04/RESEARCH-SCENARIO-37-EFFECT-ROWS-HANDLERS-AND-OBSERVATION.md",
+      "first_blob": "4d5f4246f496965b9e6b905faba5061d03820b4e",
+      "markers": [
+        {
+          "blob": "9a0af11e9e908bbd54380f745e42b689233511ed",
+          "cue": "conflict",
+          "excerpt_sha256": "8ec5b5a7f113429f9d7ce480984a376f1706af671037803d7b44499658b83347",
+          "line": 11,
+          "path": "research/language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
+      "second_blob": "9a0af11e9e908bbd54380f745e42b689233511ed"
+    },
+    {
+      "candidate": 391,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-04/RESEARCH-SCENARIO-37-EFFECT-ROWS-HANDLERS-AND-OBSERVATION.md",
+      "first_blob": "4d5f4246f496965b9e6b905faba5061d03820b4e",
+      "markers": [
+        {
+          "blob": "9a0af11e9e908bbd54380f745e42b689233511ed",
+          "cue": "conflict",
+          "excerpt_sha256": "8ec5b5a7f113429f9d7ce480984a376f1706af671037803d7b44499658b83347",
+          "line": 11,
+          "path": "research/language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "9a0af11e9e908bbd54380f745e42b689233511ed",
+          "cue": "conflict",
+          "excerpt_sha256": "8ec5b5a7f113429f9d7ce480984a376f1706af671037803d7b44499658b83347",
+          "line": 11,
+          "path": "research/language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/language-design/RT-04/RT-04-RT-03-CROSS-PROFILE-TRACES.md",
+      "second_blob": "5180ce1b887290d799685290ad5453778b52081a"
+    },
+    {
+      "candidate": 394,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-04/RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md",
+      "first_blob": "0ba8c3ef72c6c4d1f82015e032ec22f1df0319d5",
+      "markers": [
+        {
+          "blob": "1207fe52eb4ab227bce63e88d5bb656019dae326",
+          "cue": "replacement",
+          "excerpt_sha256": "56f9b66d1ba01f726d580a57ec16f21b6d600fd937854f945e576292acd9de67",
+          "line": 3,
+          "path": "research/language-design/RT-04/RT-04-OPAQUE-PROVIDER-COMPATIBILITY-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/language-design/RT-04/RT-04-OPAQUE-PROVIDER-COMPATIBILITY-2026-11-25.md",
+      "second_blob": "1207fe52eb4ab227bce63e88d5bb656019dae326"
+    },
+    {
+      "candidate": 396,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-04/RT-04-CALLBACK-CONTRACT-INVARIANT-2026-11-25.md",
+      "first_blob": "c718c7d305ff673603eb9fac134bf6112390dca2",
+      "markers": [
+        {
+          "blob": "c718c7d305ff673603eb9fac134bf6112390dca2",
+          "cue": "replacement",
+          "excerpt_sha256": "b8a7eb239f5e6e672c76fb219a9be3bf71f0da4c38235d1c8e40b63ebc8ad5ce",
+          "line": 5,
+          "path": "research/language-design/RT-04/RT-04-CALLBACK-CONTRACT-INVARIANT-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md",
+      "second_blob": "97ecb7f1a130539a04dfa2b20704bfdd3a064b5b"
+    },
+    {
+      "candidate": 397,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-04/RT-04-CONTRACT-INFERENCE-BOUNDARY-2026-11-25.md",
+      "first_blob": "8fe86f4d8e6cfe5b1704491c1a1e5c499c9312ed",
+      "markers": [
+        {
+          "blob": "8fe86f4d8e6cfe5b1704491c1a1e5c499c9312ed",
+          "cue": "replacement",
+          "excerpt_sha256": "19deed4f8156c552a3f576a4bd01f9cee805fe44409035815d784967c93d2391",
+          "line": 5,
+          "path": "research/language-design/RT-04/RT-04-CONTRACT-INFERENCE-BOUNDARY-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/language-design/RT-04/RT-04-JOINT-CONTRACT-CONFORMANCE-2026-11-25.md",
+      "second_blob": "700134fef72ce3ccd6eba6f0702f7d21b70b46c1"
+    },
+    {
+      "candidate": 399,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
+      "first_blob": "9a0af11e9e908bbd54380f745e42b689233511ed",
+      "markers": [
+        {
+          "blob": "9a0af11e9e908bbd54380f745e42b689233511ed",
+          "cue": "conflict",
+          "excerpt_sha256": "8ec5b5a7f113429f9d7ce480984a376f1706af671037803d7b44499658b83347",
+          "line": 11,
+          "path": "research/language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/language-design/RT-04/RT-04-RT-03-CROSS-PROFILE-TRACES.md",
+      "second_blob": "5180ce1b887290d799685290ad5453778b52081a"
+    },
+    {
+      "candidate": 400,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md",
+      "first_blob": "9a0af11e9e908bbd54380f745e42b689233511ed",
+      "markers": [
+        {
+          "blob": "a9cd9c6ffaa38c48ecc9066a1065d3e17ed08bf9",
+          "cue": "conflict",
+          "excerpt_sha256": "4167a2f3a4ef9bcdd3c4b90d5fbe39a3a54d7275f11f931edc5d5abb205b405e",
+          "line": 103,
+          "path": "research/research-management/RESEARCH-TAXONOMY.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-TAXONOMY.md",
+      "second_blob": "a9cd9c6ffaa38c48ecc9066a1065d3e17ed08bf9"
+    },
+    {
+      "candidate": 403,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/language-design/RT-04/RT-04-RMW-RELEASE-SEQUENCES-AND-FENCES-2026-11-24.md",
+      "first_blob": "2b23e9dfa9e511749a41458c3e1f480d2027f35f",
+      "markers": [
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+      "second_blob": "9a966b3f5f67f802e82df2e0229424410644ddb5"
+    },
+    {
+      "candidate": 404,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/language-design/RT-04/RT-04-RMW-RELEASE-SEQUENCES-AND-FENCES-2026-11-24.md",
+      "first_blob": "2b23e9dfa9e511749a41458c3e1f480d2027f35f",
+      "markers": [
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/runtime-and-systems/RT-10/RT-10-ATOMIC-STORE-BUFFERING-2026-11-25.md",
+      "second_blob": "91c679f35e44008e37f637fb60330565d1471655"
+    },
+    {
+      "candidate": 416,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+      "first_blob": "3f332faa4cd8e6ec1a01c11d5c0474527ae9d8ab",
+      "markers": [
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+      "second_blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d"
+    },
+    {
+      "candidate": 417,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+      "first_blob": "3f332faa4cd8e6ec1a01c11d5c0474527ae9d8ab",
+      "markers": [
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+      "second_blob": "3cfedfb455ec3c60409d177c90decb00661b417e"
+    },
+    {
+      "candidate": 418,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+      "first_blob": "3f332faa4cd8e6ec1a01c11d5c0474527ae9d8ab",
+      "markers": [
+        {
+          "blob": "f973caa835ef835fbbe47d16f9387af723c60c3a",
+          "cue": "conflict",
+          "excerpt_sha256": "a6ead16cf42baad3a0f6e60c7958fcb0f57f0512d78b5f58200e5246d01293ca",
+          "line": 549,
+          "path": "research/research-management/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/semantic-representation/RT-06/RESEARCH-SCENARIO-102-SOLVER-UNKNOWN-AND-SOUND-PATH-PRUNING.md",
+      "second_blob": "614e9f01a63aca9975ab0e55e2a2f229c0402802"
+    },
+    {
+      "candidate": 419,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+      "first_blob": "3f332faa4cd8e6ec1a01c11d5c0474527ae9d8ab",
+      "markers": [
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+      "second_blob": "d6e6cddb5c6a7f8c50ee45f4a00a4729f0b5302b"
+    },
+    {
+      "candidate": 423,
+      "disposition": "scoped_supersession",
+      "first": "research/research-management/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
+      "first_blob": "f973caa835ef835fbbe47d16f9387af723c60c3a",
+      "markers": [
+        {
+          "blob": "f973caa835ef835fbbe47d16f9387af723c60c3a",
+          "cue": "replacement",
+          "excerpt_sha256": "7dc7073360f903d8504852feb8ebba73c659defb2b1d8494dee0f4398770ca6a",
+          "line": 596,
+          "path": "research/research-management/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RT-00/RT-00-E-GLOBAL-LINK-AND-ANCHOR-AUDIT-2026-11-21.md",
+      "second_blob": "dad6ef8ca2a20bf3deda410b52cc43a7effc92bd"
+    },
+    {
+      "candidate": 425,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/research-management/RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md",
+      "first_blob": "17bc5e1db448627c28a20db0c182d9dbc2444912",
+      "markers": [
+        {
+          "blob": "5c478f482f0d6f321d3407fddbe6e9ed85542199",
+          "cue": "replacement",
+          "excerpt_sha256": "b11d72f21c42d90d08bb3947d462c6ec2e72f5887f3761af866e5fb79334cc35",
+          "line": 611,
+          "path": "research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+      "second_blob": "5c478f482f0d6f321d3407fddbe6e9ed85542199"
+    },
+    {
+      "candidate": 429,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+      "first_blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+      "markers": [
+        {
+          "blob": "9a966b3f5f67f802e82df2e0229424410644ddb5",
+          "cue": "conflict",
+          "excerpt_sha256": "b66dbc993ad7d28d5e74090d17f669ea8453e7b0ceb459b8dfab8ac7d978333e",
+          "line": 128,
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/runtime-and-systems/RT-10/RT-10-ATOMIC-STORE-BUFFERING-2026-11-25.md",
+      "second_blob": "91c679f35e44008e37f637fb60330565d1471655"
+    },
+    {
+      "candidate": 434,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
+      "first_blob": "672f4f9c5a9f1547caebc4e0a9b5efc50a0c0989",
+      "markers": [
+        {
+          "blob": "672f4f9c5a9f1547caebc4e0a9b5efc50a0c0989",
+          "cue": "replacement",
+          "excerpt_sha256": "9c8b5ffc3c741d1f4e5acc341d7c6dd158784cd3f42d5cd0ecf5a2eff89abdb9",
+          "line": 89,
+          "path": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-19/RT-19-MULTIFILE-PUBLICATION-BOUNDARY-RECHECK-2026-11-24.md",
+      "second_blob": "3511ade888cab70ba6969cf09c848dcfefcf5080"
+    },
+    {
+      "candidate": 438,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/research-management/RESEARCH-STATE-2026-11-19.md",
+      "first_blob": "9dd09d51d0ea8b0c6e3fcec7317447eff5275565",
+      "markers": [
+        {
+          "blob": "9dd09d51d0ea8b0c6e3fcec7317447eff5275565",
+          "cue": "conflict",
+          "excerpt_sha256": "17ccfc22238c75a0e2b4fde4113ab3542827e787b1448fcc857f1b68c2762ae5",
+          "line": 101,
+          "path": "research/research-management/RESEARCH-STATE-2026-11-19.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/semantic-representation/RT-06/RESEARCH-SCENARIO-101-SOLVER-VS-TRUTH-TABLE-PATHS.md",
+      "second_blob": "fa86c666ab123d91073f1738beea44f15e47f3aa"
+    },
+    {
+      "candidate": 439,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/research-management/RESEARCH-STATE-2026-11-19.md",
+      "first_blob": "9dd09d51d0ea8b0c6e3fcec7317447eff5275565",
+      "markers": [
+        {
+          "blob": "9dd09d51d0ea8b0c6e3fcec7317447eff5275565",
+          "cue": "conflict",
+          "excerpt_sha256": "b78a3374f0be0cb384e3ac42b45e48a8b68f12ff97cb9c4c4f81b98c28d86ea8",
+          "line": 97,
+          "path": "research/research-management/RESEARCH-STATE-2026-11-19.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/semantic-representation/RT-06/RESEARCH-SCENARIO-99-REPEATED-PATH-PREDICATES.md",
+      "second_blob": "ab54f3ede1875fd68d35fedfe0723c1984f0ccbd"
+    },
+    {
+      "candidate": 440,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/research-management/RESEARCH-TAXONOMY.md",
+      "first_blob": "a9cd9c6ffaa38c48ecc9066a1065d3e17ed08bf9",
+      "markers": [
+        {
+          "blob": "4b2c30077313d074a79d059bdf1c9be0a4d4da36",
+          "cue": "conflict",
+          "excerpt_sha256": "4a8c7efa278844ebe92411de0c64351cda3281d62b8d1ab72fc804d9dcc9590b",
+          "line": 34,
+          "path": "research/research-management/RT-00/RT-00-B-14-DAFNY-RELATIONSHIP-REVIEW-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RT-00/RT-00-B-14-DAFNY-RELATIONSHIP-REVIEW-2026-11-25.md",
+      "second_blob": "4b2c30077313d074a79d059bdf1c9be0a4d4da36"
+    },
+    {
+      "candidate": 449,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/research-management/RT-00/RT-00-B-13-KNOWN-RELATIONSHIP-CONTROLS-2026-11-25.md",
+      "first_blob": "559a8d2a70bd56aceb6db4a3e76afa4dc1c650dc",
+      "markers": [
+        {
+          "blob": "5334dd2c8558926236fa504c0f6a242c44a77d54",
+          "cue": "replacement",
+          "excerpt_sha256": "97c4b3e2e038946c7d1d840ab77f1f2213115359c94b95215bead969f41bb301",
+          "line": 46,
+          "path": "research/research-management/RT-00/RT-00-B-16-EXPLICIT-RELATIONSHIP-SCREEN-2026-11-25.md",
+          "signal": "direct_cue"
+        },
+        {
+          "blob": "5334dd2c8558926236fa504c0f6a242c44a77d54",
+          "cue": "conflict",
+          "excerpt_sha256": "97c4b3e2e038946c7d1d840ab77f1f2213115359c94b95215bead969f41bb301",
+          "line": 46,
+          "path": "research/research-management/RT-00/RT-00-B-16-EXPLICIT-RELATIONSHIP-SCREEN-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/research-management/RT-00/RT-00-B-16-EXPLICIT-RELATIONSHIP-SCREEN-2026-11-25.md",
+      "second_blob": "5334dd2c8558926236fa504c0f6a242c44a77d54"
+    },
+    {
+      "candidate": 450,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md",
+      "first_blob": "97ecb7f1a130539a04dfa2b20704bfdd3a064b5b",
+      "markers": [
+        {
+          "blob": "97ecb7f1a130539a04dfa2b20704bfdd3a064b5b",
+          "cue": "conflict",
+          "excerpt_sha256": "50134e2dd884c44ef8f3507d2c0f32e1145337b658d79bae689707b56c95e5bf",
+          "line": 5,
+          "path": "research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-20/STRUCTURE-CONTRACTS-AND-ATOMIC-COMMIT-VERIFICATION.md",
+      "second_blob": "924b502aed4a2ffa975202ecf950e69662dfada1"
+    },
+    {
+      "candidate": 451,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md",
+      "first_blob": "97ecb7f1a130539a04dfa2b20704bfdd3a064b5b",
+      "markers": [
+        {
+          "blob": "97ecb7f1a130539a04dfa2b20704bfdd3a064b5b",
+          "cue": "conflict",
+          "excerpt_sha256": "50134e2dd884c44ef8f3507d2c0f32e1145337b658d79bae689707b56c95e5bf",
+          "line": 5,
+          "path": "research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md",
+      "second_blob": "4122d7a0249be54399fe9995329e3a49caca5cce"
+    },
+    {
+      "candidate": 453,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+      "first_blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+      "markers": [
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+      "second_blob": "3cfedfb455ec3c60409d177c90decb00661b417e"
+    },
+    {
+      "candidate": 454,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+      "first_blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+      "markers": [
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+      "second_blob": "d6e6cddb5c6a7f8c50ee45f4a00a4729f0b5302b"
+    },
+    {
+      "candidate": 472,
+      "disposition": "updated_execution_status",
+      "first": "research/research-management/RT-00/RT-00-TOOLCHAIN-PUBLICATION-DEPENDENCIES-2026-11-25.md",
+      "first_blob": "44a590e052d108e0ee40d13714ac2b3ae80e1ede",
+      "markers": [
+        {
+          "blob": "44a590e052d108e0ee40d13714ac2b3ae80e1ede",
+          "cue": "replacement",
+          "excerpt_sha256": "9c8046ece181e2fdb7bb75c724dc517fdd0e61a4d414eabff58a9df3d8948886",
+          "line": 22,
+          "path": "research/research-management/RT-00/RT-00-TOOLCHAIN-PUBLICATION-DEPENDENCIES-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-19/RT-19-TWO-REMOTE-PUBLICATION-2026-11-25.md",
+      "second_blob": "e4b8c265423c0f417fee99f680d9071bdd3ee989"
+    },
+    {
+      "candidate": 477,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/runtime-and-systems/RT-10/RT-10-LIBC-SYSCALL-CANCELLATION-2026-11-25.md",
+      "first_blob": "63fd0d3fece7a4406250ee9017d9aaf82b3fdaa3",
+      "markers": [
+        {
+          "blob": "63fd0d3fece7a4406250ee9017d9aaf82b3fdaa3",
+          "cue": "replacement",
+          "excerpt_sha256": "a93744aa4e33138358e816b0370a88a1813ef05a1a14fbe68e8da95a8d03feba",
+          "line": 3,
+          "path": "research/runtime-and-systems/RT-10/RT-10-LIBC-SYSCALL-CANCELLATION-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/runtime-and-systems/RT-10/RT-10-POSIX-NONBLOCKING-PIPE-IO.md",
+      "second_blob": "1472dc63f7bf0950bf4ef2f3e73a289dc07e6b01"
+    },
+    {
+      "candidate": 478,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/runtime-and-systems/RT-10/RT-10-POSIX-FILE-IDENTITY-2026-11-25.md",
+      "first_blob": "632f9bf73e68c129abed33c47c889d73be2dd25a",
+      "markers": [
+        {
+          "blob": "687857bda03bd11763060f54c513374b5766e7c1",
+          "cue": "replacement",
+          "excerpt_sha256": "1e72c4aa820d482c4a0397b350b6896124395c73f719bba6bdcc01e82f7f0e81",
+          "line": 5,
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-CACHE-ARTIFACT-LIFETIME-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-11/RT-11-CACHE-ARTIFACT-LIFETIME-2026-11-25.md",
+      "second_blob": "687857bda03bd11763060f54c513374b5766e7c1"
+    },
+    {
+      "candidate": 479,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/runtime-and-systems/RT-10/RT-10-POSIX-FILE-IDENTITY-2026-11-25.md",
+      "first_blob": "632f9bf73e68c129abed33c47c889d73be2dd25a",
+      "markers": [
+        {
+          "blob": "687857bda03bd11763060f54c513374b5766e7c1",
+          "cue": "replacement",
+          "excerpt_sha256": "1e72c4aa820d482c4a0397b350b6896124395c73f719bba6bdcc01e82f7f0e81",
+          "line": 5,
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-CACHE-ARTIFACT-LIFETIME-2026-11-25.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "687857bda03bd11763060f54c513374b5766e7c1",
+          "cue": "replacement",
+          "excerpt_sha256": "1e72c4aa820d482c4a0397b350b6896124395c73f719bba6bdcc01e82f7f0e81",
+          "line": 5,
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-CACHE-ARTIFACT-LIFETIME-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-11/RT-11-LAYERED-CACHE-LOOKUP-2026-11-25.md",
+      "second_blob": "eef6217d87561f249ced73cfd4f44b06c20efd5f"
+    },
+    {
+      "candidate": 495,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/security/RT-16/RT-16-ISOLATION-AND-MEDIATED-EFFECTS-2026-11-25.md",
+      "first_blob": "a6637b7e57b3d6ed2f04d8b4094848abf55fbec0",
+      "markers": [
+        {
+          "blob": "a6637b7e57b3d6ed2f04d8b4094848abf55fbec0",
+          "cue": "replacement",
+          "excerpt_sha256": "589c2a39bcd828571f0a86f26cceda4bb3a219dcb47e8ee43311a1f9508f8987",
+          "line": 27,
+          "path": "research/security/RT-16/RT-16-ISOLATION-AND-MEDIATED-EFFECTS-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/security/RT-16/RT-16-WORKER-ISOLATION-2026-11-25.md",
+      "second_blob": "785bc7f6e22cabd89f87f8d43dbf6e3f3a7951b0"
+    },
+    {
+      "candidate": 496,
+      "disposition": "index_crosswalk_or_context",
+      "first": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+      "first_blob": "3cfedfb455ec3c60409d177c90decb00661b417e",
+      "markers": [
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "1c47e35b3aca3498d3e441427c725ce5c5dc809d",
+          "cue": "replacement",
+          "excerpt_sha256": "dbf4c1beafc0a3e381b4c6878f98bbddfb8c20693f416b4a7be23ea28f84c473",
+          "line": 16,
+          "path": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+      "second_blob": "d6e6cddb5c6a7f8c50ee45f4a00a4729f0b5302b"
+    },
+    {
+      "candidate": 502,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/semantic-representation/RT-05/RT-05-LAYERED-REFINEMENT-EVIDENCE-2026-11-24.md",
+      "first_blob": "1c6d10a80968c4d98f7bff2117b3b2d25b87cd8c",
+      "markers": [
+        {
+          "blob": "cfe9e6bd837c7db0ab08be7bbd36ac4507b46f2a",
+          "cue": "replacement",
+          "excerpt_sha256": "8625ff225d13f512c8a5f48d539226ebfb858c1d82d318eafa7588bca2acd16c",
+          "line": 7,
+          "path": "research/semantic-representation/RT-05/RT-05-MULTI-REQUIREMENT-COVERAGE-2026-11-24.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/semantic-representation/RT-05/RT-05-MULTI-REQUIREMENT-COVERAGE-2026-11-24.md",
+      "second_blob": "cfe9e6bd837c7db0ab08be7bbd36ac4507b46f2a"
+    },
+    {
+      "candidate": 503,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/semantic-representation/RT-05/RT-05-LAYERED-REFINEMENT-EVIDENCE-2026-11-24.md",
+      "first_blob": "1c6d10a80968c4d98f7bff2117b3b2d25b87cd8c",
+      "markers": [
+        {
+          "blob": "cfe9e6bd837c7db0ab08be7bbd36ac4507b46f2a",
+          "cue": "replacement",
+          "excerpt_sha256": "8625ff225d13f512c8a5f48d539226ebfb858c1d82d318eafa7588bca2acd16c",
+          "line": 7,
+          "path": "research/semantic-representation/RT-05/RT-05-MULTI-REQUIREMENT-COVERAGE-2026-11-24.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "cfe9e6bd837c7db0ab08be7bbd36ac4507b46f2a",
+          "cue": "replacement",
+          "excerpt_sha256": "8625ff225d13f512c8a5f48d539226ebfb858c1d82d318eafa7588bca2acd16c",
+          "line": 7,
+          "path": "research/semantic-representation/RT-05/RT-05-MULTI-REQUIREMENT-COVERAGE-2026-11-24.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+      "second_blob": "d5d2d93df11304cba38d2e7cc57e4fc670ebfaa3"
+    },
+    {
+      "candidate": 506,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/semantic-representation/RT-05/RT-05-MULTI-REQUIREMENT-COVERAGE-2026-11-24.md",
+      "first_blob": "cfe9e6bd837c7db0ab08be7bbd36ac4507b46f2a",
+      "markers": [
+        {
+          "blob": "cfe9e6bd837c7db0ab08be7bbd36ac4507b46f2a",
+          "cue": "replacement",
+          "excerpt_sha256": "8625ff225d13f512c8a5f48d539226ebfb858c1d82d318eafa7588bca2acd16c",
+          "line": 7,
+          "path": "research/semantic-representation/RT-05/RT-05-MULTI-REQUIREMENT-COVERAGE-2026-11-24.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md",
+      "second_blob": "d5d2d93df11304cba38d2e7cc57e4fc670ebfaa3"
+    },
+    {
+      "candidate": 510,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/semantic-representation/RT-06/RESEARCH-SCENARIO-101-SOLVER-VS-TRUTH-TABLE-PATHS.md",
+      "first_blob": "fa86c666ab123d91073f1738beea44f15e47f3aa",
+      "markers": [
+        {
+          "blob": "9dd09d51d0ea8b0c6e3fcec7317447eff5275565",
+          "cue": "conflict",
+          "excerpt_sha256": "17ccfc22238c75a0e2b4fde4113ab3542827e787b1448fcc857f1b68c2762ae5",
+          "line": 101,
+          "path": "research/research-management/RESEARCH-STATE-2026-11-19.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/semantic-representation/RT-06/RESEARCH-SCENARIO-102-SOLVER-UNKNOWN-AND-SOUND-PATH-PRUNING.md",
+      "second_blob": "614e9f01a63aca9975ab0e55e2a2f229c0402802"
+    },
+    {
+      "candidate": 511,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/toolchain-and-collaboration/RT-11/RT-11-ACTION-TIMING-INSTRUMENTATION-2026-11-24.md",
+      "first_blob": "0a26ea0cbf7fbfd8feb3b0d49da5436d552178f0",
+      "markers": [
+        {
+          "blob": "41939451e8a268c46842ff2881d03971920cefcb",
+          "cue": "replacement",
+          "excerpt_sha256": "8704bbd4f1c8f3d518dbb0052f40a260db2f3ee8f289ace0a31a60dc657ccf26",
+          "line": 11,
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-DIRECT-CHILD-TIMING-RECHECK-2026-11-24.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-11/RT-11-DIRECT-CHILD-TIMING-RECHECK-2026-11-24.md",
+      "second_blob": "41939451e8a268c46842ff2881d03971920cefcb"
+    },
+    {
+      "candidate": 512,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/toolchain-and-collaboration/RT-11/RT-11-CACHE-ARTIFACT-LIFETIME-2026-11-25.md",
+      "first_blob": "687857bda03bd11763060f54c513374b5766e7c1",
+      "markers": [
+        {
+          "blob": "687857bda03bd11763060f54c513374b5766e7c1",
+          "cue": "replacement",
+          "excerpt_sha256": "1e72c4aa820d482c4a0397b350b6896124395c73f719bba6bdcc01e82f7f0e81",
+          "line": 5,
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-CACHE-ARTIFACT-LIFETIME-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-11/RT-11-LAYERED-CACHE-LOOKUP-2026-11-25.md",
+      "second_blob": "eef6217d87561f249ced73cfd4f44b06c20efd5f"
+    },
+    {
+      "candidate": 520,
+      "disposition": "scoped_supersession",
+      "first": "research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md",
+      "first_blob": "f5961f5e42cee1f927467672071159a767571a83",
+      "markers": [
+        {
+          "blob": "f973caa835ef835fbbe47d16f9387af723c60c3a",
+          "cue": "replacement",
+          "excerpt_sha256": "d77e8a431fa8f33cda11923002eb381dee4fd711e6b22cb201c5f42c8a1bc0a0",
+          "line": 80,
+          "path": "research/research-management/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
+          "signal": "shared_literal_reference"
+        },
+        {
+          "blob": "559a8d2a70bd56aceb6db4a3e76afa4dc1c650dc",
+          "cue": "replacement",
+          "excerpt_sha256": "d2b5105f35f5bc944a4f2113a17f601dccf2e03df53eb4f5e66ea710a499d80e",
+          "line": 15,
+          "path": "research/research-management/RT-00/RT-00-B-13-KNOWN-RELATIONSHIP-CONTROLS-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md",
+      "second_blob": "a079f82f102da12695d63bae80460885484e6227"
+    },
+    {
+      "candidate": 527,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/toolchain-and-collaboration/RT-17/RT-17-DIAGNOSTIC-PUBLICATION.md",
+      "first_blob": "a68594fd7ed36b1c69ff038ea1b1a6b489c1d784",
+      "markers": [
+        {
+          "blob": "a68594fd7ed36b1c69ff038ea1b1a6b489c1d784",
+          "cue": "replacement",
+          "excerpt_sha256": "116e0197c3c3e68c199c6f5798b9d1d25378a4d6d7482e9aacb95ddd1d612fc6",
+          "line": 11,
+          "path": "research/toolchain-and-collaboration/RT-17/RT-17-DIAGNOSTIC-PUBLICATION.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-17/RT-17-DIAGNOSTIC-REPLAY.md",
+      "second_blob": "ac11f4c5ec2c6c141f55be8675f4b27fd50e4836"
+    },
+    {
+      "candidate": 532,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/toolchain-and-collaboration/RT-20/STRUCTURE-CONTRACTS-AND-ATOMIC-COMMIT-VERIFICATION.md",
+      "first_blob": "924b502aed4a2ffa975202ecf950e69662dfada1",
+      "markers": [
+        {
+          "blob": "97ecb7f1a130539a04dfa2b20704bfdd3a064b5b",
+          "cue": "conflict",
+          "excerpt_sha256": "50134e2dd884c44ef8f3507d2c0f32e1145337b658d79bae689707b56c95e5bf",
+          "line": 5,
+          "path": "research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md",
+          "signal": "shared_citation"
+        },
+        {
+          "blob": "97ecb7f1a130539a04dfa2b20704bfdd3a064b5b",
+          "cue": "conflict",
+          "excerpt_sha256": "50134e2dd884c44ef8f3507d2c0f32e1145337b658d79bae689707b56c95e5bf",
+          "line": 5,
+          "path": "research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md",
+          "signal": "shared_literal_reference"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md",
+      "second_blob": "4122d7a0249be54399fe9995329e3a49caca5cce"
+    },
+    {
+      "candidate": 535,
+      "disposition": "same_subject_distinct_scope",
+      "first": "research/toolchain-and-collaboration/RT-24/RT-24-MULTI-COMMIT-REPLAY-PREFIXES-2026-11-24.md",
+      "first_blob": "b264b5dc32c3409b37cf04283d615729e61edf49",
+      "markers": [
+        {
+          "blob": "400fe6565cd32f54a519bed0b90139d4e66d8042",
+          "cue": "replacement",
+          "excerpt_sha256": "8d880d83c26c829656ef6c5e1661da90c79785340acbad98e6c1220835729713",
+          "line": 3,
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-REBASE-MERGE-RESIDUALS-2026-11-25.md",
+          "signal": "direct_cue"
+        }
+      ],
+      "second": "research/toolchain-and-collaboration/RT-24/RT-24-REBASE-MERGE-RESIDUALS-2026-11-25.md",
+      "second_blob": "400fe6565cd32f54a519bed0b90139d4e66d8042"
+    }
+  ]
+}
