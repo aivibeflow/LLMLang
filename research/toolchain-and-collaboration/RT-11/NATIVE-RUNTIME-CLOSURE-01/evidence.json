@@ -1,0 +1,697 @@
+{
+  "fixed_action_inputs": {
+    "configuration": {
+      "argv": [
+        "/lib64/ld-linux-x86-64.so.2",
+        "./driver"
+      ],
+      "expected_stdout": "17\n"
+    },
+    "subject": "dc24ee8dfb7b5aaa11281b7069e0a95c0caf2ec8540b38a1cda4383d9390357c",
+    "target": "x86_64-linux-gnu",
+    "tool": {
+      "artifact": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+      "name": "ld-linux-x86-64.so.2",
+      "version": "ld.so (Debian GLIBC 2.41-12+deb13u4) stable release version 2.41."
+    },
+    "working_directory": "fixture-root"
+  },
+  "fixture_compiler": {
+    "artifact": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+    "name": "gcc",
+    "version": "gcc (Debian 14.2.0-19) 14.2.0"
+  },
+  "fixture_inspector": {
+    "artifact": "4a387d80a70e6e97ef940a666fab59d5c38e7cf19ff907192fa983cb8505a7de",
+    "name": "readelf",
+    "version": "GNU readelf (GNU Binutils for Debian) 2.44"
+  },
+  "format": "native-runtime-closure-01",
+  "needed": {
+    "driver": [
+      "libllmlang_fixture_mid.so",
+      "libc.so.6"
+    ],
+    "libllmlang_fixture_mid.so": [
+      "libllmlang_fixture_leaf.so"
+    ]
+  },
+  "platform": {
+    "machine": "x86_64",
+    "system": "Linux"
+  },
+  "published_receipts": 4,
+  "rows": [
+    {
+      "action_key": "bdb3284a27816a6fd4cde1428a4bbd2e3a73dc15ab9b8681d6bb01f188c357e9",
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "warm-original",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "17\n"
+      },
+      "decision": "publish",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": null,
+          "path": "first/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+          "path": "second/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:second:third",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+          "path": "second/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": true
+    },
+    {
+      "action_key": "bdb3284a27816a6fd4cde1428a4bbd2e3a73dc15ab9b8681d6bb01f188c357e9",
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "same-request",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "17\n"
+      },
+      "decision": "hit",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": null,
+          "path": "first/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+          "path": "second/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:second:third",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+          "path": "second/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": true
+    },
+    {
+      "action_key": "5e517a869d335c4371f6d68e978b2b84f4a360a6ce95163a323d221860dc9d8f",
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "reverse-selection",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "29\n"
+      },
+      "decision": "publish",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": null,
+          "path": "first/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "third/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:third:second",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "third/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": false
+    },
+    {
+      "action_key": "bdb3284a27816a6fd4cde1428a4bbd2e3a73dc15ab9b8681d6bb01f188c357e9",
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "restore-order",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "17\n"
+      },
+      "decision": "hit",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": null,
+          "path": "first/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+          "path": "second/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:second:third",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+          "path": "second/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": true
+    },
+    {
+      "action_key": "49e6fde26229a2aa23852bd730ae4567c827deb7563f47872560eb34e68687a2",
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "shadow-with-29",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "29\n"
+      },
+      "decision": "publish",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "first/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:second:third",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "first/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": false
+    },
+    {
+      "action_key": null,
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "unknown-at-known-key",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "29\n"
+      },
+      "decision": "uncached",
+      "discovered_leaf_prefix": null,
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:second:third",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "first/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": false
+    },
+    {
+      "action_key": "bc2e9799f32279576b9375f2d02f8312164de0675ccfa0b21d639d730caae2aa",
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "shadow-with-17",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "17\n"
+      },
+      "decision": "publish",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+          "path": "first/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:second:third",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+          "path": "first/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": true
+    },
+    {
+      "action_key": "bdb3284a27816a6fd4cde1428a4bbd2e3a73dc15ab9b8681d6bb01f188c357e9",
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "remove-shadow",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "17\n"
+      },
+      "decision": "hit",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": null,
+          "path": "first/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+          "path": "second/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:second:third",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+          "path": "second/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": true
+    },
+    {
+      "action_key": "5e517a869d335c4371f6d68e978b2b84f4a360a6ce95163a323d221860dc9d8f",
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "resolve-29-again",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "29\n"
+      },
+      "decision": "hit",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": null,
+          "path": "first/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "third/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:third:second",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "third/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": false
+    },
+    {
+      "action_key": null,
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736"
+      ],
+      "case": "policy-narrows",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "29\n"
+      },
+      "decision": "policy-denied",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": null,
+          "path": "first/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "third/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:third:second",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "third/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": false
+    },
+    {
+      "action_key": null,
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736"
+      ],
+      "case": "denial-repeated",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "29\n"
+      },
+      "decision": "policy-denied",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": null,
+          "path": "first/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "third/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:third:second",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "third/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": false
+    },
+    {
+      "action_key": null,
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736"
+      ],
+      "case": "unknown-despite-policy",
+      "clean": {
+        "exit": 0,
+        "missing_fixture_leaf": false,
+        "stdout": "29\n"
+      },
+      "decision": "uncached",
+      "discovered_leaf_prefix": null,
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first:third:second",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": [
+        {
+          "artifact": "d8ab82aba40e73380727200afe9c4e595903fa585d4b2588d401a17dd0108f6f",
+          "path": "base/libllmlang_fixture_mid.so",
+          "soname": "libllmlang_fixture_mid.so"
+        },
+        {
+          "artifact": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+          "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+          "soname": "libc.so.6"
+        },
+        {
+          "artifact": "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04",
+          "path": "third/libllmlang_fixture_leaf.so",
+          "soname": "libllmlang_fixture_leaf.so"
+        }
+      ],
+      "test_passed": false
+    },
+    {
+      "action_key": null,
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "missing-leaf",
+      "clean": {
+        "exit": 127,
+        "missing_fixture_leaf": true,
+        "stdout": ""
+      },
+      "decision": "load-error",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": null,
+          "path": "first/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": null,
+      "test_passed": false
+    },
+    {
+      "action_key": null,
+      "allowlist": [
+        "d643ea468e31847c6f8131ecdc3d20c739cc9b48287ae3da6b5f6ac120031736",
+        "fe1d778edc8a588f2667aeb6bda36196173a3df60868dd8343305eaaca4bda04"
+      ],
+      "case": "missing-leaf-repeated",
+      "clean": {
+        "exit": 127,
+        "missing_fixture_leaf": true,
+        "stdout": ""
+      },
+      "decision": "load-error",
+      "discovered_leaf_prefix": [
+        {
+          "artifact": null,
+          "path": "base/libllmlang_fixture_leaf.so"
+        },
+        {
+          "artifact": null,
+          "path": "first/libllmlang_fixture_leaf.so"
+        }
+      ],
+      "environment": {
+        "LANG": "C",
+        "LC_ALL": "C",
+        "LD_LIBRARY_PATH": "base:first",
+        "PATH": "/usr/bin:/bin"
+      },
+      "oracle_runtime": null,
+      "test_passed": false
+    }
+  ]
+}
