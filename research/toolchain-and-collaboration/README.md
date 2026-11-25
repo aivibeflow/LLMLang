@@ -59,6 +59,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-24 optimistic edit retries](RT-24/RT-24-OPTIMISTIC-RETRY-AND-RECEIPTS-2026-11-25.md) checks durable receipts and optimistic retry across native SQLite process exits.
 - [RT-24 concurrent publication costs](RT-24/RT-24-CONCURRENT-PUBLICATION-COST-2026-11-25.md) measures wait, retry and outcome scopes for live SQLite writers.
 - [RT-27 large Git graph benchmark](RT-27/RT-27-LARGE-GIT-GRAPH-BENCHMARK-2026-11-25.md) compares Git pack size, verified checkout and reachability at two edge densities.
 - [RT-27 SQLite retention benchmark](RT-27/RT-27-SQLITE-RETENTION-BENCHMARK-2026-11-25.md) compares reverse index, marked reachability and physical compaction costs under exact retained roots.

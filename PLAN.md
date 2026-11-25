@@ -1648,7 +1648,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ## 7.3 Parallel development and collaboration
 
-- [ ] [WIP] Define concurrent graph edits and optimistic update rules.
+- [x] Define concurrent graph edits and optimistic update rules.
+  - [x] Check 24 native WAL retry schedules and concurrent duplicate submission. Process exit before commit preserves neither mutation nor receipt, exit after commit preserves both, and retries revalidate an uncommitted projection or return the durable result. Distributed and general graph projections remain open. [Optimistic edit retries](research/toolchain-and-collaboration/RT-24/RT-24-OPTIMISTIC-RETRY-AND-RECEIPTS-2026-11-25.md)
   - [x] Reproduce 144 two-writer SQLite WAL schedules with exact graph projections. Write-only CAS admits 24 invalid graphs. Whole-head CAS refuses 16 safe edits. Transactional checks of write targets, endpoint states, incident-edge presence and reverse reachability match the independent oracle in all 48 exact-gate schedules. General graph edit and retry rules remain open. [Concurrent graph writes](research/toolchain-and-collaboration/RT-24/RT-24-CONCURRENT-GRAPH-2026-11-25.md)
 - [ ] Define stable identity under rename, split, and merge.
 - [ ] Define independent changes to contracts and implementations.
