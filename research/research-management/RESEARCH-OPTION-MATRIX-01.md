@@ -237,6 +237,8 @@ For histories with multiple best common ancestors, the [native merge-base compar
 
 [Git rebase merge-only changes](../toolchain-and-collaboration/RT-24/RT-24-REBASE-MERGE-RESIDUALS-2026-11-25.md) compare topology and closure, old terminal root equality, and per-merge exact caller correspondence. Two terminal matches hide a lost migration. The scoped gate reconstructs six candidates and reserves incompatible or unsupported changes for review. Linear-history checks therefore need an exact merge-only change obligation when a retained node has two parents.
 
+[The typed CLI vertical slice](../language-design/RT-01/RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md) compares interpreting exact admitted recipes with lowering those same entry bodies to Rust O0/O3. Each candidate and existing host baseline passes 34 byte and exit cases. Floor division, empty positions and diagnostic stream changes fail both candidate routes. Extend the workload before using the result to rank full tools or evaluate authoring effort.
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.

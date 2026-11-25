@@ -1243,6 +1243,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Evaluate learning curve and review quality for human developers.
 - [ ] Evaluate LLM authoring workflows without treating generated output as trusted.
 - [ ] Build representative end-to-end examples.
+  - Compare one exact three-entry CLI graph through interpretation and generated Rust O0/O3. Both paths and the existing C/Python baselines pass all 34 RT-01 cases. Separate mutations distinguish negative division, empty arguments and diagnostic channels. General language support, representative project scale and participant evaluation remain open. [Typed CLI vertical slice](research/language-design/RT-01/RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md)
 - [ ] Define practical adoption criteria and migration strategy.
 
 **Status:** initial workload acceptance criteria and an executable CLI corpus with C and Python host references are recorded in [RT-01 Reference Workloads](research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md). [Scenario 95 execution](research/toolchain-and-collaboration/RT-17/RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md) adds an evidence-linked diagnostic/repair contract candidate, 12 structural discriminators, and a controlled evaluation protocol. These are analytical outputs only: LLMLang implementation behavior, human/agent usability, review quality, context/token use, repair effort, scope violations, and adoption criteria still need implementation and controlled study.

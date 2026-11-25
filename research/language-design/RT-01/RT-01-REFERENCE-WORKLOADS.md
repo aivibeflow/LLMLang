@@ -44,6 +44,8 @@ The input specs come from repository baseline `72822973f7cc9fd33ede66aad05e844bf
 
 The last run used the three-executable interface. It returned status 1 after `T-0003-05` and `RT-01-calc-eof` observed `-4\n` where the contract requires `-3\n`. Both reference implementations passed the two broken-pipe cases. The pilot validates the harness on this platform. The LLMLang source examples remain illustrative, and the study has no measured syntax overhead, backend performance, or LLMLang portability results.
 
+The [typed CLI vertical slice](RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md) runs this exact corpus through a closed recipe interpreter and generated Rust O0/O3. All candidate and baseline configurations pass. Separate recipe changes distinguish checked division, positional-argument behavior and diagnostic stream policy. General source and participant evaluation remain open.
+
 ## 3. Controls for design comparison
 
 For each candidate, record the version of the profile, toolchain and target along with the fixture and starting repository revision. Require the same observations across backends, with explicitly recorded unsupported cases. A disagreement with a fixture, an unsupported required feature, or missing evidence for a mandatory claim blocks acceptance for that workload. Two candidates that pass the same cases can still differ in source complexity, diagnostics or the work needed to check a change.
