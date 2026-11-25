@@ -790,7 +790,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define how an `ImplHash` change propagates through dependent semantic nodes and action results.
 - [ ] Define safe reuse when only non-semantic metadata changes.
 - [ ] Define conservative fallback when dependency completeness cannot be established.
-  - [ ] [WIP] Compare scoped fallback and whole-graph recomputation when incremental actions have mixed complete, stale and unknown dependency evidence on `research/all`.
+  - [x] Compare mixed dependency completeness across 576 action-graph profiles. Scoped fallback executes 568 fewer actions and admits 16 more packages than whole-graph recomputation with zero stale results. The optimistic control admits 120 stale packages. Production extraction and publication remain open. [Scoped dependency fallback](research/toolchain-and-collaboration/RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md)
 - [ ] Define impact planning and non-interference gates.
 - [ ] Benchmark small local edits, shared component edits, and broad semantic changes.
 
