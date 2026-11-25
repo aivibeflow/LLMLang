@@ -1,0 +1,305 @@
+{
+  "schema": "llmlang-rt00-dafny-modular-proof-replay/1",
+  "fixture_commit": "00d01dd4b972f319eaf8db80a450e74688fade5e",
+  "host": {
+    "os": "Debian GNU/Linux 13 (trixie)",
+    "kernel": "6.18.57",
+    "arch": "x86_64",
+    "libc": "glibc 2.41",
+    "git": "git version 2.56.1",
+    "logos_lake": "Lake version 5.0.0-src+293d5d0 (Lean version 4.34.0)",
+    "logos_clang": "clang version 22.1.4 (https://github.com/llvm/llvm-project 35990504507d79e0b9deb809c8ee5e1b34ceef20)",
+    "logos_build_command": "lake -Kjobs=2 build logos",
+    "locale": "C",
+    "python_hash_seed": "1"
+  },
+  "executable_and_archive_sha256": {
+    "dafny": "e540b4826363afb87c326446239a682d45086905425fa6299c103eca9693846d",
+    "cvc5": "6aecddf466552b83bb5883756c7955e0c9d5ddcc6d7f45b48c2f6e06a741b102",
+    "lean_4_34_0_release": "caaa98356098c85dc0fcbbd28e1ec66f39eb6551829972b752ff20e1286b646b"
+  },
+  "comparison": {
+    "publication_ledger_sha256": "35309384190482e4426041ff0bd99c4aff87e282223d47e680bbf42104aad4b6",
+    "fresh_runner_output_sha256": "35309384190482e4426041ff0bd99c4aff87e282223d47e680bbf42104aad4b6",
+    "byte_equal": true,
+    "differing_json_fields": [],
+    "published_logos_executable_sha256": "41fcf0290357b49c96cb07991e63ad9f944596b7895c810d49611013c5cedd90"
+  },
+  "fresh_runner_output": {
+    "schema": "llmlang-dafny-modular-proof-closure/1",
+    "tool_versions": {
+      "dafny": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+      "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+      "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+      "logos_lean": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "logos": "cf18742973861b3718d04c5f25775448098ff474",
+      "python": "3.12.14"
+    },
+    "dafny_archive_sha256": "a46a9ff7cdd720f7955854c78e95df13f4cfe6b80691b05f8654fe19e8267179",
+    "z3_sha256": {
+      "4.12.1": "22214e518eed9eec867d18b485e7b2570d09cbf1d94a47c8eec6ec4de0287eff",
+      "4.14.1": "5a4f295b2e64abd2e2463a321d33f8054585083230203a55fa57982a1843d559"
+    },
+    "source_sha256": {
+      "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+      "Provider.dfy": "a50d0cba6fed948405cef043d402ad52331a7399f7fa074fde108af90ed7ca0b",
+      "Caller.smt2": "dfc390c403790c07020b935bef3e32262f09d7ce7cb4f131ffb7d6ce29d4f40a",
+      "Threshold.lean": "6e04fc82ee4c3aef8648d769f1bc6fc1c279a78bfc66883cd3f479cd83ac7529",
+      "BoundCpc.lean": "bec9ff998df1df7aa5d1e1eca3efee69518bdfc8cdc1f20e85dd97767e9c5d58",
+      "run.py": "222ab05f73267c5a6d90a642544a81cfc17a612884464ec2b50943052e63d16e"
+    },
+    "dafny": {
+      "4.12.1": {
+        "caller_only": {
+          "verified": 1,
+          "errors": 0,
+          "out_of_resource": 0,
+          "exit": 0,
+          "obligations": {
+            "Client.Fits (correctness)": "Passed"
+          },
+          "provider_body_in_boogie": false,
+          "boogie_sha256": {
+            "program.bpl": "b6c4ff3972731e62d57d0d3828877740e58aa41e7d5df32b6fbcc1d83308753a"
+          },
+          "source_sha256": {
+            "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+            "Provider.dfy": "a50d0cba6fed948405cef043d402ad52331a7399f7fa074fde108af90ed7ca0b"
+          },
+          "disposition": "conditional-caller"
+        },
+        "caller_only_wrong_provider": {
+          "verified": 1,
+          "errors": 0,
+          "out_of_resource": 0,
+          "exit": 0,
+          "obligations": {
+            "Client.Fits (correctness)": "Passed"
+          },
+          "provider_body_in_boogie": false,
+          "boogie_sha256": {
+            "program.bpl": "b6c4ff3972731e62d57d0d3828877740e58aa41e7d5df32b6fbcc1d83308753a"
+          },
+          "source_sha256": {
+            "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+            "Provider.dfy": "b189d9831a1e3896845c2504075ffd9a968c5bdf0ceef2b61e97e778fe8c5cef"
+          },
+          "disposition": "conditional-caller"
+        },
+        "closed": {
+          "verified": 2,
+          "errors": 0,
+          "out_of_resource": 0,
+          "exit": 0,
+          "obligations": {
+            "Client.Fits (correctness)": "Passed",
+            "Provider.LastOrdinal (correctness)": "Passed"
+          },
+          "provider_body_in_boogie": true,
+          "boogie_sha256": {
+            "program_Client.bpl": "864ccf8f5d47f8eb39efc26c89a8d1df08626d69deaa7c8e2ec4555686fbad20",
+            "program_Provider.bpl": "682d72059a5a8731e7b1b5e050f99727018d5b904f6e0bd8c5ab5a5d3580e4fd"
+          },
+          "source_sha256": {
+            "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+            "Provider.dfy": "a50d0cba6fed948405cef043d402ad52331a7399f7fa074fde108af90ed7ca0b"
+          },
+          "disposition": "verified-source-closure"
+        },
+        "wrong_provider_closure": {
+          "verified": 1,
+          "errors": 1,
+          "out_of_resource": 0,
+          "exit": 4,
+          "obligations": {
+            "Client.Fits (correctness)": "Passed",
+            "Provider.LastOrdinal (correctness)": "Failed"
+          },
+          "provider_body_in_boogie": true,
+          "boogie_sha256": {
+            "program_Client.bpl": "81276d8f279e0523329e5b29a52fdbf5227df4d418f740316ea63d8e73248257",
+            "program_Provider.bpl": "fb577fda95786f075772fe18f3ca3cc759d14c1f41c38e748739455a00582281"
+          },
+          "source_sha256": {
+            "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+            "Provider.dfy": "b189d9831a1e3896845c2504075ffd9a968c5bdf0ceef2b61e97e778fe8c5cef"
+          },
+          "disposition": "verification-failure"
+        },
+        "resource_exhaustion": {
+          "verified": 0,
+          "errors": 0,
+          "out_of_resource": 1,
+          "exit": 4,
+          "obligations": {
+            "Client.Fits (correctness)": "Failed"
+          },
+          "provider_body_in_boogie": false,
+          "boogie_sha256": {
+            "program.bpl": "b6c4ff3972731e62d57d0d3828877740e58aa41e7d5df32b6fbcc1d83308753a"
+          },
+          "source_sha256": {
+            "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+            "Provider.dfy": "a50d0cba6fed948405cef043d402ad52331a7399f7fa074fde108af90ed7ca0b"
+          },
+          "disposition": "unknown-resource"
+        }
+      },
+      "4.14.1": {
+        "caller_only": {
+          "verified": 1,
+          "errors": 0,
+          "out_of_resource": 0,
+          "exit": 0,
+          "obligations": {
+            "Client.Fits (correctness)": "Passed"
+          },
+          "provider_body_in_boogie": false,
+          "boogie_sha256": {
+            "program.bpl": "b6c4ff3972731e62d57d0d3828877740e58aa41e7d5df32b6fbcc1d83308753a"
+          },
+          "source_sha256": {
+            "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+            "Provider.dfy": "a50d0cba6fed948405cef043d402ad52331a7399f7fa074fde108af90ed7ca0b"
+          },
+          "disposition": "conditional-caller"
+        },
+        "caller_only_wrong_provider": {
+          "verified": 1,
+          "errors": 0,
+          "out_of_resource": 0,
+          "exit": 0,
+          "obligations": {
+            "Client.Fits (correctness)": "Passed"
+          },
+          "provider_body_in_boogie": false,
+          "boogie_sha256": {
+            "program.bpl": "b6c4ff3972731e62d57d0d3828877740e58aa41e7d5df32b6fbcc1d83308753a"
+          },
+          "source_sha256": {
+            "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+            "Provider.dfy": "b189d9831a1e3896845c2504075ffd9a968c5bdf0ceef2b61e97e778fe8c5cef"
+          },
+          "disposition": "conditional-caller"
+        },
+        "closed": {
+          "verified": 2,
+          "errors": 0,
+          "out_of_resource": 0,
+          "exit": 0,
+          "obligations": {
+            "Client.Fits (correctness)": "Passed",
+            "Provider.LastOrdinal (correctness)": "Passed"
+          },
+          "provider_body_in_boogie": true,
+          "boogie_sha256": {
+            "program_Client.bpl": "864ccf8f5d47f8eb39efc26c89a8d1df08626d69deaa7c8e2ec4555686fbad20",
+            "program_Provider.bpl": "682d72059a5a8731e7b1b5e050f99727018d5b904f6e0bd8c5ab5a5d3580e4fd"
+          },
+          "source_sha256": {
+            "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+            "Provider.dfy": "a50d0cba6fed948405cef043d402ad52331a7399f7fa074fde108af90ed7ca0b"
+          },
+          "disposition": "verified-source-closure"
+        },
+        "wrong_provider_closure": {
+          "verified": 1,
+          "errors": 1,
+          "out_of_resource": 0,
+          "exit": 4,
+          "obligations": {
+            "Client.Fits (correctness)": "Passed",
+            "Provider.LastOrdinal (correctness)": "Failed"
+          },
+          "provider_body_in_boogie": true,
+          "boogie_sha256": {
+            "program_Client.bpl": "81276d8f279e0523329e5b29a52fdbf5227df4d418f740316ea63d8e73248257",
+            "program_Provider.bpl": "fb577fda95786f075772fe18f3ca3cc759d14c1f41c38e748739455a00582281"
+          },
+          "source_sha256": {
+            "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+            "Provider.dfy": "b189d9831a1e3896845c2504075ffd9a968c5bdf0ceef2b61e97e778fe8c5cef"
+          },
+          "disposition": "verification-failure"
+        },
+        "resource_exhaustion": {
+          "verified": 0,
+          "errors": 0,
+          "out_of_resource": 1,
+          "exit": 4,
+          "obligations": {
+            "Client.Fits (correctness)": "Failed"
+          },
+          "provider_body_in_boogie": false,
+          "boogie_sha256": {
+            "program.bpl": "b6c4ff3972731e62d57d0d3828877740e58aa41e7d5df32b6fbcc1d83308753a"
+          },
+          "source_sha256": {
+            "Client.dfy": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+            "Provider.dfy": "a50d0cba6fed948405cef043d402ad52331a7399f7fa074fde108af90ed7ca0b"
+          },
+          "disposition": "unknown-resource"
+        }
+      }
+    },
+    "host_control": {
+      "deadline_ms": 250,
+      "injected_delay_ms": 10000,
+      "disposition": "unknown-host-timeout"
+    },
+    "lean_axioms": {
+      "proveProvider": [
+        "propext",
+        "Quot.sound"
+      ],
+      "callerConditional": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "callerClosed": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "substitutedZeroRefuted": [
+        "propext",
+        "Quot.sound"
+      ],
+      "substitutedZeroWrongAtOne": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "cpc": {
+      "certificates": {
+        "theory-rewrite": {
+          "solver": "unsat",
+          "trust_commands": 35,
+          "logos": "rejected-trust",
+          "proof_sha256": "759110f0d0409f8e97b3ad09e164522451a609ebced9206ff4a4002329647c2a"
+        },
+        "dsl-rewrite": {
+          "solver": "unsat",
+          "trust_commands": 0,
+          "logos": "correct",
+          "proof_sha256": "c93e6bbffc429d6313f1211c34f3fe17c0cdb693b1126834c6a65e639f16b74e"
+        }
+      },
+      "exact_binding": "correct",
+      "weaker_binding": "assumptions-mismatch",
+      "weaker_query_sha256": "ed3e3ae62c6e40973fe87352d96c9f5f4770da67e6fafa712d612e849d08c7dc",
+      "weaker_model": {
+        "base": 18446744073709551599,
+        "last": 0,
+        "ordinal": 1
+      },
+      "resource_limit_1": [
+        "unknown",
+        "(:reason-unknown resourceout)"
+      ],
+      "logos_executable_sha256": "41fcf0290357b49c96cb07991e63ad9f944596b7895c810d49611013c5cedd90"
+    }
+  }
+}
