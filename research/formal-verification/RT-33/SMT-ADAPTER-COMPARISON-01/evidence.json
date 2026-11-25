@@ -1,0 +1,276 @@
+{
+  "cancellation": {
+    "cvc5-api": "worker-terminated-without-verdict",
+    "cvc5-cli": "worker-terminated-without-verdict",
+    "z3-api": "native-context-unknown-after-interrupt",
+    "z3-cli": "worker-terminated-without-verdict"
+  },
+  "capabilities": {
+    "cvc5-alethe-independent-check": true,
+    "cvc5-api-public-interrupt": false,
+    "z3-api-public-interrupt": true,
+    "z3-proof-independent-check": false
+  },
+  "certificate_checks": {
+    "cvc5-api": {
+      "artifact": "acdb11ee9f52c4c2c19a2178f95fc8da265feb97082fde147996df76c0e777c6",
+      "status": "checked"
+    },
+    "cvc5-cli": {
+      "artifact": "acdb11ee9f52c4c2c19a2178f95fc8da265feb97082fde147996df76c0e777c6",
+      "status": "checked"
+    },
+    "z3-api": {
+      "status": "raw-proof-only"
+    }
+  },
+  "executables": {
+    "carcara": {
+      "sha256": "8e4db8912497cd2b628c9d7f4f925b4601c2b9e4ffba91df5e980b61c70f2380",
+      "version": "carcara 1.1.0 [git none unknown]"
+    },
+    "cvc5": {
+      "sha256": "6aecddf466552b83bb5883756c7955e0c9d5ddcc6d7f45b48c2f6e06a741b102",
+      "version": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]"
+    },
+    "z3": {
+      "sha256": "c28f5598836fe6312ed4b25a98525fb58e2800d4c4f8117a1daeb04e6327686c",
+      "version": "Z3 version 4.13.3 - 64 bit"
+    }
+  },
+  "libraries": {
+    "cvc5": {
+      "sha256": "4a666c8723531ab3fc57a4a90e002515a1308e4f04f4d9cb12ec994a0d962d89",
+      "shared_dependencies": {
+        "libcvc5-558d13ae.so.1.4.2": "db4e5445fd31ee3cc3ab155a48ee2de1e09e545efe6634195e56705da75678bf",
+        "libcvc5parser-2f6edf78.so.1.4.2": "23c0c0f1fa40cab556c8a0df97fe5d78da1f867a14ed69b0639c00c3c2ba4155",
+        "libgmp-97ca9d68.so.10.5.0": "62acd6e32abcccd09c0ee6527e66916878f238c7c86a7f5d9c82ff8deebdf305",
+        "libmpfr-10dcfb8d.so.6.2.2": "c9db513f411c378bcb0f96bfd0797457a85f3b5dda916dcc3382fc2f25ba567d",
+        "libpoly-d9dd40de.so.0.2.1": "a0b7a9f88a1abdf48a29f6d306f51ab5ac1f2a1be986d8c2e64fe7079a9d3ac5",
+        "libpolyxx-a817ce58.so.0.2.1": "c2e1ca72a58ab743d418f5faca71e09eb19fe500b43ef712d6c1a45de31e33d1"
+      },
+      "version": "1.4.2-modified"
+    },
+    "z3": {
+      "sha256": "fa2f59a2be4292e8eefc4928f9cdc8eaad6f2ae8e44476fd67c1f03ab86e767f",
+      "version": "4.13.3.0"
+    }
+  },
+  "profile": "qf-lia-two-equalities/1",
+  "protocol_sessions": {
+    "cvc5-api": [
+      "sat",
+      "unsat",
+      "sat",
+      "sat"
+    ],
+    "cvc5-cli": [
+      "sat",
+      "unsat",
+      "sat",
+      "sat"
+    ],
+    "z3-api": [
+      "sat",
+      "unsat",
+      "sat",
+      "sat"
+    ],
+    "z3-cli": [
+      "sat",
+      "unsat",
+      "sat",
+      "sat"
+    ]
+  },
+  "queries": {
+    "1/1": {
+      "models": {},
+      "verdicts": {
+        "cvc5-api": "unsat",
+        "cvc5-cli": "unsat",
+        "z3-api": "unsat",
+        "z3-cli": "unsat"
+      },
+      "wire_sha256": "b977f26d3092eff51d9d8cafab688a9f60e3612808d8b61e3b489cf6d5ecbd8a"
+    },
+    "1/2": {
+      "models": {
+        "cvc5-api": 1,
+        "cvc5-cli": 1,
+        "z3-api": 1,
+        "z3-cli": 1
+      },
+      "verdicts": {
+        "cvc5-api": "sat",
+        "cvc5-cli": "sat",
+        "z3-api": "sat",
+        "z3-cli": "sat"
+      },
+      "wire_sha256": "b94c64050ffa6a29bfe3f4ed9efd374b77efe80555a9fde8f3a40c0279096af2"
+    },
+    "15/15": {
+      "models": {},
+      "verdicts": {
+        "cvc5-api": "unsat",
+        "cvc5-cli": "unsat",
+        "z3-api": "unsat",
+        "z3-cli": "unsat"
+      },
+      "wire_sha256": "67c7913bf6d82132047945b16e5e085247bc61d35a32411123e739defbfb268c"
+    },
+    "15/16": {
+      "models": {
+        "cvc5-api": 15,
+        "cvc5-cli": 15,
+        "z3-api": 15,
+        "z3-cli": 15
+      },
+      "verdicts": {
+        "cvc5-api": "sat",
+        "cvc5-cli": "sat",
+        "z3-api": "sat",
+        "z3-cli": "sat"
+      },
+      "wire_sha256": "a512ce2e41554f68c8663184d02d6b2e5ebc7befaab3d8d1da62c42b8aca3a37"
+    },
+    "27/27": {
+      "models": {},
+      "verdicts": {
+        "cvc5-api": "unsat",
+        "cvc5-cli": "unsat",
+        "z3-api": "unsat",
+        "z3-cli": "unsat"
+      },
+      "wire_sha256": "811a4f4b48be1347a9fcb2bc6a2a5854417f6947e7baf4ffb208054dd4ec24cd"
+    },
+    "27/28": {
+      "models": {
+        "cvc5-api": 27,
+        "cvc5-cli": 27,
+        "z3-api": 27,
+        "z3-cli": 27
+      },
+      "verdicts": {
+        "cvc5-api": "sat",
+        "cvc5-cli": "sat",
+        "z3-api": "sat",
+        "z3-cli": "sat"
+      },
+      "wire_sha256": "9f0a6e4960f8eedb803f0c0224b2fb3b693795d7464bdf499110a0d4594fe53d"
+    },
+    "3/3": {
+      "models": {},
+      "verdicts": {
+        "cvc5-api": "unsat",
+        "cvc5-cli": "unsat",
+        "z3-api": "unsat",
+        "z3-cli": "unsat"
+      },
+      "wire_sha256": "c5790e60ad11bbf53932c41f3597a58ab833cbdcad35851d1e1830ffe4e229fc"
+    },
+    "3/4": {
+      "models": {
+        "cvc5-api": 3,
+        "cvc5-cli": 3,
+        "z3-api": 3,
+        "z3-cli": 3
+      },
+      "verdicts": {
+        "cvc5-api": "sat",
+        "cvc5-cli": "sat",
+        "z3-api": "sat",
+        "z3-cli": "sat"
+      },
+      "wire_sha256": "652ec3edc4daf27c8f2d11b8184b5d62dba9278cf83d62223f733a65c64987fc"
+    },
+    "43/43": {
+      "models": {},
+      "verdicts": {
+        "cvc5-api": "unsat",
+        "cvc5-cli": "unsat",
+        "z3-api": "unsat",
+        "z3-cli": "unsat"
+      },
+      "wire_sha256": "a0c21988a36608e5d4d90eaa7aa706414ae8d841c69659e7b1ebaddc937f4549"
+    },
+    "43/44": {
+      "models": {
+        "cvc5-api": 43,
+        "cvc5-cli": 43,
+        "z3-api": 43,
+        "z3-cli": 43
+      },
+      "verdicts": {
+        "cvc5-api": "sat",
+        "cvc5-cli": "sat",
+        "z3-api": "sat",
+        "z3-cli": "sat"
+      },
+      "wire_sha256": "496a4a9b566359a8edae7d7121f8fa5667f348c2c394b9e694b0219d71c8dddb"
+    },
+    "7/7": {
+      "models": {},
+      "verdicts": {
+        "cvc5-api": "unsat",
+        "cvc5-cli": "unsat",
+        "z3-api": "unsat",
+        "z3-cli": "unsat"
+      },
+      "wire_sha256": "2126637b114eb778b20790fb36abaeefcfde0324b7eba5ae79456dd9de79d370"
+    },
+    "7/8": {
+      "models": {
+        "cvc5-api": 7,
+        "cvc5-cli": 7,
+        "z3-api": 7,
+        "z3-cli": 7
+      },
+      "verdicts": {
+        "cvc5-api": "sat",
+        "cvc5-cli": "sat",
+        "z3-api": "sat",
+        "z3-cli": "sat"
+      },
+      "wire_sha256": "c1304a8f34579af722eb0fca3426410f077656e9c186ce5039da5611b313f0b6"
+    },
+    "89/89": {
+      "models": {},
+      "verdicts": {
+        "cvc5-api": "unsat",
+        "cvc5-cli": "unsat",
+        "z3-api": "unsat",
+        "z3-cli": "unsat"
+      },
+      "wire_sha256": "f39181945800ff617a912981a4a87b33e57a68af6d2760ffa47f2fce5f369b8c"
+    },
+    "89/90": {
+      "models": {
+        "cvc5-api": 89,
+        "cvc5-cli": 89,
+        "z3-api": 89,
+        "z3-cli": 89
+      },
+      "verdicts": {
+        "cvc5-api": "sat",
+        "cvc5-cli": "sat",
+        "z3-api": "sat",
+        "z3-cli": "sat"
+      },
+      "wire_sha256": "2fa776525873ba7a439ddb7654e5c690e998fb1ad0446cc107535d6c122d3d3e"
+    }
+  },
+  "resource_and_type": {
+    "cvc5-api": "unknown",
+    "cvc5-cli": "unknown",
+    "invalid-literal-cvc5": "input-refused",
+    "invalid-literal-smt": "input-refused",
+    "invalid-literal-z3": "input-refused",
+    "malformed-wire-cvc5": "protocol-failure",
+    "malformed-wire-z3": "protocol-failure",
+    "raw-cvc5-rejects-mixed-sorts": "protocol-failure",
+    "raw-z3-coerces-boolean-to-int": 1,
+    "z3-api": "unknown",
+    "z3-cli": "unknown"
+  }
+}
