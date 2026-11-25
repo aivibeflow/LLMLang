@@ -1780,7 +1780,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Specify candidate MCP Tools, Resources and Prompts schemas for the in-memory lifecycle. The upstream SDK passed 42 assertions over MCP stdio, including scoped resources, rejected stale mutations and atomic Change Sets. Production authorization, payload schema and persistence integration remain open. [Independent MCP client experiment](research/toolchain-and-collaboration/RT-19/RT-19-MCP-STDIO-SCHEMA-INTEROPERABILITY-2026-11-24.md).
 - [x] Prototype deterministic import/change/validate/accept/export/re-import as one vertical slice.
   - [x] Run 864 end-to-end replays through the public in-memory Toolchain API. Independent roots, canonical export bytes and fresh re-imports agree. The scoped validation adapter blocks invalid or stale acceptance, while the raw lifecycle call only checks revision. Unaccepted export, changed destinations and tampered imports are rejected. Persistent integration remains open. [Toolchain export round trip](research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-ROUNDTRIP-2026-11-25.md)
-- [ ] Add failure-injection, security, authorization, and comparative source-editing tests.
+- [ ] [WIP] Add failure-injection, security, authorization, and comparative source-editing tests.
 
 **Existing evidence:** [RT-19 research proposal](research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) builds on [Development Engine RFC](research/toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md), [Git semantic repository research](research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md), and [ADR-014](docs/adr/014-git-semantic-merge.md).
 
