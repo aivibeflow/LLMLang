@@ -1,0 +1,18 @@
+{
+  "adopted_profile": null,
+  "baseline": "2ab654158352cd356ff3b577d82735816e86293e",
+  "coordinates": 36,
+  "manifest_sha256": "ab201e0b90f59bbcc6b87f9a927113d5f624f8b0046fcf76b02fae5641c410f2",
+  "pinned_report_sha256": {
+    "research/formal-verification/RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md": "3b14f71870baf20958e2524b071ec15454cb3f6c5c5b978fa2f5d9e014379b4c",
+    "research/language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md": "1677b1b94c478a91f29aef01943b3e68c7589532a909411a06aefa3fc8721b72",
+    "research/language-design/RT-03/RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md": "f762c1520105ba01cc9fe62508cc61882a002ad49a533e9cbb94246af1ac965c",
+    "research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md": "beb72b7f530e848e2b256528b412f0cee90017d52eae0f6c322942dfb7e818a3",
+    "research/language-design/RT-03/RT-03-SOURCE-CLEANUP-CFG-2026-11-25.md": "07a18a71049a61e3a7d31afade4bd2c3ca604c40b0a5883785e88deb5a4b2729",
+    "research/language-design/RT-04/RESEARCH-SCENARIO-35-RESOURCE-RETURN-AND-CLEANUP.md": "18fa08e6df9f2a7665c55f6cee5bc8b603f78fe6baa221e0cb4780dc090705e9",
+    "research/language-design/RT-04/RESEARCH-SCENARIO-97-CLEANUP-ERROR-COMPOSITION-AND-OWNERSHIP.md": "41b6d25d244159f7b89269eeb25fe7064a077d6af728fbf230203da00e108b6d",
+    "research/language-design/RT-04/RT-04-ASYNC-RESOURCE-CANCELLATION-2026-11-25.md": "159eda69bb386e199ce83befdbd8d1e7b9e2d7aeaffd144081da4032edfcc06a",
+    "research/runtime-and-systems/RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md": "7d704db4379a61e2b4af9adf04790fba3015588419a5dc8e4c6ac611d9cc3b8d"
+  },
+  "profiles": 4
+}
