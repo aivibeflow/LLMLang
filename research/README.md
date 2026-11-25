@@ -6,6 +6,8 @@ The [current-main inventory reconciliation](research-management/RT-00/RT-00-A-CU
 
 Research documents are exploratory evidence and do not change the candidate or normative language specification unless a decision is explicitly accepted.
 
+[Feasibility summary by research direction](research-management/LLMLANG-FEASIBILITY-SUMMARY.md) — achievable scope, excluded guarantees, and evidence links for RT-01–RT-38.
+
 ## Research directory layout
 
 The [multi-backend integration and verification artifact cache study](formal-verification/RT-33/VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) connects RT-33 adapters, RT-32 proof reuse, RT-11 semantic caching and RT-36 trust. Its VAC-01–15 tasks are proposed, not new experimental results. See [PLAN §3.5](../PLAN.md#35-verification-artifact-cache-and-incremental-proof-reuse-rt-11323336).
