@@ -40,6 +40,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-31 syntax and semantic layers](RT-31/RT-31-SYNTAX-AND-SEMANTIC-LAYER-BOUNDARIES-2026-11-25.md) checks source provenance, contextual elaboration and frontend profile contracts.
 - [RT-01 adoption readiness](RT-01/RT-01-ADOPTION-AND-MIGRATION-READINESS-2026-11-25.md) checks staged migration prerequisites and separates pilot evidence from rollout authority.
 - [RT-01 end-to-end examples](RT-01/RT-01-END-TO-END-EXAMPLES-2026-11-25.md) verifies the typed CLI and Toolchain lifecycle evidence.
 - [PROTOTYPES](PROTOTYPES/)
