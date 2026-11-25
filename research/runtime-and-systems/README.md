@@ -9,6 +9,7 @@ This direction groups related research studies without changing their RT identif
 - [Execution and POSIX](execution-and-posix/README.md) · RT-10
 - [Memory and resource accounting](memory-and-resource-accounting/README.md) · RT-25, RT-26
 - [Embedded systems and operating-system kernels](embedded-and-kernels/README.md) · RT-37, RT-38
+- [RT-38 executable HAL comparison](RT-38/RT-38-RV64-HAL-QEMU-2026-11-25.md) checks linked RV64 HAL observations through Sv39 remap and revocation in QEMU.
 
 ## Studies
 

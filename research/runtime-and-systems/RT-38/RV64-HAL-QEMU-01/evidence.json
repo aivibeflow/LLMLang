@@ -1,0 +1,333 @@
+{
+  "generated_sha256": {
+    "boot": "41eab4504030f8836556c74402af457c5db3b20c38a7a7dde4a7b534d8502feb",
+    "layout": "a59a0ca6aa3a2bf980bbb16e61cc88e76e0cf0c939ad9033371ca57c7a38321d"
+  },
+  "machine": "riscv64 virt rv64 single-hart QEMU",
+  "profiles": {
+    "assembly": {
+      "elf_sha256": "82d5f032a990e329edac999f9f4d9ce26ac36821442ff1e54f321f8ccaa27e27",
+      "leaf_words": {
+        "memory_barrier": [
+          "0330000f",
+          "00008067"
+        ],
+        "read_sp": [
+          "00010513",
+          "00008067"
+        ],
+        "translation_barrier": [
+          "12000073",
+          "00008067"
+        ]
+      },
+      "load_regions": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 1124,
+          "flags": "RE",
+          "memory_bytes": 1124
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 20480
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 168,
+          "flags": "RE",
+          "memory_bytes": 168
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 4096
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 4104,
+          "flags": "RW",
+          "memory_bytes": 4104
+        }
+      ],
+      "uart": "HBEISRAMBDPZ!",
+      "user_compartment_sha256": "421f2385dfd24c90b3c357bfe99f19abcc4d938200f4a9de306b78ca92a72b75"
+    },
+    "llvm-O0": {
+      "elf_sha256": "df7c0b2884c5a63278731949cc606d977b39f9f9405735e67c7cbb3d088cd153",
+      "leaf_words": {
+        "memory_barrier": [
+          "0330000f",
+          "00008067"
+        ],
+        "read_sp": [
+          "00010513",
+          "00008067"
+        ],
+        "translation_barrier": [
+          "12000073",
+          "00008067"
+        ]
+      },
+      "load_regions": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 1124,
+          "flags": "RE",
+          "memory_bytes": 1124
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 20480
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 168,
+          "flags": "RE",
+          "memory_bytes": 168
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 4096
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 4104,
+          "flags": "RW",
+          "memory_bytes": 4104
+        }
+      ],
+      "uart": "HBEISRAMBDPZ!",
+      "user_compartment_sha256": "421f2385dfd24c90b3c357bfe99f19abcc4d938200f4a9de306b78ca92a72b75"
+    },
+    "llvm-O2": {
+      "elf_sha256": "df7c0b2884c5a63278731949cc606d977b39f9f9405735e67c7cbb3d088cd153",
+      "leaf_words": {
+        "memory_barrier": [
+          "0330000f",
+          "00008067"
+        ],
+        "read_sp": [
+          "00010513",
+          "00008067"
+        ],
+        "translation_barrier": [
+          "12000073",
+          "00008067"
+        ]
+      },
+      "load_regions": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 1124,
+          "flags": "RE",
+          "memory_bytes": 1124
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 20480
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 168,
+          "flags": "RE",
+          "memory_bytes": 168
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 4096
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 4104,
+          "flags": "RW",
+          "memory_bytes": 4104
+        }
+      ],
+      "uart": "HBEISRAMBDPZ!",
+      "user_compartment_sha256": "421f2385dfd24c90b3c357bfe99f19abcc4d938200f4a9de306b78ca92a72b75"
+    },
+    "llvm-O3": {
+      "elf_sha256": "df7c0b2884c5a63278731949cc606d977b39f9f9405735e67c7cbb3d088cd153",
+      "leaf_words": {
+        "memory_barrier": [
+          "0330000f",
+          "00008067"
+        ],
+        "read_sp": [
+          "00010513",
+          "00008067"
+        ],
+        "translation_barrier": [
+          "12000073",
+          "00008067"
+        ]
+      },
+      "load_regions": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 1124,
+          "flags": "RE",
+          "memory_bytes": 1124
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 20480
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 168,
+          "flags": "RE",
+          "memory_bytes": 168
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 4096
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 4104,
+          "flags": "RW",
+          "memory_bytes": 4104
+        }
+      ],
+      "uart": "HBEISRAMBDPZ!",
+      "user_compartment_sha256": "421f2385dfd24c90b3c357bfe99f19abcc4d938200f4a9de306b78ca92a72b75"
+    },
+    "wrong-fence": {
+      "elf_sha256": "d0d6c126683bd489b9a513c01c83fbfab2ad107959e38d1fb832e7b6ef2e35ed",
+      "leaf_words": {
+        "memory_barrier": [
+          "0330000f",
+          "00008067"
+        ],
+        "read_sp": [
+          "00010513",
+          "00008067"
+        ],
+        "translation_barrier": [
+          "0330000f",
+          "00008067"
+        ]
+      },
+      "load_regions": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 1124,
+          "flags": "RE",
+          "memory_bytes": 1124
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 20480
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 168,
+          "flags": "RE",
+          "memory_bytes": 168
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 4096
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 4104,
+          "flags": "RW",
+          "memory_bytes": 4104
+        }
+      ],
+      "uart": "HBEISRAMADA!",
+      "user_compartment_sha256": "421f2385dfd24c90b3c357bfe99f19abcc4d938200f4a9de306b78ca92a72b75"
+    },
+    "wrong-stack": {
+      "elf_sha256": "dd7db39f1376f8785badbb9bcb3c62d68c8c912eef75d5a10b01d35c56ed2a7a",
+      "leaf_words": {
+        "memory_barrier": [
+          "0330000f",
+          "00008067"
+        ],
+        "read_sp": [
+          "01010513",
+          "00008067"
+        ],
+        "translation_barrier": [
+          "12000073",
+          "00008067"
+        ]
+      },
+      "load_regions": [
+        {
+          "address": "0x80000000",
+          "file_bytes": 1124,
+          "flags": "RE",
+          "memory_bytes": 1124
+        },
+        {
+          "address": "0x80001000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 20480
+        },
+        {
+          "address": "0x80200000",
+          "file_bytes": 168,
+          "flags": "RE",
+          "memory_bytes": 168
+        },
+        {
+          "address": "0x80201000",
+          "file_bytes": 0,
+          "flags": "RW",
+          "memory_bytes": 4096
+        },
+        {
+          "address": "0x80400000",
+          "file_bytes": 4104,
+          "flags": "RW",
+          "memory_bytes": 4104
+        }
+      ],
+      "uart": "X",
+      "user_compartment_sha256": "421f2385dfd24c90b3c357bfe99f19abcc4d938200f4a9de306b78ca92a72b75"
+    }
+  },
+  "qemu_sha256": "5f8ec06281e48c4155a8646aa65959e0d9adc8b915c146b93cc0419b6576ba5f",
+  "source_sha256": {
+    "RV64-HAL-INTRINSICS-01/hal.ll": "01155dcc253ed78afbe4dea2cba56f86b23a5e31f3474854af92c82345d0ce8b",
+    "RV64-HAL-INTRINSICS-01/hal.s": "31ab98d476f622d34985cf8143921f9588090f9e3a32fdf29946d553cf37b5b6",
+    "RV64-HAL-QEMU-01/run.py": "3971932e7931b1b32f648cbdbe7f1ae72f2ae36b3cbb191b806c183dd5e30986",
+    "riscv-sv39-remap/transform.py": "318fbb4fe31da7a90d0fe69b719d6da3a0c6fd01d616b84989fb01e235c16e38",
+    "riscv-trap-isolation/boot.s": "0ed50ccfffcb015f87aa28a13a011b93dd1418561d1b95ff9d4411246b417115",
+    "riscv-trap-isolation/memory.ld": "e49d28407dab80a8fa229ac985c51444d374dda042a44b80fc69d073dd51d338",
+    "riscv-trap-isolation/run.py": "82e7a733660f259da0df298a146abf06ff2915aad0ea1a07defdc185d7dc589b"
+  },
+  "versions": {
+    "llc": "Debian LLVM version 19.1.7",
+    "lld": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "mc": "Debian LLVM version 19.1.7",
+    "objdump": "Debian LLVM version 19.1.7",
+    "opt": "Debian LLVM version 19.1.7",
+    "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  }
+}

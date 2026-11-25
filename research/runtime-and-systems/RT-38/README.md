@@ -73,6 +73,7 @@ The [blocking endpoint lifecycle](RT-38-BLOCKING-ENDPOINT-LIFECYCLE-2026-11-25.m
 The [live frame lifecycle](RT-38-LIVE-FRAME-QUIESCENCE-2026-11-25.md) checks publication and deferred frame reuse under explicit visibility and quiescence premises.
 
 The [HAL lowering comparison](RT-38-RV64-HAL-AND-INTRINSICS-2026-11-25.md) checks three exact linked leaf operations and guest link closure.
+The [executable HAL comparison](RT-38-RV64-HAL-QEMU-2026-11-25.md) boots the exact assembly and LLVM leaves through local Sv39 remap and revocation.
 
 The [joint mapping and IPC model](RT-38-COMPOSED-MAPPING-AND-IPC-2026-11-25.md) checks admission and suspension over the existing frame and receiver proofs.
 
