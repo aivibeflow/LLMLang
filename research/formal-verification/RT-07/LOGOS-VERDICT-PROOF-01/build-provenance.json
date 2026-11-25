@@ -1,0 +1,14 @@
+{
+  "kind": "original-build-record",
+  "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+  "lean_revision": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+  "mathlib_revision": "5ed2965256430c3649e86755f9576b54eca72435",
+  "rule_batch_command": "bash scripts/build-all-cpc-rules.sh --batch-size 1 -j1",
+  "successful_rule_batches": 614,
+  "rule_batch_log_sha256": "bd6a4c5c4d19cab8b592b1f4fb15d7105311102cdabd66444ac7bad0464d4fc7",
+  "verification_command": "LEAN_NUM_THREADS=1 lake -d verification --verbose --no-ansi build Cpc.ApiCorrect",
+  "verification_jobs": 1900,
+  "verification_log_sha256": "45e69d0ced9e9b7fc6c465cc91bfc0737c2aa8f913b8147b867d5af69e90cbb5",
+  "api_correct_source_sha256": "00a5c9adf1be72448c38182a7ab2ca56a26d7b8546c8b44f15dddf4e7b07e3b7",
+  "api_correct_olean_sha256": "84fa21a4ef5d956cfd9c15c6b7774e6074f75d1917744b75af7a0ca817243ff1"
+}

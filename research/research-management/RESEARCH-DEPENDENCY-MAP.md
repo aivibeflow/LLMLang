@@ -709,6 +709,8 @@ The cycle is an iterative research dependency, not a cyclic content-hash require
 
 ## 24. Formal verification assumptions and trust boundaries (RT-36)
 
+The [pinned Logos verdict proof audit](../formal-verification/RT-07/RT-07-LOGOS-VERDICT-PROOF-2026-11-25.md) checks the DEP-007 composition against the actual upstream verifier proof. Its exact transitive native axioms remain a trust decision under RT-36.
+
 [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). Candidate research dependencies (not implementation commitments):
 
 | ID | Direction | Relation | Rationale | Confidence |
