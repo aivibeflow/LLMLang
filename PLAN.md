@@ -1503,6 +1503,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Benchmark large repositories and highly connected graphs.
   - [x] Check 14 fresh clones of two 65,536-node, three-commit synthetic repositories. All 70 closure queries match. From 130,944 to 2,095,104 edges, medians rise from 57.72 to 351.01 ms for read/verification and from 29.90 to 161.18 ms for five traversals. Long and representative histories remain open. [RT-27 large Git graph benchmark](research/toolchain-and-collaboration/RT-27/RT-27-LARGE-GIT-GRAPH-BENCHMARK-2026-11-25.md)
 - [ ] Benchmark concurrent edits and merge operations.
+  - [ ] [WIP] Measure WAL-backed concurrent edit publication, scoped merge validation, lock waits and retries for independent and duplicate proposals.
 - [ ] Compare with Rust, Go, and C++ workflows on representative projects.
   - [ ] [WIP human] Provide or approve the representative projects and comparison workloads for the three toolchains.
 - [ ] Report memory, latency, throughput, cache hit rates, and confidence intervals.
