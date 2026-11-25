@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-13 typed selection constraints](RT-13/RT-13-TYPED-SELECTION-CONSTRAINTS-2026-11-25.md) checks exact profiles, capability inclusion, authority and scope-specific performance gates.
 - [RT-13 catalog discovery and binding](RT-13/RT-13-CATALOG-DISCOVERY-AND-BINDING-2026-11-25.md) separates exact catalog membership from a current, materialized target binding.
 - [RT-13 shared JIT conformance](RT-13/RT-13-SHARED-JIT-CONFORMANCE-2026-11-25.md) checks equivalent adversarial variants against one complete observation projection.
 - [RT-13 fresh-process JIT pilot](RT-13/RT-13-JIT-FRESH-PROCESS-2026-11-25.md) reports paired process duration, materialization and peak RSS for four checked-add profiles.

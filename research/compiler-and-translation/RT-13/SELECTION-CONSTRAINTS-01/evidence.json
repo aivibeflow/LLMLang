@@ -1,0 +1,48 @@
+{
+  "comparisons": {
+    "admissible": 54,
+    "cases": 4200,
+    "false_accept_by_capability_overlap": 18,
+    "false_accept_by_performance_number_only": 18,
+    "false_refusal_by_capability_equality": 36,
+    "refused": 4146
+  },
+  "examples": {
+    "mandatory/above": [
+      "performance"
+    ],
+    "mandatory/below": [],
+    "mandatory/exactly": [],
+    "mandatory/missing": [
+      "performance"
+    ],
+    "mandatory/other-artifact": [
+      "performance"
+    ],
+    "mandatory/other-profile": [
+      "performance"
+    ],
+    "mandatory/wrong-metric": [
+      "performance"
+    ],
+    "optional/above": [],
+    "optional/below": [],
+    "optional/exactly": [],
+    "optional/missing": [],
+    "optional/other-artifact": [],
+    "optional/other-profile": [],
+    "optional/wrong-metric": []
+  },
+  "lean": {
+    "axioms": [
+      "'capability_grant_widening_preserves_eligibility' does not depend on any axioms",
+      "'required_performance_needs_matching_receipt' does not depend on any axioms",
+      "'admitted_constraints_are_conjunctive' does not depend on any axioms"
+    ],
+    "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "source_sha256": {
+    "Constraints.lean": "8cdf891964ce993f24c79fb5837feefc3cbc999c0d76669afa6e6ac716c20230",
+    "run.py": "bd03750469f44eb26785d4cbbb82c92666f3a50f4d62e718b6b30d12517d0e5a"
+  }
+}
