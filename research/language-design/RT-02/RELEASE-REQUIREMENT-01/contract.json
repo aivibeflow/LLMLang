@@ -1,0 +1,9 @@
+{
+  "schema": "rt02-release-1",
+  "grant_binding": ["principal", "workspace", "artifact", "revision", "epoch"],
+  "receipt_binding": ["operation", "workspace", "artifact", "revision", "payload"],
+  "new_grant_role": "release",
+  "retry_grant_role": "observe",
+  "disclosure_order": "authority-before-conflict",
+  "epoch_source": "decision-current"
+}

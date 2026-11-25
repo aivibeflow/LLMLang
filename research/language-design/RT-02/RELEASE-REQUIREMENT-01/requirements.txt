@@ -1,0 +1,16 @@
+R01. Make a new release only when the requesting principal has an active release
+grant for the requested workspace, artifact and revision. At the decision, the
+grant epoch must be the current epoch. A missing grant cannot authorize release.
+
+R02. An existing receipt can be returned without a new release to a requester
+with an observation grant. Its principal, workspace, artifact, revision and
+epoch checks are the same as for a new release. The stored operation key,
+workspace, artifact, revision and payload must all match the request exactly.
+
+R03. With current observation authority, mismatched stored content yields a
+conflict. Without that authority, decline without disclosing the stored match,
+mismatch or content. A denied or conflicting decision produces no release effect.
+
+R04. The gate observes the current grant at the release decision. An earlier
+grant check does not authorize a later effect after revocation. The requirement
+does not specify grant propagation, continuous service or concurrent storage.
