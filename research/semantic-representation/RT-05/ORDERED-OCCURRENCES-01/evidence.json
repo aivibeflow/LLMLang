@@ -1,0 +1,469 @@
+{
+  "configurations_per_program": 36,
+  "format": "rt05-ordered-occurrences-v1",
+  "python": "3.12.14",
+  "results": {
+    "exact": {
+      "behavioral_collision": null,
+      "collapsed_groups": 0,
+      "different_status": 0,
+      "disagreeing_observations": 0,
+      "distinct_keys": 168,
+      "first_mismatch": null,
+      "largest_group": 1
+    },
+    "role-local-order": {
+      "behavioral_collision": {
+        "fuel": 2,
+        "inputs": [
+          2,
+          7
+        ],
+        "permits": [
+          "read",
+          "write"
+        ],
+        "shared_key": "d7ab19bfed1724f68ec513aa15b874ab93784b40263f045c40251c1765fa3fc5",
+        "source_outcomes": [
+          [
+            "exhausted",
+            [
+              [
+                "right",
+                9
+              ],
+              [
+                "left",
+                2
+              ]
+            ]
+          ],
+          [
+            "exhausted",
+            [
+              [
+                "right",
+                9
+              ],
+              [
+                "begin",
+                2
+              ],
+              [
+                "left",
+                2
+              ]
+            ]
+          ]
+        ],
+        "sources": [
+          "entry open\ndef open\nrequires read\nrequires write\ncall finish 4 9\ncall read_back x y\nemit begin x\nemit end y\ndef read_back\nrequires read\nemit left x\ncall-positive open 0 y\ndef finish\nrequires write\nemit right y",
+          "entry open\ndef open\nrequires read\nrequires write\ncall finish 4 9\nemit begin x\ncall read_back x y\nemit end y\ndef read_back\nrequires read\nemit left x\ncall-positive open 0 y\ndef finish\nrequires write\nemit right y"
+        ]
+      },
+      "collapsed_groups": 20,
+      "different_status": 0,
+      "disagreeing_observations": 1448,
+      "distinct_keys": 20,
+      "first_mismatch": {
+        "fuel": 2,
+        "graph_outcome": [
+          "exhausted",
+          [
+            [
+              "right",
+              9
+            ]
+          ]
+        ],
+        "inputs": [
+          2,
+          7
+        ],
+        "permits": [
+          "read",
+          "write"
+        ],
+        "source": "entry open\ndef open\nrequires read\nrequires write\ncall finish 4 9\ncall read_back x y\nemit begin x\nemit end y\ndef read_back\nrequires read\nemit left x\ncall-positive open 0 y\ndef finish\nrequires write\nemit right y",
+        "source_outcome": [
+          "exhausted",
+          [
+            [
+              "right",
+              9
+            ],
+            [
+              "left",
+              2
+            ]
+          ]
+        ]
+      },
+      "largest_group": 10
+    },
+    "unique-steps": {
+      "behavioral_collision": {
+        "fuel": 4,
+        "inputs": [
+          2,
+          7
+        ],
+        "permits": [
+          "read",
+          "write"
+        ],
+        "shared_key": "43a6828443c8925fbb2abdef888aea7384352ee721d52fad4a6fdfd752942cd6",
+        "source_outcomes": [
+          [
+            "ok",
+            [
+              [
+                "right",
+                9
+              ],
+              [
+                "left",
+                2
+              ],
+              [
+                "right",
+                9
+              ],
+              [
+                "left",
+                0
+              ],
+              [
+                "begin",
+                0
+              ],
+              [
+                "end",
+                7
+              ],
+              [
+                "begin",
+                2
+              ],
+              [
+                "end",
+                7
+              ]
+            ]
+          ],
+          [
+            "ok",
+            [
+              [
+                "right",
+                9
+              ],
+              [
+                "left",
+                2
+              ],
+              [
+                "right",
+                9
+              ],
+              [
+                "left",
+                0
+              ],
+              [
+                "left",
+                0
+              ],
+              [
+                "begin",
+                0
+              ],
+              [
+                "end",
+                7
+              ],
+              [
+                "left",
+                2
+              ],
+              [
+                "right",
+                9
+              ],
+              [
+                "left",
+                0
+              ],
+              [
+                "left",
+                0
+              ],
+              [
+                "begin",
+                0
+              ],
+              [
+                "end",
+                7
+              ],
+              [
+                "begin",
+                2
+              ],
+              [
+                "end",
+                7
+              ]
+            ]
+          ]
+        ],
+        "sources": [
+          "entry open\ndef open\nrequires read\nrequires write\ncall finish 4 9\ncall read_back x y\nemit begin x\nemit end y\ndef read_back\nrequires read\nemit left x\ncall-positive open 0 y\ndef finish\nrequires write\nemit right y",
+          "entry open\ndef open\nrequires read\nrequires write\ncall finish 4 9\ncall read_back x y\ncall read_back x y\nemit begin x\nemit end y\ndef read_back\nrequires read\nemit left x\ncall-positive open 0 y\ndef finish\nrequires write\nemit right y"
+        ]
+      },
+      "collapsed_groups": 48,
+      "different_status": 0,
+      "disagreeing_observations": 480,
+      "distinct_keys": 48,
+      "first_mismatch": {
+        "fuel": 4,
+        "graph_outcome": [
+          "ok",
+          [
+            [
+              "right",
+              9
+            ],
+            [
+              "left",
+              2
+            ],
+            [
+              "right",
+              9
+            ],
+            [
+              "left",
+              0
+            ],
+            [
+              "begin",
+              0
+            ],
+            [
+              "end",
+              7
+            ],
+            [
+              "begin",
+              2
+            ],
+            [
+              "end",
+              7
+            ]
+          ]
+        ],
+        "inputs": [
+          2,
+          7
+        ],
+        "permits": [
+          "read",
+          "write"
+        ],
+        "source": "entry open\ndef open\nrequires read\nrequires write\ncall finish 4 9\ncall read_back x y\ncall read_back x y\nemit begin x\nemit end y\ndef read_back\nrequires read\nemit left x\ncall-positive open 0 y\ndef finish\nrequires write\nemit right y",
+        "source_outcome": [
+          "ok",
+          [
+            [
+              "right",
+              9
+            ],
+            [
+              "left",
+              2
+            ],
+            [
+              "right",
+              9
+            ],
+            [
+              "left",
+              0
+            ],
+            [
+              "left",
+              0
+            ],
+            [
+              "begin",
+              0
+            ],
+            [
+              "end",
+              7
+            ],
+            [
+              "left",
+              2
+            ],
+            [
+              "right",
+              9
+            ],
+            [
+              "left",
+              0
+            ],
+            [
+              "left",
+              0
+            ],
+            [
+              "begin",
+              0
+            ],
+            [
+              "end",
+              7
+            ],
+            [
+              "begin",
+              2
+            ],
+            [
+              "end",
+              7
+            ]
+          ]
+        ]
+      },
+      "largest_group": 5
+    },
+    "unordered-arguments": {
+      "behavioral_collision": {
+        "fuel": 2,
+        "inputs": [
+          2,
+          7
+        ],
+        "permits": [
+          "read",
+          "write"
+        ],
+        "shared_key": "0a8d98bb893c7f96fad27a98df5e5dd6b2adc7e0cb2bfc2b6af21196e3d40792",
+        "source_outcomes": [
+          [
+            "exhausted",
+            [
+              [
+                "right",
+                9
+              ],
+              [
+                "left",
+                2
+              ]
+            ]
+          ],
+          [
+            "exhausted",
+            [
+              [
+                "right",
+                9
+              ],
+              [
+                "left",
+                7
+              ]
+            ]
+          ]
+        ],
+        "sources": [
+          "entry open\ndef open\nrequires read\nrequires write\ncall finish 4 9\ncall read_back x y\nemit begin x\nemit end y\ndef read_back\nrequires read\nemit left x\ncall-positive open 0 y\ndef finish\nrequires write\nemit right y",
+          "entry open\ndef open\nrequires read\nrequires write\ncall finish 4 9\ncall read_back y x\nemit begin x\nemit end y\ndef read_back\nrequires read\nemit left x\ncall-positive open 0 y\ndef finish\nrequires write\nemit right y"
+        ]
+      },
+      "collapsed_groups": 84,
+      "different_status": 336,
+      "disagreeing_observations": 876,
+      "distinct_keys": 84,
+      "first_mismatch": {
+        "fuel": 4,
+        "graph_outcome": [
+          "exhausted",
+          [
+            [
+              "right",
+              9
+            ],
+            [
+              "left",
+              2
+            ],
+            [
+              "right",
+              9
+            ],
+            [
+              "left",
+              7
+            ]
+          ]
+        ],
+        "inputs": [
+          2,
+          7
+        ],
+        "permits": [
+          "read",
+          "write"
+        ],
+        "source": "entry open\ndef open\nrequires read\nrequires write\ncall finish 4 9\ncall read_back x y\nemit begin x\nemit end y\ndef read_back\nrequires read\nemit left x\ncall-positive open 0 y\ndef finish\nrequires write\nemit right y",
+        "source_outcome": [
+          "ok",
+          [
+            [
+              "right",
+              9
+            ],
+            [
+              "left",
+              2
+            ],
+            [
+              "right",
+              9
+            ],
+            [
+              "left",
+              0
+            ],
+            [
+              "begin",
+              0
+            ],
+            [
+              "end",
+              7
+            ],
+            [
+              "begin",
+              2
+            ],
+            [
+              "end",
+              7
+            ]
+          ]
+        ]
+      },
+      "largest_group": 2
+    }
+  },
+  "source_programs": 168,
+  "surface_variants_per_program": 12
+}
