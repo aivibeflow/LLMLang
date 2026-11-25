@@ -37,6 +37,8 @@ The text-only route reaches the same invalid tree in all six orders and leaves 1
 
 The affected-group check relies on a validated prior head and a complete dependency rule. A control starts from a head with an invalid unrelated group. Neither file in that group changes, so the scoped check admits the candidate while the full check correctly detects the existing violation. Logical values read describe the checked snapshots and do not measure physical filesystem or storage traffic.
 
+The archived ledger was checked against digest `9b7e761b1c29464c3273d0ce04752a4ee5d06e95d4ed2e0654e29c155714c083` and the exact runner source hash. Its six distinct integration orders each contain 48 unique participants and agree on the reported totals. The clone field records a commit identity, while the per-order comparison records tree identities. The runner separately verifies the restored commit and graph.
+
 ## Limits
 
 The fixture models 48 synthetic participants in closed, independent groups. A production graph needs complete affected-set derivation, a validated base, safe publication against concurrent head movement and reviewed ordering policy for conflicts. The comparison leaves real team workflows, cross-group dependencies, recovery under network failures and production scalability open.
