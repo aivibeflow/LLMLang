@@ -695,6 +695,8 @@ flowchart TD
 
 The cycle is an iterative research dependency, not a cyclic content-hash requirement. Name resolution, provider proof, exact binding and publication are distinct gates. RT-09/13 ABI/backend correspondence and RT-08 independent benchmark evidence constrain verification/build gates. No normative profile is selected.
 
+[Recovery authority](../toolchain-and-collaboration/RT-19/RT-19-RECOVERY-AUTHORITY-2026-11-25.md) distinguishes current rights to inspect and reconcile an existing operation from authorization to produce new bytes. A native authority fence protects the local result from shared-database revocation races. Remote delivery and trust policy remain open.
+
 ## 24. Formal verification assumptions and trust boundaries (RT-36)
 
 [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). Candidate research dependencies (not implementation commitments):

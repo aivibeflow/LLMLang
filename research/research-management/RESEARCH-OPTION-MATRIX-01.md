@@ -270,6 +270,8 @@ Do not score an unmeasured criterion as a numeric zero. Mark it **unknown**, rep
 
 [Executable clean clones](../toolchain-and-collaboration/RT-24/RT-24-CLEAN-CLONE-CLI-2026-11-25.md) compare packed and per-entry repository data for the same typed CLI. Both distinct layouts reproduce the exact selected graph and native output corpus. The per-entry layout adds 1,017 uncompressed bytes for one edit versus 1,397 for the pack. The verified build requires runtime and tool identities in addition to the semantic root.
 
+[Recovery authority](../toolchain-and-collaboration/RT-19/RT-19-RECOVERY-AUTHORITY-2026-11-25.md) compares prepared authority, one blanket current check, a split current check, and the split under an authority transaction. It retains a legitimate historical receipt after append revocation and prohibits completing missing bytes. The result distinguishes authority for observation, external effects and terminal recovery.
+
 ## 7. Discriminating research programme
 
 1. **RT-03 shared semantics corpus:** define common programs and observations for values, control flow, divergence, recursion, errors, state, I/O, resources, cancellation, concurrency, and modules; implement at least two independent reference semantics for candidate profiles. Extend path analysis with difficult formula families, real resource deadlines, and source/CFG correspondence.
