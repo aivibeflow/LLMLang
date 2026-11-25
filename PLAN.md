@@ -1075,7 +1075,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Estimated research complexity:** **8/10** — overlaps the unresolved RT-04 type, ownership, effect, and capability architecture.
 
 - [ ] Define primitive and algebraic data types.
-  - [ ] [WIP] Compare explicit-tag and compact encodings of nested optional bytes with native boundary validation on `research/all`.
+  - [x] Compare explicit-tag and dense native encodings of 258 nested optional byte values. All four compiler builds match both exhaustive inventories over 65,536 words each. The two layouts share two valid words and disagree on one of them. Other payloads, targets and ABI evolution remain open. [RT-04 nested optional byte ABI](research/language-design/RT-04/RT-04-NESTED-OPTIONAL-BYTE-ABI-2026-11-25.md)
 - [x] Compare structural and nominal typing.
   - Twenty Go and Rust compiler controls distinguish structural assignment, nominal identity, aliases and explicit conversions. 4,632 C calls compare a scalar and two transparent Rust wrappers on x86-64 Linux. The comparison preserves separate source and ABI rules; LLMLang type-system selection remains open. [Native type identity](research/semantic-representation/RT-05/RT-05-NATIVE-TYPE-IDENTITY-2026-11-25.md)
 - [ ] Research generic and polymorphic types.
