@@ -1,7 +1,8 @@
 # RT-00 B13 — Known Relationship Controls Recheck — 2026-11-25
 
 **Status:** four previously missed lexical-screen controls rechecked against current `main`; broad semantic review remains open
-**Baseline:** `main` at `305bf66db5f93a0b6a4308f9c6099d2d888b75d2` (the exact main tree at the time of this correction)
+**Metric baseline:** `main` at `983b2e0e6ee25f53de40ad0a3b5035d584ae3799` (before this report was added)
+**Source identity recheck:** paired control blobs were confirmed unchanged at `main` `305bf66db5f93a0b6a4308f9c6099d2d888b75d2`.
 **Scope:** recheck the four known relationship controls recorded by B12, the 2026-11-24 all-pairs text-overlap screen. This is a bounded falsification/reconciliation pass, not a new corpus-wide semantic scan.
 
 ## Result
@@ -19,7 +20,7 @@ The relationship decisions align with B4's manual supersession register, B12's p
 
 ## Exact-blob context
 
-An exact-blob scan of the complete `research/` tree at the pinned baseline found 1,722 paths and 1,711 distinct blobs, grouped as six repeated-blob groups. Five groups are repeated lockfiles, SAT solver output, or partition fixtures used under distinct query/experiment identities; the sixth is the expected shared Apache-2.0 license text in the OCI and REAPI snapshots. The 612 Markdown/MDX paths have 612 distinct blobs. These results bound exact identity only and say nothing about semantic duplication.
+An exact-blob scan of the complete `research/` tree at the pinned metric baseline found 1,722 paths and 1,711 distinct blobs, grouped as seven repeated-blob groups. Six groups are lockfiles, SAT solver output, or partition fixtures used under distinct query/experiment identities; the seventh is the expected shared Apache-2.0 license text in the OCI and REAPI snapshots. The 612 Markdown/MDX paths have 612 distinct blobs. These results bound exact identity only and say nothing about semantic duplication. Rechecking the paired control paths at `305bf66d` found the same blob identities; that later tree also contains this report and its JSON, so its tree-wide counts are intentionally not substituted for the pre-report metric baseline.
 
 ## What this closes and what remains
 
