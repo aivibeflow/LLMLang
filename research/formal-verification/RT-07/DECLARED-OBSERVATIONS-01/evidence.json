@@ -1,0 +1,129 @@
+{
+  "schema": "llmlang-declared-observations/1",
+  "baseline": "078704760dd2434923c73ac34aaa8973fa57c64f",
+  "python": "3.12.14",
+  "scope": "closed-observation-profile/1",
+  "sources_sha256": {
+    "run.py": "67d32bc794b3258f471aee6a7b4b2fd11c53b3ebe669d534af6eaa09868c5edd",
+    "Profile.lean": "3e56f4abbbb9ceb97f9b3fe2c6a0e472552da8d3d444bf6b31019e5859c3c173",
+    "axioms.txt": "beb3d851fafcd86a0810b55d3157fe76bb3e0131d630d83de47d1cc3ef4593b2"
+  },
+  "replays": {
+    "state_result": {
+      "fixture": "research/formal-verification/RT-07/STATE-RESULT-REFERENCE-01",
+      "evidence_sha256": "80b7b3a5b9312fc597d169f36481a9c7df7b5284d4f2e57e4283ad34aebea4bc"
+    },
+    "output": {
+      "fixture": "research/formal-verification/RT-07/PARTIAL-OUTPUT-01",
+      "axioms_sha256": "ff274af3bc870e1bd89ce41c53884ebbc1a29b84da4b0f19ce81387e945f78a0",
+      "evidence_sha256": "dfc5ab91454ec415f7d0f9c1e55592abb7157e67b0dbdc2e7d56000c0528093c"
+    },
+    "quota": {
+      "fixture": "research/runtime-and-systems/RT-26/DELEGATED-QUOTA-01",
+      "axioms_sha256": "820919735a609bb8e279b45a8558a335492e9e1df39bc5c35f2c806d2d1cdf7a",
+      "evidence_sha256": "41d2fa3a1b2c40d78e50f7ed0036d503804a204edf9df401a5bb2b7ceea29096"
+    },
+    "concurrent_history": {
+      "fixture": "research/runtime-and-systems/RT-10/RELEASE-SEQUENCE-MEMBERSHIP-01",
+      "evidence_sha256": "b2e2f117bc6d52c65ec0783b7c499d0a941f5400f24d5efe04fb2382560f4ef7"
+    },
+    "nondeterministic_outcomes": {
+      "fixture": "research/formal-verification/RT-07/NONDETERMINISTIC-REFINEMENT-01",
+      "axioms_sha256": "edf30ddf82af5746449c50e508aa8dc7401a5c1f095a4b980131017d95de5935",
+      "evidence_sha256": "2bb8d40bd4537580c3f066b2b636b44dde1f673fdd84d54bbc127de7c4fc08a0"
+    },
+    "callback_observer": {
+      "fixture": "research/language-design/RT-04/CALLBACK-INVARIANT-01",
+      "axioms_sha256": "c0138168811727f0ec4ec26e1cf7bf9e99ad3eaad64aeb4e59cb19e515a1483c",
+      "evidence_sha256": "fe90238399f728b2d4ce4e2544aa1f58d61f6c25b5d86dd97bcc16891abcfa5f"
+    }
+  },
+  "fixture_axes": {
+    "return": [
+      {
+        "value": 7
+      },
+      {
+        "value": 8
+      }
+    ],
+    "error": [
+      {
+        "tag": "planned"
+      },
+      {
+        "tag": "denied"
+      }
+    ],
+    "state": [
+      {
+        "cell": 0
+      },
+      {
+        "cell": 1
+      }
+    ],
+    "io": [
+      {
+        "accepted_bytes": "41",
+        "status": "error"
+      },
+      {
+        "accepted_bytes": "4142",
+        "status": "error"
+      }
+    ],
+    "resources": [
+      {
+        "spent": 2,
+        "reserved": 1,
+        "live": 0
+      },
+      {
+        "spent": 3,
+        "reserved": 0,
+        "live": 0
+      }
+    ],
+    "concurrency": [
+      {
+        "flag": 1,
+        "reads_from": "release"
+      },
+      {
+        "flag": 1,
+        "reads_from": "relaxed"
+      }
+    ],
+    "declared_effects": [
+      [
+        [
+          "write",
+          1
+        ],
+        [
+          "write",
+          0
+        ]
+      ],
+      [
+        [
+          "write",
+          0
+        ],
+        [
+          "write",
+          1
+        ]
+      ]
+    ]
+  },
+  "counts": {
+    "matches": 16384,
+    "profiles": 279936,
+    "different": 201811,
+    "terminal_only_misses_definite_full_profile_difference": 211,
+    "incomplete": 61741,
+    "shared_only_false_admissions": 61741
+  }
+}

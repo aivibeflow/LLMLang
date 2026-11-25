@@ -1,0 +1,3 @@
+'DeclaredObservations.respectsNarrowing' does not depend on any axioms
+'DeclaredObservations.unavailableRefuses' does not depend on any axioms
+'DeclaredObservations.matchingTransitive' does not depend on any axioms
