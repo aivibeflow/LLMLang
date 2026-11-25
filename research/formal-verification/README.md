@@ -23,6 +23,8 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [Multi-backend integration and verification artifact cache](RT-33/VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) — candidate adapters, persistent proof and certificate reuse, exact admission and VAC-01–15 execution plan.
+
 - [Proof and test execution costs](PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-2026-11-25.md) compares pinned proof and finite-oracle phases across three evidence packages.
 - [RT-32 recursive proof discharge](RT-32/RT-32-RECURSIVE-PROOF-DISCHARGE-2026-11-25.md) — distinguishes checked recursive induction from unsupported conditional cycles.
 - [Incremental proof invalidation](RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md) — exact modular reuse, provider freshness and transitive evidence.
