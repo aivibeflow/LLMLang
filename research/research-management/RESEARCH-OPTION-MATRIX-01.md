@@ -318,6 +318,8 @@ The [external receipt recovery fixture](../toolchain-and-collaboration/RT-19/RT-
 
 [Mutable log recovery](../toolchain-and-collaboration/RT-19/RT-19-MUTABLE-LOG-RECOVERY-2026-11-25.md) compares blind retry, latest-payload reconciliation, and recovery bound to the exact framed operation and current file. The exact gate prevents false successes in 42 calls, including controlled partial completion, a stale receipt after truncation and a pair of concurrent retries. The case bounds the external state contract for a Toolchain result receipt.
 
+[Cross-map ref revalidation](../toolchain-and-collaboration/RT-24/RT-24-CROSS-MAP-REFS-2026-11-25.md) compares whole-original-ref checks, fresh checks without peer verification, and fresh exact composition checked under a native peer condition. Strict original identity misses six valid proposals in the fixture, while fresh evaluation alone admits two ineligible second-move races. The verified fresh strategy preserves every eligible proposal.
+
 ## 8. Readiness assessment for comparative selection
 
 The [call-cost evidence comparison](../formal-verification/RT-34/RT-34-CALL-COST-BINDING-2026-11-25.md) keeps the conditional caller theorem reusable across a rebind while requiring a checked cost claim for the current provider, weighting and budget.
