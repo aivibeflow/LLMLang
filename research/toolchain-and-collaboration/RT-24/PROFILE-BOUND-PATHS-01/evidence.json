@@ -1,0 +1,991 @@
+{
+  "schema": "llmlang-rt24-profile-bound-paths/1",
+  "python": "3.12.14",
+  "unicode_data": "15.0.0",
+  "git": "git version 2.52.0",
+  "system": "Linux",
+  "source_sha256": "da540da1eb89c2fe2cfeab27cebb56d12c17fe5d0e9ad18c537f50057e824534",
+  "histories": 16,
+  "native_clean": 14,
+  "native_conflicts": 2,
+  "clean_clones": 28,
+  "git_add_refusals": 1,
+  "metrics": {
+    "physical": {
+      "accepted_valid": 6,
+      "wrongly_accepted": 8,
+      "correctly_refused": 0,
+      "refused_valid": 0
+    },
+    "ascii_paths": {
+      "accepted_valid": 6,
+      "wrongly_accepted": 6,
+      "correctly_refused": 2,
+      "refused_valid": 0
+    },
+    "unicode_paths": {
+      "accepted_valid": 6,
+      "wrongly_accepted": 4,
+      "correctly_refused": 4,
+      "refused_valid": 0
+    },
+    "unicode_prefixes": {
+      "accepted_valid": 6,
+      "wrongly_accepted": 0,
+      "correctly_refused": 8,
+      "refused_valid": 0
+    }
+  },
+  "observations": [
+    {
+      "case": "ascii_disjoint",
+      "ours_path": "src/alpha.ll",
+      "theirs_path": "src/beta.ll",
+      "expected": "accepted",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "d8d44695848b8f8482b9f5644eba76f8429fe9ec",
+        "b82d11a5c07775d12dc15a7b58634b18505e0a35"
+      ],
+      "git": "clean",
+      "candidate": "fa0c8af382506c3aae9b38d83e38741d2b8cc7e5",
+      "tree": "1054e351e248bbd7aaef25f91f733009a413e156",
+      "blobs": {
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b",
+        "src/alpha.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430",
+        "src/beta.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "accepted"
+        },
+        "unicode_prefixes": {
+          "status": "accepted"
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/alpha.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "src/beta.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/alpha.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "src/beta.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "different_directories",
+      "ours_path": "left/item.ll",
+      "theirs_path": "right/item.ll",
+      "expected": "accepted",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "d24b34489a8291929ccc67d836bef63fb684053a",
+        "78e74e57026df818a66c06b8c76e9e08e1dddbae"
+      ],
+      "git": "clean",
+      "candidate": "9341227d05f236e083a11c384bd47f880849bd0b",
+      "tree": "0f1b06e858405e4cd59ea9cb2019cecd722bff78",
+      "blobs": {
+        "left/item.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430",
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b",
+        "right/item.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "accepted"
+        },
+        "unicode_prefixes": {
+          "status": "accepted"
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "left/item.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "right/item.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "left/item.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "right/item.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "exact_shared_directory",
+      "ours_path": "Src/util/A.ll",
+      "theirs_path": "Src/util/b.ll",
+      "expected": "accepted",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "1e9f1799268742867111159548af2afd087b2118",
+        "1f54e405740006b6cdd3c8704783f62f230d3fa1"
+      ],
+      "git": "clean",
+      "candidate": "ccdaeb840007ee68706b60e255402386b9edc976",
+      "tree": "880057d71159fc262a7a364bbdde0a22edc40458",
+      "blobs": {
+        "Src/util/A.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430",
+        "Src/util/b.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b",
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "accepted"
+        },
+        "unicode_prefixes": {
+          "status": "accepted"
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "Src/util/A.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "Src/util/b.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "Src/util/A.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "Src/util/b.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "dotted_i",
+      "ours_path": "src/İ.ll",
+      "theirs_path": "src/i.ll",
+      "expected": "accepted",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "7e8a1d8278f536fc520080ebd668bc0653d801b5",
+        "d7c338ff1220848aaded3eda8535d9b057d4d353"
+      ],
+      "git": "clean",
+      "candidate": "85775af61310c927c52356ea62427a8453b5b921",
+      "tree": "5cc1ef3046b023f39792555874710abcdd3fabdd",
+      "blobs": {
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b",
+        "src/i.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b",
+        "src/İ.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "accepted"
+        },
+        "unicode_prefixes": {
+          "status": "accepted"
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/i.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "src/İ.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/i.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "src/İ.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "width_variant",
+      "ours_path": "src/Ａ.ll",
+      "theirs_path": "src/A.ll",
+      "expected": "accepted",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "78dde99fa0409d0137501323cf5d4fb4a8683b2b",
+        "1ae69c41ca19d9601bd990b71ac1fa038820f7bc"
+      ],
+      "git": "clean",
+      "candidate": "d117dd4af5364005070cefecb59ef70afa4b666f",
+      "tree": "fc4c845b14d15fab3ae6693bb0ff0021dcff2e46",
+      "blobs": {
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b",
+        "src/A.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b",
+        "src/Ａ.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "accepted"
+        },
+        "unicode_prefixes": {
+          "status": "accepted"
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/A.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "src/Ａ.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/A.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "src/Ａ.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "mixed_scripts",
+      "ours_path": "src/a.ll",
+      "theirs_path": "src/а.ll",
+      "expected": "accepted",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "bc3d7c87433963020b53e6d51e346901428c7363",
+        "8f38ca4a1fad1c37b1db947cf20db35dd54e6995"
+      ],
+      "git": "clean",
+      "candidate": "a577cb7d3a260b88cacf2ff10405f736bb2f538b",
+      "tree": "f82cc5ff3294cb1641c6e2a0786d26b221e2e1ee",
+      "blobs": {
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b",
+        "src/a.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430",
+        "src/а.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "accepted"
+        },
+        "unicode_prefixes": {
+          "status": "accepted"
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/a.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "src/а.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/a.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "src/а.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "ascii_leaf",
+      "ours_path": "src/Rate.ll",
+      "theirs_path": "src/rate.ll",
+      "expected": "file-alias",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "b4604b67a1ceba3380aa4ee55fb3b0c44b07cf9c",
+        "72dafe20cb28666111b158d395e187aeb13e92a8"
+      ],
+      "git": "clean",
+      "candidate": "8d43c577d07e5b8bf7cc8434d9e464bf62782db2",
+      "tree": "9bdd1a87b52ad753e1e3ffffea797965e5c8cd6f",
+      "blobs": {
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b",
+        "src/Rate.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430",
+        "src/rate.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "file-alias",
+          "key": "src/rate.ll",
+          "entries": [
+            [
+              "src/Rate.ll",
+              "file"
+            ],
+            [
+              "src/rate.ll",
+              "file"
+            ]
+          ]
+        },
+        "unicode_paths": {
+          "status": "file-alias",
+          "key": "src/rate.ll",
+          "entries": [
+            [
+              "src/Rate.ll",
+              "file"
+            ],
+            [
+              "src/rate.ll",
+              "file"
+            ]
+          ]
+        },
+        "unicode_prefixes": {
+          "status": "file-alias",
+          "key": "src/rate.ll",
+          "entries": [
+            [
+              "src/Rate.ll",
+              "file"
+            ],
+            [
+              "src/rate.ll",
+              "file"
+            ]
+          ]
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/Rate.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "src/rate.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/Rate.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "src/rate.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "canonical_unicode_leaf",
+      "ours_path": "src/Café.ll",
+      "theirs_path": "src/Café.ll",
+      "expected": "file-alias",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "7ac4a57f2c683d89abe74320c948be62e470b2c2",
+        "920eb71e3f609cb8a5968a8e1ced958685eb99cd"
+      ],
+      "git": "clean",
+      "candidate": "8f2aa43cca80d0fbd5311f663dffeef0ce5c0d98",
+      "tree": "15cefbfa1cdfca1e52ff304f916939955db197e1",
+      "blobs": {
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b",
+        "src/Café.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b",
+        "src/Café.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "file-alias",
+          "key": "src/café.ll",
+          "entries": [
+            [
+              "src/Café.ll",
+              "file"
+            ],
+            [
+              "src/Café.ll",
+              "file"
+            ]
+          ]
+        },
+        "unicode_prefixes": {
+          "status": "file-alias",
+          "key": "src/café.ll",
+          "entries": [
+            [
+              "src/Café.ll",
+              "file"
+            ],
+            [
+              "src/Café.ll",
+              "file"
+            ]
+          ]
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/Café.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "src/Café.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/Café.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "src/Café.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "casefold_unicode_leaf",
+      "ours_path": "src/Straße.ll",
+      "theirs_path": "src/STRASSE.ll",
+      "expected": "file-alias",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "8381af73dfd3a69aeec18914a4aedca85e5bd157",
+        "d127ef49c711dc3892898b698cba0aa625525299"
+      ],
+      "git": "clean",
+      "candidate": "1eecf26ef618a58559f8cd4280520817e97dd8f9",
+      "tree": "996791cfaac4fc944786e0fd646a58b92a1fb31a",
+      "blobs": {
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b",
+        "src/STRASSE.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b",
+        "src/Straße.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "file-alias",
+          "key": "src/strasse.ll",
+          "entries": [
+            [
+              "src/STRASSE.ll",
+              "file"
+            ],
+            [
+              "src/Straße.ll",
+              "file"
+            ]
+          ]
+        },
+        "unicode_prefixes": {
+          "status": "file-alias",
+          "key": "src/strasse.ll",
+          "entries": [
+            [
+              "src/STRASSE.ll",
+              "file"
+            ],
+            [
+              "src/Straße.ll",
+              "file"
+            ]
+          ]
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/STRASSE.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "src/Straße.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "src/STRASSE.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "src/Straße.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "ascii_directory",
+      "ours_path": "Pkg/one.ll",
+      "theirs_path": "pkg/two.ll",
+      "expected": "directory-alias",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "a601c7501a48dae093e35be1fad435ac8e41f69a",
+        "ddeb72ba35e1c92b20345a0126d7f97e0ab32d90"
+      ],
+      "git": "clean",
+      "candidate": "e35df4abd9cd29e331509c3530e937608a6fb003",
+      "tree": "a941bac91afb7cde229e80c0cbb3df02670059a4",
+      "blobs": {
+        "Pkg/one.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430",
+        "pkg/two.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b",
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "accepted"
+        },
+        "unicode_prefixes": {
+          "status": "directory-alias",
+          "key": "pkg",
+          "entries": [
+            [
+              "Pkg",
+              "directory"
+            ],
+            [
+              "pkg",
+              "directory"
+            ]
+          ]
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "Pkg/one.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "pkg/two.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "Pkg/one.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "pkg/two.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "canonical_unicode_directory",
+      "ours_path": "lib/Café/a.ll",
+      "theirs_path": "lib/Café/b.ll",
+      "expected": "directory-alias",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "f0f162156fd2555500ad1fd1bc1cc7ca59589003",
+        "c32d724957b57b65728ba36e64208fb28013ab3a"
+      ],
+      "git": "clean",
+      "candidate": "b55448f5a60d3b7bf162f4accdbaf4786c796e0c",
+      "tree": "137eb62b77619a4a466499b84e8b3795a740df1e",
+      "blobs": {
+        "lib/Café/b.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b",
+        "lib/Café/a.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430",
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "accepted"
+        },
+        "unicode_prefixes": {
+          "status": "directory-alias",
+          "key": "lib/café",
+          "entries": [
+            [
+              "lib/Café",
+              "directory"
+            ],
+            [
+              "lib/Café",
+              "directory"
+            ]
+          ]
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "lib/Café/b.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "lib/Café/a.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "lib/Café/b.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "lib/Café/a.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "ascii_file_directory",
+      "ours_path": "Doc",
+      "theirs_path": "doc/api.ll",
+      "expected": "kind-alias",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "bd163db34777159586491a6950687ec0073ca79e",
+        "e18fd07651d1f434187695c5e32b1be5975ef269"
+      ],
+      "git": "clean",
+      "candidate": "048c079e36e2329a291d9073c2a2c2bd60b23d5d",
+      "tree": "c5408d5a9b527e4b940a0f0a9146550829c9ff41",
+      "blobs": {
+        "Doc": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430",
+        "doc/api.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b",
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "accepted"
+        },
+        "unicode_prefixes": {
+          "status": "kind-alias",
+          "key": "doc",
+          "entries": [
+            [
+              "Doc",
+              "file"
+            ],
+            [
+              "doc",
+              "directory"
+            ]
+          ]
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "Doc": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "doc/api.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "Doc": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "doc/api.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "unicode_file_directory",
+      "ours_path": "straße",
+      "theirs_path": "STRASSE/api.ll",
+      "expected": "kind-alias",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "b66c9ea2c767b9437daa82758f49e9d9c56c879e",
+        "ed54df2e3609516ee94c0ecd2eaed86223ad98e2"
+      ],
+      "git": "clean",
+      "candidate": "5d68402cdd9938e5361913eda367dedc79c64fab",
+      "tree": "ecd19bf473d663c492fad82c7cfe08b31ee0c6c9",
+      "blobs": {
+        "STRASSE/api.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b",
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b",
+        "straße": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "accepted"
+        },
+        "unicode_paths": {
+          "status": "accepted"
+        },
+        "unicode_prefixes": {
+          "status": "kind-alias",
+          "key": "strasse",
+          "entries": [
+            [
+              "STRASSE",
+              "directory"
+            ],
+            [
+              "straße",
+              "file"
+            ]
+          ]
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "STRASSE/api.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "straße": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "STRASSE/api.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca",
+            "straße": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        }
+      }
+    },
+    {
+      "case": "nested_converging_path",
+      "ours_path": "Pkg/Rate.ll",
+      "theirs_path": "pkg/rate.ll",
+      "expected": "directory-alias",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "f9706011a4fdcf900a4060876446bc6ccd0eaf1a",
+        "7ddd68b0e3aa67efedd538de025556b39d3a6ae8"
+      ],
+      "git": "clean",
+      "candidate": "7e6e4f5120e7b8c03a7fa427d371e33e10e47e46",
+      "tree": "2752ab28e5e9e7093dc037cd4b56b5944b5d741e",
+      "blobs": {
+        "Pkg/Rate.ll": "c6442f5ccf6b39a6f9d07a4a552bf744eaf7c430",
+        "pkg/rate.ll": "a8def648dc9b451c97afa929c5d2ec9bf36b0c2b",
+        "repo.profile": "1432ff3b223f6f5ce346c35586fe4feeb0f1534b"
+      },
+      "policy": {
+        "physical": {
+          "status": "accepted"
+        },
+        "ascii_paths": {
+          "status": "file-alias",
+          "key": "pkg/rate.ll",
+          "entries": [
+            [
+              "Pkg/Rate.ll",
+              "file"
+            ],
+            [
+              "pkg/rate.ll",
+              "file"
+            ]
+          ]
+        },
+        "unicode_paths": {
+          "status": "file-alias",
+          "key": "pkg/rate.ll",
+          "entries": [
+            [
+              "Pkg/Rate.ll",
+              "file"
+            ],
+            [
+              "pkg/rate.ll",
+              "file"
+            ]
+          ]
+        },
+        "unicode_prefixes": {
+          "status": "directory-alias",
+          "key": "pkg",
+          "entries": [
+            [
+              "Pkg",
+              "directory"
+            ],
+            [
+              "pkg",
+              "directory"
+            ]
+          ]
+        }
+      },
+      "checkout": {
+        "false": {
+          "materialized_sha256": {
+            "Pkg/Rate.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "pkg/rate.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 0,
+          "git_add_diagnostic": ""
+        },
+        "true": {
+          "materialized_sha256": {
+            "Pkg/Rate.ll": "07de3d3208e4fa3fad885b0b976e62b350ab5b9d56881093ba59839dc126314b",
+            "pkg/rate.ll": "b762c95b56111916f4737f59ab576263dc62fb7aa005d8f4242520ce3e266169",
+            "repo.profile": "0e4b284d53a777999d890698787bcf24cbf70e0d6a4c8805dcb3a64ad385caca"
+          },
+          "index_remains_exact": true,
+          "git_add_exit": 128,
+          "git_add_diagnostic": "fatal: will not add file alias 'Pkg/rate.ll' ('pkg/rate.ll' already exists in index)"
+        }
+      }
+    },
+    {
+      "case": "native_same_file_conflict",
+      "ours_path": "src/main.ll",
+      "theirs_path": "src/main.ll",
+      "expected": "git-conflict",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "68c032f68659557453e146ecf77a70d3f86d1204",
+        "dcae37ad2a70c204bd7dbaa452d9bbee9e9fc521"
+      ],
+      "git": "conflict",
+      "checkout": {}
+    },
+    {
+      "case": "native_file_directory_conflict",
+      "ours_path": "Type",
+      "theirs_path": "Type/value.ll",
+      "expected": "git-conflict",
+      "inputs": [
+        "f0bb6e399e5e853bdc3c13991f61aeeac98f7645",
+        "9505643e959f77f2e61de9ffa3e694d97108a696",
+        "160483c68e101a9897d1eb2e408b3e66d986c792"
+      ],
+      "git": "conflict",
+      "checkout": {}
+    }
+  ]
+}
