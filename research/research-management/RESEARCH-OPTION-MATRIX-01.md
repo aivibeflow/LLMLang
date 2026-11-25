@@ -101,6 +101,8 @@ For a closed two-integer profile, [restricted affine certificates](../formal-ver
 
 ## 4. Integrated candidate vectors
 
+[RT-05 named record evaluation](../semantic-representation/RT-05/RT-05-NAMED-RECORD-EVALUATION-2026-11-25.md) distinguishes full source-order hashing, a typed field map with explicit observable order, and field-only hashing. The observable-order projection shares a hash for all 177 equivalent pairs with no collisions across distinct fixture behaviors. Field-only hashing collides on 228 distinct pairs. Broader purity, failure, ownership and source-coverage obligations remain open.
+
 These bundles show plausible cross-area combinations for later whole-specification comparison. They are not selections or rankings.
 
 | Candidate | Core bundle | Main benefit to evaluate | Main cost or failure mode | Compatibility conditions | Evidence maturity |
