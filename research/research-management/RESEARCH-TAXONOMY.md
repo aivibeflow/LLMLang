@@ -185,6 +185,8 @@ RT-03 and RT-05 compare native binary64 extrema rules for signed-zero ties and N
 
 RT-00 reconciles exact dedicated objects and shared registry references for an integrated batch of 18 studies. [Batch evidence reconciliation](RT-00/RT-00-BATCH-EVIDENCE-RECONCILIATION-2026-11-25.md)
 
+RT-03 and RT-05 compare five conversion policies for binary64 and signed I64, including the exclusive upper bound required at `+2^63`. [Cross-runtime F64 to I64 conversion](../semantic-representation/RT-05/RT-05-F64-I64-CONVERSION-2026-11-25.md)
+
 ## 3. Required research artifact
 
 Every research report should identify:
