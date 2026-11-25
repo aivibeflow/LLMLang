@@ -1,0 +1,163 @@
+{
+  "schema": "llmlang-rt13-symbolic-replay-controls/1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "lean_module_sha256": "eb316d6f39f89f4a040223b57bc1f59257499b290deb866da7d5ac9dd9f6e385",
+  "cases": {
+    "drop_overflow_O0_mutant": {
+      "input_u32": [
+        2147483648,
+        4294967295,
+        7
+      ],
+      "complete_mismatch": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "drop_overflow_O0_preserving": {
+      "input_u32": [
+        2147483648,
+        4294967295,
+        7
+      ],
+      "complete_mismatch": false,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "drop_overflow_O3_mutant": {
+      "input_u32": [
+        2147483648,
+        4294967295,
+        7
+      ],
+      "complete_mismatch": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "drop_overflow_O3_preserving": {
+      "input_u32": [
+        2147483648,
+        4294967295,
+        7
+      ],
+      "complete_mismatch": false,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O0_mutant": {
+      "input_u32": [
+        9,
+        4,
+        0
+      ],
+      "complete_mismatch": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O0_preserving": {
+      "input_u32": [
+        9,
+        4,
+        0
+      ],
+      "complete_mismatch": false,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O3_mutant": {
+      "input_u32": [
+        9,
+        4,
+        0
+      ],
+      "complete_mismatch": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O3_preserving": {
+      "input_u32": [
+        9,
+        4,
+        0
+      ],
+      "complete_mismatch": false,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O0_mutant": {
+      "input_u32": [
+        2147483648,
+        4294967295,
+        7
+      ],
+      "complete_mismatch": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O0_preserving": {
+      "input_u32": [
+        2147483648,
+        4294967295,
+        7
+      ],
+      "complete_mismatch": false,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O3_mutant": {
+      "input_u32": [
+        2147483648,
+        4294967295,
+        7
+      ],
+      "complete_mismatch": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O3_preserving": {
+      "input_u32": [
+        2147483648,
+        4294967295,
+        7
+      ],
+      "complete_mismatch": false,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  }
+}
