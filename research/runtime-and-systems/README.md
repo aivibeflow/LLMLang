@@ -16,6 +16,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Recent bounded rechecks
 
+- [RT-26 delegated quota reclamation](RT-26/RT-26-DELEGATED-QUOTA-RECLAMATION-2026-11-25.md) checks conservation and safe reuse after child usage.
 - [RT-10 native byte and text values](RT-10/RT-10-NATIVE-BYTE-AND-TEXT-VALUES-2026-11-25.md) observes exact spans, C string prefixes and UTF-8 validation.
 - [RT-10 exact native call closure](RT-10/RT-10-EXACT-NATIVE-CALL-CLOSURE-2026-11-25.md) compares wrapper identity, resolved helper identity and observed behavior.
 - [RT-10 stack VM fuel correspondence](RT-10/RT-10-STACK-VM-FUEL-CORRESPONDENCE-2026-11-25.md) compares source charges, opcode costs and partial effect traces.
