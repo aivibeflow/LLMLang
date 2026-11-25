@@ -1600,8 +1600,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Status:** researched and prototyped at an exploratory level. A candidate TOML manifest schema, example fixture, Package Content Root Hash projection, identity exclusions, and PMI invariants are documented. The logical index, external-memory validation, streaming archive writer/verifier, exact dependency-policy resolver, and disk-backed Provider-to-archive pipeline have executable prototypes and CI coverage. The Provider uses SQLite for graph traversal state and streams sorted index rows plus one object payload at a time. A reproducible benchmark harness and 1,200-object chain/high-fan-out stress tests are implemented; CI records exploratory measurements, but controlled-hardware baselines and large-scale acceptance criteria remain open. The Toolchain Server Prototype 01 currently has only an in-memory lifecycle model and does not expose the public snapshot enumeration, dependency-edge, or streaming-payload API needed by Provider; no adapter is added against its private state. A persistent immutable-object backend and public snapshot read contract remain open. No normative wire format, codec policy, provider protocol, cache-index schema, final manifest schema, canonical hash encoding, or digest algorithm has been accepted.
 
 
-- [ ] Define Package versus Library boundaries.
-- [ ] Define library identity and public machine-readable contracts.
+- [ ] [WIP] Define Package versus Library boundaries.
+- [ ] [WIP] Define library identity and public machine-readable contracts.
 - [ ] Define dependency resolution and versioning.
 - [ ] Define template instantiation, customization, detachment, and migration.
 - [ ] Define global semantic artifact store and registry interfaces.
