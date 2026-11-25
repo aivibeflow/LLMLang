@@ -5,6 +5,15 @@
 
 This glossary establishes names for concepts that must remain distinct in the language model. Definitions are proposed terminology, not yet normative language semantics.
 
+## Supporting research (non-normative)
+
+- Structural/type identity, representation requirements, derived layout, and C ABI terms are explored in the [RT-09 structural identity and ABI proposal](../research/compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md), with related type-alias and layout/ABI studies in [Scenario 70](../research/language-design/RT-04/RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md) and [Scenario 72](../research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-72-SUM-TYPE-LAYOUT-ABI-AND-INTEROPERABILITY.md). These are candidate analyses; they do not establish a canonical hash encoding or a validated production ABI.
+- Contract, Operation, implementation, and conformance-class identities are cross-reconciled in [RT-20 Contract Identity and Compatibility](../research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md), with bounded prior models in [Scenario 10](../research/packages-and-ecosystem/RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md) and [Scenario 14](../research/language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md). The mapping from exact Contract identity to behavioral conformance remains open.
+- Public-interface terminology is proposed in [RT-05 Public Interfaces and Contract Refinement](../research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md); the [receipt-rebind pilot](../research/semantic-representation/RT-05/PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md) is a bounded evidence example, not a general source proof.
+- Assumption, authorization, conditional-proof, discharge, and closure terminology maps to [RT-36 Formal Verification Assumptions and Trust](../research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). The production trust and admission policy remains undecided.
+
+These links establish research traceability only; they do not make the referenced proposals normative or validate every glossary claim.
+
 ## Type, identity, and ABI terms
 
 ### Structural Identity

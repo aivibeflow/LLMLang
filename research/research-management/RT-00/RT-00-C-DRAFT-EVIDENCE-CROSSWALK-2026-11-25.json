@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "b482dc4415730c16518adeac54b94a8982021a3d",
+  "date": "2026-11-25",
+  "scope": [
+    "draft/README.md",
+    "draft/ARCHITECTURE-DECISIONS.md",
+    "draft/GLOSSARY.md",
+    "draft/examples/README.md",
+    "draft/examples/0001-hello-world/main.llmlang",
+    "draft/examples/0002-echo/main.llmlang",
+    "draft/examples/0003-calculator/main.llmlang"
+  ],
+  "crosswalk": [
+    {
+      "draft_area": "accepted immutable components and single-toolchain compatibility",
+      "research": [
+        "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+        "research/packages-and-ecosystem/RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md",
+        "research/language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md",
+        "research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+        "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md"
+      ],
+      "status": "accepted decision with linked rationale; links do not replace maintainer record or semantic validation"
+    },
+    {
+      "draft_area": "structural/type identity, representation, layout, and C ABI glossary terms",
+      "research": [
+        "research/compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md",
+        "research/language-design/RT-04/RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md",
+        "research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-72-SUM-TYPE-LAYOUT-ABI-AND-INTEROPERABILITY.md"
+      ],
+      "status": "proposal and bounded prior art; canonical encodings and production ABI remain open"
+    },
+    {
+      "draft_area": "Contract, Operation, Implementation, Conformance Class, and Evidence terms",
+      "research": [
+        "research/toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md",
+        "research/packages-and-ecosystem/RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md",
+        "research/language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md"
+      ],
+      "status": "identity distinction supported as a candidate model; mapping to conformance and general refinement remains open"
+    },
+    {
+      "draft_area": "public-interface terminology",
+      "research": [
+        "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+        "research/semantic-representation/RT-05/PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md"
+      ],
+      "status": "unadopted model proposal plus bounded evidence example"
+    },
+    {
+      "draft_area": "assumption and conditional-proof terminology",
+      "research": [
+        "research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md"
+      ],
+      "status": "direct proposal link; production authorization and trust policy remain open"
+    }
+  ],
+  "result": "The missing section-level topic links for the glossary type/layout/ABI terms are added. Traceability is established for current proposal families; claim validity and adoption are not implied."
+}
