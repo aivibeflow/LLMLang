@@ -1,0 +1,897 @@
+{
+  "cache_refusal_controls": {
+    "changed-cas-bytes": "payload-mismatch",
+    "changed-target-sdk": "miss",
+    "omitted-shared-role": "inventory-mismatch",
+    "same-abi-different-provider-recipe": "receipt-mismatch",
+    "self-consistent-wrong-abi": "target-mismatch",
+    "self-consistent-wrong-format": "artifact-format-mismatch",
+    "wrong-recipe-descriptor": "request-mismatch"
+  },
+  "checked_artifact_roles": 36,
+  "cold_misses_and_exact_reuses": 6,
+  "false_hits_by_key": {
+    "build-host": 5,
+    "triple": 2
+  },
+  "fresh_connection_reuses": 6,
+  "native_link_control": "RV64 non-PIC provider rejected for shared library",
+  "reproducible_builds": 12,
+  "requests": {
+    "aarch64-aapcs64/-O0": {
+      "action_key": "f2bf8a7fa5c34a9ca84c5c6821ebb38d14ffce3adfeb2eb0ccf8c97b6b86e80d",
+      "package_manifest": {
+        "action": {
+          "action": "cross-ffi-package-v1",
+          "archive_mode": "rcsD",
+          "build_host": {
+            "ar": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libbfd-2.44-system.so": "7a27acdd82e38dbddd8568d54de0df4358e71a3c387d5c1d999d369450c1bf6a",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libsframe.so.1": "adb0b9a33909e7264ad724e138eb97995832e535b22b192c1a898c349c918a9f",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "f8fe09d485b40b1d47c534c96f5cbaaa9148e247aa0494c087104421f48ac5eb",
+              "version": "GNU ar (GNU Binutils for Debian) 2.44"
+            },
+            "clang": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libclang-cpp.so.19.1": "0108c687d2f500d77687984c46c9fad663782603f5c623e3c14224c155b4fd21",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+              "version": "Debian clang version 19.1.7 (3+b1)"
+            },
+            "kernel": "6.18.57",
+            "lld": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+              "version": "Debian LLD 19.1.7 (compatible with GNU linkers)"
+            },
+            "machine": "x86_64"
+          },
+          "build_recipe_sha256": {
+            "cross_abi_helpers": "78074fbf11d1a7193afd5fbe4c4857e05c20795d063bd420518cee3a1669e6ec",
+            "runner": "2c5b1220656466caf7a4d171bc214ee97b7b1c9ed8a1bac7ba5313fb5b619c82"
+          },
+          "consumer_optimization": "-O2",
+          "inputs": {
+            "consumer.c": "63a85de64a6088fb3eb914bb60e3240ba4aaba64ea7d0838e17c6e8d76043499",
+            "fixture.h": "528c56acf15eba02fbb1b23b420a522a61b664464fd0548b13ad5ad3c1b92163",
+            "provider.c": "7ddd3525bcc74a4516a9ff49f20ec3d077d5662dacf36e7c37ce2ea7cb125861",
+            "syscalls.S": "a4e9782b26fcaf0e71ecc7ec312da6d0752b7dc594137beecfb5cda0309117c6",
+            "vectors.S": "ddf61b9e4d57c67db46476d69267ccd056459582a2c79d186797f4b5c2c84b4e"
+          },
+          "linker_emulation": "aarch64linux",
+          "loader_dependencies": {
+            "archive": [],
+            "shared": [],
+            "static_client": []
+          },
+          "outputs": [
+            "archive",
+            "shared",
+            "static_client"
+          ],
+          "provider_options": [
+            "-O0",
+            "-std=c11",
+            "-ffreestanding",
+            "-fno-builtin",
+            "-fno-stack-protector",
+            "-fPIC",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "--target=aarch64-linux-gnu"
+          ],
+          "shared_link_options": [
+            "-shared",
+            "-soname",
+            "libaffine.so"
+          ],
+          "static_link_options": [
+            "-static",
+            "-e",
+            "_start"
+          ],
+          "target": {
+            "flags": 0,
+            "machine": 183,
+            "os_abi": "AAPCS64",
+            "profile": "aarch64-aapcs64",
+            "sdk": "none:freestanding-linux-syscalls",
+            "triple": "aarch64-linux-gnu"
+          }
+        },
+        "checker": {
+          "sha256": "73cc2584f119f9e74c85c0a8549dbb6fd104ae3897a06a7500797f9e5b4d0943",
+          "version": "qemu-aarch64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+        },
+        "client_observed_sha256": "407ef2e36cde97f6ee70454a96ed810284f2184da7bd9975c893db2e3cccb8e9",
+        "files": {
+          "archive": "cfb03173328789ca234c00dad6799fe36e67ffe76826d44bdcc030f9b81e640b",
+          "shared": "8cfb9114623fd75f581f08ef887aed532f09bc6f15382507c4af0f113aa473bd",
+          "static_client": "425d6e36ca3a66003b7d8b85ad0b6aba1a56e2eb437a0e7f13401cc5a7105204"
+        }
+      }
+    },
+    "aarch64-aapcs64/-O2": {
+      "action_key": "f80d4a67cd552f02ccc5dbc96543a8498984b8644c34b6b62628e017326c5fd4",
+      "package_manifest": {
+        "action": {
+          "action": "cross-ffi-package-v1",
+          "archive_mode": "rcsD",
+          "build_host": {
+            "ar": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libbfd-2.44-system.so": "7a27acdd82e38dbddd8568d54de0df4358e71a3c387d5c1d999d369450c1bf6a",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libsframe.so.1": "adb0b9a33909e7264ad724e138eb97995832e535b22b192c1a898c349c918a9f",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "f8fe09d485b40b1d47c534c96f5cbaaa9148e247aa0494c087104421f48ac5eb",
+              "version": "GNU ar (GNU Binutils for Debian) 2.44"
+            },
+            "clang": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libclang-cpp.so.19.1": "0108c687d2f500d77687984c46c9fad663782603f5c623e3c14224c155b4fd21",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+              "version": "Debian clang version 19.1.7 (3+b1)"
+            },
+            "kernel": "6.18.57",
+            "lld": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+              "version": "Debian LLD 19.1.7 (compatible with GNU linkers)"
+            },
+            "machine": "x86_64"
+          },
+          "build_recipe_sha256": {
+            "cross_abi_helpers": "78074fbf11d1a7193afd5fbe4c4857e05c20795d063bd420518cee3a1669e6ec",
+            "runner": "2c5b1220656466caf7a4d171bc214ee97b7b1c9ed8a1bac7ba5313fb5b619c82"
+          },
+          "consumer_optimization": "-O2",
+          "inputs": {
+            "consumer.c": "63a85de64a6088fb3eb914bb60e3240ba4aaba64ea7d0838e17c6e8d76043499",
+            "fixture.h": "528c56acf15eba02fbb1b23b420a522a61b664464fd0548b13ad5ad3c1b92163",
+            "provider.c": "7ddd3525bcc74a4516a9ff49f20ec3d077d5662dacf36e7c37ce2ea7cb125861",
+            "syscalls.S": "a4e9782b26fcaf0e71ecc7ec312da6d0752b7dc594137beecfb5cda0309117c6",
+            "vectors.S": "ddf61b9e4d57c67db46476d69267ccd056459582a2c79d186797f4b5c2c84b4e"
+          },
+          "linker_emulation": "aarch64linux",
+          "loader_dependencies": {
+            "archive": [],
+            "shared": [],
+            "static_client": []
+          },
+          "outputs": [
+            "archive",
+            "shared",
+            "static_client"
+          ],
+          "provider_options": [
+            "-O2",
+            "-std=c11",
+            "-ffreestanding",
+            "-fno-builtin",
+            "-fno-stack-protector",
+            "-fPIC",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "--target=aarch64-linux-gnu"
+          ],
+          "shared_link_options": [
+            "-shared",
+            "-soname",
+            "libaffine.so"
+          ],
+          "static_link_options": [
+            "-static",
+            "-e",
+            "_start"
+          ],
+          "target": {
+            "flags": 0,
+            "machine": 183,
+            "os_abi": "AAPCS64",
+            "profile": "aarch64-aapcs64",
+            "sdk": "none:freestanding-linux-syscalls",
+            "triple": "aarch64-linux-gnu"
+          }
+        },
+        "checker": {
+          "sha256": "73cc2584f119f9e74c85c0a8549dbb6fd104ae3897a06a7500797f9e5b4d0943",
+          "version": "qemu-aarch64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+        },
+        "client_observed_sha256": "407ef2e36cde97f6ee70454a96ed810284f2184da7bd9975c893db2e3cccb8e9",
+        "files": {
+          "archive": "8aef899cb741b233ca156d8471aaac4aae14597e51bb5ff0de917553f22c3d2c",
+          "shared": "136ba51ccc47e6f48d7096291108b3d0498a15da263281a8cc6668a07a683fa2",
+          "static_client": "e29d4f3f70ef744cbcec3ee09c1458517483e8d016ff68d18a2b68974bb232dc"
+        }
+      }
+    },
+    "rv64-lp64/-O0": {
+      "action_key": "26fd04cf3ba0abdb2d46349481cb493fac4e9a2cd693e6e0990783185513fbca",
+      "package_manifest": {
+        "action": {
+          "action": "cross-ffi-package-v1",
+          "archive_mode": "rcsD",
+          "build_host": {
+            "ar": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libbfd-2.44-system.so": "7a27acdd82e38dbddd8568d54de0df4358e71a3c387d5c1d999d369450c1bf6a",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libsframe.so.1": "adb0b9a33909e7264ad724e138eb97995832e535b22b192c1a898c349c918a9f",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "f8fe09d485b40b1d47c534c96f5cbaaa9148e247aa0494c087104421f48ac5eb",
+              "version": "GNU ar (GNU Binutils for Debian) 2.44"
+            },
+            "clang": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libclang-cpp.so.19.1": "0108c687d2f500d77687984c46c9fad663782603f5c623e3c14224c155b4fd21",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+              "version": "Debian clang version 19.1.7 (3+b1)"
+            },
+            "kernel": "6.18.57",
+            "lld": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+              "version": "Debian LLD 19.1.7 (compatible with GNU linkers)"
+            },
+            "machine": "x86_64"
+          },
+          "build_recipe_sha256": {
+            "cross_abi_helpers": "78074fbf11d1a7193afd5fbe4c4857e05c20795d063bd420518cee3a1669e6ec",
+            "runner": "2c5b1220656466caf7a4d171bc214ee97b7b1c9ed8a1bac7ba5313fb5b619c82"
+          },
+          "consumer_optimization": "-O2",
+          "inputs": {
+            "consumer.c": "63a85de64a6088fb3eb914bb60e3240ba4aaba64ea7d0838e17c6e8d76043499",
+            "fixture.h": "528c56acf15eba02fbb1b23b420a522a61b664464fd0548b13ad5ad3c1b92163",
+            "provider.c": "7ddd3525bcc74a4516a9ff49f20ec3d077d5662dacf36e7c37ce2ea7cb125861",
+            "syscalls.S": "a4e9782b26fcaf0e71ecc7ec312da6d0752b7dc594137beecfb5cda0309117c6",
+            "vectors.S": "ddf61b9e4d57c67db46476d69267ccd056459582a2c79d186797f4b5c2c84b4e"
+          },
+          "linker_emulation": "elf64lriscv",
+          "loader_dependencies": {
+            "archive": [],
+            "shared": [],
+            "static_client": []
+          },
+          "outputs": [
+            "archive",
+            "shared",
+            "static_client"
+          ],
+          "provider_options": [
+            "-O0",
+            "-std=c11",
+            "-ffreestanding",
+            "-fno-builtin",
+            "-fno-stack-protector",
+            "-fPIC",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "--target=riscv64-linux-gnu",
+            "-march=rv64gc",
+            "-mabi=lp64",
+            "-mno-relax"
+          ],
+          "shared_link_options": [
+            "-shared",
+            "-soname",
+            "libaffine.so"
+          ],
+          "static_link_options": [
+            "-static",
+            "-e",
+            "_start"
+          ],
+          "target": {
+            "flags": 1,
+            "machine": 243,
+            "os_abi": "LP64",
+            "profile": "rv64-lp64",
+            "sdk": "none:freestanding-linux-syscalls",
+            "triple": "riscv64-linux-gnu"
+          }
+        },
+        "checker": {
+          "sha256": "f2bb9b35eb97fc6b67c43a65d944ea9dcd7b1908df95faf28cea68511e762dc5",
+          "version": "qemu-riscv64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+        },
+        "client_observed_sha256": "407ef2e36cde97f6ee70454a96ed810284f2184da7bd9975c893db2e3cccb8e9",
+        "files": {
+          "archive": "edfc673fdce0bdb80d944385c3c27c6a5b1851d67b10e8452d496b1d8de78e0b",
+          "shared": "50fc376d2bfbe2838c1059340f1cec9557233a2ae279139520e543ad8cc8a166",
+          "static_client": "fb7515605c7d636d1a488286701656c0af3c6f527cf330bfca50635cd603bec1"
+        }
+      }
+    },
+    "rv64-lp64/-O2": {
+      "action_key": "1a6a22312afbb2f8b2fcae6950355d643481e05a463069f7bd56128c78e64a7c",
+      "package_manifest": {
+        "action": {
+          "action": "cross-ffi-package-v1",
+          "archive_mode": "rcsD",
+          "build_host": {
+            "ar": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libbfd-2.44-system.so": "7a27acdd82e38dbddd8568d54de0df4358e71a3c387d5c1d999d369450c1bf6a",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libsframe.so.1": "adb0b9a33909e7264ad724e138eb97995832e535b22b192c1a898c349c918a9f",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "f8fe09d485b40b1d47c534c96f5cbaaa9148e247aa0494c087104421f48ac5eb",
+              "version": "GNU ar (GNU Binutils for Debian) 2.44"
+            },
+            "clang": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libclang-cpp.so.19.1": "0108c687d2f500d77687984c46c9fad663782603f5c623e3c14224c155b4fd21",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+              "version": "Debian clang version 19.1.7 (3+b1)"
+            },
+            "kernel": "6.18.57",
+            "lld": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+              "version": "Debian LLD 19.1.7 (compatible with GNU linkers)"
+            },
+            "machine": "x86_64"
+          },
+          "build_recipe_sha256": {
+            "cross_abi_helpers": "78074fbf11d1a7193afd5fbe4c4857e05c20795d063bd420518cee3a1669e6ec",
+            "runner": "2c5b1220656466caf7a4d171bc214ee97b7b1c9ed8a1bac7ba5313fb5b619c82"
+          },
+          "consumer_optimization": "-O2",
+          "inputs": {
+            "consumer.c": "63a85de64a6088fb3eb914bb60e3240ba4aaba64ea7d0838e17c6e8d76043499",
+            "fixture.h": "528c56acf15eba02fbb1b23b420a522a61b664464fd0548b13ad5ad3c1b92163",
+            "provider.c": "7ddd3525bcc74a4516a9ff49f20ec3d077d5662dacf36e7c37ce2ea7cb125861",
+            "syscalls.S": "a4e9782b26fcaf0e71ecc7ec312da6d0752b7dc594137beecfb5cda0309117c6",
+            "vectors.S": "ddf61b9e4d57c67db46476d69267ccd056459582a2c79d186797f4b5c2c84b4e"
+          },
+          "linker_emulation": "elf64lriscv",
+          "loader_dependencies": {
+            "archive": [],
+            "shared": [],
+            "static_client": []
+          },
+          "outputs": [
+            "archive",
+            "shared",
+            "static_client"
+          ],
+          "provider_options": [
+            "-O2",
+            "-std=c11",
+            "-ffreestanding",
+            "-fno-builtin",
+            "-fno-stack-protector",
+            "-fPIC",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "--target=riscv64-linux-gnu",
+            "-march=rv64gc",
+            "-mabi=lp64",
+            "-mno-relax"
+          ],
+          "shared_link_options": [
+            "-shared",
+            "-soname",
+            "libaffine.so"
+          ],
+          "static_link_options": [
+            "-static",
+            "-e",
+            "_start"
+          ],
+          "target": {
+            "flags": 1,
+            "machine": 243,
+            "os_abi": "LP64",
+            "profile": "rv64-lp64",
+            "sdk": "none:freestanding-linux-syscalls",
+            "triple": "riscv64-linux-gnu"
+          }
+        },
+        "checker": {
+          "sha256": "f2bb9b35eb97fc6b67c43a65d944ea9dcd7b1908df95faf28cea68511e762dc5",
+          "version": "qemu-riscv64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+        },
+        "client_observed_sha256": "407ef2e36cde97f6ee70454a96ed810284f2184da7bd9975c893db2e3cccb8e9",
+        "files": {
+          "archive": "9cdc08d77a3738e00b8d0e1899c624247fd21a491c7f5b6a31b874b7af31e103",
+          "shared": "b18359a62733b613ac5a6f62b17c7fe45395579849ff28840f93fe2074c68ca9",
+          "static_client": "d43ec7a541b659c5e06d581064d86170623a02b847daf0c020f745343da40444"
+        }
+      }
+    },
+    "rv64-lp64d/-O0": {
+      "action_key": "e920cee0c484a576c7a46b85cb90970aecb5b3042068838cb3986d4dd4541347",
+      "package_manifest": {
+        "action": {
+          "action": "cross-ffi-package-v1",
+          "archive_mode": "rcsD",
+          "build_host": {
+            "ar": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libbfd-2.44-system.so": "7a27acdd82e38dbddd8568d54de0df4358e71a3c387d5c1d999d369450c1bf6a",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libsframe.so.1": "adb0b9a33909e7264ad724e138eb97995832e535b22b192c1a898c349c918a9f",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "f8fe09d485b40b1d47c534c96f5cbaaa9148e247aa0494c087104421f48ac5eb",
+              "version": "GNU ar (GNU Binutils for Debian) 2.44"
+            },
+            "clang": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libclang-cpp.so.19.1": "0108c687d2f500d77687984c46c9fad663782603f5c623e3c14224c155b4fd21",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+              "version": "Debian clang version 19.1.7 (3+b1)"
+            },
+            "kernel": "6.18.57",
+            "lld": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+              "version": "Debian LLD 19.1.7 (compatible with GNU linkers)"
+            },
+            "machine": "x86_64"
+          },
+          "build_recipe_sha256": {
+            "cross_abi_helpers": "78074fbf11d1a7193afd5fbe4c4857e05c20795d063bd420518cee3a1669e6ec",
+            "runner": "2c5b1220656466caf7a4d171bc214ee97b7b1c9ed8a1bac7ba5313fb5b619c82"
+          },
+          "consumer_optimization": "-O2",
+          "inputs": {
+            "consumer.c": "63a85de64a6088fb3eb914bb60e3240ba4aaba64ea7d0838e17c6e8d76043499",
+            "fixture.h": "528c56acf15eba02fbb1b23b420a522a61b664464fd0548b13ad5ad3c1b92163",
+            "provider.c": "7ddd3525bcc74a4516a9ff49f20ec3d077d5662dacf36e7c37ce2ea7cb125861",
+            "syscalls.S": "a4e9782b26fcaf0e71ecc7ec312da6d0752b7dc594137beecfb5cda0309117c6",
+            "vectors.S": "ddf61b9e4d57c67db46476d69267ccd056459582a2c79d186797f4b5c2c84b4e"
+          },
+          "linker_emulation": "elf64lriscv",
+          "loader_dependencies": {
+            "archive": [],
+            "shared": [],
+            "static_client": []
+          },
+          "outputs": [
+            "archive",
+            "shared",
+            "static_client"
+          ],
+          "provider_options": [
+            "-O0",
+            "-std=c11",
+            "-ffreestanding",
+            "-fno-builtin",
+            "-fno-stack-protector",
+            "-fPIC",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "--target=riscv64-linux-gnu",
+            "-march=rv64gc",
+            "-mabi=lp64d",
+            "-mno-relax",
+            "-DHARD_FLOAT"
+          ],
+          "shared_link_options": [
+            "-shared",
+            "-soname",
+            "libaffine.so"
+          ],
+          "static_link_options": [
+            "-static",
+            "-e",
+            "_start"
+          ],
+          "target": {
+            "flags": 5,
+            "machine": 243,
+            "os_abi": "LP64D",
+            "profile": "rv64-lp64d",
+            "sdk": "none:freestanding-linux-syscalls",
+            "triple": "riscv64-linux-gnu"
+          }
+        },
+        "checker": {
+          "sha256": "f2bb9b35eb97fc6b67c43a65d944ea9dcd7b1908df95faf28cea68511e762dc5",
+          "version": "qemu-riscv64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+        },
+        "client_observed_sha256": "407ef2e36cde97f6ee70454a96ed810284f2184da7bd9975c893db2e3cccb8e9",
+        "files": {
+          "archive": "c4714a4026cfcf29c82742df4121851b0a8cbd439f024468291acadd113726af",
+          "shared": "807a8cdad33cb1aaa584ffce208876a675d59c19e455af02d5f369fe3dd5a16c",
+          "static_client": "1fa4886e27451d67e38f215067ba4050d6917e3fad2457e2339683e1edc05dad"
+        }
+      }
+    },
+    "rv64-lp64d/-O2": {
+      "action_key": "a7654811d4f63cf6ed01262a8eb7f89fbafe9cfdc484da6da32ffdb0ea7e179d",
+      "package_manifest": {
+        "action": {
+          "action": "cross-ffi-package-v1",
+          "archive_mode": "rcsD",
+          "build_host": {
+            "ar": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libbfd-2.44-system.so": "7a27acdd82e38dbddd8568d54de0df4358e71a3c387d5c1d999d369450c1bf6a",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libsframe.so.1": "adb0b9a33909e7264ad724e138eb97995832e535b22b192c1a898c349c918a9f",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "f8fe09d485b40b1d47c534c96f5cbaaa9148e247aa0494c087104421f48ac5eb",
+              "version": "GNU ar (GNU Binutils for Debian) 2.44"
+            },
+            "clang": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libclang-cpp.so.19.1": "0108c687d2f500d77687984c46c9fad663782603f5c623e3c14224c155b4fd21",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+              "version": "Debian clang version 19.1.7 (3+b1)"
+            },
+            "kernel": "6.18.57",
+            "lld": {
+              "resolved_libraries_sha256": {
+                "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+                "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+                "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+                "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+                "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+                "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+                "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+                "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+                "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+                "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+                "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+                "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+                "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+                "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+                "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+                "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+              },
+              "sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+              "version": "Debian LLD 19.1.7 (compatible with GNU linkers)"
+            },
+            "machine": "x86_64"
+          },
+          "build_recipe_sha256": {
+            "cross_abi_helpers": "78074fbf11d1a7193afd5fbe4c4857e05c20795d063bd420518cee3a1669e6ec",
+            "runner": "2c5b1220656466caf7a4d171bc214ee97b7b1c9ed8a1bac7ba5313fb5b619c82"
+          },
+          "consumer_optimization": "-O2",
+          "inputs": {
+            "consumer.c": "63a85de64a6088fb3eb914bb60e3240ba4aaba64ea7d0838e17c6e8d76043499",
+            "fixture.h": "528c56acf15eba02fbb1b23b420a522a61b664464fd0548b13ad5ad3c1b92163",
+            "provider.c": "7ddd3525bcc74a4516a9ff49f20ec3d077d5662dacf36e7c37ce2ea7cb125861",
+            "syscalls.S": "a4e9782b26fcaf0e71ecc7ec312da6d0752b7dc594137beecfb5cda0309117c6",
+            "vectors.S": "ddf61b9e4d57c67db46476d69267ccd056459582a2c79d186797f4b5c2c84b4e"
+          },
+          "linker_emulation": "elf64lriscv",
+          "loader_dependencies": {
+            "archive": [],
+            "shared": [],
+            "static_client": []
+          },
+          "outputs": [
+            "archive",
+            "shared",
+            "static_client"
+          ],
+          "provider_options": [
+            "-O2",
+            "-std=c11",
+            "-ffreestanding",
+            "-fno-builtin",
+            "-fno-stack-protector",
+            "-fPIC",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "--target=riscv64-linux-gnu",
+            "-march=rv64gc",
+            "-mabi=lp64d",
+            "-mno-relax",
+            "-DHARD_FLOAT"
+          ],
+          "shared_link_options": [
+            "-shared",
+            "-soname",
+            "libaffine.so"
+          ],
+          "static_link_options": [
+            "-static",
+            "-e",
+            "_start"
+          ],
+          "target": {
+            "flags": 5,
+            "machine": 243,
+            "os_abi": "LP64D",
+            "profile": "rv64-lp64d",
+            "sdk": "none:freestanding-linux-syscalls",
+            "triple": "riscv64-linux-gnu"
+          }
+        },
+        "checker": {
+          "sha256": "f2bb9b35eb97fc6b67c43a65d944ea9dcd7b1908df95faf28cea68511e762dc5",
+          "version": "qemu-riscv64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+        },
+        "client_observed_sha256": "407ef2e36cde97f6ee70454a96ed810284f2184da7bd9975c893db2e3cccb8e9",
+        "files": {
+          "archive": "2305411103d9abbe6e340031fb954e7e79a72e7c7d037882aab52b29e421d220",
+          "shared": "5acae4e039b3d0e2fc2ec21c40139d8a98f4af9377a1668fb31aa3e9af1e6187",
+          "static_client": "eb0444c939130093f03147705f1337073dea7a92e4facabf536ee7fd176d4514"
+        }
+      }
+    }
+  },
+  "sqlite": "3.53.1",
+  "static_observations": 288,
+  "tool_identity": {
+    "ar": {
+      "resolved_libraries_sha256": {
+        "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+        "libbfd-2.44-system.so": "7a27acdd82e38dbddd8568d54de0df4358e71a3c387d5c1d999d369450c1bf6a",
+        "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+        "libsframe.so.1": "adb0b9a33909e7264ad724e138eb97995832e535b22b192c1a898c349c918a9f",
+        "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+        "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+      },
+      "sha256": "f8fe09d485b40b1d47c534c96f5cbaaa9148e247aa0494c087104421f48ac5eb",
+      "version": "GNU ar (GNU Binutils for Debian) 2.44"
+    },
+    "clang": {
+      "resolved_libraries_sha256": {
+        "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+        "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+        "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+        "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+        "libclang-cpp.so.19.1": "0108c687d2f500d77687984c46c9fad663782603f5c623e3c14224c155b4fd21",
+        "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+        "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+        "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+        "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+        "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+        "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+        "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+        "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+        "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+        "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+        "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+        "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+      },
+      "sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+      "version": "Debian clang version 19.1.7 (3+b1)"
+    },
+    "kernel": "6.18.57",
+    "lld": {
+      "resolved_libraries_sha256": {
+        "ld-linux-x86-64.so.2": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+        "libLLVM.so.19.1": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a",
+        "libbsd.so.0": "167e3fa2b6320ce61534a48002e6d0921f61d61eae88a669c117e23ed3de9f37",
+        "libc.so.6": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+        "libedit.so.2": "4cde661dc336a1a835e605532086c629f6279a312374c91795215b8489ad4bcf",
+        "libffi.so.8": "922024ec5a23f7de1095b1cff2f6cbfb377b5d58cd51fd0ec2e8fe35427653e2",
+        "libgcc_s.so.1": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+        "liblzma.so.5": "7ca392e92ebb94b6f8ee094cbd5243185e4452377b94acc657f7ba8c8f9dda2c",
+        "libm.so.6": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+        "libmd.so.0": "1c8c51474c0eb67dabd9f1605097eb58195cdabef64427ae17cfcd2053c37479",
+        "libstdc++.so.6": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+        "libtinfo.so.6": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+        "libxml2.so.2": "8f2643af68a9eba917929046806dabd1848867068d0eee0f6799288a8e886963",
+        "libz.so.1": "6c13931760210e8b391b63a337dfe4071346c4ad6e3827694edb7b6989bb16dd",
+        "libz3.so.4": "7accc397d4ac387468b09489bdaff9d82bfac4ca6a7e339b8fbb2167edf9c1c0",
+        "libzstd.so.1": "27f07c9a49c2c956bcfb64cd4712976586a66facbf15fc7f09bc37413b5f2b21"
+      },
+      "sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+      "version": "Debian LLD 19.1.7 (compatible with GNU linkers)"
+    },
+    "machine": "x86_64"
+  }
+}
