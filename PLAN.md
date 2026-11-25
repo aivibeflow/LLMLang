@@ -545,6 +545,8 @@ The [binary-search cost pilot](research/formal-verification/RT-34/RT-34-BINARY-S
 
 **Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; Lean QF_LIA profile/admissibility modules and focused tests; CI workflow.
 
+**Restricted affine proof route:** The [Lean certificate checker](research/formal-verification/RT-07/RT-07-RESTRICTED-AFFINE-CERTIFICATES-2026-11-25.md) refutes two exact archived QF_LIA assertions and a weighted control using standard Lean axioms. It checks coverage of all branches and abstains on a satisfiable control and an integer-only contradiction. General SMT-LIB correspondence, stronger proof rules and routing policy remain open.
+
 **Direct CPC evidence (2026-11-21)** · A source-derived flat CPC refutation passes the assumption and verdict gates. A refutation of a substituted query passes standalone Logos and fails source binding. [Source-bound CPC refutation](research/formal-verification/RT-07/RT-07-SOURCE-BOUND-CPC-REFUTATION.md)
 
 **CPC alias evidence (2026-11-21)** · A closed proof profile can admit disjoint nullary abbreviations while checking actual top-level constant declarations separately. [CPC alias binding](research/formal-verification/RT-07/RT-07-CPC-NULLARY-ALIAS-BINDING.md)
