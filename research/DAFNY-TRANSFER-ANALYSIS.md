@@ -26,6 +26,20 @@ Dafny is a verification-aware language with a verifier and compiler. Its documen
 | Dafny source as code plus specification | Makes contracts close to the implementation they constrain | Human-readable LLMLang DSL as a view/edit format over typed SPG | **Evaluate** | Round-trip parse/print; no semantic loss; define canonical source and diagnostics if SPG is authoritative |
 | Compiler to multiple target languages | Makes verified code usable in deployment environments | Potential backend integration after semantic core is stable | **Defer** | Prove or validate translation preservation and identify which generated/external code lies outside the guarantee |
 
+## Dafny heap and concurrency boundary
+
+Dafny has a heap of reference objects and arrays, alongside immutable value types such as integers, sets, sequences, multisets, maps, and datatypes. Heap reads and writes can be bounded with `reads` and `modifies` frame clauses. These frames support modular sequential reasoning: they state which heap locations a declaration may depend on or modify. They do not, by themselves, provide mutual exclusion, atomicity, memory-ordering rules, or a concurrent-history semantics ([framing reference](https://dafny.org/latest/DafnyRef/DafnyRef)).
+
+Dafny is a sequential language and has no native constructs for spawning or controlling concurrent execution. It does, however, provide the `{:concurrent}` attribute for declarations intended to be safe when the target-language environment executes them concurrently. The documented restriction is that such a declaration must have empty read and write frames, preventing access to shared mutable state while allowing mutation of newly allocated objects. `{:assume_concurrent}` can relax this restriction, but it represents an assumption because these concurrency semantics are not directly expressed in Dafny syntax. This facility is useful for a restricted race-avoidance condition; it is not a general verifier for concurrent algorithms, synchronization protocols, or linearizability ([Dafny `{:concurrent}` reference](https://dafny.org/latest/DafnyRef/DafnyRef)).
+
+The transfer study should distinguish at least three claims:
+
+1. **Sequential heap safety:** a method respects its frame and functional contract.
+2. **Race avoidance for isolated calls:** declarations satisfy Dafny's restricted `{:concurrent}` conditions in the target environment.
+3. **Concurrent algorithm correctness:** all allowed interleavings satisfy a stated history/state property, including synchronization and memory-order assumptions.
+
+Only the first is ordinary Dafny verification; the second is a restricted language-enforced condition plus an execution-environment premise; the third requires a separate formal model and proof methodology. LLMLang should not treat `reads`/`modifies` or effect capabilities alone as a concurrency proof. Its research must define shared-memory semantics, atomic operations, synchronization, observable histories, and the correspondence between the model and target runtime.
+
 ## 3. Candidate contract core
 
 A useful experiment should start with a small, ordinary procedural example, not the entire Dafny language. A possible LLMLang surface sketch is:
@@ -100,7 +114,22 @@ Parse a limited set of Dafny declarations and represent their contracts as typed
 
 Compare human/LLM workflows for a proof-preserving refactor, contract change, implementation-only change, and intentionally invalid change. Track unintended edits, proof repair effort, review time, and stale evidence detection.
 
-## 7. Decision criteria
+## 7. seL4 as a high-assurance comparison case
+
+seL4 is not written in Dafny. Its verification framework uses Isabelle/HOL to connect abstract and executable specifications to the C implementation; for selected configurations, a further proof connects C to the machine binary. The C source is parsed into a formal semantic model, and refinement proofs connect that model to higher-level specifications. The project also proves security properties such as integrity and confidentiality for specified configurations ([seL4 proofs](https://sel4.systems/Verification/proofs), [verification FAQ](https://sel4.org/About/FAQ.html), [seL4 white paper](https://beta.sel4.systems/About/seL4-whitepaper.pdf)).
+
+This is not evidence that Dafny cannot express kernel contracts. It shows that high assurance for a kernel requires more than convenient contract syntax: the verification architecture must cover the actual low-level implementation and, where claimed, the binary, while stating hardware, boot, machine-interface, compiler, and configuration assumptions. Dafny `extern` declarations let a Dafny program rely on external implementations through contracts, but do not prove that external C/C++ implementations or ABI bindings satisfy those contracts. Its compiler targets and FFI are not by themselves a verified C-kernel-to-binary pipeline ([Dafny reference](https://dafny.org/latest/DafnyRef/DafnyRef), [installation and target-language notes](https://dafny.org/dafny/Installation)).
+
+Rewriting seL4 in Dafny is technically conceivable as a new kernel project, but it would not preserve the existing seL4 proofs through a source-language substitution. The implementation, low-level architecture bindings, ABI boundary, build/runtime assumptions, refinement chain, security theorems, and binary-level evidence would need to be rebuilt or re-established for the new implementation and configurations. An all-Dafny kernel that calls external low-level code would still need an explicit trust boundary and evidence that the external code refines its contracts.
+
+Add a controlled seL4-inspired case study to the transfer programme:
+
+- Compare a small kernel-like component at three levels: abstract state machine, executable implementation, and an explicit low-level/ABI boundary.
+- Ask which obligations Dafny can discharge directly, which need a separate model or proof assistant, and which remain assumptions about hardware, assembly, runtime, or external code.
+- Determine whether Dafny is a useful implementation/specification language for the bounded component, a contract frontend, or a baseline beside Isabelle/HOL.
+- Do not extrapolate a toy component result to seL4 itself. Record properties, configuration, source/binary scope, assumptions, and tool trust explicitly.
+
+## 8. Decision criteria
 
 Prefer reuse of Dafny tooling when it provides the needed verification semantics and the translation boundary can be made explicit and trustworthy. Prefer LLMLang-native constructs only when the requirements materially differ—for example, provenance-aware contract lifecycle, effect/capability composition, or graph-level incremental evidence—and a small formal model demonstrates that difference.
 
@@ -114,7 +143,7 @@ Do not transfer a mechanism solely because it exists in Dafny. For every proposa
 - evidence from examples/prototypes;
 - unresolved questions and decision owner/status.
 
-## 8. Expected outputs
+## 9. Expected outputs
 
 1. Construct-by-construct transfer matrix with accepted/adapt/reject/defer status.
 2. Candidate LLMLang contract grammar and semantics for a deliberately small subset.
