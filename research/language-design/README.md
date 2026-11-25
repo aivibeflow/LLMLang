@@ -27,6 +27,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-02 fail-closed evidence gates](RT-02/RT-02-FAIL-CLOSED-EVIDENCE-GATES-2026-11-25.md) — composes independent intent, formal-contract and implementation gates.
 - [RT-02 property revision impact](RT-02/RT-02-PROPERTY-REVISION-IMPACT-2026-11-25.md) — distinguishes property evidence reuse and exact package review renewal.
 - [RT-02 requirement class and risk coverage](RT-02/RT-02-REQUIREMENT-CLASS-AND-RISK-COVERAGE-2026-11-25.md) — compares three bounded requirement classes under distinct evidence policies.
+- [RT-02 source-blind reconstruction routing](RT-02/RT-02-SOURCE-BLIND-RECONSTRUCTION-ROUTING-2026-11-25.md) — compares checked deterministic rendering, independent check and fallback on seeded drafts.
 - [Scenario 03 — Requirement impact](RT-02/RESEARCH-SCENARIO-03-REQUIREMENT-IMPACT.md)
 - [Token-efficiency notes](RT-31/TOKEN_EFFICIENCY.md). Exploratory options for authoring and context size.
 
