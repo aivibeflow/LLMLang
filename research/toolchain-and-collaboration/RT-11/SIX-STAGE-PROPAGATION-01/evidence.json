@@ -1,0 +1,589 @@
+{
+  "schema": "llmlang-six-stage-propagation/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "a5a149be8e2ccb47f486e551ab6e38d2aaf9de73da26020848553d5702969f1a",
+    "Bound.lean": "1a8118d8be1f937f8bcdf698af770b3b8331465de1065c942c22344730cc9dac",
+    "axioms.txt": "81bf608ac2372a344b12be023d56b7518f99f6240380c17d11b1447da95891d4"
+  },
+  "results": {
+    "native_toolchain": {
+      "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+      "as": "GNU assembler (GNU Binutils for Debian) 2.44",
+      "ld": "GNU ld (GNU Binutils for Debian) 2.44"
+    },
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "by_call_mode": {
+      "direct": {
+        "baseline": {
+          "keys": {
+            "type": "c36177e84d31bcd47388cadbd3772a7f270c7fea2a94cf03db21df7f0ef07e2d",
+            "optimize": "eb5ac30f168163fa41669b95ca2f8b4eddae15a6fa8b553f6adfca7390387c3e",
+            "codegen": "65d5a7aeac260e703ccf49e941e2d3d12ca6c274256da33b62a894bfafee5f97",
+            "test": "42189256bd6054da59c8e6cccd03ba5e8ac4ba8d6f1794b49d12f131eece0add",
+            "contract": "f49a3eb453bd21cdf239474a53b9674dc07643075f914ffb3673e5517e2a3851",
+            "proof": "506949ac61303a2494731d05f1f8f8251c110450ceeba3a58a0803ebb978b556"
+          },
+          "caller": "f871eada67a88c728a06dbaf30d6fbbb8546e09aa3f74ef0337bff25b10d1e2d",
+          "provider": "b293733950b7a73c569b16ae6348d93e1c1d68ba076872c7b4d4127959803587",
+          "type": "checked",
+          "assemblies": {
+            "caller": "e92c63ab70fef377d1ee2f90bf8545fdecf8721a443ad606dd584778fdfa316e"
+          },
+          "objects": {
+            "caller": "843c0b49783fa440085a08ffd9e2e5072076dfadc0358f380d1bd8c2bc109791"
+          },
+          "executable": "b6a85c396cd3a7748b662fb35f7baf896abb98bef360be9d2faef2cac52cf44b",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [],
+          "same_caller": true,
+          "same_provider": true,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "4b07040f0347b107198a99ea6440055e5ee284b2aee187eddb8c0840446c6b2c",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "equivalent_provider": {
+          "keys": {
+            "type": "03a8353b8eb5a44b27d0f19508ff677d4a7459cbbc4678db716f2472cfaa804e",
+            "optimize": "227fb13e874a1e77aad3f539a21e17d77aed20f9220b1b99caae7bbfbec554b4",
+            "codegen": "65d5a7aeac260e703ccf49e941e2d3d12ca6c274256da33b62a894bfafee5f97",
+            "test": "42189256bd6054da59c8e6cccd03ba5e8ac4ba8d6f1794b49d12f131eece0add",
+            "contract": "a2ba477857c6b29aef3cbcd8769636549617e71b8ebd9ad2048eaae481aad345",
+            "proof": "3b10097e93307347e343bee736752a910a713fa1f4da8e40c4fe3dc35f09bfab"
+          },
+          "caller": "04ef901d394674bcab3173729be88bc841cbcc9991c4391a8c536766faa4f202",
+          "provider": "5327a8705eb3bd3b7d17e039fa15c31fb5c65a43fcfddf626265d0782ad59e39",
+          "type": "checked",
+          "assemblies": {
+            "caller": "e92c63ab70fef377d1ee2f90bf8545fdecf8721a443ad606dd584778fdfa316e"
+          },
+          "objects": {
+            "caller": "843c0b49783fa440085a08ffd9e2e5072076dfadc0358f380d1bd8c2bc109791"
+          },
+          "executable": "b6a85c396cd3a7748b662fb35f7baf896abb98bef360be9d2faef2cac52cf44b",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [
+            "type",
+            "contract",
+            "optimize",
+            "proof"
+          ],
+          "same_caller": false,
+          "same_provider": false,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "4b07040f0347b107198a99ea6440055e5ee284b2aee187eddb8c0840446c6b2c",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "different_provider": {
+          "keys": {
+            "type": "94b39ec030115c4723204d4e11aa3f3c6037229b84c9125f3ecffa20a98fefe6",
+            "optimize": "811ef17890ca98f3d55612d1748b6e4831fcd2085a5997fbfc2c8cf1d5ad928d",
+            "codegen": "6a8d03494ca1399fc5aa2486caa11b3c9960a167497ee013546fcc0e28f3c657",
+            "test": "999ae7a2ae7974b4041df96de6b293e6f6fc7dc223ee1cfde82dc40ee47997df",
+            "contract": "8b1963deb4a97bc2967f6362d49ac29c7b282cd77667f9a56baf4675e205a534",
+            "proof": "43ead23df1e16ed3d79984ff516341a92fda28611f52691e12c6f6a3ef0178f5"
+          },
+          "caller": "c611a488f4757271a1d17c81414a471f64cf6295d46be467f5f3eb4ef13e5c90",
+          "provider": "cc89009c7802fde5b17004aec6f10a596de4ab73825b44f56bbc59265e86eb74",
+          "type": "checked",
+          "assemblies": {
+            "caller": "91ae0356b2dfa1bb38a6116d2e184bfab32666cc7022f8fe8b0b6725aa032bef"
+          },
+          "objects": {
+            "caller": "2dc9ec071d22bcb52cfffa6b519ccee57d181ff44a5d2b4d656e2064782fd46a"
+          },
+          "executable": "40f1d01c9efd74090e856286e55dcfbba6fb9322e01e514bbe35b3d31d1400ee",
+          "native_cases": 17,
+          "contract_passes": false,
+          "exact_tests_pass": false,
+          "keys_changed": [
+            "type",
+            "contract",
+            "optimize",
+            "codegen",
+            "test",
+            "proof"
+          ],
+          "same_caller": false,
+          "same_provider": false,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "refuted",
+            "generated_sha256": "15871e79d0e31e540fba3c8677012cb0036ef92420036b45375a9ed3b6b5c4a0",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "contract_changed": {
+          "keys": {
+            "type": "c36177e84d31bcd47388cadbd3772a7f270c7fea2a94cf03db21df7f0ef07e2d",
+            "optimize": "eb5ac30f168163fa41669b95ca2f8b4eddae15a6fa8b553f6adfca7390387c3e",
+            "codegen": "65d5a7aeac260e703ccf49e941e2d3d12ca6c274256da33b62a894bfafee5f97",
+            "test": "42189256bd6054da59c8e6cccd03ba5e8ac4ba8d6f1794b49d12f131eece0add",
+            "contract": "47ed323c479f176e2c97c25196352ce251191ac572a470c73478e4dbe8f86fd2",
+            "proof": "56283d7b481052b71b287766316b6d49a453d30904057efbf54e07be5cd6c4ed"
+          },
+          "caller": "f871eada67a88c728a06dbaf30d6fbbb8546e09aa3f74ef0337bff25b10d1e2d",
+          "provider": "b293733950b7a73c569b16ae6348d93e1c1d68ba076872c7b4d4127959803587",
+          "type": "checked",
+          "assemblies": {
+            "caller": "e92c63ab70fef377d1ee2f90bf8545fdecf8721a443ad606dd584778fdfa316e"
+          },
+          "objects": {
+            "caller": "843c0b49783fa440085a08ffd9e2e5072076dfadc0358f380d1bd8c2bc109791"
+          },
+          "executable": "b6a85c396cd3a7748b662fb35f7baf896abb98bef360be9d2faef2cac52cf44b",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [
+            "contract",
+            "proof"
+          ],
+          "same_caller": true,
+          "same_provider": true,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "68a3f8378d6d29dc715890d07068d9f9f1828af5349b66ad4eeb7d58d6584469",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "unused_candidate_changed": {
+          "keys": {
+            "type": "c36177e84d31bcd47388cadbd3772a7f270c7fea2a94cf03db21df7f0ef07e2d",
+            "optimize": "eb5ac30f168163fa41669b95ca2f8b4eddae15a6fa8b553f6adfca7390387c3e",
+            "codegen": "65d5a7aeac260e703ccf49e941e2d3d12ca6c274256da33b62a894bfafee5f97",
+            "test": "42189256bd6054da59c8e6cccd03ba5e8ac4ba8d6f1794b49d12f131eece0add",
+            "contract": "f49a3eb453bd21cdf239474a53b9674dc07643075f914ffb3673e5517e2a3851",
+            "proof": "506949ac61303a2494731d05f1f8f8251c110450ceeba3a58a0803ebb978b556"
+          },
+          "caller": "f871eada67a88c728a06dbaf30d6fbbb8546e09aa3f74ef0337bff25b10d1e2d",
+          "provider": "b293733950b7a73c569b16ae6348d93e1c1d68ba076872c7b4d4127959803587",
+          "type": "checked",
+          "assemblies": {
+            "caller": "e92c63ab70fef377d1ee2f90bf8545fdecf8721a443ad606dd584778fdfa316e"
+          },
+          "objects": {
+            "caller": "843c0b49783fa440085a08ffd9e2e5072076dfadc0358f380d1bd8c2bc109791"
+          },
+          "executable": "b6a85c396cd3a7748b662fb35f7baf896abb98bef360be9d2faef2cac52cf44b",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [],
+          "same_caller": true,
+          "same_provider": true,
+          "same_unselected_candidate": false,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "4b07040f0347b107198a99ea6440055e5ee284b2aee187eddb8c0840446c6b2c",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "checker_policy_changed": {
+          "keys": {
+            "type": "c36177e84d31bcd47388cadbd3772a7f270c7fea2a94cf03db21df7f0ef07e2d",
+            "optimize": "eb5ac30f168163fa41669b95ca2f8b4eddae15a6fa8b553f6adfca7390387c3e",
+            "codegen": "65d5a7aeac260e703ccf49e941e2d3d12ca6c274256da33b62a894bfafee5f97",
+            "test": "42189256bd6054da59c8e6cccd03ba5e8ac4ba8d6f1794b49d12f131eece0add",
+            "contract": "f49a3eb453bd21cdf239474a53b9674dc07643075f914ffb3673e5517e2a3851",
+            "proof": "97a129c5ba52a3cf969c0ce98e526851393d262eda60d43b1e9b306f92fd4a99"
+          },
+          "caller": "f871eada67a88c728a06dbaf30d6fbbb8546e09aa3f74ef0337bff25b10d1e2d",
+          "provider": "b293733950b7a73c569b16ae6348d93e1c1d68ba076872c7b4d4127959803587",
+          "type": "checked",
+          "assemblies": {
+            "caller": "e92c63ab70fef377d1ee2f90bf8545fdecf8721a443ad606dd584778fdfa316e"
+          },
+          "objects": {
+            "caller": "843c0b49783fa440085a08ffd9e2e5072076dfadc0358f380d1bd8c2bc109791"
+          },
+          "executable": "b6a85c396cd3a7748b662fb35f7baf896abb98bef360be9d2faef2cac52cf44b",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [
+            "proof"
+          ],
+          "same_caller": true,
+          "same_provider": true,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "4b07040f0347b107198a99ea6440055e5ee284b2aee187eddb8c0840446c6b2c",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "test_fixture_changed": {
+          "keys": {
+            "type": "c36177e84d31bcd47388cadbd3772a7f270c7fea2a94cf03db21df7f0ef07e2d",
+            "optimize": "eb5ac30f168163fa41669b95ca2f8b4eddae15a6fa8b553f6adfca7390387c3e",
+            "codegen": "65d5a7aeac260e703ccf49e941e2d3d12ca6c274256da33b62a894bfafee5f97",
+            "test": "1fbc8f383c50000da47b2773d7092aa09842f12a63ec2f26ed7a4b5903d8ad01",
+            "contract": "f49a3eb453bd21cdf239474a53b9674dc07643075f914ffb3673e5517e2a3851",
+            "proof": "506949ac61303a2494731d05f1f8f8251c110450ceeba3a58a0803ebb978b556"
+          },
+          "caller": "f871eada67a88c728a06dbaf30d6fbbb8546e09aa3f74ef0337bff25b10d1e2d",
+          "provider": "b293733950b7a73c569b16ae6348d93e1c1d68ba076872c7b4d4127959803587",
+          "type": "checked",
+          "assemblies": {
+            "caller": "e92c63ab70fef377d1ee2f90bf8545fdecf8721a443ad606dd584778fdfa316e"
+          },
+          "objects": {
+            "caller": "843c0b49783fa440085a08ffd9e2e5072076dfadc0358f380d1bd8c2bc109791"
+          },
+          "executable": "b6a85c396cd3a7748b662fb35f7baf896abb98bef360be9d2faef2cac52cf44b",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [
+            "test"
+          ],
+          "same_caller": true,
+          "same_provider": true,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "4b07040f0347b107198a99ea6440055e5ee284b2aee187eddb8c0840446c6b2c",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "wrong_provider_type": {
+          "keys": {
+            "type": "c554e88ff5453be757afc36644923060d3f6d899b96c0d514bb2afc86ea0ba4c"
+          },
+          "caller": "8c5d1b895998ed2fa560c6ef4a7c20f915138434cefa950fc93a4af871b70fdf",
+          "provider": "b14e1aaeb769dca55289ec25044c9b0699d1e00ebd462583f9432b13bb4d44e9",
+          "type": "refused",
+          "keys_changed": [
+            "type",
+            "contract",
+            "optimize",
+            "codegen",
+            "test",
+            "proof"
+          ],
+          "same_caller": false,
+          "same_provider": false,
+          "same_unselected_candidate": true
+        }
+      },
+      "contract": {
+        "baseline": {
+          "keys": {
+            "type": "b9884f945c19680c8b4555d95855424cc35db8a1ea393123bd0b5f8c642686a7",
+            "optimize": "87b7e823374abba6b343299824e66e7f82f32b78c8edcefeef0a1f03c09df8b9",
+            "codegen": "32ed84e9cc2913dffd72c23805d621a7ce1fe4592877dee854619f32434951c8",
+            "test": "db78087cc783fe9cf4fcbdefc154b7043cca5dc7310950ec510b1fe2dc4b96e4",
+            "contract": "27758945bc7ba7d62e0e5af2f7db001233304164f5b68d37e0f5651304ca76ae",
+            "proof": "61a6763991db6488798996d927fedbd923cf422dbd749f0555a50cbc9e2ca8f0"
+          },
+          "caller": "cf3baf3a158893b6bc793bfe2ba27ce95c3fcd6d6bedacfa2bd8d57b3efbfc1f",
+          "provider": "b293733950b7a73c569b16ae6348d93e1c1d68ba076872c7b4d4127959803587",
+          "type": "checked",
+          "assemblies": {
+            "caller": "a1bd3ace392bb8ed7163332ba98365904f953e438cda9a37fd7087ac5b2bd098",
+            "provider": "c10b2617a5007ffa157d0f4225079c2d72de6fcf741add4c2502159273647ef4"
+          },
+          "objects": {
+            "caller": "713488cce32c357bb2955c9df5e9161b6e6f903c78d69fc88ee21339409b95e9",
+            "provider": "95543aa183be7774862856a035e8b613cad3105baa727a737250129e3049bfba"
+          },
+          "executable": "dc53099f81731386c4fa6443357ec6252ba4e2d5041703fdd5c7d25267ffa756",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [],
+          "same_caller": true,
+          "same_provider": true,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "4b07040f0347b107198a99ea6440055e5ee284b2aee187eddb8c0840446c6b2c",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "equivalent_provider": {
+          "keys": {
+            "type": "254425821922f1b3a85d5dd85197dc200669beed32a13c1bbf401e7d16730a84",
+            "optimize": "e5a19d247065adb480d226ccc818fc4e7b2d8cd6e9f6a11657aceacffe65dd62",
+            "codegen": "32ed84e9cc2913dffd72c23805d621a7ce1fe4592877dee854619f32434951c8",
+            "test": "db78087cc783fe9cf4fcbdefc154b7043cca5dc7310950ec510b1fe2dc4b96e4",
+            "contract": "94454c52f818714563e191ff89b4b2a4f7ed4b9c8e8c8d491a81221f737f5de5",
+            "proof": "8c6c97be255586329b1d5dec882b8c2cf36fd9ff54649e5a7013271a829ec37f"
+          },
+          "caller": "cf3baf3a158893b6bc793bfe2ba27ce95c3fcd6d6bedacfa2bd8d57b3efbfc1f",
+          "provider": "5327a8705eb3bd3b7d17e039fa15c31fb5c65a43fcfddf626265d0782ad59e39",
+          "type": "checked",
+          "assemblies": {
+            "caller": "a1bd3ace392bb8ed7163332ba98365904f953e438cda9a37fd7087ac5b2bd098",
+            "provider": "c10b2617a5007ffa157d0f4225079c2d72de6fcf741add4c2502159273647ef4"
+          },
+          "objects": {
+            "caller": "713488cce32c357bb2955c9df5e9161b6e6f903c78d69fc88ee21339409b95e9",
+            "provider": "95543aa183be7774862856a035e8b613cad3105baa727a737250129e3049bfba"
+          },
+          "executable": "dc53099f81731386c4fa6443357ec6252ba4e2d5041703fdd5c7d25267ffa756",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [
+            "type",
+            "contract",
+            "optimize",
+            "proof"
+          ],
+          "same_caller": true,
+          "same_provider": false,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "4b07040f0347b107198a99ea6440055e5ee284b2aee187eddb8c0840446c6b2c",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "different_provider": {
+          "keys": {
+            "type": "3ad6e7af5ee35c3d888b0a8a2f3cc269f017655dc0b65214f7018959fb5d4a31",
+            "optimize": "35ea33024a7351d495eaae7f360d74ad37d2a16a16a1bad8693a698b6a7eac2b",
+            "codegen": "08957934db708f8a062574d4d4f6d780e55b8324dce48944117bc8cf9273d073",
+            "test": "714c055ea862ab26e23ebcbc12a17e31c33122b09a51a76e318a8c2c2fc35782",
+            "contract": "c9ed9f6054b7655806854b9fcc999b9897b5632c1e0667da81203b9fdc3ebf3b",
+            "proof": "fcf753c43d032fa8a59c3cfc353e8289111e264ff3fb3275a9a4ca3998d38dd1"
+          },
+          "caller": "cf3baf3a158893b6bc793bfe2ba27ce95c3fcd6d6bedacfa2bd8d57b3efbfc1f",
+          "provider": "cc89009c7802fde5b17004aec6f10a596de4ab73825b44f56bbc59265e86eb74",
+          "type": "checked",
+          "assemblies": {
+            "caller": "a1bd3ace392bb8ed7163332ba98365904f953e438cda9a37fd7087ac5b2bd098",
+            "provider": "c84aff70ad718240ed975533d99434bbb2a643dd4e4185c8b1cb0332743a4891"
+          },
+          "objects": {
+            "caller": "713488cce32c357bb2955c9df5e9161b6e6f903c78d69fc88ee21339409b95e9",
+            "provider": "6b643b8e1c25817191a2a587468408438b8e29217d060f74d8f4e788ab646fb5"
+          },
+          "executable": "49505ed64180c64cc900cc22a2adc4cc6ffc4dd533738b0e393112fdf0c6a411",
+          "native_cases": 17,
+          "contract_passes": false,
+          "exact_tests_pass": false,
+          "keys_changed": [
+            "type",
+            "contract",
+            "optimize",
+            "codegen",
+            "test",
+            "proof"
+          ],
+          "same_caller": true,
+          "same_provider": false,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "refuted",
+            "generated_sha256": "15871e79d0e31e540fba3c8677012cb0036ef92420036b45375a9ed3b6b5c4a0",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "contract_changed": {
+          "keys": {
+            "type": "b9884f945c19680c8b4555d95855424cc35db8a1ea393123bd0b5f8c642686a7",
+            "optimize": "87b7e823374abba6b343299824e66e7f82f32b78c8edcefeef0a1f03c09df8b9",
+            "codegen": "32ed84e9cc2913dffd72c23805d621a7ce1fe4592877dee854619f32434951c8",
+            "test": "db78087cc783fe9cf4fcbdefc154b7043cca5dc7310950ec510b1fe2dc4b96e4",
+            "contract": "74fa3e0a61ec33d7942a3aaf88b0624b44188372faef2b084b3bd5552488e730",
+            "proof": "07f64b5984896ee3b7d4457e44ff50402de8d6c0359a5d5bcfa0ba40120d4244"
+          },
+          "caller": "cf3baf3a158893b6bc793bfe2ba27ce95c3fcd6d6bedacfa2bd8d57b3efbfc1f",
+          "provider": "b293733950b7a73c569b16ae6348d93e1c1d68ba076872c7b4d4127959803587",
+          "type": "checked",
+          "assemblies": {
+            "caller": "a1bd3ace392bb8ed7163332ba98365904f953e438cda9a37fd7087ac5b2bd098",
+            "provider": "c10b2617a5007ffa157d0f4225079c2d72de6fcf741add4c2502159273647ef4"
+          },
+          "objects": {
+            "caller": "713488cce32c357bb2955c9df5e9161b6e6f903c78d69fc88ee21339409b95e9",
+            "provider": "95543aa183be7774862856a035e8b613cad3105baa727a737250129e3049bfba"
+          },
+          "executable": "dc53099f81731386c4fa6443357ec6252ba4e2d5041703fdd5c7d25267ffa756",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [
+            "contract",
+            "proof"
+          ],
+          "same_caller": true,
+          "same_provider": true,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "68a3f8378d6d29dc715890d07068d9f9f1828af5349b66ad4eeb7d58d6584469",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "unused_candidate_changed": {
+          "keys": {
+            "type": "b9884f945c19680c8b4555d95855424cc35db8a1ea393123bd0b5f8c642686a7",
+            "optimize": "87b7e823374abba6b343299824e66e7f82f32b78c8edcefeef0a1f03c09df8b9",
+            "codegen": "32ed84e9cc2913dffd72c23805d621a7ce1fe4592877dee854619f32434951c8",
+            "test": "db78087cc783fe9cf4fcbdefc154b7043cca5dc7310950ec510b1fe2dc4b96e4",
+            "contract": "27758945bc7ba7d62e0e5af2f7db001233304164f5b68d37e0f5651304ca76ae",
+            "proof": "61a6763991db6488798996d927fedbd923cf422dbd749f0555a50cbc9e2ca8f0"
+          },
+          "caller": "cf3baf3a158893b6bc793bfe2ba27ce95c3fcd6d6bedacfa2bd8d57b3efbfc1f",
+          "provider": "b293733950b7a73c569b16ae6348d93e1c1d68ba076872c7b4d4127959803587",
+          "type": "checked",
+          "assemblies": {
+            "caller": "a1bd3ace392bb8ed7163332ba98365904f953e438cda9a37fd7087ac5b2bd098",
+            "provider": "c10b2617a5007ffa157d0f4225079c2d72de6fcf741add4c2502159273647ef4"
+          },
+          "objects": {
+            "caller": "713488cce32c357bb2955c9df5e9161b6e6f903c78d69fc88ee21339409b95e9",
+            "provider": "95543aa183be7774862856a035e8b613cad3105baa727a737250129e3049bfba"
+          },
+          "executable": "dc53099f81731386c4fa6443357ec6252ba4e2d5041703fdd5c7d25267ffa756",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [],
+          "same_caller": true,
+          "same_provider": true,
+          "same_unselected_candidate": false,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "4b07040f0347b107198a99ea6440055e5ee284b2aee187eddb8c0840446c6b2c",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "checker_policy_changed": {
+          "keys": {
+            "type": "b9884f945c19680c8b4555d95855424cc35db8a1ea393123bd0b5f8c642686a7",
+            "optimize": "87b7e823374abba6b343299824e66e7f82f32b78c8edcefeef0a1f03c09df8b9",
+            "codegen": "32ed84e9cc2913dffd72c23805d621a7ce1fe4592877dee854619f32434951c8",
+            "test": "db78087cc783fe9cf4fcbdefc154b7043cca5dc7310950ec510b1fe2dc4b96e4",
+            "contract": "27758945bc7ba7d62e0e5af2f7db001233304164f5b68d37e0f5651304ca76ae",
+            "proof": "999d00c827481f5fbba6f08772643c6ea8bfc6c591bf3e45e34d97c2544a6453"
+          },
+          "caller": "cf3baf3a158893b6bc793bfe2ba27ce95c3fcd6d6bedacfa2bd8d57b3efbfc1f",
+          "provider": "b293733950b7a73c569b16ae6348d93e1c1d68ba076872c7b4d4127959803587",
+          "type": "checked",
+          "assemblies": {
+            "caller": "a1bd3ace392bb8ed7163332ba98365904f953e438cda9a37fd7087ac5b2bd098",
+            "provider": "c10b2617a5007ffa157d0f4225079c2d72de6fcf741add4c2502159273647ef4"
+          },
+          "objects": {
+            "caller": "713488cce32c357bb2955c9df5e9161b6e6f903c78d69fc88ee21339409b95e9",
+            "provider": "95543aa183be7774862856a035e8b613cad3105baa727a737250129e3049bfba"
+          },
+          "executable": "dc53099f81731386c4fa6443357ec6252ba4e2d5041703fdd5c7d25267ffa756",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [
+            "proof"
+          ],
+          "same_caller": true,
+          "same_provider": true,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "4b07040f0347b107198a99ea6440055e5ee284b2aee187eddb8c0840446c6b2c",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "test_fixture_changed": {
+          "keys": {
+            "type": "b9884f945c19680c8b4555d95855424cc35db8a1ea393123bd0b5f8c642686a7",
+            "optimize": "87b7e823374abba6b343299824e66e7f82f32b78c8edcefeef0a1f03c09df8b9",
+            "codegen": "32ed84e9cc2913dffd72c23805d621a7ce1fe4592877dee854619f32434951c8",
+            "test": "06e1653955c4dfd3769c1cd79d6995aedd16d0164d56c41b12895650c1d99b63",
+            "contract": "27758945bc7ba7d62e0e5af2f7db001233304164f5b68d37e0f5651304ca76ae",
+            "proof": "61a6763991db6488798996d927fedbd923cf422dbd749f0555a50cbc9e2ca8f0"
+          },
+          "caller": "cf3baf3a158893b6bc793bfe2ba27ce95c3fcd6d6bedacfa2bd8d57b3efbfc1f",
+          "provider": "b293733950b7a73c569b16ae6348d93e1c1d68ba076872c7b4d4127959803587",
+          "type": "checked",
+          "assemblies": {
+            "caller": "a1bd3ace392bb8ed7163332ba98365904f953e438cda9a37fd7087ac5b2bd098",
+            "provider": "c10b2617a5007ffa157d0f4225079c2d72de6fcf741add4c2502159273647ef4"
+          },
+          "objects": {
+            "caller": "713488cce32c357bb2955c9df5e9161b6e6f903c78d69fc88ee21339409b95e9",
+            "provider": "95543aa183be7774862856a035e8b613cad3105baa727a737250129e3049bfba"
+          },
+          "executable": "dc53099f81731386c4fa6443357ec6252ba4e2d5041703fdd5c7d25267ffa756",
+          "native_cases": 17,
+          "contract_passes": true,
+          "exact_tests_pass": true,
+          "keys_changed": [
+            "test"
+          ],
+          "same_caller": true,
+          "same_provider": true,
+          "same_unselected_candidate": true,
+          "model_proof": {
+            "disposition": "checked",
+            "generated_sha256": "4b07040f0347b107198a99ea6440055e5ee284b2aee187eddb8c0840446c6b2c",
+            "axioms": [
+              "'fixtureProperty' depends on axioms: [propext]"
+            ]
+          }
+        },
+        "wrong_provider_type": {
+          "keys": {
+            "type": "548ffaaba4b1798bc7936ac7d6c1415cbd571688e03e5225c753a2787dd3feba"
+          },
+          "caller": "cf3baf3a158893b6bc793bfe2ba27ce95c3fcd6d6bedacfa2bd8d57b3efbfc1f",
+          "provider": "b14e1aaeb769dca55289ec25044c9b0699d1e00ebd462583f9432b13bb4d44e9",
+          "type": "refused",
+          "keys_changed": [
+            "type",
+            "contract",
+            "optimize",
+            "codegen",
+            "test",
+            "proof"
+          ],
+          "same_caller": true,
+          "same_provider": false,
+          "same_unselected_candidate": true
+        }
+      }
+    }
+  }
+}

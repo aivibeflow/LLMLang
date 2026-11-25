@@ -66,5 +66,6 @@ This direction groups related research studies without changing their RT identif
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
 - [RT-11 composed non-interference](RT-11/RT-11-COMPOSED-NONINTERFERENCE-2026-11-25.md) — distinguishes separate edit checks from applicable evidence about their composed result.
 - [RT-11 typed pipeline invalidation](RT-11/RT-11-TYPED-PIPELINE-INVALIDATION-2026-11-25.md) — compares precise consumed inputs and reusable outputs across six pipeline actions.
+- [Six-stage native propagation](RT-11/RT-11-SIX-STAGE-PROPAGATION-2026-11-25.md) — exact native artifacts and proof freshness after implementation edits.
 - [RT-11 debug column reuse](RT-11/RT-11-DEBUG-COLUMN-REUSE-2026-11-25.md) — tests exact DWARF column evidence when code and line/address observations remain equal.
 - [RT-11 cross-toolchain cache compatibility](RT-11/RT-11-CROSS-TOOLCHAIN-CACHE-COMPATIBILITY-2026-11-25.md) — tests exact artifact identity and finite compatibility evidence under different native compilers.

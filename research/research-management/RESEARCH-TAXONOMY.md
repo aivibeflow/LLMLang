@@ -33,6 +33,8 @@ RT-32 replays exact proof generation for conditional, loop, recursive and modula
 
 RT-32 compares deep, shallow and hybrid embeddings of effectful conditions and separates structured correspondence from byte parsing and source extraction. [Conditional embedding correspondence](../formal-verification/RT-32/RT-32-CONDITIONAL-EMBEDDING-CORRESPONDENCE-2026-11-25.md)
 
+RT-11 compares stage-specific native cache inputs, implementation identity and Lean evidence under direct and contract-bound provider changes. [Six-stage native propagation](../toolchain-and-collaboration/RT-11/RT-11-SIX-STAGE-PROPAGATION-2026-11-25.md)
+
 RT-32 tests persistent proof cache transitions, exact dependency payloads and rollback on interrupted local publication. [Persistent proof cache](../formal-verification/RT-32/RT-32-PERSISTENT-PROOF-CACHE-2026-11-25.md)
 
 RT-32 distinguishes conditional from closed proofs during binding changes and checks exact receipt, import, and disposition gates. [Exact caller evidence states](../formal-verification/RT-32/RT-32-CALLER-EVIDENCE-STATES-2026-11-25.md)
