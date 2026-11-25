@@ -1,0 +1,42 @@
+name: RT-13 Optimization Research Replay
+
+on:
+  push:
+    branches: [research/all]
+    paths:
+      - ".github/workflows/rt13-optimization-research-replay.yml"
+      - "research/compiler-and-translation/RT-13/OPTIMIZATION-REPLAY-01/**"
+      - "research/compiler-and-translation/RT-13/GRAPH-OCCURRENCE-01/**"
+      - "research/compiler-and-translation/RT-13/EXHAUSTIVE-EVIDENCE-01/**"
+      - "research/compiler-and-translation/RT-13/DIFFERENTIAL-SHRINK-01/**"
+      - "research/compiler-and-translation/RT-13/PASS-COMPOSITION-01/**"
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      ELAN_HOME: ${{ runner.temp }}/rt13-elan
+    steps:
+      - name: Check out exact research commit and its archive history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Install Lean 4.36.0
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/leanprover/elan/58e8d545e33641f66dbcbd22c4283109e71757be/elan-init.sh | sh -s -- -y --default-toolchain none
+          "$ELAN_HOME/bin/elan" toolchain install leanprover/lean4:v4.36.0
+          "$ELAN_HOME/bin/elan" default leanprover/lean4:v4.36.0
+          echo "$ELAN_HOME/bin" >> "$GITHUB_PATH"
+      - name: Replay the exact Lean and differential ledgers
+        shell: bash
+        run: bash research/compiler-and-translation/RT-13/OPTIMIZATION-REPLAY-01/replay.sh
