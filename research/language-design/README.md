@@ -24,6 +24,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-02 semantic difference direction](RT-02/RT-02-SEMANTIC-DIFFERENCE-DIRECTION-2026-11-25.md) — distinguishes typed edits, directional witnesses and evaluation coverage.
 - [RT-02 reconstruction package outputs](RT-02/RT-02-RECONSTRUCTION-PACKAGE-OUTPUTS-2026-11-25.md) — assembles seven review roles and retains unsupported and mismatch dispositions.
 - [RT-02 fail-closed evidence gates](RT-02/RT-02-FAIL-CLOSED-EVIDENCE-GATES-2026-11-25.md) — composes independent intent, formal-contract and implementation gates.
+- [RT-02 property revision impact](RT-02/RT-02-PROPERTY-REVISION-IMPACT-2026-11-25.md) — distinguishes property evidence reuse and exact package review renewal.
 - [Scenario 03 — Requirement impact](RT-02/RESEARCH-SCENARIO-03-REQUIREMENT-IMPACT.md)
 - [Token-efficiency notes](RT-31/TOKEN_EFFICIENCY.md). Exploratory options for authoring and context size.
 
