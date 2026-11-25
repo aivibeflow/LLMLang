@@ -1,0 +1,364 @@
+{
+  "cases_per_profile": 1089,
+  "contract_outcomes": {
+    "0": 500,
+    "1": 391,
+    "2": 198
+  },
+  "profiles": [
+    {
+      "baseline": {
+        "matched": 1089
+      },
+      "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+      "elf_sha256": {
+        "baseline": "75fb2bc32946812bc7b1191806a745e126f40929d81950701a1639fd4489e4b9",
+        "source_mutant": "26569b95781f4f75f8f5e32b28a8b457e4ec76c6af0eaf93c0132ad4a37c3c55"
+      },
+      "first_divergences": {
+        "adapter": {
+          "adapter": [
+            0,
+            123456789
+          ],
+          "expected": [
+            0,
+            0
+          ],
+          "input": [
+            -2147483648,
+            -1,
+            -2147483648
+          ],
+          "mirror": [
+            0,
+            0
+          ],
+          "native": [
+            0,
+            0
+          ]
+        },
+        "mirror": {
+          "adapter": [
+            1,
+            123456789
+          ],
+          "expected": [
+            1,
+            123456789
+          ],
+          "input": [
+            -2147483648,
+            -8,
+            -2147483648
+          ],
+          "mirror": [
+            0,
+            15032385536
+          ],
+          "native": [
+            1,
+            123456789
+          ]
+        },
+        "source": {
+          "adapter": [
+            1,
+            0
+          ],
+          "expected": [
+            1,
+            123456789
+          ],
+          "input": [
+            -2147483648,
+            -8,
+            -2147483648
+          ],
+          "mirror": [
+            1,
+            123456789
+          ],
+          "native": [
+            1,
+            0
+          ]
+        }
+      },
+      "flags": "-O0",
+      "injected_divergences": {
+        "adapter": 500,
+        "mirror": 391,
+        "source": 391
+      }
+    },
+    {
+      "baseline": {
+        "matched": 1089
+      },
+      "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+      "elf_sha256": {
+        "baseline": "8f427aa648bb80a8aa8e32dae46803a3376eb728cda5dd6267095db0def55048",
+        "source_mutant": "12afc4c034006793576253fdd72bacb1c4f267bb8642b43d7683199b96d5c62d"
+      },
+      "first_divergences": {
+        "adapter": {
+          "adapter": [
+            0,
+            123456789
+          ],
+          "expected": [
+            0,
+            0
+          ],
+          "input": [
+            -2147483648,
+            -1,
+            -2147483648
+          ],
+          "mirror": [
+            0,
+            0
+          ],
+          "native": [
+            0,
+            0
+          ]
+        },
+        "mirror": {
+          "adapter": [
+            1,
+            123456789
+          ],
+          "expected": [
+            1,
+            123456789
+          ],
+          "input": [
+            -2147483648,
+            -8,
+            -2147483648
+          ],
+          "mirror": [
+            0,
+            15032385536
+          ],
+          "native": [
+            1,
+            123456789
+          ]
+        },
+        "source": {
+          "adapter": [
+            1,
+            0
+          ],
+          "expected": [
+            1,
+            123456789
+          ],
+          "input": [
+            -2147483648,
+            -8,
+            -2147483648
+          ],
+          "mirror": [
+            1,
+            123456789
+          ],
+          "native": [
+            1,
+            0
+          ]
+        }
+      },
+      "flags": "-O3",
+      "injected_divergences": {
+        "adapter": 500,
+        "mirror": 391,
+        "source": 391
+      }
+    },
+    {
+      "baseline": {
+        "matched": 1089
+      },
+      "compiler": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+      "elf_sha256": {
+        "baseline": "97ca927b50268a18bacd2bd7d8685ac40599e0fc75b0b5cf1bc969a03e9539c5",
+        "source_mutant": "57f292a29a77afe7f5a434c7850e14c974c2093aebfa6a6b371ae9085fd2b2d6"
+      },
+      "first_divergences": {
+        "adapter": {
+          "adapter": [
+            0,
+            123456789
+          ],
+          "expected": [
+            0,
+            0
+          ],
+          "input": [
+            -2147483648,
+            -1,
+            -2147483648
+          ],
+          "mirror": [
+            0,
+            0
+          ],
+          "native": [
+            0,
+            0
+          ]
+        },
+        "mirror": {
+          "adapter": [
+            1,
+            123456789
+          ],
+          "expected": [
+            1,
+            123456789
+          ],
+          "input": [
+            -2147483648,
+            -8,
+            -2147483648
+          ],
+          "mirror": [
+            0,
+            15032385536
+          ],
+          "native": [
+            1,
+            123456789
+          ]
+        },
+        "source": {
+          "adapter": [
+            1,
+            0
+          ],
+          "expected": [
+            1,
+            123456789
+          ],
+          "input": [
+            -2147483648,
+            -8,
+            -2147483648
+          ],
+          "mirror": [
+            1,
+            123456789
+          ],
+          "native": [
+            1,
+            0
+          ]
+        }
+      },
+      "flags": "-O0",
+      "injected_divergences": {
+        "adapter": 500,
+        "mirror": 391,
+        "source": 391
+      }
+    },
+    {
+      "baseline": {
+        "matched": 1089
+      },
+      "compiler": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+      "elf_sha256": {
+        "baseline": "9d7de860cc800ac9bb95c44c598076fb63d334f814227a11b266a72a591e628c",
+        "source_mutant": "1c5cb62289a13b0eca2d5128105143d68c63a673eb8ce48aa605e3967a997470"
+      },
+      "first_divergences": {
+        "adapter": {
+          "adapter": [
+            0,
+            123456789
+          ],
+          "expected": [
+            0,
+            0
+          ],
+          "input": [
+            -2147483648,
+            -1,
+            -2147483648
+          ],
+          "mirror": [
+            0,
+            0
+          ],
+          "native": [
+            0,
+            0
+          ]
+        },
+        "mirror": {
+          "adapter": [
+            1,
+            123456789
+          ],
+          "expected": [
+            1,
+            123456789
+          ],
+          "input": [
+            -2147483648,
+            -8,
+            -2147483648
+          ],
+          "mirror": [
+            0,
+            15032385536
+          ],
+          "native": [
+            1,
+            123456789
+          ]
+        },
+        "source": {
+          "adapter": [
+            1,
+            0
+          ],
+          "expected": [
+            1,
+            123456789
+          ],
+          "input": [
+            -2147483648,
+            -8,
+            -2147483648
+          ],
+          "mirror": [
+            1,
+            123456789
+          ],
+          "native": [
+            1,
+            0
+          ]
+        }
+      },
+      "flags": "-O3",
+      "injected_divergences": {
+        "adapter": 500,
+        "mirror": 391,
+        "source": 391
+      }
+    }
+  ],
+  "python": "3.12.14",
+  "sources_sha256": {
+    "check.py": "d98687f1455e8eb911db8aeea1699c8a4f2989de9e71da2a52d2d1314cce2a96",
+    "unit.c": "2444254d8d49e9602170cef38c5d438b4c41bee0a993a11716610207994f7764"
+  },
+  "system": "x86_64"
+}

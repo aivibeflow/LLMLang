@@ -34,6 +34,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-28 mixed-language settlement](RT-28/RT-28-MIXED-LANGUAGE-SETTLEMENT-2026-11-25.md) compares native C, a Python adapter and a mirror prototype with distinct seeded failure controls.
 - [RT-28 source occurrences and mirror bindings](RT-28/RT-28-SOURCE-OCCURRENCE-AND-MIRROR-BINDING-2026-11-25.md) checks incremental C and Python reconciliation over fourteen immutable Git revisions.
 
 - [RT-13 cross-node state forwarding](RT-13/RT-13-CROSS-NODE-STATE-FORWARDING-2026-11-25.md) verifies an intervening callback and preserved prefix effects on failure.
