@@ -607,8 +607,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [x] Specify nonempty declared behavior and coverage for every admitted handoff. Lean checks composition and the missing-branch witness. In 32,768 profiles, 13,719 uncovered compositions still have an outcome. Explicit divergence can supply coverage while failing a termination requirement. [Per-branch composition coverage](research/formal-verification/RT-07/RT-07-NONVACUOUS-CONTRACT-COMPOSITION-2026-11-25.md)
   - [x] Prove universal handoff and refinement for tagged recovery. A one-suitable-outcome rule falsely admits 11,136 of 65,536 profiles. Both finite relation implementations agree on 4,096 ordered observations, and all 157,464 inclusion comparisons pass. General cleanup, asynchronous behavior and source correspondence remain open. [Recovery contract composition](research/formal-verification/RT-07/RT-07-RECOVERY-CONTRACT-COMPOSITION-2026-11-25.md)
   - [x] Prove sequential contract satisfaction under a universal successful-state handoff. Across 60 declared pairs, accepting one suitable success gives eight false admissions. All 972 concrete refinement cases preserve exact composed observations. Divergence, recovery and source correspondence remain open. [Sequential contract composition](research/formal-verification/RT-07/RT-07-SEQUENTIAL-CONTRACT-COMPOSITION-2026-11-25.md)
-- [ ] Define semantics-preserving transformations and compiler correctness boundaries.
-  - [ ] [WIP] Verify identical-branch elimination with a once-evaluated fallible guard, including exact guard-erasure conditions and native lowering witnesses on `research/all`.
+- [x] Define semantics-preserving transformations and compiler correctness boundaries.
+  - [x] Verify identical-branch elimination and the exact guard-erasure condition in Lean. Retaining the guard once passes all 900 comparisons, and erasure changes 792 observations. The O0 and O3 exact native IR modules each match 3,600 rows. General lowering, scheduling and source correspondence remain open. [Identical branch guard](research/formal-verification/RT-07/RT-07-IDENTICAL-BRANCH-GUARD-2026-11-25.md)
   - [x] Prove the exact criterion for removing an overwritten store with an optional intervening alias read and declared visibility. Final-cell equality falsely admits 297 of 486 candidates. Both GCC profiles match all 972 oracle rows each. General alias analysis and compiler correspondence remain open. [Dead-store alias boundary](research/formal-verification/RT-07/RT-07-DEAD-STORE-ALIAS-BOUNDARY-2026-11-25.md)
 - [x] Define assumptions and environmental boundaries explicitly.
   - [x] Specify environmental pair coherence under ordered immutable publication. Both GCC profiles match all 71,680 rows. A modulo-4 stability check admits 1,080 values absent from the publication history. Lean proves the exact nonreused generation rule. Runtime publication and source correspondence remain open. [Coherent environmental observations](research/formal-verification/RT-07/RT-07-COHERENT-ENVIRONMENT-2026-11-25.md)
@@ -616,7 +616,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Existing evidence:** [LLMLang-FORMAL-VERIFICATION.md](research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md), [LLMLang-CONCEPT.md](research/language-design/RT-01/LLMLang-CONCEPT.md), typed requirement IR and formal dependency scenarios 25–33.
 
-**Status:** partially researched; a complete language semantics is not yet established.
+**Status:** checked scoped studies cover all eight formal semantics research questions above. Canonical language rules, composition across fragments, and general source and backend correspondence remain open.
 
 ## 2.2 Proof architecture and proof boundary
 
