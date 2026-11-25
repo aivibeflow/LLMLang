@@ -307,6 +307,8 @@ This sequence is not a substitute for the other taxonomy areas. In particular, p
 
 The ordered instruction fixture adds evidence for DEP-015 and DEP-023. A stable caller address can lower to a different artifact when a reachable provider changes. [Ordered SPG lowering](../compiler-and-translation/RT-09/RT-09-ORDERED-SPG-LOWERING.md#model-and-observations)
 
+[CLI action keys](../language-design/RT-01/RT-01-CLI-ACTION-KEYS-2026-11-25.md) extend DEP-012 to an end-to-end RT-01 workload. A native provider replacement leaves the semantic entry unchanged but changes the checked build action. Scoping the manifest to its actual linked dependency preserves safe reuse elsewhere.
+
 ## 7. Maintaining the map
 
 For each new or revised edge:
