@@ -53,3 +53,4 @@ See [shared executable research prototypes](../PROTOTYPES/README.md) for integra
 - [RT-04 analogue ranking and dispatch](RT-04/RT-04-ANALOGUE-RANKING-AND-DISPATCH-2026-11-25.md) — compares structural retrieval with exact refinement and fixed call bindings.
 - [RT-04 contract inference boundary](RT-04/RT-04-CONTRACT-INFERENCE-BOUNDARY-2026-11-25.md) — compares automatic consequence, independent checking and exact approval.
 - [RT-04 cross-target conformance receipts](RT-04/RT-04-CROSS-TARGET-CONFORMANCE-RECEIPTS-2026-11-25.md) — binds native and WebAssembly evidence to exact subjects and observation assumptions.
+- [RT-04 Euclidean division adapter](RT-04/RT-04-EUCLIDEAN-DIVISION-ADAPTER-2026-11-25.md) — verifies a signed numeric conversion under an exact provider contract.
