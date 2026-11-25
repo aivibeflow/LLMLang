@@ -1,0 +1,27 @@
+{
+  "cases": {
+    "hard_kill": {
+      "exit": -9,
+      "soft_signal_observed": false,
+      "wait4_retained_cpu": true
+    },
+    "locally_admitted_pair": {
+      "aggregate_exceeds_group_limit": true,
+      "both_exited_normally": true,
+      "each_below_own_limit": true,
+      "reaped_cpu_agrees_with_wait4_within_us": 2
+    },
+    "soft_signal": {
+      "exit": 23,
+      "soft_signal_observed": true,
+      "wait4_retained_cpu": true
+    }
+  },
+  "comparison_group_limit_us": 1000000,
+  "format": "rt26-linux-cpu-budget/1",
+  "kernel_release": "6.18.57",
+  "machine": "x86_64",
+  "pair_target_cpu_ns_each": 600000000,
+  "per_process_soft_seconds": 1,
+  "python": "3.12.14"
+}
