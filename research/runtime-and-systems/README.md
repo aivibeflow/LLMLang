@@ -16,6 +16,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Recent bounded rechecks
 
+- [RT-10 POSIX umask context](RT-10/RT-10-POSIX-UMASK-CONTEXT-2026-11-25.md) compares temporary ambient masks with scoped creation modes.
 - [RT-10 libc error carriers](RT-10/RT-10-LIBC-ERROR-CARRIERS-2026-11-25.md) compares return-carried errors and scoped errno capture.
 - [RT-10 Linux syscall architectures](RT-10/RT-10-LINUX-SYSCALL-ARCHITECTURES-2026-11-25.md) compares freestanding adapters on native x86-64 and emulated AArch64.
 - [RT-10 POSIX startup and file I/O slice](RT-10/RT-10-POSIX-STARTUP-IO-SLICE-2026-11-25.md) composes process startup, typed errors and regular-file progress.

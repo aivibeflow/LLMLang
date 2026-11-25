@@ -1,0 +1,101 @@
+{
+  "filesystem": "overlayfs",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "kernel": "6.18.57",
+  "libc_archive_sha256": {
+    "glibc": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+    "musl": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0"
+  },
+  "musl_original_specs_sha256": "ffaa141b9ca85cc25ab5b29e8317846b9bf8e2c221044ec8ea240f00fc7ebace",
+  "python": "3.12.14",
+  "results": {
+    "glibc-O0": {
+      "ambient-overlap": {
+        "peer": "600",
+        "spawned": "600",
+        "worker": "600"
+      },
+      "ambient-restored": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "600"
+      },
+      "baseline": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "644"
+      },
+      "per-call": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "600"
+      }
+    },
+    "glibc-O2": {
+      "ambient-overlap": {
+        "peer": "600",
+        "spawned": "600",
+        "worker": "600"
+      },
+      "ambient-restored": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "600"
+      },
+      "baseline": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "644"
+      },
+      "per-call": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "600"
+      }
+    },
+    "musl-O0": {
+      "ambient-overlap": {
+        "peer": "600",
+        "spawned": "600",
+        "worker": "600"
+      },
+      "ambient-restored": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "600"
+      },
+      "baseline": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "644"
+      },
+      "per-call": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "600"
+      }
+    },
+    "musl-O2": {
+      "ambient-overlap": {
+        "peer": "600",
+        "spawned": "600",
+        "worker": "600"
+      },
+      "ambient-restored": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "600"
+      },
+      "baseline": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "644"
+      },
+      "per-call": {
+        "peer": "644",
+        "spawned": "644",
+        "worker": "600"
+      }
+    }
+  }
+}
