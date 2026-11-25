@@ -1483,6 +1483,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Benchmark canonicalization and hashing.
   - [x] Measure separate encoding and SHA-256 phases over 60 trials. For nested 512-entry payloads the medians are 461.78 and 27.61 µs per object, and retained lookup plus hashing with setup takes 56.38 µs. All byte and digest observations agree across repeated exact keys. Representative payload distributions and persistent caching remain open. [RT-05 canonical hash cost](research/semantic-representation/RT-05/RT-05-CANONICAL-HASH-COST-2026-11-25.md)
 - [ ] Benchmark dependency discovery and impact planning.
+  - [ ] [WIP] Measure snapshot-scoped incoming discovery and compare full impact-plan generation with a grouped decision lookup.
 - [ ] Benchmark compilation and cache performance.
 - [ ] Benchmark proof and test execution costs.
 - [ ] Benchmark storage, indexing, and garbage collection.
