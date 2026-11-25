@@ -205,6 +205,16 @@ python3 -B "$study/check.py" --output /tmp/llmlang-toolchain-option-evidence.jso
 cmp "$study/evidence.json" /tmp/llmlang-toolchain-option-evidence.json
 ```
 
+### 5.4 Owned-result provider binding on a common workload
+
+The [Owned-result provider binding](../compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md) fixture composes a checked COR-13 source caller, an immutable provider selection, two native routes and a separate Lean disposition model. It extends the bounded toolchain comparison to ordered recovery effects and live resource obligations.
+
+| Choice | Observed constraint | Open selection gate |
+| --- | --- | --- |
+| Direct implementation pin or scoped provider selection, R-A/R-B/R-C and DEP-012 | Both can carry exact provider identity. A caller and contract key alone misses 5,720 changed outcomes per transfer order across the tested scoped rebind. | Define exact binding inputs and scope-aware execution, cache and receipt keys. |
+| Generated Rust or configured C execution over the owned ABI, B-C and DEP-016 | Both native routes agree with the source and descriptor reference for the exact two provider objects. The same diagnostic category can carry different ownership outcomes under the admitted contract. | Extend to a general target emitter and distinct foreign implementations, concurrent cleanup, and independent review. |
+| Kernel-checked obligation model or native trace evidence, V-A/V-C | The model checks token decoding for both policies. Native validation supplies the tested source and descriptor observations. | Link typed source, provider contract, target artifacts and theorem through a checked correspondence. |
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.
