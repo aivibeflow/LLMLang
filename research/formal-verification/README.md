@@ -36,6 +36,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-07 source and CPC proof rebinding](RT-07/RT-07-SOURCE-CPC-PROOF-REBINDING-2026-11-25.md) — replays source-owned typed wire and exact CPC assumptions after source edits.
 - [RT-07 checked-byte proof routes](RT-07/RT-07-CHECKED-BYTE-PROOF-ROUTES-2026-11-25.md) — compares theorem, solver, specialized checker and native evidence for an exact observable claim.
 - [RT-07 proof format receipts](RT-07/RT-07-PROOF-FORMAT-RECEIPTS-2026-11-25.md) — compares format-specific checks and exact reuse under a shared typed query identity.
+- [RT-07 claim trust crosswalk](RT-07/RT-07-CLAIM-TRUST-CROSSWALK-2026-11-25.md) — records the exact basis of kernel, conditional, solver witness, CPC runtime and native claims.
 - [CONTRACT-FORMALIZATION-CORPUS](CONTRACT-FORMALIZATION-CORPUS/)
 - [PROOF-OBLIGATION-BENCHMARK](PROOF-OBLIGATION-BENCHMARK/)
 

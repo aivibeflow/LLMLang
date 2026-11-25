@@ -1,0 +1,171 @@
+{
+  "schema": "llmlang-claim-trust-crosswalk/1",
+  "baseline": "7efdcd1dc4dc3b25ef0c257d4f346530e168a509",
+  "python": "3.12.14",
+  "input_sha256": {
+    "research/formal-verification/RT-07/PER-CLAIM-TRUST-01/evidence.json": "8e2e798785cbc5126f733a7c022f82ca421cb7b9e99d482d27e4ee7985361e8f",
+    "research/formal-verification/RT-07/CHECKED-BYTE-PROOF-ROUTES-01/axioms.txt": "0285a7d8762a1180049a5feca37518b31c3eec7a92ac0ada9745bdf2da57782e",
+    "research/formal-verification/RT-07/CHECKED-BYTE-PROOF-ROUTES-01/evidence.json": "2e7d3226e3915fdd56c4108dcd629c1e27813c238baf6abb35d2684bc10828c4",
+    "research/formal-verification/RT-07/PROOF-FORMAT-RECEIPTS-01/evidence.json": "946327ba196a809aa6864f83c124a769e23da51151b3508d29a9173007312c36",
+    "research/formal-verification/RT-07/LOGOS-BOUNDARY-RECHECK-01/evidence.json": "5c426688b6d9f5fe7835438b8f4811e175bf20fc3010ce3ffc4420c6e6649696",
+    "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/evidence.json": "5da335e43e75eb76cb37a3ff7fb73c0b39323b693790eeef28affc6f9f7f9ac2",
+    "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/build-provenance.json": "cc066cf7eb0df39cab4349a84f9f96efd3c6d64f59c9219a261f8fae0abaabfc",
+    "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/CheckedVerdict.lean": "965023c05e9ba7240e1d1fc105175b1b7e9071e36ae6f8b306e94a61508007f5",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/LogosSourceRefutation.lean": "8734e55e24e8b02bd2b2396d5a4106a7ae696b6a14d35bca2d0585a357fd1df1"
+  },
+  "fresh_replay_sha256": {
+    "PER-CLAIM-TRUST-01": "8e2e798785cbc5126f733a7c022f82ca421cb7b9e99d482d27e4ee7985361e8f",
+    "CHECKED-BYTE-PROOF-ROUTES-01": "2e7d3226e3915fdd56c4108dcd629c1e27813c238baf6abb35d2684bc10828c4"
+  },
+  "claims": {
+    "kernel_reduction": {
+      "kind": "kernel-proof",
+      "subject": "TrustBoundary.wrappedKernel",
+      "components": [
+        "pinned Lean kernel and imported module contents"
+      ],
+      "standard_axioms": [],
+      "open_premises": [],
+      "native_count": 0,
+      "full_axiom_set_sha256": null,
+      "basis_sha256": {
+        "research/formal-verification/RT-07/PER-CLAIM-TRUST-01/evidence.json": "8e2e798785cbc5126f733a7c022f82ca421cb7b9e99d482d27e4ee7985361e8f"
+      }
+    },
+    "kernel_open_premise": {
+      "kind": "kernel-proof",
+      "subject": "TrustBoundary.openPremise",
+      "components": [
+        "pinned Lean kernel and imported module contents"
+      ],
+      "standard_axioms": [],
+      "open_premises": [
+        "observedInput = 9"
+      ],
+      "native_count": 0,
+      "full_axiom_set_sha256": null,
+      "basis_sha256": {
+        "research/formal-verification/RT-07/PER-CLAIM-TRUST-01/evidence.json": "8e2e798785cbc5126f733a7c022f82ca421cb7b9e99d482d27e4ee7985361e8f"
+      }
+    },
+    "conditional_source_refutation": {
+      "kind": "kernel-proof",
+      "subject": "LLMLang.LogosScalarDenotation.checkedRefutation_noDependence",
+      "components": [
+        "pinned proof kernel",
+        "typed source and wire correspondence"
+      ],
+      "standard_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "open_premises": [
+        "compiled",
+        "certified",
+        "tableValidated",
+        "wellFormed",
+        "soundVerdict"
+      ],
+      "native_count": 0,
+      "full_axiom_set_sha256": null,
+      "basis_sha256": {
+        "research/formal-verification/RT-07/LOGOS-BOUNDARY-RECHECK-01/evidence.json": "5c426688b6d9f5fe7835438b8f4811e175bf20fc3010ce3ffc4420c6e6649696",
+        "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/upstream-model/LogosSourceRefutation.lean": "8734e55e24e8b02bd2b2396d5a4106a7ae696b6a14d35bca2d0585a357fd1df1"
+      }
+    },
+    "pinned_source_refutation": {
+      "kind": "kernel-proof",
+      "subject": "LLMLang.LogosScalarDenotation.pinnedVerdict_noDependence",
+      "components": [
+        "pinned proof kernel",
+        "typed source and wire correspondence",
+        "pinned upstream proof dependencies"
+      ],
+      "standard_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "open_premises": [
+        "compiled",
+        "certified",
+        "tableValidated"
+      ],
+      "native_count": 2118,
+      "full_axiom_set_sha256": "e2edb4a4952be9bce2d40511e7b0aee5e4eb25aa0ab45f49fd3dd362dfee0146",
+      "basis_sha256": {
+        "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/evidence.json": "5da335e43e75eb76cb37a3ff7fb73c0b39323b693790eeef28affc6f9f7f9ac2",
+        "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/build-provenance.json": "cc066cf7eb0df39cab4349a84f9f96efd3c6d64f59c9219a261f8fae0abaabfc",
+        "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/CheckedVerdict.lean": "965023c05e9ba7240e1d1fc105175b1b7e9071e36ae6f8b306e94a61508007f5"
+      }
+    },
+    "cpc_runtime": {
+      "kind": "runtime-verdict",
+      "subject": "4bc3db00e4ca65de05e421c59a3a2a20d0239de1c1bacb92afb28b4334c0e097",
+      "components": [
+        "pinned Lean runtime",
+        "Logos parser and runtime",
+        "exact source and wire gate"
+      ],
+      "standard_axioms": [],
+      "open_premises": [],
+      "native_count": 0,
+      "full_axiom_set_sha256": null,
+      "basis_sha256": {
+        "research/formal-verification/RT-07/PROOF-FORMAT-RECEIPTS-01/evidence.json": "946327ba196a809aa6864f83c124a769e23da51151b3508d29a9173007312c36"
+      }
+    },
+    "smt_witness": {
+      "kind": "validated-witness",
+      "subject": "checked-byte cutoff and witness [1, 127]",
+      "components": [
+        "exact QF_LIA mismatch subject",
+        "fixture integer witness evaluator"
+      ],
+      "standard_axioms": [],
+      "open_premises": [],
+      "native_count": 0,
+      "full_axiom_set_sha256": null,
+      "basis_sha256": {
+        "research/formal-verification/RT-07/CHECKED-BYTE-PROOF-ROUTES-01/evidence.json": "2e7d3226e3915fdd56c4108dcd629c1e27813c238baf6abb35d2684bc10828c4"
+      }
+    },
+    "native_correspondence": {
+      "kind": "native-test",
+      "subject": "b7f29204944e880676b8211a2400b89ba5a21aa477af51845d723b5edc582680",
+      "components": [
+        "two pinned GCC profiles",
+        "host execution",
+        "instrumented C events",
+        "finite reference comparison"
+      ],
+      "standard_axioms": [],
+      "open_premises": [],
+      "native_count": 0,
+      "full_axiom_set_sha256": null,
+      "basis_sha256": {
+        "research/formal-verification/RT-07/CHECKED-BYTE-PROOF-ROUTES-01/evidence.json": "2e7d3226e3915fdd56c4108dcd629c1e27813c238baf6abb35d2684bc10828c4"
+      }
+    }
+  },
+  "strict_policy_projection": {
+    "kernel_reduction": "closed-model-proof",
+    "kernel_open_premise": "conditional-proof",
+    "conditional_source_refutation": "conditional-proof",
+    "pinned_source_refutation": "native-trust-pending",
+    "cpc_runtime": "runtime-verdict",
+    "smt_witness": "validated-witness",
+    "native_correspondence": "native-test"
+  },
+  "fault_controls": {
+    "drop_explicit_premise": "scope-or-basis-mismatch",
+    "erase_source_soundness_premise": "scope-or-basis-mismatch",
+    "erase_full_upstream_context": "scope-or-basis-mismatch",
+    "erase_native_count": "scope-or-basis-mismatch",
+    "replace_native_name_with_same_count": "scope-or-basis-mismatch",
+    "promote_runtime_cpc_verdict": "scope-or-basis-mismatch",
+    "relabel_solver_witness_as_kernel_proof": "scope-or-basis-mismatch",
+    "promote_native_case_to_universal": "scope-or-basis-mismatch"
+  }
+}

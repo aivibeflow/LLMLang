@@ -469,6 +469,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Priority:** P0
 - **Question:** How should explicit foreign/environment/TCB premises, authorization, evidence, closure, consistency and invalidation be represented and exposed without equating assumptions with proofs?
 - **Recommendation:** Compare typed versioned claims and scoped authorization, PDG property-specific dependency closure, independent status dimensions, and strict versus conditional admission. Preserve exact provider/contract/ABI identities and distinguish proof from trust approval. Coordinate with LL-008, LL-009, LL-017, LL-019 and LL-028.
+- **Scoped evidence:** [Claim trust crosswalk](research/formal-verification/RT-07/RT-07-CLAIM-TRUST-CROSSWALK-2026-11-25.md) distinguishes explicit premises, transitive axioms and checker trust for seven claims. The pinned Logos composition still needs an explicit trust disposition.
 - **Related:** [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md), [Issue #436](https://github.com/aivibeflow/LLMLang/issues/436).
 
 ## Maintenance rules
