@@ -1,0 +1,597 @@
+{
+  "declared_graph": {
+    "codec": [],
+    "entry": [
+      "codec"
+    ],
+    "preview": []
+  },
+  "emission_only_false_admissions": 10,
+  "python": "3.12.14",
+  "results": {
+    "approved_restriction": {
+      "admitted": [
+        "entry",
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [],
+          "requirements": [
+            [
+              "restriction",
+              "no-null"
+            ]
+          ],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "conditional"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "complete"
+    },
+    "bound_runtime": {
+      "admitted": [
+        "entry",
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [],
+          "requirements": [
+            [
+              "runtime",
+              "helper-bytes-v1"
+            ]
+          ],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "conditional"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "complete"
+    },
+    "different_observation_model": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "codec",
+              "unverified",
+              "stale-region-evidence"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "edge_bound_to_previous_revision": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "entry->codec",
+              "unverified",
+              "edge-evidence-unresolved"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "edge_unchecked": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "entry->codec",
+              "unverified",
+              "edge-evidence-unresolved"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "emitted_unverified_dependency": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "codec",
+              "unverified",
+              "region-disposition"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "exact": {
+      "admitted": [
+        "entry",
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "exact"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "complete"
+    },
+    "explicitly_unsupported_dependency": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": false,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "codec",
+              "unsupported",
+              "region-disposition"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unsupported"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "missing_dependency_evidence": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": false,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "codec",
+              "unverified",
+              "missing-region-evidence"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "missing_emitted_artifact": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": false,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "codec",
+              "unverified",
+              "missing-region-artifact"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "no_admitted_root": {
+      "admitted": [],
+      "emission_only_would_report_complete": false,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "codec",
+              "unverified",
+              "region-disposition"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [
+            [
+              "preview",
+              "unsupported",
+              "region-disposition"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "unsupported"
+        }
+      },
+      "scope": "no-verified-root"
+    },
+    "restriction_for_other_revision": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "entry",
+              "unverified",
+              "restriction-approval-unresolved"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "restriction_unapproved": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "entry",
+              "unverified",
+              "restriction-approval-unresolved"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "runtime_absent": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "codec",
+              "unverified",
+              "required-runtime-unresolved"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "runtime_and_restriction": {
+      "admitted": [
+        "entry",
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [],
+          "requirements": [
+            [
+              "restriction",
+              "no-null"
+            ],
+            [
+              "runtime",
+              "helper-bytes-v1"
+            ]
+          ],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "conditional"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "complete"
+    },
+    "runtime_changed": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "codec",
+              "unverified",
+              "required-runtime-unresolved"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "stale_artifact": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "codec",
+              "unverified",
+              "stale-region-evidence"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    },
+    "stale_region": {
+      "admitted": [
+        "preview"
+      ],
+      "emission_only_would_report_complete": true,
+      "roots": {
+        "entry": {
+          "blockers": [
+            [
+              "codec",
+              "unverified",
+              "stale-region-evidence"
+            ]
+          ],
+          "requirements": [],
+          "scoped_regions": [
+            "codec",
+            "entry"
+          ],
+          "state": "unverified"
+        },
+        "preview": {
+          "blockers": [],
+          "requirements": [],
+          "scoped_regions": [
+            "preview"
+          ],
+          "state": "exact"
+        }
+      },
+      "scope": "partial"
+    }
+  },
+  "scope_counts": {
+    "complete": 4,
+    "no-verified-root": 1,
+    "partial": 13
+  }
+}

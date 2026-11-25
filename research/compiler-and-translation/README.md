@@ -22,5 +22,6 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-09 translation outcome closure](RT-09/RT-09-TRANSLATION-OUTCOME-CLOSURE-2026-11-25.md) composes scoped region decisions and required target evidence.
 - [RT-09 SSA parallel-copy lowering](RT-09/RT-09-SSA-PARALLEL-COPY-LOWERING-2026-11-25.md) checks scheduled sequential assignments against native LLVM phi traces.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
