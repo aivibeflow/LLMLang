@@ -1,0 +1,79 @@
+theory SourceLookup
+  imports "LLMLang_RefinedLookup.RefinedLookup"
+begin
+
+datatype read_form = Direct | Composed
+
+definition decode_lookup :: "nat list \<Rightarrow> read_form option" where
+  "decode_lookup bytes =
+    (case bytes of [l, s, r, c, p, c', s', eol] \<Rightarrow>
+       (if l = 108 \<and> p = 112 \<and> eol = 10
+           \<and> s \<in> {48, 49} \<and> c \<in> {48, 49}
+           \<and> s \<noteq> c \<and> c = c' \<and> s = s'
+        then (if r = 99 then Some Direct else if r = 109 then Some Composed else None)
+        else None)
+     | _ \<Rightarrow> None)"
+
+lemma decoder_language_exact:
+  "decode_lookup bytes \<noteq> None \<longleftrightarrow>
+    bytes \<in> {[108, 48, 99, 49, 112, 49, 48, 10],
+               [108, 49, 99, 48, 112, 48, 49, 10],
+               [108, 48, 109, 49, 112, 49, 48, 10],
+               [108, 49, 109, 48, 112, 48, 49, 10]}"
+  by (auto simp: decode_lookup_def split: list.splits if_splits)
+
+fun evaluate_lookup ::
+  "read_form \<Rightarrow> ('state, 'error + 'slot) nondet_monad \<Rightarrow>
+   ('slot \<Rightarrow> ('state, 'capability) nondet_monad) \<Rightarrow>
+   ('state, 'error + ('capability * 'slot)) nondet_monad"
+where
+  "evaluate_lookup Direct resolve read_cap =
+     bindE resolve (\<lambda>slot. bindE (liftE (read_cap slot))
+       (\<lambda>capability. returnOk (capability, slot)))"
+| "evaluate_lookup Composed resolve read_cap =
+     bindE resolve (\<lambda>slot. liftE (read_cap slot >>=
+       (\<lambda>capability. return (capability, slot))))"
+
+lemma evaluator_agrees:
+  "evaluate_lookup form resolve read_cap = lookup_wrapper resolve read_cap"
+  by (cases form) (simp_all add: lookup_wrapper_def liftE_return_pair)
+
+definition source_lookup where
+  "source_lookup bytes thread cptr =
+    map_option (\<lambda>form. evaluate_lookup form (lookupSlotForThread thread cptr) getSlotCap)
+      (decode_lookup bytes)"
+
+lemma admitted_source_matches_design:
+  assumes "source_lookup bytes thread cptr = Some computation"
+  shows "computation = llmlang_lookup thread cptr"
+  using assms by (cases "decode_lookup bytes")
+    (simp_all add: source_lookup_def evaluator_agrees llmlang_lookup_def)
+
+lemma admitted_source_refines_abstract_lookup:
+  assumes source: "source_lookup bytes thread cptr' = Some computation"
+      and pointer: "cptr = to_bl cptr'"
+  shows
+    "corres (lfr \<oplus> (\<lambda>a b. cap_relation (fst a) (fst b) \<and> snd b = cte_map (snd a)))
+      (valid_objs and pspace_aligned and tcb_at thread)
+      (valid_objs' and pspace_distinct' and pspace_aligned' and tcb_at' thread)
+      (candidate_lookup thread cptr) computation"
+  unfolding admitted_source_matches_design[OF source]
+  by (rule exported_lookup_corresponds[OF pointer])
+
+lemma direct_source_accepted:
+  "decode_lookup @DIRECT@ = Some Direct"
+  by (simp add: decode_lookup_def)
+
+lemma renamed_refactor_accepted:
+  "decode_lookup @RENAMED_REFACTOR@ = Some Composed"
+  by (simp add: decode_lookup_def)
+
+lemma invalid_sources_rejected:
+  "decode_lookup @SWAPPED_RESULT@ = None"
+  "decode_lookup @ALIASED_REGISTERS@ = None"
+  "decode_lookup @REORDERED_STEPS@ = None"
+  "decode_lookup @UNSUPPORTED_OPERATION@ = None"
+  "decode_lookup @MISSING_LINE_END@ = None"
+  by (simp_all add: decode_lookup_def)
+
+end

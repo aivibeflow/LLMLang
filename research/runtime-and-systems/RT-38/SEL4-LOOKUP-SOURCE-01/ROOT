@@ -1,0 +1,4 @@
+session LLMLang_LookupSource = Refine +
+  options [document = false, skip_proofs = false, quick_and_dirty = false]
+  sessions LLMLang_RefinedLookup
+  theories SourceLookup

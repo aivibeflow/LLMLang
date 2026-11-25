@@ -1,0 +1,148 @@
+{
+  "checked_source_input_sha256": {
+    "ROOT": "45a40e0aabb5b3af2352d837e9a3e6e5d86b44a45a34731c8f564a1412fd3d31",
+    "SourceLookup.thy.in": "e68fa8480af4964a6d271ef45d5f34959e49080bb9e3025391c7b2a3d74e9c2d",
+    "export_bytes.py": "fd88915b62b3c1b3822e0677e3b527b2b748545c92f5038db12ee05e94f867c3",
+    "replay.sh": "4a4649b36f08f18825e4c09e8a15717aa8eb6eb23b322c640180732ecb3b4820"
+  },
+  "format": "rt38-sel4-lookup-source/1",
+  "generated_source_theory_sha256": "d80514e2de18710c8ac92a6a0997699d86f3ab1c7c2c5ff377c16be4d90dceb8",
+  "isabelle": "Isabelle2025-2",
+  "l4v": "12c300e75bb0ca0c82f76496fafacd7e614c0aba",
+  "profile": "RISCV64 default non-MCS",
+  "proof_options": {
+    "quick_and_dirty": false,
+    "skip_proofs": false,
+    "threads": 1,
+    "timeout_scale": 4
+  },
+  "proofs": [
+    "decoder_language_exact",
+    "evaluator_agrees",
+    "admitted_source_matches_design",
+    "admitted_source_refines_abstract_lookup",
+    "direct_source_accepted",
+    "renamed_refactor_accepted",
+    "invalid_sources_rejected"
+  ],
+  "refined_wrapper_sha256": "f7e1b1f0c913427345a52a511366361735a7511d2e683c1d0eb2128168a9c2bd",
+  "runs": [
+    {
+      "selected_lines": [
+        "LLMLang_LookupSource: theory LLMLang_LookupSource.SourceLookup 100% (2.690s cumulated time)",
+        "Finished LLMLang_LookupSource (0:00:11 elapsed time, 0:00:10 cpu time, factor 0.94)",
+        "Finished at Wed Nov 25 00:20:14 GMT 2026"
+      ],
+      "sha256": "33cea298efef4f3e7d9dae7db2b44f0ca9d268c44d13a8163a0a964a6bb45a7d"
+    },
+    {
+      "selected_lines": [
+        "LLMLang_LookupSource: theory LLMLang_LookupSource.SourceLookup 100% (1.880s cumulated time)",
+        "Finished LLMLang_LookupSource (0:00:09 elapsed time, 0:00:08 cpu time, factor 0.91)",
+        "Finished at Wed Nov 25 00:21:13 GMT 2026"
+      ],
+      "sha256": "c017122617b944d86a278f74829122f211868b6692adad8895e469e38386b9c8"
+    }
+  ],
+  "sel4": "62e345c240a15671484530b4e6e069ce266c28d7",
+  "sources": {
+    "aliased-registers": {
+      "bytes": [
+        108,
+        48,
+        99,
+        48,
+        112,
+        48,
+        48,
+        10
+      ],
+      "outcome": "reject",
+      "sha256": "e9206c52652fae6faafcc29d5643b75b23566623c725d55deab3be3d9f6d155f"
+    },
+    "direct": {
+      "bytes": [
+        108,
+        48,
+        99,
+        49,
+        112,
+        49,
+        48,
+        10
+      ],
+      "outcome": "accept",
+      "sha256": "5449179a3e5344b53580430017ae6a4363eb0bf165c43aded847c4425636d62e"
+    },
+    "missing-line-end": {
+      "bytes": [
+        108,
+        48,
+        99,
+        49,
+        112,
+        49,
+        48
+      ],
+      "outcome": "reject",
+      "sha256": "822a41c70a95d5aa4ceb2e0d70d557b8db322836318f8cc8d05cba23513c3b8f"
+    },
+    "renamed-refactor": {
+      "bytes": [
+        108,
+        49,
+        109,
+        48,
+        112,
+        48,
+        49,
+        10
+      ],
+      "outcome": "accept",
+      "sha256": "e9aa4d55629c008274dba96932463d74d9b8495270a089a7a55c2cf7c40fd5b4"
+    },
+    "reordered-steps": {
+      "bytes": [
+        99,
+        48,
+        108,
+        49,
+        112,
+        49,
+        48,
+        10
+      ],
+      "outcome": "reject",
+      "sha256": "e60600d983790e1bb9b7818fb214a007784776fc21b1d5713034a3dc28238188"
+    },
+    "swapped-result": {
+      "bytes": [
+        108,
+        48,
+        99,
+        49,
+        112,
+        48,
+        49,
+        10
+      ],
+      "outcome": "reject",
+      "sha256": "5a69bcb3e684b6749e5c15db239ff193241a9bf14879488e50347ceb5888b528"
+    },
+    "unsupported-operation": {
+      "bytes": [
+        108,
+        48,
+        119,
+        49,
+        112,
+        49,
+        48,
+        10
+      ],
+      "outcome": "reject",
+      "sha256": "ca7ca8931645ab93bca28fad2caa3740866093587a0e5df43e9e806d881d1fcf"
+    }
+  },
+  "upstream_refine_heap_sha256": "9c0a9b65b13c5d5bc365a11c41203564619c82e58d2e2d434b09c0e1a5d1e7f1"
+}
