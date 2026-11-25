@@ -606,8 +606,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define exact binding between source-level assumptions, typed IR, serialized queries, and proof obligations.
 - [x] Define fail-closed behavior for unsupported or ambiguous constructs.
   - [x] Withhold evidence on failed typed admission or ambiguous solver context. The evidence gate withholds seven injected faults per solver and recovers six from explicit repairs. Four blind Z3 answers disagree with fresh replay, and Z3 silently accepts one mixed-sort profile violation. Missing repair stays unresolved. [Solver session recovery](research/formal-verification/RT-07/RT-07-SOLVER-SESSION-RECOVERY-2026-11-25.md)
-- [ ] Define how proof status is represented: candidate, unknown, checked, rejected, or proven.
-  - [ ] [WIP] Compare monotone receipt-history merge with last-arrival proof status across concurrent attempts, scoped refusals and unresolved premises on `research/all`.
+- [x] Define how proof status is represented: candidate, unknown, checked, rejected, or proven.
+  - [x] Derive candidate, unknown, checked, proven, refuted and conflict status from exact eligible receipt history, with rejection retained on the attempt. All 4,162 ordered profiles match a set oracle. Latest-arrival status hides 364 closed proofs. Lean checks merge laws and the open-premise boundary. [Proof status history](research/formal-verification/RT-07/RT-07-PROOF-STATUS-HISTORY-2026-11-25.md)
 - [x] Define the relationship between proof validity and specification adequacy; a proof cannot establish that the specification captures user intent.
   - [x] Distinguish proof validity, contract feasibility, functional transfer to a recorded intent relation and eligibility coverage. Lean proves exact transfer under feasibility. Among 4,096 Boolean contract pairs, 1,767 feasible pairs fail transfer, while 960 pairs with infeasible candidates give vacuous implication. Stakeholder validation remains a separate RT-02 gate. [Proof validity and adequacy](research/formal-verification/RT-07/RT-07-PROOF-VALIDITY-AND-ADEQUACY-2026-11-25.md)
 

@@ -1,0 +1,6 @@
+'ProofStatusHistory.mergeComm' depends on axioms: [propext]
+'ProofStatusHistory.mergeAssoc' depends on axioms: [propext]
+'ProofStatusHistory.mergeIdempotent' depends on axioms: [propext]
+'ProofStatusHistory.cannotProveWithOpenPremise' does not depend on any axioms
+'ProofStatusHistory.rejectedReceiptIsNotACounterexample' does not depend on any axioms
+'ProofStatusHistory.incompleteDoesNotOverwriteProof' does not depend on any axioms
