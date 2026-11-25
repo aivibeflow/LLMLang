@@ -579,6 +579,7 @@ The [symbolic CPC experiment](research/formal-verification/PROOF-OBLIGATION-BENC
   - [ ] [WIP human] Independently adjudicate benchmark cases and record the accepted labels.
 - [ ] Study problem lower bounds, optimality, amortization, memory, parallel/probabilistic and multivariate complexity (CX-08–14).
 - [ ] Investigate resource-preserving lowering, synthesis, incremental invalidation, regression gates and external calls (CX-15–18, CX-20).
+  - [ ] [WIP] Check resource budgets across lowering, selection, invalidation and foreign cost evidence on `research/all` (#412).
 
 Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/cache, RT-26 resource enforcement, RT-32/33 proof generation and orchestration. Exit: reproducible scoped experiment, checked cost proofs and source correspondence, explicit assumptions and abstention, comparative evidence and no normative selection without review.
 
