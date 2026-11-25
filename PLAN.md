@@ -1504,6 +1504,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 ## 7.3 Parallel development and collaboration
 
 - [ ] Define concurrent graph edits and optimistic update rules.
+  - [ ] [WIP] Compare whole-head CAS, write-only CAS, and exact graph read-set validation with native concurrent SQLite writers (#334).
 - [ ] Define stable identity under rename, split, and merge.
 - [ ] Define independent changes to contracts and implementations.
   - [x] Compare 32 clean native merges of individually valid contract and provider edits and 3,250 native observations. Validation of the exact combined pair refuses seven of 16 pairs on value or modeled trace obligations. General proof composition and cross-operation dependencies remain open. [Contract and implementation merges](research/toolchain-and-collaboration/RT-24/RT-24-CONTRACT-BODY-MERGES-2026-11-25.md)
