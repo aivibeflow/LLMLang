@@ -1,0 +1,529 @@
+{
+  "axioms": [
+    "'telescopes' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'negativeClosedWalk' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "checked_three_edge_walk": {
+    "edges": [
+      0,
+      1,
+      2
+    ],
+    "policy": [
+      "infeasible",
+      false
+    ],
+    "query": "5a6f7b28360d79f423a9487335549e4054efa7d766e48bb558026daed024c20e"
+  },
+  "controls": [
+    {
+      "case": "foreign route with identical formula",
+      "claimed_status": "unsat",
+      "query": "13cbbfbc4044afefa1dd47c0c51219469826750e9ca1823e35303cbd6dd09e63",
+      "result": [
+        "unknown",
+        true
+      ]
+    },
+    {
+      "case": "different premise revision with identical formula",
+      "claimed_status": "unsat",
+      "query": "21c945e78ae5e43f416e28289ba87bbeabee2d22087375fde17fda90407a2009",
+      "result": [
+        "unknown",
+        true
+      ]
+    },
+    {
+      "case": "changed bound with refreshed subject",
+      "claimed_status": "unsat",
+      "query": "3944366efc9bdf78fd4b42a89d2a306c933f1ae6d2398e36050f88a434d4e90c",
+      "result": [
+        "unknown",
+        true
+      ]
+    },
+    {
+      "case": "missing edge",
+      "claimed_status": "unsat",
+      "query": "5a6f7b28360d79f423a9487335549e4054efa7d766e48bb558026daed024c20e",
+      "result": [
+        "unknown",
+        true
+      ]
+    },
+    {
+      "case": "noncontiguous selection",
+      "claimed_status": "unsat",
+      "query": "5a6f7b28360d79f423a9487335549e4054efa7d766e48bb558026daed024c20e",
+      "result": [
+        "unknown",
+        true
+      ]
+    },
+    {
+      "case": "out-of-range edge index",
+      "claimed_status": "unsat",
+      "query": "5a6f7b28360d79f423a9487335549e4054efa7d766e48bb558026daed024c20e",
+      "result": [
+        "unknown",
+        true
+      ]
+    },
+    {
+      "case": "non-integer interpretation",
+      "claimed_status": "unsat",
+      "query": "4eda96f8d16f667b31b68f96197d187b4e0c547f023472e0a6665983f2db9d96",
+      "result": [
+        "unknown",
+        true
+      ]
+    },
+    {
+      "case": "host could not produce a completed status",
+      "claimed_status": "unknown",
+      "query": "5a6f7b28360d79f423a9487335549e4054efa7d766e48bb558026daed024c20e",
+      "result": [
+        "unknown",
+        true
+      ]
+    }
+  ],
+  "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "matrix": [
+    {
+      "bounds": [
+        -2,
+        -2
+      ],
+      "checked_policy": [
+        "infeasible",
+        false
+      ],
+      "formula_sha256": "5d9af79c1cdaa9b88999fb094801fba1afbf6ed4125ef7929e96475f9d9b4959",
+      "query": "fb5ae9dd1cf76ad32d4f9c29ac3d62717388be7a436af8ff5a54c52a88acda24",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "unsat"
+    },
+    {
+      "bounds": [
+        -2,
+        -1
+      ],
+      "checked_policy": [
+        "infeasible",
+        false
+      ],
+      "formula_sha256": "750756af4943a6da9cf50dc261042b6056582299181c09907b4ccee8203e78f7",
+      "query": "ec081849d86fdc60a0d25c71f7dcf441e0d9e252f3b971ade8e9733b56a88271",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "unsat"
+    },
+    {
+      "bounds": [
+        -2,
+        0
+      ],
+      "checked_policy": [
+        "infeasible",
+        false
+      ],
+      "formula_sha256": "f080fc03076752f5d6c17b58771de519af8581d3db4cb9d9315499a4169ff3dd",
+      "query": "499822244824e10df457bc324740ab70dc99321a0b6ec2c1d28cd9f2ea6b717d",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "unsat"
+    },
+    {
+      "bounds": [
+        -2,
+        1
+      ],
+      "checked_policy": [
+        "infeasible",
+        false
+      ],
+      "formula_sha256": "4f63c37febc97fdd5b313b8aa339e9259c480a69b69a6a7a082a10720a579ebb",
+      "query": "2bd653319dd67b581ef3f7c8d2fb80b98d1725db8a4a18d82e13d3873414e3dd",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "unsat"
+    },
+    {
+      "bounds": [
+        -2,
+        2
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "cf90ef7bd6ae3d67f40587ff0a683cc53e12fcfdc5ef7efba62b74b908ecb4e7",
+      "query": "b2b9a72a0318ff53ded8d35bc65315f59657eb098ca15f0c6a53c04989bc90e9",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        -1,
+        -2
+      ],
+      "checked_policy": [
+        "infeasible",
+        false
+      ],
+      "formula_sha256": "251cd62cba53d0916f74550c9d2db84a15ed33208e95bab2f6962a30091dd2a1",
+      "query": "ecfeea2ab6f86fe00e0b1146f568e4339ddd5d5913860422183e5e8eb7ce2c31",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "unsat"
+    },
+    {
+      "bounds": [
+        -1,
+        -1
+      ],
+      "checked_policy": [
+        "infeasible",
+        false
+      ],
+      "formula_sha256": "c0125da9951e5497f8c288b7c1460769c70dcb6c1c9fd48fb24bc07c4a124fa5",
+      "query": "ea4de8ff8031e93c76a46c80811b261711846d31c5de7f3b6c1e0a2f387bd9db",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "unsat"
+    },
+    {
+      "bounds": [
+        -1,
+        0
+      ],
+      "checked_policy": [
+        "infeasible",
+        false
+      ],
+      "formula_sha256": "2232a372ac9b5a81d14933fd3036d7b6b21af4eeb1ad02c5271ee2d4f67b6668",
+      "query": "a97d16b5446a07b91f362314415ade2d418adf27717da133006550b9ff8270e9",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "unsat"
+    },
+    {
+      "bounds": [
+        -1,
+        1
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "1a705f5a004b11d5c5b3ff9d1e3eb06a459b54b4799b7553619ece579599df04",
+      "query": "b95fba05d39b82c4063641b5a3d9002161f2a3a9d810aaa5bcb818657efd852d",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        -1,
+        2
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "daca65bed3ccd77def0b7d227cbd06fdec93e574a482c8dd6e61645736568b40",
+      "query": "4d8d08e2e29aa288f04708bd74a1f0d3e7eab1e095573ae8d712db45d19558f9",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        0,
+        -2
+      ],
+      "checked_policy": [
+        "infeasible",
+        false
+      ],
+      "formula_sha256": "6107e4ae63d083260d75120fa926d4c317758eb92b4a47573ceb3e998abc7dc9",
+      "query": "27712f70aad193ff18b03d5678706afa0093000298c5d99b864ff396f9824968",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "unsat"
+    },
+    {
+      "bounds": [
+        0,
+        -1
+      ],
+      "checked_policy": [
+        "infeasible",
+        false
+      ],
+      "formula_sha256": "9eb73ea2df81ca6ab90332a7f46d1e7f080a2222e04c2a687cb224f07736007d",
+      "query": "d428b02c9f5f3c38550d3fb53b8af041f3a03a334498f1dd312afcfed7c8aaa6",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "unsat"
+    },
+    {
+      "bounds": [
+        0,
+        0
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "07636e7b09545ae5f52b0b882093bc58349dd1f93799d4b4abbe8f8c7ed41def",
+      "query": "7470278daab223d32222ef4b44c5aff8cb1ae54c4b3546b4ca4df8062c16f3b2",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        0,
+        1
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "4b18ea7b98749a9550a09ec64c11dfbc0aabf1909789d20b066ea57468f123a5",
+      "query": "53f7241e6b269a355eb991cdaab094ff02cdd79f8a0dd573591066976eaddcba",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        0,
+        2
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "9d579ec22c99720d641c45d2d5dcce462d28061bfb719f883ff9d155d7c7d6cf",
+      "query": "aea5f06d19d8c1354094555f282946e84104cfde4b78f09122cd094b3174868b",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        1,
+        -2
+      ],
+      "checked_policy": [
+        "infeasible",
+        false
+      ],
+      "formula_sha256": "1619df780cb2e35322714cbc419776a494e74b93822c62c5e992086f30a69168",
+      "query": "d0ce549eb78de64c69a9ada786dd80ed20f6785b24f18fe288114729af23f257",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "unsat"
+    },
+    {
+      "bounds": [
+        1,
+        -1
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "c411e0332e713c5ea002f3151432ca398bff7e0b85956b3e50d96cff4460c5ec",
+      "query": "a70a9b816a5b2ed85c4c60aa3859416e7b80ef320099eef2438a332475392da5",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        1,
+        0
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "c54ee00a44c4a26a60171f4d4237318d0a38661d39a1ecddc0c0fcf966cc93f4",
+      "query": "292cbee9db49832e020f2de5e9941e69d9bbf5a6a42591a52afc5ada08b23042",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        1,
+        1
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "cc5674b82cc056c15227b703c774efdce7cba27e67c499f4f83b4a02a588b4cf",
+      "query": "35dd518a4da5af033aec65a42f881ea9d6ca9b641e7685c3ea4d0761d0088604",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        1,
+        2
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "74b2fd63e92ec922047fc94897b7d07f7115f3b14e7be04864d2c99c805c389d",
+      "query": "7651cd2c789bb00923cb3a367bfa4d5335e2835b15bc5af2ca836297a4179576",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        2,
+        -2
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "9e476a65fa4f58ae1e94914dd37cbd55aab1b7256aa21bc62496893c5b907768",
+      "query": "db607d1b0cd6042c90c3d39ec8430d2875bc7b5eff1c936297ab5580c81e6b49",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        2,
+        -1
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "f8a0db1574e2934ff503a54c9dc27ad704c7522b0a52fd9ac8506e9052e084fb",
+      "query": "32217cda782f0eb73f7fde8f2271b1d9e9d16014ed6bdf8264f577e91aea6654",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        2,
+        0
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "4f6b1cb668800ea6b1436f8232f97a814e39a186a346a697d050adf8d8423027",
+      "query": "99a0da3c148e6f51fcedbedc7bbf8dffa7bc012cad62bc83dfc576f68feeb12d",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        2,
+        1
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "e6edd4a17d70f6b9ef8c8276b797b31346a2667f48b33ea15ad9d438b2071950",
+      "query": "cb532fe649ed90e1f399d3d6ca44cc5f73219529e5b70e9e39fa92f59b5e9a83",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    },
+    {
+      "bounds": [
+        2,
+        2
+      ],
+      "checked_policy": [
+        "unknown",
+        true
+      ],
+      "formula_sha256": "e667e57dd2885ea71af5f0d1a646796e3b2a09f877e2f26fac2055efa1e3ae3a",
+      "query": "ef4966804d47b48daa3590b862c80c58efd664d595b1eb8ffd21091624999ce0",
+      "raw_policy": [
+        "unknown",
+        true
+      ],
+      "solver": "sat"
+    }
+  ],
+  "python": "3.12.14",
+  "schema": "rt03-exact-difference-certificate-v1",
+  "source_sha256": {
+    "Certificate.lean": "1b600d44096ffd0e69ab9b24f804e9b1a0a8489b4312372b2ca6deabb2632f79",
+    "checker.py": "cd3dc0e230639c9e86deb8cb95de1cdc8093dba35a4e2851dfdb9167e57423a1",
+    "rt03_feasibility_outcomes.py": "8a385428324a59fd35c7600c980acfe716d00968c277ddcbe36eea260ed5366b",
+    "run.py": "00257384a54d978eb174b1ef1b7b04a09d6eb42daa263cd9849e30a2bc11b750"
+  }
+}
