@@ -1,0 +1,90 @@
+{
+  "basis": "12d7ee828dc8e572007df4a6f4dc2438cd0afa18",
+  "controls": {
+    "bad-claim-elaboration": "refused",
+    "changed-checkpoint-bytes": "refused-before-load",
+    "changed-import-restoration": "refused-before-load",
+    "closed-but-sorry": "refused",
+    "cooperative-timeout": "interrupt-without-proof",
+    "cross-session-raw-id": "refused",
+    "exact-state-restart": "checked",
+    "expression-echo-type-hint": "returned-other-type-explicit-comparison-refused",
+    "fresh-after-timeout": "checked",
+    "lean-cli-cancellation": "worker-terminated-without-proof",
+    "old-logical-handle": "refused",
+    "old-term-under-new-import": "refused-all-routes",
+    "protocol-json": "refused",
+    "reset-reuses-raw-id": true,
+    "unresolved-goal": "pending",
+    "unused-printed-binder": "strict-lint-refused-then-checked-with-scoped-option",
+    "wrong-term-all-routes": "refused"
+  },
+  "imports": {
+    "changed": [
+      "31c8b7250adcf22701363cbf0fc5956c81df675990e8a312ced77cd0e7e772ec",
+      "96ab8ebc000b77c9345fc8271e6d2a98380052866c3942427d6a39949fd84455",
+      "e2fb769cca2fbb83274e6c87073118b0771ebafe47030bde7238fda1cb8ee8bf",
+      "4c2f81bde0f6e2008cb7a37684dcbe7cf0af8eaf95444cc469542f4d24068c3d"
+    ],
+    "original": [
+      "2e7e972f46fdb6d7336f31e98a971d4718d192c572383998d0c468ae904eeb53",
+      "b48f56a11b4a8d5882e98e3e71fc7850271e1f78905d9e4618eddbfe0314e307",
+      "e2fb769cca2fbb83274e6c87073118b0771ebafe47030bde7238fda1cb8ee8bf",
+      "4c2f81bde0f6e2008cb7a37684dcbe7cf0af8eaf95444cc469542f4d24068c3d"
+    ]
+  },
+  "lean": "Lean (version 4.31.0, x86_64-unknown-linux-gnu, commit 68218e876d2a38b1985b8590fff244a83c321783, Release)",
+  "pantograph": "0.3.17",
+  "tool_hashes": {
+    "lean": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "lean_shared": "844963455a7800b417b067a3c7ad6cb86c34286b54be596b1e2b1e3808d6b718",
+    "native_api": "2ea914bbd1415ec4bbceeec938e28013e23f2c472f9d338a0587d8e9777ea83d",
+    "native_repl": "4ed17dc81eed70ced27fb2f5aeaf3d02e0f5ee88e583fca84c2bea8133e5eb04",
+    "repl": "f834042cc4d824045698073463eff3792ff05a4524163999f88e2ecc76c17157"
+  },
+  "upstream": "d704b851542b1d2caf1287f65c49f5011f687c05",
+  "valid_claims": {
+    "assumption": {
+      "cli": "checked",
+      "native": "elaborated",
+      "proof_sha256": "b93323ea644d1b4a5b83fdca1de71694ec026a049649f14d7a07bbc7c57b7de4",
+      "protocol": "checked",
+      "statement_sha256": "5ebded3f2016028b9286826284c5863135683cfe2f89f14ff8c8d4757755d98b"
+    },
+    "boolean": {
+      "cli": "checked",
+      "native": "elaborated",
+      "proof_sha256": "ffbab421eef2f9496df3758c756cee5a0c26721cd0e9441fa7a0301367824039",
+      "protocol": "checked",
+      "statement_sha256": "f19d5b12267e86bd6214040143905c88e51b592292a905e3a83e4133b00aebb0"
+    },
+    "constructor": {
+      "cli": "checked",
+      "native": "elaborated",
+      "proof_sha256": "87956ec0848686e8732cc01b2905b1d9cbd1e8bc0e72b6ac594198f14ce9eed2",
+      "protocol": "checked",
+      "statement_sha256": "623728270a88fd6184d453909c1e210caade0145a83bebc1e2b2616d12f1852c"
+    },
+    "definition": {
+      "cli": "checked",
+      "native": "elaborated",
+      "proof_sha256": "8bf6298a04d042c82d8b50029c8ac3dd3d97dd60dfd3bae3ee0396caa8d68e8a",
+      "protocol": "checked",
+      "statement_sha256": "ce9474a724657ee9abb3555f5057d679b39b4680955d89852aaa1d8562d170be"
+    },
+    "equality": {
+      "cli": "checked",
+      "native": "elaborated",
+      "proof_sha256": "5bdb50356dfabbb8e65494d709bb4a8cd89844e04aa61a3989a809afd9a51cc4",
+      "protocol": "checked",
+      "statement_sha256": "866b65cbff225e2564d3c407c549f94b8d63bab17fd35f2f7c5b153ac9448770"
+    },
+    "integer": {
+      "cli": "checked",
+      "native": "elaborated",
+      "proof_sha256": "3e68a651660dfd187ebf6840089d9f3a80691e593a8e6dfb6bb25757e701dc0c",
+      "protocol": "checked",
+      "statement_sha256": "bdb47f9dc7199f64b3dcbfb6c8ea221346ded339b5edc51c86f2e81755cbc675"
+    }
+  }
+}
