@@ -1,0 +1,154 @@
+{
+  "cases": {
+    "glibc-gnu_extension": {
+      "base": {
+        "header": "visible",
+        "runtime": [
+          "header=200809",
+          "runtime=200809"
+        ]
+      },
+      "clofork": {
+        "header": "unavailable",
+        "runtime": null
+      },
+      "dup3": {
+        "header": "visible",
+        "runtime": [
+          "close-on-exec-and-equal-fd-refused"
+        ]
+      },
+      "pipe2": {
+        "header": "visible",
+        "runtime": [
+          "both-close-on-exec-and-nonblocking"
+        ]
+      }
+    },
+    "glibc-issue7_request": {
+      "base": {
+        "header": "visible",
+        "runtime": [
+          "header=200809",
+          "runtime=200809"
+        ]
+      },
+      "clofork": {
+        "header": "unavailable",
+        "runtime": null
+      },
+      "dup3": {
+        "header": "unavailable",
+        "runtime": null
+      },
+      "pipe2": {
+        "header": "unavailable",
+        "runtime": null
+      }
+    },
+    "glibc-issue8_request": {
+      "base": {
+        "header": "visible",
+        "runtime": [
+          "header=200809",
+          "runtime=200809"
+        ]
+      },
+      "clofork": {
+        "header": "unavailable",
+        "runtime": null
+      },
+      "dup3": {
+        "header": "unavailable",
+        "runtime": null
+      },
+      "pipe2": {
+        "header": "unavailable",
+        "runtime": null
+      }
+    },
+    "musl-gnu_extension": {
+      "base": {
+        "header": "visible",
+        "runtime": [
+          "header=200809",
+          "runtime=200809"
+        ]
+      },
+      "clofork": {
+        "header": "unavailable",
+        "runtime": null
+      },
+      "dup3": {
+        "header": "visible",
+        "runtime": [
+          "close-on-exec-and-equal-fd-refused"
+        ]
+      },
+      "pipe2": {
+        "header": "visible",
+        "runtime": [
+          "both-close-on-exec-and-nonblocking"
+        ]
+      }
+    },
+    "musl-issue7_request": {
+      "base": {
+        "header": "visible",
+        "runtime": [
+          "header=200809",
+          "runtime=200809"
+        ]
+      },
+      "clofork": {
+        "header": "unavailable",
+        "runtime": null
+      },
+      "dup3": {
+        "header": "visible",
+        "runtime": [
+          "close-on-exec-and-equal-fd-refused"
+        ]
+      },
+      "pipe2": {
+        "header": "visible",
+        "runtime": [
+          "both-close-on-exec-and-nonblocking"
+        ]
+      }
+    },
+    "musl-issue8_request": {
+      "base": {
+        "header": "visible",
+        "runtime": [
+          "header=200809",
+          "runtime=200809"
+        ]
+      },
+      "clofork": {
+        "header": "unavailable",
+        "runtime": null
+      },
+      "dup3": {
+        "header": "visible",
+        "runtime": [
+          "close-on-exec-and-equal-fd-refused"
+        ]
+      },
+      "pipe2": {
+        "header": "visible",
+        "runtime": [
+          "both-close-on-exec-and-nonblocking"
+        ]
+      }
+    }
+  },
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "kernel": "6.18.57",
+  "libc_archives_sha256": {
+    "glibc": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+    "musl": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0"
+  },
+  "musl_original_specs_sha256": "ffaa141b9ca85cc25ab5b29e8317846b9bf8e2c221044ec8ea240f00fc7ebace",
+  "python": "3.12.14"
+}
