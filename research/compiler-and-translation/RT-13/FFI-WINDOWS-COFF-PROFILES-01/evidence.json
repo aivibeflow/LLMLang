@@ -1,0 +1,180 @@
+{
+  "profiles": {
+    "arm64": {
+      "artifacts": {
+        "load-time-dll-consumer": {
+          "export_symbols": [],
+          "import_libraries": [
+            "provider.dll"
+          ],
+          "import_symbols": [
+            "record_step"
+          ],
+          "machine": "IMAGE_FILE_MACHINE_ARM64",
+          "sha256": "cc459fab619339f45b658e8c244274e456f3aa440389384786774243b99d2496",
+          "size_bytes": 2048
+        },
+        "provider-dll": {
+          "export_symbols": [
+            "record_step"
+          ],
+          "import_libraries": [],
+          "import_symbols": [],
+          "machine": "IMAGE_FILE_MACHINE_ARM64",
+          "sha256": "f1ed282c77b39d9cd259e17b9ca1bf296283d0ee36694824d986d6038f55eca5",
+          "size_bytes": 2048
+        },
+        "static-compiled-consumer-with-import-library": {
+          "export_symbols": [],
+          "import_libraries": [
+            "provider.dll"
+          ],
+          "import_symbols": [
+            "record_step"
+          ],
+          "machine": "IMAGE_FILE_MACHINE_ARM64",
+          "sha256": "9e13c9fa3223e2ec44723240320f15d424f3232ffb54fba372c2b01f2caa991b",
+          "size_bytes": 2048
+        },
+        "static-consumer": {
+          "export_symbols": [],
+          "import_libraries": [],
+          "import_symbols": [],
+          "machine": "IMAGE_FILE_MACHINE_ARM64",
+          "sha256": "920e03fde764c872c2e07d6fea023c26565d8aa0cb3b56dfdf44119b7457bfc9",
+          "size_bytes": 1024
+        }
+      },
+      "call_lowering": "define dso_local [2 x i64] @record_step([2 x i64] %0, i32 noundef %1) local_unnamed_addr #0 {",
+      "executable_evidence": "cross-build-only",
+      "import_library_sha256": "dea8a65edb323e9ef5a629549d049cdfdced732b80b974d0094d2368804a3967",
+      "import_record": {
+        "dll": "provider.dll",
+        "machine": "0xaa64",
+        "symbol": "record_step"
+      },
+      "missing_symbol_and_wrong_library_mode": [
+        "refused",
+        "refused"
+      ],
+      "static_archive_sha256": "8c95a3fda4a35c87c2d9ba216c9d98a33b7386f82d167bf1048b8ed537b2a901",
+      "target": "aarch64-pc-windows-msvc",
+      "wrong_architecture_controls": {
+        "import": {
+          "artifact": {
+            "export_symbols": [],
+            "import_libraries": [
+              "provider.dll"
+            ],
+            "import_symbols": [
+              "record_step"
+            ],
+            "machine": "IMAGE_FILE_MACHINE_ARM64",
+            "sha256": "cc459fab619339f45b658e8c244274e456f3aa440389384786774243b99d2496",
+            "size_bytes": 2048
+          },
+          "exact_package_gate": "refused",
+          "link": "accepted",
+          "same_executable_bytes_as_matching_import": true
+        },
+        "static": {
+          "link": "refused"
+        }
+      }
+    },
+    "x64": {
+      "artifacts": {
+        "load-time-dll-consumer": {
+          "export_symbols": [],
+          "import_libraries": [
+            "provider.dll"
+          ],
+          "import_symbols": [
+            "record_step"
+          ],
+          "machine": "IMAGE_FILE_MACHINE_AMD64",
+          "sha256": "045a2381206d15c86e4777cd5bfa9fba214103e1a29287607c20e1c3a099a3b4",
+          "size_bytes": 2048
+        },
+        "provider-dll": {
+          "export_symbols": [
+            "record_step"
+          ],
+          "import_libraries": [],
+          "import_symbols": [],
+          "machine": "IMAGE_FILE_MACHINE_AMD64",
+          "sha256": "2ce16c0033d670fe4ad5e0a2139a8a63cfb41bcbebea092c9f3964b6e8b1ee59",
+          "size_bytes": 2048
+        },
+        "static-compiled-consumer-with-import-library": {
+          "export_symbols": [],
+          "import_libraries": [
+            "provider.dll"
+          ],
+          "import_symbols": [
+            "record_step"
+          ],
+          "machine": "IMAGE_FILE_MACHINE_AMD64",
+          "sha256": "da8c6e2c57eb60b088814afec498dd067d078e89f5a1d78c85b5494ec96f6ddc",
+          "size_bytes": 2048
+        },
+        "static-consumer": {
+          "export_symbols": [],
+          "import_libraries": [],
+          "import_symbols": [],
+          "machine": "IMAGE_FILE_MACHINE_AMD64",
+          "sha256": "7c6946fe31515a7829baa8209d2adbb22181a38110b9556f1c754f2d010b4906",
+          "size_bytes": 2048
+        }
+      },
+      "call_lowering": "define dso_local void @record_step(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.record) align 8 %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {",
+      "executable_evidence": "cross-build-only",
+      "import_library_sha256": "d954d54e136326401d198fb1faf3bcbce464eeea2303525d2d6a19a75cfba8fc",
+      "import_record": {
+        "dll": "provider.dll",
+        "machine": "0x8664",
+        "symbol": "record_step"
+      },
+      "missing_symbol_and_wrong_library_mode": [
+        "refused",
+        "refused"
+      ],
+      "static_archive_sha256": "366a3c1a65ca2fca2bfc3e5448d218badc9e36394bdb927ea4c6709b7beb2e06",
+      "target": "x86_64-pc-windows-msvc",
+      "wrong_architecture_controls": {
+        "import": {
+          "artifact": {
+            "export_symbols": [],
+            "import_libraries": [
+              "provider.dll"
+            ],
+            "import_symbols": [
+              "record_step"
+            ],
+            "machine": "IMAGE_FILE_MACHINE_AMD64",
+            "sha256": "045a2381206d15c86e4777cd5bfa9fba214103e1a29287607c20e1c3a099a3b4",
+            "size_bytes": 2048
+          },
+          "exact_package_gate": "refused",
+          "link": "accepted",
+          "same_executable_bytes_as_matching_import": true
+        },
+        "static": {
+          "link": "refused"
+        }
+      }
+    }
+  },
+  "source_hashes": {
+    "api.h": "8dbabec308345b4cce265d461fd6371d2838dc73fd30048e9ef0398bca368aa9",
+    "consumer.c": "e8a1775bf13baa73169c70f2a55a2c02db6e1556a8d3d9a55dfff7f5d427fc1a",
+    "provider.c": "ed27eb7f9010e3d32540ec3b8ba6db4c6399348ad5e3aec90f62ed87ed59857b",
+    "run.py": "c903ea43d5bbfa482b898ec2bd836aeda5815fab189c13f8e62edbcb838982b0"
+  },
+  "tools": {
+    "ar": "Debian LLVM version 19.1.7",
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "linker": "Debian LLD 19.1.7",
+    "readobj": "Debian LLVM version 19.1.7"
+  }
+}
