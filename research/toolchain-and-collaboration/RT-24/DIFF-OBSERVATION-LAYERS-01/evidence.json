@@ -1,0 +1,447 @@
+{
+  "baseline": "321d7a0c00db0e9fbaa2b3ea24c436b882c76cb0",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "inputs": [
+    -2,
+    -1,
+    0,
+    1,
+    2
+  ],
+  "runner_sha256": "9e0a6a0d1d0aa33a957085b73b88879b48f94c059356c63d3a27e07c50f7fad0",
+  "source_sha256": {
+    "research/toolchain-and-collaboration/RT-24/COMMIT-TREE-SEMANTIC-ROOT-01/run.py": "8988ba2211978258c5aefd95fd6c85ca16f0e78c167f14c799e4abb63f86ba16",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556"
+  },
+  "base_commit": "8d670b067e63dacd9a7eb57db5839c33b62159ec",
+  "base_tree": "0dd85fb74a4af317eea862a06d6742d99c6537f8",
+  "base_snapshot": {
+    "surface": {
+      "grammar": "infix",
+      "body": "Expression(body=Call(func=Name(id='op', ctx=Load()), args=[Constant(value='compute'), Name(id='x', ctx=Load())], keywords=[]))"
+    },
+    "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+    "slots": {
+      "binding:compute": "f1e24bc0265aee2453f3b7d6e6f6e49b18866039650c13ae737ec5abe71b447e",
+      "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+      "implementation:entry": "f372ef8dc4a30e353b28df2bc7ccbc161959f564dbf03be141165a06c03b9351",
+      "implementation:minus": "204c8562b1941f3baf339826dcf550d63842d3cd797c75695ec8789bdab9ddca",
+      "implementation:plus": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+      "operation:compute": "a54e37431bf180d0598aececbef6b29422355f7aa10505efdf7a5a93c195827a",
+      "operation:entry": "7d47230af663685a4c6588f2ca1d6f7d3749c6a5df3fdac7ce221d9cada1a4c3"
+    },
+    "compute_provider": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+    "observations": [
+      [
+        -1,
+        []
+      ],
+      [
+        0,
+        []
+      ],
+      [
+        1,
+        []
+      ],
+      [
+        2,
+        []
+      ],
+      [
+        3,
+        []
+      ]
+    ]
+  },
+  "cases": {
+    "identical": {
+      "candidate": "f0bc461148d1e9562f0a943520ca5f8aa9f73395",
+      "tree": "0dd85fb74a4af317eea862a06d6742d99c6537f8",
+      "raw_patch": "",
+      "changed": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "changed_slots": {},
+      "snapshot": {
+        "surface": {
+          "grammar": "infix",
+          "body": "Expression(body=Call(func=Name(id='op', ctx=Load()), args=[Constant(value='compute'), Name(id='x', ctx=Load())], keywords=[]))"
+        },
+        "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "slots": {
+          "binding:compute": "f1e24bc0265aee2453f3b7d6e6f6e49b18866039650c13ae737ec5abe71b447e",
+          "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+          "implementation:entry": "f372ef8dc4a30e353b28df2bc7ccbc161959f564dbf03be141165a06c03b9351",
+          "implementation:minus": "204c8562b1941f3baf339826dcf550d63842d3cd797c75695ec8789bdab9ddca",
+          "implementation:plus": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+          "operation:compute": "a54e37431bf180d0598aececbef6b29422355f7aa10505efdf7a5a93c195827a",
+          "operation:entry": "7d47230af663685a4c6588f2ca1d6f7d3749c6a5df3fdac7ce221d9cada1a4c3"
+        },
+        "compute_provider": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+        "observations": [
+          [
+            -1,
+            []
+          ],
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            []
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            3,
+            []
+          ]
+        ]
+      }
+    },
+    "docs-only": {
+      "candidate": "1ded21b86d3dfc917d8e675dd0f1b1950165bb06",
+      "tree": "c22013fffdd9495dd16621f9cd8a14afb1061aad",
+      "raw_patch": "diff --git a/README.md b/README.md\nindex b342027..a9c0eaf 100644\n--- a/README.md\n+++ b/README.md\n@@ -1 +1 @@\n-Baseline notes.\n+Updated notes.\n",
+      "changed": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "changed_slots": {},
+      "snapshot": {
+        "surface": {
+          "grammar": "infix",
+          "body": "Expression(body=Call(func=Name(id='op', ctx=Load()), args=[Constant(value='compute'), Name(id='x', ctx=Load())], keywords=[]))"
+        },
+        "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "slots": {
+          "binding:compute": "f1e24bc0265aee2453f3b7d6e6f6e49b18866039650c13ae737ec5abe71b447e",
+          "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+          "implementation:entry": "f372ef8dc4a30e353b28df2bc7ccbc161959f564dbf03be141165a06c03b9351",
+          "implementation:minus": "204c8562b1941f3baf339826dcf550d63842d3cd797c75695ec8789bdab9ddca",
+          "implementation:plus": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+          "operation:compute": "a54e37431bf180d0598aececbef6b29422355f7aa10505efdf7a5a93c195827a",
+          "operation:entry": "7d47230af663685a4c6588f2ca1d6f7d3749c6a5df3fdac7ce221d9cada1a4c3"
+        },
+        "compute_provider": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+        "observations": [
+          [
+            -1,
+            []
+          ],
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            []
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            3,
+            []
+          ]
+        ]
+      }
+    },
+    "source-format": {
+      "candidate": "49a9a0f0edf63de3f7a2f5e2a2a4dd42abaec1e0",
+      "tree": "5d979bc8f4fd161a031b2000b0bdf3af4cb829c9",
+      "raw_patch": "diff --git a/program.json b/program.json\nindex 066a5d2..b154275 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1,5 @@\n-{\"surface\": \"infix\", \"entry\": \"op(\\\"compute\\\", x)\", \"binding\": \"plus\"}\n+{\n+  \"binding\": \"plus\",\n+  \"entry\": \"(op(\\\"compute\\\", x))\",\n+  \"surface\": \"infix\"\n+}\n",
+      "changed": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "changed_slots": {},
+      "snapshot": {
+        "surface": {
+          "grammar": "infix",
+          "body": "Expression(body=Call(func=Name(id='op', ctx=Load()), args=[Constant(value='compute'), Name(id='x', ctx=Load())], keywords=[]))"
+        },
+        "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "slots": {
+          "binding:compute": "f1e24bc0265aee2453f3b7d6e6f6e49b18866039650c13ae737ec5abe71b447e",
+          "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+          "implementation:entry": "f372ef8dc4a30e353b28df2bc7ccbc161959f564dbf03be141165a06c03b9351",
+          "implementation:minus": "204c8562b1941f3baf339826dcf550d63842d3cd797c75695ec8789bdab9ddca",
+          "implementation:plus": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+          "operation:compute": "a54e37431bf180d0598aececbef6b29422355f7aa10505efdf7a5a93c195827a",
+          "operation:entry": "7d47230af663685a4c6588f2ca1d6f7d3749c6a5df3fdac7ce221d9cada1a4c3"
+        },
+        "compute_provider": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+        "observations": [
+          [
+            -1,
+            []
+          ],
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            []
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            3,
+            []
+          ]
+        ]
+      }
+    },
+    "different-surface": {
+      "candidate": "0a2780c298896045dee01d12f7eec7c20f31b492",
+      "tree": "189a7d11c42be54d1d369ced615eee475f94bd48",
+      "raw_patch": "diff --git a/program.json b/program.json\nindex 066a5d2..4748b1f 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1 @@\n-{\"surface\": \"infix\", \"entry\": \"op(\\\"compute\\\", x)\", \"binding\": \"plus\"}\n+{\"surface\": \"prefix\", \"entry\": \"[\\\"op\\\",\\\"compute\\\",[\\\"arg\\\",\\\"x\\\"]]\", \"binding\": \"plus\"}\n",
+      "changed": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "changed_slots": {},
+      "snapshot": {
+        "surface": {
+          "grammar": "prefix",
+          "body": [
+            "op",
+            "compute",
+            [
+              "arg",
+              "x"
+            ]
+          ]
+        },
+        "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "slots": {
+          "binding:compute": "f1e24bc0265aee2453f3b7d6e6f6e49b18866039650c13ae737ec5abe71b447e",
+          "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+          "implementation:entry": "f372ef8dc4a30e353b28df2bc7ccbc161959f564dbf03be141165a06c03b9351",
+          "implementation:minus": "204c8562b1941f3baf339826dcf550d63842d3cd797c75695ec8789bdab9ddca",
+          "implementation:plus": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+          "operation:compute": "a54e37431bf180d0598aececbef6b29422355f7aa10505efdf7a5a93c195827a",
+          "operation:entry": "7d47230af663685a4c6588f2ca1d6f7d3749c6a5df3fdac7ce221d9cada1a4c3"
+        },
+        "compute_provider": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+        "observations": [
+          [
+            -1,
+            []
+          ],
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            []
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            3,
+            []
+          ]
+        ]
+      }
+    },
+    "retarget-provider": {
+      "candidate": "b530d9b2f4a69bb34c238eabbd92f24542ce618c",
+      "tree": "3c2efa3dfbe2d21175174643bde10b5b9cd54cad",
+      "raw_patch": "diff --git a/program.json b/program.json\nindex 066a5d2..a6fd7b4 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1 @@\n-{\"surface\": \"infix\", \"entry\": \"op(\\\"compute\\\", x)\", \"binding\": \"plus\"}\n+{\"surface\": \"infix\", \"entry\": \"op(\\\"compute\\\", x)\", \"binding\": \"minus\"}\n",
+      "changed": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "changed_slots": {
+        "binding:compute": {
+          "before": "f1e24bc0265aee2453f3b7d6e6f6e49b18866039650c13ae737ec5abe71b447e",
+          "after": "01339c6807010441d520014b0f9959b8cc92b1c291d55363f84efae15686a277"
+        }
+      },
+      "snapshot": {
+        "surface": {
+          "grammar": "infix",
+          "body": "Expression(body=Call(func=Name(id='op', ctx=Load()), args=[Constant(value='compute'), Name(id='x', ctx=Load())], keywords=[]))"
+        },
+        "semantic_root": "c842ba6a21739bbf0b696acc7c59cc95b6ad4ba41f6ec23803c06672ed3ad3ba",
+        "slots": {
+          "binding:compute": "01339c6807010441d520014b0f9959b8cc92b1c291d55363f84efae15686a277",
+          "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+          "implementation:entry": "f372ef8dc4a30e353b28df2bc7ccbc161959f564dbf03be141165a06c03b9351",
+          "implementation:minus": "204c8562b1941f3baf339826dcf550d63842d3cd797c75695ec8789bdab9ddca",
+          "implementation:plus": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+          "operation:compute": "a54e37431bf180d0598aececbef6b29422355f7aa10505efdf7a5a93c195827a",
+          "operation:entry": "7d47230af663685a4c6588f2ca1d6f7d3749c6a5df3fdac7ce221d9cada1a4c3"
+        },
+        "compute_provider": "204c8562b1941f3baf339826dcf550d63842d3cd797c75695ec8789bdab9ddca",
+        "observations": [
+          [
+            -3,
+            []
+          ],
+          [
+            -2,
+            []
+          ],
+          [
+            -1,
+            []
+          ],
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            []
+          ]
+        ]
+      }
+    },
+    "explicit-neutral-add": {
+      "candidate": "b8589eb6e3a8f3f5eb29e3cd30d3b4d404b38dcc",
+      "tree": "6720f2e44cc4ba556b9b47521c2d3f2ef26553a7",
+      "raw_patch": "diff --git a/program.json b/program.json\nindex 066a5d2..3e47295 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1 @@\n-{\"surface\": \"infix\", \"entry\": \"op(\\\"compute\\\", x)\", \"binding\": \"plus\"}\n+{\"surface\": \"infix\", \"entry\": \"op(\\\"compute\\\", x) + 0\", \"binding\": \"plus\"}\n",
+      "changed": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "changed_slots": {
+        "implementation:entry": {
+          "before": "f372ef8dc4a30e353b28df2bc7ccbc161959f564dbf03be141165a06c03b9351",
+          "after": "981821925e29c560532c7865cc9ba05f0f6bb07e7627fbccf691532030d0defc"
+        }
+      },
+      "snapshot": {
+        "surface": {
+          "grammar": "infix",
+          "body": "Expression(body=BinOp(left=Call(func=Name(id='op', ctx=Load()), args=[Constant(value='compute'), Name(id='x', ctx=Load())], keywords=[]), op=Add(), right=Constant(value=0)))"
+        },
+        "semantic_root": "eccdc5e0cc895e8700d131d42eda5ef01c547c9ffa30f28df192cf342a628514",
+        "slots": {
+          "binding:compute": "f1e24bc0265aee2453f3b7d6e6f6e49b18866039650c13ae737ec5abe71b447e",
+          "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+          "implementation:entry": "981821925e29c560532c7865cc9ba05f0f6bb07e7627fbccf691532030d0defc",
+          "implementation:minus": "204c8562b1941f3baf339826dcf550d63842d3cd797c75695ec8789bdab9ddca",
+          "implementation:plus": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+          "operation:compute": "a54e37431bf180d0598aececbef6b29422355f7aa10505efdf7a5a93c195827a",
+          "operation:entry": "7d47230af663685a4c6588f2ca1d6f7d3749c6a5df3fdac7ce221d9cada1a4c3"
+        },
+        "compute_provider": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+        "observations": [
+          [
+            -1,
+            []
+          ],
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            []
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            3,
+            []
+          ]
+        ]
+      }
+    },
+    "value-changing-body": {
+      "candidate": "190cdf828f8c4c2fa243957f16b3129f47fdffdb",
+      "tree": "f9f3c6104aaf85c4f3bf09b30c11be5a3cb50173",
+      "raw_patch": "diff --git a/program.json b/program.json\nindex 066a5d2..1249c1c 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1 @@\n-{\"surface\": \"infix\", \"entry\": \"op(\\\"compute\\\", x)\", \"binding\": \"plus\"}\n+{\"surface\": \"infix\", \"entry\": \"op(\\\"compute\\\", x) + 1\", \"binding\": \"plus\"}\n",
+      "changed": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "changed_slots": {
+        "implementation:entry": {
+          "before": "f372ef8dc4a30e353b28df2bc7ccbc161959f564dbf03be141165a06c03b9351",
+          "after": "11d94a9e8e8ff834525fcdba2b9e323a86ec3a224bffe7029af4f54d22155fe2"
+        }
+      },
+      "snapshot": {
+        "surface": {
+          "grammar": "infix",
+          "body": "Expression(body=BinOp(left=Call(func=Name(id='op', ctx=Load()), args=[Constant(value='compute'), Name(id='x', ctx=Load())], keywords=[]), op=Add(), right=Constant(value=1)))"
+        },
+        "semantic_root": "820f629e01a6f709782875a3b460ab1bb400d55cf7d955720cb10adddd257154",
+        "slots": {
+          "binding:compute": "f1e24bc0265aee2453f3b7d6e6f6e49b18866039650c13ae737ec5abe71b447e",
+          "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+          "implementation:entry": "11d94a9e8e8ff834525fcdba2b9e323a86ec3a224bffe7029af4f54d22155fe2",
+          "implementation:minus": "204c8562b1941f3baf339826dcf550d63842d3cd797c75695ec8789bdab9ddca",
+          "implementation:plus": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+          "operation:compute": "a54e37431bf180d0598aececbef6b29422355f7aa10505efdf7a5a93c195827a",
+          "operation:entry": "7d47230af663685a4c6588f2ca1d6f7d3749c6a5df3fdac7ce221d9cada1a4c3"
+        },
+        "compute_provider": "996e3a6fa2063161ff1f290cbc481f2f61bb743750a31ddc08c3f5e9c367a678",
+        "observations": [
+          [
+            0,
+            []
+          ],
+          [
+            1,
+            []
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            3,
+            []
+          ],
+          [
+            4,
+            []
+          ]
+        ]
+      }
+    },
+    "invalid-provider": {
+      "candidate": "9edbe18941ca90abb96c4eb6d656db0db0bf4ee4",
+      "raw_patch": "diff --git a/program.json b/program.json\nindex 066a5d2..e702a92 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1 @@\n-{\"surface\": \"infix\", \"entry\": \"op(\\\"compute\\\", x)\", \"binding\": \"plus\"}\n+{\"surface\": \"infix\", \"entry\": \"op(\\\"compute\\\", x)\", \"binding\": \"absent\"}\n",
+      "admission_error": "unknown implementation: absent"
+    }
+  }
+}

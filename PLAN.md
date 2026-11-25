@@ -986,7 +986,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 **Estimated research complexity:** **6/10** — substantial integration and conflict semantics, dependent on canonical representation and identity.
 
 - [ ] Define semantic diff independently of textual diff and AST diff.
-  - [ ] [WIP] Compare Git text, surface trees, exact typed graph changes and bounded observations over the same committed inputs (#321).
+  - [x] Compare eight committed candidates against one baseline. Equivalent prefix and infix bodies change surface trees while retaining typed addresses. A provider retarget keeps the entry AST and changes the exact binding and observations. Adding zero changes the graph while retaining the five observed outcomes. One invalid binding is refused. General lineage and graph completeness remain open. [Diff and observation layers](research/toolchain-and-collaboration/RT-24/RT-24-DIFF-OBSERVATION-LAYERS-2026-11-25.md)
 - [ ] Define three-way merge over semantic graph snapshots.
 - [ ] Define conflict classes: same-node edits, contract/implementation divergence, identity collisions, dependency conflicts, split/merge conflicts, and metadata-only conflicts.
 - [ ] Define automatic merge when changes are provably independent.
