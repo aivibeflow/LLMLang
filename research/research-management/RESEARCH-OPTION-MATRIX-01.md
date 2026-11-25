@@ -1,7 +1,7 @@
 # Research Option Matrix 01 — Language and Execution Foundations
 
 **Status:** Initial evidence-linked comparison; no vector selected
-**Updated:** 2026-11-24
+**Updated:** 2026-11-25
 **Scope:** First synthesis slice across core semantics, type/effect/resource model, semantic representation, verification, runtime, backends, and security. This matrix does not choose a language architecture or replace the source studies.
 
 ## 1. Purpose
@@ -313,6 +313,30 @@ A cross-process replay moves the publication fence later while keeping exact art
 A common finite workload compares all four source profiles under exact order and compares the actor's eligible delivery set. Each fixed order agrees across profiles. Of 1,536 inputs, 936 share their balance across different actor traces and 600 vary even the final balance. The fixture distinguishes contextual correspondence from schedule-independent correctness. [Four resource profiles](../language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md)
 
 For that fixture, an axiom-free Lean proof characterizes actor scalar invariance by local commutation and cancellation invisibility. Distinct terminal-event order remains observable. [Schedule invariance](../formal-verification/SCHEDULE-INVARIANCE-2026-11-25.md)
+
+### 5.7 Rechecked evidence at call, publication and resource boundaries
+
+The replays at `9a6e4cd9` on `research/all` reproduced the exact experiment ledgers and regenerated the Provider chart from its archived CSV. These results add discriminators for individual criteria. The integrated comparison still needs the same admitted workload, current policies, target profiles and review across candidates.
+
+| Criteria affected | Verified discriminator | Boundary for integrated comparison |
+| --- | --- | --- |
+| Evolution and correctness assurance | Six decisions for one shared caller's three paths retain their plan identity in 288 orders. A native migration with the wrong equivalent leaf preserves scalar values and changes 132 traces per build. [Consumer identities](../toolchain-and-collaboration/RT-20/RT-20-CONSUMER-FORK-IDENTITY-2026-11-25.md) · [Native caller propagation](../toolchain-and-collaboration/RT-20/RT-20-NATIVE-CALLER-PROPAGATION-2026-11-25.md) | Include complete caller discovery and exact per-path decisions, and compare both scalar and version-sensitive behavior after the same migration. |
+| Evolution and durable collaboration | All 16 exact-tree cases preserve validation, branch CAS and retry behavior. Across 133 filesystem schedules atomic link switching still mixes reads when resolved per file, while a leased directory preserves the original view. [Git acceptance](../toolchain-and-collaboration/RT-20/RT-20-EXACT-TREE-ACCEPTANCE-2026-11-25.md) · [Filesystem generations](../toolchain-and-collaboration/RT-19/RT-19-GENERATION-PUBLICATION-2026-11-25.md) · [Toolchain round trip](../toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-ROUNDTRIP-2026-11-25.md) | Verify commit, receipt visibility and export recovery across the selected stores under shared failure and concurrency scenarios. |
+| Authoring usability and correctness assurance | Scoped approximate search recovers 325 of 327 compatible exact neighbors, while global post-filter search leaves 102 empty shortlists. The exact selected artifact runs through all 36 native calls independently of the search index. [Scoped ANN](../semantic-representation/RT-35/RT-35-ANN-CONTRACT-FILTER-2026-11-25.md) · [Bound invocation](../semantic-representation/RT-35/RT-35-BOUND-NATIVE-CALL-2026-11-25.md) | Evaluate real task discovery and ambiguity separately from an authorized snapshot's exact call binding. |
+| Interoperability and runtime feasibility | Two Linux libcs agree on 416 typed child-status observations. The timer fixture and Lean proof distinguish delayed expiration accounting from capped refill and serialized spending. [Child waits](../runtime-and-systems/RT-10/RT-10-POSIX-WAIT-STATUS-2026-11-25.md) · [Hierarchical refill](../runtime-and-systems/RT-26/RT-26-TIMER-REFILL-2026-11-25.md) | Compare selected target APIs for process readiness, event consumption and resource behavior. Establish concurrency and portability assumptions before transferring the results. |
+| Incremental behavior and runtime feasibility | Sixty verified Provider samples show how graph shape affects cost at fixed object counts. At 4,096 objects, sparse median builds take 2.866–3.198 s and the 65,400-edge fixture takes 30.710 s. [Pinned Provider baseline](../packages-and-ecosystem/RT-12/RT-12-PROVIDER-BASELINE-2026-11-25.md) | Repeat with representative storage and controlled hardware. End-to-end scoring needs complete cold and warm runs. |
+
+The diagram distinguishes the linked fixture boundaries from the still-open candidate comparison.
+
+```mermaid
+flowchart LR
+    A[Scoped discovery] --> B[Exact path and artifact identity]
+    B --> C[Runtime and target observations]
+    B --> D[Validated candidate and publication]
+    C --> E[Integrated comparison needs a common workload]
+    D --> E
+    F[Provider timing and resource evidence] --> E
+```
 
 ## 6. Shared evaluation criteria
 

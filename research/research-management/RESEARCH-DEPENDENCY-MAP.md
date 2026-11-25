@@ -711,6 +711,8 @@ These edges are research hypotheses, not implementation commitments. KNN/ANN is 
 
 [Scoped retrieval](../semantic-representation/RT-35/RT-35-SCOPED-RETRIEVAL-2026-11-25.md) exercises DEP-213, DEP-216, DEP-219, DEP-222, DEP-225 and DEP-226 on finite functions and three fixture scopes. A current index with an omitted compatible entry falsely binds when it supplies the candidate universe. The complete authorized snapshot registry preserves ambiguity, and previous-root evidence for an unchanged artifact stays unknown. Incremental lifecycle and production access-control checks remain open.
 
+The [native bound-call replay](../semantic-representation/RT-35/RT-35-BOUND-NATIVE-CALL-2026-11-25.md) checks the DEP-225, DEP-226 and DEP-233 boundary on 36 Linux calls. Reordering and deleting a derived index leaves invocation of the exact authorized snapshot binding intact. A changed snapshot or missing artifact produces a typed refusal at invocation. [Consumer-specific identity replay](../toolchain-and-collaboration/RT-20/RT-20-CONSUMER-FORK-IDENTITY-2026-11-25.md) separately checks materialization of a single caller along three paths. Production authority and path discovery remain open.
+
 ## Public-interface cross-area dependencies (proposed RT-05/20 vector)
 
 [Calculator call-site split](../language-design/RT-01/RT-01-CLI-CALL-SITE-REFACTOR-2026-11-25.md) joins the RT-01 workload with RT-20 exact caller decisions. Source moves preserve graph identity, a public alias changes old behavior after splitting, and a warm store can mask absent source despite matching native results.
