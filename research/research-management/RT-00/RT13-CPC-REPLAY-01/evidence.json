@@ -1,0 +1,35 @@
+{
+  "schema": "llmlang-rt13-cpc-declaration-controls/1",
+  "cases": {
+    "permuted_source_declarations": {
+      "smt_sha256": "722424d00098948c8cefdfbce22deccf52a5ede34ae4f69c5255fb4ea317ef84",
+      "cpc_sha256": "20528a185127b6deeae719acd300ef0d9e26f5c1206d4727a048c9d586464c15",
+      "exit_code": 0,
+      "bound_verdict": "correct"
+    },
+    "widened_source_declaration": {
+      "smt_sha256": "9d873b1c34053bc88982c240e3f6c1424fba73776357d6fd778ea66df61c7217",
+      "cpc_sha256": "20528a185127b6deeae719acd300ef0d9e26f5c1206d4727a048c9d586464c15",
+      "exit_code": 3,
+      "bound_verdict": "invalid-source-declarations"
+    },
+    "widened_proof_declaration": {
+      "smt_sha256": "3798f9f863649b398ada425aec37633163f170d2fe54dc487fcee268f4ec7f52",
+      "cpc_sha256": "6503a48e51a66ddff1f3b4a59f83d690d1c588cba8a713ce19275cbf93c129f0",
+      "exit_code": 3,
+      "bound_verdict": "declarations-mismatch"
+    },
+    "extra_initial_proof_declaration": {
+      "smt_sha256": "3798f9f863649b398ada425aec37633163f170d2fe54dc487fcee268f4ec7f52",
+      "cpc_sha256": "975c036836b4dd1d1e8be90422fd8025eb67baa5572113b21f4cce3220255319",
+      "exit_code": 3,
+      "bound_verdict": "declarations-mismatch"
+    },
+    "extra_late_proof_declaration": {
+      "smt_sha256": "3798f9f863649b398ada425aec37633163f170d2fe54dc487fcee268f4ec7f52",
+      "cpc_sha256": "1dd5e39313160bbadd0481f50cab971a8d669027b5cb32c4a38c0f02cefe87a4",
+      "exit_code": 3,
+      "bound_verdict": "unsupported-proof-command"
+    }
+  }
+}
