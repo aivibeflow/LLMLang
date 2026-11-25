@@ -1469,6 +1469,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define reproducible builds and attestations.
   - [x] Compare eight GCC builds and ten native Ed25519 admission controls. Path-normalized independent checkouts produce exact bytes. Comment and unused-flag changes preserve bytes but change the signed recipe. Subject-only admits six claims while exact admission admits two. Full environment closure and production trust remain open. [Reproducible build attestation](research/security/RT-16/RT-16-BUILD-ATTESTATION-2026-11-25.md)
 - [ ] Define recovery and revocation when a tool, proof checker, or implementation is compromised.
+  - [ ] [WIP] Compare prospective and retroactive proof-evidence revocation with exact replacement and dependent-result invalidation on `research/all`.
 
 **Status:** an initial threat model and tested authorization-policy experiment now exist in [RT-16 Threat Model 01](research/security/RT-16/RT-16-THREAT-MODEL-01.md). They cover scope binding, human approval, replay, evidence identity, and fail-closed checks at fixture level. A complete security architecture remains open; persistent multi-client authorization, concurrency/crash injection, sandbox testing, signed/authenticated evidence, and operational approval policy are high-priority gaps.
 
