@@ -1,0 +1,86 @@
+{
+  "conclusion": "success",
+  "exact_ledgers": [
+    "GRAPH-OCCURRENCE-01",
+    "EXHAUSTIVE-EVIDENCE-01",
+    "DIFFERENTIAL-SHRINK-01",
+    "PASS-COMPOSITION-01"
+  ],
+  "headSha": "f4d6de046d0294a7611e1e1546069f90131c162c",
+  "jobs": [
+    {
+      "completedAt": "2026-11-25T11:58:04Z",
+      "conclusion": "success",
+      "databaseId": 139187953753,
+      "name": "replay",
+      "startedAt": "2026-11-25T11:57:29Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Check out exact research commit and its archive history",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-python@v5",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install Lean 4.36.0",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Replay the exact Lean and differential ledgers",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@v5",
+          "number": 9,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Check out exact research commit and its archive history",
+          "number": 10,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 11,
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/aivibeflow/LLMLang/actions/runs/45609190644/job/139187953753"
+    }
+  ],
+  "lean_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+  "lean_transcripts": [
+    "GRAPH-OCCURRENCE-01",
+    "EXHAUSTIVE-EVIDENCE-01",
+    "PASS-COMPOSITION-01"
+  ],
+  "previous_workflow_failures_without_jobs": [
+    45608866655,
+    45608912989,
+    45608943214
+  ],
+  "python": "3.12.14",
+  "status": "completed",
+  "url": "https://github.com/aivibeflow/LLMLang/actions/runs/45609190644",
+  "workflow_lint": "actionlint 1.7.11"
+}
