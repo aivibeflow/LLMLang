@@ -52,7 +52,7 @@ The second command runs the 10-pigeon/9-hole fixture with a 0.5-second query dea
 
 - Repeat timing across cold and warm runs, multiple formula families, and solver/backend versions; record timeout distributions and completed SAT/UNSAT separately.
 - Add a proof-producing backend and an independent proof checker before accepting solver UNSAT for pruning.
-- Test worker startup timeout, abrupt crash, malformed response, mismatched ID, and memory/CPU limits; separately test persistent-pool cancellation if that architecture remains a candidate.
+- The bounded current-main recheck now tests startup timeout, abrupt crash, malformed response, mismatched ID, and late-response handling through injected protocol workers; see [RT-00's protocol audit](../../research-management/RT-00/RT-00-C-SOLVER-WORKER-PROTOCOL-AUDIT-2026-11-25.md). Memory/CPU/descendant limits and persistent-pool cancellation remain open if those architectures remain candidates.
 - Bind queries to immutable predicate/CFG versions and verify source-to-route completeness, including writes and aliasing.
 - Compare unknown-path effects on diagnostics, dependency completeness, cache invalidation, and evidence reuse.
 
