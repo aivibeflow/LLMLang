@@ -1950,7 +1950,7 @@ Research a typed, versioned object describing the task an agent is expected to p
   - [x] Check 514 equivalent encodings, ten field changes, and eight malformed declarations. SQLite distinguishes task identity, exact history, and equal declarations. Restored content cannot select the old receipt, while a display-title edit preserves the head. General schema migration and receipt authority remain open. [Task Context revision identity](research/toolchain-and-collaboration/RT-14/RT-14-TASK-IDENTITY-2026-11-25.md)
 - [x] Compare lifecycle models for creation, clarification, planning, execution, blocked/failed states, cancellation, retry, delegation, decomposition, review, handoff, and completion.
   - [x] Compare 1,144 lifecycle inputs. The status-only rule admits 152 unsafe transitions. Revision, attempt and evidence checks admit 40 and preserve terminal cancellation and completion. Production settlement remains open. [Task lifecycle boundary](research/toolchain-and-collaboration/RT-14/RT-14-TASK-LIFECYCLE-BOUNDARY-2026-11-25.md)
-- [ ] Define how a task pins its baseline snapshot, selected Knowledge Context, target objects, and related Change Set/CIP without duplicating their authoritative state.
+- [ ] [WIP] Define how a task pins its baseline snapshot, selected Knowledge Context, target objects, and related Change Set/CIP without duplicating their authoritative state.
 - [ ] Specify machine-checkable completion obligations: required mutations, tests, proofs, audits, approvals, evidence bindings, and fail-closed behavior when obligations remain unknown or unsatisfied.
   - [x] Compare completion bindings and a separate current grant across 1,200 Task Context states. Label-only admits 590 incorrect completions and task ID admits 470. Exact completion agrees with the oracle on all states and publication accepts two; four old-receipt controls refuse subsequent publication. Atomic publication and authority integration remain open. [Task Context completion](research/toolchain-and-collaboration/RT-14/RT-14-TASK-CONTEXT-COMPLETION-2026-11-25.md)
 - [ ] Study multi-agent ownership, concurrent task revisions, subtask dependencies, idempotency, recovery, and the boundary between task completion and commit/push authorization.
@@ -1962,8 +1962,8 @@ Research a typed, versioned object describing the task an agent is expected to p
 
 ### Joint integration and exit criteria
 
-- [ ] Define the Knowledge Context ↔ Task Context relationship without making either the authority for the other's semantics.
-- [ ] Map both models onto RT-05/06 identity and dependency evidence, RT-02 requirements, RT-16 permissions, RT-19 workspaces/Change Sets, and RT-20 plan execution.
+- [ ] [WIP] Define the Knowledge Context ↔ Task Context relationship without making either the authority for the other's semantics.
+- [ ] [WIP] Map both models onto RT-05/06 identity and dependency evidence, RT-02 requirements, RT-16 permissions, RT-19 workspaces/Change Sets, and RT-20 plan execution.
 - [ ] Validate that context manifests and task records are reproducible, inspectable, revision-bound, and fail closed on unknown completeness, stale baselines, or unauthorized reads/actions.
   - [x] Check fourteen joint Knowledge/Task Context controls and 144 input permutations. Equal rendered prompts under changed scope or provenance cannot satisfy the old exact task binding. Four cases complete and two separately pass the grant gate. Production truth sources, workspace atomicity and controlled agent trials remain open. [Joint context validation](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-INTEGRATION-2026-11-25.md)
 - [ ] [WIP human] Compare agent performance with full-context, bounded-context, and deliberately incomplete-context conditions; measure task success, missed constraints, scope violations, token/context cost, review effort, and recovery behavior.
