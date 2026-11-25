@@ -37,6 +37,8 @@ RT-11 checks third-order edit effects and relates exact ordered non-interference
 
 RT-11 measures native rebuild selection and scoped execution costs for local, shared and common-header changes. [Native edit locality](../toolchain-and-collaboration/RT-11/RT-11-NATIVE-EDIT-LOCALITY-2026-11-25.md)
 
+RT-06 checks strongly connected component scheduling and edited dependency closure against a reachability oracle. [SCC dependency scheduling](../semantic-representation/RT-06/RT-06-SCC-DEPENDENCY-SCHEDULING-2026-11-25.md)
+
 RT-06 and RT-11 show how absent inputs affect compiler lookup, dependency completeness and reuse. [Negative header dependencies](../toolchain-and-collaboration/RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md)
 
 RT-11 tests metadata reuse against exact ELF load, artifact and native self-inspection observations. [ELF metadata reuse](../toolchain-and-collaboration/RT-11/RT-11-ELF-METADATA-REUSE-2026-11-25.md)

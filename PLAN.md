@@ -842,8 +842,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [x] Compare finite guard-sensitive may-dependency closure against 16,384 explicit queries. Location-only traversal misses targets in 3,408 queries. State-aware closure matches the known-table oracle, and local unknown expansion avoids misses with measurable loss of precision. Exhausted queries return unknown. Source extraction, wider effects and snapshot binding remain open. [Conditional dependency closure](research/semantic-representation/RT-06/RT-06-CONDITIONAL-DEPENDENCY-CLOSURE-2026-11-25.md).
 - [x] Define how missing or incomplete dependency evidence affects reuse.
   - [x] Compare 162 GCC header-search runs and prove the ordered selection rule in Lean. Prior positive depfiles alone admit 312 stale selections and 156 stale artifacts in 4,212 ordered comparisons. The exact prefix has zero stale reuse. [Negative header dependencies](research/toolchain-and-collaboration/RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md)
-- [ ] Define cycles and strongly connected components for analysis and scheduling.
-  - [ ] [WIP] Check deterministic strongly connected component schedules and changed-graph invalidation against a whole-graph dependency fixed point on `research/all`.
+- [x] Define cycles and strongly connected components for analysis and scheduling.
+  - [x] Check reproducible provider-first SCC schedules on all 512 directed graphs and 4,096 fact assignments. Across 36,864 edited cases, stale plans omit required facts in 4,448 cases if unresolved inputs default to empty. Lean checks propagation along finite dependency paths. [SCC dependency scheduling](research/semantic-representation/RT-06/RT-06-SCC-DEPENDENCY-SCHEDULING-2026-11-25.md)
 - [ ] Define change-impact analysis for requirement, contract, design, implementation, and target changes.
 
 **Existing evidence:** scenarios 18–28 and prototypes 18–28 in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`.
