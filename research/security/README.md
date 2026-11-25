@@ -16,4 +16,5 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-16 scoped trust handoffs](RT-16/RT-16-TRUST-HANDOFF-BOUNDARIES-2026-11-25.md) checks distinct claims for candidates, compilation, registry delivery, observation and runtime effects.
 - [PROTOTYPES](PROTOTYPES/)

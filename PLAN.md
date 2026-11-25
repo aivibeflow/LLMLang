@@ -1688,7 +1688,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Estimated research complexity:** **5/10** — current threat model and fixture prototype narrow the next experiments, but full operational security remains larger.
 
-- [ ] [WIP] Define trust boundaries among LLM authors, compiler, runtime, plugins, external tools, and artifact registries.
+- [x] Define trust boundaries among LLM authors, compiler, runtime, plugins, external tools, and artifact registries.
+  - [x] Check 840 scoped authority handoffs across six roles. Ten exact matrix entries pass and 830 refuse. Plugin intent and registry delivery cannot stand in for supervisor grants or independent behavior evidence. Production authentication and effect enforcement remain open. [Scoped trust handoffs](research/security/RT-16/RT-16-TRUST-HANDOFF-BOUNDARIES-2026-11-25.md)
 - [x] Define deterministic validation independent of LLM claims.
   - [x] Check three candidate models with two execution bounds, contrary agent claims and five receipt controls. Verifier-owned scope exposes the missing boundary input and reversed trace. A valid narrower receipt remains stale for the larger domain. All 24 existing policy tests pass. Production execution and evidence authentication remain open. [Independent validation](research/security/RT-16/RT-16-INDEPENDENT-VALIDATION-2026-11-25.md)
 - [ ] Define supply-chain provenance and signed evidence.
