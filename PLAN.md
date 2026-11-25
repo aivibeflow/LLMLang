@@ -1168,6 +1168,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define a shared contract for multiple POSIX implementations.
   - [x] Replay both native probes with statically linked glibc 2.41 and musl 1.2.5. The exact linker-selected archives are distinct, and all 464 file fields and startup case outcomes match. Other kernels and POSIX profiles remain open. [POSIX cross-libc contract](research/runtime-and-systems/RT-10/RT-10-POSIX-CROSS-LIBC-2026-11-25.md)
 - [ ] Separate portable runtime implementation from native Linux syscall implementation.
+  - [ ] [WIP] Compare libc cancellation points with raw Linux read under a queued deferred cancellation on `research/all`.
 - [ ] Define conformance evidence, optional features, and implementation-defined behavior.
 - [ ] Define error, resource, process, file, and descriptor semantics.
   - [x] Check 168 native observations across hard links, independent opens, duplicate descriptors, positional reads, replacement, unlink and descriptor rebinding. The fixture distinguishes namespace, object, descriptor slot and shared-offset identity. Broader POSIX conformance remains open. [RT-10 POSIX file identity](research/runtime-and-systems/RT-10/RT-10-POSIX-FILE-IDENTITY-2026-11-25.md)
