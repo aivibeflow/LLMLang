@@ -1,0 +1,39 @@
+{
+  "schema": "llmlang-candidate-copy-frame/1",
+  "parameters": {
+    "array": "MutableArray<Int>",
+    "source": "Nat",
+    "target": "Nat",
+    "length": "Nat"
+  },
+  "spans": {
+    "source": {"object": "array", "start": "source", "size": "length"},
+    "target": {"object": "array", "start": "target", "size": "length"}
+  },
+  "contracts": {
+    "full": {
+      "requires": ["source-in-bounds", "target-in-bounds"],
+      "modifies": "array",
+      "ensures": ["target-from-old-source", "outside-target-unchanged"]
+    },
+    "forward": {
+      "requires": ["source-in-bounds", "target-in-bounds", "safe-forward-order"],
+      "modifies": "array",
+      "ensures": ["target-from-old-source", "outside-target-unchanged"]
+    },
+    "weak": {
+      "requires": ["source-in-bounds", "target-in-bounds"],
+      "modifies": "array",
+      "ensures": ["target-from-old-source"]
+    }
+  },
+  "effects": {
+    "read_span": "source",
+    "write_span": "target"
+  },
+  "loops": {
+    "forward": {"range": "processed-prefix", "decreases": "remaining-length"},
+    "backward": {"range": "processed-suffix", "decreases": "remaining-prefix"}
+  },
+  "assumptions": ["sequential-no-external-writer", "unbounded-integer-values"]
+}

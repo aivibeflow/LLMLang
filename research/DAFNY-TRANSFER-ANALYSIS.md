@@ -106,6 +106,8 @@ For a bounded pure or sequential fragment, implement the same examples in Dafny 
 
 Translate only a declared supported subset. For each translation, retain a source map and exact input/output hashes; reject unsupported source constructs. Independently compare behavior on generated bounded inputs and establish a formal translation-preservation argument before claiming soundness.
 
+The [Dafny mapping for overlapping copy and frames](semantic-representation/RT-05/RT-05-DAFNY-SPG-COPY-FRAME-2026-11-25.md) renders an exact graph into Dafny preconditions, final-state and loop clauses. It records proof provenance across two emitted source profiles and measures the actual array trace. The source proof and the access projection have separate evidence.
+
 ### Experiment C: Dafny contracts imported into SPG
 
 Parse a limited set of Dafny declarations and represent their contracts as typed graph objects while retaining the original text. Record constructs that cannot map losslessly. This tests whether the graph is useful without prematurely making SPG the only source of truth.
