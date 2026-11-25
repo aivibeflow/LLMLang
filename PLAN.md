@@ -1614,6 +1614,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - The shared-head fixture now has a persistent request/outcome and Git receipt record with process crash and race checks. Branch-based acceptance, complete semantic merge/conflict discovery and maintainer choice of acceptance semantics remain open.
 - [x] Specify candidate MCP Tools, Resources and Prompts schemas for the in-memory lifecycle. The upstream SDK passed 42 assertions over MCP stdio, including scoped resources, rejected stale mutations and atomic Change Sets. Production authorization, payload schema and persistence integration remain open. [Independent MCP client experiment](research/toolchain-and-collaboration/RT-19/RT-19-MCP-STDIO-SCHEMA-INTEROPERABILITY-2026-11-24.md).
 - [ ] Prototype deterministic import/change/validate/accept/export/re-import as one vertical slice.
+  - [ ] [WIP] Replay the existing Toolchain API through import, validated exact acceptance, export and re-import with deterministic round-trip and no-publication controls (#337).
 - [ ] Add failure-injection, security, authorization, and comparative source-editing tests.
 
 **Existing evidence:** [RT-19 research proposal](research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) builds on [Development Engine RFC](research/toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md), [Git semantic repository research](research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md), and [ADR-014](docs/adr/014-git-semantic-merge.md).
