@@ -617,6 +617,20 @@ class CIPObligationIdentityTests(unittest.TestCase):
         ]
         self.assertTrue(all(compute_call_site_decision_id(row) != original for row in variants))
 
+    def test_fork_decisions_with_optional_hashes_have_order_independent_identity(self):
+        explicit = self.decision()
+        slot_only = replace(
+            explicit, consumer_path_id="consumer-b", selected_callee_hash=None,
+            resulting_caller_hash=None, resulting_output_id="second-caller-output",
+        )
+        forward = ImpactPlan(
+            plan_id="", baseline_root="base", candidate_root="candidate",
+            policy_id="policy", actions=(), audit_statuses=(),
+            call_site_decisions=(explicit, slot_only),
+        )
+        reverse = replace(forward, call_site_decisions=(slot_only, explicit))
+        self.assertEqual(compute_impact_plan_id(forward), compute_impact_plan_id(reverse))
+
     def test_obligation_ids_are_committed_to_plan_identity(self):
         edge = self.edge()
         decision = self.decision()
