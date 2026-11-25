@@ -1,0 +1,525 @@
+{
+  "capabilities": {
+    "apalache-cli": [
+      "bounded-safety"
+    ],
+    "apalache-grpc": [
+      "bounded-safety"
+    ],
+    "tlc-cli": [
+      "finite-safety",
+      "finite-liveness"
+    ],
+    "tlc-java": [
+      "finite-safety",
+      "finite-liveness"
+    ]
+  },
+  "grpc_controls": {
+    "deadline_1ms": "DEADLINE_EXCEEDED",
+    "file_source": "INVALID_ARGUMENT",
+    "following_ping_and_check": "ok",
+    "listener": "IPv4 loopback"
+  },
+  "host_cancellation": {
+    "apalache-cli": {
+      "disposition": "host-cancelled",
+      "exit": 143,
+      "observed_start": ": BoundedChecker"
+    },
+    "tlc-cli": {
+      "disposition": "host-cancelled",
+      "exit": 143,
+      "observed_start": "Finished computing initial states:"
+    },
+    "tlc-java": {
+      "disposition": "host-cancelled",
+      "exit": 143,
+      "observed_start": "Finished computing initial states:"
+    }
+  },
+  "observations": {
+    "apalache-cli": {
+      "missing": {
+        "disposition": "missing-property",
+        "exit": 255,
+        "native_arguments": [
+          "--out-dir=analysis",
+          "check",
+          "--init=Init",
+          "--next=Next",
+          "--length=4",
+          "--inv=Missing",
+          "--no-deadlock=true",
+          "Probe.tla"
+        ],
+        "request": {
+          "bound": 4,
+          "kind": "bounded-safety",
+          "property": "Missing",
+          "weak_fairness": true
+        },
+        "request_sha256": "b14ad0eefdb07f5f8b8048589fb818dae96bdd55293e52ac05282c54e46b2f94",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345"
+      },
+      "safe": {
+        "bound": 4,
+        "disposition": "checked",
+        "exit": 0,
+        "native_arguments": [
+          "--out-dir=analysis",
+          "check",
+          "--init=Init",
+          "--next=Next",
+          "--length=4",
+          "--inv=Safe",
+          "--no-deadlock=true",
+          "Probe.tla"
+        ],
+        "request": {
+          "bound": 4,
+          "kind": "bounded-safety",
+          "property": "Safe",
+          "weak_fairness": true
+        },
+        "request_sha256": "4329f98093ea361fdfff5ede1fbf4d88788561dcb0eae1996b931d5dbca2350d",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345"
+      },
+      "shallow": {
+        "bound": 2,
+        "disposition": "checked",
+        "exit": 0,
+        "native_arguments": [
+          "--out-dir=analysis",
+          "check",
+          "--init=Init",
+          "--next=Next",
+          "--length=2",
+          "--inv=TooLow",
+          "--no-deadlock=true",
+          "Probe.tla"
+        ],
+        "request": {
+          "bound": 2,
+          "kind": "bounded-safety",
+          "property": "TooLow",
+          "weak_fairness": true
+        },
+        "request_sha256": "1b30c6f3fea748ad9bfafc1e739bac8f55b3c76dce0d685aa9b8de8593887ea5",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345"
+      },
+      "violation": {
+        "disposition": "safety-violation",
+        "exit": 12,
+        "native_arguments": [
+          "--out-dir=analysis",
+          "check",
+          "--init=Init",
+          "--next=Next",
+          "--length=3",
+          "--inv=TooLow",
+          "--no-deadlock=true",
+          "Probe.tla"
+        ],
+        "request": {
+          "bound": 3,
+          "kind": "bounded-safety",
+          "property": "TooLow",
+          "weak_fairness": true
+        },
+        "request_sha256": "059a74990778ccbdc8cfd33d1a16679122d301c599cf0a9940ea60ab9c6146cc",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345",
+        "states": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "apalache-grpc": {
+      "missing": {
+        "application_error": "UNEXPECTED",
+        "config_sha256": "2a1509eab7d75a5246b0466fad86b6e8c3112b28a73642b9533011e68b72d803",
+        "disposition": "missing-property",
+        "request": {
+          "bound": 4,
+          "kind": "bounded-safety",
+          "property": "Missing",
+          "weak_fairness": true
+        },
+        "request_sha256": "f2258304b532d9a53054c7079ae2f779fd65ea39221f6813cd664f2d8fd8e0e9",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345",
+        "transport": "OK"
+      },
+      "safe": {
+        "bound": 4,
+        "config_sha256": "e14425bed91ead1912ed251d978e38915d5165f3cf94bb06b94fa5d2921e869e",
+        "disposition": "checked",
+        "request": {
+          "bound": 4,
+          "kind": "bounded-safety",
+          "property": "Safe",
+          "weak_fairness": true
+        },
+        "request_sha256": "75df9900318957c844b3b42c86c0dacefb743d0a87ff537bb0e10d2a1bd8d673",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345",
+        "transport": "OK"
+      },
+      "shallow": {
+        "bound": 2,
+        "config_sha256": "56a3661c8d468cc9e147287aeed0b9936f76cfd387b00ef89a7aa2fd200d3599",
+        "disposition": "checked",
+        "request": {
+          "bound": 2,
+          "kind": "bounded-safety",
+          "property": "TooLow",
+          "weak_fairness": true
+        },
+        "request_sha256": "1ace44108a718ef9070ce37664a76bc02093bacfbf447f9bff2a4559d0bdbe34",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345",
+        "transport": "OK"
+      },
+      "violation": {
+        "application_error": "PASS_FAILURE",
+        "config_sha256": "21437e9ef3445f1d13ddd8d29561adf87c9eef6b16dc1b44d4209e97c3521fc3",
+        "disposition": "safety-violation",
+        "request": {
+          "bound": 3,
+          "kind": "bounded-safety",
+          "property": "TooLow",
+          "weak_fairness": true
+        },
+        "request_sha256": "771546a828938a17f4821289511cf46741a911caf2644daeb65d8442708d4141",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345",
+        "states": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "transport": "OK"
+      }
+    },
+    "tlc-cli": {
+      "fair": {
+        "disposition": "checked",
+        "exit": 0,
+        "native_config_sha256": "67ff0b695b2d92a7ae9a3eedc1d7ad215f5217b7cc367a522e8e980da8941c1f",
+        "reachable_states": 5,
+        "request": {
+          "bound": null,
+          "kind": "finite-liveness",
+          "property": "Eventually",
+          "weak_fairness": true
+        },
+        "request_sha256": "bf5dab95d896af9b64261f61ec9997a1e4b79a78e5f5002d0c751f476b07b52e",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345"
+      },
+      "missing": {
+        "disposition": "missing-property",
+        "exit": 151,
+        "native_config_sha256": "ed225d6cc77341df068b53e181901099dc498a69a1efc8ac7fa4a5761db80313",
+        "request": {
+          "bound": null,
+          "kind": "finite-safety",
+          "property": "Missing",
+          "weak_fairness": true
+        },
+        "request_sha256": "bc0d1ba0bc2fd0476ece6784046c45c9153e2deaeb53d4238ee7ba7b816fc42b",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345"
+      },
+      "safe": {
+        "disposition": "checked",
+        "exit": 0,
+        "native_config_sha256": "04266cbe92a2a1002f227c5bda3c0ebbd2eeac9d43211aa9bb8f1d82f7c111ea",
+        "reachable_states": 5,
+        "request": {
+          "bound": null,
+          "kind": "finite-safety",
+          "property": "Safe",
+          "weak_fairness": true
+        },
+        "request_sha256": "8663da970c84a063931be0ac7dd03fe144b061f7e4043676335f1ea5036da960",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345"
+      },
+      "unfair": {
+        "action_pairs": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "disposition": "temporal-violation",
+        "exit": 13,
+        "native_config_sha256": "67ff0b695b2d92a7ae9a3eedc1d7ad215f5217b7cc367a522e8e980da8941c1f",
+        "request": {
+          "bound": null,
+          "kind": "finite-liveness",
+          "property": "Eventually",
+          "weak_fairness": false
+        },
+        "request_sha256": "a704d39c062f9e96145feb49ce3f82bcac99769a16725df95ac88c95ba6a31d8",
+        "source_sha256": "feecdd8bafc6ea788020ea4082e4c61e9671b4e836f7057991d60d39d18cb11a",
+        "states": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "stuttering_at": 3
+      },
+      "violation": {
+        "action_pairs": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "disposition": "safety-violation",
+        "exit": 12,
+        "native_config_sha256": "49fd7d8b7690ee2640837dea7741e813710588797f44535ecad38cca2d20ee70",
+        "request": {
+          "bound": null,
+          "kind": "finite-safety",
+          "property": "TooLow",
+          "weak_fairness": true
+        },
+        "request_sha256": "9ab251ae5121be794cb6350d83d13e943e7899e8b3927213e89b39d1e586da4c",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345",
+        "states": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "tlc-java": {
+      "fair": {
+        "disposition": "checked",
+        "exit": 0,
+        "java_result_code": 0,
+        "native_config_sha256": "67ff0b695b2d92a7ae9a3eedc1d7ad215f5217b7cc367a522e8e980da8941c1f",
+        "reachable_states": 5,
+        "request": {
+          "bound": null,
+          "kind": "finite-liveness",
+          "property": "Eventually",
+          "weak_fairness": true
+        },
+        "request_sha256": "10a4e8c6e1d11052fd90209d9abff881c23dac781d6e96215a8e30741c76c374",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345"
+      },
+      "missing": {
+        "disposition": "missing-property",
+        "exit": 151,
+        "java_result_code": 2229,
+        "native_config_sha256": "ed225d6cc77341df068b53e181901099dc498a69a1efc8ac7fa4a5761db80313",
+        "request": {
+          "bound": null,
+          "kind": "finite-safety",
+          "property": "Missing",
+          "weak_fairness": true
+        },
+        "request_sha256": "fbf84958cc5c040cb0415fdb88a271778ac088c61cb858ccf638f97e439547d1",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345"
+      },
+      "safe": {
+        "disposition": "checked",
+        "exit": 0,
+        "java_result_code": 0,
+        "native_config_sha256": "04266cbe92a2a1002f227c5bda3c0ebbd2eeac9d43211aa9bb8f1d82f7c111ea",
+        "reachable_states": 5,
+        "request": {
+          "bound": null,
+          "kind": "finite-safety",
+          "property": "Safe",
+          "weak_fairness": true
+        },
+        "request_sha256": "e1e8645f0f79baf2f19e884588574438c80efaacd88da2bc68d52f91ed7bc256",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345"
+      },
+      "unfair": {
+        "action_pairs": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "disposition": "temporal-violation",
+        "exit": 13,
+        "java_result_code": 2116,
+        "native_config_sha256": "67ff0b695b2d92a7ae9a3eedc1d7ad215f5217b7cc367a522e8e980da8941c1f",
+        "request": {
+          "bound": null,
+          "kind": "finite-liveness",
+          "property": "Eventually",
+          "weak_fairness": false
+        },
+        "request_sha256": "5b600fad85b952f5eb9382be45aa1abb0dec332e786808e5f195feca9a65ce58",
+        "source_sha256": "feecdd8bafc6ea788020ea4082e4c61e9671b4e836f7057991d60d39d18cb11a",
+        "states": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "stuttering_at": 3
+      },
+      "violation": {
+        "action_pairs": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "disposition": "safety-violation",
+        "exit": 12,
+        "java_result_code": 2110,
+        "native_config_sha256": "49fd7d8b7690ee2640837dea7741e813710588797f44535ecad38cca2d20ee70",
+        "request": {
+          "bound": null,
+          "kind": "finite-safety",
+          "property": "TooLow",
+          "weak_fairness": true
+        },
+        "request_sha256": "254198d2f8893e5c3faa0e1c1dff9d1ad183c6970c6916a052d9a16641cea0ad",
+        "source_sha256": "e01e5e12b49826abeba1d263442a79e2630a3e81d8916a8e1e7ed1797c488345",
+        "states": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    }
+  },
+  "refused_requests": [
+    {
+      "request": {
+        "bound": 2,
+        "kind": "bounded-safety",
+        "property": "TooLow",
+        "weak_fairness": true
+      },
+      "route": "tlc-cli"
+    },
+    {
+      "request": {
+        "bound": 2,
+        "kind": "bounded-safety",
+        "property": "TooLow",
+        "weak_fairness": true
+      },
+      "route": "tlc-java"
+    },
+    {
+      "request": {
+        "bound": null,
+        "kind": "finite-liveness",
+        "property": "Eventually",
+        "weak_fairness": true
+      },
+      "route": "apalache-cli"
+    },
+    {
+      "request": {
+        "bound": null,
+        "kind": "finite-liveness",
+        "property": "Eventually",
+        "weak_fairness": true
+      },
+      "route": "apalache-grpc"
+    },
+    {
+      "request": {
+        "bound": null,
+        "kind": "bounded-safety",
+        "property": "Safe",
+        "weak_fairness": true
+      },
+      "route": "apalache-cli"
+    },
+    {
+      "request": {
+        "bound": -1,
+        "kind": "bounded-safety",
+        "property": "Safe",
+        "weak_fairness": true
+      },
+      "route": "apalache-grpc"
+    }
+  ],
+  "rejected_trace_mutations": {
+    "bad-transition": [
+      0,
+      2,
+      3
+    ],
+    "longer-than-bound": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "no-violation": [
+      0,
+      1,
+      2
+    ],
+    "wrong-type": [
+      0,
+      1,
+      2,
+      "3"
+    ]
+  },
+  "request_identity_mutations": {
+    "bound": "1ace44108a718ef9070ce37664a76bc02093bacfbf447f9bff2a4559d0bdbe34",
+    "property": "ae0763aa82e057cdd1ea8513b7c5b9232eb95a019fbfff5aebe5ffc6588dd11e",
+    "route": "059a74990778ccbdc8cfd33d1a16679122d301c599cf0a9940ea60ab9c6146cc",
+    "source": "801d325b6d2939a25939a14d7209061eafd5bd4ee76e8a981ed56b155c1849a1"
+  }
+}
