@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "c06ad1b9c30c806dea0fddb8c362322f8587a5b3",
+  "date": "2026-11-25",
+  "scope": "Tracked research Markdown and MDX; offline local-path and available-anchor validation.",
+  "environment": {
+    "platform": "Linux 6.18.57 x86_64",
+    "lychee_version": "0.24.2",
+    "image": "lycheeverse/lychee@sha256:e2d19e57cf6ab037026f20b8e449a1f30d9d7f81eef4194763aab2eab20bd28d",
+    "markdown_files": 600,
+    "mdx_files": 3,
+    "command": "docker run --rm -v $PWD:/input -w /input lycheeverse/lychee@sha256:e2d19e57cf6ab037026f20b8e449a1f30d9d7f81eef4194763aab2eab20bd28d --offline --include-fragments --root-dir /input --no-progress --verbose 'research/**/*.md' 'research/**/*.mdx'"
+  },
+  "result": {
+    "exit_code": 2,
+    "total_links": 5580,
+    "unique_targets": 2671,
+    "accepted": 3878,
+    "errors": 82,
+    "excluded": 1620,
+    "error_source_documents": 7,
+    "all_error_source_documents_are_upstream_snapshots": true,
+    "external_urls_checked": false,
+    "full_raw_log_sha256": "a306323e5907efde197315a10bb5c7d1e80951cd31967917524eb666c9a92757"
+  },
+  "error_source_documents": [
+    {"path": "research/references/snapshots/MCP/basic-index.mdx", "errors": 23},
+    {"path": "research/references/snapshots/OCI/manifest.md", "errors": 19},
+    {"path": "research/references/snapshots/MCP/authorization.mdx", "errors": 11},
+    {"path": "research/references/snapshots/MCP/transports.mdx", "errors": 10},
+    {"path": "research/references/snapshots/OCI/image-layout.md", "errors": 7},
+    {"path": "research/references/snapshots/Alive2/README.md", "errors": 6},
+    {"path": "research/references/snapshots/OCI/descriptor.md", "errors": 6}
+  ],
+  "interpretation": "The 82 errors are missing local targets in copied partial upstream snapshots; no LLMLang-authored source document was an error origin."
+}
