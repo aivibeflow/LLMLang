@@ -5,6 +5,8 @@
 
 The bounded cross-aspect synthesis connects RT-03/04, RT-05/07/08/11/13/16/19 with exact provider binding, ordered observations, current authority and publication preconditions. The cross-product and independent constraint relation preserve scope and withheld cases. [Integrated candidate enumeration](planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
 
+The integrated comparison audit aligns core semantic alternatives with common runtime, identity, verification, authority and adoption requirements. [Candidate comparison evidence](planning-and-synthesis/CANDIDATE-COMPARISON-2026-11-25.md)
+
 RT-03 compares pure, imperative, actor and effectful candidates on scoped authorization, cancellation, state mutation and resource settlement with a full ordered observation contract. [Four resource profiles](../language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md)
 
 RT-07 checks a generic two-condition invariance rule for the three-command RT-03 actor workload and replays the exact integer correspondence. [Schedule invariance](../formal-verification/SCHEDULE-INVARIANCE-2026-11-25.md)

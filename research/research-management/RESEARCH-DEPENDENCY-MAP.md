@@ -8,6 +8,8 @@
 
 The bounded integrated enumeration composes DEP-007, DEP-012, DEP-019, DEP-030, DEP-043, DEP-048 and DEP-054 as candidate interface conditions. Exact provider identity and full ordered observations flow into the evidence request. Current fenced effect authority, resource settlement and exact authorized publication remain independent gates. The finite model also records when the requested provider, evidence scope or current rights require withholding. The component studies retain their separate scopes. [Integrated candidate enumeration](planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
 
+The comparative evidence audit traces dependencies that gate scoring across the four integrated language vectors. Source, verification, runtime, user and trust results retain independent scope and review prerequisites. [Candidate comparison evidence](planning-and-synthesis/CANDIDATE-COMPARISON-2026-11-25.md)
+
 The four-profile comparison exercises DEP-004, DEP-007, DEP-016 and DEP-019 on one shared finite command workload. Full agreement at fixed order leaves the actor trace set broader. An observation witness for one order does not cover the whole delivery set or establish source-to-target correspondence. [Four resource profiles](../language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md)
 
 The schedule-invariance proof refines DEP-007 and DEP-016 for the three-command scope. Local commutation and cancellation invisibility together characterize scalar preservation across all schedules. Terminal-event order still distinguishes those schedules. [Schedule invariance](../formal-verification/SCHEDULE-INVARIANCE-2026-11-25.md)

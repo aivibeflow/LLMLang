@@ -1,0 +1,196 @@
+{
+  "revision": "dcb74a975687e0305f03d81bbb8bb547c95eb479",
+  "matrix": "research/research-management/RESEARCH-OPTION-MATRIX-01.md",
+  "rating": "unknown",
+  "profiles": [
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "sources": {
+    "profiles": "research/language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md",
+    "schedule": "research/formal-verification/SCHEDULE-INVARIANCE-2026-11-25.md",
+    "lifetime": "research/research-management/RT-00/RT-00-RT32-LIFETIME-REPLAY-2026-11-25.md",
+    "rt32": "research/formal-verification/RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md",
+    "workloads": "research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md",
+    "cli": "research/language-design/RT-01/RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md",
+    "survey": "research/language-design/RT-03/RT-03-SEMANTIC-PROFILES-FOR-SYNTHESIS-2026-11-25.md",
+    "review": "research/language-design/RT-02/RT-02-CONTROLLED-REVIEW-PROTOCOL-2026-11-25.md",
+    "independent": "research/security/RT-16/RT-16-INDEPENDENT-VALIDATION-2026-11-25.md",
+    "native_edit": "research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-EDIT-LOCALITY-2026-11-25.md",
+    "identities": "research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md",
+    "resource": "research/runtime-and-systems/RT-26/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md",
+    "worker": "research/language-design/RT-01/RT-01-RESOURCE-WORKER-SETTLEMENT-2026-11-25.md",
+    "provider": "research/compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md",
+    "receipts": "research/toolchain-and-collaboration/RT-11/RT-11-CROSS-LANGUAGE-RECEIPTS-2026-11-25.md",
+    "native_release": "research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-2026-11-25.md",
+    "concurrent": "research/research-management/planning-and-synthesis/CONCURRENT-RELEASE-2026-11-25.md",
+    "wire": "research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+    "typed_diff": "research/toolchain-and-collaboration/RT-24/RT-24-TYPED-SEMANTIC-DIFF-2026-11-25.md",
+    "adoption": "research/language-design/RT-01/RT-01-ADOPTION-AND-MIGRATION-READINESS-2026-11-25.md"
+  },
+  "criteria": [
+    {
+      "name": "Semantic clarity",
+      "coverage": "bounded_shared",
+      "source_refs": [
+        "profiles",
+        "schedule"
+      ],
+      "shared_requirements": "Use one admitted source task with explicit domains, operation order, terminal status, and ownership. Require two independent front ends and two evaluation routes with the same observation contract.",
+      "per_profile": {
+        "C1": "Realize the pure effect description through an independent ordered interpreter.",
+        "C2": "Extend the imperative correspondence to mutable aliases and cleanup failures.",
+        "C3": "Define source-visible delivery and check both exact schedules and all permitted traces.",
+        "C4": "Independently implement handler order, failure forwarding and scope."
+      }
+    },
+    {
+      "name": "Correctness assurance",
+      "coverage": "bounded_shared",
+      "source_refs": [
+        "profiles",
+        "schedule",
+        "lifetime",
+        "rt32"
+      ],
+      "shared_requirements": "Bind complete source extraction, backend and trusted assumptions to the same corpus. Require scoped counterexamples and comparable proof obligations.",
+      "per_profile": {
+        "C1": "Link pure source value semantics and the effect interpreter to emitted artifacts.",
+        "C2": "Check typed ownership, aliasing, and native cleanup transfer with exact providers.",
+        "C3": "Prove refinement or an invariant over all admitted deliveries and progress assumptions.",
+        "C4": "Prove handler-bound result and ordered interaction correspondence."
+      }
+    },
+    {
+      "name": "Expressiveness",
+      "coverage": "bounded_shared",
+      "source_refs": [
+        "profiles",
+        "workloads",
+        "cli"
+      ],
+      "shared_requirements": "Run the same required tasks with total support accounting, including refusal, external escape hatches, and unsupported edges.",
+      "per_profile": {
+        "C1": "Measure how much of resource I/O moves outside the pure core.",
+        "C2": "Measure stateful resource work and the annotation burden for aliases.",
+        "C3": "Measure queue, protocol and state ownership cost on sequential and concurrent tasks.",
+        "C4": "Measure handling and propagation burden for I/O and cleanup."
+      }
+    },
+    {
+      "name": "Simplicity",
+      "coverage": "protocol_only",
+      "source_refs": [
+        "survey",
+        "review"
+      ],
+      "shared_requirements": "Count comparable semantic rules and interactions and run blinded implementer reviews against the same admitted source examples.",
+      "per_profile": {
+        "C1": "Count core and adapter rules together.",
+        "C2": "Count ownership, scope and cleanup interactions together.",
+        "C3": "Count delivery, fairness and terminal outcome interactions together.",
+        "C4": "Count handler composition, scope and capability rules together."
+      }
+    },
+    {
+      "name": "AI-agent usability",
+      "coverage": "protocol_only",
+      "source_refs": [
+        "review",
+        "independent",
+        "workloads"
+      ],
+      "shared_requirements": "Use an approved pinned model runner and blinded tasks with identical eligible context. Record attempts, success, repairs, context cost and out-of-scope actions.",
+      "per_profile": {
+        "C1": "Compare pure specification changes with the required boundary adaptation.",
+        "C2": "Check model repair of scoped ownership and alias diagnostics.",
+        "C3": "Check model repair of protocol order and cancellation obligations.",
+        "C4": "Check model repair of handler context, effects and typed failure."
+      }
+    },
+    {
+      "name": "Incremental behavior",
+      "coverage": "component_only",
+      "source_refs": [
+        "native_edit",
+        "identities",
+        "lifetime"
+      ],
+      "shared_requirements": "Apply the same source and provider edits to all candidates. Observe exact impacted actions, independent closure, and cold/warm time on the same pinned environment.",
+      "per_profile": {
+        "C1": "Distinguish pure caller identity from exact explicit boundary binding.",
+        "C2": "Check affected scopes when a shared provider alters aliases or resource outcomes.",
+        "C3": "Track protocol, schedule evidence and transition changes without projecting away order.",
+        "C4": "Track handler and authority selection independently of stable call sites."
+      }
+    },
+    {
+      "name": "Runtime feasibility",
+      "coverage": "component_only",
+      "source_refs": [
+        "resource",
+        "worker",
+        "cli"
+      ],
+      "shared_requirements": "Execute a common workload on the selected reference and target, with fixed observables and controlled CPU, memory, platform and latency bounds.",
+      "per_profile": {
+        "C1": "Measure reference and native effects interpreter cost.",
+        "C2": "Measure runtime ownership checks and bound violations on the same input.",
+        "C3": "Measure scheduling, queue pressure, cancellation and known backlog bounds.",
+        "C4": "Measure handler and resource adapter cost on the same execution contract."
+      }
+    },
+    {
+      "name": "Interoperability",
+      "coverage": "component_only",
+      "source_refs": [
+        "provider",
+        "native_release",
+        "receipts"
+      ],
+      "shared_requirements": "Exercise identical typed foreign functions and contracts on the selected native target, including ownership, callbacks and unsupported combinations.",
+      "per_profile": {
+        "C1": "Expose the effect interpreter's foreign capability and exact ABI scope.",
+        "C2": "Connect existing owned-result probes to a general admitted source and ABI path.",
+        "C3": "Exercise foreign callbacks and shutdown under an explicit actor mailbox protocol.",
+        "C4": "Expose the foreign handler's ordering, retention and failure scope."
+      }
+    },
+    {
+      "name": "Security and trust",
+      "coverage": "bounded_shared",
+      "source_refs": [
+        "profiles",
+        "native_release",
+        "concurrent",
+        "independent"
+      ],
+      "shared_requirements": "Apply the same threat model and revocation, authorization and evidence replay controls to complete integrations with a current selected trust policy.",
+      "per_profile": {
+        "C1": "Bind authorization to the actual execution of a described effect.",
+        "C2": "Bind a current exact role to mutation and settlement.",
+        "C3": "Authorize once per relevant effect and account for delivery and revocation ordering.",
+        "C4": "Scope handler introduction, authority and effect execution independently."
+      }
+    },
+    {
+      "name": "Evolution",
+      "coverage": "component_only",
+      "source_refs": [
+        "wire",
+        "typed_diff",
+        "adoption",
+        "identities"
+      ],
+      "shared_requirements": "Replay the same source, wire and provider-version changes with explicit compatibility, history and rollback assertions for the four candidates.",
+      "per_profile": {
+        "C1": "Track pure contract and handler-facing boundary changes.",
+        "C2": "Track old clients across resource outcome and alias changes.",
+        "C3": "Track message and protocol version skew while preserving trace scope.",
+        "C4": "Track handling policy, typed failure and effect set changes."
+      }
+    }
+  ]
+}

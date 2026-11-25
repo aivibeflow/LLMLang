@@ -333,6 +333,8 @@ Score each integrated candidate only after common definitions and workload weigh
 
 Do not score an unmeasured criterion as a numeric zero. Mark it **unknown**, report its effect on the candidate ranking, and prioritize an experiment if it could change the decision.
 
+The evidence audit maps all ten criteria to the four integrated vectors. It records common and profile-specific checks against twenty pinned sources, with integrated ratings unknown. [Candidate comparison evidence](planning-and-synthesis/CANDIDATE-COMPARISON-2026-11-25.md)
+
 [RT-35 persistent index generations](../semantic-representation/RT-35/RT-35-PERSISTENT-INDEX-GENERATIONS-2026-11-25.md) compare full rebuild and reduced row writes under the same published output. A complete version key with atomic readiness prevents stale acceptance in 28 SQLite WAL schedules. Marking a partial projection ready yields five incomplete results even with that key. The delta reduces writes, while both implementations still perform full row comparison and validation. Evaluate a dependency-bounded projection update and a generation-aware query path before selecting an index lifecycle.
 
 [CLI action keys](../language-design/RT-01/RT-01-CLI-ACTION-KEYS-2026-11-25.md) compare semantic-only cache identity, full input closure and scoped action manifests on actual executables. The scoped key plans nine compilations versus 18 for the full key and reproduces its observed outputs. Semantic-only keys can hide a failing native provider rebind. The experiment counts actions and leaves cost distributions open.
