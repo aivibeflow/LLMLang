@@ -88,6 +88,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Bounded evidence:** [Finite contract relations](research/language-design/RT-04/RT-04-CONTRACT-RELATIONS-FINITE-COMPARISON-2026-11-25.md) separates public refinement, local applicability and observable equivalence. Scope and exact provider correspondence remain open.
 - **Recommendation:** Separate candidate discovery from acceptance. Require evidence against the exact OpHash and target constraints; otherwise do not substitute transparently.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 3.6 and 9.
+- **Evidence:** [RT-05 conformance class identity](research/semantic-representation/RT-05/RT-05-CONFORMANCE-CLASS-IDENTITY-2026-11-25.md) separates a stable class definition from changing candidate discoveries and verifies finite membership only for exact evidence records.
 
 ---
 

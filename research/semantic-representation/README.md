@@ -18,6 +18,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-05 native implementation identity](RT-05/RT-05-NATIVE-IMPLEMENTATION-IDENTITY-2026-11-25.md) — compares build actions, caller bytes and resolved provider, ABI and runtime identities.
 - [RT-05 typed edge projections](RT-05/RT-05-TYPED-EDGE-PROJECTIONS-2026-11-25.md) — compares identity closures for execution, verification and source navigation.
 - [RT-05 permissive operation identity](RT-05/RT-05-PERMISSIVE-OPERATION-IDENTITY-2026-11-25.md) — compares contract-level addresses and exact native provider bindings with ordered effects.
+- [RT-05 conformance class identity](RT-05/RT-05-CONFORMANCE-CLASS-IDENTITY-2026-11-25.md) — compares interpreted contracts, class definitions, discovery snapshots and exact evidence.
 - [Scenario 01 — Rename identity](RT-05/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md)
 - [Prototype 01 results](RT-05/PROTOTYPE-01-RESULTS.md). Early finite dependency-graph experiment.
 - [Scenario 09 — Dependency-driven evolution](RT-06/RESEARCH-SCENARIO-09-DEPENDENCY-DRIVEN-EVOLUTION.md)
