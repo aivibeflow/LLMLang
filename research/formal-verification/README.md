@@ -35,6 +35,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-07 proof status history](RT-07/RT-07-PROOF-STATUS-HISTORY-2026-11-25.md) — derives exact claim status without losing earlier checks, rejected attempts or open premises.
 - [RT-07 source and CPC proof rebinding](RT-07/RT-07-SOURCE-CPC-PROOF-REBINDING-2026-11-25.md) — replays source-owned typed wire and exact CPC assumptions after source edits.
 - [RT-07 checked-byte proof routes](RT-07/RT-07-CHECKED-BYTE-PROOF-ROUTES-2026-11-25.md) — compares theorem, solver, specialized checker and native evidence for an exact observable claim.
+- [RT-07 proof format receipts](RT-07/RT-07-PROOF-FORMAT-RECEIPTS-2026-11-25.md) — compares format-specific checks and exact reuse under a shared typed query identity.
 - [CONTRACT-FORMALIZATION-CORPUS](CONTRACT-FORMALIZATION-CORPUS/)
 - [PROOF-OBLIGATION-BENCHMARK](PROOF-OBLIGATION-BENCHMARK/)
 
