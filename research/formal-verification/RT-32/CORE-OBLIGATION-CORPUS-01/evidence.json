@@ -1,0 +1,60 @@
+{
+  "schema": "llmlang-spg-core-obligation-corpus/1",
+  "python": "3.12.14",
+  "runner_sha256": "51c536bef3d66def6f6cefbdb8a1177e4654dacb673978eef7051ce07a1aac8a",
+  "archived_revision": "95339a98c50b914d9ba7ce12fed37ba113d09cc9",
+  "exact_replay_sha256": {
+    "CONDITIONAL-EMBEDDINGS-01": "823b76416779d8e6cef0e9e1119c693b1efc38e47a853cca1da34987b5df8c30",
+    "LOOP-OBLIGATIONS-01": "8ec8efaf006bb4b916cfe732aef38a649489e3e8ba668ed43e1083c354088cd9",
+    "MUTUAL-TERMINATION-01": "362592bff9594767977620d8ee9ff63c0a569e8e05bb4ea3e272003e3dae9250",
+    "MUTUAL-EFFECTS-01": "d43a799446851e39d37fa24023793d4d4b2aab1534e118f2c40ea3c747d3b9da",
+    "GENERATED-CALL-01": "496fd92cdcf0260856f95284d4faff5e286ba8cb0ff8c30f84572bef5c519b7d",
+    "COMPILED-ADMISSION-01": "138db7bca6d9392b9d9ea1627771b23b022167a0afe006c7ae3f02ea493f594b"
+  },
+  "positives": {
+    "conditional_proofs": 12,
+    "conditional_ground_observations": 168,
+    "loop_proofs": 2,
+    "recursive_termination_encodings": 2,
+    "recursive_effect_encodings": 2,
+    "generated_closed_caller_claims": 7,
+    "compiled_receipts_admitted": 2
+  },
+  "adversarial_evidence": {
+    "wrong_implementation": {
+      "provider": "bad_provider",
+      "recursive_base": true
+    },
+    "weakened_imported_contract": "contract_mismatch",
+    "missing_invariant": "rejected-before-generation",
+    "invalid_decrease": [
+      "vcDecrease",
+      "vcPreserve"
+    ],
+    "mismatched_translation": [
+      "reversed_condition",
+      "eager_other_arm"
+    ],
+    "stale_callee_proof": {
+      "generated": "stale_provider_rejected",
+      "compiled": "receipt-subject"
+    },
+    "unsupported_effect": {
+      "profile": "structured call-free ordered effects",
+      "status": "rejected-before-lowering",
+      "source_sha256": "37e9ac8d19dfea08b1a5f504c23db96b7e3330c7188185b007099989961569b1"
+    },
+    "compiled_admission_cases": {
+      "base": "closed",
+      "changed-toolchain": "toolchain-mismatch",
+      "different-bundle": "bundle-mismatch",
+      "foreign-axiom": "axiom-policy",
+      "missing-signature": "issuer-or-signature",
+      "old-proof-for-rebound": "receipt-subject",
+      "rebound": "closed",
+      "signed-wrong-compiled-context": "compiled-context",
+      "untrusted-issuer": "issuer-or-signature",
+      "wrong-theorem": "claim-mismatch"
+    }
+  }
+}

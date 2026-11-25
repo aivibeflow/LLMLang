@@ -29,6 +29,8 @@ RT-13 reconciles LLVM validator verdict scopes and checks refinement for stable 
 
 RT-32 compares proof candidate generation by tactics, reusable lemmas and SMT triage with kernel and axiom checks. [Generated proof route comparison](../formal-verification/RT-32/RT-32-PROOF-ROUTE-COMPARISON-2026-11-25.md)
 
+RT-32 replays exact proof generation for conditional, loop, recursive and modular call profiles and checks seven adversarial categories. [Admitted profiles and obligation corpus](../formal-verification/RT-32/RT-32-CORE-OBLIGATION-CORPUS-2026-11-25.md)
+
 RT-32 compares deep, shallow and hybrid embeddings of effectful conditions and separates structured correspondence from byte parsing and source extraction. [Conditional embedding correspondence](../formal-verification/RT-32/RT-32-CONDITIONAL-EMBEDDING-CORRESPONDENCE-2026-11-25.md)
 
 RT-32 derives typed proof dependency obligations from stored SPG occurrences before candidate receipts are admitted. [SPG proof dependency occurrences](../formal-verification/RT-32/RT-32-SPG-PDG-OCCURRENCES-2026-11-25.md)
