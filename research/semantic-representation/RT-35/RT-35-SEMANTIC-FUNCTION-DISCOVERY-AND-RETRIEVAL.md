@@ -140,6 +140,8 @@ Investigate:
 
 A stale or incomplete index may reduce recall, but it must not authorize an invalid call. Before binding, validate the exact candidate against the current permitted snapshot or require an explicit snapshot-bound workflow.
 
+The [persistent index generation experiment](RT-35-PERSISTENT-INDEX-GENERATIONS-2026-11-25.md) compares stale-output gates, process-termination recovery, and rebuild versus delta maintenance over one local SQLite FTS5 projection.
+
 ## 9. Required experiments and metrics
 
 Build a benchmark corpus with functions that are semantically close but not interchangeable, functions with different names but equivalent purposes, overlapping signatures with different behavior, different signatures implementing related goals, explicit hard-constraint violations, missing/unknown contracts, and adversarially misleading descriptions.

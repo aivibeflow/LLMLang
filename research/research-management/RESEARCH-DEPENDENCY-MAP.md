@@ -642,7 +642,7 @@ RT-35 studies semantic retrieval as a Toolchain capability. Approximate similari
 | DEP-227 | RT-31 → RT-35 | Influences | Syntax-independent semantic representations and AI evaluation/observability inform query authoring and retrieval evaluation. | Strong hypothesis |
 | DEP-228 | RT-35 → RT-05 | Influences | Experiments may refine which semantic facts belong in canonical function descriptions without making fingerprints part of identity. | Open hypothesis |
 | DEP-229 | RT-35 → RT-09 | Influences | Retrieval prototypes may refine compiler/semantic-index interfaces and normalized function metadata. | Open hypothesis |
-| DEP-230 | RT-35 → RT-11 | Influences | Measured index update and query workloads may refine incremental indexing and cache design. | Open hypothesis |
+| DEP-230 | RT-35 → RT-11 | Influences | [Persistent index measurements](../semantic-representation/RT-35/RT-35-PERSISTENT-INDEX-GENERATIONS-2026-11-25.md) separate changed row writes from full projection validation and identify a readiness publication invariant. Query workloads and dependency-bounded recomputation remain open. | Bounded experiment |
 | DEP-231 | RT-35 → RT-12 | Influences | Discovery results may refine package/library metadata and publication interfaces. | Open hypothesis |
 | DEP-232 | RT-35 → RT-19 | Influences | SFD API, snapshot consistency, ranking explanations, and ambiguity handling may extend Toolchain Server contracts. | Strong hypothesis |
 | DEP-233 | RT-35 → RT-20 | Influences | Exact hash resolution and compatibility evidence may refine call binding, caller migration, and change-impact planning. | Strong hypothesis |
