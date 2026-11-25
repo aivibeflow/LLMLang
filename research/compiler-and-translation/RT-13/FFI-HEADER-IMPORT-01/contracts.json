@@ -1,0 +1,8 @@
+{
+  "EVP_DigestFinal": "Finish SHA-256 and reset the context in this OpenSSL profile.",
+  "EVP_DigestFinal_ex": "Finish SHA-256 and retain the digest selection for reinitialization.",
+  "close": "Release the named descriptor on success.",
+  "dup": "Return a new descriptor for the same open file description and preserve the original.",
+  "sqlite3_close": "Return BUSY while prepared statements remain live. On success close the connection.",
+  "sqlite3_close_v2": "On success retire the caller's connection handle and defer final closure while statements remain."
+}
