@@ -17,6 +17,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-07 operational, denotational and axiomatic comparison](RT-07/RT-07-THREE-SEMANTICS-STATE-RESULT-2026-11-25.md) — finite state/Result and ordered-history semantics.
 - [CONTRACT-FORMALIZATION-CORPUS](CONTRACT-FORMALIZATION-CORPUS/)
 - [PROOF-OBLIGATION-BENCHMARK](PROOF-OBLIGATION-BENCHMARK/)
 

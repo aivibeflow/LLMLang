@@ -1,0 +1,69 @@
+{
+  "baseline": "8cf3ec125a67e0eb0293fd632b18f09a771aea0c",
+  "python": "3.12.14",
+  "runner_sha256": "ff0036446f3cee77ef9db1c63a51a10ed0af88625b622fe0e2fbc0cb5367e5cd",
+  "prototype_sha256": {
+    "rt03_reference.py": "9aa14d41f837c3c0bae137f6732b72ff9edb0b70a31f1f966639124be98ed8d8",
+    "rt03_smallstep.py": "79516cb51e8ec6f505ab8833646f42415eb1e5f46171aac399b41c6652ed7459"
+  },
+  "initial_cells": [
+    0,
+    1
+  ],
+  "programs": 4105,
+  "observations_compared": 8210,
+  "predicate_checks": 57470,
+  "comparison_rows_sha256": "86ccd9b379ae5fe0ff38c27a5f2dfb38e634fa784d73f608d7b9a71d1cc8605b",
+  "controls": {
+    "strict_vs_short_circuit": [
+      [
+        [
+          "ok",
+          null
+        ],
+        1,
+        [
+          [
+            "write",
+            1
+          ]
+        ]
+      ],
+      [
+        [
+          "error",
+          "planned"
+        ],
+        0,
+        []
+      ]
+    ],
+    "same_value_and_final_cell_different_trace": [
+      [
+        [
+          "ok",
+          null
+        ],
+        0,
+        []
+      ],
+      [
+        [
+          "ok",
+          null
+        ],
+        0,
+        [
+          [
+            "write",
+            1
+          ],
+          [
+            "write",
+            0
+          ]
+        ]
+      ]
+    ]
+  }
+}
