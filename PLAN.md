@@ -1744,10 +1744,10 @@ Research a typed, versioned object describing the task an agent is expected to p
 
 - [ ] Define the boundary among the authoritative Semantic Model, Abstract Syntax Model, canonical Semantic IR, and independently versioned Concrete Syntax Profiles. Determine which structures are distinct and specify their mappings.
 - [ ] Define frontend/generator contracts, profile versioning, source provenance, diagnostics locations, normalization, elaboration, and semantic validation boundaries.
-- [ ] Compare textual, explicit/verbose, structured, and hybrid syntax profiles while preserving the same declared semantic capabilities.
-  - [ ] [WIP] Add a hybrid structure-plus-expression adapter and independently replay exact graph and trace correspondence across four profiles (#342).
+- [x] Compare textual, explicit/verbose, structured, and hybrid syntax profiles while preserving the same declared semantic capabilities.
+  - [x] Compare four profiles and all 16 routes per configuration over 7,168 independent value and trace observations. The 32 original graph digests match. Another 56 cases check effectful nested operands. Surface syntax errors, elaboration errors and trace failures remain distinct. Model/human workload evaluation remains open. [Hybrid expression profile](research/language-design/RT-31/RT-31-HYBRID-PROFILE-2026-11-25.md).
 - [ ] Build a profile-independent task corpus covering representative language features and multi-step authoring tasks; pin acceptance oracles and negative controls.
-- [ ] Implement parser/generator and cross-profile conversion prototypes; verify semantic equivalence independently of textual round-trip identity.
+- [x] Implement parser/generator and cross-profile conversion prototypes; verify semantic equivalence independently of textual round-trip identity.
   - [x] Implement three versioned expression parsers and generators and check all nine conversions against an independent value/trace oracle on 4,032 observations. Frontend, binding, typing and trace controls distinguish validation stages. Broader syntax coverage and human/model evaluation remain open. [Cross-profile SPG](research/language-design/RT-31/RT-31-CROSS-PROFILE-SPG-2026-11-24.md).
 - [ ] Define controlled AI experiments with pinned model/provider metadata, model settings, task/context, instruction version, profile, Toolchain build, and execution environment.
   - [ ] [WIP human] Provide access to the approved model and provider profiles for live runs and record the exact authorized configuration.
