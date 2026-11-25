@@ -100,6 +100,8 @@ These bundles show plausible cross-area combinations for later whole-specificati
 
 No candidate is currently shown to satisfy all product goals, including easy small utilities, human readability, model neutrality, platform support, and independently checkable correctness. Those goals need explicit operational criteria before scoring candidates.
 
+The [recursive-group storage study](../semantic-representation/RT-05/RT-05-RECURSIVE-GROUP-STORAGE-2026-11-25.md) compares physical layout costs under one semantic group identity. Member sharding preserves exact reconstruction and saves sparse reads after admission, while cache reuse still depends on the recursive context.
+
 ## 5. Compatibility constraints and dependencies
 
 | Constraint | Consequence | Evidence status |
