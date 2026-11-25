@@ -945,8 +945,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 - [ ] Define the canonical Git-visible representation of a semantic program.
 - [ ] Compare storing canonical serialized semantic objects directly in Git with storing KV-backed objects plus repository manifests.
-- [ ] Define the mapping between Git commits/trees and semantic graph snapshots.
-  - [ ] [WIP] Check the distinct commit, tree, and semantic snapshot identities across metadata, parent, provider, and Git object-format changes on `research/all`.
+- [x] Define the mapping between Git commits/trees and semantic graph snapshots.
+  - Reconstruct typed roots across 16 native commits in SHA-1 and SHA-256 repositories. Equal semantic roots can have different trees and ordered ancestry; a changed provider changes the root and interpreted calls. Closed admission refuses missing and undeclared inputs. [Commit, tree and semantic root mapping](research/toolchain-and-collaboration/RT-24/RT-24-COMMIT-TREE-SEMANTIC-ROOT-MAPPING-2026-11-25.md)
 - [ ] Preserve ordinary Git clone, fetch, push, branch, tag, and history behavior.
 - [ ] Define readable textual representation, diff strategy, and generated metadata.
 - [ ] Define how large objects and binary artifacts are handled.
