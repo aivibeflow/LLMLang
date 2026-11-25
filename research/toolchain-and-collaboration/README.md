@@ -59,6 +59,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-14 context fixture scoring](RT-14/RT-14-CONTEXT-FIXTURE-SCORING-2026-11-25.md) reports readiness errors separately from representative participant outcomes.
 - [RT-14 context minimization](RT-14/RT-14-CONTEXT-MINIMIZATION-2026-11-25.md) checks permission, approved fields and bounded omission reporting.
 - [RT-20 reverse coverage](RT-20/RT-20-REVERSE-COVERAGE-BY-CALL-KIND-2026-11-25.md) checks exact and empty caller results across five call families.
 - [RT-20 call identity reconciliation](RT-20/RT-20-CALL-IDENTITY-RECONCILIATION-2026-11-25.md) checks immutable callable versions, source continuity and path-specific rebinds.
