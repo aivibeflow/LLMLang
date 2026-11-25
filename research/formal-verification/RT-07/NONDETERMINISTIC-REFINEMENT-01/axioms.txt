@@ -1,0 +1,4 @@
+'NondeterministicRefinement.refinementExactlyPreservesMust' does not depend on any axioms
+'NondeterministicRefinement.refinementExactlyRestrictsMay' does not depend on any axioms
+'NondeterministicRefinement.terminalProjectionAcceptsLoop' does not depend on any axioms
+'NondeterministicRefinement.explicitOutcomeRejectsLoop' does not depend on any axioms
