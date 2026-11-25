@@ -9,6 +9,7 @@ This direction groups related research studies without changing their RT identif
 - [Formal semantics and program verification](program-semantics-and-verification/README.md) · RT-07, RT-32
 - [Proof methods, evidence and trust](proof-methods-and-trust/README.md) · RT-08, RT-33, RT-36
 - [Complexity and resource guarantees](complexity-and-resource-guarantees/README.md) · RT-34
+- [Resource-aware lowering](RT-34/RT-34-RESOURCE-AWARE-LOWERING-2026-11-25.md) · Native budget regressions, exact foreign binding and Lean inequalities
 
 ## Studies
 

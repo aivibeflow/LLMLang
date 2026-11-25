@@ -1,0 +1,128 @@
+{
+  "builds": [
+    {
+      "driver": "9ea170de8fbfd1f5f385152880807ce455f666fe1d44816b848d70706ab95546",
+      "observations": "53ab46c680116c04e47f76a8b8d76c592a0759f8f4c3c02a3bb58900e74d08bd",
+      "optimization": "-O0",
+      "provider": "83c3e79d274d13c16aeecf2744df952b708dbf20e95c8d15748b691d9f7cebdf",
+      "subject": "17ef2538ce79170d25e53d191a493bfc91ed5302427f2f5024c4f3f9d2589281",
+      "test_count": 768
+    },
+    {
+      "driver": "9ea170de8fbfd1f5f385152880807ce455f666fe1d44816b848d70706ab95546",
+      "observations": "8125500ceddfadcce44e8aff5a18af2dcc8458545bd61e9be6aa6c65f1beab4d",
+      "optimization": "-O0",
+      "provider": "f28b58e6caad8968e65dc13d538483e28bceed02e8de1b1247c9e8f23964714a",
+      "subject": "8babd7f21326e8ced998f489da9cb133c0c5090b23018d729d6a9147141893c3",
+      "test_count": 768
+    },
+    {
+      "driver": "baf1521edb51f6eaa35644c4a52d068cd8ae2909763959c1b97021030163ef64",
+      "observations": "53ab46c680116c04e47f76a8b8d76c592a0759f8f4c3c02a3bb58900e74d08bd",
+      "optimization": "-O2",
+      "provider": "e16f110dced8f179adfde93beeb4be61ffc85b90261a379d0fffa309fa7dc976",
+      "subject": "57986895e9494fee3e8311fbf1051139fc1813bcedd45d8dd944fabe8f9330f4",
+      "test_count": 768
+    },
+    {
+      "driver": "baf1521edb51f6eaa35644c4a52d068cd8ae2909763959c1b97021030163ef64",
+      "observations": "8125500ceddfadcce44e8aff5a18af2dcc8458545bd61e9be6aa6c65f1beab4d",
+      "optimization": "-O2",
+      "provider": "8efd42e7ba0294548a7ff91632310e7d72d5385026923e92b111f787d4faa57e",
+      "subject": "6fadec370bd0c3c0f622e9de67840e544467ff48d712f9a3c5417b28680e58af",
+      "test_count": 768
+    }
+  ],
+  "format": "resource-aware-lowering-01",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "invalidation": {
+    "budget": "stale-evidence",
+    "cost-profile": "stale-evidence",
+    "foreign-rebind": "stale-evidence",
+    "lowering-variant": "stale-evidence",
+    "proof": "stale-evidence",
+    "provider-weight": "stale-evidence",
+    "size-domain": "stale-evidence",
+    "target-configuration": "stale-evidence"
+  },
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "lean_axioms": [
+    "'direct_fast' depends on axioms: [propext, Quot.sound]",
+    "'grouped_fast' depends on axioms: [propext, Quot.sound]",
+    "'grouped_improves' depends on axioms: [propext, Quot.sound]",
+    "'grouped_slow' depends on axioms: [propext, Quot.sound]",
+    "'repeated_fast_fails' depends on axioms: [propext, Quot.sound]",
+    "'grouped_units' depends on axioms: [propext, Quot.sound]",
+    "'erased_units_fail' depends on axioms: [propext, Quot.sound]"
+  ],
+  "native_observations": 3072,
+  "proof": "a52496ed8021209ca63c64fa2da57970115f083885e82fb79099d4149ac408c3",
+  "regression_dispositions": {
+    "-O0/3/direct": {
+      "admitted": 64
+    },
+    "-O0/3/erase": {
+      "admitted": 1,
+      "observation-refused": 63
+    },
+    "-O0/3/grouped": {
+      "admitted": 64
+    },
+    "-O0/3/repeated": {
+      "admitted": 1,
+      "budget-refused": 63
+    },
+    "-O0/7/direct": {
+      "admitted": 1,
+      "budget-refused": 63
+    },
+    "-O0/7/erase": {
+      "admitted": 1,
+      "observation-refused": 63
+    },
+    "-O0/7/grouped": {
+      "admitted": 1,
+      "budget-refused": 63
+    },
+    "-O0/7/repeated": {
+      "admitted": 1,
+      "budget-refused": 63
+    },
+    "-O2/3/direct": {
+      "admitted": 64
+    },
+    "-O2/3/erase": {
+      "admitted": 1,
+      "observation-refused": 63
+    },
+    "-O2/3/grouped": {
+      "admitted": 64
+    },
+    "-O2/3/repeated": {
+      "admitted": 1,
+      "budget-refused": 63
+    },
+    "-O2/7/direct": {
+      "admitted": 1,
+      "budget-refused": 63
+    },
+    "-O2/7/erase": {
+      "admitted": 1,
+      "observation-refused": 63
+    },
+    "-O2/7/grouped": {
+      "admitted": 1,
+      "budget-refused": 63
+    },
+    "-O2/7/repeated": {
+      "admitted": 1,
+      "budget-refused": 63
+    }
+  },
+  "revalidated_rebind": "budget-refused",
+  "selection": {
+    "direct": 2,
+    "grouped": 62
+  },
+  "unknown_foreign": "unknown-foreign-cost"
+}
