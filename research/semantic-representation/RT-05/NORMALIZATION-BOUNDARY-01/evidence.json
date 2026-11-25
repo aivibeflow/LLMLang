@@ -1,0 +1,18 @@
+{
+  "base": "70bd54d3b44c2ee5b018bd8d194b06110176e551",
+  "pinned_previous_ledgers": {
+    "CHECKED-REASSOCIATION-01": "49c3db15a91c0ca8ea0df6c059242b474110f7c4d8316afaf3f6f2e23252b10f",
+    "NAMED-RECORD-01": "0525a8d0198a76972d4d8bb0bff82b0eb4de966a982897d565530e0fb1ea5f13",
+    "OWNED-SPG-01": "f855515c92a9facdc6d7cb3fe1ba4f4a33c92870e4ed8d423bb0c5f3a0d71ead"
+  },
+  "results": {
+    "canonical_same_pairs": 177,
+    "field_only_false_equal_pairs": 228,
+    "graph_classes": 79,
+    "idempotence_checks": 162,
+    "outer_set_checks": 972,
+    "source_cases": 162,
+    "value_and_trace_observations": 1296
+  },
+  "runner_sha256": "daedf2d4ec5eba5398cb14c6e5b279e9b43e2ce8e70f542fe64c826a5cf55ce5"
+}
