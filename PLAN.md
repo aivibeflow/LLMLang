@@ -599,6 +599,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 - [ ] Determine which claims belong in Lean, SMT, specialized checkers, testing, or trusted runtime code.
 - [ ] Define the trusted computing base for each proof claim.
+  - [ ] [WIP] Compare per-claim Lean trust declarations across identical propositions proved by reduction, an imported assumption, native reflection and forbidden placeholders on `research/all`.
 - [ ] Define proof object formats, proof checking, provenance, and evidence reuse.
 - [ ] Separate solver answers from independently checked proofs.
 - [ ] Define exact binding between source-level assumptions, typed IR, serialized queries, and proof obligations.
