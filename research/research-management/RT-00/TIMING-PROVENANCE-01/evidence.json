@@ -1,0 +1,120 @@
+{
+  "revision": "f02265dd33de654ebeca57e57646ad267f0bd2f5",
+  "studies": {
+    "RT-05": {
+      "compared_series": 24,
+      "host": [
+        4,
+        "AMD EPYC 9V74 80-Core Processor",
+        "6.18.57",
+        "3.12.14"
+      ],
+      "reported_denominator": 64,
+      "reported_unit": "ns per object",
+      "rows": 60,
+      "source_digests": 2
+    },
+    "RT-06": {
+      "compared_series": 30,
+      "host": [
+        4,
+        "AMD EPYC 9V74 80-Core Processor",
+        "6.18.57",
+        "3.12.14"
+      ],
+      "reported_denominator": 1,
+      "reported_unit": "ns per phase",
+      "rows": 60,
+      "source_digests": 4
+    },
+    "RT-11": {
+      "baseline": "bbfb97ac4e4cf659d8fdcedebe8279325ed7659f",
+      "cpu_pinned_by_runner": false,
+      "host": {
+        "affinity": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "arch": "x86_64",
+        "clock": "perf_counter_ns",
+        "cpu_name": "AMD EPYC 9V74 80-Core Processor",
+        "linux": "6.18.57",
+        "logical_cpu": 5,
+        "parallel_jobs": 1,
+        "python": "3.12.14"
+      },
+      "logical_cpu_meaning": "os.cpu_count() reported count",
+      "paired_blocks": 35,
+      "rows": 105,
+      "source_digests": 2,
+      "toolchain": {
+        "clang": {
+          "sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+          "version": "Debian clang version 19.1.7 (3+b1)"
+        },
+        "make": {
+          "sha256": "8a229baf64671988cfb5af43ba3070c6ce7214cf32bcf96155115559d1466fa7",
+          "version": "GNU Make 4.4.1"
+        }
+      }
+    },
+    "RT-13": {
+      "calls_per_timed_interval": 524288,
+      "host": {
+        "clock": "CLOCK_MONOTONIC_RAW",
+        "cpu": 0,
+        "cpu_name": "AMD EPYC 9V74 80-Core Processor",
+        "kernel": "6.18.57",
+        "machine": "x86_64"
+      },
+      "reported_unit": "ns per call",
+      "rows": 70,
+      "runner_python_archived": false,
+      "sample_digest": "cd2bb1a958a15e90eeac5819510f0ce1558f85645b91b2b62b263cea8c8e4aca",
+      "source_digests": 9,
+      "toolchain": {
+        "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+        "cxx": "g++ (Debian 14.2.0-19) 14.2.0",
+        "go": "go version go1.27.4 linux/amd64",
+        "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+      }
+    },
+    "RT-25": {
+      "compared_series": 30,
+      "host": [
+        [
+          3,
+          4
+        ],
+        "AMD EPYC 9V74 80-Core Processor",
+        "6.18.57",
+        "3.12.14"
+      ],
+      "packets_per_interval": [
+        1024,
+        4096
+      ],
+      "reported_unit": "µs per completed packet",
+      "rows": 100,
+      "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)",
+      "source_digests": 3
+    },
+    "RT-35": {
+      "cgroup_throttle_archived": false,
+      "compared_series": 10,
+      "host": [
+        3,
+        "AMD EPYC 9V74 80-Core Processor",
+        "6.18.57",
+        "3.12.14"
+      ],
+      "queries_per_batch": 36,
+      "rows": 200,
+      "source_digests": 2,
+      "updates_per_average": 200
+    }
+  }
+}

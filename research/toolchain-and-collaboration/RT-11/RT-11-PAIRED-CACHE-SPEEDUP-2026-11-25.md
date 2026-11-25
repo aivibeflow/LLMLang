@@ -12,7 +12,7 @@ flowchart LR
     Pairs --> Residual["Compare a uniform compile-cost approximation"]
 ```
 
-The published decimal results all match. At two percent overhead the estimated speedups are 7.33× for local edits, 2.32× for component edits, 25.64× for identical warm builds and 0.98× cold. These scenarios assume an LLMLang stage mix. The archived C++ timing workload has twelve equally counted translation units, three components, fixed include dependencies, serial compilation and an in-process object cache. It uses GCC-compatible Clang 19.1.7 and Make 4.4.1 on a shared x86-64 Linux host. It excludes linking, a network cache and LLMLang frontend and proof work.
+The published decimal results all match. At two percent overhead the estimated speedups are 7.33× for local edits, 2.32× for component edits, 25.64× for identical warm builds and 0.98× cold. These scenarios assume an LLMLang stage mix. The archived C++ timing workload has twelve equally counted translation units, three components, fixed include dependencies, serial compilation and an in-process object cache. It uses GCC-compatible Clang 19.1.7 and Make 4.4.1 on a shared x86-64 Linux host. It excludes linking, a network cache and LLMLang frontend and proof work. The original host field `logical_cpu` records the count from Python `os.cpu_count()`. The original runner observed affinity 0–4 and did not pin itself to a single CPU. The paired ledger inherits those host values from the original timing run.
 
 ## Paired results
 
