@@ -640,6 +640,22 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 ---
 
+
+
+## Dafny language and verification transfer study (cross-cutting; Stage 2)
+
+- [ ] Study Dafny's specification language: `requires`/`ensures`, loop invariants, `reads`/`modifies` frames, `decreases`, ghost state, lemmas, assertions, opacity, modules, traits, and proof structuring. Map each construct to LLMLang requirements and identify semantic mismatches.
+- [ ] Compare source-level modular verification and the Boogie/SMT workflow with LLMLang's Lean/Logos/SMT work. Record what to reuse, wrap, translate, independently check, or reject, including trust boundaries and `UNKNOWN`/timeout behavior.
+- [ ] Evaluate candidate contract and language syntax against Dafny on common examples, including readability for people and LLMs, proof guidance, explicit effects/failures/termination, and lossless mapping to typed SPG.
+- [ ] Specify a small Dafny-informed LLMLang contract subset for an experiment; do not adopt Dafny syntax or semantics by default. Include pre/postconditions, loop invariants, frame/effect bounds, termination, and explicit assumptions.
+- [ ] Prototype a bounded mapping in either direction and bind generated obligations/results to exact source, SPG, contract, verifier, and assumption identities. Include negative/unsupported cases; make no soundness claim without a correctness argument.
+- [ ] Compare invariant discovery, proof failures, solver variability, incremental re-verification, and evidence invalidation after specification or implementation edits.
+- [ ] Record transfer decisions as candidates with evidence, limitations, and open questions. See [Dafny Transfer Analysis](research/DAFNY-TRANSFER-ANALYSIS.md) and [Dafny–LLMLang comparison](research/COMPARISON-DAFNY-LLMLANG.md).
+
+**Deliverable:** construct-by-construct transfer matrix, candidate contract/syntax proposal, reproducible example corpus, and recommendation on Dafny reuse versus an independent LLMLang verifier.
+
+**Status:** not started as a focused transfer study. Existing Dafny material is a comparative synthesis, not an adopted syntax, translation specification, or compatibility proof.
+
 # Stage 3 — Dependency graph, incremental computation, and cache
 
 **Order:** after Stage 1 identity and Stage 2 semantic/proof boundaries are sufficiently defined.  
@@ -1485,7 +1501,7 @@ This is a continuous comparative track. It informs the stages above but does not
 | Lean | Formalization, proof checking, trusted kernel, executable semantics | 2 |
 | TLAPS | Proof of system properties and compositional reasoning | 2 |
 | SMT solvers | Constraint encoding, solver protocols, proof evidence, unknown results | 2, 3 |
-| Dafny | Contracts, refinement, verification workflow | 1, 2, 5 |
+| Dafny | Contract/proof syntax, modular verification, Boogie/SMT workflow, compiler boundary, possible syntax/backend transfer | 1, 2, 5; focused cross-cutting study |
 | K Framework | Executable formal semantics and language definition | 2 |
 | Vellvm | Formal LLVM semantics and compiler correctness | 2, 6 |
 | Alive2 | Translation validation for LLVM optimizations | 2, 6 |
