@@ -1403,6 +1403,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Draft the Package Content Root Hash projection, identity exclusions, and validation invariants independently of raw TOML bytes and physical archive encoding.
 - [x] Implement an exploratory executable package-identity model and focused fixtures for PMI-001–PMI-014; record its limits and test evidence.
 - [ ] Review and validate the manifest schema, canonical typed hash encoding, and digest algorithm with independent implementations and adversarial fixtures before treating them as stable.
+  - [ ] [WIP] Compare independent Go and Python package manifest admission, canonical typed bytes and SHA-256 roots on normal and boundary inputs on `research/all`.
 - [ ] Define static package archive and optional generated human-readable index (for example, `INDEX.md`) derived from the machine index.
 - [ ] Define Dynamic Package requests by exact root Content Hash values and explicit dependency policies.
 - [ ] Define exact-hash transitive dependency closure, optional/target/feature dependency semantics, and fail-closed missing-dependency behavior.
