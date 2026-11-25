@@ -84,6 +84,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Question:** How does tooling discover operations with equivalent or compatible contracts, and what evidence is required before an implementation can serve a call addressed by a particular OpHash?
 - **Context:** Analogue discovery is an optimization/reuse mechanism, not call identity resolution. A candidate must not silently change the meaning of a call.
 - **Options to investigate:** Exact contract-hash match; structural contract comparison; proof of refinement/equivalence; explicit verified adapters for non-identical contracts.
+- **Bounded evidence:** [Finite contract relations](research/language-design/RT-04/RT-04-CONTRACT-RELATIONS-FINITE-COMPARISON-2026-11-25.md) separates public refinement, local applicability and observable equivalence. Scope and exact provider correspondence remain open.
 - **Recommendation:** Separate candidate discovery from acceptance. Require evidence against the exact OpHash and target constraints; otherwise do not substitute transparently.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 3.6 and 9.
 
