@@ -195,6 +195,8 @@ RT-05 compares typed pre-state and final-state graph clauses with emitted Dafny 
 
 RT-07 compares Dafny concurrent frame obligations and audit findings with the RT-04/10 ordered-history boundary for shared native updates. [Dafny concurrent frames and native histories](../formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md)
 
+RT-07 compares modular Dafny/Boogie scope, explicit Lean assumption discharge, bound CPC checking, and separate resource and timeout dispositions. [Dafny modular proof closure](../formal-verification/RT-07/RT-07-DAFNY-MODULAR-PROOF-CLOSURE-2026-11-25.md)
+
 ## 3. Required research artifact
 
 Every research report should identify:

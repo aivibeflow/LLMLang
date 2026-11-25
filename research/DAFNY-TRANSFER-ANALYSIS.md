@@ -74,6 +74,8 @@ Keep quantifier triggers, coinduction, advanced trait/module behavior, custom so
 
 ## 4. Verification workflow lessons
 
+The [Dafny modular proof closure](formal-verification/RT-07/RT-07-DAFNY-MODULAR-PROOF-CLOSURE-2026-11-25.md) compares a caller-only Boogie check, exact provider closure, a Lean composition, and a bound Logos certificate for an independent arithmetic implication. It retains source diagnostics and distinguishes incomplete verification from a checked contradiction.
+
 Dafny's VC + SMT approach is valuable for automation, but LLMLang should separate four questions:
 
 1. **Was the source parsed and type checked?**

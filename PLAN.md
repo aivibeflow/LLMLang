@@ -655,7 +655,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 ## Dafny language and verification transfer study (cross-cutting; Stage 2)
 
 - [ ] Study Dafny's specification language: `requires`/`ensures`, loop invariants, `reads`/`modifies` frames, `decreases`, ghost state, lemmas, assertions, opacity, modules, traits, and proof structuring. Map each construct to LLMLang requirements and identify semantic mismatches.
-- [ ] Compare source-level modular verification and the Boogie/SMT workflow with LLMLang's Lean/Logos/SMT work. Record what to reuse, wrap, translate, independently check, or reject, including trust boundaries and `UNKNOWN`/timeout behavior.
+- [x] Compare source-level modular verification and the Boogie/SMT workflow with LLMLang's Lean/Logos/SMT work. Record what to reuse, wrap, translate, independently check, or reject, including trust boundaries and `UNKNOWN`/timeout behavior.
+  - Compare caller-only and closed Dafny/Boogie proofs on the same interval contract. The wrong provider keeps the caller proof and fails closure. Lean discharges the interval contract with standard axioms. Logos accepts the fine-grained CPC proof and rejects changed assumptions. Separate resource exhaustion, a host deadline and provider failure in the evidence. [Dafny modular proof closure](research/formal-verification/RT-07/RT-07-DAFNY-MODULAR-PROOF-CLOSURE-2026-11-25.md)
 - [ ] Evaluate candidate contract and language syntax against Dafny on common examples, including readability for people and LLMs, proof guidance, explicit effects/failures/termination, and lossless mapping to typed SPG.
 - [x] Specify a small Dafny-informed LLMLang contract subset for an experiment; do not adopt Dafny syntax or semantics by default. Include pre/postconditions, loop invariants, frame/effect bounds, termination, and explicit assumptions.
 - [x] Prototype a bounded mapping in either direction and bind generated obligations/results to exact source, SPG, contract, verifier, and assumption identities. Include negative/unsupported cases; make no soundness claim without a correctness argument.
@@ -669,7 +670,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Deliverable:** construct-by-construct transfer matrix, candidate contract/syntax proposal, reproducible example corpus, and recommendation on Dafny reuse versus an independent LLMLang verifier.
 
-**Status:** scoped experiments cover a foreign-provider boundary, an SPG-to-Dafny copy contract, and the boundary between concurrent frame checks and observed shared histories. The broader construct mapping, candidate source syntax, general translation validation and transfer decision remain open.
+**Status:** scoped experiments cover a foreign-provider boundary, an SPG-to-Dafny copy contract, concurrent frames and observed histories, and modular source proof closure with Lean and Logos comparisons. The broader construct mapping, candidate source syntax, general translation validation and transfer decision remain open.
 
 # Stage 3 — Dependency graph, incremental computation, and cache
 
