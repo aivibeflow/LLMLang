@@ -1482,8 +1482,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Compare repeated reverse-index construction with a retained immutable index across 60 trials and three graph shapes. All 360 query results match the oracle. At 8,192 nodes the retained route takes 5.25–24.26 ms per six-query batch including setup, with 1.82–5.82 MiB of extra index allocations. Persistent and representative workloads remain open. [RT-05 reverse traversal benchmark](research/semantic-representation/RT-05/RT-05-REVERSE-TRAVERSAL-BENCHMARK-2026-11-25.md)
 - [x] Benchmark canonicalization and hashing.
   - [x] Measure separate encoding and SHA-256 phases over 60 trials. For nested 512-entry payloads the medians are 461.78 and 27.61 µs per object, and retained lookup plus hashing with setup takes 56.38 µs. All byte and digest observations agree across repeated exact keys. Representative payload distributions and persistent caching remain open. [RT-05 canonical hash cost](research/semantic-representation/RT-05/RT-05-CANONICAL-HASH-COST-2026-11-25.md)
-- [ ] Benchmark dependency discovery and impact planning.
-  - [ ] [WIP] Measure snapshot-scoped incoming discovery and compare full impact-plan generation with a grouped decision lookup.
+- [x] Benchmark dependency discovery and impact planning.
+  - [x] Measure discovery, independent payload audit and plan generation in 60 trials. Grouped decision lookup preserves every complete plan ID and conservative control, reducing median hot 1,024-caller planning from 76.28 to 18.95 ms. Persistent indexes, mixed actions and representative workloads remain open. [RT-06 impact planning benchmark](research/semantic-representation/RT-06/RT-06-IMPACT-PLANNING-BENCHMARK-2026-11-25.md)
 - [ ] Benchmark compilation and cache performance.
 - [ ] Benchmark proof and test execution costs.
 - [ ] Benchmark storage, indexing, and garbage collection.

@@ -42,6 +42,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-06 impact planning benchmark](RT-06/RT-06-IMPACT-PLANNING-BENCHMARK-2026-11-25.md) separates discovery, evidence binding and full-plan generation costs across synthetic caller distributions.
 - [RT-05 canonical hash cost](RT-05/RT-05-CANONICAL-HASH-COST-2026-11-25.md) compares encoding, hashing and scoped canonical-byte retention.
 - [RT-05 reverse traversal benchmark](RT-05/RT-05-REVERSE-TRAVERSAL-BENCHMARK-2026-11-25.md) compares immutable reverse-index retention, graph sizes and repeated checked queries.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
