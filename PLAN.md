@@ -283,6 +283,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Specify `ImpHash` and the identity of a concrete implementation.
 - [ ] Define the contract identity and the identity of a class of compatible implementations.
 - [ ] Define canonical typed serialization, domain separation, digest encoding, and hash algorithm agility.
+  - Compare five native adapters for 181 I64 literals. Ordinary JavaScript Number changes 56 accepted values and collapses 46 distinct pairs before hashing. Exact numeric lexemes, decimal text and fixed-width hexadecimal preserve every input and the complete typed graph root. General canonical formats and other scalar types remain open. [Cross-runtime I64 encoding](research/semantic-representation/RT-05/RT-05-CROSS-RUNTIME-I64-ENCODING-2026-11-25.md)
 - [ ] Define hash-relevant versus descriptive, provenance, and evidentiary graph edges.
 - [ ] Define cycle handling in hash dependencies.
 - [ ] Define which target, ABI, runtime, toolchain, and configuration properties affect implementation identity.
