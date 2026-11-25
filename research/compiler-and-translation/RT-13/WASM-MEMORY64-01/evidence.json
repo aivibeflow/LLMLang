@@ -1,0 +1,278 @@
+{
+  "builds": {
+    "direct-wat": {
+      "byte_size": 101,
+      "engines": {
+        "v22.23.5": {
+          "admission_with_disable_flag": true,
+          "counts": {
+            "bytes": 330,
+            "checked": 5832,
+            "rejected": 5502,
+            "traps": 0,
+            "wrong": 0
+          },
+          "firstWrong": null,
+          "hostControls": {
+            "guardedNegative": "rejected-host",
+            "guardedNumber": "rejected-host",
+            "guardedOverflow": "rejected-host",
+            "guardedValid": 241,
+            "rawOverflow": 241
+          },
+          "signature": "0f8991d71d8599afbdd5815bf88808c87ca11d4dabbe47805e880abd5c03c798",
+          "supported": true
+        },
+        "v24.22.3": {
+          "counts": {
+            "bytes": 330,
+            "checked": 5832,
+            "rejected": 5502,
+            "traps": 0,
+            "wrong": 0
+          },
+          "firstWrong": null,
+          "hostControls": {
+            "guardedNegative": "rejected-host",
+            "guardedNumber": "rejected-host",
+            "guardedOverflow": "rejected-host",
+            "guardedValid": 241,
+            "rawOverflow": 241
+          },
+          "signature": "0f8991d71d8599afbdd5815bf88808c87ca11d4dabbe47805e880abd5c03c798",
+          "supported": true
+        }
+      },
+      "sha256": "fc4f3d98f23a04ce06fdb165df58642c892f5dc1aaba4b1375bed6f2318a54bc",
+      "wabt_default": "rejected",
+      "wabt_memory64_enabled": "accepted"
+    },
+    "llvm-O0": {
+      "byte_size": 220,
+      "engines": {
+        "v22.23.5": {
+          "admission_with_disable_flag": true,
+          "counts": {
+            "bytes": 330,
+            "checked": 5832,
+            "rejected": 5502,
+            "traps": 0,
+            "wrong": 0
+          },
+          "firstWrong": null,
+          "hostControls": {
+            "guardedNegative": "rejected-host",
+            "guardedNumber": "rejected-host",
+            "guardedOverflow": "rejected-host",
+            "guardedValid": 241,
+            "rawOverflow": 241
+          },
+          "signature": "0f8991d71d8599afbdd5815bf88808c87ca11d4dabbe47805e880abd5c03c798",
+          "supported": true
+        },
+        "v24.22.3": {
+          "counts": {
+            "bytes": 330,
+            "checked": 5832,
+            "rejected": 5502,
+            "traps": 0,
+            "wrong": 0
+          },
+          "firstWrong": null,
+          "hostControls": {
+            "guardedNegative": "rejected-host",
+            "guardedNumber": "rejected-host",
+            "guardedOverflow": "rejected-host",
+            "guardedValid": 241,
+            "rawOverflow": 241
+          },
+          "signature": "0f8991d71d8599afbdd5815bf88808c87ca11d4dabbe47805e880abd5c03c798",
+          "supported": true
+        }
+      },
+      "sha256": "c90a52da16c504eb95dd5b1f68a960b26c3a499c4ea894a8ad8ffd0b48907313",
+      "wabt_default": "rejected",
+      "wabt_memory64_enabled": "accepted"
+    },
+    "llvm-O3": {
+      "byte_size": 124,
+      "engines": {
+        "v22.23.5": {
+          "admission_with_disable_flag": true,
+          "counts": {
+            "bytes": 330,
+            "checked": 5832,
+            "rejected": 5502,
+            "traps": 0,
+            "wrong": 0
+          },
+          "firstWrong": null,
+          "hostControls": {
+            "guardedNegative": "rejected-host",
+            "guardedNumber": "rejected-host",
+            "guardedOverflow": "rejected-host",
+            "guardedValid": 241,
+            "rawOverflow": 241
+          },
+          "signature": "0f8991d71d8599afbdd5815bf88808c87ca11d4dabbe47805e880abd5c03c798",
+          "supported": true
+        },
+        "v24.22.3": {
+          "counts": {
+            "bytes": 330,
+            "checked": 5832,
+            "rejected": 5502,
+            "traps": 0,
+            "wrong": 0
+          },
+          "firstWrong": null,
+          "hostControls": {
+            "guardedNegative": "rejected-host",
+            "guardedNumber": "rejected-host",
+            "guardedOverflow": "rejected-host",
+            "guardedValid": 241,
+            "rawOverflow": 241
+          },
+          "signature": "0f8991d71d8599afbdd5815bf88808c87ca11d4dabbe47805e880abd5c03c798",
+          "supported": true
+        }
+      },
+      "sha256": "4dd96865739beadf5c220a9ea9f4e0c99ba99ed391e3c866ffc99209a5b07ace",
+      "wabt_default": "rejected",
+      "wabt_memory64_enabled": "accepted"
+    },
+    "llvm-add-end": {
+      "byte_size": 109,
+      "engines": {
+        "v22.23.5": {
+          "admission_with_disable_flag": true,
+          "counts": {
+            "bytes": 330,
+            "checked": 5832,
+            "rejected": 5502,
+            "traps": 258,
+            "wrong": 456
+          },
+          "firstWrong": {
+            "base": "1",
+            "got": 0,
+            "offset": "0",
+            "span": "18446744073709551615",
+            "want": -1
+          },
+          "hostControls": {
+            "guardedNegative": "rejected-host",
+            "guardedNumber": "rejected-host",
+            "guardedOverflow": "rejected-host",
+            "guardedValid": 241,
+            "rawOverflow": 241
+          },
+          "signature": "b4fae8c8cea7934983b150c88bc101afc79886c2779abf9982ddf4ca0c875b7e",
+          "supported": true
+        },
+        "v24.22.3": {
+          "counts": {
+            "bytes": 330,
+            "checked": 5832,
+            "rejected": 5502,
+            "traps": 258,
+            "wrong": 456
+          },
+          "firstWrong": {
+            "base": "1",
+            "got": 0,
+            "offset": "0",
+            "span": "18446744073709551615",
+            "want": -1
+          },
+          "hostControls": {
+            "guardedNegative": "rejected-host",
+            "guardedNumber": "rejected-host",
+            "guardedOverflow": "rejected-host",
+            "guardedValid": 241,
+            "rawOverflow": 241
+          },
+          "signature": "b4fae8c8cea7934983b150c88bc101afc79886c2779abf9982ddf4ca0c875b7e",
+          "supported": true
+        }
+      },
+      "sha256": "0a82cfd971705ec7b98c828ea983c7926aeec9ee8b36959606fd2ca6fe6f2f7b",
+      "wabt_default": "rejected",
+      "wabt_memory64_enabled": "accepted"
+    },
+    "llvm-narrow32": {
+      "byte_size": 153,
+      "engines": {
+        "v22.23.5": {
+          "admission_with_disable_flag": true,
+          "counts": {
+            "bytes": 330,
+            "checked": 5832,
+            "rejected": 5502,
+            "traps": 0,
+            "wrong": 472
+          },
+          "firstWrong": {
+            "base": "0",
+            "got": 211,
+            "offset": "4294967296",
+            "span": "1",
+            "want": -1
+          },
+          "hostControls": {
+            "guardedNegative": "rejected-host",
+            "guardedNumber": "rejected-host",
+            "guardedOverflow": "rejected-host",
+            "guardedValid": 241,
+            "rawOverflow": 241
+          },
+          "signature": "e67165a8a357741716f0a3d0f9f95ae1e61b0ce00e47d8280fca071b749700be",
+          "supported": true
+        },
+        "v24.22.3": {
+          "counts": {
+            "bytes": 330,
+            "checked": 5832,
+            "rejected": 5502,
+            "traps": 0,
+            "wrong": 472
+          },
+          "firstWrong": {
+            "base": "0",
+            "got": 211,
+            "offset": "4294967296",
+            "span": "1",
+            "want": -1
+          },
+          "hostControls": {
+            "guardedNegative": "rejected-host",
+            "guardedNumber": "rejected-host",
+            "guardedOverflow": "rejected-host",
+            "guardedValid": 241,
+            "rawOverflow": 241
+          },
+          "signature": "e67165a8a357741716f0a3d0f9f95ae1e61b0ce00e47d8280fca071b749700be",
+          "supported": true
+        }
+      },
+      "sha256": "9519d87f7451579ca0bac81f1acbd6e763099fa32f2b67928b251a5b9cd89763",
+      "wabt_default": "rejected",
+      "wabt_memory64_enabled": "accepted"
+    }
+  },
+  "source_sha256": {
+    "check.mjs": "f6aac5181731d2ee867d9fb15718ec6cc78c53ca395ced0e5ef5c5c7f95341dc",
+    "run.py": "bff78235c0733ea838fe4246303e52485c0c16e21d31a754e2986944f1a6d448",
+    "view.c": "9efc11c17e48f8eed5777c318c152562c85daa68534a235fcf5958997ab8a273",
+    "view.wat": "a9622a89f4aefa8580ae61ce901bd74620625ba462732bc0dae73ff1caad5791"
+  },
+  "tools": {
+    "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+    "linker": "Debian LLD 19.1.7",
+    "node": [
+      "v22.23.5",
+      "v24.22.3"
+    ],
+    "wabt": "1.0.36"
+  }
+}
