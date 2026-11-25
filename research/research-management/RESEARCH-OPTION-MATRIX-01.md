@@ -99,6 +99,8 @@ For a closed two-integer profile, [restricted affine certificates](../formal-ver
 
 [Cross-runtime F64 to I64 conversion](../semantic-representation/RT-05/RT-05-F64-I64-CONVERSION-2026-11-25.md) compares checked truncation, integral-only checking, saturation, modular wrap and unbounded truncation. Integral-only checking refuses 85 cases that checked truncation accepts. A comparison against the rounded integer maximum requires an exclusive positive bound.
 
+[LLVM checked F64 to I64 lowering](../compiler-and-translation/RT-13/RT-13-LLVM-F64-I64-LOWERING-2026-11-25.md) validates an ordered branch and a poison-masking select against a bit-based LLVM reference at O0 and O3. Native guarded saturation matches the archived tag and result, while stock Alive2 and both Vellvm builds report unavailable intrinsic semantics.
+
 [F64 extrema agreement guard](../formal-verification/RT-32/RT-32-F64-EXTREMA-AGREEMENT-GUARD-2026-11-25.md) proves exact agreement among seven rules only under the declared bit-class guard with NaN outputs normalized. Both sides of the guard are witnessed in 1,024 native pairs.
 
 [Native F64 minimum and maximum](../semantic-representation/RT-05/RT-05-NATIVE-F64-MINMAX-2026-11-25.md) measures five distinct numeric rules across a shared 1,024-pair corpus. Selecting a named operation requires a NaN and operand tie contract before assuming a hardware or host-library lowering preserves it.
