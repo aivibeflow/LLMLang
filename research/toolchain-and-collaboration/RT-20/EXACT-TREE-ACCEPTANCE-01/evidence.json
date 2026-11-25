@@ -1,0 +1,153 @@
+{
+  "git": "git version 2.56.1",
+  "cases": [
+    {
+      "object_format": "sha1",
+      "ref_format": "files",
+      "case": "ordinary",
+      "outcome": {
+        "failed_validation": "invalid with no commit object or ref updates",
+        "worktree_changed_after_validation": "frozen tree published",
+        "same_operation_retry": "original commit",
+        "same_key_different_tree": "key-conflict",
+        "stale_base": "stale-baseline without receipt",
+        "retry_after_new_head": "original commit without head change"
+      }
+    },
+    {
+      "object_format": "sha1",
+      "ref_format": "files",
+      "case": "mismatched-receipt",
+      "outcome": "receipt-mismatch"
+    },
+    {
+      "object_format": "sha1",
+      "ref_format": "files",
+      "case": "same-key-race",
+      "outcome": [
+        "published",
+        "replayed"
+      ]
+    },
+    {
+      "object_format": "sha1",
+      "ref_format": "files",
+      "case": "distinct-key-race",
+      "outcome": [
+        "published",
+        "stale-baseline"
+      ]
+    },
+    {
+      "object_format": "sha1",
+      "ref_format": "reftable",
+      "case": "ordinary",
+      "outcome": {
+        "failed_validation": "invalid with no commit object or ref updates",
+        "worktree_changed_after_validation": "frozen tree published",
+        "same_operation_retry": "original commit",
+        "same_key_different_tree": "key-conflict",
+        "stale_base": "stale-baseline without receipt",
+        "retry_after_new_head": "original commit without head change"
+      }
+    },
+    {
+      "object_format": "sha1",
+      "ref_format": "reftable",
+      "case": "mismatched-receipt",
+      "outcome": "receipt-mismatch"
+    },
+    {
+      "object_format": "sha1",
+      "ref_format": "reftable",
+      "case": "same-key-race",
+      "outcome": [
+        "published",
+        "replayed"
+      ]
+    },
+    {
+      "object_format": "sha1",
+      "ref_format": "reftable",
+      "case": "distinct-key-race",
+      "outcome": [
+        "published",
+        "stale-baseline"
+      ]
+    },
+    {
+      "object_format": "sha256",
+      "ref_format": "files",
+      "case": "ordinary",
+      "outcome": {
+        "failed_validation": "invalid with no commit object or ref updates",
+        "worktree_changed_after_validation": "frozen tree published",
+        "same_operation_retry": "original commit",
+        "same_key_different_tree": "key-conflict",
+        "stale_base": "stale-baseline without receipt",
+        "retry_after_new_head": "original commit without head change"
+      }
+    },
+    {
+      "object_format": "sha256",
+      "ref_format": "files",
+      "case": "mismatched-receipt",
+      "outcome": "receipt-mismatch"
+    },
+    {
+      "object_format": "sha256",
+      "ref_format": "files",
+      "case": "same-key-race",
+      "outcome": [
+        "published",
+        "replayed"
+      ]
+    },
+    {
+      "object_format": "sha256",
+      "ref_format": "files",
+      "case": "distinct-key-race",
+      "outcome": [
+        "published",
+        "stale-baseline"
+      ]
+    },
+    {
+      "object_format": "sha256",
+      "ref_format": "reftable",
+      "case": "ordinary",
+      "outcome": {
+        "failed_validation": "invalid with no commit object or ref updates",
+        "worktree_changed_after_validation": "frozen tree published",
+        "same_operation_retry": "original commit",
+        "same_key_different_tree": "key-conflict",
+        "stale_base": "stale-baseline without receipt",
+        "retry_after_new_head": "original commit without head change"
+      }
+    },
+    {
+      "object_format": "sha256",
+      "ref_format": "reftable",
+      "case": "mismatched-receipt",
+      "outcome": "receipt-mismatch"
+    },
+    {
+      "object_format": "sha256",
+      "ref_format": "reftable",
+      "case": "same-key-race",
+      "outcome": [
+        "published",
+        "replayed"
+      ]
+    },
+    {
+      "object_format": "sha256",
+      "ref_format": "reftable",
+      "case": "distinct-key-race",
+      "outcome": [
+        "published",
+        "stale-baseline"
+      ]
+    }
+  ]
+}
