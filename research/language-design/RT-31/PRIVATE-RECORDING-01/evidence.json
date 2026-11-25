@@ -1,0 +1,206 @@
+{
+  "sqlite": "3.53.1",
+  "input_cases": 24,
+  "payload_canaries": 49,
+  "initial_restricted_exports": {
+    "redacted": [
+      {
+        "id": 1,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 0
+      },
+      {
+        "id": 2,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 1
+      },
+      {
+        "id": 3,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 2
+      },
+      {
+        "id": 4,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 3
+      },
+      {
+        "id": 5,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 4
+      },
+      {
+        "id": 6,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 5
+      },
+      {
+        "id": 7,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 0,
+        "redacted": {
+          "diagnostic": "stale-revision"
+        }
+      },
+      {
+        "id": 8,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 1,
+        "redacted": {
+          "diagnostic": "redacted"
+        }
+      },
+      {
+        "id": 9,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 2,
+        "redacted": {
+          "diagnostic": "redacted"
+        }
+      },
+      {
+        "id": 10,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 3,
+        "redacted": {
+          "diagnostic": "redacted"
+        }
+      },
+      {
+        "id": 11,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 4,
+        "redacted": {
+          "diagnostic": "redacted"
+        }
+      },
+      {
+        "id": 12,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 5,
+        "redacted": {
+          "diagnostic": "redacted"
+        }
+      }
+    ],
+    "metadata": [
+      {
+        "id": 1,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 0
+      },
+      {
+        "id": 2,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 1
+      },
+      {
+        "id": 3,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 2
+      },
+      {
+        "id": 4,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 3
+      },
+      {
+        "id": 5,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 4
+      },
+      {
+        "id": 6,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 5
+      },
+      {
+        "id": 7,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 0
+      },
+      {
+        "id": 8,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 1
+      },
+      {
+        "id": 9,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 2
+      },
+      {
+        "id": 10,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 3
+      },
+      {
+        "id": 11,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 4
+      },
+      {
+        "id": 12,
+        "kind": "diagnostic",
+        "outcome": "ok",
+        "duration_ms": 5
+      }
+    ]
+  },
+  "active_audit_rows_after_purge": 21,
+  "controls": {
+    "export_other_workspace": true,
+    "metadata_grant_cannot_export_redacted": true,
+    "metadata_grant_cannot_capture_redacted": true,
+    "delete_other_event": true,
+    "other_workspace_still_readable": true,
+    "delete_exact_event": true,
+    "repeat_delete": true,
+    "deleted_event_absent": true,
+    "unrecognized_metadata": true,
+    "raw_capture_mode_refused": true,
+    "malformed_duration": true,
+    "revoked_capture": true,
+    "stale_epoch_after_reactivation": true,
+    "current_epoch": true,
+    "revoked_export": true,
+    "redacted_expiry_before_purge": true,
+    "purge_expired_scope": true,
+    "purge_preserves_peer": true,
+    "metadata_expiry": true,
+    "audit_projection": true,
+    "audit_denied": true,
+    "audit_retention": true,
+    "expired_audit_rows_deleted": true
+  },
+  "canaries_absent_from": [
+    "SQL trace",
+    "export views",
+    "SQLite database",
+    "active WAL",
+    "checkpointed database"
+  ]
+}
