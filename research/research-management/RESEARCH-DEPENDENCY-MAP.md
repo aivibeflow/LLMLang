@@ -584,6 +584,8 @@ These edges are research hypotheses, not implementation commitments. MCP is a tr
 
 ## 20. Verified SPG-to-Lean pipeline (RT-32)
 
+[Record ownership proof](../formal-verification/RT-32/RT-32-RECORD-OWNERSHIP-PROOF-2026-11-25.md) adds general obligations and exact archive comparison. General SPG extraction remains open.
+
 RT-32 depends on authoritative semantics, typed SPG identities, proof architecture, evidence fixtures, compiler IR, and sound incremental invalidation. Lean is a verification representation and kernel checker, not the semantic authority or runtime of LLMLang.
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |

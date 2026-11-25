@@ -1,0 +1,76 @@
+{
+  "schema": "llmlang-rt32-record-ownership/1",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "ownership_source_sha256": "38f276cc0489df8380e88164b26bb8e0a11327304cecffdad4fdd3bea679ebad",
+  "runner_sha256": "da6b794ee4f6739d79289d0ad1c2d5c55bf335b005971ed6fe491fd040d91fbd",
+  "generated_lean_replay_sha256": "ffd15b97d255143ba86219bf7912ed542591b7120066494f05be50c9e5ab6d5d",
+  "archive_equalities": 72,
+  "archive_equality_axioms": [
+    "propext"
+  ],
+  "native_ledger_sha256": "74590da73dcb4216f0e9d14463362cc3059a1a810410f758a1fe0a0cde701336",
+  "checked_theorems": {
+    "acquiredSublist": [
+      "propext"
+    ],
+    "acquiredCannotFail": [
+      "propext"
+    ],
+    "abortConservesAcquired": [
+      "propext"
+    ],
+    "abortReleasesOnce": [
+      "propext",
+      "Quot.sound"
+    ],
+    "abortNeverReleasesAFailedSlot": [
+      "propext"
+    ],
+    "completionConservesDeclared": [
+      "propext",
+      "Quot.sound"
+    ],
+    "completionConservesAcquired": [
+      "propext",
+      "Quot.sound"
+    ],
+    "completionReleasesOnce": [
+      "propext",
+      "Quot.sound"
+    ],
+    "movedSlotAbsentFromRecord": [
+      "propext",
+      "Quot.sound"
+    ],
+    "transferredSlotSingleton": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "absentSlotCannotBeReleased": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "duplicateDeclarationRepeatsRelease": [],
+    "mismatchedDeclarationsCanInventRelease": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "oppositeCompletionOrdersDistinguishTrace": []
+  },
+  "rejected_proof_applications": {
+    "wrong_declared_owner": "type_mismatch",
+    "moved_slot_still_in_record": "type_mismatch"
+  },
+  "source_cases": 72,
+  "oracle_vectors": 2304,
+  "phase_counts": {
+    "completed": 288,
+    "early_exit": 2016
+  },
+  "native_measurements_represented": 4608,
+  "matched_vector_sha256": "c769ebf1c649aa50b1cf6c849e4b4281e9b6a033c350faf824abcbad65ee4ec8"
+}
