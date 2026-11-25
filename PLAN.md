@@ -957,6 +957,22 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 ---
 
+## 3.5 Verification artifact cache and incremental proof reuse (RT-11/32/33/36)
+
+**Status:** proposed integrated research; existing bounded persistent-cache and invalidation experiments are evidence, not a production cache. **Priority:** P0 (exact local reuse and sound admission), P1 (advanced and distributed reuse). [Execution brief](research/formal-verification/RT-33/VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) · [Persistent modular/closed cache](research/formal-verification/RT-32/RT-32-PERSISTENT-PROOF-CACHE-2026-11-25.md) · [8,192-profile invalidation comparison](research/formal-verification/RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md).
+
+- [ ] Compare versioned subprocess/CLI, protocol and native-library adapters for Lean/Pantograph, Z3/cvc5 (SMT-LIB and API), TLC/Apalache and selected Why3/Boogie routes. Validate capability reporting, exact input/correspondence, cancellation, failures, and independently checkable evidence (RT-33, §2.3).
+- [ ] VAC-01/05: extend the existing ActionKey and CAS model with exact typed obligation, execution, check, closure and admission identities; validate complete property-specific dependencies, canonicalization, policy/revocation and forged or stale evidence rejection.
+- [ ] VAC-02/03: persist actual source-bound SMT certificates and Lean proof artifacts; compare certificate checking, kernel proof-term replay, tactic replay and module reuse against fresh generation with pinned imports, checker, axioms and semantics.
+- [ ] VAC-04: generalize existing fixed-role SQLite prototype to occurrence-sensitive PDG closure, conditional proofs, exact provider rebinds, recursion and transactional publication/recovery.
+- [ ] VAC-06/07/08: investigate proof-mediated implication/refinement, typed alpha-equivalence, independently checked UNSAT-core transfer and revalidated SAT/counterexample replay; never admit approximate matches without checking.
+- [ ] VAC-09: compare TLC checkpoint recovery with changed-model verification and Apalache bounded/inductive obligations; retain exact bounds, fairness and correspondence.
+- [ ] VAC-10/11/12: test cross-worktree, cross-project, remote CAS and version migration, authenticated provenance, safe decoding, conflicts, garbage collection, concurrency and revocation; local correctness precedes distributed reuse.
+- [ ] VAC-13/14: run paired cold/warm/forced-oracle and edit/revert benchmarks with stage timing, memory, storage, cost-weighted hit rate, LLM tokens and false-admission controls; retain JSON/CSV and reproducible charts. Treat proof-search hints and solver sessions as non-authoritative.
+- [ ] VAC-15: establish scoped formal soundness of cache admission and connect it to typed query generation, exact certificate checking, dependency completeness and current policy. Test missing/forged/corrupted dependencies, altered semantics, bounds, revoked assumptions, unsupported rules, and publication races.
+
+**Exit criteria:** independently replayable real proof artifacts from at least Lean and SMT, explicit scope for temporal checking, no unexplained false admissions in the adversarial corpus, soundness argument with declared TCB, reproducible comparative performance evidence. No target speedup, backend, physical format or normative semantics is selected. Keep RT-32 modular/closed receipt evidence and historical results intact.
+
 # Stage 4 — Semantic storage, versioning, and Git integration
 
 **Order:** after identity and dependency boundaries are stable enough to persist.  
