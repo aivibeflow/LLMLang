@@ -1,0 +1,71 @@
+{
+  "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+  "profiles": {
+    "0": {
+      "eager_div": {
+        "inputs_with_immediate_ub_in_ir": 256,
+        "native_observations": 65280,
+        "output_sha256": "41c6d503cac58ab58c14832d4e250728a0a7e6baf8027529064750bc99669be3"
+      },
+      "eager_frozen_div": {
+        "inputs_with_immediate_ub_in_ir": 256,
+        "native_observations": 65280,
+        "output_sha256": "41c6d503cac58ab58c14832d4e250728a0a7e6baf8027529064750bc99669be3"
+      },
+      "guarded_div": {
+        "inputs_with_immediate_ub_in_ir": 0,
+        "native_observations": 65536,
+        "output_sha256": "02a9fea98b215830bc9fc9c6b16a883b89e8b778edcb0a746def65d1dbecc1bf"
+      },
+      "guarded_shift": {
+        "inputs_with_immediate_ub_in_ir": 0,
+        "native_observations": 65536,
+        "output_sha256": "b12c3dc8175a7d32b048df69221b8f11fac2218c4d612aea85187c944670807e"
+      },
+      "masked_shift": {
+        "inputs_with_immediate_ub_in_ir": 0,
+        "native_observations": 65536,
+        "output_sha256": "b12c3dc8175a7d32b048df69221b8f11fac2218c4d612aea85187c944670807e"
+      },
+      "sanitized_div": {
+        "inputs_with_immediate_ub_in_ir": 0,
+        "native_observations": 65536,
+        "output_sha256": "02a9fea98b215830bc9fc9c6b16a883b89e8b778edcb0a746def65d1dbecc1bf"
+      }
+    },
+    "3": {
+      "eager_div": {
+        "inputs_with_immediate_ub_in_ir": 256,
+        "native_observations": 65280,
+        "output_sha256": "41c6d503cac58ab58c14832d4e250728a0a7e6baf8027529064750bc99669be3"
+      },
+      "eager_frozen_div": {
+        "inputs_with_immediate_ub_in_ir": 256,
+        "native_observations": 65280,
+        "output_sha256": "41c6d503cac58ab58c14832d4e250728a0a7e6baf8027529064750bc99669be3"
+      },
+      "guarded_div": {
+        "inputs_with_immediate_ub_in_ir": 0,
+        "native_observations": 65536,
+        "output_sha256": "02a9fea98b215830bc9fc9c6b16a883b89e8b778edcb0a746def65d1dbecc1bf"
+      },
+      "guarded_shift": {
+        "inputs_with_immediate_ub_in_ir": 0,
+        "native_observations": 65536,
+        "output_sha256": "b12c3dc8175a7d32b048df69221b8f11fac2218c4d612aea85187c944670807e"
+      },
+      "masked_shift": {
+        "inputs_with_immediate_ub_in_ir": 0,
+        "native_observations": 65536,
+        "output_sha256": "b12c3dc8175a7d32b048df69221b8f11fac2218c4d612aea85187c944670807e"
+      },
+      "sanitized_div": {
+        "inputs_with_immediate_ub_in_ir": 0,
+        "native_observations": 65536,
+        "output_sha256": "02a9fea98b215830bc9fc9c6b16a883b89e8b778edcb0a746def65d1dbecc1bf"
+      }
+    }
+  },
+  "python": "3.12.14",
+  "verifier": "Debian LLVM version 19.1.7"
+}

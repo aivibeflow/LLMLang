@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-13 LLVM eager definedness](RT-13/RT-13-LLVM-EAGER-DEFINEDNESS-2026-11-25.md) distinguishes poison masking from guarding immediate undefined operations.
 - [RT-13 Rust optional ABI](RT-13/RT-13-RUST-NONZERO-OPTIONAL-ABI-2026-11-25.md) checks the documented nonzero niche and a tagged FFI carrier.
 - [RT-13 C++ destructor ABI](RT-13/RT-13-CPP-DESTRUCTOR-ABI-2026-11-25.md) checks equal record layouts with different by-value return carriers.
 - [RT-13 Go deferred resource capture](RT-13/RT-13-GO-DEFERRED-RESOURCE-CAPTURE-2026-11-25.md) checks exact handle identity under versioned loop binding.
