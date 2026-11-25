@@ -1,0 +1,72 @@
+{
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+  "libc": "glibc 2.41",
+  "profiles": {
+    "-O0": {
+      "client_sha256": "51f66f090d6f5ca4722011c302f173a04acc14100384bfa14477f078201bc22e",
+      "provider_sha256": "5171ac8404b53bb78cf128617ed3c0b8b6a46cbdd8244b63af459e5ae9554fa0",
+      "trace": [
+        "wrong-provider:2",
+        "oversize:1",
+        "aliased-borrow:4",
+        "cancel:0",
+        "release-pending:4",
+        "settle:0",
+        "stale-borrow:3",
+        "settled-byte:5",
+        "release:0",
+        "retired-generation:3",
+        "new-byte:0",
+        "backend-error:12",
+        "wrong-provider:2",
+        "oversize:1",
+        "aliased-borrow:4",
+        "cancel:0",
+        "release-pending:4",
+        "settle:0",
+        "stale-borrow:3",
+        "settled-byte:5",
+        "release:0",
+        "retired-generation:3",
+        "new-byte:0",
+        "backend-error:22"
+      ]
+    },
+    "-O2": {
+      "client_sha256": "185ecb5f66cbf49e06cfba68165177a9ee79e8144001b3284eb1000b8cc61f0e",
+      "provider_sha256": "599fce32b398aa45c546a1ba66e5a9365ef5f427428d30f02f471a1751a5b620",
+      "trace": [
+        "wrong-provider:2",
+        "oversize:1",
+        "aliased-borrow:4",
+        "cancel:0",
+        "release-pending:4",
+        "settle:0",
+        "stale-borrow:3",
+        "settled-byte:5",
+        "release:0",
+        "retired-generation:3",
+        "new-byte:0",
+        "backend-error:12",
+        "wrong-provider:2",
+        "oversize:1",
+        "aliased-borrow:4",
+        "cancel:0",
+        "release-pending:4",
+        "settle:0",
+        "stale-borrow:3",
+        "settled-byte:5",
+        "release:0",
+        "retired-generation:3",
+        "new-byte:0",
+        "backend-error:22"
+      ]
+    }
+  },
+  "sources": {
+    "check.py": "eb56e2dd71aa971dfa6d3577d01b377047db0ad9cafb556f3458dea2486718ad",
+    "client.c": "e19acabea10b819abd69ed8efe25853e0686a2bcb6d13b671fb6e9222c517659",
+    "provider.c": "ec724bd20be6521c3851accceb0b02649d3faaeea14f6b20ccb65a30f2d8d494",
+    "provider.h": "bd1f250f53e8b6f314265fd30b6bcb76cd74e38b9bfe41c2cbec456bf716168f"
+  }
+}
