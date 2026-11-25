@@ -1,6 +1,7 @@
 # ADR-016 — Bootstrap the LLMLang compiler from source
 
-- **Status** — Proposed, pending prototype validation
+- **Status** — Accepted
+- **Accepted** — 2026-11-25
 - **Date** — 2026-11-20
 - **Decision owners** — LLMLang project
 - **Related research** — [RT-21 — Self-Development, Bootstrap, and Migration Roadmap](../../research/toolchain-and-collaboration/RT-21/RT-21-LLMLANG-SELF-DEVELOPMENT-AND-BOOTSTRAP-ROADMAP.md)
@@ -11,7 +12,7 @@ A clean machine needs a way to build the compiler written in LLMLang without an 
 
 The bootstrap compiler needs a front end that validates a versioned subset of LLMLang and a backend that preserves its semantics. The language used to implement the bootstrap compiler and the format it emits are independent choices. Using the same language for both can reduce the toolchains needed for a clean build. LLVM IR is an output format and requires a host language for the front end.
 
-## Proposed decision
+## Decision
 
 Prototype a small bootstrap compiler written in Rust that emits Rust source from a validated LLMLang representation. Build the bootstrap compiler with `cargo`, then use the same pinned Rust toolchain and the declared platform linker to compile the generated source. Keep the runtime support small and specify its observable behavior alongside the bootstrap profile. The profile should cover the LLMLang features used to implement the compiler and report unsupported constructs before code generation.
 
@@ -42,7 +43,7 @@ Rust is the first prototype because one toolchain can build the bootstrap execut
 - The Rust toolchain, linker, bootstrap source, dependencies, and runtime are part of the bootstrap trust boundary. Rebuilding to a fixed point checks consistency within that chain.
 - Changes to the bootstrap profile, runtime, or host toolchain require repeating the clean-machine build and conformance checks.
 
-## Validation required before acceptance
+## Implementation validation
 
 1. Document the supported LLMLang input form, language subset, runtime operations, host tools, and dependency versions. Demonstrate that the compiler sources fit the declared profile.
 2. Run the full chain in clean CI with no LLMLang executable or cached build outputs. Once the declared inputs are available, run the build without network access.

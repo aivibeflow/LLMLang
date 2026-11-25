@@ -1,335 +1,335 @@
-# LLMLang — реализуемый максимум по направлениям исследований
+# LLMLang Feasibility by Research Direction
 
-Реалистичная цель — типизированное ядро с проверяемыми контрактами и Toolchain, который хранит точные версии программ, проверяет изменения и публикует только допущенного кандидата. Гарантии относятся к конкретному профилю языка, набору наблюдений, целевой среде и версии инструментов. Переносимость, доказательства, импорт чужого кода и работа с устройствами расширяются по мере появления проверяемых профилей.
+A realistic goal is a typed core with checkable contracts and a Toolchain that stores exact program versions, validates changes, and publishes only candidates that pass validation. Guarantees apply to a specific language profile, set of observations, target environment, and tool version. Portability, proof coverage, foreign code import, and hardware support can expand as more profiles become verifiable.
 
-Максимум ниже — оценка достижимого объёма при указанных условиях. Она опирается на модели, прототипы и сравнительные испытания из реестра. Исследовательские результаты сохраняют свои границы, а выбор интегрированной архитектуры требует отдельного сравнения. Термины **SPG** и **ABI** означают типизированный семантический граф программы и двоичный интерфейс вызова соответственно. **FFI** — граница вызова кода на другом языке. [Реестр исследований](../../RESEARCH.md) · [Таксономия](RESEARCH-TAXONOMY.md) · [Матрица вариантов](RESEARCH-OPTION-MATRIX-01.md) · [План](../../PLAN.md)
+The feasible scope below is an estimate under the stated conditions, based on the models, prototypes, and comparative experiments in the register. Each result applies within its original scope. Selecting an integrated architecture requires a separate comparison. **SPG** means typed semantic program graph. **ABI** means application binary interface, including the calling convention. **FFI** means foreign function interface. [Research register](../../RESEARCH.md) · [Taxonomy](RESEARCH-TAXONOMY.md) · [Option matrix](RESEARCH-OPTION-MATRIX-01.md) · [Plan](../../PLAN.md)
 
-## Совместимый максимум для первого сквозного профиля
+## Feasible Scope for a First End-to-End Profile
 
-Выбрать закрытый срез с типизированными вызовами, явными ошибками и порядком эффектов, владением ресурсами и одной платформой для нативной проверки. Проверить один и тот же сценарий через эталонное исполнение и нативный бэкенд. Включить отрицательные проверки для подмены провайдера, изменения эффекта и устаревшего свидетельства перед публикацией.
+Choose a closed subset with typed calls, explicit errors, ordered effects, and resource ownership, and use one platform for native validation. Check the same scenario through reference execution and a native backend. Before publication, include negative tests for provider substitution, changes to effects, and stale evidence.
 
 ```mermaid
 flowchart LR
-    A["Исходник и утверждённый контракт"] --> B["Типизированный SPG"]
-    B --> C["Эталонное исполнение"]
-    B --> D["Нативный бэкенд"]
-    B --> E["Обязательства и предпосылки"]
-    C --> F["Сравнение наблюдений и проверка свидетельств"]
+    A["Source and approved contract"] --> B["Typed SPG"]
+    B --> C["Reference execution"]
+    B --> D["Native backend"]
+    B --> E["Obligations and assumptions"]
+    C --> F["Compare observations and validate evidence"]
     D --> F
     E --> F
-    F --> G["Публикация точного кандидата"]
+    F --> G["Publish the exact candidate"]
 ```
 
-Схема показывает предлагаемый сквозной профиль. Для публикации соответствие результатов, ошибок и эффектов проверяется на точном кандидате. Доказательства и допущения привязываются к той же ревизии. Интерпретатор упрощает проверку наблюдений, нативная компиляция даёт доступ к ABI и системным возможностям, а независимая сверка помогает обнаружить расхождения между ними. [Общий корпус семантики](../language-design/RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md) · [Сравнение интегрированных вариантов](RESEARCH-OPTION-MATRIX-01.md#56-bounded-source-to-publication-candidate-space)
+The diagram shows the proposed end-to-end profile. Before publication, check that results, errors, and effects agree for the exact candidate. Bind proofs and assumptions to that same revision. The interpreter simplifies observation checks, native compilation provides access to the ABI and system facilities, and independent comparison can expose discrepancies between the two. [Shared semantics corpus](../language-design/RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md) · [Integrated candidate comparison](RESEARCH-OPTION-MATRIX-01.md#56-bounded-source-to-publication-candidate-space)
 
-## Какие гарантии исключить
+## Guarantees to Exclude
 
-- **Неразрешимы в общем случае.** Точное автоматическое решение эквивалентности, достижимости, завершения и сложности для произвольных программ с неограниченным вычислением. Для отдельных свойств работают ограниченные классы программ, сертификаты и явный статус «неизвестно». RT-04–08, RT-32–34.
-- **Требуют дополнительных входов или контроля.** Восстановление неоднозначного намерения, безопасная подстановка без контракта, полный анализ с невидимыми входами, согласованная публикация у неконтролируемых читателей и жёсткие сроки на произвольном оборудовании. RT-02, RT-06, RT-11–16, RT-19–24, RT-26, RT-35–38.
-- **Пока выходят за пределы подтверждённого.** Универсальное ускорение, полная самосборка, широкая двусторонняя трансляция, физический WCET по результатам эмуляции и верификация SMP-ядра по одноядерному пилоту. Эти возможности оцениваются отдельно для выбранных профилей. RT-11, RT-21, RT-25, RT-28–31, RT-37–38.
+- **Undecidable in general.** Exact automated decisions about equivalence, reachability, termination, and complexity for arbitrary programs with unbounded computation. For individual properties, use restricted classes of programs, certificates, and an explicit unknown outcome. RT-04–08, RT-32–34.
+- **Require additional inputs or control.** Recovering ambiguous intent, safe substitution without a contract, complete analysis with hidden inputs, consistent publication for uncontrolled readers, and hard deadlines on arbitrary hardware. RT-02, RT-06, RT-11–16, RT-19–24, RT-26, RT-35–38.
+- **Beyond the evidence to date.** Universal speedups, full self-hosting, broad bidirectional translation, physical worst-case execution time (WCET) based on emulation, and verification of an SMP kernel based on a single-core pilot. Evaluate these goals separately for selected profiles. RT-11, RT-21, RT-25, RT-28–31, RT-37–38.
 
-## Сводки по направлениям
+## Summary by Research Direction
 
-### RT-01 — Цели и рабочие сценарии
+### RT-01 — Goals and reference workloads
 
-**Реализуемый максимум.** Toolchain может поддержать разработку по контрактам с агентом, проверкой изменений и явным утверждением человеком. Начать с CLI и измерять результат на заранее заданных задачах.
+**Feasible scope.** The Toolchain can support contract-driven development with agents, validation of changes, and explicit human approval. Start with CLI workflows and measure outcomes on predefined tasks.
 
-**Граница.** Из одного CLI-корпуса нельзя вывести гарантии роста продуктивности для всех команд и проектов. Нужны независимые наблюдения на репрезентативных задачах.
+**Limit.** A single CLI corpus cannot establish productivity gains across all teams and projects. Independent observations on representative tasks are needed.
 
-[LLMLang concept](../language-design/RT-01/LLMLang-CONCEPT.md) · [Development Engine RFC](../toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md) · [Эталонные рабочие сценарии](../language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md)
+[LLMLang concept](../language-design/RT-01/LLMLang-CONCEPT.md) · [Development Engine RFC](../toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md) · [Reference workloads](../language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md)
 
-### RT-02 — Намерение и требования
+### RT-02 — Intent and requirements
 
-**Реализуемый максимум.** Вести версионированные типизированные требования, связывать формулы с исходными фрагментами, показывать расхождения и запрашивать подтверждение точной ревизии.
+**Feasible scope.** Maintain versioned, typed requirements, trace formulas to their source passages, surface discrepancies, and request approval of the exact revision.
 
-**Граница.** Однозначно восстановить намерение из неоднозначного или неполного запроса нельзя. Совпадение с формулой не подтверждает, что выбранное толкование соответствует ожиданиям автора.
+**Limit.** An ambiguous or incomplete request does not uniquely determine intent. Agreement with a formula cannot establish that the chosen interpretation matches the author's expectations.
 
-[Scenario 15](../language-design/RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md) · [Scenario 17](../language-design/RT-02/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md) · [Протокол контролируемого ревью](../language-design/RT-02/RT-02-CONTROLLED-REVIEW-PROTOCOL-2026-11-25.md)
+[Scenario 15](../language-design/RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md) · [Scenario 17](../language-design/RT-02/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md) · [Controlled review protocol](../language-design/RT-02/RT-02-CONTROLLED-REVIEW-PROTOCOL-2026-11-25.md)
 
-### RT-03 — Семантика ядра
+### RT-03 — Core semantics
 
-**Реализуемый максимум.** Определить исполняемое ядро с типизированными вызовами, явными ошибками, отменой, порядком эффектов и правилами очистки. Для конкурентности описать допустимые наблюдения по профилю.
+**Feasible scope.** Define an executable core with typed calls, explicit errors, cancellation, ordered effects, and cleanup rules. Specify the observations allowed for concurrency in each profile.
 
-**Граница.** Для некоммутирующих акторов с произвольным порядком доставки нельзя гарантировать единый результат и трассу без ограничения планирования или программы.
+**Limit.** Noncommuting actors with arbitrary message delivery order cannot guarantee one result and trace unless the scheduler or the program is constrained.
 
 [Source cleanup CFG](../language-design/RT-03/RT-03-SOURCE-CLEANUP-CFG-2026-11-25.md) · [Core language semantics research](../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md)
 
-### RT-04 — Типы, эффекты и владение
+### RT-04 — Types, effects, and ownership
 
-**Реализуемый максимум.** Проверять типы, эффекты и линейное владение ресурсами. Разрешать уточнения в поддерживаемых теориях. Описывать передачу ресурсов и полномочий через FFI явными контрактами.
+**Feasible scope.** Check types, effects, and linear ownership of resources. Allow refinement predicates in supported theories. Use explicit FFI contracts for transfers of resources and authority.
 
-**Граница.** Общий решатель произвольных предикатов уточнения с гарантированным завершением невозможен. Компилятор не может вывести поведение непрозрачного иностранного вызова из его сигнатуры.
+**Limit.** There is no general terminating solver for arbitrary refinement predicates. A compiler cannot determine the behavior of an opaque foreign call from its signature alone.
 
 [Queued foreign ownership](../language-design/RT-04/RT-04-QUEUED-FOREIGN-OWNERSHIP-2026-11-25.md) · [Concurrent grant revocation](../language-design/RT-04/RT-04-CONCURRENT-GRANT-REVOCATION-2026-11-25.md)
 
-### RT-05 — SPG и семантическая идентичность
+### RT-05 — SPG and semantic identity
 
-**Реализуемый максимум.** Хранить неизменяемые типизированные объекты графа программы. Канонизировать модель с фиксированными правилами, хранить идентичность содержимого, вхождений и историю отдельно. Ограничить поддерживаемые циклы.
+**Feasible scope.** Store immutable, typed program graph objects. Canonicalize the model under fixed rules and track content identity, occurrence identity, and history separately. Restrict the classes of cycles supported.
 
-**Граница.** Хеш фиксированной длины не может гарантировать отсутствие коллизий для неограниченного множества объектов. Общая канонизация по поведенческой эквивалентности произвольных программ неразрешима.
+**Limit.** A fixed-length hash cannot guarantee freedom from collisions over an unbounded set of objects. Canonicalization by behavioral equivalence is undecidable for arbitrary programs.
 
 [Typed SPG study](../semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md) · [Typed SPG import validation](../semantic-representation/RT-05/RT-05-TYPED-SPG-IMPORT-VALIDATION.md)
 
-### RT-06 — Зависимости и анализ влияния
+### RT-06 — Dependencies and impact analysis
 
-**Реализуемый максимум.** Извлекать точные зависимости для закрытого типизированного подмножества. Для динамического разрешения собирать свидетельства, учитывать отрицательные обращения и консервативно расширять область пересчёта.
+**Feasible scope.** Extract exact dependencies for a closed, typed subset. Collect evidence for dynamic resolution, track unsuccessful lookups, and conservatively widen the scope of recomputation.
 
-**Граница.** Для открытых динамических вызовов нельзя одновременно гарантировать точный и полный набор возможных рёбер без модели окружения. Точное определение достижимости вызова для произвольного кода неразрешимо.
+**Limit.** For open-world dynamic calls, a set of possible edges cannot be guaranteed both exact and complete without a model of the environment. Exact call reachability is undecidable for arbitrary code.
 
 [Scenarios 18–28](../language-design/RT-02/RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md) · [Scenario 25](../semantic-representation/RT-06/RESEARCH-SCENARIO-25-FORMAL-SEMANTIC-DEPENDENCY-ANALYSIS.md)
 
-### RT-07 — Формальная семантика и проверка
+### RT-07 — Formal semantics and verification
 
-**Реализуемый максимум.** Связать эталонную семантику, перевод, обязательства и независимо проверяемые доказательства. Принимать вывод для точного фрагмента, набора предпосылок и проверяющих компонентов.
+**Feasible scope.** Connect reference semantics, translation, proof obligations, and independently checkable proofs. Admit results for the exact fragment, assumptions, and trusted components involved.
 
-**Граница.** Тотальный решатель всех свойств произвольных программ невозможен. Вердикт проверяющего с доверенными аксиомами не даёт безусловной гарантии исходной программе без доказанной связи перевода.
+**Limit.** No total solver can decide every property of arbitrary programs. A verdict that relies on trusted axioms cannot establish an unconditional guarantee about the source without a proved translation correspondence.
 
 [Pinned Logos verdict audit](../formal-verification/RT-07/RT-07-LOGOS-VERDICT-PROOF-2026-11-25.md) · [Formal verification architecture](../formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md)
 
-### RT-08 — Тестирование и доказательства
+### RT-08 — Testing and evidence
 
-**Реализуемый максимум.** Автоматизировать генерацию тестов, проверку свойств, поиск контрпримеров и учёт происхождения свидетельств. Отдельно хранить границы покрытия и условия повторного использования.
+**Feasible scope.** Automate test generation, property checking, counterexample search, and evidence provenance tracking. Record coverage limits and conditions for evidence reuse separately.
 
-**Граница.** Конечная выборка не доказывает свойство на непроверенной бесконечной области. Исчерпывающий перебор применим лишь при закрытой и полной конечной модели.
+**Limit.** Finite samples cannot prove a property over an untested infinite domain. Exhaustive enumeration applies only to a closed, fully specified finite model.
 
 [Scenarios 15–24](../language-design/RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md) · [Scenarios 26–34](../formal-verification/RT-07/RESEARCH-SCENARIO-26-MINIMAL-FORMAL-SEMANTIC-CORE.md)
 
-### RT-09 — Компилятор и промежуточные представления
+### RT-09 — Compiler and intermediate representations
 
-**Реализуемый максимум.** Построить проверяемый конвейер от разбора до типизированного SPG и нижних IR. Валидировать преобразования по результатам, ошибкам и значимым эффектам.
+**Feasible scope.** Build a checkable pipeline from parsing through the typed SPG to lower-level IRs. Validate transformations against results, errors, and relevant effects.
 
-**Граница.** Сохранение значения само по себе не гарантирует сохранение порядка эффектов, UB, poison или поведения памяти. Без семантики обеих сторон общая гарантия lowering недоступна.
+**Limit.** Preserving values alone cannot establish preservation of effect order, undefined behavior, poison semantics, or memory behavior. A general lowering guarantee requires semantics for both sides.
 
 [Mutable byte-view preservation](../compiler-and-translation/RT-09/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md) · [Scenario 96 — LLVM UB, poison, and semantic preservation](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-96-LLVM-UB-POISON-AND-SEMANTIC-PRESERVATION.md)
 
-### RT-10 — Runtime и ОС
+### RT-10 — Runtime and operating systems
 
-**Реализуемый максимум.** Поддержать переносимый runtime и нативные адаптеры с указанными версиями POSIX, ABI, ресурсными и системными контрактами. Проверять срезы ввода-вывода и конкурентности на целевых средах.
+**Feasible scope.** Provide a portable runtime and native adapters with specified POSIX versions, ABIs, and contracts for resources and system behavior. Test slices of I/O and concurrency in target environments.
 
-**Граница.** Нельзя обеспечить идентичные системные эффекты и сроки на всех ОС и машинах при различающихся планировщиках, ABI и периферии.
+**Limit.** Identical system effects and timing cannot be guaranteed across operating systems and machines with different schedulers, ABIs, and peripherals.
 
 [POSIX runtime architecture](../runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md) · [Resumable reference and VM execution](../runtime-and-systems/RT-10/RT-10-RESUMABLE-EXECUTION-2026-11-25.md)
 
-### RT-11 — Инкрементальная сборка и кеш
+### RT-11 — Incremental builds and caching
 
-**Реализуемый максимум.** Кешировать действия по полному известному набору определяющих результат входов. Различать ключ действия, семантическую идентичность и байты артефакта. При неполноте пересчитывать затронутую область.
+**Feasible scope.** Cache actions by the full known set of inputs that determine their results. Track action keys, semantic identity, and artifact bytes separately. Recompute the affected scope when the inputs are incomplete.
 
-**Граница.** Кеш не может гарантировать корректный hit при неучтённом входе. Универсальное ускорение для всех графов, правок и сред из измерений отдельных сценариев не следует.
+**Limit.** An untracked input can invalidate a cache hit. Measurements from individual scenarios cannot establish a speedup for every graph, edit, and environment.
 
 [Semantic compilation cache](../toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md) · [speedup estimate](../toolchain-and-collaboration/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md)
 
-### RT-12 — Библиотеки, пакеты и шаблоны
+### RT-12 — Libraries, packages, and templates
 
-**Реализуемый максимум.** Версионировать неизменяемые пакеты, публичные контракты и шаблоны. Индексировать частями, разрешать точное замыкание и проверять загрузку по идентичности и политике публикации.
+**Feasible scope.** Version immutable packages, public contracts, and templates. Support partial indexing, resolve exact dependency closure, and validate fetched objects against identity and publication policy.
 
-**Граница.** Из совпадения хеша нельзя вывести совместимость поведения, лицензионные права или доверие к издателю. Невидимые зависимости нельзя безопасно включить в точное замыкание.
+**Limit.** A public interface is bound by name. The implementation selected for it is identified by its hash, which incorporates the behavioral specification. A change in specified behavior therefore changes the implementation hash, even when the public name stays the same. When the binding selects a different hash, check the new implementation against the public contract. Licensing rights and publisher trust require separate evidence. An exact closure cannot safely account for hidden dependencies.
 
 [Libraries and templates](../packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md) · [Global semantic artifact store](../packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md)
 
-### RT-13 — Бэкенды и взаимодействие
+### RT-13 — Backends and interoperability
 
-**Реализуемый максимум.** Сочетать эталонное исполнение и нативные бэкенды для явных целевых профилей. Импортировать и экспортировать библиотеки через проверенные границы ABI с контрактами и матрицей поддержки.
+**Feasible scope.** Combine reference execution with native backends for explicit target profiles. Import and export libraries across checked ABI boundaries with contracts and a support matrix.
 
-**Граница.** Совпадение символов, размеров и layout не гарантирует ABI-совместимость разных соглашений вызова. Нельзя обещать полноценную поддержку платформы без проверки её ABI, загрузчика и среды исполнения.
+**Limit.** Matching symbols, sizes, and layouts do not establish ABI compatibility across calling conventions. Full platform support requires checking the ABI, loader, and runtime environment.
 
 [Atomic lowering](../compiler-and-translation/RT-13/RT-13-ATOMIC-BYTE-WORD-LOWERING-2026-11-24.md) · [LLVM preservation corpus](../compiler-and-translation/RT-13/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md)
 
-### RT-14 — Разработка с агентами
+### RT-14 — Agent-assisted development
 
-**Реализуемый максимум.** Дать агенту API структурированных правок, версионированные Knowledge Context и Task Context, явные пробелы контекста и обязательную проверку итоговой правки.
+**Feasible scope.** Provide a structured editing API, versioned Knowledge Context and Task Context, explicit context gaps, and mandatory validation of the resulting change.
 
-**Граница.** Фиксированный контекст не гарантирует полноту для произвольной задачи и репозитория. Из описания цели нельзя вывести полномочия на действие.
+**Limit.** A fixed context cannot guarantee completeness for arbitrary tasks and repositories. A task description cannot confer authority to act.
 
-[Development Engine RFC](../toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md) · [open-question research program](RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md) · [Модель полномочий задачи](../toolchain-and-collaboration/RT-14/RT-14-TASK-AUTHORITY-2026-11-25.md)
+[Development Engine RFC](../toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md) · [open-question research program](RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md) · [Task authority model](../toolchain-and-collaboration/RT-14/RT-14-TASK-AUTHORITY-2026-11-25.md)
 
-### RT-15 — Совместная работа и Git
+### RT-15 — Collaboration and Git
 
-**Реализуемый максимум.** Хранить воспроизводимое представление программы в Git, показывать семантический diff, автоматически объединять совместимые изменения и останавливать конфликтные.
+**Feasible scope.** Store a reproducible program representation in Git, show semantic diffs, automatically merge compatible changes, and stop on conflicts.
 
-**Граница.** Слияние без текстового конфликта не гарантирует семантической совместимости. При несовместимых требованиях автоматическое сохранение обоих намерений невозможно без выбора политики или изменения требований.
+**Limit.** A conflict-free text merge cannot establish semantic compatibility. Incompatible requirements cannot both be preserved automatically without a policy choice or a change to the requirements.
 
-[Git semantic repository](../toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md) · [ADR-014](../../docs/adr/014-git-semantic-merge.md)
+[Git semantic repository](../toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md) · [ADR-014](../../draft/adr/014-git-semantic-merge.md)
 
-### RT-16 — Безопасность и доверие
+### RT-16 — Security and trust
 
-**Реализуемый максимум.** Привязать полномочия к области, ревизии и действию. Ограничить исполнение работников, проверить происхождение артефактов и связывать публикацию с актуальным решением об авторизации.
+**Feasible scope.** Bind authority to the scope, revision, and action. Isolate workers, verify artifact provenance, and bind publication to the current authorization decision.
 
-**Граница.** Нельзя отозвать уже завершённый внешний эффект. Подпись удостоверяет заявителя и целостность, но не истинность подписанного вывода.
+**Limit.** An external effect that has already occurred cannot be revoked. A signature can authenticate the signer and protect integrity. The truth of the signed claim requires separate evidence.
 
 [Threat Model 01](../security/RT-16/RT-16-THREAT-MODEL-01.md) · [Scenario 76 — regular-expression resource bounds](../language-design/RT-03/RESEARCH-SCENARIO-76-REGULAR-EXPRESSION-SEMANTICS-AND-RESOURCE-BOUNDS.md)
 
-### RT-17 — Диагностика и опыт разработки
+### RT-17 — Diagnostics and developer experience
 
-**Реализуемый максимум.** Сделать диагностику структурированной, привязать её к точной ревизии, месту и обязательству. Общий формат можно использовать в CLI, IDE, CI и агентских подсказках.
+**Feasible scope.** Make diagnostics structured and bind each one to an exact revision, location, and obligation. Reuse that format across the CLI, IDE, CI, and agent prompts.
 
-**Граница.** Из наблюдаемой ошибки нельзя гарантированно вывести единственную первопричину или исправление, соответствующее намерению. Эффективность подсказок требует измерений.
+**Limit.** An observed error may have multiple causes and fixes. There is no guarantee of recovering a unique cause or an intent-preserving fix. Measure the effectiveness of suggestions.
 
 [Scenario 95 — diagnostics for humans and coding agents](../toolchain-and-collaboration/RT-17/RESEARCH-SCENARIO-95-DIAGNOSTICS-FOR-HUMANS-AND-AGENTS.md) · [Development Engine RFC](../toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md)
 
-### RT-18 — Соответствие, эволюция и экосистема
+### RT-18 — Conformance, evolution, and ecosystem
 
-**Реализуемый максимум.** Версионировать профили языка и библиотеки. Проверять callable-совместимость в согласованной сборке одним Toolchain. Вводить отдельные адаптеры для тех внешних форматов и ABI, где они нужны.
+**Feasible scope.** Version language and library profiles. Check callable compatibility within a coherent build using one Toolchain. Add separate adapters for external formats and ABIs where needed.
 
-**Граница.** Из внутренней совместимости типов нельзя гарантировать двоичную, протокольную или поведенческую совместимость независимо собранных версий без отдельных контрактов.
+**Limit.** Internal type compatibility cannot guarantee binary, protocol, or behavioral compatibility between independently built versions without separate contracts.
 
-[Libraries and templates](../packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md) · [POSIX runtime architecture](../runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md) · [Принятое решение](../../draft/ARCHITECTURE-DECISIONS.md)
+[Libraries and templates](../packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md) · [POSIX runtime architecture](../runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md) · [Accepted decision](../../draft/ARCHITECTURE-DECISIONS.md)
 
 ### RT-19 — Toolchain Server
 
-**Реализуемый максимум.** Предоставить транспортно-независимый API, неизменяемые снимки, транзакции Change Set и проверяемые условия записи. Журналировать и восстанавливать публикацию по точным идентификаторам.
+**Feasible scope.** Provide a transport-neutral API, immutable snapshots, Change Set transactions, and checkable write preconditions. Journal publication and recover it using exact identifiers.
 
-**Граница.** Локальная транзакция БД не делает Git, файловую систему и удалённый push единой атомарной операцией. Для наблюдаемой согласованности нужны общий протокол и контролируемые читатели.
+**Limit.** A local database transaction cannot make Git, the filesystem, and a remote push atomic as a group. Observable consistency requires a shared protocol and readers that follow it.
 
 [SQLite/Git process recovery](../toolchain-and-collaboration/RT-19/RT-19-SQLITE-GIT-PROCESS-RECOVERY-2026-11-24.md) · [Toolchain Server and Semantic Development API](../toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
 
-### RT-20 — Планирование правок и проверенный коммит
+### RT-20 — Change planning and verified commits
 
-**Реализуемый максимум.** Строить план по снимку, учитывать миграцию, сохранение или разделение версий для каждого вызова. Проверять полноту и замораживать точное дерево перед коммитом.
+**Feasible scope.** Build a plan from a snapshot and account for migration, retention, or version splits at each call site. Check completeness and freeze the exact tree before committing.
 
-**Граница.** Гарантия полного плана для неизвестных исполнителей, динамических целей и непрозрачного окружения недостижима. Успех валидации другого дерева нельзя переносить на кандидат.
+**Limit.** A complete plan cannot be guaranteed for unknown executors, dynamic targets, and opaque environments. Validation of another tree cannot establish validity of the candidate.
 
 [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](../toolchain-and-collaboration/RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) · [RT-19](../toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
 
-### RT-21 — Саморазработка и bootstrap
+### RT-21 — Self-development and bootstrap
 
-**Реализуемый максимум.** Переносить отдельные инструменты на LLMLang по мере покрытия нужных типов, операций и ABI. Проверять воспроизводимость стадий интерпретации и генерации на закреплённом начальном наборе инструментов.
+**Feasible scope.** Port individual tools to LLMLang as it gains the required types, operations, and ABI support. Check reproducibility of the interpretation and generation stages with pinned bootstrap tools.
 
-**Граница.** Самосборка не устраняет доверие к начальному компилятору и среде. Работа одного перенесённого инструмента не устанавливает возможность полностью самохостящегося Toolchain.
+**Limit.** Self-compilation still depends on trust in the seed compiler and environment. A successful port of one tool cannot establish that the full Toolchain can be self-hosted.
 
-[RT-21 — LLMLang Self-Development](../toolchain-and-collaboration/RT-21/RT-21-LLMLANG-SELF-DEVELOPMENT-AND-BOOTSTRAP-ROADMAP.md) · [RT-03 Core Semantics](../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md) · [Пилот bootstrap](../toolchain-and-collaboration/RT-21/RT-21-STRUCTURED-DEPENDENCY-BOOTSTRAP-2026-11-25.md)
+[RT-21 — LLMLang Self-Development](../toolchain-and-collaboration/RT-21/RT-21-LLMLANG-SELF-DEVELOPMENT-AND-BOOTSTRAP-ROADMAP.md) · [RT-03 Core Semantics](../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md) · [Bootstrap pilot](../toolchain-and-collaboration/RT-21/RT-21-STRUCTURED-DEPENDENCY-BOOTSTRAP-2026-11-25.md)
 
-### RT-22 — Git и worktree через MCP
+### RT-22 — Git and worktrees over MCP
 
-**Реализуемый максимум.** Предоставить узкие операции работы с репозиторием и worktree через адаптер MCP. Использовать точные предусловия, авторизацию и восстанавливаемые идентификаторы операций.
+**Feasible scope.** Expose narrow repository and worktree operations through an MCP adapter. Use exact preconditions, authorization, and recoverable operation identifiers.
 
-**Граница.** Транспорт MCP сам по себе не даёт права на изменение и не превращает push, checkout и обновление локального состояния в одну атомарную транзакцию.
+**Limit.** The MCP transport supplies neither authority to mutate state nor atomicity across push, checkout, and local updates.
 
 [RT-22 — LLMLang Git Repository and Worktree MCP Surface](../toolchain-and-collaboration/RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) · [RT-19](../toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md)
 
-### RT-23 — Общий Toolchain для нескольких worktree
+### RT-23 — Shared Toolchain across worktrees
 
-**Реализуемый максимум.** Совместно читать неизменяемые объекты, хранить отдельные версии File View и отображений интерфейсов, использовать поколение или снимок для согласованного чтения.
+**Feasible scope.** Share reads of immutable objects, maintain separate File View and interface-mapping versions, and use a generation or snapshot for consistent reads.
 
-**Граница.** При чтении независимо изменяемых файлов без общего поколения нельзя гарантировать целостный снимок между обновлениями и сборкой мусора.
+**Limit.** Reading independently mutable files without a common generation cannot guarantee a coherent snapshot during updates and garbage collection.
 
-[RT-23 — Single-Instance Toolchain with Shared Semantic State and Incremental Multi-Worktree File Views](../toolchain-and-collaboration/RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) · [RT-19](../toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) · [Проверка поколений при чтении](../toolchain-and-collaboration/RT-23/RT-23-NATIVE-GENERATION-READS-2026-11-25.md)
+[RT-23 — Single-Instance Toolchain with Shared Semantic State and Incremental Multi-Worktree File Views](../toolchain-and-collaboration/RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) · [RT-19](../toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) · [Generation checks on reads](../toolchain-and-collaboration/RT-23/RT-23-NATIVE-GENERATION-READS-2026-11-25.md)
 
-### RT-24 — Каноническое представление, diff и merge
+### RT-24 — Canonical representation, diff, and merge
 
-**Реализуемый максимум.** Восстанавливать типизированный граф из точного Git-дерева, сравнивать вхождения и связывания, выполнять трёхстороннее слияние с проверкой итоговой семантики и явными конфликтами.
+**Feasible scope.** Reconstruct a typed graph from an exact Git tree, compare occurrences and bindings, and perform three-way merges with semantic validation and explicit conflicts.
 
-**Граница.** При нескольких несогласующихся базах Git нельзя гарантировать единственное семантически правильное слияние без явной политики. Равенство корней не восстанавливает утраченную историю вхождений.
+**Limit.** Conflicting Git merge bases cannot guarantee a unique semantically correct merge without an explicit policy. Equal roots cannot recover lost occurrence history.
 
 [RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) · [Identity and SPG Reconciliation](../toolchain-and-collaboration/RT-24/RT-24-IDENTITY-AND-SPG-RECONCILIATION.md)
 
-### RT-25 — Аллокаторы
+### RT-25 — Allocators
 
-**Реализуемый максимум.** Поддержать выбор аллокатора для закреплённых комбинаций целей и линковки. Явно связывать освобождение с владельцем. Выбирать политику по нагрузкам, задержкам и памяти.
+**Feasible scope.** Support allocator selection for pinned target and linker configurations. Bind deallocation to the owner and choose policies based on workloads, latency, and memory use.
 
-**Граница.** Нельзя безопасно освобождать память произвольным чужим аллокатором без совместимого контракта. Из отдельных сравнений нельзя вывести лучший аллокатор для всех нагрузок.
+**Limit.** An unrelated allocator cannot safely free memory without a compatible contract. Individual comparisons cannot identify the best allocator for all workloads.
 
 [RT-25 — Memory Allocator Compatibility, Selection, and Benchmarking](../runtime-and-systems/RT-25/RT-25-MEMORY-ALLOCATOR-COMPATIBILITY-AND-BENCHMARKING.md) · [Rust System compatibility probe](../runtime-and-systems/RT-25/RT-25-RUST-SYSTEM-ALLOCATOR-COMPATIBILITY.md)
 
-### RT-26 — Учёт ресурсов и лимиты
+### RT-26 — Resource accounting and limits
 
-**Реализуемый максимум.** Вести иерархические бюджеты, резервировать доступ и закрывать ресурс после терминального подтверждения. Вводить ограничения через поддерживаемые кооперативные и системные механизмы.
+**Feasible scope.** Track hierarchical budgets, reserve access, and release resources after terminal confirmation. Enforce limits through supported cooperative and OS mechanisms.
 
-**Граница.** Жёсткие сроки и точный учёт всех затрат недостижимы на неконтролируемой среде без часов, событий и управляемого планирования. Отмена допуска не возвращает ресурсы до завершения операций.
+**Limit.** Hard deadlines and exact accounting of all costs are unattainable in an uncontrolled environment without clocks, events, and controlled scheduling. Revoking access does not release resources before operations settle.
 
 [RT-26 — Hierarchical Resource Accounting, Limits, Throttlers, and Handlers](../runtime-and-systems/RT-26/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md) · [Native disk accounting](../runtime-and-systems/RT-26/RT-26-NATIVE-DISK-ACCOUNTING-2026-11-25.md)
 
-### RT-27 — Физическое хранение SPG
+### RT-27 — Physical SPG storage
 
-**Реализуемый максимум.** Использовать детерминированные индексируемые записи или блоки, проверяемую загрузку, параллельное чтение и явную политику удержания. Выбрать раскладку по истории Git и моделям правок.
+**Feasible scope.** Use deterministic, indexed records or blocks, checked loading, parallel reads, and an explicit retention policy. Select layouts against Git histories and edit patterns.
 
-**Граница.** Одна раскладка не гарантирует одновременно минимальный объём Git, минимальный read amplification и лучший локальный апдейт для всех распределений изменений.
+**Limit.** No single layout can guarantee minimum Git storage, minimum read amplification, and optimal local updates for all edit distributions.
 
 [RT-27 — SPG Repository Storage Format Requirements](../toolchain-and-collaboration/RT-27/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md) · [Git Representation and Semantic Merge](../toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md)
 
-### RT-28 — Многоязычная миграция
+### RT-28 — Polyglot migration
 
-**Реализуемый максимум.** Мигрировать по единицам с исходной привязкой и повторной сверкой после обновлений upstream. Сравнивать поведение на ограниченном профиле, поддерживать смешанное исполнение и откат.
+**Feasible scope.** Migrate in units linked to their sources and reconcile them again after upstream updates. Compare behavior within a limited profile and support mixed-language execution and rollback.
 
-**Граница.** Автоматическое эквивалентное перенесение произвольной программы с непрозрачными зависимостями и расхождениями семантики нельзя гарантировать.
+**Limit.** Automatic equivalent migration cannot be guaranteed for arbitrary programs with opaque dependencies and mismatched semantics.
 
-[RT-28 — Incremental Polyglot Migration and Semantic Mirroring](../compiler-and-translation/RT-28/RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md) · [RT-19](../toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) · [Пилот на zlib](../compiler-and-translation/RT-28/RT-28-ZLIB-RELEASE-MIRROR-2026-11-25.md)
+[RT-28 — Incremental Polyglot Migration and Semantic Mirroring](../compiler-and-translation/RT-28/RT-28-INCREMENTAL-POLYGLOT-MIGRATION-AND-SEMANTIC-MIRRORING.md) · [RT-19](../toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) · [zlib pilot](../compiler-and-translation/RT-28/RT-28-ZLIB-RELEASE-MIRROR-2026-11-25.md)
 
-### RT-29 — Rust как основание реализации
+### RT-29 — Rust as an implementation foundation
 
-**Реализуемый максимум.** Использовать Rust как кандидат для Toolchain и runtime, переиспользовать проверенные компоненты там, где совпадают контракты. Сопоставлять владение, ABI, panic и экосистему по задачам.
+**Feasible scope.** Consider Rust for the Toolchain and runtime. Reuse checked components where contracts align, and evaluate ownership, ABI, panic behavior, and ecosystem support against the workload.
 
-**Граница.** Гарантии safe Rust не распространяются автоматически через unsafe, FFI и внешнюю среду. Семантику LLMLang нельзя выводить из выбора языка реализации.
+**Limit.** Safe Rust guarantees do not extend automatically across unsafe code, FFI, or the external environment. The implementation language does not determine LLMLang semantics.
 
 [RT-29 research brief](../compiler-and-translation/RT-29/RT-29-RUST-FOUNDATION-FOR-LLMLANG-CAPABILITIES.md)
 
-### RT-30 — Двусторонняя трансляция
+### RT-30 — Bidirectional translation
 
-**Реализуемый максимум.** Генерировать C, C++, Go и Rust и импортировать явно допущенные подмножества. Документировать профиль, модель наблюдений, происхождение и возможный общий runtime.
+**Feasible scope.** Generate C, C++, Go, and Rust, and import explicitly admitted subsets. Document the profile, observation model, provenance, and any shared runtime.
 
-**Граница.** Универсальный round trip с сохранением всех наблюдений этих языков невозможен без ограничений, эмуляции или расширения модели. Семантический импорт сам по себе не восстанавливает исходное оформление.
+**Limit.** A universal round trip preserving all observations across these languages is impossible without restrictions, emulation, or a richer model. Semantic import alone cannot recover the original formatting.
 
-[RT-30 research brief](../compiler-and-translation/RT-30/RT-30-BIDIRECTIONAL-SEMANTIC-TRANSLATION.md) · [RT-13](../compiler-and-translation/RT-13/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md) · [Матрица трансляции](../compiler-and-translation/RT-30/RT-30-WRAPPING-TRANSLATION-MATRIX-2026-11-25.md)
+[RT-30 research brief](../compiler-and-translation/RT-30/RT-30-BIDIRECTIONAL-SEMANTIC-TRANSLATION.md) · [RT-13](../compiler-and-translation/RT-13/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md) · [Translation matrix](../compiler-and-translation/RT-30/RT-30-WRAPPING-TRANSLATION-MATRIX-2026-11-25.md)
 
-### RT-31 — Синтаксис для работы с ИИ
+### RT-31 — Syntax for AI-assisted development
 
-**Реализуемый максимум.** Развивать несколько синтаксических профилей с проверяемым отображением в общий семантический слой. Измерять точность и стоимость на зафиксированных моделях и задачах.
+**Feasible scope.** Develop several syntax profiles with checkable mappings to a common semantic layer. Measure accuracy and cost on pinned models and tasks.
 
-**Граница.** Нельзя гарантировать единый лучший синтаксис для всех людей, моделей и задач. Эквивалентность синтаксических профилей не гарантирует сохранение неоднозначного исходника или оформления.
+**Limit.** No single syntax can be guaranteed best for every person, model, and task. Semantic equivalence of profiles cannot guarantee preservation of ambiguous source text or formatting.
 
-[RT-31 research brief](../language-design/RT-31/RT-31-AI-ORIENTED-SYNTAX-AND-TOOLCHAIN-OPTIMIZATION.md) · [RT-03](../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md) · [Общий SPG для нескольких профилей](../language-design/RT-31/RT-31-CROSS-PROFILE-SPG-2026-11-24.md)
+[RT-31 research brief](../language-design/RT-31/RT-31-AI-ORIENTED-SYNTAX-AND-TOOLCHAIN-OPTIMIZATION.md) · [RT-03](../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md) · [Shared SPG across profiles](../language-design/RT-31/RT-31-CROSS-PROFILE-SPG-2026-11-24.md)
 
-### RT-32 — SPG → Lean
+### RT-32 — From SPG to Lean
 
-**Реализуемый максимум.** Генерировать определения и обязательства из точных SPG и контрактов, проверять ядром Lean, отслеживать полное замыкание зависимых утверждений и аксиом.
+**Feasible scope.** Generate definitions and obligations from exact SPGs and contracts, check them with the Lean kernel, and track the full closure of dependent claims and axioms.
 
-**Граница.** Проверенная теорема о сгенерированной модели не даёт доказательства исходника без связи генератора и исходной семантики. Подпись сертификата не устраняет чужую предпосылку.
+**Limit.** A checked theorem about a generated model cannot prove a property of the source without a correspondence between the generator and source semantics. Signing a certificate does not discharge a foreign assumption.
 
 [RT-32 — Verified SPG-to-Lean Pipeline](../formal-verification/RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md) · [Exact SPG observation binding](../formal-verification/RT-32/RT-32-SPG-LEAN-OBSERVATION-BINDING-2026-11-24.md)
 
-### RT-33 — Оркестрация доказательств
+### RT-33 — Proof orchestration
 
-**Реализуемый максимум.** Выбирать Lean, SMT или TLA+ по типу обязательства и возможностям профиля. Независимо проверять применимость, объединять только точные совместимые выводы, сообщать о неизвестном.
+**Feasible scope.** Choose Lean, SMT, or TLA+ according to the obligation and profile capabilities. Independently check applicability, combine only exact and compatible results, and report unknown outcomes.
 
-**Граница.** Несколько неполных или условных ответов не дают безусловное доказательство без проверенного правила композиции. Для произвольных обязательств нельзя гарантировать успешный выбор полного решателя.
+**Limit.** Several incomplete or conditional results cannot yield an unconditional proof without a checked composition rule. No selection procedure can guarantee a complete solver for arbitrary obligations.
 
 [RT-33 — Proof Backend Selection and Verification Orchestration](../formal-verification/RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md) · [RT-07](../formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md)
 
-### RT-34 — Сложность и ресурсные контракты
+### RT-34 — Complexity and resource contracts
 
-**Реализуемый максимум.** Выводить и проверять границы для поддерживаемых циклов, рекурсии и вызовов в явных моделях стоимости. Сопоставлять бюджет с точным провайдером и определёнными предпосылками.
+**Feasible scope.** Infer and check bounds for supported loops, recursion, and calls under explicit cost models. Bind each budget to the exact provider and stated assumptions.
 
-**Граница.** Общий автоматический вывод точной сложности и оптимальности для произвольного кода неразрешим. Счётчик абстрактных операций сам по себе не ограничивает время на конкретном устройстве.
+**Limit.** Automatically determining exact complexity and optimality is undecidable in general for arbitrary code. An abstract operation count alone cannot bound time on a particular device.
 
-[RT-34 research brief](../formal-verification/RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) · [complexity benchmark plan](../formal-verification/RT-34/RT-34-COMPLEXITY-BENCHMARK.md) · [Привязка стоимости вызова](../formal-verification/RT-34/RT-34-CALL-COST-BINDING-2026-11-25.md)
+[RT-34 research brief](../formal-verification/RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) · [complexity benchmark plan](../formal-verification/RT-34/RT-34-COMPLEXITY-BENCHMARK.md) · [Call cost binding](../formal-verification/RT-34/RT-34-CALL-COST-BINDING-2026-11-25.md)
 
-### RT-35 — Поиск функций
+### RT-35 — Function discovery
 
-**Реализуемый максимум.** Ранжировать кандидатов по структуре и семантическим признакам. Фильтровать по жёстким требованиям и выполнять подстановку после проверки совместимости и точного связывания.
+**Feasible scope.** Rank candidates by structural and semantic features. Filter against hard requirements and substitute only after checking compatibility and resolving the exact binding.
 
-**Граница.** Близость векторов и совпадение текста не гарантируют взаимозаменяемость. При неполном индексе или приближённом поиске нельзя выводить отсутствие подходящих реализаций.
+**Limit.** Vector similarity and textual matches cannot establish substitutability. Incomplete indexes and approximate searches cannot establish that no suitable implementation exists.
 
-[RT-35 — Semantic Function Discovery and Retrieval](../semantic-representation/RT-35/RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md) · [RT-03](../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md) · [Пилот поиска и связывания](../semantic-representation/RT-35/RT-35-SCOPED-RETRIEVAL-2026-11-25.md)
+[RT-35 — Semantic Function Discovery and Retrieval](../semantic-representation/RT-35/RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md) · [RT-03](../language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md) · [Discovery and binding pilot](../semantic-representation/RT-35/RT-35-SCOPED-RETRIEVAL-2026-11-25.md)
 
-### RT-36 — Предпосылки и условные доказательства
+### RT-36 — Assumptions and conditional proofs
 
-**Реализуемый максимум.** Вести типизированные предпосылки с точной областью, полномочиями и версиями. Проверять замыкание, непротиворечивость в поддерживаемом профиле и инвалидировать зависимые выводы.
+**Feasible scope.** Track typed, scoped, versioned assumptions and their authorization. Check closure and consistency within the supported profile, and invalidate dependent results when inputs change.
 
-**Граница.** Одобрение предпосылки не доказывает реальное поведение внешнего мира. При недоказанной или противоречивой предпосылке нельзя выдавать безусловную гарантию.
+**Limit.** Approval of an assumption does not prove how the outside world behaves. An unproved or inconsistent assumption cannot justify an unconditional guarantee.
 
 [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md)
 
-### RT-37 — Freestanding и firmware
+### RT-37 — Freestanding execution and firmware
 
-**Реализуемый максимум.** Собрать ограниченный профиль с явной startup/runtime-замкнутостью, MMIO, прерываниями и статическими бюджетами. Расширять поддержку по закреплённым платам STM32F1, STM32F4 и ESP32 при наличии аппаратных данных.
+**Feasible scope.** Build a limited profile with explicit startup and runtime closure, memory-mapped I/O, interrupts, and static budgets. Extend support through pinned STM32F1, STM32F4, and ESP32 boards as hardware evidence becomes available.
 
-**Граница.** QEMU не устанавливает гарантии физического времени, DMA и реальных периферийных эффектов. Для WCET нужны модель железа, условия исполнения и подтверждение на целевой платформе.
+**Limit.** QEMU results cannot establish physical timing, DMA, or actual peripheral behavior. Worst-case execution time requires a hardware model, defined execution conditions, and validation on the target.
 
 [RT-37 brief](../runtime-and-systems/RT-37/README.md) · [Cortex-M3 closure](../runtime-and-systems/RT-37/RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md)
 
-### RT-38 — ОС и проверяемое микроядро
+### RT-38 — Operating systems and verifiable microkernels
 
-**Реализуемый максимум.** Развивать ограниченный RV64-пилот с отдельными контрактами памяти, планирования, IPC и изоляции. Связывать модель с загрузочным двоичным артефактом и постепенно расширять аппаратное покрытие.
+**Feasible scope.** Develop a limited RV64 pilot with separate contracts for memory, scheduling, IPC, and isolation. Relate the model to a bootable binary and expand hardware coverage incrementally.
 
-**Граница.** Одноядерный пилот не обосновывает SMP, полное микроядро или безопасность произвольных драйверов. Такие гарантии требуют отдельных моделей и соответствия бинарного исполнения на целевых профилях.
+**Limit.** A single-core pilot cannot establish SMP guarantees, whole-microkernel correctness, or the safety of arbitrary drivers. These claims require separate models and correspondence with binary execution on the target profiles.
 
 [RT-38 brief](../runtime-and-systems/RT-38/README.md) · [RV64 isolation](../runtime-and-systems/RT-38/RT-38-RV64-PMP-SV39-TRAP-ISOLATION-2026-11-24.md)

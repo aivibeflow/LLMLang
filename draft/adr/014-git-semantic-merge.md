@@ -1,6 +1,7 @@
 # ADR-014: Git repository representation and semantic merge
 
-- **Status:** Proposed
+- **Status:** Accepted
+- **Accepted:** 2026-11-25
 - **Date:** 2026-11-17
 - **Decision owners:** LLMLang project
 - **Related research:** [Git integration and Semantic Diff/Merge](../../research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md)
@@ -12,16 +13,16 @@ LLMLang needs stable semantic identity, efficient graph lookup and incremental c
 
 Git and the semantic object store have different responsibilities. Git identifies physical repository objects and snapshots; LLMLang semantic hashes identify canonical semantic content. Treating Git object IDs as semantic IDs would couple language semantics to file layout and serialization. Conversely, making an external KV store the only authoritative home of source meaning would make a Git clone incomplete and introduce a separate availability, replication, backup, and consistency dependency.
 
-The repository representation must remain sufficient to reconstruct the semantic graph and its required indexes from declared inputs. Local caches and derived stores must not become the sole source of truth.
+The repository representation must remain sufficient to reconstruct the semantic graph and its required indexes from declared inputs. Reviewers need to see the changes a commit makes to the program. The Toolchain can provide that view by comparing reconstructed graphs, regardless of the on-disk encoding. Local caches and derived stores must not become the sole source of truth.
 
 ## Decision
 
-Adopt the following direction for the prototype:
+Adopt the following architectural direction.
 
-1. **Git remains the authoritative version-control and source-distribution layer.** The repository stores a deterministic, reviewable textual representation of LLMLang source and project metadata. A checkout must contain enough authoritative information to reconstruct the declared program state, subject to explicitly declared external dependencies.
+1. **Git remains the authoritative version-control and source-distribution layer.** The repository stores a deterministic representation of the authoritative LLMLang program inputs and project metadata. The Toolchain must provide a reviewable diff between repository snapshots. The on-disk format is open to textual, binary, and mixed representations. A checkout must contain enough authoritative information to reconstruct the declared program state, subject to explicitly declared external dependencies.
 2. **The semantic object store is a derived, content-addressed layer.** It may use KV storage and keys such as `OpHash` and `ImpHash` for lookup, deduplication, dependency traversal, and cache reuse. Its contents must be reproducible from authoritative repository inputs and pinned dependencies; a local cache is disposable.
 3. **Keep identities separate.** Git blob/tree/commit IDs identify physical repository content and history. Semantic hashes identify canonical semantic content. Action keys identify computations over exact semantic inputs, tool versions, configuration, and relevant environment.
-4. **Use deterministic import/export.** The toolchain imports repository source into the canonical Semantic Program Graph and exports a canonical, reviewable representation. Formatting, declaration order, and file placement must not change semantic identity unless explicitly defined as semantically relevant.
+4. **Use deterministic import/export.** The toolchain imports repository source into the canonical Semantic Program Graph and exports a canonical repository representation and provides a readable view for review. Formatting, declaration order, and file placement must not change semantic identity unless explicitly defined as semantically relevant.
 5. **Separate merge semantics from Git integration.** Implement semantic three-way merge over base/ours/theirs graph states. Git is an adapter and invocation mechanism, not the owner of semantic merge rules.
 6. **Integrate incrementally with Git.** Start with a custom merge driver configured through `.gitattributes` for LLMLang files. Provide explicit local setup/doctor commands; committing attributes alone does not install the executable or local Git configuration.
 7. **Fail closed.** Automatically resolve only cases where the merge rules establish a unique valid result. Report semantic conflicts, invalid merged graphs, and insufficient context instead of silently selecting a side.
@@ -35,7 +36,7 @@ Rejected for the initial architecture. It makes a normal Git clone insufficient 
 
 ### Store only one opaque serialized graph blob in Git
 
-Rejected as the primary source representation. It weakens ordinary review, produces coarse diffs, and can make small semantic edits rewrite large files.
+Rejected as the primary source representation. Without tooling to inspect and compare its contents, it weakens review and produces coarse diffs. A monolithic layout can also make small semantic edits rewrite large files.
 
 ### Treat Git blob/tree/commit IDs as LLMLang semantic identities
 
@@ -65,14 +66,14 @@ Rejected as the long-term semantic merge model. Textual merge cannot reliably de
 
 ## Implementation plan
 
-1. Specify the minimal textual repository representation and canonical import/export.
+1. Specify the minimal repository representation, canonical import/export, and review tooling for the selected encoding.
 2. Prove round-trip determinism and that formatting/file moves do not change semantic hashes.
 3. Implement semantic diff over stable IDs and hash-relevant content.
 4. Implement three-way merge for independent additions, update/update, delete/update, rename/move, and explicit split/merge lineage.
 5. Validate graph integrity and cross-file references after merge.
 6. Add a Git merge-driver prototype and end-to-end tests using real temporary repositories.
 7. Benchmark merge correctness, conflict rates, runtime, and cache/store reconstruction cost.
-8. Revisit this ADR after prototype evidence; do not treat the Proposed status as a final commitment.
+8. Use prototype evidence to select the repository encoding and refine the merge policy.
 
 ## Supersession and relationship to earlier notes
 
@@ -81,7 +82,7 @@ This ADR captures the current project direction and supersedes the earlier embed
 
 ## Related documents and ownership
 
-Study this ADR together with the detailed documents below; this ADR records a proposed direction and does not replace their detailed contracts:
+Study this ADR together with the detailed documents below; this ADR records an accepted direction and does not replace their detailed contracts:
 
 - [Git Representation and Semantic Merge](../../research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — semantic diff/merge rules, conflict model, Git driver/mergetool, and repository-level merge requirements.
 - [RT-20](../../research/toolchain-and-collaboration/RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — complete impact planning, caller migration/preservation, hash propagation, and verified commit gates.
@@ -94,4 +95,4 @@ Ownership: the focused Git Representation and Semantic Merge research owns merge
 
 ## RT-24 relationship
 
-[RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../../research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) refines the candidate import/export, semantic diff, merge/conflict, mapping-revision, and prototype contract. RT-24 remains research; ADR-014 remains Proposed pending evidence.
+[RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge](../../research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) refines the candidate import/export, semantic diff, merge/conflict, mapping-revision, and prototype contract. RT-24 remains research on the implementation of this accepted direction.

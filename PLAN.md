@@ -281,7 +281,7 @@ Extend workload coverage, benchmark on controlled hardware, integrate with the L
 **Order:** after identity and dependency boundaries are stable enough to persist.  
 **Purpose:** make semantic programs durable, portable, reviewable, and mergeable in ordinary repositories.
 
-Defer semantic merge implementation and benchmarking until cross-aspect synthesis. [Proposed ADR-014](draft/adr/014-git-semantic-merge.md).
+Defer semantic merge implementation and benchmarking until cross-aspect synthesis. [ADR-014](draft/adr/014-git-semantic-merge.md).
 
 ## 4.1 Semantic object storage
 
@@ -307,7 +307,7 @@ Select a canonical production representation and shard or layout policy after SP
 
 **Study these documents as one set before changing this workstream:**
 - [Git Representation and Semantic Merge](research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md) — primary research source for repository representation and semantic merge rules.
-- [ADR-014](draft/adr/014-git-semantic-merge.md) — proposed architecture direction; not Accepted.
+- [ADR-014](draft/adr/014-git-semantic-merge.md) — accepted architectural direction.
 - [RT-20](research/toolchain-and-collaboration/RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) — caller impact, per-call-site migration/preservation, hash propagation, and verified completion.
 - [RT-22](research/toolchain-and-collaboration/RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) — repository/worktree operations, merge reconciliation boundary, commit preparation, and recovery.
 - [RT-23](research/toolchain-and-collaboration/RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md) — shared semantic state, versioned interface mappings, incremental worktree views, and synchronized semantic/filesystem commit.
@@ -324,7 +324,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Required sequence:**
 - [ ] [WIP human] Provide representative LLMLang repositories and a controlled target platform for assessing production lifecycle performance.
 
-Reconcile canonical representation, identity and schemas. Implement general semantic diff and merge, multi-commit replay and conflict handling, and concurrent Git publication after synthesis. [Proposed ADR-014](draft/adr/014-git-semantic-merge.md).
+Reconcile canonical representation, identity and schemas. Implement general semantic diff and merge, multi-commit replay and conflict handling, and concurrent Git publication after synthesis. [ADR-014](draft/adr/014-git-semantic-merge.md).
 
 **Dependency:** canonical SPG/identity and import/export decisions from Stages 1 and 3; RT-20 impact-plan correctness; RT-19 semantic API; RT-22 repository/worktree contract; RT-23 shared-state and synchronized-commit runtime.
 
@@ -433,6 +433,8 @@ Evaluate production selection policy on broader workloads and compose it with co
 **Dependencies:** RT-37 profile/pilot, RT-03/04/07/08/09/10/13/16/32/33/34/36 and Stage 6 lowering. **Exit:** reproducible feasible or falsified kernel profile and bounded pilot evidence, explicit proof/TCB gaps. No full-kernel verification or production readiness claim.
 
 ## 6.6 Cross-platform native interoperability and bidirectional FFI (cross-cutting)
+
+[ADR-019 — Bidirectional native library interoperability](draft/adr/019-bidirectional-native-library-abi.md) records the accepted architecture for this requirement.
 
 Obtain explicit human decisions on native platform support and releases. **Priority:** P0 for the shared target/ABI model and first three hosted OS families. P1/P2 for additional target profiles as listed below.
 
@@ -551,7 +553,7 @@ Implement and evaluate LLMLang behavior, human and agent usability, review quali
 
 **Estimated research complexity:** **5/10** — bounded API, persistence, synchronization, MCP, and recovery experiments.
 
-Select the API contract, persistent storage backend, multi-file synchronization algorithm and MCP surface. Record the decision on ADR-015.
+Select the API contract, persistent storage backend, multi-file synchronization algorithm and MCP surface. Validate the implementation against ADR-015.
 
 **Exit criteria:** deterministic round-trip identity; stale/conflicting mutations rejected; accepted snapshots immutable; multiple workspaces isolated; crash/restart and export interruption recover safely; external edits are detected; MCP adapter independently tested; authorization and benchmark results documented.
 
@@ -588,6 +590,8 @@ Research a typed, versioned object describing the task an agent is expected to p
 Resolve the schema, syntax, lifecycle and architecture for LL-026 and LL-027.
 
 ## 7.9 AI-oriented syntax experimentation and MCP session observability (RT-31)
+
+[ADR-022 — Syntax dialects with shared semantics](draft/adr/022-syntax-dialects-and-shared-semantics.md) records the accepted frontend and semantic identity model.
 
 **Estimated research complexity:** **9/10** — requires a stable semantic oracle, multiple equivalent syntax frontends, controlled model evaluations, reliable error attribution, and privacy-aware session recording.
 
@@ -768,13 +772,13 @@ The [Research State 2026-11-19](research/research-management/RESEARCH-STATE-2026
 
    **Expected output:** `research/FEATURE-COMPATIBILITY-AND-FEASIBILITY-AUDIT.md` (or a successor path recorded in the plan), with supporting machine-readable matrix if useful. **Exit condition:** every current registry feature has an explicit assessment; all material pairwise and higher-order interactions are classified or explicitly marked unresolved; every claimed conflict/impossibility is evidence-backed; and remaining limitations and decisions are recorded for specification synthesis.
 
-9. **[Draft the RFC after the final audit and candidate comparison](https://github.com/aivibeflow/LLMLang/issues/371).** Select and baseline only a coherent candidate with explicit rationale, compatibility evidence, and unresolved risks. A narrower RFC may proceed earlier only if it clearly scopes and labels unresolved design choices. Keep ADR-014 Proposed and defer end-to-end semantic-merge implementation/benchmarks until synthesis narrows the representation and merge policy.
+9. **[Draft the RFC after the final audit and candidate comparison](https://github.com/aivibeflow/LLMLang/issues/371).** Select and baseline only a coherent candidate with explicit rationale, compatibility evidence, and unresolved risks. A narrower RFC may proceed earlier only if it clearly scopes and labels unresolved design choices. Under ADR-014, defer end-to-end semantic-merge implementation/benchmarks until synthesis narrows the representation and merge policy.
 
    - [ ] [WIP human] Approve the selected RFC baseline or record a decision to revise it. Keep the final compatibility audit as a separate prerequisite.
 
 ## External evidence and approval dependencies
 
-For production recovery, bind source, SPG, dependencies and authorization to Git and filesystem recovery. Integrate persistent storage with an authenticated multi-client environment and record maintainer decisions on ADR-015 and production backend selection.
+For production recovery, bind source, SPG, dependencies and authorization to Git and filesystem recovery. Integrate persistent storage with an authenticated multi-client environment and record the maintainer decision on production backend selection under ADR-015.
 
 The open inputs below affect implementation selection. Record the result in the linked study at its exact scope and revision when the input becomes available. Continue evidence collection for eligible work while each input is pending.
 
@@ -782,7 +786,7 @@ The open inputs below affect implementation selection. Record the result in the 
 | --- | --- |
 | [human wip] Independent review of research claims and evidence quality | Stage 0.2 and [#285](https://github.com/aivibeflow/LLMLang/issues/285) have two pending review artifacts. A reviewer records adjudication against the archive-pinned [24-document queue](research/quality-audit/2026-11-23-root-census-observations.json) and the separate [eight-claim handoff](research/quality-audit/2026-11-23-independent-review-handoff.md). Independent reviews are unavailable. Keep the review gate pending until the two artifacts have independent dispositions. |
 | [WIP human] Maintainer approval of the review method and candidate decisions | The [quality review protocol](research/research-management/QUALITY-REVIEW-PROTOCOL.md) and case-specific evidence gates remain proposed. Record explicit approval for §0.2 conventions and use the applicable [decision records](PLAN.md#open-design-questions) for architecture adoption. Baseline RFC selection follows [#370](https://github.com/aivibeflow/LLMLang/issues/370) and [#371](https://github.com/aivibeflow/LLMLang/issues/371). |
-| [WIP human] Production Toolchain API and storage adoption | Maintainers record the decision on [ADR-015](draft/adr/015-toolchain-server-semantic-api.md), the acceptance semantics and any production storage selection for [#337](https://github.com/aivibeflow/LLMLang/issues/337). Existing scoped prototype checks remain eligible. |
+| [WIP human] Production Toolchain API and storage adoption | Maintainers approve the detailed acceptance semantics and production storage selection under [ADR-015](draft/adr/015-toolchain-server-semantic-api.md) for [#337](https://github.com/aivibeflow/LLMLang/issues/337). Existing scoped prototype checks remain eligible. |
 | [WIP human] Original author or archival execution records | The [eight original-run provenance gaps](research/research-management/RT-00/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md) need attested original source state and execution data where recoverable. If recovery fails, record the missing information and retain independent reruns under their own identities. Historical provenance affects §0.1 and §0.2 evidence claims. |
 | [WIP human] Scenario 16 archival or author record | The [scenario crosswalk](research/research-management/RT-00/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md) and [history recheck](research/research-management/RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.md#scenario-16-boundary) preserve the numbering gap. An author or archive record can establish the intended scope or location. |
 | Upstream reference scope and foreign-contract evidence | Verify hosted rendering of the MCP `#meta` fragment. Claims that depend on omitted references or foreign providers still require authoritative contract evidence. [RT-36](research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) and [CF-008](research/formal-verification/CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) identify how undischarged assumptions constrain the claim. |
@@ -1180,7 +1184,7 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Priority:** P0
 - **Question:** What transport-neutral Toolchain API, workspace/Change Set lifecycle, storage contract, transaction model, and repository synchronization protocol should LLMLang provide to agents and other clients?
 - **Context:** The Development Engine RFC already makes structured semantic changes the intended machine interface and treats MCP as an optional adapter. It does not yet define durable workspace handles, mutation envelopes, storage/recovery semantics, multi-agent concurrency, or how accepted semantic snapshots are synchronized safely to canonical text files and Git.
-- **Options to investigate:** An in-memory engine with explicit checkpoints; a persistent embedded semantic/workflow store; a shared remote service; MCP-native implementation versus a transport-neutral domain API with MCP/CLI/IDE adapters. Git-visible repository inputs must remain sufficient to reconstruct accepted source meaning under the Proposed ADR-014 direction.
+- **Options to investigate:** An in-memory engine with explicit checkpoints; a persistent embedded semantic/workflow store; a shared remote service; MCP-native implementation versus a transport-neutral domain API with MCP/CLI/IDE adapters. Git-visible repository inputs must remain sufficient to reconstruct accepted source meaning under ADR-014.
 - **Recommendation:** Start with a modular monolith, transport-neutral typed API, in-memory prototype, and a storage abstraction designed to admit a persistent embedded backend. Keep accepted SPG snapshots immutable; use expected-hash preconditions and optimistic concurrency; separate semantic acceptance, filesystem export, Git commit, and push. Do not make an external database the sole source of truth.
 - **Related:** [RT-19 — Toolchain Server and Semantic Development API](research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [ADR-015](draft/adr/015-toolchain-server-semantic-api.md), [Toolchain Prototype 01](research/toolchain-and-collaboration/PROTOTYPES/TOOLCHAIN-SERVER-01/README.md), [Development Engine RFC](research/toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md), [Git semantic repository](research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md), [ADR-014](draft/adr/014-git-semantic-merge.md).
 
