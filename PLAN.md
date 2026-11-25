@@ -1492,10 +1492,13 @@ Vendor references: [STM32F1](https://www.st.com/en/microcontrollers-microprocess
 
 - [ ] [WIP human] Decide whether backends consume typed SPG directly or a normalized target-independent semantic IR.
 - [ ] Define the lowering pipeline and preservation obligations.
+  - [ ] [WIP] Check guarded Wasm signed division from typed source through structured control flow and recorded effects on `research/all` (#327).
   - [x] Compare parallel LLVM phis, scheduled copies and direct sequential copies over 3,645 traces at each of two optimization levels. Scheduled copies match throughout. Direct sequential copies differ in 1,050 traces and 888 final states. General CFG lowering remains open. [RT-09 SSA parallel copy lowering](research/compiler-and-translation/RT-09/RT-09-SSA-PARALLEL-COPY-LOWERING-2026-11-25.md)
 - [ ] Define target capability declarations and unsupported constructs.
+  - [ ] [WIP] Check explicit Wasm division and host-effect capabilities against the selected executable and runtime observations on `research/all` (#327).
   - [x] Audit GCC and Clang freestanding links for two division routes and compare all 10,048 calls with the source oracle. The full route requires the pinned static `__udivti3` provider. The helper-free route enforces an explicit high-word restriction, and silent narrowing changes the witness. General target capability declarations remain open. [Wide division capability](research/compiler-and-translation/RT-13/RT-13-WIDE-DIVISION-CAPABILITY-2026-11-25.md)
 - [ ] Define explicit translation outcomes: exact under assumptions, preserved with runtime support, restricted, unsupported, and unverified.
+  - [ ] [WIP] Exercise all five translation outcomes on one native Wasm source contract and directed refusal cases on `research/all` (#327).
   - [x] Compare 18 translation closure controls. Four cover both requested roots, thirteen retain only the independent root, and one admits neither. An emission-only gate overstates complete coverage ten times. Local status, edge evidence, runtime binding and approved restrictions remain exact inputs. [RT-09 translation outcome closure](research/compiler-and-translation/RT-09/RT-09-TRANSLATION-OUTCOME-CLOSURE-2026-11-25.md)
 - [x] Define runtime support as part of a target realization.
   - [x] Verify the unresolved runtime symbol, selected static archive member and resulting ELF. Builds without the provider fail, while a same-ABI provider changes the ordered effects in all 750 native comparisons. [RT-09 ordered runtime realization](research/compiler-and-translation/RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md)
