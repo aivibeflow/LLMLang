@@ -39,6 +39,7 @@ This direction groups related research studies without changing their RT identif
 - [Large binary closure](RT-27/RT-27-LARGE-BINARY-CLOSURE-2026-11-25.md) compares whole Git blobs, content-addressed chunks and exact detached artifacts.
 - [Typed SPG review projection](RT-27/RT-27-SPG-REVIEW-PROJECTION-2026-11-25.md) checks Git-readable semantic changes and generated metadata scope.
 - [Segmented Git transport](RT-27/RT-27-SEGMENTED-GIT-TRANSPORT-2026-11-25.md) checks add/retire semantics, active compaction and ordinary ref operations.
+- [Prototype SPG packs](RT-27/RT-27-PROTOTYPE-SPG-PACKS-2026-11-25.md) checks three Git layouts using typed project prototype payloads and revisions.
 - [RT-11 scoped dependency fallback](RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md) — compares conservative recomputation with mixed completeness receipts.
 - [RT-11 semantic impact and proof freshness](RT-11/RT-11-SEMANTIC-IMPACT-AND-PROOF-FRESHNESS-2026-11-25.md) — compares source revisions, checker keys and archived proof artifacts.
 - [RT-11 native source metadata reuse](RT-11/RT-11-NATIVE-SOURCE-METADATA-REUSE-2026-11-25.md) — separates exact objects, source locations and observed execution after edits.
