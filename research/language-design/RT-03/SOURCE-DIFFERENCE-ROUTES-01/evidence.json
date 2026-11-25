@@ -1,0 +1,175 @@
+{
+  "baseline": "11b6e6a2a5d98c6bea2d9793f68ac97ecf2aaeff",
+  "changed_bound_rejects_refreshed_negative_cycle": true,
+  "inputs_per_source": 343,
+  "lean_axioms": [
+    "'complementOfIntegerDifference' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "observations": {
+    "base": [
+      {
+        "finite_hits": 0,
+        "formula_sha256": "484c537113e48ceb5da98a1c85cfad0618db7a286e6adc8d71733a7b81d64274",
+        "predicates": [
+          "d286e3203e7b94985868735574e6d27b63756a4b77bf2b9c48293838ac697ef8",
+          "815bddd547bdaab1e9bae1ce6482e664243c56474db9dda0c5bf06594ec73dc1",
+          "890d9a01119dbedd70cd667f3ddc55af1d8c76f63f814f063ea8c68b0ee4e0c6"
+        ],
+        "result": "target",
+        "route": "9d366ec966483d37bbd54d2f5932ed459817b93d3a3534639b00e80c30e77e25",
+        "solver": "unsat"
+      },
+      {
+        "finite_hits": 35,
+        "formula_sha256": "00ed2782869b6aded5d9e0b5c10ab694bea11cab34fdcf183f048211fdb7cbd0",
+        "predicates": [
+          "d286e3203e7b94985868735574e6d27b63756a4b77bf2b9c48293838ac697ef8",
+          "815bddd547bdaab1e9bae1ce6482e664243c56474db9dda0c5bf06594ec73dc1",
+          "5eeaf5258eac68e8d9db854ab82724e1551a8337d9000130ce2645029937e584"
+        ],
+        "result": "fallback",
+        "route": "b54e308c4614fcfd1ad36c55370466ff8ff700d5184a8b7ef462d996e8bdcdfd",
+        "solver": "sat"
+      },
+      {
+        "finite_hits": 112,
+        "formula_sha256": "e560a0e1904e9b4a01116a7d4d9fa60bf227acc80acaa2cf09854066803867cf",
+        "predicates": [
+          "d286e3203e7b94985868735574e6d27b63756a4b77bf2b9c48293838ac697ef8",
+          "2e5bdac121f4bce515b452f35ca4c1071e03ba1c86606becaa71b807e41af0d2"
+        ],
+        "result": "fallback",
+        "route": "a0daa5a92a66f30a2037d865f2be98f42f8f2dc2bf5e82c7d00cb50802be7e62",
+        "solver": "sat"
+      },
+      {
+        "finite_hits": 196,
+        "formula_sha256": "2bca04973bc3db10105ff96b40c8ccbbc1eb7a4c5d28f47247e8eb0a4739c41a",
+        "predicates": [
+          "382a6d31f1c887938817eca5ffc3c52540ad4ece67cf31bb63e5c993e2917f44"
+        ],
+        "result": "fallback",
+        "route": "b573254c76ad02890dc3e6c832aff290dfef5294b0b6610d09c66a98d3cec55e",
+        "solver": "sat"
+      }
+    ],
+    "comment": [
+      {
+        "finite_hits": 0,
+        "formula_sha256": "484c537113e48ceb5da98a1c85cfad0618db7a286e6adc8d71733a7b81d64274",
+        "predicates": [
+          "54cd193044a8388a8bace96cc3887002fe3ace2d845b5879b79f9ee189493354",
+          "833a70fb2a42322f3e2572d9bd6a6906a8116c855906ea412686fe0d00afff8d",
+          "db006b3fe26767c55071c12b03f430768c749fdacc175616671ced469f396bb0"
+        ],
+        "result": "target",
+        "route": "35a35697a58319af0639f3430bb627d815d12385c3f560159279fd7c3ca3f32b",
+        "solver": "unsat"
+      },
+      {
+        "finite_hits": 35,
+        "formula_sha256": "00ed2782869b6aded5d9e0b5c10ab694bea11cab34fdcf183f048211fdb7cbd0",
+        "predicates": [
+          "54cd193044a8388a8bace96cc3887002fe3ace2d845b5879b79f9ee189493354",
+          "833a70fb2a42322f3e2572d9bd6a6906a8116c855906ea412686fe0d00afff8d",
+          "6cc6fa48cdab010b2f2658fe51b8e86d5cb8974bf75347bb8a8b1f1388af8947"
+        ],
+        "result": "fallback",
+        "route": "7646e5e0b4893c7b164f196ea7e5af0ef8ddf532d79b9a892780a1b2b584a827",
+        "solver": "sat"
+      },
+      {
+        "finite_hits": 112,
+        "formula_sha256": "e560a0e1904e9b4a01116a7d4d9fa60bf227acc80acaa2cf09854066803867cf",
+        "predicates": [
+          "54cd193044a8388a8bace96cc3887002fe3ace2d845b5879b79f9ee189493354",
+          "0415339e3659fec8ae145d57d6229915c16d6d810602098f88a79668093a2a04"
+        ],
+        "result": "fallback",
+        "route": "54adf29895def8ee59f0ed581200165c24134d8cd84a187609c8af086a43d2fc",
+        "solver": "sat"
+      },
+      {
+        "finite_hits": 196,
+        "formula_sha256": "2bca04973bc3db10105ff96b40c8ccbbc1eb7a4c5d28f47247e8eb0a4739c41a",
+        "predicates": [
+          "ac5e6f7b07257495c9942ad99c23b250e2a9f2ecb98ed6b40407aaa8fd56484d"
+        ],
+        "result": "fallback",
+        "route": "aab7bfc1668c43e489effd874e07633b61027da785cb05f3fd431cf909feb951",
+        "solver": "sat"
+      }
+    ],
+    "loosened": [
+      {
+        "finite_hits": 5,
+        "formula_sha256": "baae442a68c1f2b01dd638408acfe3fcc94a7b93d1c96a2a220f1830e42d82bf",
+        "predicates": [
+          "36c2166e31551b8f47017a5b631800b7e1a567c26bf0de4d2659faf950aa58a3",
+          "0085646d9e7cb7c0fe75fcd35d2220db6b7b7c3dec780d6f493d6c50bd86b8f2",
+          "24e4b9df86ffa7dab472766414e9f9afc757ab40a697887e85107371a82b86a1"
+        ],
+        "result": "target",
+        "route": "970414851c99d8b884c8254445146a090ccf93908c59c3fa12d75cfe315be0b7",
+        "solver": "sat"
+      },
+      {
+        "finite_hits": 30,
+        "formula_sha256": "01b06b16b53c71c1d9381779b36f577128cab369a6d4b815f72b46fa3dbd6e99",
+        "predicates": [
+          "36c2166e31551b8f47017a5b631800b7e1a567c26bf0de4d2659faf950aa58a3",
+          "0085646d9e7cb7c0fe75fcd35d2220db6b7b7c3dec780d6f493d6c50bd86b8f2",
+          "9e368d83476412d26db8fc3d0af1fb8d2b9180fa3d6d3f33ffd365f662b41a5b"
+        ],
+        "result": "fallback",
+        "route": "3021d8698a3a24fa476c586e39901088bb1755ae101e4dded80c4c960475979c",
+        "solver": "sat"
+      },
+      {
+        "finite_hits": 112,
+        "formula_sha256": "e560a0e1904e9b4a01116a7d4d9fa60bf227acc80acaa2cf09854066803867cf",
+        "predicates": [
+          "36c2166e31551b8f47017a5b631800b7e1a567c26bf0de4d2659faf950aa58a3",
+          "fb51f66eab39d366c12393a7442c38a6692951329c3936f0f17a8ecd126fb1c3"
+        ],
+        "result": "fallback",
+        "route": "7e4e25432f179ac4872d1ea14344aa318a832b9eb5314ffb2e83307dfcdc6ff5",
+        "solver": "sat"
+      },
+      {
+        "finite_hits": 196,
+        "formula_sha256": "2bca04973bc3db10105ff96b40c8ccbbc1eb7a4c5d28f47247e8eb0a4739c41a",
+        "predicates": [
+          "0e0e144e7cbbff7e40b037374a0aeeead07de718ef0300f1cc58816dda1121e7"
+        ],
+        "result": "fallback",
+        "route": "b0399972a0002570e97e62001388177d96274c4504fcc2cadc9b32bb3c74db33",
+        "solver": "sat"
+      }
+    ]
+  },
+  "python": "3.12.14",
+  "rejected_sources": {
+    "assignment": "unsupported statement",
+    "call": "unsupported guard",
+    "loop": "unsupported statement",
+    "missing_exit": "uncovered exit"
+  },
+  "same_formula_rejects_old_certificate": true,
+  "schema": "rt03-immutable-source-difference-routes-v1",
+  "source_revisions": {
+    "base": "4982689001f54dc2bb773f7366aa9ffea0a8e10c285266ea33a9fc95835be1bc",
+    "comment": "4ede4af65799343dc30325c65162f0c9bca762b9659ea4f81c2dd7dced4db408",
+    "loosened": "973afd1a0d91d453bd7acf21fe2afd3599f24aff32f7bbd55f13addcfa7cb735"
+  },
+  "source_sha256": {
+    "Polarity.lean": "802c064f97a77c89c119e891fcac7edafac3e62adc28b1f791d5d8e14eb79a0a",
+    "checker.py": "cd3dc0e230639c9e86deb8cb95de1cdc8093dba35a4e2851dfdb9167e57423a1",
+    "rt03_feasibility_outcomes.py": "8a385428324a59fd35c7600c980acfe716d00968c277ddcbe36eea260ed5366b",
+    "run.py": "89ebfaea305404651c56fcb80be342873515974f93186a77874923a1a1832bf5"
+  },
+  "tools": {
+    "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  }
+}
