@@ -2,6 +2,8 @@
 
 The tracked-archive replay checks twelve ledgers across Cortex-M3 firmware, linked interrupt effects and conditional embedded models. [Cortex cohort replay](../../research-management/RT-00/RT-00-CORTEX-COHORT-REPLAY-2026-11-25.md)
 
+The manufacturer part manual supplies scoped LM3S6965 register rules and separates debugger, edge latch and physical claims. [Part register evidence](RT-37-LM3S6965-PART-REGISTER-2026-11-25.md)
+
 **Status:** Bounded Cortex-M3 startup, runtime closure, timer/GPIO and stack slices checked in QEMU. Broader firmware and timing profile open.
 
 **Priority:** P0 shared profile feasibility; P1 firmware/real-time pilot and advanced targets.  
