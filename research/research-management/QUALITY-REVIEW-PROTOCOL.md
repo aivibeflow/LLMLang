@@ -15,7 +15,7 @@
 
 **Alternatives:** (A) retroactively rewrite all reports; (B) manual review only; (C) warning-first templates for new reports and targeted review of high-impact existing reports. [Rollout comparison](RT-00/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) recommends C provisionally. [Evidence-shape comparison](RT-00/RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) favors common minimum metadata with evidence-specific attachments. Neither is an accepted policy.
 
-**Prior art within LLMLang:** [Quality-rule proposal](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), [preparation pack](../preparation/README.md), [research taxonomy](RESEARCH-TAXONOMY.md), [open questions](../../TODO.md), [draft boundary](../../draft/README.md).
+**Prior art within LLMLang:** [Quality-rule proposal](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md), [preparation pack](../preparation/README.md), [research taxonomy](RESEARCH-TAXONOMY.md), [open questions](../../PLAN.md#open-design-questions), [draft boundary](../../draft/README.md).
 
 ## 2. Report structure and conditional model
 
@@ -51,13 +51,13 @@ A proposed change to `draft/` should include a reviewable change map (may be in 
 | Field | Required link / value |
 | --- | --- |
 | Proposal | Candidate `draft/` file and section, with proposed normative wording or diff |
-| Question | `TODO.md` LL-ID or a named open Stage 0/research item; do not invent LL IDs for transient implementation tasks |
+| Question | LL ID in [PLAN.md](../../PLAN.md#open-design-questions) or a named open Stage 0/research item; do not invent LL IDs for transient implementation tasks |
 | Research | Research/RT/scenario document and stable claim ID |
 | Evidence | Exact source, fixture, run/output or theorem reference, with limitations |
 | Status | Proposed / accepted / rejected / superseded, with timestamp and decision authority/PR when accepted |
 | Conflict | Rejected alternatives, dependencies, unresolved objections and affected claims |
 
-**Workflow:** (1) author research with evidence labels; (2) review assumptions, negative results and reproduction; (3) identify open LL questions and dependencies; (4) propose a separate exact candidate-spec diff with claim links; (5) accept/reject only via explicit maintainer decision recorded in a durable PR/decision document; (6) update `draft/`, `TODO.md`, and `PLAN.md` as applicable. A proposal does not silently modify the candidate spec. `research/` remains exploratory; `draft/` remains the candidate specification, with accepted decisions explicitly identified. Existing [accepted architecture decision](../../draft/ARCHITECTURE-DECISIONS.md) is not reopened by this process proposal.
+**Workflow:** (1) author research with evidence labels; (2) review assumptions, negative results and reproduction; (3) identify open LL questions and dependencies; (4) propose a separate exact candidate-spec diff with claim links; (5) accept/reject only via explicit maintainer decision recorded in a durable PR/decision document; (6) update `draft/`, `RESEARCH.md`, and `PLAN.md` as applicable. A proposal does not silently modify the candidate spec. `research/` remains exploratory; `draft/` remains the candidate specification, with accepted decisions explicitly identified. Existing [accepted architecture decision](../../draft/ARCHITECTURE-DECISIONS.md) is not reopened by this process proposal.
 
 ## 5. Quality gates and authority
 

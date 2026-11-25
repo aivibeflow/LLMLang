@@ -2,7 +2,7 @@
 
 - **Evidence** — Byte-exact archive reconstruction and independent observations in a synthetic typed SPG corpus.
 - **Baseline** — `b656c000a3befe7fb609cd1e905711ff64799435`.
-- **Tracking** — [PLAN §1.1](../../../PLAN.md#11-semantic-program-graph-and-program-representation) · [LL-006](../../../TODO.md#ll-006--decide-artifact-granularity-for-the-initial-spgstore) · [Typed SPG granularity proposal](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md#6-artifact-granularity-and-trade-offs).
+- **Tracking** — [PLAN §1.1](../../../PLAN.md#11-semantic-program-graph-and-program-representation) · [LL-006](../../../PLAN.md#ll-006--decide-artifact-granularity-for-the-initial-spgstore) · [Typed SPG granularity proposal](RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md#6-artifact-granularity-and-trade-offs).
 
 ## Experiment
 

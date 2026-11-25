@@ -11,7 +11,7 @@ Turn the existing package-manifest, index and disk-backed traversal prototypes i
 ## 2. Existing material
 
 Read:
-- [TODO.md](../../TODO.md), especially LL-009–012 and LL-021/022
+- [Open design questions](../../PLAN.md#open-design-questions), especially LL-009–012 and LL-021/022
 - [Draft Glossary](../../draft/GLOSSARY.md)
 - [Scenario 90 — runtime hashing](../semantic-representation/RT-05/RESEARCH-SCENARIO-90-RUNTIME-HASHING-DETERMINISM-AND-PERSISTENT-IDENTITY.md)
 - [Scenario 91 — versioned content addresses](../semantic-representation/RT-05/RESEARCH-SCENARIO-91-VERSIONED-CONTENT-ADDRESSES-AND-DIGEST-MIGRATION.md)

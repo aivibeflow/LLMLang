@@ -4,7 +4,7 @@
 
 **Baseline** · `b0142c27f5632a859c379b78a10cb22f500ebfd8`
 
-**Status** · Bounded cross-implementation evidence for [Plan §1.2](../../../PLAN.md#12-semantic-identity-hashes-and-canonical-encoding) and [LL-004](../../../TODO.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy)
+**Status** · Bounded cross-implementation evidence for [Plan §1.2](../../../PLAN.md#12-semantic-identity-hashes-and-canonical-encoding) and [LL-004](../../../PLAN.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy)
 
 ## Question and candidate encodings
 

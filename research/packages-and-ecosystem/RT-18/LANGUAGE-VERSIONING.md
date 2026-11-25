@@ -2,7 +2,7 @@
 
 **Status:** accepted design direction; detailed compatibility and serialization rules remain open.  
 **Scope:** composite language versions and the append-only component registry.  
-**Related:** [Package System](../RT-12/PACKAGE-SYSTEM.md), [Semantic Compilation Cache](../../toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), [LL-021](../../../TODO.md).
+**Related:** [Package System](../RT-12/PACKAGE-SYSTEM.md), [Semantic Compilation Cache](../../toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), [LL-021](../../../PLAN.md#open-design-questions).
 
 ## 1. Purpose
 
