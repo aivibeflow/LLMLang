@@ -1606,7 +1606,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Verify eight packages with independently addressed library layers, including two libraries sharing one exact specification. Descriptive repacking preserves the package root and library identities. [Package and library contracts](research/packages-and-ecosystem/RT-12/RT-12-PACKAGE-AND-LIBRARY-CONTRACTS-2026-11-25.md)
 - [x] Define library identity and public machine-readable contracts.
   - [x] Check 96 typed library admissions plus a wrong-ABI control. Specification inspection and implementation eligibility use distinct exact checks. The public record includes conditions, effects, errors, state and ownership. Production conformance remains open. [Machine-readable contract model](research/packages-and-ecosystem/RT-12/RT-12-PACKAGE-AND-LIBRARY-CONTRACTS-2026-11-25.md#results)
-- [ ] Define dependency resolution and versioning.
+- [ ] [WIP] Define dependency resolution and versioning.
 - [ ] Define template instantiation, customization, detachment, and migration.
 - [ ] Define global semantic artifact store and registry interfaces.
 - [ ] Define artifact publication, signing, mirroring, licensing, revocation, retention, and garbage collection.
