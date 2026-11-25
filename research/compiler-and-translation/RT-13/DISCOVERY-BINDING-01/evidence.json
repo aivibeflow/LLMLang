@@ -1,0 +1,47 @@
+{
+  "comparisons": {
+    "accepted": 16,
+    "comparisons": 2400,
+    "invalid-if-cursor-freshness-unchecked": 76,
+    "invalid-if-discovery-alone-authorizes": 444,
+    "refused": 2384
+  },
+  "examples": {
+    "fabricated-candidate/uncatalogued/matching": {
+      "discovered_in_cursor": true,
+      "selected": false
+    },
+    "fresh/provider-2/matching": {
+      "discovered_in_cursor": true,
+      "selected": true
+    },
+    "fresh/provider-2/unmaterialized": {
+      "discovered_in_cursor": true,
+      "selected": false
+    },
+    "fresh/reserve/matching": {
+      "discovered_in_cursor": true,
+      "selected": true
+    },
+    "old-root/provider-1/matching": {
+      "discovered_in_cursor": true,
+      "selected": false
+    },
+    "old-root/reserve/matching": {
+      "discovered_in_cursor": true,
+      "selected": false
+    }
+  },
+  "lean": {
+    "axioms": [
+      "'discovery_membership' depends on axioms: [propext]",
+      "'bind_requires_current_catalog' depends on axioms: [propext]",
+      "'bind_succeeds_for_admissible' depends on axioms: [propext]"
+    ],
+    "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "sources_sha256": {
+    "Discovery.lean": "554dc427a630082fdc5065391454e330ccccb0e7b7c8da6872b8d189c154ed29",
+    "run.py": "168fb7dcbfccbb8b9ef654c8eee11294b561149717cd663f07b0881f619fe712"
+  }
+}

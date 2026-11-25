@@ -1394,8 +1394,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ## 6.4 Implementation discovery, selection, and optimization
 
-- [ ] Separate discovery of contract-compatible implementations from selection of a concrete implementation.
-  - [ ] [WIP] Model immutable catalog discovery separately from target selection and verify request, snapshot and implementation binding.
+- [x] Separate discovery of contract-compatible implementations from selection of a concrete implementation.
+  - [x] Prove exact discovery membership and current catalog, artifact and target binding. All 2,400 finite comparisons match the independent oracle. Reusing discovery without a freshness check admits 76 invalid cases. Authenticated indexes, nonidentical refinement and invocation races remain open. [RT-13 catalog discovery and binding](research/compiler-and-translation/RT-13/RT-13-CATALOG-DISCOVERY-AND-BINDING-2026-11-25.md)
 - [ ] Define selection constraints: target, ABI, capabilities, runtime, security, performance, and deployment environment.
 - [ ] Define static binding versus runtime dispatch.
 - [ ] Define specialization and multi-versioning.
