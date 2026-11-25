@@ -866,8 +866,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Validate the analytical model in `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
 - [ ] Implement reproducible benchmarks for cold, warm, local-edit, component-edit, and broad-change builds.
   - [x] Run 105 timed synthetic C++ builds across three methods and five stages. All 35 trial/stage artifact manifests agree. Content-keyed and incremental Make execute the same compiler counts and their observed time ranges overlap. Representative workloads and controlled hardware remain open. [RT-11 synthetic C++ cache timings](research/toolchain-and-collaboration/RT-11/RT-11-SYNTHETIC-CXX-CACHE-TIMINGS-2026-11-25.md)
-- [ ] Measure cache hit rates by action type.
-  - [ ] [WIP] Measure compile, archive, link and verification hit rates across exact native outputs, source-only edits and verification-policy changes on `research/all`.
+- [x] Measure cache hit rates by action type.
+  - [x] Measure 70 native build actions across seven stages. Exact-payload keys hit 20/28 compiles, 9/14 archives, 9/14 links and 8/14 verifications, with every artifact matching forced rebuild. Propagated producer keys cause three extra misses and a policy-blind key returns one stale acceptance. Representative workload distributions remain open. [Multi-action cache hits](research/toolchain-and-collaboration/RT-11/RT-11-MULTI-ACTION-CACHE-HITS-2026-11-25.md)
 - [ ] Measure hashing, dependency discovery, scheduling, storage, and verification overhead.
 - [ ] Compare against clean and conventional incremental builds in representative Rust, Go, and C++ projects.
 - [ ] Report speedup distributions and workload assumptions rather than a single headline number.
