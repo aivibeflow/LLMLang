@@ -1,0 +1,414 @@
+{
+  "clang": "Debian clang version 19.1.7 (3+b1)",
+  "fixture_sha256": "392116e9acc2baae6587e73913e379dd365565aebfd36c1811c0bd7c90693ddb",
+  "object_inspector": "Debian LLVM version 19.1.7",
+  "profiles": {
+    "android-aarch64": {
+      "call_profile": "Android arm64-v8a",
+      "data_model": "LP64",
+      "declared_system_library": "Bionic",
+      "deployment": "Android API level 29 target spelling",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-littleaarch64",
+      "llvm_layout": "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128-Fn32",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "caa103ee94c56a5b06997cb7beb29b5e0b3e7319d83f4256ed60e97fdd4264cd",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "untested",
+        "sdk": "unverified"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "aarch64-linux-android29",
+      "wrong_long_model_refused": true
+    },
+    "android-x86_64": {
+      "call_profile": "Android x86_64",
+      "data_model": "LP64",
+      "declared_system_library": "Bionic",
+      "deployment": "Android API level 29 target spelling",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-x86-64",
+      "llvm_layout": "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "6fa1fdf0d8d6b43b953eb1b4643bb82391c88f74acbcfeb800ec6272b4c76832",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "untested",
+        "sdk": "unverified"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "x86_64-linux-android29",
+      "wrong_long_model_refused": true
+    },
+    "freebsd-aarch64": {
+      "call_profile": "FreeBSD AArch64",
+      "data_model": "LP64",
+      "declared_system_library": "FreeBSD libc",
+      "deployment": "FreeBSD 14.4 target spelling",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-littleaarch64",
+      "llvm_layout": "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128-Fn32",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "b8da597a5d04e4c5b403604041f3d99b7ec0b5d0a5d53ca4eeef533f92035b4f",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "untested",
+        "sdk": "unverified"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "aarch64-unknown-freebsd14.4",
+      "wrong_long_model_refused": true
+    },
+    "freebsd-x86_64": {
+      "call_profile": "FreeBSD amd64",
+      "data_model": "LP64",
+      "declared_system_library": "FreeBSD libc",
+      "deployment": "FreeBSD 14.4 target spelling",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-x86-64",
+      "llvm_layout": "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "0eb348e06d945a34ca96287c53993d698668e94d9153b040e92f50e338d75c20",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "untested",
+        "sdk": "unverified"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "x86_64-unknown-freebsd14.4",
+      "wrong_long_model_refused": true
+    },
+    "ios-aarch64": {
+      "call_profile": "Apple ARM64",
+      "data_model": "LP64",
+      "declared_system_library": "libSystem",
+      "deployment": "iOS deployment 16.0",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "Mach-O arm64",
+      "llvm_layout": "e-m:o-i64:64-i128:128-n32:64-S128-Fn32",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "4524ea0987669ee7c6b255fbcb4e30d4c9be691c3d01f1ce1a68678dc9e0885d",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "cross-linked Mach-O",
+        "sdk": "deployment metadata only"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "arm64-apple-ios16.0",
+      "wrong_long_model_refused": true
+    },
+    "linux-aarch64": {
+      "call_profile": "AAPCS64",
+      "data_model": "LP64",
+      "declared_system_library": "glibc 2.41",
+      "deployment": "Debian cross sysroot",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-littleaarch64",
+      "llvm_layout": "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128-Fn32",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "0cabd050b513935283b673ed14f044d0ce8cac9f5ce56870f5deecf13e3ab13d",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "qemu-linux-user",
+        "glibc": "2.41",
+        "libc_sha256": "ce67859ef338d8558a7fd7cff9a1effe5677ff9f7eea90641a2c051c51fab7ac",
+        "loader_sha256": "393ca646b316f6cb31dc82dc72becff344bf6491458f98c07036fea73f1db55e"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "aarch64-linux-gnu",
+      "wrong_long_model_refused": true
+    },
+    "linux-riscv64": {
+      "call_profile": "RISC-V LP64D",
+      "data_model": "LP64",
+      "declared_system_library": "glibc 2.41",
+      "deployment": "Debian cross sysroot",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-littleriscv",
+      "llvm_layout": "e-m:e-p:64:64-i64:64-i128:128-n32:64-S128",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "9fbda424ef7cdcf06ce40060ab596a12a907d307454bba52cf807cca78fc9246",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "qemu-linux-user",
+        "glibc": "2.41",
+        "libc_sha256": "1e622659e9326dc1ac21ec914fa09343489c5c1341df7ec3b37b3acb0db9077f",
+        "loader_sha256": "7e97103205227da46cf46b338dba685e4ecc9b6b652a48bb3dd927c3ec8d666f"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "riscv64-linux-gnu",
+      "wrong_long_model_refused": true
+    },
+    "linux-x86_64": {
+      "call_profile": "System V AMD64",
+      "data_model": "LP64",
+      "declared_system_library": "glibc 2.41",
+      "deployment": "Linux 6.18.57 guest or host scope",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-x86-64",
+      "llvm_layout": "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "a6d61f6bf5ce3d475a9173b9e435eff99e8260601f702ccc3c8d9b76e90ef229",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "native",
+        "glibc": "2.41",
+        "libc_sha256": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+        "loader_sha256": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "x86_64-linux-gnu",
+      "wrong_long_model_refused": true
+    },
+    "macos-aarch64": {
+      "call_profile": "Apple ARM64",
+      "data_model": "LP64",
+      "declared_system_library": "libSystem",
+      "deployment": "macOS deployment 13.0",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "Mach-O arm64",
+      "llvm_layout": "e-m:o-i64:64-i128:128-n32:64-S128-Fn32",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "10fc008fdbf5785899d98f2fe42ccf535d65bf651a73fbfef1a846c3582b4ba6",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "cross-linked Mach-O",
+        "sdk": "deployment metadata only"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "arm64-apple-macos13.0",
+      "wrong_long_model_refused": true
+    },
+    "macos-x86_64": {
+      "call_profile": "Apple x86-64",
+      "data_model": "LP64",
+      "declared_system_library": "libSystem",
+      "deployment": "macOS deployment 13.0",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "Mach-O 64-bit x86-64",
+      "llvm_layout": "e-m:o-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "2e77de88ef14de54e1a4314bd69fb72789b0359ec836e4dd68dfa449caf49830",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "cross-linked Mach-O",
+        "sdk": "deployment metadata only"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "x86_64-apple-macos13.0",
+      "wrong_long_model_refused": true
+    },
+    "netbsd-aarch64": {
+      "call_profile": "NetBSD AArch64",
+      "data_model": "LP64",
+      "declared_system_library": "NetBSD libc",
+      "deployment": "NetBSD 10.1 target spelling",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-littleaarch64",
+      "llvm_layout": "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128-Fn32",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "caa103ee94c56a5b06997cb7beb29b5e0b3e7319d83f4256ed60e97fdd4264cd",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "untested",
+        "sdk": "unverified"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "aarch64-unknown-netbsd10.1",
+      "wrong_long_model_refused": true
+    },
+    "netbsd-x86_64": {
+      "call_profile": "NetBSD amd64",
+      "data_model": "LP64",
+      "declared_system_library": "NetBSD libc",
+      "deployment": "NetBSD 10.1 target spelling",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-x86-64",
+      "llvm_layout": "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "6fa1fdf0d8d6b43b953eb1b4643bb82391c88f74acbcfeb800ec6272b4c76832",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "untested",
+        "sdk": "unverified"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "x86_64-unknown-netbsd10.1",
+      "wrong_long_model_refused": true
+    },
+    "openbsd-aarch64": {
+      "call_profile": "OpenBSD ARM64",
+      "data_model": "LP64",
+      "declared_system_library": "OpenBSD libc",
+      "deployment": "OpenBSD 7.7 target spelling",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-littleaarch64",
+      "llvm_layout": "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128-Fn32",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "ef83d62ef59fe0567c51a3868e048b1970d492a6fdbc97353a9d904890695acf",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "untested",
+        "sdk": "unverified"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "aarch64-unknown-openbsd7.7",
+      "wrong_long_model_refused": true
+    },
+    "openbsd-x86_64": {
+      "call_profile": "OpenBSD amd64",
+      "data_model": "LP64",
+      "declared_system_library": "OpenBSD libc",
+      "deployment": "OpenBSD 7.7 target spelling",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "elf64-x86-64",
+      "llvm_layout": "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128",
+      "long_bits": 64,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "47d81ad720879fef57af07eadec788dd75782490f8947162dbf196afcf1215ff",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "untested",
+        "sdk": "unverified"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "x86_64-unknown-openbsd7.7",
+      "wrong_long_model_refused": true
+    },
+    "windows-aarch64": {
+      "call_profile": "Windows ARM64",
+      "data_model": "LLP64",
+      "declared_system_library": "UCRT/MSVC",
+      "deployment": "Windows SDK version unselected",
+      "embedded_sret": false,
+      "endian": "little",
+      "format": "COFF-ARM64",
+      "llvm_layout": "e-m:w-p:64:64-i32:32-i64:64-i128:128-n32:64-S128-Fn32",
+      "long_bits": 32,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "81a5fa514c5fb46fce78aa9d85b8ec8351f54db3555140c4dcca414a03e35d2b",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "cross-linked PE/COFF",
+        "sdk": "cross-build without Windows SDK closure"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "aarch64-pc-windows-msvc",
+      "wrong_long_model_refused": true
+    },
+    "windows-x86_64": {
+      "call_profile": "Microsoft x64",
+      "data_model": "LLP64",
+      "declared_system_library": "UCRT/MSVC",
+      "deployment": "Windows SDK version unselected",
+      "embedded_sret": true,
+      "endian": "little",
+      "format": "COFF-x86-64",
+      "llvm_layout": "e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128",
+      "long_bits": 32,
+      "new_observation": "object-only, no system headers or sysroot",
+      "object_sha256": "54c358e76c9c91000ec5d75aac335b3ef9184e450d8c852536f003496537e364",
+      "pointer_bits": 64,
+      "previous_observation": {
+        "execution": "cross-linked PE/COFF",
+        "sdk": "cross-build without Windows SDK closure"
+      },
+      "record": {
+        "align": 8,
+        "flags_offset": 8,
+        "size": 16
+      },
+      "triple": "x86_64-pc-windows-msvc",
+      "wrong_long_model_refused": true
+    }
+  },
+  "runner_sha256": "aa1002ecc45485e862b3ee711794a962a0706a47f84f53e5c8d678d6e4e26f70"
+}

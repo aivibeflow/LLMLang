@@ -1772,7 +1772,7 @@ The diagram describes proposed import and export paths, not an implemented pipel
 
 ### Work packages and acceptance gates
 
-- [ ] [WIP] FFI-01 Target profiles: define target triples, OS and SDK versions, libc (e.g. glibc/musl, Bionic), object format, endianness, alignment, data models, calling conventions, toolchain/linker and runtime capabilities. Track each matrix cell separately, including unsupported or untested features.
+- [x] FFI-01 Define all 16 hosted target cells, declared deployment, ABI, data layout, system library and toolchain boundary. Exact cross-builds check each object and refuse all 16 wrong data models. The matrix records native, user-emulated, cross-linked and object-only scopes with SDK and execution gaps. [Hosted FFI profile matrix](research/compiler-and-translation/RT-13/RT-13-FFI-HOSTED-PROFILE-MATRIX-2026-11-25.md)
   - [x] Record native Linux x86-64 and QEMU Linux-user AArch64 and RV64 LP64D with exact glibc, interpreter, startup and provider identities. Physical cross-target execution remains open. [RT-13 Linux FFI triple replay](research/compiler-and-translation/RT-13/RT-13-FFI-LINUX-TRIPLE-REPLAY-2026-11-25.md)
   - [x] Record exact macOS ARM64, macOS x86-64 and iOS ARM64 cross-build evidence. Mach-O target and deployment receipts are separate from Apple SDK and native support claims. [RT-13 Mach-O profiles](research/compiler-and-translation/RT-13/RT-13-FFI-MACHO-PROFILES-2026-11-25.md)
   - [x] Record two LLVM Windows cross profiles. Equal 16-byte record layout lowers to x64 sret and ARM64 register pairs. Native Windows and SDK closure remain open. [RT-13 Windows COFF profiles](research/compiler-and-translation/RT-13/RT-13-FFI-WINDOWS-COFF-PROFILES-2026-11-25.md)
