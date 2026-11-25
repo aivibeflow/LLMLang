@@ -1526,7 +1526,7 @@ Research a bounded, versioned, provenance-preserving description of the informat
 - [ ] Separate Knowledge Context identity from semantic object identity, dependency hashes, Action Keys, and rendered prompt identity; specify invalidation and safe reuse conditions.
 - [ ] Define transport-neutral assembly, inspection, serialization, and agent-facing retrieval APIs for RT-19.
 - [ ] Construct discriminating fixtures for stale, conflicting, inaccessible, duplicated, incomplete, and over-budget context inputs; evaluate context precision/recall and task outcomes on representative workloads.
-  - [ ] [WIP] Compare revision-bound Knowledge Context assembly with ranked prompt selection on a finite mandatory/optional evidence inventory on `research/all`.
+  - [x] Check 15 Knowledge Context inventories in all 164 distinct input orders per policy. Rank-only selection omits exact mandatory evidence in six cases. Exact selection returns nine contexts, distinguishes equal rendered prompts under changed provenance, and refuses six incomplete or conflicting inventories. Representative tasks and measured agent outcomes remain open. [Knowledge Context assembly](research/toolchain-and-collaboration/RT-14/RT-14-KNOWLEDGE-CONTEXT-ASSEMBLY-2026-11-25.md)
 
 ### Task Context — LL-027
 

@@ -1,0 +1,487 @@
+{
+  "runner_sha256": "38c8a8c9d04376f9df9264076a95d10e93d9642808754de3a09cdb392c848ba3",
+  "cases": {
+    "complete": {
+      "permutations": 6,
+      "ranked": {
+        "rendered": "retry safely\nquota ≤ 3\n4 is error\n",
+        "count": 3,
+        "exact_required_present": true
+      },
+      "exact": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      }
+    },
+    "same-bytes-other-scope-revision": {
+      "permutations": 6,
+      "ranked": {
+        "rendered": "retry safely\nquota ≤ 3\n4 is error\n",
+        "count": 3,
+        "exact_required_present": true
+      },
+      "exact": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "renewed",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "767b051f13f4fc08841f674a7d7874a4327ad8ab132fa1fd0f781290b7e1530b",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      }
+    },
+    "stale-required-only": {
+      "permutations": 6,
+      "ranked": {
+        "rendered": "4 is error\nretry safely\nquota ≤ 3\n",
+        "count": 3,
+        "exact_required_present": false
+      },
+      "exact": {
+        "status": "unavailable"
+      }
+    },
+    "fresh-and-stale-copy": {
+      "permutations": 24,
+      "ranked": {
+        "rendered": "4 is error\nretry safely\nquota ≤ 3\n4 is error\n",
+        "count": 4,
+        "exact_required_present": true
+      },
+      "exact": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      }
+    },
+    "missing-required": {
+      "permutations": 2,
+      "ranked": {
+        "rendered": "retry safely\nquota ≤ 3\n",
+        "count": 2,
+        "exact_required_present": false
+      },
+      "exact": {
+        "status": "unavailable"
+      }
+    },
+    "inaccessible-required": {
+      "permutations": 6,
+      "ranked": {
+        "rendered": "retry safely\nquota ≤ 3\n",
+        "count": 2,
+        "exact_required_present": false
+      },
+      "exact": {
+        "status": "unavailable"
+      }
+    },
+    "conflicting-required": {
+      "permutations": 24,
+      "ranked": {
+        "rendered": "quota ≤ 4\nretry safely\nquota ≤ 3\n4 is error\n",
+        "count": 4,
+        "exact_required_present": true
+      },
+      "exact": {
+        "status": "conflicting-required"
+      }
+    },
+    "corrupt-required": {
+      "permutations": 6,
+      "ranked": {
+        "rendered": "retry safely\nquota ≤ 3\n5 is error\n",
+        "count": 3,
+        "exact_required_present": false
+      },
+      "exact": {
+        "status": "required-bytes-mismatch"
+      }
+    },
+    "duplicate-required": {
+      "permutations": 12,
+      "ranked": {
+        "rendered": "retry safely\nquota ≤ 3\nquota ≤ 3\n4 is error\n",
+        "count": 4,
+        "exact_required_present": true
+      },
+      "exact": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      }
+    },
+    "required-ranking-changed": {
+      "permutations": 6,
+      "ranked": {
+        "rendered": "retry safely\n4 is error\nquota ≤ 3\n",
+        "count": 3,
+        "exact_required_present": true
+      },
+      "exact": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      }
+    },
+    "ambiguous-optional": {
+      "permutations": 24,
+      "ranked": {
+        "rendered": "retry safely\nmanual retry\nquota ≤ 3\n4 is error\n",
+        "count": 4,
+        "exact_required_present": true
+      },
+      "exact": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "omissions": {
+            "note": "ambiguous"
+          }
+        },
+        "manifest_sha256": "31ecb3be71389d7fb06d896e09adbf262158045868a5327faa212152292cbd49",
+        "rendered_sha256": "5871a9d06602b3a3bee7b24eda2d9c98d4a1badabb2bc4c3bcb715889f6e2822",
+        "rendered_utf8_bytes": 23
+      }
+    },
+    "optional-trims-to-budget": {
+      "permutations": 6,
+      "ranked": {
+        "rendered": "retry safely\n",
+        "count": 1,
+        "exact_required_present": false
+      },
+      "exact": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 23,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "omissions": {
+            "note": "over-budget"
+          }
+        },
+        "manifest_sha256": "0a4fe608843a6517bdb1abca1c3f846d93796a5dc1f7694f64308de774495674",
+        "rendered_sha256": "5871a9d06602b3a3bee7b24eda2d9c98d4a1badabb2bc4c3bcb715889f6e2822",
+        "rendered_utf8_bytes": 23
+      }
+    },
+    "required-over-budget": {
+      "permutations": 6,
+      "ranked": {
+        "rendered": "retry safely\n",
+        "count": 1,
+        "exact_required_present": false
+      },
+      "exact": {
+        "status": "required-over-budget"
+      }
+    },
+    "optional-same-text-other-source": {
+      "permutations": 6,
+      "ranked": {
+        "rendered": "retry safely\nquota ≤ 3\n4 is error\n",
+        "count": 3,
+        "exact_required_present": true
+      },
+      "exact": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#2",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "4535e5d7f812d657ea937e0fc33120ee9577acef103cda2810c2c4ba015accb8",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      }
+    },
+    "hidden-alternative": {
+      "permutations": 24,
+      "ranked": {
+        "rendered": "retry safely\nquota ≤ 3\n4 is error\n",
+        "count": 3,
+        "exact_required_present": true
+      },
+      "exact": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "without-conflicting-source",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "68af2c0e2fd19deff6f2bc3485c10703186a513340da5289770ebc049ea96f28",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      }
+    }
+  },
+  "totals": {
+    "inventory_cases": 15,
+    "orders_per_policy": 164,
+    "exact_ready": 9,
+    "ranked_feeds_missing_exact_required": 6
+  }
+}
