@@ -1353,8 +1353,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] Define the logical package-content model: roots, included objects, typed dependency edges, exports, modules, evidence, and provenance.
 - [ ] Define compact canonical binary index tables and their key ordering; require binary-search and deterministic streaming-merge semantics.
-- [ ] Compare whole-index compression with independently compressed blocks; measure codec, block-size, lookup, scan, and memory trade-offs.
-  - [ ] [WIP] Compare raw, whole-stream and independently compressed package-index layouts for exact lookups and ordered scans on `research/all`.
+- [x] Compare whole-index compression with independently compressed blocks; measure codec, block-size, lookup, scan, and memory trade-offs.
+  - Test nine layouts with 8,192 sorted rows, 64 point queries and exact full scans. The 64-row gzip layout grows the whole-stream archive by 5.8% while reading 163 KiB per batch versus 303 KiB for retained whole-stream lookup. Seven measured trials cover latency and separate allocation traces record peak memory. Representative workloads and a format decision remain open. [Package index compression](research/packages-and-ecosystem/RT-12/RT-12-INDEX-COMPRESSION-2026-11-25.md)
 - [ ] Evaluate optional sparse and hierarchical sparse indexes; establish when their lookup benefit justifies their storage and maintenance cost.
 - [ ] Define index integrity, corruption detection, sparse-index reconstruction, and logical-versus-physical index identity.
 - [x] Draft a human-readable TOML manifest schema candidate and an illustrative manifest fixture; keep binary encoding for machine indexes and object payloads where their formats require it.

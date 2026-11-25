@@ -1,0 +1,140 @@
+{
+  "python": "3.12.14",
+  "system": "Linux",
+  "machine": "x86_64",
+  "zlib": "1.3.2",
+  "runner_sha256": "cce13c2f831be60e74d1fe227df47e68758fc9ebf9a42720605f9ab7d10365e5",
+  "fixture": {
+    "rows": 8192,
+    "row_bytes": 64,
+    "query_count": 64,
+    "lookup_hits": 32,
+    "logical_sha256": "fd319f83b72e98ff7f23271d77e9d86164f265e44b91878c3efbbbbdd61d2e57",
+    "queries_sha256": "8daf0ca946b6dd0e048ff7f1576475d0ed168bf14efbda3c071100079ae28983"
+  },
+  "layouts": {
+    "raw": {
+      "artifact_bytes": 524288,
+      "directory_bytes": 0,
+      "artifact_sha256": "fd319f83b72e98ff7f23271d77e9d86164f265e44b91878c3efbbbbdd61d2e57",
+      "operations": {
+        "lookup-fresh": {
+          "read_bytes": 51264
+        },
+        "scan": {
+          "read_bytes": 524288
+        }
+      }
+    },
+    "gzip-whole": {
+      "artifact_bytes": 310603,
+      "directory_bytes": 0,
+      "artifact_sha256": "431d0c32ed40db8fc33f748a9165d91bbc7d7b4e919240d49bd86b41492055ed",
+      "operations": {
+        "lookup-fresh": {
+          "read_bytes": 19878592
+        },
+        "scan": {
+          "read_bytes": 310603
+        },
+        "lookup-retained": {
+          "read_bytes": 310603
+        }
+      }
+    },
+    "gzip-block-64": {
+      "artifact_bytes": 328539,
+      "directory_bytes": 5636,
+      "artifact_sha256": "350169d8c9bca8d40dbc9c242035b8cf45e38e144bff213319ec4b75c8a4071e",
+      "operations": {
+        "lookup-fresh": {
+          "read_bytes": 167011
+        },
+        "scan": {
+          "read_bytes": 328539
+        }
+      }
+    },
+    "gzip-block-256": {
+      "artifact_bytes": 314447,
+      "directory_bytes": 1412,
+      "artifact_sha256": "5090457c3c671320df9e1be342160ad969def5ccee415d5a0b6672261a323712",
+      "operations": {
+        "lookup-fresh": {
+          "read_bytes": 627588
+        },
+        "scan": {
+          "read_bytes": 314447
+        }
+      }
+    },
+    "gzip-block-1024": {
+      "artifact_bytes": 312266,
+      "directory_bytes": 356,
+      "artifact_sha256": "805823566468d438aa03b96ae34007058489eed80e5e8ade4116f0551f1237b5",
+      "operations": {
+        "lookup-fresh": {
+          "read_bytes": 2495529
+        },
+        "scan": {
+          "read_bytes": 312266
+        }
+      }
+    },
+    "bzip2-whole": {
+      "artifact_bytes": 286334,
+      "directory_bytes": 0,
+      "artifact_sha256": "2cb3c04cf03ba51a3439e7eebd3d842cc15ad255c6ba137d015dda5363a20281",
+      "operations": {
+        "lookup-fresh": {
+          "read_bytes": 18325376
+        },
+        "scan": {
+          "read_bytes": 286334
+        },
+        "lookup-retained": {
+          "read_bytes": 286334
+        }
+      }
+    },
+    "bzip2-block-64": {
+      "artifact_bytes": 359791,
+      "directory_bytes": 5636,
+      "artifact_sha256": "bc871fcfa0dd54d5a851d07d020fb1eb7a82b7c9be1f7019623dd7d7097f6fd6",
+      "operations": {
+        "lookup-fresh": {
+          "read_bytes": 182740
+        },
+        "scan": {
+          "read_bytes": 359791
+        }
+      }
+    },
+    "bzip2-block-256": {
+      "artifact_bytes": 305284,
+      "directory_bytes": 1412,
+      "artifact_sha256": "eed0b35155af959c6fb5db738ab27ec58961006253bc761e14ce1398b29fd819",
+      "operations": {
+        "lookup-fresh": {
+          "read_bytes": 609331
+        },
+        "scan": {
+          "read_bytes": 305284
+        }
+      }
+    },
+    "bzip2-block-1024": {
+      "artifact_bytes": 289121,
+      "directory_bytes": 356,
+      "artifact_sha256": "7dd230b2a85692bfadfb5f99823ef138c7a5859a8e08ae57189ecc553da1edd7",
+      "operations": {
+        "lookup-fresh": {
+          "read_bytes": 2310277
+        },
+        "scan": {
+          "read_bytes": 289121
+        }
+      }
+    }
+  }
+}
