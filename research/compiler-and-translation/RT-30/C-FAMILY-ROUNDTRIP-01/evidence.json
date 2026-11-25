@@ -1,0 +1,107 @@
+{
+  "toolchain": [
+    "Debian clang version 19.1.7 (3+b1)",
+    "Target: x86_64-pc-linux-gnu",
+    "Thread model: posix",
+    "InstalledDir: /workspace/work/llmlang-clang19/extracted/usr/lib/llvm-19/bin"
+  ],
+  "records_per_profile": 37020,
+  "imported_per_language": 12,
+  "reimported_per_direction": 12,
+  "native_results": {
+    "c-original-O0": {
+      "records": 37020,
+      "statuses": {
+        "ok": 37020
+      },
+      "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37",
+      "artifact_sha256": "02c447c8ba864579e857ddfb1d7a224cb658b4eff0ac334f46b5a0360175eb12"
+    },
+    "c-to-cpp-O0": {
+      "records": 37020,
+      "statuses": {
+        "ok": 37020
+      },
+      "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37",
+      "artifact_sha256": "5c0a18e6d7b3c49c430f296739f04d284c47013f84a62f639ae8000d9d34e59f"
+    },
+    "c-original-O2": {
+      "records": 37020,
+      "statuses": {
+        "ok": 37020
+      },
+      "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37",
+      "artifact_sha256": "4bd2e53e7e2d71c6265f6c7386830b139600c4a58124a499e7241351a1d37ece"
+    },
+    "c-to-cpp-O2": {
+      "records": 37020,
+      "statuses": {
+        "ok": 37020
+      },
+      "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37",
+      "artifact_sha256": "244334b3dfb923e7f9176151c6e1b9c2b7847e0fadb9099a9c59b0abbf99dd16"
+    },
+    "cpp-original-O0": {
+      "records": 37020,
+      "statuses": {
+        "ok": 37020
+      },
+      "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37",
+      "artifact_sha256": "2198d3b5a996c89e928d91fb38be4142cb0d0b32645e8dbbb2019bfdcc2e76d6"
+    },
+    "cpp-to-c-O0": {
+      "records": 37020,
+      "statuses": {
+        "ok": 37020
+      },
+      "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37",
+      "artifact_sha256": "cd103003811277ef34f4377476b94abcd405c4a54d2f7b153b72861771725d00"
+    },
+    "cpp-original-O2": {
+      "records": 37020,
+      "statuses": {
+        "ok": 37020
+      },
+      "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37",
+      "artifact_sha256": "ede2dc861c7f0d03e95a252919faf23ab099dcb1d3b02778e01e543ff2b28afe"
+    },
+    "cpp-to-c-O2": {
+      "records": 37020,
+      "statuses": {
+        "ok": 37020
+      },
+      "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37",
+      "artifact_sha256": "92ec5c64ab84dc2f6816dd124e3d4b434de8521b2557061cbe2f86baf1e96f4b"
+    }
+  },
+  "negative_cases": {
+    "c": {
+      "directive": "unsupported-preprocessing",
+      "syntax": "compiler-rejected",
+      "inventory": "unsupported-inventory",
+      "wider-type": "unsupported-shape",
+      "signed-arithmetic": "unsupported-shape",
+      "arithmetic-mode": "unsupported-shape",
+      "slot-write-order": "unsupported-shape",
+      "callback-source": "unsupported-shape"
+    },
+    "cpp": {
+      "directive": "unsupported-preprocessing",
+      "syntax": "compiler-rejected",
+      "inventory": "unsupported-inventory",
+      "wider-type": "unsupported-shape",
+      "signed-arithmetic": "unsupported-shape",
+      "arithmetic-mode": "unsupported-shape",
+      "slot-write-order": "unsupported-shape",
+      "callback-source": "unsupported-shape",
+      "unadapted-cpp-linkage": "unsupported-inventory"
+    }
+  },
+  "source_sha256": {
+    "research/compiler-and-translation/RT-30/C-FAMILY-ROUNDTRIP-01/roundtrip.py": "94fff47fa40442b9c22f152e0a095bbb08c791a03aba90171cd221cd86ab76b2",
+    "research/compiler-and-translation/RT-30/C-FAMILY-ROUNDTRIP-01/original.c.in": "c33f8423c1656ca764b1a84f6f6092663267c5f845715e247799cd144a958b1c",
+    "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/run.py": "66627d08c7336389953db30ec9ded770529d1b38f14ea5713b59f67b298c0cd9",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a"
+  }
+}
