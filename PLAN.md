@@ -870,15 +870,15 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Define conservative fallback when dependency completeness cannot be established.
   - [x] Rebuild when an earlier header absence or selected payload is unknown. Across 33,696 availability cases, scoped reuse preserves every admitted artifact and unknown fallback avoids 984 false hits from checking the previous winning file alone. [Negative header dependencies](research/toolchain-and-collaboration/RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md)
   - [x] Compare mixed dependency completeness across 576 action-graph profiles. Scoped fallback executes 568 fewer actions and admits 16 more packages than whole-graph recomputation with zero stale results. The optimistic control admits 120 stale packages. Production extraction and publication remain open. [Scoped dependency fallback](research/toolchain-and-collaboration/RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md)
-- [ ] Define impact planning and non-interference gates.
-  - [ ] [WIP] Check three-way edit interaction and a compositional non-interference gate over exact intermediate inputs on `research/all`.
+- [x] Define impact planning and non-interference gates.
+  - [x] Compare three disjoint edits over 2,048 profiles and 12,288 schedules. Pairwise checks falsely admit 16 changed combined results. The exact scope gate agrees with all prefixes, and Lean checks composition under a preserved invariant. [Three-edit non-interference](research/toolchain-and-collaboration/RT-11/RT-11-THREE-EDIT-INTERFERENCE-2026-11-25.md)
   - [x] Compare separate and composed non-interference checks across 6,144 truth-table edits. Independent baseline checks admit 768 changed outcomes despite disjoint writes. Lean checks a counterexample and composition under sequential or uniformly applicable premises. [RT-11 composed non-interference](research/toolchain-and-collaboration/RT-11/RT-11-COMPOSED-NONINTERFERENCE-2026-11-25.md)
 - [x] Benchmark small local edits, shared component edits, and broad semantic changes.
   - [x] Compare 21 paired full and incremental GCC builds. All outputs are byte-identical per pair. Incremental compiles 1, 4 or 16 units against 17 in the full route; paired median ratios are 8.31×, 3.41× and 1.13× on the shared host. Representative hardware and workloads remain open. [Native edit locality](research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-EDIT-LOCALITY-2026-11-25.md)
 
 **Existing evidence:** [SEMANTIC-COMPILATION-CACHE.md](research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), scenarios 18–28, and dependency graph prototypes.
 
-**Status:** researched and prototyped in parts; full compiler integration and empirical validation are not implemented.
+**Status:** checked scoped studies cover the incremental analysis questions above. Full compiler integration, representative performance validation and canonical policies remain open.
 
 **Research output (2026-11-23):** [RT-32 incremental invalidation recheck](research/formal-verification/RT-32/RT-32-INCREMENTAL-INVALIDATION-RECHECK-2026-11-23.md) compares global invalidation, complete-dependency ActionKeys, timestamp/dirty hints, and fail-closed behavior for unknown closure. A focused suite passed 72 tests on CPython 3.12.14. The result supports content-addressed reuse conditionally on complete dependencies and distinct evidence freshness; it does not establish compiler integration or workload performance. Integration across real stages, metadata projection, source-derived completeness/non-interference, representative benchmarks, and production identity/trust decisions remain open.
 

@@ -1,0 +1,32 @@
+{
+  "schema": "llmlang-three-edit-noninterference/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "Noninterference.lean": "394f7279361f5e530aac60627adaf955df6e4d9eb0a626185f6e66759977ebd8",
+    "run.py": "e52e3c3141f9164e8146969f281237d809b8baf18f8bccef5f7c9e0be2c99f4f",
+    "axioms.txt": "31349af664d8100a69ec6b45f57d9e7b5aa8cc6b4696be1f9ec853025d8d96f5"
+  },
+  "counts": {
+    "ordered_schedules": 12288,
+    "verified_schedule_preserves_every_prefix": 1536,
+    "table_and_baseline_profiles": 2048,
+    "single_edit_gate_admitted": 256,
+    "single_edit_gate_false_final_admissions": 128,
+    "pairwise_gate_admitted": 32,
+    "pairwise_gate_false_final_admissions": 16,
+    "some_schedule_preserves_prefixes": 736,
+    "every_schedule_preserves_prefixes": 16,
+    "some_but_not_every_schedule_preserves_prefixes": 720
+  },
+  "all_three_true_witness": {
+    "0": false,
+    "1": false,
+    "2": false,
+    "3": false,
+    "4": false,
+    "5": false,
+    "6": false,
+    "7": true
+  },
+  "ordered_rows_sha256": "8490ff602fcffebfe442205a960dae65e0049d70062cbf77a3908debcc754522"
+}
