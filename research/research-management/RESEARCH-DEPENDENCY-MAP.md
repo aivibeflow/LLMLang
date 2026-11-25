@@ -550,6 +550,8 @@ These edges are research hypotheses, not implementation commitments. Semantic eq
 
 ## 19. AI-oriented syntax, semantic separation, and Toolchain optimization (RT-31)
 
+[Unicode source binding](../semantic-representation/RT-05/RT-05-UNICODE-SOURCE-BINDING-2026-11-25.md) adds scope to DEP-005. Correct source-profile spelling resolution can still produce a wrong capture if the graph conflates an assignment cell with a shadowing binding.
+
 RT-31 requires a stable semantic oracle and compiler boundary before syntax profiles can be compared. MCP session observability supplies reproducible evidence, but it is a Toolchain/platform concern and must not become language semantics or unrestricted content surveillance.
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
