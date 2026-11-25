@@ -801,7 +801,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - Compare the generated RT-01 CLI with a separately linked native division object. The scoped action key plans nine compilations across six edits, versus 18 under whole-input invalidation. Entry and semantic snapshot keys retain stale artifacts and hide two failures of a requested replacement. General closure extraction and controlled timing remain open. [CLI action keys](research/language-design/RT-01/RT-01-CLI-ACTION-KEYS-2026-11-25.md)
 - [ ] Keep Semantic Hash, Action Key, and Artifact Hash distinct.
 - [ ] Include tool identity, tool version, configuration, target, environment, runtime, and policy inputs whenever they can affect a result.
-- [ ] Define deterministic versus nondeterministic action handling.
+- [ ] Define deterministic versus nondeterministic action handling. [WIP] — distinguish reproducible compile action inputs from ambient path and clock inputs using pinned Clang on `research/all`.
 - [ ] Define local, workspace, remote, and global cache layers.
 - [ ] Define cache integrity, trust, provenance, and eviction.
 - [ ] Define test and proof evidence caching with exact subject and assumption binding.
