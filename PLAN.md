@@ -945,6 +945,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define the canonical Git-visible representation of a semantic program.
 - [ ] Compare storing canonical serialized semantic objects directly in Git with storing KV-backed objects plus repository manifests.
 - [ ] Define the mapping between Git commits/trees and semantic graph snapshots.
+  - [ ] [WIP] Check the distinct commit, tree, and semantic snapshot identities across metadata, parent, provider, and Git object-format changes on `research/all`.
 - [ ] Preserve ordinary Git clone, fetch, push, branch, tag, and history behavior.
 - [ ] Define readable textual representation, diff strategy, and generated metadata.
 - [ ] Define how large objects and binary artifacts are handled.
