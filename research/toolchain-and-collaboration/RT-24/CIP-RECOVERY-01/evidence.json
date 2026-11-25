@@ -1,0 +1,43 @@
+{
+  "git": "git version 2.56.1",
+  "cases": {
+    "before": {
+      "accepted_commit": "c922d20875bba68d6223c6a196e52a1ad2394ada",
+      "head_after_advance": "a22ccf733a7b7e4a98bc536a32b779664450c0e9",
+      "exact_retry": "replayed",
+      "changed_payload_retry": "operation-conflict",
+      "clone": {
+        "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+        "snapshot": "780f75d078c848ff98a9df1fb29ed432705bcb0da8244eda32f587722086123f",
+        "plan": "9fd8708cf8e70e3071f098c025cc7fb3cbb40d2a994b79434218990860080118"
+      }
+    },
+    "after": {
+      "accepted_commit": "619d3d4299d7de18daf27f6a8523488d2bb71295",
+      "head_after_advance": "8fa736c6ded287b1b40a53ce404e2901ec337747",
+      "exact_retry": "replayed",
+      "changed_payload_retry": "operation-conflict",
+      "clone": {
+        "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+        "snapshot": "780f75d078c848ff98a9df1fb29ed432705bcb0da8244eda32f587722086123f",
+        "plan": "9fd8708cf8e70e3071f098c025cc7fb3cbb40d2a994b79434218990860080118"
+      }
+    },
+    "timeout": {
+      "accepted_commit": "100221cca006d59320960d796f01358b142ef131",
+      "head_after_advance": "0b1eff99534d06d676bec3b184cad6b2a3dc5123",
+      "exact_retry": "replayed",
+      "changed_payload_retry": "operation-conflict",
+      "clone": {
+        "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+        "snapshot": "780f75d078c848ff98a9df1fb29ed432705bcb0da8244eda32f587722086123f",
+        "plan": "9fd8708cf8e70e3071f098c025cc7fb3cbb40d2a994b79434218990860080118"
+      }
+    },
+    "race": {
+      "cas": "ref-transaction-refused",
+      "receipt": "absent",
+      "retry": "stale-head"
+    }
+  }
+}

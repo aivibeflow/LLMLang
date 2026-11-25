@@ -85,7 +85,7 @@ def sites(reports):
     }
 
 
-def gate(repo, approval, candidate_tree):
+def gate(repo, approval, candidate_tree, publisher=None):
     if approval is None:
         return "plan-required", None
     if candidate_tree != approval.candidate_tree:
@@ -130,6 +130,9 @@ def gate(repo, approval, candidate_tree):
         target = payload["call_sites"][0]["targets"][0]["target_hash"]
         if target != selections["shared-" + path]:
             return "consumer-path-refused", None
+
+    if publisher is not None:
+        return publisher(repo, approval, result)
 
     child = native.object_commit(repo, candidate_tree, "CIP checked " + plan.plan_id,
                                  (approval.baseline_commit, approval.source_commit))
