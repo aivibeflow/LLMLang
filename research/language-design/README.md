@@ -4,6 +4,12 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [Goals and requirements](goals-and-requirements/README.md) · RT-01, RT-02
+- [Semantics, types and contracts](semantics-types-and-contracts/README.md) · RT-03, RT-04
+- [Syntax for humans and agents](syntax-for-humans-and-agents/README.md) · RT-31
+
 ## Studies
 
 | ID | Scope |

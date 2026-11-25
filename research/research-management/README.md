@@ -6,6 +6,11 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [Planning and synthesis](planning-and-synthesis/README.md) · Taxonomy, dependencies and candidate options
+- [Inventory, quality and reproducibility](inventory-quality-and-reproduction/README.md) · RT-00
+
 ## Studies
 
 | ID | Scope |

@@ -4,6 +4,12 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [Compiler architecture and IR](compiler-and-ir/README.md) · RT-09
+- [Target backends and implementation](backends-and-implementation/README.md) · RT-13, RT-29
+- [Cross-language translation and migration](translation-and-migration/README.md) · RT-28, RT-30
+
 ## Studies
 
 | ID | Scope |

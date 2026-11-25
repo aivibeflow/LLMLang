@@ -4,6 +4,12 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [Formal semantics and program verification](program-semantics-and-verification/README.md) · RT-07, RT-32
+- [Proof methods, evidence and trust](proof-methods-and-trust/README.md) · RT-08, RT-33, RT-36
+- [Complexity and resource guarantees](complexity-and-resource-guarantees/README.md) · RT-34
+
 ## Studies
 
 | ID | Scope |

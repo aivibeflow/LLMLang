@@ -4,6 +4,11 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [Packages, libraries and distribution](packages-and-distribution/README.md) · RT-12
+- [Compatibility and format evolution](compatibility-and-evolution/README.md) · RT-18
+
 ## Studies
 
 | ID | Scope |

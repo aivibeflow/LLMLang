@@ -4,6 +4,12 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [Execution and POSIX](execution-and-posix/README.md) · RT-10
+- [Memory and resource accounting](memory-and-resource-accounting/README.md) · RT-25, RT-26
+- [Embedded systems and operating-system kernels](embedded-and-kernels/README.md) · RT-37, RT-38
+
 ## Studies
 
 | ID | Scope |

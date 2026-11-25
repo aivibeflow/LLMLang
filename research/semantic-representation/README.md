@@ -4,6 +4,12 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [SPG and identity](spg-and-identity/README.md) · RT-05
+- [Dependencies and impact analysis](dependencies-and-impact/README.md) · RT-06
+- [Semantic function discovery](function-discovery/README.md) · RT-35
+
 ## Studies
 
 | ID | Scope |
