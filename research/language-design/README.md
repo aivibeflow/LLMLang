@@ -38,6 +38,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-04 disjoint mutable borrows](RT-04/RT-04-DISJOINT-MUTABLE-BORROWS-2026-11-25.md) checks explicit runtime separation and static lifetime constraints.
 - [RT-04 typed state incarnation](RT-04/RT-04-TYPED-STATE-INCARNATION-2026-11-25.md) checks stale handles after retirement and reuse.
 - [RT-04 length refinement](RT-04/RT-04-LENGTH-REFINEMENT-AND-DEPENDENT-ZIP-2026-11-25.md) compares local bounds, runtime equality and dependent length checking.
 - [RT-04 nested optional byte ABI](RT-04/RT-04-NESTED-OPTIONAL-BYTE-ABI-2026-11-25.md) compares the complete 16-bit input domain under two encodings.

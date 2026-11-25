@@ -1,0 +1,38 @@
+{
+  "compiler": [
+    "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "binary: rustc",
+    "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+    "commit-date: 2025-03-15",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.85.1",
+    "LLVM version: 19.1.7"
+  ],
+  "compiler_refusals": {
+    "escaped_borrow": [
+      "E0597"
+    ],
+    "raw_indices": [
+      "E0499"
+    ]
+  },
+  "python": "3.12.14",
+  "valid": {
+    "0": {
+      "counts": {
+        "out-of-bounds": 150,
+        "overlap": 10,
+        "paired": 20
+      },
+      "observations_sha256": "986b155cbd1442fcb162d2cafd3121f33473ff6ac6d8621245d7c601fbc2fb6c"
+    },
+    "2": {
+      "counts": {
+        "out-of-bounds": 150,
+        "overlap": 10,
+        "paired": 20
+      },
+      "observations_sha256": "986b155cbd1442fcb162d2cafd3121f33473ff6ac6d8621245d7c601fbc2fb6c"
+    }
+  }
+}
