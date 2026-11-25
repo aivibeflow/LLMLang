@@ -51,6 +51,7 @@ def enumerate_models():
             assert not global_laws or not order_dependent
             assert not pair_contracts or bool(triples) == order_dependent
             counts["typed"] += 1
+            counts["typed_but_order_dependent"] += order_dependent
             counts["pair_contracts"] += pair_contracts
             counts["global_laws"] += global_laws
             counts["pair_contracts_but_order_dependent"] += pair_contracts and order_dependent
@@ -59,7 +60,8 @@ def enumerate_models():
                 "transitivity_failures": triples, "partitions_by_order": observations,
                 "pair_contracts": pair_contracts, "global_laws": global_laws,
             })
-    assert counts == {"typed": 216, "pair_contracts": 66, "global_laws": 57,
+    assert counts == {"typed": 216, "typed_but_order_dependent": 9,
+                      "pair_contracts": 66, "global_laws": 57,
                       "pair_contracts_but_order_dependent": 9}
     witness = next(row for row in cases if row["edges"] == (True, False, True)
                    and row["hashes_by_value"] == (0, 0, 0))

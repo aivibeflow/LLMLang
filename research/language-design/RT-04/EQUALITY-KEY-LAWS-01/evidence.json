@@ -3,7 +3,7 @@
   "python": "3.12.14",
   "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
   "source_sha256": {
-    "run.py": "82480dc3021d9e38b3286f18316cb9053eec1e694229a055989c24dbd5c30546",
+    "run.py": "a9bf65b252023051e8a3872fa2b7b0e433337a5fad68024a89497d5b5c0d3670",
     "EqualityLaws.lean": "67dafb292bc4acdd9257a1296e6e4c4f425ff1f6842d257a284eae0823df8fe7"
   },
   "axiom_report": [
@@ -66,6 +66,7 @@
   ],
   "counts": {
     "typed": 216,
+    "typed_but_order_dependent": 9,
     "pair_contracts": 66,
     "global_laws": 57,
     "pair_contracts_but_order_dependent": 9

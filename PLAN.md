@@ -1145,7 +1145,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define compatibility between types exposed by different implementations.
   - [x] Compile eight provider variants and twelve separate clients for opaque and erased Rust results. The six admitted providers agree on the method result, while one opaque replacement changes native size and breaks Send clients without a signature edit. Explicit Send rejects that provider at definition. Binary compatibility and LLMLang policy remain open. [RT-04 opaque provider compatibility](research/language-design/RT-04/RT-04-OPAQUE-PROVIDER-COMPATIBILITY-2026-11-25.md)
 - [ ] Determine which guarantees are enforced by types, contracts, or proofs.
-  - [x] Compare type, pairwise contract and global law admission over 216 equality/hash models and 1,296 insertions. Nine models satisfy every pairwise hash check yet are order-dependent. Lean checks projection-derived equivalence and compatible hashing, plus the transitivity counterexample. General collection and custom-equality policy remain open. [Collection key laws](research/language-design/RT-04/RT-04-EQUALITY-KEY-LAWS-2026-11-25.md)
+  - [x] Compare type, pairwise contract and global law admission over 216 equality/hash models and 1,296 insertion-order trials. Nine models satisfy every pairwise hash check yet are order-dependent. Lean checks projection-derived equivalence and compatible hashing, plus the transitivity counterexample. General collection and custom-equality policy remain open. [Collection key laws](research/language-design/RT-04/RT-04-EQUALITY-KEY-LAWS-2026-11-25.md)
 
 **Existing evidence:** concept and formal-verification research; typed requirement and typed relational IR prototypes.
 

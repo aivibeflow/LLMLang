@@ -29,7 +29,7 @@ The independent Python fixture exhaustively enumerates all eight reflexive symme
 
 | Admission criterion | Models admitted out of 216 | Admitted models with order-dependent membership |
 | --- | ---: | ---: |
-| Typed relation and hash in the declared finite profile | 216 | See per-case ledger |
+| Typed relation and hash in the declared finite profile | 216 | 9 |
 | All equal pairs hash together | 66 | 9 |
 | Pairwise agreement and transitivity over all triples | 57 | 0 |
 
