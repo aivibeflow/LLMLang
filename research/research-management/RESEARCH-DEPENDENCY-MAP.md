@@ -24,6 +24,8 @@ The Cortex-M3 replay rechecks DEP-017, DEP-019 and DEP-024 across twelve exact l
 
 The RT-32 cohort confirms selected DEP-007, DEP-012 and DEP-054 interfaces by independently reproducing the exact antecedent bytes, proof and cache keys. Definitionally usable proof terms, byte-exact module reuse and closure over current binding and trust have separate admission conditions. [RT-32 lifetime replay](RT-00/RT-00-RT32-LIFETIME-REPLAY-2026-11-25.md)
 
+The four-participant history oracle refines DEP-007, DEP-014, DEP-018 and DEP-019 for a no-wrap sequentially consistent increment. Full real-time precedence and exact returns separate an all-history update guarantee from one sequential proof. [Four-participant histories](../formal-verification/RT-07/RT-07-FOUR-COUNTER-HISTORIES-2026-11-25.md)
+
 This map describes how choices in one LLMLang aspect can affect other aspects. It is a research-planning instrument, not a normative architecture and not a claim that every edge has already been proven.
 
 The direction of an edge is **source aspect → affected aspect**. It means a change or choice in the source can impose requirements on, constrain, enable, or alter the trade-offs of the target.
