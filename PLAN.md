@@ -1467,6 +1467,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define global semantic artifact store and registry interfaces.
 - [ ] Define artifact publication, signing, mirroring, licensing, revocation, retention, and garbage collection.
 - [ ] Separate content integrity from publisher trust and licensing rights.
+  - [ ] [WIP] Compare exact package bytes, signed publisher authority and independently scoped declared rights across mirrored deliveries on `research/all`.
 - [ ] Define opaque implementation evidence and verification limitations.
 
 **Existing evidence:** `research/LIBRARIES-AND-TEMPLATES.md` and `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`; related TODO items LL-006–LL-012.
