@@ -97,6 +97,8 @@ For a closed two-integer profile, [restricted affine certificates](../formal-ver
 
 [Cross-runtime F64 identity](../semantic-representation/RT-05/RT-05-CROSS-RUNTIME-F64-IDENTITY-2026-11-25.md) compares exact bits, canonical NaNs, SameValueZero, and ordinary JSON. Exact bytes preserve all 210 words. NaN-only normalization preserves the measured numeric vector, while merging zeros changes signed reciprocal output and native Node arrays quiet signaling NaNs.
 
+[Native F64 minimum and maximum](../semantic-representation/RT-05/RT-05-NATIVE-F64-MINMAX-2026-11-25.md) measures five distinct numeric rules across a shared 1,024-pair corpus. Selecting a named operation requires a NaN and operand tie contract before assuming a hardware or host-library lowering preserves it.
+
 [Cross-runtime I64 encoding](../semantic-representation/RT-05/RT-05-CROSS-RUNTIME-I64-ENCODING-2026-11-25.md) compares bare JSON number consumption, a safe-integer restriction, preserved numeric source tokens, canonical decimal text and fixed-width hexadecimal. The exact routes share the same typed graph root. Bare JavaScript numbers change 56 observed values. Payload size and parser compatibility remain separate from semantic identity.
 
 [Stateful bound method](../semantic-representation/RT-05/RT-05-STATEFUL-BOUND-METHOD-2026-11-25.md) compares code, captured values and explicit shared mutable cells in C and Rust. Identical method code remains reusable while the executable receiver descriptor retains the state its observations depend on.
