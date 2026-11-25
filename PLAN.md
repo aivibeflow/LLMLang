@@ -849,6 +849,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Define cycles and strongly connected components for analysis and scheduling.
   - [x] Check reproducible provider-first SCC schedules on all 512 directed graphs and 4,096 fact assignments. Across 36,864 edited cases, stale plans omit required facts in 4,448 cases if unresolved inputs default to empty. Lean checks propagation along finite dependency paths. [SCC dependency scheduling](research/semantic-representation/RT-06/RT-06-SCC-DEPENDENCY-SCHEDULING-2026-11-25.md)
 - [ ] Define change-impact analysis for requirement, contract, design, implementation, and target changes.
+  - [ ] [WIP] Check exact change-impact propagation for requirements, contracts, design, implementation and target scope through a typed evidence/action graph on `research/all`.
 
 **Existing evidence:** scenarios 18–28 and prototypes 18–28 in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`.
 
