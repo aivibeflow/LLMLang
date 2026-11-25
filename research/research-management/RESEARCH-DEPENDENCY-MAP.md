@@ -452,6 +452,8 @@ RT-27 studies the physical repository representation for large SPG collections. 
 
 These edges are research dependencies, not a storage decision. In particular, they do not imply that Git efficiently delta-compresses every binary/container representation or that one-file-per-object is acceptable.
 
+The [recursive group storage comparison](../semantic-representation/RT-05/RT-05-RECURSIVE-GROUP-STORAGE-2026-11-25.md) checks exact reconstruction, sparse reads and group-bound cache behavior. New physical bytes can fall while all member semantics are invalidated through the pinned group.
+
 ## 16. Incremental polyglot migration and semantic mirroring (RT-28)
 
 RT-28 depends on LLMLang's semantic identity, dependency, verification, compiler/frontend, runtime, Toolchain, repository, and merge foundations. It also creates a cross-project workflow boundary with AIVibeFlow. The source-language repository and the LLMLang semantic mirror are distinct repositories with distinct providers and authority.

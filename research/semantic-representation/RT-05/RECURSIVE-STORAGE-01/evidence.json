@@ -1,0 +1,933 @@
+{
+  "schema": "llmlang-recursive-group-storage/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "archive.py": "e97713d75fda24c67eded2c7c5a3f3ab5f4f2fea59af20082b26484caedfba10",
+    "run.py": "d832839f1167ac49a4d2c48dc3881b1d8d1789d455cf2a10871ba2d2c1e41078"
+  },
+  "store_source_sha256": {
+    "recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556",
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "restored_group_layouts": 45,
+  "oracle_comparisons": 405,
+  "groups": [
+    {
+      "size": 8,
+      "variant": "base",
+      "semantic_group": "362d0a3981a036c93768774f2bcd20c6dc06ae7dfd197b5d74712ae821b4ed56",
+      "changed_semantic_addresses": 0,
+      "layouts": {
+        "whole": {
+          "root": "186cf5731b960903e32de56c0db7c3cf946848c79172e0047b99139fb68ad679",
+          "full_admission_bytes": 1712,
+          "stored_objects": 1,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1712,
+            "entry0/fuel4": 1712,
+            "entry0/fuel9": 1712,
+            "entry4/fuel1": 1712,
+            "entry4/fuel4": 1712,
+            "entry4/fuel9": 1712,
+            "entry7/fuel1": 1712,
+            "entry7/fuel4": 1712,
+            "entry7/fuel9": 1712
+          }
+        },
+        "flat": {
+          "root": "ec834edb895dd0434257c530ad6bd494c8a9f1d2924a4d20b3743c1faaf227a8",
+          "full_admission_bytes": 2241,
+          "stored_objects": 9,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 971,
+            "entry0/fuel4": 1451,
+            "entry0/fuel9": 2241,
+            "entry4/fuel1": 1091,
+            "entry4/fuel4": 1621,
+            "entry4/fuel9": 2241,
+            "entry7/fuel1": 971,
+            "entry7/fuel4": 1421,
+            "entry7/fuel9": 2241
+          }
+        },
+        "blocked": {
+          "root": "26fb17b256722bad4a57df75c5e88fff8895c69209bcbb62d430049a49b0cb68",
+          "full_admission_bytes": 2312,
+          "stored_objects": 10,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1042,
+            "entry0/fuel4": 1522,
+            "entry0/fuel9": 2312,
+            "entry4/fuel1": 1162,
+            "entry4/fuel4": 1692,
+            "entry4/fuel9": 2312,
+            "entry7/fuel1": 1042,
+            "entry7/fuel4": 1492,
+            "entry7/fuel9": 2312
+          }
+        }
+      }
+    },
+    {
+      "size": 8,
+      "variant": "display_rename",
+      "semantic_group": "362d0a3981a036c93768774f2bcd20c6dc06ae7dfd197b5d74712ae821b4ed56",
+      "changed_semantic_addresses": 0,
+      "layouts": {
+        "whole": {
+          "root": "186cf5731b960903e32de56c0db7c3cf946848c79172e0047b99139fb68ad679",
+          "full_admission_bytes": 1712,
+          "stored_objects": 1,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1712,
+            "entry0/fuel4": 1712,
+            "entry0/fuel9": 1712,
+            "entry4/fuel1": 1712,
+            "entry4/fuel4": 1712,
+            "entry4/fuel9": 1712,
+            "entry7/fuel1": 1712,
+            "entry7/fuel4": 1712,
+            "entry7/fuel9": 1712
+          }
+        },
+        "flat": {
+          "root": "ec834edb895dd0434257c530ad6bd494c8a9f1d2924a4d20b3743c1faaf227a8",
+          "full_admission_bytes": 2241,
+          "stored_objects": 9,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 971,
+            "entry0/fuel4": 1451,
+            "entry0/fuel9": 2241,
+            "entry4/fuel1": 1091,
+            "entry4/fuel4": 1621,
+            "entry4/fuel9": 2241,
+            "entry7/fuel1": 971,
+            "entry7/fuel4": 1421,
+            "entry7/fuel9": 2241
+          }
+        },
+        "blocked": {
+          "root": "26fb17b256722bad4a57df75c5e88fff8895c69209bcbb62d430049a49b0cb68",
+          "full_admission_bytes": 2312,
+          "stored_objects": 10,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1042,
+            "entry0/fuel4": 1522,
+            "entry0/fuel9": 2312,
+            "entry4/fuel1": 1162,
+            "entry4/fuel4": 1692,
+            "entry4/fuel9": 2312,
+            "entry7/fuel1": 1042,
+            "entry7/fuel4": 1492,
+            "entry7/fuel9": 2312
+          }
+        }
+      }
+    },
+    {
+      "size": 8,
+      "variant": "body_edit",
+      "semantic_group": "e35ba00a97765d10893465af626eb73ef9935ab32b34cb5d730dde27a99aa3b0",
+      "changed_semantic_addresses": 9,
+      "layouts": {
+        "whole": {
+          "root": "f7108fd3123ec1bed54b232b3bedbf327b5d310c64144e5646809b57f7440682",
+          "full_admission_bytes": 1713,
+          "stored_objects": 1,
+          "new_bytes": 1713,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1713,
+            "entry0/fuel4": 1713,
+            "entry0/fuel9": 1713,
+            "entry4/fuel1": 1713,
+            "entry4/fuel4": 1713,
+            "entry4/fuel9": 1713,
+            "entry7/fuel1": 1713,
+            "entry7/fuel4": 1713,
+            "entry7/fuel9": 1713
+          }
+        },
+        "flat": {
+          "root": "2710ac3b329c197841ce68997754db4904092f2acb5272b41550fd69e2e6a562",
+          "full_admission_bytes": 2242,
+          "stored_objects": 9,
+          "new_bytes": 1092,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 971,
+            "entry0/fuel4": 1451,
+            "entry0/fuel9": 2242,
+            "entry4/fuel1": 1092,
+            "entry4/fuel4": 1622,
+            "entry4/fuel9": 2242,
+            "entry7/fuel1": 971,
+            "entry7/fuel4": 1421,
+            "entry7/fuel9": 2242
+          }
+        },
+        "blocked": {
+          "root": "bca8e84cae6c055f4dfd528baa45b0c0b71996340fb921b591198ab8bce6e825",
+          "full_admission_bytes": 2313,
+          "stored_objects": 10,
+          "new_bytes": 1163,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1042,
+            "entry0/fuel4": 1522,
+            "entry0/fuel9": 2313,
+            "entry4/fuel1": 1163,
+            "entry4/fuel4": 1693,
+            "entry4/fuel9": 2313,
+            "entry7/fuel1": 1042,
+            "entry7/fuel4": 1492,
+            "entry7/fuel9": 2313
+          }
+        }
+      }
+    },
+    {
+      "size": 8,
+      "variant": "provider_edit",
+      "semantic_group": "5510f6ecc400b9276de4071d4b84c0ef5008b2804abd3c2c258cdb8e8f3245c7",
+      "changed_semantic_addresses": 9,
+      "layouts": {
+        "whole": {
+          "root": "f31115e4ec4a5453cc2c7ae19223a08ee39d979905e8027127ed82f4738461d3",
+          "full_admission_bytes": 1712,
+          "stored_objects": 1,
+          "new_bytes": 1712,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1712,
+            "entry0/fuel4": 1712,
+            "entry0/fuel9": 1712,
+            "entry4/fuel1": 1712,
+            "entry4/fuel4": 1712,
+            "entry4/fuel9": 1712,
+            "entry7/fuel1": 1712,
+            "entry7/fuel4": 1712,
+            "entry7/fuel9": 1712
+          }
+        },
+        "flat": {
+          "root": "b6b8bf96f56e79f1f3ab070b5d154296b0a9d5c8c83bf03278f3fbd3fd6a8267",
+          "full_admission_bytes": 2241,
+          "stored_objects": 9,
+          "new_bytes": 1091,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 971,
+            "entry0/fuel4": 1451,
+            "entry0/fuel9": 2241,
+            "entry4/fuel1": 1091,
+            "entry4/fuel4": 1621,
+            "entry4/fuel9": 2241,
+            "entry7/fuel1": 971,
+            "entry7/fuel4": 1421,
+            "entry7/fuel9": 2241
+          }
+        },
+        "blocked": {
+          "root": "1141f90b72dce116e5fb68b705feee86eddb60583c6d173c02f4ca2b617ef8bf",
+          "full_admission_bytes": 2312,
+          "stored_objects": 10,
+          "new_bytes": 1162,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1042,
+            "entry0/fuel4": 1522,
+            "entry0/fuel9": 2312,
+            "entry4/fuel1": 1162,
+            "entry4/fuel4": 1692,
+            "entry4/fuel9": 2312,
+            "entry7/fuel1": 1042,
+            "entry7/fuel4": 1492,
+            "entry7/fuel9": 2312
+          }
+        }
+      }
+    },
+    {
+      "size": 8,
+      "variant": "slot_rotate",
+      "semantic_group": "8300ca8c201f5bbf3f97c61a4ce84ed540f127d715d6626c75a1e1d05733293d",
+      "changed_semantic_addresses": 9,
+      "layouts": {
+        "whole": {
+          "root": "630febfd556a9f0e3b7bce235b00576e289a0408a58cf3ffeba1ebe0537f70a1",
+          "full_admission_bytes": 1712,
+          "stored_objects": 1,
+          "new_bytes": 1712,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1712,
+            "entry0/fuel4": 1712,
+            "entry0/fuel9": 1712,
+            "entry4/fuel1": 1712,
+            "entry4/fuel4": 1712,
+            "entry4/fuel9": 1712,
+            "entry7/fuel1": 1712,
+            "entry7/fuel4": 1712,
+            "entry7/fuel9": 1712
+          }
+        },
+        "flat": {
+          "root": "6faff8df0189494f5d38e418823161a65336cec651aff0657f2735fa0a300b1a",
+          "full_admission_bytes": 2241,
+          "stored_objects": 9,
+          "new_bytes": 2241,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 971,
+            "entry0/fuel4": 1451,
+            "entry0/fuel9": 2241,
+            "entry4/fuel1": 1091,
+            "entry4/fuel4": 1621,
+            "entry4/fuel9": 2241,
+            "entry7/fuel1": 971,
+            "entry7/fuel4": 1421,
+            "entry7/fuel9": 2241
+          }
+        },
+        "blocked": {
+          "root": "0dc6978a918346011b7f74c56d10754c1e8d43233def5e33ecee6b32db4acd50",
+          "full_admission_bytes": 2312,
+          "stored_objects": 10,
+          "new_bytes": 2312,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1042,
+            "entry0/fuel4": 1522,
+            "entry0/fuel9": 2312,
+            "entry4/fuel1": 1162,
+            "entry4/fuel4": 1692,
+            "entry4/fuel9": 2312,
+            "entry7/fuel1": 1042,
+            "entry7/fuel4": 1492,
+            "entry7/fuel9": 2312
+          }
+        }
+      }
+    },
+    {
+      "size": 64,
+      "variant": "base",
+      "semantic_group": "12297f3d8dc69bad801a7f2a68ed0cace9cdf32efeb8d12e695dbfc4fde13f5c",
+      "changed_semantic_addresses": 0,
+      "layouts": {
+        "whole": {
+          "root": "ff4aea41106ac08711076b15e840d81fa59f698e3c244d769e778eb2d5ee77b2",
+          "full_admission_bytes": 11343,
+          "stored_objects": 1,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 11343,
+            "entry0/fuel4": 11343,
+            "entry0/fuel65": 11343,
+            "entry32/fuel1": 11343,
+            "entry32/fuel4": 11343,
+            "entry32/fuel65": 11343,
+            "entry63/fuel1": 11343,
+            "entry63/fuel4": 11343,
+            "entry63/fuel65": 11343
+          }
+        },
+        "flat": {
+          "root": "827ebe38468e7ea011678ad35c9d34636cb6f18b22b204fbc9f623c7bf833513",
+          "full_admission_bytes": 15568,
+          "stored_objects": 65,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 4724,
+            "entry0/fuel4": 5204,
+            "entry0/fuel65": 15568,
+            "entry32/fuel1": 4845,
+            "entry32/fuel4": 5378,
+            "entry32/fuel65": 15568,
+            "entry63/fuel1": 4724,
+            "entry63/fuel4": 5174,
+            "entry63/fuel65": 15568
+          }
+        },
+        "blocked": {
+          "root": "b64abf078cc5c6bc6ef006ea7401a155c385fdb699c01d16237eb8e298564c46",
+          "full_admission_bytes": 15843,
+          "stored_objects": 69,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1780,
+            "entry0/fuel4": 2260,
+            "entry0/fuel65": 15843,
+            "entry32/fuel1": 1901,
+            "entry32/fuel4": 2434,
+            "entry32/fuel65": 15843,
+            "entry63/fuel1": 1780,
+            "entry63/fuel4": 3303,
+            "entry63/fuel65": 15843
+          }
+        }
+      }
+    },
+    {
+      "size": 64,
+      "variant": "display_rename",
+      "semantic_group": "12297f3d8dc69bad801a7f2a68ed0cace9cdf32efeb8d12e695dbfc4fde13f5c",
+      "changed_semantic_addresses": 0,
+      "layouts": {
+        "whole": {
+          "root": "ff4aea41106ac08711076b15e840d81fa59f698e3c244d769e778eb2d5ee77b2",
+          "full_admission_bytes": 11343,
+          "stored_objects": 1,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 11343,
+            "entry0/fuel4": 11343,
+            "entry0/fuel65": 11343,
+            "entry32/fuel1": 11343,
+            "entry32/fuel4": 11343,
+            "entry32/fuel65": 11343,
+            "entry63/fuel1": 11343,
+            "entry63/fuel4": 11343,
+            "entry63/fuel65": 11343
+          }
+        },
+        "flat": {
+          "root": "827ebe38468e7ea011678ad35c9d34636cb6f18b22b204fbc9f623c7bf833513",
+          "full_admission_bytes": 15568,
+          "stored_objects": 65,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 4724,
+            "entry0/fuel4": 5204,
+            "entry0/fuel65": 15568,
+            "entry32/fuel1": 4845,
+            "entry32/fuel4": 5378,
+            "entry32/fuel65": 15568,
+            "entry63/fuel1": 4724,
+            "entry63/fuel4": 5174,
+            "entry63/fuel65": 15568
+          }
+        },
+        "blocked": {
+          "root": "b64abf078cc5c6bc6ef006ea7401a155c385fdb699c01d16237eb8e298564c46",
+          "full_admission_bytes": 15843,
+          "stored_objects": 69,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1780,
+            "entry0/fuel4": 2260,
+            "entry0/fuel65": 15843,
+            "entry32/fuel1": 1901,
+            "entry32/fuel4": 2434,
+            "entry32/fuel65": 15843,
+            "entry63/fuel1": 1780,
+            "entry63/fuel4": 3303,
+            "entry63/fuel65": 15843
+          }
+        }
+      }
+    },
+    {
+      "size": 64,
+      "variant": "body_edit",
+      "semantic_group": "1bf5ec0aa55d5091f0765493723a5dab194e96a43db38d5a0d550cf787e80197",
+      "changed_semantic_addresses": 65,
+      "layouts": {
+        "whole": {
+          "root": "9d615aa350188233e60d0d48d44bad525afd5195b5ab19ae8d0dec901a17fca4",
+          "full_admission_bytes": 11344,
+          "stored_objects": 1,
+          "new_bytes": 11344,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 11344,
+            "entry0/fuel4": 11344,
+            "entry0/fuel65": 11344,
+            "entry32/fuel1": 11344,
+            "entry32/fuel4": 11344,
+            "entry32/fuel65": 11344,
+            "entry63/fuel1": 11344,
+            "entry63/fuel4": 11344,
+            "entry63/fuel65": 11344
+          }
+        },
+        "flat": {
+          "root": "ab01726a90a721107f70e0b0f654ace834c3204441e21864b6b3e0524f055a7f",
+          "full_admission_bytes": 15569,
+          "stored_objects": 65,
+          "new_bytes": 4846,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 4724,
+            "entry0/fuel4": 5204,
+            "entry0/fuel65": 15569,
+            "entry32/fuel1": 4846,
+            "entry32/fuel4": 5379,
+            "entry32/fuel65": 15569,
+            "entry63/fuel1": 4724,
+            "entry63/fuel4": 5174,
+            "entry63/fuel65": 15569
+          }
+        },
+        "blocked": {
+          "root": "6e66199759e0c87e412ee7bfcefce04189d708e80a729b73b899a597886210c4",
+          "full_admission_bytes": 15844,
+          "stored_objects": 69,
+          "new_bytes": 1902,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1780,
+            "entry0/fuel4": 2260,
+            "entry0/fuel65": 15844,
+            "entry32/fuel1": 1902,
+            "entry32/fuel4": 2435,
+            "entry32/fuel65": 15844,
+            "entry63/fuel1": 1780,
+            "entry63/fuel4": 3303,
+            "entry63/fuel65": 15844
+          }
+        }
+      }
+    },
+    {
+      "size": 64,
+      "variant": "provider_edit",
+      "semantic_group": "bf72a8b13c229c48b766eb70d5af2502d1f6d4aa8b8e255458a6b17a1dd57e30",
+      "changed_semantic_addresses": 65,
+      "layouts": {
+        "whole": {
+          "root": "83f18c18c452a69508db8bdcf4533cc0b2eb52dedd7064bddd58bcc174eb6ce0",
+          "full_admission_bytes": 11343,
+          "stored_objects": 1,
+          "new_bytes": 11343,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 11343,
+            "entry0/fuel4": 11343,
+            "entry0/fuel65": 11343,
+            "entry32/fuel1": 11343,
+            "entry32/fuel4": 11343,
+            "entry32/fuel65": 11343,
+            "entry63/fuel1": 11343,
+            "entry63/fuel4": 11343,
+            "entry63/fuel65": 11343
+          }
+        },
+        "flat": {
+          "root": "6605426c1d2bf278ce798efb3d31e843c4efd7e7786dd1079f92f8946d90e1dd",
+          "full_admission_bytes": 15568,
+          "stored_objects": 65,
+          "new_bytes": 4845,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 4724,
+            "entry0/fuel4": 5204,
+            "entry0/fuel65": 15568,
+            "entry32/fuel1": 4845,
+            "entry32/fuel4": 5378,
+            "entry32/fuel65": 15568,
+            "entry63/fuel1": 4724,
+            "entry63/fuel4": 5174,
+            "entry63/fuel65": 15568
+          }
+        },
+        "blocked": {
+          "root": "b02a6e74998366874f53a046982ec46baded9f74440c7ce02438675580d1d933",
+          "full_admission_bytes": 15843,
+          "stored_objects": 69,
+          "new_bytes": 1901,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1780,
+            "entry0/fuel4": 2260,
+            "entry0/fuel65": 15843,
+            "entry32/fuel1": 1901,
+            "entry32/fuel4": 2434,
+            "entry32/fuel65": 15843,
+            "entry63/fuel1": 1780,
+            "entry63/fuel4": 3303,
+            "entry63/fuel65": 15843
+          }
+        }
+      }
+    },
+    {
+      "size": 64,
+      "variant": "slot_rotate",
+      "semantic_group": "52e23642985eb482da60be6e73121aeecda6ac01b31c99da79095e88f9a23aea",
+      "changed_semantic_addresses": 65,
+      "layouts": {
+        "whole": {
+          "root": "41f3149a4dd741f4e30abe10460456cb782c9a5179e89a2d7e87b98e2f4f2f49",
+          "full_admission_bytes": 11343,
+          "stored_objects": 1,
+          "new_bytes": 11343,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 11343,
+            "entry0/fuel4": 11343,
+            "entry0/fuel65": 11343,
+            "entry32/fuel1": 11343,
+            "entry32/fuel4": 11343,
+            "entry32/fuel65": 11343,
+            "entry63/fuel1": 11343,
+            "entry63/fuel4": 11343,
+            "entry63/fuel65": 11343
+          }
+        },
+        "flat": {
+          "root": "acb2e35fbef17523bf32b949d78efb2ccef4a368a38ea49b4cc7e18ae5e8e57e",
+          "full_admission_bytes": 15568,
+          "stored_objects": 65,
+          "new_bytes": 15568,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 4724,
+            "entry0/fuel4": 5204,
+            "entry0/fuel65": 15568,
+            "entry32/fuel1": 4845,
+            "entry32/fuel4": 5378,
+            "entry32/fuel65": 15568,
+            "entry63/fuel1": 4724,
+            "entry63/fuel4": 5174,
+            "entry63/fuel65": 15568
+          }
+        },
+        "blocked": {
+          "root": "ec8d9f013a0f870ece6c0f7f11940124b90997584c7d90b4231d3db8aa6871d2",
+          "full_admission_bytes": 15843,
+          "stored_objects": 69,
+          "new_bytes": 15843,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 1780,
+            "entry0/fuel4": 2260,
+            "entry0/fuel65": 15843,
+            "entry32/fuel1": 1901,
+            "entry32/fuel4": 2434,
+            "entry32/fuel65": 15843,
+            "entry63/fuel1": 1780,
+            "entry63/fuel4": 2230,
+            "entry63/fuel65": 15843
+          }
+        }
+      }
+    },
+    {
+      "size": 256,
+      "variant": "base",
+      "semantic_group": "394ee55e3a80d63299ea4ed8281b04c580b4efc0377f9ad2a75efa3d52f25be9",
+      "changed_semantic_addresses": 0,
+      "layouts": {
+        "whole": {
+          "root": "94501fcdee570f24b3ada827d2d68222cd73f4dbd22bb2f9376185f47ecb1fd8",
+          "full_admission_bytes": 44494,
+          "stored_objects": 1,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 44494,
+            "entry0/fuel4": 44494,
+            "entry0/fuel257": 44494,
+            "entry128/fuel1": 44494,
+            "entry128/fuel4": 44494,
+            "entry128/fuel257": 44494,
+            "entry255/fuel1": 44494,
+            "entry255/fuel4": 44494,
+            "entry255/fuel257": 44494
+          }
+        },
+        "flat": {
+          "root": "665ac84a3b09602a0bc8e6dc6f2d6847076f4204965166ce6aa007368218151d",
+          "full_admission_bytes": 61391,
+          "stored_objects": 257,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 17589,
+            "entry0/fuel4": 18069,
+            "entry0/fuel257": 61391,
+            "entry128/fuel1": 17691,
+            "entry128/fuel4": 18237,
+            "entry128/fuel257": 61391,
+            "entry255/fuel1": 17619,
+            "entry255/fuel4": 18069,
+            "entry255/fuel257": 61391
+          }
+        },
+        "blocked": {
+          "root": "805403fb529e369c46d117960d1fc75afc2799dca6187c5f6b6a4bb53f8d7aa5",
+          "full_admission_bytes": 62482,
+          "stored_objects": 273,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 2585,
+            "entry0/fuel4": 3065,
+            "entry0/fuel257": 62482,
+            "entry128/fuel1": 2687,
+            "entry128/fuel4": 3233,
+            "entry128/fuel257": 62482,
+            "entry255/fuel1": 2615,
+            "entry255/fuel4": 4138,
+            "entry255/fuel257": 62482
+          }
+        }
+      }
+    },
+    {
+      "size": 256,
+      "variant": "display_rename",
+      "semantic_group": "394ee55e3a80d63299ea4ed8281b04c580b4efc0377f9ad2a75efa3d52f25be9",
+      "changed_semantic_addresses": 0,
+      "layouts": {
+        "whole": {
+          "root": "94501fcdee570f24b3ada827d2d68222cd73f4dbd22bb2f9376185f47ecb1fd8",
+          "full_admission_bytes": 44494,
+          "stored_objects": 1,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 44494,
+            "entry0/fuel4": 44494,
+            "entry0/fuel257": 44494,
+            "entry128/fuel1": 44494,
+            "entry128/fuel4": 44494,
+            "entry128/fuel257": 44494,
+            "entry255/fuel1": 44494,
+            "entry255/fuel4": 44494,
+            "entry255/fuel257": 44494
+          }
+        },
+        "flat": {
+          "root": "665ac84a3b09602a0bc8e6dc6f2d6847076f4204965166ce6aa007368218151d",
+          "full_admission_bytes": 61391,
+          "stored_objects": 257,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 17589,
+            "entry0/fuel4": 18069,
+            "entry0/fuel257": 61391,
+            "entry128/fuel1": 17691,
+            "entry128/fuel4": 18237,
+            "entry128/fuel257": 61391,
+            "entry255/fuel1": 17619,
+            "entry255/fuel4": 18069,
+            "entry255/fuel257": 61391
+          }
+        },
+        "blocked": {
+          "root": "805403fb529e369c46d117960d1fc75afc2799dca6187c5f6b6a4bb53f8d7aa5",
+          "full_admission_bytes": 62482,
+          "stored_objects": 273,
+          "new_bytes": 0,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 2585,
+            "entry0/fuel4": 3065,
+            "entry0/fuel257": 62482,
+            "entry128/fuel1": 2687,
+            "entry128/fuel4": 3233,
+            "entry128/fuel257": 62482,
+            "entry255/fuel1": 2615,
+            "entry255/fuel4": 4138,
+            "entry255/fuel257": 62482
+          }
+        }
+      }
+    },
+    {
+      "size": 256,
+      "variant": "body_edit",
+      "semantic_group": "7b964a3f4aac487325c3e968117b3ea1371ce816fa50f27553d9c4b93e52f50e",
+      "changed_semantic_addresses": 257,
+      "layouts": {
+        "whole": {
+          "root": "e13e3d9d12d30392eb3411f959edfb2b59378e09e65c9d770badfa7ba1933d17",
+          "full_admission_bytes": 44495,
+          "stored_objects": 1,
+          "new_bytes": 44495,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 44495,
+            "entry0/fuel4": 44495,
+            "entry0/fuel257": 44495,
+            "entry128/fuel1": 44495,
+            "entry128/fuel4": 44495,
+            "entry128/fuel257": 44495,
+            "entry255/fuel1": 44495,
+            "entry255/fuel4": 44495,
+            "entry255/fuel257": 44495
+          }
+        },
+        "flat": {
+          "root": "e91ef8a2f13dcbd03be159a1b74e6b40471d26f5009a18c88e8c39623a2f953a",
+          "full_admission_bytes": 61392,
+          "stored_objects": 257,
+          "new_bytes": 17692,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 17589,
+            "entry0/fuel4": 18069,
+            "entry0/fuel257": 61392,
+            "entry128/fuel1": 17692,
+            "entry128/fuel4": 18238,
+            "entry128/fuel257": 61392,
+            "entry255/fuel1": 17619,
+            "entry255/fuel4": 18069,
+            "entry255/fuel257": 61392
+          }
+        },
+        "blocked": {
+          "root": "fd86361ed61bff93d8c0ff015619c3fe1faf20a700fc766694c161c09145ffe9",
+          "full_admission_bytes": 62483,
+          "stored_objects": 273,
+          "new_bytes": 2688,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 2585,
+            "entry0/fuel4": 3065,
+            "entry0/fuel257": 62483,
+            "entry128/fuel1": 2688,
+            "entry128/fuel4": 3234,
+            "entry128/fuel257": 62483,
+            "entry255/fuel1": 2615,
+            "entry255/fuel4": 4138,
+            "entry255/fuel257": 62483
+          }
+        }
+      }
+    },
+    {
+      "size": 256,
+      "variant": "provider_edit",
+      "semantic_group": "a0635eea825e2f9f83ee09c98d309ed2cb01e0af7941681d6d76aa6f652b3542",
+      "changed_semantic_addresses": 257,
+      "layouts": {
+        "whole": {
+          "root": "80437a6f85c91720c28e301b5d26284565040474fe3710829bda694004a2ff3d",
+          "full_admission_bytes": 44494,
+          "stored_objects": 1,
+          "new_bytes": 44494,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 44494,
+            "entry0/fuel4": 44494,
+            "entry0/fuel257": 44494,
+            "entry128/fuel1": 44494,
+            "entry128/fuel4": 44494,
+            "entry128/fuel257": 44494,
+            "entry255/fuel1": 44494,
+            "entry255/fuel4": 44494,
+            "entry255/fuel257": 44494
+          }
+        },
+        "flat": {
+          "root": "646de2ac2e9f62cf9be33f6e26e30b0bbf2cf39794a4c528bad05f93d9eb3436",
+          "full_admission_bytes": 61391,
+          "stored_objects": 257,
+          "new_bytes": 17691,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 17589,
+            "entry0/fuel4": 18069,
+            "entry0/fuel257": 61391,
+            "entry128/fuel1": 17691,
+            "entry128/fuel4": 18237,
+            "entry128/fuel257": 61391,
+            "entry255/fuel1": 17619,
+            "entry255/fuel4": 18069,
+            "entry255/fuel257": 61391
+          }
+        },
+        "blocked": {
+          "root": "4a92c17f93dcd2dce6d085dff28840ac72aacb5e17d58bb320b41558d78a8aee",
+          "full_admission_bytes": 62482,
+          "stored_objects": 273,
+          "new_bytes": 2687,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 2585,
+            "entry0/fuel4": 3065,
+            "entry0/fuel257": 62482,
+            "entry128/fuel1": 2687,
+            "entry128/fuel4": 3233,
+            "entry128/fuel257": 62482,
+            "entry255/fuel1": 2615,
+            "entry255/fuel4": 4138,
+            "entry255/fuel257": 62482
+          }
+        }
+      }
+    },
+    {
+      "size": 256,
+      "variant": "slot_rotate",
+      "semantic_group": "7e378d2584da21a3188f66fce1a92e217f0e64b3430435cd45000452bcc6c94b",
+      "changed_semantic_addresses": 257,
+      "layouts": {
+        "whole": {
+          "root": "52ae8c991e32b29bbe13ee15f176f4b388647739e36f82c847ddb5cf2ee9cfdc",
+          "full_admission_bytes": 44494,
+          "stored_objects": 1,
+          "new_bytes": 44494,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 44494,
+            "entry0/fuel4": 44494,
+            "entry0/fuel257": 44494,
+            "entry128/fuel1": 44494,
+            "entry128/fuel4": 44494,
+            "entry128/fuel257": 44494,
+            "entry255/fuel1": 44494,
+            "entry255/fuel4": 44494,
+            "entry255/fuel257": 44494
+          }
+        },
+        "flat": {
+          "root": "43557057dcade3fa2014a17b04d7ed4cb7896e8cb0e01f6f6c5e7e925bcc241f",
+          "full_admission_bytes": 61391,
+          "stored_objects": 257,
+          "new_bytes": 61391,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 17589,
+            "entry0/fuel4": 18069,
+            "entry0/fuel257": 61391,
+            "entry128/fuel1": 17691,
+            "entry128/fuel4": 18237,
+            "entry128/fuel257": 61391,
+            "entry255/fuel1": 17619,
+            "entry255/fuel4": 18069,
+            "entry255/fuel257": 61391
+          }
+        },
+        "blocked": {
+          "root": "ddc24a963d81c0e266c71f73a410ffb9069cd8981afe97d141975ec6ac3ac18f",
+          "full_admission_bytes": 62482,
+          "stored_objects": 273,
+          "new_bytes": 62482,
+          "post_admission_read_bytes": {
+            "entry0/fuel1": 2585,
+            "entry0/fuel4": 3065,
+            "entry0/fuel257": 62482,
+            "entry128/fuel1": 2687,
+            "entry128/fuel4": 3233,
+            "entry128/fuel257": 62482,
+            "entry255/fuel1": 2615,
+            "entry255/fuel4": 3065,
+            "entry255/fuel257": 62482
+          }
+        }
+      }
+    }
+  ],
+  "controls": [
+    {
+      "size": 8,
+      "entry_body_digest": "649804aa198a96006d8e6e054758b7719bc5f23eb45bbabca93088bf27ebe709",
+      "fuel": 5,
+      "old_observation_sha256": "758dbe44c8f6a86a72a9712d309985d1d949087ae11039b6d0f14eef76dd4012",
+      "new_observation_sha256": "d542f883bc2d438a46416a0495a95a09f06af836500090045a09f138279827b9",
+      "stale_admission": "refused",
+      "mixed_group": "refused",
+      "missing_body": "refused"
+    },
+    {
+      "size": 64,
+      "entry_body_digest": "649804aa198a96006d8e6e054758b7719bc5f23eb45bbabca93088bf27ebe709",
+      "fuel": 33,
+      "old_observation_sha256": "555c06df7f272740a2277af2d739f5f8add5ef296c68a4e485b362bc3ec4d43e",
+      "new_observation_sha256": "58951c962138f216237796330577efc3114a2dac70d3abf60de6e567183e627b",
+      "stale_admission": "refused",
+      "mixed_group": "refused",
+      "missing_body": "refused"
+    },
+    {
+      "size": 256,
+      "entry_body_digest": "649804aa198a96006d8e6e054758b7719bc5f23eb45bbabca93088bf27ebe709",
+      "fuel": 129,
+      "old_observation_sha256": "8c917fce228e981296e73a45c83c8dc813ac124515f151d99b000a9ebc13bc56",
+      "new_observation_sha256": "6182972ddf35ca0feb90f25c8cc65edf2c42702e65c04e284abf6fc2bd9f86dd",
+      "stale_admission": "refused",
+      "mixed_group": "refused",
+      "missing_body": "refused"
+    }
+  ]
+}

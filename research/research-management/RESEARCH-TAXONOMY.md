@@ -173,6 +173,8 @@ The [modular caller pilot](../semantic-representation/RT-05/PUBLIC-INTERFACE-MOD
 
 RT-34 has a checked [binary-search cost pilot](../formal-verification/RT-34/RT-34-BINARY-SEARCH-PROBE-BOUNDS-2026-11-25.md) covering exact halving bounds, two event models and a progress counterexample.
 
+RT-05 compares [physical storage for recursive groups](../semantic-representation/RT-05/RT-05-RECURSIVE-GROUP-STORAGE-2026-11-25.md) under one exact keyed semantic identity.
+
 ## 3. Required research artifact
 
 Every research report should identify:
