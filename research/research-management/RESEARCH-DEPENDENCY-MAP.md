@@ -10,6 +10,8 @@ The bounded integrated enumeration composes DEP-007, DEP-012, DEP-019, DEP-030, 
 
 The four-profile comparison exercises DEP-004, DEP-007, DEP-016 and DEP-019 on one shared finite command workload. Full agreement at fixed order leaves the actor trace set broader. An observation witness for one order does not cover the whole delivery set or establish source-to-target correspondence. [Four resource profiles](../language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md)
 
+The schedule-invariance proof refines DEP-007 and DEP-016 for the three-command scope. Local commutation and cancellation invisibility together characterize scalar preservation across all schedules. Terminal-event order still distinguishes those schedules. [Schedule invariance](../formal-verification/SCHEDULE-INVARIANCE-2026-11-25.md)
+
 The native release study checks DEP-012, DEP-043, DEP-048 and DEP-054 together in one local catalog. Exact provider closure, signed cache admission, typed trace identity, latest policy generation and the current release parent each gate selection. An inconsistency in one input preserves the selected release even if other inputs pass. [Native release admission](planning-and-synthesis/EXACT-PROVIDER-RELEASE-2026-11-25.md)
 
 The native catalog race comparison exercises DEP-048 and DEP-054 at the joint authority and expected-parent boundary. The local SQLite fence serializes selection against two concurrent operations, while moving the lock after validation admits against revoked rights and spends the exact parent twice. [Concurrent release admission](planning-and-synthesis/CONCURRENT-RELEASE-2026-11-25.md)

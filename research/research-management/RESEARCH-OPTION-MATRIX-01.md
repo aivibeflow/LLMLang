@@ -312,6 +312,8 @@ A cross-process replay moves the publication fence later while keeping exact art
 
 A common finite workload compares all four source profiles under exact order and compares the actor's eligible delivery set. Each fixed order agrees across profiles. Of 1,536 inputs, 936 share their balance across different actor traces and 600 vary even the final balance. The fixture distinguishes contextual correspondence from schedule-independent correctness. [Four resource profiles](../language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md)
 
+For that fixture, an axiom-free Lean proof characterizes actor scalar invariance by local commutation and cancellation invisibility. Distinct terminal-event order remains observable. [Schedule invariance](../formal-verification/SCHEDULE-INVARIANCE-2026-11-25.md)
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.

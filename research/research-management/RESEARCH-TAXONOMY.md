@@ -7,6 +7,8 @@ The bounded cross-aspect synthesis connects RT-03/04, RT-05/07/08/11/13/16/19 wi
 
 RT-03 compares pure, imperative, actor and effectful candidates on scoped authorization, cancellation, state mutation and resource settlement with a full ordered observation contract. [Four resource profiles](../language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md)
 
+RT-07 checks a generic two-condition invariance rule for the three-command RT-03 actor workload and replays the exact integer correspondence. [Schedule invariance](../formal-verification/SCHEDULE-INVARIANCE-2026-11-25.md)
+
 The native release fixture connects exact provider and action identity, independently rebuilt bytes, ordered resource evidence and current policy generation through a local catalog transition. [Native release admission](planning-and-synthesis/EXACT-PROVIDER-RELEASE-2026-11-25.md)
 
 The concurrent release comparison adds two local ordering discriminators for current policy and parent consumption to the RT-16/19 slice. [Concurrent release admission](planning-and-synthesis/CONCURRENT-RELEASE-2026-11-25.md)
