@@ -252,6 +252,8 @@ Do not score an unmeasured criterion as a numeric zero. Mark it **unknown**, rep
 
 For every experiment, record source commit, tool versions, fixtures, command, raw results, limitations, and criteria that would falsify the favored vector. Keep unsupported claims marked unknown.
 
+The [checked-add Lean bit-vector route](../compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-LEAN-2026-11-25.md) compares solver agreement and exact LRAT proof replay on the fixed-width LLVM observation predicates. Certificate replay can omit a SAT solver and retains a compiled reflection assumption.
+
 ## 8. Readiness assessment for comparative selection
 
 The [shared semantics corpus](../language-design/RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md) contains bounded evidence for A/B/D typed calls and private scalar state, A/D resource outcomes, and C actor scripts. The RT-04 call projection covers the typed trees. Source correspondence, cross-profile type and resource validation, the identity envelope, program proofs, the two-backend slice, the threat model, and workload weights remain open.

@@ -1,0 +1,437 @@
+{
+  "schema": "llmlang-llvm-checked-add-lean/1",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "python": "3.12.14",
+  "runner_sha256": "8b593097391a44cf9de7da8d782750e0caef4c21d24edbcf1c9c671e765b7e49",
+  "modules_sha256": {
+    "generated_lean": "e3924b325f76a174bc92adb8a46c4ac3beb6bcf491e3eb41eb14db58b4c7e0f9",
+    "offline_lean": "1bdd6f64bea01880829703586e7a17623a5b0fd6864d723192b8d41576e003d9"
+  },
+  "tools": {
+    "opt": "Debian LLVM version 19.1.7",
+    "llc": "Debian LLVM version 19.1.7",
+    "cc": "cc (Debian 14.2.0-19) 14.2.0",
+    "z3": "Z3 version 4.13.3 - 64 bit",
+    "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]"
+  },
+  "prior_ledger_sha256": "a271d3f01a810b5c1251f864d3ee02c42f4ccdf98ecd56af0a777f32169aa393",
+  "theorems": {
+    "preserving_O0_partition": {
+      "replay": "bv_check",
+      "certificate_sha256": "f7a96b83f5e3e7a518519e95c89ed82d8b63a18197b53baf663a1d3d7d3d19e1",
+      "certificate_bytes": 192,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "preserving_O0_partition._native.bv_decide.ax_1_5"
+      ]
+    },
+    "preserving_O0_complete_mismatch": {
+      "replay": "bv_check",
+      "certificate_sha256": "96cdf29579ec87d49d1e97c3ca38889be56dbed4ecc3de1e1c5a07a1c534bb6c",
+      "certificate_bytes": 836,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "preserving_O0_complete_mismatch._native.bv_decide.ax_1_5"
+      ]
+    },
+    "preserving_O3_partition": {
+      "replay": "bv_check",
+      "certificate_sha256": "223e26cf2e6152ec0873338d143c29c71ebba9b0233fa4a55a8d83bd0d5235e7",
+      "certificate_bytes": 226,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "preserving_O3_partition._native.bv_decide.ax_1_5"
+      ]
+    },
+    "preserving_O3_complete_mismatch": {
+      "replay": "bv_check",
+      "certificate_sha256": "cf11231d587a66c3030aacb6e116a25600e45ffffc4463a087c32b94bb1406be",
+      "certificate_bytes": 902,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "preserving_O3_complete_mismatch._native.bv_decide.ax_1_5"
+      ]
+    },
+    "drop_overflow_O0_partition": {
+      "replay": "bv_normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "drop_overflow_O0_witness": {
+      "replay": "bv_normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "drop_overflow_O3_partition": {
+      "replay": "bv_normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "drop_overflow_O3_witness": {
+      "replay": "bv_normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O0_partition": {
+      "replay": "bv_check",
+      "certificate_sha256": "f7a96b83f5e3e7a518519e95c89ed82d8b63a18197b53baf663a1d3d7d3d19e1",
+      "certificate_bytes": 192,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "reverse_effects_O0_partition._native.bv_decide.ax_1_5"
+      ]
+    },
+    "reverse_effects_O0_status_and_stores_mismatch": {
+      "replay": "bv_check",
+      "certificate_sha256": "96cdf29579ec87d49d1e97c3ca38889be56dbed4ecc3de1e1c5a07a1c534bb6c",
+      "certificate_bytes": 836,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "reverse_effects_O0_status_and_stores_mismatch._native.bv_decide.ax_1_5"
+      ]
+    },
+    "reverse_effects_O0_witness": {
+      "replay": "bv_normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "reverse_effects_O3_partition": {
+      "replay": "bv_check",
+      "certificate_sha256": "223e26cf2e6152ec0873338d143c29c71ebba9b0233fa4a55a8d83bd0d5235e7",
+      "certificate_bytes": 226,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "reverse_effects_O3_partition._native.bv_decide.ax_1_5"
+      ]
+    },
+    "reverse_effects_O3_status_and_stores_mismatch": {
+      "replay": "bv_check",
+      "certificate_sha256": "cf11231d587a66c3030aacb6e116a25600e45ffffc4463a087c32b94bb1406be",
+      "certificate_bytes": 902,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "reverse_effects_O3_status_and_stores_mismatch._native.bv_decide.ax_1_5"
+      ]
+    },
+    "reverse_effects_O3_witness": {
+      "replay": "bv_normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O0_partition": {
+      "replay": "bv_check",
+      "certificate_sha256": "f7a96b83f5e3e7a518519e95c89ed82d8b63a18197b53baf663a1d3d7d3d19e1",
+      "certificate_bytes": 192,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "store_on_error_O0_partition._native.bv_decide.ax_1_5"
+      ]
+    },
+    "store_on_error_O0_status_and_effects_mismatch": {
+      "replay": "bv_check",
+      "certificate_sha256": "96cdf29579ec87d49d1e97c3ca38889be56dbed4ecc3de1e1c5a07a1c534bb6c",
+      "certificate_bytes": 836,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "store_on_error_O0_status_and_effects_mismatch._native.bv_decide.ax_1_5"
+      ]
+    },
+    "store_on_error_O0_witness": {
+      "replay": "bv_normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "store_on_error_O3_partition": {
+      "replay": "bv_check",
+      "certificate_sha256": "223e26cf2e6152ec0873338d143c29c71ebba9b0233fa4a55a8d83bd0d5235e7",
+      "certificate_bytes": 226,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "store_on_error_O3_partition._native.bv_decide.ax_1_5"
+      ]
+    },
+    "store_on_error_O3_status_and_effects_mismatch": {
+      "replay": "bv_check",
+      "certificate_sha256": "cf11231d587a66c3030aacb6e116a25600e45ffffc4463a087c32b94bb1406be",
+      "certificate_bytes": 902,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "store_on_error_O3_status_and_effects_mismatch._native.bv_decide.ax_1_5"
+      ]
+    },
+    "store_on_error_O3_witness": {
+      "replay": "bv_normalize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  },
+  "artifacts": {
+    "preserving_O0": {
+      "ir_sha256": "71a223e1fdb83b8fb00020e0c32818be995ac6dd756e446c17a1b7175240a106",
+      "path_count": 3,
+      "query_sha256": {
+        "partition": "464014feda20f4fed732fdbaa57bf8db72a266be6c9f60693ecad25c9d5e35e2",
+        "complete_mismatch": "3798f9f863649b398ada425aec37633163f170d2fe54dc487fcee268f4ec7f52",
+        "status_and_stores_mismatch": "12d105a1663b8ac0fd8fd60ef4b64e1060030a61ea77df6300d7a1994fc1c754",
+        "status_and_effects_mismatch": "999fdf2950fc5dd2671d3e6f427f49184131aa3538f91aff86c1d4ce5c347b76"
+      }
+    },
+    "preserving_O3": {
+      "ir_sha256": "dabb0d620cd70a839589b4ecdb752f4fc4d0bca3685550082df0dae778e73394",
+      "path_count": 3,
+      "query_sha256": {
+        "partition": "21fccdfbf6f1447dd6b34209a6699506f55000f53a01865c8c4938751102fc70",
+        "complete_mismatch": "090d0918f1418b16ed132c56bddf4d2758fe882c05fcda946a54af16d0042a86",
+        "status_and_stores_mismatch": "6fd819a2384a94263c97be9857a3a9df279f3215609d3cc6d455477c7199069a",
+        "status_and_effects_mismatch": "14f3bee8c49629e2d0129431dcfa6d215dfcb51c5f2964092f0cccb8e22eec9f"
+      }
+    },
+    "drop_overflow_O0": {
+      "ir_sha256": "387ab79436d835fa37d985e970edf342e764efe0d1698d89f570256169fbad7b",
+      "path_count": 2,
+      "query_sha256": {
+        "partition": "f7c5cc5a032989b75147c3a256dc2e8dab40af1fe9715093aa6c469f0e2072fe",
+        "complete_mismatch": "95937e9ab2e511a214f83f1b41c7e916e026fa00ce7db380b9f280bd5d9af6e1",
+        "status_and_stores_mismatch": "292505497a7e5f0b341e054d4bb29e37c64977ae7c33656e9dadfe24cf63ef5f",
+        "status_and_effects_mismatch": "7a7afc60c15dbde6422bdd033e18f68c2997bff42a5f0194d75136201a21bbb6"
+      },
+      "witness": {
+        "input": [
+          2147483647,
+          1,
+          1
+        ],
+        "source": {
+          "status": "overflow",
+          "events": [
+            2147483647
+          ],
+          "out_slot": 2880246324
+        },
+        "native": {
+          "status": "ok",
+          "events": [
+            2147483647,
+            2147483648
+          ],
+          "out_slot": 2147483648
+        }
+      }
+    },
+    "drop_overflow_O3": {
+      "ir_sha256": "9d66e67da4b7db36741eb84efa3cbc17d4d78bf0d5baf6abc6693fa6589a9b97",
+      "path_count": 1,
+      "query_sha256": {
+        "partition": "f1f40c6eaf74bc4551b3af9048d7f47f4810e2e36e5389179bb7650234cdc74b",
+        "complete_mismatch": "c2b03826a1d40c9828cca3c107771f79e9a8ef90b9faa68a3aea3c7b493ac2c7",
+        "status_and_stores_mismatch": "0c55c1fecf60e2ccbbfdae20aff9e68597cece09bceb3a1bf79f20b5b7b97fc8",
+        "status_and_effects_mismatch": "34531c847fdba63579ad7405810bf64c2540e8c02ad85871712166b7e4fbce77"
+      },
+      "witness": {
+        "input": [
+          2147483647,
+          1,
+          1
+        ],
+        "source": {
+          "status": "overflow",
+          "events": [
+            2147483647
+          ],
+          "out_slot": 2880246324
+        },
+        "native": {
+          "status": "ok",
+          "events": [
+            2147483647,
+            2147483648
+          ],
+          "out_slot": 2147483648
+        }
+      }
+    },
+    "reverse_effects_O0": {
+      "ir_sha256": "479ab95bea8fd63e076ad74e3b15cffae31ab9d62bed282bc49d494af2461221",
+      "path_count": 3,
+      "query_sha256": {
+        "partition": "464014feda20f4fed732fdbaa57bf8db72a266be6c9f60693ecad25c9d5e35e2",
+        "complete_mismatch": "44c39ba010572941e714758c13a81974ba3e78a3adbff1fee86af4ed4027f110",
+        "status_and_stores_mismatch": "12d105a1663b8ac0fd8fd60ef4b64e1060030a61ea77df6300d7a1994fc1c754",
+        "status_and_effects_mismatch": "7f5b89309412d6f76b461b9405567de8706b17bee48f218430e5eb0c348ea5ea"
+      },
+      "witness": {
+        "input": [
+          2,
+          3,
+          0
+        ],
+        "source": {
+          "status": "ok",
+          "events": [
+            2,
+            3
+          ],
+          "out_slot": 3
+        },
+        "native": {
+          "status": "ok",
+          "events": [
+            3,
+            2
+          ],
+          "out_slot": 3
+        }
+      }
+    },
+    "reverse_effects_O3": {
+      "ir_sha256": "b5d5382099f58ddae27329b606c9e35b98a027f22fcf15b54d5f6266127bc16f",
+      "path_count": 3,
+      "query_sha256": {
+        "partition": "21fccdfbf6f1447dd6b34209a6699506f55000f53a01865c8c4938751102fc70",
+        "complete_mismatch": "404db3b2363b3e3ce188284e6282b627bbfdd8aece06a7be7872e49a7dc2b462",
+        "status_and_stores_mismatch": "6fd819a2384a94263c97be9857a3a9df279f3215609d3cc6d455477c7199069a",
+        "status_and_effects_mismatch": "f4590870e9118e84f03cb44b2dd7f3d1e52c209991570410de933320e2d4375f"
+      },
+      "witness": {
+        "input": [
+          2,
+          3,
+          0
+        ],
+        "source": {
+          "status": "ok",
+          "events": [
+            2,
+            3
+          ],
+          "out_slot": 3
+        },
+        "native": {
+          "status": "ok",
+          "events": [
+            3,
+            2
+          ],
+          "out_slot": 3
+        }
+      }
+    },
+    "store_on_error_O0": {
+      "ir_sha256": "7c30d1c1b2ce8d2af7d3313fdde30389b92ac811d777793018712814ce1841a7",
+      "path_count": 3,
+      "query_sha256": {
+        "partition": "464014feda20f4fed732fdbaa57bf8db72a266be6c9f60693ecad25c9d5e35e2",
+        "complete_mismatch": "754207a774aa5c9cc16a95fc43e24de43fa42658bbac2df3a695e3c1b494a23c",
+        "status_and_stores_mismatch": "46aa5371fdff8ae3e2104fa0b14763dae1981c6dee90db7baa9db2a402d9cf93",
+        "status_and_effects_mismatch": "999fdf2950fc5dd2671d3e6f427f49184131aa3538f91aff86c1d4ce5c347b76"
+      },
+      "witness": {
+        "input": [
+          2147483647,
+          1,
+          1
+        ],
+        "source": {
+          "status": "overflow",
+          "events": [
+            2147483647
+          ],
+          "out_slot": 2880246324
+        },
+        "native": {
+          "status": "overflow",
+          "events": [
+            2147483647
+          ],
+          "out_slot": 0
+        }
+      }
+    },
+    "store_on_error_O3": {
+      "ir_sha256": "f642c057f60214c8f49bb6a476451db3c003eec57549b35d1ef488006d801ac9",
+      "path_count": 3,
+      "query_sha256": {
+        "partition": "21fccdfbf6f1447dd6b34209a6699506f55000f53a01865c8c4938751102fc70",
+        "complete_mismatch": "aa47afce6aa47e6f260099cdb7343a33edb8544bba0c5071085b060305552019",
+        "status_and_stores_mismatch": "3f58de45bb92bb60c5e7256273a7c4146e89277f8a0af92e59a75ed4df99c12a",
+        "status_and_effects_mismatch": "14f3bee8c49629e2d0129431dcfa6d215dfcb51c5f2964092f0cccb8e22eec9f"
+      },
+      "witness": {
+        "input": [
+          2147483647,
+          1,
+          1
+        ],
+        "source": {
+          "status": "overflow",
+          "events": [
+            2147483647
+          ],
+          "out_slot": 2880246324
+        },
+        "native": {
+          "status": "overflow",
+          "events": [
+            2147483647
+          ],
+          "out_slot": 0
+        }
+      }
+    }
+  },
+  "outside_profile": {
+    "ir_sha256": "d0a68e67325c05dd5426c9b9f7a166a3494ab2e381dde06c55db59dd95f320af",
+    "instruction": "add nsw",
+    "verdict": "unsupported"
+  },
+  "replayed_with_unavailable_sat_solver": true,
+  "unrelated_certificate": "refused"
+}
