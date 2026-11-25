@@ -99,9 +99,13 @@ For a closed two-integer profile, [restricted affine certificates](../formal-ver
 
 [Cross-runtime I64 encoding](../semantic-representation/RT-05/RT-05-CROSS-RUNTIME-I64-ENCODING-2026-11-25.md) compares bare JSON number consumption, a safe-integer restriction, preserved numeric source tokens, canonical decimal text and fixed-width hexadecimal. The exact routes share the same typed graph root. Bare JavaScript numbers change 56 observed values. Payload size and parser compatibility remain separate from semantic identity.
 
+[Stateful bound method](../semantic-representation/RT-05/RT-05-STATEFUL-BOUND-METHOD-2026-11-25.md) compares code, captured values and explicit shared mutable cells in C and Rust. Identical method code remains reusable while the executable receiver descriptor retains the state its observations depend on.
+
 [Mutable reference topology](../semantic-representation/RT-05/RT-05-MUTABLE-REFERENCE-TOPOLOGY-2026-11-25.md) compares physical identifiers, separate-root projection and a shared canonical cell table. The shared table preserves native mutation and reference observations across relabeling. Immutable value sharing and concrete mutable aliasing have distinct identity requirements.
 
 ## 4. Integrated candidate vectors
+
+[RT-05 named record evaluation](../semantic-representation/RT-05/RT-05-NAMED-RECORD-EVALUATION-2026-11-25.md) distinguishes full source-order hashing, a typed field map with explicit observable order, and field-only hashing. The observable-order projection shares a hash for all 177 equivalent pairs with no collisions across distinct fixture behaviors. Field-only hashing collides on 228 distinct pairs. Broader purity, failure, ownership and source-coverage obligations remain open.
 
 These bundles show plausible cross-area combinations for later whole-specification comparison. They are not selections or rankings.
 
@@ -115,6 +119,8 @@ These bundles show plausible cross-area combinations for later whole-specificati
 No candidate is currently shown to satisfy all product goals, including easy small utilities, human readability, model neutrality, platform support, and independently checkable correctness. Those goals need explicit operational criteria before scoring candidates.
 
 The [recursive-group storage study](../semantic-representation/RT-05/RT-05-RECURSIVE-GROUP-STORAGE-2026-11-25.md) compares physical layout costs under one semantic group identity. Member sharding preserves exact reconstruction and saves sparse reads after admission, while cache reuse still depends on the recursive context.
+
+[Native record layout](../compiler-and-translation/RT-13/RT-13-NATIVE-RECORD-LAYOUT-2026-11-25.md) compares name, aggregate dimensions, binary-checked field layout, and exact observed behavior. The fixed byte-buffer C entry exposes same-size layout mismatches while keeping the called function type constant. Adaptation recovers verified reorderings and packing. The unchanged-layout behavior mutation still needs a separate exact provider claim.
 
 ## 5. Compatibility constraints and dependencies
 
@@ -173,9 +179,13 @@ The [nested-loop cost pilot](../formal-verification/RT-34/RT-34-NESTED-LOOP-COST
 
 [Unicode source binding](../semantic-representation/RT-05/RT-05-UNICODE-SOURCE-BINDING-2026-11-25.md) compares raw spelling, decoded names, normalization and resolved cells. The correct name rule still leaves the Rust capture obligation, where six observations per setting distinguish shared assignment from shadowing. Full source-profile resolution preserves every native vector while retaining exact literal data.
 
+[Bound-method observation completeness](../formal-verification/RT-32/RT-32-BOUND-METHOD-OBSERVATION-COMPLETENESS-2026-11-25.md) proves that six fixed probes determine the scoped receiver context and all its admitted traces. Five probes leave nine collisions in the native corpus, which the sixth distinguishes.
+
 [Mutable renaming kernel](../formal-verification/RT-32/RT-32-MUTABLE-RENAMING-KERNEL-2026-11-25.md) proves that reads, writes, reference equality and relinking preserve the ordered replies under a bijection of locations. Per-root copying can change observations by splitting one location into several.
 
 ### 5.2 Comparisons supported by the November 24 reproductions
+
+The [pinned Logos proof audit](../formal-verification/RT-07/RT-07-LOGOS-VERDICT-PROOF-2026-11-25.md) composes the source implication with the actual verdict theorem under 2,118 native computation axioms.
 
 The reproduced studies below constrain components of the existing vectors. Their common comparison unit is the exact claim, observation scope and dependency closure. The [dependency map](RESEARCH-DEPENDENCY-MAP.md) records the corresponding cross-area relationships. Use these observations to eliminate a failing shortcut within its tested profile and to state the conditions a surviving implementation must meet.
 
@@ -208,6 +218,8 @@ The branches compare different obligations for one semantic subject. Agreement o
 For the next integrated comparison, reuse one typed workload across observation, binding, proof and lowering. It should select a provider through an immutable snapshot, return an owned value, and exercise a cleanup failure or cancellation boundary. Preserve the result, error, ordered effects and terminal resource state. Include controls that vary a provider binding, reorder an observable step and retain an effect without its terminal record. These controls distinguish result identity, closed proof scope and runtime preservation. Workload weights and independent review remain part of the [selection gates](../../PLAN.md#external-evidence-and-approval-dependencies).
 
 [Partial record ownership](../semantic-representation/RT-05/RT-05-PARTIAL-RECORD-OWNERSHIP-2026-11-25.md) compares one shared order against phase-specific acquisition and drop in 4,608 native observations. The separate-order projection preserves every trace. Using initializer order for completed release changes 168 vectors, and filtering declaration order for abort changes 144. The comparison narrows the obligations for controlled construction and exact SPG identity to phase, order and resource ownership.
+
+[Record ownership proof](../formal-verification/RT-32/RT-32-RECORD-OWNERSHIP-PROOF-2026-11-25.md) distinguishes general conservation checked on role lists from exact finite source correspondence across 2,304 Rust vectors. Multiset conservation allows both teardown orders, while trace equality excludes an order change. Check unique owned roles and the declaration/acquisition permutation alongside the chosen execution sequence.
 
 ### 5.3 Bounded toolchain route comparisons
 

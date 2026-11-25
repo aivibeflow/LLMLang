@@ -1,0 +1,64 @@
+{
+  "cancel": {
+    "dispatch_segments": [
+      [
+        "reader",
+        20047279
+      ],
+      [
+        "worker",
+        60043380
+      ],
+      [
+        "reader",
+        20056137
+      ]
+    ],
+    "explicit_work": {
+      "reader": 40001442,
+      "worker": 60000260
+    },
+    "profiled": {
+      "reader": 40103416,
+      "worker": 60043380
+    },
+    "spanning": {
+      "reader": 100281480,
+      "worker": 60035317
+    },
+    "thread_cpu_ns": 101033028,
+    "thread_involuntary_context_switches": 11,
+    "thread_voluntary_context_switches": 0
+  },
+  "normal": {
+    "dispatch_segments": [
+      [
+        "reader",
+        20109545
+      ],
+      [
+        "worker",
+        60090325
+      ],
+      [
+        "reader",
+        20036090
+      ]
+    ],
+    "explicit_work": {
+      "reader": 40001395,
+      "worker": 60000090
+    },
+    "profiled": {
+      "reader": 40145635,
+      "worker": 60090325
+    },
+    "spanning": {
+      "reader": 100324956,
+      "worker": 60080833
+    },
+    "thread_cpu_ns": 101460553,
+    "thread_involuntary_context_switches": 12,
+    "thread_voluntary_context_switches": 0
+  }
+}

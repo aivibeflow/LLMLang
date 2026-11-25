@@ -1,0 +1,1014 @@
+{
+  "cases": {
+    "baseline": {
+      "named_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": true
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "open": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": true
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ],
+          [
+            "right",
+            "score",
+            null
+          ]
+        ],
+        "status": "resolved"
+      },
+      "open_reordered": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": true
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ],
+          [
+            "right",
+            "score",
+            null
+          ]
+        ],
+        "status": "resolved"
+      },
+      "qualified": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": true
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "qualified_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": true
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      }
+    },
+    "both_missing": {
+      "named_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": false,
+          "whole_catalog": false
+        },
+        "generated_spg": null,
+        "operation": null,
+        "reads": [
+          [
+            "left",
+            "score",
+            null
+          ]
+        ],
+        "status": "missing"
+      },
+      "open": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": false,
+          "whole_catalog": false
+        },
+        "generated_spg": null,
+        "operation": null,
+        "reads": [
+          [
+            "left",
+            "score",
+            null
+          ],
+          [
+            "right",
+            "score",
+            null
+          ]
+        ],
+        "status": "missing"
+      },
+      "open_reordered": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": false,
+          "whole_catalog": false
+        },
+        "generated_spg": null,
+        "operation": null,
+        "reads": [
+          [
+            "left",
+            "score",
+            null
+          ],
+          [
+            "right",
+            "score",
+            null
+          ]
+        ],
+        "status": "missing"
+      },
+      "qualified": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": false,
+          "whole_catalog": false
+        },
+        "generated_spg": null,
+        "operation": null,
+        "reads": [
+          [
+            "left",
+            "score",
+            null
+          ]
+        ],
+        "status": "missing"
+      },
+      "qualified_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": false,
+          "whole_catalog": false
+        },
+        "generated_spg": null,
+        "operation": null,
+        "reads": [
+          [
+            "left",
+            "score",
+            null
+          ]
+        ],
+        "status": "missing"
+      }
+    },
+    "left_rebound": {
+      "named_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": false,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "2d53f489447f186ec2288c015d92bf161a4f3a3876576581d537e9603975c93c",
+          "observations": [
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ],
+            [
+              3,
+              []
+            ]
+          ],
+          "root": "1bb45c3805bd74308eec26d94442945b471af3b2419ce831fca25bd686b158f1"
+        },
+        "operation": "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "open": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": false,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "2d53f489447f186ec2288c015d92bf161a4f3a3876576581d537e9603975c93c",
+          "observations": [
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ],
+            [
+              3,
+              []
+            ]
+          ],
+          "root": "1bb45c3805bd74308eec26d94442945b471af3b2419ce831fca25bd686b158f1"
+        },
+        "operation": "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6"
+          ],
+          [
+            "right",
+            "score",
+            null
+          ]
+        ],
+        "status": "resolved"
+      },
+      "open_reordered": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": false,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "2d53f489447f186ec2288c015d92bf161a4f3a3876576581d537e9603975c93c",
+          "observations": [
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ],
+            [
+              3,
+              []
+            ]
+          ],
+          "root": "1bb45c3805bd74308eec26d94442945b471af3b2419ce831fca25bd686b158f1"
+        },
+        "operation": "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6"
+          ],
+          [
+            "right",
+            "score",
+            null
+          ]
+        ],
+        "status": "resolved"
+      },
+      "qualified": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": false,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "2d53f489447f186ec2288c015d92bf161a4f3a3876576581d537e9603975c93c",
+          "observations": [
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ],
+            [
+              3,
+              []
+            ]
+          ],
+          "root": "1bb45c3805bd74308eec26d94442945b471af3b2419ce831fca25bd686b158f1"
+        },
+        "operation": "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "qualified_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": false,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "2d53f489447f186ec2288c015d92bf161a4f3a3876576581d537e9603975c93c",
+          "observations": [
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ],
+            [
+              3,
+              []
+            ]
+          ],
+          "root": "1bb45c3805bd74308eec26d94442945b471af3b2419ce831fca25bd686b158f1"
+        },
+        "operation": "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6"
+          ]
+        ],
+        "status": "resolved"
+      }
+    },
+    "new_competing_export": {
+      "named_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "open": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": null,
+        "operation": null,
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ],
+          [
+            "right",
+            "score",
+            "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6"
+          ]
+        ],
+        "status": "ambiguous"
+      },
+      "open_reordered": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": null,
+        "operation": null,
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ],
+          [
+            "right",
+            "score",
+            "8d2ee60f75a5a0e5fb75f827b5e15c73f95e3673bae6ab053081dd1d08529dc6"
+          ]
+        ],
+        "status": "ambiguous"
+      },
+      "qualified": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "qualified_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      }
+    },
+    "same_operation_reexport": {
+      "named_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "open": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ],
+          [
+            "right",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "open_reordered": {
+        "cache_reusable": {
+          "all_scoped_reads": false,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ],
+          [
+            "right",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "qualified": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "qualified_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      }
+    },
+    "unrelated_export": {
+      "named_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "open": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ],
+          [
+            "right",
+            "score",
+            null
+          ]
+        ],
+        "status": "resolved"
+      },
+      "open_reordered": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ],
+          [
+            "right",
+            "score",
+            null
+          ]
+        ],
+        "status": "resolved"
+      },
+      "qualified": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      },
+      "qualified_alias": {
+        "cache_reusable": {
+          "all_scoped_reads": true,
+          "successful_reads": true,
+          "whole_catalog": false
+        },
+        "generated_spg": {
+          "caller": "62ab4f852f776e57ed1bccd20565fdb0be56f6d9235f746591d33d21d88b7ad0",
+          "observations": [
+            [
+              0,
+              []
+            ],
+            [
+              1,
+              []
+            ],
+            [
+              2,
+              []
+            ]
+          ],
+          "root": "c806d5f77e68502027a126c1523866cd9ac7917a5a5150b7326dd6b56ecd83de"
+        },
+        "operation": "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6",
+        "reads": [
+          [
+            "left",
+            "score",
+            "48e57f5b9cf9695f4f5dd7e8522b713c1e90beac9ea09bb321592bfc8c1f33f6"
+          ]
+        ],
+        "status": "resolved"
+      }
+    }
+  },
+  "format": "rt05-import-resolution/1",
+  "profiles": {
+    "named_alias": "from left import score as selected\nselected(n)",
+    "open": "from left import *\nfrom right import *\nscore(n)",
+    "open_reordered": "from right import *\nfrom left import *\nscore(n)",
+    "qualified": "import left as api\napi.score(n)",
+    "qualified_alias": "import left as l\nl.score(n)"
+  },
+  "python": "3.12.14",
+  "rejected_inputs": [
+    "relative_import",
+    "unbound_qualifier",
+    "wrong_argument",
+    "non_import_statement",
+    "missing_catalog"
+  ],
+  "sweep": {
+    "by_policy": {
+      "all_scoped_reads": {
+        "reused": 252,
+        "unnecessary_invalidations": 56,
+        "unsafe": 0
+      },
+      "successful_reads": {
+        "reused": 524,
+        "unnecessary_invalidations": 32,
+        "unsafe": 248
+      },
+      "whole_catalog": {
+        "reused": 54,
+        "unnecessary_invalidations": 254,
+        "unsafe": 0
+      }
+    },
+    "catalogs": 18,
+    "comparison_count": 972
+  }
+}

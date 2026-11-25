@@ -1,0 +1,78 @@
+{
+  "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "format": "rt26-migrating-task-cpu/1",
+  "kernel": "6.18.57",
+  "machine": "x86_64",
+  "outcomes": {
+    "O0": {
+      "migrate-alone": {
+        "cancelled": false,
+        "cross_clock_is_negative": true,
+        "moves_between_workers": true,
+        "origin_clock_charge": "under",
+        "process_matches_dispatches": true,
+        "worker_total_matches_dispatches": true
+      },
+      "migrate-cancel": {
+        "cancelled": true,
+        "cross_clock_is_negative": true,
+        "moves_between_workers": true,
+        "origin_clock_charge": "over",
+        "process_matches_dispatches": true,
+        "worker_total_matches_dispatches": true
+      },
+      "migrate-with-peer": {
+        "cancelled": false,
+        "cross_clock_is_negative": true,
+        "moves_between_workers": true,
+        "origin_clock_charge": "over",
+        "process_matches_dispatches": true,
+        "worker_total_matches_dispatches": true
+      },
+      "stay-with-peer": {
+        "cancelled": false,
+        "cross_clock_is_negative": false,
+        "moves_between_workers": false,
+        "origin_clock_charge": "over",
+        "process_matches_dispatches": true,
+        "worker_total_matches_dispatches": true
+      }
+    },
+    "O3": {
+      "migrate-alone": {
+        "cancelled": false,
+        "cross_clock_is_negative": true,
+        "moves_between_workers": true,
+        "origin_clock_charge": "under",
+        "process_matches_dispatches": true,
+        "worker_total_matches_dispatches": true
+      },
+      "migrate-cancel": {
+        "cancelled": true,
+        "cross_clock_is_negative": true,
+        "moves_between_workers": true,
+        "origin_clock_charge": "over",
+        "process_matches_dispatches": true,
+        "worker_total_matches_dispatches": true
+      },
+      "migrate-with-peer": {
+        "cancelled": false,
+        "cross_clock_is_negative": true,
+        "moves_between_workers": true,
+        "origin_clock_charge": "over",
+        "process_matches_dispatches": true,
+        "worker_total_matches_dispatches": true
+      },
+      "stay-with-peer": {
+        "cancelled": false,
+        "cross_clock_is_negative": false,
+        "moves_between_workers": false,
+        "origin_clock_charge": "over",
+        "process_matches_dispatches": true,
+        "worker_total_matches_dispatches": true
+      }
+    }
+  },
+  "python": "3.12.14",
+  "tolerance_ns": 6000000
+}

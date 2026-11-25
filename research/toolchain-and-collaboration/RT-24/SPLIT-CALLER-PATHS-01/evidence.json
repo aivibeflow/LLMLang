@@ -1,0 +1,405 @@
+{
+  "cases": {
+    "aligned": {
+      "candidate_root": "81dd36203261c7b7ed2cbb9e2136ae9cc1782da1c4be7fd7c66498769d5351f4",
+      "candidate_tree": "9f23b1185d3691b0e59e278868343373b8837cb3",
+      "declared_paths": [
+        {
+          "caller": "2e48c6b03ab91962a3d2b8f5f495a1fd57b124a2c5f20be7d849505e232ffa5e",
+          "disposition": "migrate",
+          "edge": "shared/direct",
+          "path": "modern-consumer",
+          "resulting_output": "modern-consumer",
+          "selected_callee": "faca0ac29f715c73e001a3dceca8fda96e3359f46651cb4fbd099fdd9b7eaca4"
+        },
+        {
+          "caller": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7",
+          "disposition": "migrate",
+          "edge": "leaf/direct",
+          "path": "modern-consumer",
+          "resulting_output": "shared-v2",
+          "selected_callee": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f"
+        },
+        {
+          "caller": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7",
+          "disposition": "preserve",
+          "edge": "leaf/direct",
+          "path": "legacy-consumer",
+          "resulting_output": "shared-v1",
+          "selected_callee": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655"
+        },
+        {
+          "caller": "ef7af812ebb31a7288273701badd72054b7c21420f000a117cb24f4901666e0d",
+          "disposition": "preserve",
+          "edge": "shared/direct",
+          "path": "",
+          "resulting_output": null,
+          "selected_callee": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7"
+        }
+      ],
+      "existing_gate": "published",
+      "merge_commit": "b83f92b6c0fe97bb13210d017f924e1064de0c4f",
+      "ordered_parents": [
+        "f05713646663ecfe22b3a7e0b72ca1b596fd0b63",
+        "d83ebcfeeb89649ca3d1d715736c2ef34a7baa5a"
+      ],
+      "path_bound_gate": "published",
+      "path_errors": [],
+      "paths": {
+        "legacy-consumer": {
+          "approved_leaf": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655",
+          "baseline": [
+            "legacy-consumer",
+            "shared",
+            "leaf"
+          ],
+          "candidate": [
+            "legacy-consumer",
+            "shared-v1",
+            "leaf-v1"
+          ],
+          "observed_candidate_leaf": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655"
+        },
+        "modern-consumer": {
+          "approved_leaf": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f",
+          "baseline": [
+            "modern-consumer",
+            "shared",
+            "leaf"
+          ],
+          "candidate": [
+            "modern-consumer",
+            "shared-v2",
+            "leaf"
+          ],
+          "observed_candidate_leaf": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f"
+        }
+      },
+      "plan": "ea872ca02dd42da6160c5708242bed4180a53a0294b70a6c3d6d027c598e69bf"
+    },
+    "foreign-path-label": {
+      "candidate_root": "81dd36203261c7b7ed2cbb9e2136ae9cc1782da1c4be7fd7c66498769d5351f4",
+      "candidate_tree": "9f23b1185d3691b0e59e278868343373b8837cb3",
+      "declared_paths": [
+        {
+          "caller": "2e48c6b03ab91962a3d2b8f5f495a1fd57b124a2c5f20be7d849505e232ffa5e",
+          "disposition": "migrate",
+          "edge": "shared/direct",
+          "path": "unregistered-consumer",
+          "resulting_output": "modern-consumer",
+          "selected_callee": "faca0ac29f715c73e001a3dceca8fda96e3359f46651cb4fbd099fdd9b7eaca4"
+        },
+        {
+          "caller": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7",
+          "disposition": "migrate",
+          "edge": "leaf/direct",
+          "path": "unregistered-consumer",
+          "resulting_output": "shared-v2",
+          "selected_callee": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f"
+        },
+        {
+          "caller": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7",
+          "disposition": "preserve",
+          "edge": "leaf/direct",
+          "path": "legacy-consumer",
+          "resulting_output": "shared-v1",
+          "selected_callee": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655"
+        },
+        {
+          "caller": "ef7af812ebb31a7288273701badd72054b7c21420f000a117cb24f4901666e0d",
+          "disposition": "preserve",
+          "edge": "shared/direct",
+          "path": "",
+          "resulting_output": null,
+          "selected_callee": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7"
+        }
+      ],
+      "existing_gate": "published",
+      "merge_commit": "b83f92b6c0fe97bb13210d017f924e1064de0c4f",
+      "ordered_parents": [
+        "f05713646663ecfe22b3a7e0b72ca1b596fd0b63",
+        "d83ebcfeeb89649ca3d1d715736c2ef34a7baa5a"
+      ],
+      "path_bound_gate": "blocked",
+      "path_errors": [
+        "plan path labels differ from pinned entry slots",
+        "modern-consumer: path decision differs from source route",
+        "modern-consumer: entry decision names a different consumer path"
+      ],
+      "paths": {
+        "legacy-consumer": {
+          "approved_leaf": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655",
+          "baseline": [
+            "legacy-consumer",
+            "shared",
+            "leaf"
+          ],
+          "candidate": [
+            "legacy-consumer",
+            "shared-v1",
+            "leaf-v1"
+          ],
+          "observed_candidate_leaf": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655"
+        },
+        "modern-consumer": {
+          "approved_leaf": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f",
+          "baseline": [
+            "modern-consumer",
+            "shared",
+            "leaf"
+          ],
+          "candidate": [
+            "modern-consumer",
+            "shared-v2",
+            "leaf"
+          ],
+          "observed_candidate_leaf": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f"
+        }
+      },
+      "plan": "65b57ceff94837fe83078d447a47f60015448aafe090cacfbe118773c02b4b9b"
+    },
+    "reversed-routing": {
+      "candidate_root": "7fb4d88086a6cccc527301aed30321fe6e07b217e993ee0e4cd612073df2c666",
+      "candidate_tree": "3f8b3f97e6f7d287d7c3dfbb973e63603049fea0",
+      "declared_paths": [
+        {
+          "caller": "2e48c6b03ab91962a3d2b8f5f495a1fd57b124a2c5f20be7d849505e232ffa5e",
+          "disposition": "preserve",
+          "edge": "shared/direct",
+          "path": "",
+          "resulting_output": null,
+          "selected_callee": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7"
+        },
+        {
+          "caller": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7",
+          "disposition": "migrate",
+          "edge": "leaf/direct",
+          "path": "legacy-consumer",
+          "resulting_output": "shared-v2",
+          "selected_callee": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f"
+        },
+        {
+          "caller": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7",
+          "disposition": "preserve",
+          "edge": "leaf/direct",
+          "path": "modern-consumer",
+          "resulting_output": "shared-v1",
+          "selected_callee": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655"
+        },
+        {
+          "caller": "ef7af812ebb31a7288273701badd72054b7c21420f000a117cb24f4901666e0d",
+          "disposition": "migrate",
+          "edge": "shared/direct",
+          "path": "legacy-consumer",
+          "resulting_output": "legacy-consumer",
+          "selected_callee": "faca0ac29f715c73e001a3dceca8fda96e3359f46651cb4fbd099fdd9b7eaca4"
+        }
+      ],
+      "existing_gate": "published",
+      "merge_commit": "acdc6531d2baa13f3b8a328e06a826d5b4aae7f8",
+      "ordered_parents": [
+        "f05713646663ecfe22b3a7e0b72ca1b596fd0b63",
+        "ce52a7b5b4721b3763a1118c82fc36338fa791fc"
+      ],
+      "path_bound_gate": "blocked",
+      "path_errors": [
+        "legacy-consumer: path selects an unapproved provider",
+        "modern-consumer: path selects an unapproved provider"
+      ],
+      "paths": {
+        "legacy-consumer": {
+          "approved_leaf": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655",
+          "baseline": [
+            "legacy-consumer",
+            "shared",
+            "leaf"
+          ],
+          "candidate": [
+            "legacy-consumer",
+            "shared-v2",
+            "leaf"
+          ],
+          "observed_candidate_leaf": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f"
+        },
+        "modern-consumer": {
+          "approved_leaf": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f",
+          "baseline": [
+            "modern-consumer",
+            "shared",
+            "leaf"
+          ],
+          "candidate": [
+            "modern-consumer",
+            "shared-v1",
+            "leaf-v1"
+          ],
+          "observed_candidate_leaf": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655"
+        }
+      },
+      "plan": "352849528c9afe97fb7be9fca1fbac4584681da0c5876234a55c2f656e7e477b"
+    },
+    "swapped-path-labels": {
+      "candidate_root": "81dd36203261c7b7ed2cbb9e2136ae9cc1782da1c4be7fd7c66498769d5351f4",
+      "candidate_tree": "9f23b1185d3691b0e59e278868343373b8837cb3",
+      "declared_paths": [
+        {
+          "caller": "2e48c6b03ab91962a3d2b8f5f495a1fd57b124a2c5f20be7d849505e232ffa5e",
+          "disposition": "migrate",
+          "edge": "shared/direct",
+          "path": "legacy-consumer",
+          "resulting_output": "modern-consumer",
+          "selected_callee": "faca0ac29f715c73e001a3dceca8fda96e3359f46651cb4fbd099fdd9b7eaca4"
+        },
+        {
+          "caller": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7",
+          "disposition": "migrate",
+          "edge": "leaf/direct",
+          "path": "legacy-consumer",
+          "resulting_output": "shared-v2",
+          "selected_callee": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f"
+        },
+        {
+          "caller": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7",
+          "disposition": "preserve",
+          "edge": "leaf/direct",
+          "path": "modern-consumer",
+          "resulting_output": "shared-v1",
+          "selected_callee": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655"
+        },
+        {
+          "caller": "ef7af812ebb31a7288273701badd72054b7c21420f000a117cb24f4901666e0d",
+          "disposition": "preserve",
+          "edge": "shared/direct",
+          "path": "",
+          "resulting_output": null,
+          "selected_callee": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7"
+        }
+      ],
+      "existing_gate": "published",
+      "merge_commit": "b83f92b6c0fe97bb13210d017f924e1064de0c4f",
+      "ordered_parents": [
+        "f05713646663ecfe22b3a7e0b72ca1b596fd0b63",
+        "d83ebcfeeb89649ca3d1d715736c2ef34a7baa5a"
+      ],
+      "path_bound_gate": "blocked",
+      "path_errors": [
+        "legacy-consumer: path decision differs from source route",
+        "modern-consumer: path decision differs from source route",
+        "modern-consumer: entry decision names a different consumer path"
+      ],
+      "paths": {
+        "legacy-consumer": {
+          "approved_leaf": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655",
+          "baseline": [
+            "legacy-consumer",
+            "shared",
+            "leaf"
+          ],
+          "candidate": [
+            "legacy-consumer",
+            "shared-v1",
+            "leaf-v1"
+          ],
+          "observed_candidate_leaf": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655"
+        },
+        "modern-consumer": {
+          "approved_leaf": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f",
+          "baseline": [
+            "modern-consumer",
+            "shared",
+            "leaf"
+          ],
+          "candidate": [
+            "modern-consumer",
+            "shared-v2",
+            "leaf"
+          ],
+          "observed_candidate_leaf": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f"
+        }
+      },
+      "plan": "a3fd97607581ff01028c794bedd0d86167df0747e5103948686f67a834dc600e"
+    },
+    "upper-label-only": {
+      "candidate_root": "81dd36203261c7b7ed2cbb9e2136ae9cc1782da1c4be7fd7c66498769d5351f4",
+      "candidate_tree": "9f23b1185d3691b0e59e278868343373b8837cb3",
+      "declared_paths": [
+        {
+          "caller": "2e48c6b03ab91962a3d2b8f5f495a1fd57b124a2c5f20be7d849505e232ffa5e",
+          "disposition": "migrate",
+          "edge": "shared/direct",
+          "path": "legacy-consumer",
+          "resulting_output": "modern-consumer",
+          "selected_callee": "faca0ac29f715c73e001a3dceca8fda96e3359f46651cb4fbd099fdd9b7eaca4"
+        },
+        {
+          "caller": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7",
+          "disposition": "migrate",
+          "edge": "leaf/direct",
+          "path": "modern-consumer",
+          "resulting_output": "shared-v2",
+          "selected_callee": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f"
+        },
+        {
+          "caller": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7",
+          "disposition": "preserve",
+          "edge": "leaf/direct",
+          "path": "legacy-consumer",
+          "resulting_output": "shared-v1",
+          "selected_callee": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655"
+        },
+        {
+          "caller": "ef7af812ebb31a7288273701badd72054b7c21420f000a117cb24f4901666e0d",
+          "disposition": "preserve",
+          "edge": "shared/direct",
+          "path": "",
+          "resulting_output": null,
+          "selected_callee": "cad57478422d935a00f113709930876ece5179174b3622cfcecba7b9b3a402d7"
+        }
+      ],
+      "existing_gate": "published",
+      "merge_commit": "b83f92b6c0fe97bb13210d017f924e1064de0c4f",
+      "ordered_parents": [
+        "f05713646663ecfe22b3a7e0b72ca1b596fd0b63",
+        "d83ebcfeeb89649ca3d1d715736c2ef34a7baa5a"
+      ],
+      "path_bound_gate": "blocked",
+      "path_errors": [
+        "modern-consumer: entry decision names a different consumer path"
+      ],
+      "paths": {
+        "legacy-consumer": {
+          "approved_leaf": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655",
+          "baseline": [
+            "legacy-consumer",
+            "shared",
+            "leaf"
+          ],
+          "candidate": [
+            "legacy-consumer",
+            "shared-v1",
+            "leaf-v1"
+          ],
+          "observed_candidate_leaf": "cb0bc222f42135fab7f57d89933cf5021bf58fccad660f199cb9e9d7647a2655"
+        },
+        "modern-consumer": {
+          "approved_leaf": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f",
+          "baseline": [
+            "modern-consumer",
+            "shared",
+            "leaf"
+          ],
+          "candidate": [
+            "modern-consumer",
+            "shared-v2",
+            "leaf"
+          ],
+          "observed_candidate_leaf": "feed8f5dac85932b35d7796279b98dc6ceffa04dd2c405f2c9c8861a4a5d3d6f"
+        }
+      },
+      "plan": "57ba64ff6e4a27c254524f68e480cd99c04d4a5ee7b993f8755bb83c2e2172d9"
+    }
+  },
+  "format": "rt24-split-caller-paths/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14"
+}
