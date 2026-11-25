@@ -19,6 +19,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Planning and synthesis
 
+- [Stage 7 scalability metrics](SCALABILITY-METRICS-2026-11-25.md) ties per-profile memory, latency, throughput and cache counts to their pinned raw trial ledgers.
 - [Research state](RESEARCH-STATE-2026-11-19.md)
 - [Open questions research program](RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md)
 - [Cross-area option matrix](RESEARCH-OPTION-MATRIX-01.md)
