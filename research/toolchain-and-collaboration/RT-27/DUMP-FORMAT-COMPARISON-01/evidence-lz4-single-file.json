@@ -1,0 +1,264 @@
+{
+  "source_sha256": "f9dbfe5da3d5047eb192f0af56e6f5087b943e92c104f8ec3da10eb091e5ed2b",
+  "comparison_evidence_sha256": "5f71fca96d6b752af67da71541128a8c26bae9cc106e8d497297553ebe61df57",
+  "objects": 20000,
+  "range_count": 8,
+  "seed": 27001,
+  "selection_sha256": "24d0b4f7800f0a9944543ddebe9f6b108cef624d1d5dd06875a5d4b5354abdb7",
+  "visible_cpus": 3,
+  "profiles": [
+    {
+      "profile": "jsonl-lz4",
+      "file_bytes": 3956178,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 153.213
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 89.409
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 95.662
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 168.766
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 167.118
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 88.281
+        }
+      ]
+    },
+    {
+      "profile": "json-seq-lz4",
+      "file_bytes": 3976173,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 151.885
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 148.317
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 107.837
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 167.516
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 154.995
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 93.903
+        }
+      ]
+    },
+    {
+      "profile": "cbor-lz4",
+      "file_bytes": 2787275,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 147.692
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 132.606
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 106.82
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 133.417
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 128.764
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 82.17
+        }
+      ]
+    },
+    {
+      "profile": "protobuf-lz4",
+      "file_bytes": 2812953,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 144.756
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 88.502
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 82.022
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 186.689
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 159.086
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 88.744
+        }
+      ]
+    },
+    {
+      "profile": "flatbuffers-lz4",
+      "file_bytes": 3783539,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 299.055
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 169.091
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 200.077
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 309.93
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 325.23
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 174.608
+        }
+      ]
+    },
+    {
+      "profile": "cbor",
+      "file_bytes": 5263822,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 120.442
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 74.413
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 81.028
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 121.524
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 123.468
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 84.091
+        }
+      ]
+    },
+    {
+      "profile": "cbor-zlib",
+      "file_bytes": 2570680,
+      "timings": [
+        {
+          "trial": 0,
+          "workers": 1,
+          "ms": 157.42
+        },
+        {
+          "trial": 0,
+          "workers": 2,
+          "ms": 101.24
+        },
+        {
+          "trial": 1,
+          "workers": 2,
+          "ms": 112.996
+        },
+        {
+          "trial": 1,
+          "workers": 1,
+          "ms": 159.868
+        },
+        {
+          "trial": 2,
+          "workers": 1,
+          "ms": 186.917
+        },
+        {
+          "trial": 2,
+          "workers": 2,
+          "ms": 97.701
+        }
+      ]
+    }
+  ],
+  "lz4_adapter_sha256": "2dc1a19af330a616922b1ec2a9c34e78c981f999f59582112b195e7f7188d66f"
+}

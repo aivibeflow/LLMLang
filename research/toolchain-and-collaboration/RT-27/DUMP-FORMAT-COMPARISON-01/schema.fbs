@@ -1,0 +1,9 @@
+table Record {
+  kind:uint;
+  name:string (required);
+  i64:long;
+  refs:[uint] (required);
+  body:string (required);
+}
+
+root_type Record;

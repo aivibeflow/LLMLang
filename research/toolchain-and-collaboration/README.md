@@ -28,6 +28,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Recent bounded rechecks
 
+- [RT-27 SPG dump format comparison](RT-27/RT-27-DUMP-FORMAT-COMPARISON.md) compares six record formats in one indexed Git container. The [LZ4 recheck](RT-27/RT-27-DUMP-FORMAT-LZ4.md) repeats the comparison with independent compression per record.
 - [RT-24 repository lifecycle benchmark](RT-24/RT-24-REPOSITORY-LIFECYCLE-COST-2026-11-25.md) records native merge, import, export, incremental writes and cache rebuild with the same exact graphs.
 - [RT-24 synchronized worktree and recovery](RT-24/RT-24-SYNCHRONIZED-WORKTREE-AND-RECOVERY-2026-11-25.md) checks staged publication, clone recovery and process interruption across SHA-1 and SHA-256.
 - [RT-24 effective merge attributes](RT-24/RT-24-EFFECTIVE-MERGE-ATTRIBUTES-2026-11-25.md) distinguishes the tracked fallback, effective Git rule and whole-graph outcome.
