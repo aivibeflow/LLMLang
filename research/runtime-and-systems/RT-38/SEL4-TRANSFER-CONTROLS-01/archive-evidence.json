@@ -1,0 +1,37 @@
+{
+  "configuration": {
+    "isabelle": "Isabelle2025-2",
+    "isabelle_source": "e64f55a6b7d0e803f73f13e346e7630f3f021dc8",
+    "l4v": "12c300e75bb0ca0c82f76496fafacd7e614c0aba",
+    "polyml": "5.9.2",
+    "profile": "RISCV64 default non-MCS",
+    "quick_and_dirty": false,
+    "release": "seL4 17.0.0",
+    "seL4": "62e345c240a15671484530b4e6e069ce266c28d7",
+    "skip_proofs": false,
+    "threads": 1,
+    "timeout_scale": 4
+  },
+  "early_AInvs_disposition": "failure",
+  "generated_input_sha256": "d80514e2de18710c8ac92a6a0997699d86f3ab1c7c2c5ff377c16be4d90dceb8",
+  "source_theorems": [
+    "decoder_language_exact",
+    "evaluator_agrees",
+    "admitted_source_matches_design",
+    "admitted_source_refines_abstract_lookup",
+    "direct_source_accepted",
+    "renamed_refactor_accepted",
+    "invalid_sources_rejected"
+  ],
+  "successful_refine_prerequisite_runs": 9,
+  "upstream_sessions": {
+    "AInvs": "pass",
+    "ASpec": "pass",
+    "BaseRefine": "pass",
+    "ExecSpec": "pass",
+    "Refine": "pass"
+  },
+  "verified_source_file_digests": 7,
+  "verified_upstream_input_digests": 4,
+  "verified_wrapper_input_digests": 7
+}

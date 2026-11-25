@@ -1,0 +1,2 @@
+session RT38_LookupControls = HOL +
+  theories LookupControls
