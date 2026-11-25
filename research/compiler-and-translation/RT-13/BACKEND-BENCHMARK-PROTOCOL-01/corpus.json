@@ -1,0 +1,92 @@
+{
+  "format": "rt13/backend-benchmark-corpus/1",
+  "workloads": [
+    {
+      "artifacts": {
+        "JIT-MATERIALIZATION-01/Cargo.lock": "a1e15c5bf9db982ca119a5837dd34e77c6377fa7725f1fee41300ecc6f7491b7",
+        "JIT-MATERIALIZATION-01/evidence/builds-paused/summary.json": "3fc67fb4745a3452af71a4e7cd1cd1c6162ced7529ddaab969699dbba4c97276",
+        "JIT-MATERIALIZATION-01/orc.cpp": "daafdd2597d2a23e7f3816b59b0f2a7bc7ed6c4bbc365ce7f83d0fb0afee0c23",
+        "JIT-MATERIALIZATION-01/run.py": "2809b03be696eade7080c268d73be42894d2de02faf40e13bebc9b90625f4414",
+        "JIT-MATERIALIZATION-01/src/main.rs": "a4000b59be7fb34ad913b4cdbefd5c54492ab4153cf64e746a78edd01fa4eaef",
+        "cranelift-checked-add/Cargo.lock": "a1e15c5bf9db982ca119a5837dd34e77c6377fa7725f1fee41300ecc6f7491b7",
+        "cranelift-checked-add/run.py": "1842048aaa533448861792b826fc380721fedd5910989dae15e15c24fb0aa730",
+        "cranelift-checked-add/src/main.rs": "01aa9fa2b764fbb31d254ede34df3d6d978aa3e7b218940fbafb853c084609e2"
+      },
+      "id": "checked-add-jit",
+      "observations": [
+        "status",
+        "stored bits",
+        "ordered effects"
+      ],
+      "profiles": {
+        "cranelift": "observed",
+        "direct-native": "missing",
+        "llvm": "observed"
+      },
+      "target": "x86_64-linux-gnu-sysv"
+    },
+    {
+      "artifacts": {
+        "JIT-UNWIND-01/evidence.json": "3c62a7e2b671592f5ba282dc99ee0624a6fe6e6dd15823a9f02988f80d355406",
+        "JIT-UNWIND-01/jit.ll": "9a18e159590b1ee76826a4cd346a727e11d629e534e6504c21b06b3228da9abe",
+        "JIT-UNWIND-01/run.py": "97a76c07bd6419bf2e9d05decb053bb6facdbb3a847331545d1f5bf0bbe50117",
+        "JIT-UNWIND-01/source.c": "212bb9c7aabbd8e734bdaf41aa4d65192e05b82f066996c10010832de41d8fde",
+        "JIT-UNWIND-01/src/main.rs": "188dde09512878aa859d51a11a3ee54b28110f27fd93997bf71edc189f6a9006"
+      },
+      "id": "callback-jit",
+      "observations": [
+        "result",
+        "callback count",
+        "FDE lifetime",
+        "source origin"
+      ],
+      "profiles": {
+        "cranelift": "observed",
+        "direct-native": "missing",
+        "llvm": "observed"
+      },
+      "target": "x86_64-linux-gnu-sysv"
+    },
+    {
+      "artifacts": {
+        "DIRECT-NATIVE-THRESHOLD-01/evidence.json": "a71edc48991cbed1c5877f7c076f96e807aa137c66bb23c596131cab68d58e7b",
+        "DIRECT-NATIVE-THRESHOLD-01/inline.ll": "79a95a57f5c6c3d4c07ef16cbb494e4e49e4736ef93c070b29ebfde6115c90d8",
+        "DIRECT-NATIVE-THRESHOLD-01/run.py": "e677f101e0ba4bbfa7ce58f95679e157e9f64959d294ebf1380b43a5d0d6d80a",
+        "LLVM-ROUNDING-LTO-01/host.c": "e7ab51a686648cda6d6f97dfc9e3bda0312ba47c6d9e763458f750abf7792cd6"
+      },
+      "id": "rounding-native",
+      "observations": [
+        "binary64 bits",
+        "sticky flags",
+        "linked machine bytes"
+      ],
+      "profiles": {
+        "cranelift": "missing",
+        "direct-native": "scoped-control",
+        "llvm": "observed"
+      },
+      "target": "x86_64-linux-gnu-sysv-sse2"
+    },
+    {
+      "artifacts": {
+        "WASM-MEMORY64-01/check.mjs": "f6aac5181731d2ee867d9fb15718ec6cc78c53ca395ced0e5ef5c5c7f95341dc",
+        "WASM-MEMORY64-01/evidence.json": "1da0f42b7bdc11aca066e90984d423de47fcdab9303c1cd001909dd5d3420e13",
+        "WASM-MEMORY64-01/run.py": "bff78235c0733ea838fe4246303e52485c0c16e21d31a754e2986944f1a6d448",
+        "WASM-MEMORY64-01/view.c": "9efc11c17e48f8eed5777c318c152562c85daa68534a235fcf5958997ab8a273",
+        "WASM-MEMORY64-01/view.wat": "a9622a89f4aefa8580ae61ce901bd74620625ba462732bc0dae73ff1caad5791"
+      },
+      "id": "byte-view-wasm64",
+      "observations": [
+        "byte or rejection",
+        "absence of trap",
+        "host admission"
+      ],
+      "profiles": {
+        "cranelift": "missing",
+        "dedicated-wat": "observed",
+        "llvm": "observed"
+      },
+      "target": "wasm64-memory64-no-imports"
+    }
+  ]
+}

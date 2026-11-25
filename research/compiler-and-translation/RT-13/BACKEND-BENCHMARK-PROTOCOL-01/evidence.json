@@ -1,0 +1,46 @@
+{
+  "comparison_controls": {
+    "artifact-changed": "unverified-artifact",
+    "both-targets-mismatch-workload": "workload-target-mismatch",
+    "candidate-missing": "unavailable-comparison-route",
+    "cycle-vs-time": "different-comparison-profile",
+    "different-boundary": "different-comparison-profile",
+    "different-change": "different-comparison-profile",
+    "different-host": "different-comparison-profile",
+    "different-input": "different-comparison-profile",
+    "different-optimization": "different-comparison-profile",
+    "different-oracle": "different-comparison-profile",
+    "different-target": "different-comparison-profile",
+    "duplicate-backend": "same-backend",
+    "matched": "comparable-at-recorded-scope",
+    "mutant-escaped": "unverified-artifact",
+    "warm-vs-cold": "different-comparison-profile",
+    "weaker-conformance": "unverified-artifact"
+  },
+  "corpus_sha256": "9deeba27fddffddb7521f09f018c2fd395ee735ce0c817139c7b0eb2302c8ab9",
+  "runner_sha256": "5cbc38ae63dde1e1ee9b111ef472c5fb1c3008eefb3470a74cc244179fbe48cb",
+  "stale_artifact": "rejected",
+  "verified_pins": 22,
+  "workloads": {
+    "byte-view-wasm64": {
+      "cranelift": "missing",
+      "dedicated-wat": "observed",
+      "llvm": "observed"
+    },
+    "callback-jit": {
+      "cranelift": "observed",
+      "direct-native": "missing",
+      "llvm": "observed"
+    },
+    "checked-add-jit": {
+      "cranelift": "observed",
+      "direct-native": "missing",
+      "llvm": "observed"
+    },
+    "rounding-native": {
+      "cranelift": "missing",
+      "direct-native": "scoped-control",
+      "llvm": "observed"
+    }
+  }
+}

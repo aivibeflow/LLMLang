@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-13 backend benchmark protocol](RT-13/RT-13-BACKEND-BENCHMARK-PROTOCOL-2026-11-25.md) specifies measurement boundaries and pins a shared executable starter corpus.
 - [RT-13 Wasm memory64 profiles](RT-13/RT-13-WASM-MEMORY64-PROFILES-2026-11-25.md) compares full-width byte-view arithmetic and engine admission for LLVM and WAT.
 - [RT-13 direct native backend threshold](RT-13/RT-13-DIRECT-NATIVE-BACKEND-THRESHOLD-2026-11-25.md) compares exact linked code for a dynamic rounding gap and scopes the costs of a separate backend.
 - [RT-13 JIT unwind and callback origins](RT-13/RT-13-JIT-UNWIND-AND-CALLBACK-ORIGINS-2026-11-25.md) checks native frame traversal, registration lifetime and offline source attribution.
