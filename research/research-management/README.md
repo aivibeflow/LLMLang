@@ -71,3 +71,4 @@ This direction groups related research studies without changing their RT identif
 - [Immutable component versions and state commits](RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md) — checks component, runtime and Toolchain publication boundaries with two worked cases.
 - [Negative-result warning adjudication](RT-00/RT-00-C-NEGATIVE-RESULT-WARNING-ADJUDICATION-2026-11-25.md) — classifies exact source passages for all seven flagged nested reports.
 - [Historical draft publication boundaries](RT-00/RT-00-C-DRAFT-BOUNDARY-HISTORY-2026-11-25.md) — traces the draft layout and exact accepted decision body across 21 published trees.
+- [Accepted feature decision authority](RT-00/RT-00-C-ACCEPTED-FEATURE-AUTHORITY-2026-11-25.md) — cross-checks all registry acceptances against the exact decision sources.
