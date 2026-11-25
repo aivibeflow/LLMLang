@@ -405,6 +405,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [x] Define what may be inferred automatically and what requires proof or explicit approval.
   - [x] Prove exact consequences of recorded inputs and projections. The direct rule and exhaustive provider enumeration agree across 49,152 claims. Existential choice falsely admits 29,696, and nine scoped controls keep proof and approval independent. [Contract inference boundary](research/language-design/RT-04/RT-04-CONTRACT-INFERENCE-BOUNDARY-2026-11-25.md)
 - [ ] Define evidence binding to exact semantic inputs, assumptions, target profile, and tool versions.
+  - [ ] [WIP] Check exact conformance receipts across native and WebAssembly provider profiles, toolchain settings and observable contract assumptions on `research/all`.
 
 **Existing evidence:** global semantic artifact store research; operation identity and analogue-discovery questions LL-001–LL-003; requirement/contract work in scenarios 15–19.
 
