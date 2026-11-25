@@ -893,6 +893,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define typed states, state transitions, and constrained values.
 - [ ] Define ownership, borrowing, lifetimes, references, and aliasing.
 - [ ] Define mutability and resource management.
+  - Compare 9,216 Rust and C++ runs of staged record construction and transfer. Implicit teardown agrees on 1,008 early-exit pairs but differs on all 144 completed pairs. An explicit release sequence yields equal graphs for all 36 paired sources and equal behavior in every tested input. Destructors that fail, ABI, other profiles and independent review remain open. [Cross-profile record cleanup](research/semantic-representation/RT-05/RT-05-CROSS-PROFILE-RECORD-CLEANUP-2026-11-25.md)
 - [ ] Define effects, capabilities, and error types.
 - [ ] Define type inference and explicit annotations.
 - [ ] Define compatibility between types exposed by different implementations.
