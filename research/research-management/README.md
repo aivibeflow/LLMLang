@@ -27,6 +27,7 @@ This direction groups related research studies without changing their RT identif
 - [Changed research artifact roles](RT-00/RT-00-B-11-CHANGED-ARTIFACT-ROLES-2026-11-24.md)
 - [Paired Package Provider queue comparison](RT-00/RT-00-C-PROVIDER-QUEUE-REPLAY-2026-11-24.md)
 - [Research navigation reachability](RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.md)
+- [Current-main link and anchor audit](RT-00/RT-00-A-CURRENT-MAIN-LINK-ANCHOR-AUDIT-2026-11-25.md) — scans all 603 current research Markdown/MDX files offline and localizes the 82 missing targets to copied upstream snapshots.
 - [Finite cvc5, Lean and TLC evidence replay](RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.md)
 - [Negative-result boundary recheck](RT-00/RT-00-NEGATIVE-RESULT-BOUNDARY-RECHECK-2026-11-24.md) — distinguishes falsified bounded controls, recommendation-scoped exclusions, neutral results, and unavailable candidates across five recent implementation studies.
 - [Solver worker protocol audit](RT-00/RT-00-C-SOLVER-WORKER-PROTOCOL-AUDIT-2026-11-25.md) — rechecks the current one-shot SymPy worker against injected startup, crash, malformed, stale-response and timeout cases; keeps solver trust separate from protocol validity.
