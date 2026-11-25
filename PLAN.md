@@ -1485,6 +1485,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Benchmark dependency discovery and impact planning.
   - [x] Measure discovery, independent payload audit and plan generation in 60 trials. Grouped decision lookup preserves every complete plan ID and conservative control, reducing median hot 1,024-caller planning from 76.28 to 18.95 ms. Persistent indexes, mixed actions and representative workloads remain open. [RT-06 impact planning benchmark](research/semantic-representation/RT-06/RT-06-IMPACT-PLANNING-BENCHMARK-2026-11-25.md)
 - [ ] Benchmark compilation and cache performance.
+  - [ ] [WIP] Measure fresh-process restore, persistent cache commit and scoped verifier-policy invalidation in the native build fixture.
 - [ ] Benchmark proof and test execution costs.
 - [ ] Benchmark storage, indexing, and garbage collection.
 - [ ] Benchmark large repositories and highly connected graphs.
