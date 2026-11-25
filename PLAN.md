@@ -1427,8 +1427,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define optional derived-result cache indexes in package archives and their integration with the semantic action cache; indexes must be independently omittable and must not affect logical package identity.
 
 - [ ] Define the logical package-content model: roots, included objects, typed dependency edges, exports, modules, evidence, and provenance.
-- [ ] Define compact canonical binary index tables and their key ordering; require binary-search and deterministic streaming-merge semantics.
-  - [ ] [WIP] Compare binary encodings of the four package tables, exact lookup and deterministic streamed merge against the existing logical index on `research/all`.
+- [x] Define compact canonical binary index tables and their key ordering; require binary-search and deterministic streaming-merge semantics.
+  - [x] Define a candidate binary format for all four existing logical tables. All six provider orders produce one exact result, 1,224 lookups match, and malformed tables and conflicting merge rows are refused. Binary tables use 13,820 bytes versus 34,852 compact JSONL bytes. Stable wire selection remains open. [Binary index tables](research/packages-and-ecosystem/RT-12/RT-12-BINARY-INDEX-TABLES-2026-11-25.md)
 - [x] Compare whole-index compression with independently compressed blocks; measure codec, block-size, lookup, scan, and memory trade-offs.
   - Test nine layouts with 8,192 sorted rows, 64 point queries and exact full scans. The 64-row gzip layout grows the whole-stream archive by 5.8% while reading 163 KiB per batch versus 303 KiB for retained whole-stream lookup. Seven measured trials cover latency and separate allocation traces record peak memory. Representative workloads and a format decision remain open. [Package index compression](research/packages-and-ecosystem/RT-12/RT-12-INDEX-COMPRESSION-2026-11-25.md)
 - [x] Evaluate optional sparse and hierarchical sparse indexes; establish when their lookup benefit justifies their storage and maintenance cost.
