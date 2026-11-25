@@ -880,6 +880,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Compare KV databases, content-addressed object stores, relational indexes, and filesystem layouts.
   - [x] Compare filesystem CAS, stdlib DBM KV, SQLite KV and SQLite with reverse index across 32, 256 and 1,024 objects. All recover the exact closure and answer the selected reverse queries. At 1,024 objects the SQLite reverse projection adds 487,424 persisted regular-file bytes. [RT-12 concrete storage layouts](research/packages-and-ecosystem/RT-12/RT-12-CONCRETE-STORAGE-LAYOUTS-2026-11-25.md)
 - [ ] Define canonical object encoding and immutable object lifecycle.
+  - [ ] [WIP] Check immutable object insertion, duplicate writers and interruption before and after publication on `research/all`.
 - [ ] Define indexes for graph traversal, reverse dependencies, contracts, and implementation discovery.
   - [x] Compare eight SQLite reverse projections across six queries. Only exact typed occurrence inventories are admitted, and all 48 checked/fallback results agree. A WAL schedule shows why validation and lookup must share a read snapshot or immutable generation. [RT-12 snapshot-bound reverse index](research/packages-and-ecosystem/RT-12/RT-12-SNAPSHOT-BOUND-REVERSE-INDEX-2026-11-25.md)
 - [ ] Define transactions and atomic publication of graph revisions.
