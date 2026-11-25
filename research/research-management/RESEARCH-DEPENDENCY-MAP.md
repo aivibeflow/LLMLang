@@ -239,6 +239,8 @@ These are not simple one-way dependencies. They must be tested explicitly:
 
 The ordered call-effect fixture informs DEP-004 and DEP-037. Exact trace witnesses require preservation of shared guards across calls. [Ordered call effects](../language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md#method-and-results)
 
+The [external-effect revocation experiment](../language-design/RT-04/RT-04-EXTERNAL-EFFECT-REVOCATION-2026-11-25.md) gives a scope boundary for DEP-030. A shared writer fence can serialize the revocation with a rename without making the rename and database receipt one recoverable transaction.
+
 ## 5. Research sequence
 
 Use dependency depth and risk of architectural rework to order research. This is a sequence of research waves, not a waterfall. Parallel work is encouraged within a wave and across independent branches.

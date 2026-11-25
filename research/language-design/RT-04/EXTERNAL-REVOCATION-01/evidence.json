@@ -1,0 +1,2140 @@
+{
+  "schema": "llmlang-external-grant-revocation/1",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "kernel": "6.18.57",
+  "filesystem": "overlayfs",
+  "source_sha256": "533f7ef218187a75853728034342f702a9f1631966f3dac7e42f0b342986fc0a",
+  "process_pairs": 45,
+  "counts": {
+    "cached": {
+      "replaced": 7,
+      "stale_effects": 4,
+      "unrelated_revocation_postponed": 0,
+      "effect_without_receipt": 1
+    },
+    "fresh": {
+      "replaced": 6,
+      "stale_effects": 3,
+      "unrelated_revocation_postponed": 0,
+      "effect_without_receipt": 1
+    },
+    "leaf_lock": {
+      "replaced": 6,
+      "stale_effects": 2,
+      "unrelated_revocation_postponed": 0,
+      "effect_without_receipt": 1
+    },
+    "ancestry_lock": {
+      "replaced": 6,
+      "stale_effects": 1,
+      "unrelated_revocation_postponed": 0,
+      "effect_without_receipt": 1
+    },
+    "db_writer": {
+      "replaced": 6,
+      "stale_effects": 0,
+      "unrelated_revocation_postponed": 1,
+      "effect_without_receipt": 1
+    }
+  },
+  "runs": [
+    {
+      "scenario": "no_change",
+      "policy": "cached",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "already_revoked",
+      "policy": "cached",
+      "initial": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": false,
+        "checked": {
+          "allowed": false,
+          "revisions": [
+            2,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "ancestor_before_check",
+      "policy": "cached",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": false,
+          "revisions": [
+            2,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": true
+    },
+    {
+      "scenario": "ancestor_after_check",
+      "policy": "cached",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": true
+    },
+    {
+      "scenario": "child_after_check",
+      "policy": "cached",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          1,
+          2
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          1,
+          2
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": true
+    },
+    {
+      "scenario": "unrelated_after_check",
+      "policy": "cached",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "uncoordinated_ancestor",
+      "policy": "cached",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": true
+    },
+    {
+      "scenario": "killed_before_replace",
+      "policy": "cached",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "killed_after_replace",
+      "policy": "cached",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "no_change",
+      "policy": "fresh",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "already_revoked",
+      "policy": "fresh",
+      "initial": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": false,
+        "checked": {
+          "allowed": false,
+          "revisions": [
+            2,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "ancestor_before_check",
+      "policy": "fresh",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": false,
+        "checked": {
+          "allowed": false,
+          "revisions": [
+            2,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "ancestor_after_check",
+      "policy": "fresh",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": true
+    },
+    {
+      "scenario": "child_after_check",
+      "policy": "fresh",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          1,
+          2
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          1,
+          2
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": true
+    },
+    {
+      "scenario": "unrelated_after_check",
+      "policy": "fresh",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "uncoordinated_ancestor",
+      "policy": "fresh",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": true
+    },
+    {
+      "scenario": "killed_before_replace",
+      "policy": "fresh",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "killed_after_replace",
+      "policy": "fresh",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "no_change",
+      "policy": "leaf_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "already_revoked",
+      "policy": "leaf_lock",
+      "initial": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": false,
+        "checked": {
+          "allowed": false,
+          "revisions": [
+            2,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "ancestor_before_check",
+      "policy": "leaf_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": false,
+        "checked": {
+          "allowed": false,
+          "revisions": [
+            2,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "ancestor_after_check",
+      "policy": "leaf_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": true
+    },
+    {
+      "scenario": "child_after_check",
+      "policy": "leaf_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "advisory_blocked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          1,
+          2
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "unrelated_after_check",
+      "policy": "leaf_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "uncoordinated_ancestor",
+      "policy": "leaf_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": true
+    },
+    {
+      "scenario": "killed_before_replace",
+      "policy": "leaf_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "killed_after_replace",
+      "policy": "leaf_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "no_change",
+      "policy": "ancestry_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "already_revoked",
+      "policy": "ancestry_lock",
+      "initial": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": false,
+        "checked": {
+          "allowed": false,
+          "revisions": [
+            2,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "ancestor_before_check",
+      "policy": "ancestry_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": false,
+        "checked": {
+          "allowed": false,
+          "revisions": [
+            2,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "ancestor_after_check",
+      "policy": "ancestry_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "advisory_blocked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "child_after_check",
+      "policy": "ancestry_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "advisory_blocked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          1,
+          2
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "unrelated_after_check",
+      "policy": "ancestry_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "uncoordinated_ancestor",
+      "policy": "ancestry_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "revoked",
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": true
+    },
+    {
+      "scenario": "killed_before_replace",
+      "policy": "ancestry_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "killed_after_replace",
+      "policy": "ancestry_lock",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "no_change",
+      "policy": "db_writer",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "already_revoked",
+      "policy": "db_writer",
+      "initial": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": false,
+        "checked": {
+          "allowed": false,
+          "revisions": [
+            2,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "ancestor_before_check",
+      "policy": "db_writer",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": false,
+        "checked": {
+          "allowed": false,
+          "revisions": [
+            2,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "ancestor_after_check",
+      "policy": "db_writer",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "sqlite_writer_blocked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "child_after_check",
+      "policy": "db_writer",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "sqlite_writer_blocked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          1,
+          2
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "unrelated_after_check",
+      "policy": "db_writer",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "sqlite_writer_blocked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "uncoordinated_ancestor",
+      "policy": "db_writer",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": "sqlite_writer_blocked",
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [
+        [
+          "op-1",
+          1,
+          1
+        ]
+      ],
+      "stale_effect": false
+    },
+    {
+      "scenario": "killed_before_replace",
+      "policy": "db_writer",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": null,
+      "receipts": [],
+      "stale_effect": false
+    },
+    {
+      "scenario": "killed_after_replace",
+      "policy": "db_writer",
+      "initial": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "last_check": {
+        "admitted": true,
+        "checked": {
+          "allowed": true,
+          "revisions": [
+            1,
+            1
+          ]
+        }
+      },
+      "revocation_attempt": null,
+      "authority_before_replace": {
+        "allowed": true,
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "final": {
+        "allowed": false,
+        "revisions": [
+          2,
+          1
+        ]
+      },
+      "external": {
+        "operation": "op-1",
+        "revisions": [
+          1,
+          1
+        ]
+      },
+      "receipts": [],
+      "stale_effect": false
+    }
+  ]
+}
