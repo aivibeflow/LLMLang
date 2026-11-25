@@ -1,0 +1,208 @@
+{
+  "schema": "llmlang-recursive-topology-edits/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "runner": "9f5ae495bf0bab9dcb543e3556f306f75eba68067baa50f09f139dafeaf526ec",
+    "recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556",
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "roots": [
+    "entry",
+    "a",
+    "b",
+    "c",
+    "independent"
+  ],
+  "ordered_possible_edges": [
+    [
+      "a",
+      "a"
+    ],
+    [
+      "a",
+      "b"
+    ],
+    [
+      "a",
+      "c"
+    ],
+    [
+      "b",
+      "a"
+    ],
+    [
+      "b",
+      "b"
+    ],
+    [
+      "b",
+      "c"
+    ],
+    [
+      "c",
+      "a"
+    ],
+    [
+      "c",
+      "b"
+    ],
+    [
+      "c",
+      "c"
+    ]
+  ],
+  "graphs": 512,
+  "directed_transitions": 4608,
+  "interpreter_fuel": 4,
+  "compared_root_pairs": 23040,
+  "retrievable_root_addresses": 2161,
+  "stored_objects": 2839,
+  "topology_counts": {
+    "merge": {
+      "edits": 720,
+      "roots_with_changed_closure": 2624
+    },
+    "split": {
+      "edits": 720,
+      "roots_with_changed_closure": 2624
+    },
+    "same": {
+      "edits": 3168,
+      "roots_with_changed_closure": 8576
+    }
+  },
+  "policies": {
+    "keyed": {
+      "retained": 9216,
+      "invalidations": 13824,
+      "stale": 0,
+      "stale_with_different_trace": 0,
+      "unnecessary": 0
+    },
+    "structural": {
+      "retained": 9216,
+      "invalidations": 13824,
+      "stale": 0,
+      "stale_with_different_trace": 0,
+      "unnecessary": 0
+    },
+    "body-only": {
+      "retained": 9216,
+      "invalidations": 4608,
+      "stale": 9216,
+      "stale_with_different_trace": 9216,
+      "unnecessary": 0
+    },
+    "snapshot": {
+      "retained": 0,
+      "invalidations": 13824,
+      "stale": 0,
+      "stale_with_different_trace": 0,
+      "unnecessary": 9216
+    }
+  },
+  "merge_witness": {
+    "before_mask": 2,
+    "after_mask": 10,
+    "edge": [
+      "b",
+      "a"
+    ],
+    "root": "entry",
+    "old_closure": [
+      [
+        "a",
+        [
+          "b"
+        ]
+      ],
+      [
+        "b",
+        []
+      ],
+      [
+        "entry",
+        [
+          "a"
+        ]
+      ]
+    ],
+    "new_closure": [
+      [
+        "a",
+        [
+          "b"
+        ]
+      ],
+      [
+        "b",
+        [
+          "a"
+        ]
+      ],
+      [
+        "entry",
+        [
+          "a"
+        ]
+      ]
+    ],
+    "old_addresses": {
+      "keyed": "c3f2047ad16b535988b4311f36b69df3aba6a728e8bb7e32d7fab9266b492625",
+      "structural": "c3f2047ad16b535988b4311f36b69df3aba6a728e8bb7e32d7fab9266b492625",
+      "body-only": [
+        "entry",
+        [
+          "a"
+        ]
+      ],
+      "snapshot": 2
+    },
+    "new_addresses": {
+      "keyed": "48578161d093f6892ccbf704f9068969fb12abf604e9ff67b1abf88011e36ba5",
+      "structural": "69968840a32e06c6350485f207df2a811a3858a9a3aa7cf3f0172a438b76c61c",
+      "body-only": [
+        "entry",
+        [
+          "a"
+        ]
+      ],
+      "snapshot": 10
+    },
+    "old_trace": [
+      "entry",
+      [
+        [
+          "a",
+          [
+            [
+              "b",
+              []
+            ]
+          ]
+        ]
+      ]
+    ],
+    "new_trace": [
+      "entry",
+      [
+        [
+          "a",
+          [
+            [
+              "b",
+              [
+                [
+                  "a",
+                  [
+                    []
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  }
+}
