@@ -187,6 +187,8 @@ RT-00 reconciles exact dedicated objects and shared registry references for an i
 
 RT-03 and RT-05 compare five conversion policies for binary64 and signed I64, including the exclusive upper bound required at `+2^63`. [Cross-runtime F64 to I64 conversion](../semantic-representation/RT-05/RT-05-F64-I64-CONVERSION-2026-11-25.md)
 
+RT-13 compares binary64-to-I64 LLVM range guards, poison masking, and saturation using Alive2, native execution and both Vellvm extraction modes. [LLVM checked F64 to I64 lowering](../compiler-and-translation/RT-13/RT-13-LLVM-F64-I64-LOWERING-2026-11-25.md)
+
 ## 3. Required research artifact
 
 Every research report should identify:
