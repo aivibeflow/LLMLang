@@ -1784,6 +1784,7 @@ Research a typed, versioned object describing the task an agent is expected to p
 - [x] Keep authorization independent: a Task Context describes requested work and constraints but does not grant capabilities; RT-16 policy checks remain authoritative.
   - [x] Check 120 completion and RT-16 authority combinations. One commit and one push combination pass their independent gates. Native Git CAS refuses a moved head, and exact-commit push preserves the authorized subject when the local branch advances. Production identity, remote trust and durable nonce handling remain open. [Task Context action authority](research/toolchain-and-collaboration/RT-14/RT-14-TASK-AUTHORITY-2026-11-25.md)
 - [ ] Build lifecycle and adversarial fixtures for stale baselines, scope expansion, omitted obligations, conflicting delegated work, cancellation/retry, and partial completion.
+  - [ ] [WIP] Check native SQLite sibling ownership, partial completion and cancellation/retry across exact Task Context revisions (#340).
 
 ### Joint integration and exit criteria
 
