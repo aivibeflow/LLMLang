@@ -1112,7 +1112,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] Define interpreter/reference execution.
 - [ ] Define VM requirements, if a VM is needed.
-  - [ ] [WIP] Compare reference evaluation with a stack VM under source-step and opcode-step fuel on `research/all`.
+  - [x] Compare reference and stack VM fuel across 5,265 cases. Source-node charges preserve result, ordered trace, terminal state and budget throughout. Executable opcode charges differ on result, trace or terminal state in 1,280 cases. Production VM choice and broader effects remain open. [RT-10 stack VM fuel correspondence](research/runtime-and-systems/RT-10/RT-10-STACK-VM-FUEL-CORRESPONDENCE-2026-11-25.md)
 - [ ] Define runtime representation of values and semantic calls.
 - [ ] Define explicit call binding to immutable operation identity.
 - [ ] Define error propagation, cancellation, and resource cleanup.
