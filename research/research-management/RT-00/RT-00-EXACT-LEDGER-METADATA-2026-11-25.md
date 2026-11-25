@@ -13,7 +13,7 @@ The [exact-name provenance refresh](RT-00-EXACT-LEDGER-REFRESH-2026-11-25.md) fo
 
 These rows overlap. Every artifact fingerprint in the sample occurs in a ledger that also supplies a version. Host fields include kernel release, machine architecture, filesystem or CPU name where the producer's field identifies the actual execution host. A ledger with both types of data can still lack a full environment specification. Emulated targets, supported runtime profiles and arrays of compiler refusals do not supply an execution host. Controls confirmed that such fields do not count, and that a compiler version, artifact digest and explicit host record do. Reversing the order of the inputs produced identical evidence.
 
-This is a metadata census of the enumerated fields. It leaves adjacent reports, other nested schemas, downloaded tool bytes and original run environments outside the checked scope. Exact field values were read through GitHub's Git data API. The [local runner](EXACT-LEDGER-METADATA-01/run.mjs) shares the field logic and verifies every selection against Git. The shell was offline, so its command-line invocation remains unchecked.
+This is a metadata census of the enumerated fields. It leaves adjacent reports, other nested schemas, downloaded tool bytes and original run environments outside the checked scope. Exact field values were read through GitHub's Git data API. The [local runner](EXACT-LEDGER-METADATA-01/run.mjs) shares the field logic and verifies every selection against Git. A subsequent local invocation with Node.js 24.22.3 and Git 2.56.1 on Linux 6.18.57 x86-64 reproduced the committed JSON byte for byte.
 
 ```sh
 fixture=research/research-management/RT-00/EXACT-LEDGER-METADATA-01

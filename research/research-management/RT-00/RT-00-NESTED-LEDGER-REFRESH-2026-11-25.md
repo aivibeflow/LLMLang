@@ -23,7 +23,7 @@ flowchart LR
 
 All 52 path and revision bindings matched. The checks covered 37 SHA-256 values, 26 Git blob IDs and 11 unique line anchors. Two controls rejected a changed SHA-256 input and a substituted Git blob ID. Reversing the input ledger order preserved the result. The external-reference entry binds the tracked citation and its exact anchor. The external document itself and the original executions remain outside this study.
 
-The verification ran against byte-length-checked GitHub Git data responses while the shell was offline. The [local reproduction runner](NESTED-LEDGER-REFRESH-01/run.mjs) uses the same comparison logic and Git and Node.js built-ins. Its command-line invocation remains untested while the shell is offline.
+The verification ran against byte-length-checked GitHub Git data responses while the shell was offline. The [local reproduction runner](NESTED-LEDGER-REFRESH-01/run.mjs) uses the same comparison logic and Git and Node.js built-ins. A subsequent local invocation with Node.js 24.22.3 and Git 2.56.1 on Linux 6.18.57 x86-64 reproduced the committed JSON byte for byte.
 
 ```sh
 fixture=research/research-management/RT-00/NESTED-LEDGER-REFRESH-01
