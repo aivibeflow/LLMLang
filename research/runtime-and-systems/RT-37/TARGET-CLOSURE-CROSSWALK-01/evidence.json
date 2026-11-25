@@ -1,0 +1,83 @@
+{
+  "cortex_m3": {
+    "allocation_cases": 644,
+    "allocation_observations": 2704,
+    "allocation_profiles": [
+      "reserve_bump",
+      "reserve_fixed"
+    ],
+    "boot_images": 5,
+    "exact_startup_images": 1,
+    "flash_extents_bytes": {
+      "llvm-O0": 492,
+      "llvm-O2": 472,
+      "rust-O0": 684,
+      "rust-O2": 468,
+      "rust-checked-add-O2": 468
+    },
+    "link_or_boot_controls": {
+      "llvm_unspecified_unwind_O0": "__aeabi_unwind_cpp_pr0",
+      "llvm_wide_division_O2": "__aeabi_uldivmod",
+      "rust_checked_add_O0": "panic_const_add_overflow",
+      "skip_bss_zero": "X"
+    },
+    "maximum_arena_bytes": 64,
+    "same_layout_startup_controls": 3
+  },
+  "esp": {
+    "optional_radio_vendor_archives": 5,
+    "sdk_boot_profiles": [
+      "esp32-dual",
+      "esp32-unicore",
+      "esp32c3-unicore"
+    ],
+    "standalone_linked_architectures": [
+      "rv32",
+      "xtensa"
+    ]
+  },
+  "pinned_evidence": {
+    "allocator": {
+      "path": "cortex-m3-allocator/results.json",
+      "sha256": "653b6e335c4743c5efbe19b8b06ab293ba3e3db3064b2d05447c7139f8ebb557"
+    },
+    "closure": {
+      "path": "cortex-m3-closure/results.json",
+      "sha256": "5a08105beed3167742bf49f044aac08b1285ef74dc60fdebc64a6f17158009f9"
+    },
+    "esp": {
+      "path": "ESP32-SCHEDULING-PROFILES-01/evidence.json",
+      "sha256": "3b92dabb7f465b4309a2b2302a3aa5a4c49c6546721b207c37d20ed64b8e2f42"
+    },
+    "manifests": {
+      "path": "MCU-TARGET-MANIFESTS-01/manifests.json",
+      "sha256": "6f49dd3b90a574eee7910a284bffeab4561ffb5922344a77af6fc94bdd01a3c9"
+    },
+    "renode": {
+      "path": "MCU-GPIO-TIMER-UART-01/arm-emulator-evidence.json",
+      "sha256": "6068d23f60929186fb1058a49a5ee04604d5512ab687253272aaf697a4923321"
+    },
+    "startup": {
+      "path": "cortex-m3-startup-retention/evidence.json",
+      "sha256": "01857b2c992e9e4f5e6cac8d02fd9d37ba72a5a97f9dc29d3f840c4dbba54e55"
+    },
+    "stm32": {
+      "path": "MCU-GPIO-TIMER-UART-01/stm32-evidence.json",
+      "sha256": "aae5463f212557f143c663fc01f5cd5a47871fe72fa866412bb66c7ed470a32d"
+    }
+  },
+  "stm32": {
+    "f1": {
+      "closure": "vendor-LL-CMSIS",
+      "flash_origin": "0x08000000",
+      "profile": "AAPCS32 soft",
+      "uart_observations": 6
+    },
+    "f4": {
+      "closure": "vendor-LL-CMSIS",
+      "flash_origin": "0x08000000",
+      "profile": "AAPCS32 hard",
+      "uart_observations": 6
+    }
+  }
+}
