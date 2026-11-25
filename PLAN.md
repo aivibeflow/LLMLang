@@ -351,6 +351,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define hash-relevant versus descriptive, provenance, and evidentiary graph edges.
   - [x] Compare typed implementation, verification and source-navigation edges on all 2,016 pairs of 64 profiles. Typed projections match all three reuse oracles. The single implementation key admits 384 stale verification and 256 stale navigation reuses. General edge extraction and semantic cycles remain open. [Typed edge projections](research/semantic-representation/RT-05/RT-05-TYPED-EDGE-PROJECTIONS-2026-11-25.md)
 - [ ] Define cycle handling in hash dependencies.
+  - [ ] [WIP] Compare exact reachable closure and SCC-based addresses across recursive-group split and merge edits on `research/all`.
 - [ ] Define which target, ABI, runtime, toolchain, and configuration properties affect implementation identity.
   - [x] Compare build actions, caller bytes, resolved provider and native ABI identities on 64 Linux observations. Caller bytes alone merge eight pairs with distinct outputs. Four build-action changes preserve caller bytes and resolved identity. Exact runtime variation and production envelope selection remain open. [Native implementation identity](research/semantic-representation/RT-05/RT-05-NATIVE-IMPLEMENTATION-IDENTITY-2026-11-25.md)
 - [ ] Define stable-ID lifecycle, including rename, split, merge, deprecation, and replacement.
